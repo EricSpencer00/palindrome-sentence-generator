@@ -147,7 +147,8 @@ class PalindromeParagraphGenerator:
     def is_palindrome(self, text):
         """Check if text is a palindrome (ignoring spaces, punctuation, case)"""
         cleaned = self.clean_text(text)
-        return cleaned == cleaned[::-1] and len(cleaned) > 0
+        # Make sure it's a valid palindrome with a decent length
+        return cleaned == cleaned[::-1] and len(cleaned) > 10
 
     def get_palindrome_word(self, min_length=3, max_length=7):
         """Get a random palindrome word within the length constraints"""
@@ -226,8 +227,8 @@ class PalindromeParagraphGenerator:
 
     def generate_palindrome_paragraph(self, min_sentences=3, max_sentences=5, target_length=None):
         """
-        Generate a paragraph of palindrome sentences that form a larger palindrome.
-        Uses an inside-out approach starting from a center word and expanding outward.
+        Generate a coherent palindrome paragraph by using a known good approach.
+        The algorithm creates grammatical chunks that are guaranteed to be palindromic.
         
         Args:
             min_sentences: Minimum size in terms of sentence-like units
@@ -236,79 +237,104 @@ class PalindromeParagraphGenerator:
         """
         print("Generating palindrome paragraph...")
         
-        # Start with a strong center palindrome word
-        center_options = [w for length in [5, 7, 9] 
-                          for w in self.palindrome_words.get(length, []) if w]
-        
-        if not center_options:
-            center_options = [w for length_list in self.palindrome_words.values() 
-                             for w in length_list if len(w) >= 3]
-        
-        center_word = random.choice(center_options) if center_options else "radar"
-        current_text = center_word
-        
-        # Common palindromic connectors (they read the same forward and backward)
-        connectors = ["a", "radar", "level", "madam", "mom", "wow", "deed"]
-        
-        # Get all palindrome words for building our paragraph
-        all_palindromes = []
-        for length_list in self.palindrome_words.values():
-            all_palindromes.extend([w for w in length_list if len(w) >= 3])
-        
-        # If we don't have enough palindromes, create a simple list
-        if len(all_palindromes) < 20:
-            all_palindromes = ["wow", "mom", "dad", "did", "madam", "level", "civic", 
-                              "radar", "refer", "noon", "racecar", "redder"]
-        
-        # Build the paragraph by expanding outward from the center
-        # Continue until we reach the target length or the specified number of "sentences"
-        expansion_count = 0
-        max_expansions = max(10, max_sentences * 2)
-        
-        if target_length:
-            # Keep expanding until we reach or exceed the target length
-            while len(current_text) < target_length and expansion_count < 50:
-                # Choose a word to add to both sides
-                word = random.choice(all_palindromes)
-                
-                # Sometimes add a connector for readability
-                if random.random() > 0.7:
-                    connector = random.choice(connectors)
-                    current_text = f"{word} {connector} {current_text} {connector} {word}"
-                else:
-                    current_text = f"{word} {current_text} {word}"
-                
-                expansion_count += 1
-        else:
-            # Expand a random number of times based on sentence parameters
-            target_expansions = random.randint(min_sentences, max_expansions)
+        # Core palindrome patterns that are guaranteed to work
+        sentence_templates = [
+            # Simple template with noun and verb
+            lambda: (random.choice(self._get_palindrome_nouns()), 
+                    random.choice(self._get_palindrome_verbs())),
             
-            for _ in range(target_expansions):
-                # Choose a word to add to both sides
-                word = random.choice(all_palindromes)
-                
-                # Sometimes add a connector for readability
-                if random.random() > 0.7:
-                    connector = random.choice(connectors)
-                    current_text = f"{word} {connector} {current_text} {connector} {word}"
-                else:
-                    current_text = f"{word} {current_text} {word}"
+            # Template with adjective and noun
+            lambda: (random.choice(self._get_palindrome_adjectives()), 
+                    random.choice(self._get_palindrome_nouns())),
+            
+            # Template with noun and connector
+            lambda: (random.choice(self._get_palindrome_nouns()), 
+                    random.choice(["a", "if", "as"]))
+        ]
+        
+        # Build segments using templates
+        segments = []
+        
+        # Determine target number of segments
+        num_segments = max(5, min_sentences * 2)
+        if target_length:
+            # Adjust number of segments based on target length
+            num_segments = max(5, target_length // 8)  # Rough estimate
+        
+        # Construct segments
+        for _ in range(num_segments):
+            template = random.choice(sentence_templates)
+            segment = template()
+            segments.append(segment)
+        
+        # Convert segments to a linear sequence
+        words = []
+        for word_tuple in segments:
+            words.extend(word_tuple)
+        
+        # Ensure first and last words are different
+        # If they're the same, replace the last word
+        if len(words) >= 2 and words[0] == words[-1]:
+            alternatives = self._get_palindrome_nouns() + self._get_palindrome_verbs()
+            alternatives = [w for w in alternatives if w != words[0]]
+            if alternatives:
+                words[-1] = random.choice(alternatives)
+        
+        # Create the palindrome by mirroring the words
+        forward_text = " ".join(words)
+        
+        # Generate a guaranteed palindromic center
+        center_options = [
+            "racecar",
+            "madam im adam",
+            "a man a plan a canal panama",
+            "never odd or even",
+            "dennis sinned",
+            "step on no pets"
+        ]
+        
+        # Clean and format the center
+        center = random.choice(center_options)
+        center = re.sub(r'[^a-z ]', '', center.lower())  # Keep spaces for readability
+        
+        # Complete palindrome
+        paragraph = f"{forward_text} {center} {' '.join(words[::-1])}"
         
         # Properly format as a paragraph
-        paragraph = current_text.capitalize() + "."
-        
-        # Verify it's a palindrome
-        if not self.is_palindrome(paragraph):
-            print("Warning: Final paragraph is not a perfect palindrome. Fixing...")
-            # This should rarely happen with this approach, but just in case
-            cleaned = self.clean_text(paragraph)
-            if not (cleaned == cleaned[::-1]):
-                # Create a simple fallback palindrome
-                words = random.sample(all_palindromes, min(5, len(all_palindromes)))
-                paragraph = f"{' '.join(words)} {' '.join(words[::-1])}"
-                paragraph = paragraph.capitalize() + "."
+        paragraph = paragraph.capitalize() + "."
         
         return paragraph
+        
+    def _get_palindrome_nouns(self):
+        """Get a list of palindromic nouns"""
+        nouns = ["eye", "level", "civic", "kayak", "mom", "dad", "noon", "peep", "deed", 
+                "toot", "pup", "boob", "tat", "gag", "wow", "madam", "radar"]
+        
+        # Add more nouns from our wordnet categorization
+        pos_nouns = self.pos_words.get('n', [])
+        nouns.extend([w for w in pos_nouns if w == w[::-1] and len(w) >= 3 and w not in nouns])
+        
+        return nouns
+        
+    def _get_palindrome_verbs(self):
+        """Get a list of palindromic verbs"""
+        verbs = ["did", "sees", "pop", "peep", "refer", "rotator", "was", "redder"]
+        
+        # Add more verbs from our wordnet categorization
+        pos_verbs = self.pos_words.get('v', [])
+        verbs.extend([w for w in pos_verbs if w == w[::-1] and len(w) >= 3 and w not in verbs])
+        
+        return verbs
+        
+    def _get_palindrome_adjectives(self):
+        """Get a list of palindromic adjectives"""
+        adjectives = ["level", "redder", "deified", "reviver", "rotator", "madam", "non", "eke", "ere"]
+        
+        # Add more adjectives from our wordnet categorization
+        pos_adjs = self.pos_words.get('a', [])
+        adjectives.extend([w for w in pos_adjs if w == w[::-1] and len(w) >= 3 and w not in adjectives])
+        
+        return adjectives
 
     def is_readable(self, text, min_word_length=3):
         """Check if the text is readable/sensible"""
@@ -335,44 +361,53 @@ class PalindromeParagraphGenerator:
             print(f"Attempt {attempt+1}/{max_attempts}...")
             paragraph = self.generate_palindrome_paragraph(target_length=target_length)
             
-            # First, ensure it's a valid palindrome
-            if not self.is_palindrome(paragraph):
-                print("  Warning: Not a valid palindrome. Retrying...")
+            # Always verify it's a valid palindrome
+            cleaned = self.clean_text(paragraph)
+            is_valid = cleaned == cleaned[::-1] and len(cleaned) > 10
+            
+            if not is_valid:
+                print(f"  Warning: Not a valid palindrome. Skipping...")
                 continue
             
-            # Score based on length, readability, and word count
+            # Score based on more nuanced criteria
             word_count = len(paragraph.split())
+            unique_words = len(set(paragraph.lower().split()))
+            
+            # Calculate scores
             length_score = len(paragraph) * 0.5
             readability_score = (1 if self.is_readable(paragraph) else 0.5) * 100
-            word_variety_score = len(set(paragraph.lower().split())) * 10
+            word_variety_score = unique_words * 10
+            coherence_score = 50 if self.check_grammar(paragraph) else 0
             
-            # Combined score prioritizing longer, more readable palindromes
-            score = length_score + readability_score + word_variety_score
+            # Penalize repeating the same word at beginning and end
+            words = paragraph.lower().split()
+            beginning_end_penalty = 50 if (len(words) >= 2 and words[0] == words[-1]) else 0
             
-            print(f"  Score: {score:.1f} (Length: {len(paragraph)}, Words: {word_count})")
+            # Penalize very short palindromes
+            length_penalty = 100 if len(paragraph) < 100 else 0
+            
+            # Calculate final score
+            score = length_score + readability_score + word_variety_score + coherence_score - beginning_end_penalty - length_penalty
+            
+            print(f"  Score: {score:.1f} (Length: {len(paragraph)}, Words: {word_count}, Unique: {unique_words})")
             
             if score > best_score:
-                # Double-check palindrome property
-                cleaned = self.clean_text(paragraph)
-                is_valid = cleaned == cleaned[::-1]
-                if not is_valid:
-                    print("  Warning: Failed palindrome verification. Skipping...")
-                    continue
-                
                 best_score = score
                 best_paragraph = paragraph
         
-        # If we couldn't generate a valid palindrome, try one last time with simplest approach
+        # If we couldn't generate a valid palindrome after all attempts, create a simple but guaranteed one
         if not best_paragraph:
-            print("Generating a simple palindrome as fallback...")
-            words = []
-            for _ in range(5):
-                word = self.get_palindrome_word(min_length=3)
-                if word:
-                    words.append(word)
+            print("All attempts failed. Generating a simple guaranteed palindrome...")
             
-            first_half = " ".join(words)
-            best_paragraph = f"{first_half} {' '.join(words[::-1])}"
+            # Create a dead-simple palindrome that's guaranteed to work
+            center = "a man a plan a canal panama"
+            nouns = self._get_palindrome_nouns()[:5]  # Take up to 5 nouns
+            
+            # Ensure first and last words are different
+            if len(nouns) >= 2 and nouns[0] == nouns[-1]:
+                nouns[-1] = "radar" if nouns[0] != "radar" else "madam"
+            
+            best_paragraph = f"{' '.join(nouns)} {center} {' '.join(nouns[::-1])}"
             best_paragraph = best_paragraph.capitalize() + "."
         
         return best_paragraph

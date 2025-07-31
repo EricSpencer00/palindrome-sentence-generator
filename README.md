@@ -51,6 +51,25 @@ Options:
 - `--method`: Generation method ('basic' or 'grammar')
 - `--output`: Output file to save the generated palindrome
 - `--verbose`: Show detailed output and timing information
+- `--improve-grammar`: Attempt to improve grammar of the generated palindrome
+
+### Improved Generator
+
+For best results, use the improved generator:
+
+```bash
+python improved_generator.py --length 250 --attempts 10 --improve-attempts 15 --verbose
+```
+
+Advanced options (improved generator):
+
+- `--length`: Target character length (default: 250)
+- `--attempts`: Number of generation attempts (default: 10)
+- `--improve-attempts`: Number of grammar improvement attempts (default: 15)
+- `--parallel`: Use parallel generation for better results
+- `--threads`: Number of parallel threads (default: 4)
+- `--output`: Output file to save the generated palindrome
+- `--verbose`: Show detailed output and timing information
 
 For advanced usage with the original methods:
 
@@ -98,22 +117,28 @@ python test_palindrome_generator.py
 
 ## Recent Improvements
 
+### Improved Generator
+- Added parallel generation capability for better results
+- Implemented multi-attempt generation with best candidate selection
+- Enhanced grammar improvement algorithm with aggressive strategies
+- Added weighted scoring to balance grammar quality and length requirements
+
 ### Grammar Palindrome Generator
-- Enhanced seed options for better starting points.
-- Improved wrapping templates for aggressive expansion.
-- Added timeout mechanisms to prevent generation loops.
-- Optimized expansion strategies for different target lengths.
+- Enhanced seed options for better starting points
+- Improved wrapping templates for aggressive expansion
+- Added timeout mechanisms to prevent generation loops
+- Optimized expansion strategies for different target lengths
 
 ### Grammar Validator
-- Improved grammar scoring algorithm.
-- Added more strategies for grammar improvement.
-- Enhanced suggestion generation for better readability.
+- Improved grammar scoring algorithm
+- Added more strategies for grammar improvement
+- Enhanced suggestion generation for better readability
 
 ### Main Program
-- Increased grammar improvement attempts.
-- Better tracking of generation progress.
-- Enhanced verbose output for debugging and analysis.
+- Increased grammar improvement attempts
+- Better tracking of generation progress
+- Enhanced verbose output for debugging and analysis
 
 ### Testing
-- Added `test_improvements.py` for focused testing of new features.
-- Enhanced `test_final.py` for comprehensive validation of all components.
+- Added `test_improvements.py` for focused testing of new features
+- Enhanced `test_final.py` for comprehensive validation of all components

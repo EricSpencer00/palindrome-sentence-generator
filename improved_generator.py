@@ -3,7 +3,9 @@
 Improved Palindrome Sentence Generator
 
 This script combines multiple generation strategies and attempts to produce
-higher-quality palindromes with better grammatical structure.
+higher-quality palindromes with better grammatical structure and semantic coherence.
+It includes options for parallel generation, multiple improvement attempts, and
+enhanced evaluation metrics.
 """
 
 import argparse
@@ -11,16 +13,22 @@ import logging
 import time
 import concurrent.futures
 import random
+import os
 from palindrome_generator import PalindromeGenerator
 from grammar_palindrome_generator import GrammarPalindromeGenerator
 from grammar_validator import GrammarValidator
+try:
+    from semantic_tools import SemanticAnalyzer
+    SEMANTIC_TOOLS_AVAILABLE = True
+except ImportError:
+    SEMANTIC_TOOLS_AVAILABLE = False
+    logging.warning("Semantic tools not available. Run with --install-dependencies to set up.")
 
 # Configure logging
 logging.basicConfig(
     filename='palindrome.log',
     level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+    format='%(asctime)s - %(levelname)s - %(message)s')
 
 class ImprovedPalindromeGenerator:
     def __init__(self):
@@ -28,14 +36,19 @@ class ImprovedPalindromeGenerator:
         self.basic_generator = PalindromeGenerator()
         self.validator = GrammarValidator()
         
+        # Initialize semantic analyzer if available
+        self.semantic_analyzer = None
+        if SEMANTIC_TOOLS_AVAILABLE:
+            self.semantic_analyzer = SemanticAnalyzer()
+        
     def is_palindrome(self, text):
         """Check if a string is a palindrome (ignoring spaces and punctuation)."""
         return self.grammar_generator.is_palindrome(text)
     
-    def generate_with_multiple_attempts(self, target_length=250, attempts=10, verbose=False):
+    def generate_with_multiple_attempts(self, target_length=250, attempts=10, verbose=False, use_semantic=False):
         """
         Generate palindromes with multiple attempts and select the best one based on
-        grammar score and length proximity to target.
+        grammar score, semantic coherence, and length proximity to target.
         """
         best_palindrome = None
         best_score = 0
@@ -57,14 +70,26 @@ class ImprovedPalindromeGenerator:
                 continue
                 
             # Score grammatical quality
-            score = self.validator.score_grammatical_quality(current)
+            grammar_score = self.validator.score_grammatical_quality(current)
             length_diff = abs(len(current) - target_length)
             
-            # Apply weighted scoring - balancing grammar quality and length match
-            combined_score = score * 0.7 - (length_diff / target_length) * 30
+            # Score semantic quality if requested and available
+            semantic_score = 0
+            if use_semantic and self.semantic_analyzer:
+                semantic_score = self.semantic_analyzer.evaluate_semantic_coherence(current)
+                if verbose:
+                    print(f"  Semantic score: {semantic_score}/100")
+            
+            # Apply weighted scoring - balancing grammar quality, semantic coherence, and length match
+            if use_semantic and self.semantic_analyzer:
+                # With semantics: 50% grammar, 30% semantics, 20% length match
+                combined_score = (grammar_score * 0.5) + (semantic_score * 0.3) - (length_diff / target_length) * 20
+            else:
+                # Without semantics: 70% grammar, 30% length match
+                combined_score = grammar_score * 0.7 - (length_diff / target_length) * 30
             
             if verbose:
-                print(f"  Length: {len(current)}, Grammar score: {score}/100, Combined score: {combined_score:.1f}")
+                print(f"  Length: {len(current)}, Grammar score: {grammar_score}/100, Combined score: {combined_score:.1f}")
             
             # Keep track of the best palindrome
             if best_palindrome is None or combined_score > best_score:
@@ -73,7 +98,7 @@ class ImprovedPalindromeGenerator:
                 best_length_diff = length_diff
                 
             # If we've found a very good palindrome, we can stop early
-            if score > 80 and length_diff < target_length * 0.1:
+            if grammar_score > 80 and (not use_semantic or semantic_score > 70) and length_diff < target_length * 0.1:
                 if verbose:
                     print("  Found excellent palindrome, stopping early.")
                 break
@@ -164,6 +189,45 @@ class ImprovedPalindromeGenerator:
                                                 print(f"  Grammar improved (determiner addition): {best_score}/100")
                                             break
             
+            # Try replacing words with synonyms that improve grammar
+            if phase > 3 and best_score < 75:
+                words = best_palindrome.split()
+                
+                # Focus on replacing repetitive non-essential words
+                for i, word in enumerate(words):
+                    if word.lower() in ["see", "look", "go", "put", "get"]:
+                        # Common weak verbs - try to replace with stronger alternatives
+                        alternatives = {
+                            "see": ["view", "spot", "eye", "notice"],
+                            "look": ["gaze", "stare", "peek", "watch"],
+                            "go": ["move", "head", "travel", "walk"],
+                            "put": ["place", "set", "lay", "position"],
+                            "get": ["grab", "take", "fetch", "gain"]
+                        }
+                        
+                        if word.lower() in alternatives:
+                            for replacement in alternatives[word.lower()]:
+                                # Try the replacement
+                                test_words = words.copy()
+                                test_words[i] = replacement
+                                
+                                # Also replace the mirror word
+                                mirror_idx = len(words) - 1 - i
+                                if 0 <= mirror_idx < len(words) and mirror_idx != i:
+                                    # We need to reverse the replacement for the mirror position
+                                    mirror_word = replacement[::-1]
+                                    test_words[mirror_idx] = mirror_word
+                                
+                                test_palindrome = " ".join(test_words)
+                                if self.is_palindrome(test_palindrome):
+                                    test_score = self.validator.score_grammatical_quality(test_palindrome)
+                                    if test_score > best_score:
+                                        best_palindrome = test_palindrome
+                                        best_score = test_score
+                                        if verbose:
+                                            print(f"  Grammar improved (word replacement): {best_score}/100")
+                                        break
+            
             # If still no improvement, try insertion of new palindromic seed phrases
             if phase > 7 and phase == max_attempts - 1 and best_score < 60:
                 seed_phrases = [
@@ -186,6 +250,27 @@ class ImprovedPalindromeGenerator:
                 
         # Return the best improved palindrome
         return best_palindrome, best_score
+        
+    def improve_semantics(self, palindrome, max_attempts=5, verbose=False):
+        """
+        Improve the semantic coherence of a palindrome if semantic tools are available.
+        """
+        if not self.semantic_analyzer:
+            return palindrome, 0
+            
+        initial_score = self.semantic_analyzer.evaluate_semantic_coherence(palindrome)
+        
+        if verbose:
+            print(f"Starting semantic improvement (initial score: {initial_score}/100)...")
+        
+        improved_palindrome, improved_score = self.semantic_analyzer.improve_semantic_coherence(palindrome)
+        
+        if improved_score > initial_score and self.is_palindrome(improved_palindrome):
+            if verbose:
+                print(f"  Semantic coherence improved: {initial_score} → {improved_score}/100")
+            return improved_palindrome, improved_score
+        else:
+            return palindrome, initial_score
     
     def generate_optimal_palindrome(self, target_length=250, attempts=5, improve_attempts=10, verbose=False):
         """

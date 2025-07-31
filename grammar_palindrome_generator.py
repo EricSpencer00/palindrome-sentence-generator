@@ -409,15 +409,43 @@ class GrammarPalindromeGenerator:
         else:
             # Generate a basic palindrome as before
             current = self.generate_palindrome_sentence()
+        
+        # Add a prefix 'A ' and suffix ' a' to ensure it's a palindrome and has room to grow
+        if not current.startswith('A '):
+            current = 'A ' + current
+        if not current.endswith(' a'):
+            current = current + ' a'
             
         logging.info(f"Starting with seed: {current}")
+        
+        # Force application of wrapping with multiple known good palindromes to quickly reach target length
+        if len(current) < target_length * 0.8:  # If we're far from target, apply aggressive wrapping
+            wrapping_palindromes = [
+                "a man a plan a {0} a nalp a nam a",
+                "never odd or even {0} neve ro ddo reven",
+                "step on no pets {0} step on no pets", 
+                "was it a car or a cat I saw {0} was I tac a ro rac a ti saw",
+                "doc note I dissent a fast never prevents a fatness I diet on cod {0} doc no teid I ssentaf a stneverpreven tsaf a tnessid I eton cod"
+            ]
+            
+            # Try to apply as many wrappings as needed
+            for _ in range(3):  # Try up to 3 different wrappings
+                if len(current) < target_length * 0.8:
+                    wrap_template = random.choice(wrapping_palindromes)
+                    wrapped = wrap_template.format(current)
+                    if self.is_palindrome(wrapped):
+                        current = wrapped
+                        logging.info(f"Applied aggressive wrapping: {len(current)}/{target_length}")
+                else:
+                    break
         
         # Try to reach the target length with more diverse strategies
         # Track the last few expansions to avoid getting stuck in a loop
         last_expansions = []
         attempts = 0
-        max_attempts = 5000
+        max_attempts = 10000  # Increase max attempts
         repetitive_counter = 0
+        expansion_failures = 0
         
         while len(current) < target_length and attempts < max_attempts:
             attempts += 1
@@ -480,6 +508,29 @@ class GrammarPalindromeGenerator:
                     current = new_palindrome
                     if attempts % 20 == 0:
                         logging.info(f"Expanded palindrome to length {len(current)}/{target_length}")
+            else:
+                expansion_failures += 1
+                
+                # If we've failed too many times and we're far from target length, 
+                # try a more aggressive approach
+                if expansion_failures > 100 and len(current) < target_length * 0.5:
+                    # Wrap with a larger palindrome structure
+                    wrap_options = [
+                        f"I {current} I",
+                        f"mom {current} mom",
+                        f"radar {current} radar",
+                        f"a man a plan a {current} a nalp a nam a",
+                        f"step on no {current} on pets",
+                        f"was it a {current} a ti saw",
+                        f"never odd or {current} ro ddo reven"
+                    ]
+                    
+                    for option in wrap_options:
+                        if self.is_palindrome(option):
+                            current = option
+                            expansion_failures = 0
+                            logging.info(f"Applied aggressive expansion: {len(current)}/{target_length}")
+                            break
             
         if attempts >= max_attempts:
             logging.warning(f"Reached max attempts ({max_attempts}) without reaching target length")

@@ -76,7 +76,27 @@ def main():
         palindrome = generator.generate_grammatical_palindrome(args.length)
     else:  # args.method == 'grammar'
         generator = GrammarPalindromeGenerator()
-        palindrome = generator.generate_palindrome_paragraph(args.length)
+        
+        # Make multiple attempts if needed to reach target length
+        best_palindrome = None
+        best_length = 0
+        
+        for attempt in range(3):
+            if args.verbose:
+                print(f"Generation attempt {attempt+1}...")
+                
+            current_palindrome = generator.generate_palindrome_paragraph(args.length)
+            current_length = len(current_palindrome)
+            
+            if current_length > best_length:
+                best_palindrome = current_palindrome
+                best_length = current_length
+                
+            # If we've reached at least 80% of target length, stop
+            if current_length >= args.length * 0.8:
+                break
+                
+        palindrome = best_palindrome
     
     end_time = time.time()
     generation_time = end_time - start_time

@@ -104,6 +104,30 @@ class TestPalindromeGenerator(unittest.TestCase):
         # Test punctuation
         formatted = self.generator._format_palindrome("hello world!")
         self.assertEqual(formatted, "Hello world!")
+    
+    def test_llm_bidirectional_validation(self):
+        """Test the bidirectional validation for LLM-generated palindromes"""
+        # Skip if LLM not available
+        try:
+            from llm_palindrome import LLMPalindromeGenerator
+        except ImportError:
+            self.skipTest("LLM palindrome generator not available")
+        
+        # Simple sample palindrome for testing
+        palindrome = "A man a plan a canal Panama."
+        
+        # Validate it
+        validation = self.generator.validate_bidirectional_palindrome(palindrome)
+        
+        # Check validation output has the expected keys
+        self.assertIn("is_valid", validation)
+        self.assertIn("is_palindrome", validation)
+        self.assertIn("char_similarity", validation)
+        self.assertIn("word_similarity", validation)
+        self.assertIn("halves_differ", validation)
+        
+        # It should be a valid palindrome
+        self.assertTrue(validation["is_palindrome"])
 
 if __name__ == "__main__":
     print("Running palindrome generator tests...")

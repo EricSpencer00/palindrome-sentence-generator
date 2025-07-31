@@ -42,7 +42,7 @@ python palindrome_generator.py
 With options:
 
 ```bash
-python palindrome_generator.py --length 200 --method middle-out --center "a" --verbose
+python palindrome_generator.py --length 200 --verbose
 ```
 
 Options:
@@ -52,8 +52,12 @@ Options:
 - `--length`: Target character length
 - `--verbose`: Show detailed output
 - `--center`: Optional center word/character to start with
-- `--method`: Generation method ('traditional', 'middle-out', 'llm', or 'bidirectional')
+- `--method`: Generation method ('traditional', 'middle-out', 'bidirectional', or 'llm')
 - `--use-openai`: Use OpenAI API for LLM-based generation (requires API key)
+
+## Default Method
+
+The generator now defaults to the **bidirectional** method, which ensures both halves of the palindrome are valid English and character-level symmetry is maintained.
 
 ## Generation Methods
 

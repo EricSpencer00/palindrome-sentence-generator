@@ -117,7 +117,7 @@ class GrammarValidator:
             if token.pos_ == 'NOUN' and token.dep_ not in ('compound', 'fixed'):
                 # Check if there's a determiner
                 has_det = any(child.pos_ == 'DET' for child in token.children)
-                if not has_det and not token.is_proper:
+                if not has_det and not token.text[0].isupper():  # Check if not proper noun
                     suggestions.append(f"Consider adding a determiner before '{token.text}'")
         
         # Check for subject-verb agreement
@@ -138,8 +138,32 @@ class GrammarValidator:
         repetitive_words = [word for word, count in word_counts.items() if count > 3]
         if repetitive_words:
             suggestions.append(f"Excessive repetition of: {', '.join(repetitive_words)}")
-        
-        return suggestions
+            
+        # Check for sentence coherence
+        if len(list(doc.sents)) > 1:
+            suggestions.append("Consider improving the connection between sentences for better flow")
+            
+        # Check for lack of structure
+        if len(doc) > 10 and not any(token.pos_ == 'VERB' for token in doc):
+            suggestions.append("Text lacks verbs, consider adding structure with action words")
+            
+        # Check for grammatical patterns
+        has_structure = False
+        pos_sequence = [token.pos_ for token in doc]
+        for pattern in self.grammar_patterns:
+            pattern_len = len(pattern)
+            for i in range(len(pos_sequence) - pattern_len + 1):
+                if pos_sequence[i:i+pattern_len] == pattern:
+                    has_structure = True
+                    break
+            if has_structure:
+                break
+                
+        if not has_structure and len(doc) > 5:
+            suggestions.append("Text lacks common grammatical patterns")
+            
+        # Limit suggestions to a reasonable number
+        return suggestions[:5]
     
     def improve_palindrome_grammar(self, palindrome):
         """
@@ -156,50 +180,67 @@ class GrammarValidator:
         # Try to make improvements by breaking into chunks and restructuring
         words = word_tokenize(palindrome)
         improved = False
-        original_words = words.copy()
+        best_palindrome = palindrome
+        best_score = original_score
         
         # Strategy 1: Add determiners where missing before nouns (if palindrome property can be maintained)
         for i in range(len(words)):
+            if i >= len(words):  # Guard against index changes
+                break
+                
             doc = self.nlp(words[i])
             if len(doc) == 1 and doc[0].pos_ == 'NOUN' and i > 0 and len(words) > i + 1:
                 # Check if we can add determiners like "a" or "the" before and after
                 for det in ['a', 'the', 'my', 'your']:
-                    test_palindrome = ' '.join(words[:i] + [det] + [words[i]] + [self._reverse_word(det)] + words[i+1:])
-                    if self._is_palindrome(test_palindrome):
-                        words = words[:i] + [det] + [words[i]] + [self._reverse_word(det)] + words[i+1:]
-                        improved = True
-                        break
-                
-                if improved:
-                    break
+                    test_words = words.copy()
+                    test_words = test_words[:i] + [det] + [test_words[i]] + [self._reverse_word(det)] + test_words[i+1:]
+                    test_palindrome = ' '.join(test_words)
                     
+                    if self._is_palindrome(test_palindrome):
+                        test_score = self.score_grammatical_quality(test_palindrome)
+                        if test_score > best_score:
+                            best_palindrome = test_palindrome
+                            best_score = test_score
+                            improved = True
+                            words = test_words  # Update for further improvements
+                
         # Strategy 2: Break long phrases into smaller chunks with better structure
-        if not improved and len(words) > 7:
+        if len(words) > 7:
             # Try to insert punctuation to create natural breaks
             mid = len(words) // 2
             for punct in [',', ';', ':']:
                 if mid > 0 and mid < len(words) - 1:
-                    test_palindrome = ' '.join(words[:mid] + [punct] + words[mid:])
+                    test_words = words.copy()
+                    test_words = test_words[:mid] + [punct] + test_words[mid:]
+                    test_palindrome = ' '.join(test_words)
+                    
                     if self._is_palindrome(test_palindrome):
-                        words = words[:mid] + [punct] + words[mid:]
-                        improved = True
-                        break
-            
-            # If that didn't work, try natural conjunctions if they maintain palindrome property
-            if not improved:
-                for i in range(2, len(words) - 2):
-                    for conj in ['and', 'or', 'but']:
-                        rev_conj = self._reverse_word(conj)
-                        test_palindrome = ' '.join(words[:i] + [conj] + words[i:])
-                        if self._is_palindrome(test_palindrome) and rev_conj in ' '.join(words[i:]):
-                            words = words[:i] + [conj] + words[i:]
+                        test_score = self.score_grammatical_quality(test_palindrome)
+                        if test_score > best_score:
+                            best_palindrome = test_palindrome
+                            best_score = test_score
                             improved = True
-                            break
-                    if improved:
-                        break
+                            words = test_words
+            
+            # Try natural conjunctions if they maintain palindrome property
+            for i in range(2, len(words) - 2):
+                for conj in ['and', 'or', 'but']:
+                    rev_conj = self._reverse_word(conj)
+                    test_words = words.copy()
+                    test_words = test_words[:i] + [conj] + test_words[i:]
+                    test_palindrome = ' '.join(test_words)
+                    
+                    if self._is_palindrome(test_palindrome) and rev_conj in ' '.join(test_words[i:]):
+                        test_score = self.score_grammatical_quality(test_palindrome)
+                        if test_score > best_score:
+                            best_palindrome = test_palindrome
+                            best_score = test_score
+                            improved = True
+                            words = test_words
         
-        # Strategy 3: If there are lots of repeated 'a' words, try to replace some with more meaningful words
-        if not improved and words.count('a') > 10:
+        # Strategy 3: Replace repetitive words with more meaningful palindromic words
+        a_count = words.count('a')
+        if a_count > 5:
             # Find palindrome words that could replace 'a'
             palindrome_words = ['I', 'eye', 'mom', 'dad', 'wow', 'noon', 'level', 'deed']
             
@@ -208,26 +249,63 @@ class GrammarValidator:
             if len(a_indices) >= 4:  # Only if we have enough 'a's to work with
                 replace_indices = random.sample(a_indices, min(4, len(a_indices)))
                 for idx in replace_indices:
-                    replacement = random.choice(palindrome_words)
-                    test_words = words.copy()
-                    test_words[idx] = replacement
-                    
-                    # We need to find the matching 'a' on the other side of the palindrome
-                    mirror_idx = len(words) - 1 - idx
-                    if 0 <= mirror_idx < len(words) and words[mirror_idx] == 'a':
-                        test_words[mirror_idx] = replacement
+                    for replacement in palindrome_words:
+                        test_words = words.copy()
+                        test_words[idx] = replacement
                         
-                    test_palindrome = ' '.join(test_words)
-                    if self._is_palindrome(test_palindrome):
-                        words = test_words
+                        # Find the matching 'a' on the other side of the palindrome
+                        mirror_idx = len(words) - 1 - idx
+                        if 0 <= mirror_idx < len(words) and words[mirror_idx] == 'a':
+                            test_words[mirror_idx] = replacement
+                            
+                        test_palindrome = ' '.join(test_words)
+                        if self._is_palindrome(test_palindrome):
+                            test_score = self.score_grammatical_quality(test_palindrome)
+                            if test_score > best_score:
+                                best_palindrome = test_palindrome
+                                best_score = test_score
+                                improved = True
+                                words = test_words
+        
+        # Strategy 4: Add subject-verb structure if missing
+        has_verb = any(self.nlp(word)[0].pos_ == 'VERB' for word in words)
+        has_subject = any(self.nlp(word)[0].pos_ == 'PRON' for word in words)
+        
+        if not has_verb or not has_subject:
+            # Try to add a simple subject-verb structure
+            for subject in ['I', 'we', 'you']:
+                for verb in ['see', 'love', 'need']:
+                    test_words = words.copy()
+                    
+                    # Try inserting at different positions
+                    for pos in [1, len(words) // 4, len(words) // 2]:
+                        if pos < len(test_words):
+                            test_with_subj_verb = test_words[:pos] + [subject, verb] + test_words[pos:]
+                            test_palindrome = ' '.join(test_with_subj_verb)
+                            
+                            if self._is_palindrome(test_palindrome):
+                                test_score = self.score_grammatical_quality(test_palindrome)
+                                if test_score > best_score:
+                                    best_palindrome = test_palindrome
+                                    best_score = test_score
+                                    improved = True
+        
+        # Strategy 5: Add grammatical structure near the beginning and end
+        if len(words) > 10:
+            # Try common sentence starters
+            for starter in ['the', 'a', 'this', 'my', 'in the']:
+                test_words = [starter] + words + [self._reverse_word(starter)]
+                test_palindrome = ' '.join(test_words)
+                
+                if self._is_palindrome(test_palindrome):
+                    test_score = self.score_grammatical_quality(test_palindrome)
+                    if test_score > best_score:
+                        best_palindrome = test_palindrome
+                        best_score = test_score
                         improved = True
         
-        # Check if our improvements actually worked
-        improved_palindrome = ' '.join(words)
-        improved_score = self.score_grammatical_quality(improved_palindrome)
-        
-        if improved and improved_score > original_score and self._is_palindrome(improved_palindrome):
-            return improved_palindrome, improved_score
+        if improved and best_score > original_score and self._is_palindrome(best_palindrome):
+            return best_palindrome, best_score
         else:
             return palindrome, original_score
     

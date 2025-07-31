@@ -114,7 +114,7 @@ def main():
         best_score = initial_score
         best_palindrome = palindrome
         
-        for attempt in range(3):  # Try up to 3 improvement attempts
+        for attempt in range(5):  # Increase attempts to 5 for better results
             improved_palindrome, improved_score = validator.improve_palindrome_grammar(palindrome)
             
             if improved_score > best_score and generator.is_palindrome(improved_palindrome):

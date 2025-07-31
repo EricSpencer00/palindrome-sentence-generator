@@ -14,6 +14,7 @@ import random
 from tqdm import tqdm
 import logging
 import os
+import re
 from dotenv import load_dotenv
 
 # Configure logging
@@ -83,8 +84,15 @@ class PalindromeGenerator:
     
     def is_palindrome(self, text):
         """Check if a string is a palindrome (ignoring spaces and punctuation)."""
-        text = ''.join(c.lower() for c in text if c.isalnum())
-        return text == text[::-1]
+        # Remove all non-alphanumeric characters and convert to lowercase
+        processed_text = ''.join(c.lower() for c in text if c.isalnum())
+        # Check if the processed text reads the same forward and backward
+        is_pal = processed_text == processed_text[::-1]
+        
+        if not is_pal and len(text) > 10:
+            logging.debug(f"Not a palindrome: '{text}'")
+            
+        return is_pal
     
     def reverse_word(self, word):
         """Return the reverse of a word."""
@@ -215,11 +223,11 @@ class PalindromeGenerator:
         Generate a grammatically correct palindrome paragraph.
         This is a simplified approach focusing on short, grammatically plausible segments.
         """
-        # Start with basic palindrome structures
+        # Start with basic palindrome structures - using known palindromes to ensure a valid start
         basic_structures = [
             ("a", "aba", "abcba", "abcdcba"),
             ("noon", "level", "radar", "deified"),
-            ("step", "pets", "live", "evil")
+            ("kayak", "civic", "madam", "refer")
         ]
         
         # Choose a structure
@@ -227,51 +235,85 @@ class PalindromeGenerator:
         
         # Start with one structure
         current = random.choice(structure_set)
+        logging.info(f"Starting with seed palindrome: {current}")
         
         attempts = 0
-        max_attempts = 5000
+        max_attempts = 10000
         
         while len(current) < target_length and attempts < max_attempts:
             attempts += 1
             
             # Try to extend the palindrome
             extension_options = [
-                # Wrap with a new word
+                # Wrap with a new word (most reliable method)
                 lambda p, word: f"{word} {p} {word}",
                 
                 # Insert in the middle (for odd-length palindromes)
                 lambda p, word: p[:len(p)//2] + f" {word} " + p[len(p)//2:] if len(p) % 2 == 1 else p,
                 
-                # Insert palindromic phrase
-                lambda p, phrase: f"{p} {phrase}"
+                # Concatenate a palindromic phrase
+                lambda p, phrase: f"{p} {phrase}" if self.is_palindrome(f"{p} {phrase}") else p
             ]
             
-            option = random.choice(extension_options)
+            # Prefer the most reliable extension method when starting out
+            if len(current) < target_length * 0.3:
+                option = extension_options[0]  # Use the wrapping method for small palindromes
+            else:
+                option = random.choice(extension_options)
             
-            # Select words or phrases to extend with
-            if option.__code__.co_argcount > 1:  # If the option takes a word parameter
-                pos_choices = ['NOUN', 'VERB', 'ADJ', 'ADV']
-                pos = random.choice(pos_choices)
-                
-                if not self.word_by_pos[pos]:
-                    continue
-                    
-                word = random.choice(self.word_by_pos[pos])
+            # Try with reliable palindrome-forming words when possible
+            reliable_words = ["a", "i", "eye", "mom", "dad", "wow", "pop", "sees"]
+            palindrome_words = self.find_palindrome_words()
+            if palindrome_words:
+                reliable_words.extend(palindrome_words[:5])  # Add up to 5 found palindrome words
+            
+            if random.random() < 0.7:  # 70% chance to use reliable words
+                word = random.choice(reliable_words)
                 new_current = option(current, word)
             else:
-                # Generate a simple palindrome phrase
-                phrase = self.generate_simple_palindrome()
-                new_current = option(current, phrase)
+                # Select words or phrases to extend with
+                if option.__code__.co_argcount > 1:  # If the option takes a word parameter
+                    pos_choices = ['NOUN', 'ADJ', 'ADV', 'DET']
+                    pos = random.choice(pos_choices)
+                    
+                    if not self.word_by_pos[pos]:
+                        continue
+                        
+                    word = random.choice(self.word_by_pos[pos])
+                    new_current = option(current, word)
+                else:
+                    # Generate a simple palindrome phrase
+                    phrase_options = ["a mom a", "i eye i", "no on", "we ew", "to ot"]
+                    phrase = random.choice(phrase_options)
+                    new_current = option(current, phrase)
             
-            # Check if it's still a palindrome (allowing for spaces and punctuation)
-            if self.is_palindrome(new_current):
+            # Check if it's still a palindrome
+            if new_current != current and self.is_palindrome(new_current):
                 current = new_current
-                logging.info(f"Extended palindrome to length {len(current)}")
+                if attempts % 10 == 0:  # Log progress occasionally
+                    logging.info(f"Extended palindrome to length {len(current)}")
+                
+                # If we're close to the target length, be more careful with extensions
+                if len(current) > target_length * 0.8:
+                    # If we're getting close to the target, be more selective
+                    if len(current) > target_length:
+                        break
             
         if attempts >= max_attempts:
             logging.warning(f"Reached max attempts ({max_attempts}) without reaching target length")
         
-        return current
+        # Clean up and format
+        cleaned = re.sub(r'\s+', ' ', current).strip()
+        
+        # Capitalize first letter
+        final_palindrome = cleaned[0].upper() + cleaned[1:]
+        
+        # Ensure it's still a palindrome
+        if not self.is_palindrome(final_palindrome):
+            logging.warning(f"Final formatting broke the palindrome property: '{final_palindrome}'")
+            final_palindrome = cleaned  # Revert to the unformatted version
+        
+        return final_palindrome
 
 def main():
     load_dotenv()  # Load environment variables

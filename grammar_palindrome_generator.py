@@ -120,42 +120,59 @@ class GrammarPalindromeGenerator:
     def generate_palindrome_sentence(self):
         """Generate a grammatically correct palindrome sentence."""
         # Try to use reversible word pairs to create a palindrome
-        if self.reversible_pairs:
-            pair = random.choice(self.reversible_pairs)
-            word1, word2 = pair
-            
-            templates = [
-                f"{word1} is {word2}",
-                f"{word1} and {word2}",
-                f"from {word1} to {word2}",
-                f"{word1} becomes {word2}"
-            ]
-            
-            sentence = random.choice(templates)
-            if self.is_palindrome(sentence):
-                return sentence
+        if self.reversible_pairs and random.random() < 0.3:  # 30% chance to use reversible pairs
+            pairs = random.sample(self.reversible_pairs, min(3, len(self.reversible_pairs)))
+            for pair in pairs:
+                word1, word2 = pair
+                
+                templates = [
+                    f"{word1} is {word2}",
+                    f"{word1} and {word2}",
+                    f"from {word1} to {word2}",
+                    f"{word1} becomes {word2}",
+                    f"no {word1} on {word2}"
+                ]
+                
+                sentence = random.choice(templates)
+                if self.is_palindrome(sentence):
+                    return sentence
         
         # If we couldn't create a palindrome with reversible pairs,
         # try with actual palindrome words to ensure we get a palindrome
-        palindrome_words = ['level', 'radar', 'madam', 'refer', 'civic', 'kayak', 'racecar']
+        palindrome_words = ['level', 'radar', 'madam', 'refer', 'civic', 'kayak', 'racecar', 'noon', 'mom', 'dad', 'wow', 'deed']
         
         # Check if we have any palindrome words in our dictionary
-        seed_words = [word for word in self.word_dict['NOUN'] if self.is_palindrome(word) and len(word) > 3]
+        seed_words = [word for word in self.word_dict['NOUN'] if self.is_palindrome(word) and len(word) > 2]
+        seed_words.extend([word for word in self.word_dict['ADJ'] if self.is_palindrome(word) and len(word) > 2])
         if seed_words:
             palindrome_words.extend(seed_words)
             
         seed = random.choice(palindrome_words)
         logging.info(f"Using palindrome seed word: {seed}")
         
+        # Create more grammatically interesting templates
         templates = [
             f"a {seed} a",
             f"my {seed} my",
             f"the {seed} the",
-            f"I {seed} I"
+            f"I {seed} I",
+            f"was it a {seed} I saw",
+            f"never odd or even {seed}",
+            f"step on no {seed}",
+            f"some men interpret {seed}",
+            f"a man a plan a {seed}",
+            f"no {seed} on"
         ]
         
-        sentence = random.choice(templates)
+        # Filter templates that would be palindromes
+        valid_templates = [t for t in templates if self.is_palindrome(t)]
         
+        if valid_templates:
+            sentence = random.choice(valid_templates)
+        else:
+            # For safety, choose a simple guaranteed palindrome
+            sentence = f"a {seed} a"
+            
         # Verify it's a palindrome
         if not self.is_palindrome(sentence):
             # For safety, choose a simple guaranteed palindrome
@@ -175,20 +192,44 @@ class GrammarPalindromeGenerator:
         while current_length < target_length and attempts < max_attempts:
             attempts += 1
             
-            # Choose an expansion strategy
-            strategies = [
-                self._expand_with_mirror_words,
-                self._expand_with_center_word,
-                self._expand_with_sentence_wrap
-            ]
+            # Choose an expansion strategy - with weighted probabilities
+            strategy_weights = {
+                self._expand_with_mirror_words: 0.4,      # 40% - general expansion
+                self._expand_with_center_word: 0.2,       # 20% - center expansion (for odd-length palindromes)
+                self._expand_with_sentence_wrap: 0.4,     # 40% - sentence structures
+            }
             
-            strategy = random.choice(strategies)
+            # Balance the strategies - prefer more complex strategies for shorter palindromes
+            if current_length < target_length * 0.3:
+                # For short palindromes, prefer sentence wrap for structure
+                strategy_weights[self._expand_with_sentence_wrap] = 0.6
+                strategy_weights[self._expand_with_mirror_words] = 0.3
+                strategy_weights[self._expand_with_center_word] = 0.1
+            elif current_length > target_length * 0.7:
+                # For nearly complete palindromes, prefer simpler expansions
+                strategy_weights[self._expand_with_mirror_words] = 0.6
+                strategy_weights[self._expand_with_center_word] = 0.3
+                strategy_weights[self._expand_with_sentence_wrap] = 0.1
+            
+            # Choose strategy based on weights
+            strategies = list(strategy_weights.keys())
+            weights = list(strategy_weights.values())
+            strategy = random.choices(strategies, weights=weights, k=1)[0]
+            
+            # Apply the chosen strategy
             new_palindrome = strategy(current)
             
             if new_palindrome != current and self.is_palindrome(new_palindrome):
+                # Track significant expansions
+                if len(new_palindrome) - len(current) > 10:
+                    logging.info(f"Significant expansion: +{len(new_palindrome) - len(current)} chars")
+                
                 current = new_palindrome
                 current_length = len(current)
-                logging.info(f"Expanded palindrome to length {current_length}")
+                
+                # Periodically log progress
+                if attempts % 20 == 0 or len(current) > target_length * 0.9:
+                    logging.info(f"Expanded palindrome to length {current_length}/{target_length}")
             
         if attempts >= max_attempts:
             logging.warning(f"Reached max attempts ({max_attempts}) without reaching target length")
@@ -197,22 +238,60 @@ class GrammarPalindromeGenerator:
     
     def _expand_with_mirror_words(self, current):
         """Expand palindrome by adding mirrored words at the beginning and end."""
-        pos_choices = ['NOUN', 'ADJ', 'VERB', 'ADV']
-        pos = random.choice(pos_choices)
+        # Try to expand with meaningful grammatical structures
+        expansion_structures = [
+            # Noun phrases
+            ("DET", "NOUN"),   # "the cat"
+            ("DET", "ADJ"),    # "the red"
+            ("PREP", "NOUN"),  # "on radar"
+            
+            # Verb phrases
+            ("PRON", "VERB"),  # "I see"
+            ("ADV", "VERB"),   # "never ride"
+            
+            # Others
+            ("CONJ", "PRON"),  # "and I"
+            ("NOUN", "VERB"),  # "cats sleep"
+        ]
         
-        if not self.word_dict[pos]:
-            return current
+        # Choose a structure for expansion
+        struct_type = random.choice(expansion_structures)
         
-        # Try up to 10 words until we find one that creates a palindrome
-        for _ in range(10):
-            word = random.choice(self.word_dict[pos])
-            new_palindrome = f"{word} {current} {word}"
+        # Try to find words for this structure that maintain palindrome property
+        attempts = 0
+        max_attempts = 15
+        
+        while attempts < max_attempts:
+            attempts += 1
+            
+            # Get words for each part of the structure
+            words = []
+            valid_structure = True
+            
+            for pos in struct_type:
+                if not self.word_dict[pos]:
+                    valid_structure = False
+                    break
+                words.append(random.choice(self.word_dict[pos]))
+            
+            if not valid_structure:
+                continue
+                
+            # Build the expansion
+            expansion = " ".join(words)
+            new_palindrome = f"{expansion} {current} {expansion}"
+            
             if self.is_palindrome(new_palindrome):
                 return new_palindrome
         
-        # If we can't find a suitable word, try a simple one that's guaranteed to work
-        simple_words = ["a", "I", "my", "no", "on"]
-        for word in simple_words:
+        # Try short single words (higher chance of maintaining palindrome)
+        single_word_choices = [
+            "a", "I", "my", "no", "on", "to", "at", "in", "was", "did", "mom", 
+            "dad", "eye", "sees", "noon", "deified", "tenet"
+        ]
+        
+        # Try each template to see if it forms a palindrome
+        for word in single_word_choices:
             new_palindrome = f"{word} {current} {word}"
             if self.is_palindrome(new_palindrome):
                 return new_palindrome
@@ -245,7 +324,7 @@ class GrammarPalindromeGenerator:
     
     def _expand_with_sentence_wrap(self, current):
         """Wrap the current palindrome with a simple sentence structure."""
-        # Use templates that are more likely to form palindromes
+        # Use more varied and grammatically interesting templates
         templates = [
             f"a {current} a",
             f"I {current} I",
@@ -254,13 +333,53 @@ class GrammarPalindromeGenerator:
             f"to {current} ot",
             f"mom {current} mom",
             f"dad {current} dad",
-            f"wow {current} wow"
+            f"wow {current} wow",
+            f"was it {current} ti saw",
+            f"some {current} emos",
+            f"straw {current} warts",
+            f"never {current} reven",
+            f"evil {current} live",
+            f"draw {current} ward",
+            f"step {current} pets",
+            f"name {current} eman",
+            f"star {current} rats",
+            f"live {current} evil",
+            f"need {current} deen",
+            f"tenet {current} tenet"
         ]
         
         # Try each template to see if it forms a palindrome
         for template in templates:
             if self.is_palindrome(template):
                 return template
+        
+        # Attempt to construct a grammatical sentence
+        sentence_patterns = [
+            ("a", "NOUN", "a"),                      # "a dog a"
+            ("the", "NOUN", "is", "si", "NOUN", "eht"),  # "the man is si nam eht"
+            ("I", "VERB", "a", "NOUN", "a", "BREV", "I"),  # "I see a dog a ees I"
+            ("no", "NOUN", "or", "ro", "NOUN", "on"),  # "no evil or ro live on"
+        ]
+        
+        # Try to build a pattern-based palindrome
+        for pattern in sentence_patterns:
+            built_parts = []
+            valid_pattern = True
+            
+            for part in pattern:
+                if part in self.word_dict:  # It's a POS tag
+                    if not self.word_dict[part]:
+                        valid_pattern = False
+                        break
+                    built_parts.append(random.choice(self.word_dict[part]))
+                else:  # It's a literal word
+                    built_parts.append(part)
+            
+            if valid_pattern:
+                constructed = " ".join(built_parts)
+                constructed_with_current = f"{constructed} {current} {constructed}"
+                if self.is_palindrome(constructed_with_current):
+                    return constructed_with_current
         
         # If none of the templates work, return the unchanged palindrome
         return current
@@ -269,17 +388,106 @@ class GrammarPalindromeGenerator:
         """
         Generate a grammatically correct palindrome paragraph with a target length.
         """
-        # Start with a simple palindrome sentence
-        palindrome = self.generate_palindrome_sentence()
-        logging.info(f"Starting with seed: {palindrome}")
+        # Start with more interesting palindromes rather than relying on expansion
+        seed_options = [
+            "Able was I ere I saw Elba",
+            "Never odd or even",
+            "A man a plan a canal Panama",
+            "Madam I'm Adam",
+            "No lemon, no melon",
+            "Rats live on no evil star",
+            "Step on no pets",
+            "Taco cat",
+            "Was it a car or a cat I saw",
+            "Eva, can I see bees in a cave",
+            "Doc, note: I dissent. A fast never prevents a fatness. I diet on cod"
+        ]
         
-        # Expand it to reach the target length
-        expanded_palindrome = self.expand_palindrome(palindrome, target_length)
+        # Start with a real palindrome rather than generating one from scratch
+        if random.random() < 0.6:  # 60% chance to use a known good palindrome
+            current = random.choice(seed_options)
+        else:
+            # Generate a basic palindrome as before
+            current = self.generate_palindrome_sentence()
+            
+        logging.info(f"Starting with seed: {current}")
+        
+        # Try to reach the target length with more diverse strategies
+        # Track the last few expansions to avoid getting stuck in a loop
+        last_expansions = []
+        attempts = 0
+        max_attempts = 5000
+        repetitive_counter = 0
+        
+        while len(current) < target_length and attempts < max_attempts:
+            attempts += 1
+            
+            # Keep track of repetitive patterns
+            if attempts % 100 == 0:
+                # Count consecutive 'a's as a measure of repetitiveness
+                if current.count('a') > len(current) * 0.5:  # If more than 50% of characters are 'a'
+                    repetitive_counter += 1
+                    if repetitive_counter > 2:
+                        # Try to break out of repetitive patterns by injecting more variety
+                        inject_text = random.choice(["was it a", "never odd or", "step on no", "rats live on no", "doc note i"])
+                        mirror_text = inject_text[::-1].replace(' ', ' ')
+                        test_palindrome = f"{inject_text} {current} {mirror_text}"
+                        if self.is_palindrome(test_palindrome):
+                            current = test_palindrome
+                            repetitive_counter = 0
+            
+            # Choose an expansion strategy with weighted probabilities
+            strategy_weights = {
+                self._expand_with_mirror_words: 0.4,
+                self._expand_with_center_word: 0.2,
+                self._expand_with_sentence_wrap: 0.4,
+            }
+            
+            # Balance strategies based on current length
+            if len(current) < target_length * 0.3:
+                # For short palindromes, prefer sentence wrap for structure
+                strategy_weights[self._expand_with_sentence_wrap] = 0.6
+                strategy_weights[self._expand_with_mirror_words] = 0.3
+                strategy_weights[self._expand_with_center_word] = 0.1
+            elif len(current) > target_length * 0.7:
+                # For nearly complete palindromes, prefer simpler expansions
+                strategy_weights[self._expand_with_mirror_words] = 0.6
+                strategy_weights[self._expand_with_center_word] = 0.3
+                strategy_weights[self._expand_with_sentence_wrap] = 0.1
+            
+            # Choose strategy based on weights
+            strategies = list(strategy_weights.keys())
+            weights = list(strategy_weights.values())
+            strategy = random.choices(strategies, weights=weights, k=1)[0]
+            
+            # Apply the chosen strategy
+            new_palindrome = strategy(current)
+            
+            if new_palindrome != current and self.is_palindrome(new_palindrome):
+                # Avoid repetitive expansions
+                if len(last_expansions) >= 5:
+                    last_expansions.pop(0)  # Remove oldest expansion
+                last_expansions.append(new_palindrome)
+                
+                # If this expansion is very similar to recent ones, try something else
+                similar_to_recent = False
+                for recent in last_expansions[:-1]:  # Skip the one we just added
+                    if len(new_palindrome) - len(recent) < 5:  # Very small expansion
+                        similar_to_recent = True
+                        break
+                
+                if not similar_to_recent:
+                    current = new_palindrome
+                    if attempts % 20 == 0:
+                        logging.info(f"Expanded palindrome to length {len(current)}/{target_length}")
+            
+        if attempts >= max_attempts:
+            logging.warning(f"Reached max attempts ({max_attempts}) without reaching target length")
         
         # Clean up and format
-        cleaned = re.sub(r'\s+', ' ', expanded_palindrome).strip()
+        cleaned = re.sub(r'\s+', ' ', current).strip()
         
-        # Check before adding capitalization and period
+        # Verify it's still a palindrome after cleaning
         if not self.is_palindrome(cleaned):
             logging.warning(f"Cleaned palindrome is not a valid palindrome: '{cleaned}'")
             # Try to find the closest valid palindrome substring
@@ -288,11 +496,6 @@ class GrammarPalindromeGenerator:
                     cleaned = cleaned[:i]
                     logging.info(f"Found valid palindrome substring: '{cleaned}'")
                     break
-        
-        # If we still don't have a valid palindrome, fall back to a simple one
-        if not self.is_palindrome(cleaned):
-            cleaned = "radar"
-            logging.warning("Falling back to simple palindrome 'radar'")
         
         # Capitalize first letter (no period at the end to maintain palindrome property)
         final_palindrome = cleaned[0].upper() + cleaned[1:]

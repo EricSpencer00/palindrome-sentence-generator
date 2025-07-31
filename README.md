@@ -8,12 +8,15 @@ This tool generates palindromes that read the same forwards and backwards, ignor
 
 ## Features
 
-- Character-level palindrome generation
+- Character-level palindrome generation that creates a single palindrome (not multiple separate palindromes)
 - Middle-outward expansion technique
-- Two-direction LLM-based generation
-- Different word boundaries between first and second half
+- LLM-based generation with optimized prompts
+- Structured sentence generation for better grammar
+- Multiple generation strategies with fallbacks
 - Smart word and phrase selection for readability
+- Automatic repair of near-palindromes
 - Validation and scoring of palindrome quality
+- Multi-sentence support for more coherent text
 - Performance metrics and error logging
 
 ## Installation
@@ -47,8 +50,36 @@ python main.py --length 200 --method grammar --verbose
 
 Options:
 
-- `--length`: Target character length (default: 300)
-- `--method`: Generation method ('basic' or 'grammar')
+- `--min-length`: Minimum character length when normalized (default: 60)
+- `--attempts`: Number of generation attempts (default: 5)
+- `--use-nltk-seed`: Use NLTK to generate a palindrome seed
+- `--model`: Model to use for LLM-based generation (default: "google/gemma-3n-e2b-it:free")
+- `--enhanced`: Use enhanced generation algorithm (default: True)
+- `--use-improved`: Use the improved multi-sentence generator
+
+## Advanced Usage
+
+### Using the Improved Generator
+
+The improved generator creates multi-sentence palindromic text with better grammar and coherence:
+
+```bash
+python main.py --use-improved --min-length 80 --attempts 10
+```
+
+You can also run the improved generator directly:
+
+```bash
+python improved_generator.py --min-length 80 --attempts 10
+```
+
+### Fallback Generator
+
+If LLM-based generation fails, the program will automatically use a local fallback generator:
+
+```bash
+python fallback_generator.py --min-length 60
+```
 - `--output`: Output file to save the generated palindrome
 - `--verbose`: Show detailed output and timing information
 - `--improve-grammar`: Attempt to improve grammar of the generated palindrome

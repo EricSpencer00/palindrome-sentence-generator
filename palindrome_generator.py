@@ -15,6 +15,8 @@ import time
 import spacy
 import ssl
 import logging
+import os
+from typing import Tuple, List, Dict, Any, Optional, Union
 from nltk.corpus import words, wordnet
 from nltk.tag import pos_tag
 from nltk.tokenize import word_tokenize
@@ -67,6 +69,14 @@ def grammar_check(doc):
 # Add the component to the pipeline
 nlp.add_pipe("grammar_check", last=True)
 
+# Try to import the LLM palindrome generator
+try:
+    from llm_palindrome import LLMPalindromeGenerator
+    LLM_AVAILABLE = True
+except ImportError:
+    logger.warning("LLM palindrome generator not available")
+    LLM_AVAILABLE = False
+
 class PalindromeParagraphGenerator:
     def __init__(self):
         """Initialize the generator with word lists and language models"""
@@ -99,6 +109,18 @@ class PalindromeParagraphGenerator:
         
         # For filtering and validation
         self.allowed_chars = set('abcdefghijklmnopqrstuvwxyz')
+        
+        # Initialize LLM generator if available
+        self.llm_generator = None
+        if LLM_AVAILABLE:
+            try:
+                self.llm_generator = LLMPalindromeGenerator(use_openai=True)
+                logger.info("LLM palindrome generator initialized")
+            except Exception as e:
+                logger.error(f"Failed to initialize LLM generator: {e}")
+                
+        # This comment indicates that even without the LLM generator,
+        # the mathematical bidirectional method will still work
 
     def _find_palindrome_words(self):
         """Find all palindrome words in the dictionary"""
@@ -902,6 +924,362 @@ class PalindromeParagraphGenerator:
         
         return total_score, details
 
+    def generate_with_llm(self, middle: str = None, target_length: int = 200, max_attempts: int = 5) -> str:
+        """
+        Generate a palindrome using a bidirectional approach.
+        
+        Args:
+            middle: Optional middle phrase to build around
+            target_length: Target character length 
+            max_attempts: Maximum attempts for generation
+            
+        Returns:
+            A character-level palindrome paragraph
+        """
+        start_time = time.time()
+        logger.info("Generating palindrome using bidirectional approach")
+        
+        # If no middle provided, choose one
+        if not middle:
+            middle_options = [
+                "a man a plan a canal panama",
+                "madam im adam",
+                "never odd or even",
+                "step on no pets",
+                "racecar",
+                "civic"
+            ]
+            middle = random.choice(middle_options)
+            logger.info(f"Using middle phrase: '{middle}'")
+        
+        # The mathematical approach:
+        # 1. Generate a meaningful right side with coherent English
+        # 2. Generate a meaningful left side based on the reversed right side
+        # 3. Ensure the combined result is a valid palindrome
+        
+        best_palindrome = None
+        best_score = 0
+        
+        for attempt in range(max_attempts):
+            logger.info(f"Bidirectional generation attempt {attempt+1}/{max_attempts}")
+            
+            # Generate right side by extending from the middle
+            right_side = self.generate_coherent_extension(
+                seed=middle, 
+                target_length=max(10, target_length // 4),
+                direction="right"
+            )
+            
+            # Create left side seed by character-reversing the right side
+            left_seed = right_side[::-1]
+            
+            # Generate left side using the reversed right side as seed
+            # This creates a completely different sentence structure
+            # but will maintain character-level palindrome property
+            left_side = self.generate_coherent_extension(
+                seed=left_seed,
+                target_length=len(right_side),
+                direction="left"
+            )
+            
+            # Ensure left side is reversed to maintain palindrome property
+            left_side = left_side[::-1]
+            
+            # Combine to form the complete palindrome
+            palindrome = left_side + middle + right_side
+            
+            # Validate the resulting palindrome
+            validation = self.validate_bidirectional_palindrome(palindrome)
+            
+            # Score this palindrome
+            score, details = self.score_palindrome(palindrome)
+            
+            logger.info(f"Generated palindrome (length: {len(palindrome)}, score: {score:.2f})")
+            
+            # Check if this is the best so far
+            if score > best_score and validation.get("is_valid", False):
+                best_score = score
+                best_palindrome = palindrome
+                logger.info(f"New best palindrome found (score: {score:.2f})")
+        
+        # If we couldn't generate a valid palindrome, use the last one or fall back
+        if not best_palindrome:
+            logger.warning("Failed to generate a valid bidirectional palindrome")
+            if 'palindrome' in locals():
+                best_palindrome = palindrome
+            else:
+                logger.warning("Falling back to middle-out method")
+                best_palindrome = self.generate_from_middle(
+                    center_word=middle, 
+                    target_length=target_length, 
+                    max_iterations=100
+                )
+        
+        # Record statistics
+        self.stats["generation_time"] = time.time() - start_time
+        self.stats["iterations"] = max_attempts
+        
+        logger.info(f"Generated bidirectional palindrome of length {len(best_palindrome)}")
+        
+        return best_palindrome
+        
+    def validate_bidirectional_palindrome(self, text: str) -> Dict[str, Any]:
+        """
+        Validate a bidirectional palindrome by checking both halves 
+        for English validity and palindrome properties.
+        
+        Args:
+            text: The palindrome text to validate
+            
+        Returns:
+            Dictionary of validation results
+        """
+        # Clean the text
+        cleaned = self.clean_text(text)
+        
+        # Basic palindrome check
+        is_palindrome = cleaned == cleaned[::-1]
+        
+        # If not a palindrome, return immediately
+        if not is_palindrome:
+            return {
+                "is_valid": False,
+                "error": "Not a palindrome",
+                "is_palindrome": False
+            }
+        
+        # Split into halves
+        mid_point = len(cleaned) // 2
+        first_half = cleaned[:mid_point]
+        second_half = cleaned[mid_point + (1 if len(cleaned) % 2 == 1 else 0):]
+        second_half_reversed = second_half[::-1]
+        
+        # Calculate character similarity
+        char_matches = sum(1 for a, b in zip(first_half, second_half_reversed) if a == b)
+        char_similarity = char_matches / len(first_half) if first_half else 0
+        
+        # Split into words to check token boundaries
+        words = text.split()
+        mid_word_idx = len(words) // 2
+        
+        first_half_words = words[:mid_word_idx]
+        second_half_words = words[mid_word_idx:]
+        second_half_words_reversed = second_half_words[::-1]
+        
+        # Count matching word pairs
+        word_matches = sum(1 for a, b in zip(first_half_words, second_half_words_reversed) 
+                          if a.lower() == b.lower())
+        word_similarity = word_matches / len(first_half_words) if first_half_words else 0
+        
+        # Check grammaticality of each half
+        first_half_text = ' '.join(first_half_words)
+        second_half_text = ' '.join(second_half_words)
+        
+        first_half_grammatical = self.check_grammar(first_half_text)
+        second_half_grammatical = self.check_grammar(second_half_text)
+        
+        # Additional check for readability
+        first_half_readable = self.is_readable(first_half_text)
+        second_half_readable = self.is_readable(second_half_text)
+        
+        # Determine if the halves differ in word structure
+        halves_differ = word_similarity < 0.5
+        
+        # Overall validity
+        is_valid = (
+            is_palindrome and 
+            halves_differ and 
+            first_half_grammatical and 
+            second_half_grammatical and
+            first_half_readable and
+            second_half_readable
+        )
+        
+        return {
+            "is_valid": is_valid,
+            "is_palindrome": is_palindrome,
+            "char_similarity": char_similarity,
+            "word_similarity": word_similarity,
+            "halves_differ": halves_differ,
+            "first_half_grammatical": first_half_grammatical,
+            "second_half_grammatical": second_half_grammatical,
+            "first_half_readable": first_half_readable,
+            "second_half_readable": second_half_readable
+        }
+    
+    def generate_coherent_extension(self, seed: str, target_length: int, direction: str = "right") -> str:
+        """
+        Generate a coherent extension of the seed text in the specified direction.
+        
+        Args:
+            seed: The seed text to extend
+            target_length: Target length of the extension
+            direction: Direction to extend ('left' or 'right')
+            
+        Returns:
+            The extended text
+        """
+        logger.info(f"Generating {direction} extension from seed: '{seed[:20]}...'")
+        
+        # Clean the seed for processing
+        clean_seed = self.clean_text(seed)
+        
+        # Initialize extension with the seed
+        extension = seed
+        current_length = len(clean_seed)
+        
+        # If extending left, we need to reverse our operations
+        if direction == "left":
+            extension = extension[::-1]  # Work with reversed text for left extension
+        
+        # Generate word by word until target length is reached
+        while current_length < target_length:
+            # Generate the next word
+            next_word = self._get_next_word_for_extension(extension)
+            
+            if not next_word:
+                logger.warning(f"Could not generate next word for {direction} extension")
+                break
+                
+            # Add space and word to extension
+            if direction == "right":
+                extension = f"{extension} {next_word}"
+            else:  # left direction (still working with reversed text)
+                extension = f"{next_word} {extension}"
+                
+            # Update length
+            current_length = len(self.clean_text(extension))
+            
+            # Check if we've hit the target
+            if current_length >= target_length:
+                break
+                
+            # Avoid overly long sequences
+            if len(extension.split()) > 30:
+                logger.warning(f"Reached word limit for {direction} extension")
+                break
+        
+        # If we were extending left, reverse the result back
+        if direction == "left":
+            extension = extension[::-1]
+            
+        return extension
+
+    def _get_next_word_for_extension(self, current_text: str) -> str:
+        """
+        Get the next word for text extension that makes sense in context.
+        Uses n-gram model, dictionary lookups, and grammatical constraints.
+        
+        Args:
+            current_text: The current text to extend
+            
+        Returns:
+            A suitable next word, or None if no suitable word found
+        """
+        # Extract the last word to find natural following words
+        words = current_text.split()
+        last_word = words[-1] if words else ""
+        
+        # Build list of candidate words
+        candidates = []
+        
+        # Try n-gram model first (for natural language)
+        if last_word in self.ngram_model:
+            next_words = self.ngram_model[last_word]
+            sorted_next = sorted(next_words.items(), key=lambda x: x[1], reverse=True)
+            candidates.extend([word for word, _ in sorted_next[:20]])  # Take top 20
+        
+        # Add part-of-speech appropriate words
+        # Add grammar-aware follow-up words based on common patterns
+        if words:
+            # Simple approach without POS tagging
+            # After common determiners, usually comes nouns or adjectives
+            if last_word.lower() in ["the", "a", "an", "this", "that", "these", "those"]:
+                nouns = self._get_palindrome_nouns()
+                adjectives = self._get_palindrome_adjectives()
+                candidates.extend(nouns[:5] + adjectives[:5])
+            # After prepositions, usually comes noun phrases
+            elif last_word.lower() in ["in", "on", "at", "by", "for", "with", "to", "from"]:
+                nouns = self._get_palindrome_nouns()
+                candidates.extend(["the", "a", "an"] + nouns[:10])
+            # After verbs, often comes nouns, adverbs or prepositions
+            elif last_word.lower() in ["is", "was", "are", "were", "be", "been", "have", "has", "had"]:
+                nouns = self._get_palindrome_nouns()
+                adverbs = ["now", "then", "soon", "here", "there"]
+                prepositions = ["in", "on", "at", "by", "for", "with", "to"]
+                candidates.extend(nouns[:5] + adverbs + prepositions)
+        
+        # Add common words if candidate list is too small
+        if len(candidates) < 10:
+            common_words = ["the", "a", "an", "in", "of", "to", "and", "with", "is", "was", 
+                          "for", "on", "at", "by", "as", "it", "be", "this", "that", "from"]
+            candidates.extend([w for w in common_words if w not in candidates])
+        
+        # Filter candidates to ensure they contain only allowed characters
+        candidates = [word for word in candidates if all(c in self.allowed_chars for c in word.lower())]
+        
+        # Further filter candidates to favor words that would preserve palindrome property
+        filtered_candidates = []
+        for word in candidates:
+            # For simplicity, we'll favor words with more symmetric letter patterns
+            # A more advanced implementation would consider the full palindrome context
+            reversed_word = word[::-1]
+            if reversed_word.lower() in self.all_words:
+                # Words whose reversal is also a word are great for palindromes
+                filtered_candidates.insert(0, word)  # Prioritize these
+            elif self._has_good_letter_pairs(word):
+                # Words with good letter pair patterns are also helpful
+                filtered_candidates.append(word)
+            else:
+                # Other words can still be used, but with lower priority
+                filtered_candidates.append(word)
+        
+        # If we have filtered candidates, use them; otherwise fall back to the original list
+        candidates = filtered_candidates if filtered_candidates else candidates
+        
+        # If still no valid candidates, return None
+        if not candidates:
+            return None
+            
+        # Choose a random word from the candidates, with preference to earlier ones
+        # This adds variety while still preferring better candidates
+        weights = [1.0/((i+1)**0.5) for i in range(len(candidates))]  # Decreasing weights
+        total = sum(weights)
+        normalized_weights = [w/total for w in weights]
+        
+        return random.choices(candidates, weights=normalized_weights, k=1)[0]
+        
+    def _has_good_letter_pairs(self, word: str) -> bool:
+        """
+        Check if a word has letter pairs that work well in palindromes.
+        
+        Args:
+            word: The word to check
+            
+        Returns:
+            True if the word has good letter pairs, False otherwise
+        """
+        # Words with these letter pairs are good for palindromes
+        good_pairs = {
+            'ae': 'ea', 'ai': 'ia', 'ao': 'oa', 'au': 'ua',
+            'ea': 'ae', 'ei': 'ie', 'eo': 'oe', 'eu': 'ue',
+            'ia': 'ai', 'ie': 'ei', 'io': 'oi', 'iu': 'ui',
+            'oa': 'ao', 'oe': 'eo', 'oi': 'io', 'ou': 'uo',
+            'ua': 'au', 'ue': 'eu', 'ui': 'iu', 'uo': 'ou',
+            'an': 'na', 'en': 'ne', 'in': 'ni', 'on': 'no', 'un': 'nu',
+            'ar': 'ra', 'er': 're', 'ir': 'ri', 'or': 'ro', 'ur': 'ru',
+            'as': 'sa', 'es': 'se', 'is': 'si', 'os': 'so', 'us': 'su',
+            'at': 'ta', 'et': 'te', 'it': 'ti', 'ot': 'to', 'ut': 'tu'
+        }
+        
+        word = word.lower()
+        for i in range(len(word) - 1):
+            pair = word[i:i+2]
+            if pair in good_pairs:
+                return True
+                
+        return False
+
 def main():
     """Main function to run the palindrome paragraph generator"""
     parser = argparse.ArgumentParser(description='Generate palindrome paragraphs')
@@ -915,8 +1293,9 @@ def main():
                        help='Show detailed output during generation')
     parser.add_argument('--center', type=str, default=None,
                        help='Optional center word to start the palindrome from')
-    parser.add_argument('--method', choices=['traditional', 'middle-out'], default='middle-out',
-                       help='Method to generate palindromes (traditional or middle-out)')
+    parser.add_argument('--method', choices=['traditional', 'middle-out', 'bidirectional'], 
+                       default='middle-out',
+                       help='Method to generate palindromes')
     args = parser.parse_args()
     
     # Initialize the generator
@@ -926,13 +1305,32 @@ def main():
     print("\nGenerating palindrome paragraph...\n")
     start_time = time.time()
     
-    if args.method == 'middle-out':
+    if args.method in ['llm', 'bidirectional']:
+        # Check if LLM generation is available
+        if not LLM_AVAILABLE and args.method == 'llm':
+            print("Warning: LLM generation not available. Falling back to bidirectional method.")
+            args.method = 'bidirectional'
+    
+    # Generate palindrome using selected method
+    if args.method == 'llm' and LLM_AVAILABLE:
+        paragraph = generator.generate_with_llm(
+            middle=args.center,
+            target_length=args.length or 200,
+            max_attempts=args.attempts
+        )
+    elif args.method == 'bidirectional':
+        paragraph = generator.generate_with_llm(
+            middle=args.center,
+            target_length=args.length or 200,
+            max_attempts=args.attempts
+        )
+    elif args.method == 'middle-out':
         paragraph = generator.generate_from_middle(
             center_word=args.center, 
             target_length=args.length or 200,
             max_iterations=100
         )
-    else:
+    else:  # traditional
         paragraph = generator.generate(max_attempts=args.attempts, target_length=args.length)
     
     end_time = time.time()
@@ -957,10 +1355,20 @@ def main():
     print(f"First half differs from second half: {halves_differ} (similarity: {similarity:.2f})")
     
     # Show generation stats
-    if args.method == 'middle-out':
+    if args.method in ['middle-out', 'llm', 'bidirectional']:
         print("\nGeneration statistics:")
         for stat, value in generator.stats.items():
             print(f"- {stat}: {value}")
+    
+    # For LLM method, perform additional validation
+    if args.method in ['llm', 'bidirectional']:
+        print("\nBidirectional validation:")
+        validation = generator.validate_bidirectional_palindrome(paragraph)
+        for key, value in validation.items():
+            if isinstance(value, float):
+                print(f"- {key}: {value:.2f}")
+            else:
+                print(f"- {key}: {value}")
     
     # Show the cleaned palindrome text (without spaces/punctuation)
     cleaned = generator.clean_text(paragraph)

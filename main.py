@@ -11,6 +11,7 @@ import logging
 import time
 from palindrome_generator import PalindromeGenerator
 from grammar_palindrome_generator import GrammarPalindromeGenerator
+from grammar_validator import GrammarValidator
 
 def setup_logging():
     """Set up logging configuration."""
@@ -51,6 +52,12 @@ def parse_arguments():
         help='Enable verbose output.'
     )
     
+    parser.add_argument(
+        '--improve-grammar',
+        action='store_true',
+        help='Attempt to improve grammar of the generated palindrome.'
+    )
+    
     return parser.parse_args()
 
 def main():
@@ -74,6 +81,42 @@ def main():
     end_time = time.time()
     generation_time = end_time - start_time
     
+    # Apply grammar improvements if requested
+    if args.improve_grammar:
+        if args.verbose:
+            print("Attempting to improve grammatical structure...")
+        
+        grammar_start_time = time.time()
+        validator = GrammarValidator()
+        initial_score = validator.score_grammatical_quality(palindrome)
+        
+        # Try multiple improvement attempts
+        best_score = initial_score
+        best_palindrome = palindrome
+        
+        for attempt in range(3):  # Try up to 3 improvement attempts
+            improved_palindrome, improved_score = validator.improve_palindrome_grammar(palindrome)
+            
+            if improved_score > best_score and generator.is_palindrome(improved_palindrome):
+                best_palindrome = improved_palindrome
+                best_score = improved_score
+                
+                if args.verbose:
+                    print(f"Grammar improved (attempt {attempt+1}): {initial_score} → {improved_score}/100")
+            
+            # Use the improved palindrome for the next improvement attempt
+            palindrome = improved_palindrome
+                
+        # Use the best palindrome found
+        if best_score > initial_score:
+            palindrome = best_palindrome
+        elif args.verbose:
+            print("No grammar improvements could be made while maintaining palindrome property.")
+        
+        grammar_time = time.time() - grammar_start_time
+        if args.verbose:
+            print(f"Grammar analysis time: {grammar_time:.2f} seconds")
+    
     # Display the generated palindrome
     print("\nGenerated Palindrome:")
     print("-" * 80)
@@ -86,6 +129,18 @@ def main():
     
     if args.verbose:
         print(f"Generation time: {generation_time:.2f} seconds")
+        
+        # If we have a grammar validator, show grammar score
+        if 'validator' in locals():
+            grammar_score = validator.score_grammatical_quality(palindrome)
+            print(f"Grammar score: {grammar_score}/100")
+            
+            # Show grammar suggestions
+            suggestions = validator.suggest_grammar_improvements(palindrome)
+            if suggestions:
+                print("\nGrammar suggestions:")
+                for suggestion in suggestions[:3]:  # Limit to top 3 suggestions
+                    print(f"- {suggestion}")
     
     # Save to output file if specified
     if args.output:

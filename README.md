@@ -1,85 +1,65 @@
-# Palindrome Paragraph Generator
+# Palindrome Sentence Generator
 
-A sophisticated Python tool that generates entire palindrome paragraphs that are grammatically correct and semantically meaningful.
+A tool for generating grammatically correct and semantically meaningful palindrome paragraphs.
 
-## What is a Palindrome Paragraph?
+## Introduction
 
-A palindrome paragraph is an entire paragraph that reads the same forwards and backwards (ignoring spaces, punctuation, and capitalization). This is much more complex than individual palindrome sentences or words.
-
-Examples of palindrome sentences (smaller units):
-- "A man, a plan, a canal: Panama"
-- "Never odd or even"
-- "Rats live on no evil star"
+This tool generates palindromes that read the same forwards and backwards, ignoring spaces, punctuation, and capitalization. It uses advanced NLP techniques to ensure the text is both a valid palindrome and makes grammatical sense.
 
 ## Features
 
-- Generates entire palindrome paragraphs (not just individual sentences)
-- Uses comprehensive English dictionary with NLTK's corpus
-- Employs natural language processing for grammatical correctness
-- Creates paragraphs that aim to be semantically meaningful
-- Uses spaCy for grammar checking
-- Implements sophisticated palindrome generation algorithms
-
-## Requirements
-
-- Python 3.6 or higher
-- Required packages: nltk, spacy, tqdm
+- Character-level palindrome generation
+- Middle-outward expansion technique
+- Different word boundaries between first and second half
+- Smart word and phrase selection for readability
+- Validation and scoring of palindrome quality
+- Performance metrics and error logging
 
 ## Installation
 
-```bash
-# Clone the repository
-git clone https://github.com/EricSpencer00/palindrome-sentence-generator.git
-cd palindrome-sentence-generator
+1. Clone this repository
+2. Install dependencies:
 
-# Install dependencies
-pip install -r requirements.txt
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-# Download required NLTK and spaCy resources
-python -c "import nltk; nltk.download('words'); nltk.download('wordnet'); nltk.download('punkt'); nltk.download('averaged_perceptron_tagger')"
-python -m spacy download en_core_web_sm
-```
+3. Download required NLTK and spaCy models (first run will download these automatically)
 
 ## Usage
 
+Basic usage:
+
 ```bash
-# Generate a palindrome paragraph
-python3 palindrome_generator.py
-
-# Specify the maximum number of sentences
-python3 palindrome_generator.py --sentences 7
-
-# Specify number of generation attempts (higher = better quality but slower)
-python3 palindrome_generator.py --attempts 5
+python palindrome_generator.py
 ```
+
+With options:
+
+```bash
+python palindrome_generator.py --length 200 --method middle-out --center "a" --verbose
+```
+
+Options:
+
+- `--sentences`: Minimum number of sentences (default: 5)
+- `--attempts`: Number of generation attempts (default: 10)
+- `--length`: Target character length
+- `--verbose`: Show detailed output
+- `--center`: Optional center word/character to start with
+- `--method`: Generation method ('traditional' or 'middle-out')
 
 ## How It Works
 
-The generator uses several sophisticated techniques to create palindrome paragraphs:
+The generator uses two primary approaches:
 
-1. **Dictionary-Based Approach**: Uses NLTK's comprehensive English dictionary to find valid words.
-2. **Palindrome Word Identification**: Pre-computes all palindrome words in the dictionary.
-3. **Part-of-Speech Tagging**: Categorizes words by parts of speech to create more grammatical sentences.
-4. **N-gram Models**: Uses language models to improve the flow and naturalness of the text.
-5. **Mirrored Paragraph Construction**: Creates paragraphs where the second half mirrors the first half.
-6. **Grammar Checking**: Uses spaCy to verify grammatical correctness.
-7. **Readability Scoring**: Scores generated paragraphs for readability and selects the best one.
+1. **Traditional**: Creates palindrome sentences by mirroring words around a center.
+2. **Middle-Out**: Starts with a center character or word and builds outward, ensuring character-level palindrome properties while maintaining different word boundaries between halves.
 
-## Example Output
+## Testing
 
+Run the test suite:
+
+```bash
+python test_palindrome_generator.py
 ```
-====================================================================
-PALINDROME PARAGRAPH:
-====================================================================
-Noon level radar. Rotator deed did level radar. Radar level did deed rotator. Radar level noon.
-====================================================================
-Is palindrome: True
-Length: 121 characters
-Time taken: 5.23 seconds
-```
-
-## Limitations
-
-- Generating perfect palindrome paragraphs that are grammatically correct and semantically meaningful is an extremely challenging problem
-- Longer paragraphs tend to sacrifice grammatical correctness or semantic meaning
-- The generation process can be slow due to the complexity of the task

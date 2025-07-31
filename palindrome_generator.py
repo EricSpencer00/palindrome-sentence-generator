@@ -1293,8 +1293,8 @@ def main():
                        help='Show detailed output during generation')
     parser.add_argument('--center', type=str, default=None,
                        help='Optional center word to start the palindrome from')
-    parser.add_argument('--method', choices=['traditional', 'middle-out', 'bidirectional'], 
-                       default='middle-out',
+    parser.add_argument('--method', choices=['traditional', 'middle-out', 'bidirectional', 'llm'], 
+                       default='bidirectional',
                        help='Method to generate palindromes')
     args = parser.parse_args()
     

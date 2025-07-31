@@ -10,6 +10,7 @@ This tool generates palindromes that read the same forwards and backwards, ignor
 
 - Character-level palindrome generation
 - Middle-outward expansion technique
+- Two-direction LLM-based generation
 - Different word boundaries between first and second half
 - Smart word and phrase selection for readability
 - Validation and scoring of palindrome quality
@@ -25,6 +26,10 @@ This tool generates palindromes that read the same forwards and backwards, ignor
    ```
 
 3. Download required NLTK and spaCy models (first run will download these automatically)
+
+4. (Optional) For LLM-based generation:
+   - Copy `.env.template` to `.env`
+   - Add your OpenAI API key to the `.env` file
 
 ## Usage
 
@@ -47,14 +52,22 @@ Options:
 - `--length`: Target character length
 - `--verbose`: Show detailed output
 - `--center`: Optional center word/character to start with
-- `--method`: Generation method ('traditional' or 'middle-out')
+- `--method`: Generation method ('traditional', 'middle-out', 'llm', or 'bidirectional')
+- `--use-openai`: Use OpenAI API for LLM-based generation (requires API key)
 
-## How It Works
+## Generation Methods
 
-The generator uses two primary approaches:
+The generator supports multiple approaches:
 
 1. **Traditional**: Creates palindrome sentences by mirroring words around a center.
+
 2. **Middle-Out**: Starts with a center character or word and builds outward, ensuring character-level palindrome properties while maintaining different word boundaries between halves.
+
+3. **LLM/Bidirectional**: Uses language models to generate both sides with better semantics:
+   - Generates the right side using a language model
+   - Uses the character-reversed right side as a prompt for generating the left side
+   - Ensures both halves are valid English
+   - Post-processes for punctuation/spacing symmetry
 
 ## Testing
 

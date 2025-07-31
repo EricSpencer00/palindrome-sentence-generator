@@ -95,3 +95,25 @@ Run the test suite:
 ```bash
 python test_palindrome_generator.py
 ```
+
+## Recent Improvements
+
+### Grammar Palindrome Generator
+- Enhanced seed options for better starting points.
+- Improved wrapping templates for aggressive expansion.
+- Added timeout mechanisms to prevent generation loops.
+- Optimized expansion strategies for different target lengths.
+
+### Grammar Validator
+- Improved grammar scoring algorithm.
+- Added more strategies for grammar improvement.
+- Enhanced suggestion generation for better readability.
+
+### Main Program
+- Increased grammar improvement attempts.
+- Better tracking of generation progress.
+- Enhanced verbose output for debugging and analysis.
+
+### Testing
+- Added `test_improvements.py` for focused testing of new features.
+- Enhanced `test_final.py` for comprehensive validation of all components.

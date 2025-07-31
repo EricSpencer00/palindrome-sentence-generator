@@ -10,6 +10,7 @@ character level while maintaining English grammar rules.
 import nltk
 import spacy
 import random
+import time
 from tqdm import tqdm
 import logging
 import os
@@ -388,7 +389,7 @@ class GrammarPalindromeGenerator:
         """
         Generate a grammatically correct palindrome paragraph with a target length.
         """
-        # Start with more interesting palindromes rather than relying on expansion
+        # Enhanced seed options with high-quality palindromes
         seed_options = [
             "Able was I ere I saw Elba",
             "Never odd or even",
@@ -400,69 +401,148 @@ class GrammarPalindromeGenerator:
             "Taco cat",
             "Was it a car or a cat I saw",
             "Eva, can I see bees in a cave",
-            "Doc, note: I dissent. A fast never prevents a fatness. I diet on cod"
+            "Doc, note: I dissent. A fast never prevents a fatness. I diet on cod",
+            "Dennis and Edna sinned",
+            "Don't nod",
+            "Sums are not set as a test on Sumas",
+            "Go hang a salami, I'm a lasagna hog",
+            "Do geese see God",
+            "Mr. Owl ate my metal worm",
+            "A Santa at NASA",
+            "Draw, O coward"
         ]
         
-        # Start with a real palindrome rather than generating one from scratch
-        if random.random() < 0.6:  # 60% chance to use a known good palindrome
+        # Add specific well-formed palindromes for different length targets
+        if target_length < 100:
+            # Add some shorter palindromes for shorter targets
+            short_seeds = [
+                "Step on no pets", 
+                "Taco cat", 
+                "Able was I ere I saw Elba", 
+                "Madam I'm Adam",
+                "Never odd or even"
+            ]
+            seed_options = short_seeds + seed_options
+        elif target_length > 200:
+            # Add some longer seeds for longer targets
+            long_seeds = [
+                "Doc, note: I dissent. A fast never prevents a fatness. I diet on cod",
+                "A man a plan a canal Panama a man a plan a canal Panama",
+                "Dennis and Edna sinned and I saw Elba able was I and Dennis and Edna sinned"
+            ]
+            seed_options = long_seeds + seed_options
+        
+        # Start with a known good palindrome with higher probability
+        if random.random() < 0.8:  # 80% chance to use a known good palindrome
             current = random.choice(seed_options)
         else:
-            # Generate a basic palindrome as before
+            # Generate a basic palindrome
             current = self.generate_palindrome_sentence()
         
         # Add a prefix 'A ' and suffix ' a' to ensure it's a palindrome and has room to grow
-        if not current.startswith('A '):
+        if not current.lower().startswith('a '):
             current = 'A ' + current
-        if not current.endswith(' a'):
+        if not current.lower().endswith(' a'):
             current = current + ' a'
             
         logging.info(f"Starting with seed: {current}")
         
-        # Force application of wrapping with multiple known good palindromes to quickly reach target length
-        if len(current) < target_length * 0.8:  # If we're far from target, apply aggressive wrapping
-            wrapping_palindromes = [
+        # Apply aggressive wrapping with known good palindromes to quickly reach target length
+        if len(current) < target_length * 0.8:
+            # Use a variety of templates for different target lengths
+            wrapping_templates = [
+                # Simple wrappers (add ~10-20 chars)
+                "a man a {0} a nam a",
+                "I {0} I",
+                "mom {0} mom",
+                "was it a {0} a ti saw",
+                
+                # Medium wrappers (add ~30-50 chars)
                 "a man a plan a {0} a nalp a nam a",
                 "never odd or even {0} neve ro ddo reven",
-                "step on no pets {0} step on no pets", 
+                "step on no pets {0} step on no pets",
+                
+                # Large wrappers (add ~70-100+ chars)
                 "was it a car or a cat I saw {0} was I tac a ro rac a ti saw",
                 "doc note I dissent a fast never prevents a fatness I diet on cod {0} doc no teid I ssentaf a stneverpreven tsaf a tnessid I eton cod"
             ]
             
-            # Try to apply as many wrappings as needed
-            for _ in range(3):  # Try up to 3 different wrappings
-                if len(current) < target_length * 0.8:
-                    wrap_template = random.choice(wrapping_palindromes)
-                    wrapped = wrap_template.format(current)
-                    if self.is_palindrome(wrapped):
-                        current = wrapped
-                        logging.info(f"Applied aggressive wrapping: {len(current)}/{target_length}")
-                else:
-                    break
+            # Select appropriate templates based on how far we are from target
+            template_choices = wrapping_templates
+            if target_length - len(current) < 50:
+                # Need small expansion
+                template_choices = wrapping_templates[:4]  
+            elif target_length - len(current) > 150:
+                # Need large expansion
+                template_choices = wrapping_templates[5:]
+            
+            # Try up to 5 different wrappings to get close to target
+            wrapping_attempts = 0
+            while len(current) < target_length * 0.8 and wrapping_attempts < 5:
+                wrapping_attempts += 1
+                wrap_template = random.choice(template_choices)
+                wrapped = wrap_template.format(current)
+                if self.is_palindrome(wrapped):
+                    current = wrapped
+                    logging.info(f"Applied aggressive wrapping: {len(current)}/{target_length}")
+                    
+                    # Update template choices based on new length
+                    if target_length - len(current) < 50:
+                        template_choices = wrapping_templates[:4]
+                    elif target_length - len(current) > 150:
+                        template_choices = wrapping_templates[5:]
+                    else:
+                        template_choices = wrapping_templates[2:7]
         
         # Try to reach the target length with more diverse strategies
-        # Track the last few expansions to avoid getting stuck in a loop
         last_expansions = []
         attempts = 0
-        max_attempts = 10000  # Increase max attempts
+        max_attempts = 10000
         repetitive_counter = 0
         expansion_failures = 0
+        last_expansion_time = time.time()
         
         while len(current) < target_length and attempts < max_attempts:
             attempts += 1
             
+            # Break out of loops where we're not making progress
+            current_time = time.time()
+            if current_time - last_expansion_time > 5 and attempts > 1000:  # 5 second timeout with no expansion
+                logging.warning(f"No significant expansion in 5 seconds, trying aggressive approach")
+                
+                # Try an aggressive approach to break out
+                for template in [
+                    f"a man a plan a canal {current} lanac a nalp a nam a",
+                    f"doc note I dissent {current} tnessid I eton cod",
+                    f"never odd or even a {current} a neve ro ddo reven"
+                ]:
+                    if self.is_palindrome(template):
+                        current = template
+                        expansion_failures = 0
+                        last_expansion_time = current_time
+                        logging.info(f"Applied timeout expansion: {len(current)}/{target_length}")
+                        break
+            
             # Keep track of repetitive patterns
             if attempts % 100 == 0:
-                # Count consecutive 'a's as a measure of repetitiveness
-                if current.count('a') > len(current) * 0.5:  # If more than 50% of characters are 'a'
+                # Check for repetitive patterns
+                if current.count('a') > len(current) * 0.4:  # If more than 40% of characters are 'a'
                     repetitive_counter += 1
                     if repetitive_counter > 2:
                         # Try to break out of repetitive patterns by injecting more variety
-                        inject_text = random.choice(["was it a", "never odd or", "step on no", "rats live on no", "doc note i"])
-                        mirror_text = inject_text[::-1].replace(' ', ' ')
+                        inject_options = [
+                            "was it a", "never odd or", "step on no", 
+                            "rats live on no", "doc note i", "level",
+                            "mom wow", "radar", "kayak", "civic", 
+                            "rotator", "deified", "racecar"
+                        ]
+                        inject_text = random.choice(inject_options)
+                        mirror_text = ' '.join(word[::-1] for word in inject_text.split()[::-1])
                         test_palindrome = f"{inject_text} {current} {mirror_text}"
                         if self.is_palindrome(test_palindrome):
                             current = test_palindrome
                             repetitive_counter = 0
+                            last_expansion_time = current_time
             
             # Choose an expansion strategy with weighted probabilities
             strategy_weights = {
@@ -471,7 +551,7 @@ class GrammarPalindromeGenerator:
                 self._expand_with_sentence_wrap: 0.4,
             }
             
-            # Balance strategies based on current length
+            # Adjust weights based on current progress
             if len(current) < target_length * 0.3:
                 # For short palindromes, prefer sentence wrap for structure
                 strategy_weights[self._expand_with_sentence_wrap] = 0.6
@@ -492,6 +572,10 @@ class GrammarPalindromeGenerator:
             new_palindrome = strategy(current)
             
             if new_palindrome != current and self.is_palindrome(new_palindrome):
+                # Track significant expansions
+                if len(new_palindrome) - len(current) > 5:
+                    last_expansion_time = current_time
+                
                 # Avoid repetitive expansions
                 if len(last_expansions) >= 5:
                     last_expansions.pop(0)  # Remove oldest expansion
@@ -511,26 +595,49 @@ class GrammarPalindromeGenerator:
             else:
                 expansion_failures += 1
                 
-                # If we've failed too many times and we're far from target length, 
-                # try a more aggressive approach
-                if expansion_failures > 100 and len(current) < target_length * 0.5:
-                    # Wrap with a larger palindrome structure
-                    wrap_options = [
-                        f"I {current} I",
-                        f"mom {current} mom",
-                        f"radar {current} radar",
-                        f"a man a plan a {current} a nalp a nam a",
-                        f"step on no {current} on pets",
-                        f"was it a {current} a ti saw",
-                        f"never odd or {current} ro ddo reven"
-                    ]
+                # If we've failed too many times, try more aggressive approaches
+                if expansion_failures > 100:
+                    # Try different expansion strategies based on how far we are from target
+                    if len(current) < target_length * 0.5:
+                        # We're far from target, use bigger expansions
+                        wrap_options = [
+                            f"a man a plan a canal {current} lanac a nalp a nam a",
+                            f"doc note I dissent a fast never prevents a fatness I diet on cod {current} doc no teid I ssentaf a stneverpreven tsaf a tnessid I eton cod",
+                            f"was it a car or a cat I saw {current} was I tac a ro rac a ti saw",
+                            f"never odd or even {current} neve ro ddo reven"
+                        ]
+                    else:
+                        # We're closer to target, use smaller expansions
+                        wrap_options = [
+                            f"I {current} I",
+                            f"mom {current} mom",
+                            f"radar {current} radar",
+                            f"level {current} level",
+                            f"step on no {current} on pets",
+                            f"was it a {current} a ti saw",
+                            f"never odd or {current} ro ddo reven"
+                        ]
                     
+                    # Try each option
                     for option in wrap_options:
                         if self.is_palindrome(option):
                             current = option
                             expansion_failures = 0
+                            last_expansion_time = time.time()
                             logging.info(f"Applied aggressive expansion: {len(current)}/{target_length}")
                             break
+                    
+                    # If still failing, add arbitrary known palindrome words
+                    if expansion_failures > 200:
+                        # Add palindrome words/phrases at the beginning and end
+                        palindrome_units = ["mom", "dad", "wow", "radar", "kayak", "level", "a dog a", "a cat a", "a man a", "no x on"]
+                        for unit in palindrome_units:
+                            test = f"{unit} {current} {unit}"
+                            if self.is_palindrome(test):
+                                current = test
+                                expansion_failures = 0
+                                last_expansion_time = time.time()
+                                break
             
         if attempts >= max_attempts:
             logging.warning(f"Reached max attempts ({max_attempts}) without reaching target length")

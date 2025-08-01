@@ -8,12 +8,15 @@ This tool generates palindromes that read the same forwards and backwards, ignor
 
 ## Features
 
-- Character-level palindrome generation
+- Character-level palindrome generation that creates a single palindrome (not multiple separate palindromes)
 - Middle-outward expansion technique
-- Two-direction LLM-based generation
-- Different word boundaries between first and second half
+- LLM-based generation with optimized prompts
+- Structured sentence generation for better grammar
+- Multiple generation strategies with fallbacks
 - Smart word and phrase selection for readability
+- Automatic repair of near-palindromes
 - Validation and scoring of palindrome quality
+- Multi-sentence support for more coherent text
 - Performance metrics and error logging
 
 ## Installation
@@ -47,8 +50,55 @@ python main.py --length 200 --method grammar --verbose
 
 Options:
 
-- `--length`: Target character length (default: 300)
-- `--method`: Generation method ('basic' or 'grammar')
+- `--min-length`: Minimum character length when normalized (default: 60)
+- `--attempts`: Number of generation attempts (default: 5)
+- `--use-nltk-seed`: Use NLTK to generate a palindrome seed
+- `--model`: Model to use for LLM-based generation (default: "google/gemma-3n-e2b-it:free")
+- `--enhanced`: Use enhanced generation algorithm (default: True)
+- `--use-improved`: Use the improved multi-sentence generator
+
+## Advanced Usage
+
+### Using the Improved Generator
+
+The improved generator creates multi-sentence palindromic text with better grammar and coherence:
+
+```bash
+python main.py --use-improved --min-length 80 --attempts 10
+```
+
+You can also run the improved generator directly:
+
+```bash
+python improved_generator.py --min-length 80 --attempts 10
+```
+
+### Fallback Generator
+
+If LLM-based generation fails, the program will automatically use a local fallback generator:
+
+```bash
+python fallback_generator.py --min-length 60
+```
+- `--output`: Output file to save the generated palindrome
+- `--verbose`: Show detailed output and timing information
+- `--improve-grammar`: Attempt to improve grammar of the generated palindrome
+
+### Improved Generator
+
+For best results, use the improved generator:
+
+```bash
+python improved_generator.py --length 250 --attempts 10 --improve-attempts 15 --verbose
+```
+
+Advanced options (improved generator):
+
+- `--length`: Target character length (default: 250)
+- `--attempts`: Number of generation attempts (default: 10)
+- `--improve-attempts`: Number of grammar improvement attempts (default: 15)
+- `--parallel`: Use parallel generation for better results
+- `--threads`: Number of parallel threads (default: 4)
 - `--output`: Output file to save the generated palindrome
 - `--verbose`: Show detailed output and timing information
 
@@ -95,3 +145,31 @@ Run the test suite:
 ```bash
 python test_palindrome_generator.py
 ```
+
+## Recent Improvements
+
+### Improved Generator
+- Added parallel generation capability for better results
+- Implemented multi-attempt generation with best candidate selection
+- Enhanced grammar improvement algorithm with aggressive strategies
+- Added weighted scoring to balance grammar quality and length requirements
+
+### Grammar Palindrome Generator
+- Enhanced seed options for better starting points
+- Improved wrapping templates for aggressive expansion
+- Added timeout mechanisms to prevent generation loops
+- Optimized expansion strategies for different target lengths
+
+### Grammar Validator
+- Improved grammar scoring algorithm
+- Added more strategies for grammar improvement
+- Enhanced suggestion generation for better readability
+
+### Main Program
+- Increased grammar improvement attempts
+- Better tracking of generation progress
+- Enhanced verbose output for debugging and analysis
+
+### Testing
+- Added `test_improvements.py` for focused testing of new features
+- Enhanced `test_final.py` for comprehensive validation of all components

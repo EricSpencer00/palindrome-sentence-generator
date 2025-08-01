@@ -233,7 +233,25 @@ class ConstructivePalindromeGenerator:
         result = ""
         i = 0
         
+        # Add more common words that can be useful in palindromes
         common_words = self.common_words.union(set(self.palindrome_words))
+        extra_words = {
+            "a", "is", "as", "at", "be", "by", "do", "go", "he", "hi", "if", "in", "it", 
+            "me", "my", "no", "of", "on", "or", "so", "to", "up", "us", "we", "yes",
+            "the", "and", "but", "for", "not", "with", "this", "that", "have", "from",
+            "one", "all", "was", "are", "were", "been", "has", "had", "can", "will",
+            "would", "could", "should", "may", "might", "must", "shall", "part", "draw",
+            "see", "saw", "seen", "gone", "done", "made", "said", "time", "more", "most",
+            "some", "such", "than", "then", "them", "they", "there", "these", "those",
+            "when", "where", "which", "while", "who", "whom", "whose", "why", "how",
+            "now", "ever", "never", "always", "often", "soon", "today", "night", "day",
+            "week", "month", "year", "here", "now", "back", "down", "over", "under",
+            "again", "still", "yet", "too", "also", "well", "just", "even", "only",
+            "very", "much", "more", "most", "other", "new", "old", "good", "bad",
+            "high", "low", "big", "small", "long", "short", "far", "near", "fast",
+            "slow", "hard", "soft", "hot", "cold", "wet", "dry", "full", "empty"
+        }
+        common_words.update(extra_words)
         
         # Try to add some more common words from NLTK
         try:
@@ -243,48 +261,82 @@ class ConstructivePalindromeGenerator:
         except Exception as e:
             print(f"Warning: Error accessing NLTK words: {e}")
         
-        while i < len(normalized_text):
-            # Try to find the longest matching word at this position
-            found_word = False
-            for length in range(min(8, len(normalized_text) - i), 1, -1):
-                potential_word = normalized_text[i:i+length]
-                if potential_word in common_words:
-                    result += " " + potential_word
-                    i += length
-                    found_word = True
-                    break
-            
-            if not found_word:
-                # If no word was found, add the character and move on
-                if not result:  # Start of string
-                    result += normalized_text[i]
-                else:
-                    # Sometimes group 2-3 letters together to create pronounceable chunks
-                    if random.random() < 0.3 and i + 2 <= len(normalized_text):
-                        result += " " + normalized_text[i:i+2]
-                        i += 2
-                    else:
-                        result += " " + normalized_text[i]
-                        i += 1
+        # First, try to find known palindrome words
+        palindrome_positions = []
+        for word in sorted(self.palindrome_words, key=len, reverse=True):
+            pos = normalized_text.find(word)
+            while pos >= 0:
+                palindrome_positions.append((pos, pos + len(word), word))
+                pos = normalized_text.find(word, pos + 1)
         
-        # Clean up the text with proper capitalization and punctuation
-        result = result.strip()
-        sentences = []
-        words = result.split()
+        # Sort by position
+        palindrome_positions.sort()
         
+        # Create segments to process, skipping the palindrome words
+        segments = []
+        last_end = 0
+        for start, end, _ in palindrome_positions:
+            if start > last_end:
+                segments.append((last_end, start, normalized_text[last_end:start]))
+            last_end = end
+        if last_end < len(normalized_text):
+            segments.append((last_end, len(normalized_text), normalized_text[last_end:]))
+        
+        # Now process each segment and the palindrome words
+        all_parts = sorted(palindrome_positions + segments, key=lambda x: x[0])
+        
+        # Process each part
+        words_in_result = []
+        for start, end, text in all_parts:
+            if isinstance(text, str) and len(text) > 1:
+                # Process segment of text
+                i = 0
+                while i < len(text):
+                    # Try to find the longest matching word at this position
+                    found_word = False
+                    for length in range(min(8, len(text) - i), 1, -1):
+                        potential_word = text[i:i+length]
+                        if potential_word in common_words:
+                            words_in_result.append(potential_word)
+                            i += length
+                            found_word = True
+                            break
+                    
+                    if not found_word:
+                        # If no word was found, try to make pronounceable chunks
+                        if i + 2 <= len(text) and random.random() < 0.6:
+                            # Try to make 2-3 letter chunks that are pronounceable
+                            chunk = text[i:i+min(3, len(text)-i)]
+                            # Check if chunk has at least one vowel to be pronounceable
+                            if any(c in "aeiou" for c in chunk):
+                                words_in_result.append(chunk)
+                                i += len(chunk)
+                            else:
+                                words_in_result.append(text[i])
+                                i += 1
+                        else:
+                            words_in_result.append(text[i])
+                            i += 1
+            else:
+                # Add palindrome word directly
+                words_in_result.append(text)
+        
+        # Now convert the words into readable sentences
         current_sentence = []
-        for i, word in enumerate(words):
+        sentences = []
+        
+        for i, word in enumerate(words_in_result):
             current_sentence.append(word)
             
             # End sentence at random intervals or at the end
-            if (i > 3 and random.random() < 0.2) or i == len(words) - 1:
+            if (len(current_sentence) > 3 and random.random() < 0.25) or i == len(words_in_result) - 1:
                 if current_sentence:
                     # Capitalize first word
                     current_sentence[0] = current_sentence[0].capitalize()
                     
                     # Add punctuation based on sentence content
                     sentence = " ".join(current_sentence)
-                    if "?" in sentence or random.random() < 0.2:
+                    if random.random() < 0.1:
                         sentence += "?"
                     else:
                         sentence += "."
@@ -309,12 +361,29 @@ class ConstructivePalindromeGenerator:
         
         normalized = normalize(center)
         
+        # Add some famous palindrome patterns as potential centers
+        famous_centers = [
+            "amanaplanacanalpanama",  # A man, a plan, a canal: Panama
+            "ablewasiereisawelba",    # Able was I ere I saw Elba
+            "madam",
+            "racecar",
+            "neveroddoneven",         # Never odd or even
+            "notlob",                 # Not a lob (from Monty Python)
+            "ratsliveonnoevilstar",   # Rats live on no evil star
+            "steponnopets",           # Step on no pets
+            "wasitacatoracaratisaw"   # Was it a car or a cat I saw?
+        ]
+        
+        if random.random() < 0.3:
+            # Use a famous palindrome as center occasionally
+            normalized = random.choice(famous_centers)
+        
         # Build outward until we reach the minimum length
         while len(normalized) < min_length:
             # Choose how to extend
             extension_type = random.choices(
-                ["single_letter", "word_pair", "palindrome_sequence"],
-                weights=[0.4, 0.4, 0.2]
+                ["single_letter", "word_pair", "palindrome_sequence", "common_pattern"],
+                weights=[0.3, 0.4, 0.2, 0.1]
             )[0]
             
             if extension_type == "single_letter":
@@ -331,12 +400,42 @@ class ConstructivePalindromeGenerator:
                     # Fallback to a single letter
                     letter = random.choice(list("etaoinshrdlucmfwypvbgkjqxz"))
                     normalized = letter + normalized + letter
-                    
-            else:  # palindrome_sequence
+            
+            elif extension_type == "palindrome_sequence":
                 # Add a palindromic sequence
-                sequences = ["aba", "aca", "ada", "aea", "aha", "ala", "ama", "ana", "apa", "ara", "asa", "ata", "ava"]
+                sequences = [
+                    "aba", "aca", "ada", "aea", "aha", "ala", "ama", "ana", "apa", "ara", 
+                    "asa", "ata", "ava", "awa", "axa", "aya", "aza", 
+                    "ded", "did", "dod", "dud", 
+                    "eve", "eye", 
+                    "imi", "ini", 
+                    "olo", "omo", "ono", "opo", "oso", "oto", "ovo", "owo", "oxo", 
+                    "ullu", "ummu", "unnu", "uppu", "urru", "ussu", "uttu", "uvvu", 
+                    "abcba", "acbca", "adbda", "aebea", "afbfa", "agbga", "ahbha"
+                ]
                 seq = random.choice(sequences)
                 normalized = seq + normalized + seq
+            
+            else:  # common_pattern
+                # Add a common palindromic pattern
+                patterns = [
+                    "aibohphobia",  # Fear of palindromes
+                    "detartrated",
+                    "rotavator",
+                    "sensuousness",
+                    "tattarrattat"
+                ]
+                pattern = normalize(random.choice(patterns))
+                half_len = len(pattern) // 2
+                if random.random() < 0.5:
+                    # Add first half to beginning, second half to end
+                    normalized = pattern[:half_len] + normalized + pattern[half_len:]
+                else:
+                    # Add whole pattern to one side (chosen randomly)
+                    if random.random() < 0.5:
+                        normalized = pattern + normalized
+                    else:
+                        normalized = normalized + pattern
         
         # Convert to readable text
         return self._convert_to_readable_text(normalized)

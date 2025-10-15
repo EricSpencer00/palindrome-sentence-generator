@@ -89,6 +89,11 @@ Examples:
         action="store_true",
         help="Show detailed information"
     )
+    parser.add_argument(
+        "--readable",
+        action="store_true",
+        help="Produce more readable output by adding symmetric spacing and punctuation"
+    )
     
     args = parser.parse_args()
     
@@ -116,7 +121,8 @@ Examples:
             palindrome, normalized, is_valid = generate_palindrome(
                 min_length=args.length,
                 method=args.method,
-                seed=args.seed
+                seed=args.seed,
+                use_deterministic_spacing=args.readable
             )
             
             if is_valid:

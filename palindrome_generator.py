@@ -55,7 +55,8 @@ class PalindromeGenerator:
             random.seed(seed)
     
     def generate_from_core(self, min_length: int = 60, 
-                          use_spaces: bool = True) -> Tuple[str, str]:
+                          use_spaces: bool = True,
+                          use_deterministic_spacing: bool = False) -> Tuple[str, str]:
         """
         Generate a palindrome by starting with a palindromic core and building outward.
         
@@ -86,7 +87,10 @@ class PalindromeGenerator:
         
         # Convert to readable text with spacing if requested
         if use_spaces:
-            readable = self._add_spacing(normalized)
+            if use_deterministic_spacing:
+                readable = self._add_symmetric_spacing(normalized)
+            else:
+                readable = self._add_spacing(normalized)
         else:
             readable = normalized
         
@@ -133,8 +137,8 @@ class PalindromeGenerator:
             letter = random.choice('abcdefghijklmnopqrstuvwxyz')
             normalized = letter + normalized + letter
         
-        # Convert back to readable format
-        readable = self._add_sentence_formatting(normalized)
+        # Convert back to readable format (use deterministic symmetric spacing for sentence-style)
+        readable = self._add_symmetric_spacing(normalized)
         
         return readable, normalized
     
@@ -172,10 +176,83 @@ class PalindromeGenerator:
             # Even length - just mirror
             normalized = first_half + first_half[::-1]
         
-        # Add readable formatting
-        readable = self._add_spacing(normalized)
+        # Add readable formatting (use symmetric deterministic spacing by default)
+        readable = self._add_symmetric_spacing(normalized)
         
         return readable, normalized
+
+    def _add_symmetric_spacing(self, normalized: str) -> str:
+        """
+        Deterministically add symmetric spaces and periods to improve readability while
+        preserving character-level palindrome property.
+
+        Algorithm (deterministic):
+        - Compute the middle index and operate on the first half
+        - Walk the first half and choose chunk sizes based on character ordinals
+          (2-5 characters per chunk)
+        - Insert spaces at chunk boundaries in the first half and mirror them in the second half
+        - After grouping into word-like chunks, insert periods every N chunks (also mirrored)
+        """
+        length = len(normalized)
+        if length <= 4:
+            return normalized
+
+        half = length // 2
+        first = normalized[:half]
+        # second is not used explicitly as we operate on indices for symmetry
+        # second = normalized[half:]
+
+        # Determine chunk boundaries for the first half deterministically
+        positions = []
+        pos = 0
+        while pos < len(first):
+            c = first[pos]
+            # Map character to chunk size 2..5 deterministically
+            chunk = 2 + (ord(c) % 4)
+            next_pos = pos + chunk
+            if next_pos >= len(first):
+                positions.append(len(first))
+                break
+            else:
+                positions.append(next_pos)
+            pos = next_pos
+
+        # Build text with symmetric spaces
+        chars = list(normalized)
+        space_indices = set()
+        for p in positions:
+            idx_left = p - 1
+            if 0 <= idx_left < half:
+                space_indices.add(idx_left)
+                # mirror index in second half
+                mirror_idx = length - 1 - idx_left
+                space_indices.add(mirror_idx)
+
+        # Build text with spaces inserted after indices in space_indices
+        out = []
+        for i, ch in enumerate(chars):
+            out.append(ch)
+            if i in space_indices:
+                out.append(' ')
+
+        text = ''.join(out).strip()
+
+        # Now split into words and deterministically insert periods every N words
+        words = text.split()
+        if not words:
+            return text
+
+        # Determine sentence length deterministically from length
+        sentence_len = 4 + (length % 3)  # 4..6 words
+        sentences = []
+        for i in range(0, len(words), sentence_len):
+            sentence = ' '.join(words[i:i+sentence_len])
+            sentence = sentence[0].upper() + sentence[1:] + '.'
+            sentences.append(sentence)
+
+        # Join sentences; this preserves symmetry because words and sentence boundaries
+        # were inserted deterministically based on the first half
+        return ' '.join(sentences)
     
     def _add_spacing(self, normalized: str) -> str:
         """
@@ -197,7 +274,7 @@ class PalindromeGenerator:
         first_half = normalized[:middle]
         space_positions = set()
         
-        # Add spaces every 3-5 characters
+        # Add spaces every 2-5 characters in the first half
         pos = 0
         while pos < len(first_half):
             chunk_size = random.randint(2, 5)
@@ -205,20 +282,22 @@ class PalindromeGenerator:
             if pos < len(first_half):
                 space_positions.add(pos)
         
+        # Convert those first-half positions into actual indices in the full string
+        full_space_indices = set()
+        for p in space_positions:
+            idx_left = p - 1
+            if 0 <= idx_left < middle:
+                full_space_indices.add(idx_left)
+                mirror_idx = length - 1 - idx_left
+                full_space_indices.add(mirror_idx)
+
         # Build the text with symmetric spacing
         result = []
         for i, char in enumerate(normalized):
             result.append(char)
-            
-            # Add space if this position should have one
-            if i in space_positions:
+            if i in full_space_indices:
                 result.append(' ')
-            
-            # Mirror position: add space if mirror position has one
-            mirror_pos = length - 1 - i
-            if mirror_pos in space_positions and mirror_pos != i:
-                result.append(' ')
-        
+
         text = ''.join(result)
         
         # Capitalize first letter and add punctuation
@@ -295,7 +374,8 @@ class PalindromeGenerator:
         return ' '.join(sentences)
     
     def generate(self, min_length: int = 60, 
-                 method: str = 'auto') -> Tuple[str, str, bool]:
+                 method: str = 'auto',
+                 use_deterministic_spacing: bool = False) -> Tuple[str, str, bool]:
         """
         Generate a palindrome using the specified method.
         
@@ -311,9 +391,13 @@ class PalindromeGenerator:
             method = random.choice(['core', 'sentence', 'mirror'])
         
         if method == 'core':
-            readable, normalized = self.generate_from_core(min_length)
+            readable, normalized = self.generate_from_core(min_length, use_spaces=True, use_deterministic_spacing=use_deterministic_spacing)
         elif method == 'sentence':
+            # sentence-style already uses symmetric spacing
             readable, normalized = self.generate_sentence_style(min_length)
+            if use_deterministic_spacing:
+                # reformat using deterministic spacing
+                readable = self._add_symmetric_spacing(normalized)
         elif method == 'mirror':
             readable, normalized = self.generate_mirrored_phrase(min_length)
         else:

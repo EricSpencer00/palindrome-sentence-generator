@@ -411,7 +411,8 @@ class PalindromeGenerator:
 
 def generate_palindrome(min_length: int = 60, 
                        method: str = 'auto',
-                       seed: int = None) -> Tuple[str, str, bool]:
+                       seed: int = None,
+                       use_deterministic_spacing: bool = False) -> Tuple[str, str, bool]:
     """
     Convenience function to generate a palindrome.
     
@@ -424,7 +425,7 @@ def generate_palindrome(min_length: int = 60,
         Tuple of (readable_text, normalized_text, is_valid)
     """
     generator = PalindromeGenerator(seed=seed)
-    return generator.generate(min_length=min_length, method=method)
+    return generator.generate(min_length=min_length, method=method, use_deterministic_spacing=use_deterministic_spacing)
 
 
 if __name__ == "__main__":

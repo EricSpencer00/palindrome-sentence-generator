@@ -85,6 +85,9 @@ def main() -> None:
     ap.add_argument("--out", type=Path, default=Path("runs/instant_judge.json"))
     ap.add_argument("--reuse-samples", action="store_true",
                     help="skip collection and refit from --samples-out")
+    ap.add_argument("--target", choices=["per_letter", "per_token"],
+                    default="per_token",
+                    help="which normalization of GPT-2's score to imitate")
     args = ap.parse_args()
 
     args.out.parent.mkdir(parents=True, exist_ok=True)
@@ -108,6 +111,23 @@ def main() -> None:
         for r, s in zip(rows, scores):
             r["gpt2"] = s
         args.samples_out.write_text(json.dumps(rows, indent=2))
+
+    # Imitating the per-letter score would hand the RL loop the same exploit it
+    # already found there: longer words cost fewer tokens per letter, so that
+    # number rises without the text reading better. Converting costs nothing —
+    # total logprob is the stored score times the letter count, and dividing by
+    # the token count instead needs only a tokenizer, not another GPT-2 pass.
+    if args.target == "per_token":
+        from transformers import AutoTokenizer
+        tok = AutoTokenizer.from_pretrained(args.judge_model)
+        for r in rows:
+            text = textify(r["words"])
+            letters = max(1, sum(c.isalpha() for c in text))
+            n_tok = max(1, len(tok(text)["input_ids"]))
+            r["gpt2_per_letter"] = r["gpt2"]
+            r["gpt2"] = r["gpt2"] * letters / n_tok
+        print(f"target: GPT-2 score per token "
+              f"(converted from per letter, no rescoring)")
 
     # Split by seed so near-duplicate palindromes cannot straddle the split.
     seeds = sorted({r["seed"] for r in rows})

@@ -387,6 +387,18 @@ export default function App() {
   const anchorX = grid ? grid.caretCol * charW : 0
   const anchorY = lineH / 2
 
+  /* Characters written, cumulatively, in drawing order on each side. The
+     pull-back reads this; see why it is not counting rows. */
+  const written = useMemo(() => {
+    if (!grid) return null
+    const run = (cells: Cell[]) => {
+      const out = [0]
+      for (const c of cells) out.push(out[out.length - 1] + c.text.length + 1)
+      return out
+    }
+    return { l: run(grid.left), r: run(grid.right) }
+  }, [grid])
+
   /* THE PULL-BACK.
    *
    * Framed on where the text is GOING, not on how far it has got. Fitting the
@@ -430,15 +442,30 @@ export default function App() {
     const endHalfH = (endRows * lineH) / 2
     const fitEnd = Math.min(availW / (2 * endHalfW), availH / (2 * endHalfH))
 
-    const rows = e.maxRow - e.minRow + 1
-    const p = Math.min(1, rows / endRows)
+    /* How far through the writing, as a fraction — and it has to be a FRACTION.
+       Counting the rows the drawn text spans is the obvious measure and it is an
+       integer: it holds still while a row fills and jumps when the text wraps,
+       so the camera sat, lurched, and sat again, once per row. The lurch was the
+       whole zoom for that row arriving in one 100ms transition.
+
+       Characters written is the same schedule made continuous. endRows is
+       ceil(expected chars / cols), so `endRows * cols` is the character count
+       this is a fraction OF, and the ratio matches what rows/endRows meant —
+       it just advances with every word the pen puts down instead of every
+       thirteenth. */
+    const chars = written
+      ? written.l[Math.min(drawn.l, written.l.length - 1)]
+        + written.r[Math.min(drawn.r, written.r.length - 1)]
+      : 0
+    const p = Math.min(1, chars / Math.max(1, endRows * cols))
     const s = fitEnd * (OPEN + (1 - OPEN) * p)
 
     // The one place the real text still gets a vote: a search that overshoots
     // its own estimate must not leave the finished poster hanging off the edges.
     const fits = Math.min(availW / (2 * halfW), availH / (2 * halfH))
     return Math.min(MAX_SCALE, done ? Math.min(s, fits) : s)
-  }, [grid, drawn, cols, endRows, done, anchorX, anchorY, charW, lineH, availW, availH])
+  }, [grid, written, drawn, cols, endRows, done, anchorX, anchorY, charW, lineH,
+      availW, availH])
 
   const fullText = useMemo(() => {
     if (!result) return ""

@@ -11,6 +11,7 @@ from wordfreq import top_n_list, zipf_frequency
 
 from .safe_vocab import safe_vocab
 from .search import WordTries, beam_search
+from .scoring import adjacent
 from .textify import textify
 from .validator import is_palindrome, normalize
 
@@ -18,13 +19,12 @@ from .validator import is_palindrome, normalize
 class ZipfScorer:
     """Real-English word frequencies guide the search before the LM reranks."""
 
-    def word_delta(self, left: tuple, right: tuple, placement: str, word: str) -> float:
+    def word_delta(self, left: tuple, right: tuple, placement: str, word: str,
+                   growth: str) -> float:
         # left/right already include the new word; penalize every prior use of
         # it anywhere in the palindrome so cheap mirror-cycles can't dominate.
         uses = left.count(word) + right.count(word) - 1
-        seq = left if placement == "L" else right
-        neighbor = seq[-2] if placement == "L" and len(seq) >= 2 else (
-            seq[1] if placement == "R" and len(seq) >= 2 else None)
+        neighbor = adjacent(left, right, placement, growth)
         bigram_repeat = -4.0 if neighbor == word else 0.0
         return (zipf_frequency(word, "en") + 0.3 * len(word)
                 - 2.0 * uses + bigram_repeat)

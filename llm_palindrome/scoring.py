@@ -6,7 +6,22 @@ lm_scoring.py) plugs a real language model into the same interface.
 from __future__ import annotations
 
 from collections import Counter
-from typing import Sequence
+from typing import Optional, Sequence
+
+
+def adjacent(left: tuple, right: tuple, placement: str, growth: str) -> Optional[str]:
+    """The word now next to the one just added, in final reading order.
+
+    `placement` says which half grew ("L"/"R"); `growth` says how ("append" /
+    "prepend"). Both are needed: the two searches put the new word at opposite
+    ends of the same half. Outside-in appends on the left and prepends on the
+    right; center-out does the reverse. A scorer that assumes either mapping is
+    reading a word from the far end of the half in one of the two searches.
+    """
+    seq = left if placement == "L" else right
+    if len(seq) < 2:
+        return None
+    return seq[1] if growth == "prepend" else seq[-2]
 
 
 class FreqScorer:
@@ -18,11 +33,10 @@ class FreqScorer:
         total = sum(counts.values())
         self._logp = {w: (c / total) for w, c in counts.items()}
 
-    def word_delta(self, left: tuple, right: tuple, placement: str, word: str) -> float:
+    def word_delta(self, left: tuple, right: tuple, placement: str, word: str,
+                   growth: str) -> float:
         base = self._logp.get(word, 1e-6)
-        seq = left if placement == "L" else right
-        prev = seq[-2] if placement == "L" and len(seq) >= 2 else (
-            seq[1] if placement == "R" and len(seq) >= 2 else None)
+        prev = adjacent(left, right, placement, growth)
         repeat_penalty = -0.5 if prev == word else 0.0
         length_bonus = 0.05 * len(word)  # favor real words over fillers
         return base + length_bonus + repeat_penalty
@@ -45,16 +59,23 @@ class CoherentScorer:
         self.freq_weight = freq_weight
         self.length_weight = length_weight
 
-    def word_delta(self, left: tuple, right: tuple, placement: str, word: str) -> float:
+    def word_delta(self, left: tuple, right: tuple, placement: str, word: str,
+                   growth: str) -> float:
         from wordfreq import zipf_frequency
 
-        if placement == "L":
-            # left[0] is the word just prepended; left[1] is what follows it.
-            nxt = left[1] if len(left) >= 2 else (self.center or (right[0] if right else None))
-            joint = self.bg.backward(word, nxt)
+        neighbor = adjacent(left, right, placement, growth)
+        if growth == "prepend":
+            # The word was placed before text that already exists, so it is
+            # conditioned on what follows it.
+            if neighbor is None:
+                neighbor = self.center or (right[0] if placement == "L" and right
+                                           else None)
+            joint = self.bg.backward(word, neighbor)
         else:
-            prev = right[-2] if len(right) >= 2 else (self.center or (left[-1] if left else None))
-            joint = self.bg.forward(prev, word)
+            if neighbor is None:
+                neighbor = self.center or (left[-1] if placement == "R" and left
+                                           else None)
+            joint = self.bg.forward(neighbor, word)
 
         uses = left.count(word) + right.count(word) - 1
         return (joint

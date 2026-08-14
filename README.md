@@ -1,307 +1,140 @@
 # Palindrome Sentence Generator
 
-A tool for generating **guaranteed valid** character-level palindromes using constructive algorithms.
+Generates long, multi-sentence character-level palindromes: text that reads
+identically forwards and backwards once case, spaces, and punctuation are
+stripped. A dictionary search enforces the palindrome constraint; a language
+model chooses among the branches that satisfy it.
 
-## Introduction
+```
+$ python -m llm_palindrome.generate --min-letters 200 --seeds 24
 
-This tool generates palindromes that read the same forwards and backwards when all spaces, punctuation, and capitalization are removed. Unlike LLM-based approaches (which have near-zero success rates), this uses **constructive algorithms** that guarantee valid palindromes every time.
+Xi from life with girl law one. Most egan at eyes in go certified. Is nine
+popular referred role to how. Type else my sat animal ha as. Air on a lot
+in it fit is. So gone last as it in if. Trap arts ally as no oh no. Say
+llas trap art fin if it. Sal tsa lengo si fit in it. Ol a no ri ash ala
+mina stay melse. Pyt wohot el orde referral. Up open inside if it recognise
+yet. An a get some now all right. I we film or fix.
 
-## Key Features
+[letters=201 sentences=14 lm_score=-2.382]
+```
 
-✅ **100% Success Rate** - Every generation produces a valid palindrome  
-✅ **Constructive Approach** - Builds palindromes from the middle-out using character-level constraints  
-✅ **Multiple Methods** - Core expansion, sentence-style, and phrase mirroring  
-✅ **Fast Generation** - No API calls, no retries, no failures  
-✅ **Reproducible** - Optional seed parameter for consistent results  
-✅ **Validated Output** - Every palindrome is verified before display  
+## How it works
 
-## Why This Works (Unlike Previous Approaches)
+Word-by-word generation cannot enforce a palindrome, and neither can an LLM
+generating left to right: the last character is decided by the first. So the
+text is built from both ends inward.
 
-**The Problem with LLMs:** Language models predict tokens, not characters. They fundamentally cannot generate character-level palindromes reliably. Success rate: ~0.001%
+At every step one half owes the other a run of letters — the **overhang**. A
+word added on the left must match the overhang forwards; a word added on the
+right must match it reversed. The palindrome closes when the overhang is
+itself a palindrome, and that becomes the center.
 
-**The Constructive Solution:** Build palindromes character-by-character with mirror constraints:
-1. Start with a palindromic core (e.g., "radar", "level", "a")
-2. Add characters symmetrically: `char + palindrome + char`
-3. Insert spaces/punctuation symmetrically to preserve the property
-4. Guaranteed valid output every time
+```
+left:  "rats live on"          overhang: "no"   (right owes "on" reversed)
+right:            "no evil star"
+                        ^ closes when the overhang reads the same both ways
+```
 
-## Installation
+This overhang search is **John Tromp's palindrome algorithm** — see
+Credit below. What this repository adds is the scoring: at each step the
+search faces hundreds of letter-valid continuations, nearly all of them
+gibberish. A language model ranks them, so the search follows the branches
+that read as English.
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/EricSpencer00/palindrome-sentence-generator.git
-   cd palindrome-sentence-generator
-   ```
+Two ways to apply the model, both implemented:
 
-2. Create and activate a virtual environment (recommended):
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
+- **Rerank** (default): search with word-frequency scoring, then score the
+  finished palindromes with GPT-2 and keep the most fluent.
+- **In-loop** (`--lm-in-loop`): GPT-2 rescores the beam *during* the search, so
+  unfluent branches die before they consume the budget.
 
-3. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+## Results
+
+Matched budgets, 12 seeds, min 200 letters, beam 60, GPT-2 small on an M-series
+Mac. `lm_score` is mean token log-probability per letter (higher is better).
+
+| Configuration | Best score | Mean score | Letters | Time | Valid |
+|---|---|---|---|---|---|
+| Zipf + GPT-2 rerank | −2.382 | −2.455 | 201 | 5.5 s | 12/12 |
+| Zipf + GPT-2 in-loop | **−2.297** | **−2.405** | 216 | 170 s | 12/12 |
+
+In-loop scoring produces measurably more fluent text at roughly 31× the cost.
+Every candidate in both arms is a valid palindrome — validity comes from the
+search, not the model, so the model can only affect readability.
+
+Reproduce with:
+
+```bash
+python benchmark.py --seeds 12 --min-letters 200 --beam 60
+```
+
+## Install
+
+```bash
+pip install -r requirements.txt
+```
 
 ## Usage
 
-### Basic Usage
-
-Generate a palindrome with default settings (60 characters):
 ```bash
-python3 main.py
+python -m llm_palindrome.generate --min-letters 200 --seeds 24
 ```
-
-### Specify Length
-
-Generate longer palindromes:
-```bash
-python3 main.py --length 100
-```
-
-### Choose Generation Method
-
-Three methods are available:
-
-1. **Core method** - Build from palindromic words outward:
-   ```bash
-   python3 main.py --method core
-   ```
-
-2. **Sentence method** - Use known palindromic phrases:
-   ```bash
-   python3 main.py --method sentence
-   ```
-
-3. **Mirror method** - Create a phrase and mirror it:
-   ```bash
-   python3 main.py --method mirror
-   ```
-
-4. **Auto** - Randomly choose a method (default):
-   ```bash
-   python3 main.py --method auto
-   ```
-
-### Generate Multiple Palindromes
-
-```bash
-python3 main.py --count 5
-```
-
-### Reproducible Generation
-
-Use a seed for consistent results:
-```bash
-python3 main.py --seed 42
-```
-
-### Verbose Output
-
-Show detailed validation information:
-```bash
-python3 main.py --verbose
-```
-
-### Complete Example
-
-```bash
-python3 main.py --length 80 --method sentence --count 3 --seed 42 --verbose
-```
-
-## Command-Line Options
 
 | Option | Description | Default |
-|--------|-------------|---------|
-| `--length` | Minimum length of normalized palindrome | 60 |
-| `--method` | Generation method (core/sentence/mirror/auto) | auto |
-| `--count` | Number of palindromes to generate | 1 |
-| `--seed` | Random seed for reproducibility | None |
-| `--verbose` | Show detailed information | False |
+|---|---|---|
+| `--min-letters` | Minimum palindrome length in letters | 120 |
+| `--seeds` | Independent search runs to rank against each other | 24 |
+| `--beam` | Beam width per search | 60 |
+| `--vocab` | Size of the frequency-ranked vocabulary | 30000 |
+| `--model` | Hugging Face model for scoring (`''` disables) | `gpt2` |
+| `--lm-in-loop` | Prune the beam with the LM during search | off |
+| `--words-per-sentence` | Sentence length in the formatted output | 7 |
+| `--out` | Write the result to a file | none |
 
-## Example Output
+## Tests
 
-```
-Palindrome Sentence Generator
-============================================================
-Configuration:
-  Minimum length: 60 characters
-  Method: sentence
-  Count: 1
-
-✅ Valid palindrome generated!
-
-============================================================
-Generated Palindrome:
-============================================================
-
-Rats live on no evil star. Madam im adam. Mad am i madam. Rats live on no evil star.
-
-============================================================
-Normalized length: 77 characters
-
-Normalized text: ratsliveonoevilstarmadamimadammadamimadamratsliveonoevilstar
-
-Palindrome visualization:
-ratsliveonoevilstarmadamimadam|madamimadamratsliveonoevilstar
-                              ^
-                        Center point
+```bash
+python -m pytest tests/ -q
 ```
 
-## Project Structure
+The suite covers overhang matching, trie candidate generation, end-to-end
+search validity, and the formatting invariant that punctuation and casing
+never alter the normalized letters.
+
+## Project structure
 
 ```
-palindrome-sentence-generator/
-├── main.py                    # Main entry point
-├── palindrome_generator.py    # Core generation logic
-├── validator.py               # Palindrome validation
-├── requirements.txt           # Python dependencies
-├── README.md                 # This file
-├── prompts/                  # (Legacy, not used)
-└── backup/                   # Old broken implementations
-    ├── improved_generator.py  # (1000+ lines of broken code)
-    ├── fallback_generator.py  # (Incorrect word-level logic)
-    └── utils.py              # (Overcomplicated LLM approach)
+llm_palindrome/
+├── search.py       # overhang matching, tries, beam search
+├── scoring.py      # frequency-based scorer
+├── lm_scoring.py   # GPT-2 fluency scoring (batched)
+├── textify.py      # sentence formatting, letter-preserving
+├── validator.py    # normalize / is_palindrome
+└── generate.py     # CLI
+benchmark.py        # configuration comparison
+tests/              # pytest suite
 ```
 
-## Understanding the Algorithm
+## Known limits
 
-### Why Previous Approaches Failed
+Output is locally fluent — phrases parse, sentences scan — but not globally
+coherent; it does not hold a topic across its full length. The bottleneck is
+the vocabulary's letter statistics: past a few hundred letters, the overhang
+tends toward runs no English word can absorb, and the search leans on rare
+short words to escape. Larger scoring models and a corpus-derived phrase
+inventory are the next things to try.
 
-1. **LLM-based generation** - Language models work on token-level predictions, not character-level constraints. They cannot reliably generate character-level palindromes.
+## Credit
 
-2. **Word-level mirroring** - Reversing words (e.g., "live" → "evil") doesn't create character palindromes because spaces break the symmetry.
+The two-sided overhang search is due to **John Tromp**, whose palindrome
+program is the foundation this builds on:
+<https://tromp.github.io/pal/pal.html>. Peter Norvig's
+[palindrome writeup](https://norvig.com/palindrome.html) documents the same
+family of techniques and the 17,826-word palindrome they produced. This
+project contributes the language-model scoring layer on top of that search.
 
-3. **Grammar improvement** - Any attempt to improve grammar necessarily breaks the palindrome constraint since every character must be mirrored.
-
-### The Correct Approach
-
-**Constructive Generation** - Build palindromes that are mathematically guaranteed to be valid:
-
-```python
-# Start with palindromic core
-palindrome = "radar"
-
-# Add characters symmetrically
-palindrome = "a" + palindrome + "a"  # "aradar a"
-palindrome = "b" + palindrome + "b"  # "baradarab"
-
-# Result is always a palindrome!
-```
-
-This is implemented in three flavors:
-
-1. **Core Method**: Start with palindrome words, build outward
-2. **Sentence Method**: Use known palindromic phrases as seeds
-3. **Mirror Method**: Create first half, mirror to create second half
-
-## Technical Details
-
-- **Language**: Python 3.7+
-- **Dependencies**: None required for core functionality
-- **Algorithm**: Constructive middle-out expansion
-- **Validation**: Character-level comparison after normalization
-- **Performance**: Instant generation (no API calls)
-
-## Limitations
-
-- **Grammar**: Generated palindromes are not grammatically correct or semantically meaningful
-- **Readability**: Text is readable but not natural English
-- **Constraint**: The palindrome constraint is fundamentally incompatible with natural language
-
-**Why?** Creating grammatically correct, semantically meaningful palindromes is an NP-hard problem. The space of valid English text and the space of character palindromes have near-zero overlap. This implementation prioritizes **guaranteed validity** over **readability**.
-
-## Contributing
-
-Contributions welcome! Areas for improvement:
-
-- Better word selection for more readable output
-- Dictionary-based word boundary detection
-- Symmetrical punctuation insertion
-- Themed palindrome generation (using specific word sets)
+Developed within the **AI4FM group**.
 
 ## License
 
-MIT License - See LICENSE file for details
-
-## Acknowledgments
-
-This implementation was created after auditing and replacing broken LLM-based approaches. It demonstrates that understanding the mathematical constraints of a problem is more important than using sophisticated AI tools.
-
-**Key Insight**: Sometimes the simple, correct solution beats the complex, unreliable one.
-- `--threads`: Number of parallel threads (default: 4)
-- `--output`: Output file to save the generated palindrome
-- `--verbose`: Show detailed output and timing information
-
-For advanced usage with the original methods:
-
-```bash
-python palindrome_generator.py --length 200 --verbose
-```
-
-Advanced options (original generator):
-
-- `--sentences`: Minimum number of sentences (default: 5)
-- `--attempts`: Number of generation attempts (default: 10)
-- `--center`: Optional center word/character to start with
-- `--method`: Generation method ('traditional', 'middle-out', 'bidirectional', or 'llm')
-- `--use-openai`: Use OpenAI API for LLM-based generation (requires API key)
-
-## Default Method
-
-The generator now defaults to the **bidirectional** method, which ensures both halves of the palindrome are valid English and character-level symmetry is maintained.
-
-## Generation Methods
-
-The generator supports multiple approaches:
-
-1. **Basic**: Creates palindrome sentences by mirroring words and building incrementally, focusing on grammatical correctness.
-
-2. **Grammar-based**: Uses grammar rules to ensure the palindrome follows English syntax and is semantically meaningful.
-
-3. **Traditional**: Creates palindrome sentences by mirroring words around a center.
-
-4. **Middle-Out**: Starts with a center character or word and builds outward, ensuring character-level palindrome properties while maintaining different word boundaries between halves.
-
-5. **LLM/Bidirectional**: Uses language models to generate both sides with better semantics:
-   - Generates the right side using a language model
-   - Uses the character-reversed right side as a prompt for generating the left side
-   - Ensures both halves are valid English
-   - Post-processes for punctuation/spacing symmetry
-
-## Testing
-
-Run the test suite:
-
-```bash
-python test_palindrome_generator.py
-```
-
-## Recent Improvements
-
-### Improved Generator
-- Added parallel generation capability for better results
-- Implemented multi-attempt generation with best candidate selection
-- Enhanced grammar improvement algorithm with aggressive strategies
-- Added weighted scoring to balance grammar quality and length requirements
-
-### Grammar Palindrome Generator
-- Enhanced seed options for better starting points
-- Improved wrapping templates for aggressive expansion
-- Added timeout mechanisms to prevent generation loops
-- Optimized expansion strategies for different target lengths
-
-### Grammar Validator
-- Improved grammar scoring algorithm
-- Added more strategies for grammar improvement
-- Enhanced suggestion generation for better readability
-
-### Main Program
-- Increased grammar improvement attempts
-- Better tracking of generation progress
-- Enhanced verbose output for debugging and analysis
-
-### Testing
-- Added `test_improvements.py` for focused testing of new features
-- Enhanced `test_final.py` for comprehensive validation of all components
+MIT

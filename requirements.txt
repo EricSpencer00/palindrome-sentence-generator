@@ -1,6 +1,9 @@
-# No external dependencies required for core functionality!
-# The palindrome generator uses only Python standard library.
+# Core search: standard library + word frequencies
+wordfreq>=3.0.0
 
-# Optional: For future enhancements
-# nltk>=3.6.0  # For dictionary-based word boundary detection
-# python-dotenv>=1.0.0  # If you want to experiment with LLM approaches (not recommended)
+# Language-model scoring (--model, --lm-in-loop)
+torch>=2.0.0
+transformers>=4.30.0
+
+# Tests
+pytest>=7.0.0

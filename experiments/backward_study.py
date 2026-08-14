@@ -112,7 +112,8 @@ def main() -> None:
     ap.add_argument("--seeds", type=int, default=24)
     ap.add_argument("--min-letters", type=int, default=200)
     ap.add_argument("--beam", type=int, default=60)
-    ap.add_argument("--weight", type=float, default=1.0)
+    ap.add_argument("--weights", default="0.25,0.5,1.0",
+                    help="LM term weights to sweep; fwd and bwd share each one")
     ap.add_argument("--vocab", type=int, default=30000)
     ap.add_argument("--arms", default="zipf,fwd,bwd")
     ap.add_argument("--out", type=Path, default=None)
@@ -122,26 +123,37 @@ def main() -> None:
     tries = WordTries(vocab)
     judge = GPT2Scorer(args.judge)
 
-    def make(name):
+    def make(name, weight):
         base = ZipfScorer()
         if name == "zipf":
             return base
         if name == "fwd":
             return ForwardOnlyScorer(base, forward_path=args.forward,
-                                     appends="left", weight=args.weight)
+                                     appends="left", weight=weight, vocab=vocab)
         return DirectionalScorer(base, forward_path=args.forward,
                                  backward_path=args.backward,
-                                 appends="left", weight=args.weight)
+                                 appends="left", weight=weight, vocab=vocab)
+
+    # The LM term is swept rather than assumed. A term strong enough to change
+    # the reading is also strong enough to starve the beam of branches that can
+    # close, and where that line falls is not knowable in advance. fwd and bwd
+    # always share a weight, so the comparison stays like-for-like.
+    arms = args.arms.split(",")
+    weights = [float(w) for w in args.weights.split(",")]
+    plan = [(a, None) for a in arms if a == "zipf"]
+    plan += [(a, w) for w in weights for a in arms if a != "zipf"]
 
     results = []
-    for name in args.arms.split(","):
-        scorer = make(name)
-        if name == "bwd":
+    for name, weight in plan:
+        scorer = make(name, weight or 0.0)
+        label = name if weight is None else f"{name}@{weight:g}"
+        if name == "bwd" and weight == weights[0]:
             frac = scorer.single_token_fraction(vocab)
-            print(f"[bwd] first-token scoring is exact for "
+            print(f"[bwd] single-token scoring is exact for "
                   f"{frac:.1%} of the {len(vocab)}-word vocabulary")
-        row = run_arm(name, scorer, tries, judge, args.seeds,
+        row = run_arm(label, scorer, tries, judge, args.seeds,
                       args.min_letters, args.beam)
+        row["weight"] = weight
         if hasattr(scorer, "passes"):
             row["model_passes"] = scorer.passes
             row["cache_misses"] = scorer.misses
@@ -149,12 +161,19 @@ def main() -> None:
         print(json.dumps(row, indent=2), flush=True)
 
     by = {r["arm"]: r for r in results}
-    if "fwd" in by and "bwd" in by and by["fwd"].get("gap") is not None:
-        moved = by["fwd"]["gap"] - by["bwd"]["gap"]
-        print(f"\ngap: fwd {by['fwd']['gap']:+.3f} -> bwd {by['bwd']['gap']:+.3f} "
-              f"(narrowed by {moved:+.3f})")
-        print(f"whole-text score: fwd {by['fwd']['score_mean']:+.3f} -> "
-              f"bwd {by['bwd']['score_mean']:+.3f}")
+    print("\n arm          closed  gap      score   letters")
+    for r in results:
+        print(f" {r['arm']:12s} {r['closed']:>3}/{r['seeds']:<3} "
+              f"{r.get('gap', float('nan')):+.3f}  {r.get('score_mean', float('nan')):+.3f}  "
+              f"{r.get('letters_mean', 0):.0f}")
+
+    for w in weights:
+        f, b = by.get(f"fwd@{w:g}"), by.get(f"bwd@{w:g}")
+        if f and b and f.get("gap") is not None and b.get("gap") is not None:
+            print(f"\nweight {w:g}: gap {f['gap']:+.3f} -> {b['gap']:+.3f} "
+                  f"(narrowed by {f['gap'] - b['gap']:+.3f}); "
+                  f"score {f['score_mean']:+.3f} -> {b['score_mean']:+.3f}; "
+                  f"closed {f['closed']} -> {b['closed']}")
 
     if args.out:
         args.out.write_text(json.dumps({"config": vars(args) | {"out": str(args.out)},

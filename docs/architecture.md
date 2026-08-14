@@ -44,12 +44,20 @@ and the `growth` argument the searches now supply), and the row has not been
 re-measured since.
 
 **What this does to the case below.** A backward language model was built and
-tested against this (`experiments/backward_study.py`, `docs/training.md`). It
-works on its own terms — it improves the half it scores, by +0.32 to +1.14 per
-token depending on weight. But the deficit it was built to repair is not there
-in the units that matter. The dual-head architecture should not be built on
-this measurement. If there is a case for it, it has to be made per token, or
-from something other than the half-asymmetry.
+tested against this (`experiments/backward_study.py`, `docs/training.md`). The
+deficit it was meant to repair is not there in the units that matter, so the
+motivation above does not stand.
+
+The model helps anyway. Per token it beats its matched forward control at every
+weight tried and the plain baseline by +0.423 at the best one, closing 24 of 24
+seeds throughout. Per letter that same arm is the worst in the table — reading
+that column, you would have discarded it.
+
+So the metric was wrong twice over: it invented the asymmetry the backward
+model was built to fix, and it concealed the improvement the backward model
+actually delivers. A case for the dual-head architecture is still available,
+but it has to be made from the per-token gain directly, and not from the table
+at the top of this file.
 
 This says the bottleneck is not *which* direction you grow. Both directions
 build one half backwards, and we have no model that generates fluent English

@@ -65,6 +65,40 @@ a scorer only has to rank candidates, and a model a nat worse at prediction can
 still rank well — but it does mean the two heads should not be expected to
 contribute equally.
 
+### Result of the study
+
+24 seeds, 200 letters minimum, beam 60, every arm judged by stock GPT-2 on the
+finished text. `gap` is the appended half minus the prepended one.
+
+| arm | closed | gap/letter | gap/token | score/letter | score/token | letters |
+|---|---|---|---|---|---|---|
+| zipf | 24/24 | +0.443 | −0.824 | −2.431 | −7.383 | 222 |
+| fwd@0.1 | 24/24 | +0.302 | −0.537 | −2.462 | −7.423 | 217 |
+| bwd@0.1 | 24/24 | +0.597 | −0.856 | −2.454 | −7.246 | 217 |
+| fwd@0.25 | 24/24 | −0.120 | −0.169 | −2.539 | −7.173 | 221 |
+| bwd@0.25 | 24/24 | +0.271 | −0.613 | −2.513 | −7.093 | 212 |
+| fwd@0.5 | 24/24 | −0.562 | +0.667 | −2.562 | −7.117 | 212 |
+| bwd@0.5 | 24/24 | +0.132 | −0.474 | −2.574 | **−6.960** | 208 |
+
+**The premise does not survive.** The baseline reproduces the recorded gap per
+letter (+0.443 against +0.368) and reverses it per token (−0.824). The
+prepended half does not read worse; it has shorter words.
+
+**The model works anyway.** Per token the backward arm beats its matched
+forward control at every weight — +0.177, +0.080, +0.157 — and the best arm
+beats the plain baseline by **+0.423**. Standardizing the term fixed the
+closure problem: 24 of 24 everywhere, against 0 of 4 at weight 1.0 unstandardized.
+
+**And per letter you would have thrown it away.** `bwd@0.5` is the best arm in
+the table per token and the worst per letter. The metric invented the problem
+and then hid the solution.
+
+Two limits on this. The gain grows monotonically with the LM weight across the
+range swept, so 0.5 is the edge of what was tested rather than an optimum, and
+the text also gets shorter as the weight rises (222 → 208 letters). And at the
+full 30k vocabulary, single-token scoring is exact for only 58.6% of words —
+95% at 3k — so the backward term is approximate for two words in five.
+
 ### Two details that fail silently
 
 - Reversing the stream reverses tokens *inside* a word as well as the words:

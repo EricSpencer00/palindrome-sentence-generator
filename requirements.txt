@@ -1,6 +1,11 @@
 # Core search: standard library + word frequencies
 wordfreq>=3.0.0
 
+# Vocabulary filtering. Technically optional — safe_vocab falls back to a short
+# curated list and warns — but the frequency-ranked top 30k contains slurs and
+# adult vocabulary, and the search has no notion of taste. Install it.
+better_profanity>=0.7.0
+
 # Language-model scoring (--model, --lm-in-loop)
 torch>=2.0.0
 transformers>=4.30.0

@@ -10,6 +10,7 @@ Matching is whole-word. Substring matching would remove "class", "assist" and
 """
 from __future__ import annotations
 
+import warnings
 from functools import lru_cache
 from typing import Iterable
 
@@ -41,8 +42,14 @@ def _blocklist() -> frozenset[str]:
             words.add(text)
             words.add("".join(ch for ch in text if ch.isalpha()))
     except Exception:
-        # The curated set above still applies if the package is unavailable.
-        pass
+        # The curated set above still applies, but it is 40 words against the
+        # package's 900. This vocabulary reaches a public endpoint, so a
+        # machine that quietly falls back to the short list is worth hearing
+        # about — the failure is otherwise invisible until something ships.
+        warnings.warn(
+            "better_profanity is unavailable; vocabulary filtering falls back "
+            f"to {len(EXTRA_BLOCKED)} curated words. Install it before serving "
+            "generated text publicly.", RuntimeWarning, stacklevel=2)
     return frozenset(words - ALLOWED_ANYWAY)
 
 

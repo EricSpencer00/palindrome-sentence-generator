@@ -67,6 +67,14 @@
 
 html, body, #root { height: 100%; }
 
+/* Mobile browsers: use the dynamic viewport unit so the URL bar collapsing
+   does not clip the canvas, and keep the page itself from bouncing. */
+@supports (height: 100dvh) {
+  html, body, #root { height: 100dvh; }
+}
+html { -webkit-text-size-adjust: 100%; }
+body { overscroll-behavior: none; touch-action: manipulation; }
+
 body {
   background: var(--color-paper);
   color: var(--color-ink);

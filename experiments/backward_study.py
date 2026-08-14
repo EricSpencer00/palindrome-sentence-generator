@@ -98,6 +98,7 @@ def run_arm(name, scorer, tries, judge, seeds, min_letters, beam) -> dict:
 
     a_tok = per_token(appended, a_texts)
     p_tok = per_token(prepended, p_texts)
+    whole_tok = per_token(whole, texts)
     gap = statistics.mean(appended) - statistics.mean(prepended)
     gap_tok = statistics.mean(a_tok) - statistics.mean(p_tok)
     wins = sum(1 for a, p in zip(appended, prepended) if a > p)
@@ -111,6 +112,8 @@ def run_arm(name, scorer, tries, judge, seeds, min_letters, beam) -> dict:
         "letters_mean": round(statistics.mean(sum(len(x) for x in w) for w in runs), 1),
         "score_best": round(max(whole), 4),
         "score_mean": round(statistics.mean(whole), 4),
+        "score_mean_per_token": round(statistics.mean(whole_tok), 4),
+        "score_best_per_token": round(max(whole_tok), 4),
         "appended_half": round(statistics.mean(appended), 4),
         "prepended_half": round(statistics.mean(prepended), 4),
         "gap": round(gap, 4),
@@ -184,11 +187,13 @@ def main() -> None:
         print(json.dumps(row, indent=2), flush=True)
 
     by = {r["arm"]: r for r in results}
-    print("\n arm          closed  gap/letter  gap/token   score   letters")
+    print("\n arm          closed  gap/letter  gap/token  score/letter  score/token  letters")
     for r in results:
         print(f" {r['arm']:12s} {r['closed']:>3}/{r['seeds']:<3} "
               f"{r.get('gap', float('nan')):+9.3f}  {r.get('gap_per_token', float('nan')):+9.3f}  "
-              f"{r.get('score_mean', float('nan')):+.3f}  {r.get('letters_mean', 0):.0f}")
+              f"{r.get('score_mean', float('nan')):+11.3f}  "
+              f"{r.get('score_mean_per_token', float('nan')):+10.3f}  "
+              f"{r.get('letters_mean', 0):7.0f}")
 
     for w in weights:
         f, b = by.get(f"fwd@{w:g}"), by.get(f"bwd@{w:g}")
@@ -199,6 +204,9 @@ def main() -> None:
             print(f"  gap per token  {f['gap_per_token']:+.3f} -> "
                   f"{b['gap_per_token']:+.3f} "
                   f"(narrowed by {f['gap_per_token'] - b['gap_per_token']:+.3f})")
+            print(f"  whole text per token {f['score_mean_per_token']:+.3f} -> "
+                  f"{b['score_mean_per_token']:+.3f} "
+                  f"({b['score_mean_per_token'] - f['score_mean_per_token']:+.3f})")
             if ((f["gap"] - b["gap"]) > 0) != ((f["gap_per_token"] - b["gap_per_token"]) > 0):
                 print("  the two normalizations DISAGREE — believe per token; "
                       "per letter can be moved by word length alone")

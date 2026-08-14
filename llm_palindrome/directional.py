@@ -15,10 +15,12 @@ in-loop reranking needs beam_width x candidate_limit.
 
 Two approximations, both deliberate:
 
-- A word is scored by the logprob of its **first** token. Word-aligned
-  tokenization makes that the first token of a whole-word block, and most of
-  the frequency-ranked vocabulary is a single token with its leading space;
-  `single_token_fraction` reports how much of the vocabulary that covers.
+- A word is scored by the logprob of the single token the model reaches it by:
+  its first token forwards, its last token backwards, because reversing the
+  stream reverses tokens inside a word as well as the words themselves. Most of
+  the frequency-ranked vocabulary is one token with its leading space, where
+  the two coincide and the score is exact; `single_token_fraction` reports how
+  much of the vocabulary that covers.
 - Contexts are truncated to the nearest `max_context` words. The neighbouring
   word carries most of the signal and truncation keeps the passes short.
 """
@@ -30,6 +32,17 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 from .scoring import adjacent
+
+
+def leading_token(ids: Sequence[int], reversed_order: bool) -> int:
+    """The token a model in this direction emits first for a word block.
+
+    Reversing the stream reverses tokens *inside* a word as well as the words
+    themselves — "diverged" is [" diver", "ged"] forwards and ["ged", " diver"]
+    backwards — so a backward model reaches a word by its last token. Scoring
+    its first would ask about a token the model only ever sees in second place.
+    """
+    return ids[-1] if reversed_order else ids[0]
 
 
 class _Directional:
@@ -49,6 +62,9 @@ class _Directional:
             ids = self.tok(" " + word, add_special_tokens=False)["input_ids"]
             self._word_ids[word] = ids
         return ids
+
+    def leading_token(self, word: str) -> int:
+        return leading_token(self.word_tokens(word), self.reversed_order)
 
     def context_ids(self, words: Sequence[str], max_context: int) -> list[int]:
         """Token ids for the context, in the order this model reads them.
@@ -162,8 +178,7 @@ class DirectionalScorer:
             self.misses += 1
             dist = model.next_token_logprobs([model.context_ids(context, self.max_context)])[0]
             self._cache[key] = dist
-        first = model.word_tokens(word)[0]
-        return float(dist[first])
+        return float(dist[model.leading_token(word)])
 
     def word_delta(self, left: tuple, right: tuple, placement: str, word: str,
                    growth: str) -> float:

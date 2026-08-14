@@ -97,6 +97,7 @@ def centerout_search(
     deadline: Optional[float] = None,
     maximize: str = "score",
     on_closed: Optional[Callable[[list[str]], None]] = None,
+    commit_every: Optional[float] = None,
 ) -> list[str]:
     """Beam search outward from a fixed palindromic center.
 
@@ -111,12 +112,27 @@ def centerout_search(
     "letters" for the longest. Length only becomes the right objective when a
     deadline is doing the stopping.
 
-    `on_closed` is called with every palindrome that closes, so a caller can
-    watch the search rather than wait on it. It fires below `min_letters` too —
-    the search closes on short texts almost immediately and spends the rest of
-    its budget lengthening them, so the floor is exactly the part worth watching.
-    It runs inside the loop, so it must be cheap, and anything it raises is the
+    `on_closed` is called with palindromes as they close, so a caller can watch
+    the search rather than wait on it. It fires below `min_letters` too — the
+    search closes on short texts almost immediately and spends the rest of its
+    budget lengthening them, so the floor is exactly the part worth watching. It
+    runs inside the loop, so it must be cheap, and anything it raises is the
     caller's to contain.
+
+    `commit_every` makes that stream APPEND-ONLY, at a price. Left alone, the
+    beam abandons lineages as fast as it finds them: successive closures are
+    unrelated texts, and a reader watching them is watching the screen rewrite
+    itself. Setting it publishes the longest closure every so many seconds and
+    then discards every beam state that does not still contain it, so the search
+    keeps what the reader has already seen and can only extend it. What is
+    published is then also what is RETURNED — the last frame is the answer.
+
+    The interval is a real dial, not a formality. Committing too often prunes the
+    beam before it has rebuilt any diversity and the search strands: measured
+    over 16s, every 0.25s and every 0.5s each collapsed on one of two seeds
+    (720 and 452 letters against a free search's ~2500), while every 1.0s held
+    at ~91% of free length on every seed tried, with a frame a second to show
+    for it.
     """
     if center != center[::-1]:
         raise ValueError(f"center {center!r} is not itself a palindrome")
@@ -126,10 +142,18 @@ def centerout_search(
                     center_len=len(center))
     beam = [start]
     best: Optional[tuple[float, list[str]]] = None
+    published: Optional[COState] = None
+    last_publish = time.monotonic()
 
     def assemble(s: COState) -> list[str]:
         mid = [center] if center else []
         return list(s.left) + mid + list(s.right)
+
+    def holds(base: COState, s: COState) -> bool:
+        """s still carries every word base had, on both edges."""
+        bl, br, sl, sr = base.left, base.right, s.left, s.right
+        return (len(sl) >= len(bl) and (not bl or sl[len(sl) - len(bl):] == bl)
+                and sr[:len(br)] == br)
 
     for _ in range(max_steps):
         if not beam:
@@ -139,10 +163,12 @@ def centerout_search(
         if hasattr(scorer, "prepare"):
             scorer.prepare(beam)
         pool: list[COState] = []
+        closed: list[COState] = []
         for state in beam:
             # Center-out closes only on an exactly empty overhang.
             if not state.overhang:
-                if on_closed is not None:
+                closed.append(state)
+                if on_closed is not None and commit_every is None:
                     on_closed(assemble(state))
                 if state.letters >= min_letters:
                     key = (state.letters if maximize == "letters"
@@ -168,10 +194,50 @@ def centerout_search(
         if not pool:
             break
         beam = heapq.nsmallest(beam_width, pool)
+
+        # Publish, then bind the search to what was published. Pruning to the
+        # states that still hold it is the whole mechanism: it costs the search
+        # its freedom to start over somewhere better, and buys a stream that only
+        # ever grows.
+        #
+        # Which closure to bind to is the delicate part. Taking the longest one
+        # on a timer strands the search whenever the beam was not working on it —
+        # the prune then leaves nothing, the lineage has to restart from a single
+        # state, and it never catches up. So a closure is only published once
+        # enough of the beam is ALREADY building on it. The beam picks the
+        # moment; the interval only stops it publishing faster than anyone reads.
+        if commit_every is not None and closed:
+            now = time.monotonic()
+            if now - last_publish >= commit_every:
+                quorum = max(1, beam_width // 4)
+                for head in sorted(closed, key=lambda s: -s.letters):
+                    if published is not None and head.letters <= published.letters:
+                        break
+                    survivors = [s for s in beam if holds(head, s)]
+                    if len(survivors) < quorum:
+                        continue
+                    published = head
+                    last_publish = now
+                    if on_closed is not None:
+                        on_closed(assemble(head))
+                    beam = survivors
+                    break
+
         # Stop once the whole beam has comfortably cleared the floor. This is
         # what makes min_letters the length dial: the search reliably overshoots
         # it and then stops, instead of wandering into states that never close.
         if best is not None and all(s.letters > 3 * min_letters for s in beam):
             break
 
+    if commit_every is not None:
+        # The answer must be the last thing the reader was shown, not something
+        # better found down a lineage that was pruned away. Nothing published
+        # means nothing was shown, so there is nothing to contradict and the
+        # free best stands — which is also what happens on a search short enough
+        # to finish inside the first interval.
+        if published is not None:
+            return assemble(published)
+        if best is not None and on_closed is not None:
+            on_closed(best[1])
+        return best[1] if best else []
     return best[1] if best else []

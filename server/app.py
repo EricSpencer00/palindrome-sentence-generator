@@ -33,7 +33,11 @@ DEFAULT_BUDGET = float(os.environ.get("PALINDROME_BUDGET", "14"))
 # The length dial. 400 overshoots to ~1200 letters / ~370 words at 60% attested
 # bigrams; pushing it higher buys length by spending coherence (800 -> 48%).
 LENGTH_FLOOR = int(os.environ.get("PALINDROME_FLOOR", "400"))
-SEEDS = int(os.environ.get("PALINDROME_SEEDS", "2"))
+# How often the search publishes, and binds itself to what it published — the
+# interval that makes the page append-only. Measured over six seeds at this
+# floor: 0.75s gives 7-8 frames and keeps 97.6% of the length a free search
+# reaches, 1.5s gives 4 frames and keeps 99.6%. Frames are the point, so 0.75.
+COMMIT_EVERY = float(os.environ.get("PALINDROME_COMMIT", "0.75"))
 # Wider candidate lists are what let the bigram model actually choose: at 200 the
 # letter constraint leaves almost nothing to pick between (52% of joins attested),
 # at 800 it leaves enough (74%).
@@ -165,82 +169,69 @@ def _shape(words: list[str], prompt: str) -> dict:
 
 
 def _search(prompt: str, budget: float, on_partial=None) -> Optional[dict]:
-    """Grow for `budget` seconds and keep the longest palindrome that closed.
+    """Grow for `budget` seconds and return the palindrome the page was shown.
 
     Length is bounded by time rather than by a target, so a loaded box returns
-    a shorter palindrome instead of making the visitor wait. The budget is
-    split across seeds and GPT-2 picks between the survivors.
+    a shorter palindrome instead of making the visitor wait.
 
-    `on_partial` receives every closed palindrome the beam improves on, which is
-    what the page draws while the search runs. The search closes on short texts
-    within a few hundred milliseconds and lengthens from there, so the visitor
-    watches it grow instead of watching a caret spin for ten seconds.
+    `on_partial` receives the search's frames as they are published, roughly one
+    a second, each one containing the last. That is the whole contract the page
+    is built on: it draws a frame by placing words outward from the mirror, so a
+    frame that merely EXTENDS its predecessor leaves every word already on screen
+    exactly where it was. Buying that guarantee costs the search its freedom to
+    start over — see `commit_every` — and costs about 9% of the final length.
     """
     center = longest_palindromic_center(prompt)
     scorer = CoherentScorer(_bigrams, center=center, wanted=_wanted_words(prompt))
-    per_seed = max(6.0, budget / SEEDS)
 
-    # Each seed restarts from nothing, so its early bests are shorter than what
-    # the previous seed finished on. Only ever relay growth: the page treats a
-    # partial as the text so far, and text that shrank would read as a glitch.
-    relayed = {"letters": 0, "at": 0.0}
+    seen = {"letters": 0}
 
     def relay(words: list[str]) -> None:
-        # Runs inside the beam loop for every closure, so the cheap rejections
-        # come first: a clock read, then a sum, and only then any string work.
         if on_partial is None:
             return
         try:
-            now = time.monotonic()
-            if now - relayed["at"] < 0.2:   # the beam closes faster than anyone can read
-                return
-            if sum(len(w) for w in words) <= relayed["letters"]:
-                return
-            text = " ".join(words)
-            if not is_palindrome(text):
+            # The search publishes append-only, so there is nothing left to
+            # filter here beyond refusing a frame that did not actually grow.
+            if sum(len(w) for w in words) <= seen["letters"]:
                 return
             shape = _shape(words, prompt)
-            relayed["letters"], relayed["at"] = shape["letters"], now
+            seen["letters"] = shape["letters"]
             on_partial({"type": "partial", **shape})
         except Exception:
             pass    # a dropped frame must never take the search down with it
 
-    candidates: list[list[str]] = []
-    for seed in range(SEEDS):
-        words = centerout_search(
-            _tries, scorer, min_letters=LENGTH_FLOOR, beam_width=60, seed=seed,
-            center=center, max_steps=10**6, maximize="letters",
-            candidate_limit=CANDIDATE_LIMIT,
-            deadline=time.monotonic() + per_seed,
-            on_closed=relay,
-        )
-        if words and is_palindrome(" ".join(words)):
-            candidates.append(words)
-    if not candidates:
+    # One seed takes the whole budget. Splitting it across seeds only paid off
+    # because GPT-2 could pick between the survivors afterwards, and a committed
+    # search has nothing to pick between: a second seed starts from nothing and
+    # anything it found would contradict what the page is already showing.
+    words = centerout_search(
+        _tries, scorer, min_letters=LENGTH_FLOOR, beam_width=60, seed=0,
+        center=center, max_steps=10**6, maximize="letters",
+        candidate_limit=CANDIDATE_LIMIT,
+        deadline=time.monotonic() + budget,
+        on_closed=relay if on_partial is not None else None,
+        commit_every=COMMIT_EVERY if on_partial is not None else None,
+    )
+    if not words:
         return None
 
-    # GPT-2 chooses; ties and failures fall back to the longest.
-    best_words = max(candidates, key=lambda w: len(normalize(" ".join(w))))
-    lm_score = None
-    if _lm is not None and len(candidates) > 1:
-        try:
-            texts = [" ".join(w) for w in candidates]
-            scores = _lm.score_texts(texts)
-            i = max(range(len(texts)), key=lambda k: scores[k])
-            best_words, lm_score = candidates[i], round(scores[i], 3)
-        except Exception:
-            pass
-
-    text = " ".join(best_words)
+    text = " ".join(words)
     if not is_palindrome(text):  # never serve a broken palindrome
         return None
 
+    lm_score = None
+    if _lm is not None:
+        try:
+            lm_score = round(_lm.score_texts([text])[0], 3)
+        except Exception:
+            pass
+
     return {
         "type": "result",
-        **_shape(best_words, prompt),
+        **_shape(words, prompt),
         "lm": lm_score,
         "usedPrompt": bool(center) or bool(scorer.wanted),
-        "coherence": _coverage(best_words),
+        "coherence": _coverage(words),
     }
 
 
@@ -268,8 +259,13 @@ async def generate(prompt: str = Query("", max_length=200),
                 yield _sse({"type": "error", "message": "still warming up, try again shortly"})
                 return
 
+        # The page needs the size the search is aiming at before the first frame
+        # lands: it picks a grid width from it and then never changes it, because
+        # rewrapping is exactly what it must not do.
+        yield _sse({"type": "plan", "expectLetters": 3 * LENGTH_FLOOR})
+
         t0 = time.time()
-        # The search runs on a thread and hands its improving drafts back through
+        # The search runs on a thread and hands its published frames back through
         # a queue, because a thread cannot yield into an async generator itself.
         drafts: queue.Queue = queue.Queue(maxsize=64)
         task = asyncio.create_task(

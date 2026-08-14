@@ -128,7 +128,8 @@ class DirectionalScorer:
     def __init__(self, base, forward_path: str = "gpt2",
                  backward_path: Optional[str] = None,
                  appends: str = "left", weight: float = 1.0,
-                 max_context: int = 8, device: Optional[str] = None):
+                 max_context: int = 8, device: Optional[str] = None,
+                 vocab: Optional[Sequence[str]] = None):
         self.base = base
         self.weight = weight
         self.max_context = max_context
@@ -138,7 +139,14 @@ class DirectionalScorer:
         self.fwd = _Directional(forward_path, reversed_order=False, device=dev)
         self.bwd = (_Directional(backward_path, reversed_order=True, device=dev)
                     if backward_path else None)
-        self._cache: dict[tuple, torch.Tensor] = {}
+        self._cache: dict[tuple, tuple[torch.Tensor, float, float]] = {}
+        self._reachable: dict[str, torch.Tensor] = {}
+        if vocab:
+            self._reachable["append"] = torch.tensor(
+                sorted({self.fwd.leading_token(w) for w in vocab}))
+            if self.bwd is not None:
+                self._reachable["prepend"] = torch.tensor(
+                    sorted({self.bwd.leading_token(w) for w in vocab}))
         self.passes = 0
         self.misses = 0
 
@@ -178,7 +186,24 @@ class DirectionalScorer:
             dists = model.next_token_logprobs([wanted[k] for k in group])
             self.passes += len(group)
             for k, d in zip(group, dists):
-                self._cache[k] = d
+                self._cache[k] = (d,) + self._standardize(growth, d)
+
+    def _standardize(self, growth: str, dist: torch.Tensor) -> tuple[float, float]:
+        """Mean and spread of this distribution over the words actually reachable.
+
+        A raw logprob is a large negative number whose scale swings with the
+        context's entropy, and adding it to a Zipf score of 1-7 lets it decide
+        the search on its own — or, worse, decide it differently at every step.
+        Standardizing against the vocabulary the trie can actually offer turns
+        it into "how good is this word *here*, relative to the alternatives",
+        which is the question the beam is asking, on a scale the other terms
+        can argue with.
+        """
+        ids = self._reachable.get(growth)
+        if ids is None:
+            return 0.0, 1.0
+        vals = dist[ids]
+        return float(vals.mean()), max(1e-3, float(vals.std()))
 
     def _lm_term(self, left: tuple, right: tuple, placement: str, word: str,
                  growth: str) -> float:
@@ -188,12 +213,15 @@ class DirectionalScorer:
         seq = left if placement == "L" else right
         context = seq[:-1] if growth == "append" else seq[1:]
         key = context_key(context, growth, self.max_context)
-        dist = self._cache.get(key)
-        if dist is None:
+        entry = self._cache.get(key)
+        if entry is None:
             self.misses += 1
-            dist = model.next_token_logprobs([model.context_ids(context, self.max_context)])[0]
-            self._cache[key] = dist
-        return float(dist[model.leading_token(word)])
+            dist = model.next_token_logprobs(
+                [model.context_ids(context, self.max_context)])[0]
+            entry = (dist,) + self._standardize(growth, dist)
+            self._cache[key] = entry
+        dist, mean, sd = entry
+        return (float(dist[model.leading_token(word)]) - mean) / sd
 
     def word_delta(self, left: tuple, right: tuple, placement: str, word: str,
                    growth: str) -> float:

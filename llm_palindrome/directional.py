@@ -34,6 +34,23 @@ from transformers import AutoModelForCausalLM, AutoTokenizer
 from .scoring import adjacent
 
 
+def context_key(words: Sequence[str], growth: str, max_context: int) -> tuple:
+    """Cache key for the neighbour distribution of a half.
+
+    `prepare` computes distributions from the states in the beam; `word_delta`
+    looks them up from the words of the *resulting* state. The two must agree
+    or every lookup misses and the amortization silently disappears into
+    one model call per candidate — slower than not caching at all, and with no
+    error to notice. One function, both callers.
+
+    Truncation takes the end nearest the word being scored: the tail for an
+    appended word, the head for a prepended one.
+    """
+    tail = (tuple(words[-max_context:]) if growth == "append"
+            else tuple(words[:max_context]))
+    return (growth, tail)
+
+
 def leading_token(ids: Sequence[int], reversed_order: bool) -> int:
     """The token a model in this direction emits first for a word block.
 
@@ -147,8 +164,7 @@ class DirectionalScorer:
                 model = self._model_for(growth)
                 if model is None:
                     continue
-                key = (growth, tuple(words[-self.max_context:] if growth == "append"
-                                     else words[:self.max_context]))
+                key = context_key(words, growth, self.max_context)
                 if key not in self._cache and key not in wanted:
                     wanted[key] = model.context_ids(words, self.max_context)
         if not wanted:
@@ -171,8 +187,7 @@ class DirectionalScorer:
             return 0.0
         seq = left if placement == "L" else right
         context = seq[:-1] if growth == "append" else seq[1:]
-        key = (growth, tuple(context[-self.max_context:] if growth == "append"
-                             else context[:self.max_context]))
+        key = context_key(context, growth, self.max_context)
         dist = self._cache.get(key)
         if dist is None:
             self.misses += 1

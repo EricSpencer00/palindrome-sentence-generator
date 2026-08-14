@@ -130,11 +130,23 @@ tests/              # pytest suite
 ## Known limits
 
 Output is locally fluent — phrases parse, sentences scan — but not globally
-coherent; it does not hold a topic across its full length. The bottleneck is
-the vocabulary's letter statistics: past a few hundred letters, the overhang
-tends toward runs no English word can absorb, and the search leans on rare
-short words to escape. Larger scoring models and a corpus-derived phrase
-inventory are the next things to try.
+coherent; it does not hold a topic across its full length.
+
+Two explanations for that have been tested and eliminated, both in
+`docs/training.md`. **A better judge will not fix it:** best-of-2000 scores
+0.168 nats per token above best-of-24 and the curve is flat by then, which
+bounds every possible reranker on this candidate pool. **Nor will a
+wider-ranging search:** the seed jitter was leaving 1975 of 2000 palindromes
+sharing an opening, and raising it fixes the exploration completely — 3
+distinct openings become 200 — while readability falls monotonically, because a
+search unanchored from word frequency reaches for rarer words.
+
+What is left untested is the unit the search consumes. The trie holds single
+words, so coherence has to emerge from adjacent-word scoring; a corpus-derived
+phrase inventory of attested n-grams, consumed atomically, would make local
+coherence a property of each unit instead. The other option is length —
+coherence and length trade off directly, and nothing here has asked what the
+search can do at 80 letters rather than 200.
 
 ## Credit
 

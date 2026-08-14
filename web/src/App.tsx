@@ -1,7 +1,27 @@
 import { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react"
-import { motion, useMotionValue, useSpring } from "motion/react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+
+/* THE CAMERA, in one paragraph.
+ *
+ * The block of text is pinned by its own centre to the middle of the screen
+ * with translate(-50%,-50%), and scaled about that same centre. That is the
+ * whole mechanism: no anchor to compute, no margin to offset, no coordinate
+ * space to convert between. An earlier version pinned a chosen point by hand
+ * with transform-origin plus negative margins and measured the revealed text
+ * inside that transformed space on every tick; every arithmetic slip in it
+ * showed up as the block drifting sideways.
+ *
+ * The scale is a pure function of how much text has been revealed, so it cannot
+ * chase, lag or oscillate. The block's layout is fixed the moment the result
+ * arrives, so its final scale is known immediately and the zoom just walks
+ * towards it along a curve — fast at first, then easing off, which is what
+ * standing too close to a painting and stepping back feels like.
+ *
+ * Nothing sets will-change. Promoting the block to its own layer made the
+ * browser rasterise it whole; at the starting scale that is far past the
+ * maximum texture size, and the failed raster was the black/white flicker.
+ */
 
 type Result = {
   center: string
@@ -18,19 +38,12 @@ type Result = {
 type Phase = "idle" | "searching" | "revealing" | "done" | "error"
 type View = "poster" | "read"
 
-const FIRST_STEP_MS = 150
-const LAST_STEP_MS = 24
-const MAX_SCALE = 5.6
-const MIN_SCALE = 0.04
-const FONT_PX = 42
-
-/* Chrome heights reserved above and below the canvas, so the fit is computed
-   against the space actually available rather than a guessed fraction of the
-   viewport. Both are reserved for the whole run, including before the credits
-   exist: varying the reserve on `done` meant the last measurement that mattered
-   ran under the smaller one, and the finished text sat under the chrome. */
-const TOP_CHROME = 108
-const BOTTOM_CHROME = 116
+const FIRST_STEP_MS = 150   // pace of the reveal, per word-pair
+const LAST_STEP_MS = 26
+const FONT_PX = 42          // one unit of the block's own coordinate system
+const TOP_CHROME = 108      // space kept clear for the prompt
+const BOTTOM_CHROME = 116   // and for the credits
+const ZOOM_EASE = 2.2       // >1 front-loads the pull-back
 
 export default function App() {
   const [prompt, setPrompt] = useState("")
@@ -41,105 +54,56 @@ export default function App() {
   const [error, setError] = useState("")
   const [view, setView] = useState<View>("poster")
   const [copied, setCopied] = useState(false)
+  const [vp, setVp] = useState(() => ({ w: window.innerWidth, h: window.innerHeight }))
+  const [fit, setFit] = useState(1)
 
-  const innerRef = useRef<HTMLDivElement>(null)
-  const centerRef = useRef<HTMLSpanElement>(null)
+  const blockRef = useRef<HTMLDivElement>(null)
   const esRef = useRef<EventSource | null>(null)
-
-  /* A spring has to TRACK a source value — setting the spring itself strands it
-     partway to the target. */
-  const scaleTarget = useMotionValue(MAX_SCALE)
-  const scale = useSpring(scaleTarget, { stiffness: 90, damping: 24, mass: 0.9 })
-  const [anchor, setAnchor] = useState({ x: 0, y: 0 })
 
   const done = phase === "done"
   const total = result ? Math.max(result.left.length, result.right.length) : 0
 
-  const [vp, setVp] = useState(() => ({ w: window.innerWidth, h: window.innerHeight }))
-
-  /* The whole palindrome is laid out the moment it arrives — hidden words still
-     occupy their slots — so nothing reflows during the reveal.
-
-     Width is chosen so the finished block has roughly the SCREEN's aspect
-     ratio. A squarer block (the old sqrt(letters) rule) is bounded by height on
-     a landscape display and leaves half the width empty. For monospace at
-     ~0.6em advance and 1.42em line height, matching aspect A over N characters
-     gives width = font * sqrt(0.6 * 1.42 * A * N). */
+  /* Block width is chosen so the finished text has roughly the screen's aspect
+     ratio, otherwise a squarer block is bounded by height and leaves half the
+     width empty. Monospace advance ~0.6em, line height 1.42em. */
   const worldWidth = useMemo(() => {
     if (!result) return 560
-    const availW = vp.w - 24
+    const availW = vp.w - 32
     const availH = Math.max(160, vp.h - TOP_CHROME - BOTTOM_CHROME)
     const chars = result.letters + result.words
     const w = FONT_PX * Math.sqrt(0.6 * 1.42 * (availW / availH) * chars)
     return Math.min(6000, Math.max(560, w))
   }, [result, vp])
 
-  const measure = useCallback(() => {
-    const inner = innerRef.current
-    const c = centerRef.current
-    if (!inner || !c) return
-
-    /* Extents of the revealed band, in the block's own coordinates.
-
-       Measured per line-fragment via getClientRects(). offsetWidth on an inline
-       span that wraps across a line counts its fragments rather than its visual
-       box, which made the band measure nearly twice the block width and pinned
-       the anchor to the block's right edge. Screen rects are converted back
-       through the live scale. */
-    const s = scale.get() || 1
-    const ir = inner.getBoundingClientRect()
-    const on = inner.querySelectorAll<HTMLElement>('[data-on="1"]')
-    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity
-    on.forEach((el) => {
-      for (const r of Array.from(el.getClientRects())) {
-        x0 = Math.min(x0, (r.left - ir.left) / s)
-        x1 = Math.max(x1, (r.right - ir.left) / s)
-        y0 = Math.min(y0, (r.top - ir.top) / s)
-        y1 = Math.max(y1, (r.bottom - ir.top) / s)
-      }
-    })
-    if (!isFinite(x0) || !isFinite(y0)) {
-      x0 = c.offsetLeft; x1 = c.offsetLeft + c.offsetWidth
-      y0 = c.offsetTop;  y1 = c.offsetTop + c.offsetHeight
-    }
-
-    /* While revealing, the anchor is the CARET and nothing else — it is fixed by
-       the layout before the first word appears, so it never moves and the block
-       cannot shiver. Tracking the band's centre instead nudged the anchor on
-       every tick, and those hundreds of sub-pixel shifts were the jitter.
-
-       Once finished, the anchor moves once to the centre of the text, which is
-       what lets the finished block fill the screen instead of being framed
-       around a caret that sits off to one side. */
-    const ax = done ? (x0 + x1) / 2 : c.offsetLeft + c.offsetWidth / 2
-    const ay = done ? (y0 + y1) / 2 : c.offsetTop + c.offsetHeight / 2
-    setAnchor((prev) =>
-      Math.abs(prev.x - ax) < 0.5 && Math.abs(prev.y - ay) < 0.5 ? prev : { x: ax, y: ay })
-
-    const availW = window.innerWidth - 24
-    const availH = Math.max(160, window.innerHeight - TOP_CHROME - BOTTOM_CHROME)
-    // Caret-anchored (mid-reveal) needs room for twice its longer reach;
-    // centre-anchored (finished) needs only the band itself.
-    const needW = done ? x1 - x0 : 2 * Math.max(ax - x0, x1 - ax)
-    const needH = done ? y1 - y0 : 2 * Math.max(ay - y0, y1 - ay)
-    const fit = Math.min(availW / Math.max(1, needW), availH / Math.max(1, needH))
-    scaleTarget.set(Math.max(MIN_SCALE, Math.min(MAX_SCALE, fit)))
-  }, [scaleTarget, scale, done])
-
-  useLayoutEffect(measure, [measure, shown, result, worldWidth, view])
+  /* Measured once per layout, never per revealed word. offsetWidth/Height are
+     layout values, so the transform we set does not feed back into them. */
+  useLayoutEffect(() => {
+    const el = blockRef.current
+    if (!el) return
+    const availW = vp.w - 32
+    const availH = Math.max(160, vp.h - TOP_CHROME - BOTTOM_CHROME)
+    setFit(Math.min(availW / Math.max(1, el.offsetWidth), availH / Math.max(1, el.offsetHeight)))
+  }, [result, worldWidth, vp])
 
   useEffect(() => {
-    const onResize = () => {
-      setVp({ w: window.innerWidth, h: window.innerHeight })
-      measure()
-    }
+    const onResize = () => setVp({ w: window.innerWidth, h: window.innerHeight })
     window.addEventListener("resize", onResize)
     window.addEventListener("orientationchange", onResize)
     return () => {
       window.removeEventListener("resize", onResize)
       window.removeEventListener("orientationchange", onResize)
     }
-  }, [measure])
+  }, [])
+
+  /* Start close enough that a couple of words fill the screen, and never above
+     3 — scaling a large block up is what strains the rasteriser. */
+  const startScale = useMemo(
+    () => Math.min(3, Math.max(fit, (vp.w - 32) / (11 * FONT_PX))),
+    [fit, vp.w],
+  )
+
+  const progress = total > 0 ? Math.min(1, shown / total) : 0
+  const scale = result ? fit + (startScale - fit) * Math.pow(1 - progress, ZOOM_EASE) : startScale
 
   useEffect(() => {
     if (phase !== "revealing" || !result) return
@@ -159,9 +123,7 @@ export default function App() {
   const generate = useCallback(() => {
     esRef.current?.close()
     setResult(null); setShown(0); setError(""); setElapsed(0); setCopied(false)
-    setView("poster")
-    setPhase("searching")
-    scaleTarget.set(MAX_SCALE)
+    setView("poster"); setPhase("searching")
 
     const es = new EventSource(`/api/generate?prompt=${encodeURIComponent(prompt)}&budget=16`)
     esRef.current = es
@@ -178,7 +140,7 @@ export default function App() {
       })
       es.close()
     }
-  }, [prompt, scaleTarget])
+  }, [prompt])
 
   useEffect(() => () => esRef.current?.close(), [])
 
@@ -187,66 +149,69 @@ export default function App() {
       await navigator.clipboard.writeText(fullText)
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1600)
-    } catch { /* clipboard unavailable; the text is selectable in read view */ }
+    } catch { /* clipboard unavailable; read view is selectable */ }
   }, [fullText])
 
   const status =
     phase === "searching" ? `searching · ${elapsed.toFixed(1)}s`
     : phase === "revealing" ? `${Math.min(shown * 2, result?.words ?? 0)} of ${result?.words ?? 0} words`
     : phase === "error" ? error
-    : done && result
-      ? `${result.letters} letters · ${result.words} words · ${result.seconds}s`
-    // Idle says nothing: the placeholder already explains the field, and the
-    // brief is that an untouched page is only the prompt and the caret.
+    : done && result ? `${result.letters} letters · ${result.words} words · ${result.seconds}s`
     : ""
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-paper">
 
-      {/* ---------- canvas ---------- */}
-      <div className={`absolute left-1/2 top-1/2 h-0 w-0 ${view === "read" ? "invisible" : ""}`}>
-        <motion.div
+      {/* Camera: the block is pinned by its own centre to the middle of the
+          screen and scaled about that same centre.
+
+          translate(-50%,-50%) is doing the centring, NOT flex or grid. The
+          block's LAYOUT width is the full unscaled width — wider than the
+          viewport — and transforms do not change layout size, so grid alignment
+          sees an oversized item, clamps it to the start edge, and the centre it
+          then scales about sits off-screen. That was the drift to the right. */}
+      <div
+        className={`absolute inset-0 ${view === "read" ? "invisible" : ""}`}
+        aria-hidden={view === "read"}
+      >
+        <div
+          ref={blockRef}
           style={{
-            scale,
-            transformOrigin: `${anchor.x}px ${anchor.y}px`,
-            marginLeft: -anchor.x,
-            marginTop: -anchor.y,
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            width: worldWidth,
+            fontSize: FONT_PX,
+            lineHeight: 1.42,
+            transform: `translate(-50%, -50%) scale(${scale})`,
+            // Smooths the step between revealed words. Linear, because the
+            // shape of the zoom already lives in the curve above.
+            transition: "transform 140ms linear",
           }}
-          className="will-change-transform"
+          className="text-center text-ink"
         >
-          <div
-            ref={innerRef}
-            style={{ width: worldWidth, fontSize: FONT_PX, lineHeight: 1.42, position: "relative" }}
-            className="text-center text-ink"
-          >
-            {result?.left.map((w, i) => {
-              const on = i >= result.left.length - shown
-              return (
-                <span key={`l${i}`} data-on={on ? "1" : "0"} style={{ opacity: on ? 1 : 0 }}
-                      className="transition-opacity duration-200">{w} </span>
-              )
-            })}
-
-            <span ref={centerRef} data-on="1" className="whitespace-nowrap">
-              {result?.centerDisplay && <span className="text-signal">{result.centerDisplay} </span>}
-              {!done && <span className="caret text-signal" aria-hidden="true">|</span>}
+          {result?.left.map((w, i) => (
+            <span key={`l${i}`} style={{ visibility: i >= result.left.length - shown ? "visible" : "hidden" }}>
+              {w}{" "}
             </span>
+          ))}
 
-            {result?.right.map((w, i) => {
-              const on = i < shown
-              return (
-                <span key={`r${i}`} data-on={on ? "1" : "0"} style={{ opacity: on ? 1 : 0 }}
-                      className="transition-opacity duration-200"> {w}</span>
-              )
-            })}
-          </div>
-        </motion.div>
+          <span className="whitespace-nowrap">
+            {result?.centerDisplay && <span className="text-signal">{result.centerDisplay} </span>}
+            {!done && <span className="caret text-signal" aria-hidden="true">|</span>}
+          </span>
+
+          {result?.right.map((w, i) => (
+            <span key={`r${i}`} style={{ visibility: i < shown ? "visible" : "hidden" }}>
+              {" "}{w}
+            </span>
+          ))}
+        </div>
       </div>
 
-      {/* ---------- read view: the whole thing at a size you can actually read ---------- */}
       {view === "read" && result && (
         <div className="absolute inset-0 overflow-y-auto overscroll-contain px-5 pb-32 pt-28">
-          <p className="mx-auto max-w-[62ch] text-left text-[15px] leading-[1.85] break-words text-ink sm:text-base">
+          <p className="mx-auto max-w-[62ch] break-words text-left text-[15px] leading-[1.85] text-ink sm:text-base">
             {result.left.join(" ")}{" "}
             <span className="text-signal">{result.centerDisplay || result.center}</span>{" "}
             {result.right.join(" ")}
@@ -254,16 +219,13 @@ export default function App() {
         </div>
       )}
 
-      {/* Bands so text passes under the chrome rather than colliding with it. */}
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-paper via-paper to-transparent sm:h-28" />
       {done && (
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-paper via-paper to-transparent" />
       )}
 
-      {/* ---------- prompt ---------- */}
       <div className="pointer-events-none absolute inset-x-0 top-0 grid place-items-center px-4 pt-6 sm:pt-10">
         <div className="pointer-events-auto flex w-full max-w-[34rem] flex-col gap-2">
-          {/* Height is reserved so the prompt does not jump when a status appears. */}
           <label htmlFor="p" className="label min-h-[0.9rem] pl-1">{status}</label>
           <div className="flex gap-2">
             <div className="slab min-w-0 flex-1 bg-paper">
@@ -274,12 +236,8 @@ export default function App() {
                 onKeyDown={(e) => { if (e.key === "Enter") generate() }}
                 placeholder="never odd or even"
                 disabled={phase === "searching"}
-                autoComplete="off"
-                autoCapitalize="none"
-                autoCorrect="off"
-                spellCheck={false}
-                enterKeyHint="go"
-                /* 16px stops iOS Safari zooming the page on focus. */
+                autoComplete="off" autoCapitalize="none" autoCorrect="off"
+                spellCheck={false} enterKeyHint="go"
                 className="h-11 border-0 bg-transparent font-mono text-base shadow-none focus-visible:ring-0"
               />
             </div>
@@ -294,7 +252,6 @@ export default function App() {
         </div>
       </div>
 
-      {/* ---------- credits: only once there is something to credit ---------- */}
       {done && result && (
         <div className="absolute inset-x-0 bottom-0 grid place-items-center px-4 pb-5">
           <div className="flex w-full max-w-[34rem] flex-col items-center gap-3">
@@ -319,7 +276,7 @@ export default function App() {
                 ericspencer.us
               </a>{" "}
               · after{" "}
-              <a href="https://norvig.com/palindrome.html" target="_blank" rel="noopener noreferrer"
+              <a href="https://norvig.com/pal-alg.html" target="_blank" rel="noopener noreferrer"
                  className="underline decoration-from-font underline-offset-2 hover:text-signal">
                 norvig
               </a>{" "}

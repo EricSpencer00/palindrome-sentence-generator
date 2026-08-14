@@ -27,6 +27,30 @@ class TestIsAllowed:
         for w in ("assist", "class", "grass", "analysis", "shitake", "cocktail"):
             assert is_allowed(w), f"{w!r} wrongly filtered"
 
+    def test_rejects_inflections_of_blocked_words(self):
+        """The bug this guards: "rape" and "raped" were listed, "rapes" was not,
+        and "rapes" appeared 24 times in a 2000-palindrome sample."""
+        for w in ("rapes", "raping", "rapists", "kills", "killing", "sexes",
+                  "nazis", "suicides", "molested", "penises", "escorts"):
+            assert not is_allowed(w), f"{w!r} should be filtered"
+
+    def test_keeps_ordinary_words_that_inflect_from_a_blocked_base(self):
+        """"spic" generates "spicy" and "spiced"; ALLOWED_ANYWAY rescues them."""
+        for w in ("spicy", "spiced", "spicing"):
+            assert is_allowed(w), f"{w!r} wrongly filtered"
+
+    def test_allowlist_plurals_survive(self):
+        for w in ("gays", "lesbians"):
+            assert is_allowed(w), f"{w!r} wrongly filtered"
+
+    def test_third_party_entries_are_not_inflected(self):
+        """Only the curated list is expanded. Inflecting better_profanity's
+        entries as well removed 125 more words from the top-30k list, including
+        every word here — its entries include short and mangled stems."""
+        for w in ("her", "tested", "sober", "weeds", "assessing", "peers",
+                  "homer", "strips", "ring"):
+            assert is_allowed(w), f"{w!r} lost to third-party expansion"
+
 
 def _raw_wordfreq_vocab():
     """The unfiltered source build_vocab draws from."""
@@ -51,5 +75,16 @@ class TestSafeVocab:
     def test_build_vocab_is_already_clean(self):
         """The filter has to be applied at the source, not left to callers."""
         v = set(build_vocab())
-        for w in ("rape", "xxx", "porn", "bitch", "nigger", "sex"):
+        for w in ("rape", "rapes", "xxx", "porn", "bitch", "nigger", "sex",
+                  "sexes", "nazis"):
             assert w not in v, f"{w!r} reached the public vocabulary"
+
+    def test_no_ordinary_word_lost(self):
+        """Guards the expansion against over-blocking. A new EXTRA_BLOCKED base
+        can introduce a collision; if this fails, add the casualty to
+        ALLOWED_ANYWAY rather than narrowing the expansion."""
+        v = set(build_vocab())
+        for w in ("her", "class", "assist", "analysis", "spicy", "spiced",
+                  "tested", "sober", "weeds", "grass", "cocktail", "skill",
+                  "essex", "peers", "assessing"):
+            assert w in v, f"{w!r} was wrongly removed from the vocabulary"

@@ -111,8 +111,31 @@ body {
 @keyframes blink { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 } }
 .caret { animation: blink 1.06s steps(1, end) infinite; }
 
+/* Searching: the cursor spins instead of blinking. Three hard turns at constant
+   speed, then one slow turn split into a decelerating and an accelerating half
+   so the loop rejoins the fast turns at matching speed rather than stalling at
+   the seam. Per-keyframe animation-timing-function is what gives each segment
+   its own easing.
+
+   The caret is a sized bar, not a "|" glyph, so the element box and the ink are
+   the same rectangle and 50% 50% is the visual middle exactly — a glyph's ink
+   sits off-centre in its character box and would orbit instead of spin. */
+@keyframes caret-spin {
+  0%   { transform: rotate(0deg);    animation-timing-function: linear }
+  11%  { transform: rotate(360deg);  animation-timing-function: linear }
+  22%  { transform: rotate(720deg);  animation-timing-function: linear }
+  33%  { transform: rotate(1080deg); animation-timing-function: cubic-bezier(.16,.6,.3,1) }
+  68%  { transform: rotate(1260deg); animation-timing-function: cubic-bezier(.7,0,.84,0) }
+  100% { transform: rotate(1440deg) }
+}
+.caret-spin {
+  transform-origin: 50% 50%;
+  animation: caret-spin 2.6s infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .caret { animation: none; }
+  .caret-spin { animation: none; }
   .slab { transition: none; }
 }
 

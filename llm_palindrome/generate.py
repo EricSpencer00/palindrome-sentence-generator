@@ -1,6 +1,6 @@
 """CLI: generate a long, multi-sentence, LLM-ranked character palindrome.
 
-Pipeline: wordfreq vocabulary -> Tromp-style overhang beam search (many seeds)
+Pipeline: wordfreq vocabulary -> Norvig-style overhang beam search (many seeds)
 -> GPT-2 rerank of closed palindromes -> sentence formatting -> validation.
 """
 from __future__ import annotations

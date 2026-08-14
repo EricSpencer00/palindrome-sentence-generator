@@ -83,6 +83,26 @@ The number that matters is reported separately: rank agreement *within* the arm
 the search actually uses. Telling good palindromes from random ones is easy and
 is not what the judge is for.
 
+**Result** (899 palindromes, held out by seed, GPT-2 small as the target):
+
+| Set | Spearman | Pairwise agreement | MAE | Target sd |
+|---|---|---|---|---|
+| All arms | 0.991 | 0.964 | 0.045 | 1.170 |
+| The real scorer's arm only | 0.888 | 0.821 | 0.045 | 0.114 |
+
+The second row is the honest one, and the gap between the two is the whole
+reason for reporting both: across arms the judge is separating good from
+random, and within one arm it is resolving differences of about a tenth of a
+nat. It agrees with GPT-2 on 82% of those calls at **280 µs** a palindrome,
+against roughly 40 ms for GPT-2 itself.
+
+What it learned is mostly what a reader would expect and one thing they might
+not: a low type-token ratio is the strongest single predictor of a good GPT-2
+score, well ahead of word frequency. Repeating yourself reads as fluent to a
+language model. That is precisely the bias a small preference set exists to
+correct, and it is why the verifiable reward penalizes repetition directly
+rather than leaving it to the judge.
+
 ## 3. Learning the search's policy against a mostly-verifiable reward
 
 Most of what this task demands is decidable. `llm_palindrome/verify.py` splits

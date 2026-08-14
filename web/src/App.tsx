@@ -16,12 +16,21 @@ type Result = {
 }
 
 type Phase = "idle" | "searching" | "revealing" | "done" | "error"
+type View = "poster" | "read"
 
 const FIRST_STEP_MS = 150
 const LAST_STEP_MS = 24
 const MAX_SCALE = 5.6
 const MIN_SCALE = 0.04
 const FONT_PX = 42
+
+/* Chrome heights reserved above and below the canvas, so the fit is computed
+   against the space actually available rather than a guessed fraction of the
+   viewport. Both are reserved for the whole run, including before the credits
+   exist: varying the reserve on `done` meant the last measurement that mattered
+   ran under the smaller one, and the finished text sat under the chrome. */
+const TOP_CHROME = 108
+const BOTTOM_CHROME = 116
 
 export default function App() {
   const [prompt, setPrompt] = useState("")
@@ -30,37 +39,26 @@ export default function App() {
   const [shown, setShown] = useState(0)
   const [elapsed, setElapsed] = useState(0)
   const [error, setError] = useState("")
+  const [view, setView] = useState<View>("poster")
+  const [copied, setCopied] = useState(false)
 
   const innerRef = useRef<HTMLDivElement>(null)
   const centerRef = useRef<HTMLSpanElement>(null)
   const esRef = useRef<EventSource | null>(null)
 
-  /* A spring has to TRACK a source value. Calling .set() on the spring itself
-     strands it partway to the target, which is why the camera used to stop
-     mid-pull with the text still overflowing. */
+  /* A spring has to TRACK a source value — setting the spring itself strands it
+     partway to the target. */
   const scaleTarget = useMotionValue(MAX_SCALE)
   const scale = useSpring(scaleTarget, { stiffness: 90, damping: 24, mass: 0.9 })
-
-  /* The anchor is the point held at the viewport centre while everything scales
-     about it. Horizontally it starts on the caret — early on there is little
-     else to look at — and migrates to the middle of the block once the text
-     stacks into lines, because the two halves are not the same width and
-     caret-anchoring alone leaves the block hanging off one edge. Vertically it
-     stays on the mirror line throughout. Both are sprung so the handover is a
-     drift rather than a jump. */
-  // Set directly, not sprung: this is a layout pin, and the mirror point must
-  // sit exactly at the viewport centre on every frame. Smoothness comes from the
-  // scale spring; the caret-to-midline handover moves gradually anyway because
-  // it is driven by the line count.
   const [anchor, setAnchor] = useState({ x: 0, y: 0 })
 
+  const done = phase === "done"
   const total = result ? Math.max(result.left.length, result.right.length) : 0
 
   /* The whole palindrome is laid out the moment it arrives — hidden words still
-     occupy their slots. Nothing reflows during the reveal, so once a word has a
-     position it keeps it. */
+     occupy their slots — so nothing reflows during the reveal. */
   const worldWidth = useMemo(
-    () => (result ? Math.min(2400, Math.max(620, Math.sqrt(result.letters) * 52)) : 620),
+    () => (result ? Math.min(2400, Math.max(560, Math.sqrt(result.letters) * 52)) : 560),
     [result],
   )
 
@@ -69,44 +67,55 @@ export default function App() {
     const c = centerRef.current
     if (!inner || !c) return
 
-    const caretX = c.offsetLeft + c.offsetWidth / 2
-    const caretY = c.offsetTop + c.offsetHeight / 2
+    /* Extents of the revealed band, in the block's own coordinates.
 
-    // Extents of the revealed band, in the block's own coordinates.
+       Measured per line-fragment via getClientRects(). offsetWidth on an inline
+       span that wraps across a line counts its fragments rather than its visual
+       box, which made the band measure nearly twice the block width and pinned
+       the anchor to the block's right edge. Screen rects are converted back
+       through the live scale. */
+    const s = scale.get() || 1
+    const ir = inner.getBoundingClientRect()
     const on = inner.querySelectorAll<HTMLElement>('[data-on="1"]')
-    let x0 = c.offsetLeft, x1 = c.offsetLeft + c.offsetWidth
-    let y0 = c.offsetTop, y1 = c.offsetTop + c.offsetHeight
+    let x0 = Infinity, x1 = -Infinity, y0 = Infinity, y1 = -Infinity
     on.forEach((el) => {
-      x0 = Math.min(x0, el.offsetLeft); x1 = Math.max(x1, el.offsetLeft + el.offsetWidth)
-      y0 = Math.min(y0, el.offsetTop);  y1 = Math.max(y1, el.offsetTop + el.offsetHeight)
+      for (const r of Array.from(el.getClientRects())) {
+        x0 = Math.min(x0, (r.left - ir.left) / s)
+        x1 = Math.max(x1, (r.right - ir.left) / s)
+        y0 = Math.min(y0, (r.top - ir.top) / s)
+        y1 = Math.max(y1, (r.bottom - ir.top) / s)
+      }
     })
+    if (!isFinite(x0) || !isFinite(y0)) {
+      x0 = c.offsetLeft; x1 = c.offsetLeft + c.offsetWidth
+      y0 = c.offsetTop;  y1 = c.offsetTop + c.offsetHeight
+    }
 
-    /* Anchor halfway between the mirror point and the middle of the revealed
-       band. Pure caret-anchoring is exactly centred but forces the fit to cover
-       twice the longer side, throwing away half the screen; pure band-centring
-       fills the screen but lets the mirror point wander. Halfway keeps the
-       caret near the middle and the text large — equal-ish, which is all the
-       asymmetric word boundaries allow anyway. */
-    const ax = (caretX + (x0 + x1) / 2) / 2
-    const ay = (caretY + (y0 + y1) / 2) / 2
+    /* Anchor on the centre of the REVEALED band, not the caret and not the
+       whole block. Early on the band is barely wider than the caret, so this is
+       caret-centred; by the end it is the finished text, so it fills the screen.
+       Anchoring on the caret instead forces the fit to cover twice its longer
+       side and throws away half the width. */
+    const ax = (x0 + x1) / 2
+    const ay = (y0 + y1) / 2
     setAnchor((prev) =>
       Math.abs(prev.x - ax) < 0.5 && Math.abs(prev.y - ay) < 0.5 ? prev : { x: ax, y: ay })
 
-    // Fit the band, allowing for the anchor sitting off its centre.
-    const w = 2 * Math.max(ax - x0, x1 - ax)
-    const h = 2 * Math.max(ay - y0, y1 - ay)
-    const fit = Math.min(
-      (window.innerWidth * 0.88) / Math.max(1, w),
-      (window.innerHeight * 0.62) / Math.max(1, h),
-    )
+    const availW = window.innerWidth - 24
+    const availH = Math.max(160, window.innerHeight - TOP_CHROME - BOTTOM_CHROME)
+    const fit = Math.min(availW / Math.max(1, x1 - x0), availH / Math.max(1, y1 - y0))
     scaleTarget.set(Math.max(MIN_SCALE, Math.min(MAX_SCALE, fit)))
-  }, [scaleTarget])
+  }, [scaleTarget, scale])
 
-  useLayoutEffect(measure, [measure, shown, result, worldWidth])
+  useLayoutEffect(measure, [measure, shown, result, worldWidth, view])
 
   useEffect(() => {
     window.addEventListener("resize", measure)
-    return () => window.removeEventListener("resize", measure)
+    window.addEventListener("orientationchange", measure)
+    return () => {
+      window.removeEventListener("resize", measure)
+      window.removeEventListener("orientationchange", measure)
+    }
   }, [measure])
 
   useEffect(() => {
@@ -118,9 +127,16 @@ export default function App() {
     return () => clearTimeout(t)
   }, [phase, shown, total, result])
 
+  const fullText = useMemo(() => {
+    if (!result) return ""
+    return [...result.left, result.centerDisplay || result.center, ...result.right]
+      .filter(Boolean).join(" ")
+  }, [result])
+
   const generate = useCallback(() => {
     esRef.current?.close()
-    setResult(null); setShown(0); setError(""); setElapsed(0)
+    setResult(null); setShown(0); setError(""); setElapsed(0); setCopied(false)
+    setView("poster")
     setPhase("searching")
     scaleTarget.set(MAX_SCALE)
 
@@ -143,18 +159,27 @@ export default function App() {
 
   useEffect(() => () => esRef.current?.close(), [])
 
+  const copy = useCallback(async () => {
+    try {
+      await navigator.clipboard.writeText(fullText)
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1600)
+    } catch { /* clipboard unavailable; the text is selectable in read view */ }
+  }, [fullText])
+
   const status =
     phase === "searching" ? `searching · ${elapsed.toFixed(1)}s`
     : phase === "revealing" ? `${Math.min(shown * 2, result?.words ?? 0)} of ${result?.words ?? 0} words`
-    : phase === "done" && result
-      ? `${result.letters} letters · ${result.words} words · ${Math.round((result.coherence ?? 0) * 100)}% real bigrams · ${result.seconds}s`
     : phase === "error" ? error
+    : done && result
+      ? `${result.letters} letters · ${result.words} words · ${result.seconds}s`
     : "a phrase to mirror — optional"
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-paper">
 
-      <div className="absolute left-1/2 top-1/2 h-0 w-0">
+      {/* ---------- canvas ---------- */}
+      <div className={`absolute left-1/2 top-1/2 h-0 w-0 ${view === "read" ? "invisible" : ""}`}>
         <motion.div
           style={{
             scale,
@@ -166,32 +191,26 @@ export default function App() {
         >
           <div
             ref={innerRef}
-            // position:relative makes this the offsetParent, so the centre
-            // span's offsetLeft/Top are in the same coordinate space as the
-            // transformOrigin below. Without it they resolve against an outer
-            // element and the whole block sits off-centre.
             style={{ width: worldWidth, fontSize: FONT_PX, lineHeight: 1.42, position: "relative" }}
             className="text-center text-ink"
           >
             {result?.left.map((w, i) => {
               const on = i >= result.left.length - shown
               return (
-                <span key={`l${i}`} data-on={on ? "1" : "0"}
-                      style={{ opacity: on ? 1 : 0 }}
+                <span key={`l${i}`} data-on={on ? "1" : "0"} style={{ opacity: on ? 1 : 0 }}
                       className="transition-opacity duration-200">{w} </span>
               )
             })}
 
             <span ref={centerRef} data-on="1" className="whitespace-nowrap">
               {result?.centerDisplay && <span className="text-signal">{result.centerDisplay} </span>}
-              {phase !== "done" && <span className="caret text-signal" aria-hidden="true">|</span>}
+              {!done && <span className="caret text-signal" aria-hidden="true">|</span>}
             </span>
 
             {result?.right.map((w, i) => {
               const on = i < shown
               return (
-                <span key={`r${i}`} data-on={on ? "1" : "0"}
-                      style={{ opacity: on ? 1 : 0 }}
+                <span key={`r${i}`} data-on={on ? "1" : "0"} style={{ opacity: on ? 1 : 0 }}
                       className="transition-opacity duration-200"> {w}</span>
               )
             })}
@@ -199,15 +218,29 @@ export default function App() {
         </motion.div>
       </div>
 
-      {/* Bands so the text passes under the chrome instead of colliding with it. */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-paper via-paper to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-paper via-paper to-transparent" />
+      {/* ---------- read view: the whole thing at a size you can actually read ---------- */}
+      {view === "read" && result && (
+        <div className="absolute inset-0 overflow-y-auto overscroll-contain px-5 pb-32 pt-28">
+          <p className="mx-auto max-w-[62ch] text-left text-[15px] leading-[1.85] break-words text-ink sm:text-base">
+            {result.left.join(" ")}{" "}
+            <span className="text-signal">{result.centerDisplay || result.center}</span>{" "}
+            {result.right.join(" ")}
+          </p>
+        </div>
+      )}
 
-      <div className="pointer-events-none absolute inset-x-0 top-0 grid place-items-center pt-10">
-        <div className="pointer-events-auto flex w-[min(92vw,34rem)] flex-col gap-2">
+      {/* Bands so text passes under the chrome rather than colliding with it. */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-paper via-paper to-transparent sm:h-28" />
+      {done && (
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-paper via-paper to-transparent" />
+      )}
+
+      {/* ---------- prompt ---------- */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 grid place-items-center px-4 pt-6 sm:pt-10">
+        <div className="pointer-events-auto flex w-full max-w-[34rem] flex-col gap-2">
           <label htmlFor="p" className="label pl-1">{status}</label>
           <div className="flex gap-2">
-            <div className="slab flex-1 bg-paper">
+            <div className="slab min-w-0 flex-1 bg-paper">
               <Input
                 id="p"
                 value={prompt}
@@ -215,13 +248,19 @@ export default function App() {
                 onKeyDown={(e) => { if (e.key === "Enter") generate() }}
                 placeholder="never odd or even"
                 disabled={phase === "searching"}
+                autoComplete="off"
+                autoCapitalize="none"
+                autoCorrect="off"
+                spellCheck={false}
+                enterKeyHint="go"
+                /* 16px stops iOS Safari zooming the page on focus. */
                 className="h-11 border-0 bg-transparent font-mono text-base shadow-none focus-visible:ring-0"
               />
             </div>
             <Button
               onClick={generate}
               disabled={phase === "searching"}
-              className="slab slab-press h-11 rounded-[3px] border-0 bg-ink px-6 font-display text-xs font-bold uppercase tracking-[.16em] text-paper hover:bg-signal"
+              className="slab slab-press h-11 shrink-0 rounded-[3px] border-0 bg-ink px-4 font-display text-[11px] font-bold uppercase tracking-[.14em] text-paper hover:bg-signal sm:px-6 sm:text-xs sm:tracking-[.16em]"
             >
               {phase === "searching" ? "…" : "Generate"}
             </Button>
@@ -229,9 +268,39 @@ export default function App() {
         </div>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 grid place-items-center pb-6">
-        <p className="label">reads the same backwards · gpt-2 on a mac mini · after john tromp</p>
-      </div>
+      {/* ---------- credits: only once there is something to credit ---------- */}
+      {done && result && (
+        <div className="absolute inset-x-0 bottom-0 grid place-items-center px-4 pb-5">
+          <div className="flex w-full max-w-[34rem] flex-col items-center gap-3">
+            <div className="flex flex-wrap items-center justify-center gap-2">
+              <button
+                onClick={() => setView(view === "read" ? "poster" : "read")}
+                className="slab slab-press h-9 rounded-[3px] bg-paper px-4 font-display text-[11px] font-bold uppercase tracking-[.14em] text-ink"
+              >
+                {view === "read" ? "Poster" : "Read it"}
+              </button>
+              <button
+                onClick={copy}
+                className="slab slab-press h-9 rounded-[3px] bg-paper px-4 font-display text-[11px] font-bold uppercase tracking-[.14em] text-ink"
+              >
+                {copied ? "Copied" : "Copy"}
+              </button>
+            </div>
+            <p className="label text-center leading-relaxed">
+              reads the same backwards · gpt-2 on a mac mini ·{" "}
+              <a href="https://ericspencer.us" target="_blank" rel="noopener noreferrer"
+                 className="underline decoration-from-font underline-offset-2 hover:text-signal">
+                ericspencer.us
+              </a>{" "}
+              · after{" "}
+              <a href="https://tromp.github.io/pal/pal.html" target="_blank" rel="noopener noreferrer"
+                 className="underline decoration-from-font underline-offset-2 hover:text-signal">
+                john tromp
+              </a>
+            </p>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

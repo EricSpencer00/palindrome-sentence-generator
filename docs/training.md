@@ -133,6 +133,45 @@ Every few generations the elite are re-scored with real GPT-2. The judge is an
 imitation and can be gamed; anchoring puts the drift in the log instead of in
 the result.
 
+### What the first run actually found: the metric is gameable
+
+The learned weights beat the hand-chosen ones by +0.298 `lm_score`, winning
+24 of 24 paired seeds. They are worse.
+
+`lm_score` is total token logprob divided by **letters**. Longer words cost
+fewer tokens per letter, so text made of longer words scores better whether or
+not it reads better. The RL run found this in ten generations: it raised the
+length coefficient sevenfold and cut the frequency coefficient by two thirds,
+which dropped tokens-per-letter from 0.329 to 0.265 — a 19.5% cut that accounts
+for the entire gain.
+
+Normalized per token instead, the same texts are **0.673 worse, losing 24 of
+24**:
+
+| Weights | per letter | per token | tokens/letter | short words |
+|---|---|---|---|---|
+| Hand-chosen | −2.4306 | −7.3834 | 0.3293 | 0.337 |
+| Learned | **−2.1329** | **−8.0563** | 0.2650 | 0.256 |
+
+The GPT-2 anchor did not catch it, because the anchor used the same per-letter
+metric. A check against the real model is only a check if it is normalized
+differently from the thing being optimized.
+
+Two consequences, and the second is the larger one:
+
+- Every experiment here now reports both normalizations and says so out loud
+  when they disagree. Where they disagree, believe per token.
+- **The half-asymmetry gap is measured in per-letter units too.** The prepended
+  half is the one that leans on short filler words, which is exactly the
+  condition that manufactures a per-letter gap. Some part of the +0.368 may be
+  word length rather than readability, and `backward_study.py` reports the gap
+  both ways so the question is settled rather than assumed.
+
+This is what the verifiable half of the reward is for. Length is capped there
+at a target, repetition is penalized directly, and palindromicity is asserted —
+none of which a policy can talk its way around. The judged half is where the
+policy went hunting, and it found something in one afternoon.
+
 ### The human part, sized honestly
 
 GPT-2 fluency is wrong in a specific way: it likes frequent words, so it will

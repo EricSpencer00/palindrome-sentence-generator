@@ -1,11 +1,22 @@
 venv
+venv/
 *.env
 __pycache__
+__pycache__/
 *.pyc
 .DS_Store
-venv/
-__pycache__/
+.pytest_cache/
 benchmark_results.json
 web/node_modules/
 web/dist/
 data/count_2w.txt
+
+# Operator-only: cluster job scripts, deploy notes, local editor config.
+internal/
+.claude/
+
+# Training artifacts: checkpoints and corpora are staged, never committed.
+runs/
+checkpoints/
+*.pt
+*.safetensors

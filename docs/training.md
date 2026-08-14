@@ -172,6 +172,34 @@ at a target, repetition is penalized directly, and palindromicity is asserted �
 none of which a policy can talk its way around. The judged half is where the
 policy went hunting, and it found something in one afternoon.
 
+### Refitting the judge per token, and what that costs
+
+The judge was fit to the per-letter score, so it inherited the exploit. It can
+be refit against the per-token score without another GPT-2 pass: total logprob
+is the stored score times the letter count, and dividing by the token count
+needs only a tokenizer.
+
+| Judge target | All arms | Real scorer's arm only |
+|---|---|---|
+| Per letter | 0.991 / 0.964 | 0.888 / **0.821** |
+| Per token | 0.957 / 0.938 | 0.244 / **0.595** |
+
+(Spearman / pairwise agreement.) `word_len_mean` flips sign between the two
+fits, +0.717 to −0.421, which is the same finding from the other direction.
+
+The honest reading is that **most of what the per-letter judge predicted so
+well within the real arm was word-length variance**, and once that is removed
+the remaining readability signal is close to invisible to these features:
+59.5% pairwise is barely above chance. Across arms the judge still works — it
+tells good palindromes from broken ones at 93.8% — so it remains useful as a
+filter, and it is not yet a usable reward for improving text that is already
+decent.
+
+That is a result about the features, not about the method. The next thing to
+try is a reward that uses GPT-2 per token directly at a smaller rollout count,
+which is affordable precisely because the verifiable terms carry most of the
+signal and the judged term only has to break ties.
+
 ### The human part, sized honestly
 
 GPT-2 fluency is wrong in a specific way: it likes frequent words, so it will

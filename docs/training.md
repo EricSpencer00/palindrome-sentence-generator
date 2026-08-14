@@ -45,6 +45,26 @@ arm can improve its score by changing how it is measured.
 If the gap between the halves does not move, the premise of the dual-head
 architecture is wrong and it should not be built.
 
+**Result of the fine-tunes** (GPT-2 small, wikitext-103, 37.9M word-aligned
+tokens, 3000 steps at batch 32 x 512 on four A100s, ~12 minutes each):
+
+| Direction | Validation loss | Perplexity |
+|---|---|---|
+| forward | 3.139 | 23.1 |
+| backward | 4.060 | 58.0 |
+
+Identical corpus, schedule and step count, so the **0.921 nats between them is
+the cost of reading English backwards** — not a difference in data or budget.
+
+That number is worth carrying into the architecture. The dual-head design has
+head B predicting characters of text that follows them, and this says head B
+starts about a nat behind head F on the same corpus. Backward text is genuinely
+harder to model, which is a reason the prepended half reads worse and a limit
+on how much any backward model can fix it. It does not say the approach fails —
+a scorer only has to rank candidates, and a model a nat worse at prediction can
+still rank well — but it does mean the two heads should not be expected to
+contribute equally.
+
 ### Two details that fail silently
 
 - Reversing the stream reverses tokens *inside* a word as well as the words:

@@ -278,6 +278,88 @@ cannot violate.
 It is fourth on this list, not first. Step 1 is the cheap experiment that can
 falsify its premise, and it should be allowed to.
 
+## What none of this can fix
+
+Two cheap experiments bound the four pieces above. Both were run to falsify a
+plan, and both did.
+
+### Reranking the search's output is exhausted
+
+`experiments/oracle_bound.py` generates 2000 palindromes from the plain search
+and scores them with Qwen2.5-0.5B. Best-of-N is an upper bound on what *any*
+reranker could achieve on a fixed candidate pool, so if the curve flattens, no
+future judge — larger, better-calibrated, human-corrected — can help.
+
+| N | 1 | 24 | 100 | 500 | 1000 | 2000 |
+|---|---|---|---|---|---|---|
+| per token | −7.288 | −6.978 | −6.883 | −6.834 | −6.817 | −6.810 |
+
+It flattens. Going from the 24 seeds the CLI uses to 2000 buys 0.168 nats per
+token; the last thousand samples buy 0.007. The winner sits about three
+standard deviations above the mean, which is what order statistics predict for
+a roughly normal distribution — there is no tail of secretly-coherent
+palindromes at larger N. Read side by side, the best of 2000 and the median of
+2000 are the same kind of object. What the extra samples buy is cleaner noise:
+the median is littered with junk tokens ("pp", "xo", "su", "ee") and the winner
+is made of real words that still say nothing.
+
+### But that bound was measured inside a corridor
+
+Of those 2000 palindromes, **1975 opened with the same five words and 1983
+closed with the same five**, and the whole sample used 1317 of the 30000 words
+available. The search was not producing 2000 palindromes; it was producing 2000
+variations on the interior of one.
+
+The cause is the beam's only source of seed variation. `beam_search` adds
+`rng.random() * diversity` to each candidate with `diversity=0.4`, while
+ZipfScorer's own range is several units wide — word frequency alone spans 0 to
+8. The jitter cannot reorder the leading candidates, so every seed walks into
+the same opening. The same opening and ending appear in the README's example,
+so this funnel predates every experiment recorded here.
+
+### Escaping the corridor is easy, and does not buy coherence
+
+`experiments/diversity_sweep.py` raises that one number. 200 seeds per arm,
+same judge.
+
+| diversity | closed | distinct openings | distinct words | mean/token | best/token |
+|---|---|---|---|---|---|
+| 0.4 | 200/200 | 3 | 708 | −7.295 | −6.912 |
+| 1.0 | 200/200 | 63 | 1048 | −7.354 | **−6.790** |
+| 2.0 | 200/200 | 176 | 1591 | −7.516 | −6.887 |
+| 4.0 | 200/200 | 199 | 2328 | −7.703 | −7.229 |
+| 6.0 | 200/200 | 200 | 2854 | −7.781 | −7.181 |
+
+Exploration responds exactly as predicted — 3 distinct openings become 200, and
+the vocabulary in use quadruples — at no cost in closure, which stays 200/200
+across the whole range.
+
+**Readability moves the other way.** The mean falls monotonically by 0.49 nats
+per token from the narrowest arm to the widest, and the effect is far larger
+than its standard error. Unanchored from word frequency, the search reaches for
+"maserati", "merseyside" and "cabaret", and the text gets worse, not better.
+
+One number argues the corridor still mattered: best-of-200 at diversity 1.0
+(−6.790) beats best-of-**2000** in the corridor (−6.810). A slightly wider
+search beat ten times as much sampling of the narrow one. Treat it as
+suggestive rather than settled — a single arm maximum is a noisy statistic, and
+the arms are not monotone in it (2.0 is worse than 1.0). Confirming it needs a
+paired run at larger N.
+
+### What that leaves
+
+Coherence is not reachable by ranking the candidates this search produces, and
+not by making the search produce more varied ones. Both levers are now measured
+and both fail. What has not been tested is the *unit* the search consumes: the
+trie holds single words, so coherence has to emerge from adjacent-word scoring.
+A corpus-derived phrase inventory — attested n-grams consumed atomically —
+would make local coherence a property of each unit rather than something the
+scorer has to discover, and it is the one remaining cheap idea.
+
+The other honest option is length. Coherence and length trade off directly
+here, and 200 letters may simply not admit a coherent solution in a 30k
+vocabulary. Nothing above has tested what the search can do at 80.
+
 ## Running it
 
 ```bash
@@ -290,6 +372,9 @@ python experiments/backward_study.py --backward runs/gpt2-backward \
 python training/fit_instant_judge.py --seeds 900
 python training/rlvf.py --generations 12
 python training/preferences.py ask --n 30   # then fit
+
+python experiments/oracle_bound.py             # ~13 min, caches its texts
+python experiments/diversity_sweep.py          # ~7 min
 ```
 
 Cluster job scripts are operator-specific and live outside this repository.

@@ -23,13 +23,27 @@ import { Button } from "@/components/ui/button"
  * maximum texture size, and the failed raster was the black/white flicker.
  */
 
-type Result = {
+/* The mirror is a property of the LETTERS, so the server cuts the word list
+ * where the letters actually turn around. That cut lands inside a word about as
+ * often as it lands in a gap, which is why `center` and `pivot` exist: `center`
+ * is the word the mirror runs through (empty when it falls in a gap) and `pivot`
+ * indexes into `centerDisplay` — the middle letter itself when `pivotOdd`,
+ * otherwise the gap in front of it. Splitting the list down the middle by word
+ * count instead put the caret a word or two off whenever the two halves were
+ * worded differently, which is most of the time. */
+type Shape = {
   center: string
   centerDisplay: string
+  pivot: number
+  pivotOdd: boolean
+  promptCenter: boolean
   left: string[]
   right: string[]
   letters: number
   words: number
+}
+
+type Result = Shape & {
   lm: number | null
   coherence: number
   seconds: number
@@ -62,6 +76,37 @@ function Caret({ spinning }: { spinning: boolean }) {
   return <span className={`${BAR} ${spinning ? "caret-spin" : "caret"}`} aria-hidden="true" />
 }
 
+/* The mirror mark, wherever the mirror happens to fall.
+ *
+ * A gap between words takes the caret. A letter — which is where an odd letter
+ * count always puts it, there being no gap to occupy — takes the same cursor one
+ * glyph wide: the letter inverts and blinks rather than being replaced, so the
+ * word stays readable. Once the search is finished the mark stops moving but
+ * still stands out, because a poster should show where it turns around without
+ * anything on it flashing.
+ */
+function Mirror({ r, spinning, done }: { r: Shape | null; spinning: boolean; done: boolean }) {
+  const caret = done ? null : <Caret spinning={spinning} />
+  const text = r && (r.centerDisplay || r.center)
+  if (!r || !text) return <span className="whitespace-nowrap">{caret}</span>
+
+  const tone = r.promptCenter ? "text-signal" : ""
+  if (r.pivotOdd) {
+    return (
+      <span className={`whitespace-nowrap ${tone}`}>
+        {text.slice(0, r.pivot)}
+        <span className={done ? "text-signal" : "pivot"}>{text[r.pivot]}</span>
+        {text.slice(r.pivot + 1)}
+      </span>
+    )
+  }
+  return (
+    <span className={`whitespace-nowrap ${tone}`}>
+      {text.slice(0, r.pivot)}{caret}{text.slice(r.pivot)}
+    </span>
+  )
+}
+
 export default function App() {
   const [prompt, setPrompt] = useState("")
   const [phase, setPhase] = useState<Phase>("idle")
@@ -76,9 +121,16 @@ export default function App() {
 
   const blockRef = useRef<HTMLDivElement>(null)
   const esRef = useRef<EventSource | null>(null)
+  const drafted = useRef(0)
 
   const done = phase === "done"
+  const searching = phase === "searching"
   const total = result ? Math.max(result.left.length, result.right.length) : 0
+  /* A draft is shown whole: the search has already found all of it, and holding
+     any of it back would be an animation pretending to be progress. Only the
+     reveal itself withholds words — an error leaves the last draft standing
+     rather than emptying the screen under the message. */
+  const revealed = phase === "revealing" || done ? shown : total
 
   /* Block width is chosen so the finished text has roughly the screen's aspect
      ratio, otherwise a squarer block is bounded by height and leaves half the
@@ -94,13 +146,15 @@ export default function App() {
 
   /* Measured once per layout, never per revealed word. offsetWidth/Height are
      layout values, so the transform we set does not feed back into them. */
+  /* Nothing to measure while the poster is display:none — offsetWidth would read
+     0 and blow the fit up — so the read view re-measures on the way back. */
   useLayoutEffect(() => {
     const el = blockRef.current
-    if (!el) return
+    if (!el || view === "read") return
     const availW = vp.w - 32
     const availH = Math.max(160, vp.h - TOP_CHROME - BOTTOM_CHROME)
     setFit(Math.min(availW / Math.max(1, el.offsetWidth), availH / Math.max(1, el.offsetHeight)))
-  }, [result, worldWidth, vp])
+  }, [result, worldWidth, vp, view])
 
   useEffect(() => {
     const onResize = () => setVp({ w: window.innerWidth, h: window.innerHeight })
@@ -120,7 +174,13 @@ export default function App() {
   )
 
   const progress = total > 0 ? Math.min(1, shown / total) : 0
-  const scale = result ? fit + (startScale - fit) * Math.pow(1 - progress, ZOOM_EASE) : startScale
+  /* Drafts do their own zooming: each one is longer than the last, so fitting
+     every draft to the screen pulls the camera back exactly as fast as the
+     search finds text. Capped at the same ceiling as the reveal, because it is
+     scaling a block UP that strains the rasteriser. */
+  const scale = !result ? startScale
+    : searching ? Math.min(fit, startScale)
+    : fit + (startScale - fit) * Math.pow(1 - progress, ZOOM_EASE)
 
   useEffect(() => {
     if (phase !== "revealing" || !result) return
@@ -140,7 +200,7 @@ export default function App() {
   const generate = useCallback(() => {
     esRef.current?.close()
     setResult(null); setShown(0); setError(""); setElapsed(0); setCopied(false)
-    setView("poster"); setPhase("searching")
+    setView("poster"); setPhase("searching"); drafted.current = 0
 
     const es = new EventSource(`/api/generate?prompt=${encodeURIComponent(prompt)}&budget=16`)
     esRef.current = es
@@ -148,7 +208,25 @@ export default function App() {
       const msg = JSON.parse(ev.data)
       if (msg.type === "status") { setElapsed(msg.elapsed ?? 0); return }
       if (msg.type === "error") { setError(msg.message); setPhase("error"); es.close(); return }
-      if (msg.type === "result") { setResult(msg as Result); setShown(0); setPhase("revealing"); es.close() }
+      /* Every closure the search improves on arrives here, so the page shows the
+         palindrome growing for the ten seconds it used to spend showing a
+         spinning caret and nothing else. */
+      if (msg.type === "partial") {
+        const draft = msg as Shape
+        drafted.current = Math.max(draft.left.length, draft.right.length)
+        setResult({ ...draft, lm: null, coherence: 0, seconds: 0 })
+        return
+      }
+      if (msg.type === "result") {
+        const r = msg as Result
+        setResult(r)
+        // Pick the reveal up where the drafts left off. Restarting from the
+        // centre would replay ground the visitor has already watched, and the
+        // final text is rarely longer than the last draft by much.
+        setShown(Math.min(drafted.current, Math.max(r.left.length, r.right.length)))
+        setPhase("revealing")
+        es.close()
+      }
     }
     es.onerror = () => {
       setPhase((cur) => {
@@ -170,7 +248,7 @@ export default function App() {
   }, [fullText])
 
   const status =
-    phase === "searching" ? `${elapsed.toFixed(1)}s`
+    searching ? `${elapsed.toFixed(1)}s${result ? ` · ${result.letters} letters` : ""}`
     : phase === "revealing" ? `${Math.min(shown * 2, result?.words ?? 0)} of ${result?.words ?? 0} words`
     : phase === "error" ? error
     : done && result ? `${result.letters} letters · ${result.words} words · ${result.seconds}s`
@@ -187,10 +265,11 @@ export default function App() {
           viewport — and transforms do not change layout size, so grid alignment
           sees an oversized item, clamps it to the start edge, and the centre it
           then scales about sits off-screen. That was the drift to the right. */}
-      <div
-        className={`absolute inset-0 ${view === "read" ? "invisible" : ""}`}
-        aria-hidden={view === "read"}
-      >
+      {/* display:none, not visibility:hidden. The revealed words set their own
+          inline visibility, and an inline `visible` on a child overrides a
+          hidden ancestor — so the poster kept drawing itself straight through
+          the read view, one state on top of the other. */}
+      <div className={`absolute inset-0 ${view === "read" ? "hidden" : ""}`}>
         <div
           ref={blockRef}
           style={{
@@ -208,18 +287,15 @@ export default function App() {
           className="text-center text-ink"
         >
           {result?.left.map((w, i) => (
-            <span key={`l${i}`} style={{ visibility: i >= result.left.length - shown ? "visible" : "hidden" }}>
+            <span key={`l${i}`} style={{ visibility: i >= result.left.length - revealed ? "visible" : "hidden" }}>
               {w}{" "}
             </span>
           ))}
 
-          <span className="whitespace-nowrap">
-            {result?.centerDisplay && <span className="text-signal">{result.centerDisplay} </span>}
-            {!done && <Caret spinning={phase === "searching"} />}
-          </span>
+          <Mirror r={result} spinning={searching} done={done} />
 
           {result?.right.map((w, i) => (
-            <span key={`r${i}`} style={{ visibility: i < shown ? "visible" : "hidden" }}>
+            <span key={`r${i}`} style={{ visibility: i < revealed ? "visible" : "hidden" }}>
               {" "}{w}
             </span>
           ))}
@@ -229,8 +305,12 @@ export default function App() {
       {view === "read" && result && (
         <div className="absolute inset-0 overflow-y-auto overscroll-contain px-5 pb-32 pt-28">
           <p className="mx-auto max-w-[62ch] break-words text-left text-[15px] leading-[1.85] text-ink sm:text-base">
-            {result.left.join(" ")}{" "}
-            <span className="text-signal">{result.centerDisplay || result.center}</span>{" "}
+            {result.left.join(" ")}
+            {/* A cursor belongs on the poster, not in the prose; here the mirror
+                shows only when it is the visitor's own phrase. */}
+            {result.centerDisplay
+              ? <> <span className={result.promptCenter ? "text-signal" : ""}>{result.centerDisplay}</span> </>
+              : " "}
             {result.right.join(" ")}
           </p>
         </div>

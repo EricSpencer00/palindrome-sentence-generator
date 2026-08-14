@@ -18,7 +18,7 @@ import heapq
 import random
 import time
 from dataclasses import dataclass, field
-from typing import Optional
+from typing import Callable, Optional
 
 from .search import WordTries, consume
 
@@ -96,6 +96,7 @@ def centerout_search(
     max_overhang: int = 24,
     deadline: Optional[float] = None,
     maximize: str = "score",
+    on_closed: Optional[Callable[[list[str]], None]] = None,
 ) -> list[str]:
     """Beam search outward from a fixed palindromic center.
 
@@ -109,6 +110,13 @@ def centerout_search(
     `maximize` picks which closure wins: "score" for the best-reading one,
     "letters" for the longest. Length only becomes the right objective when a
     deadline is doing the stopping.
+
+    `on_closed` is called with every palindrome that closes, so a caller can
+    watch the search rather than wait on it. It fires below `min_letters` too —
+    the search closes on short texts almost immediately and spends the rest of
+    its budget lengthening them, so the floor is exactly the part worth watching.
+    It runs inside the loop, so it must be cheap, and anything it raises is the
+    caller's to contain.
     """
     if center != center[::-1]:
         raise ValueError(f"center {center!r} is not itself a palindrome")
@@ -131,11 +139,14 @@ def centerout_search(
         pool: list[COState] = []
         for state in beam:
             # Center-out closes only on an exactly empty overhang.
-            if not state.overhang and state.letters >= min_letters:
-                key = (state.letters if maximize == "letters"
-                       else state.score / max(1, state.letters))
-                if best is None or key > best[0]:
-                    best = (key, assemble(state))
+            if not state.overhang:
+                if on_closed is not None:
+                    on_closed(assemble(state))
+                if state.letters >= min_letters:
+                    key = (state.letters if maximize == "letters"
+                           else state.score / max(1, state.letters))
+                    if best is None or key > best[0]:
+                        best = (key, assemble(state))
             for placement, w, new_over, new_owner in _expand(state, tries, candidate_limit):
                 if len(new_over) > max_overhang:
                     continue

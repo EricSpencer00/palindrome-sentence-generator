@@ -75,12 +75,33 @@ def run_arm(name, scorer, tries, judge, seeds, min_letters, beam) -> dict:
     texts = [textify(w) for w in runs]
     lefts, rights = zip(*(split_halves(w) for w in runs))
     # Outside-in: the left half is appended, the right half prepended.
-    appended = judge.score_texts([textify(t.split()) for t in lefts])
-    prepended = judge.score_texts([textify(t.split()) for t in rights])
+    a_texts = [textify(t.split()) for t in lefts]
+    p_texts = [textify(t.split()) for t in rights]
+    appended = judge.score_texts(a_texts)
+    prepended = judge.score_texts(p_texts)
     whole = judge.score_texts(texts)
 
+    # lm_score divides total token logprob by LETTERS, so text made of longer
+    # words scores better whether or not it reads better — a policy that
+    # prefers long words moves it for free. The two halves of a palindrome
+    # segment differently, and the prepended half is the one that leans on
+    # short filler, so the gap between them is exactly the kind of number this
+    # can manufacture. Per-token is reported next to it because word length
+    # does not move it; if the two disagree, believe per-token.
+    def per_token(scored, txts):
+        out = []
+        for s, t in zip(scored, txts):
+            letters = max(1, sum(c.isalpha() for c in t))
+            n_tok = max(1, len(judge.tok(t)["input_ids"]))
+            out.append(s * letters / n_tok)
+        return out
+
+    a_tok = per_token(appended, a_texts)
+    p_tok = per_token(prepended, p_texts)
     gap = statistics.mean(appended) - statistics.mean(prepended)
+    gap_tok = statistics.mean(a_tok) - statistics.mean(p_tok)
     wins = sum(1 for a, p in zip(appended, prepended) if a > p)
+    wins_tok = sum(1 for a, p in zip(a_tok, p_tok) if a > p)
     return {
         "arm": name,
         "closed": len(runs),
@@ -94,6 +115,8 @@ def run_arm(name, scorer, tries, judge, seeds, min_letters, beam) -> dict:
         "prepended_half": round(statistics.mean(prepended), 4),
         "gap": round(gap, 4),
         "appended_half_wins": f"{wins}/{len(runs)}",
+        "gap_per_token": round(gap_tok, 4),
+        "appended_half_wins_per_token": f"{wins_tok}/{len(runs)}",
         "adjacent_repeat_rate": round(statistics.mean(
             adjacent_repeat_rate(w) for w in runs), 4),
         "all_valid": all(is_palindrome(t) for t in texts),
@@ -161,19 +184,24 @@ def main() -> None:
         print(json.dumps(row, indent=2), flush=True)
 
     by = {r["arm"]: r for r in results}
-    print("\n arm          closed  gap      score   letters")
+    print("\n arm          closed  gap/letter  gap/token   score   letters")
     for r in results:
         print(f" {r['arm']:12s} {r['closed']:>3}/{r['seeds']:<3} "
-              f"{r.get('gap', float('nan')):+.3f}  {r.get('score_mean', float('nan')):+.3f}  "
-              f"{r.get('letters_mean', 0):.0f}")
+              f"{r.get('gap', float('nan')):+9.3f}  {r.get('gap_per_token', float('nan')):+9.3f}  "
+              f"{r.get('score_mean', float('nan')):+.3f}  {r.get('letters_mean', 0):.0f}")
 
     for w in weights:
         f, b = by.get(f"fwd@{w:g}"), by.get(f"bwd@{w:g}")
         if f and b and f.get("gap") is not None and b.get("gap") is not None:
-            print(f"\nweight {w:g}: gap {f['gap']:+.3f} -> {b['gap']:+.3f} "
-                  f"(narrowed by {f['gap'] - b['gap']:+.3f}); "
-                  f"score {f['score_mean']:+.3f} -> {b['score_mean']:+.3f}; "
-                  f"closed {f['closed']} -> {b['closed']}")
+            print(f"\nweight {w:g}: closed {f['closed']} -> {b['closed']}")
+            print(f"  gap per letter {f['gap']:+.3f} -> {b['gap']:+.3f} "
+                  f"(narrowed by {f['gap'] - b['gap']:+.3f})")
+            print(f"  gap per token  {f['gap_per_token']:+.3f} -> "
+                  f"{b['gap_per_token']:+.3f} "
+                  f"(narrowed by {f['gap_per_token'] - b['gap_per_token']:+.3f})")
+            if ((f["gap"] - b["gap"]) > 0) != ((f["gap_per_token"] - b["gap_per_token"]) > 0):
+                print("  the two normalizations DISAGREE — believe per token; "
+                      "per letter can be moved by word length alone")
 
     if args.out:
         args.out.write_text(json.dumps({"config": vars(args) | {"out": str(args.out)},

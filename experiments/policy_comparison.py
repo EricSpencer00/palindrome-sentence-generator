@@ -63,6 +63,19 @@ def main() -> None:
         scores = dict(zip(texts, judge.score_texts(list(texts.values()))))
         checks = [verify(w, vocab_set) for w in runs.values()]
         texts_by_arm[name] = texts
+
+        # The headline metric divides total token logprob by LETTERS, so a text
+        # made of longer words has fewer tokens per letter and scores better
+        # almost mechanically. Any policy that learns to prefer long words will
+        # move this number whether or not it made the text more readable, so
+        # the per-token score is reported next to it: that one is not moved by
+        # word length, and if the two disagree the per-letter gain is an
+        # artifact of the metric.
+        per_token, tok_per_letter = {}, {}
+        for (seed, text), chk in zip(texts.items(), checks):
+            n_tok = len(judge.tok(text)["input_ids"])
+            per_token[seed] = scores[seed] * chk.letters / max(1, n_tok)
+            tok_per_letter[seed] = n_tok / max(1, chk.letters)
         results[name] = {
             "weights": [round(x, 4) for x in weights],
             "closed": len(runs),
@@ -73,26 +86,42 @@ def main() -> None:
             "distinct_ratio": round(statistics.mean(
                 c.distinct_words / c.words for c in checks), 4),
             "all_valid": all(is_palindrome(t) for t in texts.values()),
+            "score_per_token_mean": round(statistics.mean(per_token.values()), 4),
+            "tokens_per_letter": round(statistics.mean(tok_per_letter.values()), 4),
             "scores": scores,
+            "per_token": per_token,
         }
         print(f"{name:8s} closed {len(runs)}/{args.seeds}  "
-              f"mean {results[name]['score_mean']:+.4f}  "
-              f"best {results[name]['score_best']:+.4f}  "
+              f"per-letter {results[name]['score_mean']:+.4f}  "
+              f"per-token {results[name]['score_per_token_mean']:+.4f}  "
+              f"tok/letter {results[name]['tokens_per_letter']:.4f}  "
               f"letters {results[name]['letters_mean']:.0f}  "
               f"short {results[name]['short_word_rate']:.3f}", flush=True)
 
     shared = sorted(set(results["default"]["scores"]) & set(results["learned"]["scores"]))
     diffs = [results["learned"]["scores"][s] - results["default"]["scores"][s]
              for s in shared]
+    paired_tok = sorted(set(results["default"]["per_token"])
+                        & set(results["learned"]["per_token"]))
+    tok_diffs = [results["learned"]["per_token"][s] - results["default"]["per_token"][s]
+                 for s in paired_tok]
     if diffs:
         wins = sum(1 for d in diffs if d > 0)
-        print(f"\npaired on {len(diffs)} seeds both closed: "
-              f"learned - default = {statistics.mean(diffs):+.4f} "
-              f"(median {statistics.median(diffs):+.4f}), "
-              f"learned wins {wins}/{len(diffs)}")
+        tok_wins = sum(1 for d in tok_diffs if d > 0)
+        print(f"\npaired on {len(diffs)} seeds both closed")
+        print(f"  per-letter: {statistics.mean(diffs):+.4f} "
+              f"(median {statistics.median(diffs):+.4f}), learned wins {wins}/{len(diffs)}")
+        print(f"  per-token : {statistics.mean(tok_diffs):+.4f} "
+              f"(median {statistics.median(tok_diffs):+.4f}), "
+              f"learned wins {tok_wins}/{len(tok_diffs)}")
+        if (statistics.mean(diffs) > 0) != (statistics.mean(tok_diffs) > 0):
+            print("  the two normalizations DISAGREE: the per-letter gain is an "
+                  "artifact of word length, not a readability gain")
         results["paired"] = {"seeds": len(diffs), "mean_delta": round(statistics.mean(diffs), 4),
                              "median_delta": round(statistics.median(diffs), 4),
-                             "learned_wins": wins}
+                             "learned_wins": wins,
+                             "mean_delta_per_token": round(statistics.mean(tok_diffs), 4),
+                             "learned_wins_per_token": tok_wins}
 
     for name in arms:
         sample = next(iter(texts_by_arm[name].values()), "")

@@ -45,6 +45,23 @@ const TOP_CHROME = 108      // space kept clear for the prompt
 const BOTTOM_CHROME = 116   // and for the credits
 const ZOOM_EASE = 2.2       // >1 front-loads the pull-back
 
+/* The caret is a sized BAR, not a "|" glyph.
+ *
+ * A glyph's ink sits off-centre inside its character box — side bearings on one
+ * axis, baseline and leading on the other — so rotating the box makes the ink
+ * orbit rather than spin. Drawing the bar as an element makes the box and the
+ * ink the same rectangle, and transform-origin: 50% 50% is then exactly the
+ * visual middle by construction, with nothing to measure and nothing to drift.
+ * It is sized in em so it still scales with the surrounding text.
+ */
+const BAR = "inline-block w-[0.085em] h-[0.82em] bg-signal align-[-0.09em]"
+
+/* The spin rhythm itself lives in the caret-spin keyframes in index.css. */
+
+function Caret({ spinning }: { spinning: boolean }) {
+  return <span className={`${BAR} ${spinning ? "caret-spin" : "caret"}`} aria-hidden="true" />
+}
+
 export default function App() {
   const [prompt, setPrompt] = useState("")
   const [phase, setPhase] = useState<Phase>("idle")
@@ -153,7 +170,7 @@ export default function App() {
   }, [fullText])
 
   const status =
-    phase === "searching" ? `searching · ${elapsed.toFixed(1)}s`
+    phase === "searching" ? `${elapsed.toFixed(1)}s`
     : phase === "revealing" ? `${Math.min(shown * 2, result?.words ?? 0)} of ${result?.words ?? 0} words`
     : phase === "error" ? error
     : done && result ? `${result.letters} letters · ${result.words} words · ${result.seconds}s`
@@ -198,7 +215,7 @@ export default function App() {
 
           <span className="whitespace-nowrap">
             {result?.centerDisplay && <span className="text-signal">{result.centerDisplay} </span>}
-            {!done && <span className="caret text-signal" aria-hidden="true">|</span>}
+            {!done && <Caret spinning={phase === "searching"} />}
           </span>
 
           {result?.right.map((w, i) => (

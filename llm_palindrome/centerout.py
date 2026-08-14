@@ -136,6 +136,8 @@ def centerout_search(
             break
         if deadline is not None and time.monotonic() > deadline:
             break
+        if hasattr(scorer, "prepare"):
+            scorer.prepare(beam)
         pool: list[COState] = []
         for state in beam:
             # Center-out closes only on an exactly empty overhang.
@@ -154,7 +156,11 @@ def centerout_search(
                     left, right = (w,) + state.left, state.right
                 else:
                     left, right = state.left, state.right + (w,)
-                sc = state.score + scorer.word_delta(left, right, placement, w)
+                # Center-out grows outward: the left half is prepended to, the
+                # right appended to — the opposite of the outside-in search.
+                growth = "prepend" if placement == "L" else "append"
+                sc = state.score + scorer.word_delta(left, right, placement, w,
+                                                     growth)
                 sc += rng.random() * diversity
                 pool.append(COState(sort_key=-sc, left=left, right=right,
                                     overhang=new_over, owner=new_owner,

@@ -150,6 +150,10 @@ def beam_search(
     for step in range(max_steps):
         if not beam:
             break
+        # A scorer may amortize model calls across a whole beam step; see
+        # DirectionalScorer.prepare. Optional, so plain scorers stay simple.
+        if hasattr(scorer, "prepare"):
+            scorer.prepare(beam)
         pool: list[State] = []
         for state in beam:
             over = state.overhang
@@ -166,7 +170,10 @@ def beam_search(
                     left, right = state.left + (w,), state.right
                 else:
                     left, right = state.left, (w,) + state.right
-                sc = state.score + scorer.word_delta(left, right, placement, w)
+                # Outside-in: the left half is appended to, the right prepended.
+                growth = "append" if placement == "L" else "prepend"
+                sc = state.score + scorer.word_delta(left, right, placement, w,
+                                                     growth)
                 sc += rng.random() * diversity  # jitter so seeds explore differently
                 pool.append(State(sort_key=-sc, left=left, right=right,
                                   overhang=new_over, side=new_side, score=sc))

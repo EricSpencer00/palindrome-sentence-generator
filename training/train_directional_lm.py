@@ -57,6 +57,20 @@ def batches(stream, batch_size, seq_len, direction, seed, rank, world):
                         for s in starts])
 
 
+def causal_loss(model, w: torch.Tensor) -> torch.Tensor:
+    """Next-token cross-entropy, shifted exactly once.
+
+    Passing `labels=` to a Hugging Face causal head makes it shift internally,
+    so handing it labels that were already shifted trains the model to predict
+    two tokens ahead. That does not crash — it just starts near chance and
+    converges to something that is not a language model. Doing the shift here
+    makes it visible and version-independent.
+    """
+    logits = model(input_ids=w[:, :-1]).logits
+    return torch.nn.functional.cross_entropy(
+        logits.reshape(-1, logits.size(-1)), w[:, 1:].reshape(-1))
+
+
 def evaluate(model, stream, args, device, batches_n: int = 20) -> float:
     model.eval()
     gen = batches(stream, args.batch_size, args.seq_len, args.direction,
@@ -65,8 +79,7 @@ def evaluate(model, stream, args, device, batches_n: int = 20) -> float:
     with torch.no_grad():
         for _ in range(batches_n):
             w = torch.from_numpy(next(gen)).to(device)
-            out = model(input_ids=w[:, :-1], labels=w[:, 1:])
-            total += out.loss.item()
+            total += causal_loss(model, w).item()
     model.train()
     return total / batches_n
 
@@ -126,18 +139,18 @@ def main() -> None:
         for g in opt.param_groups:
             g["lr"] = lr_at(step)
         w = torch.from_numpy(next(gen)).to(device)
-        out = model(input_ids=w[:, :-1], labels=w[:, 1:])
-        out.loss.backward()
+        loss = causal_loss(model, w)
+        loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
         opt.step()
         opt.zero_grad(set_to_none=True)
 
         if main_proc and (step % args.log_every == 0 or step == args.steps - 1):
             mins = (time.time() - t0) / 60
-            print(f"step {step:6d}  loss {out.loss.item():.4f}  "
-                  f"ppl {math.exp(min(20, out.loss.item())):8.2f}  {mins:5.1f}m",
+            print(f"step {step:6d}  loss {loss.item():.4f}  "
+                  f"ppl {math.exp(min(20, loss.item())):8.2f}  {mins:5.1f}m",
                   flush=True)
-            history.append({"step": step, "loss": out.loss.item(), "minutes": mins})
+            history.append({"step": step, "loss": loss.item(), "minutes": mins})
 
         if args.max_minutes and (time.time() - t0) / 60 > args.max_minutes:
             stopped_at = step + 1

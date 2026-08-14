@@ -32,21 +32,61 @@ from llm_palindrome.textify import textify
 
 
 def ask(args) -> None:
-    rows = json.loads(args.samples.read_text())
-    rows = [r for r in rows if r.get("words")]
-    rng = random.Random(args.seed)
-    rng.shuffle(rows)
+    """Choose pairs the judge cannot separate but a reader might.
 
-    pairs = []
-    for i in range(0, min(2 * args.n, len(rows) - 1), 2):
-        a, b = rows[i], rows[i + 1]
+    Random pairing wastes the human. Two palindromes from nearby seeds share a
+    prefix and most of their words, so there is nothing to prefer; two from
+    different arms differ so obviously that the answer carries no information
+    GPT-2 does not already have. The informative pairs are the ones that are
+    close in GPT-2's score and *unalike in their words* — where the model is
+    indifferent and a person is not.
+
+    Restricted to the real scorer's arm. The weakened arms exist to give the
+    instant judge a range to fit; asking a person to choose between two piles
+    of abbreviations teaches nothing about the text this project produces, and
+    "close in score" finds exactly those pairs if it is allowed to.
+    """
+    rows = [r for r in json.loads(args.samples.read_text()) if r.get("words")]
+    scored = [r for r in rows if r.get("gpt2") is not None
+              and (args.arm == "any" or r.get("arm") == args.arm)]
+    if not scored:
+        raise SystemExit(f"no samples from arm {args.arm!r} in {args.samples}")
+    rng = random.Random(args.seed)
+    rng.shuffle(scored)
+
+    def overlap(a, b) -> float:
+        sa, sb = set(a["words"]), set(b["words"])
+        return len(sa & sb) / max(1, len(sa | sb))
+
+    candidates = []
+    for i, a in enumerate(scored):
+        for b in scored[i + 1:i + 40]:
+            gap = abs(a["gpt2"] - b["gpt2"])
+            if gap > args.max_score_gap:
+                continue
+            ov = overlap(a, b)
+            if ov > args.max_overlap:
+                continue
+            candidates.append((ov, gap, a, b))
+
+    candidates.sort(key=lambda c: (c[0], c[1]))  # least alike first
+    used, pairs = set(), []
+    for ov, gap, a, b in candidates:
+        ka, kb = id(a), id(b)
+        if ka in used or kb in used:
+            continue
+        used |= {ka, kb}
         pairs.append({
             "a": {"words": a["words"], "text": textify(a["words"]),
                   "gpt2": a.get("gpt2")},
             "b": {"words": b["words"], "text": textify(b["words"]),
                   "gpt2": b.get("gpt2")},
+            "word_overlap": round(ov, 3),
+            "gpt2_gap": round(gap, 4),
             "prefer": None,  # set to "a" or "b"; leave null to skip
         })
+        if len(pairs) >= args.n:
+            break
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(pairs, indent=2))
     print(f"wrote {len(pairs)} pairs to {args.out}")
@@ -127,6 +167,12 @@ def main() -> None:
     a.add_argument("--samples", type=Path, default=Path("runs/judge_samples.json"))
     a.add_argument("--out", type=Path, default=Path("runs/preferences.json"))
     a.add_argument("--n", type=int, default=30)
+    a.add_argument("--arm", default="zipf",
+                   help="which collection arm to draw from; 'any' to allow all")
+    a.add_argument("--max-score-gap", type=float, default=0.05,
+                   help="only pair texts GPT-2 scores about equally")
+    a.add_argument("--max-overlap", type=float, default=0.5,
+                   help="max Jaccard overlap of the two word sets")
     a.add_argument("--seed", type=int, default=0)
     a.set_defaults(func=ask)
 

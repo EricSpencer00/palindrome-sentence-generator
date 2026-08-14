@@ -60,12 +60,12 @@ def word_aligned_batch(tok, texts: Sequence[str]) -> list[list[int]]:
 
 
 def build(dataset: str, split: str, out_dir: Path, limit: int | None,
-          model: str = "gpt2") -> dict:
+          model: str = "gpt2", config: str | None = None) -> dict:
     from datasets import load_dataset
     from transformers import AutoTokenizer
 
     tok = AutoTokenizer.from_pretrained(model)
-    name = "wikitext-103-raw-v1" if dataset == "wikitext" else None
+    name = config or ("wikitext-103-raw-v1" if dataset == "wikitext" else None)
     ds = load_dataset(dataset, name, split=split) if name else load_dataset(dataset, split=split)
     if limit:
         ds = ds.select(range(min(limit, len(ds))))
@@ -128,6 +128,8 @@ def sample_window(stream: np.ndarray, start: int, length: int,
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--dataset", default="wikitext")
+    ap.add_argument("--config", default=None,
+                    help="dataset config; wikitext-2-raw-v1 for a quick check")
     ap.add_argument("--split", default="train")
     ap.add_argument("--out", type=Path, default=Path("data/tokens"))
     ap.add_argument("--limit", type=int, default=None,
@@ -135,7 +137,8 @@ def main() -> None:
     ap.add_argument("--model", default="gpt2")
     args = ap.parse_args()
 
-    meta = build(args.dataset, args.split, args.out, args.limit, args.model)
+    meta = build(args.dataset, args.split, args.out, args.limit, args.model,
+                 args.config)
     print(json.dumps(meta, indent=2))
 
 

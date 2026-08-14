@@ -173,7 +173,9 @@ export default function App() {
     : phase === "error" ? error
     : done && result
       ? `${result.letters} letters · ${result.words} words · ${result.seconds}s`
-    : "a phrase to mirror — optional"
+    // Idle says nothing: the placeholder already explains the field, and the
+    // brief is that an untouched page is only the prompt and the caret.
+    : ""
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-paper">
@@ -238,7 +240,8 @@ export default function App() {
       {/* ---------- prompt ---------- */}
       <div className="pointer-events-none absolute inset-x-0 top-0 grid place-items-center px-4 pt-6 sm:pt-10">
         <div className="pointer-events-auto flex w-full max-w-[34rem] flex-col gap-2">
-          <label htmlFor="p" className="label pl-1">{status}</label>
+          {/* Height is reserved so the prompt does not jump when a status appears. */}
+          <label htmlFor="p" className="label min-h-[0.9rem] pl-1">{status}</label>
           <div className="flex gap-2">
             <div className="slab min-w-0 flex-1 bg-paper">
               <Input

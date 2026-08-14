@@ -35,8 +35,9 @@ right:            "no evil star"
                         ^ closes when the overhang reads the same both ways
 ```
 
-This overhang search is **John Tromp's palindrome algorithm** — see
-Credit below. What this repository adds is the scoring: at each step the
+This overhang search is **Peter Norvig's palindrome algorithm**, building on
+Dan Hoey's 1984 program — see Credit below. What this repository adds is the
+scoring: at each step the
 search faces hundreds of letter-valid continuations, nearly all of them
 gibberish. A language model ranks them, so the search follows the branches
 that read as English.
@@ -126,12 +127,15 @@ inventory are the next things to try.
 
 ## Credit
 
-The two-sided overhang search is due to **John Tromp**, whose palindrome
-program is the foundation this builds on:
-<https://tromp.github.io/pal/pal.html>. Peter Norvig's
-[palindrome writeup](https://norvig.com/palindrome.html) documents the same
-family of techniques and the 17,826-word palindrome they produced. This
-project contributes the language-model scoring layer on top of that search.
+The two-sided overhang search is **Peter Norvig's**, described in
+[World's Longest Palindrome?](https://norvig.com/palindrome.html) and in detail
+in [The Algorithm](https://norvig.com/pal-alg.html) (2002). It builds on **Dan
+Hoey's** 1984 program, which produced the first long "A man, a plan, a canal"
+palindrome by the same remainder-matching idea. This project contributes the
+bidirectional-bigram and language-model scoring layer on top of that search.
+
+An earlier version of this file credited John Tromp for the algorithm. That was
+wrong — he has no connection to this work, and the URL it cited did not exist.
 
 Developed within the **AI4FM group**.
 

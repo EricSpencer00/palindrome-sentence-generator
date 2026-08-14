@@ -55,12 +55,24 @@ export default function App() {
   const done = phase === "done"
   const total = result ? Math.max(result.left.length, result.right.length) : 0
 
+  const [vp, setVp] = useState(() => ({ w: window.innerWidth, h: window.innerHeight }))
+
   /* The whole palindrome is laid out the moment it arrives — hidden words still
-     occupy their slots — so nothing reflows during the reveal. */
-  const worldWidth = useMemo(
-    () => (result ? Math.min(2400, Math.max(560, Math.sqrt(result.letters) * 52)) : 560),
-    [result],
-  )
+     occupy their slots — so nothing reflows during the reveal.
+
+     Width is chosen so the finished block has roughly the SCREEN's aspect
+     ratio. A squarer block (the old sqrt(letters) rule) is bounded by height on
+     a landscape display and leaves half the width empty. For monospace at
+     ~0.6em advance and 1.42em line height, matching aspect A over N characters
+     gives width = font * sqrt(0.6 * 1.42 * A * N). */
+  const worldWidth = useMemo(() => {
+    if (!result) return 560
+    const availW = vp.w - 24
+    const availH = Math.max(160, vp.h - TOP_CHROME - BOTTOM_CHROME)
+    const chars = result.letters + result.words
+    const w = FONT_PX * Math.sqrt(0.6 * 1.42 * (availW / availH) * chars)
+    return Math.min(6000, Math.max(560, w))
+  }, [result, vp])
 
   const measure = useCallback(() => {
     const inner = innerRef.current
@@ -91,30 +103,41 @@ export default function App() {
       y0 = c.offsetTop;  y1 = c.offsetTop + c.offsetHeight
     }
 
-    /* Anchor on the centre of the REVEALED band, not the caret and not the
-       whole block. Early on the band is barely wider than the caret, so this is
-       caret-centred; by the end it is the finished text, so it fills the screen.
-       Anchoring on the caret instead forces the fit to cover twice its longer
-       side and throws away half the width. */
-    const ax = (x0 + x1) / 2
-    const ay = (y0 + y1) / 2
+    /* While revealing, the anchor is the CARET and nothing else — it is fixed by
+       the layout before the first word appears, so it never moves and the block
+       cannot shiver. Tracking the band's centre instead nudged the anchor on
+       every tick, and those hundreds of sub-pixel shifts were the jitter.
+
+       Once finished, the anchor moves once to the centre of the text, which is
+       what lets the finished block fill the screen instead of being framed
+       around a caret that sits off to one side. */
+    const ax = done ? (x0 + x1) / 2 : c.offsetLeft + c.offsetWidth / 2
+    const ay = done ? (y0 + y1) / 2 : c.offsetTop + c.offsetHeight / 2
     setAnchor((prev) =>
       Math.abs(prev.x - ax) < 0.5 && Math.abs(prev.y - ay) < 0.5 ? prev : { x: ax, y: ay })
 
     const availW = window.innerWidth - 24
     const availH = Math.max(160, window.innerHeight - TOP_CHROME - BOTTOM_CHROME)
-    const fit = Math.min(availW / Math.max(1, x1 - x0), availH / Math.max(1, y1 - y0))
+    // Caret-anchored (mid-reveal) needs room for twice its longer reach;
+    // centre-anchored (finished) needs only the band itself.
+    const needW = done ? x1 - x0 : 2 * Math.max(ax - x0, x1 - ax)
+    const needH = done ? y1 - y0 : 2 * Math.max(ay - y0, y1 - ay)
+    const fit = Math.min(availW / Math.max(1, needW), availH / Math.max(1, needH))
     scaleTarget.set(Math.max(MIN_SCALE, Math.min(MAX_SCALE, fit)))
-  }, [scaleTarget, scale])
+  }, [scaleTarget, scale, done])
 
   useLayoutEffect(measure, [measure, shown, result, worldWidth, view])
 
   useEffect(() => {
-    window.addEventListener("resize", measure)
-    window.addEventListener("orientationchange", measure)
+    const onResize = () => {
+      setVp({ w: window.innerWidth, h: window.innerHeight })
+      measure()
+    }
+    window.addEventListener("resize", onResize)
+    window.addEventListener("orientationchange", onResize)
     return () => {
-      window.removeEventListener("resize", measure)
-      window.removeEventListener("orientationchange", measure)
+      window.removeEventListener("resize", onResize)
+      window.removeEventListener("orientationchange", onResize)
     }
   }, [measure])
 
@@ -296,10 +319,11 @@ export default function App() {
                 ericspencer.us
               </a>{" "}
               · after{" "}
-              <a href="https://tromp.github.io/pal/pal.html" target="_blank" rel="noopener noreferrer"
+              <a href="https://norvig.com/palindrome.html" target="_blank" rel="noopener noreferrer"
                  className="underline decoration-from-font underline-offset-2 hover:text-signal">
-                john tromp
-              </a>
+                norvig
+              </a>{" "}
+              &amp; hoey
             </p>
           </div>
         </div>

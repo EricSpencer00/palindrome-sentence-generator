@@ -1,4 +1,4 @@
-"""Tests for the LLM-guided palindrome search (Tromp-style overhang search)."""
+"""Tests for the LLM-guided palindrome search (Norvig-style overhang search)."""
 import pytest
 
 from llm_palindrome.validator import normalize, is_palindrome

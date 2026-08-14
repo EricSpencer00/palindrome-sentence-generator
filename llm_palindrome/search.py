@@ -1,4 +1,4 @@
-"""Tromp-style two-sided palindrome search, guided by a pluggable scorer.
+"""Norvig-style two-sided palindrome search, guided by a pluggable scorer.
 
 The palindrome grows from the outside in. At every step one half "owes" the
 other a run of letters — the overhang. Words added to the left are matched
@@ -6,9 +6,9 @@ forward against the overhang; words added to the right are matched with their
 letters reversed. The search closes when the overhang is itself a palindrome,
 which becomes the center of the final text.
 
-This is the algorithm behind John Tromp's palindrome program (later extended
-by Peter Norvig); the scorer is what's new — it lets a language model decide
-which of the letter-valid branches read as English.
+This is the algorithm behind Peter Norvig's palindrome program (2002), itself
+building on Dan Hoey's 1984 one; the scorer is what's new — it lets a language
+model decide which of the letter-valid branches read as English.
 """
 from __future__ import annotations
 

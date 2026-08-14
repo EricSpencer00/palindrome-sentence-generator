@@ -16,6 +16,41 @@ The gap follows the construction direction rather than the position in the
 text: flip which side gets appended and the advantage flips with it. So the
 half built backwards is reliably the worse half, in both schemes.
 
+## Both rows above are measured in units that word length can move
+
+`lm_score` is total token logprob divided by **letters**, so a half made of
+longer words scores better whether or not it reads better. The two halves of a
+palindrome segment the same letters into different words, and the prepended
+half is the one that leans on short filler — exactly the condition that
+manufactures a difference here.
+
+Re-measured per token, on 24 seeds at the same budget, the baseline gap is
+**−0.824**: the *prepended* half reads better. The sign reverses.
+
+| Normalization | Gap (appended − prepended) |
+|---|---|
+| per letter | +0.443 (reproduces the +0.368 above) |
+| per token | **−0.824** |
+
+The outside-in row survives as a fact about word length. It does not survive as
+evidence that backward construction produces less readable text, which is what
+the rest of this document is built on.
+
+The center-out row has a second problem, independent of this one: it was
+measured with a scorer whose adjacency term assumed the outside-in convention,
+so under center-out it compared each word against one from the far end of its
+half and adjacent repeats went unpenalized. That is fixed (`scoring.adjacent`,
+and the `growth` argument the searches now supply), and the row has not been
+re-measured since.
+
+**What this does to the case below.** A backward language model was built and
+tested against this (`experiments/backward_study.py`, `docs/training.md`). It
+works on its own terms — it improves the half it scores, by +0.32 to +1.14 per
+token depending on weight. But the deficit it was built to repair is not there
+in the units that matter. The dual-head architecture should not be built on
+this measurement. If there is a case for it, it has to be made per token, or
+from something other than the half-asymmetry.
+
 This says the bottleneck is not *which* direction you grow. Both directions
 build one half backwards, and we have no model that generates fluent English
 backwards. **Choosing a different direction relocates the problem; it does not

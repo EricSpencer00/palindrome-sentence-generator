@@ -9,6 +9,7 @@ import argparse
 
 from wordfreq import top_n_list, zipf_frequency
 
+from .safe_vocab import safe_vocab
 from .search import WordTries, beam_search
 from .textify import textify
 from .validator import is_palindrome, normalize
@@ -35,9 +36,12 @@ REAL_SINGLE_LETTERS = {"a", "i", "o"}
 def build_vocab(n: int = 30000) -> list[str]:
     """Frequent English words, minus stray single letters. Lone letters are
     perfect overhang filler, so the search leans on them until they're banned."""
-    return [w for w in top_n_list("en", n)
-            if w.isalpha() and w.isascii()
-            and (len(w) > 1 or w in REAL_SINGLE_LETTERS)]
+    words = [w for w in top_n_list("en", n)
+             if w.isalpha() and w.isascii()
+             and (len(w) > 1 or w in REAL_SINGLE_LETTERS)]
+    # This vocabulary reaches a public endpoint; see safe_vocab for why the
+    # filtering has to happen here rather than on the finished text.
+    return safe_vocab(words)
 
 
 def make_lm_prune(lm, textify_fn, keep: int):

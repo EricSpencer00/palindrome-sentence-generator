@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import heapq
 import random
+import time
 from dataclasses import dataclass, field
 from typing import Optional
 
@@ -93,11 +94,21 @@ def centerout_search(
     seed: Optional[int] = None,
     diversity: float = 0.4,
     max_overhang: int = 24,
+    deadline: Optional[float] = None,
+    maximize: str = "score",
 ) -> list[str]:
     """Beam search outward from a fixed palindromic center.
 
     Returns the full word sequence, [] if nothing closed. `center` must read the
     same both ways; it is emitted verbatim between the two halves.
+
+    `deadline` is a time.monotonic() value. Past it the search stops expanding
+    and returns the longest palindrome it has already closed, which is what
+    lets a public endpoint promise "as long as fits in N seconds".
+
+    `maximize` picks which closure wins: "score" for the best-reading one,
+    "letters" for the longest. Length only becomes the right objective when a
+    deadline is doing the stopping.
     """
     if center != center[::-1]:
         raise ValueError(f"center {center!r} is not itself a palindrome")
@@ -115,13 +126,16 @@ def centerout_search(
     for _ in range(max_steps):
         if not beam:
             break
+        if deadline is not None and time.monotonic() > deadline:
+            break
         pool: list[COState] = []
         for state in beam:
             # Center-out closes only on an exactly empty overhang.
             if not state.overhang and state.letters >= min_letters:
-                per_letter = state.score / max(1, state.letters)
-                if best is None or per_letter > best[0]:
-                    best = (per_letter, assemble(state))
+                key = (state.letters if maximize == "letters"
+                       else state.score / max(1, state.letters))
+                if best is None or key > best[0]:
+                    best = (key, assemble(state))
             for placement, w, new_over, new_owner in _expand(state, tries, candidate_limit):
                 if len(new_over) > max_overhang:
                     continue
@@ -137,6 +151,9 @@ def centerout_search(
         if not pool:
             break
         beam = heapq.nsmallest(beam_width, pool)
+        # Stop once the whole beam has comfortably cleared the floor. This is
+        # what makes min_letters the length dial: the search reliably overshoots
+        # it and then stops, instead of wandering into states that never close.
         if best is not None and all(s.letters > 3 * min_letters for s in beam):
             break
 

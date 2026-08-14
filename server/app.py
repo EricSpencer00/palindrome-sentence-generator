@@ -13,6 +13,7 @@ from __future__ import annotations
 import asyncio
 import json
 import os
+import queue
 import threading
 import time
 from typing import Optional
@@ -60,7 +61,9 @@ def _warm() -> None:
         _lm_error = f"{type(exc).__name__}: {exc}"
 
 
-threading.Thread(target=_warm, daemon=True).start()
+# Importing this module to test the pure helpers should not pull down GPT-2.
+if os.environ.get("PALINDROME_NO_WARM") != "1":
+    threading.Thread(target=_warm, daemon=True).start()
 
 
 def _wanted_words(prompt: str) -> set[str]:
@@ -90,16 +93,117 @@ def longest_palindromic_center(prompt: str) -> str:
     return best if len(best) >= 3 else ""
 
 
-def _search(prompt: str, budget: float) -> Optional[dict]:
+def _split_at_mirror(words: list[str]) -> tuple[list[str], str, list[str], int]:
+    """Cut the word list where the text actually mirrors.
+
+    The mirror is a property of the LETTERS: spaces are invisible to it, so it
+    lands inside a word about as often as it lands in a gap. Splitting by word
+    count instead — the obvious thing, and what this used to do — is only right
+    when the two halves happen to hold the same number of words. "wrote to lay a
+    web be way a lot et or w" mirrors between `web` and `be` at letter 14 of 28,
+    but its halves are 5 words and 7, so counting words put the cut two words late.
+
+    Returns (left, center, right, pivot). `center` is the word the mirror runs
+    through, empty when the mirror falls in a gap; `pivot` indexes into it — the
+    middle letter itself when the letter count is odd, otherwise the gap before
+    that letter.
+    """
+    n = sum(len(w) for w in words)
+    half = n // 2
+    odd = n % 2 == 1
+    start = 0
+    for i, w in enumerate(words):
+        end = start + len(w)
+        if not odd and end == half:
+            return words[: i + 1], "", words[i + 1:], 0
+        inside = start <= half < end if odd else start < half < end
+        if inside:
+            return words[:i], w, words[i + 1:], half - start
+        start = end
+    return list(words), "", [], 0
+
+
+def _display_pivot(display: str, letters_before: int) -> int:
+    """Where the mirror falls in the printed center, which may carry spaces.
+
+    The prompt is echoed at the mirror as the visitor typed it, so the index the
+    letters give has to be walked back onto a string that also holds the spaces
+    between them.
+    """
+    seen = 0
+    for i, ch in enumerate(display):
+        if not ch.isalpha():
+            continue
+        if seen == letters_before:
+            return i
+        seen += 1
+    return len(display)
+
+
+def _shape(words: list[str], prompt: str) -> dict:
+    """The palindrome as the page draws it: two halves and the mirror between."""
+    left, center, right, pivot = _split_at_mirror(words)
+    text = " ".join(words)
+    letters = len(normalize(text))
+
+    # Spaces are invisible to the palindrome, so the visitor's phrase can be shown
+    # at the mirror point exactly as they typed it.
+    prompt_center = bool(center) and center == normalize(prompt)
+    center_display = " ".join(prompt.split()) if prompt_center else center
+
+    return {
+        "left": left,       # reading order; animate from its END outward
+        "right": right,     # reading order; animate from its START outward
+        "center": center,
+        "centerDisplay": center_display,
+        "pivot": _display_pivot(center_display, pivot),
+        "pivotOdd": letters % 2 == 1,
+        "promptCenter": prompt_center,
+        "letters": letters,
+        "words": len(words),
+    }
+
+
+def _search(prompt: str, budget: float, on_partial=None) -> Optional[dict]:
     """Grow for `budget` seconds and keep the longest palindrome that closed.
 
     Length is bounded by time rather than by a target, so a loaded box returns
     a shorter palindrome instead of making the visitor wait. The budget is
     split across seeds and GPT-2 picks between the survivors.
+
+    `on_partial` receives every closed palindrome the beam improves on, which is
+    what the page draws while the search runs. The search closes on short texts
+    within a few hundred milliseconds and lengthens from there, so the visitor
+    watches it grow instead of watching a caret spin for ten seconds.
     """
     center = longest_palindromic_center(prompt)
     scorer = CoherentScorer(_bigrams, center=center, wanted=_wanted_words(prompt))
     per_seed = max(6.0, budget / SEEDS)
+
+    # Each seed restarts from nothing, so its early bests are shorter than what
+    # the previous seed finished on. Only ever relay growth: the page treats a
+    # partial as the text so far, and text that shrank would read as a glitch.
+    relayed = {"letters": 0, "at": 0.0}
+
+    def relay(words: list[str]) -> None:
+        # Runs inside the beam loop for every closure, so the cheap rejections
+        # come first: a clock read, then a sum, and only then any string work.
+        if on_partial is None:
+            return
+        try:
+            now = time.monotonic()
+            if now - relayed["at"] < 0.2:   # the beam closes faster than anyone can read
+                return
+            if sum(len(w) for w in words) <= relayed["letters"]:
+                return
+            text = " ".join(words)
+            if not is_palindrome(text):
+                return
+            shape = _shape(words, prompt)
+            relayed["letters"], relayed["at"] = shape["letters"], now
+            on_partial({"type": "partial", **shape})
+        except Exception:
+            pass    # a dropped frame must never take the search down with it
 
     candidates: list[list[str]] = []
     for seed in range(SEEDS):
@@ -108,6 +212,7 @@ def _search(prompt: str, budget: float) -> Optional[dict]:
             center=center, max_steps=10**6, maximize="letters",
             candidate_limit=CANDIDATE_LIMIT,
             deadline=time.monotonic() + per_seed,
+            on_closed=relay,
         )
         if words and is_palindrome(" ".join(words)):
             candidates.append(words)
@@ -130,27 +235,9 @@ def _search(prompt: str, budget: float) -> Optional[dict]:
     if not is_palindrome(text):  # never serve a broken palindrome
         return None
 
-    if center and center in best_words:
-        i = best_words.index(center)
-        left, right = best_words[:i], best_words[i + 1:]
-    else:
-        mid = len(best_words) // 2
-        left, right, center = best_words[:mid], best_words[mid:], ""
-
-    # Spaces are invisible to the palindrome, so the visitor's phrase can be shown
-    # at the mirror point exactly as they typed it.
-    center_display = center
-    if center and center == normalize(prompt):
-        center_display = " ".join(prompt.split())
-
     return {
         "type": "result",
-        "center": center,
-        "centerDisplay": center_display,
-        "left": left,       # reading order; animate from its END outward
-        "right": right,     # reading order; animate from its START outward
-        "letters": len(normalize(text)),
-        "words": len(best_words),
+        **_shape(best_words, prompt),
         "lm": lm_score,
         "usedPrompt": bool(center) or bool(scorer.wanted),
         "coherence": _coverage(best_words),
@@ -182,12 +269,21 @@ async def generate(prompt: str = Query("", max_length=200),
                 return
 
         t0 = time.time()
-        task = asyncio.create_task(asyncio.to_thread(_search, prompt, budget))
+        # The search runs on a thread and hands its improving drafts back through
+        # a queue, because a thread cannot yield into an async generator itself.
+        drafts: queue.Queue = queue.Queue(maxsize=64)
+        task = asyncio.create_task(
+            asyncio.to_thread(_search, prompt, budget, _offer(drafts)))
         # Heartbeats keep the tunnel and the browser from timing out a long search.
         while not task.done():
+            while True:
+                try:
+                    yield _sse(drafts.get_nowait())
+                except queue.Empty:
+                    break
             yield _sse({"type": "status", "phase": "searching",
                         "elapsed": round(time.time() - t0, 1)})
-            await asyncio.sleep(1.0)
+            await asyncio.sleep(0.25)
         try:
             result = task.result()
         except Exception as exc:
@@ -206,3 +302,13 @@ async def generate(prompt: str = Query("", max_length=200),
 
 def _sse(payload: dict) -> str:
     return f"data: {json.dumps(payload)}\n\n"
+
+
+def _offer(q: "queue.Queue"):
+    """Drop drafts rather than block the search when the browser reads slowly."""
+    def put(payload: dict) -> None:
+        try:
+            q.put_nowait(payload)
+        except queue.Full:
+            pass
+    return put

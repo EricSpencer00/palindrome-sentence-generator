@@ -133,10 +133,28 @@ body {
   animation: caret-spin 2.6s infinite;
 }
 
+/* An odd letter count leaves no gap for a bar: the mirror runs THROUGH the
+   middle letter. The block cursor is the same object one glyph wide — the letter
+   is inverted rather than replaced, so the word stays readable while the mirror
+   stays marked. It keeps the caret's rhythm because it is the same cursor. */
+@keyframes pivot-blink {
+  0%, 49%   { background: var(--color-signal); color: var(--color-paper) }
+  50%, 100% { background: transparent;         color: var(--color-signal) }
+}
+.pivot {
+  display: inline-block;
+  animation: pivot-blink 1.06s steps(1, end) infinite;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .caret { animation: none; }
   .caret-spin { animation: none; }
   .slab { transition: none; }
+  .pivot {
+    animation: none;
+    background: var(--color-signal);
+    color: var(--color-paper);
+  }
 }
 
 ::selection { background: var(--color-signal); color: #fff; }

@@ -48,6 +48,34 @@ class TestCenterOutSearch:
                                  beam_width=30, center="madam", seed=2)
         assert "madam" in words
 
+    def test_deadline_returns_best_so_far_instead_of_running_on(self):
+        """A public endpoint needs a bound. With an unreachable target and a
+        short deadline, the search must still hand back a valid palindrome."""
+        import time
+        tries = WordTries(TINY_DICT)
+        scorer = FreqScorer(TINY_DICT)
+        t0 = time.monotonic()
+        words = centerout_search(tries, scorer, min_letters=8, beam_width=30,
+                                 center="", seed=3, max_steps=10**6,
+                                 deadline=t0 + 0.4)
+        elapsed = time.monotonic() - t0
+        assert elapsed < 3.0, f"deadline ignored, ran {elapsed:.1f}s"
+        assert words, "deadline should return best-so-far, not nothing"
+        assert is_palindrome(" ".join(words))
+
+    def test_maximize_letters_prefers_the_longest_closure(self):
+        """Default picks the best-reading closure; a site that wants the longest
+        one within a time budget needs to optimise for length instead."""
+        tries = WordTries(TINY_DICT)
+        scorer = FreqScorer(TINY_DICT)
+        by_score = centerout_search(tries, scorer, min_letters=12, beam_width=40,
+                                    center="", seed=11, max_steps=90)
+        by_len = centerout_search(tries, scorer, min_letters=12, beam_width=40,
+                                  center="", seed=11, max_steps=90,
+                                  maximize="letters")
+        assert is_palindrome(" ".join(by_len))
+        assert len(normalize(" ".join(by_len))) >= len(normalize(" ".join(by_score)))
+
     def test_empty_center_also_works(self):
         tries = WordTries(TINY_DICT)
         scorer = FreqScorer(TINY_DICT)

@@ -63,6 +63,17 @@ In-loop scoring produces measurably more fluent text at roughly 31× the cost.
 Every candidate in both arms is a valid palindrome — validity comes from the
 search, not the model, so the model can only affect readability.
 
+`lm_score` divides total token logprob by **letters**, which is what makes it
+comparable across palindromes of different lengths — and also what makes it
+possible to raise without writing anything better. Longer words cost fewer
+tokens per letter, so a search that prefers them scores higher for free; a
+tuning run found that on its own and gained +0.30 by it while the same texts
+scored 0.67 *worse* per token. Both arms above run the same scorer over the
+same vocabulary and differ only in when the model is applied, so word length is
+not what separates them — but the two have not been compared per token, and any
+change that moves word length has to be read that way. `experiments/` reports
+both normalizations and says so when they disagree.
+
 Reproduce with:
 
 ```bash

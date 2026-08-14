@@ -134,9 +134,6 @@ Hoey's** 1984 program, which produced the first long "A man, a plan, a canal"
 palindrome by the same remainder-matching idea. This project contributes the
 bidirectional-bigram and language-model scoring layer on top of that search.
 
-An earlier version of this file credited John Tromp for the algorithm. That was
-wrong — he has no connection to this work, and the URL it cited did not exist.
-
 Developed within the **AI4FM group**.
 
 ## License

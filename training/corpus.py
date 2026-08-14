@@ -34,11 +34,29 @@ DTYPE = np.uint16  # GPT-2 vocab is 50257, so ids fit
 
 def word_aligned_ids(tok, text: str) -> list[int]:
     """Token ids for `text`, tokenizing each whitespace word on its own."""
-    words = text.split()
-    if not words:
-        return []
-    encoded = tok([" " + w for w in words], add_special_tokens=False)["input_ids"]
-    return [i for block in encoded for i in block]
+    return word_aligned_batch(tok, [text])[0]
+
+
+def word_aligned_batch(tok, texts: Sequence[str]) -> list[list[int]]:
+    """Word-aligned ids for many texts in one tokenizer call.
+
+    The fast tokenizer's per-call overhead dominates when it is handed a few
+    words at a time, and there are ~1.8M rows in the corpus. Pooling every
+    word from a block of rows into a single call and cutting the result back
+    apart by word count turns hours of tokenization into minutes.
+    """
+    words_per_text = [t.split() for t in texts]
+    flat = [" " + w for ws in words_per_text for w in ws]
+    if not flat:
+        return [[] for _ in texts]
+    encoded = tok(flat, add_special_tokens=False)["input_ids"]
+
+    out, at = [], 0
+    for ws in words_per_text:
+        blocks = encoded[at:at + len(ws)]
+        at += len(ws)
+        out.append([i for block in blocks for i in block])
+    return out
 
 
 def build(dataset: str, split: str, out_dir: Path, limit: int | None,
@@ -55,28 +73,35 @@ def build(dataset: str, split: str, out_dir: Path, limit: int | None,
     out_dir.mkdir(parents=True, exist_ok=True)
     bin_path = out_dir / f"{split}.bin"
 
-    chunks: list[np.ndarray] = []
     total = 0
     words = 0
+    pending: list[str] = []
+    rows_per_call = 2000
+
+    def flush(fh) -> tuple[int, int]:
+        if not pending:
+            return 0, 0
+        blocks = word_aligned_batch(tok, pending)
+        ids = [i for block in blocks if block for i in block + [EOT]]
+        if not ids:
+            return 0, 0
+        np.array(ids, dtype=DTYPE).tofile(fh)
+        return len(ids), sum(len(t.split()) for t in pending)
+
     with open(bin_path, "wb") as fh:
-        for i, row in enumerate(ds):
+        for row in ds:
             text = row["text"].strip()
             if not text or text.startswith("="):  # wikitext section headers
                 continue
-            ids = word_aligned_ids(tok, text)
-            if not ids:
-                continue
-            words += len(text.split())
-            chunks.append(np.array(ids + [EOT], dtype=DTYPE))
-            if len(chunks) >= 5000:
-                block = np.concatenate(chunks)
-                block.tofile(fh)
-                total += len(block)
-                chunks = []
-        if chunks:
-            block = np.concatenate(chunks)
-            block.tofile(fh)
-            total += len(block)
+            pending.append(text)
+            if len(pending) >= rows_per_call:
+                t, w = flush(fh)
+                total += t
+                words += w
+                pending = []
+        t, w = flush(fh)
+        total += t
+        words += w
 
     meta = {"tokens": total, "words": words, "dtype": "uint16",
             "model": model, "dataset": dataset, "split": split,

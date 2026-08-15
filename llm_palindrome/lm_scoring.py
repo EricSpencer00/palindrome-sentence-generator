@@ -17,6 +17,42 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
+class GPT2ConditionalScorer:
+    """Per-token logprobs of a tail, conditioned on a prefix.
+
+    Backs `coherence.CoherenceMetric`, which scores the same tail against two
+    different prefixes and subtracts. That only means anything if the tail
+    tokenizes identically both times, so the tail is tokenized ON ITS OWN and
+    the ids concatenated — never by tokenizing the joined string, where BPE
+    would merge across the seam and the two runs would be over different units.
+    """
+
+    def __init__(self, model_name: str = "gpt2", device: str | None = None):
+        self.device = device or ("mps" if torch.backends.mps.is_available() else "cpu")
+        self.tok = AutoTokenizer.from_pretrained(model_name)
+        self.model = AutoModelForCausalLM.from_pretrained(model_name).to(self.device)
+        self.model.eval()
+
+    @torch.no_grad()
+    def conditional_logprobs(self, prefix: str, tail: str) -> list[float]:
+        pre_ids = self.tok(prefix.strip(), add_special_tokens=False).input_ids
+        # The leading space is part of the first tail token: GPT-2 spells a
+        # mid-sentence word as " word", and dropping it would score a
+        # start-of-line variant that never occurs in the text being measured.
+        tail_ids = self.tok(" " + tail.strip(), add_special_tokens=False).input_ids
+        if not pre_ids or not tail_ids:
+            return []
+
+        ids = torch.tensor([pre_ids + tail_ids], device=self.device)
+        logits = self.model(ids).logits
+        logprobs = torch.log_softmax(logits[0, :-1], dim=-1)
+        targets = ids[0, 1:]
+        picked = logprobs.gather(-1, targets.unsqueeze(-1)).squeeze(-1)
+        # `picked[i]` scores ids[i+1], so the first tail token sits at
+        # len(pre_ids) - 1.
+        return picked[len(pre_ids) - 1:].tolist()
+
+
 class GPT2Scorer:
     def __init__(self, model_name: str = "gpt2", device: str | None = None):
         self.device = device or ("mps" if torch.backends.mps.is_available() else "cpu")

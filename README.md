@@ -148,9 +148,9 @@ llm_palindrome/
   verify.py        end-to-end validity checks
 
 data/
-  canon_spelled.json    56 catalogued palindromes WITH their spacing
-  known_palindromes.json  145 normalised, for the novelty check
-  centres.json          40 blind-judged self-palindromic sentences
+  canon_spelled.json    71 catalogued palindromes WITH their spacing
+  known_palindromes.json  160 normalised, for the novelty check
+  centres.json          49 blind-judged self-palindromic sentences
   mirror_pairs.json     4,656 mined pairs, attestation flagged
   lexicon.txt           52,927 headwords (dictionary ∩ frequency)
   word_banks.json       word-ORDER mode material
@@ -235,8 +235,8 @@ The shipping path is five steps, none of them a search:
 
 | step | module | what it does |
 |------|--------|--------------|
-| spellings | `data/canon_spelled.json` | 56 catalogued palindromes stored with their spacing, each verified by `is_palindrome` |
-| centres | `data/centres.json` | 40 self-palindromic sentences that survived blind judging |
+| spellings | `data/canon_spelled.json` | 71 catalogued palindromes stored with their spacing, each verified by `is_palindrome` |
+| centres | `data/centres.json` | 49 self-palindromic sentences that survived blind judging |
 | theme | `themes.best_cluster` | picks the centres that share content words |
 | order | `themes.order_for_refrain` | questions outermost, firmest statement on the turn |
 | assembly | `paragraphs.refrain` | mirrors the sequence — palindromic by construction |
@@ -281,7 +281,7 @@ Four sources were built and measured against each other:
 | closed-form reversibles (`reversibles.py`) | 13,924 | 5 | 2 |
 
 All four converge on roughly the same ceiling, and none of them produces
-sentences. The canon does. `is_novel_palindrome` (145 entries) keeps the
+sentences. The canon does. `is_novel_palindrome` (160 entries) keeps the
 project honest about which material it borrowed: **the assembly is ours, the
 sentences are the record's.**
 

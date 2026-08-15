@@ -299,11 +299,24 @@ def letter_paragraph(sentences: int = 7, prompt: str = "") -> dict:
     # strangers do not add to the subject, they remove it.
     chosen = order_for_refrain(trim_to_theme(chosen, anchor))
 
+    # Say what the paragraph turned out to be about. With no prompt there is
+    # still a subject and the reader should be told it; with a prompt that
+    # matched nothing, `theme` is null rather than the default one, so the
+    # request is not reported as answered when it was only served.
+    if anchor is None and not asked:
+        from collections import Counter
+        shared: Counter = Counter()
+        for unit in chosen:
+            shared.update(content_words(unit))
+        anchor = next((w for w, n in shared.most_common() if n > 1), None)
+
     text = " ".join(u.capitalize() + "." for u in refrain(chosen))
     return {
         "mode": "letter",
         "text": text,
         "units": chosen,
+        "theme": anchor,
+        "prompted": bool(asked),
         "words": len(re.findall(r"[A-Za-z]+", text)),
         "letterPalindrome": is_palindrome(text),
         "wordPalindrome": is_word_palindrome(text),

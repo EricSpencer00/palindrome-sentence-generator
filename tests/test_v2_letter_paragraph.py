@@ -125,3 +125,48 @@ class TestTheEndpoint:
     def test_an_unknown_mode_is_rejected(self, client):
         assert client.get("/api/v2/paragraph",
                           params={"mode": "sideways"}).status_code == 422
+
+
+class TestItReportsTheTheme:
+    """A prompt that matches nothing must not look like it matched.
+
+    "quokka" returns the default "saw" theme — correctly, since a request has
+    to be answered — but the payload said nothing about it, so the prompt was
+    decorative exactly when it failed. The endpoint already knows: `anchor` is
+    None when nothing in the pool carries a prompt word.
+    """
+
+    def test_a_matched_prompt_names_its_theme(self):
+        from server.v2 import letter_paragraph
+
+        out = letter_paragraph(sentences=7, prompt="sir")
+        assert out["theme"] == "sir"
+
+    def test_an_unmatched_prompt_reports_no_theme(self):
+        from server.v2 import letter_paragraph
+
+        out = letter_paragraph(sentences=7, prompt="quokka")
+        assert out["theme"] is None
+        assert out["prompted"] is True
+
+    def test_no_prompt_reports_the_theme_it_found_anyway(self):
+        """With no prompt the paragraph still has a subject; say what it is."""
+        from server.v2 import letter_paragraph
+
+        out = letter_paragraph(sentences=7)
+        assert out["prompted"] is False
+        assert out["theme"], out["units"]
+
+    def test_the_reported_theme_is_in_every_unit(self):
+        from server.v2 import letter_paragraph
+
+        out = letter_paragraph(sentences=7, prompt="god")
+        for unit in out["units"]:
+            assert out["theme"] in unit.split(), (out["theme"], unit)
+
+    def test_a_one_sentence_answer_still_names_its_theme(self):
+        from server.v2 import letter_paragraph
+
+        out = letter_paragraph(sentences=7, prompt="basil")
+        assert out["theme"] == "basil"
+        assert len(out["units"]) == 1

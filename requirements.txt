@@ -12,3 +12,8 @@ transformers>=4.30.0
 
 # Tests
 pytest>=7.0.0
+
+# Building the v2 unit inventory (training/build_inventory.py). BUILD-TIME ONLY:
+# the service reads the mined JSON and never imports this, so a machine that
+# already has data/ngrams_wikitext2.json does not need it.
+datasets>=2.14.0

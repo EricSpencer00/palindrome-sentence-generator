@@ -378,3 +378,262 @@ python experiments/diversity_sweep.py          # ~7 min
 ```
 
 Cluster job scripts are operator-specific and live outside this repository.
+
+## The paragraph problem, decomposed (August 2026)
+
+Everything above optimized free-running text against the mirror, and the
+decisive number arrived late: reversing English letters and re-segmenting into
+the vocabulary costs **3.3 bits per free letter** (stable across span lengths
+and segmentation strategies), against English's ~1.6. Free-running palindromic
+prose past ~30 letters is not sparse; the walk-in coherent set is effectively
+empty, and every beam result in this file is that emptiness being reported by
+a different instrument.
+
+What survives the constraint:
+
+- **Exhaustive enumeration of the short regime.** At ≤28 letters the space is
+  walkable — 2.55M distinct palindromes in a 30-minute 32-way walk on Polaris
+  — and best-of-ALL beats best-of-N over any beam pool, because there is no
+  proposal distribution for the oracle bound to apply to. Yield includes
+  novel classics-register sentences ("non academia aimed a canon", 22
+  letters, grammatical, in no corpus).
+- **Assembly, not search, for length.** Mirror-pairs and self-palindromic
+  sentences pay the constraint internally; nested as L1..Lk C Rk..R1 they
+  form palindromes of unbounded length by construction. Coherence becomes
+  selection and ordering — the first subproblem here with no letter
+  constraint at all.
+- **The refrain form.** Judged strictly, mirror-pairs with two readable
+  halves are ~1% of the bank (3 of 240); whole short palindromes pass as
+  sentences far more often. A mirrored sequence A B C D C B A of them is the
+  honest paragraph form, and it is the form long human palindromic poetry
+  already uses.
+
+Blind whole-text judgment of the resulting 286-letter paragraph: INTENTIONAL,
+ranked above its own shuffle and below real prose — "constraint-based or
+refrain poetry, semantically incoherent." That is not a failure to reach
+prose; it is the measured ceiling of the form at this vocabulary, and the
+open levers are unit-bank scale (deeper walks, 30-34 letters) and better
+selection, not better search.
+
+### The strict-judging result (the number that matters)
+
+Every unit vetting in this project used one of two rubrics. The lenient one
+("terse telegraphic register") passed 21/26 of the walk's top units — and also
+passed 1/5 word-salad controls, so it was leaking. The strict one ("reads as
+intentional AND says something", calibrated real 5/5, salad 0/5) was then run
+across five independently-selected populations:
+
+| population              | selector            | strict passes |
+|-------------------------|---------------------|---------------|
+| walk top 26             | GPT-2 rank          | 0/26          |
+| walk ranks 26-62        | GPT-2 rank          | 0/36          |
+| local walk top          | GPT-2 rank          | 0/16          |
+| readable-vocab filter   | rule-based          | 0/20          |
+| uniform random sample   | random over 2.55M   | 0/72          |
+| **total**               |                     | **0/170**     |
+
+Zero. Including the units the assembled paragraph is built from. The paragraph
+is palindromic by construction and was judged INTENTIONAL as a whole text —
+above its own shuffle, below real prose, identified independently as
+"constraint-based or refrain poetry" — but its lines do not pass as English
+sentences under a rubric that admits real prose and rejects salad.
+
+Four surface proxies for readability were also killed against labeled judge
+verdicts: GPT-2 weaker-half score (AUC 0.659), full bigram-join attestation
+(rejects the best unit found, which has zero attested joins), rule-based
+vocabulary filtering (0/20), and edge-join attestation (no separation). Direct
+judging is the only instrument that works, which makes judge throughput — not
+search, not scoring — the binding constraint on any further progress here.
+
+## Coherent paragraphs: what actually worked (loop, August 2026)
+
+Four requirements, each measured against controls.
+
+**1. Units must be authored, not searched.** Exhaustive walks produced 12M
+closures (2.55M at 18-28 letters, 9.29M at 24-34, 27k at 10-17) and zero units
+that survived strict judging. One LLM call produces 30 valid palindromes. The
+walks are also not exhaustive in any useful sense: with a 14k-word vocabulary
+the tree branches ~14k wide at every closure, so a time-budgeted DFS returns a
+deep prefix of one corner. Canon recall — how many of the 27 catalogued
+palindromes a walk rediscovers — is the acceptance test that exposes this, and
+it goes UP as vocabulary shrinks: 10/18 at 83 canon-seeded words and depth 4,
+1/18 at 300 frequency-ranked words, 0/27 at 14k.
+
+**2. Verification must be mechanical.** An authoring model claimed 20 novel
+palindromes; all 20 were palindromic and all 20 were catalogued classics. A
+71-entry reference missed it; the 120-entry one in `data/known_palindromes.json`
+catches it. Every surface proxy for readability also failed against judge
+verdicts: GPT-2 weaker-half score (AUC 0.659), bigram-join attestation (rejects
+the best unit found, which has zero attested joins), vocabulary filtering
+(0/20), edge joins (no separation).
+
+**3. Length is free once units exist.** `paragraphs.assemble` nests mirror-pairs
+around a centre; the result is palindromic by construction at any length. Given
+canonical units it produces 305 letters judged INTENTIONAL.
+
+**4. Each reversal must be a consequence, not an echo.** This is the step that
+converts a shared setting into a held subject. A themed paragraph scored
+`holds_subject: false`; one where each sentence's word-reversal advances the
+story scored `holds_subject: true` — "Waves took sons" returning as "Sons took
+waves".
+
+### The letter/word split, and why the letter side won in the end
+
+Word-ORDER palindromes mirror the sentence sequence and not the letters, so
+they pay nothing per letter. For a stretch of this work they were the better
+paragraph and `/api/v2/paragraph` served them, on the reading that the mirror
+cost capped the letter-level form at refrain poetry.
+
+That reading was wrong, and the error is worth stating precisely because it
+survived roughly forty iterations. The cost does force units to be short. Short
+units carry no subject. What does not follow — and what was assumed — is that
+palindromic units must be short. Whole self-palindromic SENTENCES pay exactly
+the same 3.296 bits per free letter and carry subjects perfectly well.
+
+The evidence that settled it, all blinded against real-prose and word-salad
+controls:
+
+- Thematic selection over two-word halves fails absolutely: of every
+  content-word pair across the 26 usable halves, **2** co-occur anywhere in
+  3,932 corpus sentences.
+- Thematic selection over whole sentences works: 8 judged centres share "saw"
+  with a first-person narrator, and grouping them beat the same structure with
+  mixed topics.
+- Four-word halves — the length at which prose would start — yield **0**
+  both-attested pairs from 34,688 attested 4-grams. The material for a
+  half-level through-line does not exist at any corpus size tried.
+
+`/api/v2/paragraph` now defaults to `mode=letter` and serves the sentence-level
+form. The word mode remains at `?mode=word`, labelled `letterPalindrome:
+false`, with the 17-unit threshold below applying to its own path.
+
+### Proxy scoring: filter yes, ranker no
+
+Every proxy tried here was eventually checked against blind judging rather than
+against another proxy, and the result did not vary:
+
+| proxy | as a filter | as a ranker |
+|-------|-------------|-------------|
+| GPT-2 mean logprob | sound — selects nothing a judge rejects | failed three times |
+| `reads_as_attested` | sound — 79% accepted against 38% | not used |
+| `themes.cohesion` | sound — finds the theme | failed — sizes the paragraph wrong |
+| word frequency | no signal (4.34 accepted vs 4.06 rejected) | — |
+
+The three GPT-2 ranker failures: a guarded 0.58 gain in its own score was
+invisible to a judge; a larger unit pool it preferred was judged worse; a set
+of 18 verified novel units it preferred made the paragraph worse. In each case
+the proxy moved and the reader did not.
+
+Two gaming modes were found and bounded on the way — word repetition
+(`sequencing.repetition_rate`, 0.356 → 0.471 when optimised against) and
+cadence concentration (`sequencing.cadence_concentration`, "Partner is. Sign
+is. Warning is."). Each guard closed one door and the search found the next,
+which is the argument against trusting any of them to rank.
+
+### Storing beats inferring
+
+`data/known_palindromes.json` stores the canon normalised, which is right for
+the novelty check and fatal everywhere else: with no word boundaries, every
+entry can only be a centre, and `harvest` returned 0 pairs from 145 entries.
+
+Recovering the spacing by segmentation (`respace`) works for most entries and
+breaks 14 of them — "siri demand i am a maid named iris", "a nut for ajar of
+tuna", "sit on a potato pa not is". Blind judging accepted 28 of 61 centres and
+those 14 were all in the rejected half, so the sentences were fine and recovery
+had broken them.
+
+No corpus statistic fixes this. Attested-join weighting recovers 3 of 10 and
+the weight was swept, not picked (0 fixes nothing, 1–4 fixes three with no
+regressions, 6+ breaks good readings). The rest cannot be recovered at all:
+choosing "i slam" over "islam" requires knowing the sentence, and "islam" is a
+common word attested beside its neighbours, so unigram, attested-count and
+attested-fraction scoring all prefer it. Absolute count is actively perverse —
+a shorter reading has fewer joins to miss.
+
+`data/canon_spelled.json` stores the 56 spellings instead. Re-judged blind, the
+corrected centres are accepted **13 of 16** against 0 of 14 before. `respace`
+keeps its job on the mining path, where no true spelling exists to store.
+
+### Where the word-order paragraph actually sits
+
+Judged three times against real prose, with the texts reordered and the
+instruction reworded each time to defeat position and phrasing bias:
+
+| pass | first | second | third |
+|------|-------|--------|-------|
+| A | observatory | protagonist | prose |
+| B | prose | observatory | protagonist |
+| C | prose | observatory | protagonist |
+
+Majority: **prose first, the palindromic paragraph second.** One pass ranked
+the palindrome above prose; two did not, so that pass is noise — the same
+single-verdict instability measured on unit judging, where borderline items
+flip about half the time. Anything claimed from one pass in this project has
+twice turned out to be wrong.
+
+What survives repetition: a ~65-word word-order palindromic paragraph holds a
+subject in 3/3 passes and ranks second of three in 2/3. The same bank at 291
+words scores `holds_subject: false` — length, not subject matter, is what loses
+the thread, which corrects an earlier reading of this that blamed the units'
+topic (instruments rather than people). A protagonist-centred bank was written
+to test that reading and ranked third, holding a subject in only 2/3.
+
+### Arc-aware selection: a feature built on a single verdict, and refuted
+
+A one-pass length sweep found `holds_subject: true` at 147 words and `false` at
+33, 63 and 99, with the judge attributing the difference to the longer text
+containing "doubt, fatigue, theories, dawn" — stakes rather than scenery. Unit
+selection was changed accordingly: stakes-bearing units are kept first and
+seated nearest the centre (`server/v2.select_units`, `ARC_WORDS`).
+
+Judged twice afterwards, texts in opposite order: **the arc-aware paragraph
+does not hold a subject** (0/2), and prose ranks first in both. The verdicts
+were "formally brilliant but image-scattering" and "sacrifices semantic
+coherence for palindromic form".
+
+The sweep it was built on was a SINGLE verdict, and single verdicts flip about
+half the time at the margin — a fact measured earlier in this same project and
+then ignored. Two prior claims here died the same way ("No devil lived on" as
+novel; "Deep spot top speed" as judged-good). The rule that survives: no
+feature and no finding from one judge pass.
+
+The selection change is kept — it is harmless, tested, and keeps stakes units
+in short requests — but it is not evidence of anything. The standing position
+is unchanged from the three-pass comparison: a word-order palindromic paragraph
+reads as an intentional composition and ranks second to prose.
+
+### How long a word-order palindromic paragraph can hold a subject
+
+A length ladder from one bank — same units, same assembly, only the number of
+units varying — judged for `holds_subject` at each rung. Pass A presented them
+ascending, pass B descending:
+
+| words | pass A | pass B | pass C | majority |
+|-------|--------|--------|--------|----------|
+|  33   | no     | no     | yes    | **no**   |
+|  63   | no     | no     | yes    | **no**   |
+| 105   | yes    | yes    | yes    | **yes**  |
+| 147   | yes    | yes    | yes    | **yes**  |
+| 207   | yes    | yes    | yes    | **yes**  |
+
+A ascending, B descending, C shuffled. A and B agree exactly under reversed
+presentation, so the threshold is not position bias. C answered "yes" to all
+five and so discriminated nothing — a pass that separates no cases is a weak
+vote, and it is recorded rather than dropped because dropping inconvenient
+passes is how the earlier false positives in this file happened. The
+through-line appears at ~105 words and holds above it, because that is where
+the bank's storm arrives: the short cuts stop before anything happens to
+anyone, leaving harbour scenery in mirror form.
+
+This corrects two earlier readings recorded above, both taken from single
+verdicts. "Instruments rather than people" was wrong — the same harbour units
+fail at 63 words and hold at 105. "Length, not subject matter, loses the
+thread" was backwards — short is what fails here; length is what allows an
+arc to fit. The operative variable is whether the selected units contain
+a completed event, and short paragraphs cannot.
+
+Practical consequence: requests to the WORD mode below about 17 units return a
+formally correct palindrome with no story in it, so `?mode=word` floors its own
+length at 18 regardless of what was asked. The threshold is that mode's and
+does not transfer — 17 whole sentences would exhaust a 40-centre inventory,
+and the letter mode's paragraph is 7.

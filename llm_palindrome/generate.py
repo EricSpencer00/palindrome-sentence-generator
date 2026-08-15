@@ -10,6 +10,7 @@ import argparse
 from wordfreq import top_n_list, zipf_frequency
 
 from .safe_vocab import safe_vocab
+from .shortwords import is_real_short
 from .search import WordTries, beam_search
 from .scoring import adjacent
 from .textify import textify
@@ -36,9 +37,12 @@ REAL_SINGLE_LETTERS = {"a", "i", "o"}
 def build_vocab(n: int = 30000) -> list[str]:
     """Frequent English words, minus stray single letters. Lone letters are
     perfect overhang filler, so the search leans on them until they're banned."""
+    # Short words fit any overhang, so the search reaches for them whenever
+    # the letters get awkward. A frequency list cannot be trusted here: the top
+    # 100k contains "bn", "cu", "eb" and "ht", and the generator used all of
+    # them. See shortwords.py.
     words = [w for w in top_n_list("en", n)
-             if w.isalpha() and w.isascii()
-             and (len(w) > 1 or w in REAL_SINGLE_LETTERS)]
+             if w.isalpha() and w.isascii() and is_real_short(w)]
     # This vocabulary reaches a public endpoint; see safe_vocab for why the
     # filtering has to happen here rather than on the finished text.
     return safe_vocab(words)

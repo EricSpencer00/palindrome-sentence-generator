@@ -94,17 +94,32 @@ def best_cluster(sentences: Sequence[str], size: int) -> list[str]:
     return best
 
 
-# Openers that make a sentence a question in this inventory. The canon has no
-# question marks — spacing and punctuation are invisible to the mirror, so
-# every centre arrives as bare words and the opener is the only signal.
-INTERROGATIVE = ("was it", "is it", "are we", "can i", "do ", "did i",
-                 "who ", "what ", "shall i", "may a")
+# A question is auxiliary-subject inversion. The canon has no question marks —
+# punctuation is invisible to the mirror, so every centre arrives as bare words
+# and the inversion is the only signal.
+#
+# "may a" is deliberately absent: "may a moody baby doom a yam" is an optative
+# wish, not an inversion, and matching it seated the sentence outward as doubt.
+INVERSIONS = ("was it", "is it", "are we", "are you", "can i", "can we",
+              "did i", "did we", "do i", "do we", "shall i", "wont i",
+              "who is", "what is", "where is", "how is")
+
+# How far in an inversion may start. English lets a vocative or an adverb
+# precede it — "eva can i see bees in a cave", "wont i panic in a pit now" —
+# and both were missed while only position 0 was checked. Two words, because
+# hunting arbitrarily far makes a question of any sentence that says "was it"
+# somewhere in the middle.
+MAX_PREFIX_WORDS = 2
 
 
 def is_question(sentence: str) -> bool:
     """Does this read as a question rather than a statement?"""
-    text = sentence.lower().strip()
-    return any(text.startswith(opener) for opener in INTERROGATIVE)
+    words = sentence.lower().split()
+    for start in range(min(MAX_PREFIX_WORDS, len(words)) + 1):
+        rest = " ".join(words[start:])
+        if any(rest.startswith(opener) for opener in INVERSIONS):
+            return True
+    return False
 
 
 def order_for_refrain(sentences: Sequence[str]) -> list[str]:
@@ -115,6 +130,14 @@ def order_for_refrain(sentences: Sequence[str]) -> list[str]:
     — statements outermost, and the two interleaved — this ordering won: the
     firmest line belongs on the turn, and doubt belongs at the edges where the
     reader enters and leaves.
+
+    KNOWN LIMIT, recorded rather than fixed. The split is binary, and the
+    inventory holds a third kind: 8 of the 49 centres are imperatives or
+    vocatives ("flee to me remote elf", "satan oscillate my metallic sonatas",
+    "yawn a more roman way"), which count as statements here and could
+    therefore take the turn where the rule intends a firm declarative. No
+    served theme currently contains one, so it does not bite — and where it
+    belongs is a question for a blinded batch, not for a guess.
     """
     questions = [s for s in sentences if is_question(s)]
     statements = [s for s in sentences if not is_question(s)]

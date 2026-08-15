@@ -235,3 +235,58 @@ class TestTrimToTheme:
 
         padded = self.CORE + self.STRANGERS
         assert cohesion(trim_to_theme(padded)) > cohesion(padded)
+
+
+class TestQuestionClassification:
+    """Audited against all 49 shipped centres, which found three defects.
+
+    `is_question` drives the seating rule — questions outward, the firmest
+    statement on the turn — off a list of openers matched at position 0. The
+    inventory has outgrown that:
+
+      "eva can i see bees in a cave"   a question whose inversion follows a
+      "wont i panic in a pit now"      vocative, so it never matched
+      "may a moody baby doom a yam"    an optative wish, matched as a question
+
+    A question is auxiliary-subject inversion, and English lets a vocative or
+    an adverb precede it. So the openers are looked for in the first few words
+    rather than only at the start — and "may a", which is not an inversion at
+    all, comes out.
+    """
+
+    QUESTIONS = ["was it a cat i saw", "eva can i see bees in a cave",
+                 "wont i panic in a pit now",
+                 "are we not drawn onward we few drawn onward to new era"]
+    NOT_QUESTIONS = ["may a moody baby doom a yam", "delia saw i was ailed",
+                     "able was i ere i saw elba", "poor dan is in a droop",
+                     "now i see bees i won"]
+
+    def test_every_question_in_the_inventory_is_found(self):
+        from llm_palindrome.themes import is_question
+
+        for sentence in self.QUESTIONS:
+            assert is_question(sentence), sentence
+
+    def test_nothing_else_is_called_one(self):
+        from llm_palindrome.themes import is_question
+
+        for sentence in self.NOT_QUESTIONS:
+            assert not is_question(sentence), sentence
+
+    def test_an_inversion_after_a_vocative_still_counts(self):
+        from llm_palindrome.themes import is_question
+
+        assert is_question("eva can i see bees in a cave")
+
+    def test_a_wish_is_not_a_question(self):
+        """"May a moody baby doom a yam" is optative, not interrogative."""
+        from llm_palindrome.themes import is_question
+
+        assert not is_question("may a moody baby doom a yam")
+
+    def test_the_opener_is_not_hunted_arbitrarily_far_in(self):
+        """Otherwise any sentence containing "is it" anywhere is a question."""
+        from llm_palindrome.themes import is_question
+
+        assert not is_question(
+            "a long declarative sentence that happens to say was it later")

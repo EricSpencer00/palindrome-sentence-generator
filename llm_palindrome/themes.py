@@ -119,3 +119,45 @@ def order_for_refrain(sentences: Sequence[str]) -> list[str]:
     questions = [s for s in sentences if is_question(s)]
     statements = [s for s in sentences if not is_question(s)]
     return questions + statements
+
+
+def trim_to_theme(sentences: Sequence[str],
+                  anchor: "str | None" = None) -> list[str]:
+    """Drop sentences that share no content with the rest.
+
+    A prompt matching two centres used to be padded to the requested length
+    with whatever was left. Judged blind, that is worse than returning the two:
+    a five-sentence refrain that stays on subject ranked above a thirteen-
+    sentence one that opened on the same subject and wandered off. The
+    strangers do not add to the subject, they remove it.
+
+    Keeping anything that shares ANY content word is too weak: "stella won no
+    wallets" survives beside "now sir a war is won" on the strength of "won",
+    which is not what either sentence is about. The theme is its most recurrent
+    content word — the same notion `best_cluster` seeds from — so that is the
+    anchor, and a sentence is on theme when it carries it.
+
+    `anchor` names the theme explicitly, which a prompt must do: asked for
+    "basil", the most recurrent word in the selection was still "saw", and
+    trimming to it threw away the one sentence the visitor came for.
+
+    Never returns nothing: a request has to be answered even when the pool has
+    no theme in it at all.
+    """
+    from collections import Counter
+
+    if not sentences:
+        return []
+    if anchor:
+        kept = [s for s in sentences if anchor in content_words(s)]
+        if kept:
+            return kept
+    counts: Counter = Counter()
+    for sentence in sentences:
+        counts.update(content_words(sentence))
+    if not counts:
+        return list(sentences[:1])
+    anchor, seen = counts.most_common(1)[0]
+    if seen < 2:
+        return list(sentences[:1])
+    return [s for s in sentences if anchor in content_words(s)]

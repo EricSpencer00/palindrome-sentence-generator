@@ -275,7 +275,7 @@ def letter_paragraph(sentences: int = 7, prompt: str = "") -> dict:
 
     from llm_palindrome.paragraphs import refrain
     from llm_palindrome.themes import (best_cluster, content_words,
-                                       order_for_refrain)
+                                       order_for_refrain, trim_to_theme)
 
     pool = list(_load_centres())
     asked = {w for w in prompt.lower().split() if w.isalpha()}
@@ -284,11 +284,20 @@ def letter_paragraph(sentences: int = 7, prompt: str = "") -> dict:
         # return two sentences and call it a paragraph.
         pool.sort(key=lambda c: -len(asked & content_words(c)))
         head = [c for c in pool if asked & content_words(c)]
-        chosen = order_for_refrain(
-            (head + best_cluster([c for c in pool if c not in head],
-                                 max(0, sentences - len(head))))[:sentences])
+        chosen = (head + best_cluster([c for c in pool if c not in head],
+                                      max(0, sentences - len(head))))[:sentences]
+        # The prompt names the theme. Left to find its own anchor the trim
+        # picks the most recurrent word, which for a "basil" request was still
+        # "saw" — discarding the one sentence the visitor came for.
+        anchor = next((w for w in asked
+                       if any(w in content_words(c) for c in head)), None)
     else:
-        chosen = order_for_refrain(best_cluster(pool, sentences))
+        chosen, anchor = best_cluster(pool, sentences), None
+
+    # Shorter beats padded. A thin theme filled out to the requested length
+    # ranked BELOW the same theme returned short under blind judging: the
+    # strangers do not add to the subject, they remove it.
+    chosen = order_for_refrain(trim_to_theme(chosen, anchor))
 
     text = " ".join(u.capitalize() + "." for u in refrain(chosen))
     return {

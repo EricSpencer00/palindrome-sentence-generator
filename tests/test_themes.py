@@ -176,3 +176,62 @@ class TestRefrainOrder:
 def from_question(sentence):
     from llm_palindrome.themes import is_question
     return is_question(sentence)
+
+
+class TestTrimToTheme:
+    """Return a shorter paragraph rather than pad a thin theme.
+
+    A prompt matching two centres used to get five strangers to fill the
+    requested length. Judged blind, that is worse than simply returning the
+    two: a 5-sentence refrain that stays on subject ranked ABOVE a 13-sentence
+    one that opens on the same subject and collapses into Lisa Bonet, animals
+    in a net and Stella (`runs` — the padded/short batch). Cohesion 1.333
+    against 0.238, and here the metric and the judge agree.
+
+    Padding is worse than brevity because a reader reads the whole thing: the
+    strangers do not add to the subject, they remove it.
+    """
+
+    CORE = ["now sir a war is won", "red rum sir is murder",
+            "no sir away a papaya war is on"]
+    STRANGERS = ["lisa bonet ate no basil", "stella won no wallets"]
+
+    def test_it_drops_a_sentence_sharing_nothing(self):
+        from llm_palindrome.themes import trim_to_theme
+
+        got = trim_to_theme(self.CORE + self.STRANGERS)
+        assert sorted(got) == sorted(self.CORE)
+
+    def test_it_keeps_a_coherent_set_whole(self):
+        from llm_palindrome.themes import trim_to_theme
+
+        assert sorted(trim_to_theme(self.CORE)) == sorted(self.CORE)
+
+    def test_it_preserves_order(self):
+        from llm_palindrome.themes import trim_to_theme
+
+        got = trim_to_theme([self.CORE[0], self.STRANGERS[0], self.CORE[1]])
+        assert got == [self.CORE[0], self.CORE[1]]
+
+    def test_it_never_returns_nothing(self):
+        """A set with no shared content at all still has to answer."""
+        from llm_palindrome.themes import trim_to_theme
+
+        got = trim_to_theme(self.STRANGERS)
+        assert len(got) >= 1
+
+    def test_a_single_sentence_survives(self):
+        from llm_palindrome.themes import trim_to_theme
+
+        assert trim_to_theme(self.CORE[:1]) == self.CORE[:1]
+
+    def test_empty_is_empty(self):
+        from llm_palindrome.themes import trim_to_theme
+
+        assert trim_to_theme([]) == []
+
+    def test_trimming_raises_cohesion(self):
+        from llm_palindrome.themes import cohesion, trim_to_theme
+
+        padded = self.CORE + self.STRANGERS
+        assert cohesion(trim_to_theme(padded)) > cohesion(padded)

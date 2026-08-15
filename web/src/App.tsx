@@ -83,6 +83,11 @@ const API = IS_DEV ? "/api/v2/generate" : "/api/generate"
 type Paragraph = {
   mode: string; text: string; words: number; bank?: string
   units?: string[]
+  /* What it turned out to be about, and whether the visitor asked. A prompt
+   * matching nothing still returns a paragraph — a request has to be answered
+   * — and without these two fields that looked exactly like a prompt that
+   * worked. `theme` is null precisely when the asking failed. */
+  theme?: string | null; prompted?: boolean
   wordPalindrome: boolean; letterPalindrome: boolean; note: string
 }
 
@@ -654,8 +659,16 @@ export default function App() {
                     ? " · letters mirror"
                     : " · sentence order only · letters do NOT mirror"}
                   {para.units ? ` · ${para.units.length} sentences` : ""}
+                  {para.theme ? ` · on “${para.theme}”` : ""}
                   {para.bank ? ` · ${para.bank}` : ""}
                 </p>
+                {/* Said out loud, because a prompt that matched nothing still
+                    returns a paragraph and would otherwise read as a hit. */}
+                {para.prompted && !para.theme && (
+                  <p className="shrink-0 font-display text-[10px] uppercase tracking-[.12em] text-signal">
+                    nothing in the inventory matched — showing its own theme
+                  </p>
+                )}
               </div>
             )}
           </div>

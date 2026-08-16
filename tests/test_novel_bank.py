@@ -107,7 +107,38 @@ class TestAThinBankDoesNotGetUsed:
 
 
 class TestTheShippedBank:
-    """Whatever is in data/novel_pairs.json has to be a real bank."""
+    """data/novel_pairs.json is what the endpoint answers with."""
+
+    @pytest.fixture(scope="class")
+    def shipped(self):
+        from pathlib import Path
+        return json.loads(Path("data/novel_pairs.json").read_text())
+
+    def test_it_can_carry_a_hundred_words_alone(self, shipped):
+        """The floor the endpoint checks before preferring it — criterion 1,
+        and the reason a thin bank falls back rather than mixing."""
+        from llm_palindrome.paragraphs import paragraph_words
+        pairs = [(p["left"], p["right"]) for p in shipped]
+        assert paragraph_words(pairs) >= 100
+
+    def test_no_half_is_a_palindrome_on_its_own(self, shipped):
+        for pair in shipped:
+            for half in (pair["left"], pair["right"]):
+                assert not is_palindrome(" ".join(half)), half
+
+    def test_no_word_appears_on_both_sides_of_a_pair(self, shipped):
+        for pair in shipped:
+            assert not set(pair["left"]) & set(pair["right"]), pair
+
+    def test_every_word_survives_the_public_vocabulary_filter(self, shipped):
+        """The bank reaches the same endpoint the search does, and the search
+        is not allowed to place these words either."""
+        from llm_palindrome.generate import build_vocab
+        from llm_palindrome.spelling import CONTRACTIONS
+        safe = set(build_vocab(60000)) | set(CONTRACTIONS)
+        for pair in shipped:
+            for word in pair["left"] + pair["right"]:
+                assert word in safe, word
 
     def test_every_shipped_pair_mirrors(self):
         from pathlib import Path

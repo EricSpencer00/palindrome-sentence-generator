@@ -255,21 +255,91 @@ def _load_centres() -> list:
     return _centres
 
 
-def letter_paragraph(sentences: int = 7, prompt: str = "") -> dict:
-    """A paragraph whose LETTERS mirror, assembled from whole sentences.
+MIRROR_UNITS_PATH = "data/mirror_units.json"
+_units: Optional[list] = None
 
-    The mirror cost of 3.296 bits per free letter forbids free-running
-    palindromic prose past about thirty letters, so the constraint is paid
-    inside each unit and the paragraph is nested around a centre. What took a
-    hundred iterations to find is that the units have to be SENTENCES:
-    two-word halves mirror just as correctly and carry no subject, so nothing
-    can be about anything, and every attempt at a through-line failed on
-    material rather than on the constraint.
 
-    The canon's self-palindromic sentences do carry subjects. `best_cluster`
-    finds the ones that share one, `order_for_refrain` seats questions outward
-    and the firmest statement on the turn, and `refrain` mirrors the sequence —
-    palindromic by construction at any length.
+def _load_units() -> list:
+    global _units
+    if _units is None:
+        import json as _json
+        from pathlib import Path as _Path
+        _units = _json.loads(_Path(MIRROR_UNITS_PATH).read_text())
+    return _units
+
+
+def letter_paragraph(sentences: int = 9, prompt: str = "") -> dict:
+    """A paragraph whose LETTERS mirror into DIFFERENT text.
+
+    Mirror-pairs nest like brackets around a centre:
+
+        L1 L2 ... Lk  CENTRE  Rk ... R2 R1
+
+    Each Rk spells Lk backwards and reads as its own sentence — "lived on
+    decaf" returns as "faced no devil", "go hang a salami" as "ima lasagna
+    hog". The whole is a palindrome by construction, at any length, and
+    reversing it yields text the reader has not already seen.
+
+    That last clause is the point, and it is what this endpoint previously
+    failed. It served a REFRAIN: a mirrored sequence of sentences that are
+    each individually palindromic, so reversing it returns every sentence
+    unchanged and the mirror does no work. A blind judge preferred the
+    refrain, because it reads more smoothly — it reads more smoothly by not
+    attempting the constraint. Still reachable at ?mode=refrain.
+
+    The cost is visible in the material. 29 mirror-pairs exist where both
+    halves read, all of them catalogued; the mirror cost of 3.296 bits per
+    free letter is why there are 29 and not thousands.
+    """
+    import re
+
+    from llm_palindrome.paragraphs import render
+    from llm_palindrome.themes import content_words
+
+    units = [(u["left"], u["right"]) for u in _load_units()]
+    asked = {w for w in prompt.lower().split() if w.isalpha()}
+    anchor = None
+    if asked:
+        def hit(pair):
+            return asked & (content_words(" ".join(pair[0]))
+                            | content_words(" ".join(pair[1])))
+        matched = [p for p in units if hit(p)]
+        if matched:
+            anchor = sorted(asked & set().union(*(hit(p) for p in matched)))[0]
+            units = matched + [p for p in units if p not in matched]
+
+    # Longest halves outermost: a paragraph that opens on "step on" and takes
+    # its turn on a five-word clause reads backwards.
+    chosen = sorted(units, key=lambda p: -(len(p[0]) + len(p[1])))[:sentences]
+    chosen.sort(key=lambda p: -(len(p[0]) + len(p[1])))
+
+    centres = _load_centres()
+    centre = next((c for c in centres if 5 <= len(c.split()) <= 9), None)
+    text = render(chosen, center=centre.split() if centre else None)
+    return {
+        "mode": "letter",
+        "text": text,
+        "pairs": len(chosen),
+        "units": [" ".join(l) for l, _ in chosen],
+        "mirrors": [" ".join(r) for _, r in chosen],
+        "centre": centre,
+        "theme": anchor,
+        "prompted": bool(asked),
+        "words": len(re.findall(r"[A-Za-z]+", text)),
+        "letterPalindrome": is_palindrome(text),
+        "note": "Letter-level palindrome. Each sentence in the second half "
+                "spells one from the first half backwards and reads as its "
+                "own sentence: 'lived on decaf' returns as 'faced no devil'.",
+    }
+
+
+def refrain_paragraph(sentences: int = 7, prompt: str = "") -> dict:
+    """The mirrored sequence of self-palindromic sentences.
+
+    Every sentence is a palindrome on its own and the sequence mirrors, so the
+    whole is one. It reads better than the pair construction and it is a weaker
+    thing: reversing it returns the same sentences. Kept, labelled, not the
+    default.
     """
     import re
 
@@ -280,29 +350,16 @@ def letter_paragraph(sentences: int = 7, prompt: str = "") -> dict:
     pool = list(_load_centres())
     asked = {w for w in prompt.lower().split() if w.isalpha()}
     if asked:
-        # Steer, do not filter: a prompt matching two centres would otherwise
-        # return two sentences and call it a paragraph.
         pool.sort(key=lambda c: -len(asked & content_words(c)))
         head = [c for c in pool if asked & content_words(c)]
         chosen = (head + best_cluster([c for c in pool if c not in head],
                                       max(0, sentences - len(head))))[:sentences]
-        # The prompt names the theme. Left to find its own anchor the trim
-        # picks the most recurrent word, which for a "basil" request was still
-        # "saw" — discarding the one sentence the visitor came for.
         anchor = next((w for w in asked
                        if any(w in content_words(c) for c in head)), None)
     else:
         chosen, anchor = best_cluster(pool, sentences), None
-
-    # Shorter beats padded. A thin theme filled out to the requested length
-    # ranked BELOW the same theme returned short under blind judging: the
-    # strangers do not add to the subject, they remove it.
     chosen = order_for_refrain(trim_to_theme(chosen, anchor))
 
-    # Say what the paragraph turned out to be about. With no prompt there is
-    # still a subject and the reader should be told it; with a prompt that
-    # matched nothing, `theme` is null rather than the default one, so the
-    # request is not reported as answered when it was only served.
     if anchor is None and not asked:
         from collections import Counter
         shared: Counter = Counter()
@@ -312,24 +369,24 @@ def letter_paragraph(sentences: int = 7, prompt: str = "") -> dict:
 
     text = " ".join(u.capitalize() + "." for u in refrain(chosen))
     return {
-        "mode": "letter",
+        "mode": "refrain",
         "text": text,
         "units": chosen,
         "theme": anchor,
         "prompted": bool(asked),
         "words": len(re.findall(r"[A-Za-z]+", text)),
         "letterPalindrome": is_palindrome(text),
-        "wordPalindrome": is_word_palindrome(text),
-        "note": "Letter-level palindrome: the letters read the same both ways. "
-                "Each sentence is itself a palindrome and the sequence mirrors, "
-                "so the whole is one at any length.",
+        "note": "Every sentence is itself a palindrome and the sequence "
+                "mirrors. Reversing it returns the same sentences — the "
+                "mirror does no work. See ?mode=letter for the real one.",
     }
 
 
 @router.get("/paragraph")
-def paragraph(sentences: int = Query(7, ge=1, le=40),
+def paragraph(sentences: int = Query(9, ge=1, le=40),
               prompt: str = Query("", max_length=200),
-              mode: str = Query("letter", pattern="^(letter|word)$")):
+              mode: str = Query("letter",
+                                pattern="^(letter|refrain|word)$")):
     """A palindromic paragraph. Letter-level by default.
 
     The word mode mirrors the SENTENCE SEQUENCE and not the letters — a
@@ -339,6 +396,8 @@ def paragraph(sentences: int = Query(7, ge=1, le=40),
     """
     if mode == "letter":
         return letter_paragraph(sentences=sentences, prompt=prompt)
+    if mode == "refrain":
+        return refrain_paragraph(sentences=sentences, prompt=prompt)
 
     import json as _json
     import time as _time

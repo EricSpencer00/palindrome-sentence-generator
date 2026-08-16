@@ -20,7 +20,7 @@ import time
 from dataclasses import dataclass, field
 from typing import Callable, Optional
 
-from .search import WordTries, consume
+from .search import WordTries, consume, unit_letters
 
 
 def consume_suffix(letters: str, overhang: str) -> Optional[tuple[str, bool]]:
@@ -48,8 +48,9 @@ class COState:
 
     @property
     def letters(self) -> int:
-        return (sum(len(w) for w in self.left)
-                + sum(len(w) for w in self.right) + self.center_len)
+        return (sum(len(unit_letters(w)) for w in self.left)
+                + sum(len(unit_letters(w)) for w in self.right)
+                + self.center_len)
 
 
 def _expand(state: COState, tries: WordTries, limit: int):
@@ -58,13 +59,13 @@ def _expand(state: COState, tries: WordTries, limit: int):
     if not state.overhang:
         # Free choice: grow the left edge outward; the right then owes its mirror.
         for w in tries.left_candidates("", limit):
-            out.append(("L", w, w[::-1], "R"))
+            out.append(("L", w, unit_letters(w)[::-1], "R"))
         return out
 
     if state.owner == "R":
         # Right appends words that consume the owed run from its front.
         for w in tries.left_candidates(state.overhang, limit):
-            res = consume(w, state.overhang)
+            res = consume(unit_letters(w), state.overhang)
             if res is None:
                 continue
             rem, flipped = res
@@ -74,7 +75,7 @@ def _expand(state: COState, tries: WordTries, limit: int):
     else:
         # Left prepends words that consume the owed run from its back.
         for w in tries.right_candidates(state.overhang[::-1], limit):
-            res = consume_suffix(w, state.overhang)
+            res = consume_suffix(unit_letters(w), state.overhang)
             if res is None:
                 continue
             rem, flipped = res
@@ -185,8 +186,15 @@ def centerout_search(
                 # Center-out grows outward: the left half is prepended to, the
                 # right appended to — the opposite of the outside-in search.
                 growth = "prepend" if placement == "L" else "append"
-                sc = state.score + scorer.word_delta(left, right, placement, w,
-                                                     growth)
+                # A scorer that wants the debt gets the debt THIS word creates,
+                # not the one it consumed — the question is what the other half
+                # is now owed, which is the thing no scorer here could see.
+                if getattr(scorer, "wants_overhang", False):
+                    sc = state.score + scorer.word_delta(left, right, placement, w,
+                                                         growth, overhang=new_over)
+                else:
+                    sc = state.score + scorer.word_delta(left, right, placement, w,
+                                                         growth)
                 sc += rng.random() * diversity
                 pool.append(COState(sort_key=-sc, left=left, right=right,
                                     overhang=new_over, owner=new_owner,

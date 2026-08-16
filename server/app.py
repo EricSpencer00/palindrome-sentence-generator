@@ -46,6 +46,13 @@ BIGRAMS_PATH = os.environ.get("PALINDROME_BIGRAMS", "data/count_2w.txt")
 
 app = FastAPI(title="palindrome")
 
+# v2 runs alongside v1 in the same process, under /api/v2. Both are reached
+# through the same Pages proxy, so serving the new generator costs no new
+# hostname, no new tunnel, and nothing on the v1 path changes.
+from server.v2 import router as v2_router  # noqa: E402  (after app exists)
+
+app.include_router(v2_router)
+
 _tries: Optional[WordTries] = None
 _bigrams: Optional[BigramModel] = None
 _lm = None

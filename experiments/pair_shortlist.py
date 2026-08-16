@@ -43,6 +43,10 @@ def main() -> None:
                          "is far too slow to run inside the walk.")
     ap.add_argument("--rescore", type=int, default=4000,
                     help="how many of the hunt's own ranking to rescore")
+    ap.add_argument("--sentence-like", action="store_true",
+                    help="keep only pairs whose BOTH halves have a tag "
+                         "reading with a subject and a verb (see syntax.py). "
+                         "Narrows what a person reads; does not decide.")
     ap.add_argument("--readings", type=int, default=4,
                     help="alternative segmentations of each half to offer; "
                          "the letters are fixed, the spelling is not")
@@ -70,6 +74,18 @@ def main() -> None:
         right = attested_fraction(row["right"], attested)
         row["attested"] = round(min(left, right), 3)
         row["attestedMean"] = round((left + right) / 2, 3)
+
+    if args.sentence_like:
+        # Both halves have to be readable as sentences with a subject and a
+        # verb. On 179 walked pairs this keeps 3, which is the point: reading
+        # 179 to find nothing is how the last four shortlists went.
+        from llm_palindrome.syntax import brown_tables, sentence_like
+        table, shapes, _ = brown_tables()
+        for row in rows:
+            row["sentenceLike"] = bool(
+                sentence_like(row["left"], table, shapes)
+                and sentence_like(row["right"], table, shapes))
+        rows = [r for r in rows if r["sentenceLike"]]
 
     kept = [r for r in rows if r["attested"] >= args.min_attested]
     kept.sort(key=lambda r: (-r["attested"], -r.get("score", 0.0)))

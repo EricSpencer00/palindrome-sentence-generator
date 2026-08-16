@@ -292,11 +292,25 @@ Four sources were built and measured against each other:
 | mining attested corpus (`mining.py`) | 3,894 | 131 | 26 |
 | LLM authoring | 40 verified, 37 novel | — | ~3 |
 | closed-form reversibles (`reversibles.py`) | 13,924 | 5 | 2 |
+| authored halves, mirror segmented (`experiments/authored_mirrors.py`) | 148 tried | 12 spellable | 0 |
+| reversible chains, exhaustive (`experiments/reversible_chains.py`) | 57 joins | — | 4, one template |
+| sharded walk (`pairs.py`) | 1,915 in 460s | — | ~0 readable |
 
-All four converge on roughly the same ceiling, and none of them produces
-sentences. The canon does. `is_novel_palindrome` (160 entries) keeps the
-project honest about which material it borrowed: **the assembly is ours, the
-sentences are the record's.**
+All of them converge on roughly the same ceiling, and none produces sentences.
+The canon does. `is_novel_palindrome` (160 entries) keeps the project honest
+about which material it borrowed: **the assembly is ours, the sentences are the
+record's.**
+
+One filter looked like it had changed that and had not. Constraining the walk
+so every join inside a half is one the bigram counts record makes the output
+stop looking like word salad — "name not felt a ward || draw at left one man"
+rather than "marc i ma reconsider || red is no ceramic ram". Then the filter was
+run against the 29 catalogued pairs it is supposed to be finding more of:
+`count_2w.txt` covers every join in 27% of their halves, Brown's million words
+29%, GPT-2's top-400 followers 27%. A pair needs both halves, so the constraint
+discards something like 93% of the target. "Evil rats on || no star live" has
+not one attested join anywhere. See `experiments/join_attestation.py`; the
+constraint is still available and is no longer the default.
 
 ### What was tried and did not work
 

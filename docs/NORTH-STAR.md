@@ -125,6 +125,36 @@ The one thing that has moved: whole self-palindromic sentences pay the same
 **palindromes**. Any v3 route has to find units that are long enough to mean
 something and are not already in the record.
 
+## Why the unit is a mirror-pair
+
+Three ways exist to pay the mirror across a paragraph, and two of them are
+closed.
+
+**Free-running.** One search, one palindrome, sentence boundaries wherever they
+fall. This is v1, and it is the only structure with no repetition and no
+independent units — which is why it stays the thing to beat. It is also the one
+that has been measured and failed: the 40–60 letter band yielded 880k closures
+and nothing within three unattested joins of reading, and a paragraph needs
+about 500.
+
+**Self-palindromic units.** Any concatenation of units that are each palindromes
+reverses into *those same units in the opposite order*, so the whole is a
+palindrome only when the unit sequence is itself a palindrome — unit k must be
+unit n+1−k. That is not a stylistic preference for refrains; it is forced, and
+it is forced whether the unit is one sentence or five. Criteria 4 and 5 close
+this door, and the refrain is what stands behind it.
+
+**Mirror-pairs.** The unit is two halves that spell each other backwards, placed
+at mirrored positions. The sequence still mirrors and nothing repeats, because
+what comes back at position n+1−k is the OTHER half. This is the only structure
+that survives all nine criteria, which is why the work is on finding pairs
+rather than on choosing between constructions.
+
+The cost lands entirely on the material: both halves have to read, and pairs
+where both halves read are the scarcest thing in this project. Where they come
+from is `llm_palindrome/pairs.py` — a walk over the vocabulary, constrained so
+every join inside a half is one English has been seen to make.
+
 ## Falsifying this
 
 `tests/test_north_star.py` checks criteria 1–5 and 9 mechanically against the

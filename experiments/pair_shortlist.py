@@ -43,6 +43,9 @@ def main() -> None:
                          "is far too slow to run inside the walk.")
     ap.add_argument("--rescore", type=int, default=4000,
                     help="how many of the hunt's own ranking to rescore")
+    ap.add_argument("--readings", type=int, default=4,
+                    help="alternative segmentations of each half to offer; "
+                         "the letters are fixed, the spelling is not")
     ap.add_argument("--out", default="runs/pair_shortlist.json")
     args = ap.parse_args()
 
@@ -72,11 +75,36 @@ def main() -> None:
     kept.sort(key=lambda r: (-r["attested"], -r.get("score", 0.0)))
     kept = kept[:args.top]
 
+    if args.readings > 1:
+        # The walk returns ONE segmentation of each half, and the letters admit
+        # others. Which one is offered decides whether a pair looks like a find
+        # or like junk — "no sawn am a" and "no saw nam a" are the same letters
+        # — so the shortlist carries the alternatives rather than the walk's
+        # first guess.
+        from llm_palindrome.generate import build_vocab
+        from llm_palindrome.lexicon import is_real_word, load_lexicon
+        from llm_palindrome.respace import respace_k
+        from llm_palindrome.spelling import CONTRACTIONS
+
+        lexicon = load_lexicon("data/lexicon.txt")
+        vocab = ({w for w in build_vocab(60000) if is_real_word(w, lexicon)}
+                 | set(CONTRACTIONS))
+        for row in kept:
+            for side in ("left", "right"):
+                letters = "".join(row[side])
+                other = [r for r in respace_k(letters, vocab, k=args.readings)
+                         if r != row[side]]
+                if other:
+                    row[f"{side}Readings"] = [" ".join(r) for r in other]
+
     Path(args.out).write_text(json.dumps(kept, indent=1))
     print(f"{len(rows)} pairs -> {len(kept)} shortlisted -> {args.out}\n")
     for row in kept:
         print(f"  {row['attested']:.2f} {row.get('score', 0):7.3f}  "
               f"{' '.join(row['left'])} || {' '.join(row['right'])}")
+        for side in ("left", "right"):
+            for alt in row.get(f"{side}Readings", [])[:2]:
+                print(f"        {side[0]}: {alt}")
 
 
 if __name__ == "__main__":

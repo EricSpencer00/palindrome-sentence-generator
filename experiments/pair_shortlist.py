@@ -47,6 +47,10 @@ def main() -> None:
                     help="keep only pairs whose BOTH halves have a tag "
                          "reading with a subject and a verb (see syntax.py). "
                          "Narrows what a person reads; does not decide.")
+    ap.add_argument("--order-gain", type=int, default=0, metavar="N",
+                    help="rank by score minus the mean over N shuffles of the "
+                         "same words, which is what the ORDER bought. 0 uses "
+                         "the raw score, which rewards common vocabulary.")
     ap.add_argument("--per-family", type=int, default=1,
                     help="siblings of one mirror core to print; 0 for all")
     ap.add_argument("--readings", type=int, default=4,
@@ -62,13 +66,26 @@ def main() -> None:
         from llm_palindrome.lm_scoring import GPT2Scorer
         rows = rows[:args.rescore]
         lm = GPT2Scorer(args.model)
-        texts = [" ".join(row[side]).capitalize() + "."
-                 for row in rows for side in ("left", "right")]
-        scores = lm.score_texts(texts, batch_size=32)
-        for i, row in enumerate(rows):
-            a, b = scores[2 * i], scores[2 * i + 1]
-            row["score"] = round(min(a, b), 4)
-            row["mean"] = round((a + b) / 2, 4)
+        score_texts = lambda texts: lm.score_texts(texts, batch_size=32)
+
+        if args.order_gain:
+            # Score each half against its own shuffles, so the part of the
+            # score its vocabulary was earning cancels. See wordorder.py.
+            from llm_palindrome.wordorder import rank_halves
+            halves = [row[side] for row in rows for side in ("left", "right")]
+            gains = rank_halves(halves, score_texts, n=args.order_gain)
+            for i, row in enumerate(rows):
+                a, b = gains[2 * i], gains[2 * i + 1]
+                row["score"] = round(min(a, b), 4)
+                row["mean"] = round((a + b) / 2, 4)
+        else:
+            texts = [" ".join(row[side]).capitalize() + "."
+                     for row in rows for side in ("left", "right")]
+            scores = score_texts(texts)
+            for i, row in enumerate(rows):
+                a, b = scores[2 * i], scores[2 * i + 1]
+                row["score"] = round(min(a, b), 4)
+                row["mean"] = round((a + b) / 2, 4)
         rows.sort(key=lambda r: -r["score"])
 
     for row in rows:

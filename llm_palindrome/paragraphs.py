@@ -117,19 +117,23 @@ def render(pairs: Sequence[tuple[Sequence[str], Sequence[str]]],
 
     Punctuation and case are invisible to the mirror, so the paragraph can be
     typeset as ordinary sentences — the same license "A man, a plan, a canal:
-    Panama" has always taken.
+    Panama" has always taken. `spelling.spell` is where that license is spent:
+    it capitalises the pronoun the search can only emit as "i", and writes the
+    contractions the search can only emit as "im" and "dont".
     """
+    from .spelling import spell
+
     sentences: list[str] = []
     for left, _ in pairs:
-        sentences.append(" ".join(left).capitalize() + ".")
+        sentences.append(spell(left))
     # A refrain core is many sentences. Passing it as one flat word list made
     # a 7-unit core render as a single 200-letter run-on.
     if center_units:
-        sentences.extend(u.capitalize() + "." for u in center_units)
+        sentences.extend(spell(u.split()) for u in center_units)
     elif center:
-        sentences.append(" ".join(center).capitalize() + ".")
+        sentences.append(spell(center))
     for _, right in reversed(pairs):
-        sentences.append(" ".join(right).capitalize() + ".")
+        sentences.append(spell(right))
     text = " ".join(sentences)
     # `assemble` asserts this; `render` did not, and silently emitted a
     # non-palindrome when given two centre units. A palindrome has one centre.

@@ -47,6 +47,8 @@ def main() -> None:
                     help="keep only pairs whose BOTH halves have a tag "
                          "reading with a subject and a verb (see syntax.py). "
                          "Narrows what a person reads; does not decide.")
+    ap.add_argument("--per-family", type=int, default=1,
+                    help="siblings of one mirror core to print; 0 for all")
     ap.add_argument("--readings", type=int, default=4,
                     help="alternative segmentations of each half to offer; "
                          "the letters are fixed, the spelling is not")
@@ -89,6 +91,25 @@ def main() -> None:
 
     kept = [r for r in rows if r["attested"] >= args.min_attested]
     kept.sort(key=lambda r: (-r["attested"], -r.get("score", 0.0)))
+
+    if args.per_family:
+        # A shortlist is read top to bottom, and siblings sort together: eight
+        # variants of one mirror core fill the first screen and none of the
+        # rest is ever seen. Capping here rather than in the walk keeps the
+        # walk's output complete.
+        from collections import Counter
+
+        from llm_palindrome.pairs import junction
+        seen: Counter = Counter()
+        spread = []
+        for row in kept:
+            fam = junction(row["left"], row["right"])
+            if seen[fam] >= args.per_family:
+                continue
+            seen[fam] += 1
+            spread.append(row)
+        kept = spread
+
     kept = kept[:args.top]
 
     if args.readings > 1:

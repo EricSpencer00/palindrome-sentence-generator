@@ -135,6 +135,8 @@ llm_palindrome/
 
   -- paragraphs --
   paragraphs.py    harvest / assemble / render / refrain; asserts the mirror
+  pairs.py         walk the vocabulary for mirror-pairs of our own
+  spelling.py      apostrophes and the capital I, which the mirror cannot see
   respace.py       recover a spelling by segmentation (mining path only)
   mining.py        mirror-pairs from attested English phrases
   reversibles.py   mirror-pairs in closed form, from reversible words

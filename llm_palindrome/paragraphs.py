@@ -112,7 +112,8 @@ def assemble(pairs: Sequence[tuple[Sequence[str], Sequence[str]]],
 
 def render(pairs: Sequence[tuple[Sequence[str], Sequence[str]]],
            center: Optional[Sequence[str]] = None,
-           center_units: Optional[Sequence[str]] = None) -> str:
+           center_units: Optional[Sequence[str]] = None,
+           tail: Optional[Sequence[Sequence[str]]] = None) -> str:
     """The paragraph as prose: one sentence per unit half.
 
     Punctuation and case are invisible to the mirror, so the paragraph can be
@@ -132,8 +133,14 @@ def render(pairs: Sequence[tuple[Sequence[str], Sequence[str]]],
         sentences.extend(spell(u.split()) for u in center_units)
     elif center:
         sentences.append(spell(center))
-    for _, right in reversed(pairs):
-        sentences.append(spell(right))
+    # `tail` is the closing half re-spelled over the whole run (see
+    # `resegment`). It carries the same letters in different words, so the
+    # assertion below is still the thing that decides whether it was legal.
+    if tail is not None:
+        sentences.extend(spell(group) for group in tail)
+    else:
+        for _, right in reversed(pairs):
+            sentences.append(spell(right))
     text = " ".join(sentences)
     # `assemble` asserts this; `render` did not, and silently emitted a
     # non-palindrome when given two centre units. A palindrome has one centre.
@@ -262,6 +269,67 @@ def order_pairs(pairs: Sequence[tuple[Sequence[str], Sequence[str]]],
         if not improved:
             break
     return best
+
+
+def cut_at_letters(words: Sequence[str], sizes: Sequence[int]) -> list[list[str]]:
+    """Cut a word list into groups of roughly `sizes` letters each.
+
+    Cuts land on word boundaries, at whichever boundary is nearest the target.
+    A target that falls inside a word is why this exists: the second half of the
+    paragraph can be re-spelled, and its new words do not line up with the old
+    sentence breaks.
+    """
+    out: list[list[str]] = []
+    at, run = 0, 0
+    for size in sizes[:-1]:
+        run += size
+        group: list[str] = []
+        used = sum(len(w) for w in words[:at])
+        while at < len(words):
+            after = used + len(words[at])
+            # Take the word if its far edge is no further past the target than
+            # its near edge is short of it.
+            if group and after > run and (after - run) > (run - used):
+                break
+            group.append(words[at])
+            used, at = after, at + 1
+            if used >= run:
+                break
+        out.append(group)
+    out.append(list(words[at:]))
+    return [g for g in out if g]
+
+
+def resegment(pairs: Sequence[tuple[Sequence[str], Sequence[str]]],
+              vocab, k: int = 8, score=None) -> Optional[list[list[str]]]:
+    """Re-spell the paragraph's whole second half, ignoring the pair breaks.
+
+    The mirror is over letters, and spaces are not letters. So the closing half
+    of the paragraph can be spelled ANY way that segments — the pairs fix its
+    letters and nothing about its words. Reading it back one pair at a time is
+    a habit of how it was built, not a constraint on how it is written.
+
+    What that buys is a second chance at the weaker half. Each right half was
+    spelled in isolation, so a reading that needs a letter from the next pair
+    along was never available: "..stop sit.." can become "..stops it..", and
+    only a segmentation over the whole run can see it.
+
+    Returns None when no reading exists, which is possible: the per-pair
+    spellings are themselves a valid segmentation, but only if every word in
+    them is in `vocab`, and `vocab` here is the recovery vocabulary rather than
+    the one the walk used.
+    """
+    from .respace import respace_k
+
+    letters = "".join("".join(r) for _, r in reversed(pairs))
+    if not letters:
+        return None
+    readings = respace_k(letters, vocab, k=k)
+    if not readings:
+        return None
+    best = readings[0] if score is None else max(readings, key=score)
+    sizes = [sum(len(w) for w in r) for _, r in reversed(pairs)]
+    return cut_at_letters(best, sizes)
 
 
 def refrain(units: Sequence[str]) -> list[str]:

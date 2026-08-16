@@ -137,6 +137,7 @@ llm_palindrome/
   paragraphs.py    harvest / assemble / render / refrain; asserts the mirror
   pairs.py         walk the vocabulary for mirror-pairs of our own
   syntax.py        tag shapes from Brown: could this half be a sentence?
+  wordorder.py     a half against its own shuffles: what did the order buy?
   spelling.py      apostrophes and the capital I, which the mirror cannot see
   respace.py       recover a spelling by segmentation (mining path only)
   mining.py        mirror-pairs from attested English phrases

@@ -209,3 +209,41 @@ class TestFrontierOrder:
         a = [" ".join(u) for u in enumerate_palindromes(tries, max_letters=12)]
         b = [" ".join(u) for u in enumerate_palindromes(tries, max_letters=12)]
         assert a == b
+
+
+class TestJoinConstraint:
+    """`allow_join` prunes the walk instead of filtering its output.
+
+    The distinction is the whole reason it lives in the enumerator: a
+    requirement that every adjacency be one English attests rejects almost
+    every closure the walk produces, and paying for those closures first is
+    what makes an attested-join hunt unaffordable as a post-filter.
+    """
+
+    def test_refusing_every_join_leaves_one_word_a_side(self):
+        """A half cannot grow past its first word, so nothing exceeds two."""
+        out = run(max_letters=14, allow_join=lambda a, b: False)
+        assert out and all(len(words) <= 2 for words in out)
+
+    def test_every_join_inside_a_half_was_allowed(self):
+        from llm_palindrome.pairs import split_at_mirror
+
+        allowed = {("step", "on"), ("no", "pets"), ("was", "it"),
+                   ("it", "i"), ("i", "saw"), ("a", "man"), ("no", "on")}
+
+        for words in run(max_letters=16,
+                         allow_join=lambda a, b: (a, b) in allowed):
+            split = split_at_mirror(words)
+            if split is None:      # the mirror runs through a word: a centre
+                continue
+            for half in split:
+                for join in zip(half, half[1:]):
+                    assert join in allowed, (words, join)
+
+    def test_it_still_finds_a_palindrome_whose_joins_are_all_allowed(self):
+        allowed = {("step", "on"), ("no", "pets")}
+        out = run(max_letters=14, allow_join=lambda a, b: (a, b) in allowed)
+        assert ["step", "on", "no", "pets"] in out
+
+    def test_no_constraint_is_the_previous_behaviour(self):
+        assert run(max_letters=12) == run(max_letters=12, allow_join=None)

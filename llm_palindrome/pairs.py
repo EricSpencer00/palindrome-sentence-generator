@@ -67,9 +67,22 @@ def pair_vocabulary(words: Sequence[str], zipf: Callable[[str], float],
 
     Single letters other than "a" and "i" are the same problem in miniature:
     perfect overhang filler, never a word.
+
+    Contraction spellings are added back after the dictionary test rather than
+    exempted from it. "dont" and "youre" are not headwords and should not be —
+    what they are is the only letter string the search can place for words a
+    reader sees every day, and `spelling` puts the apostrophe back on the way
+    out. Without them the walk cannot build a sentence with a contraction in
+    it, which rules out most of how English is actually spoken.
     """
-    return [w for w in hunt_vocabulary(words, zipf, min_zipf)
+    from .spelling import CONTRACTIONS
+
+    kept = [w for w in hunt_vocabulary(words, zipf, min_zipf)
             if is_real_word(w, lexicon) and (len(w) > 1 or w in ("a", "i"))]
+    have = set(kept)
+    kept += [w for w in CONTRACTIONS
+             if w not in have and zipf(w) >= min_zipf]
+    return kept
 
 
 def acceptable_pair(left: Sequence[str], right: Sequence[str],
@@ -101,7 +114,8 @@ def hunt(tries: WordTries, *, shards: int = 600, node_budget: int = 60000,
          min_letters: int = 20, max_letters: int = 30, max_overhang: int = 16,
          max_units: int = 10, min_words: int = 3, per_family: int = 3,
          deadline: Optional[float] = None,
-         shard_indices: Optional[Sequence[int]] = None) -> Iterator[Pair]:
+         shard_indices: Optional[Sequence[int]] = None,
+         allow_join=None) -> Iterator[Pair]:
     """Walk shard by shard, yielding pairs, capped per family.
 
     Breadth first across shards rather than depth within one: each shard gets
@@ -118,7 +132,7 @@ def hunt(tries: WordTries, *, shards: int = 600, node_budget: int = 60000,
                 tries, max_letters=max_letters, min_letters=min_letters,
                 max_overhang=max_overhang, max_units=max_units,
                 shard=shard, shards=shards, node_budget=node_budget,
-                shuffle_seed=shard):
+                shuffle_seed=shard, allow_join=allow_join):
             words = [w for u in units for w in u.split()]
             split = split_at_mirror(words)
             if split is None:

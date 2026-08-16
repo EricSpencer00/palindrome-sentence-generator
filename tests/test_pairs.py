@@ -43,17 +43,31 @@ class TestAcceptable:
 
 
 class TestVocabulary:
+    """Contractions are added on top, so these check what was DROPPED."""
+
     def test_drops_acronyms_a_frequency_list_calls_words(self):
         """"utc" and "csi" are common, and neither is a word."""
         lexicon = {"step", "pets", "on", "no"}
         vocab = pair_vocabulary(["step", "pets", "utc", "csi"],
                                 lambda w: 5.0, lexicon)
-        assert set(vocab) == {"step", "pets"}
+        assert {"utc", "csi"}.isdisjoint(vocab)
+        assert {"step", "pets"} <= set(vocab)
 
     def test_keeps_only_the_two_single_letters_that_are_words(self):
         lexicon = {"a", "i", "b"}
         vocab = pair_vocabulary(["a", "i", "b"], lambda w: 5.0, lexicon)
-        assert set(vocab) == {"a", "i"}
+        assert "b" not in vocab
+        assert {"a", "i"} <= set(vocab)
+
+    def test_contraction_spellings_are_admitted(self):
+        """"dont" is not a headword, and it is the only thing the search can
+        place for a word every reader knows."""
+        vocab = pair_vocabulary(["step"], lambda w: 5.0, {"step"})
+        assert "dont" in vocab and "youre" in vocab
+
+    def test_a_rare_contraction_spelling_is_not_forced_in(self):
+        vocab = pair_vocabulary(["step"], lambda w: 0.0, {"step"})
+        assert "dont" not in vocab
 
 
 class TestHunt:

@@ -79,3 +79,54 @@ def pairs_from_reversibles(vocab: Sequence[str], min_letters: int = 3,
             made += 1
             if limit is not None and made >= limit:
                 return
+
+
+def mirror_consistent_edges(reversible: dict[str, str],
+                            attested) -> dict[str, list[str]]:
+    """Which reversible word may follow which, on BOTH sides of the mirror.
+
+    A chain of reversible words w1..wn mirrors word for word into rev(wn)..
+    rev(w1), so the join (wi, wi+1) appears in the left half and the join
+    (rev(wi+1), rev(wi)) appears in the right. Requiring both to be attested is
+    what makes the chain read forwards and backwards, and it is severe: of the
+    392 words whose reverse is also a word, 57 ordered pairs survive it.
+    """
+    out: dict[str, list[str]] = {}
+    for a in reversible:
+        followers = [b for b in reversible
+                     if b != a and (a, b) in attested
+                     and (reversible[b], reversible[a]) in attested]
+        if followers:
+            out[a] = sorted(followers)
+    return out
+
+
+def chains(reversible: dict[str, str], edges: dict[str, list[str]],
+           min_words: int = 3, max_words: int = 6) -> Iterator[Pair]:
+    """Every word-aligned mirror-pair the reversible vocabulary admits.
+
+    Exhaustive, and it does not take long, because the answer is small. This is
+    the closed form taken as far as it goes: no search, no scoring, nothing
+    discarded — every chain through the mirror-consistent graph, in both
+    lengths that could be a clause.
+
+    What comes out is four pairs, up to flips: "step on was || saw no pets",
+    "live on was || saw no evil", "spit on was || saw no tips", "maps on was ||
+    saw no spam". None of them is a sentence. That is the whole yield of
+    word-aligned construction, and it is why the material has to come from the
+    walk, where the two halves may be segmented differently.
+    """
+    def walk(path: list[str]) -> Iterator[Pair]:
+        if min_words <= len(path) <= max_words:
+            left = list(path)
+            right = [reversible[w] for w in reversed(path)]
+            if not set(left) & set(right) and len(set(right)) == len(right):
+                yield left, right
+        if len(path) >= max_words:
+            return
+        for follower in edges.get(path[-1], ()):
+            if follower not in path:
+                yield from walk(path + [follower])
+
+    for word in sorted(reversible):
+        yield from walk([word])

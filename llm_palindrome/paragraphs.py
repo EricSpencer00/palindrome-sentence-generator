@@ -174,6 +174,92 @@ def diversify(pairs, per_family: int = 3):
     return out
 
 
+def paragraph_words(pairs: Sequence[tuple[Sequence[str], Sequence[str]]],
+                    center: Optional[Sequence[str]] = None) -> int:
+    """How many words the assembled paragraph will hold.
+
+    Both halves of every pair appear, which is why a 100-word paragraph needs
+    only 50 words of chosen material — the mirror writes the rest.
+    """
+    return sum(len(l) + len(r) for l, r in pairs) + (len(center) if center else 0)
+
+
+def enough_pairs(pairs: Sequence[tuple[Sequence[str], Sequence[str]]],
+                 min_words: int = 100,
+                 center: Optional[Sequence[str]] = None,
+                 max_pairs: Optional[int] = None) -> list:
+    """The shortest prefix of `pairs` that reaches the word floor.
+
+    Criterion 1 is a floor, not a target: a paragraph that overshoots it is
+    spending sentences a reader has to get through for nothing. `pairs` is
+    expected to arrive best-first, so the prefix is also the best material.
+    """
+    taken: list = []
+    for pair in pairs:
+        if paragraph_words(taken, center) >= min_words:
+            break
+        if max_pairs is not None and len(taken) >= max_pairs:
+            break
+        taken.append((list(pair[0]), list(pair[1])))
+    return taken
+
+
+def _sequence(pairs: Sequence[tuple[Sequence[str], Sequence[str]]],
+              center: Optional[Sequence[str]] = None) -> list[list[str]]:
+    """The sentences in reading order, which is not the order of the pairs.
+
+    Left halves run forwards and right halves close backwards, so pair k is
+    read at position k and again at position 2k' - k. Any ordering decision has
+    to be scored here rather than over the pairs, because moving one pair moves
+    two sentences in opposite directions.
+    """
+    out = [list(l) for l, _ in pairs]
+    if center:
+        out.append(list(center))
+    out += [list(r) for _, r in reversed(pairs)]
+    return out
+
+
+def adjacent_links(pairs: Sequence[tuple[Sequence[str], Sequence[str]]],
+             center: Optional[Sequence[str]] = None) -> int:
+    """Adjacent sentences sharing a content word, counted over the paragraph.
+
+    A crude measure and a deliberately crude one. It is used to ORDER a set of
+    sentences already chosen, never to choose them, and never reported as
+    quality: four proxies in this project have disagreed with blind judging.
+    Reordering cannot change what the paragraph is made of, so the worst this
+    can do is pick a duller arrangement of the same material.
+    """
+    from .themes import content_words
+    words = [content_words(" ".join(s)) for s in _sequence(pairs, center)]
+    return sum(1 for a, b in zip(words, words[1:]) if a & b)
+
+
+def order_pairs(pairs: Sequence[tuple[Sequence[str], Sequence[str]]],
+                center: Optional[Sequence[str]] = None,
+                rounds: int = 4) -> list:
+    """Arrange the pairs so the paragraph reads with fewer jumps.
+
+    A greedy pass over swaps. Small, because the objective is weak: it is worth
+    taking the arrangement that repeats a word across a sentence break over the
+    one that does not, and it is not worth searching hard for it.
+    """
+    best = [(list(l), list(r)) for l, r in pairs]
+    score = adjacent_links(best, center)
+    for _ in range(rounds):
+        improved = False
+        for i in range(len(best)):
+            for j in range(i + 1, len(best)):
+                trial = list(best)
+                trial[i], trial[j] = trial[j], trial[i]
+                gain = adjacent_links(trial, center)
+                if gain > score:
+                    best, score, improved = trial, gain, True
+        if not improved:
+            break
+    return best
+
+
 def refrain(units: Sequence[str]) -> list[str]:
     """A mirrored sequence of self-palindromic sentences: A B C ... C B A.
 

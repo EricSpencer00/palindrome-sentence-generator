@@ -268,7 +268,30 @@ def _load_units() -> list:
     return _units
 
 
-def letter_paragraph(sentences: int = 9, prompt: str = "") -> dict:
+# The units in mirror_units.json are every one of them catalogued: the mirror
+# is real and the sentences are the record's. These are ours — walked out of
+# the vocabulary by experiments/pair_hunt.py and read one at a time before
+# being allowed in. Criterion 9 of docs/NORTH-STAR.md is the difference.
+NOVEL_PAIRS_PATH = os.environ.get("PALINDROME_NOVEL_PAIRS",
+                                  "data/novel_pairs.json")
+_novel: Optional[list] = None
+
+
+def _load_novel_pairs() -> list:
+    """The generated bank, or nothing when it has not been built yet."""
+    global _novel
+    if _novel is None:
+        import json as _json
+        from pathlib import Path as _Path
+        try:
+            _novel = _json.loads(_Path(NOVEL_PAIRS_PATH).read_text())
+        except FileNotFoundError:
+            _novel = []
+    return _novel
+
+
+def letter_paragraph(sentences: int = 9, prompt: str = "",
+                     min_words: int = 100, source: str = "auto") -> dict:
     """A paragraph whose LETTERS mirror into DIFFERENT text.
 
     Mirror-pairs nest like brackets around a centre:
@@ -287,16 +310,37 @@ def letter_paragraph(sentences: int = 9, prompt: str = "") -> dict:
     refrain, because it reads more smoothly — it reads more smoothly by not
     attempting the constraint. Still reachable at ?mode=refrain.
 
-    The cost is visible in the material. 29 mirror-pairs exist where both
-    halves read, all of them catalogued; the mirror cost of 3.296 bits per
-    free letter is why there are 29 and not thousands.
+    Two banks can supply the pairs, and which one answered is part of the
+    response. The catalogued bank holds 29 pairs, every one of them lifted
+    from the palindrome record: the assembly is ours and the sentences are
+    not, which is the criterion 9 failure the north star is about. The novel
+    bank is walked out of the vocabulary by experiments/pair_hunt.py. When it
+    can carry the paragraph on its own it does, and nothing is borrowed —
+    including the centre, which is dropped rather than taken from the canon.
+
+    `min_words` is criterion 1's floor. `sentences` is a floor on the number of
+    PAIRS, kept because it is the endpoint's published parameter; the paragraph
+    takes as many more as the word floor needs.
     """
     import re
 
-    from llm_palindrome.paragraphs import render
+    from llm_palindrome.paragraphs import (enough_pairs, order_pairs,
+                                           paragraph_words, render)
     from llm_palindrome.themes import content_words
 
-    units = [(u["left"], u["right"]) for u in _load_units()]
+    novel = [(u["left"], u["right"]) for u in _load_novel_pairs()]
+    catalogued = [(u["left"], u["right"]) for u in _load_units()]
+    if source == "catalogue":
+        units, borrowed = catalogued, True
+    elif source == "novel":
+        units, borrowed = novel, False
+    else:
+        # Only when the generated bank can reach the floor by itself: half a
+        # paragraph of our own sentences finished off with canon is still a
+        # paragraph that recites the canon.
+        enough = paragraph_words(novel) >= min_words
+        units, borrowed = (novel, False) if enough else (catalogued, True)
+
     asked = {w for w in prompt.lower().split() if w.isalpha()}
     anchor = None
     if asked:
@@ -310,12 +354,28 @@ def letter_paragraph(sentences: int = 9, prompt: str = "") -> dict:
 
     # Longest halves outermost: a paragraph that opens on "step on" and takes
     # its turn on a five-word clause reads backwards.
-    chosen = sorted(units, key=lambda p: -(len(p[0]) + len(p[1])))[:sentences]
-    chosen.sort(key=lambda p: -(len(p[0]) + len(p[1])))
+    ranked = sorted(units, key=lambda p: -(len(p[0]) + len(p[1])))
+    if asked and anchor:
+        ranked = ([p for p in ranked if p in matched]
+                  + [p for p in ranked if p not in matched])
 
     centres = _load_centres()
-    centre = next((c for c in centres if 5 <= len(c.split()) <= 9), None)
-    text = render(chosen, center=centre.split() if centre else None)
+    # A centre out of the canon is one more borrowed sentence. The construction
+    # does not need one: an even number of pairs closes on itself, and dropping
+    # it also drops the only self-palindromic sentence in the paragraph.
+    centre = (None if not borrowed
+              else next((c for c in centres if 5 <= len(c.split()) <= 9), None))
+    words = centre.split() if centre else None
+
+    # The catalogued bank is thin: reaching 100 words out of it means placing
+    # all 29 pairs, and the tail of that list is "sex at no" and "did i" —
+    # padding, and padding with borrowed fragments. It answers with what it
+    # has and fails criterion 1 honestly. Only the generated bank chases the
+    # floor, because only it has material to spend.
+    chosen = (ranked[:sentences] if borrowed else
+              enough_pairs(ranked, min_words=min_words, center=words))
+    chosen = order_pairs(chosen, center=words)
+    text = render(chosen, center=words)
     return {
         "mode": "letter",
         "text": text,
@@ -323,6 +383,8 @@ def letter_paragraph(sentences: int = 9, prompt: str = "") -> dict:
         "units": [" ".join(l) for l, _ in chosen],
         "mirrors": [" ".join(r) for _, r in chosen],
         "centre": centre,
+        "borrowed": borrowed,
+        "source": "catalogue" if borrowed else "generated",
         "theme": anchor,
         "prompted": bool(asked),
         "words": len(re.findall(r"[A-Za-z]+", text)),

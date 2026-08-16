@@ -46,16 +46,26 @@ def _zipf():
 
 def _worker(args) -> list[tuple[list[str], list[str]]]:
     (indices, shards, vocab_n, min_zipf, node_budget, min_letters, max_letters,
-     max_overhang, max_units, min_words, per_family, deadline) = args
+     max_overhang, max_units, min_words, per_family, deadline, bigrams) = args
     zipf = _zipf()
     vocab = pair_vocabulary(build_vocab(vocab_n), zipf,
                             load_lexicon("data/lexicon.txt"), min_zipf)
     tries = WordTries(vocab)
+
+    allow = None
+    if bigrams:
+        from llm_palindrome.mining import attested_bigrams
+        attested = attested_bigrams(bigrams)
+
+        def allow(before: str, after: str) -> bool:
+            return (before, after) in attested
+
     return list(hunt(tries, shards=shards, node_budget=node_budget,
                      min_letters=min_letters, max_letters=max_letters,
                      max_overhang=max_overhang, max_units=max_units,
                      min_words=min_words, per_family=per_family,
-                     deadline=deadline, shard_indices=indices))
+                     deadline=deadline, shard_indices=indices,
+                     allow_join=allow))
 
 
 def main() -> None:
@@ -79,6 +89,13 @@ def main() -> None:
     ap.add_argument("--time-budget", type=float, default=600.0)
     ap.add_argument("--model", default="gpt2", help="'' to skip scoring")
     ap.add_argument("--top", type=int, default=3000)
+    ap.add_argument("--attested-joins", default="",
+                    help="path to the bigram counts. Given one, every join "
+                         "INSIDE a half must be a word pair English has been "
+                         "seen to make — a constraint on the walk rather than "
+                         "a filter on its output, which is the difference "
+                         "between pruning a subtree and rejecting 99% of what "
+                         "the subtree produced.")
     ap.add_argument("--out", default="runs/pair_hunt.json")
     args = ap.parse_args()
 
@@ -86,7 +103,7 @@ def main() -> None:
     jobs = [(list(range(i, args.shards, args.workers)), args.shards, args.vocab,
              args.min_zipf, args.node_budget, args.min_letters,
              args.max_letters, args.max_overhang, args.max_units,
-             args.min_words, args.per_family, deadline)
+             args.min_words, args.per_family, deadline, args.attested_joins)
             for i in range(args.workers)]
 
     t0 = time.time()

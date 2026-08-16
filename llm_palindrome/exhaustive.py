@@ -34,7 +34,8 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
                           node_budget: int = 10 ** 9,
                           max_units: int = 12,
                           deadline: Optional[float] = None,
-                          shuffle_seed: Optional[int] = None) -> Iterator[list[str]]:
+                          shuffle_seed: Optional[int] = None,
+                          allow_join=None) -> Iterator[list[str]]:
     """Every palindrome the vocabulary admits within `max_letters`.
 
     Sharded on the OPENING unit so that ranks partition the space exactly and
@@ -43,6 +44,16 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
 
     `node_budget` bounds the walk. Exhaustive within a budget is honest;
     exhaustive without one is a promise the space may not keep.
+
+    `allow_join(before, after)` is asked about every adjacency the walk is
+    about to create, and a False prunes that whole subtree. It is where a
+    requirement like "every join is one English has been seen to make" belongs:
+    applied afterwards it is a filter that rejects almost everything the walk
+    produced, and applied here it is a constraint that stops the walk producing
+    it. The left half grows by prepending and the right by appending, so the
+    new adjacency is (w, left[0]) on one side and (right[-1], w) on the other.
+    The junction between the halves is never asked about — the two halves are
+    different sentences, and English does not have to join them.
     """
     import random as _random
     rng = _random.Random(shuffle_seed) if shuffle_seed is not None else None
@@ -94,8 +105,14 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
             if len(new_over) > max_overhang:
                 continue
             if placement == "L":
+                if (allow_join is not None and state.left
+                        and not allow_join(w, state.left[0])):
+                    continue
                 left, right = (w,) + state.left, state.right
             else:
+                if (allow_join is not None and state.right
+                        and not allow_join(state.right[-1], w)):
+                    continue
                 left, right = state.left, state.right + (w,)
             nxt = COState(sort_key=0.0, left=left, right=right, overhang=new_over,
                           owner=new_owner, center_len=0)

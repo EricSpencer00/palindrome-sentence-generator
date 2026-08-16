@@ -37,11 +37,30 @@ def main() -> None:
     ap.add_argument("--top", type=int, default=200)
     ap.add_argument("--min-attested", type=float, default=0.0,
                     help="floor on the WEAKER half's attested-join share")
+    ap.add_argument("--model", default="",
+                    help="rescore with a larger LM than the hunt used. "
+                         "gpt2-large ranks these visibly better than gpt2 and "
+                         "is far too slow to run inside the walk.")
+    ap.add_argument("--rescore", type=int, default=4000,
+                    help="how many of the hunt's own ranking to rescore")
     ap.add_argument("--out", default="runs/pair_shortlist.json")
     args = ap.parse_args()
 
     rows = json.loads(Path(args.src).read_text())["results"]
     attested = attested_bigrams(args.bigrams)
+
+    if args.model:
+        from llm_palindrome.lm_scoring import GPT2Scorer
+        rows = rows[:args.rescore]
+        lm = GPT2Scorer(args.model)
+        texts = [" ".join(row[side]).capitalize() + "."
+                 for row in rows for side in ("left", "right")]
+        scores = lm.score_texts(texts, batch_size=32)
+        for i, row in enumerate(rows):
+            a, b = scores[2 * i], scores[2 * i + 1]
+            row["score"] = round(min(a, b), 4)
+            row["mean"] = round((a + b) / 2, 4)
+        rows.sort(key=lambda r: -r["score"])
 
     for row in rows:
         left = attested_fraction(row["left"], attested)

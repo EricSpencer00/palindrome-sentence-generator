@@ -140,6 +140,21 @@ class TestTheShippedBank:
             for word in pair["left"] + pair["right"]:
                 assert word in safe, word
 
+    def test_the_default_answer_uses_it(self, shipped):
+        """Criterion 9 at the endpoint: what a visitor gets is ours."""
+        from server.v2 import letter_paragraph
+        out = letter_paragraph(sentences=9)
+        assert out["source"] == "generated"
+        assert out["borrowed"] is False
+        assert out["centre"] is None
+
+    def test_every_sentence_the_default_serves_is_novel(self, shipped):
+        from llm_palindrome.paragraphs import is_novel_palindrome
+        from server.v2 import letter_paragraph
+        for sentence in letter_paragraph(sentences=9)["text"].split("."):
+            if sentence.strip():
+                assert is_novel_palindrome(sentence), sentence
+
     def test_every_shipped_pair_mirrors(self):
         from pathlib import Path
         path = Path("data/novel_pairs.json")

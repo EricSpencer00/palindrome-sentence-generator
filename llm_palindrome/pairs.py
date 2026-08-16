@@ -122,6 +122,11 @@ def hunt(tries: WordTries, *, shards: int = 600, node_budget: int = 60000,
     `node_budget` nodes and the next one starts somewhere else in the space.
     `shard_indices` names which shards this caller owns, which is how the walk
     splits across processes without two of them covering the same subtree.
+
+    Shards are cut on the opening unit, so `shards` above the vocabulary size
+    is not a waste and not a bug: it gives one opening per shard, which is the
+    finest split there is, and the budget then applies per opening. Coverage
+    stays complete either way — the openings partition the space.
     """
     seen: Counter = Counter()
     emitted: set[tuple[str, str]] = set()

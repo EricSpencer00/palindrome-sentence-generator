@@ -152,6 +152,7 @@ data/
   known_palindromes.json  160 normalised, for the novelty check
   centres.json          49 blind-judged self-palindromic sentences
   mirror_pairs.json     4,656 mined pairs, attestation flagged
+  mirror_units.json     29 pairs whose two halves are DIFFERENT text
   lexicon.txt           52,927 headwords (dictionary ∩ frequency)
   word_banks.json       word-ORDER mode material
   count_2w.txt, ngrams_wikitext2.json   corpora
@@ -208,6 +209,14 @@ GPT-2 weaker-half score, bigram-join attestation, vocabulary filters and
 edge-joins were each measured against judge verdicts and each failed.
 
 ## Paragraphs
+
+> **The goal is [docs/NORTH-STAR.md](docs/NORTH-STAR.md).** A paragraph of
+> coherent English prose, at least 100 words, whose letters read identically
+> both ways, built from sentences that are not themselves palindromes and were
+> not written by somebody else. Nine criteria, conjunctive. What ships passes
+> four — the structural ones. `tests/test_north_star.py` holds the other five
+> as failing targets so they cannot be quietly dropped.
+
 
 `GET /api/v2/paragraph` returns a paragraph whose **letters** read the same
 both ways, at any length, assembled from whole sentences that share a subject.

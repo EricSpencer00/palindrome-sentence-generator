@@ -1,4 +1,13 @@
-"""The letter-level paragraph endpoint.
+"""The REFRAIN paragraph — mirrored self-palindromic sentences.
+
+Once the default, now `?mode=refrain`. It passes is_palindrome and the mirror
+does no work: reverse it and every sentence comes back as itself. The default
+is the mirror-PAIR construction, whose tests are in test_mirror_paragraph.py.
+
+These still cover real behaviour — theme finding, seating, trimming, and the
+honesty of the payload — so they follow the function rather than the route.
+
+ORIGINAL NOTE, kept because it is the mistake this file now documents:
 
 `/api/v2/paragraph` has been serving the WORD-ORDER mode: the sentence sequence
 mirrors and the letters do not. That is a different and much easier constraint —
@@ -44,29 +53,29 @@ class TestShippedCentres:
 
 class TestLetterParagraph:
     def test_the_text_is_a_letter_palindrome(self):
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=7)
         assert is_palindrome(out["text"]), out["text"]
 
     def test_it_says_which_constraint_it_satisfied(self):
         """A visitor told "palindrome" deserves to know which one."""
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=7)
-        assert out["mode"] == "letter"
+        assert out["mode"] == "refrain"
         assert out["letterPalindrome"] is True
 
     def test_the_sentences_share_a_subject(self):
         """The whole point of themes.best_cluster reaching the endpoint."""
         from llm_palindrome.themes import cohesion
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=7)
         assert cohesion(out["units"]) > 0.5, out["units"]
 
     def test_it_mirrors_the_unit_sequence(self):
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=5)
         said = [s.strip().lower() for s in out["text"].split(".") if s.strip()]
@@ -75,21 +84,21 @@ class TestLetterParagraph:
     def test_a_question_opens_and_a_statement_turns(self):
         """order_for_refrain's rule, checked where it ships."""
         from llm_palindrome.themes import is_question
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=7)
         assert is_question(out["units"][0]), out["units"]
         assert not is_question(out["units"][-1]), out["units"]
 
     def test_a_prompt_steers_the_theme(self):
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=5, prompt="devil santa")
         joined = " ".join(out["units"])
         assert "devil" in joined or "santa" in joined, out["units"]
 
     def test_asking_for_one_sentence_still_works(self):
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=1)
         assert is_palindrome(out["text"])
@@ -97,7 +106,7 @@ class TestLetterParagraph:
     def test_the_word_count_is_reported_and_right(self):
         import re
 
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=6)
         assert out["words"] == len(re.findall(r"[A-Za-z]+", out["text"]))
@@ -111,9 +120,9 @@ class TestTheEndpoint:
         from server.app import app
         return TestClient(app)
 
-    def test_paragraph_now_serves_the_letter_mode(self, client):
-        body = client.get("/api/v2/paragraph").json()
-        assert body["mode"] == "letter"
+    def test_the_refrain_is_reachable_by_name(self, client):
+        body = client.get("/api/v2/paragraph", params={"mode": "refrain"}).json()
+        assert body["mode"] == "refrain"
         assert is_palindrome(body["text"])
 
     def test_the_word_mode_is_still_reachable(self, client):
@@ -137,13 +146,13 @@ class TestItReportsTheTheme:
     """
 
     def test_a_matched_prompt_names_its_theme(self):
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=7, prompt="sir")
         assert out["theme"] == "sir"
 
     def test_an_unmatched_prompt_reports_no_theme(self):
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=7, prompt="quokka")
         assert out["theme"] is None
@@ -151,21 +160,21 @@ class TestItReportsTheTheme:
 
     def test_no_prompt_reports_the_theme_it_found_anyway(self):
         """With no prompt the paragraph still has a subject; say what it is."""
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=7)
         assert out["prompted"] is False
         assert out["theme"], out["units"]
 
     def test_the_reported_theme_is_in_every_unit(self):
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=7, prompt="god")
         for unit in out["units"]:
             assert out["theme"] in unit.split(), (out["theme"], unit)
 
     def test_a_one_sentence_answer_still_names_its_theme(self):
-        from server.v2 import letter_paragraph
+        from server.v2 import refrain_paragraph as letter_paragraph
 
         out = letter_paragraph(sentences=7, prompt="basil")
         assert out["theme"] == "basil"

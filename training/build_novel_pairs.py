@@ -3,6 +3,8 @@
     PYTHONPATH=. python3 training/build_novel_pairs.py runs/pair_chosen.json
 
 The input is a list of pairs a person picked out of `pair_shortlist.py` output.
+`runs/pair_chosen.json` is the one the shipped bank was built from, kept so the
+bank can be rebuilt rather than only inspected.
 The picking is the part no script does: criteria 6-8 of docs/NORTH-STAR.md are
 grammaticality, having a subject, and reading as prose, and four automated
 proxies in this project have disagreed with blind judging on exactly those.

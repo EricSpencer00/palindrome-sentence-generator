@@ -314,9 +314,11 @@ def letter_paragraph(sentences: int = 9, prompt: str = "",
     response. The catalogued bank holds 29 pairs, every one of them lifted
     from the palindrome record: the assembly is ours and the sentences are
     not, which is the criterion 9 failure the north star is about. The novel
-    bank is walked out of the vocabulary by experiments/pair_hunt.py. When it
-    can carry the paragraph on its own it does, and nothing is borrowed —
-    including the centre, which is dropped rather than taken from the canon.
+    bank is walked out of the vocabulary by the enumerator behind
+    `llm_palindrome/pairs.py`, read one pair at a time, and admitted through
+    `training/build_novel_pairs.py`. When it can carry the paragraph on its own
+    it does, and nothing is borrowed — including the centre, which is dropped
+    rather than taken from the canon.
 
     `min_words` is criterion 1's floor. `sentences` is a floor on the number of
     PAIRS, kept because it is the endpoint's published parameter; the paragraph

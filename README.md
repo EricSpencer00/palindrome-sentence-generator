@@ -117,36 +117,265 @@ never alter the normalized letters.
 
 ```
 llm_palindrome/
-├── search.py       # overhang matching, tries, beam search
-├── scoring.py      # frequency-based scorer
-├── lm_scoring.py   # GPT-2 fluency scoring (batched)
-├── textify.py      # sentence formatting, letter-preserving
-├── validator.py    # normalize / is_palindrome
-└── generate.py     # CLI
-benchmark.py        # configuration comparison
-tests/              # pytest suite
+  validator.py     normalize / is_palindrome — the only arbiter of validity
+  search.py        overhang matching, tries, beam search (Norvig/Hoey)
+  centerout.py     outward growth, one word at a time
+  exhaustive.py    walk the short regime instead of sampling it
+  scoring.py       frequency scorer
+  bigram.py        bidirectional bigram model
+  lm_scoring.py    GPT-2 fluency, whole-text and conditional
+  coherence.py     long-range conditional gain, self-shuffled controls
+  instant_judge.py learned fast judge
+  directional.py   forward vs reversed-resegmented cost
+  safe_vocab.py    what must never reach a generated public output
+  shortwords.py    which 1-2 letter strings are words
+  lexicon.py       which strings are words at all ("utc" and "ips" are not)
+  textify.py       sentence formatting, letter-preserving
+  generate.py      CLI
+
+  -- paragraphs --
+  paragraphs.py    harvest / assemble / render / refrain; asserts the mirror
+  pairs.py         walk the vocabulary for mirror-pairs of our own
+  syntax.py        tag shapes from Brown: could this half be a sentence?
+  wordorder.py     a half against its own shuffles: what did the order buy?
+  spelling.py      apostrophes and the capital I, which the mirror cannot see
+  respace.py       recover a spelling by segmentation (mining path only)
+  mining.py        mirror-pairs from attested English phrases
+  reversibles.py   mirror-pairs in closed form, from reversible words
+  themes.py        find the shared subject, seat it in the refrain
+  sequencing.py    order units; repetition and cadence guards
+  compose.py       POS templates over the mined inventory
+  phrases.py       phrase inventory and unit construction
+  overhang.py      cached trie lookahead for the debt
+  reversal.py      how well a unit survives being mirrored (word mode)
+  tunable.py       swept parameters, named rather than inlined
+  verify.py        end-to-end validity checks
+
+data/
+  canon_spelled.json    71 catalogued palindromes WITH their spacing
+  known_palindromes.json  160 normalised, for the novelty check
+  centres.json          49 blind-judged self-palindromic sentences
+  mirror_pairs.json     4,656 mined pairs, attestation flagged
+  mirror_units.json     29 pairs whose two halves are DIFFERENT text, catalogued
+  novel_pairs.json      28 pairs walked out of the vocabulary — ours
+  lexicon.txt           52,927 headwords (dictionary ∩ frequency)
+  word_banks.json       word-ORDER mode material
+  count_2w.txt, ngrams_wikitext2.json   corpora
+  composed_sentences.json   compose.py output; no code path reads it
+  authored_sentences.txt    148 authored halves; 12 mirror, none readably
+
+server/
+  app.py           v1 endpoints
+  v2.py            v2 endpoints, incl. GET /api/v2/paragraph
+training/          corpus, judge, inventory and lexicon builders
+experiments/       measurements quoted in this README and docs/training.md
+tests/             pytest suite
+web/               the page at palindrome.ericspencer.us
 ```
 
 ## Known limits
 
 Output is locally fluent — phrases parse, sentences scan — but not globally
-coherent; it does not hold a topic across its full length.
+coherent; it does not hold a topic across its full length. Four explanations
+have now been tested and eliminated, all recorded in `docs/training.md`.
 
-Two explanations for that have been tested and eliminated, both in
-`docs/training.md`. **A better judge will not fix it:** best-of-2000 scores
-0.168 nats per token above best-of-24 and the curve is flat by then, which
-bounds every possible reranker on this candidate pool. **Nor will a
-wider-ranging search:** the seed jitter was leaving 1975 of 2000 palindromes
-sharing an opening, and raising it fixes the exploration completely — 3
-distinct openings become 200 — while readability falls monotonically, because a
-search unanchored from word frequency reaches for rarer words.
+**A better judge will not fix it.** Best-of-2000 scores 0.168 nats per token
+above best-of-24 and the curve is flat by then, bounding every reranker over
+that candidate pool.
 
-What is left untested is the unit the search consumes. The trie holds single
-words, so coherence has to emerge from adjacent-word scoring; a corpus-derived
-phrase inventory of attested n-grams, consumed atomically, would make local
-coherence a property of each unit instead. The other option is length —
-coherence and length trade off directly, and nothing here has asked what the
-search can do at 80 letters rather than 200.
+**Nor a wider search.** Raising the beam jitter takes 3 distinct openings to
+200 and readability falls monotonically.
+
+**Nor shorter text.** `experiments/length_sweep.py` puts long-range coherence
+on the word-salad line at every length from 71 letters to 1197.
+
+**Nor a phrase inventory.** Attested bigrams consumed atomically drop
+bigram coverage from 0.70 to 0.48 — locking two words together costs more at
+the seams than the internal join buys. Whole corpus SENTENCES do work, and are
+quotation: `server/v2.py` places them intact and attributes them.
+
+### Why: the mirror costs 3.3 bits per letter
+
+Forward English scores 1.63 bits/letter. Reverse the letters of English, then
+re-segment them optimally into the vocabulary, and the result scores 4.92 —
+a **3.30 bits per free letter** cost, stable across span lengths and
+segmentation strategies. Every letter is placed twice and both halves must be
+English, so the coherent feasible set thins by roughly 10x every three letters
+added. That is why the human record contains no long palindrome that reads:
+Norvig's 21,012-word one is a noun list its own author calls nonsense, and half
+the canonical palindromes are 12 to 17 letters.
+
+Two consequences this project measured the hard way. Exhaustive enumeration is
+only exhaustive at small vocabularies — with 14k units the tree branches ~14k
+wide at every closure, so a time-budgeted walk returns a deep prefix of one
+corner. `canon recall` (how many of the 27 catalogued palindromes a walk
+rediscovers) is the acceptance test: it reaches 10/18 at 83 canon-seeded words
+and depth 4, and 0/27 at 14k. And no surface statistic predicts readability —
+GPT-2 weaker-half score, bigram-join attestation, vocabulary filters and
+edge-joins were each measured against judge verdicts and each failed.
+
+## Paragraphs
+
+> **The goal is [docs/NORTH-STAR.md](docs/NORTH-STAR.md).** A paragraph of
+> coherent English prose, at least 100 words, whose letters read identically
+> both ways, built from sentences that are not themselves palindromes and were
+> not written by somebody else. Nine criteria, conjunctive. What ships passes
+> four — the structural ones. `tests/test_north_star.py` holds the other five
+> as failing targets so they cannot be quietly dropped.
+
+
+`GET /api/v2/paragraph` returns a paragraph whose **letters** read the same
+both ways, at any length, assembled from whole sentences that share a subject.
+
+    Was it a car or a cat i saw. Was it a cat i saw. A santa dog lived as a
+    devil god at nasa. A santa lived as a devil at nasa. Able was i ere i saw
+    elba. Stressed was i ere i saw desserts. Delia saw i was ailed. Stressed
+    was i ere i saw desserts. Able was i ere i saw elba. A santa lived as a
+    devil at nasa. A santa dog lived as a devil god at nasa. Was it a cat i
+    saw. Was it a car or a cat i saw.
+
+### How
+
+A palindrome of any length can be assembled rather than searched. Units that
+pay the constraint internally nest like brackets
+
+    L1 L2 ... Lk  CENTRE  Rk ... R2 R1
+
+and the result is palindromic by construction (`llm_palindrome/paragraphs.py`,
+where both `assemble` and `render` assert it). Length stops being the problem.
+Choosing and ordering the units becomes it — and that subproblem carries no
+letter constraint at all.
+
+The shipping path is five steps, none of them a search:
+
+| step | module | what it does |
+|------|--------|--------------|
+| spellings | `data/canon_spelled.json` | 71 catalogued palindromes stored with their spacing, each verified by `is_palindrome` |
+| centres | `data/centres.json` | 49 self-palindromic sentences that survived blind judging |
+| theme | `themes.best_cluster` | picks the centres that share content words |
+| order | `themes.order_for_refrain` | questions outermost, firmest statement on the turn |
+| assembly | `paragraphs.refrain` | mirrors the sequence — palindromic by construction |
+
+A prompt steers the theme rather than filtering it: "devil" matches two
+centres, and filtering would return two sentences and call that a paragraph.
+
+### Why sentences, and not the units everything else uses
+
+The mirror costs 3.296 bits per free letter, which forces units to be short.
+Short units carry no subject, so nothing can be about anything — and for a long
+time that was read as the cost forbidding a through-line. It is not the cost.
+It is the length.
+
+Measured, at half level:
+
+| half length | mined | both halves attested |
+|-------------|-------|----------------------|
+| 2 words | 3,894 | 131 |
+| 3 words | 762 | 27 |
+| 4 words | 106 | **0** |
+
+Four-word halves are where prose would start, and 34,688 attested 4-grams
+produced not one whose mirror reads. Thematic selection over the surviving
+26 usable halves failed just as flatly: of all their content-word pairs,
+exactly **2** co-occur anywhere in 3,932 sentences.
+
+Whole self-palindromic sentences pay exactly the same 3.3 bits and **do** carry
+subjects — 8 of the judged centres are a first-person narrator doubting what
+they saw. Grouping those produced the first paragraph here that a blind judge
+called coherent, ranked above the same structure with mixed topics.
+
+### Where the units come from
+
+Four sources were built and measured against each other:
+
+| source | produced | both halves attested | usable after dedup |
+|--------|----------|----------------------|--------------------|
+| exhaustive hunt | 20,000 | — | ~0 readable |
+| mining attested corpus (`mining.py`) | 3,894 | 131 | 26 |
+| LLM authoring | 40 verified, 37 novel | — | ~3 |
+| closed-form reversibles (`reversibles.py`) | 13,924 | 5 | 2 |
+| authored halves, mirror segmented (`experiments/authored_mirrors.py`) | 148 tried | 12 spellable | 0 |
+| reversible chains, exhaustive (`experiments/reversible_chains.py`) | 57 joins | — | 4, one template |
+| sharded walk (`pairs.py`) | 1,915 in 460s | — | ~0 readable |
+
+All of them converge on roughly the same ceiling, and none produces sentences.
+The canon does. `is_novel_palindrome` (160 entries) keeps the project honest
+about which material it borrowed: **the assembly is ours, the sentences are the
+record's.**
+
+One filter looked like it had changed that and had not. Constraining the walk
+so every join inside a half is one the bigram counts record makes the output
+stop looking like word salad — "name not felt a ward || draw at left one man"
+rather than "marc i ma reconsider || red is no ceramic ram". Then the filter was
+run against the 29 catalogued pairs it is supposed to be finding more of:
+`count_2w.txt` covers every join in 27% of their halves, Brown's million words
+29%, GPT-2's top-400 followers 27%. A pair needs both halves, so the constraint
+discards something like 93% of the target. "Evil rats on || no star live" has
+not one attested join anywhere. See `experiments/join_attestation.py`; the
+constraint is still available and is no longer the default.
+
+### What was tried and did not work
+
+Recorded because each one cost iterations and each conclusion is load-bearing.
+
+- **Word-order palindromes.** The sentence sequence mirrors, the letters do
+  not. A different and much easier constraint — it pays nothing per letter —
+  and it was the default here while the letter-level paragraph was still a list
+  of fragments. Still reachable at `?mode=word`, labelled
+  `letterPalindrome: false`.
+- **Longer palindromes.** The 40–60 letter band was searched: 880k closures,
+  112,523 of the first 300,000 using only dictionary words, and **none** within
+  three unattested joins of reading.
+- **More material by re-mining.** Mining each phrase as a right half returned
+  nothing new — all 7,704 entries were flips of each other. k-best segmentation
+  recovers 4 pairs out of 198.
+- **More units.** A second authoring round added 18 verified novel units and
+  made the paragraph *worse* blind. Unit count is not the lever.
+- **Better inference for spellings.** A unigram model cannot tell "for ajar"
+  from "for a jar"; adding attested-join weight recovers 3 of 10 and no
+  weighting recovers the rest, because choosing "i slam" over "islam" requires
+  knowing the sentence. Storing the spellings fixed all 14.
+- **Removing the refrain's repetition.** A paragraph with zero repeated
+  sentences ranked *below* the refrain. Sentence-hood dominates repetition.
+
+### Proxies: what they are good for
+
+Every scoring proxy tried here has been checked against blind judging with
+real-prose and word-salad controls, and the pattern has not varied:
+
+| proxy | as a filter | as a ranker |
+|-------|-------------|-------------|
+| GPT-2 score | sound — selects nothing a judge rejects | **failed 3 times** |
+| `reads_as_attested` | sound — 79% accepted vs 38% | not used for ranking |
+| `themes.cohesion` | sound — finds the theme | **failed** — sizes the paragraph wrong |
+| word frequency | no signal (4.34 vs 4.06) | — |
+
+Proxies are usable for exclusion and for finding candidates. They have never
+once been usable for ranking finished text, which is why every result above
+was settled by a blinded batch rather than by a number.
+
+### Honest limits
+
+The paragraph is not prose. Judged blind against consecutive sentences from one
+document, it ranks below both that and disparate-but-real sentences. It reads
+as a composition on a subject — a voice doubting what it saw — not as an
+argument that develops. The sentences repeat by construction, since a mirrored
+sequence is what makes the whole a palindrome. And they are catalogued
+palindromes: the contribution here is the selection, ordering and assembly.
+
+The default now serves generated units instead, from `data/novel_pairs.json` —
+28 mirror-pairs walked out of the vocabulary by `pairs.py` and read one at a
+time before being let in. That fixes provenance and length and does not fix
+reading:
+
+> War dog. Rob a log. No cotton. Fired now. Went on. Trade man. … Not new.
+> Wonder if. Not to con. Go labor. Go draw.
+
+101 words, every unit ours, and a run of two- and three-word fragments. The
+catalogued version reads better and is still one query parameter away
+(`?source=catalogue`), which is exactly the trade docs/NORTH-STAR.md refuses to
+take: a paragraph that reads well because somebody else wrote the sentences is
+not the thing being built.
 
 ## Credit
 

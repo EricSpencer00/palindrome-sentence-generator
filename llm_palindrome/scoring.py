@@ -6,7 +6,28 @@ lm_scoring.py) plugs a real language model into the same interface.
 from __future__ import annotations
 
 from collections import Counter
-from typing import Optional, Sequence
+from typing import Iterable, Optional, Sequence
+
+from .search import unit_letters
+
+
+def first_word(unit: str) -> str:
+    """The word a unit presents to the text before it."""
+    return unit.split()[0] if unit else unit
+
+
+def last_word(unit: str) -> str:
+    """The word a unit presents to the text after it."""
+    return unit.split()[-1] if unit else unit
+
+
+def unit_words(units: Iterable[str]) -> list[str]:
+    """Every word in a sequence of units, phrases opened up.
+
+    Repetition is a property of WORDS. Counting units instead would let a
+    search say "york" and then "new york" and be charged for neither.
+    """
+    return [w for unit in units for w in unit.split()]
 
 
 def adjacent(left: tuple, right: tuple, placement: str, growth: str) -> Optional[str]:
@@ -52,12 +73,21 @@ class CoherentScorer:
     """
 
     def __init__(self, bigrams, center: str = "", wanted=None,
-                 freq_weight: float = 0.25, length_weight: float = 0.12):
+                 freq_weight: float = 0.25, length_weight: float = 0.12,
+                 phrase_weight: float = 1.0, long_bonus: float = 0.0,
+                 short_penalty: float = 0.0, unit_bonus=None):
         self.bg = bigrams
         self.center = center
         self.wanted = set(wanted or ())
         self.freq_weight = freq_weight
         self.length_weight = length_weight
+        self.phrase_weight = phrase_weight
+        self.long_bonus = long_bonus
+        self.short_penalty = short_penalty
+        # How good each composed unit is, as measured before it entered
+        # the trie. Without this the search ranks 1500 sentences by
+        # bigrams and length — neither of which is what ordered them.
+        self.unit_bonus = dict(unit_bonus or {})
 
     def word_delta(self, left: tuple, right: tuple, placement: str, word: str,
                    growth: str) -> float:
@@ -66,20 +96,40 @@ class CoherentScorer:
         neighbor = adjacent(left, right, placement, growth)
         if growth == "prepend":
             # The word was placed before text that already exists, so it is
-            # conditioned on what follows it.
+            # conditioned on what follows it. A unit meets that text at its
+            # LAST word, whatever else it contains.
             if neighbor is None:
                 neighbor = self.center or (right[0] if placement == "L" and right
                                            else None)
-            joint = self.bg.backward(word, neighbor)
+            joint = self.bg.backward(last_word(word),
+                                     first_word(neighbor) if neighbor else neighbor)
         else:
             if neighbor is None:
                 neighbor = self.center or (left[-1] if placement == "R" and left
                                            else None)
-            joint = self.bg.forward(neighbor, word)
+            joint = self.bg.forward(last_word(neighbor) if neighbor else neighbor,
+                                    first_word(word))
 
-        uses = left.count(word) + right.count(word) - 1
+        # The joins INSIDE a phrase belong to the phrase. They are attested by
+        # construction — that is the whole reason the inventory exists — so a
+        # unit that carries them must be paid for them, or the search keeps
+        # preferring two loose words to the pair the corpus actually saw.
+        inner = word.split()
+        joint += self.phrase_weight * sum(self.bg.forward(a, b)
+                                          for a, b in zip(inner, inner[1:]))
+
+        words = unit_words(left) + unit_words(right)
+        uses = sum(words.count(w) for w in inner) - len(inner)
         return (joint
-                + self.freq_weight * zipf_frequency(word, "en")
-                + self.length_weight * len(word)
+                + self.freq_weight * sum(zipf_frequency(w, "en") for w in inner)
+                + self.length_weight * len(unit_letters(word))
                 - 2.0 * uses
+                + self.long_bonus * (len(inner) - 1)
+                # Only lone words pay. The penalty exists to stop the search
+                # using short words as letter filler, and a multi-word unit was
+                # validated as English before it entered the trie — its short
+                # words are what English is 18.5% made of.
+                - (self.short_penalty
+                   if len(inner) == 1 and len(inner[0]) <= 2 else 0.0)
+                + self.unit_bonus.get(word, 0.0)
                 + (4.0 if word in self.wanted else 0.0))

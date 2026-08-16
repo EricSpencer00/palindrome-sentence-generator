@@ -18,6 +18,18 @@ from dataclasses import dataclass, field
 from typing import Optional, Sequence
 
 
+def unit_letters(unit: str) -> str:
+    """The letters a unit contributes to the palindrome.
+
+    A unit used to be a single word, so its spelling and its letters were the
+    same string and the search could use one for the other. A phrase separates
+    them: "new york" occupies eight letters of the mirror, not nine, and its
+    reflection is "kroywen". Every place the search reverses, measures or
+    matches a unit goes through here; every place it PRINTS one does not.
+    """
+    return unit.replace(" ", "")
+
+
 def consume(letters: str, overhang: str) -> Optional[tuple[str, bool]]:
     """Match a word's letters against the current overhang.
 
@@ -69,13 +81,19 @@ class _Trie:
 
 
 class WordTries:
-    """Forward trie for left-side matches, reversed trie for right-side."""
+    """Forward trie for left-side matches, reversed trie for right-side.
+
+    Units may be single words or multi-word phrases. Both tries are keyed on a
+    unit's LETTERS, so a phrase is reachable by the run of letters it would
+    fill and never by its spaced spelling — the overhang has no spaces in it.
+    """
 
     def __init__(self, words: Sequence[str]):
-        seen = sorted(set(w.lower() for w in words if w.isalpha()))
+        seen = sorted({w.lower() for w in words
+                       if w and unit_letters(w).isalpha()})
         self.words = seen
-        self._fwd = _Trie([(w, w) for w in seen])
-        self._rev = _Trie([(w[::-1], w) for w in seen])
+        self._fwd = _Trie([(unit_letters(w), w) for w in seen])
+        self._rev = _Trie([(unit_letters(w)[::-1], w) for w in seen])
 
     def left_candidates(self, overhang: str, limit: int = 200) -> list[str]:
         return self._fwd.candidates(overhang, limit)
@@ -95,7 +113,8 @@ class State:
 
     @property
     def letters(self) -> int:
-        return sum(len(w) for w in self.left) + sum(len(w) for w in self.right)
+        return (sum(len(unit_letters(w)) for w in self.left)
+                + sum(len(unit_letters(w)) for w in self.right))
 
 
 def _expand(state: State, tries: WordTries, limit: int) -> list[tuple[str, str, str, str]]:
@@ -108,13 +127,13 @@ def _expand(state: State, tries: WordTries, limit: int) -> list[tuple[str, str, 
     out = []
     if state.side == "L" or not state.overhang:
         for w in tries.right_candidates(state.overhang, limit):
-            res = consume(w[::-1], state.overhang)
+            res = consume(unit_letters(w)[::-1], state.overhang)
             if res is not None:
                 new_over, flipped = res
                 out.append(("R", w, new_over, "R" if flipped else "L"))
     if state.side == "R" and state.overhang:
         for w in tries.left_candidates(state.overhang, limit):
-            res = consume(w, state.overhang)
+            res = consume(unit_letters(w), state.overhang)
             if res is not None:
                 new_over, flipped = res
                 out.append(("L", w, new_over, "L" if flipped else "R"))

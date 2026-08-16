@@ -50,6 +50,45 @@ type Result = Shape & {
   lm: number | null
   coherence: number
   seconds: number
+  // v2 only. It places whole sentences mined from Wikipedia, so it has to say
+  // which spans it quoted rather than composed.
+  sentences?: { text: string; quoted: boolean }[]
+  quoted?: string[]
+  quotedCount?: number
+  attribution?: { source: string; license: string; url: string; note: string }
+}
+
+/* Which generator this page talks to.
+ *
+ * The site serves both at once: `/` is v1, which composes from single words,
+ * and `/dev` is v2, which places whole attested sentences. They share the
+ * frame contract, so the poster below draws either one without knowing which
+ * it has — only the endpoint and the credit line differ. */
+const IS_DEV = typeof window !== "undefined"
+  && window.location.pathname.replace(/\/+$/, "") === "/dev"
+const API = IS_DEV ? "/api/v2/generate" : "/api/generate"
+
+/* The paragraph. Letter-level: the LETTERS mirror, at paragraph length.
+ *
+ * This used to serve a word-order palindrome, where the sentence sequence
+ * mirrors and the letters do not — a different and much easier constraint,
+ * since it pays nothing per letter. It was the default while the letter-level
+ * paragraph was still a list of two-word fragments.
+ *
+ * What changed is the unit. The mirror cost of 3.3 bits per free letter forces
+ * units to be short, and short units carry no subject, which is why every
+ * attempt at a through-line failed. The canon's self-palindromic SENTENCES pay
+ * the same cost and do carry subjects, so a paragraph nested out of the ones
+ * that share one is about something and mirrors letter for letter. */
+type Paragraph = {
+  mode: string; text: string; words: number; bank?: string
+  units?: string[]
+  /* What it turned out to be about, and whether the visitor asked. A prompt
+   * matching nothing still returns a paragraph — a request has to be answered
+   * — and without these two fields that looked exactly like a prompt that
+   * worked. `theme` is null precisely when the asking failed. */
+  theme?: string | null; prompted?: boolean
+  wordPalindrome: boolean; letterPalindrome: boolean; note: string
 }
 
 type Phase = "idle" | "searching" | "done" | "error"
@@ -65,7 +104,21 @@ const CHARS_PER_LETTER = 1.3  // what the spaces between words add
 const DEFAULT_SPAN = 750    // the search's own publishing interval
 const MIN_SPAN = 200        // floor and ceiling on how fast the pen is allowed
 const MAX_SPAN = 1600       // to run when frames bunch up or straggle
-const OPEN = 1.5            // how much closer the camera opens than it ends
+/* The camera's two numbers, both taken from the deployed poster.
+ *
+ * OPEN_W is a WIDTH, not a multiple of the finished fit: the screen shows about
+ * this many block-units across at the open, whatever the palindrome turns out to
+ * be. That is what lets the start run off the edges — a fit near 0.45 against an
+ * open of 3 is close to seven times too big — and a multiple of the fit, which
+ * is what this was, never can be: it shrinks with the very thing it is supposed
+ * to overflow, so 1.5x of a small poster is still a poster that fits.
+ *
+ * EASE is what keeps it there. (1-p)^2.2 is still 2.2x too big at the half way
+ * mark and 1.3x at three quarters, so the text stays cut off for most of the
+ * write and the frame only closes on it at the end. A linear ramp spends the
+ * whole overflow in the opening seconds and then has nothing left to do. */
+const OPEN_W = 462          // block-units across the screen at the open
+const EASE = 2.2            // how long the frame stays behind the text
 
 /* The caret is a sized BAR, not a "|" glyph.
  *
@@ -267,6 +320,7 @@ function Word({
 
 export default function App() {
   const [prompt, setPrompt] = useState("")
+  const [para, setPara] = useState<Paragraph | null>(null)
   const [phase, setPhase] = useState<Phase>("idle")
   const [result, setResult] = useState<Result | null>(null)
   const [elapsed, setElapsed] = useState(0)
@@ -409,15 +463,19 @@ export default function App() {
    * second write, that ran 3.00 → 0.49 inside the first three seconds and
    * 0.49 → 0.45 across the remaining four.
    *
-   * So the schedule follows the one quantity that grows the whole way through:
-   * rows. The camera opens OPEN times closer than the finished poster needs and
-   * closes that gap in step with the writing head, which makes the apparent type
-   * size drift gently and evenly instead of collapsing at the start.
+   * So the end is a PARAMETER. The search announces the size it is aiming at
+   * before it sends a word, so the finished frame — the full grid width by
+   * `endRows` rows — is known from the first tick, and the camera can be aimed
+   * at it from the start. Deriving the target from the frames instead made it
+   * move under the camera: a frame landing one row deeper reset where the camera
+   * thought it was going, so the schedule bent every time one arrived.
    *
-   * What this costs is that early rows run past the edges — the text is wider
-   * than the frame until the frame catches up. That is not a bug to tune out; it
-   * is what a slower zoom IS. A camera that never lets anything off screen is
-   * pinned to the fit, and the fit is the fast zoom.
+   * Between the two, OPEN_W and EASE. The camera starts close enough that the
+   * text does not fit on the screen and stays that way for most of the write:
+   * the visitor reads the middle of a palindrome that is running off both edges,
+   * and the frame only closes on it at the end. Words leaving the screen is the
+   * point, not a thing to tune out — a camera that never lets anything off
+   * screen is pinned to the fit, and the fit is the fast zoom.
    *
    * FONT_PX and the grid are untouched. The type is the same size in the block's
    * own coordinates from first word to last; only the camera moves. */
@@ -429,15 +487,7 @@ export default function App() {
     const halfH = Math.max(anchorY - e.minRow * lineH, (e.maxRow + 1) * lineH - anchorY, 1)
 
     // The finished poster: the full width of the grid, and however many rows it
-    // turns out to need. Taking the max with what is already drawn is what
-    // guarantees the last frame fits even when the search overshoots its guess.
-    /* The end is a PARAMETER, not something to be read off the stream. The
-       search announces the size it is aiming at before it sends a word, so the
-       finished frame — the full grid width by `endRows` rows — is known from the
-       first tick, and the whole pull-back is a straight line from OPEN times
-       that to exactly that. Deriving the target from the frames instead made it
-       move under the camera: a frame landing one row deeper reset where the
-       camera thought it was going, so the schedule bent every time one arrived. */
+    // turns out to need.
     const endHalfW = Math.max(anchorX, cols * charW - anchorX)
     const endHalfH = (endRows * lineH) / 2
     const fitEnd = Math.min(availW / (2 * endHalfW), availH / (2 * endHalfH))
@@ -458,12 +508,22 @@ export default function App() {
         + written.r[Math.min(drawn.r, written.r.length - 1)]
       : 0
     const p = Math.min(1, chars / Math.max(1, endRows * cols))
-    const s = fitEnd * (OPEN + (1 - OPEN) * p)
 
-    // The one place the real text still gets a vote: a search that overshoots
-    // its own estimate must not leave the finished poster hanging off the edges.
+    /* The open is a width, so it is the SCREEN that decides how close the camera
+       starts, not the palindrome. `max` with the fit is the floor that keeps a
+       poster too small to overflow from being zoomed backwards. */
+    const open = Math.min(MAX_SCALE, Math.max(fitEnd, availW / OPEN_W))
+    const s = fitEnd + (open - fitEnd) * (1 - p) ** EASE
+
+    /* The catch-up. Every scale above is a function of the size the search SAID
+       it was aiming at, and a search that stops short of it — or runs past it —
+       leaves `p` somewhere other than 1 with the frame still off the text. So
+       the last move is the only one the real extent decides: once the pen has
+       stopped, the camera goes to the fit of what actually got written. It is a
+       longer, eased transition rather than the writing tick, because arriving is
+       a camera move and should read as one. */
     const fits = Math.min(availW / (2 * halfW), availH / (2 * halfH))
-    return Math.min(MAX_SCALE, done ? Math.min(s, fits) : s)
+    return Math.min(MAX_SCALE, done ? fits : s)
   }, [grid, written, drawn, cols, endRows, done, anchorX, anchorY, charW, lineH,
       availW, availH])
 
@@ -501,7 +561,7 @@ export default function App() {
     lastFrame.current = performance.now(); finished.current = false
     setView("poster"); setPhase("searching")
 
-    const es = new EventSource(`/api/generate?prompt=${encodeURIComponent(prompt)}&budget=16`)
+    const es = new EventSource(`${API}?prompt=${encodeURIComponent(prompt)}&budget=16`)
     esRef.current = es
     es.onmessage = (ev) => {
       const msg = JSON.parse(ev.data)
@@ -539,6 +599,17 @@ export default function App() {
 
   useEffect(() => () => esRef.current?.close(), [])
 
+  const loadParagraph = useCallback(() => {
+    // The prompt steers the theme rather than filtering it: "devil" matches
+    // two centres, and a filter would return two sentences and call that a
+    // paragraph. Seven whole sentences is the length here — the word mode
+    // wanted 18 because its units were three words each.
+    fetch(`/api/v2/paragraph?sentences=7&prompt=${encodeURIComponent(prompt)}`)
+      .then((r) => (r.ok ? r.json() : null))
+      .then(setPara)
+      .catch(() => setPara(null))
+  }, [prompt])
+
   const copy = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(fullText)
@@ -551,10 +622,75 @@ export default function App() {
     searching ? `${elapsed.toFixed(1)}s${result ? ` · ${result.letters} letters` : ""}`
     : phase === "error" ? error
     : done && result ? `${result.letters} letters · ${result.words} words · ${result.seconds}s`
+      + (result.quotedCount ? ` · ${result.quotedCount} quoted` : "")
     : ""
 
   return (
     <div className="relative h-full w-full overflow-hidden bg-paper" onClick={() => setPick(null)}>
+
+      {/* v2 does not write its best sentences — it finds them already written and
+          builds the mirror around them. Wikipedia is CC BY-SA, so the credit is
+          part of the page rather than a line in a README nobody opens. */}
+      {/* Anchored above the credit line with real clearance: at 375px the panel
+          previously ran under the footer, clipping the last sentence and pushing
+          the caption off-screen, and the control sat hard on the viewport edge
+          where a tap could not land. */}
+      {IS_DEV && (
+        <div className="pointer-events-auto absolute inset-x-0 bottom-14 z-30 px-4 sm:bottom-8 sm:px-6">
+          <div className="mx-auto flex max-w-3xl flex-col items-center gap-3">
+            <button
+              onClick={loadParagraph}
+              className="slab slab-press rounded-[3px] border-0 bg-ink px-4 py-2 font-display text-[10px] font-bold uppercase tracking-[.14em] text-paper hover:bg-signal">
+              {para ? "New paragraph" : "Palindromic paragraph"}
+            </button>
+            {para && (
+              <div className="flex w-full flex-col gap-2">
+                {/* The prose scrolls; the caption never does, so the reader can
+                    always see which constraint was satisfied. */}
+                <div className="max-h-[34vh] overflow-y-auto text-left sm:max-h-[38vh]">
+                  <p className="font-body text-[13px] leading-relaxed text-ink">{para.text}</p>
+                </div>
+                {/* Which constraint was satisfied, always. A reader told
+                    "palindrome" should never have to guess whether the letters
+                    mirror or only the sentence order does. */}
+                <p className="shrink-0 font-display text-[10px] uppercase tracking-[.12em] text-ink/40">
+                  {para.words} words
+                  {para.letterPalindrome
+                    ? " · letters mirror"
+                    : " · sentence order only · letters do NOT mirror"}
+                  {para.units ? ` · ${para.units.length} sentences` : ""}
+                  {para.theme ? ` · on “${para.theme}”` : ""}
+                  {para.bank ? ` · ${para.bank}` : ""}
+                </p>
+                {/* Said out loud, because a prompt that matched nothing still
+                    returns a paragraph and would otherwise read as a hit. */}
+                {para.prompted && !para.theme && (
+                  <p className="shrink-0 font-display text-[10px] uppercase tracking-[.12em] text-signal">
+                    nothing in the inventory matched — showing its own theme
+                  </p>
+                )}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {IS_DEV && (
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30 px-4 pb-2 text-center">
+          <p className="font-display text-[10px] uppercase tracking-[.14em] text-ink/40">
+            v2 · dev
+            {result?.attribution
+              ? <> · quoted sentences from {result.attribution.source},{" "}
+                  <a className="pointer-events-auto underline"
+                     href={result.attribution.url}
+                     target="_blank" rel="noreferrer license noopener">
+                    {result.attribution.license}
+                  </a>
+                </>
+              : <> · places whole attested sentences</>}
+          </p>
+        </div>
+      )}
 
       <div className={`absolute inset-0 ${view === "read" ? "hidden" : ""}`}>
         {/* display:none above, not visibility:hidden — the words used to set
@@ -586,9 +722,14 @@ export default function App() {
               lineHeight: `${lineH}px`,
               transformOrigin: "0 0",
               transform: `scale(${scale}) translate(${-anchorX}px, ${-anchorY}px)`,
-              // Short, because the scale now moves a word at a time rather than
-              // a frame at a time; this only takes the edge off the steps.
-              transition: "transform 100ms linear",
+              /* Short while writing, because the scale moves a word at a time
+                 rather than a frame at a time and this only takes the edge off
+                 the steps. The arrival is the exception: it is one move, from
+                 wherever the schedule had got to onto the true fit, and at 140ms
+                 it snaps. */
+              transition: done
+                ? "transform 900ms cubic-bezier(.22,1,.36,1)"
+                : "transform 140ms linear",
             }}
             className="font-mono text-ink"
           >

@@ -89,6 +89,33 @@ def attested_bigrams(path: str) -> set[tuple[str, str]]:
     return out
 
 
+def bigram_counts(path: str, min_count: int = 1) -> dict[tuple[str, str], int]:
+    """Every adjacent word pair the count file records, with its count.
+
+    `attested_bigrams` throws the counts away, which makes "of the" and "ward
+    draw" the same evidence. They are not: the file is a web-scale count, and
+    at the bottom of it are pairs that occurred once in a billion words and
+    read exactly as badly as pairs that occurred never. A floor on the count is
+    the difference between "English has been seen to say this" and "this is not
+    a typo".
+    """
+    out: dict[tuple[str, str], int] = {}
+    for line in open(path):
+        row = line.rstrip("\n").split("\t")
+        if len(row) < 2:
+            continue
+        words = row[0].lower().split()
+        if len(words) != 2:
+            continue
+        try:
+            count = int(row[1])
+        except ValueError:
+            continue
+        if count >= min_count:
+            out[(words[0], words[1])] = count
+    return out
+
+
 def reads_as_attested(words: Sequence[str],
                       attested: set[tuple[str, str]]) -> bool:
     """True when every join in `words` is one English has been seen to make.

@@ -155,7 +155,8 @@ data/
   known_palindromes.json  160 normalised, for the novelty check
   centres.json          49 blind-judged self-palindromic sentences
   mirror_pairs.json     4,656 mined pairs, attestation flagged
-  mirror_units.json     29 pairs whose two halves are DIFFERENT text
+  mirror_units.json     29 pairs whose two halves are DIFFERENT text, catalogued
+  novel_pairs.json      28 pairs walked out of the vocabulary — ours
   lexicon.txt           52,927 headwords (dictionary ∩ frequency)
   word_banks.json       word-ORDER mode material
   count_2w.txt, ngrams_wikitext2.json   corpora
@@ -360,6 +361,20 @@ as a composition on a subject — a voice doubting what it saw — not as an
 argument that develops. The sentences repeat by construction, since a mirrored
 sequence is what makes the whole a palindrome. And they are catalogued
 palindromes: the contribution here is the selection, ordering and assembly.
+
+The default now serves generated units instead, from `data/novel_pairs.json` —
+28 mirror-pairs walked out of the vocabulary by `pairs.py` and read one at a
+time before being let in. That fixes provenance and length and does not fix
+reading:
+
+> War dog. Rob a log. No cotton. Fired now. Went on. Trade man. … Not new.
+> Wonder if. Not to con. Go labor. Go draw.
+
+101 words, every unit ours, and a run of two- and three-word fragments. The
+catalogued version reads better and is still one query parameter away
+(`?source=catalogue`), which is exactly the trade docs/NORTH-STAR.md refuses to
+take: a paragraph that reads well because somebody else wrote the sentences is
+not the thing being built.
 
 ## Credit
 

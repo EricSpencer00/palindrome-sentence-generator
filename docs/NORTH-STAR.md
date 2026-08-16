@@ -80,24 +80,40 @@ constraint.** The refrain beat the pair construction under blind judging, and I
 shipped the refrain. It read better *because* it wasn't doing the hard thing.
 A measurement that rewards the shortcut is not a licence to take it.
 
-## Where v2 stands against the criteria
+## Where the paragraph stands against the criteria
 
 Honestly, so the gap is the thing being worked on rather than argued about.
+Two modes ship. `?source=catalogue` is v2 unchanged; the default is built from
+`data/novel_pairs.json`, walked out of the vocabulary and read one at a time
+before being let in.
 
-| # | status |
-|---|--------|
-| 1 | **fail** — 91 words |
-| 2 | pass — 237 letters, verified independently |
-| 3 | pass — one, the centre |
-| 4 | pass |
-| 5 | pass |
-| 6 | **fail** — "A slut nixes", "Eva can is tab", "Never a foot" are fragments |
-| 7 | **fail** — no subject |
-| 8 | **fail** — ranks below both controls |
-| 9 | **fail** — every unit is catalogued |
+| # | catalogue (v2) | generated (default) |
+|---|----------------|---------------------|
+| 1 | **fail** — 72 words | pass — 101 |
+| 2 | pass | pass |
+| 3 | pass — one, the centre | pass — none, there is no centre |
+| 4 | pass | pass |
+| 5 | pass | pass |
+| 6 | **fail** — "A slut nixes", "Eva can is tab" are fragments | **fail** — "War dog", "Gold row", "Wonder it" are fragments |
+| 7 | **fail** — no subject | **fail** — no subject |
+| 8 | **fail** — ranks below both controls | **fail**, and by more |
+| 9 | **fail** — every unit is catalogued | pass — every unit is ours |
 
-Four of nine. The four that pass are the structural ones, which are free once
-the assembly is right; the five that fail are all about the material.
+Six of nine, up from four. What moved is the material's provenance and the
+length; what did not move is whether it reads. The generated paragraph is a run
+of two- and three-word sentences —
+
+> War dog. Rob a log. No cotton. Fired now. Went on. Trade man. … Not new.
+> Wonder if. Not to con. Go labor. Go draw.
+
+— and the catalogued one still reads better, because its sentences were written
+by people who had the whole language to search and no deadline. That is not a
+reason to serve it. Criterion 9 is a criterion, and a paragraph that reads well
+because somebody else wrote it is the shortcut this document exists to name.
+
+The remaining three are one problem, not three: units long enough to be
+sentences. Everything in "what the constraint actually costs" is about why that
+is hard, and none of it has been beaten yet.
 
 ## What the constraint actually costs
 

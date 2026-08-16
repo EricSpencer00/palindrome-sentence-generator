@@ -352,9 +352,12 @@ def letter_paragraph(sentences: int = 9, prompt: str = "",
             anchor = sorted(asked & set().union(*(hit(p) for p in matched)))[0]
             units = matched + [p for p in units if p not in matched]
 
-    # Longest halves outermost: a paragraph that opens on "step on" and takes
-    # its turn on a five-word clause reads backwards.
-    ranked = sorted(units, key=lambda p: -(len(p[0]) + len(p[1])))
+    # The catalogued bank has no order of its own, so length stands in for
+    # quality: a paragraph that opens on "step on" and takes its turn on a
+    # five-word clause reads backwards. The generated bank arrives ordered by
+    # the person who read it, and that order is better than any proxy for it.
+    ranked = (list(units) if not borrowed
+              else sorted(units, key=lambda p: -(len(p[0]) + len(p[1]))))
     if asked and anchor:
         ranked = ([p for p in ranked if p in matched]
                   + [p for p in ranked if p not in matched])

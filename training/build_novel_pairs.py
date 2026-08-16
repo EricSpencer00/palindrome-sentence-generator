@@ -27,9 +27,17 @@ OUT = Path("data/novel_pairs.json")
 def problems(left: list[str], right: list[str], seen: set,
              safe: set, known_ok) -> list[str]:
     """Everything wrong with one pair, so all of it is reported at once."""
+    from llm_palindrome.validator import is_palindrome
+
     out = []
     if "".join(right) != "".join(left)[::-1]:
         out.append("halves do not mirror")
+    # Criterion 3, enforced at the unit. A self-palindromic half spells itself
+    # backwards, so its partner is the same letters and the mirror does no work
+    # for that sentence — the refrain, one sentence at a time.
+    for half in (left, right):
+        if is_palindrome(" ".join(half)):
+            out.append(f"half is its own palindrome: {' '.join(half)}")
     if not known_ok(" ".join(left + right)):
         out.append("catalogued")
     for word in left + right:

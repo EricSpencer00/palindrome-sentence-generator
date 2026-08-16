@@ -1,21 +1,28 @@
-"""The v3 goal, as a test that currently fails.
+"""The v3 goal, as far as a machine can check it.
 
 See docs/NORTH-STAR.md. A paragraph of coherent English prose, at least 100
 words, whose letters read identically both ways, built from sentences that are
 not themselves palindromes and were not written by somebody else.
 
-These are the criteria a machine can check: length, the mirror, no
+Six of the nine criteria are mechanical: length, the mirror, no
 self-palindromic units beyond the centre, no repetition, disjoint halves, and
-novelty. The ones it cannot — grammaticality, having a subject, reading as
-prose rather than as a list of sentences that happen to parse — need a blinded
-batch with real-prose and salad controls, and must not be replaced by a proxy
-that can be automated. Four proxies have disagreed with blind judging in this
-project and none has ever agreed on ranking.
+novelty. All six now hold of the shipped endpoint, which they did not before —
+the units are walked out of the vocabulary by `llm_palindrome/pairs.py` rather
+than lifted from the palindrome record, and there are enough of them to carry a
+hundred words.
 
-The passing ones are marked as such so a regression is caught. The failing ones
-are xfail(strict=True), which means the suite FAILS if one starts passing
-without this file being updated — the point is to notice v3 arriving, not to
-carry a permanently red suite.
+**The other three do not hold, and nothing here should be read as saying they
+do.** Grammaticality, having a subject, and reading as prose rather than as a
+list of sentences that happen to parse need a blinded batch with real-prose and
+salad controls. They must not be replaced by a proxy that can be automated:
+four proxies have disagreed with blind judging in this project and none has
+ever agreed on ranking. What ships today is a paragraph of terse two- and
+three-word sentences — "War dog. Rob a log. No cotton." — and it is the
+material, not the assembly, that has to improve next.
+
+Three of these were xfail(strict=True) until the bank existed, so that the
+suite would fail the moment one started passing. That is what happened, and
+this file was updated rather than the marker being widened.
 """
 import json
 from pathlib import Path
@@ -63,16 +70,13 @@ class TestStructure:
 
 
 class TestMaterial:
-    """Criteria 1 and 9. These fail, and are what v3 is about."""
+    """Criteria 1 and 9 — the material, which is what v3 was about."""
 
-    @pytest.mark.xfail(strict=True, reason="v3 target: 91 words, needs 100")
     def test_1_at_least_a_hundred_words(self, served):
         import re
 
         assert len(re.findall(r"[A-Za-z]+", served["text"])) >= 100
 
-    @pytest.mark.xfail(strict=True,
-                       reason="v3 target: every unit is a catalogued palindrome")
     def test_9_every_unit_is_novel(self, served):
         from llm_palindrome.paragraphs import is_novel_palindrome
 
@@ -81,8 +85,6 @@ class TestMaterial:
                     if not is_novel_palindrome(f"{l} {r}")]
         assert not borrowed, borrowed
 
-    @pytest.mark.xfail(strict=True,
-                       reason="v3 target: the assembled text recites the canon")
     def test_9_the_whole_text_is_novel(self, served):
         from llm_palindrome.paragraphs import is_novel_palindrome
 

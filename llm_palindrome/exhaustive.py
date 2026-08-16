@@ -35,7 +35,8 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
                           max_units: int = 12,
                           deadline: Optional[float] = None,
                           shuffle_seed: Optional[int] = None,
-                          allow_join=None) -> Iterator[list[str]]:
+                          allow_join=None,
+                          join_slack: int = 0) -> Iterator[list[str]]:
     """Every palindrome the vocabulary admits within `max_letters`.
 
     Sharded on the OPENING unit so that ranks partition the space exactly and
@@ -54,6 +55,12 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
     new adjacency is (w, left[0]) on one side and (right[-1], w) on the other.
     The junction between the halves is never asked about — the two halves are
     different sentences, and English does not have to join them.
+
+    `join_slack` is how many refused joins a branch may take anyway. Requiring
+    every join to be attested is severe — English makes joins it has not made
+    before all day — and a budget of one turns "every adjacency is idiomatic"
+    into "all but one is", which is the difference between a phrase book and a
+    sentence. The budget is per branch and is spent, not refreshed.
     """
     import random as _random
     rng = _random.Random(shuffle_seed) if shuffle_seed is not None else None
@@ -73,12 +80,14 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
     if rng is not None:
         rng.shuffle(openings)
 
-    stack: list[COState] = []
+    # Each entry carries the slack its branch has left, because a budget that
+    # lived on the state would be shared by siblings that never met.
+    stack: list[tuple[COState, int]] = []
     for placement, w, new_over, new_owner in openings:
         if len(new_over) > max_overhang or len(unit_letters(w)) > max_letters:
             continue
-        stack.append(COState(sort_key=0.0, left=(w,), right=(), overhang=new_over,
-                             owner=new_owner, center_len=0))
+        stack.append((COState(sort_key=0.0, left=(w,), right=(), overhang=new_over,
+                              owner=new_owner, center_len=0), join_slack))
 
     import time as _time
     while stack:
@@ -88,7 +97,7 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
         if deadline is not None and nodes % 4096 == 0 and _time.time() > deadline:
             return
         nodes += 1
-        state = stack.pop()
+        state, slack = stack.pop()
 
         if not state.overhang:
             if state.letters >= min_letters:
@@ -104,21 +113,25 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
         for placement, w, new_over, new_owner in expansions:
             if len(new_over) > max_overhang:
                 continue
+            join = None
             if placement == "L":
-                if (allow_join is not None and state.left
-                        and not allow_join(w, state.left[0])):
-                    continue
+                if allow_join is not None and state.left:
+                    join = (w, state.left[0])
                 left, right = (w,) + state.left, state.right
             else:
-                if (allow_join is not None and state.right
-                        and not allow_join(state.right[-1], w)):
-                    continue
+                if allow_join is not None and state.right:
+                    join = (state.right[-1], w)
                 left, right = state.left, state.right + (w,)
+            left_slack = slack
+            if join is not None and not allow_join(*join):
+                if left_slack <= 0:
+                    continue
+                left_slack -= 1
             nxt = COState(sort_key=0.0, left=left, right=right, overhang=new_over,
                           owner=new_owner, center_len=0)
             if nxt.letters > max_letters:
                 continue
-            stack.append(nxt)
+            stack.append((nxt, left_slack))
 
 
 def acceptable_words(words, min_mean_len: float = 3.0) -> bool:

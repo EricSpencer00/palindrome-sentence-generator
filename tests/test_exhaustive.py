@@ -247,3 +247,36 @@ class TestJoinConstraint:
 
     def test_no_constraint_is_the_previous_behaviour(self):
         assert run(max_letters=12) == run(max_letters=12, allow_join=None)
+
+
+class TestJoinSlack:
+    """A budget of refused joins, because English makes new ones all day."""
+
+    def test_slack_admits_a_branch_the_constraint_refused(self):
+        allowed = {("step", "on")}
+
+        def ok(before, after):
+            return (before, after) in allowed
+
+        strict = run(max_letters=14, allow_join=ok)
+        loose = run(max_letters=14, allow_join=ok, join_slack=1)
+        assert len(loose) > len(strict)
+
+    def test_the_budget_is_spent_not_refreshed(self):
+        """One slack cannot buy two refused joins in the same branch."""
+        from llm_palindrome.pairs import split_at_mirror
+
+        allowed = {("step", "on")}
+        for words in run(max_letters=20, allow_join=lambda a, b: (a, b) in allowed,
+                         join_slack=1):
+            split = split_at_mirror(words)
+            if split is None:
+                continue
+            refused = sum((a, b) not in allowed
+                          for half in split for a, b in zip(half, half[1:]))
+            assert refused <= 1, words
+
+    def test_no_slack_is_the_previous_behaviour(self):
+        ok = lambda a, b: (a, b) in {("step", "on")}
+        assert run(max_letters=14, allow_join=ok) == run(
+            max_letters=14, allow_join=ok, join_slack=0)

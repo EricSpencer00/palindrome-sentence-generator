@@ -115,7 +115,7 @@ def hunt(tries: WordTries, *, shards: int = 600, node_budget: int = 60000,
          max_units: int = 10, min_words: int = 3, per_family: int = 3,
          deadline: Optional[float] = None,
          shard_indices: Optional[Sequence[int]] = None,
-         allow_join=None) -> Iterator[Pair]:
+         allow_join=None, join_slack: int = 0) -> Iterator[Pair]:
     """Walk shard by shard, yielding pairs, capped per family.
 
     Breadth first across shards rather than depth within one: each shard gets
@@ -137,7 +137,8 @@ def hunt(tries: WordTries, *, shards: int = 600, node_budget: int = 60000,
                 tries, max_letters=max_letters, min_letters=min_letters,
                 max_overhang=max_overhang, max_units=max_units,
                 shard=shard, shards=shards, node_budget=node_budget,
-                shuffle_seed=shard, allow_join=allow_join):
+                shuffle_seed=shard, allow_join=allow_join,
+                join_slack=join_slack):
             words = [w for u in units for w in u.split()]
             split = split_at_mirror(words)
             if split is None:

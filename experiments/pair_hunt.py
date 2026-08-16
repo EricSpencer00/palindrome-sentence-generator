@@ -47,7 +47,7 @@ def _zipf():
 def _worker(args) -> list[tuple[list[str], list[str]]]:
     (indices, shards, vocab_n, min_zipf, node_budget, min_letters, max_letters,
      max_overhang, max_units, min_words, per_family, deadline, bigrams,
-     min_join_count) = args
+     min_join_count, join_slack) = args
     zipf = _zipf()
     vocab = pair_vocabulary(build_vocab(vocab_n), zipf,
                             load_lexicon("data/lexicon.txt"), min_zipf)
@@ -66,7 +66,7 @@ def _worker(args) -> list[tuple[list[str], list[str]]]:
                      max_overhang=max_overhang, max_units=max_units,
                      min_words=min_words, per_family=per_family,
                      deadline=deadline, shard_indices=indices,
-                     allow_join=allow))
+                     allow_join=allow, join_slack=join_slack))
 
 
 def main() -> None:
@@ -103,6 +103,9 @@ def main() -> None:
                          "is 218,170 and its top tenth is above 1,172,672; a "
                          "floor there is the difference between a collocation "
                          "and a pair that merely is not a typo.")
+    ap.add_argument("--join-slack", type=int, default=0,
+                    help="refused joins a branch may take anyway. One turns "
+                         "'every adjacency is idiomatic' into 'all but one is'.")
     ap.add_argument("--out", default="runs/pair_hunt.json")
     args = ap.parse_args()
 
@@ -111,7 +114,7 @@ def main() -> None:
              args.min_zipf, args.node_budget, args.min_letters,
              args.max_letters, args.max_overhang, args.max_units,
              args.min_words, args.per_family, deadline, args.attested_joins,
-             args.min_join_count)
+             args.min_join_count, args.join_slack)
             for i in range(args.workers)]
 
     t0 = time.time()

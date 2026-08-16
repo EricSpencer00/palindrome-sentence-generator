@@ -46,7 +46,8 @@ def _zipf():
 
 def _worker(args) -> list[tuple[list[str], list[str]]]:
     (indices, shards, vocab_n, min_zipf, node_budget, min_letters, max_letters,
-     max_overhang, max_units, min_words, per_family, deadline, bigrams) = args
+     max_overhang, max_units, min_words, per_family, deadline, bigrams,
+     min_join_count) = args
     zipf = _zipf()
     vocab = pair_vocabulary(build_vocab(vocab_n), zipf,
                             load_lexicon("data/lexicon.txt"), min_zipf)
@@ -54,8 +55,8 @@ def _worker(args) -> list[tuple[list[str], list[str]]]:
 
     allow = None
     if bigrams:
-        from llm_palindrome.mining import attested_bigrams
-        attested = attested_bigrams(bigrams)
+        from llm_palindrome.mining import bigram_counts
+        attested = bigram_counts(bigrams, min_count=min_join_count)
 
         def allow(before: str, after: str) -> bool:
             return (before, after) in attested
@@ -96,6 +97,12 @@ def main() -> None:
                          "a filter on its output, which is the difference "
                          "between pruning a subtree and rejecting 99% of what "
                          "the subtree produced.")
+    ap.add_argument("--min-join-count", type=int, default=1,
+                    help="floor on how often the count file saw a join. The "
+                         "file already stops at 100,000, so its median pair "
+                         "is 218,170 and its top tenth is above 1,172,672; a "
+                         "floor there is the difference between a collocation "
+                         "and a pair that merely is not a typo.")
     ap.add_argument("--out", default="runs/pair_hunt.json")
     args = ap.parse_args()
 
@@ -103,7 +110,8 @@ def main() -> None:
     jobs = [(list(range(i, args.shards, args.workers)), args.shards, args.vocab,
              args.min_zipf, args.node_budget, args.min_letters,
              args.max_letters, args.max_overhang, args.max_units,
-             args.min_words, args.per_family, deadline, args.attested_joins)
+             args.min_words, args.per_family, deadline, args.attested_joins,
+             args.min_join_count)
             for i in range(args.workers)]
 
     t0 = time.time()

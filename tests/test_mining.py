@@ -277,3 +277,32 @@ class TestAttestedPhrases:
         p = tmp_path / "counts.txt"
         p.write_text("no evil\t5\nstep on\t900\n")
         assert list(attested_phrases(str(p), VOCAB))[0] == "step on"
+
+
+class TestBigramCounts:
+    """The counts, kept rather than thrown away.
+
+    `attested_bigrams` makes "of the" and "a ward" the same evidence. The count
+    file says one occurred 2,766,332,391 times and the other 119,654, and a
+    walk constrained by the first kind reads differently from one constrained
+    by the second.
+    """
+
+    def test_it_reads_the_count(self, tmp_path):
+        from llm_palindrome.mining import bigram_counts
+        path = tmp_path / "counts.txt"
+        path.write_text("of the\t100\nstep on\t7\n")
+        assert bigram_counts(str(path)) == {("of", "the"): 100,
+                                            ("step", "on"): 7}
+
+    def test_a_floor_drops_the_rare_ones(self, tmp_path):
+        from llm_palindrome.mining import bigram_counts
+        path = tmp_path / "counts.txt"
+        path.write_text("of the\t100\nstep on\t7\n")
+        assert list(bigram_counts(str(path), min_count=10)) == [("of", "the")]
+
+    def test_rows_that_are_not_bigrams_are_skipped(self, tmp_path):
+        from llm_palindrome.mining import bigram_counts
+        path = tmp_path / "counts.txt"
+        path.write_text("of the\t100\nthe\t5\nno count here\n\n")
+        assert list(bigram_counts(str(path))) == [("of", "the")]

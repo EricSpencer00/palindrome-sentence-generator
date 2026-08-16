@@ -119,6 +119,15 @@ Measured consequences, all of which any v3 approach has to survive:
 - Thematic selection over two-word halves is impossible: of every content-word
   pair across the 26 usable halves, **2** co-occur anywhere in 3,932 sentences.
 - 29 pairs exist whose two halves both read. All 29 are catalogued.
+- Authoring one half and segmenting the other: 148 authored sentences, 12 with
+  any spellable mirror, **0** whose mirror reads. The opening word of one half
+  is the closing word of the other, so a half written to start well ends the
+  other one badly, and picking better sentences cannot fix a constraint that
+  runs the other way (`experiments/authored_mirrors.py`).
+- Word-aligned chains of reversible words — the form half the catalogue takes
+  — walked exhaustively: 392 reversible words, 57 joins attested on both sides
+  of the mirror, **4** novel chains, all of them the same template
+  (`experiments/reversible_chains.py`).
 
 The one thing that has moved: whole self-palindromic sentences pay the same
 3.296 bits and do carry subjects. The cost forces short **units**, not short

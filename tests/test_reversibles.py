@@ -111,3 +111,52 @@ class TestAgainstTheShippingVocabulary:
         assert pairs
         for left, right in pairs[:200]:
             assert is_palindrome(" ".join(left) + " " + " ".join(right))
+
+
+class TestMirrorConsistentChains:
+    """Word-aligned construction, taken as far as it goes.
+
+    A chain of reversible words mirrors word for word, so both halves are
+    determined by the chain and both have to read. Requiring every join to be
+    attested on both sides is what makes that possible and what makes the
+    answer small.
+    """
+
+    REVERSIBLE = {"step": "pets", "pets": "step", "on": "no", "no": "on",
+                  "was": "saw", "saw": "was", "live": "evil", "evil": "live"}
+    ATTESTED = {("step", "on"), ("on", "no"), ("no", "pets"), ("on", "was"),
+                ("saw", "no"), ("live", "on"), ("no", "evil"), ("was", "saw")}
+
+    def test_an_edge_needs_both_sides_attested(self):
+        from llm_palindrome.reversibles import mirror_consistent_edges
+        edges = mirror_consistent_edges(self.REVERSIBLE, self.ATTESTED)
+        # step->on survives: ("step","on") and its mirror ("no","pets") are both
+        # attested. on->no does not: the mirror ("on","no") is attested but
+        # ("on","no")'s partner join is checked the other way round.
+        assert "on" in edges["step"]
+
+    def test_an_edge_whose_mirror_is_unattested_is_dropped(self):
+        from llm_palindrome.reversibles import mirror_consistent_edges
+        edges = mirror_consistent_edges({"step": "pets", "on": "no"},
+                                        {("step", "on")})
+        assert edges == {}
+
+    def test_a_chain_mirrors_word_for_word(self):
+        from llm_palindrome.reversibles import chains, mirror_consistent_edges
+        edges = mirror_consistent_edges(self.REVERSIBLE, self.ATTESTED)
+        found = list(chains(self.REVERSIBLE, edges, min_words=3, max_words=4))
+        assert found
+        for left, right in found:
+            assert "".join(right) == "".join(left)[::-1], (left, right)
+
+    def test_no_chain_uses_a_word_on_both_sides(self):
+        from llm_palindrome.reversibles import chains, mirror_consistent_edges
+        edges = mirror_consistent_edges(self.REVERSIBLE, self.ATTESTED)
+        for left, right in chains(self.REVERSIBLE, edges):
+            assert not set(left) & set(right)
+
+    def test_the_length_band_is_respected(self):
+        from llm_palindrome.reversibles import chains, mirror_consistent_edges
+        edges = mirror_consistent_edges(self.REVERSIBLE, self.ATTESTED)
+        for left, _ in chains(self.REVERSIBLE, edges, min_words=3, max_words=3):
+            assert len(left) == 3

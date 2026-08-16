@@ -160,6 +160,7 @@ data/
   word_banks.json       word-ORDER mode material
   count_2w.txt, ngrams_wikitext2.json   corpora
   composed_sentences.json   compose.py output; no code path reads it
+  authored_sentences.txt    148 authored halves; 12 mirror, none readably
 
 server/
   app.py           v1 endpoints

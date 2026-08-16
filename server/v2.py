@@ -448,7 +448,9 @@ def refrain_paragraph(sentences: int = 7, prompt: str = "") -> dict:
 def paragraph(sentences: int = Query(9, ge=1, le=40),
               prompt: str = Query("", max_length=200),
               mode: str = Query("letter",
-                                pattern="^(letter|refrain|word)$")):
+                                pattern="^(letter|refrain|word)$"),
+              source: str = Query("auto",
+                                  pattern="^(auto|novel|catalogue)$")):
     """A palindromic paragraph. Letter-level by default.
 
     The word mode mirrors the SENTENCE SEQUENCE and not the letters — a
@@ -457,7 +459,8 @@ def paragraph(sentences: int = Query(9, ge=1, le=40),
     fragments. It is kept, and labelled, as the curiosity it is.
     """
     if mode == "letter":
-        return letter_paragraph(sentences=sentences, prompt=prompt)
+        return letter_paragraph(sentences=sentences, prompt=prompt,
+                                source=source)
     if mode == "refrain":
         return refrain_paragraph(sentences=sentences, prompt=prompt)
 

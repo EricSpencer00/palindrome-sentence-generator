@@ -158,6 +158,8 @@ data/
   mirror_pairs.json     4,656 mined pairs, attestation flagged
   mirror_units.json     29 pairs whose two halves are DIFFERENT text, catalogued
   novel_pairs.json      28 pairs walked out of the vocabulary — ours
+  fallback_texts.json   8 palindromes this search closed earlier, for when it
+                        closes none now
   lexicon.txt           52,927 headwords (dictionary ∩ frequency)
   word_banks.json       word-ORDER mode material
   count_2w.txt, ngrams_wikitext2.json   corpora

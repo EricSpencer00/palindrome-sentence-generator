@@ -63,6 +63,21 @@ LENGTH_FLOOR = int(os.environ.get("PALINDROME_V2_FLOOR", "400"))
 # scored, which is why v1 could never have placed a sentence whatever its
 # vocabulary.
 MAX_OVERHANG = int(os.environ.get("PALINDROME_V2_OVERHANG", "48"))
+# How many continuations each beam state may be offered. Bigger is not better
+# and was measured to be fatal: at 800 the pool is 800 children of whichever
+# state scored best, the beam fills with sixty near-identical descendants of one
+# parent, they dead-end together and the search returns nothing in 0.1s. The
+# endpoint answered "no palindrome closed; try again" to EVERY request at every
+# budget. Closure over 8 seeds at the shipped 400-letter floor, 3s each:
+#
+#     limit    50    100   150   200   300   800
+#     closed   5/8   6/8   3/8   2/8   0/8   0/8
+#     openings 5     5     2     2     0     0
+#
+# The endpoint takes four attempts, so 6/8 per attempt is what a visitor sees
+# as always working. Distinct openings move with it for the same reason: a beam
+# descended from one parent has one opening to show.
+CANDIDATE_LIMIT = int(os.environ.get("PALINDROME_V2_CANDIDATES", "100"))
 LONG_BONUS = float(os.environ.get("PALINDROME_V2_LONG_BONUS", "25"))
 PHRASE_WEIGHT = float(os.environ.get("PALINDROME_V2_PHRASE_WEIGHT", "1.0"))
 BIGRAM_UNITS = int(os.environ.get("PALINDROME_V2_BIGRAMS", "20000"))
@@ -210,7 +225,7 @@ def _attempt(prompt: str, seed: int, deadline: float, on_partial=None) -> Option
     units = centerout_search(
         _tries, scorer, min_letters=LENGTH_FLOOR, beam_width=60, seed=seed,
         center=center, max_steps=10**6, maximize="letters",
-        candidate_limit=800, max_overhang=MAX_OVERHANG,
+        candidate_limit=CANDIDATE_LIMIT, max_overhang=MAX_OVERHANG,
         # A varying seed buys nothing at the default 0.4: `docs/training.md`
         # measured that the jitter is too small to reorder the leading
         # candidates, so 1975 of 2000 searches walked into the same opening.
@@ -239,6 +254,68 @@ def _attempt(prompt: str, seed: int, deadline: float, on_partial=None) -> Option
         "attribution": ATTRIBUTION,
         "usedPrompt": bool(center),
         "promptWordsPlaced": sorted(_wanted_words(prompt) & set(words)),
+        # Stated on every result, not only on the canned ones: a page reading
+        # `fallback` should never have to tell absent from false.
+        "fallback": False,
+    }
+
+
+FALLBACKS_PATH = os.environ.get("PALINDROME_V2_FALLBACKS",
+                                "data/fallback_texts.json")
+_fallbacks: Optional[list] = None
+
+
+def _load_fallbacks() -> list:
+    """Palindromes this search closed earlier, for when it closes none now."""
+    global _fallbacks
+    if _fallbacks is None:
+        from pathlib import Path as _Path
+        try:
+            _fallbacks = json.loads(_Path(FALLBACKS_PATH).read_text())
+        except FileNotFoundError:
+            _fallbacks = []
+    return _fallbacks
+
+
+def fallback_result(prompt: str = "", nonce: Optional[int] = None) -> Optional[dict]:
+    """One of the banked palindromes, shaped like a search result.
+
+    A deadline'd beam does not close every time, and "no palindrome closed; try
+    again" is a blank page for someone who asked for a palindrome. The bank is
+    this project's own output — the same search and vocabulary, run ahead of
+    time — so serving it borrows nothing. What it cannot do is answer the
+    visitor's prompt, and the payload says so rather than letting the page
+    imply otherwise.
+
+    Validity is rechecked here rather than trusted: this text reaches a visitor
+    without a search having looked at it.
+    """
+    import random as _random
+
+    from server.app import _shape
+
+    bank = _load_fallbacks()
+    if not bank:
+        return None
+    entry = _random.Random(nonce).choice(bank)
+    words = list(entry["words"])
+    if not is_palindrome(" ".join(words)):
+        return None
+    shape = _shape(words, "")
+    return {
+        "type": "result",
+        **shape,
+        "sentences": [{"text": " ".join(words).capitalize() + ".",
+                       "quoted": False}],
+        "quoted": [],
+        "quotedCount": 0,
+        "attribution": ATTRIBUTION,
+        "usedPrompt": False,
+        "promptWordsPlaced": [],
+        "fallback": True,
+        "note": "The search did not close inside its budget, so this is one it "
+                "closed earlier. Same generator, same vocabulary — but it was "
+                "not written for your prompt.",
     }
 
 
@@ -527,6 +604,8 @@ async def generate(prompt: str = Query("", max_length=200),
         except Exception as exc:
             yield _sse({"type": "error", "message": f"{type(exc).__name__}: {exc}"})
             return
+        if result is None:
+            result = fallback_result(prompt)
         if result is None:
             yield _sse({"type": "error", "message": "no palindrome closed; try again"})
             return

@@ -61,7 +61,23 @@ class _Trie:
             node.words.append(word)
 
     def candidates(self, overhang: str, limit: int = 200) -> list[str]:
-        """Words whose key is a prefix of overhang, or has overhang as prefix."""
+        """Words whose key is a prefix of overhang, or has overhang as prefix.
+
+        The second half of that — the words that overrun the overhang — is a
+        walk over a subtree, and which `limit` of them come back is decided by
+        the walk order. A LIFO stack descends one child chain to the bottom
+        before it looks at the next, so the answer is a slice of one corner of
+        the alphabet: asked for openings on an empty overhang, the shipped trie
+        returned "zur", "zurich", "zuma", "zulu", "zuckerberg" and 795 more
+        from the same corner, and the search was offered nothing else to start
+        from. It is the reason every result opened the same way.
+
+        Breadth-first spreads the same budget across the subtree instead, so a
+        truncated answer is a sample of the vocabulary rather than a slice of
+        it. Same cost, same words available, different `limit` of them.
+        """
+        from collections import deque
+
         out: list[str] = []
         node = self.root
         # keys that are prefixes of the overhang (word swallowed by overhang)
@@ -72,11 +88,11 @@ class _Trie:
             if node is None:
                 return out[:limit]
         # keys that begin with the whole overhang (word overruns it)
-        stack = [node]
-        while stack and len(out) < limit:
-            n = stack.pop()
+        queue = deque([node])
+        while queue and len(out) < limit:
+            n = queue.popleft()
             out.extend(n.words)
-            stack.extend(n.children.values())
+            queue.extend(n.children.values())
         return out[:limit]
 
 

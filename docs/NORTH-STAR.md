@@ -29,6 +29,16 @@ fragments.
 **v3 is both at once.** v1's structure with v2's readability, and neither one
 purchased by giving up the other.
 
+**A `/api/v3` endpoint now exists and the name is therefore ambiguous — read
+this paragraph before treating one as the other.** `server/v3.py` composes from
+a bank of verified mirror-pairs and writes the result out with punctuation, and
+it is the attempt at the goal above, not the achievement of it. Measured, 24
+seeds a length (`experiments/RESULTS-north-star-v3.md`): it clears all six
+mechanical criteria at 400 letters except sentence repetition, 21/24, and
+disjoint halves, 23/24; repetition fails 23/24 by 1,200 letters and always
+past that. Criteria 6–8 are not claimed at all. The goal is what this document
+says; the endpoint is a version number.
+
 ## Acceptance criteria
 
 All nine. Not a scorecard to average — a conjunction. Failing one means not
@@ -119,10 +129,13 @@ is hard, and none of it has been beaten yet.
 
 Not a reason to stop — a reason not to expect a shortcut to work.
 
-Reversing English letters and re-segmenting into the vocabulary costs **3.296
-bits per free letter**, against forward English's 1.63. Every letter is placed
-twice and both placements must be English, so the coherent feasible set thins
-by roughly 10× every three letters.
+Reversing English letters and re-segmenting into the vocabulary costs **2.2 to
+3.6 bits per free letter** — measured by `experiments/mirror_cost.py` across
+four models, three segmentation objectives and six span lengths — against the
+1.4 to 1.9 bits per letter the same spans score read normally. Every letter is
+placed twice and both placements must be English, so the coherent feasible set
+thins by roughly **8 to 10× per letter**. (This document previously said 10×
+every three letters, which misreads the exponent.)
 
 Measured consequences, all of which any v3 approach has to survive:
 
@@ -146,7 +159,7 @@ Measured consequences, all of which any v3 approach has to survive:
   (`experiments/reversible_chains.py`).
 
 The one thing that has moved: whole self-palindromic sentences pay the same
-3.296 bits and do carry subjects. The cost forces short **units**, not short
+price per letter and do carry subjects. The cost forces short **units**, not short
 **palindromes**. Any v3 route has to find units that are long enough to mean
 something and are not already in the record.
 
@@ -159,8 +172,10 @@ closed.
 fall. This is v1, and it is the only structure with no repetition and no
 independent units — which is why it stays the thing to beat. It is also the one
 that has been measured and failed: the 40–60 letter band yielded 880k closures
-and nothing within three unattested joins of reading, and a paragraph needs
-about 500.
+and nothing within three unattested joins of reading. Closure is not the
+limit — `/api/generate` reaches 958 letters in 14 seconds — but a construction
+that cannot produce 40 readable letters will not produce the ~500 a paragraph
+needs.
 
 **Self-palindromic units.** Any concatenation of units that are each palindromes
 reverses into *those same units in the opposite order*, so the whole is a
@@ -183,9 +198,17 @@ every join inside a half is one English has been seen to make.
 ## Falsifying this
 
 `tests/test_north_star.py` checks criteria 1–5 and 9 mechanically against the
-shipped endpoint, and is expected to fail until v3 exists. It is a target in
-the suite rather than a paragraph in a document, because a paragraph in a
-document is how the last three shortcuts got taken.
+shipped v2 paragraph endpoint, which passes all six. It is a target in the
+suite rather than a paragraph in a document, because a paragraph in a document
+is how the last three shortcuts got taken.
+
+`experiments/north_star_v3.py` runs the same six against `/api/v3` at four
+lengths, with v2 as the control in the same output. It is a script rather than
+a test because the answer is a table that varies with length, and a pass/fail
+at one length would hide the shape: v3 holds the structure at 400 letters and
+loses it by 1,200, and it loses it in the presentation rather than in the
+assembly — no chunk ever repeats, but two unrelated chunks get cut into the
+same sentence.
 
 Criteria 6–8 need a blinded batch with real-prose and salad controls. They
 cannot be automated and must not be replaced by a proxy that can.

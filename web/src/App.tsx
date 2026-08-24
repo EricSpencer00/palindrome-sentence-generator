@@ -56,17 +56,56 @@ type Result = Shape & {
   quoted?: string[]
   quotedCount?: number
   attribution?: { source: string; license: string; url: string; note: string }
+  // v3 only. The poster draws letters, because the mirror is a property of the
+  // characters and only a monospace grid shows that. `written` is the same
+  // letters with the case and punctuation put back, which is what "read it"
+  // should mean once there is a version that has any.
+  written?: string
+  yours?: boolean
 }
 
 /* Which generator this page talks to.
  *
- * The site serves both at once: `/` is v1, which composes from single words,
- * and `/dev` is v2, which places whole attested sentences. They share the
- * frame contract, so the poster below draws either one without knowing which
- * it has — only the endpoint and the credit line differ. */
-const IS_DEV = typeof window !== "undefined"
-  && window.location.pathname.replace(/\/+$/, "") === "/dev"
-const API = IS_DEV ? "/api/v2/generate" : "/api/generate"
+ * This poster serves two: `/` is v1, which composes from single words, and
+ * `/v2` places whole attested sentences. They share the frame contract, so the
+ * poster below draws either one without knowing which it has — only the
+ * endpoint and the credit line differ.
+ *
+ * `/v2` was `/dev` until v3 took that path. The route moved rather than the
+ * page being deleted: it still works, and it is what v3 has to be compared
+ * against. `IS_V2` is the old `IS_DEV` under a name that says what it selects.
+ *
+ * v3 differs in one way that matters here: it does not stream, because it does
+ * not search — the whole composition arrives in one response. It is fed to the
+ * same pen in frames anyway (`runV3` below), because the writing was never a
+ * progress bar. It is how a reader sees that two halves are being built
+ * outward from one mirror, and that is as true of a composition as of a
+ * search. */
+const PATH = typeof window !== "undefined"
+  ? window.location.pathname.replace(/\/+$/, "") : ""
+const IS_V2 = PATH === "/v2"
+const IS_V3 = PATH === "/dev"
+const API = IS_V2 ? "/api/v2/generate" : "/api/generate"
+
+/* The length dial, which only v3 has: v1 and v2 stop when their budget runs
+ * out, so their length is a result rather than a request.
+ *
+ * Logarithmic. The bank holds about 14,500 letters and every interesting choice
+ * is in the first tenth of that — 40 to 400 letters is the difference between a
+ * line and a paragraph; 13,000 to 14,500 is not a difference at all. A linear
+ * track spends nine tenths of its travel on the range nobody wants. */
+const LEN_MIN = 40
+const LEN_STEPS = 1000
+const fromSlider = (t: number, cap: number) =>
+  Math.round(LEN_MIN * Math.pow(cap / LEN_MIN, t / LEN_STEPS))
+const toSlider = (n: number, cap: number) =>
+  Math.round(LEN_STEPS * Math.log(n / LEN_MIN) / Math.log(cap / LEN_MIN))
+
+/* How the mocked stream is paced. Enough frames that the pen never jumps a
+   whole line at once, few enough that a long composition does not take longer
+   to draw than a real search takes to find one. */
+const V3_FRAMES = 14
+const V3_GAP = 300
 
 /* The paragraph. Letter-level: the LETTERS mirror, at paragraph length.
  *
@@ -333,6 +372,13 @@ export default function App() {
   const [endRows, setEndRows] = useState(1)   // rows the finished poster expects to take
   const [pick, setPick] = useState<[number, number] | null>(null)
 
+  /* v3's two extra controls. `cap` is the bank's own ceiling, asked for rather
+     than assumed, so the dial cannot promise a length the material cannot
+     reach. The fallback is what the deployed bank holds today. */
+  const [target, setTarget] = useState(1200)
+  const [cap, setCap] = useState(14500)
+  const v3Timers = useRef<number[]>([])
+
   /* Words are written one at a time, spread evenly across the gap the frames
      arrive on. The search publishes in chunks of twenty-odd words because that
      is how a beam search finds them, but nobody reads in chunks of twenty-odd
@@ -529,6 +575,10 @@ export default function App() {
 
   const fullText = useMemo(() => {
     if (!result) return ""
+    // v3 has a written form, and it is the one worth carrying away: the poster
+    // draws the letters, and the letters are what the page is FOR, but nobody
+    // pastes a lowercase run of 300 words into anything.
+    if (result.written) return result.written
     return [...result.left, result.centerDisplay || result.center, ...result.right]
       .filter(Boolean).join(" ")
   }, [result])
@@ -597,7 +647,80 @@ export default function App() {
     }
   }, [prompt, availW, availH, advance, write, cols])
 
-  useEffect(() => () => esRef.current?.close(), [])
+  /* v3, which arrives whole and is written out anyway.
+   *
+   * The composition comes back in one response, so there is nothing to stream
+   * and the honest thing would be to print it. But `drawn` counts words out
+   * from the MIRROR in both directions — that is how `place` lays the grid, and
+   * it is why the poster holds still while it fills — so walking the pen out
+   * from 0 to the full halves shows a reader the one thing about a palindrome
+   * worth showing: it is built from the middle, in two directions, and the two
+   * sides are the same letters. The frames are synthesised rather than
+   * received; nothing else about the drawing differs. */
+  const runV3 = useCallback(() => {
+    v3Timers.current.forEach(window.clearTimeout)
+    v3Timers.current = []
+    window.clearTimeout(tick.current); tick.current = 0
+    setResult(null); setError(""); setElapsed(0); setCopied(false); setPick(null)
+    setCols(0); setEndRows(1)
+    setDrawn({ l: 0, r: 0 }); drawnRef.current = { l: 0, r: 0 }
+    lastFrame.current = performance.now(); finished.current = false
+    setView("poster"); setPhase("searching")
+
+    const q = new URLSearchParams({
+      letters: String(target),
+      seed: String(Date.now() % 1e9),
+    })
+    if (prompt.trim()) q.set("centre", prompt.trim())
+
+    fetch(`/api/v3/composition?${q}`)
+      .then(async (r) => {
+        const body = await r.json().catch(() => ({}))
+        if (!r.ok) throw new Error(body.detail || `HTTP ${r.status}`)
+        return body
+      })
+      .then((c) => {
+        const shape = c.shape as Shape
+        // Fixed for the whole run, as in the streaming path: a regrid rewraps,
+        // and a rewrap moves words already on screen.
+        const n = pickCols(c.letters, availW, availH, advance)
+        setCols(n)
+        setEndRows(Math.max(1, Math.ceil((c.letters * CHARS_PER_LETTER) / n)))
+        setResult({
+          ...shape, lm: null, coherence: 0, seconds: 0,
+          written: c.text, yours: c.centre_is_yours,
+        })
+        const L = shape.left.length
+        const R = shape.right.length
+        for (let i = 1; i <= V3_FRAMES; i++) {
+          const k = i / V3_FRAMES
+          v3Timers.current.push(window.setTimeout(() => {
+            // `finished` before the last frame, so `done` lands when the pen
+            // arrives rather than when the fetch did — same as the stream.
+            if (i === V3_FRAMES) finished.current = true
+            write(Math.round(L * k), Math.round(R * k))
+          }, i * V3_GAP))
+        }
+      })
+      .catch((e) => { setError(String(e.message || e)); setPhase("error") })
+  }, [prompt, target, availW, availH, advance, write])
+
+  useEffect(() => () => {
+    esRef.current?.close()
+    v3Timers.current.forEach(window.clearTimeout)
+  }, [])
+
+  /* The dial cannot offer a length the bank cannot reach, so it asks. */
+  useEffect(() => {
+    if (!IS_V3) return
+    fetch("/api/v3/health")
+      .then((r) => (r.ok ? r.json() : null))
+      .then((h) => {
+        const max = h?.capacity?.novel?.max_letters
+        if (max) { setCap(max); setTarget((t) => Math.min(t, max)) }
+      })
+      .catch(() => { /* the fallback is the deployed bank's size */ })
+  }, [])
 
   const loadParagraph = useCallback(() => {
     // The prompt steers the theme rather than filtering it: "devil" matches
@@ -610,6 +733,9 @@ export default function App() {
       .catch(() => setPara(null))
   }, [prompt])
 
+  /* One button, whichever generator is behind it. */
+  const run = IS_V3 ? runV3 : generate
+
   const copy = useCallback(async () => {
     try {
       await navigator.clipboard.writeText(fullText)
@@ -619,7 +745,14 @@ export default function App() {
   }, [fullText])
 
   const status =
-    searching ? `${elapsed.toFixed(1)}s${result ? ` · ${result.letters} letters` : ""}`
+    // v3 is composed, not searched, so there is no elapsed time to report and
+    // reporting one would be a fiction. What it has instead is the length that
+    // was asked for, which is a thing v1 and v2 do not have at all.
+    IS_V3 && searching ? `${target.toLocaleString()} letters`
+    : IS_V3 && done && result
+      ? `${result.letters.toLocaleString()} letters · ${result.words} words`
+        + (result.yours ? " · yours at the centre" : "")
+    : searching ? `${elapsed.toFixed(1)}s${result ? ` · ${result.letters} letters` : ""}`
     : phase === "error" ? error
     : done && result ? `${result.letters} letters · ${result.words} words · ${result.seconds}s`
       + (result.quotedCount ? ` · ${result.quotedCount} quoted` : "")
@@ -635,7 +768,7 @@ export default function App() {
           previously ran under the footer, clipping the last sentence and pushing
           the caption off-screen, and the control sat hard on the viewport edge
           where a tap could not land. */}
-      {IS_DEV && (
+      {IS_V2 && (
         <div className="pointer-events-auto absolute inset-x-0 bottom-14 z-30 px-4 sm:bottom-8 sm:px-6">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-3">
             <button
@@ -675,10 +808,10 @@ export default function App() {
         </div>
       )}
 
-      {IS_DEV && (
+      {IS_V2 && (
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30 px-4 pb-2 text-center">
           <p className="font-display text-[10px] uppercase tracking-[.14em] text-ink/40">
-            v2 · dev
+            v2
             {result?.attribution
               ? <> · quoted sentences from {result.attribution.source},{" "}
                   <a className="pointer-events-auto underline"
@@ -798,9 +931,14 @@ export default function App() {
         )}
       </div>
 
+      {/* pb clears the whole bottom cluster, not just the buttons: the hint line
+          keeps its height when it is blank and the credits run to two lines on a
+          narrow screen, which together are taller than the fade and were leaving
+          the last line of prose readable underneath the controls. */}
       {view === "read" && result && (
-        <div className="absolute inset-0 overflow-y-auto overscroll-contain px-5 pb-32 pt-28">
+        <div className="absolute inset-0 overflow-y-auto overscroll-contain px-5 pb-44 pt-16">
           <p className="mx-auto max-w-[62ch] break-words text-left text-[15px] leading-[1.85] text-ink sm:text-base">
+            {result.written ? result.written : <>
             {result.left.join(" ")}
             {/* A cursor belongs on the poster, not in the prose; here the mirror
                 shows only when it is the visitor's own phrase. */}
@@ -808,6 +946,7 @@ export default function App() {
               ? <> <span className={result.promptCenter ? "text-signal" : ""}>{result.centerDisplay}</span> </>
               : " "}
             {result.right.join(" ")}
+            </>}
           </p>
         </div>
       )}
@@ -817,6 +956,13 @@ export default function App() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-paper via-paper to-transparent" />
       )}
 
+      {/* The prompt is hidden in the read view rather than faded under it.
+          The block is as tall as the controls a version happens to have — v3
+          carries a length slider that v1 does not — so the prose's top padding
+          cannot be set to clear it, and the taller one was landing on the first
+          two lines. Nothing here is needed while reading, and "Poster" at the
+          bottom brings it all back. */}
+      {view !== "read" && (
       <div className="pointer-events-none absolute inset-x-0 top-0 grid place-items-center px-4 pt-6 sm:pt-10">
         <div className="pointer-events-auto flex w-full max-w-[34rem] flex-col gap-2"
              onClick={(e) => e.stopPropagation()}>
@@ -827,8 +973,8 @@ export default function App() {
                 id="p"
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
-                onKeyDown={(e) => { if (e.key === "Enter") generate() }}
-                placeholder="never odd or even"
+                onKeyDown={(e) => { if (e.key === "Enter") run() }}
+                placeholder={IS_V3 ? "add your own palindrome" : "never odd or even"}
                 disabled={searching}
                 autoComplete="off" autoCapitalize="none" autoCorrect="off"
                 spellCheck={false} enterKeyHint="go"
@@ -836,15 +982,39 @@ export default function App() {
               />
             </div>
             <Button
-              onClick={generate}
+              onClick={run}
               disabled={searching}
               className="slab slab-press h-11 shrink-0 rounded-[3px] border-0 bg-ink px-4 font-display text-[11px] font-bold uppercase tracking-[.14em] text-paper hover:bg-signal sm:px-6 sm:text-xs sm:tracking-[.16em]"
             >
               {searching ? "…" : "Generate"}
             </Button>
           </div>
+          {/* Length, v3 only, and it reads out through the status line above
+              rather than carrying a label of its own — one line of chrome
+              instead of two. Releasing the handle runs it; dragging does not,
+              because a request per pixel would be a request per pixel. */}
+          {IS_V3 && (
+            <div className="flex items-center gap-3 pl-1">
+              <input
+                type="range"
+                aria-label="length in letters"
+                min={0} max={LEN_STEPS} step={1}
+                value={toSlider(Math.min(target, cap), cap)}
+                onChange={(e) => setTarget(fromSlider(Number(e.target.value), cap))}
+                onMouseUp={run}
+                onTouchEnd={run}
+                onKeyUp={(e) => { if (e.key.startsWith("Arrow")) run() }}
+                disabled={searching}
+                className="range h-9 flex-1"
+              />
+              <span className="label w-16 shrink-0 text-right tabular-nums">
+                {target.toLocaleString()}
+              </span>
+            </div>
+          )}
         </div>
       </div>
+      )}
 
       {done && result && (
         <div className="absolute inset-x-0 bottom-0 grid place-items-center px-4 pb-5"

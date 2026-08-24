@@ -1,163 +1,82 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { Input } from "@/components/ui/input"
+import { Button } from "@/components/ui/button"
 
-/* /dev — the v3 reader.
+/* /dev — v3, in the poster's clothes.
  *
- * `/` is the poster: it watches a search write a palindrome and the drama is
- * the writing. This page is the opposite and deliberately so. v3 does not
- * search on request; it composes from a bank that was walked out offline and
- * is re-verified on load, so there is nothing to watch and the only thing
- * worth looking at is the text. It is therefore laid out as something to
- * read — punctuation, capitals, sentence breaks — with the structure
- * underneath available on demand rather than always on screen.
+ * Same page as `/`: white, one control cluster at the top, the text, a credit
+ * line at the bottom. Two differences, and both are because v3 is a different
+ * kind of generator, not because the page wanted more furniture.
  *
- * Every mark here is free. `validator.normalize` strips case, spaces and
- * punctuation before the mirror is checked, which is the same licence the
- * catalogue takes when it writes "A man, a plan, a canal: Panama". The server
- * asserts the letters are unchanged before it answers; this page checks the
- * same thing again in the browser, because a claim a reader can verify on the
- * page beats one they have to take from a README.
+ * The prompt is not a theme. v1 takes a word and steers toward it; v3 composes
+ * from a fixed bank and has nothing to steer. What it does have is one slot the
+ * algebra leaves free — every position but the centre is half of a mirror-pair
+ * and is fixed by its opposite number — so the box takes the visitor's own
+ * palindrome and puts it there. It is checked and refused, never repaired.
+ *
+ * The slider is length. v1's length is whatever the search closes at; v3's is a
+ * parameter, so it is a control rather than a statistic.
+ *
+ * Everything else that was on this page — the stat grid, the criteria table,
+ * the toggles, the explanation of what a mirror-pair is — is in README.md and
+ * docs/NORTH-STAR.md, which is where a reader can go looking for it. On the
+ * page it was spending attention the text needs.
  */
 
 type Chunk = { slot: number; role: "left" | "centre" | "right"; text: string; source: string }
 
 type Composition = {
-  version: number
   text: string
-  plain: string
   letters: number
   words: number
-  pairs: number
-  requested_letters: number
   capacity_letters: number
   chunks: Chunk[]
-  distinct_chunks: number
-  repeats: number
+  centre_is_yours: boolean
 }
 
-type Health = {
-  ok: boolean
-  bank: number
-  generated: number
-  catalogue: number
-  capacity: { novel?: { pairs: number; max_letters: number }; all?: { pairs: number; max_letters: number } }
-  error: string | null
-}
-
-/* The mirror check, run on what is actually on the screen.
- *
- * Deliberately over the RENDERED string rather than the server's `plain`
- * field: the point is that the punctuation this page adds is invisible to the
- * constraint, and checking the plain text would test the wrong thing. */
-const letters = (s: string) => s.toLowerCase().replace(/[^a-z]/g, "")
-const mirrors = (s: string) => {
-  const n = letters(s)
-  return n.length > 0 && n === [...n].reverse().join("")
-}
-
-/* Length presets. A slider over 40..14,500 spends most of its travel in a
-   range nobody wants, and the interesting comparisons are between orders of
-   magnitude, not between 812 and 844 letters. */
-const LENGTHS = [
-  { n: 120, label: "120" },
-  { n: 400, label: "400" },
-  { n: 1200, label: "1,200" },
-  { n: 4000, label: "4,000" },
-  { n: 14500, label: "14,500" },
-]
-
-function Toggle({ on, onClick, children, title }: {
-  on: boolean; onClick: () => void; children: React.ReactNode; title: string
-}) {
-  return (
-    <button
-      onClick={onClick}
-      title={title}
-      aria-pressed={on}
-      className={`slab slab-press rounded-[3px] border-0 px-3 py-1.5 font-display text-[10px]
-        font-bold uppercase tracking-[.14em] transition-colors
-        ${on ? "bg-ink text-paper" : "bg-haze text-ash hover:text-ink"}`}>
-      {children}
-    </button>
-  )
-}
-
-function Stat({ k, v, tone }: { k: string; v: string; tone?: "signal" | "bad" }) {
-  return (
-    <div className="flex flex-col gap-0.5">
-      <span className="label">{k}</span>
-      <span className={`font-mono text-[13px] tabular-nums
-        ${tone === "signal" ? "text-signal" : tone === "bad" ? "text-destructive" : "text-ink"}`}>
-        {v}
-      </span>
-    </div>
-  )
-}
+const MIN_LETTERS = 40
+const FALLBACK_CAP = 14500
 
 export default function DevV3() {
-  const [health, setHealth] = useState<Health | null>(null)
+  const [own, setOwn] = useState("")
+  const [target, setTarget] = useState(1200)
+  const [cap, setCap] = useState(FALLBACK_CAP)
   const [comp, setComp] = useState<Composition | null>(null)
-  const [loading, setLoading] = useState(true)
+  const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
-
-  const [target, setTarget] = useState(400)
-  const [novel, setNovel] = useState(true)
-  const [longestFirst, setLongestFirst] = useState(false)
-  const [showSeams, setShowSeams] = useState(false)
-  const [seed, setSeed] = useState<number>(() => Math.floor(Math.random() * 1e9))
   const [copied, setCopied] = useState(false)
-
   const abort = useRef<AbortController | null>(null)
 
   useEffect(() => {
     fetch("/api/v3/health")
       .then((r) => (r.ok ? r.json() : null))
-      .then(setHealth)
-      .catch(() => setHealth(null))
+      .then((h) => { if (h?.capacity?.novel?.max_letters) setCap(h.capacity.novel.max_letters) })
+      .catch(() => { /* the fallback is the deployed bank's size */ })
   }, [])
 
-  const load = useCallback(() => {
+  const generate = useCallback(() => {
     abort.current?.abort()
     const ac = new AbortController()
     abort.current = ac
-    setLoading(true)
+    setBusy(true)
     setError(null)
-    const q = new URLSearchParams({
-      letters: String(target),
-      seed: String(seed),
-      novel: String(novel),
-      longest_first: String(longestFirst),
-    })
+    const q = new URLSearchParams({ letters: String(target), seed: String(Date.now() % 1e9) })
+    if (own.trim()) q.set("centre", own.trim())
     fetch(`/api/v3/composition?${q}`, { signal: ac.signal })
       .then(async (r) => {
-        if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail || `HTTP ${r.status}`)
-        return r.json()
+        const body = await r.json().catch(() => ({}))
+        if (!r.ok) throw new Error(body.detail || `HTTP ${r.status}`)
+        return body
       })
-      .then((c: Composition) => { setComp(c); setLoading(false) })
+      .then((c: Composition) => { setComp(c); setBusy(false) })
       .catch((e) => {
         if (e.name === "AbortError") return
-        setError(String(e.message || e)); setLoading(false)
+        setError(String(e.message || e)); setComp(null); setBusy(false)
       })
-  }, [target, seed, novel, longestFirst])
+  }, [target, own])
 
-  useEffect(() => { load() }, [load])
+  useEffect(() => { generate() }, [])          // one on arrival, so the page is never empty
   useEffect(() => () => abort.current?.abort(), [])
-
-  const verified = useMemo(() => (comp ? mirrors(comp.text) : false), [comp])
-
-  /* Repeated SENTENCES, which is not the same count as repeated chunks and is
-   * the one the north star asks for (criterion 4).
-   *
-   * The endpoint guarantees no chunk appears twice, and that guarantee holds.
-   * But the punctuation is applied to the assembled word run, not per chunk,
-   * so two different chunks that happen to contain the same short word run get
-   * cut into the same sentence — "bar a met" turns up in four unrelated chunks
-   * at 4,000 letters. Reporting only the chunk count would let the page imply a
-   * property it does not have. */
-  const dupSentences = useMemo(() => {
-    if (!comp) return 0
-    const said = comp.text.split(".").map((s) => s.trim().toLowerCase()).filter(Boolean)
-    return said.length - new Set(said).size
-  }, [comp])
 
   const copy = useCallback(async () => {
     if (!comp) return
@@ -168,213 +87,131 @@ export default function DevV3() {
     } catch { /* clipboard unavailable; the text is selectable */ }
   }, [comp])
 
-  /* Reading size falls with length. 120 letters wants to be a headline; 14,500
-     wants to be a page, and set at headline size it is a scroll nobody
-     finishes. */
-  const size = !comp ? 20
-    : comp.letters < 200 ? 30
-    : comp.letters < 700 ? 24
-    : comp.letters < 2500 ? 19
-    : 16
+  /* Size the type off the length so a short one is a poster and a long one is
+     still a page. Monospace, like `/`, because the mirror is a property of the
+     characters and proportional type hides that. */
+  const size = !comp ? 28
+    : comp.letters < 150 ? 40
+    : comp.letters < 500 ? 28
+    : comp.letters < 2000 ? 20
+    : comp.letters < 6000 ? 15
+    : 12
 
-  const cap = health?.capacity?.[novel ? "novel" : "all"]?.max_letters
+  /* The centre marked in signal, which is the one thing on this page worth a
+     second colour: it is where the visitor's own text goes, and it is the only
+     position that is not determined by another. */
+  const parts = useMemo(() => {
+    if (!comp) return null
+    const centre = comp.chunks.find((c) => c.role === "centre")
+    if (!centre) return null
+    const lets = (s: string) => s.toLowerCase().replace(/[^a-z]/g, "")
+    const before = comp.chunks.slice(0, comp.chunks.indexOf(centre))
+      .reduce((n, c) => n + lets(c.text).length, 0)
+    const want = lets(centre.text).length
+    let seen = 0, start = -1, end = -1
+    for (let p = 0; p < comp.text.length && end < 0; p++) {
+      const isLetter = /[a-z]/i.test(comp.text[p])
+      if (start < 0 && seen === before && isLetter) start = p
+      if (isLetter && ++seen === before + want && start >= 0) end = p + 1
+    }
+    if (start < 0 || end < 0) return null
+    return [comp.text.slice(0, start), comp.text.slice(start, end), comp.text.slice(end)]
+  }, [comp])
+
+  const status = busy ? "…"
+    : error ? error
+    : comp ? `${comp.letters.toLocaleString()} letters · ${comp.words} words`
+      + (comp.centre_is_yours ? " · yours at the centre" : "")
+    : ""
 
   return (
-    <div className="h-full w-full overflow-y-auto bg-paper">
-      <div className="mx-auto flex min-h-full max-w-3xl flex-col gap-8 px-5 py-10 sm:px-8 sm:py-14">
+    <div className="relative h-full w-full overflow-hidden bg-paper">
 
-        <header className="flex flex-col gap-3">
-          <div className="flex items-baseline gap-3">
-            <span className="slab rounded-[3px] bg-signal px-2 py-1 font-display text-[10px] font-bold uppercase tracking-[.16em] text-paper">
-              v3 · dev
-            </span>
-            <a href="/" className="label hover:text-ink">← the poster</a>
-          </div>
-          <h1 className="font-display text-[26px] font-bold leading-[1.1] tracking-tight text-ink sm:text-[32px]">
-            A palindrome, written out.
-          </h1>
-          {/* What is actually different, in the two sentences it takes. The
-              poster's own credit line says v1 composes from single words, so
-              the contrast a returning visitor needs is the unit and the
-              presentation, not the fact that it mirrors. */}
-          <p className="max-w-xl font-mono text-[13px] leading-relaxed text-ash">
-            Composed from verified mirror-pairs rather than searched for on request, then
-            punctuated: capitals, sentence breaks, one colon where a run is sentence-shaped
-            without a verb. The marks are free — case, spaces and punctuation are invisible
-            to the mirror.
-          </p>
-        </header>
+      <div className="absolute inset-0 overflow-y-auto px-4 pb-32 pt-40 sm:pt-48">
+        <p className="mx-auto max-w-6xl text-center font-mono text-ink"
+           style={{ fontSize: size, lineHeight: 1.5 }}>
+          {parts
+            ? <>{parts[0]}<span className="text-signal">{parts[1]}</span>{parts[2]}</>
+            : comp?.text}
+        </p>
+      </div>
 
-        {/* ------------------------------------------------------- controls */}
-        <div className="flex flex-col gap-4">
-          <div className="flex flex-col gap-2">
-            <span className="label">Length, in letters</span>
-            <div className="flex flex-wrap gap-2">
-              {LENGTHS.map(({ n, label }) => (
-                <Toggle
-                  key={n}
-                  on={target === n}
-                  onClick={() => setTarget(n)}
-                  title={cap && n > cap ? `the bank holds ${cap} letters; this asks for more` : `${label} letters`}>
-                  {label}
-                </Toggle>
-              ))}
+      {comp && (
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-paper via-paper to-transparent" />
+      )}
+
+      {/* Top: what it is, then the two controls. The status line doubles as the
+          slider's readout while dragging, so the slider needs no label of its
+          own — one line of chrome instead of two. */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 grid place-items-center px-4 pt-6 sm:pt-10">
+        <div className="pointer-events-auto flex w-full max-w-[34rem] flex-col gap-2">
+          <label htmlFor="own" className={`label min-h-[0.9rem] pl-1 ${error ? "text-signal" : ""}`}>
+            {status}
+          </label>
+          <div className="flex gap-2">
+            <div className="slab min-w-0 flex-1 bg-paper">
+              <Input
+                id="own"
+                value={own}
+                onChange={(e) => setOwn(e.target.value)}
+                onKeyDown={(e) => { if (e.key === "Enter") generate() }}
+                placeholder="add your own palindrome"
+                disabled={busy}
+                autoComplete="off" autoCapitalize="none" autoCorrect="off"
+                spellCheck={false} enterKeyHint="go"
+                className="h-11 border-0 bg-transparent font-mono text-base shadow-none focus-visible:ring-0"
+              />
             </div>
+            <Button
+              onClick={generate}
+              disabled={busy}
+              className="slab slab-press h-11 shrink-0 rounded-[3px] border-0 bg-ink px-4 font-display text-[11px] font-bold uppercase tracking-[.14em] text-paper hover:bg-signal sm:px-6 sm:text-xs sm:tracking-[.16em]"
+            >
+              {busy ? "…" : "Generate"}
+            </Button>
           </div>
+          <div className="flex items-center gap-3 pl-1">
+            <input
+              type="range"
+              aria-label="length in letters"
+              min={MIN_LETTERS} max={cap} step={20}
+              value={Math.min(target, cap)}
+              onChange={(e) => setTarget(Number(e.target.value))}
+              onMouseUp={generate}
+              onTouchEnd={generate}
+              onKeyUp={(e) => { if (e.key.startsWith("Arrow")) generate() }}
+              className="range h-11 flex-1"
+            />
+            <span className="label w-16 shrink-0 tabular-nums text-right">
+              {target.toLocaleString()}
+            </span>
+          </div>
+        </div>
+      </div>
 
-          <div className="flex flex-wrap items-center gap-2">
-            <Toggle on={novel} onClick={() => setNovel(!novel)}
-              title="Restrict to palindromes this project's own enumeration found. Off admits the catalogue — text somebody else wrote.">
-              {novel ? "Ours only" : "Catalogue too"}
-            </Toggle>
-            <Toggle on={longestFirst} onClick={() => setLongestFirst(!longestFirst)}
-              title="Spend the bank on fewer, longer chunks. Every pair boundary is a seam where two unrelated fragments meet — but this has not been judged, so it is not claimed to read better.">
-              Fewer seams
-            </Toggle>
-            <Toggle on={showSeams} onClick={() => setShowSeams(!showSeams)}
-              title="Tint alternating chunks so the assembly is visible.">
-              Show seams
-            </Toggle>
-            <button
-              onClick={() => setSeed(Math.floor(Math.random() * 1e9))}
-              className="slab slab-press rounded-[3px] border-0 bg-ink px-3 py-1.5 font-display text-[10px] font-bold uppercase tracking-[.14em] text-paper hover:bg-signal">
-              Again
-            </button>
+      {comp && (
+        <div className="absolute inset-x-0 bottom-0 grid place-items-center px-4 pb-5">
+          <div className="flex w-full max-w-[34rem] flex-col items-center gap-3">
             <button
               onClick={copy}
-              disabled={!comp}
-              className="slab slab-press rounded-[3px] border-0 bg-haze px-3 py-1.5 font-display text-[10px] font-bold uppercase tracking-[.14em] text-ash hover:text-ink disabled:opacity-40">
+              className="slab slab-press h-9 rounded-[3px] bg-paper px-4 font-display text-[11px] font-bold uppercase tracking-[.14em] text-ink"
+            >
               {copied ? "Copied" : "Copy"}
             </button>
+            <p className="label text-center leading-relaxed">
+              reads the same backwards · composed, not searched ·{" "}
+              <a href="/" className="underline decoration-from-font underline-offset-2 hover:text-signal">
+                the poster
+              </a>{" "}
+              ·{" "}
+              <a href="https://ericspencer.us" target="_blank" rel="noopener noreferrer"
+                 className="underline decoration-from-font underline-offset-2 hover:text-signal">
+                ericspencer.us
+              </a>
+            </p>
           </div>
         </div>
-
-        {/* ----------------------------------------------------------- text */}
-        <div className="slab min-h-[40vh] rounded-[3px] bg-paper p-5 sm:p-7">
-          {error ? (
-            <p className="font-mono text-[13px] leading-relaxed text-destructive">{error}</p>
-          ) : loading && !comp ? (
-            <p className="font-mono text-[13px] text-ash">composing<span className="caret">_</span></p>
-          ) : comp ? (
-            <p
-              className={`font-display text-ink transition-opacity ${loading ? "opacity-40" : "opacity-100"}`}
-              style={{ fontSize: size, lineHeight: 1.55, hyphens: "none" }}>
-              {showSeams
-                ? comp.chunks.map((c, i) => (
-                    /* Tinted by ROLE and by parity, so a left chunk and the
-                       right chunk carrying its reversed letters do not read as
-                       the same object. The centre is the one slot that has no
-                       partner. */
-                    <span
-                      key={c.slot}
-                      title={`${c.role} · ${c.source}`}
-                      className={
-                        c.role === "centre" ? "bg-signal text-paper"
-                        : i % 2 ? "bg-signal-soft"
-                        : ""
-                      }>
-                      {renderSlice(comp.text, comp.chunks, i)}
-                    </span>
-                  ))
-                : comp.text}
-            </p>
-          ) : null}
-        </div>
-
-        {/* ---------------------------------------------------------- stats */}
-        {comp && (
-          <div className="flex flex-col gap-4">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-5">
-              <Stat k="Letters" v={comp.letters.toLocaleString()} />
-              <Stat k="Words" v={comp.words.toLocaleString()} />
-              <Stat k="Mirror-pairs" v={String(comp.pairs)} />
-              <Stat
-                k="Chunk repeats"
-                v={String(comp.repeats)}
-                tone={comp.repeats ? "bad" : undefined} />
-              <Stat
-                k="Sentence repeats"
-                v={String(dupSentences)}
-                tone={dupSentences ? "bad" : undefined} />
-            </div>
-
-            {/* Checked here, in the browser, on the punctuated string that is
-                actually on the screen. */}
-            <p className={`font-mono text-[12px] ${verified ? "text-ink" : "text-destructive"}`}>
-              {verified
-                ? "✓ Re-checked in your browser: strip the case, spaces and punctuation above and the letters read the same both ways."
-                : "✗ The text on this page does not mirror. That is a bug — please report it."}
-            </p>
-
-            {comp.requested_letters > comp.capacity_letters && (
-              <p className="font-mono text-[12px] text-ash">
-                Asked for {comp.requested_letters.toLocaleString()} letters; the bank holds{" "}
-                {comp.capacity_letters.toLocaleString()} of usable material, so this is as long as it goes.
-              </p>
-            )}
-          </div>
-        )}
-
-        {/* --------------------------------------------------------- footer */}
-        <footer className="mt-auto flex flex-col gap-2 pt-6">
-          {health && (
-            <p className="font-mono text-[11px] text-ash">
-              Bank: {health.bank} verified palindromes — {health.generated} walked out by this
-              project, {health.catalogue} from the record. Every one is re-verified when the
-              server loads it and again before it is served.
-            </p>
-          )}
-          <p className="font-mono text-[11px] text-ash">
-            Structure: L1 L2 … C … R2 R1, where each Ri is Li's letters reversed and is
-            therefore different text. A run of self-palindromic units would have to repeat
-            itself; this does not.
-          </p>
-          {/* The name is the north star's, so what it does and does not yet
-              clear belongs on the page rather than in a document nobody opens.
-              Criteria 6, 7 and 8 need blind judging and are not claimed here at
-              all — four automated proxies have disagreed with blind ranking in
-              this project and none has ever agreed. */}
-          <p className="font-mono text-[11px] text-ash">
-            Against <span className="text-ink">docs/NORTH-STAR.md</span>, measured over 24 seeds
-            a length: the six mechanical criteria all hold at 400 letters except sentence
-            repetition (21/24) and disjoint halves (23/24), and repetition fails almost
-            always past 1,200. Grammaticality, subject and coherence need blind judging and
-            are not claimed.
-          </p>
-        </footer>
-      </div>
+      )}
     </div>
   )
-}
-
-/* Cut the presented text at chunk boundaries.
- *
- * The server returns the chunks as PLAIN word runs and the text as a
- * punctuated string, so the two cannot be matched by string equality — the
- * marks and capitals only exist in one of them. They do agree letter for
- * letter, which is the whole invariant, so the boundaries are found by
- * counting letters and the slice is taken in the presented string. */
-function renderSlice(text: string, chunks: Chunk[], i: number): string {
-  let before = 0
-  for (let k = 0; k < i; k++) before += letters(chunks[k].text).length
-  const want = letters(chunks[i].text).length
-
-  let seen = 0
-  let start = -1
-  for (let p = 0; p < text.length; p++) {
-    const isLetter = /[a-z]/i.test(text[p])
-    if (start < 0 && seen === before && isLetter) start = p
-    if (isLetter) {
-      seen++
-      if (start >= 0 && seen === before + want) {
-        // Trailing punctuation and the space belong to the chunk that ends
-        // here, or the tint stops one glyph early and the marks all sit in
-        // the next chunk's colour.
-        let end = p + 1
-        while (end < text.length && !/[a-z]/i.test(text[end])) end++
-        return text.slice(start, end)
-      }
-    }
-  }
-  return start >= 0 ? text.slice(start) : ""
 }

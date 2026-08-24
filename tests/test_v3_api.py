@@ -312,3 +312,46 @@ def test_no_degenerate_pair_is_used(client):
 def test_novel_default_excludes_the_catalogue(client):
     body = client.get("/api/v3/composition?seed=5&letters=1200").json()
     assert all(c["source"] == "generated" for c in body["chunks"])
+
+
+# ----------------------------------------------------------- your own centre
+
+def test_your_palindrome_becomes_the_centre(client):
+    """The one slot an arbitrary palindrome can occupy without breaking the
+    mirror, because it is the only position not fixed by an opposite number."""
+    mine = "a man a plan a canal panama"
+    body = client.get(
+        f"/api/v3/composition?seed=1&letters=600&centre={mine.replace(' ', '+')}"
+    ).json()
+    centre = [c for c in body["chunks"] if c["role"] == "centre"]
+    assert len(centre) == 1
+    assert normalize(centre[0]["text"]) == normalize(mine)
+    assert centre[0]["source"] == "yours"
+    assert body["centre_is_yours"] is True
+
+
+def test_your_centre_still_leaves_the_whole_a_palindrome(client):
+    for mine in ("racecar", "a man a plan a canal panama", "no lemon no melon"):
+        body = client.get(
+            f"/api/v3/composition?seed=2&letters=800&centre={mine.replace(' ', '+')}"
+        ).json()
+        letters = normalize(body["plain"])
+        assert letters == letters[::-1], mine
+
+
+def test_a_non_palindrome_is_refused_not_repaired(client):
+    """Trimming a near-miss into a real one would hand back something the
+    visitor did not write and present it as theirs."""
+    r = client.get("/api/v3/composition?seed=1&letters=400&centre=hello+world")
+    assert r.status_code == 400
+    assert "not a palindrome" in r.json()["detail"]
+
+
+def test_a_centre_with_no_letters_is_refused(client):
+    r = client.get("/api/v3/composition?seed=1&letters=400&centre=%21%21%21")
+    assert r.status_code == 400
+
+
+def test_an_empty_centre_falls_back_to_the_bank(client):
+    body = client.get("/api/v3/composition?seed=1&letters=400&centre=").json()
+    assert body["centre_is_yours"] is False

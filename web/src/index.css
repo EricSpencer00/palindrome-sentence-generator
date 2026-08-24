@@ -107,6 +107,48 @@ body {
   }
 }
 
+/* The length slider on /dev. Square and flat like everything else here: a
+   two-pixel rule for the track and a solid block for the thumb, no gradient
+   and no rounding. Both vendor pseudo-elements are needed and neither can be
+   grouped with the other — a selector list containing an unrecognised
+   pseudo-element is dropped whole by both engines. */
+.range {
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: ew-resize;
+}
+.range::-webkit-slider-runnable-track {
+  height: 2px;
+  background: var(--color-haze);
+}
+.range::-moz-range-track {
+  height: 2px;
+  background: var(--color-haze);
+}
+.range::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 12px;
+  height: 18px;
+  margin-top: -8px;          /* centre a 18px thumb on a 2px track */
+  border: 0;
+  border-radius: 1px;
+  background: var(--color-ink);
+}
+.range::-moz-range-thumb {
+  width: 12px;
+  height: 18px;
+  border: 0;
+  border-radius: 1px;
+  background: var(--color-ink);
+}
+.range:hover::-webkit-slider-thumb { background: var(--color-signal); }
+.range:hover::-moz-range-thumb { background: var(--color-signal); }
+.range:focus-visible { outline: none; }
+.range:focus-visible::-webkit-slider-thumb { background: var(--color-signal); }
+.range:focus-visible::-moz-range-thumb { background: var(--color-signal); }
+
 /* The cursor is the whole idle state, so it gets a real blink, not a fade. */
 @keyframes blink { 0%, 49% { opacity: 1 } 50%, 100% { opacity: 0 } }
 .caret { animation: blink 1.06s steps(1, end) infinite; }

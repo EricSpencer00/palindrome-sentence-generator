@@ -293,6 +293,9 @@ def composition(seed: Optional[int] = Query(None),
                 longest_first: bool = Query(False,
                                             description="prefer long pairs, "
                                                         "so fewer seams"),
+                centre: Optional[str] = Query(None, max_length=200,
+                                              description="your own palindrome, "
+                                                          "used as the centre"),
                 novel: bool = Query(True)):
     """Many mirror-pairs nested around one centre.
 
@@ -307,6 +310,13 @@ def composition(seed: Optional[int] = Query(None),
     `longest_first` spends the bank on fewer, longer chunks; `chops` caps the
     count outright. Fewer seams is the only quality lever this endpoint has,
     and it has not been judged, so neither dial is claimed to read better.
+
+    `centre` takes the visitor's own palindrome and puts it in the one slot the
+    algebra lets an arbitrary palindrome occupy. Every other position is half
+    of a pair and is fixed by its opposite number; the centre is fixed by
+    nothing, so it is the only place a text that was not walked out of the bank
+    can go without breaking the mirror. It is rejected rather than repaired if
+    its letters do not read both ways.
     """
     ensure_loaded()
     if _load_error:
@@ -350,13 +360,30 @@ def composition(seed: Optional[int] = Query(None),
     rng.shuffle(pairs)
     if longest_first:
         pairs.sort(key=lambda t: -len(normalize(" ".join(t[0]))))
-    # The centre must not duplicate a half either.
-    centre_row = rng.choice(centres)
-    for _ in range(20):
-        if normalize(" ".join(centre_row["words"])) not in seen_halves:
-            break
+    if centre is not None and centre.strip():
+        # The visitor's own. Checked, never fixed up: silently trimming a
+        # near-palindrome into a real one would hand back something they did
+        # not write and call it theirs.
+        own = centre.strip().split()
+        if not normalize(" ".join(own)):
+            raise HTTPException(status_code=400,
+                                detail="that has no letters in it")
+        if not is_palindrome(" ".join(own)):
+            raise HTTPException(
+                status_code=400,
+                detail="that is not a palindrome — its letters have to read "
+                       "the same both ways")
+        centre_dict = {"words": own, "source": "yours"}
+    else:
+        # The centre must not duplicate a half either.
         centre_row = rng.choice(centres)
-    centre = {"words": centre_row["words"], "source": centre_row["source"]}
+        for _ in range(20):
+            if normalize(" ".join(centre_row["words"])) not in seen_halves:
+                break
+            centre_row = rng.choice(centres)
+        centre_dict = {"words": centre_row["words"],
+                       "source": centre_row["source"]}
+    centre = centre_dict
 
     cap = capacity(pairs, len(normalize(" ".join(centre["words"]))))
     used = compose(pairs, centre, min(letters, cap), chops)
@@ -384,6 +411,7 @@ def composition(seed: Optional[int] = Query(None),
         "chunks": layout,
         "distinct_chunks": len(set(texts)),
         "repeats": len(texts) - len(set(texts)),
+        "centre_is_yours": centre["source"] == "yours",
         "notes": {
             "structure": "L1 L2 ... C ... R2 R1, where Ri is Li's letters "
                          "reversed and is therefore different text",

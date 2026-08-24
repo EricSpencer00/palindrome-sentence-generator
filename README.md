@@ -131,6 +131,8 @@ llm_palindrome/
   shortwords.py    which 1-2 letter strings are words
   lexicon.py       which strings are words at all ("utc" and "ips" are not)
   textify.py       sentence formatting, letter-preserving
+  present.py       case and punctuation for a short palindrome, by exhaustive
+                   segmentation over Brown-tag tiers; asserts the letters
   generate.py      CLI
 
   -- paragraphs --

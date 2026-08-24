@@ -1,0 +1,227 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+<title>Addendum: Scoring the Branches</title>
+</head>
+<body style="margin-left:20px; max-width: 52em">
+
+<h1>Addendum: Scoring the Branches</h1>
+<h3 align=right>An addition to <a href="https://www.norvig.com/palindrome.html">World's
+Longest Palindrome?</a>, written to be read after it.<br>
+<a href="https://github.com/EricSpencer00/palindrome-sentence-generator">program</a>,
+<a href="https://palindrome.ericspencer.us">live</a></h3>
+
+Norvig's search is the search used here. The
+<b>remainder</b> of steps (2) through (7) above is called the <b>overhang</b>
+below, and it is the same object: the run of letters one half owes the other,
+which a word added on the left must match forwards and a word added on the
+right must match reversed. Hoey's 1984 program is the ancestor of both.
+
+<p>What changes is what the search is <i>for</i>. Norvig's program asks, at
+each step, which choice will let it keep going — randomly in versions 1 and 2,
+and in version 3 by the letter that <i>"leads to the most completions of words
+on both left and right."</i> Both are length. The 21,012-word palindrome is the
+answer to a question about length, and it is a very good one.
+
+<p>The question here is what the text says. At every step the overhang admits
+hundreds of letter-valid continuations and nearly all of them are gibberish, so
+the choice among them is free — it costs no letters, it is made hundreds of
+times, and nothing in the constraint cares which way it goes. That is where a
+language model goes. It cannot make a palindrome and it is never asked to: the
+search guarantees the mirror, and every candidate is valid in every
+configuration measured below. The model only decides which of the valid
+branches to follow.
+
+<h1>Version 1: The Search, Scored</h1>
+
+<table>
+<tr><td><b>Created:</b><td> 2026
+<tr><td><b>Words:</b><td> 327
+<tr><td><b>Letters:</b><td> 1,010
+<tr><td><b>Program:</b><td> <a href="https://github.com/EricSpencer00/palindrome-sentence-generator">llm_palindrome/generate.py</a>
+<tr><td><b>Palindrome:</b><td> time taken into of dental plan if we felt it
+went so per canada his worst case law must never even made us site go duo yet
+... <i>(the middle)</i> ...,
+sum wales acts rows i had an acre post new title few final plat ned foot nine
+kate mit
+<tr><td><b>Live:</b><td> <a href="https://palindrome.ericspencer.us">palindrome.ericspencer.us</a>
+</table>
+
+<p><b>The algorithm.</b> Steps (1), (2) and (6) are Norvig's unchanged. Step (3)
+is the whole difference:
+
+<p>
+<hr>
+(3) Look in the dictionary for words that begin with <b><font color=red>aca</font></b>.
+Norvig randomly chooses one. Here, all of them are scored by a language model
+in the context of what is already written, and the beam keeps the best sixty.
+
+<table width="100%">
+<tr><td width="50%" bgcolor=cccccc><b>A man, a plan, <u>a ca</b><font color=red><b>ddy</b></u>,</font>
+<td width="00%">
+<td width="50%" bgcolor=cccccc align=right><b>a canal, Panama</b>
+</table>
+
+<hr>
+(3a) The same step, said as the thing that is actually being spent. The overhang
+does not care which of the candidates is chosen — every one of them leaves the
+text a valid palindrome — so the choice is <i>free</i> with respect to the
+constraint and <i>not</i> free with respect to the reading. There are hundreds
+of such choices in a thousand-letter palindrome, and taking them at random is
+what makes a long palindrome unreadable. It is not the constraint that does it.
+<hr>
+
+<p><b>Two places to put the model, and the cost of each.</b> Twelve seeds, 200
+letters minimum, beam 60, GPT-2 small, matched budgets. <tt>lm_score</tt> is
+mean token log-probability per letter; higher is better.
+
+<table border=1 cellpadding=4 cellspacing=0>
+<tr><td><b>Configuration</b><td><b>Best</b><td><b>Mean</b><td><b>Letters</b><td><b>Time</b><td><b>Valid</b>
+<tr><td>Rerank: search on word frequency, score the finished candidates<td>&minus;2.382<td>&minus;2.455<td>201<td>5.5 s<td>12/12
+<tr><td>In-loop: the model prunes the beam during the search<td><b>&minus;2.297</b><td><b>&minus;2.405</b><td>216<td>170 s<td>12/12
+</table>
+
+<p>In-loop reads measurably better at roughly 31&times; the cost. Both arms
+close every seed, which is the point about validity: it comes from the search,
+so the model can only move readability.
+
+<p><b>A warning about that number, since it is the number everything here was
+tuned on.</b> <tt>lm_score</tt> divides total token log-probability by
+<i>letters</i>. Longer words cost fewer tokens per letter, so a search that
+merely prefers long words scores higher without writing anything better. A
+tuning run found that on its own: +0.298 per letter, winning 24 of 24 paired
+seeds, while the same texts scored 0.673 <i>worse</i> per token and lost 24 of
+24. A check against a bigger model did not catch it, because the check used the
+same denominator. Every experiment in the repository now prints both
+normalizations and says so when they disagree.
+
+<h1>Version 3: Composed, Not Searched</h1>
+
+<table>
+<tr><td><b>Created:</b><td> 2026
+<tr><td><b>Words:</b><td> 335
+<tr><td><b>Letters:</b><td> 1,192
+<tr><td><b>Program:</b><td> server/v3.py
+<tr><td><b>Palindrome:</b><td> Part sir or, recipe draw error. Recipe mall is.
+Mar gets at lie. Net, at, seat set a. To of met.
+... <i>(the middle)</i> ...,
+A met system. Foot, a test a. Estate, neil taste grams. Ill am epic. Error
+reward epic. Error is trap.
+<tr><td><b>Live:</b><td> <a href="https://palindrome.ericspencer.us/dev">palindrome.ericspencer.us/dev</a>
+</table>
+
+<p><b>Commentary:</b> A search reaches its length and stops; you take what it
+gives you. The other way to get a palindrome of a stated length is to assemble
+it from parts that already pay the mirror, and the parts that work are
+<b>mirror-pairs</b>: two different texts whose letters are each other's
+reverse. Nested around a centre,
+
+<pre>
+        L1 L2 ... Lk   CENTRE   Rk ... R2 R1
+</pre>
+
+where each <tt>Ri</tt> is <tt>Li</tt>'s letters reversed. The whole mirrors by
+construction and nothing repeats.
+
+<p>The obvious alternative &mdash; stringing together palindromes, each
+palindromic on its own &mdash; does not work, and the reason is worth writing
+down. A sequence of self-palindromic units is a palindrome only when the
+<i>sequence</i> is itself a palindrome, so unit <i>k</i> must equal unit
+<i>n</i>+1&minus;<i>k</i> and every unit but the centre appears twice. Mirror-pairs
+avoid it: what returns at the mirrored position is the <i>other</i> half, which
+is different text.
+
+<p>The pairs come from an offline walk of millions of candidates &mdash; 540
+verified palindromes, 499 of them found by this project's own enumeration and
+41 from the record. So length becomes a parameter rather than an outcome, up to
+the roughly 14,500 letters of material the bank holds. It is a dial on the
+page.
+
+<p><b>Punctuation is free and is chosen rather than guessed.</b> Case, spaces
+and marks are invisible to the mirror &mdash; the same licence taken by "A man,
+a plan, a canal: Panama" &mdash; so every way of cutting the word run into runs
+is scored, each run by the strongest Brown-tag test it passes, and the best
+total wins. <tt>reno sir parasites set i sara prisoner</tt> is written out as
+
+<pre>
+        Reno, sir: parasites set. I, Sara, prisoner.
+</pre>
+
+The letters are asserted unchanged before the result is returned. Presentation
+that alters the palindrome is a bug, not a style.
+
+<h1>The Comparison</h1>
+
+<p>Not length. Norvig's version 3 is 90,439 letters and nothing here is within
+an order of magnitude of that; that is the difference between the two questions,
+not a result about either. What <i>is</i> comparable is the material: what
+fraction of the words on the page are words a reader accepts. Measured against
+a 52,927-headword lexicon (a dictionary intersected with a frequency list) and
+a filter on one- and two-letter strings.
+
+<table border=1 cellpadding=4 cellspacing=0>
+<tr><td><b>Text</b><td><b>Words</b><td><b>1&ndash;2 letters</b><td><b>In the lexicon</b><td><b>Mean word</b>
+<tr><td>Norvig, version 3, the 21,012-word palindrome<td>21,196<td>22.9%<td><b>53.0%</b><td>4.27
+<tr><td>Norvig, <tt>npdict.txt</tt> as material<td>210,257<td>33.9%<td>60.7%<td>5.58
+<tr><td>English, frequency-weighted sample<td>20,000<td>21.7%<td>94.8%<td>4.39
+<tr><td>Here, version 1, live, 1,010 letters<td>327<td>32.7%<td>98.5%<td>3.09
+<tr><td>Here, version 3, 400 letters<td>107<td>18.7%<td><b>100%</b><td>3.51
+<tr><td>Here, version 3, 1,200 letters<td>341<td>24.9%<td><b>100%</b><td>3.49
+<tr><td>Here, version 3, 4,000 letters<td>1,151<td>27.5%<td><b>100%</b><td>3.46
+</table>
+
+<p><b>Just under half of the words in the 21,012-word palindrome are not words
+in that sense</b> &mdash; 47.6% of them. That is not a flaw in it. It is where
+the length comes from: <tt>PETN</tt>, <tt>ILGWU</tt>, <tt>Roydd</tt>,
+<tt>Aeniah</tt> and 126,342 entries of Moby are exactly the reversible material
+a search needs, and Norvig says so himself &mdash; <i>"there are 126,000 words
+in the dictionary, but only about 10% of them are easily reversible."</i> Every
+proper noun and abbreviation ruled out here is length given up on purpose.
+
+<p><b>And the column that does not flatter this method is the last one.</b>
+Mean word length is 3.09 letters for the search and about 3.5 for the
+composition, against 4.39 for English and 4.27 for Norvig's palindrome. His
+text uses words of roughly English length and they are mostly not English
+words; this one uses real words that are mostly short. Both are ways of being
+unlike English prose, and the second is not obviously the better one. The
+one- and two-letter share says the same thing: 22.9% for Norvig against 21.7%
+for English, which is to say his is normal, and version 1's 32.7% is not.
+
+<p><b>Speed:</b> The deployed search closes 1,010 letters in about 16 seconds
+and will run to any length asked of it; it does not read better at any of them.
+The composition answers in well under a second at any length, because the walk
+that found the material happened offline and took minutes on 32 cores.
+
+<h1>What This Does Not Claim</h1>
+
+<p>That the text is grammatical, that it has a subject a reader can name, or
+that it reads as prose rather than as sentences that happen to parse. Those
+need blind judging against salad and real-prose controls. Four automated
+proxies have been tried in this project and none has ever agreed with blind
+ranking, so they are not offered here as evidence.
+
+<p>Two things that were measured and came out against the method are recorded
+with the rest, because leaving them out is how the number above would become
+untrue:
+
+<ul>
+<li>Growing a palindrome by wrapping it in mirrored words works mechanically
+&mdash; 750 of 750 seeds grew, mean +36 letters &mdash; and two blind
+annotators, position balanced and in complete agreement, then preferred the
+ungrown seed on 20 of 20 pairs. Growth is a length hack. It is off by default.
+<li>Assembly guarantees that no <i>chunk</i> repeats, and that guarantee holds.
+It does not guarantee that no <i>sentence</i> repeats: punctuation is applied
+to the assembled run rather than per chunk, so two unrelated chunks holding the
+same short word run get cut into the same sentence. Past about 1,200 letters
+that happens nearly always.
+</ul>
+
+<p><hr>
+<table width="100%">
+<tr><td align=left>
+<a href="https://ericspencer.us">Eric Spencer</a>, 2026 &mdash; after
+<a href="https://www.norvig.com/palindrome.html">Norvig</a> and Hoey
+<td align="right"><a href="https://palindrome.ericspencer.us">See it run.</a>
+</table>
+</body>
+</html>

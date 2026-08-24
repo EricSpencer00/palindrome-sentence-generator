@@ -395,7 +395,7 @@ not the thing being built.
 
 `GET /api/v3/composition` returns one palindrome of a requested length, written
 out the way a person would write it. Read it at
-[palindrome.ericspencer.us/dev](https://palindrome.ericspencer.us/dev).
+[palindrome.ericspencer.us](https://palindrome.ericspencer.us).
 
     Deep, nam, ottoman a pat. Path submit a. Pop path submit. Pool a
     estimates. Set is levels. Sam a rest. Estimates pet set. A knock sir.

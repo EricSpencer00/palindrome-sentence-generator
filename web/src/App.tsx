@@ -84,7 +84,10 @@ type Result = Shape & {
 const PATH = typeof window !== "undefined"
   ? window.location.pathname.replace(/\/+$/, "") : ""
 const IS_V2 = PATH === "/v2"
-const IS_V3 = PATH === "/dev"
+/* v3 is the site now. `/dev` still answers because it is the URL that has been
+   shared, and v1 keeps `/v1` rather than being retired: it is the search, it is
+   what the paper is about, and it is what v3 has to be compared against. */
+const IS_V3 = PATH === "" || PATH === "/dev"
 const API = IS_V2 ? "/api/v2/generate" : "/api/generate"
 
 /* The length dial, which only v3 has: v1 and v2 stop when their budget runs
@@ -1040,7 +1043,8 @@ export default function App() {
               </button>
             </div>
             <p className="label text-center leading-relaxed">
-              reads the same backwards · gpt-2 on a local machine ·{" "}
+              reads the same backwards ·{" "}
+              {IS_V3 ? "composed on a local machine" : "gpt-2 on a local machine"} ·{" "}
               <a href="https://ericspencer.us" target="_blank" rel="noopener noreferrer"
                  className="underline decoration-from-font underline-offset-2 hover:text-signal">
                 ericspencer.us

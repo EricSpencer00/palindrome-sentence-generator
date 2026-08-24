@@ -60,13 +60,17 @@ type Result = Shape & {
 
 /* Which generator this page talks to.
  *
- * The site serves both at once: `/` is v1, which composes from single words,
- * and `/dev` is v2, which places whole attested sentences. They share the
- * frame contract, so the poster below draws either one without knowing which
- * it has — only the endpoint and the credit line differ. */
-const IS_DEV = typeof window !== "undefined"
-  && window.location.pathname.replace(/\/+$/, "") === "/dev"
-const API = IS_DEV ? "/api/v2/generate" : "/api/generate"
+ * This poster serves two: `/` is v1, which composes from single words, and
+ * `/v2` places whole attested sentences. They share the frame contract, so the
+ * poster below draws either one without knowing which it has — only the
+ * endpoint and the credit line differ.
+ *
+ * `/v2` was `/dev` until v4 took that path. The route moved rather than the
+ * page being deleted: it still works, and it is what v4 has to be compared
+ * against. `IS_V2` is the old `IS_DEV` under a name that says what it selects. */
+const IS_V2 = typeof window !== "undefined"
+  && window.location.pathname.replace(/\/+$/, "") === "/v2"
+const API = IS_V2 ? "/api/v2/generate" : "/api/generate"
 
 /* The paragraph. Letter-level: the LETTERS mirror, at paragraph length.
  *
@@ -635,7 +639,7 @@ export default function App() {
           previously ran under the footer, clipping the last sentence and pushing
           the caption off-screen, and the control sat hard on the viewport edge
           where a tap could not land. */}
-      {IS_DEV && (
+      {IS_V2 && (
         <div className="pointer-events-auto absolute inset-x-0 bottom-14 z-30 px-4 sm:bottom-8 sm:px-6">
           <div className="mx-auto flex max-w-3xl flex-col items-center gap-3">
             <button
@@ -675,10 +679,10 @@ export default function App() {
         </div>
       )}
 
-      {IS_DEV && (
+      {IS_V2 && (
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-30 px-4 pb-2 text-center">
           <p className="font-display text-[10px] uppercase tracking-[.14em] text-ink/40">
-            v2 · dev
+            v2
             {result?.attribution
               ? <> · quoted sentences from {result.attribution.source},{" "}
                   <a className="pointer-events-auto underline"

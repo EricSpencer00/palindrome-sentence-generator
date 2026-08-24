@@ -71,7 +71,9 @@ export default function DevV3() {
       .then((c: Composition) => { setComp(c); setBusy(false) })
       .catch((e) => {
         if (e.name === "AbortError") return
-        setError(String(e.message || e)); setComp(null); setBusy(false)
+        // Keep the text that is already there. A refused centre is a note
+        // about the box, not a reason to blank the page the visitor is reading.
+        setError(String(e.message || e)); setBusy(false)
       })
   }, [target, own])
 
@@ -97,11 +99,12 @@ export default function DevV3() {
     : comp.letters < 6000 ? 15
     : 12
 
-  /* The centre marked in signal, which is the one thing on this page worth a
-     second colour: it is where the visitor's own text goes, and it is the only
-     position that is not determined by another. */
+  /* Mark the centre in signal ONLY when it is the visitor's.
+     A centre the bank picked is not news — colouring it spends the page's one
+     accent on something nobody asked about, and then the colour means nothing
+     when it is used for the thing that was asked about. */
   const parts = useMemo(() => {
-    if (!comp) return null
+    if (!comp || !comp.centre_is_yours) return null
     const centre = comp.chunks.find((c) => c.role === "centre")
     if (!centre) return null
     const lets = (s: string) => s.toLowerCase().replace(/[^a-z]/g, "")

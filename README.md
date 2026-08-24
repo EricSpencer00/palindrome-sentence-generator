@@ -165,10 +165,12 @@ data/
   count_2w.txt, ngrams_wikitext2.json   corpora
   composed_sentences.json   compose.py output; no code path reads it
   authored_sentences.txt    148 authored halves; 12 mirror, none readably
+  v3_bank.json          540 verified palindromes v3 composes from — 499 ours
 
 server/
   app.py           v1 endpoints
   v2.py            v2 endpoints, incl. GET /api/v2/paragraph
+  v3.py            v3 endpoints, incl. GET /api/v3/composition
 training/          corpus, judge, inventory and lexicon builders
 experiments/       measurements quoted in this README and docs/training.md
 tests/             pytest suite
@@ -196,14 +198,22 @@ bigram coverage from 0.70 to 0.48 — locking two words together costs more at
 the seams than the internal join buys. Whole corpus SENTENCES do work, and are
 quotation: `server/v2.py` places them intact and attributes them.
 
-### Why: the mirror costs 3.3 bits per letter
+### Why: the mirror costs about 3 bits per letter
 
-Forward English scores 1.63 bits/letter. Reverse the letters of English, then
-re-segment them optimally into the vocabulary, and the result scores 4.92 —
-a **3.30 bits per free letter** cost, stable across span lengths and
-segmentation strategies. Every letter is placed twice and both halves must be
-English, so the coherent feasible set thins by roughly 10x every three letters
-added. That is why the human record contains no long palindrome that reads:
+Reverse the letters of English, re-segment them into the vocabulary, and score
+both readings under one model: the reversed one costs **2.2 to 3.6 bits per
+free letter** more, against the 1.4 to 1.9 bits per letter the same spans score
+read normally. `experiments/mirror_cost.py` sweeps four models, three
+segmentation objectives and six span lengths and writes the table; the range is
+the honest report, and the number is near 3 at the objective and lengths that
+matter. About half the letters of the reversed reading cannot be placed inside
+a real word at all, and no segmentation strategy improves that.
+
+Every letter is placed twice and both placements must be English, so the
+coherent feasible set thins by roughly **8 to 10x per letter added**. (Earlier
+versions of this file said 10x every three letters. That misreads the exponent:
+2^3.3 is the factor for one letter.) That is why the human record contains no
+long palindrome that reads:
 Norvig's 21,012-word one is a noun list its own author calls nonsense, and half
 the canonical palindromes are 12 to 17 letters.
 
@@ -263,7 +273,7 @@ centres, and filtering would return two sentences and call that a paragraph.
 
 ### Why sentences, and not the units everything else uses
 
-The mirror costs 3.296 bits per free letter, which forces units to be short.
+The mirror costs about 3 bits per free letter, which forces units to be short.
 Short units carry no subject, so nothing can be about anything — and for a long
 time that was read as the cost forbidding a through-line. It is not the cost.
 It is the length.
@@ -378,6 +388,55 @@ catalogued version reads better and is still one query parameter away
 (`?source=catalogue`), which is exactly the trade docs/NORTH-STAR.md refuses to
 take: a paragraph that reads well because somebody else wrote the sentences is
 not the thing being built.
+
+## v3
+
+`GET /api/v3/composition` returns one palindrome of a requested length, written
+out the way a person would write it. Read it at
+[palindrome.ericspencer.us/dev](https://palindrome.ericspencer.us/dev).
+
+    Deep, nam, ottoman a pat. Path submit a. Pop path submit. Pool a
+    estimates. Set is levels. Sam a rest. Estimates pet set. A knock sir.
+    Busy a snow. Order parts a: estimates dam pet. Snow order a.
+
+Three things separate it from what came before.
+
+**It does not search on request.** The good material comes from walks of
+millions of candidates that take minutes on 32 cores, so v3 composes from a
+bank found offline — 540 verified palindromes, 499 of them walked out by this
+project — and re-verifies every entry on load and again before answering.
+
+**Length is a parameter, not an outcome.** Mirror-pairs nest around a centre as
+`L1 L2 … C … R2 R1`, where each `Ri` is `Li`'s letters reversed and is
+therefore different text. A run of self-palindromic units cannot do this: the
+sequence of units would itself have to mirror, so every unit but the centre
+would appear twice. The bank holds about 14,500 letters of material and any
+length up to that is free.
+
+**The punctuation is free and it is chosen, not guessed.** Every way of cutting
+the word run into runs is scored, each run by the strongest Brown-tag test it
+passes, and the best total wins (`llm_palindrome/present.py`). `normalize`
+strips case, spaces and marks before the mirror is checked, which is the same
+licence the record takes when it writes "A man, a plan, a canal: Panama". The
+letters are asserted unchanged before the value leaves the process.
+
+`?grow=N` applies the wrap operations from `experiments/RESULTS-extend.md`.
+It is off by default: 750 of 750 seeds grew, mean +36 letters, and two blind
+annotators then preferred the ungrown seed on 20 of 20 pairs.
+
+### What v3 does not clear
+
+The name was reserved by docs/NORTH-STAR.md for the goal, and the endpoint
+having it does not mean the goal is met. Over 24 seeds a length
+(`experiments/RESULTS-north-star-v3.md`), v3 holds all six mechanical criteria
+at 400 letters bar sentence repetition (21/24) and disjoint halves (23/24), and
+repetition fails 23/24 by 1,200 letters. **No chunk ever repeats — that
+guarantee holds — but punctuation is applied to the assembled run rather than
+per chunk, so two unrelated chunks containing the same short word run are cut
+into the same sentence.** The assembly is sound and the presentation collides.
+
+Criteria 6–8 — grammatical, has a subject, reads as prose — need blind judging
+and are not claimed.
 
 ## Credit
 

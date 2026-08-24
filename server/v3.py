@@ -398,6 +398,8 @@ def composition(seed: Optional[int] = Query(None),
         raise HTTPException(status_code=500,
                             detail="presentation changed the letters")
 
+    from server.app import _shape
+
     texts = [c["text"] for c in layout]
     return {
         "version": 3,
@@ -412,6 +414,11 @@ def composition(seed: Optional[int] = Query(None),
         "distinct_chunks": len(set(texts)),
         "repeats": len(texts) - len(set(texts)),
         "centre_is_yours": centre["source"] == "yours",
+        # The same object v1 streams, built by the same function, so the poster
+        # draws a composition without knowing it is not watching a search.
+        # Imported here rather than at module scope: app.py imports this module.
+        "shape": _shape(words, " ".join(centre["words"])
+                        if centre["source"] == "yours" else ""),
         "notes": {
             "structure": "L1 L2 ... C ... R2 R1, where Ri is Li's letters "
                          "reversed and is therefore different text",

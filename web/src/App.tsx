@@ -931,8 +931,12 @@ export default function App() {
         )}
       </div>
 
+      {/* pb clears the whole bottom cluster, not just the buttons: the hint line
+          keeps its height when it is blank and the credits run to two lines on a
+          narrow screen, which together are taller than the fade and were leaving
+          the last line of prose readable underneath the controls. */}
       {view === "read" && result && (
-        <div className="absolute inset-0 overflow-y-auto overscroll-contain px-5 pb-32 pt-28">
+        <div className="absolute inset-0 overflow-y-auto overscroll-contain px-5 pb-44 pt-16">
           <p className="mx-auto max-w-[62ch] break-words text-left text-[15px] leading-[1.85] text-ink sm:text-base">
             {result.written ? result.written : <>
             {result.left.join(" ")}
@@ -952,6 +956,13 @@ export default function App() {
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-paper via-paper to-transparent" />
       )}
 
+      {/* The prompt is hidden in the read view rather than faded under it.
+          The block is as tall as the controls a version happens to have — v3
+          carries a length slider that v1 does not — so the prose's top padding
+          cannot be set to clear it, and the taller one was landing on the first
+          two lines. Nothing here is needed while reading, and "Poster" at the
+          bottom brings it all back. */}
+      {view !== "read" && (
       <div className="pointer-events-none absolute inset-x-0 top-0 grid place-items-center px-4 pt-6 sm:pt-10">
         <div className="pointer-events-auto flex w-full max-w-[34rem] flex-col gap-2"
              onClick={(e) => e.stopPropagation()}>
@@ -1003,6 +1014,7 @@ export default function App() {
           )}
         </div>
       </div>
+      )}
 
       {done && result && (
         <div className="absolute inset-x-0 bottom-0 grid place-items-center px-4 pb-5"

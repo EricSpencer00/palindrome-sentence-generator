@@ -65,8 +65,8 @@ type Result = Shape & {
  * poster below draws either one without knowing which it has — only the
  * endpoint and the credit line differ.
  *
- * `/v2` was `/dev` until v4 took that path. The route moved rather than the
- * page being deleted: it still works, and it is what v4 has to be compared
+ * `/v2` was `/dev` until v3 took that path. The route moved rather than the
+ * page being deleted: it still works, and it is what v3 has to be compared
  * against. `IS_V2` is the old `IS_DEV` under a name that says what it selects. */
 const IS_V2 = typeof window !== "undefined"
   && window.location.pathname.replace(/\/+$/, "") === "/v2"

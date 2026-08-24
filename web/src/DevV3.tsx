@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 
-/* /dev — the v4 reader.
+/* /dev — the v3 reader.
  *
  * `/` is the poster: it watches a search write a palindrome and the drama is
- * the writing. This page is the opposite and deliberately so. v4 does not
+ * the writing. This page is the opposite and deliberately so. v3 does not
  * search on request; it composes from a bank that was walked out offline and
  * is re-verified on load, so there is nothing to watch and the only thing
  * worth looking at is the text. It is therefore laid out as something to
@@ -93,7 +93,7 @@ function Stat({ k, v, tone }: { k: string; v: string; tone?: "signal" | "bad" })
   )
 }
 
-export default function DevV4() {
+export default function DevV3() {
   const [health, setHealth] = useState<Health | null>(null)
   const [comp, setComp] = useState<Composition | null>(null)
   const [loading, setLoading] = useState(true)
@@ -109,7 +109,7 @@ export default function DevV4() {
   const abort = useRef<AbortController | null>(null)
 
   useEffect(() => {
-    fetch("/api/v4/health")
+    fetch("/api/v3/health")
       .then((r) => (r.ok ? r.json() : null))
       .then(setHealth)
       .catch(() => setHealth(null))
@@ -127,7 +127,7 @@ export default function DevV4() {
       novel: String(novel),
       longest_first: String(longestFirst),
     })
-    fetch(`/api/v4/composition?${q}`, { signal: ac.signal })
+    fetch(`/api/v3/composition?${q}`, { signal: ac.signal })
       .then(async (r) => {
         if (!r.ok) throw new Error((await r.json().catch(() => ({}))).detail || `HTTP ${r.status}`)
         return r.json()
@@ -143,6 +143,21 @@ export default function DevV4() {
   useEffect(() => () => abort.current?.abort(), [])
 
   const verified = useMemo(() => (comp ? mirrors(comp.text) : false), [comp])
+
+  /* Repeated SENTENCES, which is not the same count as repeated chunks and is
+   * the one the north star asks for (criterion 4).
+   *
+   * The endpoint guarantees no chunk appears twice, and that guarantee holds.
+   * But the punctuation is applied to the assembled word run, not per chunk,
+   * so two different chunks that happen to contain the same short word run get
+   * cut into the same sentence — "bar a met" turns up in four unrelated chunks
+   * at 4,000 letters. Reporting only the chunk count would let the page imply a
+   * property it does not have. */
+  const dupSentences = useMemo(() => {
+    if (!comp) return 0
+    const said = comp.text.split(".").map((s) => s.trim().toLowerCase()).filter(Boolean)
+    return said.length - new Set(said).size
+  }, [comp])
 
   const copy = useCallback(async () => {
     if (!comp) return
@@ -171,7 +186,7 @@ export default function DevV4() {
         <header className="flex flex-col gap-3">
           <div className="flex items-baseline gap-3">
             <span className="slab rounded-[3px] bg-signal px-2 py-1 font-display text-[10px] font-bold uppercase tracking-[.16em] text-paper">
-              v4 · dev
+              v3 · dev
             </span>
             <a href="/" className="label hover:text-ink">← the poster</a>
           </div>
@@ -269,7 +284,7 @@ export default function DevV4() {
         {/* ---------------------------------------------------------- stats */}
         {comp && (
           <div className="flex flex-col gap-4">
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-5">
               <Stat k="Letters" v={comp.letters.toLocaleString()} />
               <Stat k="Words" v={comp.words.toLocaleString()} />
               <Stat k="Mirror-pairs" v={String(comp.pairs)} />
@@ -277,6 +292,10 @@ export default function DevV4() {
                 k="Repeated chunks"
                 v={String(comp.repeats)}
                 tone={comp.repeats ? "bad" : undefined} />
+              <Stat
+                k="Repeated sentences"
+                v={String(dupSentences)}
+                tone={dupSentences ? "bad" : undefined} />
             </div>
 
             {/* Checked here, in the browser, on the punctuated string that is
@@ -309,6 +328,18 @@ export default function DevV4() {
             Structure: L1 L2 … C … R2 R1, where each Ri is Li's letters reversed and is
             therefore different text. A run of self-palindromic units would have to repeat
             itself; this does not.
+          </p>
+          {/* The name is the north star's, so what it does and does not yet
+              clear belongs on the page rather than in a document nobody opens.
+              Criteria 6, 7 and 8 need blind judging and are not claimed here at
+              all — four automated proxies have disagreed with blind ranking in
+              this project and none has ever agreed. */}
+          <p className="font-mono text-[11px] text-ash">
+            Against <span className="text-ink">docs/NORTH-STAR.md</span>, measured over 24 seeds
+            a length: the six mechanical criteria all hold at 400 letters except sentence
+            repetition (21/24) and disjoint halves (23/24), and repetition fails almost
+            always past 1,200. Grammaticality, subject and coherence need blind judging and
+            are not claimed.
           </p>
         </footer>
       </div>

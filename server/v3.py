@@ -1,6 +1,6 @@
-"""v4: one palindrome, made of real words, assembled from chunks.
+"""v3: one palindrome, made of real words, assembled from chunks.
 
-What v4 serves and why it is shaped this way
+What v3 serves and why it is shaped this way
 --------------------------------------------
 One generation. Not a paragraph, not a stream — a single palindrome, written
 out the way a person would write it, with the chunks it was assembled from
@@ -30,7 +30,7 @@ published, and it is off unless asked for.
 The corpus is verified, not generated on demand
 -----------------------------------------------
 Serving requires a palindrome now, and the good material comes from walks of
-millions of candidates that take minutes on 32 cores. So v4 serves from a bank
+millions of candidates that take minutes on 32 cores. So v3 serves from a bank
 that was found offline and is verified again on load and on every request. Two
 sources, and the response says which:
 
@@ -41,6 +41,32 @@ sources, and the response says which:
 `novel=true` restricts to the first, which is the honest default: a paragraph
 that reads well because somebody else wrote the sentences is the shortcut
 `docs/NORTH-STAR.md` exists to name.
+
+What the name does and does not claim
+-------------------------------------
+`docs/NORTH-STAR.md` reserved "v3" for the goal — v1's structure with v2's
+readability — before any code carried it. This module now carries it, so what
+it clears has to be written down beside it rather than inferred from the
+number. Measured over 24 seeds at each length (`experiments/RESULTS-north-star-v3.md`):
+
+    letters      c1    c2    c3     c4     c5     c9
+    400        24/24 24/24 24/24  21/24  23/24  24/24
+    1,200      24/24 24/24 24/24   1/24  22/24  24/24
+    4,000      24/24 24/24 24/24   0/24  11/24  24/24
+    14,500     24/24 24/24 14/24   0/24   0/24  24/24
+
+Criterion 4 — no sentence repeats — is the one that fails, and it fails for a
+reason that is worth stating precisely: **no CHUNK ever repeats, and that is
+not the same property.** Punctuation is applied to the assembled word run
+rather than per chunk, so two unrelated chunks containing the same short word
+run get cut into the same sentence; `bar a met` turns up in four of them at
+4,000 letters. The assembly is sound and the presentation collides, which
+means the fix belongs in `present.py` or in the chunk selection, not here.
+
+Criteria 6, 7 and 8 — grammatical, has a subject, reads as prose — are NOT
+claimed. They need blind judging with salad and real-prose controls. Four
+automated proxies have disagreed with blind ranking in this project and none
+has ever agreed on it.
 """
 from __future__ import annotations
 
@@ -59,12 +85,12 @@ from llm_palindrome.present import present
 from llm_palindrome.shortwords import is_real_short
 from llm_palindrome.validator import is_palindrome, normalize
 
-router = APIRouter(prefix="/api/v4")
+router = APIRouter(prefix="/api/v3")
 
-BANK_PATH = os.environ.get("PALINDROME_V4_BANK", "data/v4_bank.json")
-MIN_LETTERS = int(os.environ.get("PALINDROME_V4_MIN", "16"))
+BANK_PATH = os.environ.get("PALINDROME_V3_BANK", "data/v3_bank.json")
+MIN_LETTERS = int(os.environ.get("PALINDROME_V3_MIN", "16"))
 # What production announces: server/app.py plans for 3 * LENGTH_FLOOR letters.
-TARGET_LETTERS = int(os.environ.get("PALINDROME_V4_TARGET", "1200"))
+TARGET_LETTERS = int(os.environ.get("PALINDROME_V3_TARGET", "1200"))
 
 _bank: list[dict] = []
 _tables = None
@@ -347,7 +373,7 @@ def composition(seed: Optional[int] = Query(None),
 
     texts = [c["text"] for c in layout]
     return {
-        "version": 4,
+        "version": 3,
         "text": written,
         "plain": text,
         "letters": len(normalize(text)),
@@ -406,7 +432,7 @@ def palindrome(seed: Optional[int] = Query(None, description="fix the choice"),
         raise HTTPException(status_code=500, detail="presentation changed the letters")
 
     return {
-        "version": 4,
+        "version": 3,
         "text": written,
         "plain": text,
         "letters": len(normalize(text)),
@@ -437,7 +463,7 @@ def health():
                      if (g := harvest_pair(r["words"]))]
             caps["novel" if novel else "all"] = {
                 "pairs": len(pairs), "max_letters": capacity(pairs)}
-    return {"ok": _load_error is None, "version": 4,
+    return {"ok": _load_error is None, "version": 3,
             "bank": len(_bank),
             "generated": sum(1 for r in _bank if r["source"] == "generated"),
             "catalogue": sum(1 for r in _bank if r["source"] == "catalogue"),

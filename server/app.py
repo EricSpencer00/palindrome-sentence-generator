@@ -50,8 +50,10 @@ app = FastAPI(title="palindrome")
 # through the same Pages proxy, so serving the new generator costs no new
 # hostname, no new tunnel, and nothing on the v1 path changes.
 from server.v2 import router as v2_router  # noqa: E402  (after app exists)
+from server.v4 import router as v4_router  # noqa: E402
 
 app.include_router(v2_router)
+app.include_router(v4_router)
 
 _tries: Optional[WordTries] = None
 _bigrams: Optional[BigramModel] = None

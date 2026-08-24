@@ -289,11 +289,11 @@ export default function DevV3() {
               <Stat k="Words" v={comp.words.toLocaleString()} />
               <Stat k="Mirror-pairs" v={String(comp.pairs)} />
               <Stat
-                k="Repeated chunks"
+                k="Chunk repeats"
                 v={String(comp.repeats)}
                 tone={comp.repeats ? "bad" : undefined} />
               <Stat
-                k="Repeated sentences"
+                k="Sentence repeats"
                 v={String(dupSentences)}
                 tone={dupSentences ? "bad" : undefined} />
             </div>

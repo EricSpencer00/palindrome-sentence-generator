@@ -1,0 +1,68 @@
+#!/bin/bash -l
+#PBS -N pal-yield
+# Scheduler account configured by submitter.
+#PBS -q debug
+#PBS -l select=1:system=polaris
+#PBS -l place=scatter
+#PBS -l walltime=00:55:00
+#PBS -l filesystems=home
+#PBS -j oe
+#PBS -o ${PALINDROME_REPO}/logs/
+
+# Yield of readable palindromes at 27+ letters, by vocabulary size.
+#
+# Debug queue: 1 node, under an hour, ~1 node-hour against PROJECT_ACCOUNT. The work is a
+# trie walk; the A100s are idle and that is intended.
+#
+# Each (vocabulary, band) cell gets the whole machine in turn rather than
+# splitting the machine across cells, because the cells have very different
+# costs and the wide-vocabulary one is the whole reason for the job.
+
+set -euo pipefail
+
+REPO=${PALINDROME_REPO}
+OUT=$REPO/runs/yield_$(date +%Y%m%d_%H%M%S)
+mkdir -p "$OUT" "$REPO/logs"
+
+cd "$REPO"
+export PYTHONPATH="$REPO:${PYTHONPATH:-}"
+export PYTHONUNBUFFERED=1
+
+# One node, not two. The debug queue's whole capacity IS two nodes, so a
+# two-node request can only run when the partition is completely empty, and it
+# waits behind every one-node job. Polaris gives 32 physical cores a node.
+NRANKS=32
+PPN=32
+
+# The OS python3 on Polaris is 3.6, which predates the syntax this code uses.
+# 3.11 ships in the same image, so it needs no module load on the compute nodes.
+PY=/usr/bin/python3.11
+echo "host=$(hostname) nodes=$(wc -l < "$PBS_NODEFILE") out=$OUT"
+$PY -V
+
+# Per-cell wall-clock, chosen so all five finish inside the 55 minute request
+# with room for startup. The walk stops on whichever of deadline or node
+# budget arrives first.
+run_cell () {
+  local vocab=$1 lo=$2 hi=$3 secs=$4
+  echo "=== vocab=$vocab band=$lo-$hi secs=$secs ==="
+  mpiexec -n $NRANKS --ppn $PPN --cpu-bind depth -d 1 \
+    $PY tools/polaris/shard_yield.py \
+      --vocab "$vocab" --lo "$lo" --hi "$hi" \
+      --seconds "$secs" --shards $NRANKS --out-dir "$OUT" \
+    || echo "cell vocab=$vocab band=$lo-$hi returned $?"
+}
+
+# The comparison the job exists for: one band, three vocabularies.
+run_cell  1200 27 31 420
+run_cell  6000 27 31 420
+run_cell 28402 27 31 420
+
+# And whether a vocabulary that can express the record reaches further.
+run_cell 28402 32 36 420
+run_cell 28402 37 41 420
+
+echo "=== done ==="
+ls -1 "$OUT" | wc -l
+cat "$OUT"/summary_*.json > "$OUT/summaries.jsonl" 2>/dev/null || true
+wc -l "$OUT"/*.jsonl 2>/dev/null | tail -5 || true

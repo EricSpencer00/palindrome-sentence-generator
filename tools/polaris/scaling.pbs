@@ -1,0 +1,63 @@
+#!/bin/bash -l
+#PBS -N pal-scale
+# Scheduler account configured by submitter.
+#PBS -q debug
+#PBS -l select=1:system=polaris
+#PBS -l place=scatter
+#PBS -l walltime=00:55:00
+#PBS -l filesystems=home
+#PBS -j oe
+#PBS -o ${PALINDROME_REPO}/logs/
+
+# Two exponents and one hunt.
+#
+# Job 7553051 gave throughput proportional to 1/V across two steps, exponent
+# +1.02 and +1.05, and a yield falling about 1.7x per letter. Three points is
+# enough to suggest a law and not enough to state one, so the first block fills
+# in the vocabulary ladder at a fixed band. The second block spends most of the
+# hour where long palindromes are actually affordable.
+#
+# The mid vocabulary carries the hunt rather than the widest one. At 28,402
+# words throughput is 5.9 completions per core-second against 30 at 6,000, and
+# the per-draw yield is only 1.3x better, so the wide vocabulary is the wrong
+# instrument for anything that needs volume.
+
+set -euo pipefail
+
+REPO=${PALINDROME_REPO}
+OUT=$REPO/runs/scale_$(date +%Y%m%d_%H%M%S)
+mkdir -p "$OUT" "$REPO/logs"
+cd "$REPO"
+export PYTHONPATH="$REPO:${PYTHONPATH:-}"
+export PYTHONUNBUFFERED=1
+
+PY=/usr/bin/python3.11
+NRANKS=32
+PPN=32
+
+echo "host=$(hostname) out=$OUT"; $PY -V
+
+run_cell () {
+  local vocab=$1 lo=$2 hi=$3 secs=$4
+  echo "=== vocab=$vocab band=$lo-$hi secs=$secs ==="
+  mpiexec -n $NRANKS --ppn $PPN --cpu-bind depth -d 1 \
+    $PY tools/polaris/shard_yield.py \
+      --vocab "$vocab" --lo "$lo" --hi "$hi" \
+      --seconds "$secs" --shards $NRANKS --out-dir "$OUT" \
+    || echo "cell vocab=$vocab band=$lo-$hi returned $?"
+}
+
+# Block 1: the vocabulary exponent. Fixed band, five points spanning 48x, at a
+# short budget each because throughput is what is being measured and it is
+# visible immediately.
+for V in 600 2400 4800 9600 19200; do
+  run_cell "$V" 27 31 180
+done
+
+# Block 2: the length ladder at the vocabulary that can afford volume.
+run_cell 6000 32 36 900
+run_cell 6000 37 41 700
+
+echo "=== done ==="
+cat "$OUT"/summary_*.json > "$OUT/summaries.jsonl" 2>/dev/null || true
+wc -l "$OUT"/*.jsonl 2>/dev/null | tail -3 || true

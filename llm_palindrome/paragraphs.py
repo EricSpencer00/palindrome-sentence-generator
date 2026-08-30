@@ -1,7 +1,8 @@
 """Paragraph-length palindromes, assembled from short units.
 
-The mirror costs 3.296 bits per free letter (measured, stable across span
-lengths), which is why every attempt at paragraph-length palindromic PROSE in
+The mirror costs about 3 bits per free letter (`experiments/mirror_cost.py`;
+2.2 to 3.6 across models, segmentation objectives and span lengths), which is
+why every attempt at paragraph-length palindromic PROSE in
 this repository produced English glued to gibberish: past ~30 letters the
 coherent feasible set of free-running text is effectively empty, and no scorer
 can select what does not exist.

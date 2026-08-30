@@ -115,6 +115,15 @@ def present(words: Sequence[str], table=None, shapes=None, trigrams=None) -> str
     out: list[str] = []
     colon_used = False
     start_of_sentence = True
+    # Runs accumulated since the last full stop, and the sentences already
+    # emitted. Two unrelated chunks elsewhere in the text can contain the same
+    # short word run, so cutting purely on tier repeats sentences even when no
+    # chunk repeats — criterion 4 in docs/NORTH-STAR.md, measured failing in
+    # experiments/RESULTS-north-star-v3.md. A cut that would close a sentence
+    # already used is refused and the run is absorbed into the current one
+    # instead, which changes only where the marks fall.
+    pending: list[str] = []
+    used: set[str] = set()
     for idx, (run, tier) in enumerate(runs):
         last = idx == len(runs) - 1
         # period=False because this function picks the mark. `spell` also
@@ -131,7 +140,18 @@ def present(words: Sequence[str], table=None, shapes=None, trigrams=None) -> str
             mark, colon_used = ":", True
         else:
             mark = ","
+        if mark == "." and not last:
+            candidate = normalize(" ".join(pending + [text]))
+            if candidate in used:
+                mark = ","
         out.append(text + mark)
+        pending.append(text)
+        if mark in ".!?":
+            # The last run of a sentence carries the mark, so the sentence key
+            # is built from the unmarked texts. A duplicate can still land here
+            # on the final run, where there is no later cut to defer to.
+            used.add(normalize(" ".join(pending)))
+            pending = []
         start_of_sentence = mark in ".!?"
 
     result = " ".join(out)

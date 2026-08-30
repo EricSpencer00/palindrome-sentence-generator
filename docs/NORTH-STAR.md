@@ -29,15 +29,21 @@ fragments.
 **v3 is both at once.** v1's structure with v2's readability, and neither one
 purchased by giving up the other.
 
-**A `/api/v3` endpoint now exists and the name is therefore ambiguous — read
-this paragraph before treating one as the other.** `server/v3.py` composes from
+**`/api/v3` is the endpoint's name and this document's `v3` is the goal.**
+There was never a v4; v3 was the next number free, so the endpoint took it. The
+two meanings sit side by side on purpose: reaching the goal is not what shipping
+the endpoint did. `server/v3.py` composes from
 a bank of verified mirror-pairs and writes the result out with punctuation, and
 it is the attempt at the goal above, not the achievement of it. Measured, 24
-seeds a length (`experiments/RESULTS-north-star-v3.md`): it clears all six
-mechanical criteria at 400 letters except sentence repetition, 21/24, and
-disjoint halves, 23/24; repetition fails 23/24 by 1,200 letters and always
-past that. Criteria 6–8 are not claimed at all. The goal is what this document
-says; the endpoint is a version number.
+seeds a length (`experiments/RESULTS-north-star-v3.md`): it clears five of the
+six mechanical criteria at every length from 400 to 14,500 letters, and fails
+criterion 3 at full capacity, 13/24, because with the bank exhausted short
+self-palindromic sentences survive the cut. Sentence repetition and disjoint
+halves used to fail badly and no longer do; both were one presentation bug.
+Criteria 6–8 are not claimed at all, and `experiments/RESULTS-seams.md` is
+evidence against them: blind judging prefers a single chunk to a nest at the
+very first seam, 14/14. The goal is what this document says; the endpoint is a
+version number.
 
 ## Acceptance criteria
 
@@ -81,6 +87,17 @@ score improved 0.58 under guards and was invisible to a blind judge. Cohesion
 disagreed with blind judging; none has ever agreed on ranking. Proxies may
 filter and may propose. They may not decide.
 
+A fifth has now been tested and the rule survives with a caveat worth keeping
+(`experiments/RESULTS-llm-judge.md`). `gpt-oss` at 20b and 120b has full power
+— prose against its own shuffle, 12/12, matching the human judges — and
+reproduces one human verdict at 32–33/40. Asked *pairwise*, it inverts on the
+seam comparison: 20b prefers the eight-chunk nest 12 times in 14 with perfect
+self-agreement, where blind judging is 14/14 the other way. Asked for an
+*absolute* score it recovers the right ordering, chunk > k2 > k4 > k8 down to
+the shuffle floor, identically at both model sizes. So an absolute LLM score is
+a usable filter and is still not a decider, and pairwise LLM preference on this
+material is not usable at all.
+
 **Borrowed material presented as generated** (current). Every readable unit in
 v2 is a catalogued palindrome. The assembly is ours; the sentences are the
 record's. Criterion 9.
@@ -120,6 +137,27 @@ of two- and three-word sentences —
 by people who had the whole language to search and no deadline. That is not a
 reason to serve it. Criterion 9 is a criterion, and a paragraph that reads well
 because somebody else wrote it is the shortcut this document exists to name.
+
+**Some of it is our punctuation, not our search** (current, measured 25 August
+2026). The same 26 catalogued palindromes, identical letters, only the marks
+varying, scored by two judges: hand-punctuated 1.81 / 2.23, *no punctuation at
+all* 0.96 / 1.58, `present.py` 0.50 / 0.88. Paired by text, hand beats the
+presenter 21–5–0 and 23–3–0 — it never loses. The shipped presenter is below
+plain spacing on both, so it is worse than doing nothing, because `segment`
+adds a fixed gain per run and so buys fragments:
+`A man, a plan, a canal: Panama` comes out as `A, man a plan. A canal panama`.
+Weighting the gain by run length is worth +0.38 / +0.43 and still does not beat
+bare spacing on either judge.
+
+**What does work is doing it afterwards.** `present.py` decides where the
+sentences fall AND prints the marks; only the second job is needed. Hand the
+finished word run to a model with one instruction — add marks, change no
+letter — and it beats bare spacing by +0.77 / +0.88 and lands within 0.23 of
+hand punctuation, with 52 of 52 replies leaving the letters untouched, so the
+mirror is never at risk (`experiments/punct_after.py`). Punctuation is a
+display decision. Putting it inside the search was the mistake. Comparisons where both sides were presented are unaffected, so the
+seam result stands; every absolute statement about how our output reads has
+been measuring the presenter as well as the search.
 
 The remaining three are one problem, not three: units long enough to be
 sentences. Everything in "what the constraint actually costs" is about why that
@@ -205,10 +243,12 @@ is how the last three shortcuts got taken.
 `experiments/north_star_v3.py` runs the same six against `/api/v3` at four
 lengths, with v2 as the control in the same output. It is a script rather than
 a test because the answer is a table that varies with length, and a pass/fail
-at one length would hide the shape: v3 holds the structure at 400 letters and
-loses it by 1,200, and it loses it in the presentation rather than in the
-assembly — no chunk ever repeats, but two unrelated chunks get cut into the
-same sentence.
+at one length would hide the shape: v3 lost the structure by 1,200
+letters, in the presentation rather than in the assembly — no chunk ever
+repeated, but two unrelated chunks were cut into the same sentence. `present.py`
+now refuses a cut that closes a sentence already used, and criteria 4 and 5
+hold at every length; criterion 3 still goes at full capacity, which is a
+material shortage rather than a presentation fault.
 
 Criteria 6–8 need a blinded batch with real-prose and salad controls. They
 cannot be automated and must not be replaced by a proxy that can.

@@ -78,7 +78,7 @@ def main() -> None:
     print(f"  {'letters':>8}  {head}")
     for letters in LENGTHS:
         rows = [check(v3.composition(seed=s, letters=letters, chops=None,
-                                     longest_first=False, novel=True)["text"])
+                                     longest_first=False, centre="", novel=True)["text"])
                 for s in range(args.seeds)]
         print(f"  {letters:>8}  {tally(rows)}")
 
@@ -88,7 +88,7 @@ def main() -> None:
           "CHUNK count, and it is zero throughout")
     for letters in LENGTHS[:3]:
         comp = v3.composition(seed=0, letters=letters, chops=None,
-                              longest_first=False, novel=True)
+                              longest_first=False, centre="", novel=True)
         dup = repeated_sentences(comp["text"])
         print(f"  letters={letters:>6}  chunks_repeated={comp['repeats']}  "
               f"sentence_types_repeated={len(dup)}  "

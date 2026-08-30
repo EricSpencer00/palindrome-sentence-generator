@@ -392,7 +392,10 @@ a different instrument.
 What survives the constraint:
 
 - **Exhaustive enumeration of the short regime.** At ≤28 letters the space is
-  walkable — 2.55M distinct palindromes in a 30-minute 32-way walk on Polaris
+  productive — 2.55M distinct palindromes in a 30-minute 32-way walk on
+  Polaris. Not *walkable*: `experiments/regime_boundary.py` shows the space is
+  never exhausted above ~16 letters even at a 60-word vocabulary, so 2.55M is
+  a yield and not a census
   — and best-of-ALL beats best-of-N over any beam pool, because there is no
   proposal distribution for the oracle bound to apply to. Yield includes
   novel classics-register sentences ("non academia aimed a canon", 22
@@ -488,7 +491,7 @@ That reading was wrong, and the error is worth stating precisely because it
 survived roughly forty iterations. The cost does force units to be short. Short
 units carry no subject. What does not follow — and what was assumed — is that
 palindromic units must be short. Whole self-palindromic SENTENCES pay exactly
-the same 3.296 bits per free letter and carry subjects perfectly well.
+the same price per free letter and carry subjects perfectly well.
 
 The evidence that settled it, all blinded against real-prose and word-salad
 controls:

@@ -1,0 +1,624 @@
+\documentclass[11pt]{article}
+
+% ---------------------------------------------------------------------------
+% ACL style if it is available, a plain fallback if it is not, so the draft
+% compiles anywhere. Fetch the real files before submitting:
+%   curl -O https://raw.githubusercontent.com/acl-org/acl-style-files/master/acl.sty
+%   curl -O https://raw.githubusercontent.com/acl-org/acl-style-files/master/acl_natbib.bst
+% Page limits only mean anything under the real style.
+% ---------------------------------------------------------------------------
+\IfFileExists{acl.sty}{%
+  \usepackage[review]{acl}%
+  \newcommand{\stylenote}{}%
+}{%
+  \usepackage[letterpaper,margin=1in]{geometry}%
+  \usepackage{natbib}%
+  \usepackage{lineno}\linenumbers%
+  \setcitestyle{authoryear,round}%
+  \newcommand{\stylenote}{\begin{center}\footnotesize\textcolor{red}%
+    {Draft built without \texttt{acl.sty}. Layout and page count are not
+     representative.}\end{center}}%
+}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\IfFileExists{microtype.sty}{\usepackage{microtype}}{}
+\IfFileExists{inconsolata.sty}{\usepackage{inconsolata}}{}
+\usepackage{xcolor}
+
+% ---------------------------------------------------------------------------
+% Provenance markers. \unver{} wraps a number that is recorded in the
+% repository but not yet produced by a script; \tk{} wraps a number that does
+% not exist yet. Set \provenancefalse before submission and fix every hit.
+% ---------------------------------------------------------------------------
+\newif\ifprovenance\provenancetrue
+\newcommand{\unver}[1]{\ifprovenance\textcolor{orange}{#1}\else#1\fi}
+\newcommand{\tk}[1]{\ifprovenance\textcolor{red}{[TK: #1]}\else#1\fi}
+
+\title{Pricing a Character-Level Constraint in Bits per Free Letter}
+
+\author{Anonymous submission}
+
+\begin{document}
+\maketitle
+\stylenote
+
+\begin{abstract}
+Work on constrained generation reports how often a constraint is satisfied and
+how fluent the result is. It does not report what the constraint costs. We
+price one constraint in bits. Under a fixed language model and vocabulary,
+forward English scores \unver{1.63} bits per letter; the same letters reversed
+and re-segmented optimally into that vocabulary score \unver{4.92}. A
+character-level palindrome constraint therefore costs \unver{3.30} bits per
+free letter. Each letter is placed twice and both placements must be English,
+so the set of sequences that read in both directions thins by roughly an order
+of magnitude per free letter, which predicts where readable output stops. We
+test the prediction with seven construction routes: beam search with
+language-model scoring, exhaustive enumeration of the short regime, mining
+attested corpus $n$-grams, closed-form reversible-word chains, model authoring,
+authoring one half and segmenting the other, and a sharded vocabulary walk.
+They stop in the same region. Of 34{,}688 attested four-grams, none has a
+mirror whose two halves both read, and a strict rubric calibrated to accept
+real prose and reject word salad passes 0 of 170 units drawn from five
+independently selected populations. Four automatic proxies were sound as
+filters and failed as rankers.
+\end{abstract}
+
+\section{Introduction}
+
+Long palindromes do not read. Norvig's record-length palindrome is a list of
+nouns its author describes as nonsense, half the canonical short palindromes
+run between 12 and 17 letters, and \citet{papadopoulos2015} note in passing
+that long palindromes tend to be less meaningful than short ones. The
+observation is old and repeated. It has not been attached to a number, so it
+functions as a fact about a genre rather than as a quantity that predicts
+anything or transfers to another constraint.
+
+We measure it. A palindrome of $2k$ letters has $k$ free letters: the second
+half is the first half reversed, so each letter is chosen once, placed twice,
+and the two placements segment into unrelated words. That yields an estimator.
+Score English forward under a language model and a vocabulary; reverse the same
+letters, re-segment them optimally into the same vocabulary, and score the
+result. The difference is what the constraint charges per free letter. Under
+GPT-2 small \citep{radford2019}, forward English scores \unver{1.63} bits per
+letter and the reversed, re-segmented text scores \unver{4.92}, giving
+\unver{3.30} bits per free letter, stable across span lengths and segmentation
+strategies. Read as a rate, that is a factor of about ten per free letter: the
+set of letter sequences that read as English in both directions thins
+geometrically in length.
+
+The palindrome is a more useful instrument than its reputation suggests,
+because it is cheap to satisfy and expensive to satisfy well. It is cheap to
+satisfy because the constraint has a sufficient statistic that makes it
+checkable incrementally. In a two-sided construction, one half owes the other a
+run of letters, the \emph{overhang}. A word added on the left must match the
+overhang forwards; a word added on the right must match it reversed; the text
+closes when the overhang is itself a palindrome. The search is Norvig's
+\citeyearpar{norvig2002}, building on Hoey's 1984 program, and our contribution
+sits above it rather than in it. What the search buys is that validity comes
+from the search and not from the model. Every candidate returned in every
+configuration we ran was a valid palindrome: 12 of 12 and 24 of 24 at the
+matched budgets used for language-model ablations, and 200 of 200 at each of
+five settings of the beam's exploration parameter. A model in this pipeline
+cannot make the output invalid and cannot make it valid. It can only make the
+output more or less readable. Benchmarks in which the model enforces the
+constraint cannot separate those two axes, because a satisfaction gain and a
+fluency gain arrive together.
+
+We tested the prediction from seven directions, chosen so that they would fail
+for different reasons if they failed. Mining 272k attested bigrams yields 3{,}894
+mirror-pairs, of which 131 have both halves attested; at three-word halves, 27;
+at four-word halves, where prose would begin, 0 from 34{,}688 attested
+four-grams. Of 148 authored sentences, 12 have any spellable mirror and none
+whose mirror reads. In the 40--60 letter band, 880k closures produced none
+within three unattested joins of reading. Under a rubric calibrated to accept
+real prose 5/5 and reject word salad 0/5, five independently selected
+populations drawn from an exhaustive walk of 2.55M short palindromes passed 0
+of 170. The system does not produce coherent novel palindromic prose. Its
+readable output is assembled from catalogued palindromes, and its fully
+generated mode returns two- and three-word fragments.
+
+Two further results come from the same measurements. Ranking is where the
+automatic signals break: four proxies were each checked against blinded
+judgment with real-prose and word-salad controls, and each was usable as a
+filter and unusable as a ranker, the language-model proxy on three separate
+occasions. The proxies are also gameable in ways that a check against a
+stronger model does not catch. Optimising a per-letter-normalised
+language-model score gained 0.298 while the same texts scored 0.673 worse per
+token, losing 24 of 24 paired seeds, because the policy had found longer words
+rather than better text.
+
+Our contributions are:
+
+\begin{enumerate}
+\itemsep0em
+\item A price for a formal textual constraint, in bits per free letter, with an
+estimator that reimplements in a page of code, and its stability across span
+lengths and segmentation strategies (\S\ref{sec:cost}).
+\item A ceiling derived from that price and tested from seven construction
+routes, with the negative results reported in full (\S\ref{sec:ceiling}).
+\item A separation between the filter role and the ranker role of proxy
+metrics, with blinded judgment on both sides and two demonstrated gaming modes
+(\S\ref{sec:eval}).
+\item Artifacts: mined mirror-pairs with attestation flags, judged
+self-palindromic centres, catalogued palindromes stored with their spelling,
+generated novel pairs, and a nine-criterion conjunctive task definition whose
+test suite fails by design (Appendix~\ref{app:artifacts}).
+\end{enumerate}
+
+The estimator does not depend on anything specific to mirrors, which is the
+reason to care about it without caring about palindromes. Any formal constraint
+that restricts which strings are admissible has a price in the same units,
+obtained the same way: score the unconstrained text, score the constrained text
+under the same model and vocabulary, take the difference per unit of free
+choice. A lipogram removes letters from the alphabet and its price is the
+entropy of what was removed. A rhyme scheme constrains line-final words and its
+price is per rhymed position. Meter, acrostics, and output-format grammars such
+as a JSON schema restrict the continuation set at every step and admit the same
+arithmetic. Format restrictions are already known to degrade model reasoning
+\citep{tam2024}; what has been missing is a way to say by how much, in units
+that compare across constraints. The palindrome is the case where the
+arithmetic can be validated, because the constraint is severe enough that the
+ceiling is reachable with a laptop and a dictionary.
+
+\section{Related work}
+
+\paragraph{Palindrome generation.}
+The closest prior work is \citet{papadopoulos2015}, which gives a graph
+structure that enumerates \emph{all} palindromes obtainable from an $n$-gram
+corpus in time linear in the size of the structure, handles the simultaneous
+character-level and word-level coupling that makes the constraint awkward to
+express, and steers output semantically by biasing word probabilities from an
+auxiliary corpus. Their contribution is completeness: given a corpus, the
+reachable set is characterised and can be walked. We take that as given and ask
+a question they do not address. Their completeness result strengthens our
+negative results rather than weakening them. If the reachable set can be
+enumerated in full, a search that finds nothing readable is reporting a
+property of the space rather than a failure of the search, and our exhaustive
+walk of 2.55M short palindromes with 0 of 170 strict passes is the empirical
+form of that argument. Their semantic steering is a \emph{ranking} method over
+the enumerated set, and ranking is where our proxy audit finds automatic
+signals fail on this material. The two results are complementary: theirs says
+what is reachable, ours says what reaching it costs. The algorithmic ancestor
+of our search is \citet{norvig2002}, building on Hoey's 1984 program;
+\citet{cppgm2020} generate Chinese palindrome poetry under a different
+constraint at a different level.
+
+\paragraph{Constrained decoding.}
+Lexically constrained decoding enforces membership constraints during search
+\citep{hokamp2017,post2018}, and NeuroLogic \citep{lu2021} extends this to
+predicate logic over lexical constraints, with lookahead heuristics added in
+NeuroLogic A*esque \citep{lu2022}. The lookahead framing is the nearest
+analogue to our overhang trie. COLD \citep{qin2022} treats the problem as
+energy-based sampling. Grammar- and automaton-constrained decoding
+\citep{willard2023,beurerkellner2024} enforces formal languages, and
+grammar-aligned decoding \citep{park2024} shows that the naive form distorts
+the model distribution rather than conditioning on it. Sequential Monte Carlo
+steering \citep{lew2023,loula2025} gives the principled route to conditioning
+on a hard constraint. We discuss in \S\ref{sec:formalisation} why the overhang
+is the sufficient statistic that would make an SMC formulation of this
+constraint tractable. \citet{garbacea2022} survey why constrained neural
+generation is hard. Across this literature the reported quantities are
+satisfaction rate and fluency; the price of the constraint is not among them.
+
+\paragraph{Entropy of English.}
+Our estimator descends from \citet{shannon1951}, who bounded the entropy of
+printed English at roughly 1.3 bits per character using human prediction, and
+from the gambling estimate of \citet{coverking1978}. The dependence of any
+model-derived figure on the model is discussed in \S\ref{sec:limitations}.
+Linguistic steganography measures the adjacent quantity: how many bits of
+arbitrary payload text can absorb per word before it stops reading
+\citep{chang2014}. The palindrome cost is the same currency pointed the other
+way.
+
+\paragraph{Directionality.}
+Autoregressive models trained left to right fail to recall relations in reverse
+\citep{berglund2023}, an effect traced to which tokens are predicted rather
+than to the architecture \citep{kitouni2024}. Reverse training
+\citep{golovneva2024} and reverse language models \citep{ledom2025} address it
+directly. Infilling objectives \citep{bavarian2022,shen2020} address the
+related problem of generating text conditioned on both sides. A palindrome is a
+two-sided infilling problem in which the two sides constrain each other through
+a channel that is not the text.
+
+\paragraph{Character-level competence.}
+Subword tokenization impedes character-level manipulation \citep{edman2024},
+which is why prompting a model directly is not a substitute for search here,
+and why the separation between the search's guarantee and the model's
+contribution is available in this task at all.
+
+\paragraph{Evaluation.}
+Automatic metrics correlate weakly with human judgment on creative text
+\citep{lau2018,potash2016}. Reward models and model judges exhibit length bias
+\citep{dubois2024,zheng2023}, which is the general form of the normalisation
+result in \S\ref{sec:eval}.
+
+\section{Problem and formalisation}
+\label{sec:formalisation}
+
+Let $\mathrm{norm}(t)$ strip a text to its lowercase letters. A text $t$ is a
+palindrome iff $\mathrm{norm}(t)$ equals its own reverse. Case, spacing and
+punctuation are therefore free: they carry no constraint and can be assigned
+after the letters are fixed, which is what makes readable rendering possible at
+all.
+
+Build a text from both ends inward. At any point the state is a left prefix
+$L$ and a right suffix $R$, and the constraint on the unwritten middle is
+captured entirely by the \emph{overhang}: the run of letters one side owes the
+other, $\mathrm{norm}(L)$ and $\mathrm{norm}(R)^{\mathrm{rev}}$ agreeing on
+their common length with one of them extending past the other by that run. A
+word appended on the left must match the overhang forwards; a word prepended on
+the right must match it reversed. The construction closes when the overhang is
+itself a palindrome, which becomes the centre.
+
+The overhang is a sufficient statistic for the constraint: two states with the
+same overhang admit exactly the same set of completions, regardless of how they
+were reached. This is what makes the constraint checkable incrementally, and it
+is the property an SMC formulation would need, since the incremental
+feasibility check is what a particle filter requires to avoid degenerate
+weights. It is also why validity is free here while quality is not.
+
+\paragraph{What ``reads'' means.}
+We use a nine-criterion conjunctive definition, given in full in
+Appendix~\ref{app:criteria}: minimum length, whole-text palindromicity, at most
+one self-palindromic sentence, no repeated sentence, disjoint halves,
+grammaticality, a nameable subject, coherence judged against both real-prose
+and disparate-real-sentence controls, and novelty against a catalogue of 160
+known palindromes. The criteria are conjunctive rather than a score to average.
+Failing one is failing. We adopted this form after four separate constructions
+in this project satisfied a majority of the criteria while abandoning the
+constraint that made the task hard.
+
+\section{Cost of the constraint}
+\label{sec:cost}
+
+\paragraph{Estimator.}
+Fix a language model $M$ and a frequency-ranked vocabulary $V$. For a span of
+English text $s$, let $H_{\rightarrow}(s)$ be the model's cross-entropy in bits
+per letter over $s$. Let $\rho(s)$ be $\mathrm{norm}(s)$ reversed and
+re-segmented into $V$ by the segmentation that minimises cross-entropy, and let
+$H_{\leftarrow}(s) = H_{\rightarrow}(\rho(s))$. The price of the mirror is
+
+\[ \Delta = H_{\leftarrow}(s) - H_{\rightarrow}(s) \]
+
+in bits per free letter, since a palindrome fixes each free letter once and
+pays for it in both readings.
+
+\paragraph{Result.}
+Under GPT-2 small over a frequency-ranked vocabulary of \tk{size},
+$H_{\rightarrow} = \unver{1.63}$ and $H_{\leftarrow} = \unver{4.92}$, giving
+$\Delta = \unver{3.30}$ bits per free letter, \unver{stable across span lengths
+and segmentation strategies}. Model scale replication is reported in
+\tk{Table~2}.
+
+\paragraph{Consequence.}
+A cost of $\Delta$ bits per free letter means the admissible set contracts by a
+factor of $2^{\Delta} \approx \unver{9.8}$ for each free letter added. The
+prediction is that coherent output is available at short lengths and
+unavailable beyond a threshold that this rate places within reach of
+enumeration, which is what \S\ref{sec:ceiling} tests.
+
+\section{Systems}
+\label{sec:systems}
+
+Two systems were built. Neither is the contribution; they are the instruments
+that produce the candidates \S\ref{sec:ceiling} evaluates.
+
+\paragraph{Search with model scoring.}
+Beam search over the overhang trie, scored by word frequency, with GPT-2
+applied either to the finished candidates (rerank) or inside the beam (in-loop).
+At matched budgets over 12 seeds at a 200-letter minimum and beam 60, rerank
+reaches a best score of $-2.382$ and a mean of $-2.455$ in 5.5s; in-loop
+reaches $-2.297$ and $-2.405$ in 170s, about $31\times$ the cost. Both arms
+return 12 valid palindromes from 12 seeds. Validity is identical across the two arms, so the
+model moves readability and nothing else. Which arm scores higher is
+secondary.
+
+Both figures are per letter, which \S\ref{sec:eval} shows is a normalisation
+that word length can move. The two arms run the same scorer over the same
+vocabulary and differ only in when the model is applied, so word length does not
+separate them, but the comparison has not been repeated per token.
+
+\paragraph{Compositional assembly.}
+Units that satisfy the constraint internally nest like brackets:
+$L_1 L_2 \ldots L_k\, C\, R_k \ldots R_2 R_1$ is a palindrome by construction
+when each $L_i$/$R_i$ pair spells the other backwards and $C$ is
+self-palindromic. Length stops being the binding problem and unit selection
+becomes it, and the selection subproblem carries no letter constraint at all.
+
+Three structures can pay a mirror across a paragraph. Free-running search
+places one mirror across the whole text; it repeats nothing and has no
+independent units, and it is what the 40--60 letter measurements in
+\S\ref{sec:ceiling} bound. Self-palindromic units force sequence repetition:
+if every unit is itself a palindrome, the concatenation reverses into those
+same units in the opposite order, so the whole is palindromic only when unit
+$k$ equals unit $n{+}1{-}k$. That is forced by the algebra rather than chosen
+for effect. Mirror-pairs, where the unit is two halves that spell each other
+backwards placed at mirrored positions, is the only structure that repeats
+nothing, because what returns at position $n{+}1{-}k$ is the other half.
+
+\section{Construction routes and where they stop}
+\label{sec:ceiling}
+
+Seven routes, chosen so that they would fail for different reasons.
+Table~\ref{tab:routes} collects them.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{@{}lrr@{}}
+\toprule
+route & produced & usable \\
+\midrule
+exhaustive walk & 2.55M & 0 of 170 judged \\
+mining attested $n$-grams & 3{,}894 & 26 \\
+closed-form reversibles & 13{,}924 & 2 \\
+model authoring & 40 verified & $\sim$3 \\
+authored half + segmentation & 148 tried & 0 \\
+reversible chains & 57 joins & 4, one template \\
+sharded vocabulary walk & 1{,}915 & $\sim$0 readable \\
+\bottomrule
+\end{tabular}
+\caption{Construction routes. ``Usable'' is after deduplication and reading;
+the criterion differs by route and is given in the text. No route produces
+sentences.}
+\label{tab:routes}
+\end{table}
+
+\paragraph{Exhaustive enumeration.}
+At 24 letters the space is walkable, so the model stops steering and starts
+choosing from all of it. Enumeration is exhaustive only at small vocabularies:
+with 14k units the tree branches roughly 14k wide at every closure, so a
+time-budgeted walk returns a deep prefix of one corner. We use canon recall,
+the fraction of catalogued palindromes a walk rediscovers, as the acceptance
+test: 10 of 18 at 83 canon-seeded words and depth 4, and 0 of 27 at 14k.
+
+\paragraph{Mining attested corpus $n$-grams.}
+272k attested bigrams yield 3{,}894 mirror-pairs, 131 with both halves attested.
+At three-word halves the counts are 762 and 27. At four-word halves, where
+prose would begin, they are 106 and \textbf{0}, from 34{,}688 attested
+four-grams. Thematic selection over the 26 usable halves is also unavailable:
+of every content-word pair across them, 2 co-occur anywhere in 3{,}932
+sentences.
+
+\paragraph{Free-running search at prose length.}
+The 40--60 letter band yields 880k closures, 112{,}523 of the first 300{,}000
+using only dictionary words, and none within three unattested joins of reading.
+A paragraph needs roughly 500 letters.
+
+\paragraph{Authoring one half.}
+The division of labour that puts the writing where writing is good: a model
+writes the left half, segmentation recovers the right from its reversed
+letters. Of 148 authored sentences of three to six words, 12 have any spellable
+mirror and 0 have a mirror that reads. The opening word of one half is the
+closing word of the other, so a half written to start well ends the other half
+badly, and selecting better sentences cannot fix a constraint that runs the
+other way.
+
+\paragraph{Reversible words in closed form.}
+392 reversible words yield 13{,}924 candidate pairs, 5 with both halves
+attested, 2 usable. Walked exhaustively for word-aligned chains, 57 joins are
+attested on both sides of the mirror and produce 4 novel chains, all of one
+template.
+
+\paragraph{Best-of-$N$ over the search's output.}
+Best-of-$N$ over 2000 palindromes scored by Qwen2.5-0.5B \citep{qwen2024}
+improves from $-6.978$ at $N{=}24$ to $-6.810$ at $N{=}2000$, and the last
+thousand samples buy 0.007 nats per token. Best-of-$N$ upper-bounds any
+reranker on a fixed pool, so no better judge helps here. The bound is over one
+proposal distribution, and that distribution turned out to be narrow: of the
+2000 candidates, 1975 opened with the same five words, 1983 closed with the
+same five, and the sample used 1{,}317 of 30{,}000 available words.
+
+\paragraph{Beam exploration.}
+Raising the beam's exploration parameter across five settings takes distinct
+openings from 3 to 200 and vocabulary in use from 708 to 2{,}854 words, at no
+cost in closure (200 of 200 at every setting). Mean readability falls
+monotonically by 0.49 nats per token across the range. Unanchored from word
+frequency the search reaches for rare proper nouns and the text gets worse.
+
+\paragraph{Attestation filters against the catalogue.}
+Constraining the walk so that every join inside a half is one the bigram counts
+record makes output look better. Run against the 29 catalogued mirror-pairs the
+filter is meant to find more of, \texttt{count\_2w} covers every join in 27\% of
+their halves, Brown's million words 29\%, and GPT-2's top-400 followers 27\%. A
+pair needs both halves, so the constraint discards roughly 93\% of the target.
+``Evil rats on / no star live'' has no attested join anywhere. The constraint
+remains available and is not the default.
+
+\section{Construction direction}
+\label{sec:direction}
+
+Both growth directions build one half by appending words and the other by
+prepending them. A fluency gap between the halves isolates the cost of building
+text backwards, since the halves share a letter sequence.
+
+Measured per letter, the appended half scores $+0.443$ above the prepended one,
+reproducing an earlier figure of $+0.368$. Measured per token on the same 24
+seeds at the same budget, the gap is $-0.824$: the prepended half scores better.
+The halves segment the same letters into different words and the prepended half
+carries shorter ones, so the per-letter gap is a fact about word length and not
+about readability. We report both and draw no directional conclusion from
+either.
+
+What survives is the intervention. A model fine-tuned on reversed token order,
+used as a scoring term inside the search, beats its matched forward control at
+every weight swept ($+0.177$, $+0.080$, $+0.157$ per token) and beats the plain
+frequency baseline by $+0.423$ per token at the best weight, with 24 of 24
+closure at every setting. The best arm per token is the worst arm per letter,
+so the per-letter normalisation would have discarded the intervention. Two
+limits: the gain grows monotonically across the swept range, so the best weight
+tested is the edge of the sweep rather than an optimum, and at the full 30k
+vocabulary single-token scoring is exact for 58.6\% of words, so the backward
+term is approximate for two words in five.
+
+\section{Evaluation}
+\label{sec:eval}
+
+\paragraph{Protocol.}
+Candidates are judged in blinded batches with the key withheld until after
+scoring, and every batch carries two calibration controls: a real-prose item
+and a word-salad item built by shuffling. A batch in which the controls are not
+separated is discarded. The strict rubric asks whether a text reads as
+intentional \emph{and} says something, and is calibrated to accept real prose
+5/5 and reject salad 0/5. \tk{Annotator count, items per condition, and
+agreement statistic: see \S\ref{sec:limitations}.}
+
+\paragraph{Filter role and ranker role.}
+Table~\ref{tab:proxies} gives four proxies against blinded judgment. Each is
+usable for exclusion. None ranks finished text.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{@{}lll@{}}
+\toprule
+proxy & as filter & as ranker \\
+\midrule
+GPT-2 score & sound & failed, 3 times \\
+attested-join rate & 79\% vs 38\% & not used \\
+thematic cohesion & finds the theme & failed \\
+word frequency & no signal & --- \\
+\bottomrule
+\end{tabular}
+\caption{Proxy metrics against blinded judgment with real-prose and
+word-salad controls.}
+\label{tab:proxies}
+\end{table}
+
+Four surface proxies were separately killed against labelled verdicts: GPT-2
+weaker-half score (AUC 0.659), full bigram-join attestation, which rejects the
+best unit found, rule-based vocabulary filtering (0 of 20), and edge-join
+attestation, which gave no separation.
+
+\paragraph{Two gaming modes.}
+A policy optimising a per-letter-normalised model score gained $0.298$ while
+the same texts scored $0.673$ worse per token, losing 24 of 24 paired seeds.
+The policy had found longer words. Longer words cost fewer tokens per letter,
+so a search that prefers them raises the metric without writing anything
+better, and the anchor model missed it because the anchor used the same
+normalisation as the target.
+
+Second, a long-range coherence gain, which asks whether a text's opening
+predicts its ending, can be won roughly eight times over by constructions that
+write nothing: repeating the head as the tail verbatim, among others. This
+check was run before any optimiser was pointed at the metric.
+
+\paragraph{Judge instability.}
+Borderline items flip on repeat judging at roughly even odds, and three
+findings in this project were retracted after failing to reproduce under
+re-judging. Single-verdict results on borderline material should not be
+treated as measurements.
+
+\section{Direct prompting baseline}
+\label{sec:llm}
+
+\tk{Protocol specified, results pending.} Frontier models are prompted for
+palindromes at target lengths of 30, 60, 120 and 200 letters, across
+\tk{$k$} prompt formulations with \tk{$n$} samples per cell. Validity is scored
+by the same normaliser used throughout, and novelty against the 160-entry
+catalogue, because a model authoring round in this project returned 20 claimed
+novel palindromes of which all 20 were catalogued classics. Whatever passes
+validity is judged under the protocol in \S\ref{sec:eval}. The
+character-level literature \citep{edman2024} predicts failure at validity,
+which if confirmed is the cleanest available demonstration that the search and
+not the model is what makes the constraint hold.
+
+\section{Discussion}
+
+\paragraph{Pricing other constraints.}
+The estimator needs three things: a model, a vocabulary, and a well-defined
+notion of free choice. A lipogram removes letters from the alphabet, and the
+free unit is the letter position; a rhyme scheme constrains line-final words,
+and the free unit is the rhymed position; a syllable-count meter constrains
+positions per line; an output-format grammar restricts the continuation set at
+every step, and the free unit is the token. In each case, score unconstrained
+text, score constrained text under the same model and vocabulary, and divide by
+free units. The resulting numbers are comparable across constraints in a way
+that satisfaction rates are not.
+
+\paragraph{What a solution would require.}
+The cost bounds unit length, not palindrome length. Whole self-palindromic
+sentences pay the same price and do carry subjects, which is why compositional
+assembly reaches lengths that free-running search does not. Any route to
+coherent novel palindromic prose has to produce units long enough to carry a
+subject and not already in the record. Four-word halves are where prose would
+start, and 34{,}688 attested four-grams produced none.
+
+\paragraph{Reporting proxy roles.}
+Papers that use an automatic signal should state whether it filters or ranks.
+The validation burden differs: a filter needs a false-rejection rate against
+accepted items, a ranker needs correlation with judgment over the range where
+it will be applied. In this project every proxy that passed the first test
+failed the second, and the failures were invisible until judgment was
+collected.
+
+\section{Limitations}
+\label{sec:limitations}
+
+The cost estimate rests on one small model. Replication across scales and
+families is \tk{reported in Table~2}; until it is in, the number should be read
+as model-dependent, and the estimator, not the value, is the transferable part.
+The vocabulary size used for the measurement is \tk{unrecorded}, and the
+stability claim across span lengths and segmentation strategies is asserted in
+our notes and \unver{not tabulated}.
+
+The judging protocol is blinded and control-calibrated, and it is
+\tk{single-judge}: annotator count, items per condition, agreement statistic
+and verbatim instructions are not established for the results reported here.
+Every judgment-dependent claim in \S\ref{sec:ceiling} and \S\ref{sec:eval}
+inherits that limit.
+
+Results are English-only, and the segmentation step assumes a writing system
+with a letter inventory small enough to enumerate.
+
+The system does not produce coherent novel palindromic prose. Output that reads
+is assembled from catalogued palindromes written by other people; the assembly,
+ordering and selection are ours and the sentences are not. The fully generated
+mode produces two- and three-word fragments at the required length. Provenance
+is tracked per unit and enforced by a novelty check against 160 catalogued
+entries.
+
+Two rows in our own records did not survive re-measurement and are reported
+here as retracted rather than removed: the directional claim in
+\S\ref{sec:direction}, and three earlier findings that failed to reproduce
+under re-judging.
+
+\section{Conclusion}
+
+A character-level palindrome constraint costs \unver{3.30} bits per free letter
+under a fixed model and vocabulary, which predicts that the coherent feasible
+set thins by roughly an order of magnitude per free letter. Seven construction
+routes stop in the region that rate predicts, and the sharpest of them finds no
+readable mirror among 34{,}688 attested four-grams. Automatic proxies for
+readability are usable to exclude candidates and unusable to rank them. The
+estimator applies to any constraint that restricts admissible strings, and
+lipograms and rhyme schemes are the two cases where it should be checked next.
+
+% acl.sty issues \bibliographystyle{acl_natbib} itself; a second one is a
+% BibTeX error. Only the fallback path needs to set a style.
+\IfFileExists{acl.sty}{}{\bibliographystyle{plainnat}}
+\bibliography{refs}
+
+\appendix
+
+\section{Acceptance criteria}
+\label{app:criteria}
+\tk{The nine criteria, verbatim from the project's task definition, with the
+mechanical check for each.}
+
+\section{Artifacts}
+\label{app:artifacts}
+\tk{Dataset table, licences, provenance split between catalogued and generated
+material, and per-experiment reproduction commands.}
+
+\section{Number provenance}
+\label{app:provenance}
+\tk{Every number in the paper with the script that produces it. Numbers in
+orange are recorded in project notes but not yet script-reproducible; numbers
+in red do not exist yet.}
+
+\end{document}

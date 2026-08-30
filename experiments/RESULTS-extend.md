@@ -114,3 +114,27 @@ Optimising length and reporting length. Requiring each wrap to keep the edges
 parsing, and forbidding repeated glue words, dropped the headline to 75 and
 made the text readable — and the blind judging then said even that is worse
 than not growing at all.
+
+## Follow-up, 29 August 2026: growth with a coherence floor
+
+`experiments/coherent_grow.py` reran the wrap operations with a different
+acceptance test: keep a wrap only if the gated judge scores the grown text no
+worse than what it grew from. Four rounds from the 32-letter seed, 2,064 judge
+calls, 7,431 seconds. It failed twice, and both failures are diagnoses:
+
+1. **The glue inventory contains self-palindromic material.** The winning
+   80-letter candidate opens and closes with `emits a no evil live on as
+   time`, which is itself a palindrome, so the loop walked straight into the
+   self-palindromic-units shortcut criterion 3 exists to forbid. Wrap
+   material must be screened the way `server/v3.py` screens degenerate pairs.
+2. **A floor at the bottom of the scale filters nothing.** The seed scored 0,
+   the floor was therefore 0, and all 2,064 candidates held it. The judge has
+   power at the prose end and no gradient at the salad end, where this
+   search lives. Selection needs an instrument that can rank within score-0
+   material, and the pairwise form of the same judge inverts on length, so
+   neither shape of the existing instrument can steer growth.
+
+The negative is consistent with the seam result and the long-band judging:
+every route that assembles or extends salad stays salad, and what is missing
+is a proposal that starts from meaning, not a filter bolted onto one that
+does not.

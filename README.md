@@ -113,6 +113,15 @@ The suite covers overhang matching, trie candidate generation, end-to-end
 search validity, and the formatting invariant that punctuation and casing
 never alter the normalized letters.
 
+The page has its own suite:
+
+```bash
+cd web && npm test
+```
+
+It runs the poster in jsdom against a fake stream and a fake composer, and
+covers what the page does with the frames it is sent and when it draws them.
+
 ## Project structure
 
 ```

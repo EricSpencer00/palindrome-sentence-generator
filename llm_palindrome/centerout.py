@@ -20,7 +20,7 @@ import time
 from dataclasses import dataclass, field
 from typing import Callable, Optional
 
-from .search import WordTries, consume, unit_letters
+from .search import WordTries, _parent_width, _score_choices, consume, unit_letters
 
 
 def consume_suffix(letters: str, overhang: str) -> Optional[tuple[str, bool]]:
@@ -92,6 +92,7 @@ def centerout_search(
     center: str = "",
     max_steps: int = 400,
     candidate_limit: int = 200,
+    per_parent: Optional[int] = None,
     seed: Optional[int] = None,
     diversity: float = 0.4,
     max_overhang: int = 24,
@@ -99,6 +100,8 @@ def centerout_search(
     maximize: str = "score",
     on_closed: Optional[Callable[[list[str]], None]] = None,
     commit_every: Optional[float] = None,
+    allow_state: Optional[Callable[[tuple[str, ...], tuple[str, ...]], bool]] = None,
+    allow_closed: Optional[Callable[[tuple[str, ...], tuple[str, ...]], bool]] = None,
 ) -> list[str]:
     """Beam search outward from a fixed palindromic center.
 
@@ -165,9 +168,13 @@ def centerout_search(
             scorer.prepare(beam)
         pool: list[COState] = []
         closed: list[COState] = []
+        parent_limit = _parent_width(beam_width, len(beam), per_parent)
         for state in beam:
             # Center-out closes only on an exactly empty overhang.
-            if not state.overhang:
+            closed_ok = (not state.overhang
+                         and (allow_closed is None
+                              or allow_closed(state.left, state.right)))
+            if closed_ok:
                 closed.append(state)
                 if on_closed is not None and commit_every is None:
                     on_closed(assemble(state))
@@ -176,6 +183,8 @@ def centerout_search(
                            else state.score / max(1, state.letters))
                     if best is None or key > best[0]:
                         best = (key, assemble(state))
+            child_specs = []
+            choices = []
             for placement, w, new_over, new_owner in _expand(state, tries, candidate_limit):
                 if len(new_over) > max_overhang:
                     continue
@@ -183,22 +192,28 @@ def centerout_search(
                     left, right = (w,) + state.left, state.right
                 else:
                     left, right = state.left, state.right + (w,)
+                if allow_state is not None and not allow_state(left, right):
+                    continue
                 # Center-out grows outward: the left half is prepended to, the
                 # right appended to — the opposite of the outside-in search.
                 growth = "prepend" if placement == "L" else "append"
                 # A scorer that wants the debt gets the debt THIS word creates,
                 # not the one it consumed — the question is what the other half
                 # is now owed, which is the thing no scorer here could see.
-                if getattr(scorer, "wants_overhang", False):
-                    sc = state.score + scorer.word_delta(left, right, placement, w,
-                                                         growth, overhang=new_over)
-                else:
-                    sc = state.score + scorer.word_delta(left, right, placement, w,
-                                                         growth)
-                sc += rng.random() * diversity
-                pool.append(COState(sort_key=-sc, left=left, right=right,
-                                    overhang=new_over, owner=new_owner,
-                                    score=sc, center_len=len(center)))
+                child_specs.append((left, right, placement, w, new_over,
+                                    new_owner, growth))
+                choices.append((left, right, placement, w, growth))
+            deltas = _score_choices(scorer, choices,
+                                    [spec[4] for spec in child_specs])
+            children = []
+            for spec, delta in zip(child_specs, deltas):
+                left, right, placement, w, new_over, new_owner, growth = spec
+                semantic = state.score + delta
+                priority = semantic + rng.random() * diversity
+                children.append(COState(sort_key=-priority, left=left, right=right,
+                                        overhang=new_over, owner=new_owner,
+                                        score=semantic, center_len=len(center)))
+            pool.extend(heapq.nsmallest(parent_limit, children))
         if not pool:
             break
         beam = heapq.nsmallest(beam_width, pool)

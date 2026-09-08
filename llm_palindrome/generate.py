@@ -12,6 +12,7 @@ from wordfreq import top_n_list, zipf_frequency
 from .safe_vocab import safe_vocab
 from .shortwords import is_real_short
 from .search import WordTries, beam_search
+from .overhang import DebtIndex, OverhangAware
 from .scoring import adjacent
 from .textify import textify
 from .validator import is_palindrome, normalize
@@ -70,11 +71,14 @@ def main() -> None:
     ap.add_argument("--words-per-sentence", type=int, default=7)
     ap.add_argument("--lm-in-loop", action="store_true",
                     help="let the LM prune the beam during search, not just at the end")
+    ap.add_argument("--debt-weight", type=float, default=2.0,
+                    help="reward structurally repayable overhangs while ranking")
     ap.add_argument("--out", default=None)
     args = ap.parse_args()
 
     tries = WordTries(build_vocab(args.vocab))
-    scorer = ZipfScorer()
+    scorer = OverhangAware(ZipfScorer(), DebtIndex(tries),
+                            debt_weight=args.debt_weight)
 
     lm = None
     if args.model:

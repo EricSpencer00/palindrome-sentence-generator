@@ -1,0 +1,49 @@
+#!/bin/bash -l
+#PBS -N pal-sentence-quality
+# Scheduler account configured by submitter.
+#PBS -q debug
+#PBS -l select=1:system=polaris
+#PBS -l place=scatter
+#PBS -l walltime=00:25:00
+#PBS -l filesystems=home
+#PBS -j oe
+#PBS -o ${PALINDROME_REPO}/logs/
+
+set -euo pipefail
+REPO=${PALINDROME_REPO}
+OUT=$REPO/runs/sentence_quality_$(date +%Y%m%d_%H%M%S)
+mkdir -p "$OUT" "$REPO/logs"
+cd "$REPO"
+export PYTHONPATH="$REPO:${PYTHONPATH:-}"
+export PYTHONUNBUFFERED=1
+PY=/usr/bin/python3.11
+NRANKS=32
+
+echo "host=$(hostname) out=$OUT"
+mpiexec -n $NRANKS --ppn $NRANKS --cpu-bind depth -d 1 \
+  $PY tools/polaris/sentence_plan_debug.py --vocab 30000 \
+    --min-letters 20 --max-letters 44 --max-units 18 \
+    --node-budget 20000000 --seconds-per-arm 600 \
+    --arms planned_join0,planned_join1 --bigram-min-count 1 \
+    --shards $NRANKS --out-dir "$OUT"
+
+$PY - "$OUT" <<'PY'
+import glob, json, sys
+files = glob.glob(sys.argv[1] + '/summary_*.json')
+assert len(files) == 32, len(files)
+arms = {}
+for path in files:
+    for arm in json.load(open(path))['arms']:
+        out = arms.setdefault(arm['arm'], {'nodes': 0, 'closures': 0,
+            'state_pruned': 0, 'seconds': 0, 'rows': []})
+        for key in ('nodes', 'closures', 'state_pruned', 'seconds'):
+            out[key] += arm[key]
+        out['rows'].extend(arm['rows'])
+for name, out in arms.items():
+    pairs = {(r['left'], r['right']) for r in out.pop('rows')}
+    out['hits'] = len(pairs)
+    out['pairs'] = [{'left': a, 'right': b} for a, b in sorted(pairs)]
+json.dump(arms, open(sys.argv[1] + '/aggregate.json', 'w'), indent=2)
+print(json.dumps({name: {k: v for k, v in out.items() if k != 'pairs'}
+                  for name, out in arms.items()}, indent=2))
+PY

@@ -67,6 +67,21 @@ def test_reported_letter_count_matches(client):
     assert body["words"] == len(body["plain"].split())
 
 
+def test_refrain_endpoint_is_hierarchical_and_honest(client):
+    body = client.get("/api/v3/refrain?seed=3&letters=500&theme=dark").json()
+    assert is_palindrome(body["text"])
+    assert body["sentences"] == list(reversed(body["sentences"]))
+    assert all(is_palindrome(sentence) for sentence in body["sentences"])
+    assert body["max_sentence_uses"] <= 2
+    assert body["source"] == "catalogue"
+    assert body["notes"]["novel"] is False
+
+
+def test_refrain_endpoint_rejects_unknown_theme(client):
+    response = client.get("/api/v3/refrain?theme=nope")
+    assert response.status_code == 400
+
+
 # ------------------------------------------------------------------ real words
 
 def test_no_junk_short_words_are_served(client):
@@ -258,6 +273,44 @@ def test_chunks_reassemble_to_the_composition(client):
 def test_exactly_one_centre(client):
     body = client.get("/api/v3/composition?seed=6&letters=1200").json()
     assert sum(1 for c in body["chunks"] if c["role"] == "centre") == 1
+
+
+def test_default_composition_preserves_structural_sentence_boundaries(client):
+    body = client.get("/api/v3/composition?seed=6&letters=1200").json()
+    assert body["hierarchical"] is True
+    assert body["sentence_pairs"] == body["pairs"]
+    assert len(body["sentences"]) == len(body["chunks"])
+    assert [s["role"] for s in body["sentences"]] == [
+        c["role"] for c in body["chunks"]]
+    assert normalize(" ".join(s["text"] for s in body["sentences"])) == normalize(
+        body["plain"])
+
+
+def test_every_noncentre_chunk_passes_the_whole_sentence_gate(client):
+    from llm_palindrome.hierarchy import is_sentence_pair
+
+    body = client.get("/api/v3/composition?seed=9&letters=1200").json()
+    table, shapes, trigrams = v3._tables
+    left = [c["text"].split() for c in body["chunks"] if c["role"] == "left"]
+    right = [c["text"].split() for c in body["chunks"] if c["role"] == "right"]
+    assert len(left) == len(right) == body["pairs"]
+    for a, b in zip(left, reversed(right)):
+        assert is_sentence_pair(a, b, table, shapes, trigrams)
+
+
+def test_hierarchy_has_no_adjacent_word_or_bigram_cycles(client):
+    body = client.get("/api/v3/composition?seed=11&letters=4000").json()
+    from collections import Counter
+    seen = Counter()
+    for sentence in body["sentences"]:
+        words = sentence["text"].lower().rstrip(".").split()
+        pairs = list(zip(words, words[1:]))
+        assert all(a != b for a, b in pairs), sentence
+        seen.update(pairs)
+    assert max(seen.values(), default=0) <= 2
+    assert body["hierarchy_stats"]["max_bigram_uses"] <= 2
+    assert body["hierarchy_stats"]["max_template_uses"] <= 2
+    assert body["hierarchy_stats"]["max_content_word_uses"] <= 3
 
 
 def test_length_slider_tracks_the_request(client):

@@ -2,7 +2,7 @@
 import pytest
 
 from llm_palindrome.validator import normalize, is_palindrome
-from llm_palindrome.search import consume, WordTries, beam_search
+from llm_palindrome.search import _parent_width, consume, WordTries, beam_search
 from llm_palindrome.scoring import FreqScorer
 from llm_palindrome.textify import textify
 
@@ -69,8 +69,25 @@ class TestWordTries:
         cands = tries.left_candidates("liveon")
         assert "live" in cands
 
+    def test_candidate_limit_preserves_input_rank_and_length_coverage(self):
+        # The search vocabulary is frequency-ranked. A limited root menu must
+        # not silently turn into an alphabetic, one-to-three-letter menu.
+        words = ["the", "an", "stone", "elephant", "a", "of",
+                 "window", "consequence", "in", "river"]
+        tries = WordTries(words)
+        assert tries.words == words
+        cands = tries.left_candidates("", limit=8)
+        assert "the" in cands and "stone" in cands
+        assert "elephant" in cands and "consequence" in cands
+        assert max(map(len, cands)) >= len("consequence")
+
 
 class TestBeamSearch:
+    def test_parent_quota_leaves_room_for_multiple_lineages(self):
+        assert _parent_width(60, 1, None) == 60
+        assert _parent_width(60, 60, None) == 2
+        assert _parent_width(60, 60, 5) == 5
+
     def test_produces_valid_palindrome_from_tiny_dict(self):
         tries = WordTries(TINY_DICT)
         scorer = FreqScorer(TINY_DICT)
@@ -86,6 +103,27 @@ class TestBeamSearch:
         scorer = FreqScorer(TINY_DICT)
         words = beam_search(tries, scorer, min_letters=60, beam_width=30, seed=7)
         assert len(normalize(" ".join(words))) >= 60
+
+    def test_hard_opening_constraint_applies_to_finished_text(self):
+        tries = WordTries(TINY_DICT)
+        scorer = FreqScorer(TINY_DICT)
+        allowed = {"stop", "spot", "rats", "live", "never", "now"}
+        words = beam_search(tries, scorer, min_letters=20, beam_width=80,
+                            candidate_limit=len(TINY_DICT), seed=4,
+                            opening_words=allowed)
+        assert words
+        assert words[0] in allowed
+        assert is_palindrome(" ".join(words))
+
+    def test_hard_word_use_cap_prevents_template_repetition(self):
+        tries = WordTries(TINY_DICT)
+        scorer = FreqScorer(TINY_DICT)
+        words = beam_search(tries, scorer, min_letters=24, beam_width=80,
+                            candidate_limit=len(TINY_DICT), seed=2,
+                            max_word_uses=2)
+        assert words
+        assert max(words.count(word) for word in set(words)) <= 2
+        assert is_palindrome(" ".join(words))
 
 
 class TestLMPruning:

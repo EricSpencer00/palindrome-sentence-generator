@@ -1,69 +1,44 @@
 """Score each half in the direction the search actually builds it.
 
-The measured problem is that the half grown by prepending reads worse than the
-half grown by appending, in both search directions, so the cost belongs to
-backward construction rather than to position in the text. A forward language
-model cannot fix that incrementally: choosing a word to put *before* a fixed
-suffix means asking p(word | what follows), and a forward model can only answer
-by rescoring the whole suffix once per candidate.
-
-A backward model — the same GPT-2, fine-tuned on reversed token order — answers
-it in one pass. That pass produces a distribution over the neighbouring token,
-which scores every candidate word at once. So the cost is one forward pass per
-beam state per step, not one per candidate: roughly beam_width passes where
-in-loop reranking needs beam_width x candidate_limit.
-
-Two approximations, both deliberate:
-
-- A word is scored by the logprob of the single token the model reaches it by:
-  its first token forwards, its last token backwards, because reversing the
-  stream reverses tokens inside a word as well as the words themselves. Most of
-  the frequency-ranked vocabulary is one token with its leading space, where
-  the two coincide and the score is exact; `single_token_fraction` reports how
-  much of the vocabulary that covers.
-- Contexts are truncated to the nearest `max_context` words. The neighbouring
-  word carries most of the signal and truncation keeps the passes short.
+The forward half is scored left-to-right. The half inserted before an existing
+suffix is scored with a model trained on reversed token streams, so it answers
+the matching conditional distribution. Both directions score every token in a
+proposed word or phrase; a one-token shortcut is not safe for a 30k-word search.
 """
 from __future__ import annotations
 
+import math
+from collections import defaultdict
 from typing import Optional, Sequence
 
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-from .scoring import adjacent
-
 
 def context_key(words: Sequence[str], growth: str, max_context: int) -> tuple:
-    """Cache key for the neighbour distribution of a half.
-
-    `prepare` computes distributions from the states in the beam; `word_delta`
-    looks them up from the words of the *resulting* state. The two must agree
-    or every lookup misses and the amortization silently disappears into
-    one model call per candidate — slower than not caching at all, and with no
-    error to notice. One function, both callers.
-
-    Truncation takes the end nearest the word being scored: the tail for an
-    appended word, the head for a prepended one.
-    """
+    """The nearest words visible to the directional model."""
     tail = (tuple(words[-max_context:]) if growth == "append"
             else tuple(words[:max_context]))
-    return (growth, tail)
+    return growth, tail
 
 
 def leading_token(ids: Sequence[int], reversed_order: bool) -> int:
-    """The token a model in this direction emits first for a word block.
-
-    Reversing the stream reverses tokens *inside* a word as well as the words
-    themselves — "diverged" is [" diver", "ged"] forwards and ["ged", " diver"]
-    backwards — so a backward model reaches a word by its last token. Scoring
-    its first would ask about a token the model only ever sees in second place.
-    """
+    """Compatibility helper for old diagnostics, not the production score."""
     return ids[-1] if reversed_order else ids[0]
 
 
+def ordered_tokens(ids: Sequence[int], reversed_order: bool) -> list[int]:
+    """Return a word block in the token order the selected model reads."""
+    return list(reversed(ids)) if reversed_order else list(ids)
+
+
+def position_ids_from_mask(mask: torch.Tensor) -> torch.Tensor:
+    """Position real tokens from zero even when a batch is left-padded."""
+    return (mask.long().cumsum(dim=-1) - 1).clamp_min(0)
+
+
 class _Directional:
-    """One model, plus the token bookkeeping for reading text its way."""
+    """One model and exact whole-word conditional likelihoods."""
 
     def __init__(self, path: str, reversed_order: bool, device: str):
         self.reversed_order = reversed_order
@@ -80,165 +55,162 @@ class _Directional:
             self._word_ids[word] = ids
         return ids
 
-    def leading_token(self, word: str) -> int:
-        return leading_token(self.word_tokens(word), self.reversed_order)
+    def target_tokens(self, word: str) -> list[int]:
+        return ordered_tokens(self.word_tokens(word), self.reversed_order)
 
     def context_ids(self, words: Sequence[str], max_context: int) -> list[int]:
-        """Token ids for the context, in the order this model reads them.
-
-        The forward model reads the words that precede its target, so the
-        nearest context is the tail. The backward model reads the words that
-        follow its target, nearest first, so the sequence is reversed.
-        """
+        """Token ids for the context, in the order this model reads them."""
         if self.reversed_order:
             chosen = list(words[:max_context])
-            ids = [i for w in chosen for i in self.word_tokens(w)]
+            ids = [i for word in chosen for i in self.word_tokens(word)]
             return ids[::-1]
         chosen = list(words[-max_context:])
-        return [i for w in chosen for i in self.word_tokens(w)]
+        return [i for word in chosen for i in self.word_tokens(word)]
 
     @torch.no_grad()
     def next_token_logprobs(self, contexts: Sequence[list[int]],
                             batch_size: int = 32) -> list[torch.Tensor]:
-        """For each context, the logprob of every possible next token."""
+        """Distribution diagnostics, with left-padding positions corrected."""
         out: list[torch.Tensor] = []
         eos = self.tok.eos_token_id
-        for i in range(0, len(contexts), batch_size):
-            chunk = [c or [eos] for c in contexts[i:i + batch_size]]
-            width = max(len(c) for c in chunk)
-            # Left-pad so the final position is the real last token for all rows.
-            ids = torch.tensor([[eos] * (width - len(c)) + c for c in chunk],
-                               device=self.device)
-            mask = torch.tensor([[0] * (width - len(c)) + [1] * len(c)
-                                 for c in chunk], device=self.device)
-            logits = self.model(input_ids=ids, attention_mask=mask).logits[:, -1]
+        for start in range(0, len(contexts), batch_size):
+            chunk = [context or [eos] for context in contexts[start:start + batch_size]]
+            width = max(len(context) for context in chunk)
+            ids = torch.tensor([[eos] * (width - len(context)) + context
+                                for context in chunk], device=self.device)
+            mask = torch.tensor([[0] * (width - len(context)) + [1] * len(context)
+                                 for context in chunk], device=self.device)
+            logits = self.model(input_ids=ids, attention_mask=mask,
+                                position_ids=position_ids_from_mask(mask)).logits[:, -1]
             out.extend(torch.log_softmax(logits.float(), dim=-1).cpu())
+        return out
+
+    @torch.no_grad()
+    def word_logprobs(self, context: list[int], words: Sequence[str],
+                      batch_size: int = 32) -> list[float]:
+        """Exact log p(word | context), including every token in the word.
+
+        Rows are right-padded so batch companions cannot alter absolute token
+        positions. The return is a total log probability; callers normalize it
+        only over the legal candidates from this structural state.
+        """
+        if not words:
+            return []
+        eos = self.tok.eos_token_id
+        prefix = context or [eos]
+        targets = [self.target_tokens(word) for word in words]
+        out: list[float] = []
+        for start in range(0, len(words), batch_size):
+            chunk_targets = targets[start:start + batch_size]
+            rows = [prefix + target for target in chunk_targets]
+            width = max(len(row) for row in rows)
+            ids = torch.tensor([row + [eos] * (width - len(row)) for row in rows],
+                               device=self.device)
+            mask = torch.tensor([[1] * len(row) + [0] * (width - len(row))
+                                 for row in rows], device=self.device)
+            logits = self.model(input_ids=ids, attention_mask=mask,
+                                position_ids=position_ids_from_mask(mask)).logits
+            logprobs = torch.log_softmax(logits.float(), dim=-1)
+            first = len(prefix) - 1
+            for row, target in enumerate(chunk_targets):
+                positions = torch.arange(first, first + len(target), device=self.device)
+                target_ids = torch.tensor(target, device=self.device)
+                picked = logprobs[row, positions].gather(
+                    -1, target_ids.unsqueeze(-1)).squeeze(-1)
+                out.append(float(picked.sum()))
         return out
 
 
 class DirectionalScorer:
-    """Adds a directional LM term to a base scorer's word_delta.
+    """Base score plus exact directional word likelihoods.
 
-    `appends` names the half that the search grows by appending; the other half
-    is the prepended one. Outside-in appends on the left, center-out on the
-    right. Getting this backwards silently scores every word against the far end
-    of its half, so the search that owns the convention passes it in.
+    ``word_deltas`` is a batch API because a language-model z-score is meaningful
+    only relative to candidates legal at the current overhang, not a global
+    vocabulary. ``beam_search`` and ``centerout_search`` call it per parent.
     """
 
     def __init__(self, base, forward_path: str = "gpt2",
                  backward_path: Optional[str] = None,
                  appends: str = "left", weight: float = 1.0,
                  max_context: int = 8, device: Optional[str] = None,
-                 vocab: Optional[Sequence[str]] = None):
+                 vocab: Optional[Sequence[str]] = None, batch_size: int = 32):
         self.base = base
         self.weight = weight
         self.max_context = max_context
         self.appends = appends
+        self.batch_size = batch_size
         dev = device or ("cuda" if torch.cuda.is_available()
                          else "mps" if torch.backends.mps.is_available() else "cpu")
         self.fwd = _Directional(forward_path, reversed_order=False, device=dev)
         self.bwd = (_Directional(backward_path, reversed_order=True, device=dev)
                     if backward_path else None)
-        self._cache: dict[tuple, tuple[torch.Tensor, float, float]] = {}
-        self._reachable: dict[str, torch.Tensor] = {}
-        if vocab:
-            self._reachable["append"] = torch.tensor(
-                sorted({self.fwd.leading_token(w) for w in vocab}))
-            if self.bwd is not None:
-                self._reachable["prepend"] = torch.tensor(
-                    sorted({self.bwd.leading_token(w) for w in vocab}))
+        self._word_cache: dict[tuple, float] = {}
+        # Retained solely for the old one-token coverage diagnostic.
+        self.vocab = tuple(vocab or ())
         self.passes = 0
         self.misses = 0
 
     def single_token_fraction(self, vocab: Sequence[str]) -> float:
-        """Share of the vocabulary the first-token approximation scores exactly."""
-        return sum(len(self.fwd.word_tokens(w)) == 1 for w in vocab) / max(1, len(vocab))
+        """Share that the former one-token approximation scored exactly."""
+        return sum(len(self.fwd.word_tokens(word)) == 1 for word in vocab) / max(1, len(vocab))
 
     def _model_for(self, growth: str) -> Optional[_Directional]:
-        if growth == "append":
-            return self.fwd
-        return self.bwd
+        return self.fwd if growth == "append" else self.bwd
 
     def prepare(self, states) -> None:
-        """Precompute the neighbour distribution for every state in the beam.
+        """Compatibility hook; exact scores are batched over legal children."""
 
-        Called once per search step. Every candidate expansion of a state reads
-        the same distribution, so this is where the work is amortized.
-        """
-        wanted: dict[tuple, list[int]] = {}
-        for st in states:
-            for growth, words in (("append", st.left if self.appends == "left" else st.right),
-                                  ("prepend", st.right if self.appends == "left" else st.left)):
-                model = self._model_for(growth)
-                if model is None:
-                    continue
-                key = context_key(words, growth, self.max_context)
-                if key not in self._cache and key not in wanted:
-                    wanted[key] = model.context_ids(words, self.max_context)
-        if not wanted:
-            return
-        keys = list(wanted)
-        for growth in ("append", "prepend"):
-            group = [k for k in keys if k[0] == growth]
-            model = self._model_for(growth)
-            if not group or model is None:
+    def _context(self, left: tuple[str, ...], right: tuple[str, ...],
+                 placement: str, growth: str) -> tuple[str, ...]:
+        sequence = left if placement == "L" else right
+        return sequence[:-1] if growth == "append" else sequence[1:]
+
+    def word_deltas(self, choices: Sequence[tuple[tuple[str, ...], tuple[str, ...],
+                                                  str, str, str]]) -> list[float]:
+        """Return base-plus-LM deltas for one parent's legal children."""
+        base = [self.base.word_delta(left, right, placement, word, growth)
+                for left, right, placement, word, growth in choices]
+        groups: dict[tuple, list[tuple[int, str]]] = defaultdict(list)
+        for index, (left, right, placement, word, growth) in enumerate(choices):
+            if self._model_for(growth) is None:
                 continue
-            dists = model.next_token_logprobs([wanted[k] for k in group])
-            self.passes += len(group)
-            for k, d in zip(group, dists):
-                self._cache[k] = (d,) + self._standardize(growth, d)
+            context = self._context(left, right, placement, growth)
+            groups[(growth, context_key(context, growth, self.max_context))].append((index, word))
 
-    def _standardize(self, growth: str, dist: torch.Tensor) -> tuple[float, float]:
-        """Mean and spread of this distribution over the words actually reachable.
-
-        A raw logprob is a large negative number whose scale swings with the
-        context's entropy, and adding it to a Zipf score of 1-7 lets it decide
-        the search on its own — or, worse, decide it differently at every step.
-        Standardizing against the vocabulary the trie can actually offer turns
-        it into "how good is this word *here*, relative to the alternatives",
-        which is the question the beam is asking, on a scale the other terms
-        can argue with.
-        """
-        ids = self._reachable.get(growth)
-        if ids is None:
-            return 0.0, 1.0
-        vals = dist[ids]
-        return float(vals.mean()), max(1e-3, float(vals.std()))
-
-    def _lm_term(self, left: tuple, right: tuple, placement: str, word: str,
-                 growth: str) -> float:
-        model = self._model_for(growth)
-        if model is None:
-            return 0.0
-        seq = left if placement == "L" else right
-        context = seq[:-1] if growth == "append" else seq[1:]
-        key = context_key(context, growth, self.max_context)
-        entry = self._cache.get(key)
-        if entry is None:
-            self.misses += 1
-            dist = model.next_token_logprobs(
-                [model.context_ids(context, self.max_context)])[0]
-            entry = (dist,) + self._standardize(growth, dist)
-            self._cache[key] = entry
-        dist, mean, sd = entry
-        return (float(dist[model.leading_token(word)]) - mean) / sd
+        out = list(base)
+        for (growth, key), entries in groups.items():
+            model = self._model_for(growth)
+            assert model is not None
+            context_words = key[1]
+            missing: list[str] = []
+            for _, word in entries:
+                cache_key = (growth, context_words, word)
+                if cache_key not in self._word_cache and word not in missing:
+                    missing.append(word)
+            if missing:
+                scores = model.word_logprobs(model.context_ids(context_words, self.max_context),
+                                              missing, batch_size=self.batch_size)
+                self.passes += math.ceil(len(missing) / self.batch_size)
+                self.misses += len(missing)
+                for word, score in zip(missing, scores):
+                    self._word_cache[(growth, context_words, word)] = score
+            values = [self._word_cache[(growth, context_words, word)]
+                      for _, word in entries]
+            mean = sum(values) / len(values)
+            variance = sum((value - mean) ** 2 for value in values) / len(values)
+            scale = max(1e-3, variance ** 0.5)
+            for (index, _), value in zip(entries, values):
+                out[index] += self.weight * ((value - mean) / scale)
+        return out
 
     def word_delta(self, left: tuple, right: tuple, placement: str, word: str,
                    growth: str) -> float:
-        base = self.base.word_delta(left, right, placement, word, growth)
-        return base + self.weight * self._lm_term(left, right, placement, word, growth)
+        """Single-choice fallback; search callers should use ``word_deltas``."""
+        return self.base.word_delta(left, right, placement, word, growth)
 
 
 class ForwardOnlyScorer(DirectionalScorer):
-    """Control: the appended half gets its LM term, the prepended half gets
-    none.
-
-    This is what the search does today, and it is the honest comparison. A
-    forward model has no incremental answer for "which word belongs before this
-    suffix" — feeding it the following words in reading order asks a different
-    question — so the alternative to a backward model is not a worse LM term on
-    that half, it is no LM term at all.
-    """
+    """Control: score only the half that grows in normal reading direction."""
 
     def __init__(self, base, forward_path: str = "gpt2", **kw):
         kw.pop("backward_path", None)

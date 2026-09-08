@@ -25,7 +25,7 @@ from __future__ import annotations
 from typing import Iterator, Optional, Sequence
 
 from .centerout import _expand, COState
-from .search import WordTries, unit_letters
+from .search import WordTries, _score_choices, unit_letters
 
 
 def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
@@ -36,7 +36,10 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
                           deadline: Optional[float] = None,
                           shuffle_seed: Optional[int] = None,
                           allow_join=None,
-                          join_slack: int = 0) -> Iterator[list[str]]:
+                          join_slack: int = 0,
+                          allow_state=None,
+                          stats: Optional[dict] = None,
+                          scorer=None) -> Iterator[list[str]]:
     """Every palindrome the vocabulary admits within `max_letters`.
 
     Sharded on the OPENING unit so that ranks partition the space exactly and
@@ -61,6 +64,13 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
     before all day — and a budget of one turns "every adjacency is idiomatic"
     into "all but one is", which is the difference between a phrase book and a
     sentence. The budget is per branch and is spent, not refreshed.
+
+    `allow_state(left, right)` can prune using properties of both partial
+    halves. It is evaluated on openings and every expanded state. `stats`, if
+    supplied, receives node, state-prune, and yield counts for experiments.
+    `scorer` orders siblings but never deletes one. This lets a language model
+    spend a finite node budget in promising subtrees without turning the walk
+    back into a beam whose discarded lineage can never close.
     """
     import random as _random
     rng = _random.Random(shuffle_seed) if shuffle_seed is not None else None
@@ -68,6 +78,8 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
     root = COState(sort_key=0.0, left=(), right=(), overhang="", owner="R",
                    center_len=0)
     nodes = 0
+    if stats is not None:
+        stats.update(nodes=0, state_pruned=0, yielded=0)
 
     # The opening placements, in a fixed order, so sharding is deterministic.
     openings = _expand(root, tries, limit=10 ** 6)
@@ -79,6 +91,13 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
     # the walk back into a sample of the space.
     if rng is not None:
         rng.shuffle(openings)
+    if scorer is not None:
+        choices = [((w,), (), "L", w, "prepend")
+                   for _, w, _, _ in openings]
+        scores = _score_choices(scorer, choices,
+                                [new_over for _, _, new_over, _ in openings])
+        openings = [row for _, row in sorted(zip(scores, openings),
+                                             key=lambda item: item[0])]
 
     # Each entry carries the slack its branch has left, because a budget that
     # lived on the state would be shared by siblings that never met.
@@ -86,8 +105,13 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
     for placement, w, new_over, new_owner in openings:
         if len(new_over) > max_overhang or len(unit_letters(w)) > max_letters:
             continue
-        stack.append((COState(sort_key=0.0, left=(w,), right=(), overhang=new_over,
-                              owner=new_owner, center_len=0), join_slack))
+        opening = COState(sort_key=0.0, left=(w,), right=(), overhang=new_over,
+                          owner=new_owner, center_len=0)
+        if allow_state is not None and not allow_state(opening.left, opening.right):
+            if stats is not None:
+                stats["state_pruned"] += 1
+            continue
+        stack.append((opening, join_slack))
 
     import time as _time
     while stack:
@@ -97,10 +121,14 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
         if deadline is not None and nodes % 4096 == 0 and _time.time() > deadline:
             return
         nodes += 1
+        if stats is not None:
+            stats["nodes"] = nodes
         state, slack = stack.pop()
 
         if not state.overhang:
             if state.letters >= min_letters:
+                if stats is not None:
+                    stats["yielded"] += 1
                 yield list(state.left) + list(state.right)
             # A closed state can still be extended, so it is not a leaf.
 
@@ -110,6 +138,7 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
         expansions = _expand(state, tries, limit=10 ** 6)
         if rng is not None:
             rng.shuffle(expansions)
+        children = []
         for placement, w, new_over, new_owner in expansions:
             if len(new_over) > max_overhang:
                 continue
@@ -131,6 +160,19 @@ def enumerate_palindromes(tries: WordTries, max_letters: int = 30,
                           owner=new_owner, center_len=0)
             if nxt.letters > max_letters:
                 continue
+            if allow_state is not None and not allow_state(left, right):
+                if stats is not None:
+                    stats["state_pruned"] += 1
+                continue
+            growth = "prepend" if placement == "L" else "append"
+            children.append((nxt, left_slack,
+                             (left, right, placement, w, growth), new_over))
+        if scorer is not None and children:
+            scores = _score_choices(scorer, [row[2] for row in children],
+                                    [row[3] for row in children])
+            children = [row for _, row in sorted(zip(scores, children),
+                                                  key=lambda item: item[0])]
+        for nxt, left_slack, _, _ in children:
             stack.append((nxt, left_slack))
 
 

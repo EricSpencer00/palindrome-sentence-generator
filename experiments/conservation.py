@@ -33,9 +33,9 @@ from llm_palindrome.search import WordTries, consume, unit_letters
 def measure(limit=400, vocab_size=6000, max_overhang=24, budget=60000):
     tries = WordTries(build_vocab(vocab_size))
     rows = []
-    # Walk the reachable overhangs breadth-first from empty. Every legal
-    # placement out of every state visited is one observation, so the sample is
-    # of the search's actual move distribution rather than of a word list.
+    # Walk reachable overhangs depth-first from empty (a stack). Each legal
+    # edge is an observation; this is NOT a sampled trajectory or the search
+    # policy's move distribution. See revision_conservation.py for sensitivity.
     seen, frontier = {""}, [""]
     while frontier and len(rows) < budget:
         o = frontier.pop()

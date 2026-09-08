@@ -90,3 +90,15 @@ class BigramModel:
     def backward(self, word: str, nxt: Optional[str]) -> float:
         """log P(word | nxt) — for words prepended to the left half."""
         return self._conditional(self._bwd, self._bwd_total, nxt, word)
+
+    def forward_order_gain(self, prev: Optional[str], word: str) -> float:
+        """Gain from this ordering beyond the word's unigram probability."""
+        return self.forward(prev, word) - self._unigram_logp(word)
+
+    def backward_order_gain(self, word: str, nxt: Optional[str]) -> float:
+        """Backward counterpart of :meth:`forward_order_gain`."""
+        return self.backward(word, nxt) - self._unigram_logp(word)
+
+    def observed(self, first: str, second: str) -> bool:
+        """Whether the ordered pair occurred in the source count table."""
+        return second in self._fwd.get(first, {})

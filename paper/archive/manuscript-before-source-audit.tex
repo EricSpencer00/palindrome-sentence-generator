@@ -1,0 +1,325 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.83in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{newtxtext,newtxmath}
+\usepackage{microtype,booktabs,graphicx,amsmath,array}
+\usepackage[round,authoryear]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}\fancyhf{}\fancyhead[L]{\small How to Find a Palindrome That Reads}\fancyhead[R]{\small Research revision}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\emergencystretch}{2em}
+\linespread{1.06}
+\setlength{\parindent}{1em}\setlength{\parskip}{3pt}
+\newcommand{\artifact}[1]{\texttt{\small\detokenize{#1}}}
+\newcommand{\pageend}{\clearpage}
+\title{How to Find a Palindrome That Reads\\\large Length search, mirrored seams, and the limits of our evidence}
+\author{Research manuscript}
+\date{Revision of 7 September 2026}
+\begin{document}
+\maketitle\thispagestyle{plain}
+\begin{abstract}
+Exact letter reversal is easy to certify; readable language is not. We study that distinction through attributed adaptations of Hoey--Norvig search, composition of mirrored phrase pairs, and controlled evaluation of presentation. An independently audited output contains 90,937 letters, exceeding Norvig's published version-3 text by 498 letters using the same source dictionary. This is a length result, not a claim of coherent prose or a world record. Recent sentence-planning experiments increase structurally admissible supply without establishing readable mirror pairs. We also reassess earlier measurements: saturated pairwise seam preferences do not identify a first-seam collapse, vocabulary-dependent output yield is not a universal complexity law, and average overhang reduction depends strongly on enumeration order. A new eight-vocabulary comparison demonstrates that dependence. For seams, we freeze a graded evaluation protocol and optimize both joins induced by nesting while holding the component texts fixed. Both models passing the frozen gate rate every answered nest at the scale floor, so the ordering improvement in the corpus objective does not establish a readability gain. Model judgments remain separate from the independent human evaluation still needed. The resulting account separates exact construction, local linguistic proxies, and whole-text readability rather than treating success at one as evidence for the others.
+\end{abstract}
+
+\section{The question and the evidence standard}
+A long palindrome can be a substantial search artifact without being a readable paragraph. The research objective is to obtain connected English under exact alphabetic reversal, with controlled repetition and an auditable provenance trail. Length, vocabulary membership, grammatical appearance, and coherence answer different questions. In particular, a sequence of recognizable words does not establish a recoverable proposition or a relationship between successive sentences.
+
+This revision replaces a stronger earlier narrative with three narrower contributions. First, it documents a reproducible improvement over a particular published length baseline. Second, it explains which construction and scoring choices actually restrict the search, including candidate-menu bias and the distinction between enumerated edges and traversed paths. Third, it makes the evaluation failures explicit and introduces a controlled intervention on seam ordering. Several experiments remain negative; none proves that readable long palindromes are impossible.
+
+The scope is English text normalized to lowercase ASCII letters unless stated otherwise. Spaces and punctuation are presentation variables. A valid output must equal its reverse after normalization. A readable output must additionally support connected meaning under a stated rubric. We retain the original short draft as an archival source, but its first-seam causal claim, universal placement constant, and long-range compute extrapolation are withdrawn. This fifteen-page version includes the references and methodological appendix; it is an expanded research report, not a statement about a venue's submission limits.
+\pageend
+
+\section{Construction state and what it guarantees}
+\label{sec:state}
+Hoey--Norvig construction grows text from both ends while recording the unmatched remainder \citep{norvig2002palindrome}. We call this remainder the \emph{overhang}; the name does not introduce a new algorithm. Norvig's account already describes this state. A letter-level version instead advances matched letters at both ends while tracking incomplete dictionary phrases. Our work builds on these representations rather than claiming their invention.
+
+For two normalized partial strings, cancel their common mirrored prefix. The remainder has an orientation identifying the side that owes letters. A word can be placed on the owing side only if its appropriately oriented letters and the remainder are prefix-compatible: one must be a prefix of the other. If the word consumes only part of the remainder, the debt stays on the same side. If it extends beyond the remainder, ownership switches. An unmatched middle that is itself palindromic permits closure.
+
+For example, take the left text \emph{step on} and place \emph{pets} on the right. In mirrored orientation, \emph{step} cancels and the remainder is \emph{on}. Prepending \emph{no} to the right completes \emph{step on no pets}. The side and placement direction matter: it is not correct to say that \emph{no} can be added indiscriminately to either side. Every accepted output is independently checked as a complete string, so a bookkeeping error cannot be hidden by the search's own state description.
+
+The oriented overhang is sufficient for the local letter-compatibility transition with a fixed unrestricted word inventory. It is \emph{not} a sufficient state for our full task. Phrase uniqueness requires a used-phrase set; word caps require counts; grammatical constraints require sentence state; a language model depends on text history. Two paths with the same remainder can consequently have different legal continuations once these restrictions are active. Merging them solely by remainder can delete a useful path or admit an invalid repetition.
+
+A trie retrieves prefix-compatible candidates. Its cost includes traversing the key, retrieving completions, applying candidate limits, and scoring candidates. It is not constant merely because the state is compact. Likewise, a finite-state description requires a finite bound on the stored remainder or an explicitly finite dictionary-induced state space; an unrestricted language of arbitrarily long palindromes cannot be called finite-state without qualification.
+
+Constrained decoding provides useful techniques for organizing hypotheses \citep{hokamp2017grid,post2018fast,lu2022astar}. Their scoring and pruning rules must nevertheless respect these state distinctions. A left-to-right generator is not categorically incapable of enforcing a palindrome: a fixed-length construction can copy the chosen half in reverse, and a richer decoder can carry the required memory. The difficulty is combining that guarantee with useful word boundaries and language on both halves. Two-ended construction exposes that coupling during search rather than leaving it entirely to final rejection.
+
+We therefore separate three interfaces: a mechanically exact transition, a proposal policy deciding which legal transitions are visible, and an evaluator deciding which complete outputs are worth keeping. Correctness tests apply to the first; diversity and closure diagnostics apply to the second; calibrated reading judgments apply to the third.
+\pageend
+
+\section{A longer result under the Norvig dictionary}
+\label{sec:length}
+The comparison target is the published version-3 output, listed as 90,439 letters and 21,012 words \citep{norvig2002palindrome}. We cache the reference program, dictionary, and reference text. Removing the reference page's heading and author footer yields an exact 90,439-letter palindrome under our independent parser. This explicit extraction prevents page furniture from affecting either validity or counts.
+
+Our adapted search imports the unmodified version-3 program and retains its paired-letter action and backtracking mechanics. We change phrase admission, inventory bookkeeping, and the objective used to record a best closure. Instead of maximizing completed phrase count, we maximize letters. The original ordering estimates promise through a product of prefix and suffix completion counts. We compare that static inventory with counts that remove completed phrases and restore them on undo. A further variant removes currently infeasible phrases under the content-word cap, updating only entries indexed by the affected words.
+
+\begin{center}\small
+\begin{tabular}{lrrr}\toprule
+Search condition & Budget & Letters & ASCII tokens\\\midrule
+Static inventory, cap 3 & 45 s & 68,286 & 15,822\\
+Unused inventory, cap 3 & 45 s & 76,979 & 17,926\\
+Unused inventory, cap 3 & 120 s & 88,101 & 20,553\\
+Feasible inventory, cap 3 & 120 s & 88,095 & 20,505\\
+Unused inventory, no word cap & 120 s & 88,455 & 20,690\\
+Feasible inventory, cap 3 & 300 s & \textbf{90,937} & \textbf{21,222}\\\bottomrule
+\end{tabular}
+\end{center}
+
+The final result contains 16,168 distinct normalized phrases. It exceeds the reference by 498 letters, or 0.551\%. Under the same ASCII word tokenizer, the reference contains 21,194 tokens and our output 21,222, a difference of 28. Under Norvig's phrase-plus-internal-spaces convention, our output has 21,088 words against 21,012, a difference of 76. These are alternative counting conventions, not independent achievements. The alphabetic count is the primary endpoint because it is independent of segmentation.
+
+Strict conditions allow no repeated normalized phrase, no adjacent repeated words, and at most three occurrences of each non-function word. The exceptions are the fixed set \emph{a, an, the, and, or, of, to, in, on, at, for, with, by}. The no-cap condition is explicitly separate. Fourteen dictionary keys containing non-ASCII-letter characters are excluded from emitted material. These conditions make the final artifact's claim concrete; they do not make a long noun-phrase inventory read like prose.
+
+The 45-second comparison suggests that updating inventory can help this search order: it found 12.7\% more letters with slightly fewer loop steps. These are single deterministic runs under wall-clock budgets, including concurrent machine use, not replicated speed measurements. At 120 seconds the two dynamic variants nearly tie. We claim an audited output exceeding a specified reference, not a general runtime advantage or an optimum. The complete text, phrase sequence, and audit are preserved in \artifact{artifacts/norvig-v3/}.
+\pageend
+
+\section{Verification, provenance, and fair comparisons}
+\label{sec:audit}
+An exact palindrome admits a stronger mechanical audit than a typical natural-language generation result. The independent auditor uses standard-library parsing and does not trust the generator's validity flag. It reconstructs the text from saved phrases, checks every phrase against the original dictionary, checks uniqueness, counts content words, and verifies the full normalized reversal. It also verifies the opening and ending required by the Panama construction. This makes the length result independently inspectable even if future search code changes.
+
+SHA-256 prefixes identify the reference code (\texttt{c21a79f77e3021c0}), dictionary (\texttt{3f28b8a95d92be6c}), and winning text (\texttt{95722a8a12516c44}). Full hashes appear in the result report and machine-readable audit. Before character exclusions, the dictionary contains 126,342 source lines and 125,512 normalized keys. A dictionary line count, a normalized phrase count, and a word-token count are three different quantities; we report them separately.
+
+\begin{center}\small
+\begin{tabular}{p{0.61\linewidth}r}\toprule
+Independent check on the final artifact & Result\\\midrule
+Normalized letters equal their full reverse & Pass\\
+All completed phrases belong to source dictionary & Pass\\
+Unique normalized phrases / total phrases & 16,168 / 16,168\\
+Adjacent repeated word pairs & 0\\
+Maximum non-function-word count & 3\\
+Letter gain over identically parsed reference & 498\\\bottomrule
+\end{tabular}
+\end{center}
+
+A fair comparison also specifies what has changed. Our ``static'' arm uses reference ordering under our additional guards and letter objective; it is not a byte-for-byte replay of the original search policy. Norvig's original result was optimized under a different objective and need not satisfy our extra word cap. The comparison supports ``a longer output from the same source dictionary with these restrictions.'' It does not isolate the effect of every restriction, establish an algorithmic speedup over the original hardware, or locate the longest possible output.
+
+This distinction extends to readability. The reference itself is presented with candid qualifications about meaning. Exceeding its length does not answer whether a reader can summarize our text. A title or abstract that treated 90,937 letters as evidence of coherent paragraph generation would combine two endpoints that have not been linked experimentally. We retain the artifact precisely because a useful combinatorial result can coexist with a negative linguistic result.
+
+Reproduction has two levels. Re-running the search under a wall-clock budget may produce different best lengths as machine load changes. Re-running the auditor on the saved phrase sequence should reproduce all exact properties without such variation. Search tests cover rollback of inventory and counts, phrase ownership, and reference self-tests; audit assertions cover the final artifact. The saved output is therefore the reference for exact replication, while the budgeted script is the reference for further experimentation.
+
+We do not assert global novelty of short examples, a human-readable length record, or optimality of the long result. Those would require separate literature coverage and evaluation. The supported baseline is specifically the published Norvig version-3 text.
+\pageend
+
+\section{Overhang reduction is not a conserved advance}
+\label{sec:conservation}
+Let $d_t$ be the overhang length before an accepted compatible placement and let $m_t$ be the number of letters in the new unit. Prefix compatibility gives
+\[
+ d_{t+1}=|d_t-m_t|,\qquad s_t=\min(d_t,m_t),\qquad
+ \Delta_t=d_t-d_{t+1}=2s_t-m_t.
+\]
+Here $s_t$ counts newly matched letter positions and $\Delta_t$ is signed debt reduction. Negative reduction means that a placement opens more unmatched material; it does not mean that it is useless. Every placement still adds its unit to the text, and a promising long path may temporarily increase debt.
+
+For a trajectory of $T$ placements, $\sum_t\Delta_t=d_0-d_T$. Consequently, for bounded endpoints the average signed reduction tends to zero as the path grows. It cannot be a universal positive constant per placement. Averaging legal outgoing edges at visited states produces a different statistic: states with many candidates receive more weight, and traversal order determines which states reach a finite sampling budget.
+
+We reran that edge-enumeration measurement at eight requested vocabulary sizes, with breadth-first and depth-first traversal, the same candidate limit of 400, maximum overhang 24, and a budget of 60,000 edges. Normalization/filtering changes the realized vocabulary size. At the three smallest sizes the reachable enumeration finishes before the budget, so the two traversals see the same edges. At larger sizes they see different truncated sets.
+
+\input{revision-conservation-table}
+
+The range across these conditions is $-2.36$ to $1.06$ letters of mean signed reduction. Settled positions range from 2.20 to 3.75 per edge. The actual vocabulary span is approximately 47.8-fold. This decisively rejects the proposed stable 1.09 value under these definitions. It also explains why the earlier depth-first mean near 0.90 was not a conservation law. The old code's breadth-first comment was inconsistent with its stack-based traversal.
+
+This sensitivity study uses the currently corrected candidate menu and is not an exact replay of the historical implementation. Its purpose is to test invariance across conditions, not to attribute every difference from the old number. Breadth-first and depth-first enumeration are structurally different traversals; neither samples successful search trajectories or a language-model policy. We make no confidence-interval claim from treating dependent edges as independent observations. The exact telescoping identity is the general result; the table describes this finite enumeration.
+\pageend
+
+\section{Scaling: separate cost from yield}
+\label{sec:scaling}
+A vocabulary-size experiment needs an analytic prediction for the quantity actually measured. A trie lookup first follows a key and then retrieves compatible completions. In an ideal indexed implementation, lookup work can be expressed as $O(|o|+C)$, where $C$ is the material retrieved. It need not be linear in total vocabulary size. In our implementation, ranking and length-balancing a large candidate set can scan additional completions before truncation. Language scoring and duplicate rejection contribute further costs. A universal inverse-vocabulary throughput law therefore does not follow from the use of a trie.
+
+More importantly, the historical sweep counted \emph{distinct outputs per aggregate core-second}, not visited states per core-second. A useful decomposition is
+\[
+ \frac{\text{distinct outputs}}{\text{second}}
+ =\frac{\text{states}}{\text{second}}
+  \frac{\text{closures}}{\text{state}}
+  \frac{\text{distinct outputs}}{\text{closure}}.
+\]
+Each factor can change with vocabulary size and the search policy. Even if expansion cost were exactly proportional to vocabulary size, an observed exponent of $-1$ for distinct yield would require the other factors to remain roughly constant. The old plot did not establish that condition. Conversely, a faster implementation may visit more states without finding more distinct or readable outputs.
+
+The compatible historical cells give a fitted exponent of approximately $-1.031$ over five vocabulary settings spanning 32-fold, with $R^2=1.00$ rounded to two decimals. A sixth cell at requested size 6,000 came from a different compute allocation and is excluded from this fit. The previous eight-point, 47-fold fit is not supported by the compatible raw cells. These corrections change the description of the measurement, not merely its precision. A high $R^2$ over five aggregated points is not evidence for a universal mechanism.
+
+We retain this as a descriptive result for the earlier pipeline. It does not support the statement that more compute cannot improve the result. Section~\ref{sec:length} itself shows that continued search can increase a well-defined length endpoint. Nor does the fit imply that a larger dictionary reduces the best attainable readability: distinct-output yield and quality are separate quantities.
+
+\subsection*{The withdrawn length extrapolation}
+The earlier per-letter multiplier and 2,900-fold estimate are removed from the abstract and conclusions. The supporting comparison relied on two sparse cells, one with a single event. The audit's broad Poisson interval allowed a per-letter ratio from about 0.90 to 4.50; exponentiating it across fifteen letters produces an essentially uninformative budget range. The absence of observed outputs in a sparse band is not an identified length threshold.
+
+We have not run a new high-budget sweep to 42 or 43 letters in this revision. That would also require a frozen definition of an acceptable output and a validated search configuration; recent candidate-menu fixes make pooling old and new yields inappropriate. Future budget curves should report exposures, event counts, search versions, and uncertainty per length band, including zero-event upper bounds. Without those measurements, deleting the extrapolation is more defensible than replacing one unsupported point estimate with another.
+\pageend
+
+\section{What the historical seam study establishes}
+\label{sec:oldseams}
+A mirror pair $(L_i,R_i)$ satisfies $n(L_i)=\operatorname{rev}(n(R_i))$, where $n$ is normalization. Nesting $k$ such pairs gives
+\[
+ L_1L_2\cdots L_kR_k\cdots R_2R_1.
+\]
+This is a character palindrome without a fresh letter search. Each adjacency between outer and inner pairs induces two joins: $L_i\!\mid\!L_j$ and $R_j\!\mid\!R_i$. We refer to this paired adjacency as one nesting seam, while noting that it creates two surface boundaries. A palindromic center can be inserted between the innermost halves.
+
+The August study compared a single chunk with a nest containing that chunk and additional material at $k\in\{2,4,8\}$, with seven items per arm. Two blind subagent judges preferred the single chunk on all seven items in each arm. The second judge saw reversed display order. Six prose-versus-shuffle calibration items were also preferred correctly by each judge. These are model/subagent judgments, not recruited human judgments; the archived report does not support describing the raters as humans.
+
+\begin{center}\small
+\begin{tabular}{lrrr}\toprule
+Historical comparison & Items & Judge 1 & Judge 2\\\midrule
+Single vs. two-chunk nest & 7 & 7 / 7 & 7 / 7\\
+Single vs. four-chunk nest & 7 & 7 / 7 & 7 / 7\\
+Single vs. eight-chunk nest & 7 & 7 / 7 & 7 / 7\\
+Prose vs. its shuffle & 6 & 6 / 6 & 6 / 6\\\bottomrule
+\end{tabular}
+\end{center}
+
+The result supports a preference for the singles in this item set under those judges. It cannot distinguish a first-seam step function from a floor effect, a progressive degradation hidden by a binary endpoint, or a length effect. The nests add words, letters, and topics along with seams. Sharing a seed does not hold the material fixed. A 100\% preference rate has no remaining headroom to measure a worsening nest.
+
+We therefore withdraw the claims that coherence dies completely at the first seam, that later seams impose no further cost, or that no ordering can help. We also remove the binomial significance claim formed by pooling two judgments of the same seven items into fourteen independent observations. Reversed order \emph{across different raters} is not a within-rater consistency test. It gives a limited counterbalancing check, while confounding rater identity with order. A genuine flip consistency measurement requires the same rater to see both orders, with suitable separation.
+
+Historical graded model scores already show why the binary result was insufficient. One model gave nests mean scores of 0.05, 0.00, and 0.00 at $k=2,4,8$; another gave 0.40, 0.35, and 0.15. These are compatible with a strong floor and with residual change. They are not interchangeable with the blind subagent protocol, and they do not remove its length confound. They motivate an instrument with observable dynamic range and comparisons that hold material or length fixed.
+\pageend
+
+\section{A controlled intervention on seam ordering}
+\label{sec:newseams}
+The cleanest proposed seam-count comparison would hold total letters fixed while comparing a few long chunks with many short chunks. Before generating such items, we checked the actual source bank. Among distinct midpoint-splittable pairs, two chunks span 38--64 letters; eight span 206--250. The supports are disjoint. A two-long versus eight-short comparison near 236 letters cannot be built from this bank. Repeating a chunk as filler changes repetition and composition; it does not remove the inferential problem.
+
+Instead, the new experiment addresses an actionable, narrower question: can choosing the order improve joins for exactly the same material? We sample twelve sets of eight distinct pairs with a fixed seed. For each set, a random baseline order and an optimized order contain precisely the same words with the same multiplicities and total letter count. Both are independently asserted palindromic. Chunk count is fixed; this is an order intervention, not an estimate of a per-seam causal effect.
+
+Let $g(a,b)$ be the corpus bigram log-probability of $b$ after $a$ minus its unigram log-probability. The edge score for placing pair $j$ inside pair $i$ is
+\[
+ e(i,j)=g(\operatorname{last}(L_i),\operatorname{first}(L_j))
+       +g(\operatorname{last}(R_j),\operatorname{first}(R_i)).
+\]
+The objective sums $e$ over the seven adjacent pair choices. We enumerate all $8!=40,320$ orders per set and select the maximum. Internal chunk scores and the multiset of words are fixed. The innermost center join can change, however, and is not included in this seam objective; it remains part of the whole-text outcome. Explicitly scoring both forced joins avoids improving the left boundary while silently damaging its right counterpart.
+
+A higher objective is guaranteed by optimization and is not independent evidence of readability. The outcome is a separately elicited 0--3 whole-text judgment after a prespecified calibration gate. The frozen packet also contains twelve generated single chunks and twelve traditionally punctuated catalogue controls. These controls provide a readability gradient, not a length-matched causal contrast. Catalogue punctuation also differs from the bare generated texts, so the gradient is only an instrument check, not an isolated quality effect. Their ``best'' and ``mid'' labels represent a prior expectation to test, not a rating already established by the experiment.
+
+\input{revision-seam-results}
+
+The protocol, item texts, component pairs, chosen orders, objective scores, and a SHA-256 digest are saved before the first experimental judgment. All model outputs are retained. Missing final answers are not scored as zero; differential truncation on long texts limits comparisons even after calibration passes. The corpus bigram objective is a local association proxy: even an optimized nest may lack a subject, event, or stable topic. A result at the scale floor would limit the current experiment's sensitivity; it would not prove that order is irrelevant for better source material. Regardless of the outcome, the implementation now provides a reproducible fixed-material way to compare seam policies.
+\pageend
+
+\section{Judge calibration, agreement, and missing humans}
+\label{sec:judges}
+The new protocol fixes the model roster and gate before any model sees experimental items. Twelve newly authored ordinary sentences are paired with deterministic word shuffles. The model must prefer prose on all twelve pairs. Ties, malformed answers, missing answers, and errors fail the gate. The primary requirement is exactly 12/12; no threshold is relaxed after seeing results. Because the parser requires a bare label, this gate measures usable response format as well as discrimination. A format failure must not be described as a wrong preference. This is a timestamped local prespecification, not registration with an external registry.
+
+Passing this coarse check establishes only basic discrimination. It does not establish sensitivity among low-scoring palindromes, absence of length bias, or agreement with humans. The catalogue-versus-generated gradient is therefore reported separately. Whole-item scores use a fixed rubric: 0, no recoverable connected meaning; 1, meaningful local fragments without a coherent whole; 2, recoverable connected meaning despite strained English; 3, clear natural connected English. The entire text is judged rather than its best phrase.
+
+\input{revision-judge-table}
+
+The earlier model-screening exercise used a different, retrospectively discussed mean-gap criterion on twenty prose and shuffled spans. For transparency, its reported means were: Mistral 2.20 versus 1.00; gpt-oss 20B 0.85 versus 0.00; DeepSeek R1 8B 0.70 versus 0.20; Gemma 3 4B 2.00 versus 1.75; and Llama 3.1 8B 2.00 versus 1.85. These means cannot be translated into twelve-pair gate outcomes. A large mean gap can coexist with frequent high scores for word salad. Historical selection is not relabeled prospective by applying today's threshold to yesterday's evidence.
+
+The new model roster consists of these five locally installed systems. Experimental ratings are collected only after an individual model passes; a failed model's experimental verdict is marked not evaluated, rather than fabricated or silently excluded. That policy avoids spending a failed instrument on subtle comparisons. Shared training and prompting can induce model agreement.
+
+We compute ordinal Krippendorff agreement using coincidence weights and pooled marginal category ranks, with missing replies omitted only from the relevant item pairs \citep{krippendorff2011computing}. A repeated-order check is a different within-rater statistic and is not supplied by cross-rater agreement.
+
+\input{revision-agreement}
+
+No five-to-seven-person human panel was recruited in this revision, and no independent human punctuation arm was collected. The released blind item packet supports that next study. Human participants should see the same items, the same rubric, randomized presentation, and separated repeated items. Their ratings and exclusions must remain separate from model scores.
+\pageend
+
+\section{Punctuation changes the measured outcome}
+\label{sec:punct}
+The historical punctuation study used the same twenty-six underlying texts under several presentations: hand punctuation supplied from the catalogue or by the author, bare word spacing, our search-time punctuation module, and post-hoc language-model punctuation. The letter sequence is held fixed. This design supports a within-text presentation comparison, unlike a comparison between separately generated outputs. It does not isolate punctuation from every possible surface change if spacing or capitalization also changes.
+
+We recompute the following table directly from the saved post-hoc evaluation files. Each cell is the mean of the available 0--3 scores under that evaluator. Including both model-generated punctuation sources makes the previously missing arm visible and exposes dependence on the evaluator. A model rating its own punctuation is not a blinded independent human assessment.
+
+\input{revision-punctuation-table}
+
+Under the saved 120B evaluator, its post-hoc punctuation has mean 2.08 versus 1.31 for bare spacing, an observed difference of 0.77 points. Hand punctuation scores 2.31 and the search-time presenter 0.73 in that same evaluation. These values belong to this particular saved pass; a separate earlier pass used different scores and should not be silently averaged with it. Repeated measurements of the same twenty-six texts do not constitute new independent items.
+
+The blind pairwise record also favors bare spacing over the search-time presenter in 49 of 52 judgments and hand punctuation over that presenter in 52 of 52. These are two raters judging twenty-six texts, not fifty-two independent texts. The reported item agreement was 23/26 for presenter versus bare and 26/26 for hand versus presenter. An earlier statement that both comparisons had perfect agreement was incorrect. The archival subagent provenance does not support calling these human preferences.
+
+The presentation code explains a plausible failure mechanism: a fixed reward per segment can make a segmentation dynamic program favor too many fragments. The resulting punctuation may impose sentence boundaries unsupported by the words. This is a diagnosis of that objective, not a claim that punctuation should never interact with search. A different presenter could preserve a useful syntactic plan or use a globally normalized objective.
+
+Post-hoc marking is useful only with a validity guard. Every returned variant must be normalized and compared with its source before evaluation or publication. The historical two-model set reports 52/52 letter-preserving outputs, but zero failures in a small set is not a guarantee of future compliance. If the intended intervention is punctuation alone, additionally enforce unchanged word tokens; preserving only letters permits resegmentation. Independent, hypothesis-blind punctuation by two people remains uncollected. Its agreement and resulting readability scores cannot be inferred from the author-supplied arm.
+\pageend
+
+\section{Sentence planning expands supply, not demonstrated quality}
+\label{sec:plans}
+Recent experiments try to make each mirrored half sentence-shaped before composing paragraphs. A Brown-derived tag inventory supplies complete sentence shapes and subject/verb constraints. Applying the same structural condition during search can prune impossible prefixes or suffixes earlier than a terminal filter. The left and right partial clauses require different directional checks because they grow in opposite directions.
+
+A matched Polaris experiment used one node, thirty-two disjoint opening shards, and 600 seconds per arm per rank. With the same Brown-known vocabulary subset, incremental sentence planning yielded 86,511 distinct structurally admitted pairs, compared with 20,989 for terminal filtering: 4.12 times as many. The planned arm visited 115,236,212 nodes versus 84,815,872; closures were 536,805 versus 1,117,411. Fewer raw closures and more distinct admitted pairs are compatible because the acceptance condition and explored distribution differ.
+
+\begin{center}\small
+\begin{tabular}{lrr}\toprule
+Subsequent join restriction & Closures & Distinct pairs\\\midrule
+Every internal join attested & 103,635 & 105\\
+One unattested join permitted & 124,538 & 227\\\bottomrule
+\end{tabular}
+\end{center}
+
+Adding bigram attestation drastically narrowed the structural supply. Both halves of all 105 strict pairs were then rated individually by the archived gpt-oss 120B evaluation. Four ordinary sentence controls scored 3; four salad controls scored 0 or 1. Across the 210 halves, scores were 0 for 100, 1 for 98, 2 for 10, and 3 for 2. No pair had \emph{both} halves at least 2: the minimum half-score was 0 for 77 pairs and 1 for 28.
+
+This is a negative result about the tested bank under one model protocol. It is not an independent human rejection of every candidate, nor proof that all possible pair generation fails. Its practical implication is narrower: structural admission and local attestation did not supply a validated bank of coherent sentence pairs. Promoting all 86,511 structural hits as readable material would confuse a proposal filter with an outcome measure.
+
+Starting from natural sentences did not produce a qualifying pair under the same strict filters either. Among 6,066 eligible three-to-seven-word Brown sentences, none had a reversed segmentation satisfying both sentence shape and fully attested joins. Without the join requirement one segmentation survived and was visibly poor. These corpus-bound counts should not be described as exhaustive counts of English.
+
+The earlier batched binary meaning gate was itself rejected after accepting salad controls in twelve of fourteen batches. Those accepted candidates are not merged into the successful set. The newer whole-half scoring pass used different controls from the prospective protocol in Section~\ref{sec:judges}; it remains historical evidence. Keeping these stages separate makes the negative result interpretable: search improved structural yield, but the available instrument did not establish the quality needed for paragraph composition.
+\pageend
+
+\section{Search failures and finite-language diagnostics}
+\label{sec:negative}
+Several recent failures changed the research direction without establishing a universal linguistic ceiling. The candidate-menu audit found that an older breadth-first trie enumeration made a limited root menu consist almost entirely of very short words. A corrected, rank-respecting menu with length coverage exposed ordinary content words. In a thirty-two-rank structural debug run, all 256 attempts closed as valid 80--95-letter palindromes. The root menu contained 112 words of at least five letters, where the earlier menu contained none. This is evidence for a repaired search substrate, not for readable outputs.
+
+Adding longer clause history did not rescue a separate sentence-pair beam experiment. At vocabulary 3,000 and beam 96, both order-2 and order-4 models closed zero of sixteen attempts. At vocabulary 6,000 and beam 512, each closed zero of four attempts. These are small closure smokes with simultaneous condition changes, not a controlled beam-width/readability sweep. We delete the broader claim that widening the beam makes readability worse. Likewise, no supported best-of-$N$ readability curve is claimed here.
+
+Using the clause score only to order exhaustive-search siblings also failed in the tested 100,000-node smoke. Both model orders found the same poor pair. This shows that a local language preference can direct finite-budget exploration into an unproductive region. It does not show that every language-guided traversal is worse, and no unmeasured large-scale extrapolation follows.
+
+A separate exact finite-language test avoids stochastic-search ambiguity. Seven explicitly specified clause families generate 60,576 distinct clauses with agreement and selected complements. Indexing their normalized strings and looking up exact reversals finds zero non-self mirror pairs and zero self-palindromic clauses. Reversed endings share a compatible inventory opening for 14,244 clauses at one letter and 13,026 at two letters, but none at three letters. Within this finite inventory, a boundary mismatch already rules out every candidate.
+
+The diagnostic includes a separately injected known mirror-pair control, a one-letter negative control, and repetition rejection checks. These establish that the lookup can recover a pair when one is present. They do not enlarge the tested natural-language inventory. The result is exhaustive \emph{for those templates and lexical choices}; it is not exhaustive over English sentence grammars, paraphrases, or elliptical language. The zero is useful because it identifies where to change the inventory before funding another large search.
+
+The current guarded composition endpoint also has a finite supply limit: across twenty-four seeds at its largest request, it produced 832--980 letters while enforcing repetition exclusions. Those passages are not established as coherent. Thematic mirrored refrains provide another valid construction using catalogue sentences in an mirrored sequence of sentences. They reuse sentences deliberately and are labeled catalogue-derived rather than novel prose. Both results are controls on what the current system can build; neither resolves the original demand for long, fresh, connected palindromic paragraphs.
+\pageend
+
+\section{Interpretation and the next decisive experiments}
+\label{sec:discussion}
+The strongest positive result is exact and modestly scoped: a saved output exceeds a specific published length baseline while satisfying independently checked dictionary and repetition conditions. The strongest negative correction is also exact: signed overhang reduction telescopes along a path and cannot support the earlier universal positive constant. The seam evidence is less decisive. The old endpoint saturates, and the present bank cannot support a length-matched two-versus-eight comparison. A controlled order intervention is possible, but only an independent readable outcome can establish its value.
+
+The most productive seam strategy is consequently to optimize the two forced transitions jointly, preserve the material during comparison, and evaluate the entire nest. The new exact eight-pair optimizer provides that intervention without changing letters available, repetition counts, or total length. Here it improves the corpus objective without escaping the judged nest floor, directing attention back to the proxy and source bank. It does not justify an increasingly elaborate optimization of the same proxy without a new positive control.
+
+For a causal seam-count study, first acquire distinct long mirror pairs and shorter controls with overlapping total-length support. Within each length band, construct several nests with different seam counts while matching source quality as closely as possible. Length matching alone still changes component identities, so the design should include multiple sets, measured single-chunk quality, and an analysis that acknowledges residual material differences. A repeated chunk is not neutral padding. Until that inventory exists, a per-seam coefficient is not identified by our data.
+
+Human evaluation should follow a frozen item-selection rule rather than hand-selecting the most persuasive examples after ratings. Five to seven independent raters can grade a common item set, with ordinal agreement and uncertainty over items reported separately from within-rater flips. The catalogue, middle-quality, and nested conditions test whether the scale resolves above the floor. If best and middle cannot be separated, a flat low nest curve should be described as unresolved rather than as evidence for a step function.
+
+Presentation should be held constant within each comparison. Two independent, hypothesis-blind punctuators can supply a human arm; a token-preserving model presenter supplies a reproducible alternative. Neither changes the underlying palindrome problem. Reporting both plain and marked variants would show how much apparent progress comes from presentation rather than new language material. The historical +0.77 result makes this a potentially consequential control, not an optional cosmetic choice.
+
+\subsection*{Limitations and conclusion}
+The new studies use a finite bank, local corpus proxies, and model instruments. They do not replace recruited readers, broaden the finite grammar to English as a whole, or replicate all runtime comparisons. Historical results come from different code versions and judge protocols and are labeled accordingly. The fifteen-page revision also does not contain a new high-budget length-yield sweep or a validated best-of-$N$ experiment.
+
+A longer valid palindrome and a better reading experience require different evidence. This work provides an auditable length improvement, a corrected account of several misleading measurements, and a reproducible seam-order experiment. Connected paragraph generation remains an open objective. Further progress should be measured by independently assessed meaning under fixed validity and presentation rules, rather than by a structural proxy that the generator was explicitly trained or searched to maximize.
+\pageend
+
+\appendix
+\section{Measurement assumptions and reproducibility}
+\label{app:methods}
+\subsection*{Dictionary bits are a model-dependent diagnostic}
+An earlier argument compared the cost of spelling reversed English with an estimate of ordinary English entropy. Shannon's prediction experiments concern a specific operational notion of uncertainty \citep{shannon1951entropy}; a dictionary segmentation cost is a different model. Its value depends on dictionary membership, unit probabilities, segmentation rules, unknown-letter penalties, and whether probability is assigned to a complete sequence or to locally selected fragments. Those choices cannot be treated as an information-theoretic lower bound on readable palindromes.
+
+Likewise, the fraction of letters covered by dictionary substrings is not the probability that a complete span can be segmented into words. Forward and reverse coverage need not be independent, and their product is not a justified universal survival bound. A forward/reverse gap can describe an asymmetry in a specified lexicon and sample. It does not establish that half of reversed English is impossible, nor convert directly into a compute multiplier. We retain the bit framing only as this methodological note and draw no main result from it.
+
+\subsection*{Prospective packet and outcome handling}
+The new packet is written by \artifact{experiments/revision_seams.py build}; the script refuses to overwrite an existing protocol. It records the UTC creation time, seed, model roster, gate, rubric, items, and all twelve optimization problems. A separate digest pins its bytes before judging. The judging command saves raw API responses and partial progress, then a complete result file. Exact-answer parsing treats anything outside the permitted response alphabet as missing or failed; it does not extract a favorable digit from an explanation.
+
+Each passing model sees forty-eight experimental items: twelve random nests, twelve optimized nests, twelve generated singles, and twelve catalogue controls. Paired order effects use the same component set as the analysis unit. Means should be accompanied by floor counts and missingness. Across-model agreement requires a common scored-item matrix; model identity and human identity must never share an undifferentiated rater pool. The protocol is fixed locally and auditable, but it is not an externally registered study.
+
+\subsection*{Artifact map}
+\begin{center}\small
+\begin{tabular}{p{0.33\linewidth}p{0.58\linewidth}}\toprule
+Evidence & Repository location\\\midrule
+Length output and independent audit & \artifact{artifacts/norvig-v3/}\\
+Length adaptation and report & \artifact{experiments/norvig_letters.py} and the associated result report\\
+New frozen stimuli and model replies & \artifact{runs/revision-2026-09-07/}\\
+Placement sensitivity runner & \artifact{experiments/revision_conservation.py}\\
+Historical punctuation evaluations & \artifact{runs/punct/after_*.json}\\
+Sentence-plan and quality experiments & \artifact{experiments/RESULTS-hierarchical-v3.md}\\
+Exact clause-language result & \artifact{experiments/sentence_intersection-results.json}\\\bottomrule
+\end{tabular}
+\end{center}
+The source bundle includes the revised manuscript, generated tables, bibliography, and the new protocol/results needed to inspect the new measurements. Larger historical run directories remain in the repository. Missing human ratings and unrun high-budget experiments are explicitly missing; no table placeholder is an empirical outcome.
+\pageend
+
+\section*{Related work and references}
+The closest precedent is palindrome construction itself. Hoey--Norvig search already carries the unmatched remainder, and Norvig's letter-level version tracks partially completed phrases on both sides. The present adaptation changes inventory estimates and the saved-output objective. It should therefore be evaluated as an extension of an existing method, with attribution and common inputs, rather than as the invention of two-ended generation.
+
+Corpus-based palindrome generation also predates this study. \citet{papadopoulos2015palindromes} formulate generation from n-gram corpora through constraint programming. That connection matters because our failed tag and bigram filters should not be generalized into a rejection of corpus constraints: a particular inventory and search formulation can be incomplete or overly restrictive. Our exact finite-template diagnostic isolates one such inventory failure, while the incremental-planning comparison concerns efficiency under a shared structural criterion.
+
+Work on lexical constraints and lookahead decoding supplies techniques for retaining feasible hypotheses and allocating search effort \citep{hokamp2017grid,post2018fast,lu2022astar}. These methods address different constraints and evaluation settings; their existence does not guarantee useful palindrome prose after replacing the state representation. The contribution here is the audited empirical separation of validity, proposal supply, and readable outcomes, including negative results and explicit corrections to earlier claims.
+
+
+\renewcommand{\bibsection}{}
+\bibliographystyle{plainnat}
+\bibliography{refs}
+\end{document}

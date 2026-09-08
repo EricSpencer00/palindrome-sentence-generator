@@ -89,3 +89,23 @@ class OverhangAware:
         if options == 0:
             return score - self.dead_penalty
         return score + self.debt_weight * math.log1p(options)
+
+    def word_deltas(self, choices, overhangs) -> list[float]:
+        """Preserve a candidate-batched base scorer and add debt feasibility.
+
+        Directional language-model scoring has to see a parent's whole legal
+        menu.  Wrapping it must not silently downgrade it to one-word scoring
+        merely because this structural term also needs the new overhang.
+        """
+        if hasattr(self.base, "word_deltas"):
+            scores = list(self.base.word_deltas(choices))
+        else:
+            scores = [self.base.word_delta(left, right, placement, word, growth)
+                      for left, right, placement, word, growth in choices]
+        if not self.debt_weight:
+            return scores
+        for i, overhang in enumerate(overhangs):
+            options = self.debt.options(overhang)
+            scores[i] += (self.debt_weight * math.log1p(options)
+                          if options else -self.dead_penalty)
+        return scores

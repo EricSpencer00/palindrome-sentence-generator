@@ -1,0 +1,43 @@
+#!/bin/bash -l
+#PBS -N pal-sentence-bank
+# Scheduler account configured by submitter.
+#PBS -q debug
+#PBS -l select=1:system=polaris
+#PBS -l place=scatter
+#PBS -l walltime=00:25:00
+#PBS -l filesystems=home
+#PBS -j oe
+#PBS -o ${PALINDROME_REPO}/logs/
+
+set -euo pipefail
+REPO=${PALINDROME_REPO}
+OUT=$REPO/runs/sentence_bank_$(date +%Y%m%d_%H%M%S)
+mkdir -p "$OUT" "$REPO/logs"
+cd "$REPO"
+export PYTHONPATH="$REPO:${PYTHONPATH:-}"
+export PYTHONUNBUFFERED=1
+PY=/usr/bin/python3.11
+NRANKS=32
+
+echo "host=$(hostname) out=$OUT"
+mpiexec -n $NRANKS --ppn $NRANKS --cpu-bind depth -d 1 \
+  $PY tools/polaris/sentence_bank_debug.py \
+    --vocab 30000 --candidate-limit 200 --opening-pool 2048 \
+    --beam 64 --per-parent 8 --min-letters 28 --max-steps 180 \
+    --seeds-per-rank 32 --shards $NRANKS --out-dir "$OUT"
+
+$PY - "$OUT" <<'PY'
+import glob, json, sys
+summaries = [json.load(open(path)) for path in glob.glob(sys.argv[1] + '/summary_*.json')]
+assert len(summaries) == 32, len(summaries)
+rows = [row for summary in summaries for row in summary['rows']]
+accepted = [row for row in rows if row['accepted']]
+aggregate = {'ranks': len(summaries), 'runs': len(rows),
+             'closed': sum(row['closed'] for row in rows),
+             'split': sum(row['split'] for row in rows),
+             'accepted': len(accepted),
+             'distinct_openings': len({row['opening'] for row in accepted}),
+             'distinct_pairs': len({(row['left'], row['right']) for row in accepted})}
+json.dump(aggregate, open(sys.argv[1] + '/aggregate.json', 'w'), indent=2)
+print(json.dumps(aggregate, indent=2))
+PY

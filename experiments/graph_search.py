@@ -26,8 +26,8 @@ holds 1.6e14 closures and 25,204 uniform samples contained zero readable ones,
 because uniformity spreads the draw across texts of uniformly rare words. The
 redraw walk was findable-by-accident: its candidate ranking gave it a frequency
 bias. `--alpha` makes that bias explicit and exact: each edge carries weight
-freq(word)^alpha, so a sample is drawn with probability proportional to the
-product of its words' frequencies. alpha=0 is uniform; alpha grows the bias.
+  freq(word)^alpha, so a sample is drawn with probability proportional to the
+  product of its words' frequencies. alpha=0 is uniform; alpha grows the bias.
 
 The hit filter -- 3 to 9 units, `sentence_like` on the same Brown payload --
 is copied from tools/polaris/shard_yield.py so rates are comparable with the
@@ -75,9 +75,9 @@ class Graph:
     def __init__(self, tries: WordTries, max_overhang: int, alpha: float = 0.0):
         from wordfreq import zipf_frequency
         self.alpha = alpha
-        # zipf is log10 of frequency per billion; freq^alpha == 10**(zipf*alpha)
-        # up to a constant that cancels in sampling. Offset keeps weights
-        # in a sane float range.
+        # Zipf is log10 frequency per billion.  Do not subtract a per-edge
+        # constant here: that only cancels when every sampled path has the same
+        # number of units, which this program deliberately does not assume.
         self.wt = {}
         self.tries = tries
         t0 = time.time()
@@ -101,17 +101,23 @@ class Graph:
                     frontier.append(j)
                 if w not in self.wt:
                     z = zipf_frequency(w, "en")
-                    self.wt[w] = 10.0 ** (alpha * (z - 4.0)) if z else 1e-6
+                    self.wt[w] = 10.0 ** (alpha * z) if z else 1e-6
                 es.append((w, placement, len(unit_letters(w)), j))
             self.edges[i] = es
         self.n = len(self.keys)
         self.n_edges = sum(len(e) for e in self.edges)
         self.build_seconds = round(time.time() - t0, 1)
 
-    def closure_counts(self, max_letters: int, max_units: int = 9) -> np.ndarray:
+    def closure_counts(self, max_letters: int, max_units: int = 9,
+                       primitive: bool = False) -> np.ndarray:
         """count[i, r, u]: unit sequences from state i closing in exactly r
-        more letters using exactly u more units. Vectorised as one scatter-add
-        per (word length, r, u)."""
+        more letters using exactly u more units.
+
+        A normal outside-in search may close on any palindromic overhang, not
+        only on an empty one.  `primitive=True` additionally stops at the first
+        such return, separating a single structural chunk from a composition
+        that happened to pass through one or more closed palindromes.
+        """
         t0 = time.time()
         src, dst, dlt, ewt = [], [], [], []
         for i, es in enumerate(self.edges):
@@ -120,9 +126,11 @@ class Graph:
                 ewt.append(self.wt[w])
         src = np.array(src); dst = np.array(dst); dlt = np.array(dlt)
         ewt = np.array(ewt)
+        terminal = np.array([o == o[::-1] for o, _ in self.keys], dtype=bool)
+        expandable = ~(terminal & (np.arange(self.n) != 0))
         count = np.zeros((self.n, max_letters + 1, max_units + 1))
         for i, (o, _) in enumerate(self.keys):
-            if o == "":
+            if o == o[::-1]:
                 count[i, 0, 0] = 1.0
         for r in range(1, max_letters + 1):
             for u in range(1, max_units + 1):
@@ -130,13 +138,22 @@ class Graph:
                     if d > r:
                         continue
                     m = dlt == d
+                    if primitive:
+                        # The root is initially closed and must be allowed to
+                        # leave. Every later closed state is terminal. A return
+                        # to root is likewise terminal; otherwise the compact
+                        # graph cannot distinguish the initial root from a
+                        # later empty-overhang return.
+                        m = m & expandable[src]
+                        if r != d or u != 1:
+                            m = m & (dst != 0)
                     np.add.at(count[:, r, u], src[m],
                               ewt[m] * count[dst[m], r - d, u - 1])
         self.count_seconds = round(time.time() - t0, 1)
         return count
 
     def sample(self, count: np.ndarray, letters: int, units: int,
-               rng: random.Random):
+               rng: random.Random, primitive: bool = False):
         """One draw over closures with exactly `letters` letters, `units` units,
         weighted by the product of the words' frequency weights."""
         i, r, u = 0, letters, units
@@ -146,9 +163,13 @@ class Graph:
             o = self.keys[i][0]
             weights = []
             opts = []
-            if o == "" and r == 0 and u == 0:
+            if o == o[::-1] and r == 0 and u == 0:
                 weights.append(1.0); opts.append(None)
             for w, placement, d, j in self.edges[i]:
+                if primitive and j != 0 and self.keys[j][0] == self.keys[j][0][::-1]:
+                    # It may be selected only as the final transition below.
+                    if not (d == r and u == 1):
+                        continue
                 if d <= r and u >= 1 and count[j, r - d, u - 1] > 0:
                     weights.append(self.wt[w] * count[j, r - d, u - 1])
                     opts.append((w, placement, d, j))
@@ -171,6 +192,11 @@ def main():
     ap.add_argument("--lo", type=int, default=32)
     ap.add_argument("--hi", type=int, default=36)
     ap.add_argument("--max-overhang", type=int, default=12)
+    ap.add_argument("--max-units", type=int, default=9)
+    ap.add_argument("--units", type=int, default=None,
+                    help="sample one exact unit-count cell instead of mixing 3..max-units")
+    ap.add_argument("--primitive", action="store_true",
+                    help="stop at the first palindromic-overhang closure")
     ap.add_argument("--seconds", type=float, default=300.0)
     ap.add_argument("--alpha", type=float, default=1.0,
                     help="frequency bias; 0 is uniform over closures")
@@ -187,14 +213,16 @@ def main():
     g = Graph(tries, args.max_overhang, alpha=args.alpha)
     print(f"graph: {g.n:,} states, {g.n_edges:,} edges, "
           f"built in {g.build_seconds}s", flush=True)
-    count = g.closure_counts(args.hi)
+    count = g.closure_counts(args.hi, args.max_units, primitive=args.primitive)
+    unit_counts = [args.units] if args.units is not None else range(3, count.shape[2])
     cells = {(r, u): count[0, r, u]
              for r in range(args.lo, args.hi + 1)
-             for u in range(3, count.shape[2])
+             for u in unit_counts
              if count[0, r, u] > 0}
     total = sum(cells.values())
+    unit_label = str(args.units) if args.units is not None else f"3-{args.max_units}"
     print(f"counts in {g.count_seconds}s; weighted closures in band, "
-          f"3-9 units: {total:.3e} over {len(cells)} (letters, units) cells",
+          f"{unit_label} units: {total:.3e} over {len(cells)} (letters, units) cells",
           flush=True)
 
     rng = random.Random(args.seed)
@@ -205,7 +233,7 @@ def main():
     deadline = t0 + args.seconds
     while time.time() < deadline:
         r, u = rng.choices(lens, weights=wts)[0]
-        units = g.sample(count, r, u, rng)
+        units = g.sample(count, r, u, rng, primitive=args.primitive)
         n_samples += 1
         if units is None:
             continue
@@ -220,7 +248,8 @@ def main():
             print(f"  HIT {text}", flush=True)
     dt = time.time() - t0
     out = {"vocab": args.vocab, "alpha": args.alpha,
-           "lo": args.lo, "hi": args.hi,
+           "lo": args.lo, "hi": args.hi, "max_units": args.max_units,
+           "units": args.units, "primitive": args.primitive,
            "graph_states": g.n, "graph_edges": g.n_edges,
            "build_seconds": g.build_seconds, "count_seconds": g.count_seconds,
            "sample_seconds": round(dt, 1), "samples": n_samples,

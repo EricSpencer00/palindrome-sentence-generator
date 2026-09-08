@@ -5,6 +5,8 @@ appending, so a single direction of bigram is only ever half useful.
 """
 import math
 
+import pytest
+
 from llm_palindrome.bigram import BigramModel
 
 
@@ -44,6 +46,14 @@ class TestBigramModel:
     def test_no_context_falls_back_to_unigram_frequency(self):
         m = self._m()
         assert m.forward(None, "the") > m.forward(None, "zebra")
+
+    def test_order_gain_removes_unigram_frequency(self):
+        m = self._m()
+        assert m.forward_order_gain("new", "york") > 0
+        assert m.forward_order_gain("new", "zebra") == pytest.approx(
+            -m.BACKOFF_PENALTY)
+        assert m.observed("new", "york")
+        assert not m.observed("york", "new")
 
 
 class TestLoader:

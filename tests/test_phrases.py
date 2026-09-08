@@ -9,10 +9,12 @@ So the tests here are mostly about that separation. The one that matters most
 is the last: whatever the trie holds, what comes out has to be a palindrome.
 """
 import pytest
+import experiments.chunk_scaling as chunk_scaling
 
 from llm_palindrome.centerout import centerout_search
 from llm_palindrome.search import WordTries, unit_letters
 from llm_palindrome.validator import is_palindrome, normalize
+from experiments.chunk_scaling import words_in_units
 
 
 class TestUnitLetters:
@@ -25,6 +27,24 @@ class TestUnitLetters:
     def test_letters_are_what_the_palindrome_sees(self):
         phrase = "step on no pets"
         assert unit_letters(phrase) == normalize(phrase)
+
+    def test_word_level_filters_receive_phrase_contents(self):
+        assert words_in_units(["the dog", "sat"]) == ["the", "dog", "sat"]
+
+    def test_chunk_benchmark_counts_a_phrase_bearing_sentence_hit(self, monkeypatch):
+        units = ["rats live", "on no", "evil star"]
+
+        def fake_enumerate(*args, **kwargs):
+            yield units
+
+        monkeypatch.setattr(chunk_scaling, "enumerate_palindromes", fake_enumerate)
+        table = {"rats": frozenset({"NOUN"}), "live": frozenset({"VERB"}),
+                 "on": frozenset({"ADP"}), "no": frozenset({"DET"}),
+                 "evil": frozenset({"ADJ"}), "star": frozenset({"NOUN"})}
+        shape = ("NOUN", "VERB", "ADP", "DET", "ADJ", "NOUN")
+        result = chunk_scaling.run(WordTries(units), 0, 40, 1.0, table, {shape})
+        assert result["hits"] == 1
+        assert result["phrase_units_in_hits"] == 3
 
 
 class TestWordTriesWithPhrases:

@@ -1,0 +1,46 @@
+#!/bin/bash -l
+#PBS -N pal-search-debug
+# Scheduler account configured by submitter.
+#PBS -q debug
+#PBS -l select=1:system=polaris
+#PBS -l place=scatter
+#PBS -l walltime=00:25:00
+#PBS -l filesystems=home
+#PBS -j oe
+#PBS -o ${PALINDROME_REPO}/logs/
+
+set -euo pipefail
+
+REPO=${PALINDROME_REPO}
+OUT=$REPO/runs/search_debug_$(date +%Y%m%d_%H%M%S)
+mkdir -p "$OUT" "$REPO/logs"
+cd "$REPO"
+export PYTHONPATH="$REPO:${PYTHONPATH:-}"
+export PYTHONUNBUFFERED=1
+
+PY=/usr/bin/python3.11
+NRANKS=32
+PPN=32
+
+echo "host=$(hostname) out=$OUT"
+$PY -V
+mpiexec -n $NRANKS --ppn $PPN --cpu-bind depth -d 1 \
+  $PY tools/polaris/search_debug.py \
+    --vocab 30000 --candidate-limit 200 --beam 48 --per-parent 8 \
+    --min-letters 80 --max-steps 240 --seeds-per-rank 8 --shards $NRANKS \
+    --out-dir "$OUT"
+
+$PY - "$OUT" <<'PY'
+import glob, json, sys
+rows = [json.load(open(path)) for path in glob.glob(sys.argv[1] + '/summary_*.json')]
+assert len(rows) == 32, len(rows)
+closed = sum(row['closed'] for row in rows)
+total = sum(row['runs'] for row in rows)
+assert all(row['menu']['at_least_5'] > 0 for row in rows)
+assert all(item['valid'] for row in rows for item in row['rows'] if item['closed'])
+json.dump({'ranks': len(rows), 'closed': closed, 'runs': total,
+           'closure_rate': closed / total,
+           'mean_menu_letters': sum(row['menu']['mean_letters'] for row in rows) / len(rows)},
+          open(sys.argv[1] + '/aggregate.json', 'w'))
+print(open(sys.argv[1] + '/aggregate.json').read())
+PY

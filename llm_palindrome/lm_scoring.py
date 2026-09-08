@@ -62,9 +62,9 @@ class GPT2Scorer:
         self.model.eval()
 
     @torch.no_grad()
-    def score_texts(self, texts: Sequence[str], batch_size: int = 16) -> list[float]:
-        """Mean token logprob per alphabetic character, per text."""
-        out: list[float] = []
+    def score_details(self, texts: Sequence[str], batch_size: int = 16) -> list[dict]:
+        """Total likelihood plus the exact number of predicted tokens."""
+        out: list[dict] = []
         for i in range(0, len(texts), batch_size):
             batch = list(texts[i:i + batch_size])
             enc = self.tok(batch, return_tensors="pt", padding=True,
@@ -76,5 +76,16 @@ class GPT2Scorer:
             tok_lp = logprobs.gather(-1, targets.unsqueeze(-1)).squeeze(-1) * mask
             for j, text in enumerate(batch):
                 letters = max(1, sum(c.isalpha() for c in text))
-                out.append(tok_lp[j].sum().item() / letters)
+                total = tok_lp[j].sum().item()
+                predicted_tokens = int(mask[j].sum().item())
+                out.append({"total_logprob": total,
+                            "predicted_tokens": predicted_tokens,
+                            "letters": letters,
+                            "per_token": total / max(1, predicted_tokens),
+                            "per_letter": total / letters})
         return out
+
+    @torch.no_grad()
+    def score_texts(self, texts: Sequence[str], batch_size: int = 16) -> list[float]:
+        """Mean token logprob per alphabetic character, retained for callers."""
+        return [row["per_letter"] for row in self.score_details(texts, batch_size)]

@@ -45,23 +45,13 @@ that reads well because somebody else wrote the sentences is the shortcut
 What the name does and does not claim
 -------------------------------------
 `docs/NORTH-STAR.md` reserved "v3" for the goal — v1's structure with v2's
-readability — before any code carried it. This module now carries it, so what
-it clears has to be written down beside it rather than inferred from the
-number. Measured over 24 seeds at each length (`experiments/RESULTS-north-star-v3.md`):
-
-    letters      c1    c2    c3     c4     c5     c9
-    400        24/24 24/24 24/24  21/24  23/24  24/24
-    1,200      24/24 24/24 24/24   1/24  22/24  24/24
-    4,000      24/24 24/24 24/24   0/24  11/24  24/24
-    14,500     24/24 24/24 14/24   0/24   0/24  24/24
-
-Criterion 4 — no sentence repeats — is the one that fails, and it fails for a
-reason that is worth stating precisely: **no CHUNK ever repeats, and that is
-not the same property.** Punctuation is applied to the assembled word run
-rather than per chunk, so two unrelated chunks containing the same short word
-run get cut into the same sentence; `bar a met` turns up in four of them at
-4,000 letters. The assembly is sound and the presentation collides, which
-means the fix belongs in `present.py` or in the chunk selection, not here.
+readability — before any code carried it. Composition is now hierarchical by
+default: both halves of every structural pair must independently be
+sentence-shaped, and punctuation preserves those boundaries. Hard guards cap
+word, bigram, and sentence-template repetition. Across 24 seeds this clears
+all six mechanical criteria at every requested length while honestly stopping
+at 832–980 letters when guarded material is exhausted. See
+`experiments/RESULTS-hierarchical-v3.md`.
 
 Criteria 6, 7 and 8 — grammatical, has a subject, reads as prose — are NOT
 claimed. They need blind judging with salad and real-prose controls. Four
@@ -296,13 +286,16 @@ def composition(seed: Optional[int] = Query(None),
                 centre: Optional[str] = Query(None, max_length=200,
                                               description="your own palindrome, "
                                                           "used as the centre"),
-                novel: bool = Query(True)):
+                novel: bool = Query(True),
+                hierarchical: bool = Query(
+                    True, description="require each mirror half to be a whole "
+                                      "sentence and preserve those boundaries")):
     """Many mirror-pairs nested around one centre.
 
-    Length is free here and that is the point. `/palindrome` serves one short
-    verified palindrome; this nests as many as asked for, and the only limits
-    are the size of the bank and what is asked of it. The bank currently holds
-    about 14,500 letters of material.
+    Length is algebraically free here and that is the point. `/palindrome`
+    serves one short verified palindrome; this nests as many pairs as asked
+    for. The raw bank holds about 14,500 letters, while the default hierarchical
+    and anti-cycle gates deliberately stop earlier when safe material runs out.
 
     Two dials, because at a fixed length they trade against each other. A
     target of 1,200 letters can be forty short pairs or thirty long ones, and
@@ -348,16 +341,25 @@ def composition(seed: Optional[int] = Query(None),
         seen_halves.add(left_k)
         seen_halves.add(right_k)
         pairs.append((got[0], got[1], row["source"]))
+    table, shapes, trig = _tables
+    if hierarchical:
+        from llm_palindrome.hierarchy import sentence_pairs
+        pairs = sentence_pairs(pairs, table, shapes, trig)
     # Any bank entry can be the centre: it is a palindrome, which is the only
     # requirement the algebra makes of that slot. An earlier version reserved
     # the entries that do NOT split for it, which left no centre at all once
     # `novel` filtered the pool down to entries that all split.
-    centres = pool
+    if hierarchical and not (centre is not None and centre.strip()):
+        from llm_palindrome.hierarchy import sentence_centres
+        centres = sentence_centres(pool, table, shapes, trig)
+    else:
+        centres = pool
     if not pairs or not centres:
         raise HTTPException(status_code=404, detail="not enough material")
 
     rng = random.Random(seed if seed is not None else time.time_ns())
     rng.shuffle(pairs)
+    shuffled_pairs = list(pairs)
     if longest_first:
         pairs.sort(key=lambda t: -len(normalize(" ".join(t[0]))))
     if centre is not None and centre.strip():
@@ -386,14 +388,37 @@ def composition(seed: Optional[int] = Query(None),
     centre = centre_dict
 
     cap = capacity(pairs, len(normalize(" ".join(centre["words"]))))
-    used = compose(pairs, centre, min(letters, cap), chops)
+    if hierarchical:
+        from llm_palindrome.hierarchy import select_sentence_pairs
+        effective_chops = chops
+        if longest_first:
+            # With exclusion constraints, sorting by length can skip different
+            # pairs and accidentally require *more* seams. Establish the
+            # unsorted selection's count as a hard ceiling so the API dial
+            # keeps its advertised meaning even if the result undershoots.
+            baseline_used, _ = select_sentence_pairs(
+                shuffled_pairs, centre["words"], min(letters, cap),
+                max_pairs=chops)
+            effective_chops = len(baseline_used)
+            if chops is not None:
+                effective_chops = min(effective_chops, chops)
+        used, hierarchy_stats = select_sentence_pairs(
+            pairs, centre["words"], min(letters, cap),
+            max_pairs=effective_chops)
+    else:
+        used = compose(pairs, centre, min(letters, cap), chops)
+        hierarchy_stats = {}
     words, layout = assemble(used, centre)
     text = " ".join(words)
     if not is_palindrome(text):
         raise HTTPException(status_code=500, detail="assembly broke the mirror")
 
-    table, shapes, trig = _tables
-    written = present(words, table, shapes, trig)
+    if hierarchical:
+        from llm_palindrome.hierarchy import render_layout
+        written, sentences = render_layout(layout)
+    else:
+        written = present(words, table, shapes, trig)
+        sentences = []
     if normalize(written) != normalize(text):
         raise HTTPException(status_code=500,
                             detail="presentation changed the letters")
@@ -411,6 +436,10 @@ def composition(seed: Optional[int] = Query(None),
         "requested_letters": letters,
         "capacity_letters": cap,
         "chunks": layout,
+        "sentences": sentences,
+        "hierarchical": hierarchical,
+        "sentence_pairs": len(used) if hierarchical else 0,
+        "hierarchy_stats": hierarchy_stats,
         "distinct_chunks": len(set(texts)),
         "repeats": len(texts) - len(set(texts)),
         "centre_is_yours": centre["source"] == "yours",
@@ -484,6 +513,32 @@ def palindrome(seed: Optional[int] = Query(None, description="fix the choice"),
                       "blind annotators preferred the ungrown seed 20 of 20",
         },
     }
+
+
+@router.get("/refrain")
+def refrain(seed: int = Query(0),
+            letters: int = Query(500, ge=40, le=4000),
+            theme: Optional[str] = Query(None)):
+    """Readable sentence palindromes in an explicit mirrored refrain.
+
+    This endpoint uses catalogued human sentences and labels the repetition;
+    it is a quality ceiling and literary form, not novel generated prose.
+    """
+    ensure_loaded()
+    if _load_error:
+        raise HTTPException(status_code=503, detail=_load_error)
+    from llm_palindrome.refrain import compose_refrain
+    pool = [row for row in _bank if row["source"] == "catalogue"]
+    try:
+        out = compose_refrain(pool, letters, seed=seed, theme=theme)
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return {"version": 3, "source": "catalogue", **out,
+            "requested_letters": letters,
+            "notes": {"structure": "A B ... C ... B A",
+                      "repetition": "each non-central sentence returns once "
+                                    "as an intentional refrain",
+                      "novel": False}}
 
 
 @router.get("/health")

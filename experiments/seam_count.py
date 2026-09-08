@@ -1,21 +1,8 @@
-"""Does coherence degrade per seam, or per letter?
+"""Historical, length-confounded seam ladder.
 
-Nesting mirror-pairs makes length free. `non academia` + `reno sir parasites`
-+ `set i sara prisoner` + `aimed a canon` is 54 letters and a valid
-palindrome — longer than the 51-letter human best — and it reads worse than
-either palindrome it was built from.
-
-Two explanations, and they imply opposite strategies:
-
-  per-seam    every join between two unrelated pairs costs something, so the
-              route to a long readable palindrome is FEW, LONG chunks and the
-              search should hunt for bigger single finds
-  per-letter  length itself is what costs, so chunk count is irrelevant and
-              nothing about assembly can help
-
-The test holds the material constant and varies only the number of pairs
-nested. If preference against the single seed collapses between k=1 and k=2 it
-is per-seam; if it degrades smoothly with the letter count it is per-letter.
+This construction verifies nesting but cannot separate seam count from length
+or floor effects. The original first-seam interpretation is withdrawn. Use
+revision_seams.py for the frozen fixed-material order intervention.
 """
 from __future__ import annotations
 

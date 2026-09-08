@@ -55,11 +55,18 @@ def core_of(letters: str, k: int = 14) -> str:
     return letters[max(0, m - k // 2):m + k // 2]
 
 
+def words_in_units(units: list[str]) -> list[str]:
+    """Expand atomic search units before applying a word-level grammar test."""
+    return [word for unit in units for word in unit.split()]
+
+
 def run(tries: WordTries, lo: int, hi: int, seconds: float, table, shapes,
         seed: int = 0) -> dict:
     seen: set[str] = set()
     hits: list[str] = []
     depths: list[int] = []
+    word_depths: list[int] = []
+    phrase_units_in_hits = 0
     t0 = time.time()
     for units in enumerate_palindromes(
             tries, max_letters=hi, min_letters=lo, node_budget=10 ** 12,
@@ -69,14 +76,21 @@ def run(tries: WordTries, lo: int, hi: int, seconds: float, table, shapes,
             continue
         seen.add(key)
         depths.append(len(units))
-        if 3 <= len(units) <= 9 and sentence_like(units, table, shapes):
+        words = words_in_units(units)
+        word_depths.append(len(words))
+        # `sentence_like` looks up Brown tags one word at a time.  Passing
+        # "new york" as one unit made every real phrase use an automatic miss.
+        if 3 <= len(words) <= 9 and sentence_like(words, table, shapes):
             text = " ".join(units)
             assert is_palindrome(text), text
             hits.append(text)
+            phrase_units_in_hits += sum(" " in unit for unit in units)
     secs = time.time() - t0
     cores = {core_of(normalize(h)) for h in hits}
     return {"draws": len(seen), "hits": len(hits), "cores": len(cores),
             "mean_units": (sum(depths) / len(depths)) if depths else 0.0,
+            "mean_words": (sum(word_depths) / len(word_depths)) if word_depths else 0.0,
+            "phrase_units_in_hits": phrase_units_in_hits,
             "seconds": round(secs, 1),
             "draws_per_sec": len(seen) / max(1e-9, secs),
             "cores_per_ksec": len(cores) / max(1e-9, secs) * 1000,
@@ -88,7 +102,10 @@ def main() -> None:
     ap.add_argument("--vocab", type=int, default=6000)
     ap.add_argument("--phrases", type=int, default=20000)
     ap.add_argument("--bands", nargs="+", default=["27-31", "32-36", "37-41"])
-    ap.add_argument("--seconds", type=float, default=90.0)
+    ap.add_argument("--seconds", type=float, default=90.0,
+                    help="wall-clock budget for each arm/band/seed cell")
+    ap.add_argument("--seeds", type=int, default=1,
+                    help="independent shuffled walks per arm/band (default: 1)")
     ap.add_argument("--out", default="experiments/chunk_scaling.json")
     args = ap.parse_args()
 
@@ -109,20 +126,21 @@ def main() -> None:
               f"mean {sum(letters)/len(letters):.2f} letters each")
 
     rows = []
-    print(f"\n{'arm':>12} {'band':>8} {'draws':>9} {'draws/s':>9} "
+    print(f"\n{'arm':>12} {'band':>8} {'seed':>4} {'draws':>9} {'draws/s':>9} "
           f"{'units':>6} {'hits':>5} {'cores':>6} {'cores/ks':>9}")
     for band in args.bands:
         lo, hi = (int(x) for x in band.split("-"))
-        for name, units in arms.items():
-            tries = WordTries(units)
-            r = run(tries, lo, hi, args.seconds, table, shapes)
-            r.update(arm=name, lo=lo, hi=hi)
-            rows.append(r)
-            print(f"{name:>12} {band:>8} {r['draws']:9,} "
-                  f"{r['draws_per_sec']:9.1f} {r['mean_units']:6.2f} "
-                  f"{r['hits']:5d} {r['cores']:6d} {r['cores_per_ksec']:9.2f}")
-            for ex in r["examples"][:2]:
-                print(f"{'':>22} {len(normalize(ex)):2d}  {ex}")
+        for seed in range(args.seeds):
+            for name, units in arms.items():
+                tries = WordTries(units)
+                r = run(tries, lo, hi, args.seconds, table, shapes, seed=seed)
+                r.update(arm=name, lo=lo, hi=hi, seed=seed)
+                rows.append(r)
+                print(f"{name:>12} {band:>8} {seed:4d} {r['draws']:9,} "
+                      f"{r['draws_per_sec']:9.1f} {r['mean_units']:6.2f} "
+                      f"{r['hits']:5d} {r['cores']:6d} {r['cores_per_ksec']:9.2f}")
+                for ex in r["examples"][:2]:
+                    print(f"{'':>27} {len(normalize(ex)):2d}  {ex}")
 
     with open(args.out, "w") as fh:
         json.dump(rows, fh, indent=2)

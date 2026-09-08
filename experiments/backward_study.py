@@ -31,6 +31,7 @@ from pathlib import Path
 from llm_palindrome.directional import DirectionalScorer, ForwardOnlyScorer
 from llm_palindrome.generate import ZipfScorer, build_vocab
 from llm_palindrome.lm_scoring import GPT2Scorer
+from llm_palindrome.overhang import DebtIndex, OverhangAware
 from llm_palindrome.search import WordTries, beam_search
 from llm_palindrome.textify import textify
 from llm_palindrome.validator import is_palindrome
@@ -61,47 +62,38 @@ def adjacent_repeat_rate(words: list[str]) -> float:
 
 def run_arm(name, scorer, tries, judge, seeds, min_letters, beam) -> dict:
     t0 = time.time()
-    runs = []
+    runs: list[tuple[int, list[str]]] = []
     for seed in range(seeds):
         w = beam_search(tries, scorer, min_letters=min_letters,
                         beam_width=beam, seed=seed)
         if w:
-            runs.append(w)
+            runs.append((seed, w))
     elapsed = time.time() - t0
 
     if not runs:
         return {"arm": name, "closed": 0, "seeds": seeds, "seconds": elapsed}
 
-    texts = [textify(w) for w in runs]
-    lefts, rights = zip(*(split_halves(w) for w in runs))
+    run_seeds, run_words = zip(*runs)
+    texts = [textify(w) for w in run_words]
+    lefts, rights = zip(*(split_halves(w) for w in run_words))
     # Outside-in: the left half is appended, the right half prepended.
-    a_texts = [textify(t.split()) for t in lefts]
-    p_texts = [textify(t.split()) for t in rights]
-    appended = judge.score_texts(a_texts)
-    prepended = judge.score_texts(p_texts)
-    whole = judge.score_texts(texts)
-
-    # lm_score divides total token logprob by LETTERS, so text made of longer
-    # words scores better whether or not it reads better — a policy that
-    # prefers long words moves it for free. The two halves of a palindrome
-    # segment differently, and the prepended half is the one that leans on
-    # short filler, so the gap between them is exactly the kind of number this
-    # can manufacture. Per-token is reported next to it because word length
-    # does not move it; if the two disagree, believe per-token.
-    def per_token(scored, txts):
-        out = []
-        for s, t in zip(scored, txts):
-            letters = max(1, sum(c.isalpha() for c in t))
-            n_tok = max(1, len(judge.tok(t)["input_ids"]))
-            out.append(s * letters / n_tok)
-        return out
-
-    a_tok = per_token(appended, a_texts)
-    p_tok = per_token(prepended, p_texts)
-    whole_tok = per_token(whole, texts)
-    gap = statistics.mean(appended) - statistics.mean(prepended)
+    # Do not independently sentence-case or punctuate the halves: that creates
+    # a new first token and a synthetic final token in the very measurement
+    # intended to compare construction directions.
+    a_texts = list(lefts)
+    p_texts = list(rights)
+    appended = judge.score_details(a_texts)
+    prepended = judge.score_details(p_texts)
+    whole = judge.score_details(texts)
+    a_letter = [row["per_letter"] for row in appended]
+    p_letter = [row["per_letter"] for row in prepended]
+    whole_letter = [row["per_letter"] for row in whole]
+    a_tok = [row["per_token"] for row in appended]
+    p_tok = [row["per_token"] for row in prepended]
+    whole_tok = [row["per_token"] for row in whole]
+    gap = statistics.mean(a_letter) - statistics.mean(p_letter)
     gap_tok = statistics.mean(a_tok) - statistics.mean(p_tok)
-    wins = sum(1 for a, p in zip(appended, prepended) if a > p)
+    wins = sum(1 for a, p in zip(a_letter, p_letter) if a > p)
     wins_tok = sum(1 for a, p in zip(a_tok, p_tok) if a > p)
     return {
         "arm": name,
@@ -109,21 +101,25 @@ def run_arm(name, scorer, tries, judge, seeds, min_letters, beam) -> dict:
         "seeds": seeds,
         "seconds": round(elapsed, 1),
         "seconds_per_close": round(elapsed / len(runs), 2),
-        "letters_mean": round(statistics.mean(sum(len(x) for x in w) for w in runs), 1),
-        "score_best": round(max(whole), 4),
-        "score_mean": round(statistics.mean(whole), 4),
+        "letters_mean": round(statistics.mean(sum(len(x) for x in w) for w in run_words), 1),
+        "score_best": round(max(whole_letter), 4),
+        "score_mean": round(statistics.mean(whole_letter), 4),
         "score_mean_per_token": round(statistics.mean(whole_tok), 4),
         "score_best_per_token": round(max(whole_tok), 4),
-        "appended_half": round(statistics.mean(appended), 4),
-        "prepended_half": round(statistics.mean(prepended), 4),
+        "appended_half": round(statistics.mean(a_letter), 4),
+        "prepended_half": round(statistics.mean(p_letter), 4),
         "gap": round(gap, 4),
         "appended_half_wins": f"{wins}/{len(runs)}",
         "gap_per_token": round(gap_tok, 4),
         "appended_half_wins_per_token": f"{wins_tok}/{len(runs)}",
         "adjacent_repeat_rate": round(statistics.mean(
-            adjacent_repeat_rate(w) for w in runs), 4),
+            adjacent_repeat_rate(w) for w in run_words), 4),
         "all_valid": all(is_palindrome(t) for t in texts),
         "sample": texts[0][:220],
+        "runs": [{"seed": seed, "words": words, "text": text,
+                  "appended": a, "prepended": p, "whole": whole_score}
+                 for seed, words, text, a, p, whole_score
+                 in zip(run_seeds, run_words, texts, appended, prepended, whole)],
     }
 
 
@@ -142,6 +138,8 @@ def main() -> None:
                     help="LM term weights to sweep; fwd and bwd share each one")
     ap.add_argument("--vocab", type=int, default=30000)
     ap.add_argument("--arms", default="zipf,fwd,bwd")
+    ap.add_argument("--debt-weight", type=float, default=2.0,
+                    help="shared structural-feasibility term for every arm")
     ap.add_argument("--out", type=Path, default=None)
     args = ap.parse_args()
 
@@ -152,13 +150,15 @@ def main() -> None:
     def make(name, weight):
         base = ZipfScorer()
         if name == "zipf":
-            return base
+            return OverhangAware(base, DebtIndex(tries), debt_weight=args.debt_weight)
         if name == "fwd":
-            return ForwardOnlyScorer(base, forward_path=args.forward,
-                                     appends="left", weight=weight, vocab=vocab)
-        return DirectionalScorer(base, forward_path=args.forward,
-                                 backward_path=args.backward,
-                                 appends="left", weight=weight, vocab=vocab)
+            scorer = ForwardOnlyScorer(base, forward_path=args.forward,
+                                       appends="left", weight=weight, vocab=vocab)
+        else:
+            scorer = DirectionalScorer(base, forward_path=args.forward,
+                                       backward_path=args.backward,
+                                       appends="left", weight=weight, vocab=vocab)
+        return OverhangAware(scorer, DebtIndex(tries), debt_weight=args.debt_weight)
 
     # The LM term is swept rather than assumed. A term strong enough to change
     # the reading is also strong enough to starve the beam of branches that can
@@ -173,10 +173,6 @@ def main() -> None:
     for name, weight in plan:
         scorer = make(name, weight or 0.0)
         label = name if weight is None else f"{name}@{weight:g}"
-        if name == "bwd" and weight == weights[0]:
-            frac = scorer.single_token_fraction(vocab)
-            print(f"[bwd] single-token scoring is exact for "
-                  f"{frac:.1%} of the {len(vocab)}-word vocabulary")
         row = run_arm(label, scorer, tries, judge, args.seeds,
                       args.min_letters, args.beam)
         row["weight"] = weight

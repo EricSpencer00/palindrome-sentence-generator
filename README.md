@@ -422,6 +422,22 @@ strips case, spaces and marks before the mirror is checked, which is the same
 licence the record takes when it writes "A man, a plan, a canal: Panama". The
 letters are asserted unchanged before the value leaves the process.
 
+**The default composition is now hierarchical.** Words stay inside structural
+mirror halves; each half must independently have a whole-sentence reading, and
+those paired sentences are nested into the paragraph. Punctuation no longer
+cuts across unrelated chunks. Hard guards reject adjacent duplicate words,
+content-word loops, repeated bigrams, and repeated sentence templates; odd but
+interpretable compression such as “Items draw award” remains eligible. See
+`experiments/RESULTS-hierarchical-v3.md` for the measured capacity and limits.
+
+`GET /api/v3/refrain?theme=dark&letters=500` exposes the honest sentence-scale
+quality ceiling: catalogued human palindromic sentences arranged as
+`A B … C … B A`. Every sentence is a palindrome, no sentence repeats
+adjacently, and each non-central sentence returns exactly once as an explicit
+literary refrain. The response reports `source=catalogue` and `novel=false`;
+it is not presented as generated prose. Themes are `dark`, `journey`,
+`reflection`, and `absurd`.
+
 `?grow=N` applies the wrap operations from `experiments/RESULTS-extend.md`.
 It is off by default: 750 of 750 seeds grew, mean +36 letters, and two blind
 annotators then preferred the ungrown seed on 20 of 20 pairs.

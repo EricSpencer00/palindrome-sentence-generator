@@ -1,13 +1,11 @@
 #!/bin/bash -l
 #PBS -N pal-scale
-# Scheduler account configured by submitter.
 #PBS -q debug
 #PBS -l select=1:system=polaris
 #PBS -l place=scatter
 #PBS -l walltime=00:55:00
 #PBS -l filesystems=home
 #PBS -j oe
-#PBS -o ${PALINDROME_REPO}/logs/
 
 # Two exponents and one hunt.
 #
@@ -24,7 +22,7 @@
 
 set -euo pipefail
 
-REPO=${PALINDROME_REPO}
+REPO="${PALINDROME_REPO:-$PBS_O_WORKDIR}"
 OUT=$REPO/runs/scale_$(date +%Y%m%d_%H%M%S)
 mkdir -p "$OUT" "$REPO/logs"
 cd "$REPO"

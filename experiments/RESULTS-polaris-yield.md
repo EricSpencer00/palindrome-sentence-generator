@@ -1,7 +1,7 @@
 # Vocabulary against length, on 32 cores
 
-Job 7553051, Polaris debug queue, 1 node / 32 ranks, 23 August 2026. Project
-PROJECT_ACCOUNT, about one node-hour. Driver `tools/polaris/shard_yield.py`, submitted by
+Polaris debug queue, 1 node / 32 ranks, 23 August 2026, about one node-hour.
+Driver `tools/polaris/shard_yield.py`, submitted by
 `tools/polaris/yield.pbs`. Raw output in `runs/polaris/yield_20260823/`.
 
 Five cells, each given all 32 ranks for 420 seconds. Ranks shard on the opening

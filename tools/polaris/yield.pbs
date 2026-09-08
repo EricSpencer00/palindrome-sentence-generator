@@ -1,17 +1,16 @@
 #!/bin/bash -l
 #PBS -N pal-yield
-# Scheduler account configured by submitter.
 #PBS -q debug
 #PBS -l select=1:system=polaris
 #PBS -l place=scatter
 #PBS -l walltime=00:55:00
 #PBS -l filesystems=home
 #PBS -j oe
-#PBS -o ${PALINDROME_REPO}/logs/
 
 # Yield of readable palindromes at 27+ letters, by vocabulary size.
 #
-# Debug queue: 1 node, under an hour, ~1 node-hour against PROJECT_ACCOUNT. The work is a
+# Add a site-specific scheduler account directive if required.
+# Debug queue: 1 node, under an hour, about one node-hour. The work is a
 # trie walk; the A100s are idle and that is intended.
 #
 # Each (vocabulary, band) cell gets the whole machine in turn rather than
@@ -20,7 +19,7 @@
 
 set -euo pipefail
 
-REPO=${PALINDROME_REPO}
+REPO="${PALINDROME_REPO:-$PBS_O_WORKDIR}"
 OUT=$REPO/runs/yield_$(date +%Y%m%d_%H%M%S)
 mkdir -p "$OUT" "$REPO/logs"
 

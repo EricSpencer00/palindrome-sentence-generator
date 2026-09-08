@@ -186,7 +186,6 @@ training/          corpus, judge, inventory and lexicon builders
 experiments/       measurements quoted in this README and docs/training.md
 tests/             pytest suite
 web/               the page at palindrome.ericspencer.us
-docs/ops.md        how the live service runs: launchd, tunnel, restart
 ```
 
 ## Known limits

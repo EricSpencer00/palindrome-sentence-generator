@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Stage the repository to Polaris home and submit the debug-queue job.
+# Stage the repository to a configured remote checkout and submit a debug job.
 #
 # Requires a live multiplexed connection; ALCF authentication is
 # keyboard-interactive with a one-time passcode, so establish it yourself
@@ -8,12 +8,12 @@
 #     ssh -fN polaris
 #     ./tools/polaris/stage_and_submit.sh search_debug.pbs
 #
-# Storage is $HOME on Polaris by the account holder's instruction, which is
-# also why the PBS script asks for filesystems=home only.
+# Set PALINDROME_POLARIS_DEST to a writable remote checkout before running.
+# Add your own scheduler account directive to the selected PBS file if needed.
 set -euo pipefail
 
-REMOTE=polaris
-DEST=${PALINDROME_REPO}
+REMOTE=${PALINDROME_POLARIS_HOST:-polaris}
+DEST=${PALINDROME_POLARIS_DEST:?Set PALINDROME_POLARIS_DEST to the remote checkout path.}
 JOB=${1:-yield.pbs}
 
 case "$JOB" in
@@ -90,4 +90,3 @@ fi
 echo "submitting"
 JOBID=$(ssh "$REMOTE" "cd $DEST && qsub tools/polaris/$JOB")
 echo "job: $JOBID"
-# Optional: inspect your own scheduler queue here.

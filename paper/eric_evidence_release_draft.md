@@ -1,26 +1,36 @@
 # Revolt, Academia: Aimed a Cat Lover
 
-## What Current Palindrome Search Establishes
+## Early Structural Pruning in Two-Ended Search
 
 ### Abstract
 
-Exact reversal and readable English are different requirements. This paper keeps them separate. We study a two-ended word search that must preserve a character palindrome while observing lexical, repetition, and part-of-speech restrictions. In a matched bounded run, checking sentence-pattern feasibility during the search returned 86,511 distinct structurally admitted pairs; checking the same condition only after closure returned 20,989. This is a result about structural supply, not readable sentences.
+Exact reversal and readable English are different requirements. This paper asks one narrow structural question: while building a palindrome from both ends, can search discard a partial half as soon as its word classes can no longer fit any permitted sentence pattern? It can. In the recorded bounded experiment, incremental filtering returned 86,511 distinct structurally admitted pairs, about four times the 20,989 returned when the same test ran only after closure. The result is about candidate supply, not readable sentences.
 
-We also adapt Norvig's dictionary search to record letter length under explicit repetition restrictions. The saved output has 90,937 normalized letters, 498 more than the published version-3 reference when both are parsed the same way. It is an auditable length result. It does not establish a readable paragraph or a general runtime improvement. The final section is an evidence release: it records the source for each retained result, the measurements that were corrected, and the evidence that does not yet exist.
+Composition explains how such pairs can be assembled without losing exact reversal. A separate adaptation of Norvig's dictionary search tests a different boundary: whether a heavily restricted search can still make a long exact object. Its saved output has 90,937 normalized letters, 498 more than the published version-3 reference when both are parsed the same way. The final section is an evidence release: it records the source for each retained result, the measurements that were corrected, and the evidence that does not yet exist.
 
 ## 1. The construction
 
-Let `n(x)` lowercase a text and remove every character except ASCII letters. A text is a palindrome when `n(x)` equals its reverse. Spaces and punctuation do not affect that test.
+Let `n(x)` lowercase a text and remove every character except ASCII letters. A text is a palindrome when `n(x)` equals its reverse. Spaces make the words legible; `n` ignores them, along with punctuation.
 
-The search grows word sequences on two sides. Its small exact state is the unmatched remainder, or overhang. The overhang says which side still owes letters. A legal next word must match it as a prefix, or extend past it and leave a new overhang on the other side. For example, `step on` on one side can be matched by `pets` on the other, leaving `on`; prepending `no` completes `step on no pets`. The direction matters. The same word cannot be placed on either side without changing the state.
+The search grows two word sequences toward a meeting point. Start with the visible pieces below.
 
-A trie retrieves words compatible with the current overhang. The overhang proves letter compatibility for this local step. It does not prove that two partial paths can be merged. Used phrases, word counts, sentence-pattern state, and language scores can make two paths with the same remainder behave differently. The implementation therefore stores the full partial word sequences when those restrictions are active.
+```text
+left piece:   step on
+right piece:      pets
+unmatched overhang after cancellation: on
+add before the right piece: no pets
+whole text:   step on no pets
+```
+
+`step` cancels `pets` in reverse, leaving `on` as the overhang. The search may consume that overhang or extend beyond it, in which case the next overhang belongs to the other side. In the pair search, future words are prepended to the left half and appended to the right half. That direction is why a left partial half must later fit a sentence-pattern suffix, while a right partial half must fit a prefix.
+
+A trie retrieves words compatible with the overhang. The overhang is enough to prove this local letter step. It is not enough to merge two partial paths. Used phrases, word counts, sentence-pattern state, and language scores can make identical overhangs have different legal continuations. The implementation therefore stores the full partial word sequences when those restrictions are active.
 
 A closed pair is accepted only after a second check. The pair must split at the letter midpoint between words, each half must have at least three words, no word may occur twice anywhere in the pair, and both halves must pass the sentence-pattern test below. The output identity is the ordered pair of space-joined halves. A different segmentation is a different output even when its normalized letters are the same.
 
 ## 2. Structural feasibility
 
-The pattern inventory comes from Brown Corpus tags under NLTK's universal mapping. Each word keeps the tags observed for it in that corpus. After punctuation and `X` tags are removed, the frozen inventory has 8,982 patterns of three to nine tags. We retain the 5,649 patterns that contain a `VERB` and begin with `PRON`, `DET`, `NOUN`, `ADJ`, `NUM`, or `ADV`.
+The pattern inventory comes from Brown Corpus tags under NLTK's universal mapping. Each word keeps the tags observed for it in that corpus. A word can therefore have more than one reading. In the saved example below, `credits` is allowed as a `NOUN` or a `VERB`; the accepted tag assignment uses the verb reading. After punctuation and `X` tags are removed, the frozen inventory has 8,982 patterns of three to nine tags. We retain the 5,649 patterns that contain a `VERB` and begin with `PRON`, `DET`, `NOUN`, `ADJ`, `NUM`, or `ADV`.
 
 For a completed word sequence `W`, the test `F(W)` asks whether one assignment of its observed word tags is exactly one of those retained patterns. A partial left half must match the suffix of at least one pattern, because future words are prepended to it. A partial right half must match a pattern prefix, because future words are appended to it. If either test fails, later growth in that direction cannot repair it.
 
@@ -42,7 +52,7 @@ The recorded comparison used the same Brown-known vocabulary subset, the same op
 
 The incremental arm returned 4.12 times as many distinct admitted pairs. It also visited more popped states. That is not a contradiction: rejected children are counted before insertion and are excluded from the popped-state count, so pruning changes which states survive and which subtrees are explored. The comparison measures output yield under the recorded limits. It does not measure equal CPU work, isolate the cost of each operation, or establish a general speedup. Per-process traces are missing, so stopping causes and workload variation cannot be reconstructed.
 
-## 3. Composition and a separate length result
+## 3. What the other two parts contribute
 
 Mirror pairs can be nested without another letter search. If `n(L_i)` is the reverse of `n(R_i)`, then
 
@@ -50,9 +60,9 @@ Mirror pairs can be nested without another letter search. If `n(L_i)` is the rev
 
 is palindromic whenever the center `C` is palindromic. One nested adjacency creates two visible joins. For example, `rats live`, `on no`, and `evil star` compose to `rats live on no evil star`. Its normalized letters read the same in reverse. This small fact is algebra, not evidence that the resulting text reads well.
 
-The current composition kernel keeps a finite bank of eligible pairs. Given a center, a maximum letter target `T`, and a seed, it makes one seeded shuffle and one greedy pass through the bank. It rejects additions that would exceed `T`, repeat an adjacent word within a component, exceed the internal-bigram cap, repeat a word-length template too often, or exceed the token cap outside its stated exception set. It does not backtrack. The implementation renders each component as a separate sentence, but rendering is not a readability evaluation.
+The composition kernel gives the structural pairs a precise downstream use: it preserves their mirror relation while assembling a longer object. It is not a second quality result. Given a center, a seed, and an inclusive maximum of `T` normalized letters, it makes one seeded greedy pass through a finite bank. It may stop below `T`; `T` is a ceiling, not an exact target. It rejects additions that would exceed that ceiling, repeat an adjacent word inside one component, exceed the bigram cap, repeat a word-length template too often, or exceed the token cap outside its stated exception set. A word-length template is the sequence of word lengths in one component, such as `(4, 4)` for `rats live`. An internal bigram is an adjacent word pair inside the center or one component; it excludes pairs created at component joins. The selector does not backtrack. Rendering gives each component a sentence boundary, but it does not make the output a readability evaluation.
 
-The long dictionary artifact comes from a different search. It uses the same dictionary as Norvig's published version-3 palindrome, records letters rather than completed phrase count, and adds phrase and repetition restrictions. The baseline and saved artifact are evaluated under lowercase-ASCII normalization.
+The long dictionary artifact serves a different supporting role. It checks that an exact construction with phrase and repetition restrictions can still reach a large saved endpoint. It does not test the structural filter. The search uses the same dictionary as Norvig's published version-3 palindrome, records letters rather than completed phrase count, and adds phrase and repetition restrictions. The baseline and saved artifact are evaluated under lowercase-ASCII normalization.
 
 | Property | Published Norvig v3 | Saved artifact |
 | --- | ---: | ---: |
@@ -71,7 +81,7 @@ The correction work matters because an exact palindrome can make nearby quantita
 
 ### 4.1 Overhang reduction
 
-For an accepted placement, let `d_t` be the overhang length and `m_t` the new unit length. Prefix compatibility gives `d_(t+1) = |d_t - m_t|`. Signed debt reduction is therefore `d_t - d_(t+1)`. Along a complete path, those signed reductions telescope to the initial overhang minus the final overhang. They cannot have a universal positive average as paths grow with bounded endpoints.
+For an accepted placement, let `d_t` be the overhang length and `m_t` the new unit length. Prefix compatibility gives `d_(t+1) = |d_t - m_t|`. Signed overhang reduction is therefore `d_t - d_(t+1)`. Along a complete path, those signed reductions telescope to the initial overhang minus the final overhang. They cannot have a universal positive average as paths grow with bounded endpoints.
 
 We reran the measurement with a corrected candidate menu, a 400-candidate limit, maximum overhang 24, and a 60,000-edge budget. At small vocabularies the traversal exhausted the reachable edges; at larger vocabularies it sampled different truncated sets.
 
@@ -86,7 +96,7 @@ We reran the measurement with a corrected candidate menu, a 400-candidate limit,
 | 32,000 | 30,262 | 60,000 | -2.33 | 0.73 |
 | 47,000 | 44,232 | 60,000 | -2.36 | 0.46 |
 
-The old stable `1.09` claim is withdrawn. The table is a finite, traversal-dependent enumeration, not a sample of independent successful paths. Negative debt reduction can still be useful in a long search because a placement can add material while opening a larger overhang.
+The old stable `1.09` claim is withdrawn. The table is a finite, traversal-dependent enumeration, not a sample of independent successful paths. Negative overhang reduction can still be useful in a long search because a placement can add material while opening a larger overhang.
 
 ### 4.2 Vocabulary scaling and the withdrawn extrapolation
 
@@ -112,7 +122,7 @@ Other negative runs remain diagnostic, not general laws. A corrected candidate m
 
 ## 5. Conclusion
 
-The strongest current result is a saved 90,937-letter palindrome that passes a direct artifact audit. The structural search result is also useful: early tag-pattern feasibility returned more candidates under the recorded stopping limits. Neither fact supplies readable prose. Composition preserves reversal once suitable units exist; it does not create suitable units. The next decisive evidence is independent human assessment of fixed, valid, consistently presented texts.
+The central result is structural: early tag-pattern feasibility returned more candidates under the recorded stopping limits. The saved 90,937-letter artifact separately passes checks of its letter count, dictionary membership, phrase uniqueness, repetition restrictions, and complete reversal. Neither fact supplies readable prose. Composition preserves reversal once suitable units exist; it does not create suitable units. The next decisive evidence is independent human assessment of fixed, valid, consistently presented texts.
 
 ## Evidence release
 

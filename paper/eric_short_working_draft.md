@@ -4,7 +4,7 @@
 
 ### Abstract
 
-We study two-ended palindrome construction with vocabulary, repetition, and sentence-structure restrictions. A partial-state filter checks whether the growing halves can still match prefixes and suffixes of permitted part-of-speech sequences. We compare this filter with checking the same condition only on completed candidates. In one experiment with the same per-process stopping rules, the configurations return 86,511 and 20,989 distinct structurally admissible pairs, respectively. We define the output identity, counters, and limits underlying this comparison. We also describe composition from mirrored sentence units and an adaptation of Norvig’s dictionary-based length search. The latter produces a separately verified 90,937-letter output with additional repetition restrictions. Existing runs provide partial comparisons of inventory bookkeeping but do not isolate the effect of changing the objective. We evaluate candidate yield and exact output properties, not readability.
+We study two-ended palindrome construction with vocabulary, repetition, and sentence-structure restrictions. A partial-state filter checks whether the growing halves can still match prefixes and suffixes of permitted part-of-speech sequences. We compare this filter with checking the same condition only on completed candidates. In one experiment with the same per-process stopping rules, the configurations return 86,511 and 20,989 distinct structurally admissible pairs, respectively. We define the output identity, counters, and limits underlying this comparison. We also describe composition from mirrored sentence units and an adaptation of Norvig’s dictionary-based length search. The latter produces a separately verified 90,937-letter output with additional repetition restrictions. Existing runs provide partial comparisons of inventory bookkeeping but do not isolate the effect of changing the objective. The evaluated outcomes are candidate yield and exact output properties; human readability is an eventual goal.
 
 ### 1. Introduction
 
@@ -12,7 +12,7 @@ A palindrome retains its letter sequence when read backwards. Constructing one f
 
 We study how these restrictions can be incorporated into search and composition. The first experiment places a sentence-pattern test at two different points in the same bounded search: after closure, or during construction as well as after closure. The second line of work changes the objective and inventory bookkeeping of an existing dictionary-based length search. These experiments have separate vocabularies, acceptance conditions, and outcomes.
 
-We use larger linguistic units because the eventual aim is readable palindromic prose. This paper measures lexical and structural admissibility. Lexically admissible means membership in a specified inventory; structurally admissible means passing the tag-pattern test. Readability requires evaluating the resulting language.
+Readable palindromic prose motivates the choice of larger linguistic units. The present paper measures lexical and structural admissibility. We use lexically admissible for membership in a specified inventory, structurally admissible for passing the specified tag-pattern test, and readable for a property requiring evaluation of the resulting language.
 
 Our contributions are:
 
@@ -21,15 +21,15 @@ Our contributions are:
 3. A composition procedure preserving mirrored units and enforcing repetition restrictions.
 4. A verified length artifact with a direct audit of the reference and partial comparisons of inventory policies.
 
-The remainder construction and mirror identity are established techniques.
+The underlying remainder construction and mirror identity are inherited techniques.
 
 ### 2. Search and structural feasibility
 
 #### 2.1. State and output identity
 
-Let n(x) lowercase a text and retain only ASCII letters a–z. A text x is palindromic when n(x) equals its reverse. A mirror pair is an ordered pair of word sequences (L,R) satisfying n(L) = reverse(n(R)). For example, “lived on decaf” and “faced no devil” demonstrate this letter relation; neither half needs to be a complete sentence. The spaces make the phrases readable but do not enter the palindrome definition.
+Let n(x) lowercase a text and retain only ASCII letters a–z. A text x is palindromic when n(x) equals its reverse. A mirror pair is an ordered pair of word sequences (L,R) satisfying n(L) = reverse(n(R)). For example, “lived on decaf” and “faced no devil” demonstrate this letter relation; neither half needs to be a complete sentence. While this example demonstrates spaces as necessary, they are not relevant to our definition of a palindrome.
 
-The search state is S = (L,R,o,d), storing the left and right word sequences, the unmatched remainder o, and its orientation d. The unmatched remainder—the overhang, or debt—records the letters one side still owes the other. Norvig describes this state in his account of palindrome construction. A compatible addition can consume the remainder or extend beyond it, leaving a new remainder on the opposite side. [Norvig, 2016](https://www.norvig.com/palindrome.html)
+The search state is S = (L,R,o,d), storing the left and right word sequences, the unmatched remainder o, and its orientation d. The remainder, or overhang, records the letters one side still owes the other, also referred to as debt. Norvig describes this state in his account of palindrome construction. A compatible addition can consume the remainder or extend beyond it, leaving a new remainder on the opposite side. [Norvig, 2016](https://www.norvig.com/palindrome.html)
 
 Our pair-search experiment grows outwards: words are prepended to L and appended to R. A trie supplies compatible additions. Empty-overhang states are candidates for closure. A candidate is accepted only if it splits at the letter midpoint between words, both halves contain at least three words, no word occurs twice anywhere in the pair, and both halves pass the complete structural test below. Word uniqueness is checked on completed candidates.
 
@@ -45,13 +45,13 @@ A word sequence W passes the complete test F(W) if at least one assignment from 
 
 For a partial sequence W of m words, prefix feasibility requires an assignment matching the first m tags of some pattern in P; suffix feasibility uses the last m tags. Empty sequences pass when P is nonempty, and sequences longer than nine words fail. The partial-state condition is suffix-feasible(L) and prefix-feasible(R).
 
-The orientation follows the growth directions: future words extend the beginning of L and the end of R. Once L cannot match any permitted suffix, prepending words cannot repair it; likewise, appending words cannot repair R if it cannot match a permitted prefix. The filter preserves completions satisfying the tag constraint. With finite limits, however, it can still change which completions the traversal reaches.
+These conditions follow the growth directions. Future words extend the beginning of L and the end of R. Once L cannot match any permitted suffix, prepending words cannot repair it; the corresponding argument holds for R and prefixes. This pruning preserves completions satisfying the tag constraint. Under finite limits, the change in traversal can still alter which completions are reached.
 
 #### 2.3. Bounded traversal
 
 Both configurations use a depth-first stack and the same complete acceptance test. Terminal filtering omits the partial-state condition. Incremental filtering applies it to opening states and candidate children before pushing them onto the stack.
 
-Algorithm 1: structural pair search
+**Algorithm 1: structural pair search**
 
 1. Construct compatible openings, assign this process its shard, and shuffle its openings using the process seed.
 2. Push openings satisfying the length and overhang limits; in the incremental configuration, also require partial-state feasibility.
@@ -81,15 +81,15 @@ Each configuration stops at the first applicable limit: approximately 600 elapse
 | Pairs per million popped states      |     247.47 |      750.73 |
 | Pairs per summed process-second      |      1.092 |       4.541 |
 
-In this experiment, incremental filtering produced 4.12 times as many distinct accepted pairs. The saved outputs were rechecked for exact reversal, word uniqueness, output-key uniqueness, and complete pattern acceptance.
+In this experiment, incremental filtering returns 4.12 times as many distinct accepted pairs. The saved outputs were rechecked for exact reversal, word uniqueness, output-key uniqueness, and complete pattern acceptance.
 
-The larger popped-state count is compatible with pruning because rejected children are counted before insertion and excluded from the popped-state counter. Incremental filtering avoids exploring their descendants and changes the distribution of retained states. The runs report the resulting yield, but not the time spent generating children, checking patterns, or processing closures. Pairs per popped state is therefore an output-density measure, not a measure of equal work. Summed process time is wall-clock time, not measured CPU time.
+The larger popped-state count is compatible with pruning because rejected children are counted before insertion and excluded from the popped-state counter. Incremental filtering avoids exploring their descendants and changes the distribution of retained states. The measurements establish the resulting yield, but they do not isolate the time spent generating children, checking patterns, or processing closures. Pairs per popped state is therefore an output-density measure, not a measure of equal work. Summed process time is elapsed exposure, not measured CPU time.
 
 There is one recorded configuration per arm, with fixed arm order. Per-process summaries are absent from the copied run directory, so we cannot determine each process’s stopping cause or estimate workload dispersion. We report no confidence interval or general speedup claim from these aggregate results.
 
 ### 4. Composition with preserved units
 
-Given mirror pairs (Lᵢ,Rᵢ) and a palindromic centre C, the sequence L₁…Lₖ C Rₖ…R₁ is palindromic. Each nested adjacency creates two surface joins, Lᵢ|Lⱼ and Rⱼ|Rᵢ. We call this paired adjacency a nesting seam. The identity lets us assemble a longer palindrome without searching again for letter symmetry.
+Given mirror pairs (Lᵢ,Rᵢ) and a palindromic centre C, the sequence L₁…Lₖ C Rₖ…R₁ is palindromic. Each nested adjacency creates two surface joins, Lᵢ|Lⱼ and Rⱼ|Rᵢ. We call this paired adjacency a nesting seam. This identity permits assembly without another search to satisfy the letter mirror.
 
 The composition bank keeps pairs whose halves pass the sentence-pattern gate. The implementation excludes self-mirroring halves and repeated normalized half strings, retaining the first occurrence in bank order. Its deduplication is thus stricter than the ordered token-pair identity used for the search-yield experiment.
 
@@ -97,7 +97,7 @@ For a specified centre C, target T, and seed s, the selection kernel performs on
 
 Rendering gives each component its own sentence boundary. An optional length preference sorts pairs by decreasing half-length after shuffling. It first runs ordinary selection with the same centre and shuffled bank, then uses that selected-pair count as a ceiling for length-first selection. The ceiling prevents this option from increasing the number of pairs; the selected total may fall short of T.
 
-This section specifies a construction procedure. The search-yield table evaluates the pair-search configurations; it does not compare composition quality.
+This section specifies a construction procedure. The search-yield table evaluates the pair-search configurations, and supplies no comparison of composition quality.
 
 ### 5. Dictionary-constrained length search
 
@@ -119,11 +119,11 @@ For both saved texts, evaluation retains lowercase ASCII letters and tokenizes w
 
 The exception set for this comparison is {a, an, the, and, or, of, to, in, on, at, for, with, by}. Token counts follow the stated tokenizer, including fragments produced by punctuation. The original algorithm forbids phrase reuse but does not impose our token cap or adjacency restriction. The published output violates both added restrictions. Fourteen dictionary keys containing non-ASCII-letter characters are also excluded from our emitted material.
 
-The saved output is 498 letters longer than this reference and has additional exclusions. This is neither a matched-runtime comparison nor a claim about the best result across palindrome methods.
+The 498-letter increase is therefore a verified improvement over this saved reference, with additional exclusions. It is not a matched-runtime comparison or a claim about the best available result across all palindrome methods.
 
 #### 5.2. Inventory policies and available comparisons
 
-Norvig orders candidate letters using counts of compatible phrase prefixes and suffixes. We compare three policies: static leaves these estimates unchanged; unused removes a completed phrase from the estimates and restores it on undo; feasible additionally removes phrases that fail the current used-phrase, character, within-phrase adjacency, or token-cap conditions. Updates use an index from affected words to phrases. Boundary-specific adjacency is checked separately when admitting a phrase.
+Norvig orders candidate letters using counts of compatible phrase prefixes and suffixes. We compare three policies: **static** leaves these estimates unchanged; **unused** removes a completed phrase from the estimates and restores it on undo; **feasible** additionally removes phrases that fail the current used-phrase, character, within-phrase adjacency, or token-cap conditions. Updates use an index from affected words to phrases. Boundary-specific adjacency is checked separately when admitting a phrase.
 
 All adapted runs below use the letter objective, phrase uniqueness, and the adjacency restriction. The token cap is shown explicitly.
 
@@ -136,7 +136,7 @@ All adapted runs below use the letter objective, phrase uniqueness, and the adja
 | Unused    |                   None |        120 |       88,455 |
 | Feasible  |                      3 |        300 |       90,937 |
 
-At 45 seconds, the unused-inventory run is 12.7% longer than the static run. At 120 seconds, the unused and feasible runs differ by six letters. These are single runs, and the 45-second pair ran concurrently on the same machine. They are partial comparisons under the adapted objective. There is no matched original-objective arm, so the effect of changing the objective is not isolated. Nor can the 300-second result be attributed to infeasibility removal independently of its longer budget.
+At 45 seconds, unused-inventory estimates return 12.7% more letters than static estimates. At 120 seconds, unused and feasible estimates differ by six letters. These are single runs, and the 45-second pair ran concurrently on the same machine. They provide partial comparisons under the adapted objective. An original-objective arm under matched conditions is absent, so the contribution of changing the objective is not isolated. The 300-second result also cannot be attributed to infeasibility removal independently of its longer budget.
 
 ### 6. Related work
 
@@ -148,7 +148,7 @@ Constrained generation also studies where to enforce restrictions and how to all
 
 The local artifact package contains frozen vocabulary and Brown payloads, the structural-pair aggregate, the length output and phrase sequence, and separate verification programs. A current-file audit checks all 107,500 stored pair records across the two arms against their acceptance conditions and reproduces the reference/output comparison. Full input and output hashes, commands, and provenance gaps appear in Appendix A. This is verification by a separate program in the same project, not an external audit.
 
-Under its recorded stopping limits, the structural experiment produced more accepted pairs with incremental filtering. The length experiment produced a longer saved output from the named dictionary while applying added repetition restrictions. Repeated, matched experiments are needed to establish general performance effects for partial-state constraints and inventory-aware ordering.
+The structural experiment demonstrates higher candidate yield under its recorded stopping limits. The length experiment supplies a longer saved output from the named dictionary with added repetition restrictions. These outcomes support further study of partial-state constraints and inventory-aware ordering. Their general performance effects require repeated, matched experiments.
 
 ### Limitations
 
@@ -158,29 +158,17 @@ The search comparison has fixed arm order, state-dependent traversal changes, an
 
 ### Appendix A. Reproduction details
 
-#### Structural inputs and preprocessing
+**Structural inputs and preprocessing.** The frozen inputs are `tools/polaris/payload/brown.json.gz` and `vocab30k.txt`. The Brown construction uses lowercased observed words and universal tags, removes . and X only when forming sentence patterns, and retains patterns of length 3–9. The partial planner tests all possible tag assignments without the 20,000-reading cutoff used by the composition parser. It imposes no additional morphology or agreement model. The frozen payload, rather than a newly downloaded corpus, defines the experiment’s input.
 
-The frozen inputs are `tools/polaris/payload/brown.json.gz` and `vocab30k.txt`. The Brown construction uses lowercased observed words and universal tags, removes . and X only when forming sentence patterns, and retains patterns of length 3–9. The partial planner tests all possible tag assignments without the 20,000-reading cutoff used by the composition parser. It imposes no additional morphology or agreement model. The frozen payload, rather than a newly downloaded corpus, defines the experiment’s input.
+**Search configuration.** The launcher is `tools/polaris/sentence_plan_debug.pbs`, invoking `sentence_plan_debug.py` with vocabulary request 30,000, letter bounds 20–44, at most 18 units, overhang bound 16, 20,000,000 popped states, 600 seconds, and 10,000 accepted pairs per process. It launches 32 ranks with seeds equal to rank IDs. The default arms run in the order terminal, planned. No bigram model participates in this comparison.
 
-#### Search configuration
+**Composition.** Reproduction requires an ordered bank, explicit centre, target, and seed. With an omitted API seed, the implementation uses the current time; such a request is not a reproducible specification. The composition exception set is {a, an, the, of, to, in, on, at, as, is, it, i, for, and, or, if, no, not, was, are, be, by, my, we, me, its, this, that, with, from}. It differs from the thirteen-token length-search set. The selection kernel and rendering are implemented in `llm_palindrome/hierarchy.py`.
 
-The launcher is `tools/polaris/sentence_plan_debug.pbs`, invoking `sentence_plan_debug.py` with vocabulary request 30,000, letter bounds 20–44, at most 18 units, overhang bound 16, 20,000,000 popped states, 600 seconds, and 10,000 accepted pairs per process. It launches 32 ranks with seeds equal to rank IDs. The default arms run in the order terminal, planned. No bigram model participates in this comparison.
+**Verification.** From the repository root, `python3 paper/verify_structural_draft.py` checks saved pair identities, reversal, word uniqueness, complete pattern acceptance, the normalized reference, and the 90,937-letter artifact. It also computes the manifest in `paper/structural-evidence.json`. Length-search reproduction uses `python3 -m experiments.norvig_letters --seconds 300 --dynamic --feasible --out <new-output-directory>`; its elapsed-time stopping condition need not reproduce the identical winning text.
 
-#### Composition
+**Hashes.** Full SHA-256 values are retained in the manifest. Identifying prefixes are: Brown payload `14a81b69751dbb9e`; vocabulary `6e24f122e2857271`; planning aggregate `ed584869a2fb54cf`; Norvig code `c21a79f77e3021c0`; dictionary `3f28b8a95d92be6c`; winning text `95722a8a12516c44`.
 
-Reproduction requires an ordered bank, explicit centre, target, and seed. When the API seed is omitted, the implementation uses the current time; that request is not reproducible. The composition exception set is {a, an, the, of, to, in, on, at, as, is, it, i, for, and, or, if, no, not, was, are, be, by, my, we, me, its, this, that, with, from}. It differs from the thirteen-token length-search set. The selection kernel and rendering are implemented in `llm_palindrome/hierarchy.py`.
-
-#### Verification
-
-From the repository root, `python3 paper/verify_structural_draft.py` checks saved pair identities, reversal, word uniqueness, complete pattern acceptance, the normalized reference, and the 90,937-letter artifact. It also computes the manifest in `paper/structural-evidence.json`. Length-search reproduction uses `python3 -m experiments.norvig_letters --seconds 300 --dynamic --feasible --out <new-output-directory>`; its elapsed-time stopping condition need not reproduce the identical winning text.
-
-#### Hashes
-
-The manifest retains the full SHA-256 values. Identifying prefixes are: Brown payload `14a81b69751dbb9e`; vocabulary `6e24f122e2857271`; planning aggregate `ed584869a2fb54cf`; Norvig code `c21a79f77e3021c0`; dictionary `3f28b8a95d92be6c`; winning text `95722a8a12516c44`.
-
-#### Provenance scope
-
-The present evidence checkout is `d24517d6202a7aee4a0a796ac825f6c6bef020e9`. It identifies the source inspected for this revision, not a proven historical job checkout. The launcher specifies Python 3.11, but the historical aggregate does not freeze its patch version, operating-system image, MPI version, dependency versions, or source revision. Per-rank traces and a runtime profile are absent from the copied run directory. These omissions limit search replay and timing analysis; they do not prevent verification of the saved candidates.
+**Provenance scope.** The present evidence checkout is `d24517d6202a7aee4a0a796ac825f6c6bef020e9`. It identifies the source inspected for this revision, not a proven historical job checkout. The launcher specifies Python 3.11, but the historical aggregate does not freeze its patch version, operating-system image, MPI version, dependency versions, or source revision. Per-rank traces and a runtime profile are absent from the copied run directory. These omissions limit search replay and timing analysis; they do not prevent verification of the saved candidates.
 
 ### References
 

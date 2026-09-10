@@ -75,50 +75,9 @@ The saved artifact is 498 letters longer under this evaluation. Its independent 
 
 The inventory-policy observations are narrower still. At 45 seconds, a dynamic unused-inventory estimate reached 76,979 letters and the static estimate reached 68,286; at 120 seconds, unused and feasible estimates reached 88,101 and 88,095. The final feasible, three-occurrence-cap run reached 90,937 at 300 seconds. These are single wall-clock runs under the letter objective. They do not isolate the inventory change from the new objective or prove an implementation-wide speedup.
 
-## 4. Measurements that needed correction
+## 4. What changed in the record
 
-The correction work matters because an exact palindrome can make nearby quantitative claims look firmer than they are. The following results stay in the record, but with their actual scope.
-
-### 4.1 Overhang reduction
-
-For an accepted placement, let `d_t` be the overhang length and `m_t` the new unit length. Prefix compatibility gives `d_(t+1) = |d_t - m_t|`. Signed overhang reduction is therefore `d_t - d_(t+1)`. Along a complete path, those signed reductions telescope to the initial overhang minus the final overhang. They cannot have a universal positive average as paths grow with bounded endpoints.
-
-We reran the measurement with a corrected candidate menu, a 400-candidate limit, maximum overhang 24, and a 60,000-edge budget. At small vocabularies the traversal exhausted the reachable edges; at larger vocabularies it sampled different truncated sets.
-
-| Requested vocabulary | Realized vocabulary | Edges per traversal | BFS mean signed reduction | DFS mean signed reduction |
-| ---: | ---: | ---: | ---: | ---: |
-| 1,000 | 926 | 11,918 | 0.51 | 0.51 |
-| 2,000 | 1,899 | 26,641 | 0.65 | 0.65 |
-| 4,000 | 3,820 | 57,619 | 0.80 | 0.80 |
-| 6,000 | 5,741 | 60,000 | 0.17 | 0.95 |
-| 8,000 | 7,655 | 60,000 | -0.50 | 1.06 |
-| 16,000 | 15,223 | 60,000 | -1.77 | 0.87 |
-| 32,000 | 30,262 | 60,000 | -2.33 | 0.73 |
-| 47,000 | 44,232 | 60,000 | -2.36 | 0.46 |
-
-The old stable `1.09` claim is withdrawn. The table is a finite, traversal-dependent enumeration, not a sample of independent successful paths. Negative overhang reduction can still be useful in a long search because a placement can add material while opening a larger overhang.
-
-### 4.2 Vocabulary scaling and the withdrawn extrapolation
-
-The historical vocabulary sweep measures worker-local distinct outputs per aggregate core-second. It does not measure state expansions, globally deduplicated outputs, or an abstract trie complexity. The five compatible settings support a fitted slope of about `-1.031` across a 32-fold requested vocabulary range. One 6,000-word cell used a different compute allocation and is not part of that fit. A high fit over five aggregated points is descriptive of that pipeline, not a universal inverse-vocabulary law.
-
-The earlier per-letter multiplier and 2,900-fold length estimate are removed. They came from sparse cells, one of them with one event. No new high-budget sweep establishes a 42- or 43-letter threshold, and no best-of-N readability curve has been measured.
-
-### 4.3 Seams, ordering, and the missing causal comparison
-
-A historical seam comparison put one chunk beside nests with two, four, or eight chunks. Two blind subagent judges preferred the single chunk for all seven items at every nest size. This supports a preference for those singles in that item set. It does not identify a first-seam collapse: nests also changed length, words, and topics, and the binary endpoint had no room below zero. The two ratings of one item are not two independent items. The claims that coherence dies at the first seam, later seams impose no further cost, and no ordering can help are withdrawn.
-
-The new seam-order intervention asks a smaller question. It draws twelve fixed sets of eight mirror pairs, then compares a random order with the order that maximizes both forced-join corpus-bigram scores. Each pair of nests has the same component words, multiplicities, and letter count. The center join remains outside this objective. This is an order intervention, not a seam-count study.
-
-Only `gpt-oss:20b` passed the exact 12-of-12 prose-versus-shuffle calibration gate. It rated random and optimized nests at 0.00 wherever both ratings were present: five complete pairs, 15 of 15 scored nests at the floor, and 10 experimental answers missing. Across all twelve sets, allowing missing scores anywhere from 0 to 3 bounds the mean order effect between -1.75 and +0.50. The score is a model instrument result, not a human result or proof that order is irrelevant.
-
-### 4.4 Punctuation and sentence-quality evidence
-
-The punctuation files contain 26 underlying texts in six presentations. Under the saved 120B evaluator, post-hoc 120B punctuation averaged 2.08 on the 0--3 scale and bare spacing averaged 1.31: a descriptive within-model difference of +0.77. Hand or catalogue punctuation averaged 2.31; search-time punctuation averaged 0.73. The saved 20B evaluator gives different values. All 52 model-punctuated outputs preserve both normalized letters and word tokens. This does not make the evaluation blind, independent, or human; a model may be rating its own punctuation.
-
-Sentence planning increases structural supply without rescuing the quality claim. Under an additional every-internal-join-attested restriction, the run found 105 pairs; allowing one unattested join found 227. An archived 120B half-by-half pass gave 100 of 210 halves a 0, 98 a 1, 10 a 2, and 2 a 3. No pair had both halves at least 2. Four ordinary-sentence controls scored 3, while four salad controls scored 0 or 1. This is a negative result for that bank and instrument. It is not a human rejection of all future search outputs.
-
-Other negative runs remain diagnostic, not general laws. A corrected candidate menu produced 112 root words of at least five letters where the old menu had none, and all 256 attempts in one 32-rank debug run closed as valid 80--95-letter palindromes. Small beam and clause-score smokes closed no pairs under their tested settings; they do not show that wider beams or language guidance reduce readability. A finite seven-template grammar contained 60,576 clauses and no exact mirror pair. That zero is exhaustive for the specified inventory, not for English.
+The first version of this work gave the structural question too little room and several secondary measurements too much. The old stable overhang constant, a broad vocabulary-scaling law, a long-range length extrapolation, and a causal first-seam story do not survive review. The evidence release records the retained observations and their exact limits. Keeping that material there lets the main paper make one claim clearly: early structural pruning changes which candidate pairs a bounded two-ended search reaches.
 
 ## 5. Conclusion
 
@@ -147,6 +106,47 @@ This section is the release ledger for the claims above. It records the evidence
 | Information-style arguments | Dictionary segmentation and forward/reverse coverage remain model-dependent diagnostics only | `paper/SOURCE-AUDIT.md`; `paper/naacl2027.tex` | An information-theoretic lower bound or a product survival probability |
 
 The release deliberately does not contain a human panel, independent human punctuation ratings, a high-budget length sweep, a controlled beam-width/readability curve, a best-of-N curve, raw sentence-plan per-rank traces, or the historical seam per-item files. These are missing evidence, not hidden negative results. No prose change can supply them.
+
+### Corrected measurements
+
+#### Overhang reduction
+
+For an accepted placement, let `d_t` be the overhang length and `m_t` the new unit length. Prefix compatibility gives `d_(t+1) = |d_t - m_t|`. Signed overhang reduction is therefore `d_t - d_(t+1)`. Along a complete path, those signed reductions telescope to the initial overhang minus the final overhang. They cannot have a universal positive average as paths grow with bounded endpoints.
+
+We reran the measurement with a corrected candidate menu, a 400-candidate limit, maximum overhang 24, and a 60,000-edge budget. At small vocabularies the traversal exhausted the reachable edges; at larger vocabularies it sampled different truncated sets.
+
+| Requested vocabulary | Realized vocabulary | Edges per traversal | BFS mean signed reduction | DFS mean signed reduction |
+| ---: | ---: | ---: | ---: | ---: |
+| 1,000 | 926 | 11,918 | 0.51 | 0.51 |
+| 2,000 | 1,899 | 26,641 | 0.65 | 0.65 |
+| 4,000 | 3,820 | 57,619 | 0.80 | 0.80 |
+| 6,000 | 5,741 | 60,000 | 0.17 | 0.95 |
+| 8,000 | 7,655 | 60,000 | -0.50 | 1.06 |
+| 16,000 | 15,223 | 60,000 | -1.77 | 0.87 |
+| 32,000 | 30,262 | 60,000 | -2.33 | 0.73 |
+| 47,000 | 44,232 | 60,000 | -2.36 | 0.46 |
+
+The old stable `1.09` claim is withdrawn. The table is a finite, traversal-dependent enumeration, not a sample of independent successful paths. Negative overhang reduction can still be useful in a long search because a placement can add material while opening a larger overhang.
+
+#### Scaling and length extrapolation
+
+The historical vocabulary sweep measures worker-local distinct outputs per aggregate core-second. It does not measure state expansions, globally deduplicated outputs, or an abstract trie complexity. The five compatible settings support a fitted slope of about `-1.031` across a 32-fold requested vocabulary range. One 6,000-word cell used a different compute allocation and is not part of that fit. A high fit over five aggregated points is descriptive of that pipeline, not a universal inverse-vocabulary law.
+
+The earlier per-letter multiplier and 2,900-fold length estimate are removed. They came from sparse cells, one of them with one event. No new high-budget sweep establishes a 42- or 43-letter threshold, and no best-of-N readability curve has been measured.
+
+#### Seams, punctuation, and model instruments
+
+A historical seam comparison put one chunk beside nests with two, four, or eight chunks. Two blind subagent judges preferred the single chunk for all seven items at every nest size. This supports a preference for those singles in that item set. It does not identify a first-seam collapse: nests also changed length, words, and topics, and the binary endpoint had no room below zero. The two ratings of one item are not two independent items. The claims that coherence dies at the first seam, later seams impose no further cost, and no ordering can help are withdrawn.
+
+The new seam-order intervention draws twelve fixed sets of eight mirror pairs, then compares a random order with the order that maximizes both forced-join corpus-bigram scores. Each pair of nests has the same component words, multiplicities, and letter count. The center join remains outside this objective. Only `gpt-oss:20b` passed the exact 12-of-12 prose-versus-shuffle calibration gate. It rated random and optimized nests at 0.00 wherever both ratings were present: five complete pairs, 15 of 15 scored nests at the floor, and 10 experimental answers missing. Across all twelve sets, allowing missing scores anywhere from 0 to 3 bounds the mean order effect between -1.75 and +0.50. This is an order intervention and a model instrument result, not a seam-count study or human finding.
+
+The punctuation files contain 26 underlying texts in six presentations. Under the saved 120B evaluator, post-hoc 120B punctuation averaged 2.08 on the 0--3 scale and bare spacing averaged 1.31: a descriptive within-model difference of +0.77. Hand or catalogue punctuation averaged 2.31; search-time punctuation averaged 0.73. The saved 20B evaluator gives different values. All 52 model-punctuated outputs preserve both normalized letters and word tokens. This does not make the evaluation blind, independent, or human; a model may be rating its own punctuation.
+
+#### Sentence-quality and finite-language diagnostics
+
+Sentence planning increases structural supply without rescuing the quality claim. Under an additional every-internal-join-attested restriction, the run found 105 pairs; allowing one unattested join found 227. An archived 120B half-by-half pass gave 100 of 210 halves a 0, 98 a 1, 10 a 2, and 2 a 3. No pair had both halves at least 2. Four ordinary-sentence controls scored 3, while four salad controls scored 0 or 1. This is a negative result for that bank and instrument. It is not a human rejection of all future search outputs.
+
+Other negative runs remain diagnostic, not general laws. A corrected candidate menu produced 112 root words of at least five letters where the old menu had none, and all 256 attempts in one 32-rank debug run closed as valid 80--95-letter palindromes. Small beam and clause-score smokes closed no pairs under their tested settings; they do not show that wider beams or language guidance reduce readability. A finite seven-template grammar contained 60,576 clauses and no exact mirror pair. That zero is exhaustive for the specified inventory, not for English.
 
 ### Reproduction
 

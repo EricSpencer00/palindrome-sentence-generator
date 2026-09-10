@@ -7,7 +7,7 @@ run('python3','paper/build_revision_tables.py')
 run('python3','experiments/verify_revision.py')
 source=[ROOT/'paper/naacl2027.tex', ROOT/'paper/refs.bib', *sorted((ROOT/'paper').glob('revision-*.tex'))]
 evidence=[]
-for pattern in ['artifacts/norvig-v3/*','runs/revision-2026-09-07/*.json','runs/revision-2026-09-07/*.sha256','runs/revision-2026-09-07/*.csv','runs/revision-2026-09-07/*.txt','runs/punct/after_*.json','experiments/revision_*.py','experiments/verify_revision.py','experiments/audit_norvig_result.py','experiments/sentence_intersection-results.json','experiments/RESULTS-*.md','runs/polaris/scale_20260823/summaries.jsonl','runs/polaris/sentence_plan_20260904_204815/aggregate.json','runs/polaris/sentence_quality_20260905_011235/aggregate.json','runs/sentence_quality*120b.json','paper/SOURCE-AUDIT.md','paper/build_revision_tables.py','paper/build_release.py']:
+for pattern in ['artifacts/norvig-v3/*','runs/revision-2026-09-07/*.json','runs/revision-2026-09-07/*.sha256','runs/revision-2026-09-07/*.csv','runs/revision-2026-09-07/*.txt','runs/punct/after_*.json','experiments/revision_*.py','experiments/verify_revision.py','experiments/audit_norvig_result.py','experiments/sentence_intersection-results.json','experiments/RESULTS-*.md','runs/polaris/scale_20260823/summaries.jsonl','runs/polaris/sentence_plan_20260904_204815/aggregate.json','runs/polaris/sentence_quality_20260905_011235/aggregate.json','runs/sentence_quality*120b.json','paper/SOURCE-AUDIT.md','paper/eric_evidence_release_draft.md','paper/build_revision_tables.py','paper/build_release.py']:
  evidence.extend(p for p in ROOT.glob(pattern) if p.is_file())
 evidence=sorted(set(evidence))
 inputs={}

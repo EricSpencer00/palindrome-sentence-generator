@@ -30,7 +30,7 @@ A closed pair is accepted only after a second check. The pair must split at the 
 
 ## 2. Structural feasibility
 
-The pattern inventory comes from Brown Corpus tags under NLTK's universal mapping. Each word keeps the tags observed for it in that corpus. A word can therefore have more than one reading. In the saved example below, `credits` is allowed as a `NOUN` or a `VERB`; the accepted tag assignment uses the verb reading. After punctuation and `X` tags are removed, the frozen inventory has 8,982 patterns of three to nine tags. We retain the 5,649 patterns that contain a `VERB` and begin with `PRON`, `DET`, `NOUN`, `ADJ`, `NUM`, or `ADV`.
+The pattern inventory comes from Brown Corpus tags under [NLTK's universal mapping](https://www.nltk.org/book/ch05.html). Each word keeps the tags observed for it in that corpus. A word can therefore have more than one reading. In the saved example below, `credits` is allowed as a `NOUN` or a `VERB`; the accepted tag assignment uses the verb reading. After punctuation and `X` tags are removed, the frozen inventory has 8,982 patterns of three to nine tags. We retain the 5,649 patterns that contain a `VERB` and begin with `PRON`, `DET`, `NOUN`, `ADJ`, `NUM`, or `ADV`. The frozen Brown payload, rather than a new corpus download, defines this experiment.
 
 For a completed word sequence `W`, the test `F(W)` asks whether one assignment of its observed word tags is exactly one of those retained patterns. A partial left half must match the suffix of at least one pattern, because future words are prepended to it. A partial right half must match a pattern prefix, because future words are appended to it. If either test fails, later growth in that direction cannot repair it.
 
@@ -132,7 +132,7 @@ This section is the release ledger for the claims above. It records the evidence
 | --- | --- | --- | --- |
 | Saved length artifact | 90,937 letters; 16,168 unique normalized phrases; no adjacent repeated words; max nonexception-word count 3; 498 letters over the identically parsed Norvig v3 reference | `artifacts/norvig-v3/`; `experiments/audit_norvig_result.py` | Readability, global novelty, an optimal solution, or a matched-runtime speedup |
 | Structural filtering | Terminal: 20,989 pairs; incremental: 86,511; shared limits and aggregate counters are preserved | `runs/polaris/sentence_plan_20260904_204815/aggregate.json`; `paper/verify_structural_draft.py` | Equal CPU work, per-rank variation, a causal runtime speedup, or grammaticality |
-| Pair identity and tag test | Ordered token-pair deduplication, full reversal, word uniqueness, and complete tag-pattern admission can be replayed from saved candidates | `paper/verify_structural_draft.py`; frozen Brown/vocabulary payloads named in `paper/structural-evidence.json` | A human-readable sentence or a general grammar |
+| Pair identity and tag test | Ordered token-pair deduplication, full reversal, word uniqueness, and complete tag-pattern admission can be replayed from saved candidates | `paper/verify_structural_draft.py`; `tools/polaris/payload/brown.json.gz`; `tools/polaris/payload/vocab30k.txt` | A human-readable sentence or a general grammar |
 | Composition | Mirrored unit nesting preserves the letter palindrome; greedy selection applies the published target and repetition caps | `llm_palindrome/hierarchy.py`; `paper/eric_short_working_draft.md` | A quality comparison of composition policies or paragraph coherence |
 | Inventory-policy observations | The six saved letter/budget cells, including 68,286 static at 45 s and 90,937 feasible at 300 s | `artifacts/norvig-v3/`; `experiments/RESULTS-*.md` | An ablation of objective, inventory policy, budget, and hardware |
 | Signed overhang reduction | The telescoping identity and sixteen traversal/vocabulary measurements replace the former stable 1.09 value | `runs/revision-2026-09-07/`; `experiments/revision_conservation.py` | Independent edge observations, a policy result, or a positive conservation constant |
@@ -163,6 +163,7 @@ The first command audits the saved structural candidates and long artifact with 
 ## References
 
 - Francis, W. N., and H. Kučera. 1979. _Manual of Information to Accompany a Standard Corpus of Present-Day Edited American English_.
+- Bird, Steven, Ewan Klein, and Edward Loper. 2009. [Natural Language Processing with Python, Chapter 5](https://www.nltk.org/book/ch05.html).
 - Norvig, Peter. 2016. [World's Longest Palindrome? 21,012 Words](https://www.norvig.com/palindrome.html).
 - Papadopoulos, Alexandre, Pierre Roy, Jean-Charles Régin, and François Pachet. 2015. [Generating all Possible Palindromes from Ngram Corpora](https://www.ijcai.org/Proceedings/15/Papers/353.pdf).
 - Hokamp, Chris, and Qun Liu. 2017. [Lexically Constrained Decoding for Sequence Generation Using Grid Beam Search](https://aclanthology.org/P17-1141/).

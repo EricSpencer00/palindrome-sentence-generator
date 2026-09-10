@@ -1,43 +1,44 @@
-# How to Find a Palindrome That Reads
+# Palindrome paper
 
-The current manuscript is `naacl2027.tex`. It is a 15-page research version,
-including the appendix and references, revised on 7 September 2026. The filename
-is retained for the existing project; this is not a conference page-limit claim.
+The current working paper is `eric_evidence_release_draft.md`. It is the
+mechanism-first Markdown draft and includes the evidence-release ledger for
+every retained, corrected, and missing result.
 
-The revision includes the audited 90,937-letter Norvig comparison, the newer
-sentence-planning experiments, an eight-vocabulary placement check, and a frozen
-seam-order experiment. Some of the old conclusions did not survive the audit:
-the first-seam step function, the 1.09 constant, and the 2,900x extrapolation are
-removed. Longer output still does not mean readable output.
+`naacl2027.tex` is the archival 15-page typeset revision from 7 September 2026.
+It remains in the release because it documents the older full research report;
+it is not the canonical working draft. `eric_short_working_draft.md` and files
+under `paper/archive/` are working or historical material.
 
-Build from the repository root:
+## Release layout
+
+Release products live under `paper/releases/<release-id>/`:
+
+- `source.zip` contains the Markdown draft, the archival typeset source,
+  bibliography, and generated tables.
+- `evidence.zip` preserves repository-relative evidence paths and SHA-256
+  manifests.
+- `RELEASE-MANIFEST.json` names both manuscripts, required commands, source
+  hashes, external inputs, and known limits.
+
+Temporary renderings and local build products belong under `paper/out/` and are
+ignored by Git. The generated `revision-*.tex` tables remain beside the archival
+TeX source because that document inputs them directly.
+
+Build and validate the default release from the repository root:
 
 ```sh
-.venv-v3/bin/python paper/build_revision_tables.py
-tectonic -X compile paper/naacl2027.tex
-pdfinfo paper/naacl2027.pdf
+python3 paper/build_release.py --release-id revision-2026-09-10
+python3 paper/validate_release.py --release-id revision-2026-09-10 --compile
 ```
 
-The source uses ordinary LaTeX packages and BibTeX. On Overleaf, select
-`naacl2027.tex` as the main document and use XeLaTeX. Upload the files in
-`overleaf-revision-2026-09-07.zip`; the generated tables are included, so Overleaf
-does not need to run Python. Preserve any unrelated files in the project.
+The validator verifies both archive manifests and compiles the extracted source
+bundle in a temporary directory. The evidence bundle does not redistribute
+external corpora. `SOURCE-AUDIT.md` records their input hashes, versions,
+provenance, and missing evidence.
 
-`build_revision_tables.py` reads saved results. It does not call models or rerun
-search. The old `make_figures.py` belongs to the archived short draft and is not
-the current build command. It uses historical temporary files and old plot
-labels, so do not use it to regenerate this revision.
+To render the archival typeset revision without putting products beside its
+source, run this from `paper/`:
 
-The prospective packet lives in `runs/revision-2026-09-07/`. It was frozen before
-new model evaluations. Exact-answer failures and truncated replies stay visible.
-There is no newly recruited human panel or independent human punctuation arm.
-
-`pre-revision-2026-09-07.tex` preserves the previous short manuscript.
-`REVISION-2026-09-07.md` maps the reviewer comments to changes and remaining gaps.
-All five model attempts are recorded. The final PDF has 15 pages; its page
-count, rendering, and text bounds were checked. Updating the remote
-Overleaf project additionally requires an authenticated editing session.
-
-Release audit: see `SOURCE-AUDIT.md`. Run `python3 paper/build_release.py` to rebuild
-the Overleaf ZIP and separate evidence ZIP with SHA-256 manifests. The evidence
-archive preserves repository paths; the Overleaf archive contains only build inputs.
+```sh
+tectonic --outdir out/local naacl2027.tex
+```

@@ -1,5 +1,5 @@
-"""Derive the revision tables entirely from saved artifacts; no inference calls."""
-import collections,json,pathlib,statistics as st,sys
+"""Derive revision tables from saved artifacts; no inference calls."""
+import argparse,collections,json,pathlib,statistics as st,sys
 P=pathlib.Path(__file__).resolve().parent;R=P.parent/'runs/revision-2026-09-07'
 sys.path.insert(0,str(P.parent))
 from experiments.revision_agreement import ordinal_alpha
@@ -8,7 +8,11 @@ def out(name,s): (P/name).write_text(s+'\n')
 def table(spec,head,rows):
  return '\\begin{center}\\small\n\\begin{tabular}{'+spec+'}\\toprule\n'+head+' \\\\\\midrule\n'+'\n'.join(' & '.join(map(str,r))+' \\\\' for r in rows)+'\n\\bottomrule\\end{tabular}\n\\end{center}'
 
-def main():
+def main(argv=None):
+ parser=argparse.ArgumentParser(description=__doc__)
+ parser.add_argument('--summary-out',type=pathlib.Path,
+                     default=P/'out'/'revision-2026-09-10'/'revision-summary.json')
+ args=parser.parse_args(argv)
  c=json.loads((R/'conservation.json').read_text());rows=[]
  for a,b in zip(c[::2],c[1::2]):
   assert a['requested']==b['requested'] and a['mode']=='breadth_first' and b['mode']=='depth_first'
@@ -62,5 +66,6 @@ def main():
  else:s='Model alpha is not estimable from this matrix. '
  s+=('Nest-only alpha is undefined because all observed nest scores are zero. ' if nest_alpha is None and all(v in [None,0] for row in nests for v in row) else f'Nest-only alpha: {nest_alpha}. ')
  out('revision-agreement.tex',s+'This is model agreement, not human validation.')
- (R/'summary.json').write_text(json.dumps(dict(judges=[dict(model=r['model'],hits=r['hits'],passed=r['pass'],attempts=len(r['ratings'])) for r in js],seams=summaries,ordinal_alpha=alpha,pairable_items=pairable,nest_alpha=nest_alpha),indent=2)+'\n')
+ args.summary_out.parent.mkdir(parents=True,exist_ok=True)
+ args.summary_out.write_text(json.dumps(dict(judges=[dict(model=r['model'],hits=r['hits'],passed=r['pass'],attempts=len(r['ratings'])) for r in js],seams=summaries,ordinal_alpha=alpha,pairable_items=pairable,nest_alpha=nest_alpha),indent=2)+'\n')
 if __name__=='__main__':main()

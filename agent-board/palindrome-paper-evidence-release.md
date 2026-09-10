@@ -2,7 +2,7 @@
 
 Scope: prepare the structurally scoped palindrome paper for credible review and release. This board separates work that changes a reviewer's conclusion from limitations that are already honestly bounded by the paper.
 
-## Ready — P0
+## Done — P0
 
 ### PAPER-00 — Rebuild the paper around one central question
 
@@ -47,7 +47,7 @@ Scope: prepare the structurally scoped palindrome paper for credible review and 
 
 **Done when:** the clean build succeeds and the manifest's paths resolve within the extracted release or are explicitly marked external.
 
-## Ready — P1
+## Done — P1
 
 ### PAPER-03 — Decide whether to replicate the planning comparison or narrow it further
 
@@ -118,7 +118,7 @@ Scope: prepare the structurally scoped palindrome paper for credible review and 
 
 **Done when:** artifact verification and historical execution claims are separately labeled in the paper and release manifest.
 
-## Ready — P2
+## Done — P2
 
 ### PAPER-08 — Add a worked method example and minimal auditable outputs
 
@@ -160,7 +160,7 @@ Scope: prepare the structurally scoped palindrome paper for credible review and 
 
 **Done when:** qualifications remain wherever they change a result's interpretation, but the abstract and main method can be read as an argument rather than a sequence of defenses.
 
-## Done
+## Done — release draft
 
 ### PAPER-11 — Package an evidence-led Markdown draft
 

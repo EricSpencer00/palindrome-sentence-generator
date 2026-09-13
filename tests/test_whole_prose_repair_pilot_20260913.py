@@ -14,6 +14,7 @@ from experiments.whole_prose_repair_pilot_20260913 import (
     parse_repairs,
     repair_prompt,
     run_whole_prose_repair_pilot,
+    select_revision,
     symmetry_diagnostics,
 )
 
@@ -82,6 +83,16 @@ def test_strict_repair_schema_requires_four_distinct_full_surfaces():
     bad["alternatives"][1] = bad["alternatives"][0]
     rows, rejection = parse_repairs(json.dumps(bad))
     assert rows is None and rejection == "repair_alternatives_must_be_distinct"
+
+
+def test_selection_never_collapses_a_valid_lineage_below_the_target_length_floor():
+    from experiments.whole_prose_repair_pilot_20260913 import Draft
+
+    parent = Draft(0, 0, "The patient curator carefully reviewed every label before closing the quiet exhibit, because visitors needed a clear explanation.", "an exhibit review", None, {})
+    short = [Draft(0, 1, "A child slipped on a wet rug.", parent.intent, parent.parent_sha256, {}) for _ in range(ALTERNATIVES_PER_REPAIR)]
+    chosen, selection = select_revision(short, round_index=3, parent=parent)
+    assert chosen.text == parent.text
+    assert selection["chosen_index"] is None
 
 
 def test_bounded_driver_preserves_every_complete_surface_and_never_auto_claims_readability():

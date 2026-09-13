@@ -326,9 +326,22 @@ def _rank(draft: Draft) -> tuple[Any, ...]:
     )
 
 
-def select_revision(candidates: list[Draft], *, round_index: int) -> tuple[Draft, dict[str, Any]]:
-    """Frozen selection: two exploratory rounds may retain a worse alignment."""
-    ordered = sorted(candidates, key=_rank)
+def select_revision(candidates: list[Draft], *, round_index: int, parent: Draft) -> tuple[Draft, dict[str, Any]]:
+    """Frozen selection: target length is invariant; two rounds explore alignment."""
+    in_band = [candidate for candidate in candidates if MIN_LETTERS <= independent_exactness(candidate.text)["letter_count"] <= MAX_LETTERS]
+    # A paraphrase that drops below the paper floor is not an exploratory state.
+    # Keep the last valid full passage instead of rewarding a shorter mismatch
+    # rate; otherwise the previous pilot literally selected its way into
+    # fragments.
+    if not in_band:
+        return parent, {
+            "rule": "retain_parent_when_no_alternative_is_in_target_length_band",
+            "round_index": round_index,
+            "chosen_index": None,
+            "exploratory": False,
+            "ranked_text_sha256": [_digest(candidate.text) for candidate in candidates],
+        }
+    ordered = sorted(in_band, key=_rank)
     exploratory = round_index in {2, 5} and len(ordered) > 1
     chosen_index = 1 if exploratory else 0
     return ordered[chosen_index], {
@@ -434,7 +447,7 @@ def run_whole_prose_repair_pilot(client: LocalProseClient, *, model: str, seed: 
                                         "reply_sha256": call["reply_sha256"], "notes": row["notes"], "parent_sha256": _digest(parent.text)},
                         )
                     )
-                chosen, selection = select_revision(alternatives, round_index=round_index)
+                chosen, selection = select_revision(alternatives, round_index=round_index, parent=parent)
                 call["alternatives"] = [alternative.record() for alternative in alternatives]
                 call["selection"] = selection
                 call["selected"] = chosen.record()

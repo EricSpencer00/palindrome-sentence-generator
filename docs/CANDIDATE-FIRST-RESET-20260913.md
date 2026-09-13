@@ -33,37 +33,53 @@ The central admission policy is preserved for the first pilot. Before a paper
 claim, each exclusion stricter than the stated shortcut ban must be reviewed
 explicitly rather than silently relaxed.
 
-## One successor, not another grammar
+## The bilateral successor failed; whole prose replaces it
 
-Build one candidate-first assisted construction kernel. A search state holds
-both visible text edges, their exact character debt, every live lexical-prefix
-and provisional-boundary analysis, and unresolved syntactic obligations. It
-permits a bounded *coordinated* rewrite or continuation on both edges and can
-reopen a paired region, so it never derives one side by reflecting a completed
-other side.
+The first assisted bilateral pilot made the wrong representation concrete.
+Twelve calls produced 33 accepted partial edits (and the root state), but no
+eligible closure. The accepted material was familiar reversible trivia such as
+self-palindromic words and reversed-word chunks. That outcome is not a result
+about English or feasibility. The interface had forbidden complete sentences,
+required exact paired continuations, and audited only empty-centre closures;
+it therefore selected the very shortcuts the target excludes.
 
-The language proposer—an auditable local model or a human constructor—may
-suggest alternatives before a restricted grammar has already proved a deep
-completion. Code remains authoritative for character equality, token paths,
-anti-shortcut checks, and admission. Every proposal, rejection, replay, and
-region edit is retained. Syntax and automatic language scores order work only;
-they do not accept a candidate.
+The replacement is one bounded **whole-prose paraphrase-repair** pilot. Its
+state is `{full text, communicative intent, normalized tape, mismatch map,
+provenance}`. At every moment the model sees and rewrites a complete,
+independently understandable English passage. The passage may have temporary
+symmetry errors, and the model may replace all wording, boundaries,
+punctuation, syntax, and length while preserving the scene or proposition.
+The host neither manufactures a reflected counterpart nor provides a rendered
+candidate.
+
+Each repair request receives the complete prose, the frozen intent, and the
+actual indexed mismatches mapped to their containing words. A separate
+surface-only critique call sees the prose and intent but never symmetry
+scores. Its fragment/coherence flags are triage, not a readability certificate.
+Code remains authoritative only for mismatch accounting, central anti-shortcut
+screens, catalogue exclusions, and the final exact validator. Every draft,
+selection, rejection, prompt, seed, and raw reply is retained.
 
 ## Pilot decision rule
 
-Run one predeclared finite assisted pilot at 100–140 letters. Preserve diverse
-states by full character debt, boundary analyses, and syntactic obligations;
-do not discard installed alternatives with a permanent per-character cap.
+Run one predeclared finite whole-prose pilot at 100–160 letters: four distinct
+intents, eight complete-prose repair rounds per intent, four alternatives per
+repair, and one surface-only critique after each round. The selection rule is
+frozen before the run: non-exact hard screens first, then mismatch rate,
+mismatch count, and text hash, with two named exploratory rounds permitted to
+keep the second-ranked revision. Thus a temporarily worse alignment can lead
+to a later global repair without treating mismatch reduction as success.
 
 - If an exact closure clears every mechanical gate, freeze its rendering,
   tape, derivation/proposal trace, and provenance record. Only then create the
   blinded reader package.
-- If exact closures occur but read poorly, reopen substantial paired regions
-  and measure whether the repair changes their syntax and wording. Do not
-  lengthen them by wrapping a palindrome or concatenating units.
-- If no closure occurs, report the first actual state constraint that prevents
-  closure and repair that state inside this same engine. Do not add another
-  domain-specific sentence grammar.
+- If an exact closure clears mechanics but fails development-reader feedback,
+  repair its full prose globally. Do not lengthen it by wrapping a palindrome
+  or concatenating units.
+- If no eligible candidate occurs, preserve the actual complete-prose traces
+  and mismatch maps, then repair the observed global-writing constraint inside
+  this same representation. Do not add another domain-specific sentence
+  grammar or make a negative-result paper out of the run.
 
 This reset does not make a feasibility claim. Its purpose is to concentrate
 work on producing the one thing the paper lacks: a reader-worthy candidate.

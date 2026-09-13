@@ -38,6 +38,7 @@ MIN_CANDIDATE_LETTERS = 100
 MAX_CANDIDATE_LETTERS = 240
 MAX_PROPOSAL_LETTERS = 48
 DEFAULT_STATE_BUDGET = 100_000
+MAX_MATERIALIZED_FINAL_ANALYSES = 512
 WORD_RE = re.compile(r"[a-z]+")
 
 # These short closed-class forms are intentionally installed even if a corpus
@@ -268,20 +269,30 @@ def analyze_tape(tape: str) -> LexicalAnalysis:
     )
 
 
-def enumerate_segmentations(tape: str) -> tuple[tuple[str, ...], ...]:
-    """Materialize every lexical rendering for a closure; never sample one."""
+def enumerate_segmentations(tape: str, *, limit: int | None = None) -> tuple[tuple[tuple[str, ...], ...], bool]:
+    """Materialize lexical renderings deterministically, with an explicit cap.
+
+    The lexical chart retains the exact count of viable analyses. A long exact
+    tape can have exponentially many segmentations, though, and an ineligible
+    oversized intermediate must never be able to terminate a pilot before its
+    rejection ledger is written. A truncated analysis is never promotable.
+    """
     trie = word_trie()
+    rows: list[tuple[str, ...]] = []
 
-    @lru_cache(maxsize=None)
-    def visit(start: int) -> tuple[tuple[str, ...], ...]:
+    def visit(start: int, prefix: tuple[str, ...]) -> bool:
+        if limit is not None and len(rows) >= limit:
+            return True
         if start == len(tape):
-            return ((),)
-        rows = []
+            rows.append(prefix)
+            return limit is not None and len(rows) >= limit
         for end, word in trie.words_from(tape, start):
-            rows.extend((word,) + tail for tail in visit(end))
-        return tuple(rows)
+            if visit(end, prefix + (word,)):
+                return True
+        return False
 
-    return visit(0)
+    truncated = visit(0, ())
+    return tuple(rows), truncated
 
 
 @dataclass(frozen=True)
@@ -467,14 +478,19 @@ def close_proposal(state: ConstructionState, proposal: Proposal) -> dict[str, An
         if tape != tape[::-1]:
             raise ValueError("finalized_tape_is_not_an_exact_letter_palindrome")
         final_analysis = analyze_tape(tape)
-        segmentations = enumerate_segmentations(tape)
-        if len(segmentations) != final_analysis.complete_segmentations:
-            raise AssertionError("lexical_chart_and_full_enumeration_disagree")
         event["accepted"] = True
-        event["all_viable_lexical_analyses"] = len(segmentations)
+        event["all_viable_lexical_analyses"] = final_analysis.complete_segmentations
         event["final_analysis"] = {"boundary_positions": final_analysis.boundary_positions,
                                    "open_prefixes": final_analysis.open_prefixes,
                                    "syntax_obligations": [asdict(row) for row in final_analysis.syntax_obligations]}
+        if len(tape) > MAX_CANDIDATE_LETTERS:
+            event["analysis_rejection"] = "outside_candidate_length_cap"
+            event["materialized_lexical_analyses"] = 0
+            event["lexical_analyses_truncated"] = True
+            return event
+        segmentations, truncated = enumerate_segmentations(tape, limit=MAX_MATERIALIZED_FINAL_ANALYSES)
+        event["materialized_lexical_analyses"] = len(segmentations)
+        event["lexical_analyses_truncated"] = truncated
         for words in segmentations:
             rendered = " ".join(words).capitalize() + "."
             checks = mechanical_admission_checks(rendered, min_letters=MIN_CANDIDATE_LETTERS,
@@ -484,7 +500,9 @@ def close_proposal(state: ConstructionState, proposal: Proposal) -> dict[str, An
             syntax = SyntaxObligation("tail") in final_analysis.syntax_obligations
             closure = {"rendered": rendered, "render_sha256": _text_digest(rendered), "words": words,
                        "letters": len(tape), "exact_letter_palindrome": True,
-                       "mechanical_checks": checks, "mechanically_eligible": all(checks.values()),
+                       "mechanical_checks": checks,
+                       "mechanically_eligible": all(checks.values()) and not truncated,
+                       "analysis_complete": not truncated,
                        "tentative_syntax_tail_diagnostic": syntax,
                        "provenance": {"proposal_chain": state.proposal_history + (proposal.proposal_id,),
                                       "source": proposal.source, "external_provenance": "unverified"},

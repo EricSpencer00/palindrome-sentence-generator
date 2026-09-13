@@ -31,11 +31,12 @@ def test_broad_l1_keeps_ordinary_short_function_words_without_six_letter_filter(
 
 
 def test_state_owns_all_viable_word_boundary_and_prefix_analyses():
-    analyses = enumerate_segmentations("another")
+    analyses, truncated = enumerate_segmentations("another")
     chart = analyze_tape("another")
     assert ("another",) in analyses
     assert ("an", "other") in analyses
     assert chart.complete_segmentations == len(analyses)
+    assert truncated is False
     assert (2, "other") in chart.open_prefixes
 
 
@@ -119,6 +120,21 @@ def test_exact_closure_runs_shared_admission_but_never_emits_short_fixture():
     assert event["letters"] == 4
     assert all("mechanical_checks" in row for row in event["closures"])
     assert candidate_records([event]) == []
+
+
+def test_oversized_exact_intermediate_is_logged_without_enumerating_every_segmentation():
+    state = root_state()
+    for index in range(6):
+        state, event = apply_proposal(
+            state,
+            proposal(f"wide-{index}", state.state_id, left="x" * 48, right="x" * 48),
+        )
+        assert state is not None and event["accepted"]
+    event = close_proposal(state, Proposal("oversized", state.state_id, {"kind": "fixture"}, "finalize"))
+    assert event["accepted"]
+    assert event["letters"] == 576
+    assert event["analysis_rejection"] == "outside_candidate_length_cap"
+    assert event["closures"] == []
 
 
 def test_candidate_emission_predicate_requires_exact_100_plus_and_all_mechanical_checks():

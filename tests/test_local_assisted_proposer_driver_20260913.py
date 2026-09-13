@@ -44,7 +44,7 @@ def test_prompt_exposes_complete_fringe_debt_boundary_and_provenance_but_not_a_c
     visible = prompt["visible_parent_state"]
     assert {"left_committed_visible_fringe", "right_committed_visible_fringe", "outstanding_symmetric_debt",
             "left_boundary_analysis", "right_boundary_analysis", "full_edit_provenance"} <= set(visible)
-    assert prompt["hard_rules"][3].startswith("For continue, supply nonempty left_text and right_text independently")
+    assert "character-by-character reverse" in prompt["hard_rules"][3]
     assert all("readability" not in value.lower() or "do not claim" in value.lower() for value in prompt["hard_rules"])
 
 
@@ -58,6 +58,17 @@ def test_strict_schema_requires_exactly_four_distinct_coordinated_alternatives()
     duplicate["alternatives"][1] = duplicate["alternatives"][0]
     invalid, rejection = parse_alternatives(json.dumps(duplicate))
     assert invalid is None and rejection == "alternatives_must_be_distinct"
+
+
+def test_notes_are_optional_but_no_other_schema_drift_is_permitted():
+    reply = json.loads(valid_reply())
+    for alternative in reply["alternatives"]:
+        alternative.pop("notes")
+    parsed, rejection = parse_alternatives(json.dumps(reply))
+    assert rejection is None and len(parsed) == 4
+    reply["alternatives"][0]["explanation"] = "not allowed"
+    parsed, rejection = parse_alternatives(json.dumps(reply))
+    assert parsed is None and rejection == "continue_has_wrong_fields"
 
 
 def test_mocked_driver_makes_predeclared_12_by_4_calls_and_preserves_all_raw_artifacts():

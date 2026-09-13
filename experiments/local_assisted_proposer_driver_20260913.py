@@ -145,7 +145,7 @@ def prompt_for(state: ConstructionState, *, call_index: int, seed: int) -> str:
             "Return one JSON object and nothing else.",
             "Return exactly four alternatives.",
             "Each alternative is either continue or reopen; never finalize or a full sentence.",
-            "For continue, supply nonempty left_text and right_text independently. Do not derive one from the other.",
+            "For continue, supply nonempty left_text and right_text yourself. After removing spaces, left_text MUST equal the character-by-character reverse of right_text. Verify this letter by letter; reversing word order is wrong.",
             "For reopen, supply both replacement regions with normalized character offsets against the visible fringes.",
             "Each supplied text is at most 48 normalized letters. Do not use punctuation, commentary, a word-order mirror, or a catalogue palindrome.",
             "The host, not you, checks character symmetry, all lexical boundary analyses, and admission. Do not claim readability.",
@@ -179,14 +179,16 @@ def parse_alternatives(raw: str) -> tuple[list[dict[str, Any]] | None, str | Non
                 raise ValueError("alternative_requires_operation")
             operation = row["operation"]
             if operation == "continue":
-                if set(row) != {"operation", "left_text", "right_text", "notes"}:
+                if not {"operation", "left_text", "right_text"} <= set(row) <= {"operation", "left_text", "right_text", "notes"}:
                     raise ValueError("continue_has_wrong_fields")
-                if not all(isinstance(row[key], str) for key in ("left_text", "right_text", "notes")):
+                if not all(isinstance(row[key], str) for key in ("left_text", "right_text")) or (
+                    "notes" in row and not isinstance(row["notes"], str)
+                ):
                     raise ValueError("continue_fields_must_be_strings")
                 if not row["left_text"].strip() or not row["right_text"].strip():
                     raise ValueError("continue_requires_both_nonempty_sides")
             elif operation == "reopen":
-                if set(row) != {"operation", "left_region", "right_region", "notes"}:
+                if not {"operation", "left_region", "right_region"} <= set(row) <= {"operation", "left_region", "right_region", "notes"}:
                     raise ValueError("reopen_has_wrong_fields")
                 for key in ("left_region", "right_region"):
                     region = row[key]
@@ -194,7 +196,7 @@ def parse_alternatives(raw: str) -> tuple[list[dict[str, Any]] | None, str | Non
                         raise ValueError("reopen_region_has_wrong_fields")
                     if not isinstance(region["start"], int) or not isinstance(region["end"], int) or not isinstance(region["text"], str):
                         raise ValueError("reopen_region_types_invalid")
-                if not isinstance(row["notes"], str):
+                if "notes" in row and not isinstance(row["notes"], str):
                     raise ValueError("reopen_notes_must_be_string")
             else:
                 raise ValueError("alternative_operation_must_be_continue_or_reopen")
@@ -216,10 +218,10 @@ def proposal_from_alternative(*, call_index: int, alternative_index: int, parent
     identifier = f"call-{call_index:02d}-alternative-{alternative_index:02d}"
     if alternative["operation"] == "continue":
         return Proposal(identifier, parent.state_id, source, "continue", left_text=alternative["left_text"],
-                        right_text=alternative["right_text"], notes=alternative["notes"])
+                        right_text=alternative["right_text"], notes=alternative.get("notes", ""))
     return Proposal(identifier, parent.state_id, source, "reopen",
                     left_region=Region(**alternative["left_region"]), right_region=Region(**alternative["right_region"]),
-                    notes=alternative["notes"])
+                    notes=alternative.get("notes", ""))
 
 
 def run_local_proposer(client: LocalProposerClient, *, model: str, seed: int = DEFAULT_SEED) -> dict[str, Any]:

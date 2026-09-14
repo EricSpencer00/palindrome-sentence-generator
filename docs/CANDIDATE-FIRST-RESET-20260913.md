@@ -33,7 +33,7 @@ The central admission policy is preserved for the first pilot. Before a paper
 claim, each exclusion stricter than the stated shortcut ban must be reviewed
 explicitly rather than silently relaxed.
 
-## The bilateral successor failed; whole prose replaces it
+## Two repair interfaces failed; the next representation is exact from the start
 
 The first assisted bilateral pilot made the wrong representation concrete.
 Twelve calls produced 33 accepted partial edits (and the root state), but no
@@ -43,43 +43,47 @@ about English or feasibility. The interface had forbidden complete sentences,
 required exact paired continuations, and audited only empty-centre closures;
 it therefore selected the very shortcuts the target excludes.
 
-The replacement is one bounded **whole-prose paraphrase-repair** pilot. Its
-state is `{full text, communicative intent, normalized tape, mismatch map,
-provenance}`. At every moment the model sees and rewrites a complete,
-independently understandable English passage. The passage may have temporary
-symmetry errors, and the model may replace all wording, boundaries,
-punctuation, syntax, and length while preserving the scene or proposition.
-The host neither manufactures a reflected counterpart nor provides a rendered
-candidate.
+The follow-up whole-prose repair pilot also failed as a constructor. Its 41
+calls produced ordinary paraphrases with roughly 88--98% of mirrored pairs
+wrong, then several lineages shortened below the target. It preserved meaning
+but supplied no character-level path to exactness. That branch is now retired;
+its raw drafts and mismatch maps remain evidence, not a paper result.
 
-Each repair request receives the complete prose, the frozen intent, and the
-actual indexed mismatches mapped to their containing words. A separate
-surface-only critique call sees the prose and intent but never symmetry
-scores. Its fragment/coherence flags are triage, not a readability certificate.
-Code remains authoritative only for mismatch accounting, central anti-shortcut
-screens, catalogue exclusions, and the final exact validator. Every draft,
-selection, rejection, prompt, seed, and raw reply is retained.
+The active representation is an **exact editor with bilateral resegmentation**.
+The state stores a half-tape `h`, an optional palindromic center, an intent,
+and a word-boundary/syntax lattice over the complete tape
+`h + center + reverse(h)`. A paired-span edit replaces an arbitrary region of
+`h`; exactness is preserved automatically, while both reflected regions are
+reopened for independent word boundaries and syntactic attachments. The host
+never accepts a supplied word-order mirror or invents the final rendering: a
+surface is eligible only when its own letters equal the exact tape and it clears
+the central anti-shortcut gate.
+
+The first milestone is a short, non-catalogue complete reading with a real
+cross-boundary resegmentation. Only after that operator demonstrably produces
+such readings will it be widened toward the 100-letter paper floor. Every
+proposal, rejection, replay, edit, segmentation, and provenance record remains
+frozen. Surface critique and human readers remain downstream; automatic scores
+never certify readability.
 
 ## Pilot decision rule
 
-Run one predeclared finite whole-prose pilot at 100–160 letters: four distinct
-intents, eight complete-prose repair rounds per intent, four alternatives per
-repair, and one surface-only critique after each round. The selection rule is
-frozen before the run: non-exact hard screens first, then mismatch rate,
-mismatch count, and text hash, with two named exploratory rounds permitted to
-keep the second-ranked revision. Thus a temporarily worse alignment can lead
-to a later global repair without treating mismatch reduction as success.
+Run the exact editor first with a small, predeclared word-boundary lattice and
+paired-span edit budget. The acceptance measurement is an actual rendered,
+non-catalogue English reading—not state count, mismatch reduction, or length
+alone. Once that short milestone is real, widen the same operator and frozen
+validation to the 100-letter floor; do not create a new sentence grammar.
 
 - If an exact closure clears every mechanical gate, freeze its rendering,
   tape, derivation/proposal trace, and provenance record. Only then create the
   blinded reader package.
-- If an exact closure clears mechanics but fails development-reader feedback,
-  repair its full prose globally. Do not lengthen it by wrapping a palindrome
-  or concatenating units.
-- If no eligible candidate occurs, preserve the actual complete-prose traces
-  and mismatch maps, then repair the observed global-writing constraint inside
-  this same representation. Do not add another domain-specific sentence
-  grammar or make a negative-result paper out of the run.
+- If a short exact editor closure is mechanically clean but reads poorly,
+  change its paired-span edit or resegmentation operator; do not wrap it or
+  concatenate a known palindrome.
+- If the short milestone does not occur, preserve the exact editor traces and
+  repair the observed boundary/semantic state inside this representation. Do
+  not add another domain-specific sentence grammar or make a negative-result
+  paper out of the run.
 
 This reset does not make a feasibility claim. Its purpose is to concentrate
 work on producing the one thing the paper lacks: a reader-worthy candidate.

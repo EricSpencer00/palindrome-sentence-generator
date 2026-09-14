@@ -266,6 +266,8 @@ def beam_search(
     prune_every: int = 8,
     opening_words: Optional[set[str]] = None,
     max_word_uses: Optional[int] = None,
+    initial_state: Optional[State] = None,
+    allow_state=None,
 ) -> list[str]:
     """Beam search for a word sequence whose letters form a palindrome.
 
@@ -282,7 +284,7 @@ def beam_search(
     reorder or filter but must not fabricate states, so correctness is unaffected.
     """
     rng = random.Random(seed)
-    start = State(sort_key=0.0, left=(), right=(), overhang="", side="L")
+    start = initial_state or State(sort_key=0.0, left=(), right=(), overhang="", side="L")
     beam = [start]
     best: Optional[tuple[float, list[str]]] = None
 
@@ -322,6 +324,8 @@ def beam_search(
                     left, right = state.left + (w,), state.right
                 else:
                     left, right = state.left, (w,) + state.right
+                if allow_state is not None and not allow_state(left, right):
+                    continue
                 # Outside-in: the left half is appended to, the right prepended.
                 growth = "append" if placement == "L" else "prepend"
                 child_specs.append((left, right, placement, w, new_over, new_side, growth))

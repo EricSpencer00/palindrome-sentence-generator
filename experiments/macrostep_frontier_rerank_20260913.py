@@ -224,6 +224,18 @@ def reopen_boundary(parent: State, witness: str) -> list[dict]:
     return out
 
 
+def endpoint_witness_check(endpoint: tuple[str, str], witness: str) -> dict[str, object]:
+    """Verify that an authored witness really carries the declared endpoints."""
+    words = tokenize(witness)
+    left = tuple(tokenize(endpoint[0]))
+    right = tuple(tokenize(endpoint[1]))
+    starts = bool(left) and words[:len(left)] == left
+    ends = bool(right) and words[-len(right):] == right
+    return {"starts_with_left_endpoint": starts,
+            "ends_with_right_endpoint": ends,
+            "word_count": len(words), "valid": starts and ends}
+
+
 def rerank_surfaces(model: str, witness: str, surfaces: list[str], seed: int) -> tuple[str, list[int]]:
     options = [{"id": f"s{i:03d}", "text": text} for i, text in enumerate(surfaces)]
     prompt = {
@@ -283,6 +295,13 @@ def run(*, model: str, rounds: int, path_depth: int, seeds: int,
     traces, records, endpoint_summaries = [], [], []
     endpoints = ENDPOINTS if endpoint_limit is None else ENDPOINTS[:endpoint_limit]
     for endpoint, witness in endpoints:
+        endpoint_check = endpoint_witness_check(endpoint, witness)
+        if not endpoint_check["valid"]:
+            endpoint_summaries.append({"endpoint": endpoint, "witness": witness,
+                                       "terminal_states": 0,
+                                       "status": "rejected_endpoint_witness",
+                                       "endpoint_check": endpoint_check})
+            continue
         root = endpoint_state(*endpoint)
         frontier = [(root, witness, "root")]
         for depth in range(rounds):
@@ -310,7 +329,9 @@ def run(*, model: str, rounds: int, path_depth: int, seeds: int,
             if not frontier:
                 break
         endpoint_summaries.append({"endpoint": endpoint, "witness": witness,
-                                   "terminal_states": len(frontier)})
+                                   "terminal_states": len(frontier),
+                                   "status": "searched",
+                                   "endpoint_check": endpoint_check})
         for index, (state, construction_witness, path_id) in enumerate(frontier):
             candidate_words = tokenize(construction_witness)
             tape = normalize_letters(construction_witness)

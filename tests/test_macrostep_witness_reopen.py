@@ -1,5 +1,5 @@
 from experiments.macrostep_frontier_rerank_20260913 import (
-    endpoint_state, parse_selections, reopen_boundary,
+    endpoint_state, endpoint_witness_check, parse_selections, reopen_boundary,
 )
 from llm_palindrome.frontier_macros import state_from_anchors
 
@@ -24,3 +24,10 @@ def test_reopen_boundary_only_emits_exactly_compatible_shortened_anchors():
     assert all(len(row["state"].left) <= len(parent.left)
                and len(row["state"].right) <= len(parent.right)
                for row in reopened)
+
+
+def test_endpoint_witness_check_rejects_model_drift():
+    assert endpoint_witness_check(("desserts", "stressed"),
+                                  "Desserts pile up while the waiter feels stressed.")["valid"]
+    assert not endpoint_witness_check(("deliver", "reviled"),
+                                      "Deliver the package; the courier waits in the village.")["valid"]

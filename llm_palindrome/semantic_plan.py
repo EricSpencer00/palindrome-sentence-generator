@@ -9,11 +9,16 @@ from __future__ import annotations
 from dataclasses import dataclass
 from hashlib import sha256
 import json
+import re
 from typing import Any, Iterable, Sequence
 
 
 def _word_set(words: Iterable[str]) -> frozenset[str]:
-    return frozenset(word.casefold() for word in words if isinstance(word, str) and word.isalpha())
+    tokens: set[str] = set()
+    for word in words:
+        if isinstance(word, str):
+            tokens.update(re.findall(r"[a-z]+", word.casefold()))
+    return frozenset(tokens)
 
 
 @dataclass(frozen=True)
@@ -31,7 +36,7 @@ class SemanticFact:
         if not all(isinstance(value[key], str) and value[key].strip() for key in ("fact_id", "subject", "predicate", "object")):
             raise ValueError("semantic_fact_fields_invalid")
         terms = value["terms"]
-        if not isinstance(terms, list) or not terms or not all(isinstance(term, str) and term.isalpha() for term in terms):
+        if not isinstance(terms, list) or not terms or not all(isinstance(term, str) and re.fullmatch(r"[a-z]+(?: [a-z]+)*", term.casefold()) for term in terms):
             raise ValueError("semantic_fact_terms_invalid")
         return cls(value["fact_id"], value["subject"], value["predicate"], value["object"], tuple(term.casefold() for term in terms))
 

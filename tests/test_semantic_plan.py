@@ -25,6 +25,15 @@ def test_coverage_is_diagnostic_and_tracks_complete_fact_terms():
     value = plan()
     assert value.coverage_vector(("the", "baker", "checks", "the", "oven")) == (True, False)
     assert value.minimum_coverage(("baker", "checks", "oven", "baker", "serves", "bread")) == 2
+    phrase_plan = SemanticPlan.from_dict({
+        "intent": "A team presents findings.",
+        "facts": [
+            {"fact_id": "f1", "subject": "e1", "predicate": "presents", "object": "e2", "terms": ["research team", "presents", "findings"]},
+            {"fact_id": "f2", "subject": "e1", "predicate": "meets", "object": "e3", "terms": ["research team", "meets", "panel"]},
+        ],
+        "links": [],
+    })
+    assert phrase_plan.minimum_coverage(("the", "research", "team", "presents", "findings")) == 1
 
 
 def test_plan_schema_rejects_duplicate_or_wrong_fact_counts():

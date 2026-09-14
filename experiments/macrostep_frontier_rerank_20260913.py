@@ -23,6 +23,7 @@ from llm_palindrome.admission import (REPEATABLE_FUNCTION_WORDS,
     mechanical_admission_checks, normalize_letters, tokenize)
 from llm_palindrome.bigram import BigramModel
 from llm_palindrome.exact_editor import new_state, surface_audit
+from llm_palindrome.frontier_macros import state_from_anchors, witness_preserves_anchors
 from llm_palindrome.generate import build_vocab
 from llm_palindrome.scoring import CoherentScorer
 from llm_palindrome.search import State, WordTries, _expand, beam_search, unit_letters
@@ -70,7 +71,8 @@ def transition_delta(scorer: CoherentScorer, state: State, placement: str,
 
 
 def macro_paths(root: State, tries: WordTries, scorer: CoherentScorer,
-                depth: int = 3, branch: int = 18, limit: int = 16) -> list[dict]:
+                depth: int = 3, branch: int = 18, limit: int = 16,
+                witness: str = "") -> list[dict]:
     """Enumerate phrase-sized legal paths, retaining structurally diverse rows."""
     frontier = [(0.0, root, [])]
     for _ in range(depth):
@@ -113,10 +115,41 @@ def macro_paths(root: State, tries: WordTries, scorer: CoherentScorer,
                      "overhang": state.overhang, "side": state.side,
                      "surface": " ".join(state.left) + " [middle] " + " ".join(state.right),
                      "state": state})
+    # Add paths that follow the authored sentence's actual boundary words.
+    # This changes only proposal order; exact compatibility is still checked by
+    # state_from_anchors and the model must supply a complete witness later.
+    witness_words = tokenize(witness)
+    left_words = tuple(w for unit in root.left for w in unit.split())
+    right_words = tuple(w for unit in root.right for w in unit.split())
+    if (witness_words[:len(left_words)] == left_words
+            and witness_words[-len(right_words):] == right_words):
+        guided = []
+        for left_add in range(depth + 1):
+            for right_add in range(depth + 1):
+                if left_add + right_add < 2:
+                    continue
+                prefix_words = witness_words[:len(left_words) + left_add]
+                suffix_words = witness_words[-(len(right_words) + right_add):]
+                prefix, suffix = " ".join(prefix_words), " ".join(suffix_words)
+                try:
+                    state = state_from_anchors(prefix, suffix)
+                except ValueError:
+                    continue
+                words = tuple(prefix_words + suffix_words)
+                if (not has_distinct_content_words(words)
+                        or not has_only_ordinary_short_words(words)):
+                    continue
+                guided.append({"id": f"w{len(guided):03d}", "score": 1000.0 - left_add - right_add,
+                               "added_words": prefix_words[len(left_words):] +
+                               suffix_words[:-len(right_words)] if right_words else suffix_words,
+                               "path": [], "left": list(state.left), "right": list(state.right),
+                               "overhang": state.overhang, "side": state.side,
+                               "surface": prefix + " [middle] " + suffix, "state": state})
+        rows = guided + rows
     return rows[:limit]
 
 
-def parse_ids(raw: str, valid: set[str], maximum: int) -> list[str]:
+def parse_selections(raw: str, menu: list[dict], maximum: int) -> list[dict]:
     start, end = raw.find("{"), raw.rfind("}")
     if start < 0 or end < start:
         return []
@@ -124,21 +157,42 @@ def parse_ids(raw: str, valid: set[str], maximum: int) -> list[str]:
         value = json.loads(raw[start:end + 1])
     except json.JSONDecodeError:
         return []
-    ids = value.get("ids", value.get("selected_ids"))
-    if not isinstance(ids, list):
+    selections = value.get("selections")
+    if not isinstance(selections, list):
         return []
-    return [item for item in ids if isinstance(item, str) and item in valid][:maximum]
+    by_id = {r["id"]: r for r in menu}
+    accepted = []
+    for item in selections:
+        if not isinstance(item, dict):
+            continue
+        path_id, text = item.get("id"), item.get("witness")
+        if not isinstance(path_id, str) or path_id not in by_id:
+            continue
+        if not isinstance(text, str) or not text.strip():
+            continue
+        row = by_id[path_id]
+        if not witness_preserves_anchors(row["state"], text):
+            continue
+        words = tuple(tokenize(text))
+        if (len(words) < 5 or not has_distinct_content_words(words)
+                or not has_only_ordinary_short_words(words)):
+            continue
+        accepted.append({"id": path_id, "witness": text.strip()})
+        if len(accepted) >= maximum:
+            break
+    return accepted
 
 
-def select_paths(model: str, witness: str, parent: State, menu: list[dict], seed: int) -> tuple[str, list[str]]:
+def select_paths(model: str, witness: str, parent: State, menu: list[dict], seed: int) -> tuple[str, list[dict]]:
     prompt = {
-        "task": "Select phrase-sized legal paths that can remain part of one complete ordinary English sentence.",
+        "task": "For each selected legal path, write one complete ordinary-English sentence.",
         "witness": witness,
         "fixed_prefix": " ".join(parent.left),
         "fixed_suffix": " ".join(parent.right),
-        "rule": "Choose only listed IDs. Select up to four; choose [] if no path fits. Do not invent words or letters.",
-        "options": [{"id": r["id"], "added_words": r["added_words"],
-                     "surface": r["surface"]} for r in menu],
+        "rule": "Return JSON only as {\"selections\":[{\"id\":\"p...\",\"witness\":\"...\"}]}. Select only listed IDs. A witness must literally begin with the option prefix words and end with its suffix words. Use [] if no option supports a complete sentence. Do not invent an ID.",
+        "options": [{"id": r["id"], "prefix": " ".join(r["left"]),
+                     "suffix": " ".join(r["right"]),
+                     "added_words": r["added_words"]} for r in menu],
     }
     response = request_json("/api/chat", {"model": model,
         "messages": [{"role": "user", "content": json.dumps(prompt)}],
@@ -146,7 +200,28 @@ def select_paths(model: str, witness: str, parent: State, menu: list[dict], seed
         "options": {"temperature": 0.25, "num_predict": 300, "seed": seed},
     })
     raw = assistant_text(response)
-    return raw, parse_ids(raw, {r["id"] for r in menu}, 4)
+    return raw, parse_selections(raw, menu, 4)
+
+
+def reopen_boundary(parent: State, witness: str) -> list[dict]:
+    """Reopen up to two old boundary words while retaining editable prose."""
+    left_words = [w for unit in parent.left for w in unit.split()]
+    right_words = [w for unit in parent.right for w in unit.split()]
+    out = []
+    for left_drop in range(min(2, len(left_words) - 1) + 1):
+        for right_drop in range(min(2, len(right_words) - 1) + 1):
+            if left_drop == right_drop == 0:
+                continue
+            prefix = " ".join(left_words[:-left_drop] if left_drop else left_words)
+            suffix = " ".join(right_words[right_drop:] if right_drop else right_words)
+            try:
+                state = state_from_anchors(prefix, suffix)
+            except ValueError:
+                continue
+            out.append({"state": state, "witness": witness,
+                        "reopened": {"left_drop": left_drop, "right_drop": right_drop},
+                        "id": f"reopen-{left_drop}-{right_drop}"})
+    return out
 
 
 def rerank_surfaces(model: str, witness: str, surfaces: list[str], seed: int) -> tuple[str, list[int]]:
@@ -189,7 +264,7 @@ def audit(words: list[str], seed: int, witness: str, endpoint: tuple[str, str],
 
 
 ENDPOINTS = (
-    (("desserts", "stressed"), "Desserts can cheer people who are stressed."),
+    (("desserts", "stressed"), "Desserts to share made the guests feel welcome and not stressed."),
     (("did it", "i did"), "Did it cause the same trouble last night that I did?"),
     (("some", "memos"), "Some managers stayed late to revise the memos."),
     (("some", "demos"), "Some developers presented their latest demos to colleagues."),
@@ -209,37 +284,39 @@ def run(*, model: str, rounds: int, path_depth: int, seeds: int,
     endpoints = ENDPOINTS if endpoint_limit is None else ENDPOINTS[:endpoint_limit]
     for endpoint, witness in endpoints:
         root = endpoint_state(*endpoint)
-        frontier = [root]
+        frontier = [(root, witness, "root")]
         for depth in range(rounds):
             next_frontier = []
-            for parent_index, parent in enumerate(frontier):
-                menu = macro_paths(parent, tries, scorer, depth=path_depth)
-                raw, selected = select_paths(model, witness, parent, menu,
+            for parent_index, (parent, parent_witness, parent_path_id) in enumerate(frontier):
+                menu = macro_paths(parent, tries, scorer, depth=path_depth,
+                                   witness=parent_witness)
+                raw, selected = select_paths(model, parent_witness, parent, menu,
                                              2026091400 + depth * 100 + parent_index)
-                rows = [row for row in menu if row["id"] in selected]
-                if not rows:
-                    rows = menu[:2]
+                selected_by_id = {item["id"]: item for item in selected}
+                rows = [row for row in menu if row["id"] in selected_by_id]
+                reopened = [] if rows else reopen_boundary(parent, parent_witness)
                 traces.append({"endpoint": endpoint, "witness": witness,
                                "depth": depth, "parent": {"left": parent.left,
                                "right": parent.right, "overhang": parent.overhang,
                                "side": parent.side}, "menu": [{k: v for k, v in r.items()
                                if k != "state"} for r in menu], "raw_reply": raw,
-                               "selected_ids": selected, "fallback_used": not bool(selected)})
-                next_frontier.extend(row["state"] for row in rows)
+                               "selected": selected, "reopened": [{k: v for k, v in r.items()
+                               if k != "state"} for r in reopened],
+                               "fallback_used": False, "rejected_no_witness": not bool(rows)})
+                next_frontier.extend((row["state"], selected_by_id[row["id"]]["witness"],
+                                      row["id"]) for row in rows)
+                next_frontier.extend((row["state"], row["witness"], row["id"]) for row in reopened)
             frontier = next_frontier[:8]
             if not frontier:
                 break
         endpoint_summaries.append({"endpoint": endpoint, "witness": witness,
                                    "terminal_states": len(frontier)})
-        for index, state in enumerate(frontier):
-            for seed in range(seeds):
-                words = beam_search(tries, scorer, min_letters=MIN_LETTERS,
-                                    max_steps=220, beam_width=180, candidate_limit=500,
-                                    seed=seed + index, diversity=1.3, max_word_uses=2,
-                                    initial_state=state)
-                if words:
-                    records.append(audit(words, seed + index, witness, endpoint,
-                                         f"{endpoint[0]}-{endpoint[1]}-{index}"))
+        for index, (state, construction_witness, path_id) in enumerate(frontier):
+            candidate_words = tokenize(construction_witness)
+            tape = normalize_letters(construction_witness)
+            if len(tape) >= MIN_LETTERS and tape == tape[::-1]:
+                records.append(audit(candidate_words, index, construction_witness,
+                                     endpoint, path_id))
     surfaces = [row["rendered"] for row in records]
     rerank_reply, ranked = (rerank_surfaces(model, "Rank the candidate passages as written.",
                                              surfaces, 2026091499) if surfaces else ("", []))

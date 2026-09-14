@@ -126,11 +126,13 @@ def surface_diagnostics(text: str | None, intent: str) -> dict[str, Any]:
     }
 
 
-def run(*, model: str, rounds: int, seed: int, request_timeout: float = 45) -> dict[str, Any]:
+def run(*, model: str, rounds: int, seed: int, request_timeout: float = 45,
+        lineage_limit: int | None = None) -> dict[str, Any]:
     metadata = request_json("/api/show", {"name": model}, timeout=request_timeout)
     lineages: list[dict[str, Any]] = []
     accepted: list[dict[str, Any]] = []
-    for scene_index, (scene, intent) in enumerate(SCENES):
+    scenes = SCENES if lineage_limit is None else SCENES[:lineage_limit]
+    for scene_index, (scene, intent) in enumerate(scenes):
         chain: list[dict[str, Any]] = []
         prompt = INITIAL_PROMPT.format(scene=scene, intent=intent)
         for round_index in range(rounds + 1):
@@ -185,7 +187,8 @@ def run(*, model: str, rounds: int, seed: int, request_timeout: float = 45) -> d
         "status": "complete_whole_prose_symmetry_repair_pilot",
         "model_requested": model,
         "model_metadata": metadata,
-        "config": {"rounds_per_lineage": rounds, "lineages": len(SCENES), "seed": seed},
+        "config": {"rounds_per_lineage": rounds, "lineages": len(scenes), "seed": seed,
+                   "request_timeout_seconds": request_timeout},
         "lineages": lineages,
         "accepted": accepted,
         "reader_gate": "No programmatic diagnostic certifies readability; any eligible surface requires randomized blinded human reading with intact prose and shuffled controls.",
@@ -199,11 +202,16 @@ def main() -> None:
     parser.add_argument("--rounds", type=int, default=4)
     parser.add_argument("--seed", type=int, default=2026091401)
     parser.add_argument("--request-timeout", type=float, default=45)
+    parser.add_argument("--lineages", type=int, default=None,
+                        help="run only the first N fixed scenes (for bounded pilots)")
     args = parser.parse_args()
     if args.out.exists():
         parser.error(f"output already exists: {args.out}")
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    result = run(model=args.model, rounds=args.rounds, seed=args.seed, request_timeout=args.request_timeout)
+    if args.lineages is not None and not 1 <= args.lineages <= len(SCENES):
+        parser.error(f"--lineages must be between 1 and {len(SCENES)}")
+    result = run(model=args.model, rounds=args.rounds, seed=args.seed,
+                 request_timeout=args.request_timeout, lineage_limit=args.lineages)
     args.out.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({"out": str(args.out), "accepted": len(result["accepted"])}, indent=2))
 

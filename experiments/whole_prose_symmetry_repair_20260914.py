@@ -37,7 +37,7 @@ SCENES = (
      "a traveler gets home after missing a train and receiving a bicycle from a friend"),
 )
 
-INITIAL_PROMPT = """Write one original, grammatical English sentence of 100 to 160 letters.
+INITIAL_PROMPT = """Write one original, grammatical English sentence of 100 to 160 letters (about 20 to 32 words).
 It must express the supplied ordinary scene as one connected event, with normal
 word choices and no list, quotation, famous phrase, repeated clause, or
 palindrome wordplay. Return only JSON {{\"text\":\"...\"}}.
@@ -49,7 +49,7 @@ Intent: {intent}
 REPAIR_PROMPT = """Rewrite the complete sentence below as one different, grammatical,
 ordinary English sentence expressing the same scene and intent. You may change
 every word, punctuation mark, boundary, syntax, and total length. Keep it a
-single connected thought of 100 to 160 letters; do not use a list, quotation,
+single connected thought of 100 to 160 letters and about 20 to 32 words; do not use a list, quotation,
 famous palindrome, repeated clause, or self-palindromic wordplay.
 
 This is a constructive character constraint: letters counted from the two ends
@@ -59,6 +59,7 @@ symmetry; do not claim success. Return only JSON {{\"text\":\"...\"}}.
 
 Frozen intent: {intent}
 Current sentence: {text}
+Current word count: {word_count}
 Normalized letters: {letters}
 Mismatching mirrored positions (0-based): {mismatches}
 """
@@ -216,6 +217,7 @@ def run(*, model: str, rounds: int, seed: int, request_timeout: float = 45,
                 prompt = REPAIR_PROMPT.format(
                     intent=intent,
                     text=best_text,
+                    word_count=len(WORD_RE.findall(best_text)),
                     letters=normalize_letters(best_text),
                     mismatches=mismatch_positions(normalize_letters(best_text))[:80],
                 )

@@ -64,10 +64,10 @@ Mismatching mirrored positions (0-based): {mismatches}
 """
 
 
-def request_json(path: str, body: dict[str, Any]) -> dict[str, Any]:
+def request_json(path: str, body: dict[str, Any], *, timeout: float = 600) -> dict[str, Any]:
     request = urllib.request.Request(HOST + path, data=json.dumps(body).encode(),
                                      headers={"Content-Type": "application/json"})
-    with urllib.request.urlopen(request, timeout=600) as response:
+    with urllib.request.urlopen(request, timeout=timeout) as response:
         return json.load(response)
 
 
@@ -126,8 +126,8 @@ def surface_diagnostics(text: str | None, intent: str) -> dict[str, Any]:
     }
 
 
-def run(*, model: str, rounds: int, seed: int) -> dict[str, Any]:
-    metadata = request_json("/api/show", {"name": model})
+def run(*, model: str, rounds: int, seed: int, request_timeout: float = 45) -> dict[str, Any]:
+    metadata = request_json("/api/show", {"name": model}, timeout=request_timeout)
     lineages: list[dict[str, Any]] = []
     accepted: list[dict[str, Any]] = []
     for scene_index, (scene, intent) in enumerate(SCENES):
@@ -135,7 +135,7 @@ def run(*, model: str, rounds: int, seed: int) -> dict[str, Any]:
         prompt = INITIAL_PROMPT.format(scene=scene, intent=intent)
         for round_index in range(rounds + 1):
             call_seed = seed + scene_index * 100 + round_index
-            raw = request_json("/api/chat", {
+            request = {
                 "model": model,
                 "messages": [{"role": "user", "content": prompt}],
                 "stream": False,
@@ -144,7 +144,13 @@ def run(*, model: str, rounds: int, seed: int) -> dict[str, Any]:
                 # consumed before the JSON surface is returned.
                 "think": False,
                 "options": {"temperature": 0.75, "num_predict": 360, "seed": call_seed},
-            }).get("message", {}).get("content", "")
+            }
+            runtime_error = None
+            try:
+                raw = request_json("/api/chat", request, timeout=request_timeout).get("message", {}).get("content", "")
+            except Exception as error:  # preserve failed generator runs for replay and diagnosis
+                raw = ""
+                runtime_error = f"{type(error).__name__}:{error}"
             text, error = parse_text(raw)
             diagnostics = surface_diagnostics(text, intent)
             row = {
@@ -154,6 +160,7 @@ def run(*, model: str, rounds: int, seed: int) -> dict[str, Any]:
                 "raw_reply": raw,
                 "text": text,
                 "parse_error": error,
+                "runtime_error": runtime_error,
                 "diagnostics": diagnostics,
             }
             chain.append(row)
@@ -187,11 +194,12 @@ def main() -> None:
     parser.add_argument("--model", default="imetaexabeam/RhythmAI:27b")
     parser.add_argument("--rounds", type=int, default=4)
     parser.add_argument("--seed", type=int, default=2026091401)
+    parser.add_argument("--request-timeout", type=float, default=45)
     args = parser.parse_args()
     if args.out.exists():
         parser.error(f"output already exists: {args.out}")
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    result = run(model=args.model, rounds=args.rounds, seed=args.seed)
+    result = run(model=args.model, rounds=args.rounds, seed=args.seed, request_timeout=args.request_timeout)
     args.out.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({"out": str(args.out), "accepted": len(result["accepted"])}, indent=2))
 

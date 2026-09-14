@@ -1,4 +1,5 @@
 from experiments.whole_prose_symmetry_repair_20260914 import (
+    better_diagnostic,
     independent_scan,
     mismatch_positions,
     parse_text,
@@ -27,3 +28,9 @@ def test_surface_diagnostics_never_calls_nonexact_prose_eligible():
     result = surface_diagnostics("A baker shares warm bread with a child.", "a baker shares bread")
     assert not result["mechanically_eligible"]
     assert result["human_readability"] == "not_certified"
+
+
+def test_frontier_keeps_a_lower_mismatch_surface_over_a_later_regression():
+    good = {"parseable": True, "mismatch_count": 8, "mismatch_rate": 0.08, "letters": 100}
+    later = {"parseable": True, "mismatch_count": 12, "mismatch_rate": 0.07, "letters": 130}
+    assert not better_diagnostic(later, good)

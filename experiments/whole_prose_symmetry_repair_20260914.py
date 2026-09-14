@@ -126,6 +126,23 @@ def surface_diagnostics(text: str | None, intent: str) -> dict[str, Any]:
     }
 
 
+def better_diagnostic(candidate: dict[str, Any], incumbent: dict[str, Any] | None) -> bool:
+    """Return whether a parsed surface is a better exactness frontier point."""
+    if not candidate.get("parseable"):
+        return False
+    if incumbent is None or not incumbent.get("parseable"):
+        return True
+    return (
+        candidate.get("mismatch_count", 10**9),
+        candidate.get("mismatch_rate", 1.0),
+        abs(candidate.get("letters", 10**9) - 130),
+    ) < (
+        incumbent.get("mismatch_count", 10**9),
+        incumbent.get("mismatch_rate", 1.0),
+        abs(incumbent.get("letters", 10**9) - 130),
+    )
+
+
 def run(*, model: str, rounds: int, seed: int, request_timeout: float = 45,
         lineage_limit: int | None = None) -> dict[str, Any]:
     metadata = request_json("/api/show", {"name": model}, timeout=request_timeout)
@@ -135,6 +152,9 @@ def run(*, model: str, rounds: int, seed: int, request_timeout: float = 45,
     for scene_index, (scene, intent) in enumerate(scenes):
         chain: list[dict[str, Any]] = []
         prompt = INITIAL_PROMPT.format(scene=scene, intent=intent)
+        best_text: str | None = None
+        best_diagnostics: dict[str, Any] | None = None
+        best_round: int | None = None
         for round_index in range(rounds + 1):
             call_seed = seed + scene_index * 100 + round_index
             request = {
@@ -170,17 +190,26 @@ def run(*, model: str, rounds: int, seed: int, request_timeout: float = 45,
                 "diagnostics": diagnostics,
             }
             chain.append(row)
+            if better_diagnostic(diagnostics, best_diagnostics):
+                best_text = text
+                best_diagnostics = diagnostics
+                best_round = round_index
+            row["frontier"] = {
+                "selected": best_round == round_index,
+                "best_round": best_round,
+                "best_mismatch_count": (best_diagnostics or {}).get("mismatch_count"),
+            }
             if diagnostics.get("mechanically_eligible"):
                 accepted.append({"scene_index": scene_index, "round": round_index, **diagnostics})
                 break
-            if text is None:
+            if best_text is None:
                 prompt = INITIAL_PROMPT.format(scene=scene, intent=intent)
             else:
                 prompt = REPAIR_PROMPT.format(
                     intent=intent,
-                    text=text,
-                    letters=normalize_letters(text),
-                    mismatches=mismatch_positions(normalize_letters(text))[:80],
+                    text=best_text,
+                    letters=normalize_letters(best_text),
+                    mismatches=mismatch_positions(normalize_letters(best_text))[:80],
                 )
         lineages.append({"scene_index": scene_index, "scene": scene, "intent": intent, "chain": chain})
     return {
@@ -188,7 +217,8 @@ def run(*, model: str, rounds: int, seed: int, request_timeout: float = 45,
         "model_requested": model,
         "model_metadata": metadata,
         "config": {"rounds_per_lineage": rounds, "lineages": len(scenes), "seed": seed,
-                   "request_timeout_seconds": request_timeout},
+                   "request_timeout_seconds": request_timeout,
+                   "frontier_policy": "retain lowest mismatch count, then mismatch rate, then distance from 130 letters"},
         "lineages": lineages,
         "accepted": accepted,
         "reader_gate": "No programmatic diagnostic certifies readability; any eligible surface requires randomized blinded human reading with intact prose and shuffled controls.",

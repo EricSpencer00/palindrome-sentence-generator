@@ -21,7 +21,8 @@ from wordfreq import zipf_frequency
 
 from llm_palindrome.admission import (
     ORDINARY_TWO_LETTER_WORDS, REPEATABLE_FUNCTION_WORDS,
-    has_only_ordinary_short_words, mechanical_admission_checks, normalize_letters,
+    has_only_ordinary_short_words, is_lexical_word, mechanical_admission_checks,
+    normalize_letters,
 )
 from llm_palindrome.generate import build_vocab
 from llm_palindrome.search import WordTries, beam_search
@@ -122,7 +123,8 @@ def audit(words: list[str], seed: int, scorer: BrownPOSScorer) -> dict:
 def run(*, seeds: int, vocabulary_size: int, beam: int, candidate_limit: int) -> dict:
     vocabulary = [word for word in build_vocab(vocabulary_size)
                   if (len(word) > 2 or word in ORDINARY_TWO_LETTER_WORDS)
-                  and word not in REPEATABLE_FUNCTION_WORDS]
+                  and word not in REPEATABLE_FUNCTION_WORDS
+                  and is_lexical_word(word)]
     vocabulary_set = set(vocabulary)
     word_tags, pairs, contexts, starts, sentence_count = brown_pos_model(vocabulary_set)
     tries = WordTries(vocabulary)
@@ -146,7 +148,7 @@ def run(*, seeds: int, vocabulary_size: int, beam: int, candidate_limit: int) ->
         "mechanically_eligible": [row for row in records if row["mechanically_eligible"]],
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                        "corpus": "NLTK Brown universal POS tags, local copy",
-                       "vocabulary": "build_vocab with ordinary short-word filter"},
+                   "vocabulary": "build_vocab with ordinary short-word and conventional-lexicon filters"},
         "reader_gate": "No readability claim; an eligible surface requires randomized blinded human readers with intact prose and shuffled controls.",
     }
 

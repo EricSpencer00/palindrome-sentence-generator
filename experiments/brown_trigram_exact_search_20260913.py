@@ -77,12 +77,16 @@ class BrownTrigramScorer:
 def audit(words: list[str], seed: int) -> dict:
     rendered = textify(words)
     tape = normalize_letters(rendered)
+    independent_tape = "".join(char.lower() for char in rendered
+                                 if "A" <= char <= "Z" or "a" <= char <= "z")
     checks = mechanical_admission_checks(rendered, min_letters=100, max_letters=180)
-    independent = bool(tape) and tape == tape[::-1] and all("a" <= c <= "z" for c in tape)
+    independent = (bool(independent_tape) and independent_tape == independent_tape[::-1]
+                   and independent_tape == tape)
     checks["independent_exact_audit"] = independent
     return {"seed": seed, "rendered": rendered, "words": words,
             "letters": len(tape), "mechanical_checks": checks,
             "mechanically_eligible": all(checks.values()),
+            "independent_normalized_letters": independent_tape,
             "render_sha256": hashlib.sha256(rendered.encode()).hexdigest(),
             "reader_status": "not_run"}
 

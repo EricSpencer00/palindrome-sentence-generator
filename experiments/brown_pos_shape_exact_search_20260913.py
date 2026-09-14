@@ -91,12 +91,16 @@ def exact_shape_search(shape: tuple[str, ...], tags: dict[str, frozenset[str]],
 def audit(state: State, shape: tuple[str, ...], seed: int) -> dict:
     rendered = textify(list(state.left) + list(state.right))
     tape = normalize_letters(rendered)
-    independent = bool(tape) and tape == tape[::-1] and all("a" <= char <= "z" for char in tape)
+    independent_tape = "".join(char.lower() for char in rendered
+                                 if "A" <= char <= "Z" or "a" <= char <= "z")
+    independent = (bool(independent_tape) and independent_tape == independent_tape[::-1]
+                   and independent_tape == tape)
     checks = mechanical_admission_checks(rendered, min_letters=MIN_LETTERS, max_letters=MAX_LETTERS)
     checks["independent_exact_audit"] = independent
     return {"seed": seed, "shape": shape, "rendered": rendered,
             "words": list(state.left) + list(state.right), "letters": len(tape),
             "mechanical_checks": checks, "mechanically_eligible": all(checks.values()),
+            "independent_normalized_letters": independent_tape,
             "render_sha256": hashlib.sha256(rendered.encode()).hexdigest(),
             "reader_status": "not_run"}
 

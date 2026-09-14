@@ -114,6 +114,7 @@ def surface_diagnostics(text: str | None, intent: str) -> dict[str, Any]:
         "text": text,
         "intent": intent,
         "letters": len(letters),
+        "within_target_band": 100 <= len(letters) <= 160,
         "mismatch_count": len(mismatches),
         "mismatch_rate": (len(mismatches) / len(letters)) if letters else 1.0,
         "mismatch_positions": mismatches[:80],
@@ -130,7 +131,14 @@ def better_diagnostic(candidate: dict[str, Any], incumbent: dict[str, Any] | Non
     """Return whether a parsed surface is a better exactness frontier point."""
     if not candidate.get("parseable"):
         return False
+    # Do not let an attractive but too-short rewrite become the parent of a
+    # long-passage lineage.  If no in-band point exists yet, retain a parsed
+    # seed so the run can recover into the target band on the next call.
     if incumbent is None or not incumbent.get("parseable"):
+        return True
+    if incumbent.get("within_target_band") and not candidate.get("within_target_band"):
+        return False
+    if candidate.get("within_target_band") and not incumbent.get("within_target_band"):
         return True
     return (
         candidate.get("mismatch_count", 10**9),

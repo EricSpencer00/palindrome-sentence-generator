@@ -34,3 +34,11 @@ def test_frontier_keeps_a_lower_mismatch_surface_over_a_later_regression():
     good = {"parseable": True, "mismatch_count": 8, "mismatch_rate": 0.08, "letters": 100}
     later = {"parseable": True, "mismatch_count": 12, "mismatch_rate": 0.07, "letters": 130}
     assert not better_diagnostic(later, good)
+
+
+def test_frontier_does_not_replace_long_seed_with_short_rewrite():
+    seed = {"parseable": True, "within_target_band": True,
+            "mismatch_count": 100, "mismatch_rate": 0.8, "letters": 120}
+    short = {"parseable": True, "within_target_band": False,
+             "mismatch_count": 60, "mismatch_rate": 0.8, "letters": 76}
+    assert not better_diagnostic(short, seed)

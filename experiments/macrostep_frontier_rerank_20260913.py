@@ -18,7 +18,9 @@ import urllib.request
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from llm_palindrome.admission import mechanical_admission_checks, normalize_letters
+from llm_palindrome.admission import (REPEATABLE_FUNCTION_WORDS,
+    has_distinct_content_words, has_only_ordinary_short_words,
+    mechanical_admission_checks, normalize_letters, tokenize)
 from llm_palindrome.bigram import BigramModel
 from llm_palindrome.exact_editor import new_state, surface_audit
 from llm_palindrome.generate import build_vocab
@@ -37,6 +39,12 @@ def request_json(path: str, body: dict) -> dict:
                                  headers={"Content-Type": "application/json"})
     with urllib.request.urlopen(req, timeout=600) as response:
         return json.load(response)
+
+
+def assistant_text(response: dict) -> str:
+    """Support local reasoning models that put the visible answer in thinking."""
+    message = response.get("message", {})
+    return message.get("content") or message.get("thinking") or ""
 
 
 def endpoint_state(left: str, right: str) -> State:
@@ -70,11 +78,19 @@ def macro_paths(root: State, tries: WordTries, scorer: CoherentScorer,
         for score, state, path in frontier:
             choices = []
             for placement, word, overhang, side in _expand(state, tries, 220):
-                if len(word.split()) != 1 or len(unit_letters(word)) < 3:
+                if len(word.split()) != 1:
                     continue
                 growth = "append" if placement == "L" else "prepend"
+                candidate = child(state, placement, word, overhang, side)
+                candidate_words = tuple(unit for block in candidate.left + candidate.right
+                                        for unit in block.split())
+                if (not has_distinct_content_words(candidate_words)
+                        or not has_only_ordinary_short_words(candidate_words)
+                        or any(w == w[::-1] and w not in REPEATABLE_FUNCTION_WORDS
+                               for w in candidate_words)):
+                    continue
                 delta = transition_delta(scorer, state, placement, word, growth)
-                choices.append((score + delta, child(state, placement, word, overhang, side),
+                choices.append((score + delta, candidate,
                                 path + [{"placement": placement, "word": word,
                                          "overhang": overhang, "side": side,
                                          "growth": growth}]))
@@ -124,11 +140,12 @@ def select_paths(model: str, witness: str, parent: State, menu: list[dict], seed
         "options": [{"id": r["id"], "added_words": r["added_words"],
                      "surface": r["surface"]} for r in menu],
     }
-    raw = request_json("/api/chat", {"model": model,
+    response = request_json("/api/chat", {"model": model,
         "messages": [{"role": "user", "content": json.dumps(prompt)}],
-        "stream": False, "think": "low",
+        "stream": False, "think": "low" if not model.startswith("gpt-oss") else False,
         "options": {"temperature": 0.25, "num_predict": 300, "seed": seed},
-    })["message"]["content"]
+    })
+    raw = assistant_text(response)
     return raw, parse_ids(raw, {r["id"] for r in menu}, 4)
 
 
@@ -140,11 +157,12 @@ def rerank_surfaces(model: str, witness: str, surfaces: list[str], seed: int) ->
         "rule": "Rank only the listed IDs. Do not rewrite them. Prefer one connected thought, normal syntax, and no fragments, lists, or repeated content.",
         "options": options,
     }
-    raw = request_json("/api/chat", {"model": model,
+    response = request_json("/api/chat", {"model": model,
         "messages": [{"role": "user", "content": json.dumps(prompt)}],
-        "stream": False, "think": "low",
+        "stream": False, "think": "low" if not model.startswith("gpt-oss") else False,
         "options": {"temperature": 0.2, "num_predict": 300, "seed": seed},
-    })["message"]["content"]
+    })
+    raw = assistant_text(response)
     ids = parse_ids(raw, {r["id"] for r in options}, min(8, len(options)))
     return raw, [int(i[1:]) for i in ids]
 

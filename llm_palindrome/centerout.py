@@ -90,6 +90,7 @@ def centerout_search(
     min_letters: int = 60,
     beam_width: int = 50,
     center: str = "",
+    initial_state: Optional[COState] = None,
     max_steps: int = 400,
     candidate_limit: int = 200,
     per_parent: Optional[int] = None,
@@ -101,6 +102,7 @@ def centerout_search(
     on_closed: Optional[Callable[[list[str]], None]] = None,
     commit_every: Optional[float] = None,
     allow_state: Optional[Callable[[tuple[str, ...], tuple[str, ...]], bool]] = None,
+    allow_word: Optional[Callable[[str, str, COState], bool]] = None,
     allow_closed: Optional[Callable[[tuple[str, ...], tuple[str, ...]], bool]] = None,
 ) -> list[str]:
     """Beam search outward from a fixed palindromic center.
@@ -111,6 +113,10 @@ def centerout_search(
     `deadline` is a time.monotonic() value. Past it the search stops expanding
     and returns the longest palindrome it has already closed, which is what
     lets a public endpoint promise "as long as fits in N seconds".
+
+    `allow_word(placement, word, state)` is an optional candidate-level gate.
+    It runs before a child is scored, so a grammar can remove words that cannot
+    occupy the next structural slot without wasting the candidate menu.
 
     `maximize` picks which closure wins: "score" for the best-reading one,
     "letters" for the longest. Length only becomes the right objective when a
@@ -143,8 +149,8 @@ def centerout_search(
         raise ValueError(f"center {center!r} is not itself a palindrome")
 
     rng = random.Random(seed)
-    start = COState(sort_key=0.0, left=(), right=(), overhang="", owner="R",
-                    center_len=len(center_tape))
+    start = initial_state or COState(sort_key=0.0, left=(), right=(), overhang="", owner="R",
+                                     center_len=len(center_tape))
     beam = [start]
     best: Optional[tuple[float, list[str]]] = None
     published: Optional[COState] = None
@@ -188,6 +194,8 @@ def centerout_search(
             choices = []
             for placement, w, new_over, new_owner in _expand(state, tries, candidate_limit):
                 if len(new_over) > max_overhang:
+                    continue
+                if allow_word is not None and not allow_word(placement, w, state):
                     continue
                 if placement == "L":
                     left, right = (w,) + state.left, state.right

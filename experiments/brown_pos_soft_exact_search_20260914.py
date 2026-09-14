@@ -59,7 +59,9 @@ def brown_pos_model(vocabulary: set[str]) -> tuple[dict[str, frozenset[str]], Co
         # treebank-tagged corpus as a separate lexical provenance signal.
     for sentence in brown.tagged_sents():
         for word, tag in sentence:
-            if tag.startswith("NNP") and word.isascii() and word.isalpha():
+            # Brown's native tags use ``NP``/``NP-TL`` for proper nouns (the
+            # universal projection above intentionally collapses them).
+            if tag.startswith("NP") and word.isascii() and word.isalpha():
                 proper_names.add(word.casefold())
     return {word: frozenset(tags) for word, tags in word_tags.items()}, pairs, contexts, starts, proper_names, sentence_count
 

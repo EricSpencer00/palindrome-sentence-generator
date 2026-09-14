@@ -139,8 +139,11 @@ def run(*, model: str, rounds: int, seed: int) -> dict[str, Any]:
                 "model": model,
                 "messages": [{"role": "user", "content": prompt}],
                 "stream": False,
-                "think": "low",
-                "options": {"temperature": 0.75, "num_predict": 700, "seed": call_seed},
+                # This pilot measures visible prose revisions; hidden chain of
+                # thought is disabled so the fixed call budget cannot be
+                # consumed before the JSON surface is returned.
+                "think": False,
+                "options": {"temperature": 0.75, "num_predict": 360, "seed": call_seed},
             }).get("message", {}).get("content", "")
             text, error = parse_text(raw)
             diagnostics = surface_diagnostics(text, intent)

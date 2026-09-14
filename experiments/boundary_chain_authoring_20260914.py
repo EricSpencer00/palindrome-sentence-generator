@@ -30,7 +30,9 @@ PAIRS = (
 PROMPT = """Author one NEW, original, grammatical English sentence of 100 to 180 letters.
 It must be a single connected thought with an identifiable subject and verb,
 ordinary vocabulary, and no list, quotation, famous palindrome, repeated
-content word, repeated clause, or individually palindromic content word.
+content word, repeated clause, or individually palindromic content word. Do
+not use familiar palindrome scaffolds such as madam, level, radar, civic,
+noon, kayak, or a man a plan a canal panama.
 
 The normalized letters (lowercase ASCII letters only) must read identically
 backwards. Compose the whole sentence; do not mirror word order and do not

@@ -32,13 +32,14 @@ from llm_palindrome.textify import textify
 MIN_LETTERS, MAX_LETTERS = 100, 180
 
 
-def brown_pos_model(vocabulary: set[str]) -> tuple[dict[str, frozenset[str]], Counter, Counter, Counter, int]:
+def brown_pos_model(vocabulary: set[str]) -> tuple[dict[str, frozenset[str]], Counter, Counter, Counter, set[str], int]:
     from nltk.corpus import brown
 
     word_tags: dict[str, set[str]] = defaultdict(set)
     pairs: Counter = Counter()
     contexts: Counter = Counter()
     starts: Counter = Counter()
+    proper_names: set[str] = set()
     sentence_count = 0
     for sentence in brown.tagged_sents(tagset="universal"):
         rows = [(word.casefold(), tag) for word, tag in sentence
@@ -54,7 +55,13 @@ def brown_pos_model(vocabulary: set[str]) -> tuple[dict[str, frozenset[str]], Co
         for left, right in zip(tags, tags[1:]):
             pairs[(left, right)] += 1
             contexts[left] += 1
-    return {word: frozenset(tags) for word, tags in word_tags.items()}, pairs, contexts, starts, sentence_count
+        # Universal tags collapse proper nouns into NOUN. Consult the
+        # treebank-tagged corpus as a separate lexical provenance signal.
+    for sentence in brown.tagged_sents():
+        for word, tag in sentence:
+            if tag.startswith("NNP") and word.isascii() and word.isalpha():
+                proper_names.add(word.casefold())
+    return {word: frozenset(tags) for word, tags in word_tags.items()}, pairs, contexts, starts, proper_names, sentence_count
 
 
 class BrownPOSScorer:
@@ -126,7 +133,8 @@ def run(*, seeds: int, vocabulary_size: int, beam: int, candidate_limit: int) ->
                   and word not in REPEATABLE_FUNCTION_WORDS
                   and is_lexical_word(word)]
     vocabulary_set = set(vocabulary)
-    word_tags, pairs, contexts, starts, sentence_count = brown_pos_model(vocabulary_set)
+    word_tags, pairs, contexts, starts, proper_names, sentence_count = brown_pos_model(vocabulary_set)
+    vocabulary = [word for word in vocabulary if word not in proper_names]
     tries = WordTries(vocabulary)
     scorer = BrownPOSScorer(word_tags, pairs, contexts, starts, sentence_count)
     records = []

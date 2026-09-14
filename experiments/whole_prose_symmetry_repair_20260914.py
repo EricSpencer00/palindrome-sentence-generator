@@ -146,8 +146,11 @@ def run(*, model: str, rounds: int, seed: int, request_timeout: float = 45) -> d
                 "options": {"temperature": 0.75, "num_predict": 360, "seed": call_seed},
             }
             runtime_error = None
+            response_error = None
             try:
-                raw = request_json("/api/chat", request, timeout=request_timeout).get("message", {}).get("content", "")
+                response = request_json("/api/chat", request, timeout=request_timeout)
+                raw = response.get("message", {}).get("content", "")
+                response_error = response.get("error")
             except Exception as error:  # preserve failed generator runs for replay and diagnosis
                 raw = ""
                 runtime_error = f"{type(error).__name__}:{error}"
@@ -161,6 +164,7 @@ def run(*, model: str, rounds: int, seed: int, request_timeout: float = 45) -> d
                 "text": text,
                 "parse_error": error,
                 "runtime_error": runtime_error,
+                "response_error": response_error,
                 "diagnostics": diagnostics,
             }
             chain.append(row)

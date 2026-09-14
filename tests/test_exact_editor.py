@@ -4,6 +4,7 @@ from llm_palindrome.exact_editor import (
     ExactEditorState,
     HalfSpan,
     lexical_surface_evidence,
+    materialized_surface_audits,
     new_state,
     paired_span_edit,
     replay_edits,
@@ -56,6 +57,14 @@ def test_lexical_lattice_records_cross_boundary_segmentations_without_promoting_
     assert evidence["letters"] == 16
     assert evidence["complete_segmentation_count"] >= 1
     assert evidence["surface_rendering_is_not_certification"]
+
+
+def test_materialized_surface_audits_never_promotes_a_wrong_tape():
+    state = new_state(half_text="an inward", intent="cross-boundary witness")
+    audits = materialized_surface_audits(state, max_segmentations=32)
+    assert audits
+    assert all(row["mechanically_eligible"] for row in audits)
+    assert all(row["independent_exactness"]["matches_state_tape"] for row in audits)
 
 
 def test_replay_preserves_rejections_and_exact_child_chain():

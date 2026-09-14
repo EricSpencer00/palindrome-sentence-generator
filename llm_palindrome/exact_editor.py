@@ -135,6 +135,33 @@ def lexical_surface_evidence(state: ExactEditorState, *, max_segmentations: int 
     }
 
 
+def materialized_surface_audits(
+    state: ExactEditorState, *, max_segmentations: int = 512,
+    min_letters: int = 0, max_letters: int = 100000,
+) -> list[dict[str, Any]]:
+    """Audit every materialized lexical rendering of an exact tape.
+
+    The editor owns the tape but never chooses a preferred segmentation.  This
+    helper makes each host-generated rendering explicit, independently checks
+    its letters, and retains only surfaces that pass the shared mechanical
+    gate.  The returned list is construction evidence, not a readability
+    judgment; a human study is still required before promotion.
+    """
+    from .textify import textify
+
+    evidence = lexical_surface_evidence(state, max_segmentations=max_segmentations)
+    if evidence["truncated"]:
+        return []
+    audited = []
+    for words in evidence["materialized_segmentations"]:
+        rendered = textify(words)
+        audit = surface_audit(state, rendered, min_letters=min_letters,
+                              max_letters=max_letters)
+        if audit["mechanically_eligible"]:
+            audited.append(audit)
+    return audited
+
+
 def surface_audit(state: ExactEditorState, rendered: str, *, min_letters: int = 0, max_letters: int = 100000) -> dict[str, Any]:
     """Audit a supplied surface; the host never invents its word boundaries."""
     editor_tape = _ascii_tape(rendered)

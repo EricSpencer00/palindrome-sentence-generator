@@ -39,8 +39,17 @@ class PlanConditionedScorer:
         self.fact_weight = fact_weight
 
     def word_delta(self, left, right, placement, word, growth):
-        before = self.plan.minimum_coverage(tuple(left) + tuple(right))
-        after = self.plan.minimum_coverage(tuple(left) + tuple(right) + tuple(word.split()))
+        # ``beam_search`` passes the child frontiers here.  Remove the newly
+        # added unit before measuring the gain; comparing the child with itself
+        # made every fact bonus identically zero in the first pilot.
+        if placement == "L":
+            before_words = tuple(left[:-1]) + tuple(right)
+        elif placement == "R":
+            before_words = tuple(left) + tuple(right[1:])
+        else:
+            raise ValueError(f"unknown placement: {placement!r}")
+        before = self.plan.minimum_coverage(before_words)
+        after = self.plan.minimum_coverage(tuple(left) + tuple(right))
         return self.base.word_delta(left, right, placement, word, growth) + self.fact_weight * (after - before)
 
 

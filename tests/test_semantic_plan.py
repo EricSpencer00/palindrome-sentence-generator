@@ -66,3 +66,17 @@ def test_source_has_no_hand_authored_sentence_frame_or_model_letter_synthesis():
     assert "compile_slots" not in source
     assert "left_text" not in source
     assert "right_text" not in source
+
+
+def test_plan_conditioned_scorer_counts_the_new_child_unit_once():
+    from experiments.plan_conditioned_exact_search_20260913 import PlanConditionedScorer
+
+    value = plan()
+
+    class Base:
+        def word_delta(self, *args):
+            return 0.0
+
+    scorer = PlanConditionedScorer(value, Base(), fact_weight=10.0)
+    assert scorer.word_delta(("baker", "checks", "oven"), (), "L", "oven", "append") == 10.0
+    assert scorer.word_delta(("baker",), ("serves", "bread"), "R", "bread", "prepend") == 10.0

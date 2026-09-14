@@ -17,9 +17,9 @@ DEST=${PALINDROME_POLARIS_DEST:?Set PALINDROME_POLARIS_DEST to the remote checko
 JOB=${1:-yield.pbs}
 
 case "$JOB" in
-  yield.pbs|scaling.pbs|search_debug.pbs|semantic_debug.pbs|diversity_debug.pbs|sentence_bank_debug.pbs|sentence_plan_debug.pbs|sentence_quality_debug.pbs) ;;
+  yield.pbs|scaling.pbs|search_debug.pbs|center_extension_debug.pbs|grammar_extension_debug.pbs|semantic_debug.pbs|diversity_debug.pbs|sentence_bank_debug.pbs|sentence_plan_debug.pbs|sentence_quality_debug.pbs) ;;
   *)
-    echo "Usage: $0 [yield.pbs|scaling.pbs|search_debug.pbs|semantic_debug.pbs|diversity_debug.pbs|sentence_bank_debug.pbs|sentence_plan_debug.pbs|sentence_quality_debug.pbs]" >&2
+    echo "Usage: $0 [yield.pbs|scaling.pbs|search_debug.pbs|center_extension_debug.pbs|grammar_extension_debug.pbs|semantic_debug.pbs|diversity_debug.pbs|sentence_bank_debug.pbs|sentence_plan_debug.pbs|sentence_quality_debug.pbs]" >&2
     exit 2
     ;;
 esac
@@ -41,10 +41,11 @@ rsync -az --exclude '__pycache__' \
   tools/polaris/shard_yield.py tools/polaris/search_debug.py \
   tools/polaris/semantic_debug.py tools/polaris/diversity_debug.py \
   tools/polaris/sentence_bank_debug.py tools/polaris/sentence_plan_debug.py \
+  tools/polaris/center_extension_debug.py tools/polaris/grammar_extension_debug.py \
   "tools/polaris/$JOB" \
   "$REMOTE:$DEST/tools/polaris/"
 rsync -az tools/polaris/payload/ "$REMOTE:$DEST/tools/polaris/payload/"
-if [[ "$JOB" == "semantic_debug.pbs" || "$JOB" == "diversity_debug.pbs" || "$JOB" == "sentence_bank_debug.pbs" || "$JOB" == "sentence_quality_debug.pbs" ]]; then
+if [[ "$JOB" == "semantic_debug.pbs" || "$JOB" == "diversity_debug.pbs" || "$JOB" == "sentence_bank_debug.pbs" || "$JOB" == "sentence_quality_debug.pbs" || "$JOB" == "center_extension_debug.pbs" || "$JOB" == "grammar_extension_debug.pbs" ]]; then
   rsync -az data/count_2w.txt "$REMOTE:$DEST/tools/polaris/payload/count_2w.txt"
 fi
 
@@ -78,6 +79,15 @@ elif [[ "$JOB" == "semantic_debug.pbs" ]]; then
     --vocab 1200 --weights 0,0.5 --min-letters 30 --beam 24 --per-parent 8 \
     --candidate-limit 96 --max-steps 120 --seeds-per-rank 1 --shards 1 \
     --out-dir /tmp/palsemanticsmoke"
+elif [[ "$JOB" == "grammar_extension_debug.pbs" ]]; then
+  ssh "$REMOTE" "cd $DEST && PYTHONPATH=$DEST timeout 120 /usr/bin/python3.11 tools/polaris/grammar_extension_debug.py \
+    --vocab 1200 --shape-limit 12 --beam 12 --per-parent 3 \
+    --candidate-limit 96 --max-steps 20 --shards 1 --out-dir /tmp/palgrammarextensionsmoke"
+elif [[ "$JOB" == "center_extension_debug.pbs" ]]; then
+  ssh "$REMOTE" "cd $DEST && PYTHONPATH=$DEST timeout 120 /usr/bin/python3.11 tools/polaris/center_extension_debug.py \
+    --vocab 1200 --min-letters 60 --beam 24 --per-parent 8 --candidate-limit 96 \
+    --max-steps 120 --seeds-per-rank 1 --shards 1 --maximize score \
+    --out-dir /tmp/palcenterextensionsmoke"
 elif [[ "$JOB" == "search_debug.pbs" ]]; then
   ssh "$REMOTE" "cd $DEST && PYTHONPATH=$DEST timeout 120 /usr/bin/python3.11 tools/polaris/search_debug.py \
     --vocab 1200 --min-letters 30 --beam 24 --per-parent 8 --candidate-limit 96 \

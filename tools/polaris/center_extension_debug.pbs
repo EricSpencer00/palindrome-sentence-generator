@@ -1,0 +1,55 @@
+#!/bin/bash -l
+#PBS -N pal-center-extension
+#PBS -q debug
+#PBS -A EVITA
+#PBS -l select=1:system=polaris
+#PBS -l place=scatter
+#PBS -l walltime=00:25:00
+#PBS -l filesystems=home
+#PBS -j oe
+
+set -euo pipefail
+
+REPO="${PALINDROME_REPO:-$PBS_O_WORKDIR}"
+OUT=$REPO/runs/center_extension_debug_$(date +%Y%m%d_%H%M%S)
+mkdir -p "$OUT" "$REPO/logs"
+cd "$REPO"
+export PYTHONPATH="$REPO:${PYTHONPATH:-}"
+export PYTHONUNBUFFERED=1
+
+PY=/usr/bin/python3.11
+NRANKS=32
+PPN=32
+
+echo "host=$(hostname) out=$OUT"
+$PY -V
+for ARM in score letters; do
+  ARM_OUT="$OUT/$ARM"
+  mkdir -p "$ARM_OUT"
+  mpiexec -n $NRANKS --ppn $PPN --cpu-bind depth -d 1 \
+    $PY tools/polaris/center_extension_debug.py \
+      --vocab 30000 --candidate-limit 200 --beam 64 --per-parent 8 \
+      --min-letters 100 --max-steps 240 --seeds-per-rank 8 --shards $NRANKS \
+      --maximize "$ARM" --out-dir "$ARM_OUT"
+done
+
+$PY - "$OUT" <<'PY'
+import glob, json, os, sys
+root = sys.argv[1]
+aggregate = {}
+for arm in ("score", "letters"):
+    rows = [json.load(open(path)) for path in glob.glob(os.path.join(root, arm, "summary_*.json"))]
+    assert len(rows) == 32, (arm, len(rows))
+    all_rows = [item for row in rows for item in row["rows"]]
+    assert all(item["audit"]["independent_exact"] for item in all_rows if item["closed"])
+    aggregate[arm] = {
+        "ranks": len(rows), "runs": len(all_rows),
+        "closed": sum(item["closed"] for item in all_rows),
+        "valid": sum(item["audit"]["independent_exact"] for item in all_rows),
+        "longest_letters": max((item["audit"]["letters"] for item in all_rows), default=0),
+        "mean_letters_closed": (sum(item["audit"]["letters"] for item in all_rows if item["closed"])
+                                / max(1, sum(item["closed"] for item in all_rows))),
+    }
+json.dump(aggregate, open(os.path.join(root, "aggregate.json"), "w"), indent=2)
+print(json.dumps(aggregate, indent=2))
+PY

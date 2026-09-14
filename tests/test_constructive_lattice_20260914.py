@@ -46,3 +46,33 @@ def test_lattice_audit_records_exactness_without_claiming_readability():
     assert row["checks"]["independent_exact_audit"]
     assert row["checks"]["shape_pair_reverse"]
     assert row["reader_status"] == "not_run"
+
+
+def test_centerout_counts_letters_not_spaces_in_a_fixed_center():
+    from llm_palindrome.centerout import centerout_search
+    from llm_palindrome.validator import normalize
+
+    center = "an aide rips nine memos some men inspire diana"
+    allowed = {"to", "no", "set", "is", "site", "so", "not"}
+
+    def allow(placement, word, state):
+        return word in allowed
+
+    # This branch closes at 56 letters. A spaced-center accounting bug used to
+    # count the 9 spaces as letters and admit it under a 60-letter floor.
+    result = centerout_search(
+        WordTries(sorted(allowed)), ZeroScorer(), center=center,
+        min_letters=60, beam_width=24, max_steps=120, candidate_limit=96,
+        maximize="letters", allow_word=allow,
+    )
+    assert result == [] or len(normalize(" ".join(result))) >= 60
+
+
+def test_fixed_center_extension_audit_independently_checks_the_seed():
+    from tools.polaris.center_extension_debug import CENTER, exact_audit
+
+    text = "an aide rips nine memos some men inspire diana"
+    audit = exact_audit(text, CENTER)
+    assert audit["independent_exact"]
+    assert audit["validator_exact"]
+    assert audit["letters"] == 38

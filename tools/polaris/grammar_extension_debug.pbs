@@ -1,0 +1,45 @@
+#!/bin/bash -l
+#PBS -N pal-grammar-extension
+#PBS -q debug
+#PBS -A EVITA
+#PBS -l select=1:system=polaris
+#PBS -l place=scatter
+#PBS -l walltime=00:25:00
+#PBS -l filesystems=home
+#PBS -j oe
+
+set -euo pipefail
+REPO="${PALINDROME_REPO:-$PBS_O_WORKDIR}"
+OUT=$REPO/runs/grammar_extension_debug_$(date +%Y%m%d_%H%M%S)
+mkdir -p "$OUT" "$REPO/logs"
+cd "$REPO"
+export PYTHONPATH="$REPO:${PYTHONPATH:-}"
+export PYTHONUNBUFFERED=1
+PY=/usr/bin/python3.11
+NRANKS=32
+PPN=32
+
+echo "host=$(hostname) out=$OUT"
+$PY -V
+mpiexec -n $NRANKS --ppn $PPN --cpu-bind depth -d 1 \
+  $PY tools/polaris/grammar_extension_debug.py \
+    --vocab 30000 --shape-limit 48 --candidate-limit 160 \
+    --beam 24 --per-parent 4 --max-steps 32 --shards $NRANKS \
+    --out-dir "$OUT"
+
+$PY - "$OUT" <<'PY'
+import glob, json, os, sys
+root = sys.argv[1]
+rows = [json.load(open(path)) for path in glob.glob(os.path.join(root, 'summary_*.json'))]
+assert len(rows) == 32, len(rows)
+all_rows = [item for row in rows for item in row['rows']]
+assert all(item['independent_exact'] and item['validator_exact'] for item in all_rows)
+aggregate = {
+    'ranks': len(rows), 'shape_pairs': sum(row['assigned_shape_pairs'] for row in rows),
+    'closures': len(all_rows), 'exact': sum(item['independent_exact'] for item in all_rows),
+    'longest_letters': max((item['letters'] for item in all_rows), default=0),
+    'rows': sorted(all_rows, key=lambda item: (-item['letters'], item['text']))[:200],
+}
+json.dump(aggregate, open(os.path.join(root, 'aggregate.json'), 'w'), indent=2)
+print(json.dumps({key: value for key, value in aggregate.items() if key != 'rows'}, indent=2))
+PY

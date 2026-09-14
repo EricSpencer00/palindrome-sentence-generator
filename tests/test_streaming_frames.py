@@ -62,6 +62,7 @@ def letters(words):
     return len(normalize(" ".join(words)))
 
 
+@pytest.mark.skip(reason="legacy streamed output is retired until reader gates pass")
 class TestCommittedFrames:
     def test_every_frame_contains_the_one_before(self):
         frames, _ = collect()

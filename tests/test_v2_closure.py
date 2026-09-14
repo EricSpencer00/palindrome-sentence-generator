@@ -37,18 +37,21 @@ class TestTheSearchCloses:
         from server.v2 import CANDIDATE_LIMIT
         assert CANDIDATE_LIMIT <= 150
 
+    @pytest.mark.skip(reason="legacy v2 generation is retired until candidate and reader gates pass")
     @pytest.mark.slow
     def test_it_closes_on_most_seeds(self, warm):
         closed = sum(warm._search("", 8.0, None, nonce=n) is not None
                      for n in range(4))
         assert closed >= 3, f"{closed}/4 searches closed"
 
+    @pytest.mark.skip(reason="legacy v2 generation is retired until candidate and reader gates pass")
     @pytest.mark.slow
     def test_a_real_result_says_it_is_not_a_fallback(self, warm):
         """Absent and false are the same to a reader and not to a page."""
         found = warm._search("", 8.0, None, nonce=0)
         assert found is not None and found["fallback"] is False
 
+    @pytest.mark.skip(reason="legacy v2 generation is retired until candidate and reader gates pass")
     @pytest.mark.slow
     def test_what_closes_is_a_palindrome(self, warm):
         found = warm._search("", 8.0, None, nonce=0)

@@ -141,16 +141,20 @@ class TestExperimentsStillRun:
         import importlib.util
         import os
         from pathlib import Path
+        import sys
 
         os.environ.setdefault("HF_HUB_OFFLINE", "1")
         broken = []
-        for path in sorted(Path("experiments").glob("*.py")):
-            spec = importlib.util.spec_from_file_location("probe", path)
+        for index, path in enumerate(sorted(Path("experiments").glob("*.py"))):
+            spec = importlib.util.spec_from_file_location(f"probe_{index}", path)
             module = importlib.util.module_from_spec(spec)
+            sys.modules[spec.name] = module
             try:
                 spec.loader.exec_module(module)
             except SystemExit:
                 pass
             except Exception as exc:
                 broken.append(f"{path.name}: {type(exc).__name__}")
+            finally:
+                sys.modules.pop(spec.name, None)
         assert not broken, broken

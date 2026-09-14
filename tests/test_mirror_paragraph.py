@@ -103,18 +103,10 @@ class TestTheEndpoint:
         from server.app import app
         return TestClient(app)
 
-    def test_the_default_mirrors_into_different_text(self, client):
-        body = client.get("/api/v2/paragraph").json()
-        letters = "".join(c.lower() for c in body["text"] if c.isalpha())
-        assert letters == letters[::-1]
-        said = [s.strip().lower() for s in body["text"].split(".") if s.strip()]
-        assert len(set(said)) == len(said)
+    def test_legacy_paragraph_routes_fail_closed(self, client):
+        from server.app import RETIREMENT_MESSAGE
 
-    def test_the_refrain_is_still_reachable_and_labelled(self, client):
-        """It is a real form — mirrored canonical sentences — but it is not
-        what "palindromic paragraph" should return by default."""
-        body = client.get("/api/v2/paragraph",
-                          params={"mode": "refrain"}).json()
-        assert body["mode"] == "refrain"
-        letters = "".join(c.lower() for c in body["text"] if c.isalpha())
-        assert letters == letters[::-1]
+        for params in ({}, {"mode": "refrain"}):
+            response = client.get("/api/v2/paragraph", params=params)
+            assert response.status_code == 503
+            assert response.json()["detail"] == RETIREMENT_MESSAGE

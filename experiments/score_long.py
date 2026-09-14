@@ -3,17 +3,25 @@ import json, re, sys
 sys.path.insert(0, ".")
 from experiments.coherence_scale import ask
 
-texts = []
-for line in open("runs/graph_long.jsonl"):
-    d = json.loads(line)
-    texts += d["texts"]
-rows = []
-for t in texts:
-    s, _ = ask("gpt-oss:20b", t)
-    rows.append((s if s is not None else -1, len(re.sub("[^a-z]", "", t)), t))
-    print(f"[{rows[-1][0]}] {rows[-1][1]}L {t}", flush=True)
-rows.sort(key=lambda r: (-r[0], -r[1]))
-json.dump(rows, open("runs/graph_long_scored.json", "w"), indent=1)
-print("\n=== best ===")
-for s, L, t in rows[:12]:
-    print(f"[{s}] {L}L {t}")
+
+def main() -> None:
+    texts = []
+    with open("runs/graph_long.jsonl") as fh:
+        for line in fh:
+            texts += json.loads(line)["texts"]
+    rows = []
+    for text in texts:
+        score, _ = ask("gpt-oss:20b", text)
+        rows.append((score if score is not None else -1,
+                     len(re.sub("[^a-z]", "", text)), text))
+        print(f"[{rows[-1][0]}] {rows[-1][1]}L {text}", flush=True)
+    rows.sort(key=lambda row: (-row[0], -row[1]))
+    with open("runs/graph_long_scored.json", "w") as fh:
+        json.dump(rows, fh, indent=1)
+    print("\n=== best ===")
+    for score, letters, text in rows[:12]:
+        print(f"[{score}] {letters}L {text}")
+
+
+if __name__ == "__main__":
+    main()

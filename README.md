@@ -135,6 +135,11 @@ llm_palindrome/
   lm_scoring.py    GPT-2 fluency, whole-text and conditional
   coherence.py     long-range conditional gain, self-shuffled controls
   instant_judge.py learned fast judge
+  semantic_plan.py typed semantic plans for diagnostic construction searches
+  admission.py     shared fail-closed mechanical admission checks
+  exact_editor.py  paired-span edits with independent surface audits
+  frontier_macros.py anchor-preserving residual search macros
+  reader_first.py  quarantined reader-first presentation experiment
   directional.py   forward vs reversed-resegmented cost
   safe_vocab.py    what must never reach a generated public output
   shortwords.py    which 1-2 letter strings are words
@@ -164,7 +169,9 @@ llm_palindrome/
 
 data/
   canon_spelled.json    71 catalogued palindromes WITH their spacing
-  known_palindromes.json  160 normalised, for the novelty check
+  known_palindromes.json  162 normalised, for the novelty check
+  catalogue_provenance.json  provenance for the quarantined catalogue controls
+  readable_palindrome_centres.json  quarantined catalogue centres; never output
   centres.json          49 blind-judged self-palindromic sentences
   mirror_pairs.json     4,656 mined pairs, attestation flagged
   mirror_units.json     29 pairs whose two halves are DIFFERENT text, catalogued
@@ -177,6 +184,7 @@ data/
   composed_sentences.json   compose.py output; no code path reads it
   authored_sentences.txt    148 authored halves; 12 mirror, none readably
   v3_bank.json          540 verified palindromes v3 composes from — 499 ours
+  semantic_plan_20260913.json  frozen semantic-plan diagnostic inventory
 
 server/
   app.py           v1 endpoints
@@ -322,7 +330,7 @@ Four sources were built and measured against each other:
 | sharded walk (`pairs.py`) | 1,915 in 460s | — | ~0 readable |
 
 All of them converge on roughly the same ceiling, and none produces sentences.
-The canon does. `is_novel_palindrome` (160 entries) keeps the project honest
+The canon does. `is_novel_palindrome` (162 entries) keeps the project honest
 about which material it borrowed: **the assembly is ours, the sentences are the
 record's.**
 

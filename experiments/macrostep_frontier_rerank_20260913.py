@@ -171,6 +171,8 @@ def audit(words: list[str], seed: int, witness: str, endpoint: tuple[str, str],
 
 
 ENDPOINTS = (
+    (("desserts", "stressed"), "Desserts can cheer people who are stressed."),
+    (("did it", "i did"), "Did it cause the same trouble last night that I did?"),
     (("some", "memos"), "Some managers stayed late to revise the memos."),
     (("some", "demos"), "Some developers presented their latest demos to colleagues."),
     (("a", "idea"), "A careful analyst explained the idea to the team."),

@@ -138,12 +138,13 @@ def centerout_search(
     at ~91% of free length on every seed tried, with a frame a second to show
     for it.
     """
-    if center != center[::-1]:
+    center_tape = unit_letters(center).casefold()
+    if center_tape != center_tape[::-1]:
         raise ValueError(f"center {center!r} is not itself a palindrome")
 
     rng = random.Random(seed)
     start = COState(sort_key=0.0, left=(), right=(), overhang="", owner="R",
-                    center_len=len(center))
+                    center_len=len(center_tape))
     beam = [start]
     best: Optional[tuple[float, list[str]]] = None
     published: Optional[COState] = None

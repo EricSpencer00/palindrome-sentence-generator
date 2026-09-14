@@ -221,7 +221,8 @@ def centerout_search(
                 priority = semantic + rng.random() * diversity
                 children.append(COState(sort_key=-priority, left=left, right=right,
                                         overhang=new_over, owner=new_owner,
-                                        score=semantic, center_len=len(center)))
+                                        score=semantic,
+                                        center_len=len(unit_letters(center))))
             pool.extend(heapq.nsmallest(parent_limit, children))
         if not pool:
             break

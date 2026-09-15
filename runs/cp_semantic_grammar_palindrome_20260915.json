@@ -1,0 +1,2916 @@
+{
+  "status": "cp_joint_semantic_grammar_complete",
+  "family_id": "cp-semantic-grammar-palindrome",
+  "state_space_signature": "finite-semantic-english-grammar|one-hot-rule-and-lexical-slot-csp|global-character-domain-equality|exact-N-satisfiability|joint-syntax-selection-not-reverse-segmentation",
+  "registry_comparison": {
+    "registry_path": "/Users/eric/GitHub/palindrome-sentence-generator/docs/experiment-novelty-registry.json",
+    "registry_entry_count": 29,
+    "expected_current_entry_count": 29,
+    "signature_collision": false,
+    "family_id_collision": false,
+    "comparison": "unique_against_current_registry",
+    "changed_dimension": "one-hot semantic-rule/lexical-slot CSP with explicit global character variables and exact-N constraints"
+  },
+  "model_schema": {
+    "variable_families": {
+      "rule_one_hot": "rule[r] in {0,1}; exactly one rule is true",
+      "lexical_slot_one_hot": "slot[i,w] in {0,1}; exactly one lexeme per grammar slot",
+      "character_domains": "c[0:N-1] in {a..z}",
+      "length": "N is selected from the bounded exact target set"
+    },
+    "hard_clauses": [
+      "exactly_one(rule[r])",
+      "exactly_one(slot[i,w]) for every selected rule slot",
+      "selected rule owns the selected slot type and ordered English production",
+      "semantic-class and role compatibility",
+      "distinct non-function content units; no self-palindromic lexical unit",
+      "sum(len(selected lexeme[i])) == N",
+      "for each emitted character position p: c[p] = selected lexeme letter",
+      "for every p: c[p] == c[N-1-p]"
+    ],
+    "search_order": "rule -> grammar slot -> lexical value; character equality propagates globally",
+    "not_used": [
+      "reverse tape segmentation",
+      "center-out beam",
+      "word-order mirroring",
+      "catalogue sentence text"
+    ]
+  },
+  "config": {
+    "exact_N_targets": [
+      40,
+      48,
+      56,
+      64,
+      72,
+      80
+    ],
+    "minimum_letters": 36,
+    "maximum_letters": 96,
+    "state_limit_per_rule_and_N": 2500,
+    "rule_count": 3,
+    "lexical_inventory_is_hand_authored": true,
+    "syntax_and_lexical_choices_jointly_constrained": true,
+    "character_variables_enforce_palindrome": true,
+    "reverse_lexicon_segmentation": false,
+    "center_out_search": false,
+    "content_units_unique_and_non_self_palindromic": true,
+    "catalogue_text": false,
+    "brown_or_pos_source": false,
+    "output_excluded_before_repository_scan": true
+  },
+  "grammar_rules": [
+    {
+      "rule_id": "maker_then_observer",
+      "meaning": "two people perform distinct making and noticing actions on distinct artifacts",
+      "slots": [
+        "DET",
+        "AGENT",
+        "VMAKE",
+        "DET",
+        "ARTIFACT",
+        "CONJ",
+        "DET",
+        "AGENT",
+        "VNOTICE",
+        "DET",
+        "ARTIFACT"
+      ],
+      "semantic_roles": [
+        "article",
+        "maker",
+        "make",
+        "object",
+        "coord",
+        "article",
+        "observer",
+        "notice",
+        "object"
+      ]
+    },
+    {
+      "rule_id": "observer_then_maker",
+      "meaning": "an observer marks an artifact while a maker works at a distinct place",
+      "slots": [
+        "DET",
+        "AGENT",
+        "VNOTICE",
+        "DET",
+        "ARTIFACT",
+        "CONJ",
+        "DET",
+        "AGENT",
+        "VMAKE",
+        "PREP",
+        "PLACE"
+      ],
+      "semantic_roles": [
+        "article",
+        "observer",
+        "notice",
+        "object",
+        "coord",
+        "article",
+        "maker",
+        "make",
+        "relation",
+        "place"
+      ]
+    },
+    {
+      "rule_id": "located_then_quality",
+      "meaning": "a person locates an artifact and a second person has a quality",
+      "slots": [
+        "DET",
+        "AGENT",
+        "VLOC",
+        "PREP",
+        "DET",
+        "PLACE",
+        "CONJ",
+        "DET",
+        "AGENT",
+        "VCOP",
+        "QUALITY"
+      ],
+      "semantic_roles": [
+        "article",
+        "locator",
+        "locate",
+        "relation",
+        "article",
+        "place",
+        "coord",
+        "article",
+        "qualifier",
+        "quality"
+      ]
+    }
+  ],
+  "lexicon_sha256": "278c896fd14ff107d2e76872bcca94500582a8b88441284b5e6db3b31ececc5f",
+  "repository_fingerprint": {
+    "json_files_scanned": 1778,
+    "malformed_json_files_skipped": 0,
+    "normalized_string_keys": 609885,
+    "palindrome_tape_keys": 109224,
+    "all_keys_sha256": "6694fd3d8acd5c815b1d75d62fead3cff464f22ca369538a930b39dc021f594e",
+    "palindrome_keys_sha256": "5a56921fc41843d0082d18d8e38099c93dcd8b21ae32e4f7a667ccf6c89d145f",
+    "output_excluded_before_scan": true,
+    "excluded_output": "runs/cp_semantic_grammar_palindrome_20260915.json"
+  },
+  "search_totals": {
+    "states": 44071,
+    "slot_branches": 212947,
+    "character_contradictions": 156935,
+    "length_contradictions": 689,
+    "semantic_rejections": 11648,
+    "closed": 0
+  },
+  "target_runs": [
+    {
+      "rule_id": "maker_then_observer",
+      "exact_n": 40,
+      "stats": {
+        "states": 2015,
+        "slot_branches": 7712,
+        "character_contradictions": 5654,
+        "length_contradictions": 0,
+        "semantic_rejections": 44,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 20
+    },
+    {
+      "rule_id": "maker_then_observer",
+      "exact_n": 48,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 12307,
+        "character_contradictions": 8752,
+        "length_contradictions": 0,
+        "semantic_rejections": 1048,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 24
+    },
+    {
+      "rule_id": "maker_then_observer",
+      "exact_n": 56,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 14690,
+        "character_contradictions": 10808,
+        "length_contradictions": 0,
+        "semantic_rejections": 1365,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 28
+    },
+    {
+      "rule_id": "maker_then_observer",
+      "exact_n": 64,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 14801,
+        "character_contradictions": 11667,
+        "length_contradictions": 0,
+        "semantic_rejections": 612,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 32
+    },
+    {
+      "rule_id": "maker_then_observer",
+      "exact_n": 72,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 13184,
+        "character_contradictions": 9946,
+        "length_contradictions": 0,
+        "semantic_rejections": 717,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 36
+    },
+    {
+      "rule_id": "maker_then_observer",
+      "exact_n": 80,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 12247,
+        "character_contradictions": 8193,
+        "length_contradictions": 256,
+        "semantic_rejections": 1523,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 40
+    },
+    {
+      "rule_id": "observer_then_maker",
+      "exact_n": 40,
+      "stats": {
+        "states": 2258,
+        "slot_branches": 8384,
+        "character_contradictions": 6081,
+        "length_contradictions": 0,
+        "semantic_rejections": 46,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 20
+    },
+    {
+      "rule_id": "observer_then_maker",
+      "exact_n": 48,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 12537,
+        "character_contradictions": 8918,
+        "length_contradictions": 0,
+        "semantic_rejections": 1104,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 24
+    },
+    {
+      "rule_id": "observer_then_maker",
+      "exact_n": 56,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 14819,
+        "character_contradictions": 10926,
+        "length_contradictions": 0,
+        "semantic_rejections": 1374,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 28
+    },
+    {
+      "rule_id": "observer_then_maker",
+      "exact_n": 64,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 14793,
+        "character_contradictions": 11726,
+        "length_contradictions": 0,
+        "semantic_rejections": 552,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 32
+    },
+    {
+      "rule_id": "observer_then_maker",
+      "exact_n": 72,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 12887,
+        "character_contradictions": 10195,
+        "length_contradictions": 0,
+        "semantic_rejections": 165,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 36
+    },
+    {
+      "rule_id": "observer_then_maker",
+      "exact_n": 80,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 11619,
+        "character_contradictions": 9069,
+        "length_contradictions": 72,
+        "semantic_rejections": 19,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 40
+    },
+    {
+      "rule_id": "located_then_quality",
+      "exact_n": 40,
+      "stats": {
+        "states": 2298,
+        "slot_branches": 10513,
+        "character_contradictions": 8216,
+        "length_contradictions": 0,
+        "semantic_rejections": 0,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 20
+    },
+    {
+      "rule_id": "located_then_quality",
+      "exact_n": 48,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 8554,
+        "character_contradictions": 5812,
+        "length_contradictions": 0,
+        "semantic_rejections": 230,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 24
+    },
+    {
+      "rule_id": "located_then_quality",
+      "exact_n": 56,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 12893,
+        "character_contradictions": 9135,
+        "length_contradictions": 0,
+        "semantic_rejections": 1238,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 28
+    },
+    {
+      "rule_id": "located_then_quality",
+      "exact_n": 64,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 11968,
+        "character_contradictions": 8262,
+        "length_contradictions": 0,
+        "semantic_rejections": 1190,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 32
+    },
+    {
+      "rule_id": "located_then_quality",
+      "exact_n": 72,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 9186,
+        "character_contradictions": 6369,
+        "length_contradictions": 0,
+        "semantic_rejections": 297,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 36
+    },
+    {
+      "rule_id": "located_then_quality",
+      "exact_n": 80,
+      "stats": {
+        "states": 2500,
+        "slot_branches": 9853,
+        "character_contradictions": 7206,
+        "length_contradictions": 361,
+        "semantic_rejections": 124,
+        "closed": 0
+      },
+      "closures": 0,
+      "deepest_probe_offset": 40
+    }
+  ],
+  "rendered_candidates": [],
+  "admitted": [],
+  "rendered_probes": [
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "located_then_quality",
+      "exact_n_target": 80,
+      "rendered_probe": "A artisan rests at a garden and a baker is careful.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "rests",
+        "at",
+        "a",
+        "garden",
+        "and",
+        "a",
+        "baker",
+        "is",
+        "careful"
+      ],
+      "constraint_state": {
+        "slot_index": 11,
+        "offset": 40,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "rests",
+          "at",
+          "a",
+          "garden",
+          "and",
+          "a",
+          "baker",
+          "is",
+          "careful"
+        ],
+        "remaining_letters": 40
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 9853,
+        "character_contradictions": 7206,
+        "length_contradictions": 361,
+        "semantic_rejections": 124,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 40,
+        "normalized_letters": "aartisanrestsatagardenandabakeriscareful",
+        "two_pointer_pairs": 20,
+        "mismatch_count": 19,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 39,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 1,
+            "right": 38,
+            "left_char": "a",
+            "right_char": "u"
+          },
+          {
+            "left": 2,
+            "right": 37,
+            "left_char": "r",
+            "right_char": "f"
+          },
+          {
+            "left": 3,
+            "right": 36,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 4,
+            "right": 35,
+            "left_char": "i",
+            "right_char": "r"
+          },
+          {
+            "left": 5,
+            "right": 34,
+            "left_char": "s",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 33,
+            "left_char": "a",
+            "right_char": "c"
+          },
+          {
+            "left": 7,
+            "right": 32,
+            "left_char": "n",
+            "right_char": "s"
+          },
+          {
+            "left": 8,
+            "right": 31,
+            "left_char": "r",
+            "right_char": "i"
+          },
+          {
+            "left": 9,
+            "right": 30,
+            "left_char": "e",
+            "right_char": "r"
+          }
+        ],
+        "normalized_sha256": "084242c2dc39e251f38430a742e5b9d31bc2421813161d2b076fbf26ac413745"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 11,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.795,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "maker_then_observer",
+      "exact_n_target": 80,
+      "rendered_probe": "A artisan builds a canvas and a baker checks a map.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "builds",
+        "a",
+        "canvas",
+        "and",
+        "a",
+        "baker",
+        "checks",
+        "a",
+        "map"
+      ],
+      "constraint_state": {
+        "slot_index": 11,
+        "offset": 40,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "builds",
+          "a",
+          "canvas",
+          "and",
+          "a",
+          "baker",
+          "checks",
+          "a",
+          "map"
+        ],
+        "remaining_letters": 40
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 12247,
+        "character_contradictions": 8193,
+        "length_contradictions": 256,
+        "semantic_rejections": 1523,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 40,
+        "normalized_letters": "aartisanbuildsacanvasandabakerchecksamap",
+        "two_pointer_pairs": 20,
+        "mismatch_count": 18,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 39,
+            "left_char": "a",
+            "right_char": "p"
+          },
+          {
+            "left": 2,
+            "right": 37,
+            "left_char": "r",
+            "right_char": "m"
+          },
+          {
+            "left": 3,
+            "right": 36,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 4,
+            "right": 35,
+            "left_char": "i",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 34,
+            "left_char": "s",
+            "right_char": "k"
+          },
+          {
+            "left": 6,
+            "right": 33,
+            "left_char": "a",
+            "right_char": "c"
+          },
+          {
+            "left": 7,
+            "right": 32,
+            "left_char": "n",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 31,
+            "left_char": "b",
+            "right_char": "h"
+          },
+          {
+            "left": 9,
+            "right": 30,
+            "left_char": "u",
+            "right_char": "c"
+          },
+          {
+            "left": 10,
+            "right": 29,
+            "left_char": "i",
+            "right_char": "r"
+          }
+        ],
+        "normalized_sha256": "7ab78432f9a489f9c31652fc6bfd64e4a94808ec65575a8f1f7e9265fb1f78cb"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 11,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.575,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "observer_then_maker",
+      "exact_n_target": 80,
+      "rendered_probe": "A artisan checks a canvas and a baker builds near.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "checks",
+        "a",
+        "canvas",
+        "and",
+        "a",
+        "baker",
+        "builds",
+        "near"
+      ],
+      "constraint_state": {
+        "slot_index": 10,
+        "offset": 40,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "checks",
+          "a",
+          "canvas",
+          "and",
+          "a",
+          "baker",
+          "builds",
+          "near"
+        ],
+        "remaining_letters": 40
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 11619,
+        "character_contradictions": 9069,
+        "length_contradictions": 72,
+        "semantic_rejections": 19,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 40,
+        "normalized_letters": "aartisanchecksacanvasandabakerbuildsnear",
+        "two_pointer_pairs": 20,
+        "mismatch_count": 17,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 39,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 2,
+            "right": 37,
+            "left_char": "r",
+            "right_char": "e"
+          },
+          {
+            "left": 3,
+            "right": 36,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 35,
+            "left_char": "i",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 34,
+            "left_char": "s",
+            "right_char": "d"
+          },
+          {
+            "left": 6,
+            "right": 33,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 7,
+            "right": 32,
+            "left_char": "n",
+            "right_char": "i"
+          },
+          {
+            "left": 8,
+            "right": 31,
+            "left_char": "c",
+            "right_char": "u"
+          },
+          {
+            "left": 9,
+            "right": 30,
+            "left_char": "h",
+            "right_char": "b"
+          },
+          {
+            "left": 10,
+            "right": 29,
+            "left_char": "e",
+            "right_char": "r"
+          }
+        ],
+        "normalized_sha256": "9becb269d32ea8fed1fb31f16eca2aa088ae544cc41cf497d7e6de5066ae7c9e"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 10,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.449,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "located_then_quality",
+      "exact_n_target": 72,
+      "rendered_probe": "A artisan rests at a garden and a baker seems.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "rests",
+        "at",
+        "a",
+        "garden",
+        "and",
+        "a",
+        "baker",
+        "seems"
+      ],
+      "constraint_state": {
+        "slot_index": 10,
+        "offset": 36,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "rests",
+          "at",
+          "a",
+          "garden",
+          "and",
+          "a",
+          "baker",
+          "seems"
+        ],
+        "remaining_letters": 36
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 9186,
+        "character_contradictions": 6369,
+        "length_contradictions": 0,
+        "semantic_rejections": 297,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 36,
+        "normalized_letters": "aartisanrestsatagardenandabakerseems",
+        "two_pointer_pairs": 18,
+        "mismatch_count": 17,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 35,
+            "left_char": "a",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 34,
+            "left_char": "a",
+            "right_char": "m"
+          },
+          {
+            "left": 2,
+            "right": 33,
+            "left_char": "r",
+            "right_char": "e"
+          },
+          {
+            "left": 3,
+            "right": 32,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 4,
+            "right": 31,
+            "left_char": "i",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 30,
+            "left_char": "s",
+            "right_char": "r"
+          },
+          {
+            "left": 6,
+            "right": 29,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 7,
+            "right": 28,
+            "left_char": "n",
+            "right_char": "k"
+          },
+          {
+            "left": 8,
+            "right": 27,
+            "left_char": "r",
+            "right_char": "a"
+          },
+          {
+            "left": 9,
+            "right": 26,
+            "left_char": "e",
+            "right_char": "b"
+          }
+        ],
+        "normalized_sha256": "9e540247eae8f4e71c8b89c4712b2233db5ce46f9b13034cf3686c9dbee1b8f2"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 10,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.733,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "maker_then_observer",
+      "exact_n_target": 72,
+      "rendered_probe": "A artisan builds a canvas and a baker checks.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "builds",
+        "a",
+        "canvas",
+        "and",
+        "a",
+        "baker",
+        "checks"
+      ],
+      "constraint_state": {
+        "slot_index": 9,
+        "offset": 36,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "builds",
+          "a",
+          "canvas",
+          "and",
+          "a",
+          "baker",
+          "checks"
+        ],
+        "remaining_letters": 36
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 13184,
+        "character_contradictions": 9946,
+        "length_contradictions": 0,
+        "semantic_rejections": 717,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 36,
+        "normalized_letters": "aartisanbuildsacanvasandabakerchecks",
+        "two_pointer_pairs": 18,
+        "mismatch_count": 15,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 35,
+            "left_char": "a",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 34,
+            "left_char": "a",
+            "right_char": "k"
+          },
+          {
+            "left": 2,
+            "right": 33,
+            "left_char": "r",
+            "right_char": "c"
+          },
+          {
+            "left": 3,
+            "right": 32,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 4,
+            "right": 31,
+            "left_char": "i",
+            "right_char": "h"
+          },
+          {
+            "left": 5,
+            "right": 30,
+            "left_char": "s",
+            "right_char": "c"
+          },
+          {
+            "left": 6,
+            "right": 29,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 7,
+            "right": 28,
+            "left_char": "n",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 27,
+            "left_char": "b",
+            "right_char": "k"
+          },
+          {
+            "left": 9,
+            "right": 26,
+            "left_char": "u",
+            "right_char": "a"
+          }
+        ],
+        "normalized_sha256": "85bdf41d43a5705cf21970373fc95ddba365c74aff402b12daa58feb858f80c8"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 9,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.467,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "observer_then_maker",
+      "exact_n_target": 72,
+      "rendered_probe": "A artisan checks a canvas and a baker builds.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "checks",
+        "a",
+        "canvas",
+        "and",
+        "a",
+        "baker",
+        "builds"
+      ],
+      "constraint_state": {
+        "slot_index": 9,
+        "offset": 36,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "checks",
+          "a",
+          "canvas",
+          "and",
+          "a",
+          "baker",
+          "builds"
+        ],
+        "remaining_letters": 36
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 12887,
+        "character_contradictions": 10195,
+        "length_contradictions": 0,
+        "semantic_rejections": 165,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 36,
+        "normalized_letters": "aartisanchecksacanvasandabakerbuilds",
+        "two_pointer_pairs": 18,
+        "mismatch_count": 16,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 35,
+            "left_char": "a",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 34,
+            "left_char": "a",
+            "right_char": "d"
+          },
+          {
+            "left": 2,
+            "right": 33,
+            "left_char": "r",
+            "right_char": "l"
+          },
+          {
+            "left": 3,
+            "right": 32,
+            "left_char": "t",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 31,
+            "left_char": "i",
+            "right_char": "u"
+          },
+          {
+            "left": 5,
+            "right": 30,
+            "left_char": "s",
+            "right_char": "b"
+          },
+          {
+            "left": 6,
+            "right": 29,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 7,
+            "right": 28,
+            "left_char": "n",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 27,
+            "left_char": "c",
+            "right_char": "k"
+          },
+          {
+            "left": 9,
+            "right": 26,
+            "left_char": "h",
+            "right_char": "a"
+          }
+        ],
+        "normalized_sha256": "b8400a174a035f3b31aa1a64b4e2e273b3554fd0d8378200feae67849134ffc5"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 9,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.467,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "located_then_quality",
+      "exact_n_target": 64,
+      "rendered_probe": "A artisan rests at a garden and a carver.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "rests",
+        "at",
+        "a",
+        "garden",
+        "and",
+        "a",
+        "carver"
+      ],
+      "constraint_state": {
+        "slot_index": 9,
+        "offset": 32,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "rests",
+          "at",
+          "a",
+          "garden",
+          "and",
+          "a",
+          "carver"
+        ],
+        "remaining_letters": 32
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 11968,
+        "character_contradictions": 8262,
+        "length_contradictions": 0,
+        "semantic_rejections": 1190,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 32,
+        "normalized_letters": "aartisanrestsatagardenandacarver",
+        "two_pointer_pairs": 16,
+        "mismatch_count": 15,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 31,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 30,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 29,
+            "left_char": "r",
+            "right_char": "v"
+          },
+          {
+            "left": 3,
+            "right": 28,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 4,
+            "right": 27,
+            "left_char": "i",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 26,
+            "left_char": "s",
+            "right_char": "c"
+          },
+          {
+            "left": 7,
+            "right": 24,
+            "left_char": "n",
+            "right_char": "d"
+          },
+          {
+            "left": 8,
+            "right": 23,
+            "left_char": "r",
+            "right_char": "n"
+          },
+          {
+            "left": 9,
+            "right": 22,
+            "left_char": "e",
+            "right_char": "a"
+          },
+          {
+            "left": 10,
+            "right": 21,
+            "left_char": "s",
+            "right_char": "n"
+          }
+        ],
+        "normalized_sha256": "b54c220fc17b945856b012868027068ee12f6da6f13440e99ce6e7abe943dc5b"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 9,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.688,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "maker_then_observer",
+      "exact_n_target": 64,
+      "rendered_probe": "A artisan builds a canvas and a teacher.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "builds",
+        "a",
+        "canvas",
+        "and",
+        "a",
+        "teacher"
+      ],
+      "constraint_state": {
+        "slot_index": 8,
+        "offset": 32,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "builds",
+          "a",
+          "canvas",
+          "and",
+          "a",
+          "teacher"
+        ],
+        "remaining_letters": 32
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 14801,
+        "character_contradictions": 11667,
+        "length_contradictions": 0,
+        "semantic_rejections": 612,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 32,
+        "normalized_letters": "aartisanbuildsacanvasandateacher",
+        "two_pointer_pairs": 16,
+        "mismatch_count": 16,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 31,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 30,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 29,
+            "left_char": "r",
+            "right_char": "h"
+          },
+          {
+            "left": 3,
+            "right": 28,
+            "left_char": "t",
+            "right_char": "c"
+          },
+          {
+            "left": 4,
+            "right": 27,
+            "left_char": "i",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 26,
+            "left_char": "s",
+            "right_char": "e"
+          },
+          {
+            "left": 6,
+            "right": 25,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 24,
+            "left_char": "n",
+            "right_char": "a"
+          },
+          {
+            "left": 8,
+            "right": 23,
+            "left_char": "b",
+            "right_char": "d"
+          },
+          {
+            "left": 9,
+            "right": 22,
+            "left_char": "u",
+            "right_char": "n"
+          }
+        ],
+        "normalized_sha256": "e21d9fedc32a374403dd08717bd9199ef2bd818d72eadf4c0860efb9c109793a"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.692,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "observer_then_maker",
+      "exact_n_target": 64,
+      "rendered_probe": "A artisan checks a canvas and a teacher.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "checks",
+        "a",
+        "canvas",
+        "and",
+        "a",
+        "teacher"
+      ],
+      "constraint_state": {
+        "slot_index": 8,
+        "offset": 32,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "checks",
+          "a",
+          "canvas",
+          "and",
+          "a",
+          "teacher"
+        ],
+        "remaining_letters": 32
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 14793,
+        "character_contradictions": 11726,
+        "length_contradictions": 0,
+        "semantic_rejections": 552,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 32,
+        "normalized_letters": "aartisanchecksacanvasandateacher",
+        "two_pointer_pairs": 16,
+        "mismatch_count": 16,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 31,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 30,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 29,
+            "left_char": "r",
+            "right_char": "h"
+          },
+          {
+            "left": 3,
+            "right": 28,
+            "left_char": "t",
+            "right_char": "c"
+          },
+          {
+            "left": 4,
+            "right": 27,
+            "left_char": "i",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 26,
+            "left_char": "s",
+            "right_char": "e"
+          },
+          {
+            "left": 6,
+            "right": 25,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 24,
+            "left_char": "n",
+            "right_char": "a"
+          },
+          {
+            "left": 8,
+            "right": 23,
+            "left_char": "c",
+            "right_char": "d"
+          },
+          {
+            "left": 9,
+            "right": 22,
+            "left_char": "h",
+            "right_char": "n"
+          }
+        ],
+        "normalized_sha256": "4d3880ae714b9d97bd115e7b5cd4d7cb07f4199f65bc24035276719d655b67ea"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.737,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "located_then_quality",
+      "exact_n_target": 56,
+      "rendered_probe": "A artisan rests at a garden and the.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "rests",
+        "at",
+        "a",
+        "garden",
+        "and",
+        "the"
+      ],
+      "constraint_state": {
+        "slot_index": 8,
+        "offset": 28,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "rests",
+          "at",
+          "a",
+          "garden",
+          "and",
+          "the"
+        ],
+        "remaining_letters": 28
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 12893,
+        "character_contradictions": 9135,
+        "length_contradictions": 0,
+        "semantic_rejections": 1238,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 28,
+        "normalized_letters": "aartisanrestsatagardenandthe",
+        "two_pointer_pairs": 14,
+        "mismatch_count": 14,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 27,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 1,
+            "right": 26,
+            "left_char": "a",
+            "right_char": "h"
+          },
+          {
+            "left": 2,
+            "right": 25,
+            "left_char": "r",
+            "right_char": "t"
+          },
+          {
+            "left": 3,
+            "right": 24,
+            "left_char": "t",
+            "right_char": "d"
+          },
+          {
+            "left": 4,
+            "right": 23,
+            "left_char": "i",
+            "right_char": "n"
+          },
+          {
+            "left": 5,
+            "right": 22,
+            "left_char": "s",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 7,
+            "right": 20,
+            "left_char": "n",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 19,
+            "left_char": "r",
+            "right_char": "d"
+          },
+          {
+            "left": 9,
+            "right": 18,
+            "left_char": "e",
+            "right_char": "r"
+          }
+        ],
+        "normalized_sha256": "21b2c8612632da2e747281dd3a46b52a0e57212d51e517ddde5c46feaa780039"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 6.029,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "maker_then_observer",
+      "exact_n_target": 56,
+      "rendered_probe": "A artisan builds a map and a carver.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "builds",
+        "a",
+        "map",
+        "and",
+        "a",
+        "carver"
+      ],
+      "constraint_state": {
+        "slot_index": 8,
+        "offset": 28,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "builds",
+          "a",
+          "map",
+          "and",
+          "a",
+          "carver"
+        ],
+        "remaining_letters": 28
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 14690,
+        "character_contradictions": 10808,
+        "length_contradictions": 0,
+        "semantic_rejections": 1365,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 28,
+        "normalized_letters": "aartisanbuildsamapandacarver",
+        "two_pointer_pairs": 14,
+        "mismatch_count": 13,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 27,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 26,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 25,
+            "left_char": "r",
+            "right_char": "v"
+          },
+          {
+            "left": 3,
+            "right": 24,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 4,
+            "right": 23,
+            "left_char": "i",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 22,
+            "left_char": "s",
+            "right_char": "c"
+          },
+          {
+            "left": 7,
+            "right": 20,
+            "left_char": "n",
+            "right_char": "d"
+          },
+          {
+            "left": 8,
+            "right": 19,
+            "left_char": "b",
+            "right_char": "n"
+          },
+          {
+            "left": 9,
+            "right": 18,
+            "left_char": "u",
+            "right_char": "a"
+          },
+          {
+            "left": 10,
+            "right": 17,
+            "left_char": "i",
+            "right_char": "p"
+          }
+        ],
+        "normalized_sha256": "ecaa84dfe9b4b51dfaf9d95d84dcb805aa456e44dc6fb0dc470a5c6f4a28dee7"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.599,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "observer_then_maker",
+      "exact_n_target": 56,
+      "rendered_probe": "A artisan checks a map and a carver.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "checks",
+        "a",
+        "map",
+        "and",
+        "a",
+        "carver"
+      ],
+      "constraint_state": {
+        "slot_index": 8,
+        "offset": 28,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "checks",
+          "a",
+          "map",
+          "and",
+          "a",
+          "carver"
+        ],
+        "remaining_letters": 28
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 14819,
+        "character_contradictions": 10926,
+        "length_contradictions": 0,
+        "semantic_rejections": 1374,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 28,
+        "normalized_letters": "aartisanchecksamapandacarver",
+        "two_pointer_pairs": 14,
+        "mismatch_count": 13,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 27,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 26,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 25,
+            "left_char": "r",
+            "right_char": "v"
+          },
+          {
+            "left": 3,
+            "right": 24,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 4,
+            "right": 23,
+            "left_char": "i",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 22,
+            "left_char": "s",
+            "right_char": "c"
+          },
+          {
+            "left": 7,
+            "right": 20,
+            "left_char": "n",
+            "right_char": "d"
+          },
+          {
+            "left": 8,
+            "right": 19,
+            "left_char": "c",
+            "right_char": "n"
+          },
+          {
+            "left": 9,
+            "right": 18,
+            "left_char": "h",
+            "right_char": "a"
+          },
+          {
+            "left": 10,
+            "right": 17,
+            "left_char": "e",
+            "right_char": "p"
+          }
+        ],
+        "normalized_sha256": "8421a767476b81b2713f982af3487a98c5193795c75ea0ba0480b333fd40d970"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.644,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "located_then_quality",
+      "exact_n_target": 48,
+      "rendered_probe": "A artisan rests at a workshop.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "rests",
+        "at",
+        "a",
+        "workshop"
+      ],
+      "constraint_state": {
+        "slot_index": 6,
+        "offset": 24,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "rests",
+          "at",
+          "a",
+          "workshop"
+        ],
+        "remaining_letters": 24
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 8554,
+        "character_contradictions": 5812,
+        "length_contradictions": 0,
+        "semantic_rejections": 230,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 24,
+        "normalized_letters": "aartisanrestsataworkshop",
+        "two_pointer_pairs": 12,
+        "mismatch_count": 12,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 23,
+            "left_char": "a",
+            "right_char": "p"
+          },
+          {
+            "left": 1,
+            "right": 22,
+            "left_char": "a",
+            "right_char": "o"
+          },
+          {
+            "left": 2,
+            "right": 21,
+            "left_char": "r",
+            "right_char": "h"
+          },
+          {
+            "left": 3,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 4,
+            "right": 19,
+            "left_char": "i",
+            "right_char": "k"
+          },
+          {
+            "left": 5,
+            "right": 18,
+            "left_char": "s",
+            "right_char": "r"
+          },
+          {
+            "left": 6,
+            "right": 17,
+            "left_char": "a",
+            "right_char": "o"
+          },
+          {
+            "left": 7,
+            "right": 16,
+            "left_char": "n",
+            "right_char": "w"
+          },
+          {
+            "left": 8,
+            "right": 15,
+            "left_char": "r",
+            "right_char": "a"
+          },
+          {
+            "left": 9,
+            "right": 14,
+            "left_char": "e",
+            "right_char": "t"
+          }
+        ],
+        "normalized_sha256": "dc9d4c0beedfa99daed9c920e76beea64547ef441b0b65237607b880e83cd463"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 6,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.412,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "maker_then_observer",
+      "exact_n_target": 48,
+      "rendered_probe": "A artisan builds a canvas and.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "builds",
+        "a",
+        "canvas",
+        "and"
+      ],
+      "constraint_state": {
+        "slot_index": 6,
+        "offset": 24,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "builds",
+          "a",
+          "canvas",
+          "and"
+        ],
+        "remaining_letters": 24
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 12307,
+        "character_contradictions": 8752,
+        "length_contradictions": 0,
+        "semantic_rejections": 1048,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 24,
+        "normalized_letters": "aartisanbuildsacanvasand",
+        "two_pointer_pairs": 12,
+        "mismatch_count": 12,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 23,
+            "left_char": "a",
+            "right_char": "d"
+          },
+          {
+            "left": 1,
+            "right": 22,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 21,
+            "left_char": "r",
+            "right_char": "a"
+          },
+          {
+            "left": 3,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 4,
+            "right": 19,
+            "left_char": "i",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 18,
+            "left_char": "s",
+            "right_char": "v"
+          },
+          {
+            "left": 6,
+            "right": 17,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 7,
+            "right": 16,
+            "left_char": "n",
+            "right_char": "a"
+          },
+          {
+            "left": 8,
+            "right": 15,
+            "left_char": "b",
+            "right_char": "c"
+          },
+          {
+            "left": 9,
+            "right": 14,
+            "left_char": "u",
+            "right_char": "a"
+          }
+        ],
+        "normalized_sha256": "b18cd311525761914f658802a20121a4bf4659825343b285830fd8e051f32b64"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 6,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.55,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "observer_then_maker",
+      "exact_n_target": 48,
+      "rendered_probe": "A artisan checks a canvas and.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "checks",
+        "a",
+        "canvas",
+        "and"
+      ],
+      "constraint_state": {
+        "slot_index": 6,
+        "offset": 24,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "checks",
+          "a",
+          "canvas",
+          "and"
+        ],
+        "remaining_letters": 24
+      },
+      "search_stats": {
+        "states": 2500,
+        "slot_branches": 12537,
+        "character_contradictions": 8918,
+        "length_contradictions": 0,
+        "semantic_rejections": 1104,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 24,
+        "normalized_letters": "aartisanchecksacanvasand",
+        "two_pointer_pairs": 12,
+        "mismatch_count": 11,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 23,
+            "left_char": "a",
+            "right_char": "d"
+          },
+          {
+            "left": 1,
+            "right": 22,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 21,
+            "left_char": "r",
+            "right_char": "a"
+          },
+          {
+            "left": 3,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 4,
+            "right": 19,
+            "left_char": "i",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 18,
+            "left_char": "s",
+            "right_char": "v"
+          },
+          {
+            "left": 6,
+            "right": 17,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 7,
+            "right": 16,
+            "left_char": "n",
+            "right_char": "a"
+          },
+          {
+            "left": 9,
+            "right": 14,
+            "left_char": "h",
+            "right_char": "a"
+          },
+          {
+            "left": 10,
+            "right": 13,
+            "left_char": "e",
+            "right_char": "s"
+          }
+        ],
+        "normalized_sha256": "5c556bbafc2c6c6abf696ec9df3f63040c816291675a0d0f0fc0547163e7da99"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 6,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.61,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "located_then_quality",
+      "exact_n_target": 40,
+      "rendered_probe": "A artisan rests near the.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "rests",
+        "near",
+        "the"
+      ],
+      "constraint_state": {
+        "slot_index": 5,
+        "offset": 20,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "rests",
+          "near",
+          "the"
+        ],
+        "remaining_letters": 20
+      },
+      "search_stats": {
+        "states": 2298,
+        "slot_branches": 10513,
+        "character_contradictions": 8216,
+        "length_contradictions": 0,
+        "semantic_rejections": 0,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 20,
+        "normalized_letters": "aartisanrestsnearthe",
+        "two_pointer_pairs": 10,
+        "mismatch_count": 10,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 1,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "h"
+          },
+          {
+            "left": 2,
+            "right": 17,
+            "left_char": "r",
+            "right_char": "t"
+          },
+          {
+            "left": 3,
+            "right": 16,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 4,
+            "right": 15,
+            "left_char": "i",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 14,
+            "left_char": "s",
+            "right_char": "e"
+          },
+          {
+            "left": 6,
+            "right": 13,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 7,
+            "right": 12,
+            "left_char": "n",
+            "right_char": "s"
+          },
+          {
+            "left": 8,
+            "right": 11,
+            "left_char": "r",
+            "right_char": "t"
+          },
+          {
+            "left": 9,
+            "right": 10,
+            "left_char": "e",
+            "right_char": "s"
+          }
+        ],
+        "normalized_sha256": "285a1a64a53a8b075341da8c9bab1330f789c6db6baef2d5b338b7757e02fd88"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 5,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.456,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "maker_then_observer",
+      "exact_n_target": 40,
+      "rendered_probe": "A artisan builds a model.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "builds",
+        "a",
+        "model"
+      ],
+      "constraint_state": {
+        "slot_index": 5,
+        "offset": 20,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "builds",
+          "a",
+          "model"
+        ],
+        "remaining_letters": 20
+      },
+      "search_stats": {
+        "states": 2015,
+        "slot_branches": 7712,
+        "character_contradictions": 5654,
+        "length_contradictions": 0,
+        "semantic_rejections": 44,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 20,
+        "normalized_letters": "aartisanbuildsamodel",
+        "two_pointer_pairs": 10,
+        "mismatch_count": 10,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 1,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 17,
+            "left_char": "r",
+            "right_char": "d"
+          },
+          {
+            "left": 3,
+            "right": 16,
+            "left_char": "t",
+            "right_char": "o"
+          },
+          {
+            "left": 4,
+            "right": 15,
+            "left_char": "i",
+            "right_char": "m"
+          },
+          {
+            "left": 5,
+            "right": 14,
+            "left_char": "s",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 13,
+            "left_char": "a",
+            "right_char": "s"
+          },
+          {
+            "left": 7,
+            "right": 12,
+            "left_char": "n",
+            "right_char": "d"
+          },
+          {
+            "left": 8,
+            "right": 11,
+            "left_char": "b",
+            "right_char": "l"
+          },
+          {
+            "left": 9,
+            "right": 10,
+            "left_char": "u",
+            "right_char": "i"
+          }
+        ],
+        "normalized_sha256": "8c6fe4d1ee702a16492d807b0768683d176b3a28ece53543fddbc974241d1d3f"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 5,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.412,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    },
+    {
+      "kind": "joint_csp_partial_probe",
+      "rule_id": "observer_then_maker",
+      "exact_n_target": 40,
+      "rendered_probe": "A artisan checks a model.",
+      "selected_slots": [
+        "a",
+        "artisan",
+        "checks",
+        "a",
+        "model"
+      ],
+      "constraint_state": {
+        "slot_index": 5,
+        "offset": 20,
+        "slots_total": 11,
+        "chosen_words": [
+          "a",
+          "artisan",
+          "checks",
+          "a",
+          "model"
+        ],
+        "remaining_letters": 20
+      },
+      "search_stats": {
+        "states": 2258,
+        "slot_branches": 8384,
+        "character_contradictions": 6081,
+        "length_contradictions": 0,
+        "semantic_rejections": 46,
+        "closed": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "letters": 20,
+        "normalized_letters": "aartisanchecksamodel",
+        "two_pointer_pairs": 10,
+        "mismatch_count": 9,
+        "mismatch_sample": [
+          {
+            "left": 0,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 1,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 17,
+            "left_char": "r",
+            "right_char": "d"
+          },
+          {
+            "left": 3,
+            "right": 16,
+            "left_char": "t",
+            "right_char": "o"
+          },
+          {
+            "left": 4,
+            "right": 15,
+            "left_char": "i",
+            "right_char": "m"
+          },
+          {
+            "left": 5,
+            "right": 14,
+            "left_char": "s",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 13,
+            "left_char": "a",
+            "right_char": "s"
+          },
+          {
+            "left": 7,
+            "right": 12,
+            "left_char": "n",
+            "right_char": "k"
+          },
+          {
+            "left": 9,
+            "right": 10,
+            "left_char": "h",
+            "right_char": "e"
+          }
+        ],
+        "normalized_sha256": "92cd84f90ca5e636c2b9490edeb0306ba0e5b5bffd943d099652080baf0f3073"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 5,
+        "all_words_in_frequency_probe": true,
+        "mean_zipf_frequency": 5.484,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "The partial assignment reached this longest character-domain-consistent state but did not satisfy exact-N closure."
+    }
+  ],
+  "next_repair_operator": {
+    "operator": "semantic-slot-domain-repair-at-first-character-contradiction",
+    "action": "Take the highest-offset probe, add exactly one new ordinary lexeme to the recorded semantic slot domain whose first/last letters satisfy the conflicting character-domain pair, then rerun every exact-N target with the same rule and uniqueness clauses.",
+    "preserve": [
+      "one-hot rule and slot variables",
+      "semantic role compatibility",
+      "global c[i]=c[N-1-i] clauses",
+      "exact-N bounds",
+      "no repeated/self-palindromic content units",
+      "output-excluded fingerprint"
+    ],
+    "forbidden_shortcuts": [
+      "editing a selected sentence",
+      "reversing a completed side",
+      "adding a pre-palindromic phrase",
+      "filler tokens"
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "23c3f29632aaae6b1be41914fe3635db1d06d8bfe57b4b9b981c64775f83aa2c",
+    "grammar_material": "finite hand-authored semantic English rules and typed lexical classes",
+    "source_sentences_copied": false,
+    "catalogue_relexicalization": false,
+    "brown_corpus_used": false,
+    "pos_tagger_used": false,
+    "solver": "deterministic finite-domain CSP with one-hot/SAT-style constraints and character-domain propagation",
+    "output_excluded_fingerprint": true,
+    "readability_certificate": false
+  },
+  "reader_gate": {
+    "status": "not_run",
+    "reason": "Only exact, novel, mechanically admitted rows may enter blinded intact-prose and shuffled-control reading."
+  }
+}

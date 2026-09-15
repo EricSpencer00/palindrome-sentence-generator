@@ -53,6 +53,9 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `collocation-synchronous-grammar` | role-typed natural collocation frames solved in lockstep against a mirrored character equation while preserving complete clauses | collocation-level synchronous grammar | 0 exact closures; 25 pairs |
 | `human-compositional-center-window` | independently authored two-sentence mini-scenes with finite natural continuation substitutions at a content-word center | human-compositional center-window repair | 0 exact closures; 24 substitutions |
 | `global-semantic-paraphrase-rewrite` | complete two-clause narratives jointly relexicalized across agent/verb/object slots with online mirrored equations | global typed semantic paraphrase | 0 exact closures; 1,296 clause pairs |
+| `collocation-graph-path` | connected role-typed collocation graph with shared-node overlap and bounded local edge repair | overlap-aware collocation graph walk | 0 exact closures; 36 paths |
+| `semantic-sentence-pair-alignment` | independently authored complementary complete sentences selected from semantic paraphrase alternatives and aligned over the whole normalized tape | cross-boundary semantic sentence alignment | 0 exact closures; 20 combinations |
+| `template-analogy-semantic-lexicalization` | abstract role-shape templates independently lexicalized with fresh semantic words and paired seam-width constraints | template-analogy authoring | 0 exact closures; 499 clause pairs |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

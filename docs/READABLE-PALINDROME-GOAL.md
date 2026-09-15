@@ -461,6 +461,28 @@ human-rated intact prose—and may claim success only when both gates are met.
   outputs.  The recorded repair substitutes all typed slots again at the first
   mirrored contradiction, preserving the no-catalogue and no-repeat gates.
 
+- **Connected collocation-graph paths (2026-09-15).** A role-typed graph of
+  16 hand-authored collocation edges was walked through 36 connected paths,
+  with five same-role lexical repairs measured inside the graph.  Every path
+  has a rendered residual and independent two-pointer audit; zero exact
+  closures or admitted outputs were found.  The next operator is a same-role
+  node substitution at the first failed edge, not a new post-hoc reorder.
+
+- **Semantic sentence-pair alignment (2026-09-15).** Independently authored
+  complementary complete sentences were paired across semantic paraphrase
+  alternatives and aligned on the full normalized tape, allowing the mirror
+  to cross both word and sentence boundaries.  The bounded 20-combination run
+  found zero exact closures or admitted candidates and retained every rendered
+  probe.  Its concrete repair adds tense/aspect and connective alternatives
+  while preserving the complementary meaning frame.
+
+- **Template-analogy semantic lexicalization (2026-09-15).** Four abstract
+  palindrome role shapes were relexicalized independently with fresh semantic
+  words and paired seam-width constraints.  The joint enumeration covered 499
+  clause pairs and 30 rendered probes, with zero exact closures or admitted
+  outputs.  The next repair changes one semantic role lexicalization at the
+  recorded seam, while keeping the abstract shape and catalogue exclusion.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

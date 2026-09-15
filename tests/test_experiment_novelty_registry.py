@@ -30,3 +30,6 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "collocation-synchronous-grammar" in ids
     assert "human-compositional-center-window" in ids
     assert "global-semantic-paraphrase-rewrite" in ids
+    assert "collocation-graph-path" in ids
+    assert "semantic-sentence-pair-alignment" in ids
+    assert "template-analogy-semantic-lexicalization" in ids

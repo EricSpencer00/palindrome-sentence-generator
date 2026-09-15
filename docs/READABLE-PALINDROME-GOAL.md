@@ -958,3 +958,12 @@ item-aware analysis plan.
   were rendered as intact prose; malformed article/agreement derivations were
   rejected and counted before the join.  The next repair is deeper typed
   adjunction at the best surviving tree site, not another lexical beam.
+
+- **Reverse-complement Eulerian overlap graph, 2026-09-15:** mined 3-letter
+  character-context transitions from the local prose snapshots, retained only
+  transitions with an observed reverse-complement edge, and explored
+  edge-disjoint Euler trails before attempting English segmentation.  The base
+  graph had 4,452 eligible edges and produced 40 exact rendered probes, but no
+  balanced trail survived the independent content-word and dependency proxy
+  gates; a held-out singleton-context degree repair produced zero balanced
+  trails.  The probes remain diagnostic and require human reading evidence.

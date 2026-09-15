@@ -42,6 +42,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "lexicalized-tag-yield-equation" in ids
     assert "mined-phrase-chunk-clause-composition" in ids
     assert "variable-boundary-tape-ilp" in ids
+    assert "reverse-complement-eulerian" in ids
 
 
 def test_latest_artifacts_were_preflighted_before_self_registration():
@@ -68,3 +69,9 @@ def test_latest_artifacts_were_preflighted_before_self_registration():
     assert ilp_run["novelty_audit"]["prior_signatures_overlap"] == []
     assert ilp_run["solver_summary"]["exact_solution_count"] == 0
     assert ilp_run["results"][0]["rendered_probe"]["independent_exact_audit"]["exact"] is False
+    euler_run = json.loads((root / "runs" / "reverse-complement-eulerian-20260915.json").read_text())
+    assert euler_run["novelty_audit"]["registry_entries_read_before_run"] == 52
+    assert euler_run["novelty_audit"]["signature_overlap"] == []
+    assert euler_run["stats"]["rendered_probes"] == 40
+    assert euler_run["stats"]["reader_eligible"] == 0
+    assert euler_run["repair_run"]["balanced_trails"] == 0

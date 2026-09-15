@@ -1,0 +1,3400 @@
+{
+  "status": "complete_whole_discourse_word_equation_experiment",
+  "config": {
+    "min_letters": 39,
+    "max_letters": 200,
+    "long_control_floor": 100,
+    "max_sentences": 8,
+    "state_budget_per_scene": 100000,
+    "control_sampling_seed": 20260914,
+    "control_draws_per_scene": 2000
+  },
+  "provenance": {
+    "scenes": [
+      {
+        "identifier": "studio",
+        "description": "Observations of people preparing a shared art studio.",
+        "clauses": [
+          "An artist sketches.",
+          "Some painters chat.",
+          "Several students draw.",
+          "Diana mixes colors.",
+          "Lisa trims paper.",
+          "Nadia labels portraits.",
+          "An assistant sorts brushes.",
+          "Some visitors inspect the murals.",
+          "Clean sheets cover the tables.",
+          "Light enters through tall windows.",
+          "Music fills the room.",
+          "Fresh flowers stand beside the easel.",
+          "The instructor praises Diana.",
+          "A volunteer helps Lisa.",
+          "Quiet observers thank Nadia.",
+          "Children admire the painted door.",
+          "Staff arrange the chairs.",
+          "One apprentice folds cloth.",
+          "A conservator studies the canvas.",
+          "The last guests depart."
+        ]
+      },
+      {
+        "identifier": "workshop",
+        "description": "Independent observations inside a working repair shop.",
+        "clauses": [
+          "Some mechanics work.",
+          "An apprentice listens.",
+          "Several engines idle.",
+          "Clean tools hang beside the bench.",
+          "Fresh parts fill the boxes.",
+          "A driver tests the brakes.",
+          "Diana checks tire pressure.",
+          "Lisa repairs the pump.",
+          "Nadia tightens bolts.",
+          "One trainee polishes metal.",
+          "A supervisor guides Diana.",
+          "An electrician advises Lisa.",
+          "The foreman thanks Nadia.",
+          "Open windows cool the garage.",
+          "Daylight reaches the floor.",
+          "Workers carry the damaged panel.",
+          "A customer examines the receipt.",
+          "Two technicians inspect wiring.",
+          "The delivery truck arrives.",
+          "Neighbors collect restored bicycles."
+        ]
+      },
+      {
+        "identifier": "garden",
+        "description": "Independent observations during a community garden session.",
+        "clauses": [
+          "Some gardeners dig.",
+          "An observer waits.",
+          "Several children plant seeds.",
+          "Diana waters the roses.",
+          "Lisa fills baskets.",
+          "Nadia counts seedlings.",
+          "A teacher encourages Diana.",
+          "One volunteer assists Lisa.",
+          "The organizer greets Nadia.",
+          "Warm sunlight dries the path.",
+          "Small birds gather near the gate.",
+          "New leaves cover the branches.",
+          "Parents share fresh bread.",
+          "Two workers mend the fence.",
+          "An apprentice carries compost.",
+          "A neighbor prunes the hedge.",
+          "Flowers attract bees.",
+          "Rain clouds cross the sky.",
+          "Clean boots rest beside the door.",
+          "Visitors enjoy the afternoon."
+        ]
+      }
+    ],
+    "catalogue_material": "none; shared catalogue used only to exclude results",
+    "program_sha256": "3bb8b182ff4cb5ab75323076910aeda9c3a5ecfa0b9c164b335db199fa4c3216"
+  },
+  "provenance_sha256": "9d11bb8e7689062ed2887b0422600e23fafdc73004887bf5f4d002de880ac354",
+  "searches": [
+    {
+      "scene": "studio",
+      "sentences": 20,
+      "states": 21,
+      "max_sentences_in_state": 1,
+      "residual_transitions": 20,
+      "residual_mismatches": 380,
+      "budget_exhausted": false,
+      "unexpanded_states": 0,
+      "exact_orders": 0
+    },
+    {
+      "scene": "workshop",
+      "sentences": 20,
+      "states": 21,
+      "max_sentences_in_state": 1,
+      "residual_transitions": 20,
+      "residual_mismatches": 380,
+      "budget_exhausted": false,
+      "unexpanded_states": 0,
+      "exact_orders": 0
+    },
+    {
+      "scene": "garden",
+      "sentences": 20,
+      "states": 21,
+      "max_sentences_in_state": 1,
+      "residual_transitions": 20,
+      "residual_mismatches": 380,
+      "budget_exhausted": false,
+      "unexpanded_states": 0,
+      "exact_orders": 0
+    }
+  ],
+  "records": [
+    {
+      "scene": "studio",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        9,
+        8,
+        7,
+        19
+      ],
+      "text": "Light enters through tall windows. Clean sheets cover the tables. Some visitors inspect the murals. The last guests depart.",
+      "independent_audit": {
+        "normalized": "lightentersthroughtallwindowscleansheetscoverthetablessomevisitorsinspectthemuralsthelastguestsdepart",
+        "letters": 101,
+        "mismatched_pairs": [
+          [
+            0,
+            100
+          ],
+          [
+            1,
+            99
+          ],
+          [
+            2,
+            98
+          ],
+          [
+            3,
+            97
+          ],
+          [
+            4,
+            96
+          ],
+          [
+            5,
+            95
+          ],
+          [
+            6,
+            94
+          ],
+          [
+            8,
+            92
+          ],
+          [
+            9,
+            91
+          ],
+          [
+            10,
+            90
+          ],
+          [
+            11,
+            89
+          ],
+          [
+            12,
+            88
+          ],
+          [
+            13,
+            87
+          ],
+          [
+            14,
+            86
+          ],
+          [
+            15,
+            85
+          ],
+          [
+            16,
+            84
+          ],
+          [
+            19,
+            81
+          ],
+          [
+            21,
+            79
+          ],
+          [
+            22,
+            78
+          ],
+          [
+            23,
+            77
+          ],
+          [
+            24,
+            76
+          ],
+          [
+            25,
+            75
+          ],
+          [
+            26,
+            74
+          ],
+          [
+            27,
+            73
+          ],
+          [
+            28,
+            72
+          ],
+          [
+            30,
+            70
+          ],
+          [
+            31,
+            69
+          ],
+          [
+            32,
+            68
+          ],
+          [
+            34,
+            66
+          ],
+          [
+            35,
+            65
+          ],
+          [
+            36,
+            64
+          ],
+          [
+            37,
+            63
+          ],
+          [
+            39,
+            61
+          ],
+          [
+            40,
+            60
+          ],
+          [
+            41,
+            59
+          ],
+          [
+            44,
+            56
+          ],
+          [
+            45,
+            55
+          ],
+          [
+            46,
+            54
+          ],
+          [
+            47,
+            53
+          ],
+          [
+            48,
+            52
+          ],
+          [
+            49,
+            51
+          ]
+        ],
+        "mismatched_pair_count": 41,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "studio",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        1,
+        16,
+        18,
+        4,
+        6
+      ],
+      "text": "Some painters chat. Staff arrange the chairs. A conservator studies the canvas. Lisa trims paper. An assistant sorts brushes.",
+      "independent_audit": {
+        "normalized": "somepainterschatstaffarrangethechairsaconservatorstudiesthecanvaslisatrimspaperanassistantsortsbrushes",
+        "letters": 102,
+        "mismatched_pairs": [
+          [
+            1,
+            100
+          ],
+          [
+            2,
+            99
+          ],
+          [
+            3,
+            98
+          ],
+          [
+            4,
+            97
+          ],
+          [
+            5,
+            96
+          ],
+          [
+            6,
+            95
+          ],
+          [
+            7,
+            94
+          ],
+          [
+            9,
+            92
+          ],
+          [
+            10,
+            91
+          ],
+          [
+            12,
+            89
+          ],
+          [
+            13,
+            88
+          ],
+          [
+            17,
+            84
+          ],
+          [
+            18,
+            83
+          ],
+          [
+            19,
+            82
+          ],
+          [
+            20,
+            81
+          ],
+          [
+            21,
+            80
+          ],
+          [
+            22,
+            79
+          ],
+          [
+            24,
+            77
+          ],
+          [
+            25,
+            76
+          ],
+          [
+            26,
+            75
+          ],
+          [
+            27,
+            74
+          ],
+          [
+            28,
+            73
+          ],
+          [
+            29,
+            72
+          ],
+          [
+            30,
+            71
+          ],
+          [
+            31,
+            70
+          ],
+          [
+            32,
+            69
+          ],
+          [
+            34,
+            67
+          ],
+          [
+            35,
+            66
+          ],
+          [
+            36,
+            65
+          ],
+          [
+            37,
+            64
+          ],
+          [
+            38,
+            63
+          ],
+          [
+            39,
+            62
+          ],
+          [
+            41,
+            60
+          ],
+          [
+            42,
+            59
+          ],
+          [
+            43,
+            58
+          ],
+          [
+            44,
+            57
+          ],
+          [
+            45,
+            56
+          ],
+          [
+            46,
+            55
+          ],
+          [
+            47,
+            54
+          ],
+          [
+            48,
+            53
+          ],
+          [
+            49,
+            52
+          ],
+          [
+            50,
+            51
+          ]
+        ],
+        "mismatched_pair_count": 42,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "studio",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        15,
+        11,
+        0,
+        12
+      ],
+      "text": "Children admire the painted door. Fresh flowers stand beside the easel. An artist sketches. The instructor praises Diana.",
+      "independent_audit": {
+        "normalized": "childrenadmirethepainteddoorfreshflowersstandbesidetheeaselanartistsketchestheinstructorpraisesdiana",
+        "letters": 100,
+        "mismatched_pairs": [
+          [
+            0,
+            99
+          ],
+          [
+            1,
+            98
+          ],
+          [
+            2,
+            97
+          ],
+          [
+            3,
+            96
+          ],
+          [
+            5,
+            94
+          ],
+          [
+            7,
+            92
+          ],
+          [
+            8,
+            91
+          ],
+          [
+            9,
+            90
+          ],
+          [
+            10,
+            89
+          ],
+          [
+            11,
+            88
+          ],
+          [
+            13,
+            86
+          ],
+          [
+            15,
+            84
+          ],
+          [
+            16,
+            83
+          ],
+          [
+            17,
+            82
+          ],
+          [
+            18,
+            81
+          ],
+          [
+            19,
+            80
+          ],
+          [
+            21,
+            78
+          ],
+          [
+            23,
+            76
+          ],
+          [
+            24,
+            75
+          ],
+          [
+            25,
+            74
+          ],
+          [
+            26,
+            73
+          ],
+          [
+            27,
+            72
+          ],
+          [
+            28,
+            71
+          ],
+          [
+            29,
+            70
+          ],
+          [
+            31,
+            68
+          ],
+          [
+            32,
+            67
+          ],
+          [
+            33,
+            66
+          ],
+          [
+            34,
+            65
+          ],
+          [
+            35,
+            64
+          ],
+          [
+            36,
+            63
+          ],
+          [
+            37,
+            62
+          ],
+          [
+            38,
+            61
+          ],
+          [
+            39,
+            60
+          ],
+          [
+            40,
+            59
+          ],
+          [
+            41,
+            58
+          ],
+          [
+            42,
+            57
+          ],
+          [
+            43,
+            56
+          ],
+          [
+            44,
+            55
+          ],
+          [
+            45,
+            54
+          ],
+          [
+            47,
+            52
+          ],
+          [
+            48,
+            51
+          ],
+          [
+            49,
+            50
+          ]
+        ],
+        "mismatched_pair_count": 42,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "studio",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        15,
+        13,
+        7,
+        12
+      ],
+      "text": "Children admire the painted door. A volunteer helps Lisa. Some visitors inspect the murals. The instructor praises Diana.",
+      "independent_audit": {
+        "normalized": "childrenadmirethepainteddooravolunteerhelpslisasomevisitorsinspectthemuralstheinstructorpraisesdiana",
+        "letters": 100,
+        "mismatched_pairs": [
+          [
+            0,
+            99
+          ],
+          [
+            1,
+            98
+          ],
+          [
+            2,
+            97
+          ],
+          [
+            3,
+            96
+          ],
+          [
+            5,
+            94
+          ],
+          [
+            7,
+            92
+          ],
+          [
+            8,
+            91
+          ],
+          [
+            9,
+            90
+          ],
+          [
+            10,
+            89
+          ],
+          [
+            11,
+            88
+          ],
+          [
+            13,
+            86
+          ],
+          [
+            15,
+            84
+          ],
+          [
+            16,
+            83
+          ],
+          [
+            17,
+            82
+          ],
+          [
+            18,
+            81
+          ],
+          [
+            19,
+            80
+          ],
+          [
+            21,
+            78
+          ],
+          [
+            23,
+            76
+          ],
+          [
+            24,
+            75
+          ],
+          [
+            25,
+            74
+          ],
+          [
+            26,
+            73
+          ],
+          [
+            27,
+            72
+          ],
+          [
+            28,
+            71
+          ],
+          [
+            29,
+            70
+          ],
+          [
+            30,
+            69
+          ],
+          [
+            31,
+            68
+          ],
+          [
+            32,
+            67
+          ],
+          [
+            33,
+            66
+          ],
+          [
+            35,
+            64
+          ],
+          [
+            37,
+            62
+          ],
+          [
+            38,
+            61
+          ],
+          [
+            39,
+            60
+          ],
+          [
+            40,
+            59
+          ],
+          [
+            41,
+            58
+          ],
+          [
+            42,
+            57
+          ],
+          [
+            43,
+            56
+          ],
+          [
+            44,
+            55
+          ],
+          [
+            45,
+            54
+          ],
+          [
+            46,
+            53
+          ],
+          [
+            47,
+            52
+          ],
+          [
+            48,
+            51
+          ],
+          [
+            49,
+            50
+          ]
+        ],
+        "mismatched_pair_count": 42,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "studio",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        15,
+        14,
+        6,
+        18
+      ],
+      "text": "Children admire the painted door. Quiet observers thank Nadia. An assistant sorts brushes. A conservator studies the canvas.",
+      "independent_audit": {
+        "normalized": "childrenadmirethepainteddoorquietobserversthanknadiaanassistantsortsbrushesaconservatorstudiesthecanvas",
+        "letters": 103,
+        "mismatched_pairs": [
+          [
+            0,
+            102
+          ],
+          [
+            1,
+            101
+          ],
+          [
+            2,
+            100
+          ],
+          [
+            3,
+            99
+          ],
+          [
+            4,
+            98
+          ],
+          [
+            5,
+            97
+          ],
+          [
+            7,
+            95
+          ],
+          [
+            8,
+            94
+          ],
+          [
+            9,
+            93
+          ],
+          [
+            10,
+            92
+          ],
+          [
+            12,
+            90
+          ],
+          [
+            13,
+            89
+          ],
+          [
+            15,
+            87
+          ],
+          [
+            16,
+            86
+          ],
+          [
+            17,
+            85
+          ],
+          [
+            18,
+            84
+          ],
+          [
+            19,
+            83
+          ],
+          [
+            20,
+            82
+          ],
+          [
+            21,
+            81
+          ],
+          [
+            23,
+            79
+          ],
+          [
+            24,
+            78
+          ],
+          [
+            26,
+            76
+          ],
+          [
+            27,
+            75
+          ],
+          [
+            28,
+            74
+          ],
+          [
+            29,
+            73
+          ],
+          [
+            30,
+            72
+          ],
+          [
+            31,
+            71
+          ],
+          [
+            32,
+            70
+          ],
+          [
+            33,
+            69
+          ],
+          [
+            36,
+            66
+          ],
+          [
+            38,
+            64
+          ],
+          [
+            39,
+            63
+          ],
+          [
+            40,
+            62
+          ],
+          [
+            41,
+            61
+          ],
+          [
+            42,
+            60
+          ],
+          [
+            43,
+            59
+          ],
+          [
+            44,
+            58
+          ],
+          [
+            45,
+            57
+          ],
+          [
+            46,
+            56
+          ],
+          [
+            47,
+            55
+          ],
+          [
+            49,
+            53
+          ],
+          [
+            50,
+            52
+          ]
+        ],
+        "mismatched_pair_count": 42,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "workshop",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        2,
+        9,
+        18,
+        0,
+        1
+      ],
+      "text": "Several engines idle. One trainee polishes metal. The delivery truck arrives. Some mechanics work. An apprentice listens.",
+      "independent_audit": {
+        "normalized": "severalenginesidleonetraineepolishesmetalthedeliverytruckarrivessomemechanicsworkanapprenticelistens",
+        "letters": 100,
+        "mismatched_pairs": [
+          [
+            1,
+            98
+          ],
+          [
+            2,
+            97
+          ],
+          [
+            3,
+            96
+          ],
+          [
+            4,
+            95
+          ],
+          [
+            5,
+            94
+          ],
+          [
+            8,
+            91
+          ],
+          [
+            9,
+            90
+          ],
+          [
+            10,
+            89
+          ],
+          [
+            13,
+            86
+          ],
+          [
+            14,
+            85
+          ],
+          [
+            15,
+            84
+          ],
+          [
+            16,
+            83
+          ],
+          [
+            17,
+            82
+          ],
+          [
+            18,
+            81
+          ],
+          [
+            19,
+            80
+          ],
+          [
+            20,
+            79
+          ],
+          [
+            21,
+            78
+          ],
+          [
+            22,
+            77
+          ],
+          [
+            23,
+            76
+          ],
+          [
+            24,
+            75
+          ],
+          [
+            25,
+            74
+          ],
+          [
+            26,
+            73
+          ],
+          [
+            27,
+            72
+          ],
+          [
+            28,
+            71
+          ],
+          [
+            29,
+            70
+          ],
+          [
+            30,
+            69
+          ],
+          [
+            31,
+            68
+          ],
+          [
+            32,
+            67
+          ],
+          [
+            33,
+            66
+          ],
+          [
+            34,
+            65
+          ],
+          [
+            36,
+            63
+          ],
+          [
+            38,
+            61
+          ],
+          [
+            39,
+            60
+          ],
+          [
+            40,
+            59
+          ],
+          [
+            41,
+            58
+          ],
+          [
+            42,
+            57
+          ],
+          [
+            43,
+            56
+          ],
+          [
+            44,
+            55
+          ],
+          [
+            45,
+            54
+          ],
+          [
+            46,
+            53
+          ],
+          [
+            47,
+            52
+          ],
+          [
+            48,
+            51
+          ],
+          [
+            49,
+            50
+          ]
+        ],
+        "mismatched_pair_count": 43,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "workshop",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        6,
+        17,
+        9,
+        3
+      ],
+      "text": "Diana checks tire pressure. Two technicians inspect wiring. One trainee polishes metal. Clean tools hang beside the bench.",
+      "independent_audit": {
+        "normalized": "dianacheckstirepressuretwotechniciansinspectwiringonetraineepolishesmetalcleantoolshangbesidethebench",
+        "letters": 101,
+        "mismatched_pairs": [
+          [
+            0,
+            100
+          ],
+          [
+            1,
+            99
+          ],
+          [
+            2,
+            98
+          ],
+          [
+            3,
+            97
+          ],
+          [
+            4,
+            96
+          ],
+          [
+            5,
+            95
+          ],
+          [
+            7,
+            93
+          ],
+          [
+            8,
+            92
+          ],
+          [
+            9,
+            91
+          ],
+          [
+            10,
+            90
+          ],
+          [
+            11,
+            89
+          ],
+          [
+            12,
+            88
+          ],
+          [
+            13,
+            87
+          ],
+          [
+            14,
+            86
+          ],
+          [
+            15,
+            85
+          ],
+          [
+            16,
+            84
+          ],
+          [
+            17,
+            83
+          ],
+          [
+            19,
+            81
+          ],
+          [
+            20,
+            80
+          ],
+          [
+            21,
+            79
+          ],
+          [
+            22,
+            78
+          ],
+          [
+            23,
+            77
+          ],
+          [
+            24,
+            76
+          ],
+          [
+            25,
+            75
+          ],
+          [
+            26,
+            74
+          ],
+          [
+            27,
+            73
+          ],
+          [
+            28,
+            72
+          ],
+          [
+            29,
+            71
+          ],
+          [
+            30,
+            70
+          ],
+          [
+            31,
+            69
+          ],
+          [
+            32,
+            68
+          ],
+          [
+            33,
+            67
+          ],
+          [
+            34,
+            66
+          ],
+          [
+            35,
+            65
+          ],
+          [
+            38,
+            62
+          ],
+          [
+            39,
+            61
+          ],
+          [
+            42,
+            58
+          ],
+          [
+            43,
+            57
+          ],
+          [
+            44,
+            56
+          ],
+          [
+            45,
+            55
+          ],
+          [
+            47,
+            53
+          ],
+          [
+            48,
+            52
+          ],
+          [
+            49,
+            51
+          ]
+        ],
+        "mismatched_pair_count": 43,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "workshop",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        9,
+        14,
+        13,
+        19
+      ],
+      "text": "One trainee polishes metal. Daylight reaches the floor. Open windows cool the garage. Neighbors collect restored bicycles.",
+      "independent_audit": {
+        "normalized": "onetraineepolishesmetaldaylightreachestheflooropenwindowscoolthegarageneighborscollectrestoredbicycles",
+        "letters": 102,
+        "mismatched_pairs": [
+          [
+            0,
+            101
+          ],
+          [
+            1,
+            100
+          ],
+          [
+            2,
+            99
+          ],
+          [
+            3,
+            98
+          ],
+          [
+            4,
+            97
+          ],
+          [
+            5,
+            96
+          ],
+          [
+            7,
+            94
+          ],
+          [
+            8,
+            93
+          ],
+          [
+            10,
+            91
+          ],
+          [
+            12,
+            89
+          ],
+          [
+            13,
+            88
+          ],
+          [
+            14,
+            87
+          ],
+          [
+            15,
+            86
+          ],
+          [
+            16,
+            85
+          ],
+          [
+            17,
+            84
+          ],
+          [
+            18,
+            83
+          ],
+          [
+            19,
+            82
+          ],
+          [
+            20,
+            81
+          ],
+          [
+            21,
+            80
+          ],
+          [
+            22,
+            79
+          ],
+          [
+            23,
+            78
+          ],
+          [
+            24,
+            77
+          ],
+          [
+            25,
+            76
+          ],
+          [
+            26,
+            75
+          ],
+          [
+            27,
+            74
+          ],
+          [
+            29,
+            72
+          ],
+          [
+            30,
+            71
+          ],
+          [
+            31,
+            70
+          ],
+          [
+            33,
+            68
+          ],
+          [
+            34,
+            67
+          ],
+          [
+            35,
+            66
+          ],
+          [
+            36,
+            65
+          ],
+          [
+            37,
+            64
+          ],
+          [
+            38,
+            63
+          ],
+          [
+            40,
+            61
+          ],
+          [
+            41,
+            60
+          ],
+          [
+            42,
+            59
+          ],
+          [
+            44,
+            57
+          ],
+          [
+            45,
+            56
+          ],
+          [
+            46,
+            55
+          ],
+          [
+            47,
+            54
+          ],
+          [
+            48,
+            53
+          ],
+          [
+            50,
+            51
+          ]
+        ],
+        "mismatched_pair_count": 43,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "workshop",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        18,
+        14,
+        17,
+        3
+      ],
+      "text": "The delivery truck arrives. Daylight reaches the floor. Two technicians inspect wiring. Clean tools hang beside the bench.",
+      "independent_audit": {
+        "normalized": "thedeliverytruckarrivesdaylightreachesthefloortwotechniciansinspectwiringcleantoolshangbesidethebench",
+        "letters": 101,
+        "mismatched_pairs": [
+          [
+            0,
+            100
+          ],
+          [
+            1,
+            99
+          ],
+          [
+            2,
+            98
+          ],
+          [
+            3,
+            97
+          ],
+          [
+            4,
+            96
+          ],
+          [
+            5,
+            95
+          ],
+          [
+            6,
+            94
+          ],
+          [
+            7,
+            93
+          ],
+          [
+            9,
+            91
+          ],
+          [
+            10,
+            90
+          ],
+          [
+            11,
+            89
+          ],
+          [
+            12,
+            88
+          ],
+          [
+            13,
+            87
+          ],
+          [
+            14,
+            86
+          ],
+          [
+            15,
+            85
+          ],
+          [
+            17,
+            83
+          ],
+          [
+            18,
+            82
+          ],
+          [
+            19,
+            81
+          ],
+          [
+            20,
+            80
+          ],
+          [
+            21,
+            79
+          ],
+          [
+            22,
+            78
+          ],
+          [
+            23,
+            77
+          ],
+          [
+            25,
+            75
+          ],
+          [
+            27,
+            73
+          ],
+          [
+            29,
+            71
+          ],
+          [
+            30,
+            70
+          ],
+          [
+            32,
+            68
+          ],
+          [
+            33,
+            67
+          ],
+          [
+            34,
+            66
+          ],
+          [
+            35,
+            65
+          ],
+          [
+            37,
+            63
+          ],
+          [
+            38,
+            62
+          ],
+          [
+            39,
+            61
+          ],
+          [
+            40,
+            60
+          ],
+          [
+            41,
+            59
+          ],
+          [
+            42,
+            58
+          ],
+          [
+            43,
+            57
+          ],
+          [
+            44,
+            56
+          ],
+          [
+            45,
+            55
+          ],
+          [
+            46,
+            54
+          ],
+          [
+            47,
+            53
+          ],
+          [
+            48,
+            52
+          ],
+          [
+            49,
+            51
+          ]
+        ],
+        "mismatched_pair_count": 43,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "workshop",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        2,
+        6,
+        7,
+        16,
+        8
+      ],
+      "text": "Several engines idle. Diana checks tire pressure. Lisa repairs the pump. A customer examines the receipt. Nadia tightens bolts.",
+      "independent_audit": {
+        "normalized": "severalenginesidledianacheckstirepressurelisarepairsthepumpacustomerexaminesthereceiptnadiatightensbolts",
+        "letters": 104,
+        "mismatched_pairs": [
+          [
+            1,
+            102
+          ],
+          [
+            2,
+            101
+          ],
+          [
+            3,
+            100
+          ],
+          [
+            4,
+            99
+          ],
+          [
+            5,
+            98
+          ],
+          [
+            6,
+            97
+          ],
+          [
+            8,
+            95
+          ],
+          [
+            9,
+            94
+          ],
+          [
+            10,
+            93
+          ],
+          [
+            11,
+            92
+          ],
+          [
+            12,
+            91
+          ],
+          [
+            13,
+            90
+          ],
+          [
+            16,
+            87
+          ],
+          [
+            17,
+            86
+          ],
+          [
+            18,
+            85
+          ],
+          [
+            19,
+            84
+          ],
+          [
+            20,
+            83
+          ],
+          [
+            21,
+            82
+          ],
+          [
+            22,
+            81
+          ],
+          [
+            23,
+            80
+          ],
+          [
+            24,
+            79
+          ],
+          [
+            26,
+            77
+          ],
+          [
+            27,
+            76
+          ],
+          [
+            29,
+            74
+          ],
+          [
+            30,
+            73
+          ],
+          [
+            31,
+            72
+          ],
+          [
+            32,
+            71
+          ],
+          [
+            33,
+            70
+          ],
+          [
+            34,
+            69
+          ],
+          [
+            36,
+            67
+          ],
+          [
+            37,
+            66
+          ],
+          [
+            38,
+            65
+          ],
+          [
+            39,
+            64
+          ],
+          [
+            40,
+            63
+          ],
+          [
+            41,
+            62
+          ],
+          [
+            42,
+            61
+          ],
+          [
+            43,
+            60
+          ],
+          [
+            45,
+            58
+          ],
+          [
+            46,
+            57
+          ],
+          [
+            47,
+            56
+          ],
+          [
+            48,
+            55
+          ],
+          [
+            49,
+            54
+          ],
+          [
+            50,
+            53
+          ],
+          [
+            51,
+            52
+          ]
+        ],
+        "mismatched_pair_count": 44,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "garden",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        16,
+        11,
+        1,
+        0,
+        18
+      ],
+      "text": "Flowers attract bees. New leaves cover the branches. An observer waits. Some gardeners dig. Clean boots rest beside the door.",
+      "independent_audit": {
+        "normalized": "flowersattractbeesnewleavescoverthebranchesanobserverwaitssomegardenersdigcleanbootsrestbesidethedoor",
+        "letters": 101,
+        "mismatched_pairs": [
+          [
+            0,
+            100
+          ],
+          [
+            1,
+            99
+          ],
+          [
+            3,
+            97
+          ],
+          [
+            5,
+            95
+          ],
+          [
+            6,
+            94
+          ],
+          [
+            7,
+            93
+          ],
+          [
+            8,
+            92
+          ],
+          [
+            9,
+            91
+          ],
+          [
+            10,
+            90
+          ],
+          [
+            11,
+            89
+          ],
+          [
+            12,
+            88
+          ],
+          [
+            14,
+            86
+          ],
+          [
+            16,
+            84
+          ],
+          [
+            18,
+            82
+          ],
+          [
+            19,
+            81
+          ],
+          [
+            20,
+            80
+          ],
+          [
+            21,
+            79
+          ],
+          [
+            22,
+            78
+          ],
+          [
+            24,
+            76
+          ],
+          [
+            25,
+            75
+          ],
+          [
+            26,
+            74
+          ],
+          [
+            27,
+            73
+          ],
+          [
+            28,
+            72
+          ],
+          [
+            29,
+            71
+          ],
+          [
+            30,
+            70
+          ],
+          [
+            32,
+            68
+          ],
+          [
+            33,
+            67
+          ],
+          [
+            35,
+            65
+          ],
+          [
+            38,
+            62
+          ],
+          [
+            39,
+            61
+          ],
+          [
+            40,
+            60
+          ],
+          [
+            41,
+            59
+          ],
+          [
+            43,
+            57
+          ],
+          [
+            44,
+            56
+          ],
+          [
+            45,
+            55
+          ],
+          [
+            46,
+            54
+          ],
+          [
+            47,
+            53
+          ],
+          [
+            48,
+            52
+          ],
+          [
+            49,
+            51
+          ]
+        ],
+        "mismatched_pair_count": 39,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "garden",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        1,
+        5,
+        2,
+        17,
+        3
+      ],
+      "text": "An observer waits. Nadia counts seedlings. Several children plant seeds. Rain clouds cross the sky. Diana waters the roses.",
+      "independent_audit": {
+        "normalized": "anobserverwaitsnadiacountsseedlingsseveralchildrenplantseedsraincloudscrosstheskydianawaterstheroses",
+        "letters": 100,
+        "mismatched_pairs": [
+          [
+            0,
+            99
+          ],
+          [
+            1,
+            98
+          ],
+          [
+            2,
+            97
+          ],
+          [
+            3,
+            96
+          ],
+          [
+            4,
+            95
+          ],
+          [
+            6,
+            93
+          ],
+          [
+            7,
+            92
+          ],
+          [
+            8,
+            91
+          ],
+          [
+            10,
+            89
+          ],
+          [
+            11,
+            88
+          ],
+          [
+            12,
+            87
+          ],
+          [
+            13,
+            86
+          ],
+          [
+            14,
+            85
+          ],
+          [
+            17,
+            82
+          ],
+          [
+            18,
+            81
+          ],
+          [
+            19,
+            80
+          ],
+          [
+            20,
+            79
+          ],
+          [
+            21,
+            78
+          ],
+          [
+            22,
+            77
+          ],
+          [
+            23,
+            76
+          ],
+          [
+            27,
+            72
+          ],
+          [
+            28,
+            71
+          ],
+          [
+            29,
+            70
+          ],
+          [
+            30,
+            69
+          ],
+          [
+            31,
+            68
+          ],
+          [
+            32,
+            67
+          ],
+          [
+            33,
+            66
+          ],
+          [
+            34,
+            65
+          ],
+          [
+            35,
+            64
+          ],
+          [
+            36,
+            63
+          ],
+          [
+            37,
+            62
+          ],
+          [
+            38,
+            61
+          ],
+          [
+            40,
+            59
+          ],
+          [
+            41,
+            58
+          ],
+          [
+            42,
+            57
+          ],
+          [
+            43,
+            56
+          ],
+          [
+            44,
+            55
+          ],
+          [
+            45,
+            54
+          ],
+          [
+            46,
+            53
+          ],
+          [
+            47,
+            52
+          ],
+          [
+            48,
+            51
+          ],
+          [
+            49,
+            50
+          ]
+        ],
+        "mismatched_pair_count": 42,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "garden",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        1,
+        3,
+        5,
+        19,
+        6
+      ],
+      "text": "An observer waits. Diana waters the roses. Nadia counts seedlings. Visitors enjoy the afternoon. A teacher encourages Diana.",
+      "independent_audit": {
+        "normalized": "anobserverwaitsdianawaterstherosesnadiacountsseedlingsvisitorsenjoytheafternoonateacherencouragesdiana",
+        "letters": 102,
+        "mismatched_pairs": [
+          [
+            2,
+            99
+          ],
+          [
+            3,
+            98
+          ],
+          [
+            4,
+            97
+          ],
+          [
+            5,
+            96
+          ],
+          [
+            6,
+            95
+          ],
+          [
+            7,
+            94
+          ],
+          [
+            8,
+            93
+          ],
+          [
+            10,
+            91
+          ],
+          [
+            11,
+            90
+          ],
+          [
+            12,
+            89
+          ],
+          [
+            13,
+            88
+          ],
+          [
+            14,
+            87
+          ],
+          [
+            15,
+            86
+          ],
+          [
+            16,
+            85
+          ],
+          [
+            17,
+            84
+          ],
+          [
+            18,
+            83
+          ],
+          [
+            20,
+            81
+          ],
+          [
+            21,
+            80
+          ],
+          [
+            22,
+            79
+          ],
+          [
+            23,
+            78
+          ],
+          [
+            24,
+            77
+          ],
+          [
+            25,
+            76
+          ],
+          [
+            26,
+            75
+          ],
+          [
+            27,
+            74
+          ],
+          [
+            29,
+            72
+          ],
+          [
+            30,
+            71
+          ],
+          [
+            31,
+            70
+          ],
+          [
+            33,
+            68
+          ],
+          [
+            34,
+            67
+          ],
+          [
+            35,
+            66
+          ],
+          [
+            36,
+            65
+          ],
+          [
+            37,
+            64
+          ],
+          [
+            38,
+            63
+          ],
+          [
+            39,
+            62
+          ],
+          [
+            40,
+            61
+          ],
+          [
+            41,
+            60
+          ],
+          [
+            42,
+            59
+          ],
+          [
+            44,
+            57
+          ],
+          [
+            46,
+            55
+          ],
+          [
+            47,
+            54
+          ],
+          [
+            48,
+            53
+          ],
+          [
+            49,
+            52
+          ],
+          [
+            50,
+            51
+          ]
+        ],
+        "mismatched_pair_count": 43,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "distinct_words",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "garden",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        2,
+        10,
+        7,
+        14
+      ],
+      "text": "Several children plant seeds. Small birds gather near the gate. One volunteer assists Lisa. An apprentice carries compost.",
+      "independent_audit": {
+        "normalized": "severalchildrenplantseedssmallbirdsgathernearthegateonevolunteerassistslisaanapprenticecarriescompost",
+        "letters": 101,
+        "mismatched_pairs": [
+          [
+            0,
+            100
+          ],
+          [
+            1,
+            99
+          ],
+          [
+            2,
+            98
+          ],
+          [
+            3,
+            97
+          ],
+          [
+            4,
+            96
+          ],
+          [
+            5,
+            95
+          ],
+          [
+            6,
+            94
+          ],
+          [
+            7,
+            93
+          ],
+          [
+            8,
+            92
+          ],
+          [
+            10,
+            90
+          ],
+          [
+            11,
+            89
+          ],
+          [
+            12,
+            88
+          ],
+          [
+            13,
+            87
+          ],
+          [
+            14,
+            86
+          ],
+          [
+            15,
+            85
+          ],
+          [
+            16,
+            84
+          ],
+          [
+            17,
+            83
+          ],
+          [
+            19,
+            81
+          ],
+          [
+            20,
+            80
+          ],
+          [
+            21,
+            79
+          ],
+          [
+            22,
+            78
+          ],
+          [
+            23,
+            77
+          ],
+          [
+            24,
+            76
+          ],
+          [
+            25,
+            75
+          ],
+          [
+            26,
+            74
+          ],
+          [
+            27,
+            73
+          ],
+          [
+            28,
+            72
+          ],
+          [
+            30,
+            70
+          ],
+          [
+            31,
+            69
+          ],
+          [
+            32,
+            68
+          ],
+          [
+            33,
+            67
+          ],
+          [
+            35,
+            65
+          ],
+          [
+            37,
+            63
+          ],
+          [
+            38,
+            62
+          ],
+          [
+            40,
+            60
+          ],
+          [
+            42,
+            58
+          ],
+          [
+            43,
+            57
+          ],
+          [
+            44,
+            56
+          ],
+          [
+            45,
+            55
+          ],
+          [
+            46,
+            54
+          ],
+          [
+            47,
+            53
+          ],
+          [
+            48,
+            52
+          ],
+          [
+            49,
+            51
+          ]
+        ],
+        "mismatched_pair_count": 43,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    },
+    {
+      "scene": "garden",
+      "kind": "complete_near_miss_control",
+      "source_sentence_indices": [
+        0,
+        9,
+        16,
+        5,
+        11
+      ],
+      "text": "Some gardeners dig. Warm sunlight dries the path. Flowers attract bees. Nadia counts seedlings. New leaves cover the branches.",
+      "independent_audit": {
+        "normalized": "somegardenersdigwarmsunlightdriesthepathflowersattractbeesnadiacountsseedlingsnewleavescoverthebranches",
+        "letters": 103,
+        "mismatched_pairs": [
+          [
+            1,
+            101
+          ],
+          [
+            2,
+            100
+          ],
+          [
+            3,
+            99
+          ],
+          [
+            4,
+            98
+          ],
+          [
+            7,
+            95
+          ],
+          [
+            9,
+            93
+          ],
+          [
+            10,
+            92
+          ],
+          [
+            12,
+            90
+          ],
+          [
+            13,
+            89
+          ],
+          [
+            14,
+            88
+          ],
+          [
+            15,
+            87
+          ],
+          [
+            16,
+            86
+          ],
+          [
+            17,
+            85
+          ],
+          [
+            18,
+            84
+          ],
+          [
+            19,
+            83
+          ],
+          [
+            20,
+            82
+          ],
+          [
+            21,
+            81
+          ],
+          [
+            22,
+            80
+          ],
+          [
+            23,
+            79
+          ],
+          [
+            24,
+            78
+          ],
+          [
+            25,
+            77
+          ],
+          [
+            26,
+            76
+          ],
+          [
+            27,
+            75
+          ],
+          [
+            28,
+            74
+          ],
+          [
+            29,
+            73
+          ],
+          [
+            30,
+            72
+          ],
+          [
+            32,
+            70
+          ],
+          [
+            33,
+            69
+          ],
+          [
+            34,
+            68
+          ],
+          [
+            35,
+            67
+          ],
+          [
+            36,
+            66
+          ],
+          [
+            37,
+            65
+          ],
+          [
+            38,
+            64
+          ],
+          [
+            39,
+            63
+          ],
+          [
+            40,
+            62
+          ],
+          [
+            41,
+            61
+          ],
+          [
+            42,
+            60
+          ],
+          [
+            43,
+            59
+          ],
+          [
+            44,
+            58
+          ],
+          [
+            45,
+            57
+          ],
+          [
+            46,
+            56
+          ],
+          [
+            47,
+            55
+          ],
+          [
+            48,
+            54
+          ],
+          [
+            50,
+            52
+          ]
+        ],
+        "mismatched_pair_count": 44,
+        "unsupported_alphabetic_characters": [],
+        "exact": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true,
+        "independent_exact": false,
+        "distinct_source_sentences": true
+      },
+      "rejection_codes": [
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "independent_exact"
+      ],
+      "provenance": "Ordered subset of the frozen same-scene authored complete sentences.",
+      "reader_evidence": "none; source sentence integrity is a construction constraint, not a reader result"
+    }
+  ],
+  "exact_closures": 0,
+  "next_operator_if_empty": "Compile alternative grammatical constituent realizations at the first conflicting paired clauses while retaining sentence identities and the same multi-sentence residual equation; resume only after a nonempty residual transition is witnessed."
+}

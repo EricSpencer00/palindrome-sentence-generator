@@ -1,0 +1,41 @@
+{
+  "status": "complete_two_relative_chain_attachment_residual_bfs_no_reader_promotion",
+  "config": {
+    "relation_source": "Brown-derived SVO relations; source sentences never rendered",
+    "attachment_source": "independently Brown-attested adjective-noun and preposition-noun pairs",
+    "dependency_chain": "head subject -> first relative subject; first object -> second relative object",
+    "attachment_edges": [
+      "first_relative_object",
+      "second_relative_subject"
+    ],
+    "state_features": "three relation identities, two co-reference variables, number, tense, attachment metadata",
+    "minimum_letters": 39,
+    "maximum_letters": 280,
+    "independent_exact_audit": true,
+    "anti_shortcut_gate": true
+  },
+  "stats": {
+    "brown_sentences_scanned": 57340,
+    "attested_relations": 3533,
+    "attachment_brown_sentences_scanned": 57340,
+    "chain_attachment_frames": 497,
+    "indexed_tapes": 497,
+    "left_states_considered": 497,
+    "residual_misses": 497
+  },
+  "admitted": [],
+  "near_misses": [],
+  "residual_frontier": {
+    "indexed_tapes": 497,
+    "left_states": 497,
+    "unmatched_states": 497,
+    "matched_state_pairs_before_gates": 0
+  },
+  "provenance": {
+    "generator_sha256": "788c244f5bc98f7b71f82f3fc66594e3494582320fe3a7ad214fbd39d8871eee",
+    "source_text_copied": false,
+    "relations_and_attachments_attested_individually": true
+  },
+  "next_operator": "Add a bounded relative-chain lexical repair at one content boundary while preserving both co-reference variables and attachment attestations; independently audit each resulting closure.",
+  "reader_gate": "No output is human evidence; future closures require intact-prose and shuffled-control readers."
+}

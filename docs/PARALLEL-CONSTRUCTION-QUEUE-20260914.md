@@ -126,6 +126,18 @@ spaces are therefore both exhausted at this inventory scale.  The next
 operator must allow a live residual to cross into a second typed predicate or
 clause, rather than widening the same single-clause slots again.
 
+The multi-clause replay now does that for three asymmetric shapes: two clauses
+against one, one against two, and two against two.  It searched the same large
+phrase inventory through 29,958 live states with no exhausted budget and found
+zero exact closures.  The deepest nonclosed path matched 22 letters through
+`an aide / rips / nine memos / available writers` against the reverse-side
+path ending `Ava / some men / inspire / Diana`, then stopped on residual
+`ilablewriters`.  The original 38-letter closure also appeared as an internal
+empty-debt boundary, but extending it cannot pass the proper-palindromic-span
+gate.  The next operator must synthesize both word boundaries *inside* that
+deepest typed constituent residual; adding a third frozen clause would repeat
+the now-tested failure.
+
 ## Explicit shortcut rejection
 
 The superficially attractive extension
@@ -154,4 +166,5 @@ ordered subsets), `a424f02`/`5228430`/`196afb8` (dual typed chunk searches), and
 `c0dd732` (witnessed boundary bridge), and `810a97c` (exact dual-plan residual
 search with relative and coordinated expansions), and `bc0f1eb`
 (residual-indexed role-safe lexical expansion), and `f195f8d` (large indexed
-predicate/subject phrase bridge).
+predicate/subject phrase bridge), `1a19399` (expanded endpoint shapes), and
+`3b4928c` (asymmetric multi-clause residual search).

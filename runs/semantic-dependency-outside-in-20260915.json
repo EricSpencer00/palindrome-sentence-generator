@@ -1,0 +1,688 @@
+{
+  "status": "semantic_dependency_outside_in_complete",
+  "family_id": "semantic-dependency-outside-in",
+  "state_space_signature": "integer-span-boundaries|outside-in-arc-consistency|semantic-dependency-state|variable-length-lexeme-NPs|fresh-cause-preparation-narrative|paired-character-domain-constraints",
+  "registry_comparison": {
+    "registry_path": "/Users/eric/GitHub/palindrome-sentence-generator/docs/experiment-novelty-registry.json",
+    "registry_entry_count_at_generation": 32,
+    "expected_baseline_entry_count": 32,
+    "family_id_collision": false,
+    "signature_collision": false,
+    "comparison": "unique_against_32_entry_registry"
+  },
+  "model_schema": {
+    "integer_variables": {
+      "N": "one selected exact target length",
+      "start[i], end[i]": "integer span boundaries for dependency slot i",
+      "lexeme[i]": "finite-domain index; span length is constrained by selected lexeme"
+    },
+    "semantic_state": "dependency-state set tracks witness/object/custodian/cause obligations",
+    "hard_constraints": [
+      "end[i] - start[i] == len(lexeme[i])",
+      "start[i+1] == end[i] + one rendered word separator",
+      "distinct content units across the two clauses",
+      "semantic role/domain compatibility and causal grammar order",
+      "character domain at p equals character domain at N-1-p",
+      "all dependency obligations fulfilled at closure"
+    ],
+    "propagation": "outside-in arc consistency over paired integer spans and character domains",
+    "not_used": [
+      "reverse-tape segmentation or decoding",
+      "one-hot global rule CSP",
+      "clause-lattice DP",
+      "character FST or transducer",
+      "Brown/POS corpus search",
+      "event, dialogue, scene, morphology, or catalogue scaffold"
+    ]
+  },
+  "config": {
+    "target_lengths": [
+      39,
+      47,
+      55,
+      63,
+      71,
+      79,
+      87
+    ],
+    "minimum_letters": 39,
+    "maximum_letters": 120,
+    "state_limit_per_target": 18000,
+    "outside_in_pair_assignment": true,
+    "integer_word_boundaries": true,
+    "variable_length_multiword_lexemes": true,
+    "semantic_dependency_state": true,
+    "reverse_tape_segmentation": false,
+    "catalogue_text_or_scaffold": false,
+    "brown_pos_event_dialogue_scene_morphology_transducer_routes": false,
+    "output_excluded_before_repository_scan": true,
+    "bounded_state_budget_is_not_global_exhaustion": true
+  },
+  "grammar": {
+    "grammar_id": "observation-because-preparation",
+    "meaning": "a witness records an artifact because a custodian prepares a different artifact",
+    "surface_skeleton": "DET WITNESS OBSERVE DET ARTIFACT CAUSE DET CUSTODIAN PREPARE DET ARTIFACT",
+    "dependency_roles": [
+      {
+        "slot_id": "s0",
+        "role": "det",
+        "semantic_node": "observation_clause",
+        "domain": "DET",
+        "required_state": "open_observation"
+      },
+      {
+        "slot_id": "s1",
+        "role": "nsubj",
+        "semantic_node": "witness",
+        "domain": "WITNESS",
+        "required_state": "witness_bound"
+      },
+      {
+        "slot_id": "s2",
+        "role": "root_predicate",
+        "semantic_node": "observe",
+        "domain": "OBSERVE",
+        "required_state": "observation_bound"
+      },
+      {
+        "slot_id": "s3",
+        "role": "obj_det",
+        "semantic_node": "observed_artifact",
+        "domain": "DET",
+        "required_state": "object_det_bound"
+      },
+      {
+        "slot_id": "s4",
+        "role": "obj",
+        "semantic_node": "observed_artifact",
+        "domain": "ARTIFACT",
+        "required_state": "observation_complete"
+      },
+      {
+        "slot_id": "s5",
+        "role": "causal_marker",
+        "semantic_node": "cause",
+        "domain": "CAUSE",
+        "required_state": "cause_open"
+      },
+      {
+        "slot_id": "s6",
+        "role": "subj_det",
+        "semantic_node": "preparation_clause",
+        "domain": "DET",
+        "required_state": "subj_det_bound"
+      },
+      {
+        "slot_id": "s7",
+        "role": "nsubj",
+        "semantic_node": "custodian",
+        "domain": "CUSTODIAN",
+        "required_state": "custodian_bound"
+      },
+      {
+        "slot_id": "s8",
+        "role": "advcl_predicate",
+        "semantic_node": "prepare",
+        "domain": "PREPARE",
+        "required_state": "preparation_bound"
+      },
+      {
+        "slot_id": "s9",
+        "role": "obj_det",
+        "semantic_node": "prepared_artifact",
+        "domain": "DET",
+        "required_state": "prepared_det_bound"
+      },
+      {
+        "slot_id": "s10",
+        "role": "obj",
+        "semantic_node": "prepared_artifact",
+        "domain": "ARTIFACT",
+        "required_state": "narrative_complete"
+      }
+    ]
+  },
+  "lexicon_sha256": "0446b8f9e1eb2b738389b22d67439715dcd9ebfaa5bd7fd672dc5c2650a793f2",
+  "repository_fingerprint": {
+    "json_files_scanned": 1783,
+    "malformed_json_files_skipped": 0,
+    "normalized_string_keys": 612905,
+    "all_keys_sha256": "3b8c05f8fbfd40461b1ffef4866d6ee4899a9bbf768c01bc8bda43820622c343",
+    "output_excluded_before_scan": true,
+    "excluded_output": "runs/semantic-dependency-outside-in-20260915.json"
+  },
+  "search_totals": {
+    "states": 12,
+    "paired_span_branches": 195,
+    "span_domain_rejections": 214,
+    "semantic_rejections": 0,
+    "length_rejections": 3,
+    "closures": 0,
+    "budget_exhausted": 0
+  },
+  "target_runs": [
+    {
+      "target_letters": 39,
+      "stats": {
+        "states": 2,
+        "paired_span_branches": 39,
+        "span_domain_rejections": 44,
+        "semantic_rejections": 0,
+        "length_rejections": 0,
+        "closures": 0,
+        "budget_exhausted": 0
+      },
+      "closures": 0,
+      "deepest_outer_letters_assigned": 7
+    },
+    {
+      "target_letters": 47,
+      "stats": {
+        "states": 2,
+        "paired_span_branches": 39,
+        "span_domain_rejections": 44,
+        "semantic_rejections": 0,
+        "length_rejections": 0,
+        "closures": 0,
+        "budget_exhausted": 0
+      },
+      "closures": 0,
+      "deepest_outer_letters_assigned": 7
+    },
+    {
+      "target_letters": 55,
+      "stats": {
+        "states": 2,
+        "paired_span_branches": 39,
+        "span_domain_rejections": 44,
+        "semantic_rejections": 0,
+        "length_rejections": 0,
+        "closures": 0,
+        "budget_exhausted": 0
+      },
+      "closures": 0,
+      "deepest_outer_letters_assigned": 7
+    },
+    {
+      "target_letters": 63,
+      "stats": {
+        "states": 2,
+        "paired_span_branches": 39,
+        "span_domain_rejections": 44,
+        "semantic_rejections": 0,
+        "length_rejections": 0,
+        "closures": 0,
+        "budget_exhausted": 0
+      },
+      "closures": 0,
+      "deepest_outer_letters_assigned": 7
+    },
+    {
+      "target_letters": 71,
+      "stats": {
+        "states": 2,
+        "paired_span_branches": 39,
+        "span_domain_rejections": 38,
+        "semantic_rejections": 0,
+        "length_rejections": 1,
+        "closures": 0,
+        "budget_exhausted": 0
+      },
+      "closures": 0,
+      "deepest_outer_letters_assigned": 0
+    },
+    {
+      "target_letters": 79,
+      "stats": {
+        "states": 1,
+        "paired_span_branches": 0,
+        "span_domain_rejections": 0,
+        "semantic_rejections": 0,
+        "length_rejections": 1,
+        "closures": 0,
+        "budget_exhausted": 0
+      },
+      "closures": 0,
+      "deepest_outer_letters_assigned": 0
+    },
+    {
+      "target_letters": 87,
+      "stats": {
+        "states": 1,
+        "paired_span_branches": 0,
+        "span_domain_rejections": 0,
+        "semantic_rejections": 0,
+        "length_rejections": 1,
+        "closures": 0,
+        "budget_exhausted": 0
+      },
+      "closures": 0,
+      "deepest_outer_letters_assigned": 0
+    }
+  ],
+  "rendered_candidates": [],
+  "admitted": [],
+  "rendered_probes": [
+    {
+      "kind": "outside_in_dependency_partial_probe",
+      "target_letters": 39,
+      "rendered_probe": "a camera.",
+      "constraint_state": {
+        "left_slot": 1,
+        "right_slot": 9,
+        "left_integer_boundary": 1,
+        "right_integer_boundary": 33,
+        "semantic_state": [
+          "narrative_complete",
+          "open_observation"
+        ],
+        "chosen_left_to_right": [
+          "a",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "camera"
+        ],
+        "unassigned_slot_count": 9,
+        "outer_letters_assigned": 7
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 7,
+        "normalized_letters": "acamera",
+        "two_pointer_pairs_checked": 3,
+        "mismatch_count": 2,
+        "mismatch_sample": [
+          {
+            "left_index": 1,
+            "right_index": 5,
+            "left_char": "c",
+            "right_char": "r"
+          },
+          {
+            "left_index": 2,
+            "right_index": 4,
+            "left_char": "a",
+            "right_char": "e"
+          }
+        ],
+        "normalized_sha256": "d55afbac7436da28b5b35309ca0fbe563efe119c01283be413dc44fad9a10137"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 2,
+        "all_words_frequency_ge_2": true,
+        "mean_zipf_frequency": 6.115,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "Longest recorded outside-in span assignment before exact integer-span closure; unresolved slots remain semantic obligations.",
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "outside_in_dependency_partial_probe",
+      "target_letters": 47,
+      "rendered_probe": "a camera.",
+      "constraint_state": {
+        "left_slot": 1,
+        "right_slot": 9,
+        "left_integer_boundary": 1,
+        "right_integer_boundary": 41,
+        "semantic_state": [
+          "narrative_complete",
+          "open_observation"
+        ],
+        "chosen_left_to_right": [
+          "a",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "camera"
+        ],
+        "unassigned_slot_count": 9,
+        "outer_letters_assigned": 7
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 7,
+        "normalized_letters": "acamera",
+        "two_pointer_pairs_checked": 3,
+        "mismatch_count": 2,
+        "mismatch_sample": [
+          {
+            "left_index": 1,
+            "right_index": 5,
+            "left_char": "c",
+            "right_char": "r"
+          },
+          {
+            "left_index": 2,
+            "right_index": 4,
+            "left_char": "a",
+            "right_char": "e"
+          }
+        ],
+        "normalized_sha256": "d55afbac7436da28b5b35309ca0fbe563efe119c01283be413dc44fad9a10137"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 2,
+        "all_words_frequency_ge_2": true,
+        "mean_zipf_frequency": 6.115,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "Longest recorded outside-in span assignment before exact integer-span closure; unresolved slots remain semantic obligations.",
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "outside_in_dependency_partial_probe",
+      "target_letters": 55,
+      "rendered_probe": "a camera.",
+      "constraint_state": {
+        "left_slot": 1,
+        "right_slot": 9,
+        "left_integer_boundary": 1,
+        "right_integer_boundary": 49,
+        "semantic_state": [
+          "narrative_complete",
+          "open_observation"
+        ],
+        "chosen_left_to_right": [
+          "a",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "camera"
+        ],
+        "unassigned_slot_count": 9,
+        "outer_letters_assigned": 7
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 7,
+        "normalized_letters": "acamera",
+        "two_pointer_pairs_checked": 3,
+        "mismatch_count": 2,
+        "mismatch_sample": [
+          {
+            "left_index": 1,
+            "right_index": 5,
+            "left_char": "c",
+            "right_char": "r"
+          },
+          {
+            "left_index": 2,
+            "right_index": 4,
+            "left_char": "a",
+            "right_char": "e"
+          }
+        ],
+        "normalized_sha256": "d55afbac7436da28b5b35309ca0fbe563efe119c01283be413dc44fad9a10137"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 2,
+        "all_words_frequency_ge_2": true,
+        "mean_zipf_frequency": 6.115,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "Longest recorded outside-in span assignment before exact integer-span closure; unresolved slots remain semantic obligations.",
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "outside_in_dependency_partial_probe",
+      "target_letters": 63,
+      "rendered_probe": "a camera.",
+      "constraint_state": {
+        "left_slot": 1,
+        "right_slot": 9,
+        "left_integer_boundary": 1,
+        "right_integer_boundary": 57,
+        "semantic_state": [
+          "narrative_complete",
+          "open_observation"
+        ],
+        "chosen_left_to_right": [
+          "a",
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          "camera"
+        ],
+        "unassigned_slot_count": 9,
+        "outer_letters_assigned": 7
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 7,
+        "normalized_letters": "acamera",
+        "two_pointer_pairs_checked": 3,
+        "mismatch_count": 2,
+        "mismatch_sample": [
+          {
+            "left_index": 1,
+            "right_index": 5,
+            "left_char": "c",
+            "right_char": "r"
+          },
+          {
+            "left_index": 2,
+            "right_index": 4,
+            "left_char": "a",
+            "right_char": "e"
+          }
+        ],
+        "normalized_sha256": "d55afbac7436da28b5b35309ca0fbe563efe119c01283be413dc44fad9a10137"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 2,
+        "all_words_frequency_ge_2": true,
+        "mean_zipf_frequency": 6.115,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "Longest recorded outside-in span assignment before exact integer-span closure; unresolved slots remain semantic obligations.",
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "outside_in_dependency_partial_probe",
+      "target_letters": 71,
+      "rendered_probe": ".",
+      "constraint_state": {
+        "left_slot": 0,
+        "right_slot": 10,
+        "left_integer_boundary": 0,
+        "right_integer_boundary": 71,
+        "semantic_state": [],
+        "chosen_left_to_right": [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null
+        ],
+        "unassigned_slot_count": 11,
+        "outer_letters_assigned": 0
+      },
+      "independent_ascii_two_pointer_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 0,
+        "normalized_letters": "",
+        "two_pointer_pairs_checked": 0,
+        "mismatch_count": 0,
+        "mismatch_sample": [],
+        "normalized_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": false,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": false,
+        "lexicon_words": false,
+        "ordinary_short_words": false,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 0,
+        "all_words_frequency_ge_2": false,
+        "mean_zipf_frequency": null,
+        "intact_prose_reader_required": true
+      },
+      "failure_interpretation": "Longest recorded outside-in span assignment before exact integer-span closure; unresolved slots remain semantic obligations.",
+      "reader_status": "not_run"
+    }
+  ],
+  "next_repair_operator": {
+    "operator": "semantic-arc-domain-repair-at-deepest-integer-seam",
+    "action": "At the highest-offset probe, add one independently authored ordinary lexeme to the recorded dependency slot domain; choose its length and boundary so the first contradicted mirrored character pair is restored, then rerun every target with the same semantic-state obligations.",
+    "preserve": [
+      "integer start/end span variables",
+      "outside-in paired-domain propagation",
+      "dependency-state closure",
+      "distinct non-self-palindromic content",
+      "output-excluded novelty fingerprint"
+    ],
+    "forbidden_shortcuts": [
+      "reversing a completed clause",
+      "copying a catalogue palindrome",
+      "preassembling a symmetric centre",
+      "filler or punctuation characters"
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "598233d6d22950aeeed192aea9b5060312dbeb8e2931866f6502d10806a38315",
+    "grammar_material": "fresh hand-authored cause/preparation narrative dependency grammar",
+    "lexical_material": "fresh hand-authored semantic domains, including variable-length artifact NPs",
+    "source_sentences_copied": false,
+    "catalogue_relexicalization": false,
+    "corpus_or_pos_tagger_used": false,
+    "solver": "bounded integer-span CSP with outside-in arc consistency and semantic dependency states",
+    "output_excluded_fingerprint": true,
+    "readability_certificate": false
+  },
+  "reader_gate": {
+    "status": "not_run",
+    "reason": "Only exact, novel, mechanically admitted rows may enter blinded intact-prose and shuffled-control reading."
+  }
+}

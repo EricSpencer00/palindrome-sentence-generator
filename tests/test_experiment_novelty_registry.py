@@ -11,6 +11,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 2
+    assert result["run_artifacts"] == 4
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -28,7 +29,7 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 53
+    assert result["registered_families_checked"] == 54
     assert result["excluded_routes_checked"] == 2
 
 
@@ -64,6 +65,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "mined-phrase-chunk-clause-composition" in ids
     assert "variable-boundary-tape-ilp" in ids
     assert "reverse-complement-eulerian" in ids
+    assert "prosodic-foot-surface-realizer" in ids
 
 
 def test_latest_artifacts_were_preflighted_before_self_registration():
@@ -96,3 +98,9 @@ def test_latest_artifacts_were_preflighted_before_self_registration():
     assert euler_run["stats"]["rendered_probes"] == 40
     assert euler_run["stats"]["reader_eligible"] == 0
     assert euler_run["repair_run"]["balanced_trails"] == 0
+    prosodic_run = json.loads((root / "runs" / "prosodic-foot-surface-realizer-repair3-20260915.json").read_text())
+    assert prosodic_run["novelty_audit"]["registry_entries_read_before_run"] == 53
+    assert prosodic_run["novelty_audit"]["signature_overlap"] == []
+    assert prosodic_run["stats"]["exact_candidates"] == 0
+    assert prosodic_run["stats"]["reader_eligible"] == 0
+    assert len(prosodic_run["rendered_candidates_and_probes"]) == 40

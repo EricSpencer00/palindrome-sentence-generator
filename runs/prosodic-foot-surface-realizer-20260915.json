@@ -1,0 +1,51 @@
+{
+  "status": "complete_prosodic_foot_surface_realizer",
+  "family_id": "prosodic-foot-surface-realizer",
+  "state_space_signature": "prosodic-foot-lattice|pronouncing-dictionary-stress-constraints|metrical-clause-realization|paired-character-yield-equation|typed-event-roles|stress-frontier-repair",
+  "seed": "fresh event frames; seed content excluded",
+  "config": {
+    "frames": [
+      "det_agent_verb_det_object",
+      "det_adj_agent_verb_det_object",
+      "det_agent_verb_det_adj_object"
+    ],
+    "pronunciation_source": "NLTK CMUdict first deterministic stress-valid pronunciation",
+    "stress_constraints": "4--13 syllables, >=2 stress transitions, bounded strong-stress ratio",
+    "minimum_letters": 39,
+    "character_join": "independent reverse tape index after prosodic filtering",
+    "no_catalogue_sentence_import": true
+  },
+  "novelty_audit": {
+    "registry_entries_read_before_run": 53,
+    "excluded_routes_read_before_run": 2,
+    "signature_overlap": [],
+    "self_entry_present": [],
+    "replay_of_registered_family": false
+  },
+  "inventory_counts": {
+    "agent": 19,
+    "verb": 24,
+    "object": 22,
+    "adj": 15
+  },
+  "stats": {
+    "left_realizations": 0,
+    "right_realizations": 0,
+    "reverse_index_pairs_checked": 0,
+    "prosody_compatible_pairs": 0,
+    "exact_candidates": 0,
+    "reader_eligible": 0
+  },
+  "exact_candidates": [],
+  "rendered_candidates_and_probes": [],
+  "next_repair_operator": {
+    "name": "stress_frontier_repair",
+    "action": "At the best surviving outer-character frontier, replace one lexical realization with a held-out same-role lexeme of matching syllable/stress profile or move one legal phrase boundary; retain semantic frame and re-audit exactness independently."
+  },
+  "provenance": {
+    "generator_sha256": "b665582159c35a027dbc4a1b157fefdc9b55e1a2f9312bd9c71266ba126cb3d9",
+    "source_text_copied": false,
+    "fresh_event_frames": true
+  },
+  "reader_gate": "No row is reader evidence; any exact row requires intact-prose versus shuffled-control blinded readers."
+}

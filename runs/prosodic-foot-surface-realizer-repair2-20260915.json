@@ -1,0 +1,497 @@
+{
+  "status": "complete_prosodic_foot_surface_realizer",
+  "family_id": "prosodic-foot-surface-realizer",
+  "state_space_signature": "prosodic-foot-lattice|pronouncing-dictionary-stress-constraints|metrical-clause-realization|paired-character-yield-equation|typed-event-roles|stress-frontier-repair",
+  "seed": "fresh event frames; seed content excluded",
+  "config": {
+    "frames": [
+      "det_agent_verb_det_object",
+      "det_adj_agent_verb_det_object",
+      "det_agent_verb_det_adj_object"
+    ],
+    "pronunciation_source": "NLTK CMUdict first deterministic stress-valid pronunciation",
+    "stress_constraints": "4--13 syllables, >=2 stress transitions, bounded strong-stress ratio",
+    "minimum_letters": 39,
+    "character_join": "independent reverse tape index after prosodic filtering",
+    "no_catalogue_sentence_import": true
+  },
+  "novelty_audit": {
+    "registry_entries_read_before_run": 53,
+    "excluded_routes_read_before_run": 2,
+    "signature_overlap": [],
+    "self_entry_present": [],
+    "replay_of_registered_family": false
+  },
+  "repair_context": {
+    "prior_artifact": "runs/prosodic-foot-surface-realizer-20260915.json",
+    "prior_failure": "The first run applied the full-candidate minimum to each half and indexed zero clauses.",
+    "repair": "Lowered the per-clause bound to 16 letters, added article-agreement filtering, and bucketed the near-miss frontier by outer character."
+  },
+  "inventory_counts": {
+    "agent": 19,
+    "verb": 24,
+    "object": 22,
+    "adj": 15
+  },
+  "stats": {
+    "left_realizations": 3000,
+    "right_realizations": 3000,
+    "reverse_index_pairs_checked": 0,
+    "prosody_compatible_pairs": 0,
+    "exact_candidates": 0,
+    "reader_eligible": 0
+  },
+  "exact_candidates": [],
+  "rendered_candidates_and_probes": [
+    {
+      "left": "a baker admires a basket",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a bridge",
+      "right": "a baker admires a bridge",
+      "matched_outer_letters": 0,
+      "left_syllables": 7,
+      "right_syllables": 7,
+      "stress_pair": [
+        "0100101",
+        "0100101"
+      ]
+    },
+    {
+      "left": "a baker admires a candle",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a desserts",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001001",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a garden",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a harbor",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a letter",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a mail",
+      "right": "a baker admires a bridge",
+      "matched_outer_letters": 0,
+      "left_syllables": 7,
+      "right_syllables": 7,
+      "stress_pair": [
+        "0100101",
+        "0100101"
+      ]
+    },
+    {
+      "left": "a baker admires a mirror",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a parcel",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a picture",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a reward",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001001",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a river",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a signal",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a stone",
+      "right": "a baker admires a bridge",
+      "matched_outer_letters": 0,
+      "left_syllables": 7,
+      "right_syllables": 7,
+      "stress_pair": [
+        "0100101",
+        "0100101"
+      ]
+    },
+    {
+      "left": "a baker admires a story",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a tower",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a trap",
+      "right": "a baker admires a bridge",
+      "matched_outer_letters": 0,
+      "left_syllables": 7,
+      "right_syllables": 7,
+      "stress_pair": [
+        "0100101",
+        "0100101"
+      ]
+    },
+    {
+      "left": "a baker admires a window",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a wolf",
+      "right": "a baker admires a bridge",
+      "matched_outer_letters": 0,
+      "left_syllables": 7,
+      "right_syllables": 7,
+      "stress_pair": [
+        "0100101",
+        "0100101"
+      ]
+    },
+    {
+      "left": "a baker admires the anchor",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the basket",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the bridge",
+      "right": "a baker admires a bridge",
+      "matched_outer_letters": 0,
+      "left_syllables": 7,
+      "right_syllables": 7,
+      "stress_pair": [
+        "0100101",
+        "0100101"
+      ]
+    },
+    {
+      "left": "a baker admires the candle",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the desserts",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001001",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the evil",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the garden",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the harbor",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the letter",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the mail",
+      "right": "a baker admires a bridge",
+      "matched_outer_letters": 0,
+      "left_syllables": 7,
+      "right_syllables": 7,
+      "stress_pair": [
+        "0100101",
+        "0100101"
+      ]
+    },
+    {
+      "left": "a baker admires the mirror",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the parcel",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the picture",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the reward",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001001",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the river",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the signal",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the stone",
+      "right": "a baker admires a bridge",
+      "matched_outer_letters": 0,
+      "left_syllables": 7,
+      "right_syllables": 7,
+      "stress_pair": [
+        "0100101",
+        "0100101"
+      ]
+    },
+    {
+      "left": "a baker admires the story",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the tower",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires the trap",
+      "right": "a baker admires a bridge",
+      "matched_outer_letters": 0,
+      "left_syllables": 7,
+      "right_syllables": 7,
+      "stress_pair": [
+        "0100101",
+        "0100101"
+      ]
+    }
+  ],
+  "next_repair_operator": {
+    "name": "stress_frontier_repair",
+    "action": "At the best surviving outer-character frontier, replace one lexical realization with a held-out same-role lexeme of matching syllable/stress profile or move one legal phrase boundary; retain semantic frame and re-audit exactness independently."
+  },
+  "provenance": {
+    "generator_sha256": "6c01041f7901158ad3b15da2676504a70a38dabbe35de3c4199a4cf4df6a9224",
+    "source_text_copied": false,
+    "fresh_event_frames": true
+  },
+  "reader_gate": "No row is reader evidence; any exact row requires intact-prose versus shuffled-control blinded readers."
+}

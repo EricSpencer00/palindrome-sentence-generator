@@ -58,6 +58,16 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   before rendering. The concrete successor is a new lexical realization at
   the recorded TAG adjunction frontier, not a larger bank, beam, or replay.
 
+- **Prosodic-foot surface realization (2026-09-15).** A new construction
+  dimension attached CMU syllable counts, lexical stress contours, and phrase
+  boundaries to complete event clauses before their independent character
+  yields were joined. The bounded run covered 9,000 realizations per side and
+  retained four append-only artifacts, including two repairs for an empty
+  clause frontier and malformed articles. It found no exact join and no
+  reader-eligible output. Its concrete successor is stress-frontier lexical
+  replacement at a surviving outer-character match, not another lexical-bank
+  or beam-width sweep.
+
 ## Scalable-construction requirement (2026-09-15)
 
 The active construction objective now has two explicit layers: (1) a

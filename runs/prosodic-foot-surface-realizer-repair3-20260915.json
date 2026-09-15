@@ -1,0 +1,497 @@
+{
+  "status": "complete_prosodic_foot_surface_realizer",
+  "family_id": "prosodic-foot-surface-realizer",
+  "state_space_signature": "prosodic-foot-lattice|pronouncing-dictionary-stress-constraints|metrical-clause-realization|paired-character-yield-equation|typed-event-roles|stress-frontier-repair",
+  "seed": "fresh event frames; seed content excluded",
+  "config": {
+    "frames": [
+      "det_agent_verb_det_object",
+      "det_adj_agent_verb_det_object",
+      "det_agent_verb_det_adj_object"
+    ],
+    "pronunciation_source": "NLTK CMUdict first deterministic stress-valid pronunciation",
+    "stress_constraints": "4--13 syllables, >=2 stress transitions, bounded strong-stress ratio",
+    "minimum_letters": 39,
+    "character_join": "independent reverse tape index after prosodic filtering",
+    "no_catalogue_sentence_import": true
+  },
+  "novelty_audit": {
+    "registry_entries_read_before_run": 53,
+    "excluded_routes_read_before_run": 2,
+    "signature_overlap": [],
+    "self_entry_present": [],
+    "replay_of_registered_family": false
+  },
+  "repair_context": {
+    "prior_artifact": "runs/prosodic-foot-surface-realizer-20260915.json",
+    "prior_failure": "The first run applied the full-candidate minimum to each half and indexed zero clauses.",
+    "repair": "Lowered the per-clause bound to 16 letters, added article-agreement filtering, and bucketed the near-miss frontier by outer character."
+  },
+  "inventory_counts": {
+    "agent": 19,
+    "verb": 24,
+    "object": 27,
+    "adj": 15
+  },
+  "stats": {
+    "left_realizations": 9000,
+    "right_realizations": 9000,
+    "reverse_index_pairs_checked": 0,
+    "prosody_compatible_pairs": 0,
+    "exact_candidates": 0,
+    "reader_eligible": 0
+  },
+  "exact_candidates": [],
+  "rendered_candidates_and_probes": [
+    {
+      "left": "a baker admires a camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010010100",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker admires an idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010010010",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker admires the camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010010100",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker admires the idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010010010",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker admires some camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010011100",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker admires some idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010011010",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker admires one camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010011100",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker admires one idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010011010",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker admires our camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010011100",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker admires our idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010011010",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker carries a camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010100100",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker carries an idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010100010",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker carries the camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010100100",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker carries the idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010100010",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker carries some camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010101100",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker carries some idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010101010",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker carries one camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010101100",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker carries one idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010101010",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker carries our camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010101100",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker carries our idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010101010",
+        "010010100"
+      ]
+    },
+    {
+      "left": "a baker cleans a camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010100",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cleans an idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cleans the camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010100",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cleans the idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cleans some camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011100",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cleans some idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cleans one camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011100",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cleans one idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cleans our camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011100",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cleans our idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cooks a camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010100",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cooks an idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cooks the camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010100",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cooks the idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cooks some camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011100",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cooks some idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cooks one camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011100",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker cooks one idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a basket",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "left": "a baker admires a boats",
+      "right": "a baker admires a boats",
+      "matched_outer_letters": 0,
+      "left_syllables": 7,
+      "right_syllables": 7,
+      "stress_pair": [
+        "0100101",
+        "0100101"
+      ]
+    }
+  ],
+  "next_repair_operator": {
+    "name": "stress_frontier_repair",
+    "action": "At the best surviving outer-character frontier, replace one lexical realization with a held-out same-role lexeme of matching syllable/stress profile or move one legal phrase boundary; retain semantic frame and re-audit exactness independently."
+  },
+  "provenance": {
+    "generator_sha256": "89010370fe879210ea0eb7048fa833bbb23a2e9eb8a2f976e26483b6674e26f5",
+    "source_text_copied": false,
+    "fresh_event_frames": true
+  },
+  "reader_gate": "No row is reader evidence; any exact row requires intact-prose versus shuffled-control blinded readers."
+}

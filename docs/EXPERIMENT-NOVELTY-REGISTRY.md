@@ -65,6 +65,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `mined-phrase-chunk-clause-composition` | mined 2--4-word phrase chunks are independently composed as complete determiner-led NP--finite VP--headed-NP clauses, then joined by a reverse index with disjoint content words and no mirrored chunks | multiword phrase atoms plus strict transitive-clause cross-product composition | 0 closures; 541,598 unique clauses; 1,826 chart items; 40 independently audited probes |
 | `variable-boundary-tape-ilp` | one lexicalized grammar path with binary word-start arcs; word boundaries, semantic features, and mirrored character equations are solved together by a bounded MILP | variable-boundary character-tape flow | 0 exact closures at 39 letters within bounded HiGHS run; 57,166 lexical arcs; 1 intact grammar probe |
 | `reverse-complement-eulerian` | character-context overlap edges from corpus text are assembled into edge-disjoint trails with reverse-complement balance; English word segmentation and conservative dependency parsing happen only after the trail | reverse-complement Eulerian coverage over character-context edges | 0 reader-eligible trails; 40 exact rendered probes; 4,452 eligible context edges; singleton-context repair yielded 0 balanced trails |
+| `prosodic-foot-surface-realizer` | complete clauses are realized through CMU pronunciation entries carrying syllable count, lexical stress, and phrase-boundary obligations before independent reverse-tape joining | prosodic-foot lattice and stress-constrained surface realization | 0 exact joins; 9,000 realizations per side; 4 preserved runs including two concrete repairs; 0 reader-eligible outputs |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
@@ -86,5 +87,5 @@ the next frontier was chosen:
 Their run records remain available for failure analysis (`runs/seed-symmetric-
 mutation-20260915.json` and `runs/seed-boundary-shift-typed-resegmentation-
 20260915*.json`). A future route may use their residuals only after a new
-signature is pre-registered and its state space is disjoint from all 53
+signature is pre-registered and its state space is disjoint from all 54
 registered families.

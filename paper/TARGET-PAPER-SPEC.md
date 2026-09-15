@@ -46,3 +46,9 @@ the working constructive route and any promoted human-readable outputs.
 
 Until all five elements exist, no ACL/NAACL submission, release, API output,
 or reader-material distribution is permitted.
+
+The current construction ledger also retains a typed lexical-graph residual
+run (number, tense, determiner, and transitivity states): 424,334 left clauses
+and 5,092,008 independently audited residual attempts produced zero closures at
+the 39-letter floor. This is a failed operator with a concrete successor
+(attested valency edges and inflectional variants), not the paper thesis.

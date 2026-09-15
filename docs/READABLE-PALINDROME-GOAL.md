@@ -102,6 +102,15 @@ human-rated intact prose—and may claim success only when both gates are met.
   explicit transitivity and discourse-event roles to this global lattice, not
   to widen the corpus pool blindly.
 
+- **Typed lexical-graph residual search (2026-09-15).** The next operator
+  carried number, tense, determiner, and transitivity features inside the
+  character-cancellation state, with 12 complete clause shapes and 424,334
+  independently generated left clauses. It made 5,092,008 residual attempts
+  and found zero closures at the 39-letter floor. This is a concrete graph
+  failure, not a readability result: the successor is to add attested
+  subject--verb/object edges and inflectional variants to the same residual
+  frontier, rather than widen isolated word lists.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

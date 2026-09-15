@@ -229,6 +229,23 @@ human-rated intact prose—and may claim success only when both gates are met.
   next experiment must leave this family rather than replaying it with a
   larger pool or beam.
 
+- **Independent semantic event-frame relexicalization (2026-09-15).** This
+  genuinely new family authored temporal intransitive/copular event reports
+  on the left and parsed their reversed tapes with independently authored
+  event phrases on the right. It used no Brown corpus, SVO/relative relation,
+  POS lattice, or semordnilap inventory, and fingerprinted 615,860 existing
+  normalized strings before searching. Thirty event/template combinations
+  were offered; all 30 failed at the reverse lexical prefix, with zero exact
+  closures. The next step must change to a two-event discourse frame, not
+  enlarge this finite inventory.
+
+- **Fresh paired-clause ledger (2026-09-15).** A separate Luna authoring
+  probe proposed four complete-looking clause pairs and fingerprinted 457
+  repository tapes before auditing them. Two were exact but both failed the
+  shared gate: one used reverse-word fragments and a hidden palindromic span,
+  and the other did the same with an inflected fragment. No item was promoted
+  or sent to readers; this is a provenance ledger, not readability evidence.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

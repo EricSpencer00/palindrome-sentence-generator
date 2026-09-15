@@ -1,0 +1,46 @@
+{
+  "status": "complete_coreferent_variable_pp_boundary_residual_bfs_no_reader_promotion",
+  "config": {
+    "base_source": "Brown-attested two-relative chains",
+    "pp_source": "independently Brown-attested preposition-noun and adjective-noun pairs",
+    "co_reference_variables": [
+      "head_subject",
+      "head_object",
+      "first_object",
+      "second_subject"
+    ],
+    "variable_lengths": "prep+noun, prep+det+noun, prep+det+adjective+noun",
+    "boundary_search": "every token boundary in each chain",
+    "prior_keys_excluded": "497 attached and prior topology keys",
+    "minimum_letters": 39,
+    "maximum_letters": 320,
+    "independent_exact_audit": true,
+    "anti_shortcut_gate": true
+  },
+  "stats": {
+    "brown_sentences_scanned": 57340,
+    "attested_relations": 3533,
+    "attachment_brown_sentences_scanned": 57340,
+    "prior_attached_keys_excluded": 497,
+    "prior_topology_keys_excluded": 8695,
+    "variable_pp_frames": 49044,
+    "indexed_tapes": 45492,
+    "left_states_considered": 49044,
+    "residual_misses": 49044
+  },
+  "admitted": [],
+  "near_misses": [],
+  "residual_frontier": {
+    "indexed_tapes": 45492,
+    "left_states": 49044,
+    "unmatched_states": 49044,
+    "matched_state_pairs_before_gates": 0
+  },
+  "provenance": {
+    "generator_sha256": "a1863e16808299ee31e29c78d35a7382fadb96377e4df3719ec12e0968cb6cb2",
+    "source_text_copied": false,
+    "relations_and_attachments_attested_individually": true
+  },
+  "next_operator": "Allow two independently attested variable PPs on opposite boundaries while carrying both chain variables and rejecting all prior tape keys.",
+  "reader_gate": "No output is human evidence; future closures require intact-prose and shuffled-control readers."
+}

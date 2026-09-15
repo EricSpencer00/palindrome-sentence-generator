@@ -135,6 +135,15 @@ human-rated intact prose—and may claim success only when both gates are met.
   two adjacent clauses with adjective/prepositional attachments, carrying
   dependency features through the residual state.
 
+- **Two-clause Brown attachment residual BFS (2026-09-15).** The successor
+  composed independently selected attested SVO relations into two clauses per
+  side, adding bounded adjective and prepositional attachments. It indexed
+  1,387,258 typed composite tapes and checked the same number of reversed
+  residual states; all were misses, with zero exact closures or admitted
+  candidates. The next branch is cross-clause dependency framing with relative
+  clauses and controlled conjunctions, retaining the punctuation-boundary
+  residual state.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

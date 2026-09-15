@@ -483,6 +483,15 @@ human-rated intact prose—and may claim success only when both gates are met.
   outputs.  The next repair changes one semantic role lexicalization at the
   recorded seam, while keeping the abstract shape and catalogue exclusion.
 
+- **Neural dual-prefix beam, repaired (2026-09-15).** The first neural pass
+  was invalidated because it reversed an unfinished right-reading prefix and
+  rejected every state before scoring.  The repaired run emits the right edge
+  as reversed characters and compares true shared-tape prefixes; its bounded
+  typed beam made 25 expansions, all 25 failed at the first seam, and zero
+  states reached GPT-2 scoring, exact closure, or admission.  The concrete
+  next operator is a held-out same-role seam replacement; the invalid v1 is
+  preserved only as implementation evidence and is not registered.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

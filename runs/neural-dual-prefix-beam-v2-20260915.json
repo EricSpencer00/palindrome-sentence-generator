@@ -1,0 +1,162 @@
+{
+  "experiment_id": "neural-dual-prefix-beam-v2-20260915",
+  "signature": "neural-dual-prefix-v2|right-edge-reverse-emission|typed-role-online-equation|gpt2-bilateral-ranking|finite-beam|independent-clause-authoring",
+  "method": "Left roles emit forward while right roles emit from the right edge as reversed characters; GPT-2 ranks compatible prefixes only after the exact shared-tape constraint is satisfied.",
+  "parameters": {
+    "beam": 24,
+    "max_steps": 3,
+    "time_cap_seconds": 20,
+    "left_schedule": [
+      "subject",
+      "verb",
+      "object"
+    ],
+    "right_schedule": [
+      "object",
+      "verb",
+      "subject"
+    ]
+  },
+  "stats": {
+    "expansions": 25,
+    "pruned": 25,
+    "final_states": 0,
+    "model_scored_states": 0,
+    "exact": 0,
+    "admitted": 0
+  },
+  "rendered_probes": [
+    {
+      "left": "the sailor",
+      "right": "a map",
+      "rendered": "the sailor / a map",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor",
+      "right": "the red book",
+      "rendered": "the sailor / the red book",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor",
+      "right": "a small bell",
+      "rendered": "the sailor / a small bell",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor",
+      "right": "the old boat",
+      "rendered": "the sailor / the old boat",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor",
+      "right": "a blue vase",
+      "rendered": "the sailor / a blue vase",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "a nurse",
+      "right": "a map",
+      "rendered": "a nurse / a map",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "a nurse",
+      "right": "the red book",
+      "rendered": "a nurse / the red book",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "a nurse",
+      "right": "a small bell",
+      "rendered": "a nurse / a small bell",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "a nurse",
+      "right": "the old boat",
+      "rendered": "a nurse / the old boat",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "a nurse",
+      "right": "a blue vase",
+      "rendered": "a nurse / a blue vase",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the artist",
+      "right": "a map",
+      "rendered": "the artist / a map",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the artist",
+      "right": "the red book",
+      "rendered": "the artist / the red book",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the artist",
+      "right": "a small bell",
+      "rendered": "the artist / a small bell",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the artist",
+      "right": "the old boat",
+      "rendered": "the artist / the old boat",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the artist",
+      "right": "a blue vase",
+      "rendered": "the artist / a blue vase",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "a child",
+      "right": "a map",
+      "rendered": "a child / a map",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "a child",
+      "right": "the red book",
+      "rendered": "a child / the red book",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "a child",
+      "right": "a small bell",
+      "rendered": "a child / a small bell",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "a child",
+      "right": "the old boat",
+      "rendered": "a child / the old boat",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "a child",
+      "right": "a blue vase",
+      "rendered": "a child / a blue vase",
+      "reason": "mirrored character conflict"
+    }
+  ],
+  "exact_candidates": [],
+  "repair_operator": "At the first conflicting mirrored character, retain the right-edge role and replace only that same semantic role with a held-out lexical alternative; emit its reversed characters, re-score both prefixes, and rerun the independent audit.",
+  "independent_audit": {
+    "ascii_two_pointer": true,
+    "method": "independent normalized ASCII tape plus two-pointer equality"
+  },
+  "provenance": {
+    "script_sha256": "ddab27e6404b7bed2f34aea8128cbafc035dc1df106356348b770375af3a13aa",
+    "output_excluded": true,
+    "generated_at": "2026-09-15",
+    "v1_invalidated": "v1 compared an unfinished reading-order prefix; v2 emits the right edge explicitly"
+  }
+}

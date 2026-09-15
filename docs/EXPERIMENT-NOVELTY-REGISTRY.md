@@ -56,6 +56,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `collocation-graph-path` | connected role-typed collocation graph with shared-node overlap and bounded local edge repair | overlap-aware collocation graph walk | 0 exact closures; 36 paths |
 | `semantic-sentence-pair-alignment` | independently authored complementary complete sentences selected from semantic paraphrase alternatives and aligned over the whole normalized tape | cross-boundary semantic sentence alignment | 0 exact closures; 20 combinations |
 | `template-analogy-semantic-lexicalization` | abstract role-shape templates independently lexicalized with fresh semantic words and paired seam-width constraints | template-analogy authoring | 0 exact closures; 499 clause pairs |
+| `neural-dual-prefix-beam-v2` | left roles emit forward while right roles emit from the right edge as reversed characters; GPT-2 ranks only prefixes that satisfy the shared character equation | neural dual-prefix proposal ordering | 0 closures; 25 bounded expansions (v1 invalidated) |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

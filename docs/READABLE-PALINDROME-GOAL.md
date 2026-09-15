@@ -299,6 +299,15 @@ human-rated intact prose—and may claim success only when both gates are met.
   must use a two-edge event-to-intermediate-to-result micrograph, not replay
   this single-edge state.
 
+- **Two-edge event micrograph (2026-09-15).** The final rung of this semantic
+  family inserted an intermediate state and carried two explicit edges across
+  a three-rank temporal order. Four fresh micrographs were tested; all four
+  reverse parses failed after excluding 616,955 existing tape keys. The run
+  records rendered probes, topology/temporal residuals, exact audits, central
+  admission, and readability diagnostics, then explicitly stops this
+  event-family ladder. Any next construction must use a materially different
+  semantic inventory.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

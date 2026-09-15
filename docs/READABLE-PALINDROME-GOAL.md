@@ -187,6 +187,14 @@ human-rated intact prose—and may claim success only when both gates are met.
   adjective/prepositional material on either relative edge while retaining both
   co-reference variables and hard agreement/tense constraints.
 
+- **Two-relative-chain attachment residual BFS (2026-09-15).** Adjective–noun
+  and preposition–noun attachments were added on either relative edge, with
+  both co-reference variables, number, tense, relation identity, and
+  attachment provenance retained in the residual state. It indexed 497
+  frames and recorded 497 residual misses, zero matches, and zero exact
+  closures. The next repair is one bounded lexical edit at a content boundary,
+  not another grammar-only expansion.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

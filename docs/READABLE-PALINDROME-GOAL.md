@@ -846,13 +846,14 @@ and every rendered rejection.
 
 ### Active run
 
-- **Next construction frontier:** the TAG and reverse-complement Euler runs
-  are complete and their zeros are preserved as evidence, not as the thesis.
-  The next run must change its construction dimension, preflight itself against
-  the 53-entry novelty registry, and retain complete rendered probes with
-  independent exact audits. It must not replay a prior bank, beam, chart, BPE,
-  ILP, evolutionary, TAG, or Euler configuration. Any exact survivor remains
-  gated on intact-prose versus shuffled-control blinded reading.
+- **Next construction frontier:** the TAG, reverse-complement Euler, and
+  prosodic-foot runs are complete and their zeros are preserved as evidence,
+  not as the thesis. The next run must change its construction dimension,
+  preflight itself against the 54-entry novelty registry, and retain complete
+  rendered probes with independent exact audits. It must not replay a prior
+  bank, beam, chart, BPE, ILP, evolutionary, TAG, Euler, or prosodic
+  configuration. Any exact survivor remains gated on intact-prose versus
+  shuffled-control blinded reading.
 
 ### Rejected catalogue-family ablation
 

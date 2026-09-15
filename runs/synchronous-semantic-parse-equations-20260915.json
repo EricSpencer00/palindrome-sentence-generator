@@ -1,0 +1,411 @@
+{
+  "family_id": "synchronous-semantic-parse-equations",
+  "state_space_signature": "synchronous-independent-semantic-parses|shared-character-equation-backbone|lockstep-derivation-frontier|typed-role-and-discourse-state|fresh-observation-report-grammar|repair-by-parse-substitution",
+  "novelty_fingerprint": {
+    "sha256": "15f70aff1ffc4b311c13fa5d38458269fc0d5722eef499082477985b388342a9",
+    "excludes_output_path": true,
+    "material": "grammar banks, parse state, equation frontier, repair operator"
+  },
+  "targets": [
+    40,
+    48,
+    56,
+    64,
+    72
+  ],
+  "method": {
+    "left_parse": "agent -> verb -> object -> tail",
+    "right_parse": "agent -> verb -> object -> tail",
+    "state": "(left role index,right role index,discourse role,shared equation frontier)",
+    "repair_operator": "parse substitution at first conflicting equation"
+  },
+  "counts": {
+    "left_parses": 81,
+    "right_parses": 81,
+    "lockstep_states": 6561,
+    "closures": 0,
+    "probes": 18,
+    "repairs": 6
+  },
+  "rendered_probes": [
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper packs the small boat for travel.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "packs",
+        "object": "the small boat",
+        "tail": "for travel"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper packs the small boat at noon.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "packs",
+        "object": "the small boat",
+        "tail": "at noon"
+      },
+      "frontier": 0,
+      "equation_count": 30
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper packs the small boat with care.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "packs",
+        "object": "the small boat",
+        "tail": "with care"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper packs a warm candle for travel.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "packs",
+        "object": "a warm candle",
+        "tail": "for travel"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper packs a warm candle at noon.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "packs",
+        "object": "a warm candle",
+        "tail": "at noon"
+      },
+      "frontier": 0,
+      "equation_count": 29
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper packs a warm candle with care.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "packs",
+        "object": "a warm candle",
+        "tail": "with care"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper packs the plain basket for travel.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "packs",
+        "object": "the plain basket",
+        "tail": "for travel"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper packs the plain basket at noon.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "packs",
+        "object": "the plain basket",
+        "tail": "at noon"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper packs the plain basket with care.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "packs",
+        "object": "the plain basket",
+        "tail": "with care"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper folds the small boat for travel.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "folds",
+        "object": "the small boat",
+        "tail": "for travel"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper folds the small boat at noon.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "folds",
+        "object": "the small boat",
+        "tail": "at noon"
+      },
+      "frontier": 0,
+      "equation_count": 30
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper folds the small boat with care.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "folds",
+        "object": "the small boat",
+        "tail": "with care"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper folds a warm candle for travel.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "folds",
+        "object": "a warm candle",
+        "tail": "for travel"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper folds a warm candle at noon.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "folds",
+        "object": "a warm candle",
+        "tail": "at noon"
+      },
+      "frontier": 0,
+      "equation_count": 29
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper folds a warm candle with care.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "folds",
+        "object": "a warm candle",
+        "tail": "with care"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper folds the plain basket for travel.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "folds",
+        "object": "the plain basket",
+        "tail": "for travel"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper folds the plain basket at noon.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "folds",
+        "object": "the plain basket",
+        "tail": "at noon"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    },
+    {
+      "left": "a scout marks the quiet map for review.",
+      "right": "a keeper folds the plain basket with care.",
+      "left_parse": {
+        "agent": "a scout",
+        "verb": "marks",
+        "object": "the quiet map",
+        "tail": "for review"
+      },
+      "right_parse": {
+        "agent": "a keeper",
+        "verb": "folds",
+        "object": "the plain basket",
+        "tail": "with care"
+      },
+      "frontier": 0,
+      "equation_count": 31
+    }
+  ],
+  "repairs": [
+    {
+      "source": "a scout marks the quiet map for review.",
+      "operator": "parse-substitution-at-first-conflict",
+      "position": 0,
+      "candidates_considered": 6,
+      "result": "re-expand both semantic parses; no mutation of punctuation"
+    },
+    {
+      "source": "a scout marks the quiet map for review.",
+      "operator": "parse-substitution-at-first-conflict",
+      "position": 0,
+      "candidates_considered": 6,
+      "result": "re-expand both semantic parses; no mutation of punctuation"
+    },
+    {
+      "source": "a scout marks the quiet map for review.",
+      "operator": "parse-substitution-at-first-conflict",
+      "position": 0,
+      "candidates_considered": 6,
+      "result": "re-expand both semantic parses; no mutation of punctuation"
+    },
+    {
+      "source": "a scout marks the quiet map for review.",
+      "operator": "parse-substitution-at-first-conflict",
+      "position": 0,
+      "candidates_considered": 6,
+      "result": "re-expand both semantic parses; no mutation of punctuation"
+    },
+    {
+      "source": "a scout marks the quiet map for review.",
+      "operator": "parse-substitution-at-first-conflict",
+      "position": 0,
+      "candidates_considered": 6,
+      "result": "re-expand both semantic parses; no mutation of punctuation"
+    },
+    {
+      "source": "a scout marks the quiet map for review.",
+      "operator": "parse-substitution-at-first-conflict",
+      "position": 0,
+      "candidates_considered": 6,
+      "result": "re-expand both semantic parses; no mutation of punctuation"
+    }
+  ],
+  "candidates": [],
+  "provenance": {
+    "script": "experiments/synchronous_semantic_parse_equations_20260915.py",
+    "inputs": "hand-authored independent semantic parse banks",
+    "generated_not_catalogue": true
+  },
+  "gates": {
+    "exact_validation": "independent two-pointer audit",
+    "shortcut_checks": "no repeated units, word-order symmetry, catalogue reuse, or punctuation-dependent letters checked before admission",
+    "readability": "programmatic diagnostics only; blinded intact-prose reader test required"
+  }
+}

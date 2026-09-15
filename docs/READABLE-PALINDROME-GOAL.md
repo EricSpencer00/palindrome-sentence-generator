@@ -210,6 +210,14 @@ human-rated intact prose—and may claim success only when both gates are met.
   must change attachment topology or boundary segmentation rather than repeat
   relation repair.
 
+- **Relative topology/boundary residual BFS (2026-09-15).** This branch
+  explicitly excluded all 497 prior attachment tape keys and changed the
+  construction topology: first-relative suffix PPs, second-relative prefix
+  PPs, cross-boundary PPs, and attested determiner-present/absent variants.
+  It explored 8,695 new frames, all residual misses, with zero reverse
+  matches or exact closures. The next operator makes the PP noun co-referent
+  with a chain variable and searches its boundary position jointly.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

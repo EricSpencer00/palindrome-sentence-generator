@@ -13,14 +13,17 @@ def validate(path: Path = REGISTRY) -> dict:
     entries = data["entries"]
     ids = [row["id"] for row in entries]
     signatures = [row["signature"] for row in entries]
+    artifacts = [row["artifact"] for row in entries]
     if len(ids) != len(set(ids)):
         raise AssertionError("duplicate experiment id")
     if len(signatures) != len(set(signatures)):
         raise AssertionError("duplicate state-space signature")
+    if len(artifacts) != len(set(artifacts)):
+        raise AssertionError("one artifact is being counted as multiple experiments")
     missing = [row["artifact"] for row in entries if not (ROOT / row["artifact"]).exists()]
     if missing:
         raise AssertionError(f"missing artifacts: {missing}")
-    return {"entries": len(entries), "unique_signatures": len(set(signatures)), "missing": missing}
+    return {"entries": len(entries), "unique_signatures": len(set(signatures)), "unique_artifacts": len(set(artifacts)), "missing": missing}
 
 
 if __name__ == "__main__":

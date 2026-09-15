@@ -1,0 +1,33 @@
+{
+  "status": "complete_brown_attested_relation_residual_bfs_no_reader_promotion",
+  "config": {
+    "relation_source": "NLTK Brown universal-tagged sentences",
+    "relation_shape": "DET? NOUN VERB DET? NOUN",
+    "inflection_policy": "only forms observed among extracted Brown relations; conservative agreement cue",
+    "minimum_letters": 39,
+    "maximum_letters": 120,
+    "independent_right_residual_index": true,
+    "catalogue_and_repetition_gate": true
+  },
+  "stats": {
+    "brown_sentences_scanned": 57340,
+    "attested_relations": 3533,
+    "right_variants_indexed": 5423,
+    "left_variants_considered": 6061,
+    "residual_misses": 6061
+  },
+  "admitted": [],
+  "near_misses": [],
+  "residual_frontier": {
+    "indexed_relation_tapes": 5423,
+    "unmatched_left_variants": 6061,
+    "matched_before_gates": 0
+  },
+  "provenance": {
+    "generator_sha256": "f5b0ab34c66dceb719e5e7a6b9b3069d85c2bd2d1cde717629cbe5d455e17bd1",
+    "source_text_copied": false,
+    "relation_rows_are_attested": true
+  },
+  "next_operator": "Keep the attested residual index but add two-adjacent-clause Brown frames with adjective and prepositional attachments; carry dependency/number/tense features through the memo key and audit each exact closure independently before human study.",
+  "reader_gate": "No corpus or programmatic result certifies readability; use intact prose and shuffled controls."
+}

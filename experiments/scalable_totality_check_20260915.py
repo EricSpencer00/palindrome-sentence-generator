@@ -15,20 +15,28 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
-from llm_palindrome.admission import normalize_letters
 from llm_palindrome.scalable import construct_total
+
+
+def independent_ascii_tape(text: str) -> str:
+    """Verifier deliberately separate from the constructor normalizer."""
+    return "".join(
+        character.casefold() for character in text
+        if ("A" <= character <= "Z") or ("a" <= character <= "z")
+    )
 
 
 def run(targets: list[int]) -> dict:
     rows = []
     for target in targets:
         row = construct_total(int(target))
-        tape = normalize_letters(row["text"])
+        tape = independent_ascii_tape(row["text"])
         rows.append({
             "target": target,
             "status": row["status"],
             "letters": len(tape),
             "exact": tape == tape[::-1] and len(tape) == target,
+            "independent_verifier": "explicit_ascii_scan_v1",
             "reader_candidate": row["reader_candidate"],
             "fallback": row["fallback"],
             "admission": row["admission"],

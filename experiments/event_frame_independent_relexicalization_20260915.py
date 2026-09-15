@@ -255,7 +255,10 @@ def _diagnostic_readability(text: str) -> dict[str, Any]:
 
 def _render_probe(frame: EventFrame, prefix: dict[str, Any]) -> str:
     right = " ".join(prefix["words"])
-    return f"{frame.text[:-1]}; {right if right else '[no lexical reverse prefix]'} …"
+    # Keep the probe in the same ASCII rendering language as a prospective
+    # candidate.  The rejection reason carries the missing-prefix detail, so
+    # an ellipsis or bracketed placeholder is unnecessary here.
+    return f"{frame.text[:-1]}; {right}".rstrip()
 
 
 def run(output: Path | None = None) -> dict[str, Any]:
@@ -279,12 +282,13 @@ def run(output: Path | None = None) -> dict[str, Any]:
                 reason = "right_grammar_cannot_consume_reverse_tape"
                 if best["consumed"] == 0:
                     reason = "reverse_tape_has_no_lexical_prefix_for_right_grammar"
+                probe = _render_probe(frame, best)
                 rejections.append({
                     "kind": "rejected_partial_reverse_parse",
                     "event_id": frame.event_id,
                     "semantic_state": frame.semantic_state,
                     "right_template": template_name,
-                    "rendered_probe": _render_probe(frame, best),
+                    "rendered_probe": probe,
                     "left_rendered": frame.text,
                     "reverse_tape_prefix": reverse_tape[:best["consumed"]],
                     "reverse_tape_first_unconsumed": reverse_tape[best["consumed"]:best["consumed"] + 12],
@@ -292,7 +296,9 @@ def run(output: Path | None = None) -> dict[str, Any]:
                     "reverse_prefix_words": list(best["words"]),
                     "reason": reason,
                     "independent_left_parse": left_parse,
-                    "readability_diagnostic": _diagnostic_readability(frame.text),
+                    "independent_exact_audit": _exact_audit(probe),
+                    "central_admission": mechanical_admission_checks(probe, min_letters=MIN_LETTERS, max_letters=MAX_LETTERS),
+                    "readability_diagnostic": _diagnostic_readability(probe),
                     "reader_status": "not_run",
                 })
                 continue

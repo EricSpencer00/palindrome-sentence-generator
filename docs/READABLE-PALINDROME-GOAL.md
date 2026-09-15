@@ -36,6 +36,18 @@ strict-mode reachability report.  The explicit one-letter fallback is useful
 only as a totality witness and is never eligible for promotion.  Reader-facing
 work therefore measures progress on two separate axes—exact length coverage and
 human-rated intact prose—and may claim success only when both gates are met.
+
+- **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
+  exhaustively changed one and two mirrored character pairs and inserted one
+  mirrored pair into the 38-letter seed, then independently resegmented every
+  lexical tape and applied the Brown sentence-shape gate.  It covered 475
+  one-pair substitutions, 520 insertions, and 106,875 distinct two-pair tapes;
+  2,169 had at least one lexical segmentation, but none had a complete
+  sentence-shaped reparse or an admitted output.  This is a narrow failure of
+  seed-local edits, not a readability result.  Its concrete successor is a
+  typed word-boundary shift plus lexical replacement, jointly searched from
+  the highest reverse-prefix frontiers rather than preserving the seed as an
+  interior island.
 - **Newly retired diagnostic frames.** The independently reparsed device
   causal control (109 letters) exhausted 74 states, failing at
   `devices:c` / `live:l`; the gardeners subject-action control (100 letters)

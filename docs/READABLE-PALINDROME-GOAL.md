@@ -59,6 +59,22 @@ human-rated intact prose—and may claim success only when both gates are met.
   lexical continuations at that residual while preserving disjoint content and
   independent exact-N auditing.
 
+- **Typed semantic expansion family (2026-09-15).** Three independently
+  authored event-clause families—basic transitive, adverbial, and adverbial
+  plus object modifier—were searched with role selection and character
+  cancellation in the same state.  All three reached only two matched outer
+  characters and produced zero closures.  The failure is at the first outer
+  boundary, not a readability measurement; the concrete successor is a
+  pronoun-led family with terminal-`i` object alternatives.
+
+- **Seed-boundary typed resegmentation (2026-09-15).** A fresh operator applied
+  520 one-character mirrored insertions to the seed half, then independently
+  resegmented both resulting 40-letter tapes into typed clause templates while
+  excluding every seed content word.  It produced 2,080 typed-left failures,
+  zero joint segmentations, and zero exact candidates.  The next operator is
+  two-character insertion with variable-length clause templates and lexical
+  valency carried in the memoized state; no seed wrapper or filler is allowed.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

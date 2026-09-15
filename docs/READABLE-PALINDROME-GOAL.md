@@ -195,6 +195,13 @@ human-rated intact prose—and may claim success only when both gates are met.
   closures. The next repair is one bounded lexical edit at a content boundary,
   not another grammar-only expansion.
 
+- **Attached-chain bounded lexical repair (2026-09-15).** One tense-preserving
+  verb or independently attested attachment lexeme was changed in each
+  attached two-relative frame, producing 15,473 repair variants and 12,828
+  indexed tapes. All 15,473 residual lookups missed; there were zero exact
+  closures and no candidate promotion. The next repair jointly changes a
+  subject/object pair only when the replacement relation is Brown-attested.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

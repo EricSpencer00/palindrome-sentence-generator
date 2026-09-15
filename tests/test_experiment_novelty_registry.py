@@ -11,7 +11,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 3
-    assert result["run_artifacts"] == 6
+    assert result["run_artifacts"] == 10
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -37,7 +37,7 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 55
+    assert result["registered_families_checked"] == 56
     assert result["excluded_routes_checked"] == 3
 
 
@@ -75,6 +75,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "reverse-complement-eulerian" in ids
     assert "prosodic-foot-surface-realizer" in ids
     assert "global-tied-masked-denoising" in ids
+    assert "character-lm-half-tape" in ids
 
 
 def test_latest_artifacts_were_preflighted_before_self_registration():
@@ -122,6 +123,18 @@ def test_latest_artifacts_were_preflighted_before_self_registration():
     assert len(masked_run["proposals"]) == 6
     assert sum(row["admitted"] for row in masked_run["proposals"]) == 0
     assert all("rendered" in row and "ledger" in row and "checks" in row for row in masked_run["proposals"])
+    for name in (
+        "character-lm-half-tape-20260915.json",
+        "character-lm-half-tape-repair0-20260915.json",
+        "character-lm-half-tape-repair1-20260915.json",
+        "character-lm-half-tape-repair2-20260915.json",
+    ):
+        char_run = json.loads((root / "runs" / name).read_text())
+        assert char_run["signature"] == "character-lm-half-tape|joint-forward-reverse-ngram-score|viterbi-word-boundary-recovery|independent-full-tape-audit"
+        assert char_run["stats"]["exact_probes"] == 40
+        assert char_run["stats"]["mechanically_admitted"] == 0
+        assert char_run["stats"]["reader_eligible"] == 0
+        assert char_run["rendered_candidates_and_probes"][0]["rendered"]
     semantic = __import__("experiments.semantic_involution_frame_20260915", fromlist=["run"]).run()
     assert semantic["status"] == "preflight_only_no_promotion"
     assert semantic["probes"][0]["text"] == "Deliver no evil. Live on, reviled."

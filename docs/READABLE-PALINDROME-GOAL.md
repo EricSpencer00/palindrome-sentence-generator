@@ -777,6 +777,11 @@ human-rated intact prose—and may claim success only when both gates are met.
   surfaces, both retain the famous ``Marge lets ... see ... telegram`` frame.
   Name substitution is not independent generation under the no-shortcut rule,
   so neither is a lead, a paper result, or a reader-study item.
+- The character-level half-tape family is closed after one base run and three
+  concrete repairs. Each retained 40 exact tape probes, but independent
+  boundary recovery collapsed to repeated short words (for example, ``a cis a
+  cis ...``), so none passed the ordinary-word, distinct-unit, or anti-shortcut
+  gates. These append-only artifacts are failure evidence, not reader items.
 
 ## Evidence and artifacts
 
@@ -864,9 +869,10 @@ and every rendered rejection.
 ### Active run
 
 - **Next construction frontier:** the TAG, reverse-complement Euler,
-  prosodic-foot, and global tied-denoising runs are complete and their zeros
-  are preserved as evidence, not as the thesis. The next run must change its
-  construction dimension, preflight itself against the 55-entry novelty
+  prosodic-foot, global tied-denoising, and character-level half-tape runs are
+  complete and their zeros are preserved as evidence, not as the thesis. The
+  next run must change its construction dimension, preflight itself against the
+  56-entry novelty
   registry, and retain complete rendered probes with independent exact audits.
   It must not replay a prior bank, beam, chart, BPE, ILP, evolutionary, TAG,
   Euler, prosodic, or masked-denoising configuration. Any exact survivor

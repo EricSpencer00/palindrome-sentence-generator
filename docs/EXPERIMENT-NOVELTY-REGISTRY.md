@@ -67,6 +67,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `reverse-complement-eulerian` | character-context overlap edges from corpus text are assembled into edge-disjoint trails with reverse-complement balance; English word segmentation and conservative dependency parsing happen only after the trail | reverse-complement Eulerian coverage over character-context edges | 0 reader-eligible trails; 40 exact rendered probes; 4,452 eligible context edges; singleton-context repair yielded 0 balanced trails |
 | `prosodic-foot-surface-realizer` | complete clauses are realized through CMU pronunciation entries carrying syllable count, lexical stress, and phrase-boundary obligations before independent reverse-tape joining | prosodic-foot lattice and stress-constrained surface realization | 0 exact joins; 9,000 realizations per side; 4 preserved runs including two concrete repairs; 0 reader-eligible outputs |
 | `global-tied-masked-denoising` | every character position is a tied variable; parallel masked-word assignments are propagated across the whole mirrored tape before scoring | global tied-character denoising with a bidirectional position ledger | 6 rendered proposals (3 ordinary seeds, 3 catalogue controls); 0 admitted at 39+ letters; no reader-eligible output |
+| `character-lm-half-tape` | a character-level beam generates the left half under joint forward/reverse n-gram scores; the reflected tape is segmented independently by Viterbi | character material generation plus independent lexical boundary recovery | 40 exact tapes per retained run; repeated-short-word collapse persisted through two repairs; 0 mechanically admitted and 0 reader-eligible outputs |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
@@ -89,5 +90,5 @@ the next frontier was chosen:
 Their run records remain available for failure analysis (`runs/seed-symmetric-
 mutation-20260915.json` and `runs/seed-boundary-shift-typed-resegmentation-
 20260915*.json`). A future route may use their residuals only after a new
-signature is pre-registered and its state space is disjoint from all 55
+signature is pre-registered and its state space is disjoint from all 56
 registered families.

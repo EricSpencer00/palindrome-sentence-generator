@@ -18,9 +18,12 @@ PROPOSALS = [
     ("The calm editor revises prose.", "Esorp s esiver rotide mlac eht."),
 ]
 
-def tapes_in_repo():
+def tapes_in_repo(output=None):
     out=set()
+    output = Path(output).resolve() if output else None
     for f in glob.glob(str(ROOT/'data'/'*.json'))+glob.glob(str(ROOT/'runs'/'**'/'*.json*'),recursive=True):
+        if output and Path(f).resolve() == output:
+            continue
         try: obj=json.loads(Path(f).read_text())
         except Exception: continue
         def walk(x):
@@ -35,7 +38,8 @@ def tapes_in_repo():
     return out
 
 def main():
-    known=tapes_in_repo(); rows=[]
+    output=ROOT/'runs'/'luna_fresh_paired_clause_20260915.json'
+    known=tapes_in_repo(output); rows=[]
     for left,right in PROPOSALS:
         text=(left.rstrip('.!?')+' '+right.strip()).strip()
         tape=normalize_letters(text)
@@ -47,6 +51,6 @@ def main():
          'state_space_signature':hashlib.sha256(b'fresh-paired-clause-ledger-v1|4 proposals|independent sides').hexdigest(),
          'known_tapes_fingerprinted':len(known),'proposals':rows,
          'next_operator':'Generate semantic right clauses by reverse-aware character ledger, preserving complete finite clauses at every boundary.'}
-    p=ROOT/'runs'/'luna_fresh_paired_clause_20260915.json'; p.write_text(json.dumps(out,indent=2)+'\n')
-    print(json.dumps({'out':str(p),'known':len(known),'exact':sum(r['exact'] for r in rows),'admitted':sum(r['admitted'] for r in rows)}))
+    output.write_text(json.dumps(out,indent=2)+'\n')
+    print(json.dumps({'out':str(output),'known':len(known),'exact':sum(r['exact'] for r in rows),'admitted':sum(r['admitted'] for r in rows)}))
 if __name__=='__main__': main()

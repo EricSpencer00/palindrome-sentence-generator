@@ -51,3 +51,6 @@ def test_latest_artifacts_were_preflighted_before_self_registration():
         assert 0 < audit["registry_entries_read_before_run"] < registry_count
         assert not audit.get("self_entry_present", [])
         assert not audit.get("replay_of_registered_family", False)
+    chart = json.loads((root / "runs" / "grammar-intersection-chart-20260915.json").read_text())
+    assert 0 < chart["registry_entry_count_before_run"] < registry_count
+    assert chart["prior_signatures_overlap"] == []

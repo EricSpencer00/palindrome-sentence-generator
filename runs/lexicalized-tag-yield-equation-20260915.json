@@ -1,0 +1,5678 @@
+{
+  "experiment_id": "lexicalized-tag-yield-equation",
+  "signature": "lexicalized-tree-adjoining-grammar|recursive-auxiliary-adjunction|pushdown-yield-equation|typed-semantic-feature-unification|structural-site-repair|independent-terminal-audit",
+  "method": "recursive lexicalized TAG derivations with typed auxiliary-tree adjunction; a paired outside-in terminal-yield equation consumes opposite edges of independently lexicalized complete yields",
+  "configuration": {
+    "seed": 20260915,
+    "depths": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "target_length_band": [
+      39,
+      180
+    ],
+    "elementary_trees": [
+      {
+        "name": "transitive_spine",
+        "yield_labels": [
+          "det_s",
+          "subject",
+          "verb",
+          "det_o",
+          "object"
+        ],
+        "frame": "agent-action-patient"
+      }
+    ],
+    "auxiliary_trees": [
+      {
+        "name": "subject_modifier",
+        "category": "NP",
+        "site": "subject",
+        "inserted_labels": [
+          "adj_s"
+        ],
+        "frame_addition": "subject-property"
+      },
+      {
+        "name": "object_modifier",
+        "category": "NP",
+        "site": "object",
+        "inserted_labels": [
+          "adj_o"
+        ],
+        "frame_addition": "object-property"
+      },
+      {
+        "name": "verb_manner",
+        "category": "VP",
+        "site": "verb",
+        "inserted_labels": [
+          "adv"
+        ],
+        "frame_addition": "manner"
+      },
+      {
+        "name": "subject_location",
+        "category": "NP",
+        "site": "subject",
+        "inserted_labels": [
+          "prep_s",
+          "det_sloc",
+          "place_sloc"
+        ],
+        "frame_addition": "subject-location"
+      },
+      {
+        "name": "object_location",
+        "category": "VP",
+        "site": "object",
+        "inserted_labels": [
+          "prep_o",
+          "det_oloc",
+          "place_oloc"
+        ],
+        "frame_addition": "object-location"
+      }
+    ],
+    "repair_auxiliary": {
+      "name": "coordinated_predicate",
+      "category": "S",
+      "site": "object",
+      "inserted_labels": [
+        "and",
+        "coord_verb",
+        "coord_prep",
+        "coord_det",
+        "coord_place"
+      ],
+      "frame_addition": "coordinated-action"
+    },
+    "cap_per_depth": 72,
+    "programmatic_readability_diagnostic_only": true
+  },
+  "novelty_audit": {
+    "registry_entries_read_before_run": 51,
+    "prior_ids_read": [
+      "typed-semordnilap",
+      "global-brown-pos",
+      "typed-lexical-graph",
+      "brown-attested-svo",
+      "brown-two-svo-attachments",
+      "brown-cross-clause",
+      "brown-shared-relative",
+      "brown-two-relative-chain",
+      "brown-two-relative-attachment",
+      "brown-shared-coref-attachment",
+      "brown-bounded-repair",
+      "brown-joint-relation-repair",
+      "brown-relative-topology",
+      "brown-coreferent-variable-pp",
+      "event-frame-independent-relexicalization",
+      "fresh-paired-clause-ledger",
+      "character-ledger-promptbank",
+      "two-event-discourse-frame",
+      "connective-bearing-event-pair",
+      "constrained-reverse-lexical-v2",
+      "connective-semantic-class-event-pair",
+      "relation-graph-event-pair",
+      "two-edge-event-micrograph",
+      "dialogue-acknowledgment-residual-inventory",
+      "dialogue-elliptical-ack-residual-inventory",
+      "dialogue-shared-topic-elliptical-residual",
+      "multiword-unit-transducer-local-repair",
+      "morphological-derivational-seam",
+      "cp-semantic-grammar-palindrome",
+      "clause-lattice-joint-dp",
+      "character-clause-fst-joint-emission",
+      "scene-slot-graph-residual",
+      "two-bank-word-equation-seam-dp",
+      "seam-first-complete-clause-authoring",
+      "semantic-dependency-outside-in",
+      "synchronous-semantic-parse-equations",
+      "internal-center-window-repair",
+      "discourse-plan-coupled-expansion",
+      "collocation-synchronous-grammar",
+      "human-compositional-center-window",
+      "global-semantic-paraphrase-rewrite",
+      "collocation-graph-path",
+      "semantic-sentence-pair-alignment",
+      "template-analogy-semantic-lexicalization",
+      "neural-dual-prefix-beam-v2",
+      "dependency-attribute-grammar-chart",
+      "evolutionary-prose-genome",
+      "grammar-intersection-chart",
+      "bpe-dual-continuation",
+      "mined-phrase-chunk-clause-composition",
+      "variable-boundary-tape-ilp"
+    ],
+    "exact_signature_overlap": [],
+    "exact_artifact_overlap": [],
+    "counted_as_new": true,
+    "novel_dimension": "recursive TAG elementary/auxiliary derivations with typed adjunction stacks and pushdown terminal-yield equation",
+    "excluded_families": [
+      "grammar-intersection-chart",
+      "dependency-attribute-grammar-chart",
+      "clause-lattice-joint-dp",
+      "variable-boundary-tape-ilp",
+      "bpe-dual-continuation",
+      "neural-dual-prefix-beam-v2"
+    ]
+  },
+  "stats": {
+    "left_derivations": 149,
+    "right_derivations": 142,
+    "paired_structural_states": 21158,
+    "terminal_pairs_checked": 1012887,
+    "exact_half_joins": 0,
+    "mechanically_admitted": 0,
+    "probes": 40
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "The artists carry a window. The writers watch the message.",
+      "letters": 47,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [],
+      "left_depth": 0,
+      "right_depth": 0,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 25,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 24,
+          "left": "t",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 47,
+        "pairs_checked": 23,
+        "mismatch_count": 22,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 46,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 45,
+            "left": "h",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 44,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 43,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 42,
+            "left": "r",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "73810cf5e833922169487b7ddd1cc61a44c53a3d8e355cc0ec88a09958f76118"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 10,
+        "mean_word_length": 4.7,
+        "content_word_ratio": 0.6,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. The keepers help one clear basket.",
+      "letters": 50,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "object_modifier"
+      ],
+      "left_depth": 0,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+object-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 28,
+        "matched_outer_letters": 1,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 26,
+          "left": "h",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 50,
+        "pairs_checked": 25,
+        "mismatch_count": 23,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 48,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 47,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 46,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 45,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 5,
+            "right_index": 44,
+            "left": "t",
+            "right": "b"
+          }
+        ],
+        "normalized_sha256": "dd8dad7d3c22ac685fe2d9ffe07b6581b15d68e367ce2a9c8013cdacf70b18e1"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 11,
+        "mean_word_length": 4.55,
+        "content_word_ratio": 0.636,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "Our poet reads today one window. The writers watch the message.",
+      "letters": 51,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "verb_manner"
+      ],
+      "right_auxiliary_stack": [],
+      "left_depth": 1,
+      "right_depth": 0,
+      "left_frame": "agent-action-patient+manner",
+      "right_frame": "agent-action-patient+",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 26,
+        "right_letters": 25,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 24,
+          "left": "o",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 51,
+        "pairs_checked": 25,
+        "mismatch_count": 23,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 50,
+            "left": "o",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 49,
+            "left": "u",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 48,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 47,
+            "left": "p",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 46,
+            "left": "o",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "42e2480ce73deac56d6c8bea06ed7aa03f63eb59ad3c28fc929d8cf511a1e354"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 11,
+        "mean_word_length": 4.64,
+        "content_word_ratio": 0.636,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. The simple keepers hold one vessel.",
+      "letters": 51,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "subject_modifier"
+      ],
+      "left_depth": 0,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+subject-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 29,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 28,
+          "left": "t",
+          "right": "l"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 51,
+        "pairs_checked": 25,
+        "mismatch_count": 25,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 50,
+            "left": "t",
+            "right": "l"
+          },
+          {
+            "left_index": 1,
+            "right_index": 49,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 48,
+            "left": "e",
+            "right": "s"
+          },
+          {
+            "left_index": 3,
+            "right_index": 47,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 46,
+            "left": "r",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "000105c56db3b7ac65ea18789fcafff3554b287df65c0a232ac25cb168d1963d"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 11,
+        "mean_word_length": 4.64,
+        "content_word_ratio": 0.636,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "A bright farmer guides one garden. The writers watch the message.",
+      "letters": 53,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "subject_modifier"
+      ],
+      "right_auxiliary_stack": [],
+      "left_depth": 1,
+      "right_depth": 0,
+      "left_frame": "agent-action-patient+subject-property",
+      "right_frame": "agent-action-patient+",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 28,
+        "right_letters": 25,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 24,
+          "left": "a",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 53,
+        "pairs_checked": 26,
+        "mismatch_count": 25,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 52,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 51,
+            "left": "b",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 50,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 49,
+            "left": "i",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 48,
+            "left": "g",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "0da0808c04855626c1adeee5451468b5260d3e1dd8936fa626fa7033162a4d73"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 11,
+        "mean_word_length": 4.82,
+        "content_word_ratio": 0.636,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "Our poet reads today one window. The keepers help one clear basket.",
+      "letters": 54,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "verb_manner"
+      ],
+      "right_auxiliary_stack": [
+        "object_modifier"
+      ],
+      "left_depth": 1,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+manner",
+      "right_frame": "agent-action-patient+object-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 26,
+        "right_letters": 28,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 27,
+          "left": "o",
+          "right": "t"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 54,
+        "pairs_checked": 27,
+        "mismatch_count": 25,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 53,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 52,
+            "left": "u",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 51,
+            "left": "r",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 50,
+            "left": "p",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 49,
+            "left": "o",
+            "right": "a"
+          }
+        ],
+        "normalized_sha256": "bed36a8ab26585dbe762407f5a6e77e9b02166e9e6fc4788e11a6a00a1b7bfa1"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.5,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. The keepers across a coast sort the basket.",
+      "letters": 57,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "subject_location"
+      ],
+      "left_depth": 0,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+subject-location",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 35,
+        "matched_outer_letters": 1,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 33,
+          "left": "h",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 57,
+        "pairs_checked": 28,
+        "mismatch_count": 24,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 55,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 54,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 53,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 52,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 5,
+            "right_index": 51,
+            "left": "t",
+            "right": "b"
+          }
+        ],
+        "normalized_sha256": "800115e02dff871b279464e4537d35bc68974159857b7d41b6226b45ca650cca"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.38,
+        "content_word_ratio": 0.615,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "Our poet reads today one window. The simple keepers hold one vessel.",
+      "letters": 55,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "verb_manner"
+      ],
+      "right_auxiliary_stack": [
+        "subject_modifier"
+      ],
+      "left_depth": 1,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+manner",
+      "right_frame": "agent-action-patient+subject-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 26,
+        "right_letters": 29,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 28,
+          "left": "o",
+          "right": "l"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 55,
+        "pairs_checked": 27,
+        "mismatch_count": 27,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 54,
+            "left": "o",
+            "right": "l"
+          },
+          {
+            "left_index": 1,
+            "right_index": 53,
+            "left": "u",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 52,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "left_index": 3,
+            "right_index": 51,
+            "left": "p",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 50,
+            "left": "o",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "a25e834dbd98d16e554ea06b0852e6f72a19919e8c2593d461e80761d8cb20b6"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.58,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. The baker watches steadily the cottage.",
+      "letters": 55,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "verb_manner"
+      ],
+      "left_depth": 0,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+manner",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 33,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 32,
+          "left": "t",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 55,
+        "pairs_checked": 27,
+        "mismatch_count": 26,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 54,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 53,
+            "left": "h",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 52,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 51,
+            "left": "a",
+            "right": "t"
+          },
+          {
+            "left_index": 4,
+            "right_index": 50,
+            "left": "r",
+            "right": "t"
+          }
+        ],
+        "normalized_sha256": "9dcbb4445aa91978cbb9833472d2230e1e9edb7f9a67cb49bb869ea7eccd0821"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 11,
+        "mean_word_length": 5.0,
+        "content_word_ratio": 0.636,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "A bright farmer guides one garden. The keepers help one clear basket.",
+      "letters": 56,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "subject_modifier"
+      ],
+      "right_auxiliary_stack": [
+        "object_modifier"
+      ],
+      "left_depth": 1,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+subject-property",
+      "right_frame": "agent-action-patient+object-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 28,
+        "right_letters": 28,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 27,
+          "left": "a",
+          "right": "t"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 56,
+        "pairs_checked": 28,
+        "mismatch_count": 26,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 55,
+            "left": "a",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 54,
+            "left": "b",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 53,
+            "left": "r",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 52,
+            "left": "i",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 51,
+            "left": "g",
+            "right": "a"
+          }
+        ],
+        "normalized_sha256": "26e277b549d00aae20b906c280206e220b06d1be905eb2e0d990d44b3c7fe9d0"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.67,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "Our young pilots guide a small parcel. The writers watch the message.",
+      "letters": 56,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "subject_modifier",
+        "object_modifier"
+      ],
+      "right_auxiliary_stack": [],
+      "left_depth": 2,
+      "right_depth": 0,
+      "left_frame": "agent-action-patient+subject-property+object-property",
+      "right_frame": "agent-action-patient+",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 31,
+        "right_letters": 25,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 24,
+          "left": "o",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 56,
+        "pairs_checked": 28,
+        "mismatch_count": 27,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 55,
+            "left": "o",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 54,
+            "left": "u",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 53,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 52,
+            "left": "y",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 51,
+            "left": "o",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "3d843caeb1275ddaa6177602fdc52f82d5c073a39b3637092350b5c4900fd3ff"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.67,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "A bright farmer guides one garden. The simple keepers hold one vessel.",
+      "letters": 57,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "subject_modifier"
+      ],
+      "right_auxiliary_stack": [
+        "subject_modifier"
+      ],
+      "left_depth": 1,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+subject-property",
+      "right_frame": "agent-action-patient+subject-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 28,
+        "right_letters": 29,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 28,
+          "left": "a",
+          "right": "l"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 57,
+        "pairs_checked": 28,
+        "mismatch_count": 26,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 56,
+            "left": "a",
+            "right": "l"
+          },
+          {
+            "left_index": 1,
+            "right_index": 55,
+            "left": "b",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 54,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "left_index": 3,
+            "right_index": 53,
+            "left": "i",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 52,
+            "left": "g",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "7fd1857dfed117ec20cfd841f87422d83368015ab7e225884852d37f0c8298f1"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.75,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. Some steady keepers hold silently the book.",
+      "letters": 58,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "subject_modifier",
+        "verb_manner"
+      ],
+      "left_depth": 0,
+      "right_depth": 2,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+subject-property+manner",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 36,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 35,
+          "left": "t",
+          "right": "k"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 58,
+        "pairs_checked": 29,
+        "mismatch_count": 29,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 57,
+            "left": "t",
+            "right": "k"
+          },
+          {
+            "left_index": 1,
+            "right_index": 56,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 55,
+            "left": "e",
+            "right": "o"
+          },
+          {
+            "left_index": 3,
+            "right_index": 54,
+            "left": "a",
+            "right": "b"
+          },
+          {
+            "left_index": 4,
+            "right_index": 53,
+            "left": "r",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "b854b61114ff27b5911907b4e2f37f77be9d10e8322b9fbf7bdc37c46dc90802"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.83,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. The writers watch one basket around some coast.",
+      "letters": 61,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "object_location"
+      ],
+      "left_depth": 0,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+object-location",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 39,
+        "matched_outer_letters": 1,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 37,
+          "left": "h",
+          "right": "s"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 61,
+        "pairs_checked": 30,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 59,
+            "left": "h",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 58,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 57,
+            "left": "a",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 56,
+            "left": "r",
+            "right": "c"
+          },
+          {
+            "left_index": 5,
+            "right_index": 55,
+            "left": "t",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "6eca52f809ee216ccfec9f39521abf4190140c1ab53481ff585d03fce8fea175"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.69,
+        "content_word_ratio": 0.615,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "Our poet reads today one window. The baker watches steadily the cottage.",
+      "letters": 59,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "verb_manner"
+      ],
+      "right_auxiliary_stack": [
+        "verb_manner"
+      ],
+      "left_depth": 1,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+manner",
+      "right_frame": "agent-action-patient+manner",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 26,
+        "right_letters": 33,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 32,
+          "left": "o",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 59,
+        "pairs_checked": 29,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 58,
+            "left": "o",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 57,
+            "left": "u",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 56,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 55,
+            "left": "p",
+            "right": "t"
+          },
+          {
+            "left_index": 4,
+            "right_index": 54,
+            "left": "o",
+            "right": "t"
+          }
+        ],
+        "normalized_sha256": "cbc3f12a43d0270489d655074b884f24245b1e3b2b6192536835c94d0444d503"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.92,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "Our quiet pilots carry one bright garden. The writers watch the message.",
+      "letters": 59,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "object_modifier",
+        "subject_modifier"
+      ],
+      "right_auxiliary_stack": [],
+      "left_depth": 2,
+      "right_depth": 0,
+      "left_frame": "agent-action-patient+object-property+subject-property",
+      "right_frame": "agent-action-patient+",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 34,
+        "right_letters": 25,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 24,
+          "left": "o",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 59,
+        "pairs_checked": 29,
+        "mismatch_count": 27,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 58,
+            "left": "o",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 57,
+            "left": "u",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 56,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 55,
+            "left": "q",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 54,
+            "left": "u",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "021463b41694258669bdfec31343a83d104bb5a14b3b1a37f7045c9491d3b084"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.92,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "Our young pilots guide a small parcel. The keepers help one clear basket.",
+      "letters": 59,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "subject_modifier",
+        "object_modifier"
+      ],
+      "right_auxiliary_stack": [
+        "object_modifier"
+      ],
+      "left_depth": 2,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+subject-property+object-property",
+      "right_frame": "agent-action-patient+object-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 31,
+        "right_letters": 28,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 27,
+          "left": "o",
+          "right": "t"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 59,
+        "pairs_checked": 29,
+        "mismatch_count": 29,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 58,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 57,
+            "left": "u",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 56,
+            "left": "r",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 55,
+            "left": "y",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 54,
+            "left": "o",
+            "right": "a"
+          }
+        ],
+        "normalized_sha256": "142d7033a6c7d0339a7ace04cdaedb681e297a8a97e3e12afe99a195ff3e7a82"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.54,
+        "content_word_ratio": 0.692,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. Some honest teacher sorts one useful answer.",
+      "letters": 59,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "object_modifier",
+        "subject_modifier"
+      ],
+      "left_depth": 0,
+      "right_depth": 2,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+object-property+subject-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 37,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 36,
+          "left": "t",
+          "right": "r"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 59,
+        "pairs_checked": 29,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 58,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 57,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 56,
+            "left": "e",
+            "right": "w"
+          },
+          {
+            "left_index": 3,
+            "right_index": 55,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 54,
+            "left": "r",
+            "right": "n"
+          }
+        ],
+        "normalized_sha256": "ccd44c57b2d76e3912989a3f2f58a6636d85b029470691ed3b39484d549a0bae"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.92,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. The doctor holds steadily the useful vessel.",
+      "letters": 59,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "object_modifier",
+        "verb_manner"
+      ],
+      "left_depth": 0,
+      "right_depth": 2,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+object-property+manner",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 37,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 36,
+          "left": "t",
+          "right": "l"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 59,
+        "pairs_checked": 29,
+        "mismatch_count": 27,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 58,
+            "left": "t",
+            "right": "l"
+          },
+          {
+            "left_index": 1,
+            "right_index": 57,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 56,
+            "left": "e",
+            "right": "s"
+          },
+          {
+            "left_index": 3,
+            "right_index": 55,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 54,
+            "left": "r",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "fbf067a00a29fc458d965589b2574bfdadf95fb80c51d3dff3f907079f1f05fb"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.92,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. The silent doctor sorts the painted picture.",
+      "letters": 59,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "subject_modifier",
+        "object_modifier"
+      ],
+      "left_depth": 0,
+      "right_depth": 2,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+subject-property+object-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 37,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 36,
+          "left": "t",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 59,
+        "pairs_checked": 29,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 58,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 57,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "left_index": 2,
+            "right_index": 56,
+            "left": "e",
+            "right": "u"
+          },
+          {
+            "left_index": 3,
+            "right_index": 55,
+            "left": "a",
+            "right": "t"
+          },
+          {
+            "left_index": 4,
+            "right_index": 54,
+            "left": "r",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "6182cbc55da16503849f4ff3240a5630cf7c401fb933f1856b0505997f991191"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.92,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The bright pilots guide quietly a letter. The writers watch the message.",
+      "letters": 59,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "subject_modifier",
+        "verb_manner"
+      ],
+      "right_auxiliary_stack": [],
+      "left_depth": 2,
+      "right_depth": 0,
+      "left_frame": "agent-action-patient+subject-property+manner",
+      "right_frame": "agent-action-patient+",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 34,
+        "right_letters": 25,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 24,
+          "left": "t",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 59,
+        "pairs_checked": 29,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 58,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 57,
+            "left": "h",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 56,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 55,
+            "left": "b",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 54,
+            "left": "r",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "da852bc26e1ea62ed8208c2aff0d3d863f1f3c26033f0a7886a06ea9ed183af8"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.92,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The young poet guides patiently a harbor. The writers watch the message.",
+      "letters": 59,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "verb_manner",
+        "subject_modifier"
+      ],
+      "right_auxiliary_stack": [],
+      "left_depth": 2,
+      "right_depth": 0,
+      "left_frame": "agent-action-patient+manner+subject-property",
+      "right_frame": "agent-action-patient+",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 34,
+        "right_letters": 25,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 24,
+          "left": "t",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 59,
+        "pairs_checked": 29,
+        "mismatch_count": 27,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 58,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 57,
+            "left": "h",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 56,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 55,
+            "left": "y",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 54,
+            "left": "o",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "361514add25ae3ba25e204ae1b5a271fc9b955b6e2476381146aa63dc6003692"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.92,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The bright pilots guide quietly a letter. The keepers help one clear basket.",
+      "letters": 62,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "subject_modifier",
+        "verb_manner"
+      ],
+      "right_auxiliary_stack": [
+        "object_modifier"
+      ],
+      "left_depth": 2,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+subject-property+manner",
+      "right_frame": "agent-action-patient+object-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 34,
+        "right_letters": 28,
+        "matched_outer_letters": 1,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 26,
+          "left": "h",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 62,
+        "pairs_checked": 31,
+        "mismatch_count": 27,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 60,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 59,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 58,
+            "left": "b",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 57,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 5,
+            "right_index": 56,
+            "left": "i",
+            "right": "b"
+          }
+        ],
+        "normalized_sha256": "fd7e7f70105df07655cd197921fc8772fc711d91edd90d69363a2613d171314d"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.77,
+        "content_word_ratio": 0.692,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The young poet guides patiently a harbor. The keepers help one clear basket.",
+      "letters": 62,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "verb_manner",
+        "subject_modifier"
+      ],
+      "right_auxiliary_stack": [
+        "object_modifier"
+      ],
+      "left_depth": 2,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+manner+subject-property",
+      "right_frame": "agent-action-patient+object-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 34,
+        "right_letters": 28,
+        "matched_outer_letters": 1,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 26,
+          "left": "h",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 62,
+        "pairs_checked": 31,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 60,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 59,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 58,
+            "left": "y",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 57,
+            "left": "o",
+            "right": "a"
+          },
+          {
+            "left_index": 5,
+            "right_index": 56,
+            "left": "u",
+            "right": "b"
+          }
+        ],
+        "normalized_sha256": "e74703e389fa5eef6daa7f5eb7c6ab37daf83690ab36e4f89bc17543f10361dd"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.77,
+        "content_word_ratio": 0.692,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "Our young pilots guide a small parcel. The simple keepers hold one vessel.",
+      "letters": 60,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "subject_modifier",
+        "object_modifier"
+      ],
+      "right_auxiliary_stack": [
+        "subject_modifier"
+      ],
+      "left_depth": 2,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+subject-property+object-property",
+      "right_frame": "agent-action-patient+subject-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 31,
+        "right_letters": 29,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 28,
+          "left": "o",
+          "right": "l"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 60,
+        "pairs_checked": 30,
+        "mismatch_count": 26,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 59,
+            "left": "o",
+            "right": "l"
+          },
+          {
+            "left_index": 1,
+            "right_index": 58,
+            "left": "u",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 57,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "left_index": 3,
+            "right_index": 56,
+            "left": "y",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 55,
+            "left": "o",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "c5cb31629d29b49b39d1cf7aa4fc7672fcce9951258a6c071ea25392bd6cea31"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.62,
+        "content_word_ratio": 0.692,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. Some baker watches steadily the small vessel.",
+      "letters": 60,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "verb_manner",
+        "object_modifier"
+      ],
+      "left_depth": 0,
+      "right_depth": 2,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+manner+object-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 38,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 37,
+          "left": "t",
+          "right": "l"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 60,
+        "pairs_checked": 30,
+        "mismatch_count": 27,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 59,
+            "left": "t",
+            "right": "l"
+          },
+          {
+            "left_index": 1,
+            "right_index": 58,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 57,
+            "left": "e",
+            "right": "s"
+          },
+          {
+            "left_index": 3,
+            "right_index": 56,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 55,
+            "left": "r",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "d57858f36ea9977a7f650dec56704cfeded410a0764a6b3bb4e21c5ba908167d"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 5.0,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The nurse reads quietly the wooden parcel. The writers watch the message.",
+      "letters": 60,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "verb_manner",
+        "object_modifier"
+      ],
+      "right_auxiliary_stack": [],
+      "left_depth": 2,
+      "right_depth": 0,
+      "left_frame": "agent-action-patient+manner+object-property",
+      "right_frame": "agent-action-patient+",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 35,
+        "right_letters": 25,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 24,
+          "left": "t",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 60,
+        "pairs_checked": 30,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 59,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 58,
+            "left": "h",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 57,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 56,
+            "left": "n",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 55,
+            "left": "u",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "bdd6ad3c03c563b2b76f8025b34f476ac5e470e507f7d75d80ff915b59f82589"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 5.0,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The nurse reads quietly the wooden parcel. The keepers help one clear basket.",
+      "letters": 63,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "verb_manner",
+        "object_modifier"
+      ],
+      "right_auxiliary_stack": [
+        "object_modifier"
+      ],
+      "left_depth": 2,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+manner+object-property",
+      "right_frame": "agent-action-patient+object-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 35,
+        "right_letters": 28,
+        "matched_outer_letters": 1,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 26,
+          "left": "h",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 63,
+        "pairs_checked": 31,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 61,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 60,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 59,
+            "left": "n",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 58,
+            "left": "u",
+            "right": "a"
+          },
+          {
+            "left_index": 5,
+            "right_index": 57,
+            "left": "r",
+            "right": "b"
+          }
+        ],
+        "normalized_sha256": "6b46841a03870657e135b6e4028add69a36650e6d12fe2f0e5627be0c539073b"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.85,
+        "content_word_ratio": 0.692,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "A bright farmer guides one garden. The baker watches steadily the cottage.",
+      "letters": 61,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "subject_modifier"
+      ],
+      "right_auxiliary_stack": [
+        "verb_manner"
+      ],
+      "left_depth": 1,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+subject-property",
+      "right_frame": "agent-action-patient+manner",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 28,
+        "right_letters": 33,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 32,
+          "left": "a",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 61,
+        "pairs_checked": 30,
+        "mismatch_count": 27,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 60,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 59,
+            "left": "b",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 58,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 57,
+            "left": "i",
+            "right": "t"
+          },
+          {
+            "left_index": 4,
+            "right_index": 56,
+            "left": "g",
+            "right": "t"
+          }
+        ],
+        "normalized_sha256": "04afa398bb7f058d3f1bc0cdbb05ad3eda668cd072fe48c9948cb154813f6306"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 5.08,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "A young poet guides today the bright letter. The writers watch the message.",
+      "letters": 61,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "object_modifier",
+        "subject_modifier",
+        "verb_manner"
+      ],
+      "right_auxiliary_stack": [],
+      "left_depth": 3,
+      "right_depth": 0,
+      "left_frame": "agent-action-patient+object-property+subject-property+manner",
+      "right_frame": "agent-action-patient+",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 36,
+        "right_letters": 25,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 24,
+          "left": "a",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 61,
+        "pairs_checked": 30,
+        "mismatch_count": 27,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 60,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 59,
+            "left": "y",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 58,
+            "left": "o",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 57,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 56,
+            "left": "n",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "7a07190bcc36dca721a68636726434be5b9186552bf54635c0b6d5b1fab0d94b"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.69,
+        "content_word_ratio": 0.692,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "Our poet reads today one window. The keepers across a coast sort the basket.",
+      "letters": 61,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "verb_manner"
+      ],
+      "right_auxiliary_stack": [
+        "subject_location"
+      ],
+      "left_depth": 1,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+manner",
+      "right_frame": "agent-action-patient+subject-location",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 26,
+        "right_letters": 35,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 34,
+          "left": "o",
+          "right": "t"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 61,
+        "pairs_checked": 30,
+        "mismatch_count": 29,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 60,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 59,
+            "left": "u",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 58,
+            "left": "r",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 57,
+            "left": "p",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 56,
+            "left": "o",
+            "right": "a"
+          }
+        ],
+        "normalized_sha256": "e9af9d56f126573614cde40589bef37c84dbcfb9ce88a00d2eab06f1af3fba5f"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "mean_word_length": 4.36,
+        "content_word_ratio": 0.643,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. A doctor inside a coast sorts today the message.",
+      "letters": 61,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "verb_manner",
+        "subject_location"
+      ],
+      "left_depth": 0,
+      "right_depth": 2,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+manner+subject-location",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 39,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 38,
+          "left": "t",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 61,
+        "pairs_checked": 30,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 60,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 59,
+            "left": "h",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 58,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 57,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 56,
+            "left": "r",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "af2164c4f1169bef4a19372b992fa80a7ed96b213809b17b6bd3f0699c387497"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "mean_word_length": 4.36,
+        "content_word_ratio": 0.643,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. A steady captain holds gently the clear answer.",
+      "letters": 61,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "subject_modifier",
+        "verb_manner",
+        "object_modifier"
+      ],
+      "left_depth": 0,
+      "right_depth": 3,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+subject-property+manner+object-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 39,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 38,
+          "left": "t",
+          "right": "r"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 61,
+        "pairs_checked": 30,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 60,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 59,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 58,
+            "left": "e",
+            "right": "w"
+          },
+          {
+            "left_index": 3,
+            "right_index": 57,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 56,
+            "left": "r",
+            "right": "n"
+          }
+        ],
+        "normalized_sha256": "50238f520ce09b037f7bf58994302bea5ff19b5f2371fd459290655b28ae5932"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.69,
+        "content_word_ratio": 0.692,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists guide carefully a small window. The writers watch the message.",
+      "letters": 61,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "object_modifier",
+        "verb_manner"
+      ],
+      "right_auxiliary_stack": [],
+      "left_depth": 2,
+      "right_depth": 0,
+      "left_frame": "agent-action-patient+object-property+manner",
+      "right_frame": "agent-action-patient+",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 36,
+        "right_letters": 25,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 24,
+          "left": "t",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 61,
+        "pairs_checked": 30,
+        "mismatch_count": 30,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 60,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 59,
+            "left": "h",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 58,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 57,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 56,
+            "left": "r",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "07befec7d673d4038cf54983f65793976960daaa1d13078ebc049ab9b11a612f"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 5.08,
+        "content_word_ratio": 0.667,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists carry a window. A captain beside the school helps the clear basket.",
+      "letters": 64,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [],
+      "right_auxiliary_stack": [
+        "object_modifier",
+        "subject_location"
+      ],
+      "left_depth": 0,
+      "right_depth": 2,
+      "left_frame": "agent-action-patient+",
+      "right_frame": "agent-action-patient+object-property+subject-location",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 22,
+        "right_letters": 42,
+        "matched_outer_letters": 1,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 40,
+          "left": "h",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 64,
+        "pairs_checked": 32,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 62,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 61,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 60,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 59,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 5,
+            "right_index": 58,
+            "left": "t",
+            "right": "b"
+          }
+        ],
+        "normalized_sha256": "fdeec17a74cf56becfba0b861d155d78cad1d24d80af89decfdf00c51b50c42c"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "mean_word_length": 4.57,
+        "content_word_ratio": 0.643,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "The artists guide carefully a small window. The keepers help one clear basket.",
+      "letters": 64,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "object_modifier",
+        "verb_manner"
+      ],
+      "right_auxiliary_stack": [
+        "object_modifier"
+      ],
+      "left_depth": 2,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+object-property+manner",
+      "right_frame": "agent-action-patient+object-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 36,
+        "right_letters": 28,
+        "matched_outer_letters": 1,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 26,
+          "left": "h",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 64,
+        "pairs_checked": 32,
+        "mismatch_count": 31,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 62,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 61,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 60,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 59,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 5,
+            "right_index": 58,
+            "left": "t",
+            "right": "b"
+          }
+        ],
+        "normalized_sha256": "8e6c8fa8a404bdee3ba30a3e289892b8961a5d38535c394b6dba528473d4fc84"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.92,
+        "content_word_ratio": 0.692,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "A farmer beside the station reads one bridge. The writers watch the message.",
+      "letters": 62,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "subject_location"
+      ],
+      "right_auxiliary_stack": [],
+      "left_depth": 1,
+      "right_depth": 0,
+      "left_frame": "agent-action-patient+subject-location",
+      "right_frame": "agent-action-patient+",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 37,
+        "right_letters": 25,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 24,
+          "left": "a",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 62,
+        "pairs_checked": 31,
+        "mismatch_count": 29,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 61,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 60,
+            "left": "f",
+            "right": "g"
+          },
+          {
+            "left_index": 3,
+            "right_index": 58,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 57,
+            "left": "m",
+            "right": "s"
+          },
+          {
+            "left_index": 6,
+            "right_index": 55,
+            "left": "r",
+            "right": "m"
+          }
+        ],
+        "normalized_sha256": "f58e22420a5d1edbebf0892624adbc1e727897803850cdb4a5c04b496845d0cd"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.77,
+        "content_word_ratio": 0.615,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "A poet carries one lantern behind the garden. The writers watch the message.",
+      "letters": 62,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "object_location"
+      ],
+      "right_auxiliary_stack": [],
+      "left_depth": 1,
+      "right_depth": 0,
+      "left_frame": "agent-action-patient+object-location",
+      "right_frame": "agent-action-patient+",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 37,
+        "right_letters": 25,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 24,
+          "left": "a",
+          "right": "e"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 62,
+        "pairs_checked": 31,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 61,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 60,
+            "left": "p",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 59,
+            "left": "o",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 58,
+            "left": "e",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 57,
+            "left": "t",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "b104a8436857215e6b9add44571ed96c52a259259fcd4724ff547a63295f5784"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.77,
+        "content_word_ratio": 0.615,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "Our poet reads today one window. Some steady keepers hold silently the book.",
+      "letters": 62,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "verb_manner"
+      ],
+      "right_auxiliary_stack": [
+        "subject_modifier",
+        "verb_manner"
+      ],
+      "left_depth": 1,
+      "right_depth": 2,
+      "left_frame": "agent-action-patient+manner",
+      "right_frame": "agent-action-patient+subject-property+manner",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 26,
+        "right_letters": 36,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 35,
+          "left": "o",
+          "right": "k"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 62,
+        "pairs_checked": 31,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 61,
+            "left": "o",
+            "right": "k"
+          },
+          {
+            "left_index": 1,
+            "right_index": 60,
+            "left": "u",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 59,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "left_index": 3,
+            "right_index": 58,
+            "left": "p",
+            "right": "b"
+          },
+          {
+            "left_index": 4,
+            "right_index": 57,
+            "left": "o",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "9fe6abaa842ec202065d554874c21baab8ca1bb039e5e05215d94fca409da677"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.77,
+        "content_word_ratio": 0.692,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    },
+    {
+      "rendered": "Our quiet pilots carry one bright garden. The keepers help one clear basket.",
+      "letters": 62,
+      "left_tree": "transitive_spine",
+      "right_tree": "transitive_spine",
+      "left_auxiliary_stack": [
+        "object_modifier",
+        "subject_modifier"
+      ],
+      "right_auxiliary_stack": [
+        "object_modifier"
+      ],
+      "left_depth": 2,
+      "right_depth": 1,
+      "left_frame": "agent-action-patient+object-property+subject-property",
+      "right_frame": "agent-action-patient+object-property",
+      "yield_join": {
+        "exact_half_join": false,
+        "left_letters": 34,
+        "right_letters": 28,
+        "matched_outer_letters": 0,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 27,
+          "left": "o",
+          "right": "t"
+        }
+      },
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 62,
+        "pairs_checked": 31,
+        "mismatch_count": 29,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 61,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 60,
+            "left": "u",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 59,
+            "left": "r",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 58,
+            "left": "q",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 57,
+            "left": "u",
+            "right": "a"
+          }
+        ],
+        "normalized_sha256": "7ff8d1ddca372eec1f1cf8e9c7753f2c13203fba5f6244bc2849548861f2d1bc"
+      },
+      "mechanical_admission_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "shortcut_rejections": [],
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 13,
+        "mean_word_length": 4.77,
+        "content_word_ratio": 0.692,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run",
+      "provenance": {
+        "left_source": "fresh left TAG lexicalization",
+        "right_source": "fresh right TAG lexicalization",
+        "lexicalizations_independent": true
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "surface_validation": {
+    "rejected_malformed_derivations": {
+      "left:base": 9,
+      "right:base": 16,
+      "left:repair": 9,
+      "right:repair": 28
+    },
+    "retained_derivations_rechecked": {
+      "left_base": 149,
+      "right_base": 142,
+      "left_repair": 172,
+      "right_repair": 153
+    }
+  },
+  "repair_run": {
+    "operator": "structural-site repair: adjoin held-out coordinated_predicate at the object/S boundary, adding a second typed predicate and a fresh independent PP; do not merely replace a word in an existing slot",
+    "left_derivations": 172,
+    "right_derivations": 153,
+    "paired_repair_states": 20914,
+    "terminal_pairs_checked": 1123738,
+    "exact_half_joins": 0,
+    "rendered_probes": [
+      {
+        "rendered": "The young farmer reads the lantern and rests near a tower. Some keepers hold the basket.",
+        "letters": 71,
+        "left_auxiliary_stack": [
+          "coordinated_predicate",
+          "subject_modifier"
+        ],
+        "right_auxiliary_stack": [],
+        "left_depth": 2,
+        "right_depth": 0,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 47,
+          "right_letters": 24,
+          "matched_outer_letters": 1,
+          "first_mismatch": {
+            "left_index": 1,
+            "right_index": 22,
+            "left": "h",
+            "right": "e"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 71,
+          "pairs_checked": 35,
+          "mismatch_count": 30,
+          "mismatches": [
+            {
+              "left_index": 1,
+              "right_index": 69,
+              "left": "h",
+              "right": "e"
+            },
+            {
+              "left_index": 2,
+              "right_index": 68,
+              "left": "e",
+              "right": "k"
+            },
+            {
+              "left_index": 3,
+              "right_index": 67,
+              "left": "y",
+              "right": "s"
+            },
+            {
+              "left_index": 4,
+              "right_index": 66,
+              "left": "o",
+              "right": "a"
+            },
+            {
+              "left_index": 5,
+              "right_index": 65,
+              "left": "u",
+              "right": "b"
+            }
+          ],
+          "normalized_sha256": "bece24f29a534cbe17304c8c2d376a8477bd9b86524a2330cf23041e41da0f85"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.44,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "A poet opens one signal. A captain holds the clear picture and walks beside the coast.",
+        "letters": 69,
+        "left_auxiliary_stack": [],
+        "right_auxiliary_stack": [
+          "object_modifier",
+          "coordinated_predicate"
+        ],
+        "left_depth": 0,
+        "right_depth": 2,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 19,
+          "right_letters": 50,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 49,
+            "left": "a",
+            "right": "t"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 69,
+          "pairs_checked": 34,
+          "mismatch_count": 31,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 68,
+              "left": "a",
+              "right": "t"
+            },
+            {
+              "left_index": 1,
+              "right_index": 67,
+              "left": "p",
+              "right": "s"
+            },
+            {
+              "left_index": 2,
+              "right_index": 66,
+              "left": "o",
+              "right": "a"
+            },
+            {
+              "left_index": 3,
+              "right_index": 65,
+              "left": "e",
+              "right": "o"
+            },
+            {
+              "left_index": 4,
+              "right_index": 64,
+              "left": "t",
+              "right": "c"
+            }
+          ],
+          "normalized_sha256": "2403d31b8eed284d9be99610655718116d5760791876423ec5f4a45bd5b5fc0b"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.31,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "A poet opens one signal. The teacher helps the small basket and waits toward some coast.",
+        "letters": 71,
+        "left_auxiliary_stack": [],
+        "right_auxiliary_stack": [
+          "coordinated_predicate",
+          "object_modifier"
+        ],
+        "left_depth": 0,
+        "right_depth": 2,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 19,
+          "right_letters": 52,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 51,
+            "left": "a",
+            "right": "t"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 71,
+          "pairs_checked": 35,
+          "mismatch_count": 34,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 70,
+              "left": "a",
+              "right": "t"
+            },
+            {
+              "left_index": 1,
+              "right_index": 69,
+              "left": "p",
+              "right": "s"
+            },
+            {
+              "left_index": 2,
+              "right_index": 68,
+              "left": "o",
+              "right": "a"
+            },
+            {
+              "left_index": 3,
+              "right_index": 67,
+              "left": "e",
+              "right": "o"
+            },
+            {
+              "left_index": 4,
+              "right_index": 66,
+              "left": "t",
+              "right": "c"
+            }
+          ],
+          "normalized_sha256": "43522db5acc42091d14cacb9f47037bcb0de9e004952079e7b353b54e503603f"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.44,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "A sailor reads one bright lantern and walks under a tower. Some keepers hold the basket.",
+        "letters": 71,
+        "left_auxiliary_stack": [
+          "object_modifier",
+          "coordinated_predicate"
+        ],
+        "right_auxiliary_stack": [],
+        "left_depth": 2,
+        "right_depth": 0,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 47,
+          "right_letters": 24,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 23,
+            "left": "a",
+            "right": "t"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 71,
+          "pairs_checked": 35,
+          "mismatch_count": 34,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 70,
+              "left": "a",
+              "right": "t"
+            },
+            {
+              "left_index": 1,
+              "right_index": 69,
+              "left": "s",
+              "right": "e"
+            },
+            {
+              "left_index": 2,
+              "right_index": 68,
+              "left": "a",
+              "right": "k"
+            },
+            {
+              "left_index": 3,
+              "right_index": 67,
+              "left": "i",
+              "right": "s"
+            },
+            {
+              "left_index": 4,
+              "right_index": 66,
+              "left": "l",
+              "right": "a"
+            }
+          ],
+          "normalized_sha256": "83fddf4f542c73f42f0de0f225ad7524564baeb0a1abe72002fa122e5e017f8e"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.44,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "Our sailor reads the garden and smiles beside our meadow. Some keepers hold the basket.",
+        "letters": 71,
+        "left_auxiliary_stack": [
+          "coordinated_predicate"
+        ],
+        "right_auxiliary_stack": [],
+        "left_depth": 1,
+        "right_depth": 0,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 47,
+          "right_letters": 24,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 23,
+            "left": "o",
+            "right": "t"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 71,
+          "pairs_checked": 35,
+          "mismatch_count": 31,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 70,
+              "left": "o",
+              "right": "t"
+            },
+            {
+              "left_index": 1,
+              "right_index": 69,
+              "left": "u",
+              "right": "e"
+            },
+            {
+              "left_index": 2,
+              "right_index": 68,
+              "left": "r",
+              "right": "k"
+            },
+            {
+              "left_index": 5,
+              "right_index": 65,
+              "left": "i",
+              "right": "b"
+            },
+            {
+              "left_index": 6,
+              "right_index": 64,
+              "left": "l",
+              "right": "e"
+            }
+          ],
+          "normalized_sha256": "4f5cf35a45a226cad32a58c4cf5ab111b5c2fd1601bbb34adf0244778ae49adf"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 15,
+          "mean_word_length": 4.73,
+          "content_word_ratio": 0.667,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "The poet opens patiently a lantern and walks under the tower. Some keepers hold the basket.",
+        "letters": 74,
+        "left_auxiliary_stack": [
+          "coordinated_predicate",
+          "verb_manner"
+        ],
+        "right_auxiliary_stack": [],
+        "left_depth": 2,
+        "right_depth": 0,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 50,
+          "right_letters": 24,
+          "matched_outer_letters": 1,
+          "first_mismatch": {
+            "left_index": 1,
+            "right_index": 22,
+            "left": "h",
+            "right": "e"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 74,
+          "pairs_checked": 37,
+          "mismatch_count": 36,
+          "mismatches": [
+            {
+              "left_index": 1,
+              "right_index": 72,
+              "left": "h",
+              "right": "e"
+            },
+            {
+              "left_index": 2,
+              "right_index": 71,
+              "left": "e",
+              "right": "k"
+            },
+            {
+              "left_index": 3,
+              "right_index": 70,
+              "left": "p",
+              "right": "s"
+            },
+            {
+              "left_index": 4,
+              "right_index": 69,
+              "left": "o",
+              "right": "a"
+            },
+            {
+              "left_index": 5,
+              "right_index": 68,
+              "left": "e",
+              "right": "b"
+            }
+          ],
+          "normalized_sha256": "2e947d944a07c06b3b93f325487a5243b24768e86a1666aa563f16b6eb6767f8"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.62,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "A poet opens one signal. Some steady keepers help one cottage and wait beside the office.",
+        "letters": 72,
+        "left_auxiliary_stack": [],
+        "right_auxiliary_stack": [
+          "coordinated_predicate",
+          "subject_modifier"
+        ],
+        "left_depth": 0,
+        "right_depth": 2,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 19,
+          "right_letters": 53,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 52,
+            "left": "a",
+            "right": "e"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 72,
+          "pairs_checked": 36,
+          "mismatch_count": 32,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 71,
+              "left": "a",
+              "right": "e"
+            },
+            {
+              "left_index": 1,
+              "right_index": 70,
+              "left": "p",
+              "right": "c"
+            },
+            {
+              "left_index": 2,
+              "right_index": 69,
+              "left": "o",
+              "right": "i"
+            },
+            {
+              "left_index": 3,
+              "right_index": 68,
+              "left": "e",
+              "right": "f"
+            },
+            {
+              "left_index": 4,
+              "right_index": 67,
+              "left": "t",
+              "right": "f"
+            }
+          ],
+          "normalized_sha256": "9ad0183ef5cbbd91718dc830de245a15027bc01b2619b8698aa5161c84623f33"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.5,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "A poet opens one signal. The silent captain sorts the answer and walks toward some coast.",
+        "letters": 72,
+        "left_auxiliary_stack": [],
+        "right_auxiliary_stack": [
+          "subject_modifier",
+          "coordinated_predicate"
+        ],
+        "left_depth": 0,
+        "right_depth": 2,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 19,
+          "right_letters": 53,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 52,
+            "left": "a",
+            "right": "t"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 72,
+          "pairs_checked": 36,
+          "mismatch_count": 35,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 71,
+              "left": "a",
+              "right": "t"
+            },
+            {
+              "left_index": 1,
+              "right_index": 70,
+              "left": "p",
+              "right": "s"
+            },
+            {
+              "left_index": 2,
+              "right_index": 69,
+              "left": "o",
+              "right": "a"
+            },
+            {
+              "left_index": 3,
+              "right_index": 68,
+              "left": "e",
+              "right": "o"
+            },
+            {
+              "left_index": 4,
+              "right_index": 67,
+              "left": "t",
+              "right": "c"
+            }
+          ],
+          "normalized_sha256": "7bae5ce5ddb4fee1d1cc27f8103a7614896a6cdde15471e69f91346ca9e28daf"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.5,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "A sailor reads one bright lantern and walks under a tower. A captain helps one useful book.",
+        "letters": 73,
+        "left_auxiliary_stack": [
+          "object_modifier",
+          "coordinated_predicate"
+        ],
+        "right_auxiliary_stack": [
+          "object_modifier"
+        ],
+        "left_depth": 2,
+        "right_depth": 1,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 47,
+          "right_letters": 26,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 25,
+            "left": "a",
+            "right": "k"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 73,
+          "pairs_checked": 36,
+          "mismatch_count": 33,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 72,
+              "left": "a",
+              "right": "k"
+            },
+            {
+              "left_index": 1,
+              "right_index": 71,
+              "left": "s",
+              "right": "o"
+            },
+            {
+              "left_index": 2,
+              "right_index": 70,
+              "left": "a",
+              "right": "o"
+            },
+            {
+              "left_index": 3,
+              "right_index": 69,
+              "left": "i",
+              "right": "b"
+            },
+            {
+              "left_index": 5,
+              "right_index": 67,
+              "left": "o",
+              "right": "u"
+            }
+          ],
+          "normalized_sha256": "1aa3d8cc0fc3d7c6ae34cd2a2ed98f5e9c652b7f754eec342d5da5ea9ade906e"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 17,
+          "mean_word_length": 4.29,
+          "content_word_ratio": 0.706,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "Our sailor reads the garden and smiles beside our meadow. A captain helps one useful book.",
+        "letters": 73,
+        "left_auxiliary_stack": [
+          "coordinated_predicate"
+        ],
+        "right_auxiliary_stack": [
+          "object_modifier"
+        ],
+        "left_depth": 1,
+        "right_depth": 1,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 47,
+          "right_letters": 26,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 25,
+            "left": "o",
+            "right": "k"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 73,
+          "pairs_checked": 36,
+          "mismatch_count": 31,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 72,
+              "left": "o",
+              "right": "k"
+            },
+            {
+              "left_index": 1,
+              "right_index": 71,
+              "left": "u",
+              "right": "o"
+            },
+            {
+              "left_index": 2,
+              "right_index": 70,
+              "left": "r",
+              "right": "o"
+            },
+            {
+              "left_index": 3,
+              "right_index": 69,
+              "left": "s",
+              "right": "b"
+            },
+            {
+              "left_index": 4,
+              "right_index": 68,
+              "left": "a",
+              "right": "l"
+            }
+          ],
+          "normalized_sha256": "65b6fd140d2e98b576c9e31ef5c2a055e820f058bfd68a68862e62f6b9469afb"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.56,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "The young farmer reads the lantern and rests near a tower. A captain helps one useful book.",
+        "letters": 73,
+        "left_auxiliary_stack": [
+          "coordinated_predicate",
+          "subject_modifier"
+        ],
+        "right_auxiliary_stack": [
+          "object_modifier"
+        ],
+        "left_depth": 2,
+        "right_depth": 1,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 47,
+          "right_letters": 26,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 25,
+            "left": "t",
+            "right": "k"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 73,
+          "pairs_checked": 36,
+          "mismatch_count": 33,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 72,
+              "left": "t",
+              "right": "k"
+            },
+            {
+              "left_index": 1,
+              "right_index": 71,
+              "left": "h",
+              "right": "o"
+            },
+            {
+              "left_index": 2,
+              "right_index": 70,
+              "left": "e",
+              "right": "o"
+            },
+            {
+              "left_index": 3,
+              "right_index": 69,
+              "left": "y",
+              "right": "b"
+            },
+            {
+              "left_index": 4,
+              "right_index": 68,
+              "left": "o",
+              "right": "l"
+            }
+          ],
+          "normalized_sha256": "ab7499510654a34847bcc82f254ad5fcc49e9344cf8e5d2edf5cde9fd99cda2c"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 17,
+          "mean_word_length": 4.29,
+          "content_word_ratio": 0.706,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "A farmer opens the clear parcel and waits beside our station. Some keepers hold the basket.",
+        "letters": 74,
+        "left_auxiliary_stack": [
+          "coordinated_predicate",
+          "object_modifier"
+        ],
+        "right_auxiliary_stack": [],
+        "left_depth": 2,
+        "right_depth": 0,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 50,
+          "right_letters": 24,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 23,
+            "left": "a",
+            "right": "t"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 74,
+          "pairs_checked": 37,
+          "mismatch_count": 36,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 73,
+              "left": "a",
+              "right": "t"
+            },
+            {
+              "left_index": 1,
+              "right_index": 72,
+              "left": "f",
+              "right": "e"
+            },
+            {
+              "left_index": 2,
+              "right_index": 71,
+              "left": "a",
+              "right": "k"
+            },
+            {
+              "left_index": 3,
+              "right_index": 70,
+              "left": "r",
+              "right": "s"
+            },
+            {
+              "left_index": 4,
+              "right_index": 69,
+              "left": "m",
+              "right": "a"
+            }
+          ],
+          "normalized_sha256": "2620055524de050350ab3ad2e22f5cf34a66f9b0b899576b55f699bf0e3ff16a"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.62,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "A poet opens one signal. A captain holds silently one answer and waits around some village.",
+        "letters": 74,
+        "left_auxiliary_stack": [],
+        "right_auxiliary_stack": [
+          "verb_manner",
+          "coordinated_predicate"
+        ],
+        "left_depth": 0,
+        "right_depth": 2,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 19,
+          "right_letters": 55,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 54,
+            "left": "a",
+            "right": "e"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 74,
+          "pairs_checked": 37,
+          "mismatch_count": 35,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 73,
+              "left": "a",
+              "right": "e"
+            },
+            {
+              "left_index": 1,
+              "right_index": 72,
+              "left": "p",
+              "right": "g"
+            },
+            {
+              "left_index": 2,
+              "right_index": 71,
+              "left": "o",
+              "right": "a"
+            },
+            {
+              "left_index": 3,
+              "right_index": 70,
+              "left": "e",
+              "right": "l"
+            },
+            {
+              "left_index": 4,
+              "right_index": 69,
+              "left": "t",
+              "right": "l"
+            }
+          ],
+          "normalized_sha256": "a4aafc109cf590a9b0ccf7adbf124ae30b0b66661d9917a0edccc79a014bb48f"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.62,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "A poet opens one signal. A silent baker sorts the small message and rests around the office.",
+        "letters": 74,
+        "left_auxiliary_stack": [],
+        "right_auxiliary_stack": [
+          "subject_modifier",
+          "object_modifier",
+          "coordinated_predicate"
+        ],
+        "left_depth": 0,
+        "right_depth": 3,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 19,
+          "right_letters": 55,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 54,
+            "left": "a",
+            "right": "e"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 74,
+          "pairs_checked": 37,
+          "mismatch_count": 35,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 73,
+              "left": "a",
+              "right": "e"
+            },
+            {
+              "left_index": 1,
+              "right_index": 72,
+              "left": "p",
+              "right": "c"
+            },
+            {
+              "left_index": 2,
+              "right_index": 71,
+              "left": "o",
+              "right": "i"
+            },
+            {
+              "left_index": 3,
+              "right_index": 70,
+              "left": "e",
+              "right": "f"
+            },
+            {
+              "left_index": 4,
+              "right_index": 69,
+              "left": "t",
+              "right": "f"
+            }
+          ],
+          "normalized_sha256": "ae53ed6e0738ebd6a36a98f4ac60773b2cc6a76ec0722ea1984cae5acb638b66"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 17,
+          "mean_word_length": 4.35,
+          "content_word_ratio": 0.706,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "Our farmer opens today one harbor and walks beside the tower. Some keepers hold the basket.",
+        "letters": 74,
+        "left_auxiliary_stack": [
+          "verb_manner",
+          "coordinated_predicate"
+        ],
+        "right_auxiliary_stack": [],
+        "left_depth": 2,
+        "right_depth": 0,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 50,
+          "right_letters": 24,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 23,
+            "left": "o",
+            "right": "t"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 74,
+          "pairs_checked": 37,
+          "mismatch_count": 33,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 73,
+              "left": "o",
+              "right": "t"
+            },
+            {
+              "left_index": 1,
+              "right_index": 72,
+              "left": "u",
+              "right": "e"
+            },
+            {
+              "left_index": 2,
+              "right_index": 71,
+              "left": "r",
+              "right": "k"
+            },
+            {
+              "left_index": 3,
+              "right_index": 70,
+              "left": "f",
+              "right": "s"
+            },
+            {
+              "left_index": 5,
+              "right_index": 68,
+              "left": "r",
+              "right": "b"
+            }
+          ],
+          "normalized_sha256": "3136416986737b27aea8d46e560e11f23dc6b9aff5c365023238f86277a8a933"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.62,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "A poet opens one signal. Some doctor sorts silently one vessel and walks toward the village.",
+        "letters": 75,
+        "left_auxiliary_stack": [],
+        "right_auxiliary_stack": [
+          "coordinated_predicate",
+          "verb_manner"
+        ],
+        "left_depth": 0,
+        "right_depth": 2,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 19,
+          "right_letters": 56,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 55,
+            "left": "a",
+            "right": "e"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 75,
+          "pairs_checked": 37,
+          "mismatch_count": 35,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 74,
+              "left": "a",
+              "right": "e"
+            },
+            {
+              "left_index": 1,
+              "right_index": 73,
+              "left": "p",
+              "right": "g"
+            },
+            {
+              "left_index": 2,
+              "right_index": 72,
+              "left": "o",
+              "right": "a"
+            },
+            {
+              "left_index": 3,
+              "right_index": 71,
+              "left": "e",
+              "right": "l"
+            },
+            {
+              "left_index": 4,
+              "right_index": 70,
+              "left": "t",
+              "right": "l"
+            }
+          ],
+          "normalized_sha256": "e991c3237abeec71c47092c0da61832ee8395cdff043a39490a9537434bcb9bf"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.69,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "A sailor reads one bright lantern and walks under a tower. The baker holds today the message.",
+        "letters": 75,
+        "left_auxiliary_stack": [
+          "object_modifier",
+          "coordinated_predicate"
+        ],
+        "right_auxiliary_stack": [
+          "verb_manner"
+        ],
+        "left_depth": 2,
+        "right_depth": 1,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 47,
+          "right_letters": 28,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 27,
+            "left": "a",
+            "right": "e"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 75,
+          "pairs_checked": 37,
+          "mismatch_count": 34,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 74,
+              "left": "a",
+              "right": "e"
+            },
+            {
+              "left_index": 1,
+              "right_index": 73,
+              "left": "s",
+              "right": "g"
+            },
+            {
+              "left_index": 3,
+              "right_index": 71,
+              "left": "i",
+              "right": "s"
+            },
+            {
+              "left_index": 4,
+              "right_index": 70,
+              "left": "l",
+              "right": "s"
+            },
+            {
+              "left_index": 5,
+              "right_index": 69,
+              "left": "o",
+              "right": "e"
+            }
+          ],
+          "normalized_sha256": "b1c8d4019c9bccd5a2b7b7d98cd02ec38576da7af8173c076be8bb5b90ac511a"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 17,
+          "mean_word_length": 4.41,
+          "content_word_ratio": 0.706,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "Our sailor reads the garden and smiles beside our meadow. The baker holds today the message.",
+        "letters": 75,
+        "left_auxiliary_stack": [
+          "coordinated_predicate"
+        ],
+        "right_auxiliary_stack": [
+          "verb_manner"
+        ],
+        "left_depth": 1,
+        "right_depth": 1,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 47,
+          "right_letters": 28,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 27,
+            "left": "o",
+            "right": "e"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 75,
+          "pairs_checked": 37,
+          "mismatch_count": 31,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 74,
+              "left": "o",
+              "right": "e"
+            },
+            {
+              "left_index": 1,
+              "right_index": 73,
+              "left": "u",
+              "right": "g"
+            },
+            {
+              "left_index": 2,
+              "right_index": 72,
+              "left": "r",
+              "right": "a"
+            },
+            {
+              "left_index": 4,
+              "right_index": 70,
+              "left": "a",
+              "right": "s"
+            },
+            {
+              "left_index": 5,
+              "right_index": 69,
+              "left": "i",
+              "right": "e"
+            }
+          ],
+          "normalized_sha256": "437b106866ea5c3a934c5f62b4f54ea8a244e5b71cfb6a698bb1537a66ba2850"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 16,
+          "mean_word_length": 4.69,
+          "content_word_ratio": 0.688,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "The young farmer reads the lantern and rests near a tower. The baker holds today the message.",
+        "letters": 75,
+        "left_auxiliary_stack": [
+          "coordinated_predicate",
+          "subject_modifier"
+        ],
+        "right_auxiliary_stack": [
+          "verb_manner"
+        ],
+        "left_depth": 2,
+        "right_depth": 1,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 47,
+          "right_letters": 28,
+          "matched_outer_letters": 0,
+          "first_mismatch": {
+            "left_index": 0,
+            "right_index": 27,
+            "left": "t",
+            "right": "e"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 75,
+          "pairs_checked": 37,
+          "mismatch_count": 35,
+          "mismatches": [
+            {
+              "left_index": 0,
+              "right_index": 74,
+              "left": "t",
+              "right": "e"
+            },
+            {
+              "left_index": 1,
+              "right_index": 73,
+              "left": "h",
+              "right": "g"
+            },
+            {
+              "left_index": 2,
+              "right_index": 72,
+              "left": "e",
+              "right": "a"
+            },
+            {
+              "left_index": 3,
+              "right_index": 71,
+              "left": "y",
+              "right": "s"
+            },
+            {
+              "left_index": 4,
+              "right_index": 70,
+              "left": "o",
+              "right": "s"
+            }
+          ],
+          "normalized_sha256": "1bab57ffc562caeeb441bbdb344a359550d0b0667e6f89df6b868e06e7097814"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 17,
+          "mean_word_length": 4.41,
+          "content_word_ratio": 0.706,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      },
+      {
+        "rendered": "The pilots guide today the bright harbor and smile near our tower. Some keepers hold the basket.",
+        "letters": 78,
+        "left_auxiliary_stack": [
+          "coordinated_predicate",
+          "object_modifier",
+          "verb_manner"
+        ],
+        "right_auxiliary_stack": [],
+        "left_depth": 3,
+        "right_depth": 0,
+        "yield_join": {
+          "exact_half_join": false,
+          "left_letters": 54,
+          "right_letters": 24,
+          "matched_outer_letters": 1,
+          "first_mismatch": {
+            "left_index": 1,
+            "right_index": 22,
+            "left": "h",
+            "right": "e"
+          }
+        },
+        "independent_two_pointer_audit": {
+          "exact": false,
+          "letters": 78,
+          "pairs_checked": 39,
+          "mismatch_count": 37,
+          "mismatches": [
+            {
+              "left_index": 1,
+              "right_index": 76,
+              "left": "h",
+              "right": "e"
+            },
+            {
+              "left_index": 2,
+              "right_index": 75,
+              "left": "e",
+              "right": "k"
+            },
+            {
+              "left_index": 3,
+              "right_index": 74,
+              "left": "p",
+              "right": "s"
+            },
+            {
+              "left_index": 4,
+              "right_index": 73,
+              "left": "i",
+              "right": "a"
+            },
+            {
+              "left_index": 5,
+              "right_index": 72,
+              "left": "l",
+              "right": "b"
+            }
+          ],
+          "normalized_sha256": "e694c857aceb03225fb69cb4afe948a25fc0f882c0d3b60eea4b617dda054b65"
+        },
+        "readability_diagnostic": {
+          "status": "diagnostic_only",
+          "word_count": 17,
+          "mean_word_length": 4.59,
+          "content_word_ratio": 0.706,
+          "blinded_human_readers_required": true
+        },
+        "reader_status": "not_run",
+        "provenance": {
+          "repair": "held-out coordinated_predicate TAG auxiliary",
+          "lexicalizations_independent": true
+        }
+      }
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "3418d619cbbbfa0ef641d47337a078fcda4a9eceec8ce69866890aa6e2bae4e0",
+    "lexical_source": "fresh hand-authored disjoint role banks",
+    "source_text_copied": false,
+    "catalogue_text": false,
+    "mirrored_word_list": false,
+    "readability_certificate": false
+  },
+  "reader_gate": {
+    "status": "not_run",
+    "reason": "No exact survivor has blinded reader evidence; exact output would require intact prose and shuffled controls."
+  }
+}

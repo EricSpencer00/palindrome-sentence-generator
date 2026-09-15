@@ -936,3 +936,15 @@ item-aware analysis plan.
   with 18 mismatched pairs).  The concrete repair is a held-out
   seam-support lexical expansion of the same variable-boundary flow, not a
   slot cross-product or relaxed exactness test.
+
+- **Lexicalized TAG yield equation, 2026-09-15:** represented complete prose
+  as recursive elementary/auxiliary-tree derivations rather than fixed clause
+  slots.  Typed adjunction stacks at NP/VP/S sites produced 291 independent
+  base derivations and 21,158 paired structural states; the outside-in
+  terminal-yield equation checked 1,012,887 character pairs and found zero
+  exact joins.  A held-out coordinated-predicate auxiliary was then adjoined
+  at the object/S boundary as a structural repair, covering 20,914 additional
+  states with zero exact joins.  Forty base probes and twenty repair probes
+  were rendered as intact prose; malformed article/agreement derivations were
+  rejected and counted before the join.  The next repair is deeper typed
+  adjunction at the best surviving tree site, not another lexical beam.

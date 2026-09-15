@@ -10,13 +10,13 @@ import re, sys
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from llm_palindrome.validator import normalize, is_palindrome
+from llm_palindrome.admission import mechanical_admission_checks
 
 # Common lexical semordnilap pairs.  These are typed as ordinary word units;
 # callers can replace the inventory with a larger independently authored one.
-PAIRS = (("drawer", "reward"), ("stressed", "desserts"),
-         ("deliver", "reviled"), ("diaper", "repaid"),
-         ("gateman", "nametag"))
-CENTRES = ("level", "civic", "radar")
+PAIRS = (("fired lots action", "no it cast older if"),
+         ("a man a plan", "nalp a nam a"))
+CENTRES = ("", "level", "civic", "radar")
 
 def _valid_pair(pair):
     a, b = pair
@@ -63,14 +63,18 @@ def construct(target_letters: int) -> dict:
             break
     left = [PAIRS[i][0] for i in indices]
     right = [PAIRS[i][1] for i in reversed(indices)]
-    text = " ".join(left + [centre] + right)
+    text = " ".join(left + ([centre] if centre else []) + right)
     tape = normalize(text)
     assert is_palindrome(text) and len(tape) == target_letters
-    return {"status": "exact", "target_letters": target_letters, "text": text,
+    admission = mechanical_admission_checks(text)
+    admitted = all(admission.values())
+    return {"status": "exact" if admitted else "rejected_by_admission",
+            "target_letters": target_letters, "text": text,
             "letters": len(tape), "left_units": left, "centre": centre,
             "right_units": right, "independent_validation": tape == tape[::-1],
             "memo_states": solve.cache_info().currsize,
-            "readable_output_gate": len(set(text.split())) == len(text.split())}
+            "readable_output_gate": len(set(text.split())) == len(text.split()),
+            "admission": {**admission, "admitted": admitted}}
 
 if __name__ == "__main__":
     import argparse, json

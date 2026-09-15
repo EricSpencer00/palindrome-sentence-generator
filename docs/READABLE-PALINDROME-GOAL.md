@@ -318,6 +318,15 @@ human-rated intact prose—and may claim success only when both gates are met.
   elliptical answers and imperative acknowledgments; it is not a larger beam
   over this same act inventory.
 
+- **Elliptical dialogue acknowledgment inventory (2026-09-15).** This
+  successor changed the act grammar to paired `can we`/`what about` prompts
+  and elliptical response or imperative-acknowledgment turns. It tested
+  291,060 prompt turns against 1,806 response turns; every residual lookup
+  missed, with zero exact closures or admitted candidates. The run preserved
+  rendered residual probes and excluded the same repository palindrome
+  fingerprint without enlarging the preceding inventory. Its next operator is
+  a bounded shared discourse-topic slot, which must be a new signature.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

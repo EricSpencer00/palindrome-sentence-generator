@@ -82,10 +82,13 @@ def _response_acts() -> tuple[Act, ...]:
     return tuple(rows)
 
 
-def _repo_tape_fingerprint() -> tuple[frozenset[str], dict]:
+def _repo_tape_fingerprint(output: Path | None = None) -> tuple[frozenset[str], dict]:
     tapes: set[str] = set()
     files = 0
+    output = output.resolve() if output else None
     for path in sorted((ROOT / "runs").rglob("*.json")):
+        if output and path.resolve() == output:
+            continue
         try:
             payload = json.loads(path.read_text())
         except (OSError, json.JSONDecodeError):
@@ -131,8 +134,8 @@ def _audit(left: Turn, right: Turn, collision: bool) -> dict:
     }
 
 
-def run() -> dict:
-    existing, fingerprint = _repo_tape_fingerprint()
+def run(output: Path | None = None) -> dict:
+    existing, fingerprint = _repo_tape_fingerprint(output)
     prompts = _prompt_acts()
     responses = _response_acts()
     lefts = tuple(Turn("paired_prompt", (first, second)) for first in prompts for second in prompts if first is not second)
@@ -151,7 +154,20 @@ def run() -> dict:
         if not matches:
             stats["residual_misses"] += 1
             if len(frontier) < 100:
-                frontier.append({"left_tape": left.tape, "left_templates": [act.template for act in left.acts], "reason": "no elliptical acknowledgment residual"})
+                probe = " ".join(word for act in left.acts for word in act.words).capitalize() + "."
+                frontier.append({
+                    "left_tape": left.tape,
+                    "left_templates": [act.template for act in left.acts],
+                    "left_letters": len(left.tape),
+                    "reverse_target": left.tape[::-1],
+                    "rendered_probe": probe,
+                    "probe_exact_audit": {
+                        "exact": left.tape == left.tape[::-1],
+                        "letters": len(left.tape),
+                        "normalized_sha256": hashlib.sha256(left.tape.encode()).hexdigest(),
+                    },
+                    "reason": "no elliptical acknowledgment residual",
+                })
             continue
         stats["residual_matches"] += len(matches)
         for right in matches:
@@ -175,6 +191,8 @@ def run() -> dict:
     candidates.sort(key=lambda row: (row["mechanically_admitted"], row["letters"]), reverse=True)
     return {
         "status": "complete_dialogue_elliptical_ack_residual_inventory_no_reader_promotion",
+        "family_id": "dialogue-elliptical-ack-residual-inventory",
+        "state_space_signature": "dialogue-act-paired-prompts-elliptical-answers-imperative-acknowledgments|hand-authored-cross-product|independent-residual-tape-index",
         "config": {
             "semantic_family": "paired prompts -> elliptical answers and imperative acknowledgments",
             "inventory_signature": "can-we/what-about prompt acts plus elliptical-tail/imperative-ack acts",
@@ -201,7 +219,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(); parser.add_argument("--out", required=True, type=Path)
     args = parser.parse_args()
     if args.out.exists(): parser.error(f"refusing to overwrite output: {args.out}")
-    result = run(); args.out.parent.mkdir(parents=True, exist_ok=True); args.out.write_text(json.dumps(result, indent=2) + "\n")
+    result = run(args.out); args.out.parent.mkdir(parents=True, exist_ok=True); args.out.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({"stats": result["stats"], "admitted": len(result["admitted"])}, indent=2))
 
 

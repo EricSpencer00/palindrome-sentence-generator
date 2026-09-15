@@ -36,6 +36,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `relation-graph-event-pair` | explicit directed cause/consequence or symmetric contrast edge with polarity and strict temporal order | relation-graph state | 0 reverse parses |
 | `two-edge-event-micrograph` | event → intermediate state → result with two explicit edges and three-rank temporal order | two-edge semantic topology | 0 reverse parses; ladder stopped |
 | `dialogue-acknowledgment-residual-inventory` | hand-authored question→answer and instruction→acknowledgment act cross-product with independent residual indexing | dialogue-act semantics | 0 residual matches |
+| `dialogue-elliptical-ack-residual-inventory` | paired `can we`/`what about` prompts with elliptical answers and imperative acknowledgments | elliptical dialogue-act semantics | 0 residual matches |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

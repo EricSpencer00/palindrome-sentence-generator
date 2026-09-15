@@ -1,9 +1,10 @@
-"""Large exact phrase bridge around the productive ``Diana -> an aide`` seam.
+"""Large exact phrase bridge over grammatical subject/name endpoint factors.
 
-The endpoint leaves one live ``e`` debt.  This experiment jointly searches a
-singular transitive predicate plus object NP against a plural subject NP plus
-verb, with Brown supplying POS inventories but never complete output text.
-Word and phrase boundaries are allowed to stagger during exact cancellation.
+The search varies determiner-person openings and terminal names; its one known
+productive path is ``Diana -> an aide`` with a live ``e`` debt.  It jointly
+searches a singular transitive predicate plus object NP against a plural
+subject NP plus verb, with Brown supplying POS inventories but never complete
+output text. Word and phrase boundaries may stagger during exact cancellation.
 """
 from __future__ import annotations
 
@@ -155,14 +156,15 @@ def run() -> dict:
                         "mechanically_eligible": all(checks.values()),
                         "reader_status": "human-unreviewed"})
     return {"status": "predicate_subject_phrase_bridge_complete",
-            "config": {"fixed_endpoint_family": "Diana -> an aide with live one-letter debt",
+            "config": {"opening_endpoint_combinations": len(DETERMINERS) * len(PEOPLE) * len(NAMES),
+                       "known_productive_factor": "Diana -> an aide with live one-letter debt",
                        "state_budget": 2_000_000, "grammar_during_search": True,
                        "brown_complete_sentences_copied": False},
             "inventory": inventory, "search": stats, "exact_records": records,
             "eligible_closures": [row for row in records if row["mechanically_eligible"]],
             "provenance": {"generator_sha256": sha256(Path(__file__).read_bytes()).hexdigest(),
                            "material": "Brown POS word inventories plus authored semantic person/endpoints"},
-            "next_operator_if_no_novel": "Generalize the endpoint factor itself: jointly enumerate admitted terminal names and grammatical opening NPs, then reuse this indexed predicate bridge for every nonzero endpoint residual.",
+            "next_operator_if_no_novel": "Generalize endpoint roles beyond determiner-person openings and proper-name objects: add typed adjectival/name/pronoun subjects and multiword terminal object NPs, then reuse this indexed predicate bridge for every live residual.",
             "reader_next": "Only a novel mechanically eligible closure enters blinded intact-prose versus shuffled-control ratings."}
 
 

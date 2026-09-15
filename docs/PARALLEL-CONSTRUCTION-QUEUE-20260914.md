@@ -106,14 +106,14 @@ operator must therefore expose optional typed attachment slots at those live
 seams; another flat word-list expansion cannot consume them.
 
 The strongest seam was then isolated as a direct grammatical phrase equation.
-Holding only the productive `Diana` / `an aide` endpoint factor fixed, a hash-
-indexed search joined 174,002 Brown-derived object NPs and 13,516 human-subject
-NPs across 181 singular and 181 plural verb forms.  The solver visited 791
-live residual states, exhausted no budget, and recovered exactly one surface:
-the 38-letter control.  There was no novel closure.  This eliminates a large
-predicate/subject phrase space around that single endpoint; the next search
-must jointly vary the terminal name and grammatical opening NP rather than
-continue enlarging the already-exhausted middle bridge.
+A hash-indexed search varied 4,116 determiner-person/terminal-name endpoint
+combinations while joining 174,002 Brown-derived object NPs and 13,516 human-
+subject NPs across 181 singular and 181 plural verb forms.  The solver visited
+791 live residual states, exhausted no budget, and recovered exactly one
+surface: the 38-letter control.  There was no novel closure.  This eliminates
+the large middle bridge and simple endpoint-name family together; the next
+search must add different typed endpoint *shapes* (adjectival, name, or pronoun
+subjects and multiword terminal object NPs), not merely more names or verbs.
 
 ## Explicit shortcut rejection
 

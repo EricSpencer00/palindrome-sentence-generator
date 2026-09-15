@@ -1,0 +1,763 @@
+{
+  "experiment_id": "evolutionary-prose-genome",
+  "signature": "population-based-complete-prose-genomes|typed-constituent-crossover|character-mismatch-fitness|seam-biased-mutation|word-order-diagnostic|independent-two-sentence-rendering",
+  "seed": 20260915,
+  "method": "deterministic population search over complete typed sentence genomes; typed two-point constituent crossover and seam-biased terminal mutation",
+  "configuration": {
+    "population": 96,
+    "generations": 60,
+    "survivors": 24,
+    "initial_genome_bank": 7776,
+    "independent_side_selection": true
+  },
+  "novelty_audit": {
+    "registry_path": "/Users/eric/GitHub/palindrome-sentence-generator/docs/experiment-novelty-registry.json",
+    "registry_entries_read_before_run": 46,
+    "prior_ids_read": [
+      "typed-semordnilap",
+      "global-brown-pos",
+      "typed-lexical-graph",
+      "brown-attested-svo",
+      "brown-two-svo-attachments",
+      "brown-cross-clause",
+      "brown-shared-relative",
+      "brown-two-relative-chain",
+      "brown-two-relative-attachment",
+      "brown-shared-coref-attachment",
+      "brown-bounded-repair",
+      "brown-joint-relation-repair",
+      "brown-relative-topology",
+      "brown-coreferent-variable-pp",
+      "event-frame-independent-relexicalization",
+      "fresh-paired-clause-ledger",
+      "character-ledger-promptbank",
+      "two-event-discourse-frame",
+      "connective-bearing-event-pair",
+      "constrained-reverse-lexical-v2",
+      "connective-semantic-class-event-pair",
+      "relation-graph-event-pair",
+      "two-edge-event-micrograph",
+      "dialogue-acknowledgment-residual-inventory",
+      "dialogue-elliptical-ack-residual-inventory",
+      "dialogue-shared-topic-elliptical-residual",
+      "multiword-unit-transducer-local-repair",
+      "morphological-derivational-seam",
+      "cp-semantic-grammar-palindrome",
+      "clause-lattice-joint-dp",
+      "character-clause-fst-joint-emission",
+      "scene-slot-graph-residual",
+      "two-bank-word-equation-seam-dp",
+      "seam-first-complete-clause-authoring",
+      "semantic-dependency-outside-in",
+      "synchronous-semantic-parse-equations",
+      "internal-center-window-repair",
+      "discourse-plan-coupled-expansion",
+      "collocation-synchronous-grammar",
+      "human-compositional-center-window",
+      "global-semantic-paraphrase-rewrite",
+      "collocation-graph-path",
+      "semantic-sentence-pair-alignment",
+      "template-analogy-semantic-lexicalization",
+      "neural-dual-prefix-beam-v2",
+      "evolutionary-prose-genome"
+    ],
+    "self_entry_present": [
+      "evolutionary-prose-genome"
+    ],
+    "exact_signature_overlap_with_other_experiment": [],
+    "explicitly_excluded_prior_families": {
+      "global-semantic-paraphrase-rewrite": "same broad complete-clause surface; excluded because it exhaustively relexicalizes slots rather than evolving genomes",
+      "clause-lattice-joint-dp": "same complete-clause target; excluded because it is deterministic length-indexed DP, not population recombination",
+      "character-clause-fst-joint-emission": "same character constraints; excluded because it emits through a trie product rather than mutating prose",
+      "neural-dual-prefix-beam-v2": "same typed clause ingredients; excluded because it emits right-edge reverse prefixes and has no genetic state",
+      "two-bank-word-equation-seam-dp": "same two-sided clause pairing; excluded because it solves equations by memoized DP, not constituent crossover"
+    },
+    "excluded_family_presence": {
+      "global-semantic-paraphrase-rewrite": true,
+      "clause-lattice-joint-dp": true,
+      "character-clause-fst-joint-emission": true,
+      "neural-dual-prefix-beam-v2": true,
+      "two-bank-word-equation-seam-dp": true
+    },
+    "conceptual_overlap_report": [
+      {
+        "id": "global-semantic-paraphrase-rewrite",
+        "reason": "same broad complete-clause surface; excluded because it exhaustively relexicalizes slots rather than evolving genomes",
+        "counted_as_same_experiment": false
+      }
+    ],
+    "counted_as_new": true,
+    "novel_dimension": "population state and typed constituent recombination; no prior route stores a population, crosses complete constituents, and applies seam-biased mutation under a character-mismatch fitness"
+  },
+  "evaluated_genomes": 5760,
+  "exact_candidate_count": 0,
+  "rendered_candidates": [
+    {
+      "generation": 19,
+      "rank": 0,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 20,
+      "rank": 0,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 20,
+      "rank": 1,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 20,
+      "rank": 2,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 21,
+      "rank": 0,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 21,
+      "rank": 1,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 21,
+      "rank": 2,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 22,
+      "rank": 0,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 22,
+      "rank": 1,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 22,
+      "rank": 2,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 23,
+      "rank": 0,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 23,
+      "rank": 1,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 23,
+      "rank": 2,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 24,
+      "rank": 0,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    },
+    {
+      "generation": 24,
+      "rank": 1,
+      "text": "a poet keeps the red lantern near the river. a farmer keeps a winter garden under one cedar.",
+      "letters": 73,
+      "mismatched_pairs": 26,
+      "word_order_diagnostic": 5.5616666666666665,
+      "exact_by_independent_two_pointer": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "genome": {
+        "left": [
+          "a poet",
+          "keeps",
+          "the red lantern",
+          "near",
+          "the river"
+        ],
+        "right": [
+          "a farmer",
+          "keeps",
+          "a winter garden",
+          "under",
+          "one cedar"
+        ]
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "best_mismatch_pairs": 26,
+  "independent_audit": [],
+  "repair_operator_after_failure": "retain the Pareto frontier, then perform seam-biased terminal constituent mutation plus typed two-point crossover across adjacent subject/verb/object/PP slots; the next run must enlarge the lexical banks while preserving this population state and held-out sentence templates",
+  "provenance": "fresh hand-authored lexical banks; no corpus sentence import, catalogue text, reverse-tape emission, repeated unit, or word-order-only symmetry",
+  "readability_status": "programmatic word-order/familiarity diagnostics only; no readability claim without blinded human readers and intact-prose shuffled controls",
+  "generator_sha256": "727d42cc144a51835a3d0ef154cd566603fcbf6787940acb0484a4eaa0d2b71f"
+}

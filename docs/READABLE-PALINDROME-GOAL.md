@@ -35,7 +35,17 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
 - **Acceptance gate remains unchanged.** A result must be an original,
   exact letter-level palindrome, rendered as intact English prose, mechanically
   verified independently, and later supported by blinded human reading.  No
-automatic score or search statistic can promote an item.
+  automatic score or search statistic can promote an item.
+
+- **Population repair over intact prose (2026-09-15).** A materially new
+  construction tested a deterministic population of complete typed sentence
+  pairs. Typed two-point constituent crossover and seam-biased terminal
+  mutation preserved intact prose while optimizing mirrored character
+  mismatch, rather than emitting one side from the other's reverse tape. It
+  evaluated 5,760 genomes and produced no exact closure; the best rendered
+  pair had 26 mismatched character pairs. The concrete successor is to retain
+  this frontier while adding held-out lexical banks and a two-constituent seam
+  repair, not to rerun the same population with a new seed or a larger beam.
 
 ## Scalable-construction requirement (2026-09-15)
 

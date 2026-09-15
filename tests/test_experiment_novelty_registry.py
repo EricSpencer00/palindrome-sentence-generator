@@ -34,3 +34,4 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "semantic-sentence-pair-alignment" in ids
     assert "template-analogy-semantic-lexicalization" in ids
     assert "neural-dual-prefix-beam-v2" in ids
+    assert "evolutionary-prose-genome" in ids

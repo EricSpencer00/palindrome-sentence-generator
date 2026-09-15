@@ -256,8 +256,9 @@ def run(output: Path) -> dict[str, object]:
 def main() -> None:
     p = argparse.ArgumentParser()
     p.add_argument("--out", type=Path, required=True)
+    p.add_argument("--overwrite", action="store_true", help="allow deterministic replay to refresh an existing artifact")
     args = p.parse_args()
-    if args.out.exists():
+    if args.out.exists() and not args.overwrite:
         p.error("refusing to overwrite output")
     result = run(args.out)
     args.out.parent.mkdir(parents=True, exist_ok=True)

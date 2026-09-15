@@ -1,0 +1,596 @@
+{
+  "status": "complete_preflight",
+  "signature": "global-tied-character-mask|parallel-word-denoising|bidirectional-position-ledger|whole-tape-assignment|symbolic-fallback",
+  "signature_sha256": "935f1a3b394e00c99c7a8a36f86df9c3fdb04637e6e5672ceeb4d27ee1287b0d",
+  "method": "All character positions are variables; each denoising step proposes a complete masked-word assignment, then propagates equality constraints to its mirrored position before the next step.",
+  "model_preflight": {
+    "transformers_importable": true,
+    "cached_models": [
+      "ACE-Step--Ace-Step1.5",
+      "ACE-Step--acestep-5Hz-lm-4B",
+      "ACE-Step--acestep-v15-xl-turbo",
+      "AutonLab--MOMENT-1-large",
+      "Systran--faster-whisper-small.en",
+      "adefossez--HTDemucs-ft",
+      "answerdotai--ModernBERT-base",
+      "bert-base-multilingual-cased",
+      "chopratejas--kompress-v2-base",
+      "deepseek-ai--DeepSeek-V2-Lite",
+      "gpt2",
+      "hexgrad--Kokoro-82M",
+      "hf-internal-testing--tiny-random-GptOssForCausalLM",
+      "hf-internal-testing--tiny-random-LlamaForCausalLM",
+      "openai--clip-vit-base-patch32",
+      "openai--gpt-oss-20b",
+      "sentence-transformers--all-MiniLM-L6-v2",
+      "sshleifer--tiny-gpt2",
+      "timm--efficientnet_b0.ra_in1k"
+    ],
+    "usable_local_lm": true,
+    "masked_model_cached": true
+  },
+  "proposals": [
+    {
+      "rendered": "Quiet gardeners water young herbs.",
+      "ledger": {
+        "length": 29,
+        "exact": false,
+        "pairs": [
+          {
+            "left": 0,
+            "right": 28,
+            "char": "q"
+          },
+          {
+            "left": 1,
+            "right": 27,
+            "char": "u"
+          },
+          {
+            "left": 2,
+            "right": 26,
+            "char": "i"
+          },
+          {
+            "left": 3,
+            "right": 25,
+            "char": "e"
+          },
+          {
+            "left": 4,
+            "right": 24,
+            "char": "t"
+          },
+          {
+            "left": 5,
+            "right": 23,
+            "char": "g"
+          },
+          {
+            "left": 6,
+            "right": 22,
+            "char": "a"
+          },
+          {
+            "left": 7,
+            "right": 21,
+            "char": "r"
+          },
+          {
+            "left": 8,
+            "right": 20,
+            "char": "d"
+          },
+          {
+            "left": 9,
+            "right": 19,
+            "char": "e"
+          },
+          {
+            "left": 10,
+            "right": 18,
+            "char": "n"
+          },
+          {
+            "left": 11,
+            "right": 17,
+            "char": "e"
+          },
+          {
+            "left": 12,
+            "right": 16,
+            "char": "r"
+          },
+          {
+            "left": 13,
+            "right": 15,
+            "char": "s"
+          },
+          {
+            "left": 14,
+            "right": 14,
+            "char": "w"
+          }
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false
+    },
+    {
+      "rendered": "Patient pilots inspect their engines.",
+      "ledger": {
+        "length": 32,
+        "exact": false,
+        "pairs": [
+          {
+            "left": 0,
+            "right": 31,
+            "char": "p"
+          },
+          {
+            "left": 1,
+            "right": 30,
+            "char": "a"
+          },
+          {
+            "left": 2,
+            "right": 29,
+            "char": "t"
+          },
+          {
+            "left": 3,
+            "right": 28,
+            "char": "i"
+          },
+          {
+            "left": 4,
+            "right": 27,
+            "char": "e"
+          },
+          {
+            "left": 5,
+            "right": 26,
+            "char": "n"
+          },
+          {
+            "left": 6,
+            "right": 25,
+            "char": "t"
+          },
+          {
+            "left": 7,
+            "right": 24,
+            "char": "p"
+          },
+          {
+            "left": 8,
+            "right": 23,
+            "char": "i"
+          },
+          {
+            "left": 9,
+            "right": 22,
+            "char": "l"
+          },
+          {
+            "left": 10,
+            "right": 21,
+            "char": "o"
+          },
+          {
+            "left": 11,
+            "right": 20,
+            "char": "t"
+          },
+          {
+            "left": 12,
+            "right": 19,
+            "char": "s"
+          },
+          {
+            "left": 13,
+            "right": 18,
+            "char": "i"
+          },
+          {
+            "left": 14,
+            "right": 17,
+            "char": "n"
+          },
+          {
+            "left": 15,
+            "right": 16,
+            "char": "s"
+          }
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false
+    },
+    {
+      "rendered": "Bright teachers explain difficult ideas.",
+      "ledger": {
+        "length": 35,
+        "exact": false,
+        "pairs": [
+          {
+            "left": 0,
+            "right": 34,
+            "char": "b"
+          },
+          {
+            "left": 1,
+            "right": 33,
+            "char": "r"
+          },
+          {
+            "left": 2,
+            "right": 32,
+            "char": "i"
+          },
+          {
+            "left": 3,
+            "right": 31,
+            "char": "g"
+          },
+          {
+            "left": 4,
+            "right": 30,
+            "char": "h"
+          },
+          {
+            "left": 5,
+            "right": 29,
+            "char": "t"
+          },
+          {
+            "left": 6,
+            "right": 28,
+            "char": "t"
+          },
+          {
+            "left": 7,
+            "right": 27,
+            "char": "e"
+          },
+          {
+            "left": 8,
+            "right": 26,
+            "char": "a"
+          },
+          {
+            "left": 9,
+            "right": 25,
+            "char": "c"
+          },
+          {
+            "left": 10,
+            "right": 24,
+            "char": "h"
+          },
+          {
+            "left": 11,
+            "right": 23,
+            "char": "e"
+          },
+          {
+            "left": 12,
+            "right": 22,
+            "char": "r"
+          },
+          {
+            "left": 13,
+            "right": 21,
+            "char": "s"
+          },
+          {
+            "left": 14,
+            "right": 20,
+            "char": "e"
+          },
+          {
+            "left": 15,
+            "right": 19,
+            "char": "x"
+          },
+          {
+            "left": 16,
+            "right": 18,
+            "char": "p"
+          },
+          {
+            "left": 17,
+            "right": 17,
+            "char": "l"
+          }
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false
+    },
+    {
+      "rendered": "A man, a plan, a canal, Panama!",
+      "ledger": {
+        "length": 21,
+        "exact": true,
+        "pairs": [
+          {
+            "left": 0,
+            "right": 20,
+            "char": "a"
+          },
+          {
+            "left": 1,
+            "right": 19,
+            "char": "m"
+          },
+          {
+            "left": 2,
+            "right": 18,
+            "char": "a"
+          },
+          {
+            "left": 3,
+            "right": 17,
+            "char": "n"
+          },
+          {
+            "left": 4,
+            "right": 16,
+            "char": "a"
+          },
+          {
+            "left": 5,
+            "right": 15,
+            "char": "p"
+          },
+          {
+            "left": 6,
+            "right": 14,
+            "char": "l"
+          },
+          {
+            "left": 7,
+            "right": 13,
+            "char": "a"
+          },
+          {
+            "left": 8,
+            "right": 12,
+            "char": "n"
+          },
+          {
+            "left": 9,
+            "right": 11,
+            "char": "a"
+          },
+          {
+            "left": 10,
+            "right": 10,
+            "char": "c"
+          }
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": false,
+        "local_catalogue_absent": false
+      },
+      "admitted": false
+    },
+    {
+      "rendered": "Able was I ere I saw Elba.",
+      "ledger": {
+        "length": 19,
+        "exact": true,
+        "pairs": [
+          {
+            "left": 0,
+            "right": 18,
+            "char": "a"
+          },
+          {
+            "left": 1,
+            "right": 17,
+            "char": "b"
+          },
+          {
+            "left": 2,
+            "right": 16,
+            "char": "l"
+          },
+          {
+            "left": 3,
+            "right": 15,
+            "char": "e"
+          },
+          {
+            "left": 4,
+            "right": 14,
+            "char": "w"
+          },
+          {
+            "left": 5,
+            "right": 13,
+            "char": "a"
+          },
+          {
+            "left": 6,
+            "right": 12,
+            "char": "s"
+          },
+          {
+            "left": 7,
+            "right": 11,
+            "char": "i"
+          },
+          {
+            "left": 8,
+            "right": 10,
+            "char": "e"
+          },
+          {
+            "left": 9,
+            "right": 9,
+            "char": "r"
+          }
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": false,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": false,
+        "local_catalogue_absent": false
+      },
+      "admitted": false
+    },
+    {
+      "rendered": "Never odd or even.",
+      "ledger": {
+        "length": 14,
+        "exact": true,
+        "pairs": [
+          {
+            "left": 0,
+            "right": 13,
+            "char": "n"
+          },
+          {
+            "left": 1,
+            "right": 12,
+            "char": "e"
+          },
+          {
+            "left": 2,
+            "right": 11,
+            "char": "v"
+          },
+          {
+            "left": 3,
+            "right": 10,
+            "char": "e"
+          },
+          {
+            "left": 4,
+            "right": 9,
+            "char": "r"
+          },
+          {
+            "left": 5,
+            "right": 8,
+            "char": "o"
+          },
+          {
+            "left": 6,
+            "right": 7,
+            "char": "d"
+          }
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": false,
+        "local_catalogue_absent": false
+      },
+      "admitted": false
+    }
+  ],
+  "result": "blocked_at_candidate_gate",
+  "blocker": "No 39+ letter proposal from the small local symbolic bank passed the ordinary-lexicon, distinct-unit, and non-repetition gate; no candidate is promoted.",
+  "next_action": "Run the same ledger with a downloaded fill-mask model or a larger independently authored phrase bank."
+}

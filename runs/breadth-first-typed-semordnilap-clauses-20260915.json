@@ -1,0 +1,34 @@
+{
+  "status": "complete_breadth_first_typed_semordnilap_no_reader_promotion",
+  "config": {
+    "role_inventory": "explicit PERSON/THING/transitive VERB pools",
+    "left_templates": [
+      "det_person_verb_det_thing",
+      "person_verb_det_thing",
+      "det_thing_verb_person"
+    ],
+    "right_templates": [
+      "pron_verb_det_thing",
+      "det_person_verb_thing",
+      "thing_verb_det_person",
+      "person_verb_thing"
+    ],
+    "max_left_clauses_per_template": 60000,
+    "minimum_letters": 39,
+    "independent_residual_parse": true,
+    "word_order_or_seed_shortcuts": "rejected"
+  },
+  "stats": {
+    "left_clauses": 151484,
+    "residual_failures": 605936
+  },
+  "admitted": [],
+  "near_misses": [],
+  "provenance": {
+    "generator_sha256": "ca39bf1079753a573cb974d01868be4732ef0547277060fffb9a53788a6c362b",
+    "roles_are_hand_authored": true,
+    "catalogue_text": false
+  },
+  "next_operator": "Keep the residual-state BFS but replace isolated role lists with a typed lexical graph: add tense, number, determiner, and transitivity features, then expand both clauses jointly while scoring only attested subject-verb/object relations. Preserve independent residual parsing and exact audit.",
+  "reader_gate": "No output is human evidence; any future candidate requires blinded intact-prose and shuffled controls."
+}

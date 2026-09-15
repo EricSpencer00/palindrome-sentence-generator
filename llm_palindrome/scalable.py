@@ -70,6 +70,7 @@ def _search_target(
     max_nodes: int,
     max_overhang: int,
     candidate_limit: int,
+    require_admitted: bool,
     allow_state: Optional[Callable[[tuple[str, ...], tuple[str, ...]], bool]] = None,
 ) -> ExactResult:
     """Best-first exact-length search for one fixed centre.
@@ -100,6 +101,8 @@ def _search_target(
                 admission = mechanical_admission_checks(
                     text, min_letters=1, max_letters=max(1, target)
                 )
+                if require_admitted and not all(admission.values()):
+                    continue
                 return ExactResult("exact", target, text, target, nodes,
                                    center, False, admission)
         if state.letters >= target:
@@ -131,6 +134,7 @@ def construct_exact(
     max_nodes: int = 200_000,
     max_overhang: int = 24,
     candidate_limit: int = 256,
+    require_admitted: bool = False,
     fallback_one_letters: bool = False,
     allow_state: Optional[Callable[[tuple[str, ...], tuple[str, ...]], bool]] = None,
 ) -> dict:
@@ -154,6 +158,7 @@ def construct_exact(
         attempts.append(_search_target(
             tries, target_letters, center, max_nodes=max_nodes,
             max_overhang=max_overhang, candidate_limit=candidate_limit,
+            require_admitted=require_admitted,
             allow_state=allow_state
         ))
         if attempts[-1].status == "exact":

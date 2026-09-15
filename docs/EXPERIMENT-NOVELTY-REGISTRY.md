@@ -70,6 +70,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `character-lm-half-tape` | a character-level beam generates the left half under joint forward/reverse n-gram scores; the reflected tape is segmented independently by Viterbi | character material generation plus independent lexical boundary recovery | 40 exact tapes per retained run; repeated-short-word collapse persisted through two repairs; 0 mechanically admitted and 0 reader-eligible outputs |
 | `corpus-sentence-gram-fst` | rank-partitioned corpus sentence/n-gram phrase lattices generate the left side while a disjoint held-out phrase lattice consumes the synchronized reverse character residual around a single-letter center | phrase-token FST intersection with rank-held-out reverse segmentation | 0 exact closures; 120 dead-end/partial rendered probes across base and two phrase-bank repairs |
 | `semordnilap-template-inventory` | finite semordnilap pairs fill typed syntactic templates; reflected character seams are independently re-segmented and a seam swap is the held-out repair | semordnilap seam inventory with template-level composition | 350 probes; 0 exact closures; 0 mechanically admitted and 0 reader-eligible outputs |
+| `semantic-proposal-verifier` | intact human/external prose proposals are independently audited for exactness and semantic plausibility; mismatch diagnostics direct the next proposal without editing or mirroring input | proposal contract and independent acceptance gate | 3 proposals; longest 49 letters; 0 exact/admitted |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
@@ -101,7 +102,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 58 retained families and 3 explicit
+family. The current audit covers all 59 retained families and 3 explicit
 exclusions, finds no exact signature collision, and flags 13 historical near
 pairs for review. The two latest routes are below the review threshold:
 
@@ -109,6 +110,7 @@ pairs for review. The two latest routes are below the review threshold:
 |---|---|---:|---|
 | `semordnilap-template-inventory` | `internal-center-window-repair` | 0.167 | distinct seam inventory and typed templates |
 | `corpus-sentence-gram-fst` | `event-frame-independent-relexicalization` | 0.056 | distinct rank-partitioned phrase FST |
+| `semantic-proposal-verifier` | none (0.000) | 0.000 | external proposal contract, not a generator replay |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

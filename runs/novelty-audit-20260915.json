@@ -1,9 +1,32 @@
 {
   "entries": [
     {
-      "id": "typed-semordnilap",
+      "id": "semantic-proposal-verifier",
       "manual_review_required": false,
       "nearest_prior": null,
+      "signature_atoms": [
+        "acceptance",
+        "check",
+        "contract",
+        "directed",
+        "human",
+        "mismatch",
+        "next",
+        "plausibility",
+        "proposal",
+        "readable",
+        "semantic",
+        "verifier"
+      ]
+    },
+    {
+      "id": "typed-semordnilap",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "semantic-proposal-verifier",
+        "jaccard": 0.0,
+        "shared_atoms": []
+      },
       "signature_atoms": [
         "person",
         "roles",
@@ -16,7 +39,7 @@
       "id": "global-brown-pos",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "typed-semordnilap",
+        "id": "semantic-proposal-verifier",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -73,7 +96,7 @@
       "id": "brown-two-svo-attachments",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "typed-semordnilap",
+        "id": "semantic-proposal-verifier",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -89,7 +112,7 @@
       "id": "brown-cross-clause",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "typed-semordnilap",
+        "id": "semantic-proposal-verifier",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -104,7 +127,7 @@
       "id": "brown-shared-relative",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "typed-semordnilap",
+        "id": "semantic-proposal-verifier",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -179,7 +202,7 @@
       "id": "brown-bounded-repair",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "typed-semordnilap",
+        "id": "semantic-proposal-verifier",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -265,9 +288,11 @@
       "id": "event-frame-independent-relexicalization",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "typed-semordnilap",
-        "jaccard": 0.0,
-        "shared_atoms": []
+        "id": "semantic-proposal-verifier",
+        "jaccard": 0.047619,
+        "shared_atoms": [
+          "semantic"
+        ]
       },
       "signature_atoms": [
         "copular",
@@ -286,7 +311,7 @@
       "id": "fresh-paired-clause-ledger",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "typed-semordnilap",
+        "id": "semantic-proposal-verifier",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -1730,7 +1755,7 @@
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 58,
+  "registered_entries": 59,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

@@ -1,0 +1,38 @@
+{
+  "status": "complete_attached_chain_bounded_lexical_repair_no_reader_promotion",
+  "config": {
+    "base_source": "Brown-attested two-relative chains with independently attested attachments",
+    "repair_budget": "exactly one verb or attachment lexeme per side; at least one side repaired",
+    "repair_features": "verb tense preserved; attachment noun and attestation preserved",
+    "state_features": "co-reference variables, number, tense, relation identities, repair slot/provenance",
+    "minimum_letters": 39,
+    "maximum_letters": 280,
+    "independent_exact_audit": true,
+    "anti_shortcut_gate": true
+  },
+  "stats": {
+    "brown_sentences_scanned": 57340,
+    "attested_relations": 3533,
+    "attachment_brown_sentences_scanned": 57340,
+    "base_frames": 497,
+    "repair_variants": 15473,
+    "indexed_tapes": 12828,
+    "left_states_considered": 15473,
+    "residual_misses": 15473
+  },
+  "admitted": [],
+  "near_misses": [],
+  "residual_frontier": {
+    "indexed_tapes": 12828,
+    "left_states": 15473,
+    "unmatched_states": 15473,
+    "matched_state_pairs_before_gates": 0
+  },
+  "provenance": {
+    "generator_sha256": "d0dc1edb97a8ee2ab2233fed10ac71ce91c94b7735660daaccc6eec09ff3b392",
+    "source_text_copied": false,
+    "relation_and_attachment_sources": "Brown corpus only"
+  },
+  "next_operator": "Carry the same one-boundary repair budget into a jointly repaired subject/object pair, but enforce a Brown-attested dependency frame for the repaired relation before residual matching.",
+  "reader_gate": "No output is human evidence; future candidates require intact-prose and shuffled-control readers."
+}

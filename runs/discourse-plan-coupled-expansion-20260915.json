@@ -1,0 +1,182 @@
+{
+  "experiment": "discourse-plan-coupled-expansion",
+  "date": "2026-09-15",
+  "method": "two independently authored two-sentence narratives selected from a typed discourse-plan graph; character equality is enforced during plan expansion, before post-hoc reordering",
+  "provenance": {
+    "plans": "hand-authored in this script",
+    "generator_sha256": "fa78cd1e7348f2a11f2be507b0fdd7f8a25b27e01b445c86c8fec5ad351e49cb"
+  },
+  "stats": {
+    "plan_pairs": 12,
+    "early_rejects": 12,
+    "exact_closures": 0,
+    "admitted": 0
+  },
+  "repair_operator": {
+    "operator": "role-preserving-plan-branch substitution",
+    "input": "first mirrored character mismatch",
+    "action": "replace the active plan branch with the next branch sharing agent/object/place typing, then resume online equality",
+    "attempts": 4
+  },
+  "rendered_probes": [
+    {
+      "left_plan": "dawn-repair",
+      "right_plan": "market-bread",
+      "text": "Mara found the gate. She repaired it at dawn. Ruth bought the bread. She shared it at the market.",
+      "matched_prefix": 3,
+      "comparison_length": 35,
+      "audit": {
+        "letters": 75,
+        "palindrome": false,
+        "sha256": "8fa6a0e13c0ec1fe201291f8e0e28d85110535f5bca5e3146e728cf0a6e1e5b4"
+      }
+    },
+    {
+      "left_plan": "dawn-repair",
+      "right_plan": "quiet-lantern",
+      "text": "Mara found the gate. She repaired it at dawn. Nell lit the lantern. She left it on the porch.",
+      "matched_prefix": 8,
+      "comparison_length": 35,
+      "audit": {
+        "letters": 71,
+        "palindrome": false,
+        "sha256": "66cb9578eb473d625e39d781d4f787fc2c299b7e9d04f185845afa76379363b9"
+      }
+    },
+    {
+      "left_plan": "dawn-repair",
+      "right_plan": "river-letter",
+      "text": "Mara found the gate. She repaired it at dawn. Jon carried the letter. He read it beside the river.",
+      "matched_prefix": 2,
+      "comparison_length": 35,
+      "audit": {
+        "letters": 76,
+        "palindrome": false,
+        "sha256": "a78004c27d1760839aa32803f80ed637db683c12c972d5b473b9e586d62532a2"
+      }
+    },
+    {
+      "left_plan": "river-letter",
+      "right_plan": "market-bread",
+      "text": "Jon carried the letter. He read it beside the river. Ruth bought the bread. She shared it at the market.",
+      "matched_prefix": 3,
+      "comparison_length": 40,
+      "audit": {
+        "letters": 81,
+        "palindrome": false,
+        "sha256": "eb9b80a7df5f5441c2ccead4d2e36cdd1b7f247f3f2c4e64d161f1ca5bd8cef0"
+      }
+    },
+    {
+      "left_plan": "river-letter",
+      "right_plan": "quiet-lantern",
+      "text": "Jon carried the letter. He read it beside the river. Nell lit the lantern. She left it on the porch.",
+      "matched_prefix": 3,
+      "comparison_length": 36,
+      "audit": {
+        "letters": 77,
+        "palindrome": false,
+        "sha256": "25db62989a8869bdcd3e9505bde6a3c3d39330d0398145c90e0bc0aba93ca7bc"
+      }
+    },
+    {
+      "left_plan": "river-letter",
+      "right_plan": "dawn-repair",
+      "text": "Jon carried the letter. He read it beside the river. Mara found the gate. She repaired it at dawn.",
+      "matched_prefix": 2,
+      "comparison_length": 35,
+      "audit": {
+        "letters": 76,
+        "palindrome": false,
+        "sha256": "b771493d012f7b41fa75a99361ae9150999acd3fb600dd0eb9d186f3c9c77079"
+      }
+    },
+    {
+      "left_plan": "quiet-lantern",
+      "right_plan": "market-bread",
+      "text": "Nell lit the lantern. She left it on the porch. Ruth bought the bread. She shared it at the market.",
+      "matched_prefix": 3,
+      "comparison_length": 36,
+      "audit": {
+        "letters": 76,
+        "palindrome": false,
+        "sha256": "4f7f0bbbf0c4c3db4ecd0de8d05a41a984a6be79f56fbc6804c7a085b66d44b0"
+      }
+    },
+    {
+      "left_plan": "quiet-lantern",
+      "right_plan": "river-letter",
+      "text": "Nell lit the lantern. She left it on the porch. Jon carried the letter. He read it beside the river.",
+      "matched_prefix": 3,
+      "comparison_length": 36,
+      "audit": {
+        "letters": 77,
+        "palindrome": false,
+        "sha256": "70641152e871e4a37436849a0961ced22176c0ce482e3fcc78c0db6c1c2cab4a"
+      }
+    },
+    {
+      "left_plan": "quiet-lantern",
+      "right_plan": "dawn-repair",
+      "text": "Nell lit the lantern. She left it on the porch. Mara found the gate. She repaired it at dawn.",
+      "matched_prefix": 8,
+      "comparison_length": 35,
+      "audit": {
+        "letters": 71,
+        "palindrome": false,
+        "sha256": "51998c67802e68e0050e2abc44d04ce3dc89b53a982231c95967d3454a865370"
+      }
+    },
+    {
+      "left_plan": "market-bread",
+      "right_plan": "quiet-lantern",
+      "text": "Ruth bought the bread. She shared it at the market. Nell lit the lantern. She left it on the porch.",
+      "matched_prefix": 3,
+      "comparison_length": 36,
+      "audit": {
+        "letters": 76,
+        "palindrome": false,
+        "sha256": "596c9810561eb416ed3cf287f657251ddab5c81f4980d0a4d35d5064bcc0965c"
+      }
+    },
+    {
+      "left_plan": "market-bread",
+      "right_plan": "river-letter",
+      "text": "Ruth bought the bread. She shared it at the market. Jon carried the letter. He read it beside the river.",
+      "matched_prefix": 3,
+      "comparison_length": 40,
+      "audit": {
+        "letters": 81,
+        "palindrome": false,
+        "sha256": "88b1ed2d0f1dc5435c7103e926d1ca89a49b1abdefd768800664f56d3480f891"
+      }
+    },
+    {
+      "left_plan": "market-bread",
+      "right_plan": "dawn-repair",
+      "text": "Ruth bought the bread. She shared it at the market. Mara found the gate. She repaired it at dawn.",
+      "matched_prefix": 3,
+      "comparison_length": 35,
+      "audit": {
+        "letters": 75,
+        "palindrome": false,
+        "sha256": "cc9d17529f329da515b383684a88bb18f58c15845b9dc27e59ce038a55a2ca96"
+      }
+    }
+  ],
+  "independent_checks": {
+    "audit": "two-pointer normalized ASCII-letter comparison",
+    "all_probes_audited": true
+  },
+  "shortcut_diagnostics": {
+    "word_order_symmetry": false,
+    "repeated_units": false,
+    "borrowed_catalogue": false,
+    "fragment_filter": "complete two-sentence narratives",
+    "readability": "diagnostic only; no human certification"
+  },
+  "novelty": {
+    "signature": "typed-discourse-plan-graph|online-character-equality-during-expansion|two-sentence-role-agreement|branch-substitution-repair",
+    "fingerprint": "1397c0a05c31411af3101e115bad95bd392598509e2e496a0a30e164821214c0"
+  }
+}

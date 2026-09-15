@@ -49,14 +49,61 @@ zero exact ≥39-letter closures; the strongest retained near miss was
 mismatches).  The transducer's next operator is reverse-trie-compatible slot
 expansion with the same joint syntax checks.
 
+## Whole-discourse order and boundary witnesses
+
+The whole-discourse branch removed the earlier pairwise-clause assumption.  It
+searched ordered subsets of 60 newly authored, intact same-scene sentences and
+allowed a character residual to cross any number of sentence boundaries.  The
+frozen run explored 63 states and all 1,140 ordered outer-sentence pairings,
+but no pairing reached a live second-sentence transition.  It produced zero
+exact closures.  Fifteen 100--160-letter intact controls are preserved with
+independent audits; the strongest garden control was:
+
+> Flowers attract bees. New leaves cover the branches. An observer waits. Some gardeners dig. Clean boots rest beside the door.
+
+That control has 101 letters and 39 mismatched mirrored pairs.  It is ordinary
+rendered prose, not a palindrome candidate and not reader evidence.
+
+A follow-up constituent bridge jointly varied the opening and final complete
+clauses before freezing them.  It found 24 genuine nonempty residual witnesses
+and tested 984 orders containing up to three additional complete same-scene
+clauses.  None closed exactly.  This rules out adding more permutations of the
+same frozen bank; the next branch must expand grammatical phrase realizations
+while a residual is live.
+
+## Dual typed chunk residuals
+
+The dual-parse branch generated 50,000 complete NP/VP/PP sentence parses and
+intersected their tapes incrementally through a reverse character trie.  The
+replay traversed 2,381,329 residual characters (maximum sentence length 59)
+and found zero exact closures above 38 letters.  A synthetic test confirms
+that the kernel can match staggered chunk boundaries.  The remaining missing
+operation is a boundary-state grammar automaton that can emit a newly licensed
+NP, VP, or PP attachment before either side has completed its sentence.
+
+## Explicit shortcut rejection
+
+The superficially attractive extension
+
+> Now an aide rips nine memos. Some men inspire. Diana won.
+
+is an exact 44-letter palindrome, but it is rejected: the original 38-letter
+palindrome remains an intact proper multiword span inside it.  This is precisely
+the forbidden self-palindromic-wrapper construction, so neither its extra six
+letters nor its fluent clauses count as progress.
+
 ## Next constructive move
 
-The queue has therefore exhausted lexical rotation and one-at-a-time repair.
-The next operator is coordinated role-preserving substitution at the same
-boundary, with number agreement, verb valency, and adjective attachment checked
-after each complete clause before the residual trie is resumed.  The paper and
-API remain gated until a novel closure passes the mechanical gate and a blinded
-intact-prose versus shuffled-control study.
+The queue has therefore exhausted lexical rotation, complete-sentence tape
+pairing, frozen sentence permutations, and one-at-a-time repair.  The next
+operator is a grammar-state residual automaton: jointly emit typed multiword
+constituents on both sides, allow their word and sentence boundaries to stagger,
+and check number agreement, verb valency, and attachment while the character
+residual is still live.  The paper and API remain gated until a novel closure
+passes the mechanical gate and a blinded intact-prose versus shuffled-control
+study.
 
 Commits: `2fdb450` (lexical-family diversity), `626bdfd`/`a7c231e`/`e5786c1`
-(syntax-first, boundary trie, and residual repair).
+(syntax-first, boundary trie, and residual repair), `69f5a4d` (whole-discourse
+ordered subsets), `a424f02`/`5228430`/`196afb8` (dual typed chunk searches), and
+`c0dd732` (witnessed boundary bridge).

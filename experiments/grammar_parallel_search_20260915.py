@@ -158,7 +158,14 @@ def cancel(debt: str, emitted: str, owner: int):
     return "", 0
 
 
-def search_pair(left: Plan, right: Plan, pools: dict[str, tuple[str, ...]], budget: int):
+def search_pair(
+    left: Plan,
+    right: Plan,
+    pools: dict[str, tuple[str, ...]],
+    budget: int,
+    *,
+    disjoint_content: bool = False,
+):
     indexes = {r: PrefixIndex(ws) for r, ws in pools.items()}
     rev_indexes = {r: PrefixIndex(w[::-1] for w in ws) for r, ws in pools.items()}
     stack = [(0, len(right.roles) - 1, "", 0, (), ())]
@@ -187,6 +194,8 @@ def search_pair(left: Plan, right: Plan, pools: dict[str, tuple[str, ...]], budg
             role = left.roles[li]
             choices = pools[role] if owner == 0 else indexes[role].matches(debt)
             for word in reversed(choices):
+                if disjoint_content and word not in FUNCTION and word in lw:
+                    continue
                 if owner == 0:
                     stack.append((li + 1, ri, word, 1, lw + (word,), rr))
                 else:
@@ -197,22 +206,29 @@ def search_pair(left: Plan, right: Plan, pools: dict[str, tuple[str, ...]], budg
             role = right.roles[ri]
             for revword in reversed(rev_indexes[role].matches(debt)):
                 word = revword[::-1]
+                if disjoint_content and word not in FUNCTION and (
+                    word in lw or word in rr
+                ):
+                    continue
                 out = cancel(debt, revword, 1)
                 if out is not None:
                     rem, own = out; stack.append((li, ri - 1, rem, own, lw, rr + (word,)))
     return rows, {"states": states, "budget_exhausted": bool(stack), "deepest": deepest}
 
 
-def run(pool_size: int = 3000, budget: int = 150000):
+def run(pool_size: int = 3000, budget: int = 150000, *, disjoint_content: bool = False):
     table = brown_table(); pools = lexical_pools(table, pool_size)
     rows, searches = [], []
     for left, right in product(PLANS, repeat=2):
-        found, stats = search_pair(left, right, pools, budget)
+        found, stats = search_pair(
+            left, right, pools, budget, disjoint_content=disjoint_content
+        )
         rows.extend(found); searches.append({"left": left.name, "right": right.name, **stats, "exact": len(found)})
     unique = {r["text"]: r for r in rows}
     return {"status": "parallel_grammar_residual_search_complete",
             "config": {"plans": len(PLANS), "pool_size": pool_size, "budget": budget,
-                       "min_letters": MIN_LETTERS},
+                       "min_letters": MIN_LETTERS,
+                       "disjoint_content": disjoint_content},
             "pool_counts": {k: len(v) for k, v in pools.items()},
             "exact_closures": len(rows), "unique_exact_closures": len(unique),
             "mechanically_eligible": [r for r in unique.values() if r["mechanically_eligible"]],
@@ -225,9 +241,11 @@ def run(pool_size: int = 3000, budget: int = 150000):
 def main():
     ap = argparse.ArgumentParser(); ap.add_argument("--out", type=Path, required=True)
     ap.add_argument("--pool-size", type=int, default=3000); ap.add_argument("--budget", type=int, default=150000)
+    ap.add_argument("--disjoint-content", action="store_true")
     args = ap.parse_args()
     if args.out.exists(): ap.error("refusing to overwrite output")
-    result = run(args.pool_size, args.budget); args.out.write_text(json.dumps(result, indent=2) + "\n")
+    result = run(args.pool_size, args.budget, disjoint_content=args.disjoint_content)
+    args.out.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({"exact": result["unique_exact_closures"], "eligible": len(result["mechanically_eligible"])}, indent=2))
 
 

@@ -50,6 +50,15 @@ human-rated intact prose—and may claim success only when both gates are met.
   length remains separately covered by the total constructor and never by
   filler padding.
 
+- **Content-disjoint repair (2026-09-15).** The same decoder was rerun with a
+  live content-word ledger, so a closure could not reuse a noun or verb across
+  either side.  It found no `>=39`-letter closure; its deepest frontier was the
+  38-letter seed decomposition (`an aide rips nine memos` / `some men inspire
+  diana`) plus a near-miss that left the residual `ight`.  This is a boundary
+  result, not a reason to relax the gate: the next operator must vary typed
+  lexical continuations at that residual while preserving disjoint content and
+  independent exact-N auditing.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

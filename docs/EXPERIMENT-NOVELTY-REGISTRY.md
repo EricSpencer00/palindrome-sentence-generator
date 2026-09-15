@@ -47,6 +47,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `two-bank-word-equation-seam-dp` | two independently authored, content-disjoint complete clause banks solved by a memoized character prefix/suffix equation with deliberate outer-letter compatibility | seam-aware word-equation DP across independent clause banks | 0 closures; 100 probes |
 | `seam-first-complete-clause-authoring` | seam inventory and terminal widths selected before independently authored complete SVO clauses; exact joint enumeration crosses ordinary word boundaries | outside-in seam-first authoring order | 0 closures; 13 retained probes (3 shortcut rejections) |
 | `semantic-dependency-outside-in` | fresh cause/preparation narrative with integer span boundaries, variable-length noun phrases, dependency-state obligations, and paired character domains | outside-in semantic arc consistency over spans | 0 closures; 5 partial probes across 39--87 targets |
+| `internal-center-window-repair` | complete authored clause pairs with one lexical center rewritten from a finite semantic inventory while the exterior stays fixed | internal lexical-center window repair | 0 exact closures; 56 bounded repairs |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

@@ -179,6 +179,14 @@ human-rated intact prose—and may claim success only when both gates are met.
   operator adds independently attested adjective/prepositional attachments
   inside the relative clause without relaxing agreement or tense.
 
+- **Two-relative-chain residual BFS (2026-09-15).** The next dependency
+  operator built two-edge chains from Brown-attested SVO relations, enforcing
+  shared head-subject and relative-object agreement while omitting shared
+  nouns from the surface. It produced 35 valid chains, all 35 reverse-residual
+  misses, and zero exact closures. The next repair adds independently attested
+  adjective/prepositional material on either relative edge while retaining both
+  co-reference variables and hard agreement/tense constraints.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

@@ -1,0 +1,40 @@
+{
+  "status": "complete_shared_coreference_relative_residual_bfs_no_reader_promotion",
+  "config": {
+    "relation_source": "Brown-derived compact SVO relations; source sentences never rendered",
+    "coreference_modes": [
+      "shared_subject",
+      "shared_object"
+    ],
+    "agreement": "subject/object number equality required at frame construction",
+    "state_features": "relation identities, co-reference mode, subject/object number, tense",
+    "clause_boundary": "punctuation only",
+    "minimum_letters": 39,
+    "maximum_letters": 180,
+    "independent_exact_audit": true,
+    "anti_shortcut_gate": true
+  },
+  "stats": {
+    "brown_sentences_scanned": 57340,
+    "attested_relations": 3533,
+    "coreference_frames": 302,
+    "indexed_tapes": 298,
+    "left_states_considered": 302,
+    "residual_misses": 302
+  },
+  "admitted": [],
+  "near_misses": [],
+  "residual_frontier": {
+    "indexed_tapes": 298,
+    "left_states": 302,
+    "unmatched_states": 302,
+    "matched_state_pairs_before_gates": 0
+  },
+  "provenance": {
+    "generator_sha256": "db0012aabe41277d7f2300739f1a575d4947367b052178f051bf509ed6c1d949",
+    "source_text_copied": false,
+    "relations_attested_individually": true
+  },
+  "next_operator": "Retain shared-coreference state while permitting an independently attested adjective or prepositional attachment inside the relative clause; preserve agreement and tense as hard residual constraints.",
+  "reader_gate": "No output is human evidence; any future closure requires intact-prose and shuffled-control readers."
+}

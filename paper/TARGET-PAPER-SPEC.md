@@ -3,6 +3,13 @@
 This is the paper the project is working toward. It is not a negative-result
 paper and it must not claim evidence that does not exist.
 
+The paper's center of gravity is the working construction: an original,
+intact-English palindrome longer than the 38-letter benchmark “An aide rips
+nine memos; some men inspire Diana.” Search diagnostics are supporting
+evidence only. The manuscript must lead with rendered candidates, independent
+exact validation, provenance, and reader outcomes; failed operators belong in
+a concise reproducibility record and must trigger the next constructive repair.
+
 Its contribution sequence is fixed:
 
 1. An independently authored constructive generator with a documented repair

@@ -10,7 +10,27 @@ independent readers as grammatical, with a recoverable subject or intent and
 coherent meaning. The paper must distinguish those reader outcomes from
 mechanical exactness and automatic diagnostics.
 
-## Current frontier (2026-09-13)
+## Reader-first directive
+
+The deliverable is a reader-worthy construction, not a search-speed result and
+not a negative-result paper. Every search run is an instrument for producing a
+new intact-English candidate. A candidate is shown with its rendered text,
+letter count, provenance, and two independent exact audits before any claim of
+progress. Programmatic measures may reject obvious debris or prioritize work;
+only blinded readers can establish readability. Failed runs stay in the
+ledger, but immediately hand their residual frontier to a genuinely different
+construction or repair operator.
+
+The current benchmark remains the independently verified 38-letter sentence:
+
+> *An aide rips nine memos; some men inspire Diana.*
+
+The active target is an original, coherent, intact-prose palindrome longer than
+that benchmark (with the paper's promotion floor at 100 letters), followed by
+the blinded intact-prose versus shuffled-control study. No wrapper, catalogue
+relexicalization, repeated unit, fragment, or filler output can satisfy it.
+
+## Current frontier (2026-09-15)
 
 - **Acceptance gate remains unchanged.** A result must be an original,
   exact letter-level palindrome, rendered as intact English prose, mechanically

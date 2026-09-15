@@ -2,6 +2,7 @@ from pathlib import Path
 import json
 
 from experiments.validate_experiment_novelty_20260915 import validate
+from experiments.preflight_experiment_novelty import preflight
 
 
 def test_registered_experiments_have_unique_signatures_and_artifacts():
@@ -18,6 +19,17 @@ def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
     excluded = {row["id"]: row for row in data["excluded"]}
     assert set(excluded) == {"seed-symmetric-mutation-excluded", "seed-boundary-shift-excluded"}
     assert all(row["overlaps"] == ["internal-center-window-repair"] for row in excluded.values())
+
+
+def test_preflight_checks_registered_and_excluded_routes():
+    result = preflight(
+        "new-test-route",
+        "test-only-state-space|independent-construction-dimension",
+        "runs/test-only-route.json",
+    )
+    assert result["status"] == "novel"
+    assert result["registered_families_checked"] == 53
+    assert result["excluded_routes_checked"] == 2
 
 
 def test_latest_experiments_are_registered_as_distinct_families():

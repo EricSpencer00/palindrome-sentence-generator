@@ -1,0 +1,3837 @@
+{
+  "status": "clause_lattice_joint_dp_complete",
+  "family_id": "clause-lattice-joint-dp",
+  "state_space_signature": "complete-independent-clause-lattice|explicit-subject-tense-argument-constraints|length-indexed-joint-character-equations|cross-boundary-word-seams|no-repeated-or-self-palindromic-units",
+  "config": {
+    "construction": "two independently authored complete English clauses",
+    "frames": [
+      {
+        "frame_id": "transitive_sg_present",
+        "argument": "transitive",
+        "subject_number": "singular",
+        "tense": "present",
+        "slots": [
+          "DET_S",
+          "SUBJ_S",
+          "V3_T",
+          "DET_S",
+          "OBJ_S"
+        ],
+        "note": "singular agent performs a present transitive action"
+      },
+      {
+        "frame_id": "transitive_pl_present",
+        "argument": "transitive",
+        "subject_number": "plural",
+        "tense": "present",
+        "slots": [
+          "DET_P",
+          "SUBJ_P",
+          "VBASE_T",
+          "DET_P",
+          "OBJ_P"
+        ],
+        "note": "plural agent performs a present transitive action"
+      },
+      {
+        "frame_id": "transitive_sg_past",
+        "argument": "transitive",
+        "subject_number": "singular",
+        "tense": "past",
+        "slots": [
+          "DET_S",
+          "SUBJ_S",
+          "VPAST_T",
+          "DET_S",
+          "OBJ_S"
+        ],
+        "note": "singular agent performed a past transitive action"
+      },
+      {
+        "frame_id": "intransitive_sg_present",
+        "argument": "intransitive",
+        "subject_number": "singular",
+        "tense": "present",
+        "slots": [
+          "DET_S",
+          "SUBJ_S",
+          "V0_3"
+        ],
+        "note": "singular agent has a present intransitive predicate"
+      },
+      {
+        "frame_id": "intransitive_pl_present",
+        "argument": "intransitive",
+        "subject_number": "plural",
+        "tense": "present",
+        "slots": [
+          "DET_P",
+          "SUBJ_P",
+          "V0_BASE"
+        ],
+        "note": "plural agent has a present intransitive predicate"
+      },
+      {
+        "frame_id": "copular_sg_present",
+        "argument": "copular",
+        "subject_number": "singular",
+        "tense": "present",
+        "slots": [
+          "DET_S",
+          "SUBJ_S",
+          "COPULA",
+          "ADJ"
+        ],
+        "note": "singular subject has a present copular complement"
+      },
+      {
+        "frame_id": "copular_sg_past",
+        "argument": "copular",
+        "subject_number": "singular",
+        "tense": "past",
+        "slots": [
+          "DET_S",
+          "SUBJ_S",
+          "COPULA",
+          "ADJ"
+        ],
+        "note": "singular subject had a past copular complement"
+      }
+    ],
+    "left_inventory": {
+      "DET_S": [
+        "a",
+        "the"
+      ],
+      "DET_P": [
+        "the",
+        "some"
+      ],
+      "SUBJ_S": [
+        "baker",
+        "pilot",
+        "writer",
+        "farmer",
+        "guard",
+        "poet"
+      ],
+      "SUBJ_P": [
+        "bakers",
+        "pilots",
+        "writers",
+        "farmers",
+        "guards",
+        "poets"
+      ],
+      "V3_T": [
+        "packs",
+        "guides",
+        "writes",
+        "plants",
+        "guards",
+        "reads"
+      ],
+      "V0_3": [
+        "waits",
+        "smiles",
+        "rests",
+        "walks",
+        "sings",
+        "turns"
+      ],
+      "VBASE_T": [
+        "pack",
+        "guide",
+        "write",
+        "plant",
+        "guard",
+        "read"
+      ],
+      "V0_BASE": [
+        "wait",
+        "smile",
+        "rest",
+        "walk",
+        "sing",
+        "turn"
+      ],
+      "VPAST_T": [
+        "packed",
+        "guided",
+        "wrote",
+        "planted",
+        "guarded",
+        "read"
+      ],
+      "VPAST_0": [
+        "waited",
+        "smiled",
+        "rested",
+        "walked",
+        "sang",
+        "turned"
+      ],
+      "OBJ_S": [
+        "bread",
+        "map",
+        "letter",
+        "garden",
+        "poem",
+        "boat"
+      ],
+      "OBJ_P": [
+        "breads",
+        "maps",
+        "letters",
+        "gardens",
+        "poems",
+        "boats"
+      ],
+      "ADJ": [
+        "quiet",
+        "ready",
+        "bright",
+        "gentle",
+        "steady",
+        "plain"
+      ],
+      "COPULA": [
+        "is",
+        "was"
+      ]
+    },
+    "right_inventory": {
+      "DET_S": [
+        "a",
+        "the"
+      ],
+      "DET_P": [
+        "the",
+        "some"
+      ],
+      "SUBJ_S": [
+        "carver",
+        "sailor",
+        "teacher",
+        "keeper",
+        "dancer",
+        "clerk"
+      ],
+      "SUBJ_P": [
+        "carvers",
+        "sailors",
+        "teachers",
+        "keepers",
+        "dancers",
+        "clerks"
+      ],
+      "V3_T": [
+        "makes",
+        "folds",
+        "marks",
+        "opens",
+        "carries",
+        "draws"
+      ],
+      "V0_3": [
+        "drifts",
+        "laughs",
+        "rests",
+        "moves",
+        "chants",
+        "waits"
+      ],
+      "VBASE_T": [
+        "make",
+        "fold",
+        "mark",
+        "open",
+        "carry",
+        "draw"
+      ],
+      "V0_BASE": [
+        "drift",
+        "laugh",
+        "rest",
+        "move",
+        "chant",
+        "wait"
+      ],
+      "VPAST_T": [
+        "made",
+        "folded",
+        "marked",
+        "opened",
+        "carried",
+        "drew"
+      ],
+      "VPAST_0": [
+        "drifted",
+        "laughed",
+        "rested",
+        "moved",
+        "chanted",
+        "waited"
+      ],
+      "OBJ_S": [
+        "canvas",
+        "ribbon",
+        "notebook",
+        "window",
+        "candle",
+        "basket"
+      ],
+      "OBJ_P": [
+        "canvases",
+        "ribbons",
+        "notebooks",
+        "windows",
+        "candles",
+        "baskets"
+      ],
+      "ADJ": [
+        "calm",
+        "open",
+        "warm",
+        "kind",
+        "solid",
+        "clean"
+      ],
+      "COPULA": [
+        "is",
+        "was"
+      ]
+    },
+    "length_indexed_joint_dp": true,
+    "lexicalization_strategy": "character-lockstep DP over slot boundaries and live word offsets",
+    "reverse_decode_used": false,
+    "pool_or_beam_expansion_used": false,
+    "brown_pos_or_cfg_search_used": false,
+    "event_dialogue_scene_morphology_transducer_families_replayed": false,
+    "minimum_letters": 39,
+    "maximum_letters": 180,
+    "output_excluded_before_scan": true
+  },
+  "novelty_audit": {
+    "registry_entries_read_before_run": 29,
+    "registry_sha256": "58ceb9883d349bc93f506465bce9dd277d2e31ded1d92f1521480f9249264eff",
+    "existing_tape_fingerprint": {
+      "json_files_scanned": 1752,
+      "strings_scanned": 3962282,
+      "malformed_json_files": 0,
+      "output_files_excluded": 0,
+      "normalized_tapes": 462977,
+      "fingerprint_sha256": "d5c94109befd7f331c0b91da023fd470ad9b2d12184e78276ae077468527e32f"
+    },
+    "all_exact_rows_checked_against_existing_tapes": true,
+    "all_mechanically_admitted_rows_novel": true
+  },
+  "stats": {
+    "frames": 49,
+    "pair_states": 805,
+    "exact_closures": 0,
+    "residual_probes": 49,
+    "mechanically_admitted": 0
+  },
+  "exact_closures": [],
+  "admitted": [],
+  "rendered_residual_probes": [
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "copular_sg_past",
+      "right_frame": "intransitive_pl_present",
+      "rendered_residual_probe": "The baker is quiet; the carvers drift.",
+      "matched_prefix_letters": 1,
+      "states_explored": 19,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "drift"
+        ],
+        "left_slot": 1,
+        "right_slot": 1,
+        "residual_left": "he",
+        "residual_right": "drif"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 15,
+          "mismatch_count": 13,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 28,
+              "left_char": "h",
+              "right_char": "f"
+            },
+            {
+              "left": 2,
+              "right": 27,
+              "left_char": "e",
+              "right_char": "i"
+            },
+            {
+              "left": 3,
+              "right": 26,
+              "left_char": "b",
+              "right_char": "r"
+            },
+            {
+              "left": 4,
+              "right": 25,
+              "left_char": "a",
+              "right_char": "d"
+            },
+            {
+              "left": 5,
+              "right": 24,
+              "left_char": "k",
+              "right_char": "s"
+            },
+            {
+              "left": 6,
+              "right": 23,
+              "left_char": "e",
+              "right_char": "r"
+            },
+            {
+              "left": 7,
+              "right": 22,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 21,
+              "left_char": "i",
+              "right_char": "v"
+            },
+            {
+              "left": 9,
+              "right": 20,
+              "left_char": "s",
+              "right_char": "r"
+            },
+            {
+              "left": 10,
+              "right": 19,
+              "left_char": "q",
+              "right_char": "a"
+            },
+            {
+              "left": 11,
+              "right": 18,
+              "left_char": "u",
+              "right_char": "c"
+            },
+            {
+              "left": 12,
+              "right": 17,
+              "left_char": "i",
+              "right_char": "e"
+            },
+            {
+              "left": 13,
+              "right": 16,
+              "left_char": "e",
+              "right_char": "h"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 7,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.36,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "copular_sg_past",
+      "right_frame": "transitive_sg_past",
+      "rendered_residual_probe": "The baker is quiet; a carver made a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 16,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 16,
+          "mismatch_count": 13,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 31,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 30,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 29,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 27,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 26,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 25,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 24,
+              "left_char": "i",
+              "right_char": "d"
+            },
+            {
+              "left": 9,
+              "right": 23,
+              "left_char": "s",
+              "right_char": "a"
+            },
+            {
+              "left": 10,
+              "right": 22,
+              "left_char": "q",
+              "right_char": "m"
+            },
+            {
+              "left": 11,
+              "right": 21,
+              "left_char": "u",
+              "right_char": "r"
+            },
+            {
+              "left": 12,
+              "right": 20,
+              "left_char": "i",
+              "right_char": "e"
+            },
+            {
+              "left": 13,
+              "right": 19,
+              "left_char": "e",
+              "right_char": "v"
+            },
+            {
+              "left": 14,
+              "right": 18,
+              "left_char": "t",
+              "right_char": "r"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 9,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.747,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "copular_sg_past",
+      "right_frame": "transitive_sg_present",
+      "rendered_residual_probe": "The baker is quiet; a carver makes a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 16,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 17,
+          "mismatch_count": 14,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 32,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 31,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 30,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 28,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 27,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 26,
+              "left_char": "r",
+              "right_char": "s"
+            },
+            {
+              "left": 8,
+              "right": 25,
+              "left_char": "i",
+              "right_char": "e"
+            },
+            {
+              "left": 9,
+              "right": 24,
+              "left_char": "s",
+              "right_char": "k"
+            },
+            {
+              "left": 10,
+              "right": 23,
+              "left_char": "q",
+              "right_char": "a"
+            },
+            {
+              "left": 11,
+              "right": 22,
+              "left_char": "u",
+              "right_char": "m"
+            },
+            {
+              "left": 12,
+              "right": 21,
+              "left_char": "i",
+              "right_char": "r"
+            },
+            {
+              "left": 14,
+              "right": 19,
+              "left_char": "t",
+              "right_char": "v"
+            },
+            {
+              "left": 15,
+              "right": 18,
+              "left_char": "a",
+              "right_char": "r"
+            },
+            {
+              "left": 16,
+              "right": 17,
+              "left_char": "c",
+              "right_char": "a"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 9,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.696,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "copular_sg_present",
+      "right_frame": "intransitive_pl_present",
+      "rendered_residual_probe": "The baker is quiet; the carvers drift.",
+      "matched_prefix_letters": 1,
+      "states_explored": 19,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "drift"
+        ],
+        "left_slot": 1,
+        "right_slot": 1,
+        "residual_left": "he",
+        "residual_right": "drif"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 15,
+          "mismatch_count": 13,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 28,
+              "left_char": "h",
+              "right_char": "f"
+            },
+            {
+              "left": 2,
+              "right": 27,
+              "left_char": "e",
+              "right_char": "i"
+            },
+            {
+              "left": 3,
+              "right": 26,
+              "left_char": "b",
+              "right_char": "r"
+            },
+            {
+              "left": 4,
+              "right": 25,
+              "left_char": "a",
+              "right_char": "d"
+            },
+            {
+              "left": 5,
+              "right": 24,
+              "left_char": "k",
+              "right_char": "s"
+            },
+            {
+              "left": 6,
+              "right": 23,
+              "left_char": "e",
+              "right_char": "r"
+            },
+            {
+              "left": 7,
+              "right": 22,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 21,
+              "left_char": "i",
+              "right_char": "v"
+            },
+            {
+              "left": 9,
+              "right": 20,
+              "left_char": "s",
+              "right_char": "r"
+            },
+            {
+              "left": 10,
+              "right": 19,
+              "left_char": "q",
+              "right_char": "a"
+            },
+            {
+              "left": 11,
+              "right": 18,
+              "left_char": "u",
+              "right_char": "c"
+            },
+            {
+              "left": 12,
+              "right": 17,
+              "left_char": "i",
+              "right_char": "e"
+            },
+            {
+              "left": 13,
+              "right": 16,
+              "left_char": "e",
+              "right_char": "h"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 7,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.36,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "copular_sg_present",
+      "right_frame": "transitive_sg_past",
+      "rendered_residual_probe": "The baker is quiet; a carver made a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 16,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 16,
+          "mismatch_count": 13,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 31,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 30,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 29,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 27,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 26,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 25,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 24,
+              "left_char": "i",
+              "right_char": "d"
+            },
+            {
+              "left": 9,
+              "right": 23,
+              "left_char": "s",
+              "right_char": "a"
+            },
+            {
+              "left": 10,
+              "right": 22,
+              "left_char": "q",
+              "right_char": "m"
+            },
+            {
+              "left": 11,
+              "right": 21,
+              "left_char": "u",
+              "right_char": "r"
+            },
+            {
+              "left": 12,
+              "right": 20,
+              "left_char": "i",
+              "right_char": "e"
+            },
+            {
+              "left": 13,
+              "right": 19,
+              "left_char": "e",
+              "right_char": "v"
+            },
+            {
+              "left": 14,
+              "right": 18,
+              "left_char": "t",
+              "right_char": "r"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 9,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.747,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "copular_sg_present",
+      "right_frame": "transitive_sg_present",
+      "rendered_residual_probe": "The baker is quiet; a carver makes a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 16,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 17,
+          "mismatch_count": 14,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 32,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 31,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 30,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 28,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 27,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 26,
+              "left_char": "r",
+              "right_char": "s"
+            },
+            {
+              "left": 8,
+              "right": 25,
+              "left_char": "i",
+              "right_char": "e"
+            },
+            {
+              "left": 9,
+              "right": 24,
+              "left_char": "s",
+              "right_char": "k"
+            },
+            {
+              "left": 10,
+              "right": 23,
+              "left_char": "q",
+              "right_char": "a"
+            },
+            {
+              "left": 11,
+              "right": 22,
+              "left_char": "u",
+              "right_char": "m"
+            },
+            {
+              "left": 12,
+              "right": 21,
+              "left_char": "i",
+              "right_char": "r"
+            },
+            {
+              "left": 14,
+              "right": 19,
+              "left_char": "t",
+              "right_char": "v"
+            },
+            {
+              "left": 15,
+              "right": 18,
+              "left_char": "a",
+              "right_char": "r"
+            },
+            {
+              "left": 16,
+              "right": 17,
+              "left_char": "c",
+              "right_char": "a"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 9,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.696,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "intransitive_pl_present",
+      "right_frame": "intransitive_pl_present",
+      "rendered_residual_probe": "The bakers wait; the carvers drift.",
+      "matched_prefix_letters": 1,
+      "states_explored": 19,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "drift"
+        ],
+        "left_slot": 1,
+        "right_slot": 1,
+        "residual_left": "he",
+        "residual_right": "drif"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 14,
+          "mismatch_count": 12,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 26,
+              "left_char": "h",
+              "right_char": "f"
+            },
+            {
+              "left": 2,
+              "right": 25,
+              "left_char": "e",
+              "right_char": "i"
+            },
+            {
+              "left": 3,
+              "right": 24,
+              "left_char": "b",
+              "right_char": "r"
+            },
+            {
+              "left": 4,
+              "right": 23,
+              "left_char": "a",
+              "right_char": "d"
+            },
+            {
+              "left": 5,
+              "right": 22,
+              "left_char": "k",
+              "right_char": "s"
+            },
+            {
+              "left": 6,
+              "right": 21,
+              "left_char": "e",
+              "right_char": "r"
+            },
+            {
+              "left": 7,
+              "right": 20,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 19,
+              "left_char": "s",
+              "right_char": "v"
+            },
+            {
+              "left": 9,
+              "right": 18,
+              "left_char": "w",
+              "right_char": "r"
+            },
+            {
+              "left": 11,
+              "right": 16,
+              "left_char": "i",
+              "right_char": "c"
+            },
+            {
+              "left": 12,
+              "right": 15,
+              "left_char": "t",
+              "right_char": "e"
+            },
+            {
+              "left": 13,
+              "right": 14,
+              "left_char": "t",
+              "right_char": "h"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 6,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.015,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "intransitive_pl_present",
+      "right_frame": "intransitive_sg_present",
+      "rendered_residual_probe": "Some bakers wait; a carver drifts.",
+      "matched_prefix_letters": 1,
+      "states_explored": 21,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "some"
+        ],
+        "right_reverse_words": [
+          "drifts"
+        ],
+        "left_slot": 1,
+        "right_slot": 1,
+        "residual_left": "ome",
+        "residual_right": "drift"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 13,
+          "mismatch_count": 11,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 25,
+              "left_char": "o",
+              "right_char": "t"
+            },
+            {
+              "left": 2,
+              "right": 24,
+              "left_char": "m",
+              "right_char": "f"
+            },
+            {
+              "left": 3,
+              "right": 23,
+              "left_char": "e",
+              "right_char": "i"
+            },
+            {
+              "left": 4,
+              "right": 22,
+              "left_char": "b",
+              "right_char": "r"
+            },
+            {
+              "left": 5,
+              "right": 21,
+              "left_char": "a",
+              "right_char": "d"
+            },
+            {
+              "left": 6,
+              "right": 20,
+              "left_char": "k",
+              "right_char": "r"
+            },
+            {
+              "left": 8,
+              "right": 18,
+              "left_char": "r",
+              "right_char": "v"
+            },
+            {
+              "left": 9,
+              "right": 17,
+              "left_char": "s",
+              "right_char": "r"
+            },
+            {
+              "left": 10,
+              "right": 16,
+              "left_char": "w",
+              "right_char": "a"
+            },
+            {
+              "left": 11,
+              "right": 15,
+              "left_char": "a",
+              "right_char": "c"
+            },
+            {
+              "left": 12,
+              "right": 14,
+              "left_char": "i",
+              "right_char": "a"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 6,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 4.732,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "intransitive_pl_present",
+      "right_frame": "transitive_pl_present",
+      "rendered_residual_probe": "Some bakers wait; the carvers make the canvases.",
+      "matched_prefix_letters": 1,
+      "states_explored": 21,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "some"
+        ],
+        "right_reverse_words": [
+          "canvases"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "ome",
+        "residual_right": "canvase"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 19,
+          "mismatch_count": 18,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 37,
+              "left_char": "o",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 36,
+              "left_char": "m",
+              "right_char": "s"
+            },
+            {
+              "left": 3,
+              "right": 35,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 4,
+              "right": 34,
+              "left_char": "b",
+              "right_char": "v"
+            },
+            {
+              "left": 5,
+              "right": 33,
+              "left_char": "a",
+              "right_char": "n"
+            },
+            {
+              "left": 6,
+              "right": 32,
+              "left_char": "k",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 31,
+              "left_char": "e",
+              "right_char": "c"
+            },
+            {
+              "left": 8,
+              "right": 30,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 9,
+              "right": 29,
+              "left_char": "s",
+              "right_char": "h"
+            },
+            {
+              "left": 10,
+              "right": 28,
+              "left_char": "w",
+              "right_char": "t"
+            },
+            {
+              "left": 11,
+              "right": 27,
+              "left_char": "a",
+              "right_char": "e"
+            },
+            {
+              "left": 12,
+              "right": 26,
+              "left_char": "i",
+              "right_char": "k"
+            },
+            {
+              "left": 13,
+              "right": 25,
+              "left_char": "t",
+              "right_char": "a"
+            },
+            {
+              "left": 14,
+              "right": 24,
+              "left_char": "t",
+              "right_char": "m"
+            },
+            {
+              "left": 15,
+              "right": 23,
+              "left_char": "h",
+              "right_char": "s"
+            },
+            {
+              "left": 16,
+              "right": 22,
+              "left_char": "e",
+              "right_char": "r"
+            },
+            {
+              "left": 17,
+              "right": 21,
+              "left_char": "c",
+              "right_char": "e"
+            },
+            {
+              "left": 18,
+              "right": 20,
+              "left_char": "a",
+              "right_char": "v"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.184,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "intransitive_pl_present",
+      "right_frame": "transitive_sg_past",
+      "rendered_residual_probe": "The bakers wait; a carver made a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 17,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 15,
+          "mismatch_count": 13,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 29,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 28,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 27,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 25,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 24,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 23,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 22,
+              "left_char": "s",
+              "right_char": "d"
+            },
+            {
+              "left": 9,
+              "right": 21,
+              "left_char": "w",
+              "right_char": "a"
+            },
+            {
+              "left": 10,
+              "right": 20,
+              "left_char": "a",
+              "right_char": "m"
+            },
+            {
+              "left": 11,
+              "right": 19,
+              "left_char": "i",
+              "right_char": "r"
+            },
+            {
+              "left": 12,
+              "right": 18,
+              "left_char": "t",
+              "right_char": "e"
+            },
+            {
+              "left": 13,
+              "right": 17,
+              "left_char": "a",
+              "right_char": "v"
+            },
+            {
+              "left": 14,
+              "right": 16,
+              "left_char": "c",
+              "right_char": "r"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.536,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "intransitive_pl_present",
+      "right_frame": "transitive_sg_present",
+      "rendered_residual_probe": "The bakers wait; a carver makes a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 17,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 16,
+          "mismatch_count": 13,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 30,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 29,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 28,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 26,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 25,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 24,
+              "left_char": "r",
+              "right_char": "s"
+            },
+            {
+              "left": 8,
+              "right": 23,
+              "left_char": "s",
+              "right_char": "e"
+            },
+            {
+              "left": 9,
+              "right": 22,
+              "left_char": "w",
+              "right_char": "k"
+            },
+            {
+              "left": 11,
+              "right": 20,
+              "left_char": "i",
+              "right_char": "m"
+            },
+            {
+              "left": 12,
+              "right": 19,
+              "left_char": "t",
+              "right_char": "r"
+            },
+            {
+              "left": 13,
+              "right": 18,
+              "left_char": "a",
+              "right_char": "e"
+            },
+            {
+              "left": 14,
+              "right": 17,
+              "left_char": "c",
+              "right_char": "v"
+            },
+            {
+              "left": 15,
+              "right": 16,
+              "left_char": "a",
+              "right_char": "r"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.479,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "intransitive_sg_present",
+      "right_frame": "intransitive_pl_present",
+      "rendered_residual_probe": "The baker waits; the carvers drift.",
+      "matched_prefix_letters": 1,
+      "states_explored": 19,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "drift"
+        ],
+        "left_slot": 1,
+        "right_slot": 1,
+        "residual_left": "he",
+        "residual_right": "drif"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 14,
+          "mismatch_count": 13,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 26,
+              "left_char": "h",
+              "right_char": "f"
+            },
+            {
+              "left": 2,
+              "right": 25,
+              "left_char": "e",
+              "right_char": "i"
+            },
+            {
+              "left": 3,
+              "right": 24,
+              "left_char": "b",
+              "right_char": "r"
+            },
+            {
+              "left": 4,
+              "right": 23,
+              "left_char": "a",
+              "right_char": "d"
+            },
+            {
+              "left": 5,
+              "right": 22,
+              "left_char": "k",
+              "right_char": "s"
+            },
+            {
+              "left": 6,
+              "right": 21,
+              "left_char": "e",
+              "right_char": "r"
+            },
+            {
+              "left": 7,
+              "right": 20,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 19,
+              "left_char": "w",
+              "right_char": "v"
+            },
+            {
+              "left": 9,
+              "right": 18,
+              "left_char": "a",
+              "right_char": "r"
+            },
+            {
+              "left": 10,
+              "right": 17,
+              "left_char": "i",
+              "right_char": "a"
+            },
+            {
+              "left": 11,
+              "right": 16,
+              "left_char": "t",
+              "right_char": "c"
+            },
+            {
+              "left": 12,
+              "right": 15,
+              "left_char": "s",
+              "right_char": "e"
+            },
+            {
+              "left": 13,
+              "right": 14,
+              "left_char": "t",
+              "right_char": "h"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 6,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 4.913,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "intransitive_sg_present",
+      "right_frame": "transitive_sg_past",
+      "rendered_residual_probe": "The baker waits; a carver made a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 16,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 15,
+          "mismatch_count": 12,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 29,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 28,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 27,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 25,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 24,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 23,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 22,
+              "left_char": "w",
+              "right_char": "d"
+            },
+            {
+              "left": 10,
+              "right": 20,
+              "left_char": "i",
+              "right_char": "m"
+            },
+            {
+              "left": 11,
+              "right": 19,
+              "left_char": "t",
+              "right_char": "r"
+            },
+            {
+              "left": 12,
+              "right": 18,
+              "left_char": "s",
+              "right_char": "e"
+            },
+            {
+              "left": 13,
+              "right": 17,
+              "left_char": "a",
+              "right_char": "v"
+            },
+            {
+              "left": 14,
+              "right": 16,
+              "left_char": "c",
+              "right_char": "r"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.46,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "intransitive_sg_present",
+      "right_frame": "transitive_sg_present",
+      "rendered_residual_probe": "The baker waits; a carver makes a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 16,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 16,
+          "mismatch_count": 14,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 30,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 29,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 28,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 26,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 25,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 24,
+              "left_char": "r",
+              "right_char": "s"
+            },
+            {
+              "left": 8,
+              "right": 23,
+              "left_char": "w",
+              "right_char": "e"
+            },
+            {
+              "left": 9,
+              "right": 22,
+              "left_char": "a",
+              "right_char": "k"
+            },
+            {
+              "left": 10,
+              "right": 21,
+              "left_char": "i",
+              "right_char": "a"
+            },
+            {
+              "left": 11,
+              "right": 20,
+              "left_char": "t",
+              "right_char": "m"
+            },
+            {
+              "left": 12,
+              "right": 19,
+              "left_char": "s",
+              "right_char": "r"
+            },
+            {
+              "left": 13,
+              "right": 18,
+              "left_char": "a",
+              "right_char": "e"
+            },
+            {
+              "left": 14,
+              "right": 17,
+              "left_char": "c",
+              "right_char": "v"
+            },
+            {
+              "left": 15,
+              "right": 16,
+              "left_char": "a",
+              "right_char": "r"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.402,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "transitive_pl_present",
+      "right_frame": "intransitive_pl_present",
+      "rendered_residual_probe": "The bakers pack the breads; the carvers drift.",
+      "matched_prefix_letters": 1,
+      "states_explored": 19,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "drift"
+        ],
+        "left_slot": 1,
+        "right_slot": 1,
+        "residual_left": "he",
+        "residual_right": "drif"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 18,
+          "mismatch_count": 15,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 35,
+              "left_char": "h",
+              "right_char": "f"
+            },
+            {
+              "left": 2,
+              "right": 34,
+              "left_char": "e",
+              "right_char": "i"
+            },
+            {
+              "left": 3,
+              "right": 33,
+              "left_char": "b",
+              "right_char": "r"
+            },
+            {
+              "left": 4,
+              "right": 32,
+              "left_char": "a",
+              "right_char": "d"
+            },
+            {
+              "left": 5,
+              "right": 31,
+              "left_char": "k",
+              "right_char": "s"
+            },
+            {
+              "left": 6,
+              "right": 30,
+              "left_char": "e",
+              "right_char": "r"
+            },
+            {
+              "left": 7,
+              "right": 29,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 28,
+              "left_char": "s",
+              "right_char": "v"
+            },
+            {
+              "left": 9,
+              "right": 27,
+              "left_char": "p",
+              "right_char": "r"
+            },
+            {
+              "left": 12,
+              "right": 24,
+              "left_char": "k",
+              "right_char": "e"
+            },
+            {
+              "left": 13,
+              "right": 23,
+              "left_char": "t",
+              "right_char": "h"
+            },
+            {
+              "left": 14,
+              "right": 22,
+              "left_char": "h",
+              "right_char": "t"
+            },
+            {
+              "left": 15,
+              "right": 21,
+              "left_char": "e",
+              "right_char": "s"
+            },
+            {
+              "left": 16,
+              "right": 20,
+              "left_char": "b",
+              "right_char": "d"
+            },
+            {
+              "left": 17,
+              "right": 19,
+              "left_char": "r",
+              "right_char": "a"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.01,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "transitive_pl_present",
+      "right_frame": "intransitive_sg_present",
+      "rendered_residual_probe": "Some bakers pack the breads; a carver drifts.",
+      "matched_prefix_letters": 1,
+      "states_explored": 21,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "some"
+        ],
+        "right_reverse_words": [
+          "drifts"
+        ],
+        "left_slot": 1,
+        "right_slot": 1,
+        "residual_left": "ome",
+        "residual_right": "drift"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 18,
+          "mismatch_count": 15,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 34,
+              "left_char": "o",
+              "right_char": "t"
+            },
+            {
+              "left": 2,
+              "right": 33,
+              "left_char": "m",
+              "right_char": "f"
+            },
+            {
+              "left": 3,
+              "right": 32,
+              "left_char": "e",
+              "right_char": "i"
+            },
+            {
+              "left": 4,
+              "right": 31,
+              "left_char": "b",
+              "right_char": "r"
+            },
+            {
+              "left": 5,
+              "right": 30,
+              "left_char": "a",
+              "right_char": "d"
+            },
+            {
+              "left": 6,
+              "right": 29,
+              "left_char": "k",
+              "right_char": "r"
+            },
+            {
+              "left": 8,
+              "right": 27,
+              "left_char": "r",
+              "right_char": "v"
+            },
+            {
+              "left": 9,
+              "right": 26,
+              "left_char": "s",
+              "right_char": "r"
+            },
+            {
+              "left": 10,
+              "right": 25,
+              "left_char": "p",
+              "right_char": "a"
+            },
+            {
+              "left": 11,
+              "right": 24,
+              "left_char": "a",
+              "right_char": "c"
+            },
+            {
+              "left": 12,
+              "right": 23,
+              "left_char": "c",
+              "right_char": "a"
+            },
+            {
+              "left": 13,
+              "right": 22,
+              "left_char": "k",
+              "right_char": "s"
+            },
+            {
+              "left": 14,
+              "right": 21,
+              "left_char": "t",
+              "right_char": "d"
+            },
+            {
+              "left": 15,
+              "right": 20,
+              "left_char": "h",
+              "right_char": "a"
+            },
+            {
+              "left": 17,
+              "right": 18,
+              "left_char": "b",
+              "right_char": "r"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 4.797,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "transitive_pl_present",
+      "right_frame": "transitive_pl_present",
+      "rendered_residual_probe": "Some bakers pack the breads; the carvers make the canvases.",
+      "matched_prefix_letters": 1,
+      "states_explored": 21,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "some"
+        ],
+        "right_reverse_words": [
+          "canvases"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "ome",
+        "residual_right": "canvase"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 24,
+          "mismatch_count": 22,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 46,
+              "left_char": "o",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 45,
+              "left_char": "m",
+              "right_char": "s"
+            },
+            {
+              "left": 3,
+              "right": 44,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 4,
+              "right": 43,
+              "left_char": "b",
+              "right_char": "v"
+            },
+            {
+              "left": 5,
+              "right": 42,
+              "left_char": "a",
+              "right_char": "n"
+            },
+            {
+              "left": 6,
+              "right": 41,
+              "left_char": "k",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 40,
+              "left_char": "e",
+              "right_char": "c"
+            },
+            {
+              "left": 8,
+              "right": 39,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 9,
+              "right": 38,
+              "left_char": "s",
+              "right_char": "h"
+            },
+            {
+              "left": 10,
+              "right": 37,
+              "left_char": "p",
+              "right_char": "t"
+            },
+            {
+              "left": 11,
+              "right": 36,
+              "left_char": "a",
+              "right_char": "e"
+            },
+            {
+              "left": 12,
+              "right": 35,
+              "left_char": "c",
+              "right_char": "k"
+            },
+            {
+              "left": 13,
+              "right": 34,
+              "left_char": "k",
+              "right_char": "a"
+            },
+            {
+              "left": 14,
+              "right": 33,
+              "left_char": "t",
+              "right_char": "m"
+            },
+            {
+              "left": 15,
+              "right": 32,
+              "left_char": "h",
+              "right_char": "s"
+            },
+            {
+              "left": 16,
+              "right": 31,
+              "left_char": "e",
+              "right_char": "r"
+            },
+            {
+              "left": 17,
+              "right": 30,
+              "left_char": "b",
+              "right_char": "e"
+            },
+            {
+              "left": 18,
+              "right": 29,
+              "left_char": "r",
+              "right_char": "v"
+            },
+            {
+              "left": 19,
+              "right": 28,
+              "left_char": "e",
+              "right_char": "r"
+            },
+            {
+              "left": 21,
+              "right": 26,
+              "left_char": "d",
+              "right_char": "c"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 10,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.146,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "transitive_pl_present",
+      "right_frame": "transitive_sg_past",
+      "rendered_residual_probe": "The bakers pack the breads; a carver made a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 17,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 20,
+          "mismatch_count": 18,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 38,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 37,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 36,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 34,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 33,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 32,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 31,
+              "left_char": "s",
+              "right_char": "d"
+            },
+            {
+              "left": 9,
+              "right": 30,
+              "left_char": "p",
+              "right_char": "a"
+            },
+            {
+              "left": 10,
+              "right": 29,
+              "left_char": "a",
+              "right_char": "m"
+            },
+            {
+              "left": 11,
+              "right": 28,
+              "left_char": "c",
+              "right_char": "r"
+            },
+            {
+              "left": 12,
+              "right": 27,
+              "left_char": "k",
+              "right_char": "e"
+            },
+            {
+              "left": 13,
+              "right": 26,
+              "left_char": "t",
+              "right_char": "v"
+            },
+            {
+              "left": 14,
+              "right": 25,
+              "left_char": "h",
+              "right_char": "r"
+            },
+            {
+              "left": 15,
+              "right": 24,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 16,
+              "right": 23,
+              "left_char": "b",
+              "right_char": "c"
+            },
+            {
+              "left": 17,
+              "right": 22,
+              "left_char": "r",
+              "right_char": "a"
+            },
+            {
+              "left": 18,
+              "right": 21,
+              "left_char": "e",
+              "right_char": "s"
+            },
+            {
+              "left": 19,
+              "right": 20,
+              "left_char": "a",
+              "right_char": "d"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 10,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.428,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "transitive_pl_present",
+      "right_frame": "transitive_sg_present",
+      "rendered_residual_probe": "The bakers pack the breads; a carver makes a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 17,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 20,
+          "mismatch_count": 17,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 39,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 38,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 37,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 35,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 34,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 33,
+              "left_char": "r",
+              "right_char": "s"
+            },
+            {
+              "left": 8,
+              "right": 32,
+              "left_char": "s",
+              "right_char": "e"
+            },
+            {
+              "left": 9,
+              "right": 31,
+              "left_char": "p",
+              "right_char": "k"
+            },
+            {
+              "left": 11,
+              "right": 29,
+              "left_char": "c",
+              "right_char": "m"
+            },
+            {
+              "left": 12,
+              "right": 28,
+              "left_char": "k",
+              "right_char": "r"
+            },
+            {
+              "left": 13,
+              "right": 27,
+              "left_char": "t",
+              "right_char": "e"
+            },
+            {
+              "left": 14,
+              "right": 26,
+              "left_char": "h",
+              "right_char": "v"
+            },
+            {
+              "left": 15,
+              "right": 25,
+              "left_char": "e",
+              "right_char": "r"
+            },
+            {
+              "left": 16,
+              "right": 24,
+              "left_char": "b",
+              "right_char": "a"
+            },
+            {
+              "left": 17,
+              "right": 23,
+              "left_char": "r",
+              "right_char": "c"
+            },
+            {
+              "left": 18,
+              "right": 22,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 19,
+              "right": 21,
+              "left_char": "a",
+              "right_char": "s"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 10,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.382,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "transitive_sg_past",
+      "right_frame": "intransitive_pl_present",
+      "rendered_residual_probe": "The baker packed a bread; the carvers drift.",
+      "matched_prefix_letters": 1,
+      "states_explored": 19,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "drift"
+        ],
+        "left_slot": 1,
+        "right_slot": 1,
+        "residual_left": "he",
+        "residual_right": "drif"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 17,
+          "mismatch_count": 15,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 33,
+              "left_char": "h",
+              "right_char": "f"
+            },
+            {
+              "left": 2,
+              "right": 32,
+              "left_char": "e",
+              "right_char": "i"
+            },
+            {
+              "left": 3,
+              "right": 31,
+              "left_char": "b",
+              "right_char": "r"
+            },
+            {
+              "left": 4,
+              "right": 30,
+              "left_char": "a",
+              "right_char": "d"
+            },
+            {
+              "left": 5,
+              "right": 29,
+              "left_char": "k",
+              "right_char": "s"
+            },
+            {
+              "left": 6,
+              "right": 28,
+              "left_char": "e",
+              "right_char": "r"
+            },
+            {
+              "left": 7,
+              "right": 27,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 26,
+              "left_char": "p",
+              "right_char": "v"
+            },
+            {
+              "left": 9,
+              "right": 25,
+              "left_char": "a",
+              "right_char": "r"
+            },
+            {
+              "left": 10,
+              "right": 24,
+              "left_char": "c",
+              "right_char": "a"
+            },
+            {
+              "left": 11,
+              "right": 23,
+              "left_char": "k",
+              "right_char": "c"
+            },
+            {
+              "left": 13,
+              "right": 21,
+              "left_char": "d",
+              "right_char": "h"
+            },
+            {
+              "left": 14,
+              "right": 20,
+              "left_char": "a",
+              "right_char": "t"
+            },
+            {
+              "left": 15,
+              "right": 19,
+              "left_char": "b",
+              "right_char": "d"
+            },
+            {
+              "left": 16,
+              "right": 18,
+              "left_char": "r",
+              "right_char": "a"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.246,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "transitive_sg_past",
+      "right_frame": "transitive_sg_past",
+      "rendered_residual_probe": "The baker packed a bread; a carver made a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 16,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 19,
+          "mismatch_count": 15,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 36,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 35,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 34,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 32,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 31,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 30,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 29,
+              "left_char": "p",
+              "right_char": "d"
+            },
+            {
+              "left": 10,
+              "right": 27,
+              "left_char": "c",
+              "right_char": "m"
+            },
+            {
+              "left": 11,
+              "right": 26,
+              "left_char": "k",
+              "right_char": "r"
+            },
+            {
+              "left": 13,
+              "right": 24,
+              "left_char": "d",
+              "right_char": "v"
+            },
+            {
+              "left": 14,
+              "right": 23,
+              "left_char": "a",
+              "right_char": "r"
+            },
+            {
+              "left": 15,
+              "right": 22,
+              "left_char": "b",
+              "right_char": "a"
+            },
+            {
+              "left": 16,
+              "right": 21,
+              "left_char": "r",
+              "right_char": "c"
+            },
+            {
+              "left": 17,
+              "right": 20,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 18,
+              "right": 19,
+              "left_char": "a",
+              "right_char": "d"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 10,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.617,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "transitive_sg_past",
+      "right_frame": "transitive_sg_present",
+      "rendered_residual_probe": "The baker packed a bread; a carver makes a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 16,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 19,
+          "mismatch_count": 16,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 37,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 36,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 35,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 33,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 32,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 31,
+              "left_char": "r",
+              "right_char": "s"
+            },
+            {
+              "left": 8,
+              "right": 30,
+              "left_char": "p",
+              "right_char": "e"
+            },
+            {
+              "left": 9,
+              "right": 29,
+              "left_char": "a",
+              "right_char": "k"
+            },
+            {
+              "left": 10,
+              "right": 28,
+              "left_char": "c",
+              "right_char": "a"
+            },
+            {
+              "left": 11,
+              "right": 27,
+              "left_char": "k",
+              "right_char": "m"
+            },
+            {
+              "left": 12,
+              "right": 26,
+              "left_char": "e",
+              "right_char": "r"
+            },
+            {
+              "left": 13,
+              "right": 25,
+              "left_char": "d",
+              "right_char": "e"
+            },
+            {
+              "left": 14,
+              "right": 24,
+              "left_char": "a",
+              "right_char": "v"
+            },
+            {
+              "left": 15,
+              "right": 23,
+              "left_char": "b",
+              "right_char": "r"
+            },
+            {
+              "left": 16,
+              "right": 22,
+              "left_char": "r",
+              "right_char": "a"
+            },
+            {
+              "left": 17,
+              "right": 21,
+              "left_char": "e",
+              "right_char": "c"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 10,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.571,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "transitive_sg_present",
+      "right_frame": "intransitive_pl_present",
+      "rendered_residual_probe": "The baker packs a bread; the carvers drift.",
+      "matched_prefix_letters": 1,
+      "states_explored": 19,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "drift"
+        ],
+        "left_slot": 1,
+        "right_slot": 1,
+        "residual_left": "he",
+        "residual_right": "drif"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 17,
+          "mismatch_count": 16,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 32,
+              "left_char": "h",
+              "right_char": "f"
+            },
+            {
+              "left": 2,
+              "right": 31,
+              "left_char": "e",
+              "right_char": "i"
+            },
+            {
+              "left": 3,
+              "right": 30,
+              "left_char": "b",
+              "right_char": "r"
+            },
+            {
+              "left": 4,
+              "right": 29,
+              "left_char": "a",
+              "right_char": "d"
+            },
+            {
+              "left": 5,
+              "right": 28,
+              "left_char": "k",
+              "right_char": "s"
+            },
+            {
+              "left": 6,
+              "right": 27,
+              "left_char": "e",
+              "right_char": "r"
+            },
+            {
+              "left": 7,
+              "right": 26,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 25,
+              "left_char": "p",
+              "right_char": "v"
+            },
+            {
+              "left": 9,
+              "right": 24,
+              "left_char": "a",
+              "right_char": "r"
+            },
+            {
+              "left": 10,
+              "right": 23,
+              "left_char": "c",
+              "right_char": "a"
+            },
+            {
+              "left": 11,
+              "right": 22,
+              "left_char": "k",
+              "right_char": "c"
+            },
+            {
+              "left": 12,
+              "right": 21,
+              "left_char": "s",
+              "right_char": "e"
+            },
+            {
+              "left": 13,
+              "right": 20,
+              "left_char": "a",
+              "right_char": "h"
+            },
+            {
+              "left": 14,
+              "right": 19,
+              "left_char": "b",
+              "right_char": "t"
+            },
+            {
+              "left": 15,
+              "right": 18,
+              "left_char": "r",
+              "right_char": "d"
+            },
+            {
+              "left": 16,
+              "right": 17,
+              "left_char": "e",
+              "right_char": "a"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 8,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.2,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "clause_lattice_residual_probe",
+      "left_frame": "transitive_sg_present",
+      "right_frame": "transitive_sg_past",
+      "rendered_residual_probe": "The baker packs a bread; a carver made a basket.",
+      "matched_prefix_letters": 1,
+      "states_explored": 16,
+      "residual_state": {
+        "length_index": 1,
+        "left_words": [
+          "the"
+        ],
+        "right_reverse_words": [
+          "basket"
+        ],
+        "left_slot": 1,
+        "right_slot": 3,
+        "residual_left": "he",
+        "residual_right": "baske"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer": {
+          "exact": false,
+          "comparisons": 18,
+          "mismatch_count": 14,
+          "mismatches": [
+            {
+              "left": 1,
+              "right": 35,
+              "left_char": "h",
+              "right_char": "e"
+            },
+            {
+              "left": 2,
+              "right": 34,
+              "left_char": "e",
+              "right_char": "k"
+            },
+            {
+              "left": 3,
+              "right": 33,
+              "left_char": "b",
+              "right_char": "s"
+            },
+            {
+              "left": 5,
+              "right": 31,
+              "left_char": "k",
+              "right_char": "b"
+            },
+            {
+              "left": 6,
+              "right": 30,
+              "left_char": "e",
+              "right_char": "a"
+            },
+            {
+              "left": 7,
+              "right": 29,
+              "left_char": "r",
+              "right_char": "e"
+            },
+            {
+              "left": 8,
+              "right": 28,
+              "left_char": "p",
+              "right_char": "d"
+            },
+            {
+              "left": 10,
+              "right": 26,
+              "left_char": "c",
+              "right_char": "m"
+            },
+            {
+              "left": 11,
+              "right": 25,
+              "left_char": "k",
+              "right_char": "r"
+            },
+            {
+              "left": 12,
+              "right": 24,
+              "left_char": "s",
+              "right_char": "e"
+            },
+            {
+              "left": 13,
+              "right": 23,
+              "left_char": "a",
+              "right_char": "v"
+            },
+            {
+              "left": 14,
+              "right": 22,
+              "left_char": "b",
+              "right_char": "r"
+            },
+            {
+              "left": 15,
+              "right": 21,
+              "left_char": "r",
+              "right_char": "a"
+            },
+            {
+              "left": 16,
+              "right": 20,
+              "left_char": "e",
+              "right_char": "c"
+            }
+          ]
+        }
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 10,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.58,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    }
+  ],
+  "repair_operator": {
+    "operator": "one-slot-same-frame-boundary-repair",
+    "action": "At the deepest residual seam in a recorded probe, replace exactly one lexicalization with the next independently authored word of the same subject-number, tense, and argument slot; rerun the length-indexed joint DP and retain the cross-boundary and no-repeat gates.",
+    "forbidden": [
+      "reverse-decoding the residual",
+      "adding a larger pool or beam",
+      "reusing a complete clause or self-palindromic unit"
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "90904a41b0a062a8b6976611fad832c66a100cf1b12a284fa16dda76b797889c",
+    "left_inventory_authored": true,
+    "right_inventory_authored_independently": true,
+    "source_sentences_copied": false,
+    "corpus_pos_or_brown_used": false,
+    "registry_families_replayed": false,
+    "novelty_registry_entries_verified": 29,
+    "readability_certificate": false
+  },
+  "reader_gate": {
+    "status": "not_run",
+    "reason": "No item may enter an intact-prose reader packet until exactness, independent audits, admission, novelty, cross-boundary, and unit gates all pass; readability still requires blinded human evidence."
+  }
+}

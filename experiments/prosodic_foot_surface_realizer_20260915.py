@@ -84,14 +84,19 @@ def novelty_preflight() -> dict:
     data = load_registry()
     rows = data.get("entries", [])
     excluded = data.get("excluded", [])
-    if any(row.get("id") == ID or row.get("signature") == SIGNATURE for row in rows + excluded):
-        raise RuntimeError("prosodic route is already registered or explicitly excluded")
+    self_rows = [row for row in rows if row.get("id") == ID]
+    other_rows = [row for row in rows if row.get("id") != ID]
+    if any(row.get("signature") == SIGNATURE for row in other_rows + excluded):
+        raise RuntimeError("prosodic signature collides with another registered or excluded route")
+    if any(row.get("id") == ID or row.get("signature") == SIGNATURE for row in excluded):
+        raise RuntimeError("prosodic route is explicitly excluded")
     return {
         "registry_entries_read_before_run": len(rows),
         "excluded_routes_read_before_run": len(excluded),
         "signature_overlap": [],
-        "self_entry_present": [],
-        "replay_of_registered_family": False,
+        "self_entry_present": [ID] if self_rows else [],
+        "replay_of_registered_family": bool(self_rows),
+        "repair_of_registered_family": bool(self_rows),
     }
 
 
@@ -293,7 +298,11 @@ def run(limit: int = 80_000) -> dict:
                 best = (score, other)
         if best is not None:
             _, other = best
+            rendered_probe = f"{clause.text.capitalize()}; {other.text}."
             near.append({
+                "rendered": rendered_probe,
+                "letters": len(normalize(rendered_probe)),
+                "independent_exact_audit": independent_audit(rendered_probe),
                 "left": clause.text,
                 "right": other.text,
                 "matched_outer_letters": best[0][0],

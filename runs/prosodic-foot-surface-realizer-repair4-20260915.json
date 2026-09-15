@@ -1,0 +1,820 @@
+{
+  "status": "complete_prosodic_foot_surface_realizer",
+  "family_id": "prosodic-foot-surface-realizer",
+  "state_space_signature": "prosodic-foot-lattice|pronouncing-dictionary-stress-constraints|metrical-clause-realization|paired-character-yield-equation|typed-event-roles|stress-frontier-repair",
+  "seed": "fresh event frames; seed content excluded",
+  "config": {
+    "frames": [
+      "det_agent_verb_det_object",
+      "det_adj_agent_verb_det_object",
+      "det_agent_verb_det_adj_object"
+    ],
+    "pronunciation_source": "NLTK CMUdict first deterministic stress-valid pronunciation",
+    "stress_constraints": "4--13 syllables, >=2 stress transitions, bounded strong-stress ratio",
+    "minimum_letters": 39,
+    "character_join": "independent reverse tape index after prosodic filtering",
+    "no_catalogue_sentence_import": true
+  },
+  "novelty_audit": {
+    "registry_entries_read_before_run": 54,
+    "excluded_routes_read_before_run": 2,
+    "signature_overlap": [],
+    "self_entry_present": [
+      "prosodic-foot-surface-realizer"
+    ],
+    "replay_of_registered_family": true,
+    "repair_of_registered_family": true
+  },
+  "repair_context": {
+    "prior_artifact": "runs/prosodic-foot-surface-realizer-20260915.json",
+    "prior_failure": "The first run applied the full-candidate minimum to each half and indexed zero clauses.",
+    "repair": "Lowered the per-clause bound to 16 letters, added article-agreement filtering, and bucketed the near-miss frontier by outer character."
+  },
+  "inventory_counts": {
+    "agent": 19,
+    "verb": 24,
+    "object": 27,
+    "adj": 15
+  },
+  "stats": {
+    "left_realizations": 9000,
+    "right_realizations": 9000,
+    "reverse_index_pairs_checked": 0,
+    "prosody_compatible_pairs": 0,
+    "exact_candidates": 0,
+    "reader_eligible": 0
+  },
+  "exact_candidates": [],
+  "rendered_candidates_and_probes": [
+    {
+      "rendered": "A baker admires a camera; a baker admires a camera.",
+      "letters": 40,
+      "independent_exact_audit": {
+        "tape": "abakeradmiresacameraabakeradmiresacamera",
+        "letters": 40,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker admires a camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010010100",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker admires an idea; a baker admires a camera.",
+      "letters": 39,
+      "independent_exact_audit": {
+        "tape": "abakeradmiresanideaabakeradmiresacamera",
+        "letters": 39,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker admires an idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010010010",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker admires the camera; a baker admires a camera.",
+      "letters": 42,
+      "independent_exact_audit": {
+        "tape": "abakeradmiresthecameraabakeradmiresacamera",
+        "letters": 42,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker admires the camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010010100",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker admires the idea; a baker admires a camera.",
+      "letters": 40,
+      "independent_exact_audit": {
+        "tape": "abakeradmirestheideaabakeradmiresacamera",
+        "letters": 40,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker admires the idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010010010",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker admires some camera; a baker admires a camera.",
+      "letters": 43,
+      "independent_exact_audit": {
+        "tape": "abakeradmiressomecameraabakeradmiresacamera",
+        "letters": 43,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker admires some camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010011100",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker admires some idea; a baker admires a camera.",
+      "letters": 41,
+      "independent_exact_audit": {
+        "tape": "abakeradmiressomeideaabakeradmiresacamera",
+        "letters": 41,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker admires some idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010011010",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker admires one camera; a baker admires a camera.",
+      "letters": 42,
+      "independent_exact_audit": {
+        "tape": "abakeradmiresonecameraabakeradmiresacamera",
+        "letters": 42,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker admires one camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010011100",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker admires one idea; a baker admires a camera.",
+      "letters": 40,
+      "independent_exact_audit": {
+        "tape": "abakeradmiresoneideaabakeradmiresacamera",
+        "letters": 40,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker admires one idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010011010",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker admires our camera; a baker admires a camera.",
+      "letters": 42,
+      "independent_exact_audit": {
+        "tape": "abakeradmiresourcameraabakeradmiresacamera",
+        "letters": 42,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker admires our camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010011100",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker admires our idea; a baker admires a camera.",
+      "letters": 40,
+      "independent_exact_audit": {
+        "tape": "abakeradmiresourideaabakeradmiresacamera",
+        "letters": 40,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker admires our idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010011010",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker carries a camera; a baker admires a camera.",
+      "letters": 40,
+      "independent_exact_audit": {
+        "tape": "abakercarriesacameraabakeradmiresacamera",
+        "letters": 40,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker carries a camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010100100",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker carries an idea; a baker admires a camera.",
+      "letters": 39,
+      "independent_exact_audit": {
+        "tape": "abakercarriesanideaabakeradmiresacamera",
+        "letters": 39,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker carries an idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010100010",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker carries the camera; a baker admires a camera.",
+      "letters": 42,
+      "independent_exact_audit": {
+        "tape": "abakercarriesthecameraabakeradmiresacamera",
+        "letters": 42,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker carries the camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010100100",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker carries the idea; a baker admires a camera.",
+      "letters": 40,
+      "independent_exact_audit": {
+        "tape": "abakercarriestheideaabakeradmiresacamera",
+        "letters": 40,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker carries the idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010100010",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker carries some camera; a baker admires a camera.",
+      "letters": 43,
+      "independent_exact_audit": {
+        "tape": "abakercarriessomecameraabakeradmiresacamera",
+        "letters": 43,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker carries some camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010101100",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker carries some idea; a baker admires a camera.",
+      "letters": 41,
+      "independent_exact_audit": {
+        "tape": "abakercarriessomeideaabakeradmiresacamera",
+        "letters": 41,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker carries some idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010101010",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker carries one camera; a baker admires a camera.",
+      "letters": 42,
+      "independent_exact_audit": {
+        "tape": "abakercarriesonecameraabakeradmiresacamera",
+        "letters": 42,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker carries one camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010101100",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker carries one idea; a baker admires a camera.",
+      "letters": 40,
+      "independent_exact_audit": {
+        "tape": "abakercarriesoneideaabakeradmiresacamera",
+        "letters": 40,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker carries one idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010101010",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker carries our camera; a baker admires a camera.",
+      "letters": 42,
+      "independent_exact_audit": {
+        "tape": "abakercarriesourcameraabakeradmiresacamera",
+        "letters": 42,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker carries our camera",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010101100",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker carries our idea; a baker admires a camera.",
+      "letters": 40,
+      "independent_exact_audit": {
+        "tape": "abakercarriesourideaabakeradmiresacamera",
+        "letters": 40,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker carries our idea",
+      "right": "a baker admires a camera",
+      "matched_outer_letters": 1,
+      "left_syllables": 9,
+      "right_syllables": 9,
+      "stress_pair": [
+        "010101010",
+        "010010100"
+      ]
+    },
+    {
+      "rendered": "A baker cleans a camera; a baker admires a basket.",
+      "letters": 39,
+      "independent_exact_audit": {
+        "tape": "abakercleansacameraabakeradmiresabasket",
+        "letters": 39,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cleans a camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010100",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cleans an idea; a baker admires a basket.",
+      "letters": 38,
+      "independent_exact_audit": {
+        "tape": "abakercleansanideaabakeradmiresabasket",
+        "letters": 38,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cleans an idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010010",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cleans the camera; a baker admires a basket.",
+      "letters": 41,
+      "independent_exact_audit": {
+        "tape": "abakercleansthecameraabakeradmiresabasket",
+        "letters": 41,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cleans the camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010100",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cleans the idea; a baker admires a basket.",
+      "letters": 39,
+      "independent_exact_audit": {
+        "tape": "abakercleanstheideaabakeradmiresabasket",
+        "letters": 39,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cleans the idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010010",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cleans some camera; a baker admires a basket.",
+      "letters": 42,
+      "independent_exact_audit": {
+        "tape": "abakercleanssomecameraabakeradmiresabasket",
+        "letters": 42,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cleans some camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011100",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cleans some idea; a baker admires a basket.",
+      "letters": 40,
+      "independent_exact_audit": {
+        "tape": "abakercleanssomeideaabakeradmiresabasket",
+        "letters": 40,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cleans some idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011010",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cleans one camera; a baker admires a basket.",
+      "letters": 41,
+      "independent_exact_audit": {
+        "tape": "abakercleansonecameraabakeradmiresabasket",
+        "letters": 41,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cleans one camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011100",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cleans one idea; a baker admires a basket.",
+      "letters": 39,
+      "independent_exact_audit": {
+        "tape": "abakercleansoneideaabakeradmiresabasket",
+        "letters": 39,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cleans one idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011010",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cleans our camera; a baker admires a basket.",
+      "letters": 41,
+      "independent_exact_audit": {
+        "tape": "abakercleansourcameraabakeradmiresabasket",
+        "letters": 41,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cleans our camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011100",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cleans our idea; a baker admires a basket.",
+      "letters": 39,
+      "independent_exact_audit": {
+        "tape": "abakercleansourideaabakeradmiresabasket",
+        "letters": 39,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cleans our idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011010",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cooks a camera; a baker admires a basket.",
+      "letters": 38,
+      "independent_exact_audit": {
+        "tape": "abakercooksacameraabakeradmiresabasket",
+        "letters": 38,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cooks a camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010100",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cooks an idea; a baker admires a basket.",
+      "letters": 37,
+      "independent_exact_audit": {
+        "tape": "abakercooksanideaabakeradmiresabasket",
+        "letters": 37,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cooks an idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010010",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cooks the camera; a baker admires a basket.",
+      "letters": 40,
+      "independent_exact_audit": {
+        "tape": "abakercooksthecameraabakeradmiresabasket",
+        "letters": 40,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cooks the camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010100",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cooks the idea; a baker admires a basket.",
+      "letters": 38,
+      "independent_exact_audit": {
+        "tape": "abakercookstheideaabakeradmiresabasket",
+        "letters": 38,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cooks the idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01010010",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cooks some camera; a baker admires a basket.",
+      "letters": 41,
+      "independent_exact_audit": {
+        "tape": "abakercookssomecameraabakeradmiresabasket",
+        "letters": 41,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cooks some camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011100",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cooks some idea; a baker admires a basket.",
+      "letters": 39,
+      "independent_exact_audit": {
+        "tape": "abakercookssomeideaabakeradmiresabasket",
+        "letters": 39,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cooks some idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011010",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cooks one camera; a baker admires a basket.",
+      "letters": 40,
+      "independent_exact_audit": {
+        "tape": "abakercooksonecameraabakeradmiresabasket",
+        "letters": 40,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cooks one camera",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011100",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker cooks one idea; a baker admires a basket.",
+      "letters": 38,
+      "independent_exact_audit": {
+        "tape": "abakercooksoneideaabakeradmiresabasket",
+        "letters": 38,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker cooks one idea",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 1,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01011010",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker admires a basket; a baker admires a basket.",
+      "letters": 40,
+      "independent_exact_audit": {
+        "tape": "abakeradmiresabasketabakeradmiresabasket",
+        "letters": 40,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker admires a basket",
+      "right": "a baker admires a basket",
+      "matched_outer_letters": 0,
+      "left_syllables": 8,
+      "right_syllables": 8,
+      "stress_pair": [
+        "01001010",
+        "01001010"
+      ]
+    },
+    {
+      "rendered": "A baker admires a boats; a baker admires a boats.",
+      "letters": 38,
+      "independent_exact_audit": {
+        "tape": "abakeradmiresaboatsabakeradmiresaboats",
+        "letters": 38,
+        "exact": false,
+        "two_pointer": false
+      },
+      "left": "a baker admires a boats",
+      "right": "a baker admires a boats",
+      "matched_outer_letters": 0,
+      "left_syllables": 7,
+      "right_syllables": 7,
+      "stress_pair": [
+        "0100101",
+        "0100101"
+      ]
+    }
+  ],
+  "next_repair_operator": {
+    "name": "stress_frontier_repair",
+    "action": "At the best surviving outer-character frontier, replace one lexical realization with a held-out same-role lexeme of matching syllable/stress profile or move one legal phrase boundary; retain semantic frame and re-audit exactness independently."
+  },
+  "provenance": {
+    "generator_sha256": "8816bb78a7d7c2b053d1380e6c798adb975f156015674b3d9ffff5a276f0fb6f",
+    "source_text_copied": false,
+    "fresh_event_frames": true
+  },
+  "reader_gate": "No row is reader evidence; any exact row requires intact-prose versus shuffled-control blinded readers."
+}

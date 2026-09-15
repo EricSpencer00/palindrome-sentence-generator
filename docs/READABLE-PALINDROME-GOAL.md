@@ -47,6 +47,17 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   this frontier while adding held-out lexical banks and a two-constituent seam
   repair, not to rerun the same population with a new seed or a larger beam.
 
+- **Lexicalized TAG yield-equation search (2026-09-15).** A distinct
+  construction changed the search state to paired elementary-tree and
+  auxiliary-tree adjunction stacks. Recursive typed adjunction exposed
+  terminals from opposite edges and enforced their character-yield equation
+  before a pair could survive. The bounded run compared 21,158 structural
+  derivation pairs (1,012,887 terminal comparisons), with zero exact joins;
+  the held-out coordinated-predicate site repair also produced zero. It
+  retained 40 base and 20 repair probes, rejecting 62 malformed derivations
+  before rendering. The concrete successor is a new lexical realization at
+  the recorded TAG adjunction frontier, not a larger bank, beam, or replay.
+
 ## Scalable-construction requirement (2026-09-15)
 
 The active construction objective now has two explicit layers: (1) a
@@ -825,15 +836,14 @@ and every rendered rejection.
 
 ### Active run
 
-- **Centre-out incomplete-phrase authoring** —
-  `runs/centreout-incomplete-phrase-2026-09-12/`.  A frozen local-model prompt
-  requests twelve whole English utterances composed outward from unfinished
-  middle phrases.  The shared verifier enforces exact normalized symmetry,
-  30--100 letters, ASCII-letter input, lexical form, unique non-self-palindromic
-  words, no whole-word reversal or repeated multiword unit, and local and
-  catalogue-family exclusion. Promotion requires at least one rendered
-  survivor; it will then receive a human-ready blinded screen, never an
-  automatic readability label.
+- **Next construction frontier:** the TAG run is complete and its zero is
+  preserved as evidence, not as the thesis. The next run must change the
+  lexical realization and adjunction frontier recorded in
+  `runs/lexicalized-tag-yield-equation-20260915.json`, preflight itself against
+  the 52-entry novelty registry, and retain complete rendered probes with
+  independent exact audits. It must not replay a prior bank, beam, chart, BPE,
+  ILP, evolutionary, or TAG configuration. Any exact survivor remains gated on
+  intact-prose versus shuffled-control blinded reading.
 
 ### Rejected catalogue-family ablation
 

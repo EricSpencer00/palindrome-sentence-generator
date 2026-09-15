@@ -377,6 +377,15 @@ human-rated intact prose—and may claim success only when both gates are met.
   operator replaces one lexicalization in the deepest same-frame slot while
   preserving the cross-boundary and no-repeat gates.
 
+- **Character-clause finite-state transducer (2026-09-15).** Independent
+  arithmetic/measurement clause banks were compiled into mirrored character
+  tries whose product emits equal character pairs while retaining complete
+  clause parses and inflection choices.  The bounded product visited four
+  states and reached one complete parsed residual probe; it found zero exact
+  closures or mechanically admitted outputs.  The next operator is a held-out
+  comparative-quantity template with a frozen bank split, not an unbounded
+  trie expansion.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

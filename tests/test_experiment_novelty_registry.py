@@ -20,3 +20,4 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "morphological-derivational-seam" in ids
     assert "cp-semantic-grammar-palindrome" in ids
     assert "clause-lattice-joint-dp" in ids
+    assert "character-clause-fst-joint-emission" in ids

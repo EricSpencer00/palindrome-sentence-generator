@@ -93,6 +93,18 @@ residual-indexed lexical mining: add only agreement- and valency-safe words or
 multiword constituents whose letters extend an observed live residual, rather
 than enlarging every slot indiscriminately.
 
+That residual-indexed replay is now implemented.  It recorded 1,409 reachable
+nonempty residual states and found 27 compatible additions across seven typed
+roles (names, plural verbs, singular and plural arguments, prepositions, and a
+multiword person constituent).  Replaying all 12 plans with only those mined
+additions explored 2,359 states; no pair exhausted its budget.  The result
+again contained only the 38-letter control and its reversed clause order, with
+zero mechanically eligible closures.  The strongest unresolved seams are
+`ne` after `an aide rips nine` / `inspire Diana`, `ni` after `an aide rips` /
+`inspire Diana`, and `rimda` after `an aide` / `admire Diana`.  The next
+operator must therefore expose optional typed attachment slots at those live
+seams; another flat word-list expansion cannot consume them.
+
 ## Explicit shortcut rejection
 
 The superficially attractive extension
@@ -119,4 +131,5 @@ Commits: `2fdb450` (lexical-family diversity), `626bdfd`/`a7c231e`/`e5786c1`
 (syntax-first, boundary trie, and residual repair), `69f5a4d` (whole-discourse
 ordered subsets), `a424f02`/`5228430`/`196afb8` (dual typed chunk searches), and
 `c0dd732` (witnessed boundary bridge), and `810a97c` (exact dual-plan residual
-search with relative and coordinated expansions).
+search with relative and coordinated expansions), and `bc0f1eb`
+(residual-indexed role-safe lexical expansion).

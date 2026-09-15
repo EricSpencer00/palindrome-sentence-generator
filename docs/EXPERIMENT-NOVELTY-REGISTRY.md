@@ -70,3 +70,21 @@ The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
 empty composition frontier.  Its ignored run files were removed rather than
 counted as evidence.
+
+## Preflight exclusions (checked, not new families)
+
+These artifacts are retained because they document concrete failed repair
+attempts, but they are not registered as new construction families.  The
+novelty audit compared their operators with the registered signatures before
+the next frontier was chosen:
+
+| artifact | exclusion reason |
+|---|---|
+| `experiments/seed_symmetric_mutation_search_20260915.py` | mirrored character substitution/insertion is a seed-local instance of the registered internal center-window repair dimension; changing the seed or edit count would be a replay, not a new method |
+| `experiments/seed_boundary_shift_typed_resegmentation_20260915.py` | typed boundary shifting plus lexical replacement is the held-out repair of that same seed-local window and does not introduce a distinct state-space dimension |
+
+Their run records remain available for failure analysis (`runs/seed-symmetric-
+mutation-20260915.json` and `runs/seed-boundary-shift-typed-resegmentation-
+20260915*.json`). A future route may use their residuals only after a new
+signature is pre-registered and its state space is disjoint from all 53
+registered families.

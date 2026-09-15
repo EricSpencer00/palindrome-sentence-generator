@@ -54,5 +54,21 @@
     ,{"id": "variable-boundary-tape-ilp", "signature": "character-tape-flow-ilp|variable-word-boundaries|lexicalized-feature-nfa|simultaneous-mirror-equations|verb-object-semantic-unification|length-sweep-not-slot-cross-product", "artifact": "experiments/variable_boundary_tape_ilp_20260915.py"}
     ,{"id": "lexicalized-tag-yield-equation", "signature": "lexicalized-tree-adjoining-grammar|recursive-auxiliary-adjunction|pushdown-yield-equation|typed-semantic-feature-unification|structural-site-repair|independent-terminal-audit", "artifact": "experiments/lexicalized_tag_yield_equation_20260915.py"}
     ,{"id": "reverse-complement-eulerian", "signature": "character-context-overlap-graph|reverse-complement-edge-balance|edge-disjoint-eulerian-trail|dependency-parse-after-trail|independent-tape-audit|structural-trail-repair", "artifact": "experiments/reverse_complement_eulerian_palindrome_20260915.py"}
+  ],
+  "excluded": [
+    {
+      "id": "seed-symmetric-mutation-excluded",
+      "signature": "seed-local-mirrored-character-edit|one-two-pair-substitution|single-pair-insertion|independent-resegmentation",
+      "artifact": "experiments/seed_symmetric_mutation_search_20260915.py",
+      "overlaps": ["internal-center-window-repair"],
+      "reason": "A seed-local instance of the registered lexical center-window repair dimension; changing the seed or edit count is not a new method."
+    },
+    {
+      "id": "seed-boundary-shift-excluded",
+      "signature": "seed-local-boundary-shift|typed-resegmentation|mirrored-insertion|lexical-replacement",
+      "artifact": "experiments/seed_boundary_shift_typed_resegmentation_20260915.py",
+      "overlaps": ["internal-center-window-repair"],
+      "reason": "The typed boundary-shift follow-up remains within the same seed-local repair dimension and therefore cannot be counted as a distinct family."
+    }
   ]
 }

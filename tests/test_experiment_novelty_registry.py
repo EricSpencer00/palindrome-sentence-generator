@@ -9,6 +9,15 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["missing"] == []
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
+    assert result["excluded"] == 2
+
+
+def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
+    path = Path(__file__).parents[1] / "docs/experiment-novelty-registry.json"
+    data = json.loads(path.read_text())
+    excluded = {row["id"]: row for row in data["excluded"]}
+    assert set(excluded) == {"seed-symmetric-mutation-excluded", "seed-boundary-shift-excluded"}
+    assert all(row["overlaps"] == ["internal-center-window-repair"] for row in excluded.values())
 
 
 def test_latest_experiments_are_registered_as_distinct_families():

@@ -836,14 +836,13 @@ and every rendered rejection.
 
 ### Active run
 
-- **Next construction frontier:** the TAG run is complete and its zero is
-  preserved as evidence, not as the thesis. The next run must change the
-  lexical realization and adjunction frontier recorded in
-  `runs/lexicalized-tag-yield-equation-20260915.json`, preflight itself against
-  the 52-entry novelty registry, and retain complete rendered probes with
+- **Next construction frontier:** the TAG and reverse-complement Euler runs
+  are complete and their zeros are preserved as evidence, not as the thesis.
+  The next run must change its construction dimension, preflight itself against
+  the 53-entry novelty registry, and retain complete rendered probes with
   independent exact audits. It must not replay a prior bank, beam, chart, BPE,
-  ILP, evolutionary, or TAG configuration. Any exact survivor remains gated on
-  intact-prose versus shuffled-control blinded reading.
+  ILP, evolutionary, TAG, or Euler configuration. Any exact survivor remains
+  gated on intact-prose versus shuffled-control blinded reading.
 
 ### Rejected catalogue-family ablation
 

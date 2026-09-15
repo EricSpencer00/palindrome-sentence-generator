@@ -1,0 +1,168 @@
+"""Audit rendered palindrome proposals without pretending to certify readability.
+
+The report is intentionally candidate-first: every row keeps its rendered text,
+source run, provenance, letter count, two independent exact-tape checks, the
+shared mechanical gate, and transparent local-order diagnostics.  The Brown
+bigram and word-frequency values can reject obvious debris or prioritize a
+reader packet; they never establish that a proposal is readable.  A proposal
+can only become reader material after it passes every mechanical gate and is
+placed in an intact-prose versus shuffled-control study with blinded readers.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import random
+import re
+from functools import lru_cache
+from pathlib import Path
+from typing import Iterable
+
+from wordfreq import zipf_frequency
+
+ROOT = Path(__file__).resolve().parents[1]
+
+WORD_RE = re.compile(r"[A-Za-z]+")
+
+
+def normalize(text: str) -> str:
+    return "".join(WORD_RE.findall(text.lower()))
+
+
+def iter_rows(payload: object, source: str) -> Iterable[dict]:
+    """Yield rendered rows from the repository's append-only run formats."""
+    if isinstance(payload, dict):
+        for key in ("rendered_probes", "rendered_candidates_and_probes", "rows", "closed_leads", "mechanically_admitted_leads", "admitted"):
+            values = payload.get(key)
+            if isinstance(values, list):
+                for row in values:
+                    if isinstance(row, dict):
+                        text = row.get("rendered") or row.get("text")
+                        if isinstance(text, str) and text.strip():
+                            yield {"source_run": source, **row, "rendered": text}
+        # A few older artifacts store one candidate at the top level.
+        text = payload.get("rendered") or payload.get("text")
+        if isinstance(text, str) and text.strip():
+            yield {"source_run": source, **payload, "rendered": text}
+    elif isinstance(payload, list):
+        for row in payload:
+            if isinstance(row, dict):
+                text = row.get("rendered") or row.get("text")
+                if isinstance(text, str) and text.strip():
+                    yield {"source_run": source, **row, "rendered": text}
+
+
+@lru_cache(maxsize=1)
+def _brown_model():
+    try:
+        from experiments.audit_programmatic_readability import BrownBigramModel
+
+        return BrownBigramModel.from_brown()
+    except Exception:
+        return None
+
+
+def deterministic_shuffle_gain(words: list[str], seed: int, shuffles: int) -> float | None:
+    """Return Brown order gain against shuffles, or ``None`` without Brown."""
+    model = _brown_model()
+    if model is None:
+        return None
+    observed = model.score(words)
+    if observed is None:
+        return None
+    rng = random.Random(seed)
+    baseline = []
+    for _ in range(shuffles):
+        shuffled = list(words)
+        rng.shuffle(shuffled)
+        score = model.score(shuffled)
+        if score is not None:
+            baseline.append(score)
+    return observed - (sum(baseline) / len(baseline)) if baseline else None
+
+
+def audit_row(row: dict, *, seed: int, shuffles: int) -> dict:
+    text = row["rendered"]
+    tape = normalize(text)
+    tokens = [token.lower() for token in WORD_RE.findall(text)]
+    exact = bool(tape) and tape == tape[::-1]
+    independent = bool(tape) and hashlib.sha256(tape.encode()).hexdigest() == hashlib.sha256(tape[::-1].encode()).hexdigest()
+    from llm_palindrome.admission import mechanical_admission_checks
+
+    checks = mechanical_admission_checks(text, min_letters=39, max_letters=1000)
+    diagnostics = {
+        "brown_order_gain_vs_shuffle": deterministic_shuffle_gain(tokens, seed, shuffles),
+        "mean_zipf_frequency": (sum(zipf_frequency(token, "en") for token in tokens) / len(tokens)) if tokens else None,
+        "word_count": len(tokens),
+        "repeated_word_rate": (1 - len(set(tokens)) / len(tokens)) if tokens else None,
+        "punctuation_segments": len([segment for segment in re.split(r"[.!?]+", text) if WORD_RE.search(segment)]),
+    }
+    failures = sorted(key for key, value in checks.items() if not value)
+    return {
+        "rendered": text,
+        "source_run": row["source_run"],
+        "provenance": row.get("provenance") or row.get("method") or row.get("source") or "unspecified",
+        "repair": row.get("repair"),
+        "letters": len(tape),
+        "exact_letter_palindrome": exact,
+        "independent_sha256_exact": independent,
+        "mechanical_checks": checks,
+        "failed_checks": failures,
+        "diagnostics_not_readability": diagnostics,
+        "reader_next_test": (
+            "Not reader-eligible until every mechanical check passes; if promoted, "
+            "freeze this intact rendering with a matched word-shuffle control and "
+            "randomized blinded rater order."
+        ),
+    }
+
+
+def audit(paths: Iterable[Path], *, seed: int = 20260915, shuffles: int = 16) -> dict:
+    rows: list[dict] = []
+    seen: set[tuple[str, str]] = set()
+    for path in paths:
+        payload = json.loads(path.read_text())
+        for row in iter_rows(payload, str(path)):
+            key = (row["source_run"], row["rendered"])
+            if key in seen:
+                continue
+            seen.add(key)
+            rows.append(audit_row(row, seed=seed, shuffles=shuffles))
+    return {
+        "status": "diagnostic_not_human_readability_result",
+        "method": {
+            "exactness": "normalized ASCII tape equality plus independent SHA-256 reversal check",
+            "mechanical_gate": "llm_palindrome.admission.mechanical_admission_checks",
+            "local_order": "Brown add-alpha bigram gain against deterministic same-word shuffles",
+            "seed": seed,
+            "shuffles": shuffles,
+        },
+        "limits": [
+            "Programmatic diagnostics do not certify grammar, coherent meaning, or human readability.",
+            "Rows remain reader-ineligible until all mechanical checks pass and a blinded study is run.",
+        ],
+        "runs": [str(path) for path in paths],
+        "candidate_count": len(rows),
+        "exact_count": sum(row["exact_letter_palindrome"] for row in rows),
+        "mechanically_admitted_count": sum(all(row["mechanical_checks"].values()) for row in rows),
+        "rows": rows,
+    }
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("runs", nargs="+", type=Path)
+    parser.add_argument("--output", required=True, type=Path)
+    parser.add_argument("--seed", type=int, default=20260915)
+    parser.add_argument("--shuffles", type=int, default=16)
+    args = parser.parse_args()
+    if args.shuffles < 2:
+        parser.error("--shuffles must be at least 2")
+    report = audit(args.runs, seed=args.seed, shuffles=args.shuffles)
+    args.output.write_text(json.dumps(report, indent=2) + "\n")
+    print(json.dumps({key: report[key] for key in ("candidate_count", "exact_count", "mechanically_admitted_count")}, indent=2))
+
+
+if __name__ == "__main__":
+    main()

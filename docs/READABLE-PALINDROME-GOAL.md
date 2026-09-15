@@ -1018,3 +1018,12 @@ item-aware analysis plan.
   probes and no exact closure. The reverse residual usually had no legal
   held-out phrase at its first character; this family is closed rather than
   silently replayed as a larger lexical beam. No probe is readable evidence.
+
+- **Candidate readability audit, 2026-09-15:** added a reproducible report over
+  the latest semordnilap, sentence-gram, and character-tape artifacts.  It
+  retains 510 rendered rows and independently confirms 40 exact tapes, but
+  zero rows pass the shared mechanical gate.  The highest-frequency exact
+  rows are visibly repetitive (`a cis a cis ...`) and have negative Brown
+  order gain; these diagnostics prioritize repair only and are not reader
+  evidence.  Any future row that clears the gate must be frozen with an intact
+  rendering, a matched word-shuffle control, and randomized blinded raters.

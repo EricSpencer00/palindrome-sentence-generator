@@ -81,6 +81,18 @@ that the kernel can match staggered chunk boundaries.  The remaining missing
 operation is a boundary-state grammar automaton that can emit a newly licensed
 NP, VP, or PP attachment before either side has completed its sentence.
 
+A separate exact residual solver now performs that emission over 12 complete
+typed plans, including numbered, adjectival, adverbial, imperative, relative,
+and coordinated clauses.  It consumes words from opposite sentence edges,
+cancels their letters immediately, and carries a residual across staggered
+word boundaries.  All 144 plan pairs completed without exhausting their state
+budgets (1,706 states total).  The only exact closures were the 38-letter
+control and its clause-reversed rendering; there were zero mechanically
+eligible closures at 39 letters or longer.  Its next expansion is therefore
+residual-indexed lexical mining: add only agreement- and valency-safe words or
+multiword constituents whose letters extend an observed live residual, rather
+than enlarging every slot indiscriminately.
+
 ## Explicit shortcut rejection
 
 The superficially attractive extension
@@ -106,4 +118,5 @@ study.
 Commits: `2fdb450` (lexical-family diversity), `626bdfd`/`a7c231e`/`e5786c1`
 (syntax-first, boundary trie, and residual repair), `69f5a4d` (whole-discourse
 ordered subsets), `a424f02`/`5228430`/`196afb8` (dual typed chunk searches), and
-`c0dd732` (witnessed boundary bridge).
+`c0dd732` (witnessed boundary bridge), and `810a97c` (exact dual-plan residual
+search with relative and coordinated expansions).

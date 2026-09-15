@@ -119,6 +119,14 @@ human-rated intact prose—and may claim success only when both gates are met.
   closures at 39 letters; the durable successor is the attested lexical-graph
   operator, not another fixed template family.
 
+- **Broad grammar residual probe (2026-09-15).** A compact 12-plan residual
+  solver reopened clause order and reporting/discourse shapes with 350
+  Brown-tagged lexical types per run (50,000 states per plan pair). It found
+  zero exact closures at the 39-letter floor. The concrete successor is to
+  keep lexical choices tied to attested valency edges while allowing
+  inflectional and attachment states; simply adding more POS plans is now
+  retired as a non-productive branch.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

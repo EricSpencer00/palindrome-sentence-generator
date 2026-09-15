@@ -58,6 +58,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `template-analogy-semantic-lexicalization` | abstract role-shape templates independently lexicalized with fresh semantic words and paired seam-width constraints | template-analogy authoring | 0 exact closures; 499 clause pairs |
 | `neural-dual-prefix-beam-v2` | left roles emit forward while right roles emit from the right edge as reversed characters; GPT-2 ranks only prefixes that satisfy the shared character equation | neural dual-prefix proposal ordering | 0 closures; 25 bounded expansions (v1 invalidated) |
 | `evolutionary-prose-genome` | complete typed sentence pairs evolve through constituent-preserving two-point crossover and seam-biased terminal mutation; mismatch and word-order signals jointly rank the population | population repair over intact prose genomes | 0 closures; 5,760 genomes; best rendered mismatch 26 pairs |
+| `dependency-attribute-grammar-chart` | two independently lexicalized recursive dependency forests carry number/tense/valency attributes; a bilateral chart joins complete derivations while consuming opposite character edges | head-driven attribute-grammar derivation and dependent attachment | 0 closures; 5,184 complete paired derivations |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

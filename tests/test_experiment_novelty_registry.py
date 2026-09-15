@@ -35,3 +35,4 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "template-analogy-semantic-lexicalization" in ids
     assert "neural-dual-prefix-beam-v2" in ids
     assert "evolutionary-prose-genome" in ids
+    assert "dependency-attribute-grammar-chart" in ids

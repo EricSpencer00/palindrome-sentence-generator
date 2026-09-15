@@ -327,6 +327,39 @@ human-rated intact prose—and may claim success only when both gates are met.
   fingerprint without enlarging the preceding inventory. Its next operator is
   a bounded shared discourse-topic slot, which must be a new signature.
 
+- **Shared-topic elliptical dialogue pivot (2026-09-15).** The bounded
+  successor paired prompt turns and elliptical/acknowledgment responses that
+  shared one explicit topic variable, without enlarging the action or topic
+  inventory.  It tested 5,130 prompt turns against 23,400 response turns;
+  every residual lookup missed, with zero exact closures or admitted outputs.
+  The artifact excludes its own output from the repository fingerprint and
+  records 100 rendered probes with independent audits.  This closes the
+  dialogue family; the next route must leave dialogue semantics entirely.
+
+- **Multiword-unit transducer local repair (2026-09-15).** A new lexical-unit
+  family composed independently authored idiomatic clause fragments and
+  permitted one reversible affix or compound split/join while preserving
+  syntax.  It evaluated 396 surfaces and 60 local repairs, with zero exact
+  closures or mechanically admitted outputs; 40 rendered residual probes are
+  retained.  This is a transformation-operator failure, not a reason to
+  repeat the same inventory with a larger beam.
+
+- **Bidirectional scene-slot graph (2026-09-15).** Six authored scene graphs
+  linked `located_at`, `possesses`, and `describes` edges while an independent
+  right-side slot graph consumed the reversed character residual.  All six
+  reverse parses failed, with zero exact closures or admitted candidates.
+  Each residual retains the semantic slot state, rendered probe, exact audit,
+  and the one-terminal-replacement repair operator.
+
+- **Morphological/derivational seam search (2026-09-15).** A separate
+  hand-authored morphology grammar jointly selected inflectional and
+  derivational forms and allowed reverse character seams to cross word and
+  morpheme boundaries.  It explored 113,250 left surfaces, recorded 90,660
+  reverse misses and 3,840 partial seam probes, and found zero exact closures
+  or admitted outputs.  The deepest useful seam is `arena` → `an era`; the
+  next repair changes one same-family inflectional/derivational form while
+  preserving agreement and the full reverse reparse.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

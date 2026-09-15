@@ -27,6 +27,7 @@ from llm_palindrome.admission import mechanical_admission_checks, normalize_lett
 MIN_LETTERS = 39
 MAX_LETTERS = 120
 SHORT = frozenset("a an the".split())
+SEED_CONTENT = frozenset("aide rips nine memos some men inspire diana".split())
 
 
 @dataclass(frozen=True)

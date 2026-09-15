@@ -127,6 +127,14 @@ human-rated intact prose—and may claim success only when both gates are met.
   inflectional and attachment states; simply adding more POS plans is now
   retired as a non-productive branch.
 
+- **Brown-attested relation residual BFS (2026-09-15).** The search extracted
+  3,533 compact SVO relations from 57,340 Brown sentences, expanded them to
+  5,423 locally attested tense/number variants, and checked 6,061 left tapes
+  against an independently indexed reversed residual. There were zero
+  residual matches before any admission gate. The next constructive branch is
+  two adjacent clauses with adjective/prepositional attachments, carrying
+  dependency features through the residual state.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

@@ -132,11 +132,13 @@ phrase inventory through 29,958 live states with no exhausted budget and found
 zero exact closures.  The deepest nonclosed path matched 22 letters through
 `an aide / rips / nine memos / available writers` against the reverse-side
 path ending `Ava / some men / inspire / Diana`, then stopped on residual
-`ilablewriters`.  The original 38-letter closure also appeared as an internal
-empty-debt boundary, but extending it cannot pass the proper-palindromic-span
-gate.  The next operator must synthesize both word boundaries *inside* that
-deepest typed constituent residual; adding a third frozen clause would repeat
-the now-tested failure.
+`ilablewriters`.  That raw depth is inadmissible: it uses the self-palindromic
+content word `Ava` around the original 38-letter island.  The original closure
+also appeared as an internal empty-debt boundary, and extending it cannot pass
+the proper-palindromic-span gate.  The next operator must first apply those
+anti-shortcut checks to partial states, then synthesize both word boundaries
+inside the best surviving nonzero residual; adding a third frozen clause would
+repeat the now-tested failure.
 
 ## Explicit shortcut rejection
 

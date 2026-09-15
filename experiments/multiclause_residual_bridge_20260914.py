@@ -81,7 +81,7 @@ def run(*, state_budget: int = 2_000_000) -> dict:
             "eligible_closures": [row for row in exact if row["mechanically_eligible"]],
             "provenance": {"generator_sha256": sha256(Path(__file__).read_bytes()).hexdigest(),
                            "material": "typed lexical products and Brown POS inventories; no complete corpus text"},
-            "next_operator_if_empty": "Split the deepest residual inside a typed multiword constituent and synthesize both adjacent lexical boundaries jointly, rather than adding another complete clause.",
+            "next_operator_if_empty": "Apply the partial anti-shortcut gate to frontier states, then split the best admissible nonzero residual inside a typed multiword constituent and synthesize both adjacent lexical boundaries jointly.",
             "reader_next": "Novel mechanically eligible outputs require blinded intact-prose versus shuffled-control ratings."}
 
 

@@ -37,6 +37,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `two-edge-event-micrograph` | event → intermediate state → result with two explicit edges and three-rank temporal order | two-edge semantic topology | 0 reverse parses; ladder stopped |
 | `dialogue-acknowledgment-residual-inventory` | hand-authored question→answer and instruction→acknowledgment act cross-product with independent residual indexing | dialogue-act semantics | 0 residual matches |
 | `dialogue-elliptical-ack-residual-inventory` | paired `can we`/`what about` prompts with elliptical answers and imperative acknowledgments | elliptical dialogue-act semantics | 0 residual matches |
+| `dialogue-shared-topic-elliptical-residual` | paired prompts and paired elliptical/acknowledgment responses constrained to one shared discourse topic | shared-topic discourse state | 0 residual matches; dialogue family closed |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

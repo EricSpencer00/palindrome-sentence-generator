@@ -79,9 +79,11 @@ def _response_acts():
     return tuple(rows)
 
 
-def _repo_fingerprint():
+def _repo_fingerprint(output=None):
     tapes = set(); files = 0
     for path in sorted((ROOT / "runs").rglob("*.json")):
+        if output is not None and path.resolve() == output.resolve():
+            continue
         try: payload = json.loads(path.read_text())
         except (OSError, json.JSONDecodeError): continue
         files += 1
@@ -106,8 +108,8 @@ def _audit(left: Turn, right: Turn, collision: bool):
     return {"rendered": text, "letters": len(tape), "normalized_letters": tape, "normalized_sha256": hashlib.sha256(tape.encode()).hexdigest(), "independent_ascii_exact": bool(tape) and tape == tape[::-1], "independent_two_pointer": all(tape[i] == tape[-1-i] for i in range(len(tape)//2)), "left_state": {"family": left.family, "topic": left.topic, "slots": left.slots}, "right_state": {"family": right.family, "topic": right.topic, "slots": right.slots}, "shared_topic_checked": left.topic == right.topic, "word_order_shortcut": mirror, "existing_repository_tape_collision": collision, "central_admission": checks, "mechanically_admitted": all(checks.values()) and not mirror and not collision, "reader_status": "not_run; topic coherence and exactness do not certify readability"}
 
 
-def run():
-    existing, fingerprint = _repo_fingerprint()
+def run(output=None):
+    existing, fingerprint = _repo_fingerprint(output)
     prompts, responses = _prompt_acts(), _response_acts()
     lefts = tuple(Turn("paired_topic_prompt", topic, (a, b)) for topic in TOPICS for a in prompts if a.topic == topic for b in prompts if b.topic == topic and a is not b)
     rights = tuple(Turn("paired_topic_elliptical_ack", topic, (a, b)) for topic in TOPICS for a in responses if a.topic == topic for b in responses if b.topic == topic and a is not b)
@@ -132,13 +134,13 @@ def run():
             seen.add(tape); row = _audit(left, right, collision); candidates.append(row); stats["candidates"] += 1
             if row["mechanically_admitted"]: stats["mechanically_admitted"] += 1
     candidates.sort(key=lambda row: (row["mechanically_admitted"], row["letters"]), reverse=True)
-    return {"status": "complete_shared_topic_elliptical_residual_no_reader_promotion", "config": {"semantic_family": "paired prompts and paired elliptical acknowledgments sharing one discourse topic", "lexical_inventory": "same bounded hand-authored action/topic inventory; no pool enlargement", "prior_act_replay": False, "repository_tape_exclusion": True, "minimum_letters": MIN_LETTERS, "maximum_letters": MAX_LETTERS, "independent_residual_matching": True, "anti_shortcut_gate": True}, "stats": dict(stats), "repository_fingerprint": fingerprint, "admitted": [row for row in candidates if row["mechanically_admitted"]], "near_misses": candidates[:100], "residual_frontier": frontier, "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "source_text_copied": False, "inventory_version": "dialogue_shared_topic_v1"}, "next_operator": "Stop the dialogue family; choose a non-dialogue semantic inventory with independent topic/state variables and the same exact residual audit.", "reader_gate": "No output is human evidence; future closures require intact-prose and shuffled-control readers."}
+    return {"status": "complete_shared_topic_elliptical_residual_no_reader_promotion", "family_id": "dialogue-shared-topic-elliptical-residual", "signature": "dialogue-act-shared-topic-paired-prompts-elliptical-answers|hand-authored-cross-product|independent-residual-tape-index", "config": {"semantic_family": "paired prompts and paired elliptical acknowledgments sharing one discourse topic", "lexical_inventory": "same bounded hand-authored action/topic inventory; no pool enlargement", "prior_act_replay": False, "repository_tape_exclusion": True, "minimum_letters": MIN_LETTERS, "maximum_letters": MAX_LETTERS, "independent_residual_matching": True, "anti_shortcut_gate": True}, "stats": dict(stats), "repository_fingerprint": fingerprint, "admitted": [row for row in candidates if row["mechanically_admitted"]], "near_misses": candidates[:100], "residual_frontier": frontier, "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "source_text_copied": False, "inventory_version": "dialogue_shared_topic_v1", "output_excluded_from_fingerprint": output is not None}, "next_operator": "Stop the dialogue family; choose a non-dialogue semantic inventory with independent topic/state variables and the same exact residual audit.", "reader_gate": "No output is human evidence; future closures require intact-prose and shuffled-control readers."}
 
 
 def main():
     parser = argparse.ArgumentParser(); parser.add_argument("--out", required=True, type=Path); args = parser.parse_args()
     if args.out.exists(): parser.error(f"refusing to overwrite output: {args.out}")
-    result = run(); args.out.parent.mkdir(parents=True, exist_ok=True); args.out.write_text(json.dumps(result, indent=2) + "\n"); print(json.dumps({"stats": result["stats"], "admitted": len(result["admitted"])}, indent=2))
+    result = run(args.out); args.out.parent.mkdir(parents=True, exist_ok=True); args.out.write_text(json.dumps(result, indent=2) + "\n"); print(json.dumps({"stats": result["stats"], "admitted": len(result["admitted"])}, indent=2))
 
 
 if __name__ == "__main__": main()

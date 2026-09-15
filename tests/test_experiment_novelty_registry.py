@@ -39,6 +39,20 @@ def test_preflight_checks_registered_and_excluded_routes():
     assert result["status"] == "novel"
     assert result["registered_families_checked"] == 59
     assert result["excluded_routes_checked"] == 3
+    assert result["manual_review_required"] is False
+    assert result["conceptual_near_pairs"] == []
+
+
+def test_preflight_surfaces_conceptual_near_pair_before_execution():
+    result = preflight(
+        "near-test-route",
+        "semantic-event-pair|independent-right-lexicalization|new-test-state",
+        "runs/near-test-route.json",
+        near_threshold=0.30,
+    )
+    assert result["manual_review_required"] is True
+    assert result["conceptual_near_pairs"][0]["id"] == "connective-bearing-event-pair"
+    assert result["conceptual_near_pairs"][0]["jaccard"] >= 0.30
 
 
 def test_latest_experiments_are_registered_as_distinct_families():

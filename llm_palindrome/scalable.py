@@ -41,6 +41,10 @@ class ExactResult:
             "nodes": self.nodes,
             "center": self.center,
             "fallback": self.fallback,
+            # No automatic constructor result is reader evidence.  A later
+            # frozen package may promote a strict row only after intact-prose
+            # and shuffled-control human ratings.
+            "reader_candidate": False,
         }
         if self.text is not None:
             out["text"] = self.text

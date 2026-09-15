@@ -875,6 +875,24 @@ item-aware analysis plan.
 - **Sol, 2026-09-12 (second consultation):** implemented a character-crossing
   relative-clause test.  Its zero closure result rules out that frozen family,
   not dependency repair in general.
+- **Evolutionary complete-prose genomes, 2026-09-15:** evolved pairs of
+  independently rendered SVO-plus-PP sentences with typed constituent
+  crossover, seam-biased terminal mutation, and a character-mismatch fitness.
+  The 5,760-genome population produced a readable 73-letter control
+  (`A poet keeps the red lantern near the river. A farmer keeps a winter
+  garden under one cedar.`) but no exact closure; its best mismatch was 26
+  character pairs.  The concrete repair is a held-out lexical-bank expansion
+  that preserves population state and typed crossover, not another beam or
+  pool increase.
+
+- **Lexicalized dependency attribute chart, 2026-09-15:** built independent
+  recursive head-dependent forests with number/tense/valency unification and
+  joined 5,184 complete prose pairs from opposite character edges.  It found
+  zero exact closures; representative rendered prose was
+  `The makers repair the radios near a harbor; the guides sort the charts
+  beside a station.`  The next operator is dependency-preserving rotation of
+  one feature-compatible modifier or PP dependent, with a fresh lexical bank.
+
 - **Recursive CFG chart intersection, 2026-09-15:** enumerated independently
   derived complete sentences from a recursive relative-clause grammar and
   intersected their normalized character language with its reversal.  The

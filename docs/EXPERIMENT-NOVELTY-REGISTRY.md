@@ -25,6 +25,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `brown-bounded-repair` | one tense-preserving verb/attachment lexical edit | bounded lexical repair | 0 residual matches |
 | `brown-joint-relation-repair` | complete attested SVO replacement with >=2 changed content slots | joint subject/object repair | 0 residual matches |
 | `brown-relative-topology` | new PP positions plus determiner boundary variants; prior 497 keys excluded | attachment topology/boundary | 0 residual matches |
+| `brown-coreferent-variable-pp` | variable-length co-referent PPs at every chain boundary; prior 8,695 keys excluded | co-referent PP length and boundary position | 0 residual matches |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

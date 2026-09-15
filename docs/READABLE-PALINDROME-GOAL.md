@@ -218,6 +218,17 @@ human-rated intact prose—and may claim success only when both gates are met.
   matches or exact closures. The next operator makes the PP noun co-referent
   with a chain variable and searches its boundary position jointly.
 
+- **Coreferent variable-PP boundary residual BFS (2026-09-15).** This
+  successor changed both PP length and placement: prep+noun,
+  prep+determiner+noun, and prep+determiner+adjective+noun were inserted at
+  every boundary, with the PP noun forced to co-refer to a chain variable.
+  It explicitly excluded the 497 attachment keys and 8,695 topology keys,
+  then searched 49,044 new frames (45,492 distinct tapes). Every residual
+  lookup missed; there were zero reverse matches, exact closures, or admitted
+  candidates. This closes the current Brown-attested attachment family; the
+  next experiment must leave this family rather than replaying it with a
+  larger pool or beam.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

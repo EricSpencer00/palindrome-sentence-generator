@@ -94,3 +94,22 @@ mutation-20260915.json` and `runs/seed-boundary-shift-typed-resegmentation-
 20260915*.json`). A future route may use their residuals only after a new
 signature is pre-registered and its state space is disjoint from all 56
 registered families.
+
+## Novelty audit policy (2026-09-15)
+
+The exact-collision preflight is now paired with a deterministic lexical-overlap
+screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
+families sharing distinctive signature atoms and marks those pairs for human
+review; changing a seed, beam width, lexical bank, or filename is not a new
+family. The current audit covers all 58 retained families and 3 explicit
+exclusions, finds no exact signature collision, and flags 13 historical near
+pairs for review. The two latest routes are below the review threshold:
+
+| route | nearest prior family | atom Jaccard | disposition |
+|---|---|---:|---|
+| `semordnilap-template-inventory` | `internal-center-window-repair` | 0.167 | distinct seam inventory and typed templates |
+| `corpus-sentence-gram-fst` | `event-frame-independent-relexicalization` | 0.056 | distinct rank-partitioned phrase FST |
+
+The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
+flags are not claims of equivalence; they are a stop-and-review gate before
+another construction run.

@@ -30,6 +30,8 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `fresh-paired-clause-ledger` | four authored left/right clause proposals with repository-wide tape fingerprint | paired authoring provenance | 2 exact closures, both rejected |
 | `character-ledger-promptbank` | cross-product of four fresh left clauses and four independently authored right guesses under a reverse-tape constraint | prompt-bank pairing policy | 0 exact closures |
 | `two-event-discourse-frame` | ordered intransitive event plus result state with strict temporal rank and independent reverse discourse lexicalization | two-unit discourse state | 0 reverse parses |
+| `connective-bearing-event-pair` | the same ordered event/result state with an explicit independently lexicalized connective slot | connective-bearing discourse state | 0 reverse parses |
+| `constrained-reverse-lexical-v2` | memoized, frequency-ranked complete lexicon segmentations with bounded reverse-compatible prefixes | constrained lexical-prefix decoding | 0 complete parses; 4 partial probes |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

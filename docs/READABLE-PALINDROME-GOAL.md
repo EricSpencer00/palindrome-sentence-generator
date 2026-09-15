@@ -263,6 +263,23 @@ human-rated intact prose—and may claim success only when both gates are met.
   independently lexicalized connective while preserving the temporal state;
   it must remain a new signature rather than an inventory/beam increase.
 
+- **Connective-bearing event pair (2026-09-15).** This successor added an
+  explicit independently lexicalized connective slot between the ordered
+  event and result units. It used eight fresh frames, scanned 1,761 JSON
+  artifacts, and excluded 616,313 existing tape keys; all eight reverse
+  connective parses failed, with zero exact closures. The next operator is a
+  constrained contrast/cause/consequence choice, still under the same strict
+  temporal state and novelty audit.
+
+- **Constrained reverse lexical decoding v2 (2026-09-15).** A separate route
+  replaced guessed right clauses with memoized, frequency-ranked dictionary
+  segmentations of each reversed tape, bounded to eight words and a 96-state
+  frontier. Four fresh natural left clauses produced zero complete parses but
+  four concrete partial probes (best prefixes: “so id ar”, “se”, empty, and
+  “se ne”). The output contains exact audits and central-gate results for each
+  probe; no item is reader-facing. The next method must add semantic clause
+  structure over these prefixes rather than widen the lexical frontier.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

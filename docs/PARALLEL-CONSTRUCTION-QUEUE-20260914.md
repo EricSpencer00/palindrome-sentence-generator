@@ -105,6 +105,16 @@ zero mechanically eligible closures.  The strongest unresolved seams are
 operator must therefore expose optional typed attachment slots at those live
 seams; another flat word-list expansion cannot consume them.
 
+The strongest seam was then isolated as a direct grammatical phrase equation.
+Holding only the productive `Diana` / `an aide` endpoint factor fixed, a hash-
+indexed search joined 174,002 Brown-derived object NPs and 13,516 human-subject
+NPs across 181 singular and 181 plural verb forms.  The solver visited 791
+live residual states, exhausted no budget, and recovered exactly one surface:
+the 38-letter control.  There was no novel closure.  This eliminates a large
+predicate/subject phrase space around that single endpoint; the next search
+must jointly vary the terminal name and grammatical opening NP rather than
+continue enlarging the already-exhausted middle bridge.
+
 ## Explicit shortcut rejection
 
 The superficially attractive extension
@@ -132,4 +142,5 @@ Commits: `2fdb450` (lexical-family diversity), `626bdfd`/`a7c231e`/`e5786c1`
 ordered subsets), `a424f02`/`5228430`/`196afb8` (dual typed chunk searches), and
 `c0dd732` (witnessed boundary bridge), and `810a97c` (exact dual-plan residual
 search with relative and coordinated expansions), and `bc0f1eb`
-(residual-indexed role-safe lexical expansion).
+(residual-indexed role-safe lexical expansion), and `f195f8d` (large indexed
+predicate/subject phrase bridge).

@@ -16,6 +16,7 @@ import re
 import sys
 from collections import Counter
 from functools import lru_cache
+from itertools import product
 from pathlib import Path
 
 from wordfreq import top_n_list, zipf_frequency
@@ -69,12 +70,20 @@ TEMPLATES = (
     ("pron_verb_det_noun_adv", ("PRON", "VERB", "DET", "NOUN", "ADV")),
     ("det_noun_verb_adp_det_noun", ("DET", "NOUN", "VERB", "ADP", "DET", "NOUN")),
     ("pron_verb_adv_adp_noun", ("PRON", "VERB", "ADV", "ADP", "NOUN")),
+    ("det_noun_verb_det_noun", ("DET", "NOUN", "VERB", "DET", "NOUN")),
+    ("pron_verb_det_adj_noun", ("PRON", "VERB", "DET", "ADJ", "NOUN")),
+    ("det_noun_verb_adv_det_noun", ("DET", "NOUN", "VERB", "ADV", "DET", "NOUN")),
 )
 
 
 def mirrored_insert(tape: str, position: int, letter: str) -> str:
     left = tape[:position] + letter + tape[position:]
-    pivot = len(left)
+    return left + left[::-1]
+
+
+def mirrored_insert_pair(tape: str, position: int, pair: str) -> str:
+    """Insert a two-character lexical boundary probe and mirror the half."""
+    left = tape[:position] + pair + tape[position:]
     return left + left[::-1]
 
 
@@ -123,7 +132,9 @@ def _audit(text: str, operation: dict, left: tuple[str, ...], right: tuple[str, 
     }
 
 
-def run() -> dict:
+def run(insert_width: int = 1) -> dict:
+    if insert_width not in {1, 2}:
+        raise ValueError("insert_width must be 1 or 2")
     roles = _brown_roles()
     rows: list[dict] = []
     stats = Counter()
@@ -131,9 +142,18 @@ def run() -> dict:
     failures: list[dict] = []
     # The insertion is mirrored into the full tape; left and right are then
     # independently parsed, so no seed word order or seed interior is reused.
-    for position in range(len(SEED_TAPE) // 2 + 1):
-        for letter in "abcdefghijklmnopqrstuvwxyz":
-            tape = mirrored_insert(SEED_TAPE[: len(SEED_TAPE) // 2], position, letter)
+    half = SEED_TAPE[: len(SEED_TAPE) // 2]
+    for position in range(len(half) + 1):
+        insertions = (
+            ((letter,) for letter in "abcdefghijklmnopqrstuvwxyz")
+            if insert_width == 1
+            else product("abcdefghijklmnopqrstuvwxyz", repeat=2)
+        )
+        for insertion in insertions:
+            pair = "".join(insertion)
+            tape = (mirrored_insert(half, position, pair)
+                    if insert_width == 1
+                    else mirrored_insert_pair(half, position, pair))
             stats["target_tapes"] += 1
             for left_name, left_slots in TEMPLATES:
                 lefts = _segments_for_tape(tape[: len(tape) // 2], roles, left_slots)
@@ -142,7 +162,8 @@ def run() -> dict:
                         failures.append({
                             "reason": "no_typed_left_clause_segmentation",
                             "insertion_position": position,
-                            "inserted_letter": letter,
+                            "inserted_text": pair,
+                            "insert_width": insert_width,
                             "left_template": left_name,
                             "left_tape": tape[: len(tape) // 2],
                             "left_letters": len(tape) // 2,
@@ -172,7 +193,8 @@ def run() -> dict:
                                 "kind": "seed_half_mirrored_insertion_and_joint_resegmentation",
                                 "seed_half_letters": len(SEED_TAPE) // 2,
                                 "insertion_position": position,
-                                "inserted_letter": letter,
+                                "inserted_text": pair,
+                                "insert_width": insert_width,
                                 "left_template": left_name,
                                 "right_template": right_name,
                             }
@@ -187,7 +209,7 @@ def run() -> dict:
         "seed": SEED_TEXT,
         "seed_letters": len(SEED_TAPE),
         "config": {
-            "target_lengths": "40 letters (one mirrored insertion into the 19-letter seed half)",
+            "target_lengths": f"{len(half) * 2 + insert_width * 2} letters ({insert_width}-character mirrored insertion into the 19-letter seed half)",
             "joint_content_replacement": "all eight seed content words excluded from output; at least two must change",
             "templates": [name for name, _ in TEMPLATES],
             "independent_ascii_audit": True,
@@ -215,10 +237,11 @@ def run() -> dict:
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--out", required=True, type=Path)
+    parser.add_argument("--insert-width", type=int, choices=(1, 2), default=1)
     args = parser.parse_args()
     if args.out.exists():
         parser.error(f"refusing to overwrite output: {args.out}")
-    result = run()
+    result = run(args.insert_width)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({"stats": result["stats"], "admitted": len(result["admitted"])}, indent=2))

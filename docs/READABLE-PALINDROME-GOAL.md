@@ -75,6 +75,14 @@ human-rated intact prose—and may claim success only when both gates are met.
   two-character insertion with variable-length clause templates and lexical
   valency carried in the memoized state; no seed wrapper or filler is allowed.
 
+- **Two-character boundary insertion (2026-09-15).** The successor widened the
+  same operator to all 13,520 two-character mirrored insertions (42-letter
+  tapes) and seven variable-length typed clause templates.  It produced 94,640
+  typed-left failures, zero joint segmentations, and zero exact candidates.
+  This rules out the one-step insertion neighbourhood at the current lexical
+  inventory; the next repair must change the lexical inventory and valency
+  transitions, not merely increase insertion count.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

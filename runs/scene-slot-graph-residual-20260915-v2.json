@@ -1,0 +1,1537 @@
+{
+  "status": "scene_graph_reverse_search_complete",
+  "family_id": "scene-slot-graph-residual",
+  "state_space_signature": "semantic-scene-graph|located-at-possesses-describes-edges|coordinated-locative-possessive-attributive-clauses|bidirectional-typed-slot-graph|reverse-character-residual|independent-right-lexicalization",
+  "config": {
+    "construction": "coordinated locative + possessive + attributive scene clauses",
+    "semantic_graph_edges": [
+      "located_at",
+      "possesses",
+      "describes"
+    ],
+    "left_template": "in-the-place | possessive attributed object near place | and possessive object by place",
+    "right_template": [
+      "DET",
+      "OWNER",
+      "OBJECT",
+      "VERB",
+      "PREP",
+      "DET",
+      "PLACE",
+      "CONJ",
+      "DET",
+      "OWNER",
+      "ATTRIBUTE",
+      "OBJECT",
+      "VERB",
+      "PREP",
+      "DET",
+      "PLACE"
+    ],
+    "bidirectional_slot_graph": true,
+    "reverse_character_constraints_and_grammar_joint": true,
+    "fresh_authored_scene_inventory": true,
+    "brown_corpus_used": false,
+    "event_discourse_dialogue_inventory_used": false,
+    "global_pos_or_cfg_search_used": false,
+    "minimum_letters": 39,
+    "maximum_letters": 280,
+    "output_excluded_before_scan": true,
+    "preexisting_tape_key_scope": "all normalized strings of length 1..280 in runs/**/*.json, data/**/*.json, experiments/**/*.json"
+  },
+  "novelty_audit": {
+    "existing_tape_keys_count": 617241,
+    "existing_json_files_scanned": 1771,
+    "malformed_json_files_skipped": 0,
+    "existing_tape_keys_sha256": "26a6db46db8a8ef1911ec60ed35bbb7850ad5f5d5350bb0b0b93dd8e61f3b384",
+    "output_path_excluded_before_scan": true,
+    "all_exact_rows_checked_against_existing_keys": true,
+    "all_mechanically_admitted_rows_novel": true
+  },
+  "stats": {
+    "scene_graphs": 6,
+    "reverse_prefix_states": 6,
+    "reverse_grammar_failures": 6
+  },
+  "exact_closures": [],
+  "admitted": [],
+  "residual_frontier": [
+    {
+      "kind": "scene_graph_reverse_residual_probe",
+      "frame_id": "chapel_ribbon_chest",
+      "rendered_probe": "In the chapel, the organist's blue ribbon hangs near the altar, and the warden's chest rests by the chapel;",
+      "source_semantic_graph": {
+        "nodes": {
+          "scene": "shared_scene",
+          "place_a": "chapel",
+          "place_b": "altar",
+          "owner_a": "organist",
+          "owner_b": "warden",
+          "object_a": "ribbon",
+          "object_b": "chest",
+          "attribute": "blue"
+        },
+        "edges": [
+          {
+            "type": "located_at",
+            "source": "scene",
+            "target": "place_a",
+            "rank": 1
+          },
+          {
+            "type": "possesses",
+            "source": "owner_a",
+            "target": "object_a",
+            "rank": 1
+          },
+          {
+            "type": "describes",
+            "source": "attribute",
+            "target": "object_a",
+            "rank": 1
+          },
+          {
+            "type": "located_at",
+            "source": "object_a",
+            "target": "place_b",
+            "rank": 2
+          },
+          {
+            "type": "possesses",
+            "source": "owner_b",
+            "target": "object_b",
+            "rank": 2
+          },
+          {
+            "type": "located_at",
+            "source": "object_b",
+            "target": "place_a",
+            "rank": 2
+          }
+        ],
+        "coordinated_clauses": 2,
+        "edge_roles_complete": true
+      },
+      "independent_left_parse": {
+        "valid": true,
+        "grammar": "in-the-place possessive attributed-object locative AND possessive-object locative",
+        "word_count": 19,
+        "semantic_graph": {
+          "nodes": {
+            "scene": "shared_scene",
+            "place_a": "chapel",
+            "place_b": "altar",
+            "owner_a": "organist",
+            "owner_b": "warden",
+            "object_a": "ribbon",
+            "object_b": "chest",
+            "attribute": "blue"
+          },
+          "edges": [
+            {
+              "type": "located_at",
+              "source": "scene",
+              "target": "place_a",
+              "rank": 1
+            },
+            {
+              "type": "possesses",
+              "source": "owner_a",
+              "target": "object_a",
+              "rank": 1
+            },
+            {
+              "type": "describes",
+              "source": "attribute",
+              "target": "object_a",
+              "rank": 1
+            },
+            {
+              "type": "located_at",
+              "source": "object_a",
+              "target": "place_b",
+              "rank": 2
+            },
+            {
+              "type": "possesses",
+              "source": "owner_b",
+              "target": "object_b",
+              "rank": 2
+            },
+            {
+              "type": "located_at",
+              "source": "object_b",
+              "target": "place_a",
+              "rank": 2
+            }
+          ],
+          "coordinated_clauses": 2,
+          "edge_roles_complete": true
+        },
+        "located_at_edges": 3,
+        "possesses_edges": 2,
+        "describes_edges": 1
+      },
+      "reverse_tape_length": 84,
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "reverse_tape_prefix": "",
+      "reverse_residual": "lepahcehtybstsertseh",
+      "residual_state": {
+        "slot_index": 0,
+        "next_role": "DET",
+        "pending_graph_edge": "possesses",
+        "graph_edges_remaining": [
+          "DET",
+          "OWNER",
+          "OBJECT",
+          "VERB",
+          "PREP",
+          "DET",
+          "PLACE",
+          "CONJ",
+          "DET",
+          "OWNER",
+          "ATTRIBUTE",
+          "OBJECT",
+          "VERB",
+          "PREP",
+          "DET",
+          "PLACE"
+        ],
+        "english_grammar_checked_jointly": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 84,
+        "normalized_letters": "inthechapeltheorganistsblueribbonhangsnearthealtarandthewardenschestrestsbythechapel",
+        "normalized_sha256": "35312ed507447531ae6df61ae2d76c4469aa3e36d94373ee278d8ee3e4fa101f",
+        "mismatch_count": 38,
+        "mismatch_sample": [
+          {
+            "pair": 0,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "pair": 1,
+            "left": "n",
+            "right": "e"
+          },
+          {
+            "pair": 2,
+            "left": "t",
+            "right": "p"
+          },
+          {
+            "pair": 3,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "pair": 4,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "pair": 6,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "pair": 7,
+            "left": "a",
+            "right": "h"
+          },
+          {
+            "pair": 8,
+            "left": "p",
+            "right": "t"
+          },
+          {
+            "pair": 9,
+            "left": "e",
+            "right": "y"
+          },
+          {
+            "pair": 10,
+            "left": "l",
+            "right": "b"
+          },
+          {
+            "pair": 11,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "pair": 12,
+            "left": "h",
+            "right": "t"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 19,
+        "all_words_zipf_ge_2": false,
+        "mean_zipf_frequency": 5.268,
+        "coordinated_clause_marker": true,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "scene_graph_reverse_residual_probe",
+      "frame_id": "gallery_lamp_vase",
+      "rendered_probe": "In the gallery, the artist's amber lamp rests near the arch, and the curator's vase stands by the gallery;",
+      "source_semantic_graph": {
+        "nodes": {
+          "scene": "shared_scene",
+          "place_a": "gallery",
+          "place_b": "arch",
+          "owner_a": "artist",
+          "owner_b": "curator",
+          "object_a": "lamp",
+          "object_b": "vase",
+          "attribute": "amber"
+        },
+        "edges": [
+          {
+            "type": "located_at",
+            "source": "scene",
+            "target": "place_a",
+            "rank": 1
+          },
+          {
+            "type": "possesses",
+            "source": "owner_a",
+            "target": "object_a",
+            "rank": 1
+          },
+          {
+            "type": "describes",
+            "source": "attribute",
+            "target": "object_a",
+            "rank": 1
+          },
+          {
+            "type": "located_at",
+            "source": "object_a",
+            "target": "place_b",
+            "rank": 2
+          },
+          {
+            "type": "possesses",
+            "source": "owner_b",
+            "target": "object_b",
+            "rank": 2
+          },
+          {
+            "type": "located_at",
+            "source": "object_b",
+            "target": "place_a",
+            "rank": 2
+          }
+        ],
+        "coordinated_clauses": 2,
+        "edge_roles_complete": true
+      },
+      "independent_left_parse": {
+        "valid": true,
+        "grammar": "in-the-place possessive attributed-object locative AND possessive-object locative",
+        "word_count": 19,
+        "semantic_graph": {
+          "nodes": {
+            "scene": "shared_scene",
+            "place_a": "gallery",
+            "place_b": "arch",
+            "owner_a": "artist",
+            "owner_b": "curator",
+            "object_a": "lamp",
+            "object_b": "vase",
+            "attribute": "amber"
+          },
+          "edges": [
+            {
+              "type": "located_at",
+              "source": "scene",
+              "target": "place_a",
+              "rank": 1
+            },
+            {
+              "type": "possesses",
+              "source": "owner_a",
+              "target": "object_a",
+              "rank": 1
+            },
+            {
+              "type": "describes",
+              "source": "attribute",
+              "target": "object_a",
+              "rank": 1
+            },
+            {
+              "type": "located_at",
+              "source": "object_a",
+              "target": "place_b",
+              "rank": 2
+            },
+            {
+              "type": "possesses",
+              "source": "owner_b",
+              "target": "object_b",
+              "rank": 2
+            },
+            {
+              "type": "located_at",
+              "source": "object_b",
+              "target": "place_a",
+              "rank": 2
+            }
+          ],
+          "coordinated_clauses": 2,
+          "edge_roles_complete": true
+        },
+        "located_at_edges": 3,
+        "possesses_edges": 2,
+        "describes_edges": 1
+      },
+      "reverse_tape_length": 83,
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "reverse_tape_prefix": "",
+      "reverse_residual": "yrellagehtybsdnatses",
+      "residual_state": {
+        "slot_index": 0,
+        "next_role": "DET",
+        "pending_graph_edge": "possesses",
+        "graph_edges_remaining": [
+          "DET",
+          "OWNER",
+          "OBJECT",
+          "VERB",
+          "PREP",
+          "DET",
+          "PLACE",
+          "CONJ",
+          "DET",
+          "OWNER",
+          "ATTRIBUTE",
+          "OBJECT",
+          "VERB",
+          "PREP",
+          "DET",
+          "PLACE"
+        ],
+        "english_grammar_checked_jointly": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 83,
+        "normalized_letters": "inthegallerytheartistsamberlamprestsnearthearchandthecuratorsvasestandsbythegallery",
+        "normalized_sha256": "90dfa394be452d33fecc56ed0472e0c0c2b9e840dcbc525355fd44034a909a61",
+        "mismatch_count": 39,
+        "mismatch_sample": [
+          {
+            "pair": 0,
+            "left": "i",
+            "right": "y"
+          },
+          {
+            "pair": 1,
+            "left": "n",
+            "right": "r"
+          },
+          {
+            "pair": 2,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "pair": 3,
+            "left": "h",
+            "right": "l"
+          },
+          {
+            "pair": 4,
+            "left": "e",
+            "right": "l"
+          },
+          {
+            "pair": 5,
+            "left": "g",
+            "right": "a"
+          },
+          {
+            "pair": 6,
+            "left": "a",
+            "right": "g"
+          },
+          {
+            "pair": 7,
+            "left": "l",
+            "right": "e"
+          },
+          {
+            "pair": 8,
+            "left": "l",
+            "right": "h"
+          },
+          {
+            "pair": 9,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "pair": 10,
+            "left": "r",
+            "right": "y"
+          },
+          {
+            "pair": 11,
+            "left": "y",
+            "right": "b"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 19,
+        "all_words_zipf_ge_2": false,
+        "mean_zipf_frequency": 5.435,
+        "coordinated_clause_marker": true,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "scene_graph_reverse_residual_probe",
+      "frame_id": "garden_frame_bench",
+      "rendered_probe": "In the garden, the carver's wooden frame leans near the wall, and the keeper's bench sits by the garden;",
+      "source_semantic_graph": {
+        "nodes": {
+          "scene": "shared_scene",
+          "place_a": "garden",
+          "place_b": "wall",
+          "owner_a": "carver",
+          "owner_b": "keeper",
+          "object_a": "frame",
+          "object_b": "bench",
+          "attribute": "wooden"
+        },
+        "edges": [
+          {
+            "type": "located_at",
+            "source": "scene",
+            "target": "place_a",
+            "rank": 1
+          },
+          {
+            "type": "possesses",
+            "source": "owner_a",
+            "target": "object_a",
+            "rank": 1
+          },
+          {
+            "type": "describes",
+            "source": "attribute",
+            "target": "object_a",
+            "rank": 1
+          },
+          {
+            "type": "located_at",
+            "source": "object_a",
+            "target": "place_b",
+            "rank": 2
+          },
+          {
+            "type": "possesses",
+            "source": "owner_b",
+            "target": "object_b",
+            "rank": 2
+          },
+          {
+            "type": "located_at",
+            "source": "object_b",
+            "target": "place_a",
+            "rank": 2
+          }
+        ],
+        "coordinated_clauses": 2,
+        "edge_roles_complete": true
+      },
+      "independent_left_parse": {
+        "valid": true,
+        "grammar": "in-the-place possessive attributed-object locative AND possessive-object locative",
+        "word_count": 19,
+        "semantic_graph": {
+          "nodes": {
+            "scene": "shared_scene",
+            "place_a": "garden",
+            "place_b": "wall",
+            "owner_a": "carver",
+            "owner_b": "keeper",
+            "object_a": "frame",
+            "object_b": "bench",
+            "attribute": "wooden"
+          },
+          "edges": [
+            {
+              "type": "located_at",
+              "source": "scene",
+              "target": "place_a",
+              "rank": 1
+            },
+            {
+              "type": "possesses",
+              "source": "owner_a",
+              "target": "object_a",
+              "rank": 1
+            },
+            {
+              "type": "describes",
+              "source": "attribute",
+              "target": "object_a",
+              "rank": 1
+            },
+            {
+              "type": "located_at",
+              "source": "object_a",
+              "target": "place_b",
+              "rank": 2
+            },
+            {
+              "type": "possesses",
+              "source": "owner_b",
+              "target": "object_b",
+              "rank": 2
+            },
+            {
+              "type": "located_at",
+              "source": "object_b",
+              "target": "place_a",
+              "rank": 2
+            }
+          ],
+          "coordinated_clauses": 2,
+          "edge_roles_complete": true
+        },
+        "located_at_edges": 3,
+        "possesses_edges": 2,
+        "describes_edges": 1
+      },
+      "reverse_tape_length": 81,
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "reverse_tape_prefix": "",
+      "reverse_residual": "nedragehtybstishcneb",
+      "residual_state": {
+        "slot_index": 0,
+        "next_role": "DET",
+        "pending_graph_edge": "possesses",
+        "graph_edges_remaining": [
+          "DET",
+          "OWNER",
+          "OBJECT",
+          "VERB",
+          "PREP",
+          "DET",
+          "PLACE",
+          "CONJ",
+          "DET",
+          "OWNER",
+          "ATTRIBUTE",
+          "OBJECT",
+          "VERB",
+          "PREP",
+          "DET",
+          "PLACE"
+        ],
+        "english_grammar_checked_jointly": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 81,
+        "normalized_letters": "inthegardenthecarverswoodenframeleansnearthewallandthekeepersbenchsitsbythegarden",
+        "normalized_sha256": "5d2b9a91e231ae610e434b2c567cfe57101e06ccb9afb5b5aaf12c476588c719",
+        "mismatch_count": 36,
+        "mismatch_sample": [
+          {
+            "pair": 0,
+            "left": "i",
+            "right": "n"
+          },
+          {
+            "pair": 1,
+            "left": "n",
+            "right": "e"
+          },
+          {
+            "pair": 2,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "pair": 3,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "pair": 4,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "pair": 6,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "pair": 7,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "pair": 8,
+            "left": "d",
+            "right": "t"
+          },
+          {
+            "pair": 9,
+            "left": "e",
+            "right": "y"
+          },
+          {
+            "pair": 10,
+            "left": "n",
+            "right": "b"
+          },
+          {
+            "pair": 11,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "pair": 12,
+            "left": "h",
+            "right": "t"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 19,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.534,
+        "coordinated_clause_marker": true,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "scene_graph_reverse_residual_probe",
+      "frame_id": "harbor_map_boat",
+      "rendered_probe": "In the harbor, the pilot's folded map lies near the dock, and the sailor's boat waits by the harbor;",
+      "source_semantic_graph": {
+        "nodes": {
+          "scene": "shared_scene",
+          "place_a": "harbor",
+          "place_b": "dock",
+          "owner_a": "pilot",
+          "owner_b": "sailor",
+          "object_a": "map",
+          "object_b": "boat",
+          "attribute": "folded"
+        },
+        "edges": [
+          {
+            "type": "located_at",
+            "source": "scene",
+            "target": "place_a",
+            "rank": 1
+          },
+          {
+            "type": "possesses",
+            "source": "owner_a",
+            "target": "object_a",
+            "rank": 1
+          },
+          {
+            "type": "describes",
+            "source": "attribute",
+            "target": "object_a",
+            "rank": 1
+          },
+          {
+            "type": "located_at",
+            "source": "object_a",
+            "target": "place_b",
+            "rank": 2
+          },
+          {
+            "type": "possesses",
+            "source": "owner_b",
+            "target": "object_b",
+            "rank": 2
+          },
+          {
+            "type": "located_at",
+            "source": "object_b",
+            "target": "place_a",
+            "rank": 2
+          }
+        ],
+        "coordinated_clauses": 2,
+        "edge_roles_complete": true
+      },
+      "independent_left_parse": {
+        "valid": true,
+        "grammar": "in-the-place possessive attributed-object locative AND possessive-object locative",
+        "word_count": 19,
+        "semantic_graph": {
+          "nodes": {
+            "scene": "shared_scene",
+            "place_a": "harbor",
+            "place_b": "dock",
+            "owner_a": "pilot",
+            "owner_b": "sailor",
+            "object_a": "map",
+            "object_b": "boat",
+            "attribute": "folded"
+          },
+          "edges": [
+            {
+              "type": "located_at",
+              "source": "scene",
+              "target": "place_a",
+              "rank": 1
+            },
+            {
+              "type": "possesses",
+              "source": "owner_a",
+              "target": "object_a",
+              "rank": 1
+            },
+            {
+              "type": "describes",
+              "source": "attribute",
+              "target": "object_a",
+              "rank": 1
+            },
+            {
+              "type": "located_at",
+              "source": "object_a",
+              "target": "place_b",
+              "rank": 2
+            },
+            {
+              "type": "possesses",
+              "source": "owner_b",
+              "target": "object_b",
+              "rank": 2
+            },
+            {
+              "type": "located_at",
+              "source": "object_b",
+              "target": "place_a",
+              "rank": 2
+            }
+          ],
+          "coordinated_clauses": 2,
+          "edge_roles_complete": true
+        },
+        "located_at_edges": 3,
+        "possesses_edges": 2,
+        "describes_edges": 1
+      },
+      "reverse_tape_length": 77,
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "reverse_tape_prefix": "",
+      "reverse_residual": "robrahehtybstiawtaob",
+      "residual_state": {
+        "slot_index": 0,
+        "next_role": "DET",
+        "pending_graph_edge": "possesses",
+        "graph_edges_remaining": [
+          "DET",
+          "OWNER",
+          "OBJECT",
+          "VERB",
+          "PREP",
+          "DET",
+          "PLACE",
+          "CONJ",
+          "DET",
+          "OWNER",
+          "ATTRIBUTE",
+          "OBJECT",
+          "VERB",
+          "PREP",
+          "DET",
+          "PLACE"
+        ],
+        "english_grammar_checked_jointly": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 77,
+        "normalized_letters": "intheharborthepilotsfoldedmapliesnearthedockandthesailorsboatwaitsbytheharbor",
+        "normalized_sha256": "afb3d92584251c589ce74a90a7dfe6f8d01ee2550a89cb5f42b579fe48488a69",
+        "mismatch_count": 37,
+        "mismatch_sample": [
+          {
+            "pair": 0,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "pair": 1,
+            "left": "n",
+            "right": "o"
+          },
+          {
+            "pair": 2,
+            "left": "t",
+            "right": "b"
+          },
+          {
+            "pair": 3,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "pair": 4,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "pair": 6,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "pair": 7,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "pair": 8,
+            "left": "b",
+            "right": "t"
+          },
+          {
+            "pair": 9,
+            "left": "o",
+            "right": "y"
+          },
+          {
+            "pair": 10,
+            "left": "r",
+            "right": "b"
+          },
+          {
+            "pair": 11,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "pair": 12,
+            "left": "h",
+            "right": "t"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 19,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.513,
+        "coordinated_clause_marker": true,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "scene_graph_reverse_residual_probe",
+      "frame_id": "market_book_crate",
+      "rendered_probe": "In the market, the vendor's quiet book lies near the stall, and the porter's crate waits by the market;",
+      "source_semantic_graph": {
+        "nodes": {
+          "scene": "shared_scene",
+          "place_a": "market",
+          "place_b": "stall",
+          "owner_a": "vendor",
+          "owner_b": "porter",
+          "object_a": "book",
+          "object_b": "crate",
+          "attribute": "quiet"
+        },
+        "edges": [
+          {
+            "type": "located_at",
+            "source": "scene",
+            "target": "place_a",
+            "rank": 1
+          },
+          {
+            "type": "possesses",
+            "source": "owner_a",
+            "target": "object_a",
+            "rank": 1
+          },
+          {
+            "type": "describes",
+            "source": "attribute",
+            "target": "object_a",
+            "rank": 1
+          },
+          {
+            "type": "located_at",
+            "source": "object_a",
+            "target": "place_b",
+            "rank": 2
+          },
+          {
+            "type": "possesses",
+            "source": "owner_b",
+            "target": "object_b",
+            "rank": 2
+          },
+          {
+            "type": "located_at",
+            "source": "object_b",
+            "target": "place_a",
+            "rank": 2
+          }
+        ],
+        "coordinated_clauses": 2,
+        "edge_roles_complete": true
+      },
+      "independent_left_parse": {
+        "valid": true,
+        "grammar": "in-the-place possessive attributed-object locative AND possessive-object locative",
+        "word_count": 19,
+        "semantic_graph": {
+          "nodes": {
+            "scene": "shared_scene",
+            "place_a": "market",
+            "place_b": "stall",
+            "owner_a": "vendor",
+            "owner_b": "porter",
+            "object_a": "book",
+            "object_b": "crate",
+            "attribute": "quiet"
+          },
+          "edges": [
+            {
+              "type": "located_at",
+              "source": "scene",
+              "target": "place_a",
+              "rank": 1
+            },
+            {
+              "type": "possesses",
+              "source": "owner_a",
+              "target": "object_a",
+              "rank": 1
+            },
+            {
+              "type": "describes",
+              "source": "attribute",
+              "target": "object_a",
+              "rank": 1
+            },
+            {
+              "type": "located_at",
+              "source": "object_a",
+              "target": "place_b",
+              "rank": 2
+            },
+            {
+              "type": "possesses",
+              "source": "owner_b",
+              "target": "object_b",
+              "rank": 2
+            },
+            {
+              "type": "located_at",
+              "source": "object_b",
+              "target": "place_a",
+              "rank": 2
+            }
+          ],
+          "coordinated_clauses": 2,
+          "edge_roles_complete": true
+        },
+        "located_at_edges": 3,
+        "possesses_edges": 2,
+        "describes_edges": 1
+      },
+      "reverse_tape_length": 80,
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "reverse_tape_prefix": "",
+      "reverse_residual": "tekramehtybstiawetar",
+      "residual_state": {
+        "slot_index": 0,
+        "next_role": "DET",
+        "pending_graph_edge": "possesses",
+        "graph_edges_remaining": [
+          "DET",
+          "OWNER",
+          "OBJECT",
+          "VERB",
+          "PREP",
+          "DET",
+          "PLACE",
+          "CONJ",
+          "DET",
+          "OWNER",
+          "ATTRIBUTE",
+          "OBJECT",
+          "VERB",
+          "PREP",
+          "DET",
+          "PLACE"
+        ],
+        "english_grammar_checked_jointly": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 80,
+        "normalized_letters": "inthemarketthevendorsquietbookliesnearthestallandtheporterscratewaitsbythemarket",
+        "normalized_sha256": "0a0b1d09b151db787dcc3b1275522c7b90c52041c831de58df005950df39be43",
+        "mismatch_count": 37,
+        "mismatch_sample": [
+          {
+            "pair": 0,
+            "left": "i",
+            "right": "t"
+          },
+          {
+            "pair": 1,
+            "left": "n",
+            "right": "e"
+          },
+          {
+            "pair": 2,
+            "left": "t",
+            "right": "k"
+          },
+          {
+            "pair": 3,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "pair": 4,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "pair": 6,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "pair": 7,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "pair": 8,
+            "left": "k",
+            "right": "t"
+          },
+          {
+            "pair": 9,
+            "left": "e",
+            "right": "y"
+          },
+          {
+            "pair": 10,
+            "left": "t",
+            "right": "b"
+          },
+          {
+            "pair": 11,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "pair": 12,
+            "left": "h",
+            "right": "t"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 19,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.605,
+        "coordinated_clause_marker": true,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "scene_graph_reverse_residual_probe",
+      "frame_id": "studio_candle_bowl",
+      "rendered_probe": "In the studio, the weaver's silver candle burns near the shelf, and the maker's bowl rests by the studio;",
+      "source_semantic_graph": {
+        "nodes": {
+          "scene": "shared_scene",
+          "place_a": "studio",
+          "place_b": "shelf",
+          "owner_a": "weaver",
+          "owner_b": "maker",
+          "object_a": "candle",
+          "object_b": "bowl",
+          "attribute": "silver"
+        },
+        "edges": [
+          {
+            "type": "located_at",
+            "source": "scene",
+            "target": "place_a",
+            "rank": 1
+          },
+          {
+            "type": "possesses",
+            "source": "owner_a",
+            "target": "object_a",
+            "rank": 1
+          },
+          {
+            "type": "describes",
+            "source": "attribute",
+            "target": "object_a",
+            "rank": 1
+          },
+          {
+            "type": "located_at",
+            "source": "object_a",
+            "target": "place_b",
+            "rank": 2
+          },
+          {
+            "type": "possesses",
+            "source": "owner_b",
+            "target": "object_b",
+            "rank": 2
+          },
+          {
+            "type": "located_at",
+            "source": "object_b",
+            "target": "place_a",
+            "rank": 2
+          }
+        ],
+        "coordinated_clauses": 2,
+        "edge_roles_complete": true
+      },
+      "independent_left_parse": {
+        "valid": true,
+        "grammar": "in-the-place possessive attributed-object locative AND possessive-object locative",
+        "word_count": 19,
+        "semantic_graph": {
+          "nodes": {
+            "scene": "shared_scene",
+            "place_a": "studio",
+            "place_b": "shelf",
+            "owner_a": "weaver",
+            "owner_b": "maker",
+            "object_a": "candle",
+            "object_b": "bowl",
+            "attribute": "silver"
+          },
+          "edges": [
+            {
+              "type": "located_at",
+              "source": "scene",
+              "target": "place_a",
+              "rank": 1
+            },
+            {
+              "type": "possesses",
+              "source": "owner_a",
+              "target": "object_a",
+              "rank": 1
+            },
+            {
+              "type": "describes",
+              "source": "attribute",
+              "target": "object_a",
+              "rank": 1
+            },
+            {
+              "type": "located_at",
+              "source": "object_a",
+              "target": "place_b",
+              "rank": 2
+            },
+            {
+              "type": "possesses",
+              "source": "owner_b",
+              "target": "object_b",
+              "rank": 2
+            },
+            {
+              "type": "located_at",
+              "source": "object_b",
+              "target": "place_a",
+              "rank": 2
+            }
+          ],
+          "coordinated_clauses": 2,
+          "edge_roles_complete": true
+        },
+        "located_at_edges": 3,
+        "possesses_edges": 2,
+        "describes_edges": 1
+      },
+      "reverse_tape_length": 82,
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "reverse_tape_prefix": "",
+      "reverse_residual": "oidutsehtybstserlwob",
+      "residual_state": {
+        "slot_index": 0,
+        "next_role": "DET",
+        "pending_graph_edge": "possesses",
+        "graph_edges_remaining": [
+          "DET",
+          "OWNER",
+          "OBJECT",
+          "VERB",
+          "PREP",
+          "DET",
+          "PLACE",
+          "CONJ",
+          "DET",
+          "OWNER",
+          "ATTRIBUTE",
+          "OBJECT",
+          "VERB",
+          "PREP",
+          "DET",
+          "PLACE"
+        ],
+        "english_grammar_checked_jointly": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 82,
+        "normalized_letters": "inthestudiotheweaverssilvercandleburnsneartheshelfandthemakersbowlrestsbythestudio",
+        "normalized_sha256": "d8b693cd982786eebf214cea80287952c501417c06d2eba40c0383d1d0435fd9",
+        "mismatch_count": 39,
+        "mismatch_sample": [
+          {
+            "pair": 0,
+            "left": "i",
+            "right": "o"
+          },
+          {
+            "pair": 1,
+            "left": "n",
+            "right": "i"
+          },
+          {
+            "pair": 2,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "pair": 3,
+            "left": "h",
+            "right": "u"
+          },
+          {
+            "pair": 4,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "pair": 6,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "pair": 7,
+            "left": "u",
+            "right": "h"
+          },
+          {
+            "pair": 8,
+            "left": "d",
+            "right": "t"
+          },
+          {
+            "pair": 9,
+            "left": "i",
+            "right": "y"
+          },
+          {
+            "pair": 10,
+            "left": "o",
+            "right": "b"
+          },
+          {
+            "pair": 11,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "pair": 12,
+            "left": "h",
+            "right": "t"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 19,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.521,
+        "coordinated_clause_marker": true,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    }
+  ],
+  "next_operator": "At the deepest recorded reverse seam, replace exactly one scene-graph terminal realization with an independently authored multiword locative or attributive NP; preserve all edge types, possessor binding, coordinated clause order, and the output-excluded tape fingerprint. Only branch when the replacement consumes the recorded residual prefix.",
+  "provenance": {
+    "generator_sha256": "fed19426d1c3656b8a171d37386eee5271cea05cdaedcb49d1b697a32159ec4a",
+    "scene_inventory_authored": true,
+    "right_lexicon_independently_authored": true,
+    "source_sentences_copied": false,
+    "catalogue_relexicalization": false,
+    "readability_certificate": false
+  },
+  "reader_gate": {
+    "status": "not_run",
+    "reason": "No item may be sent to readers until exact, admission, novelty, and intact-prose review gates are separately satisfied."
+  }
+}

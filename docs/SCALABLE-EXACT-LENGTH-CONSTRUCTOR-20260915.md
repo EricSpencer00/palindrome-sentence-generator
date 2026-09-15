@@ -29,6 +29,11 @@ mechanical admission result.  The only acceptable reader-facing next step is
 to replace the fallback with a larger typed, boundary-crossing lexical
 inventory and then run the intact-prose/shuffled-control blinded study.
 
+Callers can set `require_admitted=True` to continue past exact closures that
+fail the independent mechanical admission checks.  This is the mode required
+for candidate collection; a closure that merely has a symmetric tape is not
+silently promoted.
+
 ## Why this is scalable
 
 The search does not enumerate complete left/right sentence products.  It
@@ -38,4 +43,3 @@ pruning removes overshoot before expansion; memoization prevents duplicate
 residual states.  Increasing a target therefore changes the budgeted frontier,
 not the algorithm or the palindrome proof.  Readability remains a separate,
 human-evidenced property.
-

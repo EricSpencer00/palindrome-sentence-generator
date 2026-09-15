@@ -35,6 +35,20 @@ gate rejects it (lexicon failure, word-order symmetry, and a proper
 self-palindromic span), and blinded readers have not seen it.  It is retained
 only as a failed construction trace.
 
+## CFG/feature lattice and bidirectional transducer
+
+The CFG branch produced 52 exact lexical closures, but the only two that
+passed its mechanical floor were 32 letters long and still fragmentary:
+`dessert set one man name note stressed` and its reverse ordering.  It found
+no novel ≥39-letter readable output.
+
+The independent bidirectional typed transducer indexed complete adjective /
+subject / verb / object clauses in a character trie.  Its bounded run found
+zero exact ≥39-letter closures; the strongest retained near miss was
+`Teacher sees. Calm pilot sees a friend.` (31 letters, 20 mirrored-character
+mismatches).  The transducer's next operator is reverse-trie-compatible slot
+expansion with the same joint syntax checks.
+
 ## Next constructive move
 
 The queue has therefore exhausted lexical rotation and one-at-a-time repair.

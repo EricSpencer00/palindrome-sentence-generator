@@ -38,12 +38,13 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "grammar-intersection-chart" in ids
     assert "dependency-attribute-grammar-chart" in ids
     assert "evolutionary-prose-genome" in ids
+    assert "bpe-dual-continuation" in ids
 
 
 def test_latest_artifacts_were_preflighted_before_self_registration():
     root = Path(__file__).parents[1]
     registry_count = len(json.loads((root / "docs/experiment-novelty-registry.json").read_text())["entries"])
-    for name in ("evolutionary-prose-genome-20260915.json", "dependency-attribute-grammar-chart-20260915.json"):
+    for name in ("evolutionary-prose-genome-20260915.json", "dependency-attribute-grammar-chart-20260915.json", "bpe-dual-continuation-20260915.json"):
         audit = json.loads((root / "runs" / name).read_text())["novelty_audit"]
         # Later distinct experiments may register after this artifact was
         # produced; the preflight count must be a prior snapshot, not an

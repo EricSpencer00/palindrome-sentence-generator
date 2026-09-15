@@ -1,0 +1,3141 @@
+{
+  "experiment_id": "bpe-dual-continuation",
+  "signature": "gpt2-byte-pair-token-lattice|ordinary-reading-order-dual-continuation|token-piece-character-residual|agreement-filtered-clause-grammar|held-out-seam-vocabulary-repair|independent-token-emission",
+  "method": "joint ordinary-order clause continuation over GPT-2 BPE pieces; left clauses are independently sampled from a typed agreement grammar, while right BPE pieces consume the reversed left character residual",
+  "configuration": {
+    "seed": 20260915,
+    "templates": {
+      "svo": [
+        "det",
+        "adj",
+        "subject",
+        "verb",
+        "obj_det",
+        "object"
+      ],
+      "svo_pp": [
+        "det",
+        "adj",
+        "subject",
+        "verb",
+        "obj_det",
+        "object",
+        "prep",
+        "place_det",
+        "place"
+      ]
+    },
+    "left_clause_cap": 900,
+    "base_right_bank": {
+      "det": 4,
+      "adj": 5,
+      "subject": 6,
+      "verb": 8,
+      "obj_det": 2,
+      "object": 8,
+      "prep": 5,
+      "place_det": 4,
+      "place": 6
+    },
+    "held_out_repair_bank": {
+      "det": 4,
+      "adj": 5,
+      "subject": 6,
+      "verb": 8,
+      "obj_det": 2,
+      "object": 14,
+      "prep": 5,
+      "place_det": 4,
+      "place": 6
+    },
+    "tokenizer": "gpt2-local-cache",
+    "bpe_vocab_sha256": "79ff2372d75e36ad401b44e1a72214636dfdcc4ddeeefa498463b0a3b2a5fd76",
+    "min_letters": 39,
+    "max_letters": 180
+  },
+  "novelty_audit": {
+    "registry_entries_read_before_run": 48,
+    "prior_ids_read": [
+      "typed-semordnilap",
+      "global-brown-pos",
+      "typed-lexical-graph",
+      "brown-attested-svo",
+      "brown-two-svo-attachments",
+      "brown-cross-clause",
+      "brown-shared-relative",
+      "brown-two-relative-chain",
+      "brown-two-relative-attachment",
+      "brown-shared-coref-attachment",
+      "brown-bounded-repair",
+      "brown-joint-relation-repair",
+      "brown-relative-topology",
+      "brown-coreferent-variable-pp",
+      "event-frame-independent-relexicalization",
+      "fresh-paired-clause-ledger",
+      "character-ledger-promptbank",
+      "two-event-discourse-frame",
+      "connective-bearing-event-pair",
+      "constrained-reverse-lexical-v2",
+      "connective-semantic-class-event-pair",
+      "relation-graph-event-pair",
+      "two-edge-event-micrograph",
+      "dialogue-acknowledgment-residual-inventory",
+      "dialogue-elliptical-ack-residual-inventory",
+      "dialogue-shared-topic-elliptical-residual",
+      "multiword-unit-transducer-local-repair",
+      "morphological-derivational-seam",
+      "cp-semantic-grammar-palindrome",
+      "clause-lattice-joint-dp",
+      "character-clause-fst-joint-emission",
+      "scene-slot-graph-residual",
+      "two-bank-word-equation-seam-dp",
+      "seam-first-complete-clause-authoring",
+      "semantic-dependency-outside-in",
+      "synchronous-semantic-parse-equations",
+      "internal-center-window-repair",
+      "discourse-plan-coupled-expansion",
+      "collocation-synchronous-grammar",
+      "human-compositional-center-window",
+      "global-semantic-paraphrase-rewrite",
+      "collocation-graph-path",
+      "semantic-sentence-pair-alignment",
+      "template-analogy-semantic-lexicalization",
+      "neural-dual-prefix-beam-v2",
+      "dependency-attribute-grammar-chart",
+      "evolutionary-prose-genome",
+      "grammar-intersection-chart"
+    ],
+    "exact_signature_overlap": [],
+    "exact_artifact_overlap": [],
+    "explicitly_excluded_routes": [
+      "neural-dual-prefix-beam-v2",
+      "constrained-reverse-lexical-v2",
+      "character-clause-fst-joint-emission",
+      "clause-lattice-joint-dp",
+      "centerout"
+    ],
+    "counted_as_new": true,
+    "novel_dimension": "GPT-2 BPE token pieces are the emission alphabet; ordinary-order right decoding consumes a character residual while typed grammar and number agreement remain live"
+  },
+  "stats": {
+    "left_clauses": 900,
+    "base_targets": 900,
+    "base_states": 1800,
+    "base_token_prunes": 7200,
+    "base_exact": 0,
+    "repair_targets": 900,
+    "repair_states": 1800,
+    "repair_token_prunes": 7200,
+    "repair_exact": 0
+  },
+  "rendered_candidates": [
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "Our young poet carries a lantern near a meadow. some gentle baker watches the cottage.",
+      "letters": 70,
+      "mismatched_pairs": 34,
+      "left_bpe_ids": [
+        674,
+        1862,
+        21810,
+        10732,
+        257,
+        41207,
+        1474,
+        257,
+        502,
+        4584
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        46412,
+        16860,
+        262,
+        36856
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 70,
+        "pairs_checked": 35,
+        "mismatch_count": 34,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 69,
+            "left": "o",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 68,
+            "left": "u",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 67,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 66,
+            "left": "y",
+            "right": "t"
+          },
+          {
+            "left_index": 4,
+            "right_index": 65,
+            "left": "o",
+            "right": "t"
+          }
+        ],
+        "normalized_sha256": "9712ff891c9adbd0ae1b5971cbcef16088af0be4fae9efc58908b804f5aa6ef9"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 4.67,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "Our young poet carries a lantern near a meadow. some gentle baker watches the cottage toward a coast.",
+      "letters": 82,
+      "mismatched_pairs": 40,
+      "left_bpe_ids": [
+        674,
+        1862,
+        21810,
+        10732,
+        257,
+        41207,
+        1474,
+        257,
+        502,
+        4584
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        46412,
+        16860,
+        262,
+        36856,
+        3812,
+        257,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 82,
+        "pairs_checked": 41,
+        "mismatch_count": 40,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 81,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 80,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 79,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 78,
+            "left": "y",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 77,
+            "left": "o",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "c644717efce5b76a4ddfb4c06d9ac25dad2c53a26e3aca7baf62ec9c4ca5f921"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 18,
+        "mean_word_length": 4.56,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "The careful artists guide the harbor behind the tower. some gentle keepers watch the compass.",
+      "letters": 77,
+      "mismatched_pairs": 37,
+      "left_bpe_ids": [
+        262,
+        8161,
+        7912,
+        5698,
+        262,
+        25451,
+        2157,
+        262,
+        10580
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        1394,
+        364,
+        2342,
+        262,
+        31855
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 77,
+        "pairs_checked": 38,
+        "mismatch_count": 37,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 76,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "left_index": 1,
+            "right_index": 75,
+            "left": "h",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 74,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 73,
+            "left": "c",
+            "right": "p"
+          },
+          {
+            "left_index": 4,
+            "right_index": 72,
+            "left": "a",
+            "right": "m"
+          }
+        ],
+        "normalized_sha256": "370ba7186faf19e31fd6836e310c50f6a568f9b44dab4cc3ee1c598c8230c945"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 5.13,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "The careful artists guide the harbor behind the tower. some gentle keepers watch the compass around some coast.",
+      "letters": 92,
+      "mismatched_pairs": 40,
+      "left_bpe_ids": [
+        262,
+        8161,
+        7912,
+        5698,
+        262,
+        25451,
+        2157,
+        262,
+        10580
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        1394,
+        364,
+        2342,
+        262,
+        31855,
+        1088,
+        617,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 92,
+        "pairs_checked": 46,
+        "mismatch_count": 40,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 90,
+            "left": "h",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 89,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 88,
+            "left": "c",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 87,
+            "left": "a",
+            "right": "c"
+          },
+          {
+            "left_index": 5,
+            "right_index": 86,
+            "left": "r",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "f9ab98c1d1c35ebaab37542c54300e9453ab0fcbab190f281321545549b5ad27"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 18,
+        "mean_word_length": 5.11,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "held_out_seam_repair",
+      "template": "svo",
+      "rendered": "The careful artists guide the harbor behind the tower. some gentle keepers watch the portrait.",
+      "letters": 78,
+      "mismatched_pairs": 34,
+      "left_bpe_ids": [
+        262,
+        8161,
+        7912,
+        5698,
+        262,
+        25451,
+        2157,
+        262,
+        10580
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        1394,
+        364,
+        2342,
+        262,
+        18560
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 78,
+        "pairs_checked": 39,
+        "mismatch_count": 34,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 76,
+            "left": "h",
+            "right": "i"
+          },
+          {
+            "left_index": 2,
+            "right_index": 75,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 74,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 4,
+            "right_index": 73,
+            "left": "a",
+            "right": "t"
+          },
+          {
+            "left_index": 6,
+            "right_index": 71,
+            "left": "e",
+            "right": "o"
+          }
+        ],
+        "normalized_sha256": "af4d387158d14c9af18029064416e8d698380a6aae04b0bb1668be125d35b5c1"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 5.2,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "held_out_seam_repair",
+      "template": "svo_pp",
+      "rendered": "The careful artists guide the harbor behind the tower. some gentle keepers watch the portrait beside some harbor.",
+      "letters": 94,
+      "mismatched_pairs": 41,
+      "left_bpe_ids": [
+        262,
+        8161,
+        7912,
+        5698,
+        262,
+        25451,
+        2157,
+        262,
+        10580
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        1394,
+        364,
+        2342,
+        262,
+        18560,
+        13970,
+        617,
+        25451
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 94,
+        "pairs_checked": 47,
+        "mismatch_count": 41,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 93,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 92,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 91,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 90,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 88,
+            "left": "r",
+            "right": "h"
+          }
+        ],
+        "normalized_sha256": "c8874c30aed02c78391271aeec8fa7e6ce6b2ffee1c46b10ce5bf1293c2610ca"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 18,
+        "mean_word_length": 5.22,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "The young nurse opens the letter under our meadow. some gentle teacher watches the message.",
+      "letters": 75,
+      "mismatched_pairs": 32,
+      "left_bpe_ids": [
+        262,
+        1862,
+        15849,
+        9808,
+        262,
+        3850,
+        739,
+        674,
+        502,
+        4584
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        4701,
+        16860,
+        262,
+        3275
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 75,
+        "pairs_checked": 37,
+        "mismatch_count": 32,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 74,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 73,
+            "left": "h",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 72,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 71,
+            "left": "y",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 70,
+            "left": "o",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "132421bae235daa6d2e6c33bbf5afe2c27195cf76e4f2c2d86a940eb85fcea32"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 5.0,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "The young nurse opens the letter under our meadow. some gentle teacher watches the message around the coast.",
+      "letters": 89,
+      "mismatched_pairs": 38,
+      "left_bpe_ids": [
+        262,
+        1862,
+        15849,
+        9808,
+        262,
+        3850,
+        739,
+        674,
+        502,
+        4584
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        4701,
+        16860,
+        262,
+        3275,
+        1088,
+        262,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 89,
+        "pairs_checked": 44,
+        "mismatch_count": 38,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 87,
+            "left": "h",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 86,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 85,
+            "left": "y",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 84,
+            "left": "o",
+            "right": "c"
+          },
+          {
+            "left_index": 5,
+            "right_index": 83,
+            "left": "u",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "b2028b52d6e33ab1ee5ee2ee66859983093e9cfe18c4c6a3c2be12d32c718074"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 18,
+        "mean_word_length": 4.94,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "A patient nurse carries a harbor under a river. some silent writers watch the basket.",
+      "letters": 69,
+      "mismatched_pairs": 32,
+      "left_bpe_ids": [
+        257,
+        5827,
+        15849,
+        10732,
+        257,
+        25451,
+        739,
+        257,
+        7850
+      ],
+      "right_bpe_ids": [
+        617,
+        10574,
+        8786,
+        2342,
+        262,
+        7988
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 69,
+        "pairs_checked": 34,
+        "mismatch_count": 32,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 68,
+            "left": "a",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 67,
+            "left": "p",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 66,
+            "left": "a",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 65,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 64,
+            "left": "i",
+            "right": "a"
+          }
+        ],
+        "normalized_sha256": "39029c36f6330d604e595b99d92541a393c4800964d18efd46a784bee7f47553"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 4.6,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "A patient nurse carries a harbor under a river. some silent writers watch the basket beside a coast.",
+      "letters": 81,
+      "mismatched_pairs": 35,
+      "left_bpe_ids": [
+        257,
+        5827,
+        15849,
+        10732,
+        257,
+        25451,
+        739,
+        257,
+        7850
+      ],
+      "right_bpe_ids": [
+        617,
+        10574,
+        8786,
+        2342,
+        262,
+        7988,
+        13970,
+        257,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 81,
+        "pairs_checked": 40,
+        "mismatch_count": 35,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 80,
+            "left": "a",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 79,
+            "left": "p",
+            "right": "s"
+          },
+          {
+            "left_index": 3,
+            "right_index": 77,
+            "left": "t",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 76,
+            "left": "i",
+            "right": "c"
+          },
+          {
+            "left_index": 5,
+            "right_index": 75,
+            "left": "e",
+            "right": "a"
+          }
+        ],
+        "normalized_sha256": "0326e858475982cbe5dcfb3fcc772607bd4ee51853f5743ee6e3337957fd4823"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 18,
+        "mean_word_length": 4.5,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "held_out_seam_repair",
+      "template": "svo",
+      "rendered": "A patient nurse carries a harbor under a river. some silent writers watch the portrait.",
+      "letters": 71,
+      "mismatched_pairs": 31,
+      "left_bpe_ids": [
+        257,
+        5827,
+        15849,
+        10732,
+        257,
+        25451,
+        739,
+        257,
+        7850
+      ],
+      "right_bpe_ids": [
+        617,
+        10574,
+        8786,
+        2342,
+        262,
+        18560
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 71,
+        "pairs_checked": 35,
+        "mismatch_count": 31,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 70,
+            "left": "a",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 69,
+            "left": "p",
+            "right": "i"
+          },
+          {
+            "left_index": 3,
+            "right_index": 67,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 4,
+            "right_index": 66,
+            "left": "i",
+            "right": "t"
+          },
+          {
+            "left_index": 5,
+            "right_index": 65,
+            "left": "e",
+            "right": "r"
+          }
+        ],
+        "normalized_sha256": "d44094411d863792c523376fc1880803a900b3b0e63b838430ba636363cb14d9"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 4.73,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "held_out_seam_repair",
+      "template": "svo_pp",
+      "rendered": "A patient nurse carries a harbor under a river. some silent writers watch the portrait inside a coast.",
+      "letters": 83,
+      "mismatched_pairs": 35,
+      "left_bpe_ids": [
+        257,
+        5827,
+        15849,
+        10732,
+        257,
+        25451,
+        739,
+        257,
+        7850
+      ],
+      "right_bpe_ids": [
+        617,
+        10574,
+        8786,
+        2342,
+        262,
+        18560,
+        2641,
+        257,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 83,
+        "pairs_checked": 41,
+        "mismatch_count": 35,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 82,
+            "left": "a",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 81,
+            "left": "p",
+            "right": "s"
+          },
+          {
+            "left_index": 3,
+            "right_index": 79,
+            "left": "t",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 78,
+            "left": "i",
+            "right": "c"
+          },
+          {
+            "left_index": 5,
+            "right_index": 77,
+            "left": "e",
+            "right": "a"
+          }
+        ],
+        "normalized_sha256": "f1b724697e434e315de7a56411e0a8c48a0f7ff3b1f7e09bc190abad94bdb4fd"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 18,
+        "mean_word_length": 4.61,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "Our patient farmer opens a parcel behind the station. some silent writers sort the message.",
+      "letters": 75,
+      "mismatched_pairs": 33,
+      "left_bpe_ids": [
+        674,
+        5827,
+        18739,
+        9808,
+        257,
+        25232,
+        2157,
+        262,
+        4429
+      ],
+      "right_bpe_ids": [
+        617,
+        10574,
+        8786,
+        3297,
+        262,
+        3275
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 75,
+        "pairs_checked": 37,
+        "mismatch_count": 33,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 74,
+            "left": "o",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 73,
+            "left": "u",
+            "right": "g"
+          },
+          {
+            "left_index": 2,
+            "right_index": 72,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 71,
+            "left": "p",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 70,
+            "left": "a",
+            "right": "s"
+          }
+        ],
+        "normalized_sha256": "5586a272e212e450a6a0010b937066af31928b4d79bad6c5d75ae7e5cbc41e39"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 5.0,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "Our patient farmer opens a parcel behind the station. some silent writers sort the message beside some coast.",
+      "letters": 90,
+      "mismatched_pairs": 45,
+      "left_bpe_ids": [
+        674,
+        5827,
+        18739,
+        9808,
+        257,
+        25232,
+        2157,
+        262,
+        4429
+      ],
+      "right_bpe_ids": [
+        617,
+        10574,
+        8786,
+        3297,
+        262,
+        3275,
+        13970,
+        617,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 90,
+        "pairs_checked": 45,
+        "mismatch_count": 45,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 89,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 88,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 87,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 86,
+            "left": "p",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 85,
+            "left": "a",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "64cc75a6058a9d86858ac77ee9697116031b6e37ec2055791e78e227404471bf"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 18,
+        "mean_word_length": 5.0,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "held_out_seam_repair",
+      "template": "svo",
+      "rendered": "Our patient farmer opens a parcel behind the station. some silent writers sort the record.",
+      "letters": 74,
+      "mismatched_pairs": 35,
+      "left_bpe_ids": [
+        674,
+        5827,
+        18739,
+        9808,
+        257,
+        25232,
+        2157,
+        262,
+        4429
+      ],
+      "right_bpe_ids": [
+        617,
+        10574,
+        8786,
+        3297,
+        262,
+        1700
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 74,
+        "pairs_checked": 37,
+        "mismatch_count": 35,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 73,
+            "left": "o",
+            "right": "d"
+          },
+          {
+            "left_index": 1,
+            "right_index": 72,
+            "left": "u",
+            "right": "r"
+          },
+          {
+            "left_index": 2,
+            "right_index": 71,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "left_index": 3,
+            "right_index": 70,
+            "left": "p",
+            "right": "c"
+          },
+          {
+            "left_index": 4,
+            "right_index": 69,
+            "left": "a",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "72db4aef48e7a15bdf6a9e358affce45c86f5bfbc7d3257c52dcbc93c019268f"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 4.93,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "held_out_seam_repair",
+      "template": "svo_pp",
+      "rendered": "Our patient farmer opens a parcel behind the station. some silent writers sort the record around some school.",
+      "letters": 90,
+      "mismatched_pairs": 45,
+      "left_bpe_ids": [
+        674,
+        5827,
+        18739,
+        9808,
+        257,
+        25232,
+        2157,
+        262,
+        4429
+      ],
+      "right_bpe_ids": [
+        617,
+        10574,
+        8786,
+        3297,
+        262,
+        1700,
+        1088,
+        617,
+        1524
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 90,
+        "pairs_checked": 45,
+        "mismatch_count": 45,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 89,
+            "left": "o",
+            "right": "l"
+          },
+          {
+            "left_index": 1,
+            "right_index": 88,
+            "left": "u",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 87,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "left_index": 3,
+            "right_index": 86,
+            "left": "p",
+            "right": "h"
+          },
+          {
+            "left_index": 4,
+            "right_index": 85,
+            "left": "a",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "43f553cb68aeef84bfc448deb06a958664e8b74d1bf354e2d4b4aea253448043"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 18,
+        "mean_word_length": 5.0,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "The bright pilots carry one bridge behind our meadow. some gentle teacher sorts the basket.",
+      "letters": 75,
+      "mismatched_pairs": 33,
+      "left_bpe_ids": [
+        262,
+        6016,
+        14982,
+        3283,
+        530,
+        7696,
+        2157,
+        674,
+        502,
+        4584
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        4701,
+        10524,
+        262,
+        7988
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 75,
+        "pairs_checked": 37,
+        "mismatch_count": 33,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 73,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 72,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 71,
+            "left": "b",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 70,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 5,
+            "right_index": 69,
+            "left": "i",
+            "right": "b"
+          }
+        ],
+        "normalized_sha256": "9259801b39f33416d88a330abd6c60efb4b2245bfbb71aa3da9d1022f412e2ef"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 5.0,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "The bright pilots carry one bridge behind our meadow. some gentle teacher sorts the basket beside some coast.",
+      "letters": 90,
+      "mismatched_pairs": 42,
+      "left_bpe_ids": [
+        262,
+        6016,
+        14982,
+        3283,
+        530,
+        7696,
+        2157,
+        674,
+        502,
+        4584
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        4701,
+        10524,
+        262,
+        7988,
+        13970,
+        617,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 90,
+        "pairs_checked": 45,
+        "mismatch_count": 42,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 88,
+            "left": "h",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 87,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 86,
+            "left": "b",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 85,
+            "left": "r",
+            "right": "c"
+          },
+          {
+            "left_index": 5,
+            "right_index": 84,
+            "left": "i",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "b3e038c901a4aace233161ef9ccc5c30931409245567463764341e5bfddbcde7"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 18,
+        "mean_word_length": 5.0,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "held_out_seam_repair",
+      "template": "svo",
+      "rendered": "The bright pilots carry one bridge behind our meadow. some gentle teacher sorts the orchard.",
+      "letters": 76,
+      "mismatched_pairs": 33,
+      "left_bpe_ids": [
+        262,
+        6016,
+        14982,
+        3283,
+        530,
+        7696,
+        2157,
+        674,
+        502,
+        4584
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        4701,
+        10524,
+        262,
+        393,
+        30215
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 76,
+        "pairs_checked": 38,
+        "mismatch_count": 33,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 75,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "left_index": 1,
+            "right_index": 74,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "left_index": 2,
+            "right_index": 73,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 72,
+            "left": "b",
+            "right": "h"
+          },
+          {
+            "left_index": 4,
+            "right_index": 71,
+            "left": "r",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "2b6a4dd5f530a77c8176a2195e44f1ba1809ed8cc020134e1f4174229a49ef8b"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 5.07,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "held_out_seam_repair",
+      "template": "svo_pp",
+      "rendered": "The bright pilots carry one bridge behind our meadow. some gentle teacher sorts the orchard beside some harbor.",
+      "letters": 92,
+      "mismatched_pairs": 45,
+      "left_bpe_ids": [
+        262,
+        6016,
+        14982,
+        3283,
+        530,
+        7696,
+        2157,
+        674,
+        502,
+        4584
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        4701,
+        10524,
+        262,
+        393,
+        30215,
+        13970,
+        617,
+        25451
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 92,
+        "pairs_checked": 46,
+        "mismatch_count": 45,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 91,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 90,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 89,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 88,
+            "left": "b",
+            "right": "r"
+          },
+          {
+            "left_index": 4,
+            "right_index": 87,
+            "left": "r",
+            "right": "a"
+          }
+        ],
+        "normalized_sha256": "eb8d17afca3c760e32f34baaee07e1e45ce142c2f878edfbf4811408b5b7fd73"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 18,
+        "mean_word_length": 5.11,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "The quiet poet guides a harbor. some gentle writers help the book.",
+      "letters": 53,
+      "mismatched_pairs": 26,
+      "left_bpe_ids": [
+        262,
+        5897,
+        21810,
+        17555,
+        257,
+        25451
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        8786,
+        1037,
+        262,
+        1492
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 53,
+        "pairs_checked": 26,
+        "mismatch_count": 26,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 52,
+            "left": "t",
+            "right": "k"
+          },
+          {
+            "left_index": 1,
+            "right_index": 51,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 50,
+            "left": "e",
+            "right": "o"
+          },
+          {
+            "left_index": 3,
+            "right_index": 49,
+            "left": "q",
+            "right": "b"
+          },
+          {
+            "left_index": 4,
+            "right_index": 48,
+            "left": "u",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "9c9566c035aa5ad3a9e686bc4b6771aa88ac2ca602c1767284b21445bca0dd2a"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.42,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "The quiet poet guides a harbor. some gentle writers help the book beside a coast.",
+      "letters": 65,
+      "mismatched_pairs": 26,
+      "left_bpe_ids": [
+        262,
+        5897,
+        21810,
+        17555,
+        257,
+        25451
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        8786,
+        1037,
+        262,
+        1492,
+        13970,
+        257,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 65,
+        "pairs_checked": 32,
+        "mismatch_count": 26,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 63,
+            "left": "h",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 62,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 61,
+            "left": "q",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 60,
+            "left": "u",
+            "right": "c"
+          },
+          {
+            "left_index": 5,
+            "right_index": 59,
+            "left": "i",
+            "right": "a"
+          }
+        ],
+        "normalized_sha256": "e241e5a1207529d9cae220cdf96f72b9b3ab76718b0ec541941b745626c12338"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 4.33,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "Our young sailor carries one garden. some steady teacher helps one basket.",
+      "letters": 61,
+      "mismatched_pairs": 28,
+      "left_bpe_ids": [
+        674,
+        1862,
+        43272,
+        10732,
+        530,
+        11376
+      ],
+      "right_bpe_ids": [
+        617,
+        11831,
+        4701,
+        5419,
+        530,
+        7988
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 61,
+        "pairs_checked": 30,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 60,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 59,
+            "left": "u",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 58,
+            "left": "r",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 57,
+            "left": "y",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 56,
+            "left": "o",
+            "right": "a"
+          }
+        ],
+        "normalized_sha256": "77d56e4739cdd84fa85204b62dea09329dd2587907667ae24e3e95dc2d307a92"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 5.08,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "Our young sailor carries one garden. some steady teacher helps one basket beside a coast.",
+      "letters": 73,
+      "mismatched_pairs": 35,
+      "left_bpe_ids": [
+        674,
+        1862,
+        43272,
+        10732,
+        530,
+        11376
+      ],
+      "right_bpe_ids": [
+        617,
+        11831,
+        4701,
+        5419,
+        530,
+        7988,
+        13970,
+        257,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 73,
+        "pairs_checked": 36,
+        "mismatch_count": 35,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 72,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 71,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 70,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 69,
+            "left": "y",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 68,
+            "left": "o",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "852cd5c55095a9c1d67126c871f80c5895fff48674706cc0b6dbdbdaaf959948"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 4.87,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "held_out_seam_repair",
+      "template": "svo",
+      "rendered": "Our young sailor carries one garden. some steady teacher helps one orchard.",
+      "letters": 62,
+      "mismatched_pairs": 30,
+      "left_bpe_ids": [
+        674,
+        1862,
+        43272,
+        10732,
+        530,
+        11376
+      ],
+      "right_bpe_ids": [
+        617,
+        11831,
+        4701,
+        5419,
+        530,
+        393,
+        30215
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 62,
+        "pairs_checked": 31,
+        "mismatch_count": 30,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 61,
+            "left": "o",
+            "right": "d"
+          },
+          {
+            "left_index": 1,
+            "right_index": 60,
+            "left": "u",
+            "right": "r"
+          },
+          {
+            "left_index": 2,
+            "right_index": 59,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 58,
+            "left": "y",
+            "right": "h"
+          },
+          {
+            "left_index": 4,
+            "right_index": 57,
+            "left": "o",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "537aa66c001cc2c92de8c43e2a956c654f331fc3aa53d722d6d38f2b94fa644b"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 5.17,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "held_out_seam_repair",
+      "template": "svo_pp",
+      "rendered": "Our young sailor carries one garden. some steady teacher helps one orchard beside a coast.",
+      "letters": 74,
+      "mismatched_pairs": 32,
+      "left_bpe_ids": [
+        674,
+        1862,
+        43272,
+        10732,
+        530,
+        11376
+      ],
+      "right_bpe_ids": [
+        617,
+        11831,
+        4701,
+        5419,
+        530,
+        393,
+        30215,
+        13970,
+        257,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 74,
+        "pairs_checked": 37,
+        "mismatch_count": 32,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 73,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 72,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 71,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 70,
+            "left": "y",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 69,
+            "left": "o",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "510dd7f2b6a404b2c847d6546f93ccbe50fd40d2ba7c9e95b5eda24f666dd3ec"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 4.93,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "Our careful poet maps one garden. some steady captain watches the book.",
+      "letters": 58,
+      "mismatched_pairs": 29,
+      "left_bpe_ids": [
+        674,
+        8161,
+        21810,
+        8739,
+        530,
+        11376
+      ],
+      "right_bpe_ids": [
+        617,
+        11831,
+        10654,
+        16860,
+        262,
+        1492
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 58,
+        "pairs_checked": 29,
+        "mismatch_count": 29,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 57,
+            "left": "o",
+            "right": "k"
+          },
+          {
+            "left_index": 1,
+            "right_index": 56,
+            "left": "u",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 55,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "left_index": 3,
+            "right_index": 54,
+            "left": "c",
+            "right": "b"
+          },
+          {
+            "left_index": 4,
+            "right_index": 53,
+            "left": "a",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "8d871ade029aee85cd2fffacb1f2e7c02d8e76c93428d729a76ac92c0946152b"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.83,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "Our careful poet maps one garden. some steady captain watches the book beside a coast.",
+      "letters": 70,
+      "mismatched_pairs": 32,
+      "left_bpe_ids": [
+        674,
+        8161,
+        21810,
+        8739,
+        530,
+        11376
+      ],
+      "right_bpe_ids": [
+        617,
+        11831,
+        10654,
+        16860,
+        262,
+        1492,
+        13970,
+        257,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 70,
+        "pairs_checked": 35,
+        "mismatch_count": 32,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 69,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 68,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 67,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 66,
+            "left": "c",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 65,
+            "left": "a",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "5cabb11707dc4b75536da7969bc9d1e11bdedf369648fb3b800d00ed3da6648d"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 4.67,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "Our patient farmer maps one lantern. the gentle captain watches the picture.",
+      "letters": 63,
+      "mismatched_pairs": 28,
+      "left_bpe_ids": [
+        674,
+        5827,
+        18739,
+        8739,
+        530,
+        41207
+      ],
+      "right_bpe_ids": [
+        262,
+        10296,
+        10654,
+        16860,
+        262,
+        4286
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 63,
+        "pairs_checked": 31,
+        "mismatch_count": 28,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 62,
+            "left": "o",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 61,
+            "left": "u",
+            "right": "r"
+          },
+          {
+            "left_index": 2,
+            "right_index": 60,
+            "left": "r",
+            "right": "u"
+          },
+          {
+            "left_index": 3,
+            "right_index": 59,
+            "left": "p",
+            "right": "t"
+          },
+          {
+            "left_index": 4,
+            "right_index": 58,
+            "left": "a",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "afaa9897ecdc83fcd1301b89b39d6a2574dc0d7f6bac944dd1d741fc12de8075"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 5.25,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "Our patient farmer maps one lantern. the gentle captain watches the picture beside a coast.",
+      "letters": 75,
+      "mismatched_pairs": 34,
+      "left_bpe_ids": [
+        674,
+        5827,
+        18739,
+        8739,
+        530,
+        41207
+      ],
+      "right_bpe_ids": [
+        262,
+        10296,
+        10654,
+        16860,
+        262,
+        4286,
+        13970,
+        257,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 75,
+        "pairs_checked": 37,
+        "mismatch_count": 34,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 74,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 73,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 72,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 71,
+            "left": "p",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 70,
+            "left": "a",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "00c1a87c0a8819dcdfd571fd7ea96c51d0f4d66705062aebd83ab23bf9a49a8b"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 5.0,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "held_out_seam_repair",
+      "template": "svo",
+      "rendered": "Our patient farmer maps one lantern. the gentle captain watches the record.",
+      "letters": 62,
+      "mismatched_pairs": 30,
+      "left_bpe_ids": [
+        674,
+        5827,
+        18739,
+        8739,
+        530,
+        41207
+      ],
+      "right_bpe_ids": [
+        262,
+        10296,
+        10654,
+        16860,
+        262,
+        1700
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 62,
+        "pairs_checked": 31,
+        "mismatch_count": 30,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 61,
+            "left": "o",
+            "right": "d"
+          },
+          {
+            "left_index": 1,
+            "right_index": 60,
+            "left": "u",
+            "right": "r"
+          },
+          {
+            "left_index": 2,
+            "right_index": 59,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "left_index": 3,
+            "right_index": 58,
+            "left": "p",
+            "right": "c"
+          },
+          {
+            "left_index": 4,
+            "right_index": 57,
+            "left": "a",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "ee80f605510492b31cfa6d36d1a6500e6f6b14d79af29b671e83e164a0c0bb73"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 5.17,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "held_out_seam_repair",
+      "template": "svo_pp",
+      "rendered": "Our patient farmer maps one lantern. the gentle captain watches the record beside a coast.",
+      "letters": 74,
+      "mismatched_pairs": 36,
+      "left_bpe_ids": [
+        674,
+        5827,
+        18739,
+        8739,
+        530,
+        41207
+      ],
+      "right_bpe_ids": [
+        262,
+        10296,
+        10654,
+        16860,
+        262,
+        1700,
+        13970,
+        257,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 74,
+        "pairs_checked": 37,
+        "mismatch_count": 36,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 73,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 72,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 71,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 70,
+            "left": "p",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 69,
+            "left": "a",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "798d04a230472d7129f7085ecb0d330d802be7af6d6bcb6b56435794a9d01b47"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 4.93,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "The quiet sailor maps a garden under a river. some silent keepers watch the basket.",
+      "letters": 67,
+      "mismatched_pairs": 29,
+      "left_bpe_ids": [
+        262,
+        5897,
+        43272,
+        8739,
+        257,
+        11376,
+        739,
+        257,
+        7850
+      ],
+      "right_bpe_ids": [
+        617,
+        10574,
+        1394,
+        364,
+        2342,
+        262,
+        7988
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 67,
+        "pairs_checked": 33,
+        "mismatch_count": 29,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 65,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 64,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 63,
+            "left": "q",
+            "right": "s"
+          },
+          {
+            "left_index": 4,
+            "right_index": 62,
+            "left": "u",
+            "right": "a"
+          },
+          {
+            "left_index": 5,
+            "right_index": 61,
+            "left": "i",
+            "right": "b"
+          }
+        ],
+        "normalized_sha256": "ca16f1fbc6fa65d8362f94edd40952b729b4fe270936f563a887791bec0cd7e4"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 4.47,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "The quiet sailor maps a garden under a river. some silent keepers watch the basket beside a coast.",
+      "letters": 79,
+      "mismatched_pairs": 36,
+      "left_bpe_ids": [
+        262,
+        5897,
+        43272,
+        8739,
+        257,
+        11376,
+        739,
+        257,
+        7850
+      ],
+      "right_bpe_ids": [
+        617,
+        10574,
+        1394,
+        364,
+        2342,
+        262,
+        7988,
+        13970,
+        257,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 79,
+        "pairs_checked": 39,
+        "mismatch_count": 36,
+        "mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 77,
+            "left": "h",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 76,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 75,
+            "left": "q",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 74,
+            "left": "u",
+            "right": "c"
+          },
+          {
+            "left_index": 5,
+            "right_index": 73,
+            "left": "i",
+            "right": "a"
+          }
+        ],
+        "normalized_sha256": "47b968fb8ec8afee26bae90b82e2c2d064f8fdbcdfc053f73e9946616f0139eb"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 18,
+        "mean_word_length": 4.39,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "Our bright sailor opens one letter. some steady teacher watches the book.",
+      "letters": 60,
+      "mismatched_pairs": 25,
+      "left_bpe_ids": [
+        674,
+        6016,
+        43272,
+        9808,
+        530,
+        3850
+      ],
+      "right_bpe_ids": [
+        617,
+        11831,
+        4701,
+        16860,
+        262,
+        1492
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 60,
+        "pairs_checked": 30,
+        "mismatch_count": 25,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 59,
+            "left": "o",
+            "right": "k"
+          },
+          {
+            "left_index": 1,
+            "right_index": 58,
+            "left": "u",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 57,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 55,
+            "left": "r",
+            "right": "e"
+          },
+          {
+            "left_index": 5,
+            "right_index": 54,
+            "left": "i",
+            "right": "h"
+          }
+        ],
+        "normalized_sha256": "51944d9a9c44af1b3405a62157986296bb43f260c1c8b4457299cce86c556d1d"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 5.0,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "Our bright sailor opens one letter. some steady teacher watches the book beside a coast.",
+      "letters": 72,
+      "mismatched_pairs": 32,
+      "left_bpe_ids": [
+        674,
+        6016,
+        43272,
+        9808,
+        530,
+        3850
+      ],
+      "right_bpe_ids": [
+        617,
+        11831,
+        4701,
+        16860,
+        262,
+        1492,
+        13970,
+        257,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 72,
+        "pairs_checked": 36,
+        "mismatch_count": 32,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 71,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 70,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 69,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 68,
+            "left": "b",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 67,
+            "left": "r",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "1e0b01f272abf6f484e5fe0dc0cc4dd2a17b2ff5e08a0a70e02689d35eafbcb3"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 4.8,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "Our careful nurse guides one letter near our meadow. some gentle keepers watch the picture.",
+      "letters": 75,
+      "mismatched_pairs": 35,
+      "left_bpe_ids": [
+        674,
+        8161,
+        15849,
+        17555,
+        530,
+        3850,
+        1474,
+        674,
+        502,
+        4584
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        1394,
+        364,
+        2342,
+        262,
+        4286
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 75,
+        "pairs_checked": 37,
+        "mismatch_count": 35,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 74,
+            "left": "o",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 73,
+            "left": "u",
+            "right": "r"
+          },
+          {
+            "left_index": 2,
+            "right_index": 72,
+            "left": "r",
+            "right": "u"
+          },
+          {
+            "left_index": 3,
+            "right_index": 71,
+            "left": "c",
+            "right": "t"
+          },
+          {
+            "left_index": 4,
+            "right_index": 70,
+            "left": "a",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "4a7de756ce57e16a8918723c773dd6ba969847e1e26b5e75b2995a7a18439354"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 5.0,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "Our careful nurse guides one letter near our meadow. some gentle keepers watch the picture beside the coast.",
+      "letters": 89,
+      "mismatched_pairs": 40,
+      "left_bpe_ids": [
+        674,
+        8161,
+        15849,
+        17555,
+        530,
+        3850,
+        1474,
+        674,
+        502,
+        4584
+      ],
+      "right_bpe_ids": [
+        617,
+        10296,
+        1394,
+        364,
+        2342,
+        262,
+        4286,
+        13970,
+        262,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 89,
+        "pairs_checked": 44,
+        "mismatch_count": 40,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 88,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 87,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 86,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 85,
+            "left": "c",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 84,
+            "left": "a",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "980e1f01d29ec93a587436e1dc1b2ed82d97bc05fbd01e343a133f1ae0cae062"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 18,
+        "mean_word_length": 4.94,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo",
+      "rendered": "Our young farmer guides one signal. some steady writers watch the book.",
+      "letters": 58,
+      "mismatched_pairs": 26,
+      "left_bpe_ids": [
+        674,
+        1862,
+        18739,
+        17555,
+        530,
+        6737
+      ],
+      "right_bpe_ids": [
+        617,
+        11831,
+        8786,
+        2342,
+        262,
+        1492
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 58,
+        "pairs_checked": 29,
+        "mismatch_count": 26,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 57,
+            "left": "o",
+            "right": "k"
+          },
+          {
+            "left_index": 1,
+            "right_index": 56,
+            "left": "u",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 55,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "left_index": 3,
+            "right_index": 54,
+            "left": "y",
+            "right": "b"
+          },
+          {
+            "left_index": 4,
+            "right_index": 53,
+            "left": "o",
+            "right": "e"
+          }
+        ],
+        "normalized_sha256": "37ddd79492888b60b7ee3a55010e47605fa9383e72d8293c92a21840e5aba19c"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "mean_word_length": 4.83,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "phase": "base",
+      "template": "svo_pp",
+      "rendered": "Our young farmer guides one signal. some steady writers watch the book beside a coast.",
+      "letters": 70,
+      "mismatched_pairs": 35,
+      "left_bpe_ids": [
+        674,
+        1862,
+        18739,
+        17555,
+        530,
+        6737
+      ],
+      "right_bpe_ids": [
+        617,
+        11831,
+        8786,
+        2342,
+        262,
+        1492,
+        13970,
+        257,
+        7051
+      ],
+      "independent_two_pointer_audit": {
+        "exact": false,
+        "letters": 70,
+        "pairs_checked": 35,
+        "mismatch_count": 35,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 69,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 1,
+            "right_index": 68,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 67,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 66,
+            "left": "y",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 65,
+            "left": "o",
+            "right": "c"
+          }
+        ],
+        "normalized_sha256": "13f5e69a0c68e8c233a57efd54ae8b85af49bc4fe8895b3be93e6616dd49afb2"
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 15,
+        "mean_word_length": 4.67,
+        "content_word_ratio": 0.667,
+        "intact_prose_shape": true,
+        "blinded_human_readers_required": true
+      },
+      "reader_status": "not_run"
+    }
+  ],
+  "exact_candidates": [],
+  "repair_operator_after_failure": "At the first residual seam with no base BPE continuation, keep the left clause and grammar template fixed, add only held-out object lexemes with new BPE segmentations to the right inventory, then rerun ordinary-order token emission and the independent two-pointer audit. A future promotion run must expand held-out roles beyond objects and retain each seam trace.",
+  "provenance": {
+    "generator_sha256": "c4518e6d37334fb911874403f42872469674ad878838f1989af3eb144deb12d5",
+    "lexical_source": "fresh hand-authored disjoint role banks",
+    "source_text_copied": false,
+    "right_tape_reversed_or_copied": false,
+    "catalogue_text": false,
+    "readability_certificate": false
+  },
+  "reader_gate": {
+    "status": "not_run",
+    "reason": "No exact candidate was admitted; programmatic measures cannot certify readability. Any exact survivor requires intact-prose and shuffled-control blinded readers."
+  }
+}

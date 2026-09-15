@@ -884,3 +884,15 @@ item-aware analysis plan.
   The concrete next repair is a held-out typed relative-clause frontier at the
   deepest surviving chart items; the zero is not treated as an impossibility
   result or reader evidence.
+
+- **GPT-2 BPE dual continuation, 2026-09-15:** changed the search alphabet to
+  actual local-cache byte-pair pieces.  Nine-slot and six-slot complete SVO
+  clauses were sampled independently from disjoint agreement-filtered role
+  banks; each right-side BPE piece was emitted in ordinary reading order and
+  consumed the next character of the left clause's reversed residual.  The
+  bounded lattice covered 900 left clauses and 1,800 base/held-out-repair
+  targets, retaining 40 rendered near-miss probes and zero exact closures.
+  The concrete next operator is seam-triggered held-out expansion of the
+  right object inventory, followed by a fresh BPE-token residual run.  The
+  probes are intact prose controls only; no programmatic readability claim is
+  made.

@@ -202,6 +202,14 @@ human-rated intact prose—and may claim success only when both gates are met.
   closures and no candidate promotion. The next repair jointly changes a
   subject/object pair only when the replacement relation is Brown-attested.
 
+- **Attached-chain joint relation repair (2026-09-15).** A distinct repair
+  replaced a complete SVO relation, requiring at least two changed
+  subject/verb/object content slots and a Brown-attested replacement before
+  residual matching. It generated 239,768 repaired states (497 tape keys), all
+  residual misses, with zero exact closures and no promotion. The next search
+  must change attachment topology or boundary segmentation rather than repeat
+  relation repair.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

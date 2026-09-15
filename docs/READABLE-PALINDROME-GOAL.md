@@ -144,6 +144,13 @@ human-rated intact prose—and may claim success only when both gates are met.
   clauses and controlled conjunctions, retaining the punctuation-boundary
   residual state.
 
+- **Cross-clause dependency residual BFS (2026-09-15).** Relative-`who` and
+  controlled `and/or/but` frames were composed from independently attested SVO
+  relations, carrying relation identity, number, tense, dependency mode, and
+  connector through the residual key. It indexed 20,448 frames and had 20,448
+  residual misses, with zero pre-gate matches and zero exact closures. The
+  next repair is agreement-aware shared-subject/object relative attachment.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

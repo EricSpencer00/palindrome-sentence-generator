@@ -42,9 +42,9 @@ STATE_SPACE_SIGNATURE = (
 )
 MIN_LETTERS = 36
 MAX_LETTERS = 96
-# Exact-N is deliberately bounded to a sparse, reproducible target set.  The
-# grammar remains finite and exhaustive for each listed N; this avoids turning
-# a diagnostic artifact into an open-ended solver run.
+# Exact-N is deliberately bounded to a sparse, reproducible target set.  Each
+# listed N receives a fixed state budget; this avoids turning a diagnostic
+# artifact into an open-ended solver run.
 TARGET_LENGTHS = (40, 48, 56, 64, 72, 80)
 MAX_STATES = 2_500
 MAX_PROBES = 24
@@ -238,13 +238,17 @@ def _registry_comparison() -> dict[str, Any]:
     entries = payload.get("entries", [])
     same_signature = [e for e in entries if e.get("signature") == STATE_SPACE_SIGNATURE]
     same_family = [e for e in entries if e.get("id") == FAMILY_ID]
+    self_entries = [e for e in same_signature if e.get("id") == FAMILY_ID and e.get("artifact") == "experiments/cp_semantic_grammar_palindrome_20260915.py"]
+    other_signature = [e for e in same_signature if e not in self_entries]
+    other_family = [e for e in same_family if e not in self_entries]
     return {
         "registry_path": str(path),
-        "registry_entry_count": len(entries),
-        "expected_current_entry_count": 29,
-        "signature_collision": bool(same_signature),
-        "family_id_collision": bool(same_family),
-        "comparison": "unique_against_current_registry" if not same_signature and not same_family else "collision_requires_review",
+        "baseline_registry_entry_count": 29,
+        "registry_entry_count_at_generation": len(entries),
+        "registered_self_entry": bool(self_entries),
+        "signature_collision_with_other_entry": bool(other_signature),
+        "family_id_collision_with_other_entry": bool(other_family),
+        "comparison": "unique_against_current_registry_except_registered_self" if not other_signature and not other_family else "collision_requires_review",
         "changed_dimension": "one-hot semantic-rule/lexical-slot CSP with explicit global character variables and exact-N constraints",
     }
 
@@ -347,6 +351,7 @@ def solve_exact_n(rule: Rule, exact_n: int, *, state_limit: int, result_limit: i
             chosen.pop()
 
     visit(0, 0, domains)
+    stats["budget_exhausted"] = stats["states"] >= state_limit
     return results, dict(stats), deepest
 
 
@@ -414,6 +419,7 @@ def run(output: Path | None = None) -> dict[str, Any]:
             "catalogue_text": False,
             "brown_or_pos_source": False,
             "output_excluded_before_repository_scan": True,
+            "bounded_state_budget_is_not_global_exhaustion": True,
         },
         "grammar_rules": [{"rule_id": rule.rule_id, "meaning": rule.meaning, "slots": list(rule.slots), "semantic_roles": list(rule.semantic_roles)} for rule in RULES],
         "lexicon_sha256": hashlib.sha256(json.dumps({k: [x.__dict__ for x in v] for k, v in LEXICON.items()}, sort_keys=True).encode()).hexdigest(),

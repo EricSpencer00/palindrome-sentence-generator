@@ -4,11 +4,12 @@
   "state_space_signature": "finite-semantic-english-grammar|one-hot-rule-and-lexical-slot-csp|global-character-domain-equality|exact-N-satisfiability|joint-syntax-selection-not-reverse-segmentation",
   "registry_comparison": {
     "registry_path": "/Users/eric/GitHub/palindrome-sentence-generator/docs/experiment-novelty-registry.json",
-    "registry_entry_count": 29,
-    "expected_current_entry_count": 29,
-    "signature_collision": false,
-    "family_id_collision": false,
-    "comparison": "unique_against_current_registry",
+    "baseline_registry_entry_count": 29,
+    "registry_entry_count_at_generation": 31,
+    "registered_self_entry": true,
+    "signature_collision_with_other_entry": false,
+    "family_id_collision_with_other_entry": false,
+    "comparison": "unique_against_current_registry_except_registered_self",
     "changed_dimension": "one-hot semantic-rule/lexical-slot CSP with explicit global character variables and exact-N constraints"
   },
   "model_schema": {
@@ -57,7 +58,8 @@
     "content_units_unique_and_non_self_palindromic": true,
     "catalogue_text": false,
     "brown_or_pos_source": false,
-    "output_excluded_before_repository_scan": true
+    "output_excluded_before_repository_scan": true,
+    "bounded_state_budget_is_not_global_exhaustion": true
   },
   "grammar_rules": [
     {
@@ -149,11 +151,11 @@
   ],
   "lexicon_sha256": "278c896fd14ff107d2e76872bcca94500582a8b88441284b5e6db3b31ececc5f",
   "repository_fingerprint": {
-    "json_files_scanned": 1778,
+    "json_files_scanned": 1779,
     "malformed_json_files_skipped": 0,
-    "normalized_string_keys": 609885,
+    "normalized_string_keys": 609901,
     "palindrome_tape_keys": 109224,
-    "all_keys_sha256": "6694fd3d8acd5c815b1d75d62fead3cff464f22ca369538a930b39dc021f594e",
+    "all_keys_sha256": "00c31ca4ced9378ec77ad45b922bf7a2fd1f62f34cbeae26990bfd7dff0e196d",
     "palindrome_keys_sha256": "5a56921fc41843d0082d18d8e38099c93dcd8b21ae32e4f7a667ccf6c89d145f",
     "output_excluded_before_scan": true,
     "excluded_output": "runs/cp_semantic_grammar_palindrome_20260915.json"
@@ -164,7 +166,8 @@
     "character_contradictions": 156935,
     "length_contradictions": 689,
     "semantic_rejections": 11648,
-    "closed": 0
+    "closed": 0,
+    "budget_exhausted": 15
   },
   "target_runs": [
     {
@@ -176,7 +179,8 @@
         "character_contradictions": 5654,
         "length_contradictions": 0,
         "semantic_rejections": 44,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": false
       },
       "closures": 0,
       "deepest_probe_offset": 20
@@ -190,7 +194,8 @@
         "character_contradictions": 8752,
         "length_contradictions": 0,
         "semantic_rejections": 1048,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 24
@@ -204,7 +209,8 @@
         "character_contradictions": 10808,
         "length_contradictions": 0,
         "semantic_rejections": 1365,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 28
@@ -218,7 +224,8 @@
         "character_contradictions": 11667,
         "length_contradictions": 0,
         "semantic_rejections": 612,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 32
@@ -232,7 +239,8 @@
         "character_contradictions": 9946,
         "length_contradictions": 0,
         "semantic_rejections": 717,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 36
@@ -246,7 +254,8 @@
         "character_contradictions": 8193,
         "length_contradictions": 256,
         "semantic_rejections": 1523,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 40
@@ -260,7 +269,8 @@
         "character_contradictions": 6081,
         "length_contradictions": 0,
         "semantic_rejections": 46,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": false
       },
       "closures": 0,
       "deepest_probe_offset": 20
@@ -274,7 +284,8 @@
         "character_contradictions": 8918,
         "length_contradictions": 0,
         "semantic_rejections": 1104,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 24
@@ -288,7 +299,8 @@
         "character_contradictions": 10926,
         "length_contradictions": 0,
         "semantic_rejections": 1374,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 28
@@ -302,7 +314,8 @@
         "character_contradictions": 11726,
         "length_contradictions": 0,
         "semantic_rejections": 552,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 32
@@ -316,7 +329,8 @@
         "character_contradictions": 10195,
         "length_contradictions": 0,
         "semantic_rejections": 165,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 36
@@ -330,7 +344,8 @@
         "character_contradictions": 9069,
         "length_contradictions": 72,
         "semantic_rejections": 19,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 40
@@ -344,7 +359,8 @@
         "character_contradictions": 8216,
         "length_contradictions": 0,
         "semantic_rejections": 0,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": false
       },
       "closures": 0,
       "deepest_probe_offset": 20
@@ -358,7 +374,8 @@
         "character_contradictions": 5812,
         "length_contradictions": 0,
         "semantic_rejections": 230,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 24
@@ -372,7 +389,8 @@
         "character_contradictions": 9135,
         "length_contradictions": 0,
         "semantic_rejections": 1238,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 28
@@ -386,7 +404,8 @@
         "character_contradictions": 8262,
         "length_contradictions": 0,
         "semantic_rejections": 1190,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 32
@@ -400,7 +419,8 @@
         "character_contradictions": 6369,
         "length_contradictions": 0,
         "semantic_rejections": 297,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 36
@@ -414,7 +434,8 @@
         "character_contradictions": 7206,
         "length_contradictions": 361,
         "semantic_rejections": 124,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "closures": 0,
       "deepest_probe_offset": 40
@@ -466,7 +487,8 @@
         "character_contradictions": 7206,
         "length_contradictions": 361,
         "semantic_rejections": 124,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -609,7 +631,8 @@
         "character_contradictions": 8193,
         "length_contradictions": 256,
         "semantic_rejections": 1523,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -750,7 +773,8 @@
         "character_contradictions": 9069,
         "length_contradictions": 72,
         "semantic_rejections": 19,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -891,7 +915,8 @@
         "character_contradictions": 6369,
         "length_contradictions": 0,
         "semantic_rejections": 297,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -1030,7 +1055,8 @@
         "character_contradictions": 9946,
         "length_contradictions": 0,
         "semantic_rejections": 717,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -1169,7 +1195,8 @@
         "character_contradictions": 10195,
         "length_contradictions": 0,
         "semantic_rejections": 165,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -1308,7 +1335,8 @@
         "character_contradictions": 8262,
         "length_contradictions": 0,
         "semantic_rejections": 1190,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -1445,7 +1473,8 @@
         "character_contradictions": 11667,
         "length_contradictions": 0,
         "semantic_rejections": 612,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -1582,7 +1611,8 @@
         "character_contradictions": 11726,
         "length_contradictions": 0,
         "semantic_rejections": 552,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -1719,7 +1749,8 @@
         "character_contradictions": 9135,
         "length_contradictions": 0,
         "semantic_rejections": 1238,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -1856,7 +1887,8 @@
         "character_contradictions": 10808,
         "length_contradictions": 0,
         "semantic_rejections": 1365,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -1993,7 +2025,8 @@
         "character_contradictions": 10926,
         "length_contradictions": 0,
         "semantic_rejections": 1374,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -2126,7 +2159,8 @@
         "character_contradictions": 5812,
         "length_contradictions": 0,
         "semantic_rejections": 230,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -2259,7 +2293,8 @@
         "character_contradictions": 8752,
         "length_contradictions": 0,
         "semantic_rejections": 1048,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -2392,7 +2427,8 @@
         "character_contradictions": 8918,
         "length_contradictions": 0,
         "semantic_rejections": 1104,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": true
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -2523,7 +2559,8 @@
         "character_contradictions": 8216,
         "length_contradictions": 0,
         "semantic_rejections": 0,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": false
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -2654,7 +2691,8 @@
         "character_contradictions": 5654,
         "length_contradictions": 0,
         "semantic_rejections": 44,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": false
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -2785,7 +2823,8 @@
         "character_contradictions": 6081,
         "length_contradictions": 0,
         "semantic_rejections": 46,
-        "closed": 0
+        "closed": 0,
+        "budget_exhausted": false
       },
       "independent_ascii_two_pointer_audit": {
         "exact": false,
@@ -2899,7 +2938,7 @@
     ]
   },
   "provenance": {
-    "generator_sha256": "23c3f29632aaae6b1be41914fe3635db1d06d8bfe57b4b9b981c64775f83aa2c",
+    "generator_sha256": "b0c24d4225829c8f1d5ee3418d89fa01979564f1ece8f26417ac5f5b0b07cf02",
     "grammar_material": "finite hand-authored semantic English rules and typed lexical classes",
     "source_sentences_copied": false,
     "catalogue_relexicalization": false,

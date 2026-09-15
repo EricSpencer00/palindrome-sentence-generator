@@ -29,6 +29,11 @@ mechanical admission result.  The only acceptable reader-facing next step is
 to replace the fallback with a larger typed, boundary-crossing lexical
 inventory and then run the intact-prose/shuffled-control blinded study.
 
+The replay closed exact targets from 31 through 511 letters (31, 47, 63, 95,
+127, 255, and 511); the largest closure used 385 explored states.  Those
+surfaces are deliberately retained as construction diagnostics, not as a
+readability claim.
+
 Callers can set `require_admitted=True` to continue past exact closures that
 fail the independent mechanical admission checks.  This is the mode required
 for candidate collection; a closure that merely has a symmetric tape is not

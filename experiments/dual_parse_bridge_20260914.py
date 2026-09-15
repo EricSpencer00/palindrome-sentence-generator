@@ -7,7 +7,7 @@ considered.  This is a construction experiment; human readers remain the
 readability judge.
 """
 from __future__ import annotations
-import argparse, json
+import argparse, json, re
 from dataclasses import dataclass
 from hashlib import sha256
 from itertools import product
@@ -66,10 +66,10 @@ def sentences(limit: int = 150_000):
         for chosen in product(*pools):
             if not valid_sentence(chosen):
                 continue
-            words = normalize(" ".join(c.text for c in chosen)).split()
+            text = " ".join(c.text for c in chosen)
+            words = re.findall(r"[a-z]+", text.lower())
             if len(words) != len(set(words)):
                 continue
-            text = " ".join(c.text for c in chosen)
             rows.append({"text": text, "template": name,
                          "chunks": [{"text": c.text, "kind": c.kind, "sem": c.sem} for c in chosen],
                          "tape": normalize(text)})
@@ -77,24 +77,44 @@ def sentences(limit: int = 150_000):
     return rows
 
 def audit(text: str):
-    tape = normalize(text)
-    mm = [i for i in range(len(tape)//2) if tape[i] != tape[-1-i]]
+    tape = "".join(ch.lower() for ch in text if "a" <= ch.lower() <= "z")
+    mm = []
+    left, right = 0, len(tape) - 1
+    while left < right:
+        if tape[left] != tape[right]: mm.append((left, right))
+        left += 1; right -= 1
     return {"exact": bool(tape) and not mm, "letters": len(tape), "mismatches": mm,
             "normalized_tape": tape, "sha256": sha256(tape.encode()).hexdigest()}
 
+class ReverseTapeTrie:
+    """Incremental character intersection over reverse typed parses."""
+    def __init__(self, rows):
+        self.root = {}
+        for row in rows:
+            node = self.root
+            for ch in row["tape"][::-1]:
+                node = node.setdefault(ch, {})
+            node.setdefault("$", []).append(row)
+
+    def matches(self, tape):
+        node = self.root
+        for ch in tape:
+            node = node.get(ch)
+            if node is None:
+                return []
+        return node.get("$", [])
+
 def run(limit: int = 150_000):
     ss = sentences(limit)
-    index = {}
-    for row in ss:
-        index.setdefault(row["tape"], []).append(row)
+    reverse_trie = ReverseTapeTrie(ss)
     candidates = []
     for left in ss:
-        for right in index.get(left["tape"][::-1], ()):
+        for right in reverse_trie.matches(left["tape"]):
             text = left["text"] + "; " + right["text"]
             a = audit(text)
             if a["letters"] < MIN_LETTERS or not a["exact"]:
                 continue
-            all_words = normalize(text).split()
+            all_words = re.findall(r"[a-z]+", text.lower())
             if len(all_words) != len(set(all_words)):
                 continue
             candidates.append({"text": text, "audit": a, "left": left,
@@ -107,8 +127,8 @@ def run(limit: int = 150_000):
             "config": {"sentence_count": len(ss), "template_count": len(TEMPLATES),
                         "min_letters": MIN_LETTERS, "staggered_chunk_boundaries": True},
             "candidate_count": len(candidates), "candidates": candidates[:100],
-            "deepest_frontier": {"indexed_tapes": len(index), "max_sentence_letters": max((len(x["tape"]) for x in ss), default=0)},
-            "next_operator_if_empty": "Add typed multiword reverse-boundary chunks with explicit determiner and argument attachment, then intersect both chunk tries incrementally rather than indexing complete sentences.",
+            "deepest_frontier": {"indexed_tapes": len(ss), "max_sentence_letters": max((len(x["tape"]) for x in ss), default=0), "incremental_reverse_trie": True},
+            "next_operator_if_empty": "Intersect typed chunk tries incrementally at each live boundary, retaining only partial NP/VP/PP parses that can still complete on both sides.",
             "generator_sha256": sha256(Path(__file__).read_bytes()).hexdigest()}
 
 def main():

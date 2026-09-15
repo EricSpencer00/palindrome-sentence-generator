@@ -7,10 +7,15 @@ from __future__ import annotations
 
 import hashlib
 import json
+import sys
 from itertools import permutations, product
 from pathlib import Path
 
-from experiments.luna_broad_grammar_probe_20260915 import lexical_table, pools, search_pair
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "experiments"))
+sys.path.insert(0, str(ROOT))
+
+from luna_broad_grammar_probe_20260915 import Plan, lexical_table, pools, search_pair
 from llm_palindrome.admission import mechanical_admission_checks, normalize_letters
 
 SHAPES = tuple(permutations(("VERB", "NOUN", "ADJ")))
@@ -31,8 +36,8 @@ def run(pool_size: int = 180, budget: int = 40_000) -> dict:
     for left, right in product(SHAPES, repeat=2):
         # search_pair's emitted right words are reversed for exact reverse-tape
         # joining; requiring both complete shapes gives a full parse witness.
-        rows, info = search_pair(type("Plan", (), {"name": "-".join(left), "tags": left}),
-                                 type("Plan", (), {"name": "-".join(right), "tags": right}),
+        rows, info = search_pair(Plan("-".join(left), left),
+                                 Plan("-".join(right), right),
                                  role_pools, budget)
         stats.append({"left": left, "right": right, **info, "closures": len(rows)})
         for row in rows:

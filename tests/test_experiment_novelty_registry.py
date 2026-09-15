@@ -24,3 +24,6 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "two-bank-word-equation-seam-dp" in ids
     assert "seam-first-complete-clause-authoring" in ids
     assert "semantic-dependency-outside-in" in ids
+    assert "synchronous-semantic-parse-equations" in ids
+    assert "internal-center-window-repair" in ids
+    assert "discourse-plan-coupled-expansion" in ids

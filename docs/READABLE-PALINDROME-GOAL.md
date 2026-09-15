@@ -414,6 +414,31 @@ human-rated intact prose—and may claim success only when both gates are met.
   dependency state; it does not reverse-segment a completed clause or widen a
   prior CSP/DP/FST.
 
+- **Synchronous semantic-parse equations (2026-09-15).** Two independent
+  semantic parses were expanded in lockstep against a shared character
+  equation, with role and discourse state carried in the frontier rather than
+  decoding a reversed tape.  The run evaluated 81 left parses × 81 right
+  parses (6,561 lockstep states), retained 18 rendered probes and six
+  parse-substitution repairs, and found zero exact closures or admitted
+  outputs.  The next operator substitutes a complete parse at the first
+  conflicting equation while preserving its semantic roles.
+
+- **Internal lexical-center window repair (2026-09-15).** Sixteen complete
+  authored clause pairs were each subjected to a bounded rewrite of one
+  lexical center window while their exterior character equations remained
+  fixed.  Fifty-six repairs produced 24 rendered probes, zero exact closures,
+  and zero mechanically admitted outputs.  The concrete successor expands the
+  center to a two-word constituent with held-out role agreement; it does not
+  wrap or repeat an existing palindrome.
+
+- **Discourse-plan coupled expansion (2026-09-15).** A typed narrative-plan
+  graph selected two independently authored two-sentence narratives, enforcing
+  semantic role agreement before online mirrored-character emission.  All 12
+  plan pairs were rejected at an early character mismatch, with zero exact
+  closures or admitted candidates.  The next repair is role-preserving branch
+  substitution at the first mismatch, not post-hoc sentence reordering or a
+  larger lexical beam.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

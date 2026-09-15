@@ -226,7 +226,8 @@ class BrownJoinScorer:
 
 def run(*, seeds: int = 64, beam: int = 600, candidate_limit: int = 500,
         max_steps: int = 120, min_letters: int = 39,
-        max_letters: int = 140) -> dict[str, object]:
+        max_letters: int = 140,
+        rotate_lexical_families: bool = False) -> dict[str, object]:
     words = vocab()
     tries = WordTries(words)
     bigrams = brown_bigrams()
@@ -236,6 +237,8 @@ def run(*, seeds: int = 64, beam: int = 600, candidate_limit: int = 500,
 
     def allow_state(left: tuple[str, ...], right: tuple[str, ...]) -> bool:
         all_words = list(left + right)
+        if banned_words.intersection(all_words):
+            return False
         content = [word for word in all_words
                    if word not in REPEATABLE_FUNCTION_WORDS]
         if len(content) != len(set(content)):
@@ -257,6 +260,20 @@ def run(*, seeds: int = 64, beam: int = 600, candidate_limit: int = 500,
         return len(tape) <= max_letters and bool(tape) and tape == tape[::-1]
 
     for seed in range(seeds):
+        # Rotate hard lexical exclusions by family so the known control cannot
+        # monopolize every restart. Syntax and exact residual constraints stay
+        # unchanged; only the lexicalization is forced to vary.
+        if rotate_lexical_families:
+            families = (
+                (),
+                ("rips", "inspire"),
+                ("memos", "nine"),
+                ("aide", "men", "diana"),
+                ("aide", "rips", "nine", "memos", "men", "inspire", "diana"),
+            )
+            banned_words = set(families[seed % len(families)])
+        else:
+            banned_words = set()
         closed: list[list[str]] = []
         centerout_search(
             tries, scorer, min_letters=min_letters, max_steps=max_steps,
@@ -310,6 +327,7 @@ def run(*, seeds: int = 64, beam: int = 600, candidate_limit: int = 500,
             "brown_bigrams_are_traversal_filter_only": True,
             "machine_readability_certification": False,
             "no_catalogue_text": True,
+            "rotating_lexical_family_exclusions": rotate_lexical_families,
         },
         "provenance": {
             "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),

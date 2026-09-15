@@ -23,7 +23,12 @@ non-identical sides, and at least one crossed word boundary. It returned **zero
 exact pairs**, hence no readable hit (and no human-readability claim).
 
 The mechanical checksum and manifest are preserved in
-`runs/typed_constituent_pair_search_20260915/result.json`. The next concrete
-operator is typed residual attachment: retain a typed constituent pair's
-unmatched boundary remainder and search a third, independently typed PP/NP
-attachment against that remainder, with the same anti-shortcut gate.
+`runs/typed_constituent_pair_search_20260915/result.json`. A follow-up probe
+adds a variable-length clause lattice: transitive and copular clauses receive
+an optional common adverbial modifier such as `today`, `quietly`, or `outside`
+as a typed edge. Both sides remain independently generated and are matched
+only by reversed normalized tapes. The expanded replay generated 966,363
+phrases but returned zero exact pairs under the same gates. This is concrete
+negative evidence; the next operator is typed residual attachment, retaining
+a boundary remainder and searching a third independently typed PP/NP
+attachment against it.

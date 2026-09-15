@@ -16,6 +16,7 @@ VERBS='admired answered baked built called carried changed cleaned closed found 
 ADJS='old young kind quiet brave calm small great new bright dark clear open warm cold long short good wise true ready safe gentle patient useful'.split()
 DETS='a the this that my our'.split()
 PREPS='by for from in near over under with without'.split()
+MODIFIERS='today quietly carefully outside early now here there again almost always'.split()
 
 def phrases(limit=300000):
   # Complete constituents: NP, transitive clause, copular clause, and PP adjunct.
@@ -26,8 +27,13 @@ def phrases(limit=300000):
     for v in VERBS:
       for o in nps+npa:
         out.add(f'{s} {v} {o}')
+        for m in MODIFIERS:
+          out.add(f'{s} {v} {o} {m}')
         if len(out)>=limit: return sorted(out)
-    for a in ADJS: out.add(f'{s} is {a}')
+    for a in ADJS:
+      out.add(f'{s} is {a}')
+      for m in MODIFIERS:
+        out.add(f'{s} is {a} {m}')
   # PP constituents and clauses with a PP tail.
   for p in PREPS:
     for x in nps: out.add(f'{p} {x}')
@@ -35,6 +41,8 @@ def phrases(limit=300000):
       for v in VERBS:
         for x in nps:
           out.add(f'{s} {v} {x} {p} {nps[(len(s)+len(v)+len(x))%len(nps)]}')
+          for m in MODIFIERS:
+            out.add(f'{s} {v} {x} {m}')
           if len(out)>=limit: return sorted(out)
   return sorted(out)
 
@@ -64,7 +72,16 @@ def run(max_phrases=300000,seed=0,min_letters=20,max_letters=70):
       if not is_palindrome(text): rejected['validator']+=1; continue
       rows.append({'text':text,'left':left,'right':right,'letters':len(normalize(text)),'boundary_crossing':True,'exact_palindrome':True})
   rows.sort(key=lambda r:(-r['letters'],r['text']))
-  return {'status':'no_readability_claim','config':{'max_phrases':max_phrases,'seed':seed,'min_letters':min_letters,'max_letters':max_letters},'generated_phrases':len(allp),'candidate_count':len(rows),'rejected':dict(rejected),'candidates':rows[:200]}
+  return {'status':'no_readability_claim' if not rows else 'exact_pairs_need_readability_review',
+          'config':{'max_phrases':max_phrases,'seed':seed,'min_letters':min_letters,'max_letters':max_letters,
+                    'operator':'typed variable-length clause lattice',
+                    'optional_modifier_expansion':MODIFIERS,
+                    'independent_reverse_tape_matching':True},
+          'generated_phrases':len(allp),'candidate_count':len(rows),'rejected':dict(rejected),
+          'candidates':rows[:200],
+          'provenance':{'material':'authored common lexical words and typed templates; no catalogue material',
+                        'rendered_candidates':len(rows),
+                        'mechanical_gate':'exact normalized reverse tape, crossed boundary, six words, no repeats, short-word cap'}}
 
 def main():
  p=argparse.ArgumentParser();p.add_argument('--out',type=Path,required=True);p.add_argument('--max-phrases',type=int,default=300000);p.add_argument('--seed',type=int,default=0);a=p.parse_args();r=run(a.max_phrases,a.seed);a.out.parent.mkdir(parents=True,exist_ok=True);a.out.write_text(json.dumps(r,indent=2)+'\n');print(json.dumps({k:r[k] for k in ('generated_phrases','candidate_count')},indent=2))

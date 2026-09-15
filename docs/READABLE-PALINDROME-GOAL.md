@@ -83,6 +83,15 @@ human-rated intact prose—and may claim success only when both gates are met.
   inventory; the next repair must change the lexical inventory and valency
   transitions, not merely increase insertion count.
 
+- **Expanded bilateral typed inventory (2026-09-15).** Increasing the
+  disjoint decoder to 3,000 Brown/word-frequency types and a 50,000-state
+  budget per plan pair reached a 40-character residual frontier but still
+  produced zero exact closures.  The strongest states are retained with their
+  unresolved residuals (`ide` and `id`); their surfaces are not prose and were
+  not promoted.  The next operator must make valency and discourse roles
+  explicit while carrying those residuals, rather than simply widening the
+  frequency pool again.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

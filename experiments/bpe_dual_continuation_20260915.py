@@ -386,7 +386,7 @@ def run() -> dict[str, object]:
                     stats["repair_states"] += states
                     stats["repair_token_prunes"] += prunes
                 for right_clause in decoded:
-                    rendered = left_clause.text.capitalize() + ". " + right_clause.text + "."
+                    rendered = left_clause.text.capitalize() + ". " + right_clause.text.capitalize() + "."
                     audit = independent_two_pointer(rendered)
                     checks = mechanical_admission_checks(rendered, min_letters=MIN_LETTERS, max_letters=MAX_LETTERS)
                     row = {
@@ -413,7 +413,7 @@ def run() -> dict[str, object]:
                 # is still useful to a reader and documents the next seam.
                 if len(probes) < 40:
                     right_probe = greedy_probe(target, options, template_name)
-                    rendered = left_clause.text.capitalize() + ". " + right_probe.text + "."
+                    rendered = left_clause.text.capitalize() + ". " + right_probe.text.capitalize() + "."
                     if rendered not in seen_probe:
                         seen_probe.add(rendered)
                         audit = independent_two_pointer(rendered)

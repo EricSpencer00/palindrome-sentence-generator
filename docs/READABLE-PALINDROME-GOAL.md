@@ -151,6 +151,14 @@ human-rated intact prose—and may claim success only when both gates are met.
   residual misses, with zero pre-gate matches and zero exact closures. The
   next repair is agreement-aware shared-subject/object relative attachment.
 
+- **Shared-coreference relative residual BFS (2026-09-15).** Agreement-aware
+  relative frames shared either the subject or object across two independently
+  attested relations, carrying co-reference mode, number, and tense as hard
+  residual features. It produced 302 frames (298 indexed tapes), with all 302
+  left states missing their reverse residual and zero exact closures. The next
+  operator adds independently attested adjective/prepositional attachments
+  inside the relative clause without relaxing agreement or tense.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

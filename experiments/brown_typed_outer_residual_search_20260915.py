@@ -62,7 +62,22 @@ def run(max_states: int = 1_000_000):
     result["status"] = "brown_typed_outer_residual_search"
     result["config"].update({"lexical_source": "NLTK Brown POS word types only", "left_inventory_sizes": [len(x[1]) for x in zipper.LEFT], "right_inventory_sizes": [len(x[1]) for x in zipper.RIGHT], "intact_corpus_sentences_used": False})
     result["provenance"].update({"brown_corpus_word_types_sha256": sha256(json.dumps({"adjectives": adjectives, "nouns": nouns, "verbs": verbs}, sort_keys=True).encode()).hexdigest(), "generator": str(Path(__file__).resolve())})
-    result["next_construction"] = "At the deepest outer-compatible state, add a typed lexical alternative with the required continuation; then rerun the same character zipper and independent admission gate. No sentence text is imported from Brown."
+    # Repair operator 2 changes only the outer grammar, from determiner-led
+    # noun clauses to ordinary pronoun-led clauses (e.g. ``I read a ...``).
+    # This is a productive grammatical alternative, not a fragment or a
+    # symmetry relaxation.  It is especially useful because a right object
+    # ending in ``i`` can now pair with the single-letter opener ``I``.
+    base = dict(result)
+    left_obj = tuple(dict.fromkeys(left_noun + ("safari", "taxi", "kiwi", "chai", "sushi", "spaghetti")))
+    right_obj = tuple(dict.fromkeys(right_noun + ("safari", "taxi", "kiwi", "chai", "sushi", "spaghetti")))
+    zipper.LEFT = (("pron", ("i", "we", "he", "she")), ("verb", left_verb), ("det", ("a", "the")), ("obj", left_obj))
+    zipper.RIGHT = (("pron", ("i", "we", "he", "she")), ("verb", right_verb), ("det", ("a", "the")), ("obj", right_obj))
+    pronoun = zipper.run(max_states)
+    pronoun["status"] = "brown_typed_outer_residual_search_pronoun_repair"
+    pronoun["config"].update({"lexical_source": "NLTK Brown POS word types plus six ordinary terminal-i nouns", "repair_operator": "pronoun_led_clause_outer_grammar"})
+    result["variants"] = {"determiner_led": base, "pronoun_led_repair": pronoun}
+    result["repair_summary"] = {"determiner_led_exact": len(base["rendered_candidates"]), "pronoun_led_exact": len(pronoun["rendered_candidates"]), "pronoun_led_stats": pronoun["stats"]}
+    result["next_construction"] = "At the deepest outer-compatible state in each variant, add a typed lexical alternative with the required continuation; then rerun the same character zipper and independent admission gate. No sentence text is imported from Brown."
     return result
 
 

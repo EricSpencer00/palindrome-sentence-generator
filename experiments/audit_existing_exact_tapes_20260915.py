@@ -231,6 +231,11 @@ def main() -> None:
             "independent_normalization": "ASCII letters only, local re-tokenization",
             "grammar_diagnostic": "NLTK POS tags plus conservative subject-before-finite-verb spine",
             "readability_claim": "none; only blinded readers can certify readability",
+            "scalable_extension_operator": (
+                "memoized typed bilateral residual search: expand both tape ends with lexical items "
+                "whose POS/valency fits the current clause, carry remaining target length in the state, "
+                "and independently audit every exact-N closure; never pad a closure with filler"
+            ),
             "shortlist_limit": 120,
         },
         "counts": {
@@ -243,7 +248,9 @@ def main() -> None:
         "strongest_mechanical_clause_rows": clause_candidates[:20],
         "conclusion": (
             "No historical exact tape was promoted. The strongest lexical rows are seam or POS-lattice artifacts; "
-            "the next constructive operator is grammar-constrained boundary resegmentation with human review."
+            "the next constructive operator is grammar-constrained boundary resegmentation with human review. "
+            "Arbitrary-length closure remains a separate exactness property: each requested N must be closed and "
+            "verified independently before any reader study, and no non-reader closure is promoted."
         ),
     }
     OUT.write_text(json.dumps(report, indent=2) + "\n")

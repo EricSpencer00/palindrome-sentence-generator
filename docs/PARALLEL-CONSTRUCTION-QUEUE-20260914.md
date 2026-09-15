@@ -115,6 +115,17 @@ the large middle bridge and simple endpoint-name family together; the next
 search must add different typed endpoint *shapes* (adjectival, name, or pronoun
 subjects and multiword terminal object NPs), not merely more names or verbs.
 
+Those endpoint shapes were then added: six plan families now cover determiner-
+person, proper-name, pronoun, and adjectival-person openings plus proper-name
+and multiword object endpoints.  The expansion added 784 adjectival openings
+and 110 terminal object NPs.  All six searches completed in 3,285 residual
+states with no exhausted budget; the only exact result remained the 38-letter
+control.  The deepest new path, `Nadia tells ... let Aidan`, matched eight
+letters before dying on residual `ls`.  Single-clause endpoint and middle
+spaces are therefore both exhausted at this inventory scale.  The next
+operator must allow a live residual to cross into a second typed predicate or
+clause, rather than widening the same single-clause slots again.
+
 ## Explicit shortcut rejection
 
 The superficially attractive extension

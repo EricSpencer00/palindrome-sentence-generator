@@ -146,25 +146,62 @@ def independent_audit(text: str) -> dict:
 
 def run() -> dict:
     left, right, inventory = build_pools()
-    pairs, stats = indexed_search(left, right)
+    determiners, people, singular_verbs, objects = left
+    subjects, plural_verbs, names = right
+    adjective_people = tuple(
+        f"{det} {adjective} {person}"
+        for det in ("a", "the", "my", "our")
+        for adjective in ("brave", "calm", "careful", "kind", "patient", "quiet", "young")
+        for person in people
+    )
+    endpoint_nouns = tuple(
+        f"{det} {noun}"
+        for det in ("a", "an", "the", "this", "that", "my", "our")
+        for noun in ("book", "bread", "canvas", "door", "gift", "letter", "map",
+                     "memo", "note", "plan", "report", "road", "room", "story", "tray")
+    ) + ("me", "us", "him", "her", "them")
+    opening_people = tuple(f"{det} {person}" for det in determiners for person in people)
+    shapes = (
+        ("det_person_to_name", left, right),
+        ("name_to_name", (names, singular_verbs, objects), right),
+        ("pronoun_to_name", (("he", "she"), singular_verbs, objects), right),
+        ("adjective_person_to_name", (adjective_people, singular_verbs, objects), right),
+        ("det_person_to_object_np", (opening_people, singular_verbs, objects),
+         (subjects, plural_verbs, endpoint_nouns)),
+        ("name_to_object_np", (names, singular_verbs, objects),
+         (subjects, plural_verbs, endpoint_nouns)),
+    )
+    pair_rows = []
+    searches = []
+    for shape, left_shape, right_shape in shapes:
+        pairs, stats = indexed_search(left_shape, right_shape)
+        searches.append({"shape": shape, **stats, "exact": len(pairs)})
+        pair_rows.extend((shape, left_words, right_words)
+                         for left_words, right_words in pairs)
     records = []
-    for left_words, right_words in pairs:
+    for shape, left_words, right_words in pair_rows:
         text = " ".join(left_words).capitalize() + "; " + " ".join(right_words) + "."
         audit = independent_audit(text)
         checks = mechanical_admission_checks(text, min_letters=39, max_letters=180)
-        records.append({"text": text, "audit": audit, "mechanical_checks": checks,
+        records.append({"shape": shape, "text": text, "audit": audit,
+                        "mechanical_checks": checks,
                         "mechanically_eligible": all(checks.values()),
                         "reader_status": "human-unreviewed"})
+    unique = {row["audit"]["normalized"]: row for row in records}
+    records = list(unique.values())
     return {"status": "predicate_subject_phrase_bridge_complete",
             "config": {"opening_endpoint_combinations": len(DETERMINERS) * len(PEOPLE) * len(NAMES),
                        "known_productive_factor": "Diana -> an aide with live one-letter debt",
-                       "state_budget": 2_000_000, "grammar_during_search": True,
+                       "endpoint_shapes": len(shapes), "state_budget_per_shape": 2_000_000,
+                       "grammar_during_search": True,
                        "brown_complete_sentences_copied": False},
-            "inventory": inventory, "search": stats, "exact_records": records,
+            "inventory": {**inventory, "adjective_person_openings": len(adjective_people),
+                          "terminal_object_nps": len(endpoint_nouns)},
+            "searches": searches, "exact_records": records,
             "eligible_closures": [row for row in records if row["mechanically_eligible"]],
             "provenance": {"generator_sha256": sha256(Path(__file__).read_bytes()).hexdigest(),
                            "material": "Brown POS word inventories plus authored semantic person/endpoints"},
-            "next_operator_if_no_novel": "Generalize endpoint roles beyond determiner-person openings and proper-name objects: add typed adjectival/name/pronoun subjects and multiword terminal object NPs, then reuse this indexed predicate bridge for every live residual.",
+            "next_operator_if_no_novel": "Let the exact residual cross a clause boundary: add a second typed predicate/argument pair on either side instead of expanding the now-exhausted single-clause endpoint shapes.",
             "reader_next": "Only a novel mechanically eligible closure enters blinded intact-prose versus shuffled-control ratings."}
 
 
@@ -178,7 +215,7 @@ def main() -> None:
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({"inventory": result["inventory"],
-                      "states": result["search"]["states"],
+                      "states": sum(row["states"] for row in result["searches"]),
                       "exact": len(result["exact_records"]),
                       "eligible": len(result["eligible_closures"])}, indent=2))
 

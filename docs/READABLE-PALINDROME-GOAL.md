@@ -280,6 +280,15 @@ human-rated intact prose—and may claim success only when both gates are met.
   probe; no item is reader-facing. The next method must add semantic clause
   structure over these prefixes rather than widen the lexical frontier.
 
+- **Semantic connective-class event pair (2026-09-15).** This branch carried
+  contrast, cause, or consequence as an explicit relation-class state through
+  the ordered event/result residual, with an independently lexicalized right
+  discourse. Six fresh class-conditioned frames were tested; all six reverse
+  parses failed after excluding 616,608 repository tape keys. No exact closure
+  or admitted candidate resulted. The next operator is a relation graph for
+  cause/consequence direction and contrast polarity, not a larger inventory or
+  replay of an earlier connective search.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

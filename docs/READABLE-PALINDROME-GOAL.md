@@ -92,6 +92,16 @@ human-rated intact prose—and may claim success only when both gates are met.
   explicit while carrying those residuals, rather than simply widening the
   frequency pool again.
 
+- **Global Brown POS-shape lattice (2026-09-15).** To reopen the grammar
+  rather than add another narrow frame, the search mined 200 frequent Brown
+  POS shapes of 8--15 words and kept syntax plus unique content live during
+  center-out character matching.  Across 24 seeds and 700 parents it produced
+  one 20-letter exact control and no closure at the `>=39` floor; no long
+  surface was found or promoted.  The short control is independently exact but
+  fails the length/short-word gates.  The next constructive change is to add
+  explicit transitivity and discourse-event roles to this global lattice, not
+  to widen the corpus pool blindly.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

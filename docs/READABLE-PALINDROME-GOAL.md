@@ -1008,3 +1008,13 @@ item-aware analysis plan.
   fifty base and seam-swap repair probes produced zero exact closures; the
   concrete repair was a held-out seam-pair substitution followed by fresh
   reverse segmentation.  No probe is presented as readable evidence.
+
+- **Rank-partitioned corpus sentence-gram FST, 2026-09-15:** used a new
+  phrase-token construction: one source-rank partition supplied intact
+  sentence/n-gram left material, while a disjoint held-out partition had to
+  consume the exact reverse residual around a single-letter center. The base
+  lattice and two concrete repairs (shorter phrase atoms, then expanded
+  lower-order phrase atoms) produced 120 preserved partial/dead-end rendered
+  probes and no exact closure. The reverse residual usually had no legal
+  held-out phrase at its first character; this family is closed rather than
+  silently replayed as a larger lexical beam. No probe is readable evidence.

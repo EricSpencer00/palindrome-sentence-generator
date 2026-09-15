@@ -11,7 +11,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 3
-    assert result["run_artifacts"] == 11
+    assert result["run_artifacts"] == 14
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -37,7 +37,7 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 57
+    assert result["registered_families_checked"] == 58
     assert result["excluded_routes_checked"] == 3
 
 
@@ -76,6 +76,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "prosodic-foot-surface-realizer" in ids
     assert "global-tied-masked-denoising" in ids
     assert "character-lm-half-tape" in ids
+    assert "corpus-sentence-gram-fst" in ids
 
 
 def test_latest_artifacts_were_preflighted_before_self_registration():

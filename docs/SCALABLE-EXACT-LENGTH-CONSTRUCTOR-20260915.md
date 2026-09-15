@@ -20,7 +20,7 @@ for a readability result.
 ```text
 python experiments/scalable_exact_length_sweep_20260915.py \
   --out runs/scalable-exact-length-sweep-20260915.json \
-  --targets 31 47 63 95
+  --targets 31 47 63 95 127 255 511
 ```
 
 Every row records the target, rendered text (when a strict or fallback closure

@@ -111,6 +111,14 @@ human-rated intact prose—and may claim success only when both gates are met.
   subject--verb/object edges and inflectional variants to the same residual
   frontier, rather than widen isolated word lists.
 
+- **Breadth-first typed semordnilap clauses (2026-09-15).** A separate
+  residual-state search generated 151,484 independently authored clauses with
+  explicit PERSON, THING, and transitive-verb roles, then parsed each reversed
+  tape through four different clause templates. Semordnilap lexemes were
+  allowed, but whole-word mirrors and seed reuse were rejected. It found zero
+  closures at 39 letters; the durable successor is the attested lexical-graph
+  operator, not another fixed template family.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

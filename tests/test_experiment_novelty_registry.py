@@ -39,6 +39,8 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "dependency-attribute-grammar-chart" in ids
     assert "evolutionary-prose-genome" in ids
     assert "bpe-dual-continuation" in ids
+    assert "mined-phrase-chunk-clause-composition" in ids
+    assert "variable-boundary-tape-ilp" in ids
 
 
 def test_latest_artifacts_were_preflighted_before_self_registration():
@@ -55,3 +57,13 @@ def test_latest_artifacts_were_preflighted_before_self_registration():
     chart = json.loads((root / "runs" / "grammar-intersection-chart-20260915.json").read_text())
     assert 0 < chart["registry_entry_count_before_run"] < registry_count
     assert chart["prior_signatures_overlap"] == []
+    phrase_run = json.loads((root / "runs" / "mined-phrase-chunk-clause-composition-v3-20260915.json").read_text())
+    assert phrase_run["novelty_audit"]["registry_entries_read_before_run"] < registry_count
+    assert phrase_run["novelty_audit"]["signature_overlap"] == []
+    assert phrase_run["stats"]["exact_candidates"] == 0
+    assert len(phrase_run["rendered_candidates_and_probes"]) == 40
+    ilp_run = json.loads((root / "runs" / "variable-boundary-tape-ilp-20260915.json").read_text())
+    assert ilp_run["novelty_audit"]["registry_entries_read_before_run"] < registry_count
+    assert ilp_run["novelty_audit"]["prior_signatures_overlap"] == []
+    assert ilp_run["solver_summary"]["exact_solution_count"] == 0
+    assert ilp_run["results"][0]["rendered_probe"]["independent_exact_audit"]["exact"] is False

@@ -914,3 +914,25 @@ item-aware analysis plan.
   right object inventory, followed by a fresh BPE-token residual run.  The
   probes are intact prose controls only; no programmatic readability claim is
   made.
+
+- **Mined phrase-chunk clause composition, 2026-09-15:** mined bounded 2--4
+  word phrase components from the count and WikiText snapshots, classified
+  them as headed NPs and finite two-token VPs, and independently composed
+  541,598 complete determiner-led NP--VP--NP clauses.  A length-stratified
+  chart of 1,826 clauses produced no exact reverse-index join; 40 probes were
+  rendered and independently audited.  The concrete next operator is
+  held-out frequency-stratum phrase expansion at a surviving seam, preserving
+  the strict transitive grammar and disjoint-content-word gate.
+
+- **Variable-boundary character-tape ILP, 2026-09-15:** formulated one
+  lexicalized feature-grammar path as a binary flow over word-start arcs.
+  Each arc chooses both a word and its character offset, so token boundaries
+  are variables rather than fixed slots; subject-number agreement and
+  verb-sense/object compatibility are carried in the automaton, while
+  mirrored character equalities are hard MILP constraints during assignment.
+  The bounded 39-letter HiGHS run built 57,166 arcs and produced no exact
+  closure within its time limit.  Its intact grammar probe was `a new child
+  carries a new boat in a new garden now` (39 letters; independently audited
+  with 18 mismatched pairs).  The concrete repair is a held-out
+  seam-support lexical expansion of the same variable-boundary flow, not a
+  slot cross-product or relaxed exactness test.

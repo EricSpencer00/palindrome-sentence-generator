@@ -1,0 +1,5900 @@
+{
+  "status": "mined_phrase_chunk_clause_composition_complete",
+  "family_id": "mined-phrase-chunk-clause-composition",
+  "state_space_signature": "mined-multiword-phrase-chunks|typed-np-vp-pp-composition|independent-complete-clause-cross-product|reverse-index-join|content-word-disjointness|no-mirrored-chunk-order",
+  "seed": "An aide rips nine memos; some men inspire Diana.",
+  "config": {
+    "source_units": 28042,
+    "np_chunks": 96,
+    "vp_chunks": 61,
+    "pp_chunks": 96,
+    "chunk_grammar": [
+      "NP VP NP"
+    ],
+    "chart_cap": 2400,
+    "source_sentences_excluded": 2116,
+    "content_word_disjointness": true,
+    "catalogue_sentence_import": false
+  },
+  "novelty_audit": {
+    "registry_entries_read_before_run": 50,
+    "prior_ids": [
+      "bpe-dual-continuation",
+      "brown-attested-svo",
+      "brown-bounded-repair",
+      "brown-coreferent-variable-pp",
+      "brown-cross-clause",
+      "brown-joint-relation-repair",
+      "brown-relative-topology",
+      "brown-shared-coref-attachment",
+      "brown-shared-relative",
+      "brown-two-relative-attachment",
+      "brown-two-relative-chain",
+      "brown-two-svo-attachments",
+      "character-clause-fst-joint-emission",
+      "character-ledger-promptbank",
+      "clause-lattice-joint-dp",
+      "collocation-graph-path",
+      "collocation-synchronous-grammar",
+      "connective-bearing-event-pair",
+      "connective-semantic-class-event-pair",
+      "constrained-reverse-lexical-v2",
+      "cp-semantic-grammar-palindrome",
+      "dependency-attribute-grammar-chart",
+      "dialogue-acknowledgment-residual-inventory",
+      "dialogue-elliptical-ack-residual-inventory",
+      "dialogue-shared-topic-elliptical-residual",
+      "discourse-plan-coupled-expansion",
+      "event-frame-independent-relexicalization",
+      "evolutionary-prose-genome",
+      "fresh-paired-clause-ledger",
+      "global-brown-pos",
+      "global-semantic-paraphrase-rewrite",
+      "grammar-intersection-chart",
+      "human-compositional-center-window",
+      "internal-center-window-repair",
+      "morphological-derivational-seam",
+      "multiword-unit-transducer-local-repair",
+      "neural-dual-prefix-beam-v2",
+      "relation-graph-event-pair",
+      "scene-slot-graph-residual",
+      "seam-first-complete-clause-authoring",
+      "semantic-dependency-outside-in",
+      "semantic-sentence-pair-alignment",
+      "synchronous-semantic-parse-equations",
+      "template-analogy-semantic-lexicalization",
+      "two-bank-word-equation-seam-dp",
+      "two-edge-event-micrograph",
+      "two-event-discourse-frame",
+      "typed-lexical-graph",
+      "typed-semordnilap",
+      "variable-boundary-tape-ilp"
+    ],
+    "signature_overlap": [],
+    "self_entry_present": false,
+    "replay_of_registered_family": false
+  },
+  "stats": {
+    "grammar_clause_counts": {
+      "NP-VP-NP": 541598
+    },
+    "unique_clauses": 541598,
+    "chart_clauses": 1826,
+    "reverse_index_keys": 1826,
+    "reverse_pairs_checked": 5636,
+    "exact_candidates": 0,
+    "rendered_probes": 40
+  },
+  "exact_candidates": [],
+  "prominent_exact_candidate": null,
+  "rendered_candidates_and_probes": [
+    {
+      "rendered": "The characteristics can understand the identification; the recommendations should contact a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicscanunderstandtheidentificationtherecommendationsshouldcontactabaseofoperations",
+      "normalized_sha256": "50941748a3c729f2406f2ecfed69f1248377aaa041c4faf59c87a23c0b83e465",
+      "left_provenance": {
+        "text": "the characteristics can understand the identification",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations should contact a base of operations",
+        "chunks": [
+          "the recommendations",
+          "should contact",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "should",
+          "contact",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 41,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics can understand the implementation; the recommendations should contact a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicscanunderstandtheimplementationtherecommendationsshouldcontactabaseofoperations",
+      "normalized_sha256": "54836de9e4b54b1c6853ad937d4f61105dfcaa965312d3394c9f98dbe7441af3",
+      "left_provenance": {
+        "text": "the characteristics can understand the implementation",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "the implementation"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "the",
+          "implementation"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations should contact a base of operations",
+        "chunks": [
+          "the recommendations",
+          "should contact",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "should",
+          "contact",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 41,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics should contact the identification; the recommendations can understand a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicsshouldcontacttheidentificationtherecommendationscanunderstandabaseofoperations",
+      "normalized_sha256": "30229498e09a315dd686df907570b7e683094b12e0b4bec82e6a367f590f0669",
+      "left_provenance": {
+        "text": "the characteristics should contact the identification",
+        "chunks": [
+          "the characteristics",
+          "should contact",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "should",
+          "contact",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations can understand a base of operations",
+        "chunks": [
+          "the recommendations",
+          "can understand",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "can",
+          "understand",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 41,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics should contact the implementation; the recommendations can understand a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicsshouldcontacttheimplementationtherecommendationscanunderstandabaseofoperations",
+      "normalized_sha256": "f01ce34568f80591295cda295b179f32cf8e808ee49973843c417a6395bfd49e",
+      "left_provenance": {
+        "text": "the characteristics should contact the implementation",
+        "chunks": [
+          "the characteristics",
+          "should contact",
+          "the implementation"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "should",
+          "contact",
+          "the",
+          "implementation"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations can understand a base of operations",
+        "chunks": [
+          "the recommendations",
+          "can understand",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "can",
+          "understand",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 41,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration can understand the characteristics; the recommendations should consider the establishment.",
+      "letters": 96,
+      "normalized_letters": "theadministrationcanunderstandthecharacteristicstherecommendationsshouldconsidertheestablishment",
+      "normalized_sha256": "253a9494b80c82229656a9e3f4d5acb85351fbcf57efab10e647190ba0515a6f",
+      "left_provenance": {
+        "text": "the administration can understand the characteristics",
+        "chunks": [
+          "the administration",
+          "can understand",
+          "the characteristics"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "can",
+          "understand",
+          "the",
+          "characteristics"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations should consider the establishment",
+        "chunks": [
+          "the recommendations",
+          "should consider",
+          "the establishment"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "should",
+          "consider",
+          "the",
+          "establishment"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "m"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "h"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "s"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "l"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "i",
+            "right_char": "b"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "s",
+            "right_char": "a"
+          },
+          {
+            "left": 11,
+            "right": 84,
+            "left_char": "r",
+            "right_char": "s"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration can understand the recommendations; the characteristics should consider the establishment.",
+      "letters": 96,
+      "normalized_letters": "theadministrationcanunderstandtherecommendationsthecharacteristicsshouldconsidertheestablishment",
+      "normalized_sha256": "0336f490613aa02c95b2e38621721cbbb7d80d7e5d39386890f58d76e3caa2fe",
+      "left_provenance": {
+        "text": "the administration can understand the recommendations",
+        "chunks": [
+          "the administration",
+          "can understand",
+          "the recommendations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "can",
+          "understand",
+          "the",
+          "recommendations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the characteristics should consider the establishment",
+        "chunks": [
+          "the characteristics",
+          "should consider",
+          "the establishment"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "should",
+          "consider",
+          "the",
+          "establishment"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "m"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "h"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "s"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "l"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "i",
+            "right_char": "b"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "s",
+            "right_char": "a"
+          },
+          {
+            "left": 11,
+            "right": 84,
+            "left_char": "r",
+            "right_char": "s"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider a base of operations; the characteristics can understand the identification.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsiderabaseofoperationsthecharacteristicscanunderstandtheidentification",
+      "normalized_sha256": "e9fdfd0591ab198809b05613dfeb4d84b7268b76a5248479ec9e973b7d9bb502",
+      "left_provenance": {
+        "text": "the administration should consider a base of operations",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the characteristics can understand the identification",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "o"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "c"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "f"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "s",
+            "right_char": "t"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider a base of operations; the characteristics shall include the recommendations.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsiderabaseofoperationsthecharacteristicsshallincludetherecommendations",
+      "normalized_sha256": "41bb9dd9079e533c45452b6dde0694079716f4c33db345954cf9605a32ec1bba",
+      "left_provenance": {
+        "text": "the administration should consider a base of operations",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the characteristics shall include the recommendations",
+        "chunks": [
+          "the characteristics",
+          "shall include",
+          "the recommendations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "shall",
+          "include",
+          "the",
+          "recommendations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "t"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "i",
+            "right_char": "d"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "i",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider the identification; the recommendations shall include the characteristics.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsidertheidentificationtherecommendationsshallincludethecharacteristics",
+      "normalized_sha256": "fac99e35dbbf38945305800103d565d34a7ff771b3345f3ef189540fb51ab9d0",
+      "left_provenance": {
+        "text": "the administration should consider the identification",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations shall include the characteristics",
+        "chunks": [
+          "the recommendations",
+          "shall include",
+          "the characteristics"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "shall",
+          "include",
+          "the",
+          "characteristics"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "c"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "i"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "i",
+            "right_char": "r"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider the implementation; the recommendations shall include the characteristics.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsidertheimplementationtherecommendationsshallincludethecharacteristics",
+      "normalized_sha256": "e7e569d95c69deca6cea617cc6ec0a69c344b5447a45667f3224b2218924f226",
+      "left_provenance": {
+        "text": "the administration should consider the implementation",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "the implementation"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "the",
+          "implementation"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations shall include the characteristics",
+        "chunks": [
+          "the recommendations",
+          "shall include",
+          "the characteristics"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "shall",
+          "include",
+          "the",
+          "characteristics"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "c"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "i"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "i",
+            "right_char": "r"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics can understand the administration; the identification should consider a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicscanunderstandtheadministrationtheidentificationshouldconsiderabaseofoperations",
+      "normalized_sha256": "4ba212c73ffba2e1bfbd850bbbc50e5ee416091b6a16f0df4cc9661426294b5b",
+      "left_provenance": {
+        "text": "the characteristics can understand the administration",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "the administration"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "the",
+          "administration"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the identification should consider a base of operations",
+        "chunks": [
+          "the identification",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "identification",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics can understand the identification; the recommendations should include a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicscanunderstandtheidentificationtherecommendationsshouldincludeabaseofoperations",
+      "normalized_sha256": "00fb7fc3b593b869759d3272ceded66f9e04ae4c3ffe7a56b3cb4d3661e70e1e",
+      "left_provenance": {
+        "text": "the characteristics can understand the identification",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations should include a base of operations",
+        "chunks": [
+          "the recommendations",
+          "should include",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "should",
+          "include",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics can understand the implementation; the recommendations should include a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicscanunderstandtheimplementationtherecommendationsshouldincludeabaseofoperations",
+      "normalized_sha256": "538c58d97630b33b9d7a1d59068cd0ff7aa9e331052121faeaab4d50b7a5130b",
+      "left_provenance": {
+        "text": "the characteristics can understand the implementation",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "the implementation"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "the",
+          "implementation"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations should include a base of operations",
+        "chunks": [
+          "the recommendations",
+          "should include",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "should",
+          "include",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics shall include the recommendations; the identification should consider a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicsshallincludetherecommendationstheidentificationshouldconsiderabaseofoperations",
+      "normalized_sha256": "05ebb014e7cd9566b112b1d5c01f414462f283657cfaab458cc54d3bea84447d",
+      "left_provenance": {
+        "text": "the characteristics shall include the recommendations",
+        "chunks": [
+          "the characteristics",
+          "shall include",
+          "the recommendations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "shall",
+          "include",
+          "the",
+          "recommendations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the identification should consider a base of operations",
+        "chunks": [
+          "the identification",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "identification",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics shall include the recommendations; the implementation should consider a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicsshallincludetherecommendationstheimplementationshouldconsiderabaseofoperations",
+      "normalized_sha256": "00f7a140b5ecc8a41c39c03bf7fffca80d9c76bfaad6ab659eff989b274a85ac",
+      "left_provenance": {
+        "text": "the characteristics shall include the recommendations",
+        "chunks": [
+          "the characteristics",
+          "shall include",
+          "the recommendations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "shall",
+          "include",
+          "the",
+          "recommendations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the implementation should consider a base of operations",
+        "chunks": [
+          "the implementation",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "implementation",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics should consider the effectiveness; the recommendations can understand a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicsshouldconsidertheeffectivenesstherecommendationscanunderstandabaseofoperations",
+      "normalized_sha256": "26f7a53084ccf833f1fd17fa581334751eaaca0f0e5a6c3f065fcdc3c1ff1fd3",
+      "left_provenance": {
+        "text": "the characteristics should consider the effectiveness",
+        "chunks": [
+          "the characteristics",
+          "should consider",
+          "the effectiveness"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "should",
+          "consider",
+          "the",
+          "effectiveness"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations can understand a base of operations",
+        "chunks": [
+          "the recommendations",
+          "can understand",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "can",
+          "understand",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics should consider the establishment; the responsibility can understand the recommendations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicsshouldconsidertheestablishmenttheresponsibilitycanunderstandtherecommendations",
+      "normalized_sha256": "cb660646df42cf9c8e1a2f109da48af787fda5e5ff1e4ae94388b672c7095dd6",
+      "left_provenance": {
+        "text": "the characteristics should consider the establishment",
+        "chunks": [
+          "the characteristics",
+          "should consider",
+          "the establishment"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "should",
+          "consider",
+          "the",
+          "establishment"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the responsibility can understand the recommendations",
+        "chunks": [
+          "the responsibility",
+          "can understand",
+          "the recommendations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "responsibility",
+          "can",
+          "understand",
+          "the",
+          "recommendations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "r",
+            "right_char": "d"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics should include the identification; the recommendations can understand a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicsshouldincludetheidentificationtherecommendationscanunderstandabaseofoperations",
+      "normalized_sha256": "7f1171921c9ddbb2d7ba10c6773dc564dfb4dbdc5a090edafba0ef42b84df7ad",
+      "left_provenance": {
+        "text": "the characteristics should include the identification",
+        "chunks": [
+          "the characteristics",
+          "should include",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "should",
+          "include",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations can understand a base of operations",
+        "chunks": [
+          "the recommendations",
+          "can understand",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "can",
+          "understand",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics should include the implementation; the recommendations can understand a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicsshouldincludetheimplementationtherecommendationscanunderstandabaseofoperations",
+      "normalized_sha256": "1a8dbd6eac53f3545c77857b344e1ec5779c9ec2254d9986fc9ec3a4dccab5db",
+      "left_provenance": {
+        "text": "the characteristics should include the implementation",
+        "chunks": [
+          "the characteristics",
+          "should include",
+          "the implementation"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "should",
+          "include",
+          "the",
+          "implementation"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations can understand a base of operations",
+        "chunks": [
+          "the recommendations",
+          "can understand",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "can",
+          "understand",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The implementation should consider the identification; the recommendations shall include the characteristics.",
+      "letters": 96,
+      "normalized_letters": "theimplementationshouldconsidertheidentificationtherecommendationsshallincludethecharacteristics",
+      "normalized_sha256": "fdf428579305cdc64cc4419aeb6bd705a745e4bd8c47062e8171620e310ff1db",
+      "left_provenance": {
+        "text": "the implementation should consider the identification",
+        "chunks": [
+          "the implementation",
+          "should consider",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "implementation",
+          "should",
+          "consider",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations shall include the characteristics",
+        "chunks": [
+          "the recommendations",
+          "shall include",
+          "the characteristics"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "shall",
+          "include",
+          "the",
+          "characteristics"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "c"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "i",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "m",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "p",
+            "right_char": "i"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "l",
+            "right_char": "r"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "m",
+            "right_char": "t"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The recommendations should consider the establishment; the responsibility can understand the characteristics.",
+      "letters": 96,
+      "normalized_letters": "therecommendationsshouldconsidertheestablishmenttheresponsibilitycanunderstandthecharacteristics",
+      "normalized_sha256": "739e546a46a709485f98054dc52da4473ff836c4e0bf5f4eb162f68b36c23148",
+      "left_provenance": {
+        "text": "the recommendations should consider the establishment",
+        "chunks": [
+          "the recommendations",
+          "should consider",
+          "the establishment"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "should",
+          "consider",
+          "the",
+          "establishment"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the responsibility can understand the characteristics",
+        "chunks": [
+          "the responsibility",
+          "can understand",
+          "the characteristics"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "responsibility",
+          "can",
+          "understand",
+          "the",
+          "characteristics"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 42,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "c"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "r",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "e",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "o",
+            "right_char": "r"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "m",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "A base of operations should consider the identification; the recommendations can understand the implementation.",
+      "letters": 96,
+      "normalized_letters": "abaseofoperationsshouldconsidertheidentificationtherecommendationscanunderstandtheimplementation",
+      "normalized_sha256": "e636c69c42af726089e7dc60e6b6bb956de1f6d14f8ef5fa9a1718bb338330e7",
+      "left_provenance": {
+        "text": "a base of operations should consider the identification",
+        "chunks": [
+          "a base of operations",
+          "should consider",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "wikitext_4gram",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "a",
+          "base",
+          "of",
+          "operations",
+          "should",
+          "consider",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations can understand the implementation",
+        "chunks": [
+          "the recommendations",
+          "can understand",
+          "the implementation"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "can",
+          "understand",
+          "the",
+          "implementation"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "b",
+            "right_char": "o"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "a",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "s",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "e",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "o",
+            "right_char": "t"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "f",
+            "right_char": "n"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "o",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "All responsibility should consider a base of operations; the characteristics can understand the administration.",
+      "letters": 96,
+      "normalized_letters": "allresponsibilityshouldconsiderabaseofoperationsthecharacteristicscanunderstandtheadministration",
+      "normalized_sha256": "03ec460adbacdcf5027d659a084005b735e2e500769589782aaf2578626c088c",
+      "left_provenance": {
+        "text": "all responsibility should consider a base of operations",
+        "chunks": [
+          "all responsibility",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "all",
+          "responsibility",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the characteristics can understand the administration",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "the administration"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "the",
+          "administration"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "l",
+            "right_char": "o"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "l",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "r",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "e",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "s",
+            "right_char": "r"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "p",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "o",
+            "right_char": "s"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "All responsibility should consider a base of operations; the characteristics shall include the recommendations.",
+      "letters": 96,
+      "normalized_letters": "allresponsibilityshouldconsiderabaseofoperationsthecharacteristicsshallincludetherecommendations",
+      "normalized_sha256": "8f08aeeaf7a368db3e516240f43249a2114f43bb08eee10fa69461d9be7f1c8d",
+      "left_provenance": {
+        "text": "all responsibility should consider a base of operations",
+        "chunks": [
+          "all responsibility",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "all",
+          "responsibility",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the characteristics shall include the recommendations",
+        "chunks": [
+          "the characteristics",
+          "shall include",
+          "the recommendations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "shall",
+          "include",
+          "the",
+          "recommendations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "a",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "l",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "l",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "r",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "e",
+            "right_char": "t"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "s",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "p",
+            "right_char": "d"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "o",
+            "right_char": "n"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider a base of operations; the characteristics can understand all responsibility.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsiderabaseofoperationsthecharacteristicscanunderstandallresponsibility",
+      "normalized_sha256": "9043ff7b1b4fdad8d7d9a2a1b015efa43595bf4594b919e476791d5baa8a45fb",
+      "left_provenance": {
+        "text": "the administration should consider a base of operations",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the characteristics can understand all responsibility",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "all responsibility"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "all",
+          "responsibility"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "i"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "b"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "s"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "i",
+            "right_char": "n"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider a base of operations; the characteristics can understand the responsibility.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsiderabaseofoperationsthecharacteristicscanunderstandtheresponsibility",
+      "normalized_sha256": "9339fd9365e0e990ba82170652c1bd1bf18ce857714bd0562f7bce85719a008c",
+      "left_provenance": {
+        "text": "the administration should consider a base of operations",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the characteristics can understand the responsibility",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "the responsibility"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "the",
+          "responsibility"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "i"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "b"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "s"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "i",
+            "right_char": "n"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider a base of operations; the characteristics come together the recommendations.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsiderabaseofoperationsthecharacteristicscometogethertherecommendations",
+      "normalized_sha256": "298ae7bc060f8b7e8f78219a3d3c435fad251fb36e7260ae23e654a0e95b195d",
+      "left_provenance": {
+        "text": "the administration should consider a base of operations",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the characteristics come together the recommendations",
+        "chunks": [
+          "the characteristics",
+          "come together",
+          "the recommendations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "VB",
+            "RB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "come",
+          "together",
+          "the",
+          "recommendations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "t"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "i",
+            "right_char": "d"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "i",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider a base of operations; the characteristics will continue the recommendations.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsiderabaseofoperationsthecharacteristicswillcontinuetherecommendations",
+      "normalized_sha256": "7122d3efd9a003eaa415963f00c97ff0a07cd7a7c3d7f01f8cc6adfd059c394c",
+      "left_provenance": {
+        "text": "the administration should consider a base of operations",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the characteristics will continue the recommendations",
+        "chunks": [
+          "the characteristics",
+          "will continue",
+          "the recommendations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "will",
+          "continue",
+          "the",
+          "recommendations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "t"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "i",
+            "right_char": "d"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "i",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider a base of operations; the characteristics will increase the recommendations.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsiderabaseofoperationsthecharacteristicswillincreasetherecommendations",
+      "normalized_sha256": "31f55693528ffc489cb998fb2bce8444f4960ba6a88d29ecae30d792b8dfd4e4",
+      "left_provenance": {
+        "text": "the administration should consider a base of operations",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the characteristics will increase the recommendations",
+        "chunks": [
+          "the characteristics",
+          "will increase",
+          "the recommendations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "will",
+          "increase",
+          "the",
+          "recommendations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "t"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "i",
+            "right_char": "d"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "i",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider the identification; the recommendations come together the characteristics.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsidertheidentificationtherecommendationscometogetherthecharacteristics",
+      "normalized_sha256": "28097fe39f758d0bb60dfff7b549ea4a564ff2fc4f562aa1fa1003e719f9580c",
+      "left_provenance": {
+        "text": "the administration should consider the identification",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations come together the characteristics",
+        "chunks": [
+          "the recommendations",
+          "come together",
+          "the characteristics"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "VB",
+            "RB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "come",
+          "together",
+          "the",
+          "characteristics"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "c"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "i"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "i",
+            "right_char": "r"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider the identification; the recommendations will continue the characteristics.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsidertheidentificationtherecommendationswillcontinuethecharacteristics",
+      "normalized_sha256": "61d00c725df98ae97c05a05994f1c53fa17770bfa83382bb6a22544b2db720ca",
+      "left_provenance": {
+        "text": "the administration should consider the identification",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations will continue the characteristics",
+        "chunks": [
+          "the recommendations",
+          "will continue",
+          "the characteristics"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "will",
+          "continue",
+          "the",
+          "characteristics"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "c"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "i"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "i",
+            "right_char": "r"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider the identification; the recommendations will increase the characteristics.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsidertheidentificationtherecommendationswillincreasethecharacteristics",
+      "normalized_sha256": "e03dbab92e9b79ba34e80871415debee55ae7414d1c9ea7ff2c5b36fbca1d48a",
+      "left_provenance": {
+        "text": "the administration should consider the identification",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations will increase the characteristics",
+        "chunks": [
+          "the recommendations",
+          "will increase",
+          "the characteristics"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "will",
+          "increase",
+          "the",
+          "characteristics"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "c"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "i"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "i",
+            "right_char": "r"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider the implementation; the recommendations can understand the identification.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsidertheimplementationtherecommendationscanunderstandtheidentification",
+      "normalized_sha256": "b46b33ac381e5aeed121dcaf6c37c303e525d3f4656802aa4f37d2c2de173d27",
+      "left_provenance": {
+        "text": "the administration should consider the implementation",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "the implementation"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "the",
+          "implementation"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations can understand the identification",
+        "chunks": [
+          "the recommendations",
+          "can understand",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "can",
+          "understand",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "o"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "c"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "f"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "s",
+            "right_char": "t"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider the implementation; the recommendations come together the characteristics.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsidertheimplementationtherecommendationscometogetherthecharacteristics",
+      "normalized_sha256": "669761187515cf1724413217d688c82d891484a295a1d5996ebcd639a5383aee",
+      "left_provenance": {
+        "text": "the administration should consider the implementation",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "the implementation"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "the",
+          "implementation"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations come together the characteristics",
+        "chunks": [
+          "the recommendations",
+          "come together",
+          "the characteristics"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "VB",
+            "RB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "come",
+          "together",
+          "the",
+          "characteristics"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "c"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "i"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "i",
+            "right_char": "r"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider the implementation; the recommendations will continue the characteristics.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsidertheimplementationtherecommendationswillcontinuethecharacteristics",
+      "normalized_sha256": "1c85193f3f3ac29422eed42551a638719c87240825f4d2cc0104d190dc76d220",
+      "left_provenance": {
+        "text": "the administration should consider the implementation",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "the implementation"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "the",
+          "implementation"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations will continue the characteristics",
+        "chunks": [
+          "the recommendations",
+          "will continue",
+          "the characteristics"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "will",
+          "continue",
+          "the",
+          "characteristics"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "c"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "i"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "i",
+            "right_char": "r"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The administration should consider the implementation; the recommendations will increase the characteristics.",
+      "letters": 96,
+      "normalized_letters": "theadministrationshouldconsidertheimplementationtherecommendationswillincreasethecharacteristics",
+      "normalized_sha256": "bf3939b3e84434c135d3f85a429a1f892b54113555139997b8c26a0dd0dda132",
+      "left_provenance": {
+        "text": "the administration should consider the implementation",
+        "chunks": [
+          "the administration",
+          "should consider",
+          "the implementation"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "administration",
+          "should",
+          "consider",
+          "the",
+          "implementation"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations will increase the characteristics",
+        "chunks": [
+          "the recommendations",
+          "will increase",
+          "the characteristics"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "will",
+          "increase",
+          "the",
+          "characteristics"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "c"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "d",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 90,
+            "left_char": "m",
+            "right_char": "i"
+          },
+          {
+            "left": 6,
+            "right": 89,
+            "left_char": "i",
+            "right_char": "r"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "n",
+            "right_char": "e"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 12,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics can understand all responsibility; the recommendations should contact a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicscanunderstandallresponsibilitytherecommendationsshouldcontactabaseofoperations",
+      "normalized_sha256": "abd8e32ccf1ea68778f7424b738726d75527c2a7966760913291f3243952048d",
+      "left_provenance": {
+        "text": "the characteristics can understand all responsibility",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "all responsibility"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "all",
+          "responsibility"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations should contact a base of operations",
+        "chunks": [
+          "the recommendations",
+          "should contact",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "should",
+          "contact",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics can understand the administration; the recommendations should contact a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicscanunderstandtheadministrationtherecommendationsshouldcontactabaseofoperations",
+      "normalized_sha256": "79ecbc837cf5b4eedede081548e23791a1a2cb79e11a6da4c192f252ca81cf1c",
+      "left_provenance": {
+        "text": "the characteristics can understand the administration",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "the administration"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "the",
+          "administration"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the recommendations should contact a base of operations",
+        "chunks": [
+          "the recommendations",
+          "should contact",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "recommendations",
+          "should",
+          "contact",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics can understand the administration; the responsibility should consider a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicscanunderstandtheadministrationtheresponsibilityshouldconsiderabaseofoperations",
+      "normalized_sha256": "b7ca938769b6dbefbd5dfaada30350db3bb73d5494f26cbde8624375b827ff11",
+      "left_provenance": {
+        "text": "the characteristics can understand the administration",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "the administration"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "the",
+          "administration"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the responsibility should consider a base of operations",
+        "chunks": [
+          "the responsibility",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "responsibility",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "rendered": "The characteristics can understand the identification; the implementation should consider a base of operations.",
+      "letters": 96,
+      "normalized_letters": "thecharacteristicscanunderstandtheidentificationtheimplementationshouldconsiderabaseofoperations",
+      "normalized_sha256": "4b85110e66dbca4c44e658fe5235aa6e403379477d683ebbf302c801fed042d2",
+      "left_provenance": {
+        "text": "the characteristics can understand the identification",
+        "chunks": [
+          "the characteristics",
+          "can understand",
+          "the identification"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "count_2w"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NNS"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN"
+          ]
+        ],
+        "words": [
+          "the",
+          "characteristics",
+          "can",
+          "understand",
+          "the",
+          "identification"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "right_provenance": {
+        "text": "the implementation should consider a base of operations",
+        "chunks": [
+          "the implementation",
+          "should consider",
+          "a base of operations"
+        ],
+        "chunk_sources": [
+          "count_2w",
+          "count_2w",
+          "wikitext_4gram"
+        ],
+        "chunk_tags": [
+          [
+            "DT",
+            "NN"
+          ],
+          [
+            "MD",
+            "VB"
+          ],
+          [
+            "DT",
+            "NN",
+            "IN",
+            "NNS"
+          ]
+        ],
+        "words": [
+          "the",
+          "implementation",
+          "should",
+          "consider",
+          "a",
+          "base",
+          "of",
+          "operations"
+        ],
+        "letters": 48,
+        "grammar": "NP-VP-NP"
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "letters": 96,
+        "two_pointer_comparisons": 48,
+        "mismatch_count": 43,
+        "first_mismatches": [
+          {
+            "left": 0,
+            "right": 95,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 1,
+            "right": 94,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 93,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 92,
+            "left_char": "c",
+            "right_char": "i"
+          },
+          {
+            "left": 4,
+            "right": 91,
+            "left_char": "h",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 88,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "p"
+          },
+          {
+            "left": 9,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "o"
+          }
+        ]
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 14,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    }
+  ],
+  "repair_operator": {
+    "operator": "held-out phrase-chunk seam expansion",
+    "action": "retain the typed clause grammar and all hard gates, then mine a held-out frequency stratum of 2-4 word chunks and replace only the chunk adjacent to the first surviving reverse-index seam; recompose both clauses and rerun the independent audit",
+    "trigger": "zero exact reverse-index joins after the bounded chart",
+    "forbidden": [
+      "full-sentence catalogue import",
+      "word-list reversal",
+      "repeated/self-palindromic units",
+      "readability certification by metric"
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "5ed138b12c33cb7aaf9bb93c9d2c60b78db52ae5004c11a96195af605e26c83a",
+    "lexical_sources": [
+      "data/count_2w.txt",
+      "data/ngrams_wikitext2.json"
+    ],
+    "composition": "new clause cross-products of independently selected phrase chunks",
+    "readability_certificate": false
+  },
+  "reader_gate": {
+    "status": "not_run",
+    "reason": "Any exact row requires a blinded intact-prose versus shuffled-control reader package before promotion."
+  }
+}

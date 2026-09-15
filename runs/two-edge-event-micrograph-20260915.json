@@ -1,0 +1,1050 @@
+{
+  "status": "no_closure_pivot_required",
+  "family_id": "two-edge-event-micrograph",
+  "state_space_signature": "semantic-event-micrograph|event-to-intermediate-to-result|explicit-two-edge-topology|strict-three-rank-temporal-order|independent-right-micrograph-lexicalization|five-link-unit-residual-prefix",
+  "config": {
+    "construction": "event -> intermediate state -> result with two explicit directed edges",
+    "topology": "three temporal units, two-edge chain",
+    "relation_graph": {
+      "nodes": [
+        "event",
+        "intermediate_state",
+        "result_state"
+      ],
+      "edges": [
+        "event-transitions_to-intermediate",
+        "intermediate-resolves_as-result"
+      ]
+    },
+    "left_units": [
+      "intransitive_event",
+      "intermediate_state",
+      "result_state"
+    ],
+    "right_units": [
+      "intransitive_event",
+      "intermediate_state",
+      "result_state"
+    ],
+    "strict_temporal_order": "rank 1 < rank 2 < rank 3",
+    "fresh_inventory": true,
+    "prior_event_modules_imported": false,
+    "brown_corpus_used": false,
+    "svo_or_relative_attachment_states": false,
+    "typed_semordnilap_or_global_pos_states": false,
+    "cross_word_boundaries": true,
+    "minimum_letters": 39,
+    "maximum_letters": 360,
+    "preexisting_tape_key_scope": "all normalized strings of length 1..360 in runs/**/*.json, data/**/*.json, experiments/**/*.json",
+    "output_excluded_before_scan": true
+  },
+  "novelty_audit": {
+    "existing_tape_keys_count": 616955,
+    "existing_json_files_scanned": 1765,
+    "malformed_json_files_skipped": 0,
+    "existing_tape_keys_sha256": "2f277a486c8f16432ada25070b1b52a27d94ae1482f88a90443dca068c835b78",
+    "all_exact_rows_checked_against_existing_keys": true,
+    "all_mechanically_admitted_rows_novel": true
+  },
+  "stats": {
+    "two_edge_frames": 4,
+    "reverse_two_edge_failures": 4
+  },
+  "candidates": [],
+  "exact_closures": [],
+  "rejections": [
+    {
+      "kind": "rejected_two_edge_micrograph_reverse_parse",
+      "frame_id": "brook_banks_valley",
+      "semantic_state": {
+        "frame_id": "brook_banks_valley",
+        "relation_graph": {
+          "nodes": [
+            "event",
+            "intermediate_state",
+            "result_state"
+          ],
+          "edges": [
+            {
+              "from": "event",
+              "to": "intermediate_state",
+              "type": "transitions_to",
+              "direction": "forward"
+            },
+            {
+              "from": "intermediate_state",
+              "to": "result_state",
+              "type": "resolves_as",
+              "direction": "forward"
+            }
+          ],
+          "temporal_order": {
+            "relation": "event_before_intermediate_before_result",
+            "ranks": [
+              1,
+              2,
+              3
+            ],
+            "strictly_ordered": true,
+            "times": [
+              "after rain",
+              "by evening",
+              "by night"
+            ]
+          }
+        },
+        "units": [
+          {
+            "role": "intransitive_event",
+            "entity": "the brook",
+            "predicate": "swelled"
+          },
+          {
+            "role": "intermediate_state",
+            "entity": "the banks",
+            "predicate": "dried"
+          },
+          {
+            "role": "result_state",
+            "entity": "the valley",
+            "predicate": "was clear"
+          }
+        ],
+        "connectives": [
+          "so",
+          "and"
+        ],
+        "object_role": "absent_in_all_three_units_by_design",
+        "relative_edge": false
+      },
+      "right_template": [
+        "TIME_ONE",
+        "DET",
+        "ENTITY",
+        "EVENT",
+        "LINK_ONE",
+        "TIME_TWO",
+        "DET",
+        "ENTITY",
+        "INTERMEDIATE",
+        "LINK_TWO",
+        "TIME_THREE",
+        "DET",
+        "ENTITY",
+        "RESULT"
+      ],
+      "rendered_probe": "after rain, the brook swelled, so by evening, the banks dried, and by night, the valley was clear;",
+      "reverse_tape_prefix": "",
+      "reverse_tape_first_unconsumed": "raelcsawyell",
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "next_right_role": "TIME_ONE",
+      "residual_state": {
+        "unit_index": 0,
+        "expected_role": "TIME_ONE",
+        "relation_graph": {
+          "nodes": [
+            "event",
+            "intermediate_state",
+            "result_state"
+          ],
+          "edges": [
+            {
+              "from": "event",
+              "to": "intermediate_state",
+              "type": "transitions_to",
+              "direction": "forward"
+            },
+            {
+              "from": "intermediate_state",
+              "to": "result_state",
+              "type": "resolves_as",
+              "direction": "forward"
+            }
+          ],
+          "temporal_order": {
+            "relation": "event_before_intermediate_before_result",
+            "ranks": [
+              1,
+              2,
+              3
+            ],
+            "strictly_ordered": true,
+            "times": [
+              "after rain",
+              "by evening",
+              "by night"
+            ]
+          }
+        },
+        "two_edge_topology_carried_through_reverse_residual": true
+      },
+      "reason": "reverse_tape_has_no_lexical_prefix_for_two_edge_micrograph",
+      "independent_left_parse": {
+        "valid": true,
+        "word_count": 18,
+        "two_edges_present": true,
+        "first_unit_role": "intransitive_event",
+        "second_unit_role": "intermediate_state",
+        "third_unit_role": "result_state",
+        "no_transitive_object": true,
+        "temporal_order_carried": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 75,
+        "normalized_letters": "afterrainthebrookswelledsobyeveningthebanksdriedandbynightthevalleywasclear",
+        "normalized_sha256": "08cd93d7b36e76c3f7947a9bcad1221dd39b4848ea516efd0ffd2ef5109908b0",
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 74,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 73,
+            "left_char": "f",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 72,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 3,
+            "right": 71,
+            "left_char": "e",
+            "right_char": "l"
+          },
+          {
+            "left": 4,
+            "right": 70,
+            "left_char": "r",
+            "right_char": "c"
+          },
+          {
+            "left": 5,
+            "right": 69,
+            "left_char": "r",
+            "right_char": "s"
+          },
+          {
+            "left": 7,
+            "right": 67,
+            "left_char": "i",
+            "right_char": "w"
+          },
+          {
+            "left": 8,
+            "right": 66,
+            "left_char": "n",
+            "right_char": "y"
+          },
+          {
+            "left": 9,
+            "right": 65,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 10,
+            "right": 64,
+            "left_char": "h",
+            "right_char": "l"
+          },
+          {
+            "left": 11,
+            "right": 63,
+            "left_char": "e",
+            "right_char": "l"
+          },
+          {
+            "left": 12,
+            "right": 62,
+            "left_char": "b",
+            "right_char": "a"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 18,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.779,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "rejected_two_edge_micrograph_reverse_parse",
+      "frame_id": "bud_branch_tree",
+      "semantic_state": {
+        "frame_id": "bud_branch_tree",
+        "relation_graph": {
+          "nodes": [
+            "event",
+            "intermediate_state",
+            "result_state"
+          ],
+          "edges": [
+            {
+              "from": "event",
+              "to": "intermediate_state",
+              "type": "transitions_to",
+              "direction": "forward"
+            },
+            {
+              "from": "intermediate_state",
+              "to": "result_state",
+              "type": "resolves_as",
+              "direction": "forward"
+            }
+          ],
+          "temporal_order": {
+            "relation": "event_before_intermediate_before_result",
+            "ranks": [
+              1,
+              2,
+              3
+            ],
+            "strictly_ordered": true,
+            "times": [
+              "in spring",
+              "by summer",
+              "by fall"
+            ]
+          }
+        },
+        "units": [
+          {
+            "role": "intransitive_event",
+            "entity": "the bud",
+            "predicate": "opened"
+          },
+          {
+            "role": "intermediate_state",
+            "entity": "the branch",
+            "predicate": "thickened"
+          },
+          {
+            "role": "result_state",
+            "entity": "the tree",
+            "predicate": "was bare"
+          }
+        ],
+        "connectives": [
+          "then",
+          "and"
+        ],
+        "object_role": "absent_in_all_three_units_by_design",
+        "relative_edge": false
+      },
+      "right_template": [
+        "TIME_ONE",
+        "DET",
+        "ENTITY",
+        "EVENT",
+        "LINK_ONE",
+        "TIME_TWO",
+        "DET",
+        "ENTITY",
+        "INTERMEDIATE",
+        "LINK_TWO",
+        "TIME_THREE",
+        "DET",
+        "ENTITY",
+        "RESULT"
+      ],
+      "rendered_probe": "in spring, the bud opened, then by summer, the branch thickened, and by fall, the tree was bare;",
+      "reverse_tape_prefix": "",
+      "reverse_tape_first_unconsumed": "erabsaweerte",
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "next_right_role": "TIME_ONE",
+      "residual_state": {
+        "unit_index": 0,
+        "expected_role": "TIME_ONE",
+        "relation_graph": {
+          "nodes": [
+            "event",
+            "intermediate_state",
+            "result_state"
+          ],
+          "edges": [
+            {
+              "from": "event",
+              "to": "intermediate_state",
+              "type": "transitions_to",
+              "direction": "forward"
+            },
+            {
+              "from": "intermediate_state",
+              "to": "result_state",
+              "type": "resolves_as",
+              "direction": "forward"
+            }
+          ],
+          "temporal_order": {
+            "relation": "event_before_intermediate_before_result",
+            "ranks": [
+              1,
+              2,
+              3
+            ],
+            "strictly_ordered": true,
+            "times": [
+              "in spring",
+              "by summer",
+              "by fall"
+            ]
+          }
+        },
+        "two_edge_topology_carried_through_reverse_residual": true
+      },
+      "reason": "reverse_tape_has_no_lexical_prefix_for_two_edge_micrograph",
+      "independent_left_parse": {
+        "valid": true,
+        "word_count": 18,
+        "two_edges_present": true,
+        "first_unit_role": "intransitive_event",
+        "second_unit_role": "intermediate_state",
+        "third_unit_role": "result_state",
+        "no_transitive_object": true,
+        "temporal_order_carried": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 73,
+        "normalized_letters": "inspringthebudopenedthenbysummerthebranchthickenedandbyfallthetreewasbare",
+        "normalized_sha256": "0a42d2d4767fcfd19e26268cf863f4bc9ca863b64749d70c83e70aff32a963df",
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 72,
+            "left_char": "i",
+            "right_char": "e"
+          },
+          {
+            "left": 1,
+            "right": 71,
+            "left_char": "n",
+            "right_char": "r"
+          },
+          {
+            "left": 2,
+            "right": 70,
+            "left_char": "s",
+            "right_char": "a"
+          },
+          {
+            "left": 3,
+            "right": 69,
+            "left_char": "p",
+            "right_char": "b"
+          },
+          {
+            "left": 4,
+            "right": 68,
+            "left_char": "r",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 67,
+            "left_char": "i",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 66,
+            "left_char": "n",
+            "right_char": "w"
+          },
+          {
+            "left": 7,
+            "right": 65,
+            "left_char": "g",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 64,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 9,
+            "right": 63,
+            "left_char": "h",
+            "right_char": "r"
+          },
+          {
+            "left": 10,
+            "right": 62,
+            "left_char": "e",
+            "right_char": "t"
+          },
+          {
+            "left": 11,
+            "right": 61,
+            "left_char": "b",
+            "right_char": "e"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 18,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.822,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "rejected_two_edge_micrograph_reverse_parse",
+      "frame_id": "field_soil_rows",
+      "semantic_state": {
+        "frame_id": "field_soil_rows",
+        "relation_graph": {
+          "nodes": [
+            "event",
+            "intermediate_state",
+            "result_state"
+          ],
+          "edges": [
+            {
+              "from": "event",
+              "to": "intermediate_state",
+              "type": "transitions_to",
+              "direction": "forward"
+            },
+            {
+              "from": "intermediate_state",
+              "to": "result_state",
+              "type": "resolves_as",
+              "direction": "forward"
+            }
+          ],
+          "temporal_order": {
+            "relation": "event_before_intermediate_before_result",
+            "ranks": [
+              1,
+              2,
+              3
+            ],
+            "strictly_ordered": true,
+            "times": [
+              "before winter",
+              "by thaw",
+              "by planting"
+            ]
+          }
+        },
+        "units": [
+          {
+            "role": "intransitive_event",
+            "entity": "the field",
+            "predicate": "rested"
+          },
+          {
+            "role": "intermediate_state",
+            "entity": "the soil",
+            "predicate": "loosened"
+          },
+          {
+            "role": "result_state",
+            "entity": "the rows",
+            "predicate": "were ready"
+          }
+        ],
+        "connectives": [
+          "while",
+          "and"
+        ],
+        "object_role": "absent_in_all_three_units_by_design",
+        "relative_edge": false
+      },
+      "right_template": [
+        "TIME_ONE",
+        "DET",
+        "ENTITY",
+        "EVENT",
+        "LINK_ONE",
+        "TIME_TWO",
+        "DET",
+        "ENTITY",
+        "INTERMEDIATE",
+        "LINK_TWO",
+        "TIME_THREE",
+        "DET",
+        "ENTITY",
+        "RESULT"
+      ],
+      "rendered_probe": "before winter, the field rested, while by thaw, the soil loosened, and by planting, the rows were ready;",
+      "reverse_tape_prefix": "",
+      "reverse_tape_first_unconsumed": "ydaererewswo",
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "next_right_role": "TIME_ONE",
+      "residual_state": {
+        "unit_index": 0,
+        "expected_role": "TIME_ONE",
+        "relation_graph": {
+          "nodes": [
+            "event",
+            "intermediate_state",
+            "result_state"
+          ],
+          "edges": [
+            {
+              "from": "event",
+              "to": "intermediate_state",
+              "type": "transitions_to",
+              "direction": "forward"
+            },
+            {
+              "from": "intermediate_state",
+              "to": "result_state",
+              "type": "resolves_as",
+              "direction": "forward"
+            }
+          ],
+          "temporal_order": {
+            "relation": "event_before_intermediate_before_result",
+            "ranks": [
+              1,
+              2,
+              3
+            ],
+            "strictly_ordered": true,
+            "times": [
+              "before winter",
+              "by thaw",
+              "by planting"
+            ]
+          }
+        },
+        "two_edge_topology_carried_through_reverse_residual": true
+      },
+      "reason": "reverse_tape_has_no_lexical_prefix_for_two_edge_micrograph",
+      "independent_left_parse": {
+        "valid": true,
+        "word_count": 18,
+        "two_edges_present": true,
+        "first_unit_role": "intransitive_event",
+        "second_unit_role": "intermediate_state",
+        "third_unit_role": "result_state",
+        "no_transitive_object": true,
+        "temporal_order_carried": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 81,
+        "normalized_letters": "beforewinterthefieldrestedwhilebythawthesoilloosenedandbyplantingtherowswereready",
+        "normalized_sha256": "e7861ba37545ec13924746684aa7674a13a7cd2e4a9e28764acd3e5ba74e93dd",
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 80,
+            "left_char": "b",
+            "right_char": "y"
+          },
+          {
+            "left": 1,
+            "right": 79,
+            "left_char": "e",
+            "right_char": "d"
+          },
+          {
+            "left": 2,
+            "right": 78,
+            "left_char": "f",
+            "right_char": "a"
+          },
+          {
+            "left": 3,
+            "right": 77,
+            "left_char": "o",
+            "right_char": "e"
+          },
+          {
+            "left": 6,
+            "right": 74,
+            "left_char": "w",
+            "right_char": "r"
+          },
+          {
+            "left": 7,
+            "right": 73,
+            "left_char": "i",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 72,
+            "left_char": "n",
+            "right_char": "w"
+          },
+          {
+            "left": 9,
+            "right": 71,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 10,
+            "right": 70,
+            "left_char": "e",
+            "right_char": "w"
+          },
+          {
+            "left": 11,
+            "right": 69,
+            "left_char": "r",
+            "right_char": "o"
+          },
+          {
+            "left": 12,
+            "right": 68,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 13,
+            "right": 67,
+            "left_char": "h",
+            "right_char": "e"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 18,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.517,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "rejected_two_edge_micrograph_reverse_parse",
+      "frame_id": "kiln_clay_pot",
+      "semantic_state": {
+        "frame_id": "kiln_clay_pot",
+        "relation_graph": {
+          "nodes": [
+            "event",
+            "intermediate_state",
+            "result_state"
+          ],
+          "edges": [
+            {
+              "from": "event",
+              "to": "intermediate_state",
+              "type": "transitions_to",
+              "direction": "forward"
+            },
+            {
+              "from": "intermediate_state",
+              "to": "result_state",
+              "type": "resolves_as",
+              "direction": "forward"
+            }
+          ],
+          "temporal_order": {
+            "relation": "event_before_intermediate_before_result",
+            "ranks": [
+              1,
+              2,
+              3
+            ],
+            "strictly_ordered": true,
+            "times": [
+              "at sunrise",
+              "by midday",
+              "at dusk"
+            ]
+          }
+        },
+        "units": [
+          {
+            "role": "intransitive_event",
+            "entity": "the kiln",
+            "predicate": "glowed"
+          },
+          {
+            "role": "intermediate_state",
+            "entity": "the clay",
+            "predicate": "softened"
+          },
+          {
+            "role": "result_state",
+            "entity": "the pot",
+            "predicate": "was cool"
+          }
+        ],
+        "connectives": [
+          "then",
+          "and"
+        ],
+        "object_role": "absent_in_all_three_units_by_design",
+        "relative_edge": false
+      },
+      "right_template": [
+        "TIME_ONE",
+        "DET",
+        "ENTITY",
+        "EVENT",
+        "LINK_ONE",
+        "TIME_TWO",
+        "DET",
+        "ENTITY",
+        "INTERMEDIATE",
+        "LINK_TWO",
+        "TIME_THREE",
+        "DET",
+        "ENTITY",
+        "RESULT"
+      ],
+      "rendered_probe": "at sunrise, the kiln glowed, then by midday, the clay softened, and at dusk, the pot was cool;",
+      "reverse_tape_prefix": "",
+      "reverse_tape_first_unconsumed": "loocsawtopeh",
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "next_right_role": "TIME_ONE",
+      "residual_state": {
+        "unit_index": 0,
+        "expected_role": "TIME_ONE",
+        "relation_graph": {
+          "nodes": [
+            "event",
+            "intermediate_state",
+            "result_state"
+          ],
+          "edges": [
+            {
+              "from": "event",
+              "to": "intermediate_state",
+              "type": "transitions_to",
+              "direction": "forward"
+            },
+            {
+              "from": "intermediate_state",
+              "to": "result_state",
+              "type": "resolves_as",
+              "direction": "forward"
+            }
+          ],
+          "temporal_order": {
+            "relation": "event_before_intermediate_before_result",
+            "ranks": [
+              1,
+              2,
+              3
+            ],
+            "strictly_ordered": true,
+            "times": [
+              "at sunrise",
+              "by midday",
+              "at dusk"
+            ]
+          }
+        },
+        "two_edge_topology_carried_through_reverse_residual": true
+      },
+      "reason": "reverse_tape_has_no_lexical_prefix_for_two_edge_micrograph",
+      "independent_left_parse": {
+        "valid": true,
+        "word_count": 18,
+        "two_edges_present": true,
+        "first_unit_role": "intransitive_event",
+        "second_unit_role": "intermediate_state",
+        "third_unit_role": "result_state",
+        "no_transitive_object": true,
+        "temporal_order_carried": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 71,
+        "normalized_letters": "atsunrisethekilnglowedthenbymiddaytheclaysoftenedandatduskthepotwascool",
+        "normalized_sha256": "637f8ff78e4c5e17c345f7e0e67c71937c945e8544155d7fe3d554b437044f48",
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 70,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 1,
+            "right": 69,
+            "left_char": "t",
+            "right_char": "o"
+          },
+          {
+            "left": 2,
+            "right": 68,
+            "left_char": "s",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 67,
+            "left_char": "u",
+            "right_char": "c"
+          },
+          {
+            "left": 4,
+            "right": 66,
+            "left_char": "n",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 65,
+            "left_char": "r",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 64,
+            "left_char": "i",
+            "right_char": "w"
+          },
+          {
+            "left": 7,
+            "right": 63,
+            "left_char": "s",
+            "right_char": "t"
+          },
+          {
+            "left": 8,
+            "right": 62,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 9,
+            "right": 61,
+            "left_char": "t",
+            "right_char": "p"
+          },
+          {
+            "left": 10,
+            "right": 60,
+            "left_char": "h",
+            "right_char": "e"
+          },
+          {
+            "left": 11,
+            "right": 59,
+            "left_char": "e",
+            "right_char": "h"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 18,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.389,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    }
+  ],
+  "next_operator": "Stop this event-family ladder after the two-edge zero closure; only a materially different semantic construction with a new inventory should be considered next.",
+  "closure_conclusion": "No two-edge micrograph reverse parse closed in this finite grammar. The zero is a bounded residual failure, not an impossibility claim; every frame is retained with its graph state and rejection audit.",
+  "provenance": {
+    "generator_sha256": "f98b1c5b377a9caa60443641964baa8b206f08495331df7cb7b67cf38322288a",
+    "fresh_micrograph_inventory_authored": true,
+    "right_inventory_independently_authored": true,
+    "source_text_copied": false,
+    "readability_certificate": false
+  }
+}

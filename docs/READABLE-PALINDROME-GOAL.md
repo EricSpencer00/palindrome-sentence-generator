@@ -289,6 +289,16 @@ human-rated intact prose—and may claim success only when both gates are met.
   cause/consequence direction and contrast polarity, not a larger inventory or
   replay of an earlier connective search.
 
+- **Relation-graph event pair (2026-09-15).** This successor made the semantic
+  edge explicit: directed `causes`/`leads_to` edges and symmetric opposed
+  `contrasts_with` polarity were carried with strict event-before-result order
+  through the reverse residual. Six fresh frames (two per edge class) were
+  tested; all six reverse parses failed after excluding 616,820 existing tape
+  keys. Every rejection includes the edge state, rendered probe, independent
+  exact audit, central gate, and readability diagnostic. The next experiment
+  must use a two-edge event-to-intermediate-to-result micrograph, not replay
+  this single-edge state.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

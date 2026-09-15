@@ -33,6 +33,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `connective-bearing-event-pair` | the same ordered event/result state with an explicit independently lexicalized connective slot | connective-bearing discourse state | 0 reverse parses |
 | `constrained-reverse-lexical-v2` | memoized, frequency-ranked complete lexicon segmentations with bounded reverse-compatible prefixes | constrained lexical-prefix decoding | 0 complete parses; 4 partial probes |
 | `connective-semantic-class-event-pair` | contrast/cause/consequence class state carried through the ordered event/result residual | semantic relation class | 0 reverse parses |
+| `relation-graph-event-pair` | explicit directed cause/consequence or symmetric contrast edge with polarity and strict temporal order | relation-graph state | 0 reverse parses |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

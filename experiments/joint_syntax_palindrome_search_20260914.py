@@ -15,9 +15,10 @@ import hashlib
 import json
 import math
 import sys
-from collections import Counter, defaultdict
+from collections import Counter
+from functools import lru_cache
 from pathlib import Path
-from typing import Iterable, Sequence
+from typing import Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -67,6 +68,38 @@ PLANS: tuple[tuple[str, ...], ...] = (
     ("PRON", "VT", "DET", "THING", "CONJ", "DET", "PERSON", "VT", "DET", "THING"),
 )
 
+
+def expanded_plans() -> tuple[tuple[str, ...], ...]:
+    """Apply one typed repair at a time to every authored plan.
+
+    This is the constructive response to a dead residual: it changes the
+    grammatical search space itself while preserving the same exact
+    center-out kernel.  The operators are deliberately local and typed:
+    adjective insertion before an argument noun, adverb insertion after a
+    transitive verb, and a prepositional noun-phrase adjunct after an object.
+    No free character strings or catalogue spans are introduced.
+    """
+    variants = list(PLANS)
+    seen = set(PLANS)
+    for shape in PLANS:
+        for index, role in enumerate(shape):
+            additions: list[tuple[str, ...]] = []
+            if role in {"PERSON", "THING", "NOUN"}:
+                additions.append(("ADJ",))
+            if role == "VT":
+                additions.append(("ADV",))
+            if role in {"THING", "NOUN"}:
+                additions.append(("ADP", "DET", "THING"))
+            for addition in additions:
+                candidate = shape[:index] + addition + shape[index:]
+                if candidate not in seen:
+                    seen.add(candidate)
+                    variants.append(candidate)
+    return tuple(variants)
+
+
+SEARCH_PLANS = expanded_plans()
+
 DETS = "a an the my our his her this that some many each one their".split()
 NUMS = "one two three four five six seven eight nine ten".split()
 PRONS = "i we you he she they it me us them who".split()
@@ -104,7 +137,8 @@ def _matches_shape(words: Sequence[str], shape: Sequence[str], *, prefix: bool) 
     return all(slot in TAG_BY_WORD.get(word, ()) for word, slot in zip(words, expected))
 
 
-def syntax_state_possible(left: Sequence[str], right: Sequence[str]) -> bool:
+@lru_cache(maxsize=200_000)
+def syntax_state_possible(left: tuple[str, ...], right: tuple[str, ...]) -> bool:
     """Check whether both live grammar edges can occupy one plan.
 
     Center-out growth starts at the eventual clause boundary.  The current
@@ -114,9 +148,9 @@ def syntax_state_possible(left: Sequence[str], right: Sequence[str]) -> bool:
     point explicitly instead of pretending either edge is already at an
     absolute sentence position.
     """
-    if len(left) + len(right) > max(map(len, PLANS)):
+    if len(left) + len(right) > max(map(len, SEARCH_PLANS)):
         return False
-    for shape in PLANS:
+    for shape in SEARCH_PLANS:
         if len(left) + len(right) > len(shape):
             continue
         # k is the split between the left and right portions of the final
@@ -136,7 +170,7 @@ def syntax_state_possible(left: Sequence[str], right: Sequence[str]) -> bool:
 def syntax_complete(words: Sequence[str]) -> bool:
     return any(len(words) == len(shape)
                and _matches_shape(words, shape, prefix=True)
-               for shape in PLANS)
+               for shape in SEARCH_PLANS)
 
 
 def vocab() -> list[str]:
@@ -265,7 +299,10 @@ def run(*, seeds: int = 64, beam: int = 600, candidate_limit: int = 500,
         "config": {
             "seeds": seeds, "beam": beam, "candidate_limit": candidate_limit,
             "max_steps": max_steps, "minimum_letters": min_letters,
-            "maximum_letters": max_letters, "plans": [list(p) for p in PLANS],
+            "maximum_letters": max_letters, "plans": [list(p) for p in SEARCH_PLANS],
+            "base_plan_count": len(PLANS),
+            "expanded_plan_count": len(SEARCH_PLANS),
+            "plan_expansion_operator": "one-step typed ADJ-before-argument, ADV-after-VT, or ADP-DET-THING adjunct",
             "syntax_is_live_state_constraint": True,
             "character_residual_is_live_state_constraint": True,
             "max_overhang": 40,

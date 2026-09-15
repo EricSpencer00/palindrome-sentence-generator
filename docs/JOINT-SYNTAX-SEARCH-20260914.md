@@ -9,6 +9,12 @@ out state carries:
 - the exact character residual owed by the opposite edge; and
 - a content-word distinctness guard.
 
+After the initial frontier stalls, the run applies 108 one-step typed plan
+repairs (131 plans total): adjective insertion before an argument noun, an
+adverb after a transitive verb, or a prepositional noun-phrase adjunct.  These
+repairs are still searched under the same exact residual, rather than scored
+afterward.
+
 Brown bigrams are a soft child-ordering prior only.  They never admit a state,
 and no Brown sentence is copied.  A separate normalization and admission pass
 audits each closure.

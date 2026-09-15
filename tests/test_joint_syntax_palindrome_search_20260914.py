@@ -36,6 +36,8 @@ def test_joint_run_declares_live_roles_and_human_readability_gate() -> None:
     assert config["syntax_is_live_state_constraint"] is True
     assert config["character_residual_is_live_state_constraint"] is True
     assert {"VT", "NOUN", "ADJ"}.issubset(config["typed_state_roles"])
+    assert config["expanded_plan_count"] > config["base_plan_count"]
+    assert "typed" in config["plan_expansion_operator"]
     assert config["machine_readability_certification"] is False
     assert result["reader_facing_next_test"]
 
@@ -50,4 +52,3 @@ def test_every_joint_record_has_independent_exact_audit() -> None:
         assert row["syntax_complete"] is True
         assert row["mechanically_eligible"] is all(row["mechanical_checks"].values())
         assert row["reader_status"].startswith("human-unreviewed")
-

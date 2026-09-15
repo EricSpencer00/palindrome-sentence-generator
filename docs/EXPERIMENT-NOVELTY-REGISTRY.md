@@ -40,6 +40,8 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `dialogue-shared-topic-elliptical-residual` | paired prompts and paired elliptical/acknowledgment responses constrained to one shared discourse topic | shared-topic discourse state | 0 residual matches; dialogue family closed |
 | `multiword-unit-transducer-local-repair` | independent idiomatic fragments with one reversible affix/compound rewrite and boundary resegmentation | lexical-unit transformation operator | 0 exact closures; 396 surfaces evaluated |
 | `morphological-derivational-seam` | independent inflectional/derivational forms with reverse character seams crossing lexical boundaries | morphology and derivational seam state | 0 exact closures; 113,250 left surfaces |
+| `cp-semantic-grammar-palindrome` | one-hot semantic grammar and lexical slots with global character-domain equality and exact-N satisfiability | constraint-programming grammar intersection | 0 closures; 44,071 states |
+| `clause-lattice-joint-dp` | independent complete clauses solved by length-indexed character equations with explicit subject/tense/argument constraints | clause-lattice dynamic programming | 0 exact closures; 49 frame pairs |
 | `scene-slot-graph-residual` | coordinated locative/possessive/attributive scene clauses with `located_at`, `possesses`, and `describes` edges; independent right-side typed slot graph consumes the reverse character residual | bidirectional semantic slot graph with joint English slot order and reverse lexical constraints | 0 reverse closures; 6 retained residual probes |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately

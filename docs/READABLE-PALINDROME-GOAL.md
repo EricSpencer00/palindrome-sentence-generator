@@ -360,6 +360,23 @@ human-rated intact prose—and may claim success only when both gates are met.
   next repair changes one same-family inflectional/derivational form while
   preserving agreement and the full reverse reparse.
 
+- **Constraint-programming semantic grammar (2026-09-15).** A finite-domain
+  one-hot model selected a complete semantic rule, typed lexical slots, global
+  character variables, and exact target length in one constraint system rather
+  than decoding a reversed tape.  It explored 44,071 states and 212,947 slot
+  branches across exact targets 40--80; 18 rendered partial probes reached
+  their longest consistent prefixes, but there were zero exact closures or
+  admitted outputs.  The next repair is one new lexeme at the first recorded
+  character contradiction, not a larger solver budget or filler.
+
+- **Independent clause-lattice joint DP (2026-09-15).** A separate
+  length-indexed dynamic program paired 49 complete subject/tense/argument
+  frames and solved left/right lexical choices jointly across word boundaries.
+  It explored 805 states and retained 49 rendered residual probes; all pairs
+  failed before exact closure, with zero admitted candidates.  The next
+  operator replaces one lexicalization in the deepest same-frame slot while
+  preserving the cross-boundary and no-repeat gates.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

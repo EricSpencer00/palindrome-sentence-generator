@@ -18,3 +18,5 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "fresh-paired-clause-ledger" in ids
     assert "dialogue-shared-topic-elliptical-residual" in ids
     assert "morphological-derivational-seam" in ids
+    assert "cp-semantic-grammar-palindrome" in ids
+    assert "clause-lattice-joint-dp" in ids

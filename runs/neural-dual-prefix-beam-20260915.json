@@ -1,0 +1,150 @@
+{
+  "experiment_id": "neural-dual-prefix-beam-20260915",
+  "signature": "neural-dual-prefix|typed-role-online-emission|gpt2-bilateral-ranking|character-equation-state|finite-beam|independent-clause-authoring",
+  "method": "Two independently expanded typed sides; outer character equations prune online; GPT-2 ranks both sides only after compatibility.",
+  "parameters": {
+    "beam": 24,
+    "max_steps": 4,
+    "time_cap_seconds": 20
+  },
+  "stats": {
+    "expansions": 15625,
+    "pruned": 15625,
+    "final_states": 0,
+    "exact": 0,
+    "admitted": 0
+  },
+  "rendered_probes": [
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor sees a map",
+      "rendered": "the sailor sees a map / the sailor sees a map",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor sees the red book",
+      "rendered": "the sailor sees a map / the sailor sees the red book",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor sees a small bell",
+      "rendered": "the sailor sees a map / the sailor sees a small bell",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor sees the old boat",
+      "rendered": "the sailor sees a map / the sailor sees the old boat",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor sees a blue vase",
+      "rendered": "the sailor sees a map / the sailor sees a blue vase",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor holds a map",
+      "rendered": "the sailor sees a map / the sailor holds a map",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor holds the red book",
+      "rendered": "the sailor sees a map / the sailor holds the red book",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor holds a small bell",
+      "rendered": "the sailor sees a map / the sailor holds a small bell",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor holds the old boat",
+      "rendered": "the sailor sees a map / the sailor holds the old boat",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor holds a blue vase",
+      "rendered": "the sailor sees a map / the sailor holds a blue vase",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor finds a map",
+      "rendered": "the sailor sees a map / the sailor finds a map",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor finds the red book",
+      "rendered": "the sailor sees a map / the sailor finds the red book",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor finds a small bell",
+      "rendered": "the sailor sees a map / the sailor finds a small bell",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor finds the old boat",
+      "rendered": "the sailor sees a map / the sailor finds the old boat",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor finds a blue vase",
+      "rendered": "the sailor sees a map / the sailor finds a blue vase",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor helps a map",
+      "rendered": "the sailor sees a map / the sailor helps a map",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor helps the red book",
+      "rendered": "the sailor sees a map / the sailor helps the red book",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor helps a small bell",
+      "rendered": "the sailor sees a map / the sailor helps a small bell",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor helps the old boat",
+      "rendered": "the sailor sees a map / the sailor helps the old boat",
+      "reason": "mirrored character conflict"
+    },
+    {
+      "left": "the sailor sees a map",
+      "right": "the sailor helps a blue vase",
+      "rendered": "the sailor sees a map / the sailor helps a blue vase",
+      "reason": "mirrored character conflict"
+    }
+  ],
+  "exact_candidates": [],
+  "repair_operator": "When a role expansion is pruned, retain its first conflicting mirrored character and replace only that role with a held-out same-role lexical alternative; re-score both complete prefixes and re-run the independent audit.",
+  "independent_audit": {
+    "ascii_two_pointer": true,
+    "method": "norm then two-pointer equality"
+  },
+  "provenance": {
+    "script_sha256": "46d50ca5212e06887a8c71916d4bfd77f49463a9069d575981df4c87d8e84a36",
+    "output_excluded": true,
+    "generated_at": "2026-09-15"
+  }
+}

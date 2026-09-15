@@ -1,4 +1,4 @@
-from llm_palindrome.scalable import construct_exact
+from llm_palindrome.scalable import construct_exact, construct_total
 
 
 VOCAB = "a i an am as at be by do go he if in is it me my no of oh on or so to up us we".split()
@@ -25,3 +25,10 @@ def test_fallback_is_explicitly_non_reader_evidence():
     assert row["fallback"] is True
     assert row["independent_exact_validation"]
 
+
+def test_total_constructor_handles_large_requested_lengths_without_search():
+    row = construct_total(100_001)
+    assert row["status"] == "exact_fallback"
+    assert row["letters"] == 100_001
+    assert row["independent_exact_validation"]
+    assert row["reader_candidate"] is False

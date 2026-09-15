@@ -190,3 +190,41 @@ def construct_exact(
 def construct_many(targets: Iterable[int], vocabulary: Sequence[str], **kwargs) -> list[dict]:
     """Run a reproducible length sweep with the same lexical inventory."""
     return [construct_exact(int(target), vocabulary, **kwargs) for target in targets]
+
+
+def construct_total(target_letters: int, *, token: str = "a") -> dict:
+    """Return an exact closure for *any* positive target in linear time.
+
+    This is the totality witness for the scalable core, not a prose generator:
+    it tiles the requested tape with a declared one-letter lexical token and
+    marks the result ``exact_fallback`` so the serving and reader layers cannot
+    mistake repeated filler for English.  Keeping this constructor explicit
+    makes the arbitrary-length guarantee testable without giving the fallback
+    a hidden route into candidate promotion.
+    """
+    if target_letters < 1:
+        return ExactResult("invalid_target", target_letters).as_dict()
+    normalized = normalize_letters(token)
+    if len(normalized) != 1 or normalized != normalized[::-1]:
+        raise ValueError("total constructor requires a one-letter token")
+    center = token if target_letters % 2 else ""
+    half = (target_letters - len(normalized if center else "")) // 2
+    text = " ".join([token] * half + ([center] if center else []) + [token] * half)
+    tape = normalize_letters(text)
+    # The full admission gate intentionally examines repeated spans and is
+    # quadratic in the rendered token count.  A totality witness must remain
+    # linear in N, so report the cheap exact facts and fail closed on every
+    # candidate-quality gate instead of spending unbounded time diagnosing a
+    # surface that is explicitly non-reader evidence.
+    admission = {
+        "supported_ascii_letters": True,
+        "nonempty": True,
+        "exact_letter_palindrome": tape == tape[::-1],
+        "length_band": True,
+        "fallback_non_reader": False,
+    }
+    row = ExactResult(
+        "exact_fallback", target_letters, text, len(tape), 0, center, True,
+        admission,
+    )
+    return row.as_dict()

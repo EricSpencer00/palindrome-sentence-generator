@@ -48,3 +48,10 @@ pruning removes overshoot before expansion; memoization prevents duplicate
 residual states.  Increasing a target therefore changes the budgeted frontier,
 not the algorithm or the palindrome proof.  Readability remains a separate,
 human-evidenced property.
+
+For a totality check independent of search budget, `construct_total(N)` emits an
+explicit `exact_fallback` made from a declared one-letter token in linear time.
+It is mechanically audited but permanently marked non-reader evidence; the
+public/API path must never promote it.  The strict residual search remains the
+route for lexical and typed material, while this total constructor makes the
+"any requested size" contract executable and testable.

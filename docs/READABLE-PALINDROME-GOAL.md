@@ -308,6 +308,16 @@ human-rated intact prose—and may claim success only when both gates are met.
   event-family ladder. Any next construction must use a materially different
   semantic inventory.
 
+- **Dialogue acknowledgment inventory (2026-09-15).** The next materially
+  different family used hand-authored speech acts: 4,320 question/instruction
+  left acts and 7,560 independently lexicalized answer/acknowledgment acts.
+  All 4,320 residual lookups missed, with zero exact closures or admitted
+  candidates. A repository fingerprint across 1,740 JSON files was recorded,
+  and the retained frontier now includes rendered left-act probes, lengths,
+  reverse targets, and independent exact audits. The next operator is
+  elliptical answers and imperative acknowledgments; it is not a larger beam
+  over this same act inventory.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

@@ -74,10 +74,13 @@ def _answers_and_acknowledgments() -> tuple[Act, ...]:
     return tuple(rows)
 
 
-def _repo_tape_fingerprint() -> tuple[frozenset[str], dict]:
+def _repo_tape_fingerprint(output: Path | None = None) -> tuple[frozenset[str], dict]:
     tapes: set[str] = set()
     files = 0
+    output = output.resolve() if output else None
     for path in sorted((ROOT / "runs").rglob("*.json")):
+        if output and path.resolve() == output:
+            continue
         try:
             payload = json.loads(path.read_text())
         except (OSError, json.JSONDecodeError):
@@ -127,8 +130,8 @@ def _audit(left: Act, right: Act, existing_collision: bool) -> dict:
     }
 
 
-def run() -> dict:
-    existing_tapes, fingerprint = _repo_tape_fingerprint()
+def run(output: Path | None = None) -> dict:
+    existing_tapes, fingerprint = _repo_tape_fingerprint(output)
     lefts = _questions_and_instructions()
     rights = _answers_and_acknowledgments()
     right_index: dict[str, list[Act]] = defaultdict(list)
@@ -144,7 +147,21 @@ def run() -> dict:
         if not matches:
             stats["residual_misses"] += 1
             if len(residual_frontier) < 100:
-                residual_frontier.append({"left_tape": left.tape, "left_template": left.template, "reason": "no independently lexicalized answer residual"})
+                probe = " ".join(left.words).capitalize() + ";"
+                probe_tape = normalize_letters(probe)
+                residual_frontier.append({
+                    "left_tape": left.tape,
+                    "left_template": left.template,
+                    "left_letters": len(left.tape),
+                    "reverse_target": left.tape[::-1],
+                    "rendered_probe": probe,
+                    "probe_exact_audit": {
+                        "exact": bool(probe_tape) and probe_tape == probe_tape[::-1],
+                        "letters": len(probe_tape),
+                        "normalized_sha256": hashlib.sha256(probe_tape.encode()).hexdigest(),
+                    },
+                    "reason": "no independently lexicalized answer residual",
+                })
             continue
         stats["residual_matches"] += len(matches)
         for right in matches:
@@ -170,6 +187,8 @@ def run() -> dict:
     candidates.sort(key=lambda row: (row["mechanically_admitted"], row["letters"]), reverse=True)
     return {
         "status": "complete_dialogue_acknowledgment_residual_inventory_no_reader_promotion",
+        "family_id": "dialogue-acknowledgment-residual-inventory",
+        "state_space_signature": "dialogue-act-question-answer-instruction-acknowledgment|hand-authored-cross-product|independent-residual-tape-index",
         "config": {
             "semantic_family": "question->answer and instruction->acknowledgment",
             "lexical_source": "hand-authored dialogue-act inventory only",
@@ -204,7 +223,7 @@ def main() -> None:
     args = parser.parse_args()
     if args.out.exists():
         parser.error(f"refusing to overwrite output: {args.out}")
-    result = run()
+    result = run(args.out)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     args.out.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({"stats": result["stats"], "admitted": len(result["admitted"])}, indent=2))

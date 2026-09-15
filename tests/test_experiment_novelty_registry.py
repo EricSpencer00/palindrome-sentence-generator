@@ -27,3 +27,6 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "synchronous-semantic-parse-equations" in ids
     assert "internal-center-window-repair" in ids
     assert "discourse-plan-coupled-expansion" in ids
+    assert "collocation-synchronous-grammar" in ids
+    assert "human-compositional-center-window" in ids
+    assert "global-semantic-paraphrase-rewrite" in ids

@@ -50,6 +50,9 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `synchronous-semantic-parse-equations` | two independent semantic parses expanded in lockstep against a shared character-equation frontier with typed role/discourse state | synchronous semantic parse coupling | 0 closures; 6,561 lockstep states; 18 probes |
 | `internal-center-window-repair` | complete authored clause pairs with one lexical center rewritten from a finite semantic inventory while the exterior stays fixed | internal lexical-center window repair | 0 exact closures; 56 bounded repairs |
 | `discourse-plan-coupled-expansion` | typed narrative-plan graph expands two independently authored two-sentence narratives with semantic role agreement before mirrored-character emission | discourse-plan coupling with online character equality | 0 closures; 12 early rejects |
+| `collocation-synchronous-grammar` | role-typed natural collocation frames solved in lockstep against a mirrored character equation while preserving complete clauses | collocation-level synchronous grammar | 0 exact closures; 25 pairs |
+| `human-compositional-center-window` | independently authored two-sentence mini-scenes with finite natural continuation substitutions at a content-word center | human-compositional center-window repair | 0 exact closures; 24 substitutions |
+| `global-semantic-paraphrase-rewrite` | complete two-clause narratives jointly relexicalized across agent/verb/object slots with online mirrored equations | global typed semantic paraphrase | 0 exact closures; 1,296 clause pairs |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

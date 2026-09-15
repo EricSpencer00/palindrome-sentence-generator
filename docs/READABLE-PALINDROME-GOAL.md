@@ -439,6 +439,28 @@ human-rated intact prose—and may claim success only when both gates are met.
   substitution at the first mismatch, not post-hoc sentence reordering or a
   larger lexical beam.
 
+- **Collocation-synchronous grammar (2026-09-15).** Five independently
+  authored role-typed collocation frames on each side were expanded in
+  lockstep while preserving complete-clause adjacency.  The 25 pair product
+  produced zero exact closures or admitted outputs; every pair has a rendered
+  residual probe and an independent two-pointer recheck.  The concrete repair
+  replaces one collocation frame at its first residual offset and holds out
+  the replacement frames for any later reader screen.
+
+- **Human-compositional center-window search (2026-09-15).** Four intact
+  two-sentence mini-scenes were authored first, then 24 content-word
+  substitutions were tried from a finite natural-continuation table.  The
+  deterministic character-window audits found zero exact closures or admitted
+  outputs.  Its next operator expands the semantic window while preserving the
+  sentence frames; no output is promoted from a proxy score.
+
+- **Global typed semantic paraphrase rewrite (2026-09-15).** A whole-structure
+  rewrite jointly varied agent, verb, and object slots in two complete clauses
+  rather than mutating one seed position.  It evaluated 1,296 clause pairs and
+  46,224 character-propagation states, with zero exact closures or admitted
+  outputs.  The recorded repair substitutes all typed slots again at the first
+  mirrored contradiction, preserving the no-catalogue and no-repeat gates.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

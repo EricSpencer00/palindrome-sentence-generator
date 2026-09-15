@@ -1,0 +1,88 @@
+{
+  "status": "completed_variable_boundary_tape_ilp",
+  "config": {
+    "lengths": [
+      39
+    ],
+    "min_letters": 39,
+    "max_letters": 64,
+    "solver": "scipy.optimize.milp/HiGHS",
+    "variable_word_boundaries": true,
+    "grammar_path_not_fixed_slots": true,
+    "lexical_menu_size": 55,
+    "semantic_constraints": [
+      "subject number agreement",
+      "verb valency/sense selects object lexicon",
+      "complete NP/VP/PP grammar"
+    ]
+  },
+  "solver_summary": {
+    "length_runs": 1,
+    "arc_count_total": 57166,
+    "exact_solution_count": 0
+  },
+  "results": [
+    {
+      "length": 39,
+      "status": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)",
+      "arc_count": 57166,
+      "exact_rows": [],
+      "rendered_probe": {
+        "text": "a new child carries a new boat in a new garden now",
+        "letters": 39,
+        "normalized_tape": "anewchildcarriesanewboatinanewgardennow",
+        "exact_letter_palindrome": false,
+        "independent_exact_audit": {
+          "exact": false,
+          "letters": 39,
+          "normalized_tape": "anewchildcarriesanewboatinanewgardennow",
+          "pairs_checked": 19,
+          "mismatch_count": 18,
+          "mismatches": [
+            {
+              "left": 0,
+              "right": 38,
+              "left_char": "a",
+              "right_char": "w"
+            },
+            {
+              "left": 1,
+              "right": 37,
+              "left_char": "n",
+              "right_char": "o"
+            },
+            {
+              "left": 2,
+              "right": 36,
+              "left_char": "e",
+              "right_char": "n"
+            }
+          ],
+          "sha256": "ecc1d04492272ab26525e30b3b802072597a0d36e900df87205ef8bdc9eb4fa5"
+        },
+        "provenance": {
+          "method": "variable-boundary lexicalized grammar probe",
+          "solver_status": "Time limit reached. (HiGHS Status 13: model_status is Time limit reached; primal_status is None)",
+          "is_solver_witness": false
+        },
+        "readability": {
+          "status": "diagnostic_only",
+          "blinded_human_reading_required": true
+        }
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "reader_gate": "No programmatic score certifies readability; any exact row requires randomized blinded intact-prose/shuffled-control reading.",
+  "novelty_audit": {
+    "registry_entries_read_before_run": 50,
+    "prior_signatures_overlap": [],
+    "artifact": "experiments/variable_boundary_tape_ilp_20260915.py",
+    "self_entry_present": false,
+    "replayed_families": [],
+      "registry_sha256": "22cd27a6525675edbd8db1a35f55d4cf32d2dd48c4fd71df90656351232accd3",
+      "generator_sha256": "80870de8a86da7b2ec78bb4797c0ae884c33b8b595b05c23135848c8e165f23d"
+  },
+  "reader_facing_next_operator": "If no exact closure, enlarge the lexicalized semantic automaton with a held-out content-word bank while retaining variable boundary flow; do not relax exact equations.",
+  "scope": "Bounded construction experiment; exact rows are still unreviewed until blinded human readers."
+}

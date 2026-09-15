@@ -246,6 +246,23 @@ human-rated intact prose—and may claim success only when both gates are met.
   and the other did the same with an inflected fragment. No item was promoted
   or sent to readers; this is a provenance ledger, not readability evidence.
 
+- **Character-ledger prompt bank (2026-09-15).** A distinct cross-product
+  probe paired four fresh natural left clauses with four independently authored
+  right-clause guesses while exposing the reversed tape constraint. It
+  fingerprinted 616,270 repository tapes and retained all 16 proposals; none
+  was exact or admitted. This is not a language-score rerun: its concrete
+  successor is constrained right-side decoding that exposes only
+  reverse-compatible prefixes.
+
+- **Two-event discourse frame (2026-09-15).** The next construction changed
+  the semantic state itself: eight fresh ordered frames paired an intransitive
+  event with a result state, carrying strict event-before-result ordering into
+  an independently lexicalized reverse discourse. It scanned 1,759 JSON
+  artifacts and excluded 616,106 existing tape keys; all eight reverse parses
+  failed, with zero exact closures. The recorded successor adds one
+  independently lexicalized connective while preserving the temporal state;
+  it must remain a new signature rather than an inventory/beam increase.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

@@ -59,6 +59,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `neural-dual-prefix-beam-v2` | left roles emit forward while right roles emit from the right edge as reversed characters; GPT-2 ranks only prefixes that satisfy the shared character equation | neural dual-prefix proposal ordering | 0 closures; 25 bounded expansions (v1 invalidated) |
 | `dependency-attribute-grammar-chart` | two independently lexicalized recursive dependency forests carry number/tense/valency attributes; a bilateral chart joins complete derivations while consuming opposite character edges | head-driven attribute-grammar derivation and dependent attachment | 0 closures; 5,184 complete paired derivations |
 | `evolutionary-prose-genome` | complete typed sentence pairs evolve through constituent-preserving two-point crossover and seam-biased terminal mutation; mismatch and word-order signals jointly rank the population | population repair over intact prose genomes | 0 closures; 5,760 genomes; best rendered mismatch 26 pairs |
+| `grammar-intersection-chart` | recursive context-free grammar chart with independently derived complete sentences intersected against the reversed normalized-character language; relative-clause depth is the growth variable | recursive derivation language intersection | 0 closures; 644 unique chart items; 0 reverse intersections |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

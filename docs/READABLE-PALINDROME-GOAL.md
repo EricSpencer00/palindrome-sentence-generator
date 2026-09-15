@@ -875,3 +875,12 @@ item-aware analysis plan.
 - **Sol, 2026-09-12 (second consultation):** implemented a character-crossing
   relative-clause test.  Its zero closure result rules out that frozen family,
   not dependency repair in general.
+- **Recursive CFG chart intersection, 2026-09-15:** enumerated independently
+  derived complete sentences from a recursive relative-clause grammar and
+  intersected their normalized character language with its reversal.  The
+  depth-stratified chart covered 644 unique surfaces (up to 53 letters), with
+  414,736 bounded near-miss comparisons but no exact intersection.  This is a
+  distinct construction route, not a larger beam over an earlier inventory.
+  The concrete next repair is a held-out typed relative-clause frontier at the
+  deepest surviving chart items; the zero is not treated as an impossibility
+  result or reader evidence.

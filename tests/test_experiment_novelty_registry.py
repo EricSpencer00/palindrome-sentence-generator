@@ -35,6 +35,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "semantic-sentence-pair-alignment" in ids
     assert "template-analogy-semantic-lexicalization" in ids
     assert "neural-dual-prefix-beam-v2" in ids
+    assert "grammar-intersection-chart" in ids
     assert "dependency-attribute-grammar-chart" in ids
     assert "evolutionary-prose-genome" in ids
 
@@ -44,6 +45,9 @@ def test_latest_artifacts_were_preflighted_before_self_registration():
     registry_count = len(json.loads((root / "docs/experiment-novelty-registry.json").read_text())["entries"])
     for name in ("evolutionary-prose-genome-20260915.json", "dependency-attribute-grammar-chart-20260915.json"):
         audit = json.loads((root / "runs" / name).read_text())["novelty_audit"]
-        assert audit["registry_entries_read_before_run"] == registry_count - 1
+        # Later distinct experiments may register after this artifact was
+        # produced; the preflight count must be a prior snapshot, not an
+        # unstable equality with today's registry size.
+        assert 0 < audit["registry_entries_read_before_run"] < registry_count
         assert not audit.get("self_entry_present", [])
         assert not audit.get("replay_of_registered_family", False)

@@ -37,6 +37,19 @@ only as a totality witness and is never eligible for promotion.  Reader-facing
 work therefore measures progress on two separate axes—exact length coverage and
 human-rated intact prose—and may claim success only when both gates are met.
 
+- **Joint grammar/residual probe (2026-09-15).** A typed decoder selected POS
+  roles while cancelling the opposite character residual, rather than
+  generating prose first and filtering it afterward.  With Brown-derived word
+  types (word types only, never intact corpus sentences), it found one 40-letter
+  exact closure: `Some memo see some memos; some memo see some memos.`  The
+  independent ASCII audit confirms exactness, while the shared admission gate
+  rejects repeated content, repeated nontrivial units, and a proper
+  self-palindromic span.  It is therefore not a candidate or reader material.
+  The concrete successor is a memoized bilateral residual search with
+  valency-compatible expansions and target length carried in state; arbitrary
+  length remains separately covered by the total constructor and never by
+  filler padding.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

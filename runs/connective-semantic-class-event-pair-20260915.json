@@ -1,0 +1,1110 @@
+{
+  "status": "no_closure_pivot_required",
+  "family_id": "connective-semantic-class-event-pair",
+  "state_space_signature": "semantic-event-pair|intransitive-event-to-result-state|temporal-order-state|connective-semantic-class-contrast-cause-consequence|independent-class-conditioned-right-lexicalization|three-unit-residual-prefix",
+  "config": {
+    "construction": "ordered intransitive event -> class-conditioned connective -> result-state report",
+    "connective_semantic_classes": [
+      "contrast",
+      "cause",
+      "consequence"
+    ],
+    "left_units": [
+      "intransitive_event",
+      "discourse_connective",
+      "result_state"
+    ],
+    "right_units": [
+      "intransitive_event",
+      "class_conditioned_connective",
+      "result_state"
+    ],
+    "temporal_order_state": "event_before_result with strict rank carried through residual",
+    "class_state_carried_through_residual": true,
+    "fresh_inventory": true,
+    "prior_event_pair_modules_imported": false,
+    "brown_corpus_used": false,
+    "svo_or_relative_attachment_states": false,
+    "typed_semordnilap_or_global_pos_states": false,
+    "cross_word_boundaries": true,
+    "minimum_letters": 39,
+    "maximum_letters": 300,
+    "preexisting_tape_key_scope": "all normalized strings of length 1..300 in runs/**/*.json, data/**/*.json, experiments/**/*.json",
+    "output_excluded_before_scan": true
+  },
+  "novelty_audit": {
+    "existing_tape_keys_count": 616608,
+    "existing_json_files_scanned": 1763,
+    "malformed_json_files_skipped": 0,
+    "existing_tape_keys_sha256": "541d8cd94343412bac31da3231ed164474b88f203606334354260a688defd6c0",
+    "all_exact_rows_checked_against_existing_keys": true,
+    "all_mechanically_admitted_rows_novel": true
+  },
+  "stats": {
+    "semantic_class_frames": 6,
+    "reverse_semantic_class_failures": 6
+  },
+  "candidates": [],
+  "exact_closures": [],
+  "rejections": [
+    {
+      "kind": "rejected_semantic_class_reverse_parse",
+      "frame_id": "bell_hall_silence",
+      "semantic_state": {
+        "frame_id": "bell_hall_silence",
+        "connective_class": "contrast",
+        "connective_surface": "yet",
+        "units": [
+          {
+            "role": "intransitive_event",
+            "entity": "the bell",
+            "predicate": "rang"
+          },
+          {
+            "role": "result_state",
+            "entity": "the hall",
+            "predicate": "was silent"
+          }
+        ],
+        "temporal_order": {
+          "relation": "event_before_result",
+          "first_time": "at dawn",
+          "second_time": "by noon",
+          "first_rank": 1,
+          "second_rank": 3,
+          "strictly_ordered": true
+        },
+        "object_role": "absent_in_both_units_by_design",
+        "relative_edge": false
+      },
+      "right_template": [
+        "TIME_EARLY",
+        "DET",
+        "ENTITY",
+        "EVENT",
+        "CONNECTIVE_CONTRAST",
+        "TIME_LATE",
+        "DET",
+        "ENTITY",
+        "RESULT"
+      ],
+      "rendered_probe": "at dawn, the bell rang, yet by noon, the hall was silent;",
+      "reverse_tape_prefix": "",
+      "reverse_tape_first_unconsumed": "tnelissawlla",
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "next_right_role": "TIME_EARLY",
+      "residual_state": {
+        "unit_index": 0,
+        "expected_role": "TIME_EARLY",
+        "connective_class": "contrast",
+        "connective_slot_present": true,
+        "temporal_order": "event_before_result",
+        "ordering_and_class_carried_through_reverse_residual": true
+      },
+      "reason": "reverse_tape_has_no_lexical_prefix_for_class_conditioned_right_grammar",
+      "independent_left_parse": {
+        "valid": true,
+        "word_count": 12,
+        "connective_class": "contrast",
+        "connective_slot_present": true,
+        "first_unit_role": "intransitive_event",
+        "second_unit_role": "result_state",
+        "no_transitive_object": true,
+        "temporal_order_carried": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 42,
+        "normalized_letters": "atdawnthebellrangyetbynoonthehallwassilent",
+        "normalized_sha256": "8d8294a6cf78e0fdebd0bf49664390d717f3c9642096da8c348e1d8617c70005",
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 41,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 1,
+            "right": 40,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 39,
+            "left_char": "d",
+            "right_char": "e"
+          },
+          {
+            "left": 3,
+            "right": 38,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 4,
+            "right": 37,
+            "left_char": "w",
+            "right_char": "i"
+          },
+          {
+            "left": 5,
+            "right": 36,
+            "left_char": "n",
+            "right_char": "s"
+          },
+          {
+            "left": 6,
+            "right": 35,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 7,
+            "right": 34,
+            "left_char": "h",
+            "right_char": "a"
+          },
+          {
+            "left": 8,
+            "right": 33,
+            "left_char": "e",
+            "right_char": "w"
+          },
+          {
+            "left": 9,
+            "right": 32,
+            "left_char": "b",
+            "right_char": "l"
+          },
+          {
+            "left": 10,
+            "right": 31,
+            "left_char": "e",
+            "right_char": "l"
+          },
+          {
+            "left": 11,
+            "right": 30,
+            "left_char": "l",
+            "right_char": "a"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 12,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.599,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "rejected_semantic_class_reverse_parse",
+      "frame_id": "frost_pond_sun",
+      "semantic_state": {
+        "frame_id": "frost_pond_sun",
+        "connective_class": "cause",
+        "connective_surface": "because",
+        "units": [
+          {
+            "role": "intransitive_event",
+            "entity": "the pond",
+            "predicate": "thawed"
+          },
+          {
+            "role": "result_state",
+            "entity": "the sun",
+            "predicate": "was warm"
+          }
+        ],
+        "temporal_order": {
+          "relation": "event_before_result",
+          "first_time": "after frost",
+          "second_time": "by midday",
+          "first_rank": 1,
+          "second_rank": 2,
+          "strictly_ordered": true
+        },
+        "object_role": "absent_in_both_units_by_design",
+        "relative_edge": false
+      },
+      "right_template": [
+        "TIME_EARLY",
+        "DET",
+        "ENTITY",
+        "EVENT",
+        "CONNECTIVE_CAUSE",
+        "TIME_LATE",
+        "DET",
+        "ENTITY",
+        "RESULT"
+      ],
+      "rendered_probe": "after frost, the pond thawed, because by midday, the sun was warm;",
+      "reverse_tape_prefix": "",
+      "reverse_tape_first_unconsumed": "mrawsawnuseh",
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "next_right_role": "TIME_EARLY",
+      "residual_state": {
+        "unit_index": 0,
+        "expected_role": "TIME_EARLY",
+        "connective_class": "cause",
+        "connective_slot_present": true,
+        "temporal_order": "event_before_result",
+        "ordering_and_class_carried_through_reverse_residual": true
+      },
+      "reason": "reverse_tape_has_no_lexical_prefix_for_class_conditioned_right_grammar",
+      "independent_left_parse": {
+        "valid": true,
+        "word_count": 12,
+        "connective_class": "cause",
+        "connective_slot_present": true,
+        "first_unit_role": "intransitive_event",
+        "second_unit_role": "result_state",
+        "no_transitive_object": true,
+        "temporal_order_carried": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 51,
+        "normalized_letters": "afterfrostthepondthawedbecausebymiddaythesunwaswarm",
+        "normalized_sha256": "76a0f83ea4258dbcdbe5ee65de3fdcc072e73a547a4d62bf74b69159d853e0aa",
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 50,
+            "left_char": "a",
+            "right_char": "m"
+          },
+          {
+            "left": 1,
+            "right": 49,
+            "left_char": "f",
+            "right_char": "r"
+          },
+          {
+            "left": 2,
+            "right": 48,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 3,
+            "right": 47,
+            "left_char": "e",
+            "right_char": "w"
+          },
+          {
+            "left": 4,
+            "right": 46,
+            "left_char": "r",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 45,
+            "left_char": "f",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 44,
+            "left_char": "r",
+            "right_char": "w"
+          },
+          {
+            "left": 7,
+            "right": 43,
+            "left_char": "o",
+            "right_char": "n"
+          },
+          {
+            "left": 8,
+            "right": 42,
+            "left_char": "s",
+            "right_char": "u"
+          },
+          {
+            "left": 9,
+            "right": 41,
+            "left_char": "t",
+            "right_char": "s"
+          },
+          {
+            "left": 10,
+            "right": 40,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 12,
+            "right": 38,
+            "left_char": "e",
+            "right_char": "t"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 12,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.397,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "rejected_semantic_class_reverse_parse",
+      "frame_id": "heat_wax_mold",
+      "semantic_state": {
+        "frame_id": "heat_wax_mold",
+        "connective_class": "cause",
+        "connective_surface": "since",
+        "units": [
+          {
+            "role": "intransitive_event",
+            "entity": "the wax",
+            "predicate": "softened"
+          },
+          {
+            "role": "result_state",
+            "entity": "the mold",
+            "predicate": "was firm"
+          }
+        ],
+        "temporal_order": {
+          "relation": "event_before_result",
+          "first_time": "after heat",
+          "second_time": "by evening",
+          "first_rank": 1,
+          "second_rank": 3,
+          "strictly_ordered": true
+        },
+        "object_role": "absent_in_both_units_by_design",
+        "relative_edge": false
+      },
+      "right_template": [
+        "TIME_EARLY",
+        "DET",
+        "ENTITY",
+        "EVENT",
+        "CONNECTIVE_CAUSE",
+        "TIME_LATE",
+        "DET",
+        "ENTITY",
+        "RESULT"
+      ],
+      "rendered_probe": "after heat, the wax softened, since by evening, the mold was firm;",
+      "reverse_tape_prefix": "",
+      "reverse_tape_first_unconsumed": "mrifsawdlome",
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "next_right_role": "TIME_EARLY",
+      "residual_state": {
+        "unit_index": 0,
+        "expected_role": "TIME_EARLY",
+        "connective_class": "cause",
+        "connective_slot_present": true,
+        "temporal_order": "event_before_result",
+        "ordering_and_class_carried_through_reverse_residual": true
+      },
+      "reason": "reverse_tape_has_no_lexical_prefix_for_class_conditioned_right_grammar",
+      "independent_left_parse": {
+        "valid": true,
+        "word_count": 12,
+        "connective_class": "cause",
+        "connective_slot_present": true,
+        "first_unit_role": "intransitive_event",
+        "second_unit_role": "result_state",
+        "no_transitive_object": true,
+        "temporal_order_carried": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 51,
+        "normalized_letters": "afterheatthewaxsoftenedsincebyeveningthemoldwasfirm",
+        "normalized_sha256": "420d6c8c630ee6740aa220525dfdc878c8002fa4b378c17ab7b81fbd380292f3",
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 50,
+            "left_char": "a",
+            "right_char": "m"
+          },
+          {
+            "left": 1,
+            "right": 49,
+            "left_char": "f",
+            "right_char": "r"
+          },
+          {
+            "left": 2,
+            "right": 48,
+            "left_char": "t",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 47,
+            "left_char": "e",
+            "right_char": "f"
+          },
+          {
+            "left": 4,
+            "right": 46,
+            "left_char": "r",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 45,
+            "left_char": "h",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 44,
+            "left_char": "e",
+            "right_char": "w"
+          },
+          {
+            "left": 7,
+            "right": 43,
+            "left_char": "a",
+            "right_char": "d"
+          },
+          {
+            "left": 8,
+            "right": 42,
+            "left_char": "t",
+            "right_char": "l"
+          },
+          {
+            "left": 9,
+            "right": 41,
+            "left_char": "t",
+            "right_char": "o"
+          },
+          {
+            "left": 10,
+            "right": 40,
+            "left_char": "h",
+            "right_char": "m"
+          },
+          {
+            "left": 12,
+            "right": 38,
+            "left_char": "w",
+            "right_char": "h"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 12,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.52,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "rejected_semantic_class_reverse_parse",
+      "frame_id": "seed_plant_height",
+      "semantic_state": {
+        "frame_id": "seed_plant_height",
+        "connective_class": "consequence",
+        "connective_surface": "so",
+        "units": [
+          {
+            "role": "intransitive_event",
+            "entity": "the seed",
+            "predicate": "sprouted"
+          },
+          {
+            "role": "result_state",
+            "entity": "the plant",
+            "predicate": "was tall"
+          }
+        ],
+        "temporal_order": {
+          "relation": "event_before_result",
+          "first_time": "in spring",
+          "second_time": "by summer",
+          "first_rank": 1,
+          "second_rank": 3,
+          "strictly_ordered": true
+        },
+        "object_role": "absent_in_both_units_by_design",
+        "relative_edge": false
+      },
+      "right_template": [
+        "TIME_EARLY",
+        "DET",
+        "ENTITY",
+        "EVENT",
+        "CONNECTIVE_CONSEQUENCE",
+        "TIME_LATE",
+        "DET",
+        "ENTITY",
+        "RESULT"
+      ],
+      "rendered_probe": "in spring, the seed sprouted, so by summer, the plant was tall;",
+      "reverse_tape_prefix": "",
+      "reverse_tape_first_unconsumed": "llatsawtnalp",
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "next_right_role": "TIME_EARLY",
+      "residual_state": {
+        "unit_index": 0,
+        "expected_role": "TIME_EARLY",
+        "connective_class": "consequence",
+        "connective_slot_present": true,
+        "temporal_order": "event_before_result",
+        "ordering_and_class_carried_through_reverse_residual": true
+      },
+      "reason": "reverse_tape_has_no_lexical_prefix_for_class_conditioned_right_grammar",
+      "independent_left_parse": {
+        "valid": true,
+        "word_count": 12,
+        "connective_class": "consequence",
+        "connective_slot_present": true,
+        "first_unit_role": "intransitive_event",
+        "second_unit_role": "result_state",
+        "no_transitive_object": true,
+        "temporal_order_carried": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 48,
+        "normalized_letters": "inspringtheseedsproutedsobysummertheplantwastall",
+        "normalized_sha256": "3b7474753e5739b9939c5c03ebc724c5860c29a7e933fdc4878f9b247d83b181",
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 47,
+            "left_char": "i",
+            "right_char": "l"
+          },
+          {
+            "left": 1,
+            "right": 46,
+            "left_char": "n",
+            "right_char": "l"
+          },
+          {
+            "left": 2,
+            "right": 45,
+            "left_char": "s",
+            "right_char": "a"
+          },
+          {
+            "left": 3,
+            "right": 44,
+            "left_char": "p",
+            "right_char": "t"
+          },
+          {
+            "left": 4,
+            "right": 43,
+            "left_char": "r",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 42,
+            "left_char": "i",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 41,
+            "left_char": "n",
+            "right_char": "w"
+          },
+          {
+            "left": 7,
+            "right": 40,
+            "left_char": "g",
+            "right_char": "t"
+          },
+          {
+            "left": 8,
+            "right": 39,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "left": 9,
+            "right": 38,
+            "left_char": "h",
+            "right_char": "a"
+          },
+          {
+            "left": 10,
+            "right": 37,
+            "left_char": "e",
+            "right_char": "l"
+          },
+          {
+            "left": 11,
+            "right": 36,
+            "left_char": "s",
+            "right_char": "p"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 12,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.787,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "rejected_semantic_class_reverse_parse",
+      "frame_id": "tide_shore_wetness",
+      "semantic_state": {
+        "frame_id": "tide_shore_wetness",
+        "connective_class": "consequence",
+        "connective_surface": "thus",
+        "units": [
+          {
+            "role": "intransitive_event",
+            "entity": "the tide",
+            "predicate": "rose"
+          },
+          {
+            "role": "result_state",
+            "entity": "the shore",
+            "predicate": "was wet"
+          }
+        ],
+        "temporal_order": {
+          "relation": "event_before_result",
+          "first_time": "at sunrise",
+          "second_time": "by evening",
+          "first_rank": 1,
+          "second_rank": 3,
+          "strictly_ordered": true
+        },
+        "object_role": "absent_in_both_units_by_design",
+        "relative_edge": false
+      },
+      "right_template": [
+        "TIME_EARLY",
+        "DET",
+        "ENTITY",
+        "EVENT",
+        "CONNECTIVE_CONSEQUENCE",
+        "TIME_LATE",
+        "DET",
+        "ENTITY",
+        "RESULT"
+      ],
+      "rendered_probe": "at sunrise, the tide rose, thus by evening, the shore was wet;",
+      "reverse_tape_prefix": "",
+      "reverse_tape_first_unconsumed": "tewsawerohse",
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "next_right_role": "TIME_EARLY",
+      "residual_state": {
+        "unit_index": 0,
+        "expected_role": "TIME_EARLY",
+        "connective_class": "consequence",
+        "connective_slot_present": true,
+        "temporal_order": "event_before_result",
+        "ordering_and_class_carried_through_reverse_residual": true
+      },
+      "reason": "reverse_tape_has_no_lexical_prefix_for_class_conditioned_right_grammar",
+      "independent_left_parse": {
+        "valid": true,
+        "word_count": 12,
+        "connective_class": "consequence",
+        "connective_slot_present": true,
+        "first_unit_role": "intransitive_event",
+        "second_unit_role": "result_state",
+        "no_transitive_object": true,
+        "temporal_order_carried": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 47,
+        "normalized_letters": "atsunrisethetiderosethusbyeveningtheshorewaswet",
+        "normalized_sha256": "c61b53011751ee47b1574c9b0653d0f02f0a277f512b706452eadd79d14674df",
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 46,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 1,
+            "right": 45,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 44,
+            "left_char": "s",
+            "right_char": "w"
+          },
+          {
+            "left": 3,
+            "right": 43,
+            "left_char": "u",
+            "right_char": "s"
+          },
+          {
+            "left": 4,
+            "right": 42,
+            "left_char": "n",
+            "right_char": "a"
+          },
+          {
+            "left": 5,
+            "right": 41,
+            "left_char": "r",
+            "right_char": "w"
+          },
+          {
+            "left": 6,
+            "right": 40,
+            "left_char": "i",
+            "right_char": "e"
+          },
+          {
+            "left": 7,
+            "right": 39,
+            "left_char": "s",
+            "right_char": "r"
+          },
+          {
+            "left": 8,
+            "right": 38,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 9,
+            "right": 37,
+            "left_char": "t",
+            "right_char": "h"
+          },
+          {
+            "left": 10,
+            "right": 36,
+            "left_char": "h",
+            "right_char": "s"
+          },
+          {
+            "left": 12,
+            "right": 34,
+            "left_char": "t",
+            "right_char": "h"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 12,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.581,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    },
+    {
+      "kind": "rejected_semantic_class_reverse_parse",
+      "frame_id": "wind_branch_calm",
+      "semantic_state": {
+        "frame_id": "wind_branch_calm",
+        "connective_class": "contrast",
+        "connective_surface": "but",
+        "units": [
+          {
+            "role": "intransitive_event",
+            "entity": "the branch",
+            "predicate": "fell"
+          },
+          {
+            "role": "result_state",
+            "entity": "the yard",
+            "predicate": "was calm"
+          }
+        ],
+        "temporal_order": {
+          "relation": "event_before_result",
+          "first_time": "after wind",
+          "second_time": "at dusk",
+          "first_rank": 1,
+          "second_rank": 3,
+          "strictly_ordered": true
+        },
+        "object_role": "absent_in_both_units_by_design",
+        "relative_edge": false
+      },
+      "right_template": [
+        "TIME_EARLY",
+        "DET",
+        "ENTITY",
+        "EVENT",
+        "CONNECTIVE_CONTRAST",
+        "TIME_LATE",
+        "DET",
+        "ENTITY",
+        "RESULT"
+      ],
+      "rendered_probe": "after wind, the branch fell, but at dusk, the yard was calm;",
+      "reverse_tape_prefix": "",
+      "reverse_tape_first_unconsumed": "mlacsawdraye",
+      "reverse_prefix_letters": 0,
+      "reverse_prefix_words": [],
+      "next_right_role": "TIME_EARLY",
+      "residual_state": {
+        "unit_index": 0,
+        "expected_role": "TIME_EARLY",
+        "connective_class": "contrast",
+        "connective_slot_present": true,
+        "temporal_order": "event_before_result",
+        "ordering_and_class_carried_through_reverse_residual": true
+      },
+      "reason": "reverse_tape_has_no_lexical_prefix_for_class_conditioned_right_grammar",
+      "independent_left_parse": {
+        "valid": true,
+        "word_count": 12,
+        "connective_class": "contrast",
+        "connective_slot_present": true,
+        "first_unit_role": "intransitive_event",
+        "second_unit_role": "result_state",
+        "no_transitive_object": true,
+        "temporal_order_carried": true
+      },
+      "independent_exact_audit": {
+        "exact": false,
+        "two_pointer_exact": false,
+        "letters": 45,
+        "normalized_letters": "afterwindthebranchfellbutatdusktheyardwascalm",
+        "normalized_sha256": "6c319b076fec6b37b3c6086125d305532d5788320610c1ae64d70c82d1526db8",
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 44,
+            "left_char": "a",
+            "right_char": "m"
+          },
+          {
+            "left": 1,
+            "right": 43,
+            "left_char": "f",
+            "right_char": "l"
+          },
+          {
+            "left": 2,
+            "right": 42,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 3,
+            "right": 41,
+            "left_char": "e",
+            "right_char": "c"
+          },
+          {
+            "left": 4,
+            "right": 40,
+            "left_char": "r",
+            "right_char": "s"
+          },
+          {
+            "left": 5,
+            "right": 39,
+            "left_char": "w",
+            "right_char": "a"
+          },
+          {
+            "left": 6,
+            "right": 38,
+            "left_char": "i",
+            "right_char": "w"
+          },
+          {
+            "left": 7,
+            "right": 37,
+            "left_char": "n",
+            "right_char": "d"
+          },
+          {
+            "left": 8,
+            "right": 36,
+            "left_char": "d",
+            "right_char": "r"
+          },
+          {
+            "left": 9,
+            "right": 35,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 10,
+            "right": 34,
+            "left_char": "h",
+            "right_char": "y"
+          },
+          {
+            "left": 12,
+            "right": 32,
+            "left_char": "b",
+            "right_char": "h"
+          }
+        ]
+      },
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only_unreviewed",
+        "word_count": 12,
+        "all_words_zipf_ge_2": true,
+        "mean_zipf_frequency": 5.712,
+        "blinded_reader_required": true
+      },
+      "reader_status": "not_run"
+    }
+  ],
+  "next_operator": "Condition the class state on an explicit semantic relation graph (cause/consequence direction and contrast polarity) while retaining strict temporal order, independent right lexicalization, and the repository-wide tape exclusion; do not enlarge inventories or replay prior frames.",
+  "closure_conclusion": "No class-conditioned reverse discourse parse closed in this finite grammar. Every fresh frame is retained with its class and temporal residual frontier plus independent exact/admission/readability diagnostics.",
+  "provenance": {
+    "generator_sha256": "809ca8e9c4c0f45e44e899c08e4163da706fe8eea06c6d24ec00d4a21be35529",
+    "fresh_semantic_class_inventory_authored": true,
+    "right_inventory_independently_authored": true,
+    "source_text_copied": false,
+    "readability_certificate": false
+  }
+}

@@ -68,6 +68,23 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   replacement at a surviving outer-character match, not another lexical-bank
   or beam-width sweep.
 
+- **Global tied masked denoising (2026-09-15).** A genuinely different
+  construction treated every character position as a tied variable and
+  propagated parallel masked-word assignments across the complete mirrored
+  tape before scoring. Six rendered proposals were preserved with per-pair
+  ledgers and independent admission checks; none reached the 39-letter gate.
+  The three exact short controls are catalogue material and were rejected, so
+  this run supplies no candidate or readability evidence. The next route must
+  change the material source, not replay this symbolic bank or merely enlarge
+  its beam.
+
+- **Semantic-involution preflight (2026-09-15, excluded).** This audit was
+  deliberately not counted as a construction family: its probes repeat a
+  frame in reverse lexical order and include a known short palindrome. That
+  violates the no-word-order-symmetry and no-catalogue-shortcut rules. Its
+  exclusion is recorded so the same shortcut cannot re-enter under a new
+  filename.
+
 ## Scalable-construction requirement (2026-09-15)
 
 The active construction objective now has two explicit layers: (1) a
@@ -846,14 +863,14 @@ and every rendered rejection.
 
 ### Active run
 
-- **Next construction frontier:** the TAG, reverse-complement Euler, and
-  prosodic-foot runs are complete and their zeros are preserved as evidence,
-  not as the thesis. The next run must change its construction dimension,
-  preflight itself against the 54-entry novelty registry, and retain complete
-  rendered probes with independent exact audits. It must not replay a prior
-  bank, beam, chart, BPE, ILP, evolutionary, TAG, Euler, or prosodic
-  configuration. Any exact survivor remains gated on intact-prose versus
-  shuffled-control blinded reading.
+- **Next construction frontier:** the TAG, reverse-complement Euler,
+  prosodic-foot, and global tied-denoising runs are complete and their zeros
+  are preserved as evidence, not as the thesis. The next run must change its
+  construction dimension, preflight itself against the 55-entry novelty
+  registry, and retain complete rendered probes with independent exact audits.
+  It must not replay a prior bank, beam, chart, BPE, ILP, evolutionary, TAG,
+  Euler, prosodic, or masked-denoising configuration. Any exact survivor
+  remains gated on intact-prose versus shuffled-control blinded reading.
 
 ### Rejected catalogue-family ablation
 

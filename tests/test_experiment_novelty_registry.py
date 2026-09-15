@@ -10,16 +10,24 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["missing"] == []
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
-    assert result["excluded"] == 2
-    assert result["run_artifacts"] == 5
+    assert result["excluded"] == 3
+    assert result["run_artifacts"] == 6
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
     path = Path(__file__).parents[1] / "docs/experiment-novelty-registry.json"
     data = json.loads(path.read_text())
     excluded = {row["id"]: row for row in data["excluded"]}
-    assert set(excluded) == {"seed-symmetric-mutation-excluded", "seed-boundary-shift-excluded"}
-    assert all(row["overlaps"] == ["internal-center-window-repair"] for row in excluded.values())
+    assert set(excluded) == {
+        "semantic-involution-frame-excluded",
+        "seed-symmetric-mutation-excluded",
+        "seed-boundary-shift-excluded",
+    }
+    assert excluded["semantic-involution-frame-excluded"]["overlaps"] == []
+    assert all(
+        excluded[name]["overlaps"] == ["internal-center-window-repair"]
+        for name in ("seed-symmetric-mutation-excluded", "seed-boundary-shift-excluded")
+    )
 
 
 def test_preflight_checks_registered_and_excluded_routes():
@@ -29,8 +37,8 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 54
-    assert result["excluded_routes_checked"] == 2
+    assert result["registered_families_checked"] == 55
+    assert result["excluded_routes_checked"] == 3
 
 
 def test_latest_experiments_are_registered_as_distinct_families():
@@ -66,6 +74,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "variable-boundary-tape-ilp" in ids
     assert "reverse-complement-eulerian" in ids
     assert "prosodic-foot-surface-realizer" in ids
+    assert "global-tied-masked-denoising" in ids
 
 
 def test_latest_artifacts_were_preflighted_before_self_registration():
@@ -108,3 +117,12 @@ def test_latest_artifacts_were_preflighted_before_self_registration():
     assert len(prosodic_run["rendered_candidates_and_probes"]) == 40
     assert prosodic_run["rendered_candidates_and_probes"][0]["rendered"]
     assert prosodic_run["rendered_candidates_and_probes"][0]["independent_exact_audit"]["exact"] is False
+    masked_run = json.loads((root / "runs" / "global-tied-masked-denoising-20260915.json").read_text())
+    assert masked_run["signature"] == "global-tied-character-mask|parallel-word-denoising|bidirectional-position-ledger|whole-tape-assignment|symbolic-fallback"
+    assert len(masked_run["proposals"]) == 6
+    assert sum(row["admitted"] for row in masked_run["proposals"]) == 0
+    assert all("rendered" in row and "ledger" in row and "checks" in row for row in masked_run["proposals"])
+    semantic = __import__("experiments.semantic_involution_frame_20260915", fromlist=["run"]).run()
+    assert semantic["status"] == "preflight_only_no_promotion"
+    assert semantic["probes"][0]["text"] == "Deliver no evil. Live on, reviled."
+    assert semantic["probes"][0]["exact_letter_palindrome"] is True

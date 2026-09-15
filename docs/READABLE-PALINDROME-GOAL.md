@@ -1000,3 +1000,11 @@ item-aware analysis plan.
   balanced trail survived the independent content-word and dependency proxy
   gates; a held-out singleton-context degree repair produced zero balanced
   trails.  The probes remain diagnostic and require human reading evidence.
+
+- **Semordnilap template inventory, 2026-09-15:** introduced a disjoint
+  finite inventory of 25 ordinary English semordnilap pairs and placed them in
+  seven typed clause templates.  The reflected tape was segmented
+  independently, rather than accepting word-order symmetry.  Three hundred
+  fifty base and seam-swap repair probes produced zero exact closures; the
+  concrete repair was a held-out seam-pair substitution followed by fresh
+  reverse segmentation.  No probe is presented as readable evidence.

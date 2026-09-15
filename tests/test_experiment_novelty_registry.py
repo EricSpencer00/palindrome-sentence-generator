@@ -11,7 +11,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 3
-    assert result["run_artifacts"] == 10
+    assert result["run_artifacts"] == 11
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -37,7 +37,7 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 56
+    assert result["registered_families_checked"] == 57
     assert result["excluded_routes_checked"] == 3
 
 
@@ -135,6 +135,13 @@ def test_latest_artifacts_were_preflighted_before_self_registration():
         assert char_run["stats"]["mechanically_admitted"] == 0
         assert char_run["stats"]["reader_eligible"] == 0
         assert char_run["rendered_candidates_and_probes"][0]["rendered"]
+    seam_run = json.loads((root / "runs" / "semordnilap-template-inventory-20260915.json").read_text())
+    assert seam_run["signature"] == "finite semordnilap pair inventory fills typed syntactic templates with bilateral character equations and seam-preserving repair substitutions"
+    assert seam_run["probes"] == 350
+    assert seam_run["exact"] == 0
+    assert seam_run["mechanically_admitted"] == 0
+    assert seam_run["reader_eligible"] == 0
+    assert all(row["method"] == "typed-template-seam" for row in seam_run["rows"])
     semantic = __import__("experiments.semantic_involution_frame_20260915", fromlist=["run"]).run()
     assert semantic["status"] == "preflight_only_no_promotion"
     assert semantic["probes"][0]["text"] == "Deliver no evil. Live on, reviled."

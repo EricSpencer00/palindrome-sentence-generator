@@ -386,6 +386,34 @@ human-rated intact prose—and may claim success only when both gates are met.
   comparative-quantity template with a frozen bank split, not an unbounded
   trie expansion.
 
+- **Two-bank word-equation seam DP (2026-09-15).** A fresh pair of
+  content-disjoint banks contained 10 complete, independently authored
+  mini-clauses on each side.  A memoized prefix/suffix equation compared both
+  clause tapes character-by-character, allowing the equality seam to cross
+  ordinary word boundaries; 100 bank pairs (9 deliberately outer-compatible)
+  yielded 100 rendered probes and zero exact closures or admitted outputs.  The
+  concrete repair is a seam-preserving replacement of one complete lexical
+  slot, not another residual decoder or a larger beam.
+
+- **Seam-first complete-clause authoring (2026-09-15).** This run selected six
+  outer-letter/terminal-width seam specifications before enumerating two
+  independently authored complete SVO banks.  It enumerated 2,052 joint clause
+  pairs, retained 13 boundary-crossing residual probes, rejected three pairs
+  for repeated content units, and found zero exact closures or mechanically
+  admitted outputs.  Its next repair preserves the seam specification while
+  replacing one same-domain subject, verb, or object; it is a distinct
+  authoring-order test, not a replay of the bank DP.
+
+- **Semantic dependency outside-in solver (2026-09-15).** A fresh
+  cause/preparation narrative used integer span boundaries, variable-length
+  artifact noun phrases, dependency-state obligations, and outside-in arc
+  consistency over paired character domains.  Targets 39--87 explored 12
+  states and 195 paired span branches, leaving five partial probes and zero
+  closures or admitted candidates.  The concrete repair adds one independently
+  authored lexeme at the first contradicted mirrored span while preserving the
+  dependency state; it does not reverse-segment a completed clause or widen a
+  prior CSP/DP/FST.
+
 - **Seed-preserving mutation zero (2026-09-15).** A local constructive probe
   exhaustively changed one and two mirrored character pairs and inserted one
   mirrored pair into the 38-letter seed, then independently resegmented every

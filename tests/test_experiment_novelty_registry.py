@@ -21,3 +21,6 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "cp-semantic-grammar-palindrome" in ids
     assert "clause-lattice-joint-dp" in ids
     assert "character-clause-fst-joint-emission" in ids
+    assert "two-bank-word-equation-seam-dp" in ids
+    assert "seam-first-complete-clause-authoring" in ids
+    assert "semantic-dependency-outside-in" in ids

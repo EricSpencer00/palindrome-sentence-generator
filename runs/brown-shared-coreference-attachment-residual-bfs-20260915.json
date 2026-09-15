@@ -1,0 +1,40 @@
+{
+  "status": "complete_shared_coreference_attachment_residual_bfs_no_reader_promotion",
+  "config": {
+    "relation_source": "Brown-derived SVO relations; source sentences never rendered",
+    "attachment_source": "independently Brown-attested adjective-noun and preposition-noun pairs",
+    "coreference_modes": [
+      "shared_subject",
+      "shared_object"
+    ],
+    "state_features": "relation identities, co-reference, number, tense, attachment type and lexeme",
+    "minimum_letters": 39,
+    "maximum_letters": 220,
+    "independent_exact_audit": true,
+    "anti_shortcut_gate": true
+  },
+  "stats": {
+    "brown_sentences_scanned": 57340,
+    "attested_relations": 3533,
+    "attachment_brown_sentences_scanned": 57340,
+    "coref_attachment_frames": 16,
+    "indexed_tapes": 16,
+    "left_states_considered": 16,
+    "residual_misses": 16
+  },
+  "admitted": [],
+  "near_misses": [],
+  "residual_frontier": {
+    "indexed_tapes": 16,
+    "left_states": 16,
+    "unmatched_states": 16,
+    "matched_state_pairs_before_gates": 0
+  },
+  "provenance": {
+    "generator_sha256": "85a11a0eb0665cdaacdf301b6b6021bab73bc01d42655a1d5bf411d8f163676f",
+    "source_text_copied": false,
+    "relations_and_attachments_attested_individually": true
+  },
+  "next_operator": "Retain attested inner attachments but add a bounded two-relative-clause chain, carrying shared agreement variables through both dependency edges and retaining independent residual matching.",
+  "reader_gate": "No output is human evidence; any future closure requires intact-prose and shuffled-control readers."
+}

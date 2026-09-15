@@ -188,7 +188,7 @@ def audit(text: str) -> dict[str, object]:
             mismatches.append({"left": i, "right": j, "left_char": tape[i], "right_char": tape[j]})
         i += 1
         j -= 1
-    return {"exact": bool(tape) and not mismatches, "letters": len(tape), "normalized_letters": tape, "pairs_checked": len(tape) // 2, "mismatches": mismatches[:10], "sha256": hashlib.sha256(tape.encode()).hexdigest()}
+    return {"exact": bool(tape) and not mismatches, "letters": len(tape), "normalized_letters": tape, "pairs_checked": len(tape) // 2, "mismatch_count": len(mismatches), "mismatches": mismatches[:2], "sha256": hashlib.sha256(tape.encode()).hexdigest()}
 
 
 def _novelty_registry() -> tuple[int, set[str], set[str]]:
@@ -206,9 +206,16 @@ def _readability(text: str) -> dict[str, object]:
 def run(output: Path) -> dict[str, object]:
     entries, signatures, artifacts = _novelty_registry()
     overlap = sorted({"dependency-attribute-grammar-chart"} & {x.split("|")[0] for x in signatures})
-    assert STATE_SPACE_SIGNATURE not in signatures, "registry collision: experiment is not new"
     artifact = str(Path(__file__).relative_to(ROOT))
-    assert artifact not in artifacts, "artifact collision: experiment is not new"
+    # A registered rerun is allowed for reproducibility, but a signature or
+    # artifact collision with another family is a hard failure.  The artifact
+    # records this distinction instead of silently counting a duplicate run.
+    registry_rows = json.loads((ROOT / "docs" / "experiment-novelty-registry.json").read_text())["entries"]
+    same_family = [x for x in registry_rows if x["id"] == FAMILY_ID and x["artifact"] == artifact]
+    foreign_signature = [x["id"] for x in registry_rows if x["signature"] == STATE_SPACE_SIGNATURE and x["id"] != FAMILY_ID]
+    foreign_artifact = [x["id"] for x in registry_rows if x["artifact"] == artifact and x["id"] != FAMILY_ID]
+    assert not foreign_signature, f"registry collision with {foreign_signature}"
+    assert not foreign_artifact, f"artifact collision with {foreign_artifact}"
     left = derive("left")
     right = derive("right")
     rows: list[dict[str, object]] = []
@@ -224,7 +231,11 @@ def run(output: Path) -> dict[str, object]:
             rendered = l.text.capitalize() + "; " + r.text + "."
             av = audit(rendered)
             stats["rendered_pairs"] += 1
-            row: dict[str, object] = {"left_index": li, "right_index": ri, "rendered": rendered, "letters": av["letters"], "normalized_letters": av["normalized_letters"], "independent_two_pointer_audit": av, "left_provenance": {"features": dict(l.features), "arcs": [a.__dict__ for a in l.arcs], "meaning": l.meaning}, "right_provenance": {"features": dict(r.features), "arcs": [a.__dict__ for a in r.arcs], "meaning": r.meaning}, "readability_diagnostic": _readability(rendered), "reader_status": "not_run"}
+            # Keep the complete rendered-candidate ledger, but store
+            # derivation provenance once below rather than repeating all arcs
+            # in every cross-product row.  This makes the reproducible package
+            # inspectable without producing an opaque multi-megabyte diff.
+            row: dict[str, object] = {"left_index": li, "right_index": ri, "rendered": rendered, "letters": av["letters"], "independent_two_pointer_audit": av, "readability_diagnostic": _readability(rendered), "reader_status": "not_run"}
             if av["exact"]:
                 stats["exact_closures"] += 1
                 checks = mechanical_admission_checks(rendered, min_letters=MIN_LETTERS, max_letters=MAX_LETTERS)
@@ -238,7 +249,8 @@ def run(output: Path) -> dict[str, object]:
                 rows.append(row)
                 continue
             rows.append(row)
-    return {"status": "dependency_attribute_grammar_chart_complete", "family_id": FAMILY_ID, "state_space_signature": STATE_SPACE_SIGNATURE, "config": {"grammar": "recursive NP/VP dependency grammar", "left_derivation_cap": MAX_DERIVATIONS, "right_derivation_cap": MAX_DERIVATIONS, "independent_lexical_banks": True, "programmatic_readability_is_diagnostic": True}, "novelty_audit": {"registry_entries_read_before_run": entries, "prior_families_explicitly_excluded": ["semantic-dependency-outside-in", "synchronous-semantic-parse-equations", "clause-lattice-joint-dp", "character-clause-fst-joint-emission", "collocation-synchronous-grammar", "discourse-plan-coupled-expansion", "neural-dual-prefix-beam-v2"], "overlap_prefixes": overlap, "signature_collision": False, "artifact_collision": False}, "stats": dict(stats), "rendered_candidates": rows, "exact_candidates": exact, "prominent_exact_candidate": exact[0] if exact else None, "repair_operator": {"operator": "dependency-preserving dependent rotation", "action": "retain each head's number/tense/valency bundle and rotate one independently authored amod/obl dependent to a new feature-compatible lexical choice; rebuild both forests and rerun the paired chart", "why_next": "the current chart's 72-derivation caps test only one PP attachment order and do not establish that a broader dependency attachment inventory is infeasible", "forbidden": ["word-order-only symmetry", "catalogue import", "repeated/self-palindromic units", "reverse segmentation"]}, "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "lexical_source": "fresh hand-authored independent role banks", "source_text_copied": False, "readability_certificate": False}, "reader_gate": {"status": "not_run", "reason": "No candidate may be certified by programmatic measures; any exact survivor requires intact-prose and shuffled-control blinded readers."}}
+    derivation_provenance = [{"side": d.side, "text": d.text, "features": dict(d.features), "arcs": [a.__dict__ for a in d.arcs], "meaning": d.meaning} for d in left + right]
+    return {"status": "dependency_attribute_grammar_chart_complete", "family_id": FAMILY_ID, "state_space_signature": STATE_SPACE_SIGNATURE, "config": {"grammar": "recursive NP/VP dependency grammar", "left_derivation_cap": MAX_DERIVATIONS, "right_derivation_cap": MAX_DERIVATIONS, "independent_lexical_banks": True, "programmatic_readability_is_diagnostic": True}, "novelty_audit": {"registry_entries_read_before_run": entries, "prior_families_explicitly_excluded": ["semantic-dependency-outside-in", "synchronous-semantic-parse-equations", "clause-lattice-joint-dp", "character-clause-fst-joint-emission", "collocation-synchronous-grammar", "discourse-plan-coupled-expansion", "neural-dual-prefix-beam-v2"], "overlap_prefixes": overlap, "replay_of_registered_family": bool(same_family), "foreign_signature_overlap": foreign_signature, "foreign_artifact_overlap": foreign_artifact, "signature_collision": bool(foreign_signature), "artifact_collision": bool(foreign_artifact)}, "stats": dict(stats), "derivations": derivation_provenance, "rendered_candidates": rows, "exact_candidates": exact, "prominent_exact_candidate": exact[0] if exact else None, "repair_operator": {"operator": "dependency-preserving dependent rotation", "action": "retain each head's number/tense/valency bundle and rotate one independently authored amod/obl dependent to a new feature-compatible lexical choice; rebuild both forests and rerun the paired chart", "why_next": "the current chart's 72-derivation caps test only one PP attachment order and do not establish that a broader dependency attachment inventory is infeasible", "forbidden": ["word-order-only symmetry", "catalogue import", "repeated/self-palindromic units", "reverse segmentation"]}, "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "lexical_source": "fresh hand-authored independent role banks", "source_text_copied": False, "readability_certificate": False}, "reader_gate": {"status": "not_run", "reason": "No candidate may be certified by programmatic measures; any exact survivor requires intact-prose and shuffled-control blinded readers."}}
 
 
 def main() -> None:
@@ -249,7 +261,9 @@ def main() -> None:
         p.error("refusing to overwrite output")
     result = run(args.out)
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(result, indent=2) + "\n")
+    # The ledger intentionally contains every rendered pair.  Compact JSON
+    # keeps the checked-in reproducibility artifact practical to review.
+    args.out.write_text(json.dumps(result, separators=(",", ":")) + "\n")
     print(json.dumps({"stats": result["stats"], "exact": len(result["exact_candidates"])}))
 
 

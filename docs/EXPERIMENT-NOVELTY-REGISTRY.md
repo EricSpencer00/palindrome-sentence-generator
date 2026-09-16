@@ -74,6 +74,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `lexical-admission-centerout` | wordfreq/count-2w center-out search keeps whole-word uniqueness live and applies the complete mechanical admission gate at closure while sweeping target lengths | live lexical anti-filler state plus closure admission | 4 exact mechanically admitted surfaces (48--116 letters); 0 reader-eligible outputs |
 | `grammar-boundary-resegmentation-repair` | a frozen exact tape is held fixed while a Brown-POS weighted dictionary chart searches independent word boundaries and reports a finite-verb diagnostic | fixed-tape grammatical boundary repair | v1/v2 had no lexical coverage; v3 produced 2 exact mechanically admitted segmentations; 0 reader-eligible outputs |
 | `fixed-tape-valency-chart-repair` | the same frozen tape is parsed by a subject--finite-verb/object chart with clause-boundary transitions after POS resegmentation | argument-role/valency state over fixed boundaries | 2 exact mechanically admitted segmentations; 0 complete-clause parses; 0 reader-eligible outputs |
+| `proper-name-caption-crossword` | typed proper-name/appositive incident records joined as complete captions with a crossword-style character compatibility filter | proper-name caption role grammar | 25 rendered probes; 0 exact closures; 0 reader-eligible outputs |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
@@ -92,11 +93,13 @@ the next frontier was chosen:
 | `experiments/seed_symmetric_mutation_search_20260915.py` | mirrored character substitution/insertion is a seed-local instance of the registered internal center-window repair dimension; changing the seed or edit count would be a replay, not a new method |
 | `experiments/seed_boundary_shift_typed_resegmentation_20260915.py` | typed boundary shifting plus lexical replacement is the held-out repair of that same seed-local window and does not introduce a distinct state-space dimension |
 | `experiments/semantic_involution_frame_20260915.py` | the probes repeat a frame in reverse lexical order and include a known catalogue palindrome, so they are explicitly rejected as a forbidden word-order shortcut rather than counted as a generator family |
+| `experiments/thematic_grid_clause_composition_20260915.py` | its 4x4 authored-clause cross-product and whole-tape audit replay the existing complete-prose pairing space; seam filtering changes ordering, not the construction dimension. The 16 probes and zero closures remain failure evidence, not a retained family |
+| `experiments/semantic_pairing_typed_clauses_20260915.py` | typed SVO/PP clause cross-product plus reverse-tape pairing overlaps the existing typed-semordnilap and complete-prose pairing families. The 17,280-frame run and bounded repair queue remain preserved, but are not counted as a new family |
 
 Their run records remain available for failure analysis (`runs/seed-symmetric-
 mutation-20260915.json` and `runs/seed-boundary-shift-typed-resegmentation-
 20260915*.json`). A future route may use their residuals only after a new
-signature is pre-registered and its state space is disjoint from all 62
+signature is pre-registered and its state space is disjoint from all 63
 registered families.
 
 ## Novelty audit policy (2026-09-15)
@@ -105,7 +108,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 62 retained families and 3 explicit
+family. The current audit covers all 63 retained families and 5 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The two latest routes are below the review threshold:
 
@@ -117,6 +120,7 @@ pairs for review. The two latest routes are below the review threshold:
 | `lexical-admission-centerout` | none (0.000) | 0.000 | live uniqueness and admission-at-closure state; distinct from half-tape character recovery |
 | `grammar-boundary-resegmentation-repair` | none (0.000) | 0.000 | fixed-tape POS-weighted boundary repair; it emits no new palindrome letters |
 | `fixed-tape-valency-chart-repair` | none (0.000) | 0.000 | fixed-tape subject/verb/object chart; stricter successor to POS-only segmentation |
+| `proper-name-caption-crossword` | none (0.000) | 0.000 | retained because the proper-name/appositive record grammar is a distinct lexical-role state; no exact output |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

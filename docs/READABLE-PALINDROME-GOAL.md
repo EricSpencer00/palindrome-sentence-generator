@@ -85,6 +85,15 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   exclusion is recorded so the same shortcut cannot re-enter under a new
   filename.
 
+- **Novelty review of the latest parallel runs (2026-09-15).** The proper-name
+  caption crossword is retained as a distinct typed appositive-record grammar;
+  its 25 complete-caption probes produced zero exact closures and no reader
+  material. The thematic-grid seam composition and typed SVO/PP semantic
+  pairing runs are explicitly excluded after review: both replay the existing
+  complete-prose cross-product state space under new row banks or seam
+  diagnostics. Their rendered probes, hashes, and failure frontiers remain
+  preserved, but they do not inflate the method count or paper claims.
+
 ## Scalable-construction requirement (2026-09-15)
 
 The active construction objective now has two explicit layers: (1) a

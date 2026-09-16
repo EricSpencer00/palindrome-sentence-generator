@@ -10,8 +10,8 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["missing"] == []
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
-    assert result["excluded"] == 3
-    assert result["run_artifacts"] == 20
+    assert result["excluded"] == 5
+    assert result["run_artifacts"] == 21
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -22,12 +22,20 @@ def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
         "semantic-involution-frame-excluded",
         "seed-symmetric-mutation-excluded",
         "seed-boundary-shift-excluded",
+        "thematic-grid-seam-composition-excluded",
+        "semantic-pairing-typed-clauses-excluded",
     }
     assert excluded["semantic-involution-frame-excluded"]["overlaps"] == []
     assert all(
         excluded[name]["overlaps"] == ["internal-center-window-repair"]
         for name in ("seed-symmetric-mutation-excluded", "seed-boundary-shift-excluded")
     )
+    assert excluded["thematic-grid-seam-composition-excluded"]["overlaps"] == [
+        "character-ledger-promptbank", "semantic-sentence-pair-alignment"
+    ]
+    assert excluded["semantic-pairing-typed-clauses-excluded"]["overlaps"] == [
+        "typed-semordnilap", "character-ledger-promptbank", "semantic-sentence-pair-alignment"
+    ]
 
 
 def test_preflight_checks_registered_and_excluded_routes():
@@ -37,8 +45,8 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 62
-    assert result["excluded_routes_checked"] == 3
+    assert result["registered_families_checked"] == 63
+    assert result["excluded_routes_checked"] == 5
     assert result["manual_review_required"] is False
     assert result["conceptual_near_pairs"] == []
 
@@ -94,6 +102,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "lexical-admission-centerout" in ids
     assert "grammar-boundary-resegmentation-repair" in ids
     assert "fixed-tape-valency-chart-repair" in ids
+    assert "proper-name-caption-crossword" in ids
 
 
 def test_latest_artifacts_were_preflighted_before_self_registration():
@@ -176,3 +185,14 @@ def test_latest_constructive_repairs_record_distinct_preflight_and_failure_front
     assert valency["novelty_audit"]["repair_of_registered_family"] is True
     assert valency["stats"]["mechanically_admitted"] == 2
     assert valency["stats"]["complete_clause_parses"] == 0
+    thematic = json.loads((root / "runs/thematic-grid-seam-composition-20260915.json").read_text())
+    assert thematic["stats"]["tested"] == 16
+    assert thematic["stats"]["exact"] == 0
+    semantic = json.loads((root / "runs/semantic-pairing-repair-final-2026-09-15.json").read_text())
+    assert semantic["config"]["frame_count"] == 17280
+    assert semantic["exact_survivors"] == []
+    proper = json.loads((root / "runs/proper-name-caption-crossword-20260915.json").read_text())
+    assert proper["independent_audit"]["probes_checked"] == 25
+    assert proper["independent_audit"]["primary_exact_count"] == 0
+    assert proper["independent_audit"]["independent_exact_count"] == 0
+    assert proper["independent_audit"]["disagreements"] == []

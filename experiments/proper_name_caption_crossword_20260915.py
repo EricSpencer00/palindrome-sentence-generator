@@ -38,6 +38,19 @@ def audit(s: str) -> bool:
     t = norm(s)
     return bool(t) and all(a == b for a, b in zip(t, reversed(t)))
 
+def two_pointer_audit(s: str) -> bool:
+    """Independent exact check with explicit opposing indices."""
+    t = norm(s)
+    if not t:
+        return False
+    i, j = 0, len(t) - 1
+    while i < j:
+        if t[i] != t[j]:
+            return False
+        i += 1
+        j -= 1
+    return True
+
 def stats(s: str) -> dict:
     w = re.findall(r"[A-Za-z]+", s)
     return {"words": len(w), "letters": len(norm(s)),
@@ -55,7 +68,9 @@ def main() -> None:
                 if a != b: break
                 pairs += 1
             row = {"text": text, "outer_matching_pairs": pairs,
-                   "exact": audit(text), "readability": stats(text),
+                   "exact": audit(text),
+                   "independent_two_pointer": two_pointer_audit(text),
+                   "readability": stats(text),
                    "provenance": "hand-authored typed caption record; independent half"}
             probes.append(row)
             if row["exact"]: exact.append(row)
@@ -64,8 +79,17 @@ def main() -> None:
                "left_records": len(LEFT), "right_records": len(RIGHT),
                "branches": len(probes), "exact_count": len(exact),
                "rendered_probes": probes, "rendered_candidates": exact,
-               "independent_audit": [{"text": x["text"], "two_pointer": audit(x["text"]),
-                   "normalized_sha256": hashlib.sha256(norm(x["text"]).encode()).hexdigest()} for x in exact],
+               "independent_audit": {
+                   "method": "explicit opposing-index two-pointer scan",
+                   "probes_checked": len(probes),
+                   "primary_exact_count": sum(x["exact"] for x in probes),
+                   "independent_exact_count": sum(x["independent_two_pointer"] for x in probes),
+                   "disagreements": [x["text"] for x in probes
+                                     if x["exact"] != x["independent_two_pointer"]],
+                   "exact_candidates": [{"text": x["text"],
+                       "normalized_sha256": hashlib.sha256(norm(x["text"]).encode()).hexdigest()}
+                       for x in probes if x["independent_two_pointer"]],
+               },
                "readability_note": "Diagnostics only; no human readability certification was performed.",
                "repair_operator": "Expand typed record banks with short common-name and place variants; retain complete-caption rendering and rerun exact audit.",
                "next_repair": "Add 50 independently authored records per slot, then inspect the top outer-match probes by a human for grammatical naturalness.",

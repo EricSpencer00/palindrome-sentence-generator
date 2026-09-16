@@ -10,7 +10,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["missing"] == []
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
-    assert result["excluded"] == 26
+    assert result["excluded"] == 27
     # The ledger is append-only: parallel construction routes may add entries
     # without making this invariant stale.  The validator still requires every
     # registered artifact to resolve and every signature to be unique.
@@ -48,7 +48,8 @@ def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
             "semantic-phrase-lattice-automata-20260916-excluded",
             "semantic-scene-stack-machine-20260916-excluded",
             "joint-cfg-intersection-20260916-excluded",
-            "exact-tape-first-resegment-2026-09-16-excluded",
+        "exact-tape-first-resegment-2026-09-16-excluded",
+        "inflection-clitic-boundary-search-20260916-luna-excluded",
     }
     assert excluded["semantic-involution-frame-excluded"]["overlaps"] == []
     assert excluded["bidirectional-phrase-pair-preflight-20260916"]["overlaps"] == [
@@ -79,7 +80,7 @@ def test_preflight_checks_registered_and_excluded_routes():
     assert result["registered_families_checked"] == len(
         json.loads((Path(__file__).parents[1] / "docs/experiment-novelty-registry.json").read_text())["entries"]
     )
-    assert result["excluded_routes_checked"] == 26
+    assert result["excluded_routes_checked"] == 27
     assert result["manual_review_required"] is False
     assert result["conceptual_near_pairs"] == []
 
@@ -218,6 +219,13 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "rhetorical-plan-lattice-20260916" in ids
     assert "inflectional-fst-clitic-tape-20260916" in ids
     assert "induced-pcfg-character-equation-20260916" in ids
+    assert "char-lm-constrained-decoding-20260916" in ids
+    assert "cfg-earley-character-intersection-20260916" in ids
+    assert "human-scene-lattice-live-equations-20260916" in ids
+    assert "dependency-seam-csp-20260916-luna" in ids
+    assert "agreement-morphology-transducer-20260916-luna" in ids
+    assert "semantic-valency-attachment-solver-20260916-luna" in ids
+    assert "scalable-compositional-grammar-20260916-luna" in ids
     assert "graph-to-prose-path-20260916" in ids
     assert "voice-alternation-residual-20260916" in ids
     assert "ccg-semantic-solver-20260916" in ids

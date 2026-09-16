@@ -381,3 +381,32 @@ evening watch. Later, the coastal pilot studies fresh signals and stores a
 sealed map beside the lighthouse.” Its repeated-unit and content-word checks
 pass, but the character equation remains open. All three carry provenance,
 novelty preflight, independent audits, and concrete repairs.
+
+## Fresh ten-lane audit (2026-09-16)
+
+The ten requested dimensions were rerun as separate state representations. The
+aggregate now contains **4,582 rendered rows across 168 route phases, 79 exact
+but rejected tapes, and 0 mechanically admitted outputs**. The novelty registry
+has **270 unique retained artifacts, 27 explicit exclusions, and 248 run
+artifacts**. Every retained lane below has an intact rendering, an independent
+pointer/hash audit, provenance, novelty preflight, and a concrete next repair.
+The lane-8 exact result is intentionally excluded because it repeats a
+canonical catalogue clause six times.
+
+| lane | fresh rendered evidence | letters | exact audit | next reader-facing construction |
+|---:|---|---:|---|---|
+| 1 character LM | “At first light, the patient archivist opened the cedar cabinet and read each map aloud. Outside, a small river carried leaves past the quiet bridge while neighbors planned a careful repair. By noon the room was warm, orderly, and full of useful stories for the returning children.” | 227 | pointer `False` at 0 (`a`/`n`); forward/reverse SHA differ | Rewrite the first failing clause boundary under the character beam, preserving the scene and rerun both audits. |
+| 2 exact-tape resegmentation | “The baker carries a letter to the quiet garden, and the teacher reads the message in the room.” | 75 | immutable 119-letter tape: 0 dictionary paths and 0 grammatical paths; fallback prose pointer/hash `False` | Author a held-out center-bearing clause and rerun the boundary DP without mutating the tape. |
+| 3 dependency seam CSP | “The patient curator carries a brass compass through the quiet archive while the young cartographer records each turning near the northern window.” | 123 | pointer `False`, 59 mismatches; forward/reverse replay unequal | Substitute a held-out same-role lexicalization at the first unsatisfied seam. |
+| 4 agreement morphology | “At dawn the patient cartographer unfolds a salt-stained map beside the quiet pier and marks each shoal where the returning boats find shelter before the weather turns cold over the inlet.” | 155 | pointer `False`; SHA pair unequal | Add irregular agreement transitions (`go→goes`, `carry→carries`) and re-solve the finite-state emission. |
+| 5 CFG/Earley intersection | “At evening the patient keeper closes the garden gate. Beyond the hill a silver river carries moonlit leaves. Quiet readers gather stories beside the warm fire. Before sunrise the watchful traveler checks the old bridge. Across the valley distant bells answer a waking village. Careful hands arrange fresh maps beneath a window!” | 270 | pointer/hash `False` | Repair the terminal frontier in the intersected forward/reverse Earley charts while preserving clause roles. |
+| 6 scene lattice | “At first light, Mara carried the brass key across the flooded courtyard, unlocked the archive door, and waited while the rescued records dried.” | 117 | two-pointer and ASCII-reverse `False`; hashes unequal | Re-author the purpose frame to satisfy the outstanding outer debt, then rerun the live slot equation. |
+| 7 valency/attachment | “The careful archivist files the brittle maps before dusk. The patient curator labels the sealed boxes after steady rain.” | 100 | pointer `False` (49 mismatches); SHA pair unequal | Replace one sense-compatible adjunct at the first residual and recompute both attachments. |
+| 8 inflection/clitic boundary | “A man, a plan, a canal, Panama.” repeated six times | 126 | exact `True` with matching SHA, but **rejected** for repeated catalogue unit | Replace every repeated unit with held-out inflected/clitic clauses before any promotion. |
+| 9 scalable flat grammar | “At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path, labels the seed trays, carries the spare hose, mends the loose gate, folds the canvas tarp, writes a note for the neighbor, waters the herb bed.” | 208 | pointer/hash `False` (95 mismatches); proper-span and repetition gates pass | Append one held-out typed action increment and recompute the full tape. |
+| 10 semantic slot repair | “After rain, the patient gardener carries a wrapped bundle beside the quiet greenhouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart toward the dry storehouse.” | 170 | pointer/hash `False`; all anti-shortcut mechanical checks pass | Change only the typed adjunct at the first mismatch, then rerun the exact audit. |
+
+These are construction results, not a readability certificate. The next
+reader-facing test is still an intact-prose versus shuffled-control packet with
+randomized blinded order; no row enters it until exactness and all mechanical
+anti-shortcut checks pass.

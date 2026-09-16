@@ -292,3 +292,24 @@ semordnilap lane adds a rejected exact “Stressed desserts.” control and a fr
 156-letter Nora/harbor scene with distinct content words. Independent
 pointer/hash checks, provenance, novelty preflight, and named repairs are
 recorded for each; none is mechanically admitted.
+
+## Fresh ten-lane ledger closure (2026-09-16)
+
+The latest ten-lane run is append-only and keeps the dimensions orthogonal:
+
+| lane | run artifact | rendered letters | exact / admission | concrete next repair |
+|---:|---|---:|---|---|
+| 1 | `char-lm-decoding-20260916.json` | 227 | no / no | constrained clause-boundary rewrite |
+| 2 | `exact-tape-grammatical-resegmentation-20260916-luna.json` | 75 fallback prose; 119 immutable tape | no grammatical path / no | held-out center-bearing clause, immutable tape |
+| 3 | `dependency-seam-csp-20260916-luna.json` | 123 | no / no | same-role seam lexicalization |
+| 4 | `agreement-morphology-transducer-20260916-luna.json` | 155 | no / no | irregular agreement transitions |
+| 5 | `cfg-earley-character-intersection-20260916.json` | 270 | no / no | terminal-frontier chart repair |
+| 6 | `human-scene-lattice-live-equations-20260916.json` | 117 | no / no | purpose-frame debt repair |
+| 7 | `semantic-valency-attachment-solver-20260916-luna.json` | 100 | no / no | sense-compatible adjunct substitution |
+| 8 | `inflection-clitic-boundary-search-20260916-luna.json` | 126 | exact, **rejected** / no | replace repeated catalogue unit |
+| 9 | `scalable-compositional-grammar-20260916-luna.json` | 208 frontier (10 growth states) | no / no | append one held-out typed action |
+| 10 | `semantic-slot-substitution-repair-20260916-luna.json` | 170 | no / no | one typed adjunct substitution |
+
+The common audit is **4,582 rows, 168 route phases, 79 exact rejected tapes,
+and 0 mechanically admitted outputs**. The exact lane-8 hash is retained only
+as a quarantined duplicate-control failure; it cannot enter a reader packet.

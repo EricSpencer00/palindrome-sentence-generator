@@ -2082,3 +2082,16 @@ item-aware analysis plan.
   miss; and the two-sided discourse equation emits a 156-letter Nora/harbor
   scene with distinct content words. Each has independent exact/hash audits,
   provenance, novelty preflight, and a concrete repair; none is admitted.
+
+  **Fresh ten-lane closure audit (2026-09-16):** ten orthogonal Luna state
+  representations now have append-only run artifacts with rendered prose,
+  independent pointer/hash validation, provenance, novelty preflight, and a
+  named next repair. The aggregate is 4,582 rows across 168 route phases (79
+  exact but rejected tapes; 0 mechanically admitted). The lane-8 exact
+  126-letter surface is quarantined because it is six repetitions of the
+  catalogue clause “A man, a plan, a canal, Panama.” The longest fresh intact
+  non-exact outputs are 270 letters from CFG/Earley intersection, 227 from
+  character-LM decoding, 208 from flat compositional growth, and 170 from
+  semantic slot repair. The next reader-facing step remains a randomized
+  blinded intact-versus-shuffled study, gated on a genuinely exact,
+  anti-shortcut-clean candidate.

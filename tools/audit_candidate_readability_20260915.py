@@ -149,6 +149,18 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
                 "provenance": context_provenance,
                 "lane": payload.get("experiment") or payload.get("experiment_id"),
             }
+        # Compact character-level lanes may keep their one rendered surface
+        # under ``rendered_prose`` rather than wrapping it in a candidate
+        # object.  Preserve that prose in the common audit instead of
+        # silently dropping a valid lane artifact.
+        rendered_prose = payload.get("rendered_prose")
+        if isinstance(rendered_prose, str) and rendered_prose.strip():
+            yield {
+                "source_run": source,
+                "rendered": rendered_prose,
+                "provenance": context_provenance,
+                "lane": payload.get("experiment") or payload.get("experiment_id"),
+            }
         # A few older artifacts store one candidate at the top level.
         text = payload.get("rendered") or payload.get("text")
         if isinstance(text, str) and text.strip():

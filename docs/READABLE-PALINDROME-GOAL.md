@@ -127,6 +127,14 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   parity-indexed clause lattice that chooses lexical continuations from the
   count-vector frontier instead of random sampling.
 
+- **Parity-indexed lattice repair (2026-09-15).** The prescribed repair
+  enumerated 2,304 typed clauses and indexed them by their 26-letter parity
+  vector before attempting content-disjoint joins. Every clause had a unique
+  parity bucket, so the arithmetic frontier still had zero joins; 25 ordinary
+  clause pairs were retained as controls and all failed exactness. The next
+  change must add agreement-bearing tense/determiner states before enlarging
+  the lexical inventory.
+
 ## Scalable-construction requirement (2026-09-15)
 
 The active construction objective now has two explicit layers: (1) a

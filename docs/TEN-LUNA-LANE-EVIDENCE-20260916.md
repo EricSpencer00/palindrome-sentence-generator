@@ -173,3 +173,9 @@ Their bounded repairs are retained separately:
 
 The aggregate after these repairs is 4336 normalized rows across 111 route
 phases, with 73 exact-but-rejected tapes and 0 mechanically admitted rows.
+
+The next directed repair wave retained four reverse-lexicon seam candidates at
+65--68 letters, a second center-out adjunct repair at 75 letters, and a second
+SAT outer-character repair at 102 letters. The independent pointer/SHA checks
+and mechanical gate reject all of them. The aggregate is now 4342 normalized
+rows across 114 route phases, with 73 exact-but-rejected tapes and 0 admitted.

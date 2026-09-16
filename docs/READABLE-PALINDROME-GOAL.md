@@ -1924,3 +1924,10 @@ item-aware analysis plan.
   106 letters. All remain intact, independently audited, and unadmitted. The
   aggregate now contains 4336 normalized rows across 111 route phases, with 0
   mechanically admitted candidates.
+
+  The next directed repairs retained four reverse-lexicon seam candidates at
+  65--68 letters, a second center-out adjunct repair at 75 letters, and a
+  second SAT outer-character repair at 102 letters. All remain intact,
+  independently audited, and unadmitted. The aggregate now contains 4342
+  normalized rows across 114 route phases, with 0 mechanically admitted
+  candidates.

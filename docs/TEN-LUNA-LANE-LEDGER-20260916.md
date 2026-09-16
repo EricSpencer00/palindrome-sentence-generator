@@ -123,3 +123,10 @@ one authored clause-template SAT repair at 106 letters. All preserve complete
 prose, provenance, independent exact/hash checks, and a concrete next repair;
 none is exact or reader-eligible. The aggregate is now 4336 normalized rows
 across 111 route phases, with 0 mechanically admitted candidates.
+
+The following directed repairs retained four reverse-lexicon seam candidates
+at 65--68 letters, a second center-out adjunct repair at 75 letters, and a
+second SAT outer-character repair at 102 letters. All preserve provenance,
+ordinary prose, and independent exact/hash checks; none is exact or
+reader-eligible. The aggregate is now 4342 normalized rows across 114 route
+phases, with 0 mechanically admitted candidates.

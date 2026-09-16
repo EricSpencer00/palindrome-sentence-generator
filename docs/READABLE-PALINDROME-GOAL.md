@@ -1368,6 +1368,16 @@ item-aware analysis plan.
   `runs/terminal-aware-grammar-intersection-20260916.json`; the next route must
   change dependency topology or semantic state, not widen these same frames.
 
+- **Semantic-derivation MCTS, 2026-09-16:** preflighted a separate search-control
+  state in which UCT allocates rollouts over typed subject/predicate/object and
+  modifier actions while independent left/right lexicalizations carry a live
+  reflected-character ledger. Thirty thousand rollouts produced no exact or
+  mechanically admitted closure; the longest rendered probe was 29 letters and
+  no row entered the reader gate. The full action counts and partial surfaces
+  are in `runs/semantic-mcts-derivation-20260916.json`. Its concrete repair is a
+  reverse-conditioned action prior over the right-edge residual, not another
+  static-frame or beam replay.
+
 - **Interrogative–quantifier dependency automaton, 2026-09-16:** preflighted a
   genuinely different construction state: auxiliary inversion and question
   polarity on the left are joined to an independently ordered quantified

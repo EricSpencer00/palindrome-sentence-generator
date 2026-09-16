@@ -1,0 +1,2324 @@
+{
+  "experiment_id": "semantic-mcts-derivation-20260916",
+  "signature": "semantic-mcts-derivation|uct-over-typed-grammar-actions|independent-lexical-rollouts|reflected-character-ledger|exact-two-pointer-audit",
+  "status": "completed_semantic_mcts",
+  "method": "UCT over typed grammar actions with independent lexical rollouts; a reflected-character ledger prunes only known edge conflicts before exact two-pointer audit.",
+  "novelty_preflight": {
+    "registry_entries_before_run": 91,
+    "excluded_routes_before_run": 6,
+    "status": "formal_preflight_before_execution",
+    "signature_overlap": [],
+    "manual_review_required": false
+  },
+  "config": {
+    "rollouts": 30000,
+    "random_seed": 20260916,
+    "plan_count": 6,
+    "catalogue_text_imported": false,
+    "word_order_only_generation": false,
+    "independent_lexical_rollouts": true
+  },
+  "stats": {
+    "action_trials": 3555399,
+    "action_steps": 62012,
+    "rollouts": 30000,
+    "ledger_pruned": 20270,
+    "rendered_candidates": 120,
+    "longest_probe_letters": 29,
+    "reader_eligible": 0,
+    "mechanically_admitted": 0
+  },
+  "rendered_candidates_and_probes": [
+    {
+      "text": "One question inspired your memo; no.",
+      "letters": 29,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One word inspires every captain; no.",
+      "letters": 29,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; harbor this wrote teacher every.",
+      "letters": 27,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An garden leaves each question; a.",
+      "letters": 27,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One nurse makes this question; no.",
+      "letters": 27,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; harbor your write teacher your.",
+      "letters": 26,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Each paper inspires one lesson; .",
+      "letters": 26,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One window shows this sailor; no.",
+      "letters": 26,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "This poet inspires that doctor; .",
+      "letters": 26,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "This teacher told each captain; .",
+      "letters": 26,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; aide every inspire farmer one.",
+      "letters": 25,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; aide your inspire harbor that.",
+      "letters": 25,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; captain some make window some.",
+      "letters": 25,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; doctor the inspires moon that.",
+      "letters": 25,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An woman inspires one writer; a.",
+      "letters": 25,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Each friend inspire a teacher; .",
+      "letters": 25,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Each word sends each question; .",
+      "letters": 25,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One answer draws your paper; no.",
+      "letters": 25,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One doctor writes some note; no.",
+      "letters": 25,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One star drew your question; no.",
+      "letters": 25,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; time that send captain every.",
+      "letters": 24,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An farmer showed one harbor; a.",
+      "letters": 24,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An map inspired every river; a.",
+      "letters": 24,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Every answer writes some day; .",
+      "letters": 24,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One baker carry my captain; no.",
+      "letters": 24,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One child kept this lesson; no.",
+      "letters": 24,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One moon gives some garden; no.",
+      "letters": 24,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; artist this write baker the.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; doctor the asked paper each.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; friend each gave writer one.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; road the leaves artist this.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; room some used artist every.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "A; captain your asks doctor a.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An garden makes the lesson; a.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An plan carry one question; a.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An question tell that note; a.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An sailor writes that song; a.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Every teacher use this room; .",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "No aide leaves every sailor; .",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One garden made my writer; no.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One harbor find my writer; no.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One sailor gives the poet; no.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One time sent some garden; no.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One town send this artist; no.",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Our captain uses one garden; .",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Our poet makes one question; .",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "This letter meets an writer; .",
+      "letters": 23,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; artist each inspire men my.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; artist your sent poet some.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; captain one see child that.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; garden every meet memos no.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; lesson one met sailor that.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; paper that leaves day this.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; poet every meet word every.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; sailor some sent poet that.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "A answer showed no artist; a.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "A garden carries the road; a.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An doctor read the writer; a.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Every plan sent this nurse; .",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One book met our teacher; no.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One day meets some paper; no.",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Our book made our question; .",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "That moon leaves your plan; .",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "That paper reads one memos; .",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "The harbor sends each book; .",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Your memo inspires no note; .",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Your poet wrote the window; .",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Your star carried a sailor; .",
+      "letters": 22,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; aide that leaves town one.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; nurse one showed story an.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; river some find letter no.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; song each wrote writer an.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; star each sends letter an.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; story some wrote book one.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; time each draws word that.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "A road showed the letter; a.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "A; aide each leaves story a.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An harbor meets one song; a.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "No garden gave some woman; .",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One men took that story; no.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One plan writes no moon; no.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One room showed no book; no.",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Some memos gave an farmer; .",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "This child keeps one song; .",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "This story inspire my men; .",
+      "letters": 21,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; book every held time one.",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; book that left book each.",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; plan the makes river the.",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; room an meet window your.",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; story no finds town each.",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; writer one make day some.",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "A men kept each captain; a.",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An story used an farmer; a.",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "My men inspires one town; .",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "My nurse uses one garden; .",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One memo met one nurse; no.",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Some song rip the answer; .",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "That plan reads a harbor; .",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "The child tell an doctor; .",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "The friend meet this men; .",
+      "letters": 20,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; artist one show plan no.",
+      "letters": 19,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; memos no take doctor no.",
+      "letters": 19,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; moon some give baker my.",
+      "letters": 19,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "A; window our asks town a.",
+      "letters": 19,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An moon see an teacher; a.",
+      "letters": 19,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An note took no window; a.",
+      "letters": 19,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One aide held no star; no.",
+      "letters": 19,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One way asks our room; no.",
+      "letters": 19,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; book no read room this.",
+      "letters": 18,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; moon no use friend our.",
+      "letters": 18,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; plan a carried men the.",
+      "letters": 18,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "A; letter a met sailor a.",
+      "letters": 18,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "An lesson gave no day; a.",
+      "letters": 18,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "No memo keep that star; .",
+      "letters": 18,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "No paper meet one song; .",
+      "letters": 18,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "One map rip that men; no.",
+      "letters": 18,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; men an met garden our.",
+      "letters": 17,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "; town no take map some.",
+      "letters": 17,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "A moon tells a book; a.",
+      "letters": 16,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    },
+    {
+      "text": "Each map write a man; .",
+      "letters": 16,
+      "exact": false,
+      "plan_left": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "plan_right": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ]
+    }
+  ],
+  "provenance": {
+    "generator_sha256": "2366ae8fde3adcf5ae7e4beff76adde1faf1c99cd6f253261fe454170f0f9860",
+    "source": "hand-authored typed lexical alternatives; no intact source sentences",
+    "source_sentences_copied": false,
+    "independent_audits": [
+      "normalized-tape-reversal",
+      "ASCII-two-pointer"
+    ]
+  },
+  "next_repair": "Retain UCT and independent derivations, but add a reverse-conditioned action prior learned from the right-edge character residual; do not replay static frame products or widen the same random bank.",
+  "reader_gate": "No row is reader evidence. Only a novel exact surface that passes mechanical admission may enter randomized blinded intact/shuffled reading."
+}

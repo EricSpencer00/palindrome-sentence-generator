@@ -1,0 +1,46 @@
+{
+  "experiment_id": "typed-equation-grammar-20260916",
+  "signature": "typed-grammar-first-token-equations|semantic-predicates|agreement-carrying-realization|independent-pointer-sha",
+  "status": "near_miss_no_promotion",
+  "method": "typed CFG realization with semantic SVO predicate and singular agreement; first-token edge equations are checked before admission",
+  "novelty_preflight": {
+    "registry_entries": 274,
+    "exact_signature_collision": false,
+    "duplicate_sweep_rejected": true
+  },
+  "config": {
+    "grammar": "DET SUBJ VERB DET OBJ PP",
+    "catalogue_imported": false,
+    "seed_palindromes": false,
+    "repeated_units": false,
+    "word_order_mirror": false,
+    "min_letters": 100
+  },
+  "stats": {
+    "candidates": 1,
+    "exact": 0,
+    "best_letters": 91
+  },
+  "best_near_miss": {
+    "text": "the teacher opens the archive beside the quiet river. our curator marks the bridge during the careful morning.",
+    "letters": 91,
+    "exact": false,
+    "first_mismatch": 0,
+    "equation": {
+      "left_first": "t",
+      "right_last": "r",
+      "left_last": "e",
+      "right_first": "o",
+      "satisfied": false
+    },
+    "semantic": true,
+    "agreement": true,
+    "repair": "choose a held-out first determiner/terminal pair satisfying both recorded edge characters, then rerun semantic and agreement predicates"
+  },
+  "provenance": {
+    "generated_not_catalogue": true,
+    "source_pointer": "experiments/typed_equation_grammar_20260916.py",
+    "source_sha256": "c89b0dcad2958f2bbd1237febc10047606eaf934a83e68696bf1e01754be5eb2",
+    "output_sha256": "bdc0969217c6d4f377823f2ad95afe10e425efa65a30c3e9d2de9eef336a25a3"
+  }
+}

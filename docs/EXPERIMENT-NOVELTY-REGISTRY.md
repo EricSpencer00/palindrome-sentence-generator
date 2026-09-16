@@ -12,6 +12,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
+| `manual-endpoint-engineering-20260916` | authored POS-constrained clause shells with endpoint lemma substitutions | manual lexical endpoint budgeting | 18 grammatical near misses; 0 exact and 0 reader-eligible |
 | `corpus-span-boundary-dp-20260916` | independently grammatical corpus spans indexed by reflected character boundaries and composed in clause frames | span-boundary composition with alternate-span repair | 0 base closures; alternate-span repair probes retained; 0 reader-eligible |
 | `paired-obligation-astar-20260916` | paired grammar-obligation A* with deferred terminal realization and an admissible character-mismatch bound | best-first obligation scheduling | 50,000 states; 0 terminal completions; 120 partial ordinary-order probes; 0 exact/admitted/reader rows |
 | `paired-obligation-astar-debt-repair-20260916` | same obligation frontier with one exposed mismatch carried as bounded construction debt until terminal exactness | bounded mismatch-debt repair | 50,000 states; 0 terminal completions; 120 partial ordinary-order probes; 0 exact/admitted/reader rows |
@@ -141,7 +142,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 100 retained families and 6 explicit
+family. The current audit covers all 102 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 
@@ -178,6 +179,8 @@ pairs for review. The latest routes are below the review threshold:
 | `semantic-relation-alignment-20260916` | none (0.000) | 0.000 | retained because directed event-edge topology and boundary-synchronous independent role lexicalization are a distinct state; deepest match 6 characters and no exact closure |
 | `paired-obligation-astar-20260916` | none (0.000) | 0.000 | retained because best-first scheduling carries paired semantic obligations with a mismatch lower bound and independent terminal realization; 0 terminal/exact/admitted/reader rows |
 | `paired-obligation-astar-debt-repair-20260916` | `paired-obligation-astar-20260916` | 0.000 | retained as a concrete mismatch-debt repair that changes the admissible frontier while preserving exact terminal closure; 0 terminal/exact/admitted/reader rows |
+| `recursive-obligation-clause-growth-20260916` | none (0.000) | 0.000 | retained because recursive ordinary-order clause growth carries a live mirrored obligation through typed relative adjunction; 0 exact/admitted/reader rows |
+| `corpus-span-boundary-dp-20260916` | none (0.000) | 0.000 | retained because independently grammatical corpus spans are indexed by reflected character boundaries and repaired with alternate-span substitutions; 0 exact/admitted/reader rows |
 | `corpus-neural-frame-realizer-20260916` | none (0.000) | 0.000 | retained because semantic frame planning precedes character-equation lexical realization and corpus-bigram ordering; 0 exact/admitted/reader rows |
 | `weighted-cfg-sync-dp-20260916` | none (0.000) | 0.000 | retained because independent weighted parse forests are intersected by character position; base and adjunct repair produced no exact closure |
 | `reversible-grammar-insertion-20260916` | none (0.000) | 0.000 | retained because five distinct reverse lexical units grow the seed without repetition; exact outputs were seam-incoherent and withheld from readers |

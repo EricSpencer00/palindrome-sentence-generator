@@ -1475,7 +1475,7 @@ item-aware analysis plan.
   gate. The Brown route's empty `displayed` list is intentional because it
   found no text safe to show as generated.
 
-  A reproducible programmatic diagnostic over 1881 rendered rows is frozen in
+  A reproducible programmatic diagnostic over 1905 rendered rows is frozen in
   `runs/parallel-luna-readability-diagnostics-20260916.json`: 72 exact rows
   (36 semantic-frame tapes plus their 36 residual-decoder rejections) and 0
   mechanically admitted rows. The report breaks out Brown word-order gain,
@@ -1510,7 +1510,7 @@ item-aware analysis plan.
   base and 144 held-out repairs (max 78); CCG produced 4 base and 4 category
   repairs (max 82). All were complete prose with independent audits but zero
   exact closures and zero reader-eligible rows. Their rendered text and
-  provenance remain frozen in the route artifacts and the 1881-row diagnostic.
+  provenance remain frozen in the route artifacts and the 1905-row diagnostic.
   These routes change the construction state (reversible lexical roles,
   unseeded recursion, and online semantic mutation) and are not filename or
   beam-width replays.
@@ -1520,7 +1520,7 @@ item-aware analysis plan.
   candidates; the word-equation route ran 6 base and 6 POS-compatible repairs.
   Both kept complete clauses and independent provenance visible, but had zero
   exact closures and zero reader-eligible rows. The aggregate diagnostic now
-  contains 1881 rendered rows across 45 route phases plus per-route summaries; its metrics remain
+  contains 1905 rendered rows across 46 route phases plus per-route summaries; its metrics remain
   filters and failure diagnostics, never a readability certificate.
 
   A bounded direct-authoring reset also ran three local-model prompts plus one
@@ -1596,6 +1596,14 @@ item-aware analysis plan.
   all 36 were rejected and no survivor reached the reader gate. This is the
   concrete repair result, not a readability claim; evidence is frozen in
   `runs/residual-lexical-decoder-20260916.json`.
+
+  A heteropalindromic clause composer then authored 12 fresh complete clause
+  pairs and 12 determiner-seam repairs (46--48 letters). The independent
+  clause and lexical gates stayed true, but none closed the character tape
+  exactly; all remain outside the reader gate in
+  `runs/heteropalindromic-clause-composer-20260916.json`. Its two-sided clause
+  construction is preserved as a concrete next repair state, not a shortcut or
+  a readability claim.
 
   A sixth reset used typed lexical-chain permutations rather than a model or
   clause cross-product: 24 complete base probes and 12 synonym repairs were

@@ -77,7 +77,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `proper-name-caption-crossword` | typed proper-name/appositive incident records joined as complete captions with a crossword-style character compatibility filter | proper-name caption role grammar | 25 rendered probes; 0 exact closures; 0 reader-eligible outputs |
 | `information-structure-focus-scope` | independently authored negative cause/result clauses carry focus, presupposition, and polarity state before the whole rendered tape is audited | information-structure and polarity state | 16 intact probes plus a terminal-seam repair; 0 exact closures; 0 reader-eligible outputs |
 | `anaphoric-scene-chain-composition` | complete three-sentence scenes carry a singular object antecedent through pronoun and definite-description continuations | typed anaphora and discourse continuity | 4 intact scenes; 0 exact closures; 0 reader-eligible outputs |
-| `multiset-balanced-pair-sampling` | two complete typed clauses are independently sampled and retained only when their 26-dimensional letter-count parity can support an exact palindrome | letter-multiset arithmetic frontier | 50,000 random pairs and an indexed 2,304-clause repair; 0 parity joins; 0 exact closures |
+| `multiset-balanced-pair-sampling` | two complete typed clauses are independently sampled and retained only when their 26-dimensional letter-count parity can support an exact palindrome | letter-multiset arithmetic frontier | 50,000 random pairs, an indexed 2,304-clause repair, and a 98,304-clause agreement repair; 2,720 parity joins; 0 exact closures |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

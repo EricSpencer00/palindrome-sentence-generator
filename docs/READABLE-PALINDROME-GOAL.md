@@ -135,6 +135,13 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   change must add agreement-bearing tense/determiner states before enlarging
   the lexical inventory.
 
+- **Agreement-bearing parity repair (2026-09-15).** The next state added
+  present/past verb forms and a/an/the agreement while indexing 98,304 complete
+  clauses. It produced 2,720 content-disjoint parity joins and retained the
+  strongest 25 intact probes; independent exact audits still found zero
+  closures. The next repair is a controlled clause-boundary connective state,
+  not another lexical-count sweep.
+
 ## Scalable-construction requirement (2026-09-15)
 
 The active construction objective now has two explicit layers: (1) a

@@ -11,7 +11,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 6
-    assert result["run_artifacts"] == 26
+    assert result["run_artifacts"] == 27
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -232,3 +232,9 @@ def test_latest_constructive_repairs_record_distinct_preflight_and_failure_front
     assert lattice["parity_joined_pairs"] == 0
     assert lattice["rendered_probe_count"] == 25
     assert lattice["independent_audit"]["primary_exact"] == 0
+    agreement = json.loads((root / "runs/multiset-agreement-lattice-repair-20260915.json").read_text())
+    assert agreement["preflight"]["disposition"] == "repair, not a retained family"
+    assert agreement["clause_count"] == 98304
+    assert agreement["parity_joined_pairs"] == 2720
+    assert agreement["independent_audit"]["primary_exact"] == 0
+    assert agreement["independent_audit"]["independent_exact"] == 0

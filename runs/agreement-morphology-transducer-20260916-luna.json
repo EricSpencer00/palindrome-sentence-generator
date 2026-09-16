@@ -1,0 +1,136 @@
+{
+  "experiment_id": "agreement-morphology-transducer-20260916-luna",
+  "signature": "agreement-registers|finite-state-lexical-realization|feature-unification|lane4",
+  "novelty_preflight": {
+    "registry_entries_read": 566,
+    "exact_signature_collision": false,
+    "prior_lockstep_sweep_reused": false,
+    "novelty_basis": "lexeme states emit morphology from carried agreement registers"
+  },
+  "transducer": {
+    "states": [
+      "START",
+      "SUBJECT",
+      "FINITE",
+      "OBJECT",
+      "ADJUNCT",
+      "END"
+    ],
+    "registers": {
+      "person": 3,
+      "number": "singular",
+      "tense": "present"
+    },
+    "transition_policy": "unify subject features before finite-verb emission; reject incompatible inflection",
+    "lexemes": [
+      "cartographer/N",
+      "unfold/V",
+      "map/N",
+      "marks/V"
+    ]
+  },
+  "rendered_scene": "At dawn the patient cartographer unfolds a salt-stained map beside the quiet pier and marks each shoal where the returning boats find shelter before the weather turns cold over the inlet.",
+  "audit": {
+    "letters": 155,
+    "exact": false,
+    "two_pointer_mismatches": [
+      {
+        "left": 0,
+        "right": 154,
+        "a": "a",
+        "b": "t"
+      },
+      {
+        "left": 1,
+        "right": 153,
+        "a": "t",
+        "b": "e"
+      },
+      {
+        "left": 2,
+        "right": 152,
+        "a": "d",
+        "b": "l"
+      },
+      {
+        "left": 3,
+        "right": 151,
+        "a": "a",
+        "b": "n"
+      },
+      {
+        "left": 4,
+        "right": 150,
+        "a": "w",
+        "b": "i"
+      },
+      {
+        "left": 5,
+        "right": 149,
+        "a": "n",
+        "b": "e"
+      },
+      {
+        "left": 6,
+        "right": 148,
+        "a": "t",
+        "b": "h"
+      },
+      {
+        "left": 7,
+        "right": 147,
+        "a": "h",
+        "b": "t"
+      },
+      {
+        "left": 8,
+        "right": 146,
+        "a": "e",
+        "b": "r"
+      },
+      {
+        "left": 9,
+        "right": 145,
+        "a": "p",
+        "b": "e"
+      },
+      {
+        "left": 10,
+        "right": 144,
+        "a": "a",
+        "b": "v"
+      },
+      {
+        "left": 11,
+        "right": 143,
+        "a": "t",
+        "b": "o"
+      }
+    ],
+    "sha256": "f18626aa59033a9d32f159b12e0a2df5369e8305e57d52489ec35d109e788fa6",
+    "supported_ascii_letters": true,
+    "word_form": true
+  },
+  "readability_diagnostics": {
+    "certifying": false,
+    "sentence_count": 1,
+    "word_count": 31,
+    "diagnostics": [
+      "intact prose scene",
+      "concrete setting and temporal arc"
+    ]
+  },
+  "provenance": {
+    "generator": "llm_palindrome.agreement_morphology.MorphologyTransducer",
+    "lexical_source": "fresh hand-authored scene",
+    "audits": [
+      "normalized two-pointer",
+      "SHA-256"
+    ]
+  },
+  "next_repair": {
+    "operator": "replace finite-state verb lemma with an agreement-compatible irregular paradigm",
+    "reason": "preserve scene readability while reducing boundary residuals in a future exact search",
+    "concrete": "add go->goes and carry->carries transitions; re-audit independently"
+  }
+}

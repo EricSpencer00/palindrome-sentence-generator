@@ -2023,9 +2023,9 @@ item-aware analysis plan.
   are recorded.
 
   **Latest authoritative continuation (2026-09-16):** the common audit now
-  contains 4,560 normalized rows across 156 route phases, 78 exact tapes, and
-  0 mechanically admitted outputs; the novelty registry contains 258 unique
-  artifacts (26 exclusions, 236 run artifacts). The 164-letter word-pair
+  contains 4,564 normalized rows across 159 route phases, 79 exact tapes, and
+  0 mechanically admitted outputs; the novelty registry contains 261 unique
+  artifacts (26 exclusions, 239 run artifacts). The 164-letter word-pair
   graph frontier, two fresh 61-letter paired mutations, 113-letter clause CSP,
   108 semantic-slot states, and 103--104-letter reverse-segmentation clauses
   are all rendered, independently checked, provenance-backed, and paired with
@@ -2075,3 +2075,10 @@ item-aware analysis plan.
   morning shift.”) with a paired verb/object repair. All
   have independent exact/hash audits, provenance, and novelty records; none is
   mechanically admitted.
+
+  **Additional orthogonal lanes:** the finite clause automaton emits a
+  109-letter archivist/visitor scene; the semordnilap typed lane retains the
+  exact but non-prose “Stressed desserts.” control and a 100-letter baker near
+  miss; and the two-sided discourse equation emits a 156-letter Nora/harbor
+  scene with distinct content words. Each has independent exact/hash audits,
+  provenance, novelty preflight, and a concrete repair; none is admitted.

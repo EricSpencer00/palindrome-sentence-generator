@@ -152,10 +152,13 @@
     "runs/live-dependency-character-csp-20260916.json",
     "runs/semantic-residual-slot-lattice-20260916.json",
     "runs/outside-in-scene-grammar-csp-20260916.json",
-    "runs/ten-clause-residual-equation-20260916.json"
+    "runs/ten-clause-residual-equation-20260916.json",
+    "runs/finite-automaton-clause-tapes-20260916.json",
+    "runs/semordnilap-typed-clause-2026-09-16.json",
+    "runs/two-sided-discourse-equation-20260916.json"
   ],
-  "candidate_count": 4560,
-  "exact_count": 78,
+  "candidate_count": 4564,
+  "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
     {
@@ -767,6 +770,16 @@
       "max_letters": 44,
       "mean_zipf_frequency": 4.209140046296297,
       "mean_brown_order_gain_vs_shuffle": 0.11789883477451535
+    },
+    {
+      "source_run": "runs/finite-automaton-clause-tapes-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 109,
+      "max_letters": 109,
+      "mean_zipf_frequency": 5.0677777777777795,
+      "mean_brown_order_gain_vs_shuffle": 1.0384721533988195
     },
     {
       "source_run": "runs/fresh-typed-frame-live-seam-20260916.json",
@@ -1569,6 +1582,16 @@
       "mean_brown_order_gain_vs_shuffle": 0.9693646207452367
     },
     {
+      "source_run": "runs/semordnilap-typed-clause-2026-09-16.json",
+      "rows": 2,
+      "exact_count": 1,
+      "mechanically_admitted_count": 0,
+      "min_letters": 16,
+      "max_letters": 100,
+      "mean_zipf_frequency": 4.5337499999999995,
+      "mean_brown_order_gain_vs_shuffle": 0.08607895317206982
+    },
+    {
       "source_run": "runs/simultaneous-phrase-beam-20260916.json",
       "rows": 18,
       "exact_count": 0,
@@ -1617,6 +1640,16 @@
       "max_letters": 83,
       "mean_zipf_frequency": 5.392222222222222,
       "mean_brown_order_gain_vs_shuffle": 1.160736952714311
+    },
+    {
+      "source_run": "runs/two-sided-discourse-equation-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 156,
+      "max_letters": 156,
+      "mean_zipf_frequency": 5.327741935483872,
+      "mean_brown_order_gain_vs_shuffle": 0.24420024364171944
     },
     {
       "source_run": "runs/typed-boundary-resegment-shortwords-20260916.json",
@@ -219209,6 +219242,176 @@
         "word_count": 69,
         "repeated_word_rate": 0.2028985507246377,
         "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient archivist records quiet observations beside the river. Curious visitors study faded stars beyond the winter station.",
+      "source_run": "runs/finite-automaton-clause-tapes-20260916.json",
+      "provenance": {
+        "fresh_complete_clauses": true,
+        "source_sentences_copied": false,
+        "finished_palindrome_reused": false
+      },
+      "repair": null,
+      "letters": 109,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0384721533988195,
+        "mean_zipf_frequency": 5.0677777777777795,
+        "word_count": 18,
+        "repeated_word_rate": 0.11111111111111116,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Stressed desserts.",
+      "source_run": "runs/semordnilap-typed-clause-2026-09-16.json",
+      "provenance": "semordnilap_typed_clause_v1",
+      "repair": null,
+      "letters": 16,
+      "exact_letter_palindrome": true,
+      "independent_sha256_exact": true,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": false,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "length_band",
+        "not_word_order_symmetry"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": -0.7869554010278499,
+        "mean_zipf_frequency": 3.745,
+        "word_count": 2,
+        "repeated_word_rate": 0.0,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The tired baker served stressed desserts, then repaired a drawer while a quiet traveler delivered bread to the old river.",
+      "source_run": "runs/semordnilap-typed-clause-2026-09-16.json",
+      "provenance": "semordnilap_typed_clause_v1",
+      "repair": null,
+      "letters": 100,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_proper_multiword_span"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9591133073719895,
+        "mean_zipf_frequency": 5.3225,
+        "word_count": 20,
+        "repeated_word_rate": 0.09999999999999998,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Nora briefs the harbor crew before sunrise, then files the weather charts for the evening watch. Later, the coastal pilot studies fresh signals and stores a sealed map beside the lighthouse.",
+      "source_run": "runs/two-sided-discourse-equation-20260916.json",
+      "provenance": {
+        "generator_sha256": "a04c266db43acdf6450d237406fc8a16186825d73b9c85997db8337a3d3e97bd",
+        "source": "fresh human-authored discourse",
+        "audits": [
+          "two-pointer",
+          "forward/reverse hash",
+          "mechanical gate"
+        ]
+      },
+      "repair": null,
+      "letters": 156,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.24420024364171944,
+        "mean_zipf_frequency": 5.327741935483872,
+        "word_count": 31,
+        "repeated_word_rate": 0.12903225806451613,
+        "punctuation_segments": 2
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

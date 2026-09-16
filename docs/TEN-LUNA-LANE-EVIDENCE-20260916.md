@@ -298,9 +298,9 @@ concrete next repair to expand the held-out lexical/POS inventory.
 
 ## Authoritative continuation snapshot (2026-09-16, latest)
 
-The common audit now contains **4,560 normalized rows across 156 route phases,
-78 exact tapes, and 0 mechanically admitted outputs**. The registry validator
-reports **258 unique artifacts, 26 preflight exclusions, and 236 run
+The common audit now contains **4,564 normalized rows across 159 route phases,
+79 exact tapes, and 0 mechanically admitted outputs**. The registry validator
+reports **261 unique artifacts, 26 preflight exclusions, and 239 run
 artifacts**. The latest orthogonal additions are preserved as reader-facing
 prose evidence: a 164-letter word-pair graph frontier (no closure), two fresh
 61-letter paired semantic mutations (no closure), a 113-letter central-pivot
@@ -366,3 +366,18 @@ a torn notice, and leaves clear instructions for the morning shift.” It jointl
 substitutes verb/object spans against the first twenty residual positions while
 locking agreement and content-word uniqueness; independent pointer/hash checks
 reject exactness and the next paired verb/object repair is recorded.
+
+Three further orthogonal lanes are frozen. The finite clause automaton emits
+“The patient archivist records quiet observations beside the river. Curious
+visitors study faded stars beyond the winter station.” (109 letters), with a
+live word-boundary state trace and no exact closure. The semordnilap typed lane
+keeps the exact 16-letter “Stressed desserts.” control plus a fresh 100-letter
+near miss: “The tired baker served stressed desserts, then repaired a drawer
+while a quiet traveler delivered bread to the old river.” The exact witness is
+not admitted as prose; the near miss fails at the first character. Finally, the
+two-sided discourse equation lane emits a distinct 156-letter scene: “Nora
+briefs the harbor crew before sunrise, then files the weather charts for the
+evening watch. Later, the coastal pilot studies fresh signals and stores a
+sealed map beside the lighthouse.” Its repeated-unit and content-word checks
+pass, but the character equation remains open. All three carry provenance,
+novelty preflight, independent audits, and concrete repairs.

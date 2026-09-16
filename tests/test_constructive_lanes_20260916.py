@@ -61,8 +61,8 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4560
-    assert report["exact_count"] == 78
+    assert report["candidate_count"] == 4564
+    assert report["exact_count"] == 79
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/char-lm-tape-resegment-20260916.json"]["rows"] == 5
@@ -92,6 +92,9 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/semantic-residual-slot-lattice-20260916.json"]["rows"] == 1
     assert by_source["runs/outside-in-scene-grammar-csp-20260916.json"]["rows"] == 6
     assert by_source["runs/ten-clause-residual-equation-20260916.json"]["rows"] == 1
+    assert by_source["runs/finite-automaton-clause-tapes-20260916.json"]["rows"] == 1
+    assert by_source["runs/semordnilap-typed-clause-2026-09-16.json"]["rows"] == 2
+    assert by_source["runs/two-sided-discourse-equation-20260916.json"]["rows"] == 1
 
 
 def test_fresh_typed_frame_preserves_prose_and_live_obligation_evidence():
@@ -286,6 +289,39 @@ def test_ten_clause_residual_equation_keeps_long_scene_and_joint_repair():
     assert row["mechanical_checks"]["distinct_words"] is True
     assert run["solver"]["all_different_content"] is True
     assert run["next_repair"]["operator"]
+
+
+def test_finite_automaton_clause_lane_keeps_scalable_state_and_exact_trace():
+    run = json.loads((ROOT / "runs/finite-automaton-clause-tapes-20260916.json").read_text())
+    row = run["candidates"][0]
+    assert row["letters"] == 109 and row["exact"] is False and row["admitted"] is False
+    assert row["two_pointer"] is False and row["hash_equal"] is False
+    assert row["checks"]["length_band"] is True
+    assert row["provenance"]["fresh_complete_clauses"] is True
+    assert run["next_repair"]
+
+
+def test_semordnilap_typed_lane_keeps_short_control_and_100_letter_prose():
+    run = json.loads((ROOT / "runs/semordnilap-typed-clause-2026-09-16.json").read_text())
+    witness, near = run["candidates"]
+    assert witness["letters"] == 16 and witness["exact"] is True and witness["admitted"] is False
+    assert near["letters"] == 100 and near["exact"] is False
+    assert near["hash_equal"] is False
+    assert near["mechanical_checks"]["distinct_words"] is True
+    assert run["provenance"]["distinct_content"] is True
+    assert run["next_repair"]
+
+
+def test_two_sided_discourse_equation_keeps_distinct_complete_clauses():
+    run = json.loads((ROOT / "runs/two-sided-discourse-equation-20260916.json").read_text())
+    row = run["rendered_candidates"][0]
+    assert row["letters"] == 156 and row["exact"] is False
+    assert row["two_pointer"] is False
+    assert row["forward_hash"] != row["reverse_hash"]
+    assert row["mechanical"]["distinct_words"] is True
+    assert row["mechanical"]["no_repeated_nontrivial_unit"] is True
+    assert run["equation_solver"]["content_words_all_different"] is True
+    assert run["next_repair"]
 
 
 def test_paired_semantic_mutation_retains_fresh_controls_and_mismatch_trace():

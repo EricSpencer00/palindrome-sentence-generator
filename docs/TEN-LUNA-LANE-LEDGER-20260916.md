@@ -230,9 +230,9 @@ recorded.
 
 ## Latest authoritative continuation (2026-09-16)
 
-The aggregate is **4,560 normalized rows across 156 route phases, 78 exact
-tapes, and 0 mechanically admitted outputs**. Novelty validation reports 258
-unique artifacts (26 exclusions; 236 run artifacts). The new word-pair graph,
+The aggregate is **4,564 normalized rows across 159 route phases, 79 exact
+tapes, and 0 mechanically admitted outputs**. Novelty validation reports 261
+unique artifacts (26 exclusions; 239 run artifacts). The new word-pair graph,
 paired semantic mutation, central-pivot CSP, semantic-slot lattice, and
 corpus-backed reverse-segmentation runs all retain rendered ordinary-prose
 states plus independent exact/hash audits and named next repairs. The 164-letter
@@ -285,3 +285,10 @@ dusk. After supper she inventories the blankets, answers the radio, repairs a
 torn notice, and leaves clear instructions for the morning shift.”) and a paired
 verb/object repair operator. These are
 preserved as construction evidence, not readability certification.
+
+The finite-automaton lane adds a 109-letter archivist/visitor scene; the
+semordnilap lane adds a rejected exact “Stressed desserts.” control and a fresh
+100-letter baker near miss; and the two-sided discourse equation adds a fresh
+156-letter Nora/harbor scene with distinct content words. Independent
+pointer/hash checks, provenance, novelty preflight, and named repairs are
+recorded for each; none is mechanically admitted.

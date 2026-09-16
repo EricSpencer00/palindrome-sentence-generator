@@ -244,6 +244,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "semantic-residual-slot-lattice-20260916" in ids
     assert "outside-in-scene-grammar-csp-20260916" in ids
     assert "ten-clause-residual-equation-20260916" in ids
+    assert "finite-automaton-clause-tapes-20260916" in ids
+    assert "semordnilap-typed-clause-2026-09-16" in ids
+    assert "two-sided-discourse-equation-20260916" in ids
 
 
 def test_rhythmai_probe_is_registered_as_direct_authoring_repair_evidence():

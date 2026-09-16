@@ -12,6 +12,9 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
+| `conditional-embedding-solver-20260916` | conditional `if`/`then` composition keeps antecedent, consequent, and causal subordinate clauses live while lexical choices satisfy an online character obligation | conditional semantic topology and held-out antecedent repair | 4 base + 4 repair complete-prose probes, 80–89 letters; 0 exact and 0 reader-eligible |
+| `reported-speech-topology-20260916` | attribution verbs and tense-shifted embedded propositions are jointly realized before an independent character audit, with conditional repair | reported-speech semantic embedding | 6 base + 12 conditional repairs, 68–88 letters; 0 exact and 0 reader-eligible |
+| `nested-conditional-mutation-20260916` | intact conditional/temporal discourse plans are mutated through a character-balanced lexical frontier while semantic validation remains active | nested conditional/temporal mutation | 3 base + 6 mutation repairs, 44–50 letters; 0 exact and 0 reader-eligible |
 | `heteropalindromic-clause-composer-20260916` | fresh complete clauses are paired through heteropalindromic lexical seams, then repaired by determiner substitution | heteropalindromic clause pairing | 12 base + 12 seam repairs, 46–48 letters; 0 exact and 0 reader-eligible |
 | `paragraph-paraphrase-obligation-20260916` | whole paragraphs are authored as intact prose, then sentence-level paraphrase edits are selected against a mirrored character obligation | paragraph-level paraphrase repair | 3 base + 3 repair paragraphs, 61 letters; 0 exact and 0 reader-eligible |
 | `heldout-boundary-decoder-20260916` | independently authored semantic-role clauses decoded against a held-out lexical boundary beam, followed by resegmentation repair | held-out boundary decoding | 81 base + 81 repair probes, 67–78 letters; 0 exact and 0 reader-eligible |
@@ -188,7 +191,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 149 retained families and 12 explicit
+family. The current audit covers all 152 retained families and 12 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

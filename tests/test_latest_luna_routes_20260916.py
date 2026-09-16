@@ -62,13 +62,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 1905
+    assert report["candidate_count"] == 1940
     assert report["exact_count"] == 72
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 46
+    assert len(report["route_summary"]) == 51
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
 
 
@@ -298,3 +298,38 @@ def test_semantic_frame_tape_solver_records_exact_but_unreadable_fragments():
     assert exact_rows
     assert all(not row["audit"]["reader_eligible"] for row in exact_rows)
     assert any("nwadybpameulbaspeekesruneht" in row["text"] for row in exact_rows)
+
+
+def test_conditional_embedding_route_keeps_complete_prose_and_repairs_unadmitted():
+    run = load("conditional-embedding-solver-20260916.json")
+    assert len(run["base"]["candidates"]) == 4
+    assert len(run["repair"]["candidates"]) == 4
+    assert run["base"]["exact_count"] == 0
+    assert run["repair"]["exact_count"] == 0
+    assert max(row["length_letters"] for phase in ("base", "repair")
+               for row in run[phase]["candidates"]) == 89
+    assert all(row["complete_clauses"] == 2 and not row["reader_eligible"]
+               for phase in ("base", "repair") for row in run[phase]["candidates"])
+
+
+def test_reported_speech_topology_preserves_embedded_propositions_and_repairs():
+    run = load("reported-speech-topology-20260916.json")
+    assert len(run["base"]["candidates"]) == 6
+    assert len(run["repair"]["candidates"]) == 12
+    assert run["base"]["exact_count"] == 0
+    assert run["repair"]["exact_count"] == 0
+    assert max(row["audit"]["letters"] for phase in ("base", "repair")
+               for row in run[phase]["candidates"]) == 88
+    assert all(row["complete_sentences"] and not row["reader_eligible"]
+               for phase in ("base", "repair") for row in run[phase]["candidates"])
+
+
+def test_nested_conditional_mutation_records_intact_prose_and_concrete_repairs():
+    run = load("nested-conditional-mutation-20260916.json")
+    assert len(run["candidates"]) == 3
+    assert len(run["repair"]) == 6
+    assert run["exact_count"] == 0
+    assert run["reader_eligible_count"] == 0
+    assert max(row["audit"]["letters"] for row in run["candidates"] + run["repair"]) == 50
+    assert all(row["audit"]["complete_sentence"] and not row["audit"]["reader_eligible"]
+               for row in run["candidates"] + run["repair"])

@@ -1,0 +1,68 @@
+{
+  "method": "semordnilap_typed_clause_v1",
+  "reversible_pairs": [
+    [
+      "stressed",
+      "desserts"
+    ],
+    [
+      "diaper",
+      "repaid"
+    ],
+    [
+      "drawer",
+      "reward"
+    ],
+    [
+      "deliver",
+      "reviled"
+    ],
+    [
+      "gateman",
+      "nametag"
+    ]
+  ],
+  "candidates": [
+    {
+      "kind": "witness",
+      "text": "Stressed desserts.",
+      "letters": 16,
+      "exact": true,
+      "audit": {
+        "exact": true,
+        "matched": 16,
+        "mismatch": null
+      },
+      "forward_hash": "669191307668534f34cf70c8b0250ef9b67260027a51f9a82b2e355386d19470",
+      "reverse_hash": "669191307668534f34cf70c8b0250ef9b67260027a51f9a82b2e355386d19470",
+      "admitted": false
+    },
+    {
+      "kind": "near_miss",
+      "text": "The tired baker served stressed desserts, then repaired a drawer while a quiet traveler delivered bread to the river.",
+      "letters": 97,
+      "exact": false,
+      "audit": {
+        "exact": false,
+        "matched": 0,
+        "mismatch": "thetiredbake"
+      },
+      "forward_hash": "7ff4e632fd594aebad19b6b65863ca05965f524840f3e97622992c1f3bbf5e46",
+      "reverse_hash": "5b564b9b4f71dc38eb8b4af13488ae9f076b8fabd39319b091461d3a5cd4634e",
+      "admitted": false
+    }
+  ],
+  "provenance": {
+    "lexicon": "five common reversible word pairs, manually POS-checked",
+    "grammar": "typed declarative clauses; subject-verb-object and adjunct slots",
+    "distinct_content": true
+  },
+  "novelty_preflight": {
+    "digests": [
+      "669191307668534f34cf70c8b0250ef9b67260027a51f9a82b2e355386d19470",
+      "7ff4e632fd594aebad19b6b65863ca05965f524840f3e97622992c1f3bbf5e46"
+    ],
+    "action": "compare with prior run digests"
+  },
+  "next_repair": "Add Brown frequency-ranked reversible pairs by POS, then solve clause slots jointly so every selected reversal remains grammatical at both boundaries."
+}

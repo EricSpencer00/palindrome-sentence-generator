@@ -133,12 +133,23 @@
     "runs/constructive-lanes-6-10-cross-audit-20260916.json",
     "runs/seam-feature-slot-repair-20260916.json",
     "runs/typed-boundary-resegment-shortwords-20260916.json",
-    "runs/fresh-typed-frame-live-seam-20260916.json"
+    "runs/fresh-typed-frame-live-seam-20260916.json",
+    "runs/adjunct-boundary-targeted-repair-20260916.json"
   ],
-  "candidate_count": 4426,
+  "candidate_count": 4427,
   "exact_count": 77,
   "mechanically_admitted_count": 0,
   "route_summary": [
+    {
+      "source_run": "runs/adjunct-boundary-targeted-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 38,
+      "max_letters": 38,
+      "mean_zipf_frequency": 5.743333333333333,
+      "mean_brown_order_gain_vs_shuffle": 1.47661389564146
+    },
     {
       "source_run": "runs/assumption-core-scene-solver-20260916.json",
       "rows": 240,
@@ -213648,6 +213659,52 @@
       "diagnostics_not_readability": {
         "brown_order_gain_vs_shuffle": 1.2294926861931605,
         "mean_zipf_frequency": 5.59111111111111,
+        "word_count": 9,
+        "repeated_word_rate": 0.11111111111111116,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The baker carries a letter by the quiet harbor",
+      "source_run": "runs/adjunct-boundary-targeted-repair-20260916.json",
+      "provenance": {
+        "agreement": "singular present",
+        "frame_preserved": true,
+        "inventory_size": 1,
+        "repair": "first residual adjunct boundary",
+        "replacement": "near -> by"
+      },
+      "repair": null,
+      "letters": 38,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "length_band"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.47661389564146,
+        "mean_zipf_frequency": 5.743333333333333,
         "word_count": 9,
         "repeated_word_rate": 0.11111111111111116,
         "punctuation_segments": 1

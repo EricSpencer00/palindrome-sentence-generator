@@ -246,7 +246,7 @@ witness. Every attempt has independent pointer/hash checks and provenance; no
 substitution remained exact or mechanically admissible. The next operator is
 typed boundary resegmentation at the first failing seam, allowing adjacent
 short words to absorb reflected suffixes. With this artifact included, the
-authoritative aggregate is **4,426 rows, 137 route phases, 77 exact tapes, and
+authoritative aggregate is **4,427 rows, 138 route phases, 77 exact tapes, and
 0 mechanically admitted outputs**.
 
 ## Typed-boundary follow-up (2026-09-16)
@@ -266,3 +266,12 @@ letter near the quiet harbor” (40 letters), a new singular-agreement frame
 with eight live obligations. It passes novelty and every mechanical quality
 check except exactness. The next repair targets only the adjunct boundary
 lexeme selected by the first residual obligation.
+
+## Adjunct-boundary targeted repair (2026-09-16)
+
+`runs/adjunct-boundary-targeted-repair-20260916.json` performs exactly one
+fresh repair: `near` to `by` in “The baker carries a letter by the quiet
+harbor.” The typed SVO frame and singular agreement are preserved. Independent
+pointer/hash validation remains non-exact (38 letters, below the 39-letter
+mechanical floor), and the next repair carries the residual into the determiner
+slot.

@@ -1985,7 +1985,7 @@ item-aware analysis plan.
   pointer/hash checks found no surviving exact closure and no mechanically
   admissible output. Its concrete next construction is typed boundary
   resegmentation at the first failing seam, allowing adjacent short words to
-  absorb reflected suffixes. The aggregate is now 4,426 rows across 137 route
+  absorb reflected suffixes. The aggregate is now 4,427 rows across 138 route
   phases, with 77 exact tapes and 0 mechanically admitted outputs.
 
   **Typed-boundary follow-up (2026-09-16):**
@@ -2001,3 +2001,10 @@ item-aware analysis plan.
   with eight live obligations. It passes novelty and every mechanical quality
   check except exactness. The next repair targets only the adjunct boundary
   lexeme selected by the first residual obligation.
+
+  **Adjunct-boundary targeted repair (2026-09-16):**
+  `runs/adjunct-boundary-targeted-repair-20260916.json` performs one fresh
+  `near` to `by` substitution, yielding “The baker carries a letter by the
+  quiet harbor.” The SVO frame and agreement stay fixed; independent validation
+  is non-exact at 38 letters, below the 39-letter floor. The next repair carries
+  the residual into the determiner slot.

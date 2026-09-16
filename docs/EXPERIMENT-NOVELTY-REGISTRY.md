@@ -99,8 +99,10 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `gpt2-center-letter-bridge-20260915` | GPT-2 half clauses are joined through an explicit odd-length center-letter insertion before independent right-tape decoding | odd-center bridge state | 384 samples, 3,848 center decodes, 4 exact 39-letter surfaces, 0 mechanically admitted/reader rows; orientation repair also yielded 0 exact rows |
 | `gpt2-center-fsm-bridge-20260915` | Brown-backed POS/constituency states are carried into the odd-center reverse decode; fragments are rejected before scoring | right-side clause automaton | 384 samples, 3,354 center trials, 0 complete POS-frame hits, 0 exact/admitted/reader rows |
 | `interrogative-quantifier-fsm-20260915` | explicit auxiliary-inversion question states are joined to quantified-answer dependency states under an odd-center character equation | question–answer discourse automaton | base: 420,000 left assignments and 52,197,516 right-frame yields; indexed repair: 62,901,860 slot-prefix trials, 1 hit (known catalogue), 0 novel exact/admitted/reader rows |
-| `morphology-first-dependency-lattice-20260916` | dependency topology is selected before node-local lemma, derivation, and inflection paths are unified and rendered in ordinary order | morphology-first dependency yield | 1,728 yields; 3 exact diagnostics, all catalogue/symmetry rejected; 0 mechanically admitted/reader rows |
+| `morphology-first-dependency-lattice-20260916` | dependency topology is selected before node-local lemma, derivation, and inflection paths are unified and rendered in ordinary order | morphology-first dependency yield | base: 1,728 yields with 3 catalogue/symmetry diagnostics; derivational repair: 24,570 yields and 0 exact; 0 mechanically admitted/reader rows |
 | `semantic-relation-alignment-20260916` | directed event-edge relations choose independent role lexicalizations while a deterministic boundary-synchronous ledger checks ordinary-order yields | semantic relation-edge alignment | base: 36,662 states, deepest match 6; terminal-span/odd-center repair: 646 states; 0 exact/admitted/reader rows |
+| `weighted-cfg-sync-dp-20260916` | independent weighted CFG parse forests intersected by character position with typed adjunct repair | synchronous parse-forest intersection | base: 648 derivations/side and 13,392 chart states; adjunct repair: 3,240 derivations/side and 82,512 states; 0 exact/admitted/reader rows |
+| `reversible-grammar-insertion-20260916` | five distinct annotated reverse lexical units inserted at a preserved seed seam | non-repeating scalable seam growth | 5 exact renderings (50--106 letters), all seam-incoherent and withheld from readers; 0 reader-eligible |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
@@ -135,9 +137,9 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 95 retained families and 6 explicit
+family. The current audit covers all 97 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
-pairs for review. The two latest routes are below the review threshold:
+pairs for review. The latest routes are below the review threshold:
 
 | route | nearest prior family | atom Jaccard | disposition |
 |---|---|---:|---|
@@ -170,6 +172,8 @@ pairs for review. The two latest routes are below the review threshold:
 | `morphosemantic-product-delay-20260916` | none (0.000) | 0.000 | retained because looping feature automata realize morphology on demand through a persistent output-delay monoid without complete-clause materialization; 0 closures |
 | `morphology-first-dependency-lattice-20260916` | none (0.000) | 0.000 | retained because lemma/derivation/inflection paths are unified on typed dependency nodes before ordinary-order yield; exact diagnostics were catalogue/symmetry rejected |
 | `semantic-relation-alignment-20260916` | none (0.000) | 0.000 | retained because directed event-edge topology and boundary-synchronous independent role lexicalization are a distinct state; deepest match 6 characters and no exact closure |
+| `weighted-cfg-sync-dp-20260916` | none (0.000) | 0.000 | retained because independent weighted parse forests are intersected by character position; base and adjunct repair produced no exact closure |
+| `reversible-grammar-insertion-20260916` | none (0.000) | 0.000 | retained because five distinct reverse lexical units grow the seed without repetition; exact outputs were seam-incoherent and withheld from readers |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

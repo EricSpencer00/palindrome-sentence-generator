@@ -1411,6 +1411,23 @@ item-aware analysis plan.
   roles while a deterministic boundary-synchronous ledger compares ordinary
   yields. Four relation frames explored 36,662 states; the deepest match was
   six characters and there were zero exact, mechanically admitted, or
-  reader-eligible rows. Its terminal-compatible phrase/odd-center repair is
-  the concrete next operator; the failed run is preserved in
-  `runs/semantic-relation-alignment-20260916.json`.
+  reader-eligible rows. The terminal-compatible phrase/odd-center repair then
+  explored 646 states and 336 terminal spans, also with zero exact closures.
+  Both runs are preserved in
+  `runs/semantic-relation-alignment-20260916.json` and
+  `runs/semantic-relation-alignment-terminal-repair-20260916.json`.
+
+- **Weighted CFG synchronous DP, 2026-09-16:** preflighted a new parse-forest
+  state that intersects two independently weighted CFG derivations by
+  character position. The base forest had 648 derivations per side and 13,392
+  chart states; a typed-adjunct repair expanded this to 3,240 derivations and
+  82,512 states. Neither produced an exact closure or reader-eligible row.
+  Evidence is frozen in `runs/weighted-cfg-sync-dp-20260916.json`.
+
+- **Non-repeating reversible insertion, 2026-09-16:** tested a scalable seam
+  wrapper constructor using five distinct, independently annotated reverse
+  lexical units around the verified seed. It produced exact 50--106-letter
+  renderings, but every seam was visibly incoherent; the hard no-repeat gate
+  held and all five remain outside the reader gate in
+  `runs/reversible-grammar-insertion-20260916.json`. This is failure evidence,
+  not a readable output.

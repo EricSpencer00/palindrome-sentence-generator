@@ -15,7 +15,7 @@ def test_terminal_repair_is_same_family_and_has_no_exact_closure():
     assert payload["repair_of"] == "semantic-relation-alignment-20260916"
     assert payload["signature"].startswith("semantic-relation-alignment|")
     assert payload["signature"].endswith("terminal-compatible-phrase-spans|bounded-odd-center")
-    assert payload["novelty_preflight"]["registry_entries"] == 95
+    assert payload["novelty_preflight"]["registry_entries"] == 97
     assert payload["novelty_preflight"]["exact_signature_collision"] is False
     assert payload["stats"]["exact"] == 0
     assert payload["stats"]["admitted"] == 0

@@ -82,7 +82,7 @@ def _audit(text: str) -> dict:
             "sha256": hashlib.sha256(tape.encode()).hexdigest()}
 
 
-def run(*, state_limit: int = STATE_LIMIT) -> dict:
+def run(*, state_limit: int = STATE_LIMIT, mismatch_budget: int = 0) -> dict:
     stats = {"states": 0, "ledger_pruned": 0, "terminal_states": 0,
              "rendered_candidates": 0, "exact": 0, "mechanically_admitted": 0}
     probes = []
@@ -104,12 +104,12 @@ def run(*, state_limit: int = STATE_LIMIT) -> dict:
                     left = s.left + tuple(WORDS[r][0] for r in s.left_slots[s.li:])
                     right = s.right + tuple(WORDS[r][0] for r in s.right_slots[s.ri:])
                     rendered = _render(State(s.left_slots, s.right_slots, left, right, len(left_slots), len(right_slots)))
-                    probes.append({"text": rendered, "audit": _audit(rendered), "complete_search_state": False, "left_slots": left_slots, "right_slots": right_slots})
+                    probes.append({"text": rendered, "audit": _audit(rendered), "probe_status": "partial_completed_render", "candidate": False, "left_slots": left_slots, "right_slots": right_slots})
                 if s.done():
                     stats["terminal_states"] += 1
                     text = _render(s); audit = _audit(text)
                     if len(probes) < 120:
-                        probes.append({"text": text, "audit": audit, "complete_search_state": True, "left_slots": left_slots, "right_slots": right_slots})
+                        probes.append({"text": text, "audit": audit, "probe_status": "complete_terminal", "candidate": bool(audit["exact"]), "left_slots": left_slots, "right_slots": right_slots})
                     continue
                 actions = []
                 if s.li < len(left_slots):
@@ -123,7 +123,7 @@ def run(*, state_limit: int = STATE_LIMIT) -> dict:
                                   s.left + (word,) if side == "L" else s.left,
                                   s.right + (word,) if side == "R" else s.right,
                                   s.li + (side == "L"), s.ri + (side == "R"))
-                    if _mismatch_lower_bound(child):
+                    if _mismatch_lower_bound(child) > mismatch_budget:
                         stats["ledger_pruned"] += 1; continue
                     remaining = (len(child.left) - child.li) + (len(child.right) - child.ri)
                     priority = (remaining * 0.01 - sum(word_score(w) for w in child.left + child.right), n, serial, child)
@@ -140,8 +140,8 @@ def run(*, state_limit: int = STATE_LIMIT) -> dict:
             "status": "completed_paired_obligation_astar",
             "method": "A* over paired grammar-obligation states; priority combines an admissible lower bound from exposed character mismatches with remaining obligations and a transparent lexical cost.",
             "novelty_preflight": {"registry_entries_before_run": 97, "excluded_routes_before_run": 6, "signature_overlap": [], "manual_review_required": False},
-            "config": {"state_limit": state_limit, "catalogue_text_imported": False, "word_order_only_generation": False, "reverse_emission": False, "independent_terminal_realization": True},
-            "stats": {**stats, "rendered_candidates": len(probes), "reader_eligible": 0, "longest_probe_letters": max((r["audit"]["letters"] for r in probes), default=0)},
+            "config": {"state_limit": state_limit, "mismatch_budget": mismatch_budget, "catalogue_text_imported": False, "word_order_only_generation": False, "reverse_emission": False, "independent_terminal_realization": True},
+            "stats": {**stats, "rendered_probes": len(probes), "candidate_count": sum(r["candidate"] for r in probes), "reader_eligible": 0, "longest_probe_letters": max((r["audit"]["letters"] for r in probes), default=0)},
             "rendered_candidates_and_probes": probes,
             "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "source": "hand-authored typed lexical alternatives; no intact source sentences", "source_sentences_copied": False, "independent_audits": ["normalized-tape-reversal", "independent-ascii-tape-reversal", "two-pointer-exact"], "programmatic_readability_claim": False},
             "reader_gate": {"status": "not_run", "reason": "No human readers were run; exactness and lexical diagnostics do not certify readability."}}

@@ -1,0 +1,29 @@
+{
+  "method": "independent_word_pair_graph_v1",
+  "inventory": 5,
+  "expansions": 17,
+  "closures": 0,
+  "candidates": [
+    {
+      "kind": "best_intact_prose",
+      "text": "Quiet archivists preserve maps clear notes guide future readers careful hands repair old clocks old clocks repair careful hands future readers guide clear notes maps preserve quiet archivists",
+      "letters": 164,
+      "exact": false,
+      "distinct_pairs": 3,
+      "tape_sha256": "57e768a7def623ac9249a5d1871c6c891c9e1c080fde0958e5f7e007ae032e02",
+      "pos_valency_gate": true
+    }
+  ],
+  "provenance": {
+    "inventory": "authored ordinary-English clause pairs",
+    "construction": "left appends; right prepends; residual ledger",
+    "forbidden": "catalogue lookup, self-palindrome, word-order reversal shortcut"
+  },
+  "audits": {
+    "pointer": "independent tape concatenation and reverse equality",
+    "hash": "SHA-256 of normalized rendered tape",
+    "mechanical_gate": "exact tape, distinct pairs, clause valency",
+    "novelty": "candidate hashes are emitted for external corpus preflight"
+  },
+  "next_repair": "Replace the mirrored right clauses with independently authored short clauses whose character residual matches; current inventory yields no closure."
+}

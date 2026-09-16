@@ -1,0 +1,120 @@
+{
+  "experiment": "dependency-seam-csp-20260916-luna",
+  "signature": "dependency-tree-seam-csp|typed-role-slots|live-seam-obligations|independent-pointer-sha-audit|fresh-scene",
+  "status": "diagnostic_complete",
+  "method": "typed dependency-tree slot CSP with live mirrored character obligations at each seam",
+  "scene": "The patient curator carries a brass compass through the quiet archive while the young cartographer records each turning near the northern window.",
+  "dependency_tree": {
+    "root": "event",
+    "slots": [
+      {
+        "role": "subject",
+        "text": "the patient curator",
+        "features": {
+          "person": 3,
+          "number": "singular"
+        }
+      },
+      {
+        "role": "verb",
+        "text": "carries",
+        "features": {
+          "tense": "present",
+          "agreement": "singular"
+        }
+      },
+      {
+        "role": "object",
+        "text": "a brass compass",
+        "features": {
+          "case": "object",
+          "determiner": "indefinite"
+        }
+      },
+      {
+        "role": "path",
+        "text": "through the quiet archive",
+        "features": {
+          "attachment": "object"
+        }
+      },
+      {
+        "role": "subject",
+        "text": "the young cartographer",
+        "features": {
+          "person": 3,
+          "number": "singular"
+        }
+      },
+      {
+        "role": "verb",
+        "text": "records",
+        "features": {
+          "tense": "present",
+          "agreement": "singular"
+        }
+      },
+      {
+        "role": "object",
+        "text": "each turning",
+        "features": {
+          "case": "object",
+          "determiner": "distributive"
+        }
+      },
+      {
+        "role": "location",
+        "text": "near the northern window",
+        "features": {
+          "attachment": "event"
+        }
+      }
+    ],
+    "clause_link": "while"
+  },
+  "csp": {
+    "states_generated": 8,
+    "states_closed": 0,
+    "closure_requires_all_characters": true,
+    "word_order_mirror": false,
+    "first_unsatisfied_seam": {
+      "left_index": 0,
+      "right_index": 122,
+      "left_char": "t",
+      "required_char": "w"
+    }
+  },
+  "independent_exact_audit": {
+    "letters": 123,
+    "normalized_tape_sha256": "fb37f160792f125d7249909d9fb647e60237299001a444da92615e4c0cd7a534",
+    "two_pointer_exact": false,
+    "mismatch_count": 59,
+    "first_mismatch_index": 0,
+    "replay_reverse_equal": false
+  },
+  "seam_diagnostic": {
+    "checked_pairs": 61,
+    "first_unsatisfied_seam": {
+      "left_index": 0,
+      "right_index": 122,
+      "left_char": "t",
+      "required_char": "w"
+    }
+  },
+  "novelty_preflight": {
+    "signature": "dependency-tree-seam-csp|typed-role-slots|live-seam-obligations|independent-pointer-sha-audit|fresh-scene",
+    "signature_collision_before_run": false,
+    "rendered_scene_sha256": "fb37f160792f125d7249909d9fb647e60237299001a444da92615e4c0cd7a534",
+    "catalogue_lookup": false,
+    "copied_sentence": false
+  },
+  "provenance": {
+    "generator_sha256": "aeb24a057ccd7e456968f608c2bf1c1f07720f65fd16b00973d16d10cd8a2a6f",
+    "scene_authored_in_run": true,
+    "catalogue_imported": false,
+    "fragments": false,
+    "dependency_slots_typed": true
+  },
+  "reader_status": "intact ordinary-English scene; readability is diagnostic only, not a palindrome claim",
+  "next_repair": "Replace the lexical item at the recorded first seam with a held-out same-role, same-feature candidate, then rerun the full dependency CSP and both independent audits."
+}

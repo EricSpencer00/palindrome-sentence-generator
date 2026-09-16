@@ -46,3 +46,11 @@ def test_iter_rows_includes_list_valued_repair_phase() -> None:
 def test_iter_rows_includes_single_captured_authoring_probe() -> None:
     rows = list(iter_rows({"experiment": "probe", "captured_output": {"text": "A rare aura."}}, "run.json"))
     assert rows == [{"source_run": "run.json", "text": "A rare aura.", "rendered": "A rare aura.", "provenance": "probe"}]
+
+
+def test_iter_rows_includes_rejected_rendered_repair_rows() -> None:
+    rows = list(iter_rows({"experiment": "residual repair", "rejected": [
+        {"text": "The nurse maps a bay. yab as pam esrun eht.", "provenance": "held-out residual"}
+    ]}, "repair.json"))
+    assert rows[0]["rendered"].startswith("The nurse maps")
+    assert rows[0]["provenance"] == "held-out residual"

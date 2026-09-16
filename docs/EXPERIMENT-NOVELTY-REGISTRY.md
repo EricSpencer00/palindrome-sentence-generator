@@ -12,6 +12,10 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
+| `heldout-boundary-decoder-20260916` | independently authored semantic-role clauses decoded against a held-out lexical boundary beam, followed by resegmentation repair | held-out boundary decoding | 81 base + 81 repair probes, 67–78 letters; 0 exact and 0 reader-eligible |
+| `lexical-trie-segmentation-repair-20260916` | the verified seed's reverse tape is segmented with a held-out POS trie and complete-clause filter | held-out trie residual segmentation | 3 segmentation probes; 0 complete closures, 0 exact and 0 reader-eligible |
+| `residual-lexical-decoder-20260916` | exact semantic-frame tapes are resegmented recursively with a held-out POS lexicon and complete-clause filter | residual lexical decoder repair | 36 exact tapes rejected as unsegmentable; 0 survivors and 0 reader-eligible |
+| `evidential-scene-planner-20260916` | source-of-knowledge discourse frames choose independent evidence and event-role lexicalizations before mirrored-character scoring, with held-out repair | evidential discourse state | 4 base + 4 repair complete-prose probes, 59–66 letters; 0 exact and 0 reader-eligible |
 | `semantic-mutation-residual-20260916` | authored complete clauses mutated online by synonym/tense/argument operators while a mirrored residual is live | semantics-preserving online mutation | 41 base + 57 repair probes; 0 exact and 0 reader-eligible |
 | `direct-constrained-authoring-20260916` | a local model is instructed to author one complete single-scene palindrome, then receives mismatch-directed repair feedback | live whole-sentence authoring | 3 generation attempts + 1 repair timed out at 20 seconds; 0 exact and 0 reader-eligible |
 | `direct-constrained-authoring-20260916` (RhythmAI repair) | bounded alternate local-model whole-sentence call captured under the direct-authoring contract | alternate-model authoring repair | 1 captured 30-letter line; non-exact and below length gate; 0 reader-eligible |
@@ -171,7 +175,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 140 retained families and 9 explicit
+family. The current audit covers all 145 retained families and 10 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

@@ -1475,8 +1475,9 @@ item-aware analysis plan.
   gate. The Brown route's empty `displayed` list is intentional because it
   found no text safe to show as generated.
 
-  A reproducible programmatic diagnostic over 1750 rendered rows is frozen in
-  `runs/parallel-luna-readability-diagnostics-20260916.json`: 0 exact and 0
+  A reproducible programmatic diagnostic over 1875 rendered rows is frozen in
+  `runs/parallel-luna-readability-diagnostics-20260916.json`: 72 exact rows
+  (36 semantic-frame tapes plus their 36 residual-decoder rejections) and 0
   mechanically admitted rows. The report breaks out Brown word-order gain,
   mean word frequency, repetition, punctuation segmentation, and length by
   route. These values are explicitly diagnostic; they do not certify
@@ -1509,7 +1510,7 @@ item-aware analysis plan.
   base and 144 held-out repairs (max 78); CCG produced 4 base and 4 category
   repairs (max 82). All were complete prose with independent audits but zero
   exact closures and zero reader-eligible rows. Their rendered text and
-  provenance remain frozen in the route artifacts and the 1750-row diagnostic.
+  provenance remain frozen in the route artifacts and the 1875-row diagnostic.
   These routes change the construction state (reversible lexical roles,
   unseeded recursion, and online semantic mutation) and are not filename or
   beam-width replays.
@@ -1519,7 +1520,7 @@ item-aware analysis plan.
   candidates; the word-equation route ran 6 base and 6 POS-compatible repairs.
   Both kept complete clauses and independent provenance visible, but had zero
   exact closures and zero reader-eligible rows. The aggregate diagnostic now
-  contains 1750 rendered rows plus per-route summaries; its metrics remain
+  contains 1875 rendered rows across 44 route phases plus per-route summaries; its metrics remain
   filters and failure diagnostics, never a readability certificate.
 
   A bounded direct-authoring reset also ran three local-model prompts plus one
@@ -1575,6 +1576,26 @@ item-aware analysis plan.
   literals over complete event clauses (8 base plus 8 held-out repairs, up to
   76 letters). It improved the objective but produced no exact or reader-
   eligible row (`runs/maxsat-semantic-grammar-20260916.json`).
+
+  The next repair wave kept three new construction states separate. A
+  held-out boundary decoder rendered 81 semantic-role probes and 81
+  resegmentation repairs (67--78 letters), all complete but non-exact. A
+  lexical-trie residual probe segmented the 38-letter benchmark tape but found
+  no complete closure. An evidential-scene planner realized source-of-knowledge
+  discourse frames in 4 base and 4 held-out repairs (59--66 letters), again
+  with zero exact closures. Their artifacts retain rendered text, independent
+  audits, and provenance; none is reader-eligible. The pivot-growth proposal in
+  the same wave was preflight-blocked because its state space duplicated the
+  existing pivot/scene-growth families, and was recorded as an exclusion rather
+  than counted as a new run.
+
+  A residual lexical decoder then acted on the exact semantic-frame tapes,
+  recursively segmenting each required reverse string with a held-out POS
+  lexicon. It rendered 36 exact 52--54-letter tapes, but every right half was
+  unsegmentable (for example, the residual `nwadybpameulbaspeekesruneht`), so
+  all 36 were rejected and no survivor reached the reader gate. This is the
+  concrete repair result, not a readability claim; evidence is frozen in
+  `runs/residual-lexical-decoder-20260916.json`.
 
   A sixth reset used typed lexical-chain permutations rather than a model or
   clause cross-product: 24 complete base probes and 12 synonym repairs were

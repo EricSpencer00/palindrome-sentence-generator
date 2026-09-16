@@ -10,7 +10,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["missing"] == []
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
-    assert result["excluded"] == 9
+    assert result["excluded"] == 10
     # The ledger is append-only: parallel construction routes may add entries
     # without making this invariant stale.  The validator still requires every
     # registered artifact to resolve and every signature to be unique.
@@ -23,6 +23,7 @@ def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
     data = json.loads(path.read_text())
     excluded = {row["id"]: row for row in data["excluded"]}
     assert set(excluded) == {
+        "eliot-structural-control-preflight-20260916",
         "bidirectional-phrase-pair-preflight-20260916",
         "semantic-word-pair-cross-boundary-preflight-20260916",
         "event-extension-transducer-preflight-20260916",
@@ -62,7 +63,7 @@ def test_preflight_checks_registered_and_excluded_routes():
     assert result["registered_families_checked"] == len(
         json.loads((Path(__file__).parents[1] / "docs/experiment-novelty-registry.json").read_text())["entries"]
     )
-    assert result["excluded_routes_checked"] == 9
+    assert result["excluded_routes_checked"] == 10
     assert result["manual_review_required"] is False
     assert result["conceptual_near_pairs"] == []
 
@@ -172,6 +173,10 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "induced-grammar-reverse-decoder-20260916" in ids
     assert "semantic-frame-tape-solver-20260916" in ids
     assert "maxsat-semantic-grammar-20260916" in ids
+    assert "heldout-boundary-decoder-20260916" in ids
+    assert "lexical-trie-segmentation-repair-20260916" in ids
+    assert "residual-lexical-decoder-20260916" in ids
+    assert "evidential-scene-planner-20260916" in ids
 
 
 def test_rhythmai_probe_is_registered_as_direct_authoring_repair_evidence():

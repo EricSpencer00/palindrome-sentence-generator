@@ -1,9 +1,99 @@
 {
   "entries": [
     {
-      "id": "semantic-frame-tape-solver-20260916",
+      "id": "heldout-boundary-decoder-20260916",
       "manual_review_required": false,
       "nearest_prior": null,
+      "signature_atoms": [
+        "beam",
+        "boundary",
+        "clause",
+        "debt",
+        "phonotactic",
+        "role",
+        "segmentation",
+        "semantic",
+        "vocabulary"
+      ]
+    },
+    {
+      "id": "pivot-growth-preflight-20260916-excluded",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "heldout-boundary-decoder-20260916",
+        "jaccard": 0.133333,
+        "shared_atoms": [
+          "debt",
+          "semantic"
+        ]
+      },
+      "signature_atoms": [
+        "debt",
+        "growth",
+        "incremental",
+        "intact",
+        "pivoted",
+        "preserving",
+        "prose",
+        "semantic"
+      ]
+    },
+    {
+      "id": "lexical-trie-segmentation-repair-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "heldout-boundary-decoder-20260916",
+        "jaccard": 0.117647,
+        "shared_atoms": [
+          "clause",
+          "segmentation"
+        ]
+      },
+      "signature_atoms": [
+        "clause",
+        "finite",
+        "no",
+        "pos",
+        "reflected",
+        "reuse",
+        "seed",
+        "segmentation",
+        "target",
+        "trie"
+      ]
+    },
+    {
+      "id": "residual-lexical-decoder-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "lexical-trie-segmentation-repair-20260916",
+        "jaccard": 0.230769,
+        "shared_atoms": [
+          "clause",
+          "pos",
+          "segmentation"
+        ]
+      },
+      "signature_atoms": [
+        "clause",
+        "filter",
+        "lexicon",
+        "pos",
+        "recursive",
+        "segmentation"
+      ]
+    },
+    {
+      "id": "semantic-frame-tape-solver-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "pivot-growth-preflight-20260916-excluded",
+        "jaccard": 0.142857,
+        "shared_atoms": [
+          "debt",
+          "semantic"
+        ]
+      },
       "signature_atoms": [
         "alternative",
         "debt",
@@ -19,7 +109,7 @@
       "id": "grammar-product-sat-preflight-20260916-excluded",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-frame-tape-solver-20260916",
+        "id": "heldout-boundary-decoder-20260916",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -38,9 +128,10 @@
       "id": "induced-grammar-reverse-decoder-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-frame-tape-solver-20260916",
-        "jaccard": 0.052632,
+        "id": "heldout-boundary-decoder-20260916",
+        "jaccard": 0.105263,
         "shared_atoms": [
+          "boundary",
           "semantic"
         ]
       },
@@ -63,10 +154,11 @@
       "id": "prosodic-foot-scene-constructor-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-frame-tape-solver-20260916",
-        "jaccard": 0.125,
+        "id": "heldout-boundary-decoder-20260916",
+        "jaccard": 0.1875,
         "shared_atoms": [
           "debt",
+          "role",
           "semantic"
         ]
       },
@@ -87,9 +179,10 @@
       "id": "microgrammar-lexical-debt-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-frame-tape-solver-20260916",
-        "jaccard": 0.058824,
+        "id": "pivot-growth-preflight-20260916-excluded",
+        "jaccard": 0.125,
         "shared_atoms": [
+          "growth",
           "semantic"
         ]
       },
@@ -110,7 +203,7 @@
       "id": "reversible-relation-coherence-preflight-20260916-excluded",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-frame-tape-solver-20260916",
+        "id": "pivot-growth-preflight-20260916-excluded",
         "jaccard": 0.055556,
         "shared_atoms": [
           "debt"
@@ -134,9 +227,10 @@
       "id": "pivot-paragraph-beam-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-frame-tape-solver-20260916",
-        "jaccard": 0.047619,
+        "id": "heldout-boundary-decoder-20260916",
+        "jaccard": 0.095238,
         "shared_atoms": [
+          "beam",
           "semantic"
         ]
       },
@@ -364,11 +458,11 @@
       "id": "seedless-semantic-cfg-bilateral-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "graph-to-prose-path-20260916",
-        "jaccard": 0.095238,
+        "id": "residual-lexical-decoder-20260916",
+        "jaccard": 0.111111,
         "shared_atoms": [
-          "realization",
-          "semantic"
+          "clause",
+          "recursive"
         ]
       },
       "signature_atoms": [
@@ -392,10 +486,10 @@
       "id": "recursive-grammar-residual-dp-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "microgrammar-lexical-debt-20260916",
-        "jaccard": 0.142857,
+        "id": "residual-lexical-decoder-20260916",
+        "jaccard": 0.2,
         "shared_atoms": [
-          "frontier",
+          "clause",
           "recursive"
         ]
       },
@@ -438,12 +532,12 @@
       "id": "brown-attested-residual-lattice-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "induced-grammar-reverse-decoder-20260916",
-        "jaccard": 0.142857,
+        "id": "residual-lexical-decoder-20260916",
+        "jaccard": 0.2,
         "shared_atoms": [
-          "boundary",
+          "filter",
           "pos",
-          "span"
+          "segmentation"
         ]
       },
       "signature_atoms": [
@@ -465,7 +559,7 @@
       "id": "recursive-template-composition-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "recursive-grammar-residual-dp-20260916",
+        "id": "residual-lexical-decoder-20260916",
         "jaccard": 0.142857,
         "shared_atoms": [
           "clause",
@@ -860,11 +954,11 @@
       "id": "reversible-grammar-insertion-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "paired-transitive-role-seam-dp-20260916",
-        "jaccard": 0.086957,
+        "id": "pivot-growth-preflight-20260916-excluded",
+        "jaccard": 0.105263,
         "shared_atoms": [
-          "preserving",
-          "seam"
+          "growth",
+          "preserving"
         ]
       },
       "signature_atoms": [
@@ -1210,10 +1304,10 @@
       "id": "brown-bounded-repair",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "lexical-chain-palindrome-20260916",
+        "id": "heldout-boundary-decoder-20260916",
         "jaccard": 0.083333,
         "shared_atoms": [
-          "chain"
+          "boundary"
         ]
       },
       "signature_atoms": [
@@ -2199,12 +2293,12 @@
       "id": "neural-dual-prefix-beam-v2",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "lexical-chain-walk",
-        "jaccard": 0.142857,
+        "id": "heldout-boundary-decoder-20260916",
+        "jaccard": 0.15,
         "shared_atoms": [
+          "beam",
           "clause",
-          "edge",
-          "emission"
+          "role"
         ]
       },
       "signature_atoms": [
@@ -2768,11 +2862,12 @@
       "id": "proper-name-reverse-grammar",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "multiset-balanced-pair-sampling",
-        "jaccard": 0.117647,
+        "id": "lexical-trie-segmentation-repair-20260916",
+        "jaccard": 0.2,
         "shared_atoms": [
           "clause",
-          "pairing"
+          "segmentation",
+          "trie"
         ]
       },
       "signature_atoms": [
@@ -2941,10 +3036,11 @@
       "id": "semantic-scene-seam-growth",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "prosodic-foot-scene-constructor-20260916",
-        "jaccard": 0.105263,
+        "id": "pivot-growth-preflight-20260916-excluded",
+        "jaccard": 0.1875,
         "shared_atoms": [
-          "scene",
+          "growth",
+          "incremental",
           "semantic"
         ]
       },
@@ -3734,6 +3830,30 @@
       ]
     },
     {
+      "id": "evidential-scene-planner-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "morphological-derivational-seam",
+        "jaccard": 0.125,
+        "shared_atoms": [
+          "prose",
+          "score"
+        ]
+      },
+      "signature_atoms": [
+        "evidential",
+        "knowledge",
+        "mirror",
+        "online",
+        "plan",
+        "prose",
+        "scene",
+        "score",
+        "slot",
+        "source"
+      ]
+    },
+    {
       "id": "maxsat-semantic-grammar-20260916",
       "manual_review_required": false,
       "nearest_prior": {
@@ -3762,7 +3882,7 @@
     }
   ],
   "exact_signature_collisions": false,
-  "excluded_routes": 9,
+  "excluded_routes": 10,
   "near_pairs": [
     {
       "jaccard": 0.736842,
@@ -4008,7 +4128,7 @@
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 140,
+  "registered_entries": 145,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

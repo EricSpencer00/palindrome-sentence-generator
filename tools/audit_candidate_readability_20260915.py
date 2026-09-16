@@ -53,6 +53,7 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
             "rendered_probes",
             "rendered_candidates_and_probes",
             "rendered_candidates",
+            "best_rendered_candidates",
             "repair_candidates",
             "instantiated_outputs",
             "repair_outputs",

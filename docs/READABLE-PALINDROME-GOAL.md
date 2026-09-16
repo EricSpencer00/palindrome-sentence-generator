@@ -1751,6 +1751,16 @@ item-aware analysis plan.
   reader gate and API remain closed while the next constructive lanes seek a
   genuinely readable long palindrome.
 
+  The human-guided global-equation lane then searched 648 states over a fresh
+  four-clause archive scene, varying lexical realizations, tense, and
+  punctuation under a semantic-preservation ledger. It retained 24 complete
+  148--161-letter renderings, with unanimous independent exact/admission
+  agreement but zero exact closures. The aggregate is now 2579 rendered rows
+  across 68 route phases; zero tape mismatches, 72 exact-but-rejected tapes,
+  and 0 mechanically admitted rows remain. This is a concrete failure and
+  repair frontier, not a readability claim; the reader packet still waits for
+  an exact mechanically clean output.
+
   A subsequent three-Luna pass added an intact-prose lexical/inflectional
   repair operator (311 complete renderings, 62--81 letters), a semantic
   front/back interleaving route (15 complete one-sentence surfaces, 44--48

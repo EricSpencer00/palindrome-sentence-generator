@@ -62,13 +62,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 2555
+    assert report["candidate_count"] == 2579
     assert report["exact_count"] == 72
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 67
+    assert len(report["route_summary"]) == 68
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
 
 
@@ -95,6 +95,7 @@ def test_aggregate_includes_nested_rendered_candidate_formats():
     assert by_source["runs/intact-prose-letter-repair-20260916.json"]["rows"] == 311
     assert by_source["runs/semantic-interleaving-frontback-20260916.json"]["rows"] == 15
     assert by_source["runs/regular-seam-grammar-20260916.json"]["rows"] == 5
+    assert by_source["runs/human-guided-global-equation-editor-20260916.json"]["rows"] == 24
 
 
 def test_followup_preflights_are_explicit_and_generate_no_rows():

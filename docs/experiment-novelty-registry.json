@@ -2,6 +2,14 @@
   "version": 1,
   "entries": [
     {
+      "id": "b3-corpus-weighted-reverse-preflight-20260916-excluded",
+      "signature": "brown-author-corpus-half-sentences|weighted-wordfreq-bigram-dp|reverse-character-segmentation|grammar-clause-filter|independent-exact-audit",
+      "artifact": "experiments/b3_corpus_weighted_reverse_preflight_20260916.py",
+      "run_artifacts": ["runs/b3-corpus-weighted-reverse-preflight-20260916.json"],
+      "overlaps": ["brown-attested-residual-lattice-20260916", "corpus-span-boundary-dp-20260916", "rank-partitioned-corpus-sentence-gram-phrase-lattice", "wordfreq-bigram-centerout", "attested-phrase-pair-wrapper"],
+      "reason": "Preflight blocked: corpus span mining, reverse segmentation, wordfreq-bigram DP, and grammar filtering are already represented."
+    },
+    {
       "id": "two-constructive-methods-20260916",
       "signature": "C1-multi-clause-scene|compact-outer-bank|C2-recursive-clause-pair|independent-exact-audit|readability-diagnostic",
       "artifact": "experiments/two_constructive_methods_20260916.py",
@@ -1182,6 +1190,13 @@
     }
   ],
   "excluded": [
+    {
+      "id": "gpt2-reverse-rerank-preflight-20260916",
+      "signature": "local-gpt2-half-proposal|reverse-character-word-segmentation|grammar-reranking|independent-clause-check|boundary-resegmentation-repair",
+      "artifact": "experiments/gpt2_reverse_rerank_preflight_20260916.py",
+      "overlaps": ["gpt2-topic-half-decoder-20260915", "fixed-tape-gpt2-boundary-decoder-20260915", "gpt2-byte-pair-token-lattice"],
+      "reason": "GPT-2 proposal, reverse segmentation, grammar reranking, and boundary repair are already retained; preflight blocked to prevent replay."
+    },
     {
       "id": "center-insertion-outer-tape-preflight-20260916",
       "signature": "center-phrase-insertion|semantic-cfg|bilateral-character-obligations|outer-tape-preserving-lexical-repair|inner-material-change",

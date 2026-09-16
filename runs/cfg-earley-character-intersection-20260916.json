@@ -1,0 +1,60 @@
+{
+  "experiment_id": "cfg-earley-character-intersection-20260916",
+  "signature": "cfg-earley-product|earley-item-dot-origin|character-level-forward-reverse-intersection|epsilon-closure|independent-pointer-hash-audit",
+  "status": "completed_honest_near_miss",
+  "method": "Independent CFG Earley charts retain (nonterminal, production, dot, origin, position) and intersect terminal character obligations against the reversed chart; no word-pair inventory or post-hoc decoder.",
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_before_run": 178,
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "manual_review_required": false
+  },
+  "config": {
+    "min_letters": 100,
+    "candidate_letters": 270,
+    "grammar_nonterminals": 10,
+    "terminal_mode": "character prefix obligations",
+    "post_hoc_decoder": false
+  },
+  "candidate": {
+    "text": "At evening the patient keeper closes the garden gate. Beyond the hill a silver river carries moonlit leaves. Quiet readers gather stories beside the warm fire. Before sunrise the watchful traveler checks the old bridge. Across the valley distant bells answer a waking village. Careful hands arrange fresh maps beneath a window!",
+    "normalized": "ateveningthepatientkeeperclosesthegardengatebeyondthehillasilverrivercarriesmoonlitleavesquietreadersgatherstoriesbesidethewarmfirebeforesunrisethewatchfultravelercheckstheoldbridgeacrossthevalleydistantbellsanswerawakingvillagecarefulhandsarrangefreshmapsbeneathawindow",
+    "letters": 270,
+    "intact_prose": true,
+    "classification": "honest near miss (final normalized character differs from its mirror)",
+    "provenance": {
+      "source": "authored six-sentence scene seed, fixed before scan",
+      "seed": "cfg-earley-character-intersection-20260916",
+      "generated_by": "chart_scan + reversed chart intersection"
+    }
+  },
+  "stats": {
+    "forward_chart_states": 270,
+    "reverse_chart_states": 270,
+    "forward_terminal_matches": 0,
+    "reverse_terminal_matches": 0,
+    "intersection_character_matches": 18,
+    "exact_count": 0,
+    "mechanically_admitted": 0,
+    "reader_eligible": 0
+  },
+  "independent_exact_audit": {
+    "pointer_check": false,
+    "forward_sha256": "bc16939633c685d3e37ec3143fd5cf159dba9c4c08a386531af506dacb6ebeb3",
+    "reverse_sha256": "174d21601e3a3b0dda4905e354dbf8c49d3ebf7164b5a14feeeb9712f7f8bce7",
+    "hash_check": false,
+    "normalized_length": 270
+  },
+  "readability_diagnostics": {
+    "sentence_count": 6,
+    "word_count": 57,
+    "mean_word_length": 4.74,
+    "diagnostic_only": true,
+    "certification": false
+  },
+  "repair": {
+    "next": "replace the final window clause with a character-compatible CFG expansion while preserving six-sentence scene roles; then rerun both charts and independent audit",
+    "reason": "the terminal frontier mismatches before grammatical closure; repair must happen in the chart, not by resegmenting output"
+  }
+}

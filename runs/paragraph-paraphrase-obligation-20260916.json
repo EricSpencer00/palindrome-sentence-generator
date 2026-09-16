@@ -1,0 +1,96 @@
+{
+  "experiment": "paragraph-paraphrase-obligation-20260916",
+  "signature": "whole-paragraph-semantic-authoring|sentence-level-paraphrase-repair|word-boundary-obligation|independent-exact-audit|anti-catalogue-gate",
+  "generator_sha256": "ac2de4f749ae7512e473634da88c931aa3ddf334d8489bb9a3c164d8256a2ecc",
+  "candidates": [
+    {
+      "text": "The gardener watered the young trees. The gardener tended the young trees.",
+      "audit": {
+        "text": "The gardener watered the young trees. The gardener tended the young trees.",
+        "letters": 61,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "original-whole-paragraph-authoring",
+      "obligation": "sentence-level reverse character debt"
+    },
+    {
+      "text": "A careful clerk filed the morning reports. A careful clerk stored the morning reports.",
+      "audit": {
+        "text": "A careful clerk filed the morning reports. A careful clerk stored the morning reports.",
+        "letters": 71,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "original-whole-paragraph-authoring",
+      "obligation": "sentence-level reverse character debt"
+    },
+    {
+      "text": "The pilot watched the distant shore. The pilot observed the distant shore.",
+      "audit": {
+        "text": "The pilot watched the distant shore. The pilot observed the distant shore.",
+        "letters": 61,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "original-whole-paragraph-authoring",
+      "obligation": "sentence-level reverse character debt"
+    }
+  ],
+  "repair": [
+    {
+      "text": "The gardener watered the young trees. The gardener tended one young trees.",
+      "audit": {
+        "text": "The gardener watered the young trees. The gardener tended one young trees.",
+        "letters": 61,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "original-whole-paragraph-authoring|paraphrase-boundary-repair",
+      "repair": "paraphrase determiner at first mismatch"
+    },
+    {
+      "text": "A careful clerk filed the morning reports. A careful clerk stored one morning reports.",
+      "audit": {
+        "text": "A careful clerk filed the morning reports. A careful clerk stored one morning reports.",
+        "letters": 71,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "original-whole-paragraph-authoring|paraphrase-boundary-repair",
+      "repair": "paraphrase determiner at first mismatch"
+    },
+    {
+      "text": "The pilot watched the distant shore. The pilot observed one distant shore.",
+      "audit": {
+        "text": "The pilot watched the distant shore. The pilot observed one distant shore.",
+        "letters": 61,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "original-whole-paragraph-authoring|paraphrase-boundary-repair",
+      "repair": "paraphrase determiner at first mismatch"
+    }
+  ],
+  "exact_count": 0,
+  "reader_eligible_count": 0,
+  "provenance": "fresh authored paragraphs; no borrowed catalogue text or symmetry shortcut"
+}

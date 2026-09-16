@@ -210,3 +210,41 @@ The following bounded repairs retained an adjacent-PP reverse-lexicon scene at
 recipient-role SAT scene at 99 letters. All fail independent exact/hash and
 mechanical gates. The aggregate is now 4359 normalized rows across 129 route
 phases, with 0 mechanically admitted rows.
+
+## Current authoritative snapshot (2026-09-16)
+
+The ten requested Luna lanes are now represented by append-only artifacts with
+actual rendered prose, independent tape/pointer/hash checks, provenance,
+novelty preflight, and a concrete repair operator. The common audit currently
+contains **4,390 rows across 133 route phases**, including **76 exact tapes**;
+all 76 are rejected by at least one hard quality gate, so **0 are mechanically
+admitted and no reader study is claimed**.
+
+| lanes | actual rendered evidence | letters | independent result | next repair |
+|---|---|---:|---|---|
+| 1--2 character LM + exact-tape resegmentation | “the careful teacher helps a pupil” (plus four other fresh proposals) | 28 | non-exact; the 42-letter exact control is the catalogue “a man a plan a canal panama” and is rejected for self/repeated-unit provenance | held-out ordinary-prose LM and new lexical boundaries |
+| 3--5 dependency seam CSP + agreement morphology + CFG/Earley intersection | “Ava saw radar level civic; civic level radar was Ava” | 42 | pointer/hash exact, but rejected for self-palindromic words, repeated content, and word-order symmetry | seam-directed feature swap with fresh non-palindromic roles |
+| 6 scene lattice | “At dawn, the patient guide carries a red map to the waiting child.” | 52 | pointer/hash non-exact | replace one sense-compatible object slot |
+| 7 valency/attachment | “By noon, the careful nurse labels the sealed vial for the quiet ward.” | 55 | pointer/hash non-exact | replace one complete valency-compatible object/attachment |
+| 8 inflection/clitic boundaries | “After rain, the young keeper opens the old gate beside the garden.” | 53 | pointer/hash non-exact | held-out inflectional/clitic boundary substitution |
+| 9 flat compositional grammar | the same three-clause scene lattice, assembled without nested palindrome spans | 52--55 | pointer/hash non-exact | add one new flat clause frame against the residual |
+| 10 semantic slot repair | “At dawn, the patient guide carries a blue chart to the waiting child.” | 55 | pointer/hash non-exact | use the first mismatch as a global character obligation |
+
+The 20-probe multi-clause character-LM continuation adds intact 66--72-letter
+scenes such as “the careful teacher guides a young visitor; a patient sailor
+carries the red lantern,” all non-exact under both audits. These rows are
+reader-facing controls only; they do not certify readability. Every future
+repair must change the construction state or a typed semantic slot, never just
+rerun a larger duplicate sweep.
+
+## Targeted seam repair update (2026-09-16)
+
+The next seam repair is recorded in
+`runs/seam-feature-slot-repair-20260916.json`. Novelty preflight passed and 11
+single-slot substitutions were rendered against the exact 42-letter seam
+witness. Every attempt has independent pointer/hash checks and provenance; no
+substitution remained exact or mechanically admissible. The next operator is
+typed boundary resegmentation at the first failing seam, allowing adjacent
+short words to absorb reflected suffixes. With this artifact included, the
+authoritative aggregate is **4,402 rows, 135 route phases, 77 exact tapes, and
+0 mechanically admitted outputs**.

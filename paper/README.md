@@ -1,44 +1,46 @@
-# Palindrome paper
+# Manuscript workbench -- constructive palindrome generation
 
-The current working paper is `eric_evidence_release_draft.md`. It is the
-mechanism-first Markdown draft and includes the evidence-release ledger for
-every retained, corrected, and missing result.
+The target paper is specified in [TARGET-PAPER-SPEC.md](TARGET-PAPER-SPEC.md).
+The manuscript centers a working independent construction loop: live
+character obligations coupled to typed grammar and semantic repair, exact
+independent validation, rendered long examples, and a blinded reader protocol.
+The current snapshot is still a development result: no candidate has yet
+passed every gate, so the paper reports the actual frontiers and their next
+repairs without calling them readable successes.
 
-`naacl2027.tex` is the archival 15-page typeset revision from 7 September 2026.
-It remains in the release because it documents the older full research report;
-it is not the canonical working draft. `eric_short_working_draft.md` and files
-under `paper/archive/` are working or historical material.
+[naacl2027.tex](naacl2027.tex) is the method-centered draft. Catalogue-family
+and repeated-unit materials remain rejected controls, not paper results. The
+historical 2026-09-11 release is quarantined because its bundled claims and
+source no longer meet the acceptance standard.
 
-## Release layout
+## Build and verify
 
-Release products live under `paper/releases/<release-id>/`:
-
-- `source.zip` contains the Markdown draft, the archival typeset source,
-  bibliography, and generated tables.
-- `evidence.zip` preserves repository-relative evidence paths and SHA-256
-  manifests.
-- `RELEASE-MANIFEST.json` names both manuscripts, required commands, source
-  hashes, external inputs, and known limits.
-
-Temporary renderings and local build products belong under `paper/out/` and are
-ignored by Git. The generated `revision-*.tex` tables remain beside the archival
-TeX source because that document inputs them directly.
-
-Build and validate the default release from the repository root:
+From the repository root:
 
 ```sh
-python3 paper/build_release.py --release-id revision-2026-09-10
-python3 paper/validate_release.py --release-id revision-2026-09-10 --compile
+tectonic --keep-logs -o output/pdf paper/naacl2027.tex
+python3 experiments/possessive_name_relexicalizer.py --out RUN.json
+python3 experiments/verify_possessive_name_candidates.py --input RUN.json --out INDEPENDENT.json
 ```
 
-The validator verifies both archive manifests and compiles the extracted source
-bundle in a temporary directory. The evidence bundle does not redistribute
-external corpora. `SOURCE-AUDIT.md` records their input hashes, versions,
-provenance, and missing evidence.
+All legacy release builders and validators now fail closed. A new release may
+be enabled only after an independent candidate passes the hard provenance gate
+and the corrected blinded human study described in the draft.
 
-To render the archival typeset revision without putting products beside its
-source, run this from `paper/`:
+## Current evidence status
 
-```sh
-tectonic --outdir out/local naacl2027.tex
-```
+The possessive-name run is retained solely as an auditable rejection: its
+separate verifier re-enumerates all 100 frozen derivations, recomputes every
+gate, requires the rejected-run contract and matching source/provenance hashes,
+and finds four exact but zero promotion-eligible closures. The public catalogue
+control provenance is recorded in
+[`data/catalogue_provenance.json`](../data/catalogue_provenance.json).
+
+The active construction is a ten-lane workbench: character-level decoding,
+exact-tape resegmentation, dependency seams, agreement morphology, CFG
+intersection, scene lattices, valency/attachment, inflectional boundaries, flat
+composition, and semantic slot repair. Each lane writes an intact rendered
+surface, independent exact checks, provenance, novelty status, and a concrete
+next repair. The authoritative 2026-09-16 ledger is summarized in
+`docs/TEN-LUNA-LANE-EVIDENCE-20260916.md` and the aggregate run is
+`runs/parallel-luna-readability-diagnostics-20260916.json`.

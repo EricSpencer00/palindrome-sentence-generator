@@ -1932,6 +1932,18 @@ item-aware analysis plan.
   normalized rows across 117 route phases, with 0 mechanically admitted
   candidates.
 
+  **Authoritative ten-lane snapshot (2026-09-16):** the common audit now
+  contains 4,390 normalized rows across 133 route phases, with 76 exact tapes
+  and 0 mechanically admitted outputs. The 42-letter exact seam witness
+  (“Ava saw radar level civic; civic level radar was Ava”) fails the
+  self-palindromic/repeated-unit and word-order gates; the 42-letter
+  “a man a plan a canal panama” closure is catalogue material. Fresh
+  52--55-letter scene clauses and 66--72-letter multi-clause controls remain
+  ordinary, provenance-backed prose but fail exactness under independent
+  pointer/hash audits. All ten lanes now have actual rendered evidence and
+  concrete next repairs; the reader package remains gated until a novel exact
+  output is mechanically admitted.
+
   The next frontier repairs retained a centered-complement reverse-lexicon
   scene at 87 letters, a center-out time-adjunct repair at 70 letters, and a
   guide-clause SAT complement at 103 letters. Each remains intact,
@@ -1966,3 +1978,12 @@ item-aware analysis plan.
   independently audited, and unadmitted. The aggregate now contains 4342
   normalized rows across 114 route phases, with 0 mechanically admitted
   candidates.
+
+  **Targeted seam repair update (2026-09-16):** a new non-duplicate artifact,
+  `runs/seam-feature-slot-repair-20260916.json`, passed novelty preflight and
+  rendered 11 single-slot substitutions of the exact seam witness. Independent
+  pointer/hash checks found no surviving exact closure and no mechanically
+  admissible output. Its concrete next construction is typed boundary
+  resegmentation at the first failing seam, allowing adjacent short words to
+  absorb reflected suffixes. The aggregate is now 4,402 rows across 135 route
+  phases, with 77 exact tapes and 0 mechanically admitted outputs.

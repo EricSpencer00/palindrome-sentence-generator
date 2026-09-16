@@ -164,3 +164,26 @@ t-initial SAT subject repair at 103 letters. Each has independent exact/hash
 checks, provenance, and a concrete next operator; none is exact or
 reader-eligible. The aggregate is now 4347 normalized rows across 117 route
 phases, with 0 mechanically admitted candidates.
+
+## Authoritative ten-lane ledger snapshot (2026-09-16)
+
+Current common-audit totals are **4,390 normalized rows, 133 route phases, 76
+exact-but-rejected tapes, and 0 mechanically admitted outputs**. The exact
+42-letter seam witness is “Ava saw radar level civic; civic level radar was
+Ava”; it is excluded for self-palindromic/repeated units and word-order
+symmetry. The character-LM exact control “a man a plan a canal panama” is
+catalogue material and is likewise excluded. The strongest fresh intact
+controls are the 66--72-letter multi-clause scenes and the 52--55-letter
+scene-lattice clauses; all have independent pointer/hash rejection and named
+slot repairs in their run artifacts. The blinded intact-versus-shuffled study
+remains gated until a genuinely novel exact output passes every mechanical gate.
+
+## Targeted seam repair update (2026-09-16)
+
+`runs/seam-feature-slot-repair-20260916.json` is the next non-duplicate
+construction step. Novelty preflight passed; 11 single-slot substitutions were
+rendered and independently checked, with no exact or mechanically admissible
+result. The recorded next repair is typed boundary resegmentation at the first
+failing seam, permitting adjacent short words to absorb reflected suffixes.
+The current aggregate is **4,402 rows across 135 route phases, 77 exact tapes,
+and 0 mechanically admitted outputs**.

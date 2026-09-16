@@ -69,6 +69,7 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
             "closed_leads",
             "mechanically_admitted_leads",
             "admitted",
+            "attempts",
             # Ten-lane constructive audits keep their ordinary prose under
             # lane-specific names rather than flattening it into a generic
             # ``rows`` field.  Preserve those rows in the common report.
@@ -88,7 +89,7 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
                         if not text and isinstance(row.get("left"), str) and isinstance(row.get("right_resegmented"), str):
                             text = sentence_join(row["left"], row["right_resegmented"])
                         if not text and isinstance(row.get("audit"), dict):
-                            text = row["audit"].get("rendered")
+                            text = row["audit"].get("rendered") or row["audit"].get("text")
                         if not text and isinstance(row.get("left"), str) and isinstance(row.get("right"), str):
                             text = sentence_join(row["left"], row["right"])
                         if isinstance(text, str) and text.strip():
@@ -151,7 +152,10 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
         # A few older artifacts store one candidate at the top level.
         text = payload.get("rendered") or payload.get("text")
         if isinstance(text, str) and text.strip():
-            yield {"source_run": source, **payload, "rendered": text}
+            item = {"source_run": source, **payload, "rendered": text}
+            if context_provenance and "provenance" not in item:
+                item["provenance"] = context_provenance
+            yield item
     elif isinstance(payload, list):
         for row in payload:
             if isinstance(row, dict):

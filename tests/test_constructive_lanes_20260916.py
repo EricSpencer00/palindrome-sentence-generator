@@ -61,11 +61,23 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4390
-    assert report["exact_count"] == 76
+    assert report["candidate_count"] == 4402
+    assert report["exact_count"] == 77
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/char-lm-tape-resegment-20260916.json"]["rows"] == 5
     assert by_source["runs/char-lm-multiclause-heldout-20260916.json"]["rows"] == 20
     assert by_source["runs/constructive-seam-morph-cfg-20260916.json"]["rows"] == 2
     assert by_source["runs/constructive-lanes-6-10-cross-audit-20260916.json"]["rows"] == 3
+    assert by_source["runs/seam-feature-slot-repair-20260916.json"]["rows"] == 11
+    assert by_source["runs/seam-feature-slot-repair-20260916.json#base"]["rows"] == 1
+
+
+def test_seam_feature_repair_keeps_each_targeted_attempt_and_next_operator():
+    run = json.loads((ROOT / "runs/seam-feature-slot-repair-20260916.json").read_text())
+    assert run["novelty_preflight"]["status"] == "passed"
+    assert len(run["attempts"]) == 11
+    assert run["accepted"] == []
+    assert all(row["audit"]["two_pointer"] is False for row in run["attempts"])
+    assert all(row["audit"]["sha256"] for row in run["attempts"])
+    assert "boundary resegmentation" in run["next_repair"]

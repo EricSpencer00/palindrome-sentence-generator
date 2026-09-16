@@ -1889,5 +1889,11 @@ item-aware analysis plan.
   The next repair wave tested semantic-center SAT, reverse-tape CFG/valency
   segmentation, and dependency-preserving mirror-pair construction. Their
   longest complete prose diagnostics were 70, 51, and 68 letters; all failed
-  independent exact audits. The aggregate now contains 4240 normalized rows
-  across 98 route phases, with 0 mechanically admitted candidates.
+  independent exact audits. Bounded held-out continuations then added a
+  phrase-equation whole-phrase repair (81 letters), a frozen-center
+  verb/object debt repair (69 letters), and an 18-trial dependency
+  subject/adjunct repair (68 letters). The aggregate now contains 4282
+  normalized rows across 100 route phases, with 0 mechanically admitted
+  candidates. These outputs remain diagnostic rather than reader evidence;
+  the next action is the concrete held-out repair named by each artifact, not
+  a duplicate sweep.

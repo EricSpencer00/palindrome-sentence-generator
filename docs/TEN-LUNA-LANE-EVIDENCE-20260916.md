@@ -79,7 +79,7 @@ the shared mechanical gate rejects it for word-order symmetry and a proper
 multiword palindrome span. It is preserved as rejected failure evidence, not
 as prose or a candidate.
 
-The current aggregate is 4240 audit-compatible rendered rows across 98 route
+The current aggregate is 4282 audit-compatible rendered rows across 100 route
 phases, with 73 exact-but-rejected tapes and 0 mechanically admitted rows.
 
 ## Orthogonal continuation wave
@@ -121,3 +121,16 @@ The latest repair wave adds:
 | semantic-center SAT | “The careful nurse carried a sealed letter. At dusk the nurse closed the market ledger.” | 70 | pointer and SHA-256 `False`; admission `False` | expand held-out verb/object paradigms while preserving the fixed center event |
 | reverse-segmentation CFG/valency | “The patient courier delivered the sealed letter before noon.” | 51 | direct and two-pointer `False`; admission `False` | held-out tail-lexeme repair under the joint boundary/valency chart |
 | dependency mirror-pair constructor | “The patient courier delivers the sealed letter for the waiting child before dusk.” | 68 | pointer and SHA-256 `False`; admission `False` | held-out subject/adjunct repair while preserving dependency order |
+
+The held-out continuation repairs are also in the shared audit:
+
+| repair route | rendered prose | letters | exact / admission | provenance and concrete next repair |
+|---|---|---:|---|---|
+| phrase-equation inventory repair | “the careful porter carries the sealed parcel beside the lantern-lit school for the waiting child.” | 81 | two-pointer `False`; SHA-256 `False`; admission `False` | 48 whole-phrase held-out trials from 12 authored scenes; author a second complete phrase against the residual equation debt |
+| semantic-center SAT repair | “The careful nurse opened a sealed letter. At dusk the nurse closed the market ledger.” | 69 | independent pointer `False`; SHA-256 `False`; admission `False` | frozen authored center with verb/object coordinate descent; replace the least-satisfied verb–object seam with a held-out valency-compatible pair |
+| dependency mirror repair | “The careful scholar delivers the sealed letter for the waiting child before dusk.” | 68 | independent pointer `False`; SHA-256 `False`; admission `False` | exactly 18 held-out subject/adjunct substitutions per pair; try a held-out agreement-preserving verb–object substitution |
+
+These are real complete-prose repairs, not duplicate sweeps. They add no exact
+closure, so the next reader-facing test remains the preregistered
+intact-prose versus shuffled-control package with randomized blinded order,
+to be run only after an exact mechanically admitted candidate is frozen.

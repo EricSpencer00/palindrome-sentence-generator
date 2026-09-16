@@ -52,7 +52,7 @@ stack-machine lane was rejected because its exact surface is a semordnilap
 word chain, not intact prose. Only the first two are retained as runnable
 families; the stack route is an explicit exclusion with a grammar pivot.
 
-The current aggregate is 4240 audit-compatible rendered rows across 98 route
+The current aggregate is 4282 audit-compatible rendered rows across 100 route
 phases, with 73 exact-but-rejected tapes and 0 mechanically admitted rows.
 
 ## Orthogonal continuation wave
@@ -87,3 +87,12 @@ The newest wave tested semantic-center SAT, reverse-tape CFG/valency
 segmentation, and dependency-preserving mirror-pair construction. The common
 audit retained 9, 3, and 4 rows respectively; each route has independent
 exact/hash checks, provenance, and a held-out repair, with zero exact closures.
+
+The held-out repairs then added three bounded continuation operators. The
+phrase-equation lane evaluated 48 whole-phrase trials and retained a complete
+81-letter diagnostic; the semantic-center lane changed a verb/object pair by
+residual debt and retained 69 and 63-letter diagnostics; the dependency lane
+evaluated exactly 18 held-out substitutions per pair and retained four
+complete 60--68-letter diagnostics. Every repair has independent pointer and
+SHA-256 audits, provenance, and a concrete next repair. None is exact or
+reader-eligible, so the intact-versus-shuffled reader package remains gated.

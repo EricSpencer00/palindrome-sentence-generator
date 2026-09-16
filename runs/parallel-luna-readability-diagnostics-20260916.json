@@ -95,9 +95,11 @@
     "runs/phrase-equation-inventory-solver-20260916.json",
     "runs/semantic-center-sat-20260916.json",
     "runs/reverse-segmentation-cfg-valency-20260916.json",
-    "runs/dependency-mirror-pair-constructor-20260916.json"
+    "runs/dependency-mirror-pair-constructor-20260916.json",
+    "runs/semantic-center-sat-repair-20260916.json",
+    "runs/dependency-mirror-pair-repair-20260916.json"
   ],
-  "candidate_count": 4240,
+  "candidate_count": 4282,
   "exact_count": 73,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -270,6 +272,16 @@
       "max_letters": 68,
       "mean_zipf_frequency": 5.540576923076923,
       "mean_brown_order_gain_vs_shuffle": 1.4802168435032372
+    },
+    {
+      "source_run": "runs/dependency-mirror-pair-repair-20260916.json",
+      "rows": 4,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 60,
+      "max_letters": 68,
+      "mean_zipf_frequency": 5.459807692307692,
+      "mean_brown_order_gain_vs_shuffle": 1.314554886905022
     },
     {
       "source_run": "runs/dependency-tree-seam-solver-20260916.json",
@@ -713,13 +725,13 @@
     },
     {
       "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
-      "rows": 243,
+      "rows": 279,
       "exact_count": 0,
       "mechanically_admitted_count": 0,
       "min_letters": 59,
-      "max_letters": 74,
-      "mean_zipf_frequency": 5.5190431420431425,
-      "mean_brown_order_gain_vs_shuffle": 1.3922012585681436
+      "max_letters": 81,
+      "mean_zipf_frequency": 5.514222233420526,
+      "mean_brown_order_gain_vs_shuffle": 1.3865138781299955
     },
     {
       "source_run": "runs/pivot-paragraph-beam-20260916.json",
@@ -920,6 +932,16 @@
       "max_letters": 72,
       "mean_zipf_frequency": 5.4290370370370375,
       "mean_brown_order_gain_vs_shuffle": 0.6809015665604549
+    },
+    {
+      "source_run": "runs/semantic-center-sat-repair-20260916.json",
+      "rows": 2,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 63,
+      "max_letters": 69,
+      "mean_zipf_frequency": 5.4665952380952385,
+      "mean_brown_order_gain_vs_shuffle": 0.4518146519784816
     },
     {
       "source_run": "runs/semantic-frame-tape-solver-20260916.json",
@@ -203237,6 +203259,2526 @@
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     },
     {
+      "rendered": "the careful porter carries the sealed parcel along the narrow garden path for the waiting child.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the sealed parcel under the red awning for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "opens the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 80,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.6225099265164857,
+        "mean_zipf_frequency": 5.508125000000001,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the sealed parcel beside the lantern-lit school for the waiting child.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the sealed parcel under the red awning for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "carries the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 81,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.490117308727557,
+        "mean_zipf_frequency": 5.41125,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the sealed parcel beside the quiet gate while the village sleeps.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the sealed parcel beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "carries the",
+          "sealed parcel",
+          "beside the quiet gate",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0786134087467136,
+        "mean_zipf_frequency": 5.280666666666666,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the sealed parcel beside the quiet gate so the tired child can rest.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the sealed parcel beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "carries the",
+          "sealed parcel",
+          "beside the quiet gate",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.31217433485849,
+        "mean_zipf_frequency": 5.472941176470588,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the sealed parcel near the stone bridge while the village sleeps.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "carries the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9682113834786037,
+        "mean_zipf_frequency": 5.384,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the sealed parcel near the stone bridge so the tired child can rest.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "carries the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1861212528257195,
+        "mean_zipf_frequency": 5.564117647058823,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient nurse carries the sealed parcel along the narrow garden path for the waiting child.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the patient nurse carries the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "opens the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 79,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.7286986037482954,
+        "mean_zipf_frequency": 5.545625,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient nurse carries the sealed parcel beside the lantern-lit school for the waiting child.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the patient nurse carries the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "carries the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 80,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.596305985959365,
+        "mean_zipf_frequency": 5.4487499999999995,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient nurse carries the sealed parcel beside the quiet gate while the village sleeps.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the patient nurse carries the sealed parcel beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "carries the",
+          "sealed parcel",
+          "beside the quiet gate",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2279132739390395,
+        "mean_zipf_frequency": 5.320666666666666,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient nurse carries the sealed parcel beside the quiet gate so the tired child can rest.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the patient nurse carries the sealed parcel beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "checks the",
+          "sealed parcel",
+          "beside the quiet gate",
+          "after the rain"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3974296108388167,
+        "mean_zipf_frequency": 5.508235294117647,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient nurse carries the sealed parcel near the stone bridge while the village sleeps.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the patient nurse carries the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "carries the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1175112486709295,
+        "mean_zipf_frequency": 5.424,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient nurse carries the sealed parcel near the stone bridge so the tired child can rest.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the patient nurse carries the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "checks the",
+          "sealed parcel",
+          "near the stone bridge",
+          "after the rain"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2713765288060461,
+        "mean_zipf_frequency": 5.599411764705882,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter checks the sealed parcel along the narrow garden path for the waiting child.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter checks the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "opens the",
+          "old ledger",
+          "near the stone bridge",
+          "after the rain"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 79,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5787788615282725,
+        "mean_zipf_frequency": 5.5131250000000005,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter checks the sealed parcel beside the lantern-lit school for the waiting child.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter checks the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "checks the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 80,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4463862437393438,
+        "mean_zipf_frequency": 5.41625,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter checks the sealed parcel beside the quiet gate while the village sleeps.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter checks the sealed parcel beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "checks the",
+          "sealed parcel",
+          "beside the quiet gate",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.032149152196741,
+        "mean_zipf_frequency": 5.285999999999999,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter checks the sealed parcel beside the quiet gate so the tired child can rest.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter checks the sealed parcel beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "checks the",
+          "sealed parcel",
+          "beside the quiet gate",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2458303135967093,
+        "mean_zipf_frequency": 5.477647058823528,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter checks the sealed parcel near the stone bridge while the village sleeps.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter checks the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "checks the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9217471269286275,
+        "mean_zipf_frequency": 5.389333333333332,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter checks the sealed parcel near the stone bridge so the tired child can rest.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter checks the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "checks the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1197772315639387,
+        "mean_zipf_frequency": 5.568823529411764,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the sealed parcel under the red awning while the village sleeps.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the sealed parcel under the red awning for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "carries the",
+          "sealed parcel",
+          "beside the quiet gate",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.31475265913517,
+        "mean_zipf_frequency": 5.31,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the sealed parcel under the red awning so the tired child can rest.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the sealed parcel under the red awning for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "carries the",
+          "sealed parcel",
+          "under the red awning",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5540268052824349,
+        "mean_zipf_frequency": 5.498823529411765,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the small basket along the narrow garden path for the waiting child.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the small basket near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "opens the",
+          "small basket",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 79,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.535733878717485,
+        "mean_zipf_frequency": 5.62,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the small basket beside the lantern-lit school for the waiting child.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the small basket near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "carries the",
+          "small basket",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 80,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.405718566681955,
+        "mean_zipf_frequency": 5.523125,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the small basket beside the quiet gate while the village sleeps.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the small basket beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "carries the",
+          "small basket",
+          "beside the quiet gate",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0899452839864807,
+        "mean_zipf_frequency": 5.400000000000001,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the small basket beside the quiet gate so the tired child can rest.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the small basket beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "carries the",
+          "sealed parcel",
+          "beside the quiet gate",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3088936949441,
+        "mean_zipf_frequency": 5.578235294117647,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the small basket near the stone bridge while the village sleeps.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the small basket near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "carries the",
+          "small basket",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9795432587183655,
+        "mean_zipf_frequency": 5.503333333333333,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter carries the small basket near the stone bridge so the tired child can rest.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the careful porter carries the small basket near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "carries the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1828406129113258,
+        "mean_zipf_frequency": 5.669411764705881,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the young teacher carries the sealed parcel along the narrow garden path for the waiting child.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the young teacher carries the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the young teacher",
+          "opens the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 79,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.8449473010376805,
+        "mean_zipf_frequency": 5.616875,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the young teacher carries the sealed parcel beside the lantern-lit school for the waiting child.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the young teacher carries the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "carries the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 80,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.721370474692863,
+        "mean_zipf_frequency": 5.52,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the young teacher carries the sealed parcel beside the quiet gate while the village sleeps.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the young teacher carries the sealed parcel beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the young teacher",
+          "opens the",
+          "sealed parcel",
+          "beside the quiet gate",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3643346728872228,
+        "mean_zipf_frequency": 5.3966666666666665,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the young teacher carries the sealed parcel beside the quiet gate so the tired child can rest.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the young teacher carries the sealed parcel beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the young teacher",
+          "carries the",
+          "sealed parcel",
+          "beside the quiet gate",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5053752641306435,
+        "mean_zipf_frequency": 5.575294117647058,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the young teacher carries the sealed parcel near the stone bridge while the village sleeps.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the young teacher carries the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the young teacher",
+          "opens the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.253932647619111,
+        "mean_zipf_frequency": 5.499999999999999,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the young teacher carries the sealed parcel near the stone bridge so the tired child can rest.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the young teacher carries the sealed parcel near the stone bridge for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the young teacher",
+          "carries the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.379322182097873,
+        "mean_zipf_frequency": 5.666470588235293,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient nurse checks the sealed parcel along the narrow garden path for the waiting child.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the patient nurse checks the sealed parcel beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "checks the",
+          "old ledger",
+          "under the red awning",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.684967538760084,
+        "mean_zipf_frequency": 5.550625,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient nurse checks the sealed parcel beside the lantern-lit school for the waiting child.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the patient nurse checks the sealed parcel beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "checks the",
+          "sealed parcel",
+          "near the stone bridge",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 79,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5525749209711535,
+        "mean_zipf_frequency": 5.453749999999999,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient nurse checks the sealed parcel beside the quiet gate while the village sleeps.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the patient nurse checks the sealed parcel beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the careful porter",
+          "opens the",
+          "sealed parcel",
+          "beside the quiet gate",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 75,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1814490173890668,
+        "mean_zipf_frequency": 5.325999999999998,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient nurse checks the sealed parcel beside the quiet gate so the tired child can rest.",
+      "source_run": "runs/phrase-equation-inventory-solver-20260916.json",
+      "provenance": {
+        "source": "held-out authored phrase repair",
+        "base_rendered": "the patient nurse checks the sealed parcel beside the quiet gate for the waiting child.",
+        "heldout_inventory": {
+          "place": [
+            "along the narrow garden path",
+            "beside the lantern-lit school"
+          ],
+          "purpose": [
+            "while the village sleeps",
+            "so the tired child can rest"
+          ]
+        },
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "paired_choice": [
+          "the patient nurse",
+          "checks the",
+          "sealed parcel",
+          "beside the quiet gate",
+          "for the waiting child"
+        ]
+      },
+      "repair": {
+        "strategy": "held-out-whole-phrase-replacement",
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"
+      },
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3310855895770377,
+        "mean_zipf_frequency": 5.512941176470587,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
       "rendered": "the careful nurse carried a sealed letter. at dusk the nurse closed the market ledger.",
       "source_run": "runs/semantic-center-sat-20260916.json",
       "provenance": {
@@ -203998,6 +206540,315 @@
         "mean_zipf_frequency": 5.776923076923077,
         "word_count": 13,
         "repeated_word_rate": 0.23076923076923073,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful nurse opened a sealed letter. at dusk the nurse closed the market ledger.",
+      "source_run": "runs/semantic-center-sat-repair-20260916.json",
+      "provenance": {
+        "center_frozen": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      },
+      "repair": null,
+      "letters": 69,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5163610114665094,
+        "mean_zipf_frequency": 5.445333333333334,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful nurse sealed a letter. at dusk the nurse closed the market ledger.",
+      "source_run": "runs/semantic-center-sat-repair-20260916.json",
+      "provenance": {
+        "center_frozen": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      },
+      "repair": null,
+      "letters": 63,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.3872682924904538,
+        "mean_zipf_frequency": 5.487857142857143,
+        "word_count": 14,
+        "repeated_word_rate": 0.2142857142857143,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful scholar delivers the sealed letter for the waiting child before dusk.",
+      "source_run": "runs/dependency-mirror-pair-repair-20260916.json",
+      "provenance": {
+        "source": "held-out substitutions from joint dependency constructor",
+        "argument_order": [
+          "subject",
+          "verb",
+          "object",
+          "adjunct"
+        ],
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      },
+      "repair": {
+        "operator": "global-reverse-tape-character-debt-directed subject/adjunct substitution",
+        "next": "author a held-out verb-object agreement-preserving alternative targeted at the remaining debt, then re-run the blinded reader gate"
+      },
+      "letters": 68,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6926537208799619,
+        "mean_zipf_frequency": 5.493076923076923,
+        "word_count": 13,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful scholar carries a small parcel for the patient nurse before noon.",
+      "source_run": "runs/dependency-mirror-pair-repair-20260916.json",
+      "provenance": {
+        "source": "held-out substitutions from joint dependency constructor",
+        "argument_order": [
+          "subject",
+          "verb",
+          "object",
+          "adjunct"
+        ],
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      },
+      "repair": {
+        "operator": "global-reverse-tape-character-debt-directed subject/adjunct substitution",
+        "next": "author a held-out verb-object agreement-preserving alternative targeted at the remaining debt, then re-run the blinded reader gate"
+      },
+      "letters": 64,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4973221973473727,
+        "mean_zipf_frequency": 5.461538461538462,
+        "word_count": 13,
+        "repeated_word_rate": 0.07692307692307687,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet keeper marks a clean chart for the patient courier before noon.",
+      "source_run": "runs/dependency-mirror-pair-repair-20260916.json",
+      "provenance": {
+        "source": "held-out substitutions from joint dependency constructor",
+        "argument_order": [
+          "subject",
+          "verb",
+          "object",
+          "adjunct"
+        ],
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      },
+      "repair": {
+        "operator": "global-reverse-tape-character-debt-directed subject/adjunct substitution",
+        "next": "author a held-out verb-object agreement-preserving alternative targeted at the remaining debt, then re-run the blinded reader gate"
+      },
+      "letters": 60,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.6204633165543214,
+        "mean_zipf_frequency": 5.455384615384615,
+        "word_count": 13,
+        "repeated_word_rate": 0.07692307692307687,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the silent gardener opens the wooden gate for the patient nurse before noon.",
+      "source_run": "runs/dependency-mirror-pair-repair-20260916.json",
+      "provenance": {
+        "source": "held-out substitutions from joint dependency constructor",
+        "argument_order": [
+          "subject",
+          "verb",
+          "object",
+          "adjunct"
+        ],
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      },
+      "repair": {
+        "operator": "global-reverse-tape-character-debt-directed subject/adjunct substitution",
+        "next": "author a held-out verb-object agreement-preserving alternative targeted at the remaining debt, then re-run the blinded reader gate"
+      },
+      "letters": 63,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4477803128384323,
+        "mean_zipf_frequency": 5.429230769230769,
+        "word_count": 13,
+        "repeated_word_rate": 0.15384615384615385,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

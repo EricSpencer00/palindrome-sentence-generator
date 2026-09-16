@@ -84,6 +84,19 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
                             if context_provenance and "provenance" not in item:
                                 item["provenance"] = context_provenance
                             yield item
+        # A bounded repair artifact may keep its best base and held-out rows
+        # as single dictionaries rather than list-valued phase fields.  Walk
+        # those explicit surfaces so the shared aggregate cannot omit a
+        # complete rendered repair.
+        for key in ("repaired", "heldout"):
+            row = payload.get(key)
+            if isinstance(row, dict):
+                text = row.get("rendered") or row.get("text") or row.get("best_prose")
+                if isinstance(text, str) and text.strip():
+                    item = {"source_run": source, **row, "rendered": text}
+                    if context_provenance and "provenance" not in item:
+                        item["provenance"] = context_provenance
+                    yield item
         # Some append-only experiments keep base and repair phases as nested
         # objects.  Walk those phases so the diagnostic report cannot silently
         # omit their rendered probes.

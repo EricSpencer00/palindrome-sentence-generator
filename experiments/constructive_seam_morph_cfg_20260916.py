@@ -7,6 +7,8 @@ Earley-like spans with a character tape.  None reverse-segments a finished tape.
 from __future__ import annotations
 import hashlib, json
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from llm_palindrome.validator import normalize, is_palindrome
 
 ROOT = Path(__file__).resolve().parents[1]

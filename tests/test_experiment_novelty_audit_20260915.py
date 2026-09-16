@@ -56,3 +56,4 @@ def test_latest_routes_are_not_flagged_as_near_duplicates():
     assert by_id["dependency-completion-csp-20260916"]["manual_review_required"] is False
     assert by_id["lexical-word-equation-inventory-20260916"]["manual_review_required"] is False
     assert by_id["direct-constrained-authoring-20260916"]["manual_review_required"] is False
+    assert by_id["lexical-chain-palindrome-20260916"]["manual_review_required"] is False

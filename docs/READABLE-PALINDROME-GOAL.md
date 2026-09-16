@@ -1475,7 +1475,7 @@ item-aware analysis plan.
   gate. The Brown route's empty `displayed` list is intentional because it
   found no text safe to show as generated.
 
-  A reproducible programmatic diagnostic over 838 rendered rows is frozen in
+  A reproducible programmatic diagnostic over 1044 rendered rows is frozen in
   `runs/parallel-luna-readability-diagnostics-20260916.json`: 0 exact and 0
   mechanically admitted rows. The report breaks out Brown word-order gain,
   mean word frequency, repetition, punctuation segmentation, and length by
@@ -1519,7 +1519,7 @@ item-aware analysis plan.
   candidates; the word-equation route ran 6 base and 6 POS-compatible repairs.
   Both kept complete clauses and independent provenance visible, but had zero
   exact closures and zero reader-eligible rows. The aggregate diagnostic now
-  contains 838 rendered rows plus per-route summaries; its metrics remain
+  contains 1044 rendered rows plus per-route summaries; its metrics remain
   filters and failure diagnostics, never a readability certificate.
 
   A bounded direct-authoring reset also ran three local-model prompts plus one
@@ -1528,3 +1528,9 @@ item-aware analysis plan.
   `runs/direct-constrained-authoring-20260916.json`. This is a concrete
   authoring failure and a reason to change the construction state again, not a
   readability or impossibility claim.
+
+  A sixth reset used typed lexical-chain permutations rather than a model or
+  clause cross-product: 24 complete base probes and 12 synonym repairs were
+  rendered, all with zero exact closures. The run is preserved as
+  `runs/lexical-chain-palindrome-20260916.json`; it contributes to the same
+  diagnostic aggregate but no row entered the reader gate.

@@ -35,3 +35,9 @@ def test_audit_exposes_route_summary_as_diagnostic_only(tmp_path) -> None:
     assert report["route_summary"][0]["source_run"] == str(run)
     assert report["route_summary"][0]["rows"] == 1
     assert report["status"] == "diagnostic_not_human_readability_result"
+
+
+def test_iter_rows_includes_list_valued_repair_phase() -> None:
+    rows = list(iter_rows({"candidates": [{"rendered": "A man."}],
+                           "repair": [{"rendered": "A nurse."}]}, "run.json"))
+    assert [row["rendered"] for row in rows] == ["A man.", "A nurse."]

@@ -159,6 +159,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "dependency-completion-csp-20260916" in ids
     assert "lexical-word-equation-inventory-20260916" in ids
     assert "direct-constrained-authoring-20260916" in ids
+    assert "lexical-chain-palindrome-20260916" in ids
 
 
 def test_new_centerout_repairs_keep_failure_evidence_and_reader_gate_closed():

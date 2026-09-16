@@ -14,6 +14,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 |---|---|---|---|
 | `semantic-mutation-residual-20260916` | authored complete clauses mutated online by synonym/tense/argument operators while a mirrored residual is live | semantics-preserving online mutation | 41 base + 57 repair probes; 0 exact and 0 reader-eligible |
 | `direct-constrained-authoring-20260916` | a local model is instructed to author one complete single-scene palindrome, then receives mismatch-directed repair feedback | live whole-sentence authoring | 3 generation attempts + 1 repair timed out at 20 seconds; 0 exact and 0 reader-eligible |
+| `lexical-chain-palindrome-20260916` | typed lexical-chain permutations select independent complete clauses with a synonym repair frontier and reflected-character audit | lexical-chain permutation and repair | 24 base + 12 repair probes; 0 exact and 0 reader-eligible |
 | `dependency-completion-csp-20260916` | all-different semantic dependency graphs choose active/passive/relative linearizations jointly with mirrored character constraints | dependency completion and syntax repair | 81 base + 81 repair probes; 0 exact and 0 reader-eligible |
 | `lexical-word-equation-inventory-20260916` | independent POS-slot inventories and variable word boundaries are scored inside a lexical character equation | all-different lexical equation choices | 6 base + 6 repair probes, up to 74 letters; 0 exact and 0 reader-eligible |
 | `graph-to-prose-path-20260916` | typed ownership/attribute graph paths are selected with lexical realization under a mirrored character residual | graph topology and alternate-path repair | 9 base + 16 repair probes, up to 110 letters; 0 exact and 0 reader-eligible |
@@ -162,7 +163,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 128 retained families and 6 explicit
+family. The current audit covers all 131 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

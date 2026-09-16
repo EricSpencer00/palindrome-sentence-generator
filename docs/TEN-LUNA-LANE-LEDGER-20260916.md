@@ -230,9 +230,9 @@ recorded.
 
 ## Latest authoritative continuation (2026-09-16)
 
-The aggregate is **4,549 normalized rows across 150 route phases, 78 exact
-tapes, and 0 mechanically admitted outputs**. Novelty validation reports 252
-unique artifacts (25 exclusions; 230 run artifacts). The new word-pair graph,
+The aggregate is **4,550 normalized rows across 151 route phases, 78 exact
+tapes, and 0 mechanically admitted outputs**. Novelty validation reports 253
+unique artifacts (25 exclusions; 231 run artifacts). The new word-pair graph,
 paired semantic mutation, central-pivot CSP, semantic-slot lattice, and
 corpus-backed reverse-segmentation runs all retain rendered ordinary-prose
 states plus independent exact/hash audits and named next repairs. The 164-letter
@@ -251,3 +251,13 @@ schoolhouse before sunrise The teacher labels every seedling and stores the
 tools beneath the quiet porch”). Each has independent exact/hash rejection,
 provenance, novelty preflight, and a named repair. The repeated-clause CFG
 cross-product is excluded.
+
+The hand-authored clause breakthrough adds a 308-letter intact scene with ten
+complete clauses and no repeated content words: “Mara carries warm bread to
+the river. The careful pilot studies cloud maps. Children gather bright shells
+by moonlight. A gardener shelters young cedar shoots. Old friends share stories
+beside fire. By the hearth, new tales begin. Near the grove, small finches
+settle. At twilight, the patient tide returns. Beyond the hills, a quiet engine
+waits. At the shore, Owen listens for bells.” Independent pointer and hash
+audits both reject exactness (first mismatch at index 0); the next repair is a
+semordnilap-compatible verb-object substitution at the residual seam.

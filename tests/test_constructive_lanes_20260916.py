@@ -61,7 +61,7 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4549
+    assert report["candidate_count"] == 4550
     assert report["exact_count"] == 78
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
@@ -86,6 +86,7 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/dependency-seam-csp-20260916.json"]["rows"] == 1
     assert by_source["runs/agreement-morphology-clitic-lane4-20260916.json"]["rows"] == 1
     assert by_source["runs/cfg-earley-joint-intersection-20260916.json"]["rows"] == 1
+    assert by_source["runs/hand-authored-clause-breakthrough-2026-09-16.json"]["rows"] == 1
 
 
 def test_fresh_typed_frame_preserves_prose_and_live_obligation_evidence():
@@ -213,6 +214,18 @@ def test_cfg_earley_joint_lane_keeps_one_fresh_long_scene():
     assert row["independent_hash"]
     assert run["novelty_preflight"]["catalogue_text_imported"] is False
     assert run["next_repair"]["operator"]
+
+
+def test_hand_authored_clause_breakthrough_keeps_intact_308_letter_frontier():
+    run = json.loads((ROOT / "runs/hand-authored-clause-breakthrough-2026-09-16.json").read_text())
+    row = run["candidate"]
+    assert row["letters"] == 308
+    assert row["exact"] is False and row["admitted"] is False
+    assert row["pointer_audit"]["exact"] is False
+    assert row["hash_equal"] is False
+    assert row["mechanical_checks"]["distinct_words"] is True
+    assert run["provenance"]["all_different_content_words"] is True
+    assert run["next_repair"]
 
 
 def test_paired_semantic_mutation_retains_fresh_controls_and_mismatch_trace():

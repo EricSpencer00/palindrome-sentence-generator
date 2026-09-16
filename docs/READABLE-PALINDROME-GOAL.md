@@ -2023,9 +2023,9 @@ item-aware analysis plan.
   are recorded.
 
   **Latest authoritative continuation (2026-09-16):** the common audit now
-  contains 4,549 normalized rows across 150 route phases, 78 exact tapes, and
-  0 mechanically admitted outputs; the novelty registry contains 252 unique
-  artifacts (25 exclusions, 230 run artifacts). The 164-letter word-pair
+  contains 4,550 normalized rows across 151 route phases, 78 exact tapes, and
+  0 mechanically admitted outputs; the novelty registry contains 253 unique
+  artifacts (25 exclusions, 231 run artifacts). The 164-letter word-pair
   graph frontier, two fresh 61-letter paired mutations, 113-letter clause CSP,
   108 semantic-slot states, and 103--104-letter reverse-segmentation clauses
   are all rendered, independently checked, provenance-backed, and paired with
@@ -2038,3 +2038,14 @@ item-aware analysis plan.
   Their full strings, independent exact/hash failures, provenance, novelty
   checks, and next repairs are recorded in the lane evidence ledger. The
   repeated-clause 729-row CFG sweep is excluded as non-progress.
+
+  **Hand-authored clause breakthrough:** a fresh five-clause bank with an
+  all-different content-word gate produces a 308-letter intact scene: “Mara
+  carries warm bread to the river. The careful pilot studies cloud maps.
+  Children gather bright shells by moonlight. A gardener shelters young cedar
+  shoots. Old friends share stories beside fire. By the hearth, new tales begin.
+  Near the grove, small finches settle. At twilight, the patient tide returns.
+  Beyond the hills, a quiet engine waits. At the shore, Owen listens for
+  bells.” Independent pointer and SHA audits disagree at the first character;
+  it is non-exact and non-admitted, with provenance and a semordnilap-compatible
+  verb-object slot repair recorded in its run artifact.

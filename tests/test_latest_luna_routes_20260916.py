@@ -62,14 +62,16 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 4549
+    assert report["candidate_count"] == 4550
     assert report["exact_count"] == 78
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 150
+    assert len(report["route_summary"]) == 151
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
+    by_source = {row["source_run"]: row for row in report["route_summary"]}
+    assert by_source["runs/hand-authored-clause-breakthrough-2026-09-16.json"]["rows"] == 1
 
 
 def test_latest_followup_lanes_are_retained_without_promoting_unreadable_text():

@@ -298,9 +298,9 @@ concrete next repair to expand the held-out lexical/POS inventory.
 
 ## Authoritative continuation snapshot (2026-09-16, latest)
 
-The common audit now contains **4,549 normalized rows across 150 route phases,
+The common audit now contains **4,550 normalized rows across 151 route phases,
 78 exact tapes, and 0 mechanically admitted outputs**. The registry validator
-reports **252 unique artifacts, 25 preflight exclusions, and 230 run
+reports **253 unique artifacts, 25 preflight exclusions, and 231 run
 artifacts**. The latest orthogonal additions are preserved as reader-facing
 prose evidence: a 164-letter word-pair graph frontier (no closure), two fresh
 61-letter paired semantic mutations (no closure), a 113-letter central-pivot
@@ -323,3 +323,15 @@ teacher labels every seedling and stores the tools beneath the quiet porch.”
 (140). All four are intact, independently audited, novelty-checked, non-exact,
 and paired with a concrete next repair. The 729-row repeated-clause CFG sweep
 is explicitly excluded as non-progress.
+
+The newest hand-authored scene lattice keeps five fresh complete clauses intact
+and enforces all-different content words before alignment. It renders a
+308-letter scene: “Mara carries warm bread to the river. The careful pilot
+studies cloud maps. Children gather bright shells by moonlight. A gardener
+shelters young cedar shoots. Old friends share stories beside fire. By the
+hearth, new tales begin. Near the grove, small finches settle. At twilight, the
+patient tide returns. Beyond the hills, a quiet engine waits. At the shore, Owen
+listens for bells.” Its independent pointer audit mismatches at index 0 and its
+forward/reverse SHA digests differ; the mechanical gate therefore remains
+closed. Provenance records the five-clause bank, cross-word residual ledger,
+and a concrete semordnilap-compatible verb-object slot repair.

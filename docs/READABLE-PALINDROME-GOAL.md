@@ -1027,3 +1027,21 @@ item-aware analysis plan.
   order gain; these diagnostics prioritize repair only and are not reader
   evidence.  Any future row that clears the gate must be frozen with an intact
   rendering, a matched word-shuffle control, and randomized blinded raters.
+
+- **Admission-guided center-out repair, 2026-09-15:** preflighted a distinct
+  live state dimension (`wordfreq-bigram-centerout`, whole-word uniqueness,
+  admission-at-closure, length sweep) before running it.  The run produced
+  four independent exact, mechanically admitted surfaces at 48--116 letters;
+  the longest rendered candidate is:
+
+  > `No it can won knee bye know oh so than its opera was sec cases Utah; two new we now that uses access aware post in ah to show on key been known action.`
+
+  Its normalized tape is 116 letters and equals its reverse; the shared
+  admission dictionary returns every hard check true, with provenance and
+  SHA-256 recorded in `runs/lexical-admission-centerout-20260915.json`.
+  This is a constructive exact closure, not a readability claim—the prose is
+  not yet reader-worthy.  The next reader-facing test is held back: first
+  apply grammar-constrained boundary resegmentation to this frozen tape, then
+  package only any complete-clause survivor with an intact-prose control, a
+  word-shuffled control, randomized blinded order, and reproducible rater
+  instructions.

@@ -1556,6 +1556,30 @@
         "segmentation",
         "synchronized"
       ]
+    },
+    {
+      "id": "lexical-admission-centerout",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "variable-boundary-tape-ilp",
+        "jaccard": 0.076923,
+        "shared_atoms": [
+          "length",
+          "sweep"
+        ]
+      },
+      "signature_atoms": [
+        "admission",
+        "at",
+        "bigram",
+        "centerout",
+        "closure",
+        "length",
+        "live",
+        "sweep",
+        "uniqueness",
+        "wordfreq"
+      ]
     }
   ],
   "exact_signature_collisions": false,
@@ -1755,7 +1779,7 @@
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 59,
+  "registered_entries": 60,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

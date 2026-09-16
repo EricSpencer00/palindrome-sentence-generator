@@ -172,6 +172,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "reverse-lexicon-typed-complement-frame-20260916" in ids
     assert "centerout-grammar-boundary-repair5-20260916" in ids
     assert "authored-clause-template-sat-repair5-20260916" in ids
+    assert "reverse-lexicon-role-noun-boundary-20260916" in ids
+    assert "centerout-paired-boundary-csp-20260916" in ids
+    assert "authored-clause-template-sat-repair6-20260916" in ids
     assert "live-slot-equation-cfg-resegmentation-20260916" in ids
     assert "clause-growth-frame-repair-20260916" in ids
     assert "proper-name-caption-crossword" in ids

@@ -131,6 +131,13 @@ ordinary prose, and independent exact/hash checks; none is exact or
 reader-eligible. The aggregate is now 4342 normalized rows across 114 route
 phases, with 0 mechanically admitted candidates.
 
+The next construction step retained a semantic-role noun-boundary scene at 93
+letters, a paired subject/adjunct boundary-CSP scene at 72 letters, and a
+fresh SAT subject/object pair at 101 letters. Each preserves provenance and
+independent exact/hash checks but remains unadmitted. The aggregate is now
+4356 normalized rows across 126 route phases, with 0 mechanically admitted
+candidates.
+
 The next targeted repairs retained a typed-complement reverse-lexicon scene at
 93 letters, a residual center-out adjunct at 75 letters, and a same-valency SAT
 guide-verb repair at 102 letters. Each preserves provenance and independent

@@ -198,3 +198,9 @@ The next targeted repairs retained a typed-complement reverse-lexicon scene at
 guide-verb repair at 102 letters. Each fails independent exact/hash and
 mechanical gates. The aggregate is now 4353 normalized rows across 123 route
 phases, with 0 mechanically admitted rows.
+
+The next construction step retained a semantic-role noun-boundary scene at 93
+letters, a paired subject/adjunct boundary-CSP scene at 72 letters, and a
+fresh SAT subject/object pair at 101 letters. All fail independent exact/hash
+and mechanical gates. The aggregate is now 4356 normalized rows across 126
+route phases, with 0 mechanically admitted rows.

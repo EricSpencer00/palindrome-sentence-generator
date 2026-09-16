@@ -7,9 +7,9 @@ EXPERIMENT_ID='online-clause-order-slot-lattice-20260916'
 SIGNATURE='reader-first-scene-lattice|online-clause-order-selection|semantic-slot-attachment-repair|live-mirrored-equations|independent-pointer-sha'
 CLAUSES=[
  ('At dawn, the archivist opened the cedar cabinet', ['At dawn, the archivist opened the cedar cabinet','At sunrise, the curator opened the cedar chest']),
- ('catalogued three letters for the village school', ['catalogued three letters for the village school','sorted four journals for the river school']),
- ('the patient apprentice copied each date into a clean ledger', ['the patient apprentice copied each date into a clean ledger','the young assistant entered each name into a quiet register']),
- ('the lamps went out', ['the lamps went out','evening bells faded']),
+ ('The archivist catalogued three letters for the village school', ['The archivist catalogued three letters for the village school','The curator sorted four journals for the river school']),
+ ('The patient apprentice copied each date into a clean ledger', ['The patient apprentice copied each date into a clean ledger','The young assistant entered each name into a quiet register']),
+ ('The lamps went out', ['The lamps went out','Evening bells faded']),
 ]
 def audit(s):
  t=normalize_letters(s); mm=[]; i=0;j=len(t)-1

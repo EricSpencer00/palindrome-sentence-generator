@@ -159,12 +159,20 @@ def search() -> dict:
         raise RuntimeError(f"novelty collision: {preflight['exact_signature_collisions_before_run']}")
     rows = []
     for choice in itertools.product(range(3), repeat=len(SLOTS)):
+        # Source identity and punctuation-only controls are deliberately
+        # excluded: this lane must test an altered semantic slot and a longer
+        # resulting rendering, not count the inherited sentence as progress.
+        if all(index == 0 for index in choice):
+            continue
         for punctuation in PUNCTUATION:
             text, _ = render(choice, punctuation)
-            operation = "identity" if all(choice[index] == 0 for index in range(len(SLOTS))) else "typed_semantic_substitution"
+            if len(normalize_letters(text)) <= len(SOURCE_TAPE):
+                continue
+            operation = "typed_semantic_substitution"
             rows.append(audit(text, choice, punctuation, operation))
             merged, _ = boundary_merge_probe(choice, punctuation)
-            rows.append(audit(merged, choice, punctuation, "boundary_merge_probe"))
+            if len(normalize_letters(merged)) > len(SOURCE_TAPE):
+                rows.append(audit(merged, choice, punctuation, "boundary_merge_probe"))
     for row in rows:
         if not row["exact_check_1"]["exact"]:
             row["heldout_repair"] = heldout_repair(tuple(row["choice_indices"]), row["punctuation"], row)
@@ -172,7 +180,7 @@ def search() -> dict:
         else:
             row["heldout_repair"] = {"operator": "none; exact source tape control"}
             row["next_repair_operator"] = row["heldout_repair"]
-    rows.sort(key=lambda row: (not row["mechanically_admitted"], not row["tape_preserved"], not row["exact_check_1"]["exact"], row["exact_check_2"]["mismatch_count"], row["operation"], row["rendered"]))
+    rows.sort(key=lambda row: (not row["mechanically_admitted"], not row["tape_preserved"], not row["exact_check_1"]["exact"], row["exact_check_2"]["mismatch_count"], {"semicolon": 0, "period": 1, "comma": 2}[row["punctuation"]], row["operation"], row["rendered"]))
     for rank, row in enumerate(rows[:24], 1):
         row["rank"] = rank
     exact = [row for row in rows if row["exact_check_1"]["exact"] and row["tape_preserved"]]

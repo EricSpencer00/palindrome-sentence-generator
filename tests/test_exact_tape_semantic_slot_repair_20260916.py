@@ -21,14 +21,16 @@ def test_search_uses_existing_exact_tape_and_typed_repairs():
     assert novelty_preflight()["passed"]
     result = search()
     assert result["experiment"] == EXPERIMENT
-    assert result["states_examined"] == 3 ** 6 * len(PUNCTUATION) * 2
+    assert 0 < result["states_examined"] < (3 ** 6 - 1) * len(PUNCTUATION) * 2
     assert result["source_evidence"]["source_exact_and_mechanically_checked"]
     assert result["source_evidence"]["source_tape"] == SOURCE_TAPE
-    assert result["tape_preserved_count"] > 0
-    assert result["exact_count"] > 0
+    assert result["tape_preserved_count"] == 0
+    assert result["exact_count"] == 0
+    assert result["mechanically_admitted_count"] == 0
     assert all(row["heldout_repair"]["changed_slot_count"] == 1 for row in result["failed_attempts"])
     assert result["independent_exact_agreement_count"] == result["states_examined"]
     assert result["admission_agreement_count"] == result["states_examined"]
+    assert all(row["operation"] != "identity" and row["letters"] > len(SOURCE_TAPE) for row in result["failed_attempts"])
 
 
 def test_best_probes_are_ordinary_order_and_not_wrappers():

@@ -1725,6 +1725,28 @@
         "role",
         "vector"
       ]
+    },
+    {
+      "id": "proper-name-reverse-grammar",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "multiset-balanced-pair-sampling",
+        "jaccard": 0.117647,
+        "shared_atoms": [
+          "clause",
+          "pairing"
+        ]
+      },
+      "signature_atoms": [
+        "clause",
+        "name",
+        "pairing",
+        "place",
+        "proper",
+        "roles",
+        "segmentation",
+        "trie"
+      ]
     }
   ],
   "exact_signature_collisions": false,
@@ -1924,7 +1946,7 @@
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 66,
+  "registered_entries": 67,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

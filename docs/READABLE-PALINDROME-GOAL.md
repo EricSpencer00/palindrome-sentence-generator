@@ -142,6 +142,13 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   closures. The next repair is a controlled clause-boundary connective state,
   not another lexical-count sweep.
 
+- **Proper-name reverse grammar (2026-09-15).** A separate 140,368-clause
+  grammar used typed names, objects, adjectives, and locatives on both sides of
+  an exact reversed-tape index. It produced zero content-disjoint exact pairs;
+  25 ordinary clauses were retained as controls, with no reader claim. The
+  next repair is a finite name/locative dependency state, not a larger name
+  list alone.
+
 ## Scalable-construction requirement (2026-09-15)
 
 The active construction objective now has two explicit layers: (1) a

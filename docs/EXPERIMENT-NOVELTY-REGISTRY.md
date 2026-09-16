@@ -78,6 +78,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `information-structure-focus-scope` | independently authored negative cause/result clauses carry focus, presupposition, and polarity state before the whole rendered tape is audited | information-structure and polarity state | 16 intact probes plus a terminal-seam repair; 0 exact closures; 0 reader-eligible outputs |
 | `anaphoric-scene-chain-composition` | complete three-sentence scenes carry a singular object antecedent through pronoun and definite-description continuations | typed anaphora and discourse continuity | 4 intact scenes; 0 exact closures; 0 reader-eligible outputs |
 | `multiset-balanced-pair-sampling` | two complete typed clauses are independently sampled and retained only when their 26-dimensional letter-count parity can support an exact palindrome | letter-multiset arithmetic frontier | 50,000 random pairs, an indexed 2,304-clause repair, and a 98,304-clause agreement repair; 2,720 parity joins; 0 exact closures |
+| `proper-name-reverse-grammar` | a 140,368-clause grammar of typed names, objects, and locatives is indexed by normalized tape and joined against exact reversed tapes | proper-name reverse grammar | 0 exact pairs; 25 ordinary probes; 0 reader-eligible outputs |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
@@ -112,7 +113,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 66 retained families and 6 explicit
+family. The current audit covers all 67 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The two latest routes are below the review threshold:
 
@@ -128,6 +129,7 @@ pairs for review. The two latest routes are below the review threshold:
 | `information-structure-focus-scope` | none (0.000) | 0.000 | retained because focus/presupposition/polarity is an explicit information-structure state; no exact output |
 | `anaphoric-scene-chain-composition` | none (0.000) | 0.000 | retained because antecedent-number continuity spans a complete three-sentence scene; no exact output |
 | `multiset-balanced-pair-sampling` | none (0.000) | 0.000 | retained because letter-count parity is a new necessary-state filter; no parity survivor or exact output |
+| `proper-name-reverse-grammar` | none (0.000) | 0.000 | retained because typed proper-name/object grammar is independently indexed against the reverse tape; no exact output |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

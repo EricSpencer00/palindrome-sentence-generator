@@ -1304,3 +1304,19 @@ item-aware analysis plan.
   `runs/wordnet-synonym-frame-csp-20260915.json`; the next repair is an
   agreement/subcategorization feature layer, not another reservoir or template
   replay.
+
+- **WordNet agreement/subcategorization repair, 2026-09-15:** carried subject
+  number, determiner agreement, transitive valency, inflection, and optional
+  adjunct attachment through a separate finite-state frame automaton. The
+  repair explored 90,000 left assignments and 60,012 reverse-frame checks but
+  found no reverse lexical hit, exact closure, or reader row. Its artifact is
+  `runs/wordnet-featured-frame-repair-20260915.json`; the next operator changes
+  dependency topology rather than widening this same option list.
+
+- **GPT-2 topic-conditioned half decoder, 2026-09-15:** sampled 288 ordinary
+  topic prompts, decoded each required reverse tape with an independent lexical
+  DP, and retained 73 exact tapes for audit. The longest was 104 letters, but
+  every rendering contained non-lexical fragments and failed mechanical
+  admission; no row is reader evidence. The full provenance and probes are in
+  `runs/gpt2-topic-half-decoder-20260915.json`. The next repair is an online
+  GPT-2 constrained decoder at the reverse seam, not another post-hoc rerank.

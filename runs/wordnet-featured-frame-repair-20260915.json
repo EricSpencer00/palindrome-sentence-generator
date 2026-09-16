@@ -1,0 +1,44 @@
+{
+  "experiment_id": "wordnet-featured-frame-repair-20260915",
+  "signature": "wordnet-featured-frame-repair|subcategorization-agreement-automaton|inflectional-lexeme-realization|semantic-role-compatible-join|independent-exact-audit",
+  "method": "Finite agreement/subcategorization automaton carries subject number, determiner agreement, transitive verb inflection, and optional adverb attachment while matching independently lexicalized frames.",
+  "novelty_preflight": {
+    "registry_entries_before_run": 85,
+    "excluded_routes_before_run": 6,
+    "status": "formal_preflight_before_execution",
+    "signature_overlap": [],
+    "manual_review_required": false
+  },
+  "config": {
+    "frame_count": 6,
+    "compatible_frame_pairs": 36,
+    "per_pair_left_assignment_limit": 2500,
+    "reverse_match_limit": 16,
+    "wordnet_synsets": "nltk.corpus.wordnet",
+    "inflection": "deterministic plural and third-person-singular realization",
+    "subcategorization": "transitive relation only",
+    "catalogue_text_imported": false,
+    "known_palindromes_imported": false
+  },
+  "stats": {
+    "left_assignments": 90000,
+    "reverse_frame_calls": 60012,
+    "rendered_candidates": 0,
+    "reader_eligible": 0
+  },
+  "rendered_candidates_and_probes": [],
+  "probes": [],
+  "provenance": {
+    "generator_sha256": "380fdb46804b73c9704fbd4a6354fdea3dab891f10d6da43c247c7dc8c66ff30",
+    "source": "WordNet lemma inventories with explicit feature realization",
+    "source_sentences_copied": false,
+    "independent_exact_audits": [
+      "normalized-tape-reversal",
+      "ASCII-tape-reversal",
+      "two-pointer"
+    ],
+    "readability_certificate": false
+  },
+  "next_repair": "Use valency-specific adjunct frames with a bounded semantic role graph and preserve the agreement automaton; this changes dependency topology rather than merely widening the current lexical options.",
+  "reader_gate": "No row is reader evidence. Any exact row must pass every mechanical gate and then be frozen with randomized intact/shuffled controls for blinded human ratings."
+}

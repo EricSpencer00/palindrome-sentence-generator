@@ -11,7 +11,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 6
-    assert result["entries"] == 83
+    assert result["entries"] == 87
     assert result["run_artifacts"] == 46
 
 
@@ -50,7 +50,7 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 83
+    assert result["registered_families_checked"] == 87
     assert result["excluded_routes_checked"] == 6
     assert result["manual_review_required"] is False
     assert result["conceptual_near_pairs"] == []

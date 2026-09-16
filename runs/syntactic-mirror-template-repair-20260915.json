@@ -1,0 +1,63 @@
+{
+  "experiment_id": "syntactic-mirror-template-repair",
+  "signature": "syntactic-mirror-template-repair|independent-clause-pairing|minimum-two-letter-words|semantic-role-binding|exact-reflected-tape-audit",
+  "preflight": {
+    "status": "novel",
+    "registry_entries": 70,
+    "excluded_routes": 6,
+    "conceptual_near_pairs": [],
+    "manual_review_required": false
+  },
+  "method": "independent typed clause slots with minimum-two-letter lexical constraint and whole-tape mirrored audit",
+  "rows": [
+    {
+      "rendered": "Are we not drawn onward, we few drawn onward to new era.",
+      "letters": 43,
+      "exact": true,
+      "independent_two_pointer": true,
+      "minimum_word_length": true,
+      "no_one_letter_tokens": true,
+      "semantic_roles": {
+        "subject": "Are we",
+        "event": "not drawn onward",
+        "continuation": "we few drawn onward to new era"
+      },
+      "failed_checks": [
+        "distinct_words",
+        "no_repeated_nontrivial_unit",
+        "no_self_palindromic_proper_multiword_span",
+        "absent_from_local_catalogue",
+        "local_catalogue_absent"
+      ],
+      "admitted": false,
+      "normalized_sha256": "01fe861c10cb285d2020719da170db15236b7a245b945949642885295b615741"
+    },
+    {
+      "rendered": "Doc note I dissent, a fast never prevents a fatness I diet on cod.",
+      "letters": 51,
+      "exact": true,
+      "independent_two_pointer": true,
+      "minimum_word_length": false,
+      "no_one_letter_tokens": false,
+      "semantic_roles": {
+        "subject": "Doc",
+        "event": "note I dissent",
+        "continuation": "a fast never prevents a fatness I diet on cod"
+      },
+      "failed_checks": [
+        "no_self_palindromic_proper_multiword_span",
+        "absent_from_local_catalogue",
+        "local_catalogue_absent"
+      ],
+      "admitted": false,
+      "normalized_sha256": "f98ba735c942c288b32c53d6b34c2e2df2879f4d0ccbf9ccbd2045b5e2a1cc15"
+    }
+  ],
+  "exact_count": 2,
+  "admitted_count": 0,
+  "independent_audit": {
+    "method": "separate opposing-index scan",
+    "disagreements": []
+  },
+  "provenance": "fresh authored clause templates; no one-letter fallback; candidate inventory is explicit"
+}

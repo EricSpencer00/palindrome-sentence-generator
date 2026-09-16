@@ -1,0 +1,73 @@
+{
+  "experiment_id": "centerout-grammar-boundary-repair2-20260916",
+  "signature": "center-out-grammar-state|outer-letter-directed-adjunct-authorship|heldout-semantic-boundary-repair|event-preserving-valency|independent-exact-hash-audit",
+  "status": "completed",
+  "method": "single authored adjunct whose final letter targets the observed outer mismatch; all other slots fixed",
+  "candidate": {
+    "label": "heldout-outer-letter-adjunct-repair",
+    "rendered": "the careful porter delivers the sealed parcel. near the lamplit school for a waiting guest.",
+    "letters": 75,
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_sha256",
+      "letters": 75,
+      "two_pointer_exact": false,
+      "mismatch_count": 35,
+      "first_mismatch": {
+        "left": 1,
+        "right": 73,
+        "a": "h",
+        "b": "s"
+      },
+      "sha256_forward": "4282aac46d5135126b3c0ba47095ab45eed0110bacd516dabed47e3821e1710d",
+      "sha256_reverse": "3da794003a5c9fddd15606549fb6bda15aad2ab048a1ffd5a3301411b8edad2d",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": false,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "repair": {
+      "parent_run": "runs/centerout-grammar-boundary-repair-20260916.json",
+      "changed_span": {
+        "from": "near the lamplit school for a waiting child",
+        "to": "near the lamplit school for a waiting guest"
+      },
+      "target": "outer t/d mismatch",
+      "new_final_letter": "t"
+    },
+    "provenance": {
+      "authored_event_preserved": true,
+      "catalogue_text_copied": false,
+      "finished_sentence_reversed": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false
+    }
+  },
+  "stats": {
+    "candidates": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "next_repair": "author one complete adjunct against the next two mirrored boundary obligations, preserving the same event and grammar state",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "79cbfd47821e2719236282704b5990e8c13f3710dfd98235a63b6a9265ed432c",
+    "generated_not_catalogue": true
+  }
+}

@@ -10,6 +10,9 @@ from dataclasses import dataclass
 from hashlib import sha256
 import json, re
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from llm_palindrome.admission import mechanical_admission_checks, tokenize
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -73,6 +76,11 @@ def mismatch(s):
         if a != b: return {"index": i, "left": a, "right": b}
     return None
 
+def complete_scene_grammar(s: str) -> bool:
+    """Conservative ordinary-order check: every semicolon clause is S-V-(A)."""
+    clauses = [x.strip() for x in s.split(';')]
+    return bool(clauses) and all(len(tokenize(c)) >= 3 for c in clauses)
+
 def main():
     text, trace = construct()
     # Concrete repair: replace the shortest failing return with its exact reverse.
@@ -80,13 +88,16 @@ def main():
     broken_text, broken_trace = construct(tuple(broken))
     repaired = tuple(FRAMES)
     repaired_text, repaired_trace = construct(repaired)
+    gate = mechanical_admission_checks(text, min_letters=39)
     out = {"id": "semantic-scene-stack-machine-20260916", "construction": {
         "recursive_scene_frames": len(FRAMES), "normal_word_order": True,
         "live_stack": True, "fixed_tape": False, "catalogue_lookup": False,
-        "exact_pairs_checked_during_construction": True},
+        "exact_pairs_checked_during_construction": True,
+        "complete_scene_grammar": complete_scene_grammar(text),
+        "promoted": False},
         "text": text, "letters": len(normalize(text)),
         "audits": {"exact": exact(text), "two_pointer": two_pointer(text), "hash": hash_audit(text),
-                   "mechanical": exact(text), "mismatch": mismatch(text)},
+                   "mechanical": gate, "mismatch": mismatch(text)},
         "repair": {"before": {"text": broken_text, "mismatch": mismatch(broken_text),
                                  "trace_tail": broken_trace[-2:]},
                     "text": repaired_text, "letters": len(normalize(repaired_text)),
@@ -94,7 +105,8 @@ def main():
                                "hash": hash_audit(repaired_text), "mismatch": mismatch(repaired_text)}},
         "provenance": {"frames": [f.__dict__ for f in FRAMES], "trace": trace,
                        "generator_sha256": sha256(Path(__file__).read_bytes()).hexdigest()},
-        "reader_status": "diagnostic only; no reader-facing claim"}
+        "reader_status": "rejected failure evidence: semordnilap chain is not intact prose",
+        "pivot": "Retain stack trace only; require recursive frames to emit complete S-V-A clauses before any future promotion."}
     print(json.dumps(out, indent=2))
 
 if __name__ == "__main__": main()

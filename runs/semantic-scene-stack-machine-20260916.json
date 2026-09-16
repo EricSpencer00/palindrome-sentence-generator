@@ -6,7 +6,9 @@
     "live_stack": true,
     "fixed_tape": false,
     "catalogue_lookup": false,
-    "exact_pairs_checked_during_construction": true
+    "exact_pairs_checked_during_construction": true,
+    "complete_scene_grammar": false,
+    "promoted": false
   },
   "text": "live on time; drawer; stressed; deliver; reviled; desserts; reward; emit no evil",
   "letters": 62,
@@ -14,7 +16,25 @@
     "exact": true,
     "two_pointer": true,
     "hash": true,
-    "mechanical": true,
+    "mechanical": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": true,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": false,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": false,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
     "mismatch": null
   },
   "repair": {
@@ -120,7 +140,8 @@
         "remaining": 0
       }
     ],
-    "generator_sha256": "7f7ffa078d8ac9d3f5f8491e71ea66eb4cf6b9061eaa02bf26d5388d61e529c8"
+    "generator_sha256": "10279354459af62ab3d7c6ed685288442838ff2b48c704dddefd5a4943845722"
   },
-  "reader_status": "diagnostic only; no reader-facing claim"
+  "reader_status": "rejected failure evidence: semordnilap chain is not intact prose",
+  "pivot": "Retain stack trace only; require recursive frames to emit complete S-V-A clauses before any future promotion."
 }

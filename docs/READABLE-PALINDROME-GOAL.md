@@ -94,6 +94,14 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   diagnostics. Their rendered probes, hashes, and failure frontiers remain
   preserved, but they do not inflate the method count or paper claims.
 
+- **Information-structure focus/scope route (2026-09-15).** A fresh
+  construction state attached focus, presupposition, and negative-to-result
+  polarity to complete cause/result clauses before rendering. Sixteen intact
+  probes were checked by both the primary admission path and an explicit
+  opposing-index scan; there were zero exact or admitted closures. The next
+  repair is a polarity-preserving result clause whose terminal character stream
+  crosses the causal seam, not another lexical-bank or beam replay.
+
 ## Scalable-construction requirement (2026-09-15)
 
 The active construction objective now has two explicit layers: (1) a

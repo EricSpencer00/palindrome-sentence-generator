@@ -75,6 +75,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `grammar-boundary-resegmentation-repair` | a frozen exact tape is held fixed while a Brown-POS weighted dictionary chart searches independent word boundaries and reports a finite-verb diagnostic | fixed-tape grammatical boundary repair | v1/v2 had no lexical coverage; v3 produced 2 exact mechanically admitted segmentations; 0 reader-eligible outputs |
 | `fixed-tape-valency-chart-repair` | the same frozen tape is parsed by a subject--finite-verb/object chart with clause-boundary transitions after POS resegmentation | argument-role/valency state over fixed boundaries | 2 exact mechanically admitted segmentations; 0 complete-clause parses; 0 reader-eligible outputs |
 | `proper-name-caption-crossword` | typed proper-name/appositive incident records joined as complete captions with a crossword-style character compatibility filter | proper-name caption role grammar | 25 rendered probes; 0 exact closures; 0 reader-eligible outputs |
+| `information-structure-focus-scope` | independently authored negative cause/result clauses carry focus, presupposition, and polarity state before the whole rendered tape is audited | information-structure and polarity state | 16 intact probes; 0 exact closures; 0 reader-eligible outputs |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
@@ -108,7 +109,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 63 retained families and 5 explicit
+family. The current audit covers all 64 retained families and 5 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The two latest routes are below the review threshold:
 
@@ -121,6 +122,7 @@ pairs for review. The two latest routes are below the review threshold:
 | `grammar-boundary-resegmentation-repair` | none (0.000) | 0.000 | fixed-tape POS-weighted boundary repair; it emits no new palindrome letters |
 | `fixed-tape-valency-chart-repair` | none (0.000) | 0.000 | fixed-tape subject/verb/object chart; stricter successor to POS-only segmentation |
 | `proper-name-caption-crossword` | none (0.000) | 0.000 | retained because the proper-name/appositive record grammar is a distinct lexical-role state; no exact output |
+| `information-structure-focus-scope` | none (0.000) | 0.000 | retained because focus/presupposition/polarity is an explicit information-structure state; no exact output |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

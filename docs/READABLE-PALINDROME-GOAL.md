@@ -1432,4 +1432,7 @@ item-aware analysis plan.
   renderings, but every seam was visibly incoherent; the hard no-repeat gate
   held and all five remain outside the reader gate in
   `runs/reversible-grammar-insertion-20260916.json`. This is failure evidence,
-  not a readable output.
+  not a readable output. Its concrete repair replaced wrappers with pairs of
+  independently grammatical adjuncts in a complete prose frame; all 12
+  combinations were near misses and none closed exactly. The repair evidence is
+  in `runs/semantic-insertion-repair-20260916.json`.

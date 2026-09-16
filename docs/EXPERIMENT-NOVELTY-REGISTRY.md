@@ -12,7 +12,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
-| `reversible-grammar-insertion-20260916` | seed-preserving, non-repeating insertion of independently annotated reverse lexical units at a grammatical seam | scalable context-free wrapper growth | 5 exact renderings (50--106 letters); all seam-incoherent and withheld from readers; 0 reader-eligible |
+| `reversible-grammar-insertion-20260916` | seed-preserving, non-repeating insertion of independently annotated reverse lexical units at a grammatical seam | scalable context-free wrapper growth | base: 5 exact renderings (50--106 letters), all seam-incoherent; adjunct-insertion repair: 12 near misses, 0 exact; 0 reader-eligible |
 | `typed-semordnilap` | PERSON/THING/VERB clauses with independent reverse segmentation | typed lexical roles | 0 closures >=39 |
 | `global-brown-pos` | Brown POS shapes, 8--15 words, live center-out syntax | global shape lattice | short controls only |
 | `typed-lexical-graph` | number/tense/determiner/transitivity in residual state | feature-carrying lexical graph | 0 closures >=39 |

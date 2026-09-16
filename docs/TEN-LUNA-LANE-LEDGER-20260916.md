@@ -357,7 +357,7 @@ states at 55, 114, 168, and 223 letters. Both continuations have fresh
 provenance and novelty fingerprints, and neither produced an exact closure;
 they are retained as construction evidence rather than duplicate sweeps.
 
-The authoritative aggregate is therefore **4,657 rows across 186 route
+The authoritative aggregate is therefore **4,682 rows across 189 route
 phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**. The
 next reader-facing test remains the randomized blinded intact-versus-shuffled
 packet, gated on a genuinely exact, anti-shortcut-clean candidate.
@@ -368,8 +368,8 @@ function/inflection editor (five 96--104-letter scenes). Both are registered
 as distinct retained families with independent audits and concrete repairs.
 An entailment-preserving active/passive rewrite is explicitly excluded after
 novelty preflight found overlap with existing voice/information-structure
-families. The registry now contains 287 retained artifacts, 31 exclusions,
-and 265 retained run artifacts.
+families. The registry now contains 290 retained artifacts, 31 exclusions,
+and 268 retained run artifacts.
 
 Representative renderings are preserved verbatim: “The baker repairs the
 gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA
@@ -377,6 +377,13 @@ gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA
 lantern across the quiet bridge, and Jonah records each rescued name so the
 town archive can open.” (104 letters, first mismatch 0, normalized SHA
 `49d8b841...` versus `443a004b...`). Neither is exact or reader-eligible.
+
+The latest repair wave adds a typed semantic center-out lane (12 complete
+95--109-letter scenes), a lexical word-equation intersection (four complete
+133--143-letter scenes), and a joint slot/boundary repair (nine complete
+45--62-letter scenes). Their representative surfaces and independent
+forward/reverse digests are preserved in the run artifacts; all three remain
+non-exact and carry named boundary repairs, so none enters the reader packet.
 
 The latest three Luna lanes are also retained as distinct evidence. The
 constrained edit program's 106-letter cartographer/ranger scene has independent

@@ -62,7 +62,7 @@ def test_append_algebra_emits_only_complete_clauses_and_records_invariant_failur
 
 def test_aggregate_surfaces_all_three_new_lane_routes():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4657
+    assert report["candidate_count"] == 4682
     assert report["exact_count"] == 79
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/constrained-edit-program-constructor-20260916.json"]["rows"] == 4
@@ -80,3 +80,22 @@ def test_registry_retains_new_lanes_and_keeps_shortcut_exclusions_separate():
         "discourse-relation-involution-20260916",
     } <= retained
     assert "inflection-clitic-boundary-search-20260916-luna-excluded" in excluded
+
+
+def test_latest_three_lanes_keep_complete_prose_and_independent_audits():
+    center = json.loads((ROOT / "runs/centerout-typed-semantic-debt-20260916.json").read_text())
+    assert center["summary"] == {"candidate_count": 12, "exact_count": 0, "max_length": 109}
+    assert all(row["provenance"]["catalogue_imported"] is False for row in center["rows"])
+    assert all(row["audit"]["exact"] is False and row["audit"]["sha256_exact"] is False for row in center["rows"])
+    assert all(row["next_repair"] for row in center["rows"])
+
+    lexical = json.loads((ROOT / "runs/lexical-word-equation-grammar-intersection-20260916.json").read_text())
+    assert len(lexical["candidates"]) == 4 and lexical["stats"]["exact"] == 0
+    assert all(row["audit"]["rendered"].endswith(".") for row in lexical["candidates"])
+    assert all(row["audit"]["two_pointer_exact"] is False for row in lexical["candidates"])
+    assert all(row["audit"]["normalized_sha256"] != row["audit"]["reverse_sha256"] for row in lexical["candidates"])
+
+    seed = json.loads((ROOT / "runs/seed-joint-slot-resegment-20260916.json").read_text())
+    assert len(seed["candidates"]) == 9 and seed["stats"]["exact"] == 0
+    assert all(" the old a faded" not in row["rendered"] for row in seed["candidates"])
+    assert all(row["rendered"].endswith(".") and row["exact_audit"]["sha_equal"] is False for row in seed["candidates"])

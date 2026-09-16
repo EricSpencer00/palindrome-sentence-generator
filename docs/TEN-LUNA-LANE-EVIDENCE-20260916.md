@@ -457,10 +457,10 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,657 rows
-across 186 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **287 retained artifacts, 31
-explicit exclusions, and 265 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,682 rows
+across 189 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **290 retained artifacts, 31
+explicit exclusions, and 268 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
 
@@ -482,6 +482,20 @@ town archive can open.” (104 letters; normalized SHA forward
 are fresh authored prose with no catalogue import or symmetry shortcut; the
 next reader-facing test remains blocked until an exact anti-shortcut survivor
 is independently admitted.
+
+The next repair wave adds three distinct lanes. A typed semantic center-out
+solver renders “The patient curator shelters the fragile maps during the storm;
+the careful teacher copies the final field notes beside the window.” (109
+letters; first mismatch 0; normalized SHA prefixes `f73f2178...` and
+`4bab5944...`). A lexical word-equation intersection renders “The curator labels
+the fragile map before the archivist stores the ledger, while rain gathers
+softly against the western windows and visitors wait beside the reading room.”
+(143 letters; first mismatch 0; SHA prefixes `ad660754...` and `3f372d81...`).
+A joint slot/boundary repair emits “The quiet curator labels the old faded map
+before dawn.” (51 letters; first mismatch 0; SHA prefixes `709b86e5...` and
+`92436837...`). All are complete ordinary prose with fresh provenance,
+independent pointer/SHA validation, novelty preflight, and concrete repairs;
+none is exact or reader-eligible.
 
 ## Three orthogonal Luna continuations (2026-09-16)
 

@@ -332,6 +332,9 @@ pairs for review. The latest routes are below the review threshold:
 | `constrained-edit-program-constructor-20260916` | none (0.000) | 0.000 | retained because a fresh two-clause scene is edited by parse- and meaning-preserving operations that monotonically lower mirrored debt; 4 intact 97–106-letter states, 0 exact |
 | `arbitrary-clause-macro-algebra-20260916` | none (0.000) | 0.000 | retained because a single-arm append algebra tests live suffix obligations on four complete 28–102-letter clause-growth states; 0 exact |
 | `discourse-relation-involution-20260916` | none (0.000) | 0.000 | retained because independent cause/effect and contrast propositions vary connective/attachment under a live character equation; 12 complete 43–56-letter probes, 0 exact |
+| `centerout-typed-semantic-debt-20260916` | none (0.000) | 0.000 | retained because typed semantic slots and agreement state are carried through center-out realization with live mirrored debt; 12 complete 95–109-letter probes, 0 exact |
+| `seed-joint-slot-resegment-20260916` | none (0.000) | 0.000 | retained because semantic-slot substitutions and determiner/adjective boundaries are selected jointly on a fresh scene; 9 complete 45–62-letter probes, 0 exact |
+| `lexical-word-equation-grammar-intersection-20260916` | none (0.000) | 0.000 | retained because held-out clauses choose typed lexical realizations under live word-boundary equations; 4 complete 133–143-letter probes, 0 exact |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

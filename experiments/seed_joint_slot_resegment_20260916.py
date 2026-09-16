@@ -15,12 +15,15 @@ SIGNATURE = "joint-semantic-slot-substitution|cross-word-boundary-resegmentation
 OUT = ROOT / "runs" / f"{EXPERIMENT_ID}.json"
 
 FRAMES = [
-    ("the quiet curator", "labels", "a faded map", "before dawn"),
-    ("the patient cartographer", "marks", "the northern inlet", "at first light"),
-    ("a careful keeper", "files", "the field notes", "after the rain"),
+    # Objects are stored without a determiner because the boundary operator
+    # supplies that determiner.  Keeping the slot split explicit prevents the
+    # previous probe from emitting malformed ``the old a faded map`` strings.
+    ("the quiet curator", "labels", "faded map", "before dawn"),
+    ("the patient cartographer", "marks", "northern inlet", "at first light"),
+    ("a careful keeper", "files", "field notebook", "after the rain"),
 ]
 # These are boundary alternatives, not a palindrome tape or reversed sentence.
-BOUNDARIES = [("the", "old"), ("a", "quiet"), ("the", "northern")]
+BOUNDARIES = [("the", "old"), ("a", "quiet"), ("the", "distant")]
 
 def audit(text: str) -> dict:
     tape = normalize_letters(text)

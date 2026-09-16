@@ -1,0 +1,51 @@
+# Three skeptical Luna reviews (2026-09-16)
+
+Three independent Luna passes reviewed the ten requested construction lanes,
+the three subsequent continuation lanes, the aggregate audit, and the reader
+gate. They were asked to find shortcuts or unsupported claims, not to defend
+the current result.
+
+## Orthogonality and novelty
+
+The reviewer found no duplicate IDs, signatures, or run-artifact references
+among retained families and agreed that the explicit catalogue/repetition
+controls are correctly quarantined. It did identify that the aggregate report
+was not itself represented in the novelty registry. The registry now has an
+`audit_reports` section pointing to
+`runs/parallel-luna-readability-diagnostics-20260916.json`, explicitly marking
+it as a report rather than a construction lane. Historical checkpoint counts
+in the evidence ledger are labeled as checkpoints; the closing snapshot is
+the current 282-artifact / 30-exclusion registry.
+
+## Exactness and provenance
+
+The reviewer independently replayed the selected tapes and confirmed the
+recorded lengths and non-exact pointer/hash results for the ten lanes and
+continuations. It found one audit defect: the agreement-morphology run had
+hashed raw rendered text and supplied no reverse digest. The transducer now
+records normalized forward and reverse SHA-256 digests plus their equality, and
+the contract test recomputes both from the rendered tape.
+
+## Reader study and paper claims
+
+The reviewer found the paper and API correctly fail-closed: no automatic score
+is presented as readability evidence and no candidate reaches a reader packet.
+It found three builder gaps, now covered by tests and implementation:
+
+1. Candidate provenance must be a structured immutable record with generator
+   and source hashes plus explicit false flags for copied/borrowed text and
+   shortcut symmetries.
+2. Intact controls must match the candidate within five normalized letters.
+3. Shuffled controls are regenerated until their text and normalized tape
+   change and their normalized tape is not itself a palindrome.
+
+The reader package remains `ready_for_human_collection` only after an exact,
+mechanically admitted candidate is supplied; no current near miss is promoted.
+
+## Current disposition
+
+The reviews did not produce a reader-worthy palindrome. Their concrete repairs
+are committed, and the constructive goal remains active: every next failed
+generator must introduce a new construction state or a targeted repair rather
+than a larger duplicate sweep.
+

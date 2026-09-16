@@ -33,5 +33,17 @@ or purpose phrase using the recorded global character debt, then recompute the
 complete equation and both exact audits. A one-sided character edit is not an
 allowed repair because it would destroy the semantic phrase inventory.
 
+The held-out repair phase then replaced one complete place/purpose phrase in
+12 base scenes with four unseen authored alternatives. It produced 48 repair
+trials (36 unique renderings), including this 81-letter intact prose probe:
+
+> the careful porter carries the sealed parcel beside the lantern-lit school for the waiting child.
+
+Its global equation has left/right lengths 81/73 and debt
+`h:1, c:2, r:1, f:1, l:4, o:2` against surplus `g:1, n:2`; the two-pointer
+and SHA-256 audits both reject it. No repair closed exactly, so it is not
+reader-eligible. The next repair must author a second complete phrase against
+that recorded debt, not edit individual letters.
+
 Evidence and provenance are preserved in
 `runs/phrase-equation-inventory-solver-20260916.json`.

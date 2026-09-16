@@ -30,6 +30,12 @@ INVENTORY = {
     "place": ["beside the quiet gate", "near the stone bridge", "under the red awning"],
     "purpose": ["before dusk", "after the rain", "for the waiting child"],
 }
+# Deliberately withheld until after the base search. These phrases are a
+# repair operator, not extra seeds folded into the original inventory sweep.
+HELDOUT = {
+    "place": ["along the narrow garden path", "beside the lantern-lit school"],
+    "purpose": ["while the village sleeps", "so the tired child can rest"],
+}
 ROLES = tuple(INVENTORY)
 
 def tape(text: str) -> str:
@@ -86,10 +92,36 @@ def run() -> dict:
         _, right, eq, rc = min(scored, key=lambda x: x[0])
         rendered = left
         rows.append({"rendered": rendered, "paired_scene": right, "letters": len(tape(rendered)), "equation": eq, "audit": {"two_pointer": two_pointer(rendered), "hash": hash_audit(rendered)}, "admission": admissible(rendered), "provenance": {"source": "independently authored semantic role inventories", "inventory_roles": list(ROLES), "catalogue_text_used": False, "word_order_mirrored": False, "repeated_unit_shortcut": False, "paired_choice": list(rc)}, "repair": {"strategy": "replace-one-held-out-whole-phrase-and-recompute-global-equation", "first_mismatch": eq["first_mismatch"], "next": "author a held-out place or purpose phrase whose full character vector closes the recorded debt while retaining scene meaning"}})
+    # Held-out repair phase: mutate one complete semantic slot in a bounded
+    # subset of the best base scenes, then solve against the full right bank.
+    # This is structurally new evidence, not a rerun of the 243 base rows.
+    repair_rows = []
+    base_for_repair = sorted(rows, key=lambda r: (len(r["equation"]["character_debt"]) + len(r["equation"]["character_surplus"]), -r["letters"]))[:12]
+    for base in base_for_repair:
+        words = base["rendered"].rstrip(".").split()
+        for role, alternatives in HELDOUT.items():
+            for replacement in alternatives:
+                # Replace the exact phrase in the complete scene, preserving
+                # the authored clause and ordinary surface order.
+                old = " ".join(words[words.index("beside"):]) if role == "place" and "beside" in words else None
+                # Robust slot replacement uses the known inventory phrase from
+                # the source rendering, avoiding a character-level edit.
+                source_phrase = next((p for p in INVENTORY[role] if p in base["rendered"]), None)
+                if source_phrase is None: continue
+                repaired_left = base["rendered"].replace(source_phrase, replacement)
+                scored = []
+                for rc in right_choices:
+                    right = scene((rc[0], rc[1], rc[2], rc[3], rc[4]))
+                    eq = equation(repaired_left, right)
+                    score = (len(eq["character_debt"]) + len(eq["character_surplus"]), abs(eq["left_letters"] - eq["right_letters"]), 0 if eq["first_mismatch"] is None else eq["first_mismatch"][0])
+                    scored.append((score, right, eq, rc))
+                _, right, eq, rc = min(scored, key=lambda x: x[0])
+                repair_rows.append({"phase": "heldout-repair", "replaced_role": role, "replaced_phrase": source_phrase, "replacement": replacement, "rendered": repaired_left, "paired_scene": right, "letters": len(tape(repaired_left)), "equation": eq, "audit": {"two_pointer": two_pointer(repaired_left), "hash": hash_audit(repaired_left)}, "admission": admissible(repaired_left), "provenance": {"source": "held-out authored phrase repair", "base_rendered": base["rendered"], "heldout_inventory": HELDOUT, "catalogue_text_used": False, "word_order_mirrored": False, "repeated_unit_shortcut": False, "paired_choice": list(rc)}, "repair": {"strategy": "held-out-whole-phrase-replacement", "first_mismatch": eq["first_mismatch"], "next": "author a second held-out phrase targeted at this complete equation debt; do not alter individual letters"}})
+    rows.extend(repair_rows)
     # Keep one representative per unique rendered scene and expose the best
     # complete prose, while preserving all search evidence.
     unique = {r["rendered"]: r for r in rows}
-    result = {"experiment_id": EXPERIMENT_ID, "signature": SIGNATURE, "novelty_preflight": pre, "operator": "complete semantic role assignment, global reversed-tape character equation, meet-in-the-middle nearest debt, whole-phrase repair", "candidate_count": len(unique), "closure_count": sum(r["equation"]["closed"] for r in unique.values()), "best_actual_prose": max(unique.values(), key=lambda r: r["letters"]), "candidates": list(unique.values()), "reader_eligible": False, "status": "completed_no_exact_closure", "next_repair": "held-out phrase authoring against global character debt, then rerun exact dual audit and blinded intact/shuffled reader gate"}
+    result = {"experiment_id": EXPERIMENT_ID, "signature": SIGNATURE, "novelty_preflight": pre, "operator": "complete semantic role assignment, global reversed-tape character equation, meet-in-the-middle nearest debt, held-out whole-phrase repair", "candidate_count": len(unique), "base_count": len(rows)-len(repair_rows), "heldout_repair_count": len(repair_rows), "closure_count": sum(r["equation"]["closed"] for r in unique.values()), "best_actual_prose": max(unique.values(), key=lambda r: r["letters"]), "candidates": list(unique.values()), "reader_eligible": False, "status": "completed_no_exact_closure", "next_repair": "author a second held-out phrase against the best repair's complete global equation debt, then rerun exact dual audit and blinded intact/shuffled reader gate"}
     OUT.write_text(json.dumps(result, indent=2) + "\n")
     return result
 

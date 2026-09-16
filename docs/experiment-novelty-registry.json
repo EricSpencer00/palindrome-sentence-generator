@@ -1655,7 +1655,7 @@
       ],
       "distinction": "Complete independently authored role phrases carry semantic slots and character vectors; whole ordinary-order scenes are paired by one global reversed-tape equation and meet-in-the-middle debt, rather than phrase-lattice/FST traversal or local character repair.",
       "reader_evidence": false,
-      "status": "run; 243 probes; 0 exact and 0 mechanically admitted probes"
+      "status": "run; 243 base + 48 held-out repair probes (36 unique), up to 81 letters; 0 exact and 0 mechanically admitted probes"
     },
     {
       "id": "semantic-center-sat-20260916",
@@ -1667,6 +1667,16 @@
       "distinction": "A non-palindromic authored center event is frozen before bilateral role-slot assignment and global character-equation scoring; no reverse-tape resegmentation or recursive stack is used.",
       "reader_evidence": false,
       "status": "run; 9 probes; 0 exact and 0 mechanically admitted probes"
+    },
+    {
+      "id": "semantic-center-sat-repair-20260916",
+      "signature": "frozen-authored-center|residual-character-debt-repair|verb-object-paradigm-substitution|semantic-valency-preservation|heldout-repair|independent-exact-hash-audit",
+      "artifact": "experiments/semantic_center_sat_repair_20260916.py",
+      "run_artifacts": ["runs/semantic-center-sat-repair-20260916.json"],
+      "overlaps": ["semantic-center-sat-20260916"],
+      "distinction": "Coordinate descent from one center-SAT seed uses residual character debt to choose verb/object substitutions; the authored center remains frozen and no Cartesian resweep is performed.",
+      "reader_evidence": false,
+      "status": "run; 3 targeted repairs; 0 exact and 0 mechanically admitted probes"
     },
     {
       "id": "reverse-segmentation-cfg-valency-20260916",

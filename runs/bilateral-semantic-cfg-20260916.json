@@ -1,0 +1,378 @@
+{
+  "id": "bilateral-semantic-cfg-20260916",
+  "method": "bilateral semantic nonterminal CFG",
+  "construction": {
+    "ordinary_word_order": true,
+    "separately_authored_sides": true,
+    "live_character_equations": true,
+    "fixed_tape": false,
+    "reverse_decoder": false,
+    "complete_prose": true,
+    "clause_count": 6
+  },
+  "candidate": {
+    "text": "the quiet clerk records the parcel. the courier carries the letter. the young baker mixes the dough. the patient guard checks the seal. the keeper opens the gate. the old sailor mends the sail",
+    "audits": {
+      "letters": 154,
+      "exact": false,
+      "two_pointer": false,
+      "sha256_forward": "e627776ccbdbc3f4332ee4d1254d9d4480bc0b7d9186c01d0f23cb24156896e4",
+      "sha256_reverse": "31829028786fcc11bd2d9dddaca270a7daca3c6e5ce2ef46466e6cd1aa9ebdc5",
+      "hash_equal": false,
+      "mechanical": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    },
+    "first_mismatch": {
+      "index": 0,
+      "left": "t",
+      "right": "l"
+    }
+  },
+  "frontier_trace": [
+    {
+      "event": "expand-paired-nonterminal",
+      "pair": 0,
+      "semantic_left": "clerk records parcel",
+      "semantic_right": "guard checks seal",
+      "frontier": {
+        "pair": 0,
+        "left_nt": {
+          "subject": "the quiet clerk",
+          "verb": "records",
+          "obj": "the parcel",
+          "meaning": "clerk records parcel"
+        },
+        "right_nt": {
+          "subject": "the patient guard",
+          "verb": "checks",
+          "obj": "the seal",
+          "meaning": "guard checks seal"
+        },
+        "left_letters": 29,
+        "right_letters": 28,
+        "local_same_position_matches": 5,
+        "unresolved_character_debt": 1
+      }
+    },
+    {
+      "event": "expand-paired-nonterminal",
+      "pair": 1,
+      "semantic_left": "courier carries letter",
+      "semantic_right": "keeper opens gate",
+      "frontier": {
+        "pair": 1,
+        "left_nt": {
+          "subject": "the courier",
+          "verb": "carries",
+          "obj": "the letter",
+          "meaning": "courier carries letter"
+        },
+        "right_nt": {
+          "subject": "the keeper",
+          "verb": "opens",
+          "obj": "the gate",
+          "meaning": "keeper opens gate"
+        },
+        "left_letters": 26,
+        "right_letters": 21,
+        "local_same_position_matches": 3,
+        "unresolved_character_debt": 5
+      }
+    },
+    {
+      "event": "expand-paired-nonterminal",
+      "pair": 2,
+      "semantic_left": "baker mixes dough",
+      "semantic_right": "sailor mends sail",
+      "frontier": {
+        "pair": 2,
+        "left_nt": {
+          "subject": "the young baker",
+          "verb": "mixes",
+          "obj": "the dough",
+          "meaning": "baker mixes dough"
+        },
+        "right_nt": {
+          "subject": "the old sailor",
+          "verb": "mends",
+          "obj": "the sail",
+          "meaning": "sailor mends sail"
+        },
+        "left_letters": 26,
+        "right_letters": 24,
+        "local_same_position_matches": 3,
+        "unresolved_character_debt": 2
+      }
+    }
+  ],
+  "frontier": [
+    {
+      "pair": 0,
+      "left_nt": {
+        "subject": "the quiet clerk",
+        "verb": "records",
+        "obj": "the parcel",
+        "meaning": "clerk records parcel"
+      },
+      "right_nt": {
+        "subject": "the patient guard",
+        "verb": "checks",
+        "obj": "the seal",
+        "meaning": "guard checks seal"
+      },
+      "left_letters": 29,
+      "right_letters": 28,
+      "local_same_position_matches": 5,
+      "unresolved_character_debt": 1
+    },
+    {
+      "pair": 1,
+      "left_nt": {
+        "subject": "the courier",
+        "verb": "carries",
+        "obj": "the letter",
+        "meaning": "courier carries letter"
+      },
+      "right_nt": {
+        "subject": "the keeper",
+        "verb": "opens",
+        "obj": "the gate",
+        "meaning": "keeper opens gate"
+      },
+      "left_letters": 26,
+      "right_letters": 21,
+      "local_same_position_matches": 3,
+      "unresolved_character_debt": 5
+    },
+    {
+      "pair": 2,
+      "left_nt": {
+        "subject": "the young baker",
+        "verb": "mixes",
+        "obj": "the dough",
+        "meaning": "baker mixes dough"
+      },
+      "right_nt": {
+        "subject": "the old sailor",
+        "verb": "mends",
+        "obj": "the sail",
+        "meaning": "sailor mends sail"
+      },
+      "left_letters": 26,
+      "right_letters": 24,
+      "local_same_position_matches": 3,
+      "unresolved_character_debt": 2
+    }
+  ],
+  "repair": {
+    "operator": "held-out semantic object substitution",
+    "before": "the quiet clerk records the parcel. the courier carries the letter. the young baker mixes the dough. the patient guard checks the seal. the keeper opens the gate. the old sailor mends the sail",
+    "after": "the quiet clerk records the parcel. the courier carries the letter. the young baker mixes the dough. the patient guard checks the seal. the keeper opens the lock. the old sailor mends the sail",
+    "audits": {
+      "letters": 154,
+      "exact": false,
+      "two_pointer": false,
+      "sha256_forward": "2f9031fb38873813aea365053e8e1a0c8b634843d3e0efe36b7b5084d5e8f3b3",
+      "sha256_reverse": "09b53820eb7cc82b01b229a53b30ab5e96883d461425734d0bef3dd748035396",
+      "hash_equal": false,
+      "mechanical": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    },
+    "first_mismatch": {
+      "index": 0,
+      "left": "t",
+      "right": "l"
+    },
+    "frontier": [
+      {
+        "pair": 0,
+        "left_nt": {
+          "subject": "the quiet clerk",
+          "verb": "records",
+          "obj": "the parcel",
+          "meaning": "clerk records parcel"
+        },
+        "right_nt": {
+          "subject": "the patient guard",
+          "verb": "checks",
+          "obj": "the seal",
+          "meaning": "guard checks seal"
+        },
+        "left_letters": 29,
+        "right_letters": 28,
+        "local_same_position_matches": 5,
+        "unresolved_character_debt": 1
+      },
+      {
+        "pair": 1,
+        "left_nt": {
+          "subject": "the courier",
+          "verb": "carries",
+          "obj": "the letter",
+          "meaning": "courier carries letter"
+        },
+        "right_nt": {
+          "subject": "the keeper",
+          "verb": "opens",
+          "obj": "the lock",
+          "meaning": "keeper opens lock"
+        },
+        "left_letters": 26,
+        "right_letters": 21,
+        "local_same_position_matches": 3,
+        "unresolved_character_debt": 5
+      },
+      {
+        "pair": 2,
+        "left_nt": {
+          "subject": "the young baker",
+          "verb": "mixes",
+          "obj": "the dough",
+          "meaning": "baker mixes dough"
+        },
+        "right_nt": {
+          "subject": "the old sailor",
+          "verb": "mends",
+          "obj": "the sail",
+          "meaning": "sailor mends sail"
+        },
+        "left_letters": 26,
+        "right_letters": 24,
+        "local_same_position_matches": 3,
+        "unresolved_character_debt": 2
+      }
+    ],
+    "trace": [
+      {
+        "event": "expand-paired-nonterminal",
+        "pair": 0,
+        "semantic_left": "clerk records parcel",
+        "semantic_right": "guard checks seal",
+        "frontier": {
+          "pair": 0,
+          "left_nt": {
+            "subject": "the quiet clerk",
+            "verb": "records",
+            "obj": "the parcel",
+            "meaning": "clerk records parcel"
+          },
+          "right_nt": {
+            "subject": "the patient guard",
+            "verb": "checks",
+            "obj": "the seal",
+            "meaning": "guard checks seal"
+          },
+          "left_letters": 29,
+          "right_letters": 28,
+          "local_same_position_matches": 5,
+          "unresolved_character_debt": 1
+        }
+      },
+      {
+        "event": "expand-paired-nonterminal",
+        "pair": 1,
+        "semantic_left": "courier carries letter",
+        "semantic_right": "keeper opens lock",
+        "frontier": {
+          "pair": 1,
+          "left_nt": {
+            "subject": "the courier",
+            "verb": "carries",
+            "obj": "the letter",
+            "meaning": "courier carries letter"
+          },
+          "right_nt": {
+            "subject": "the keeper",
+            "verb": "opens",
+            "obj": "the lock",
+            "meaning": "keeper opens lock"
+          },
+          "left_letters": 26,
+          "right_letters": 21,
+          "local_same_position_matches": 3,
+          "unresolved_character_debt": 5
+        }
+      },
+      {
+        "event": "expand-paired-nonterminal",
+        "pair": 2,
+        "semantic_left": "baker mixes dough",
+        "semantic_right": "sailor mends sail",
+        "frontier": {
+          "pair": 2,
+          "left_nt": {
+            "subject": "the young baker",
+            "verb": "mixes",
+            "obj": "the dough",
+            "meaning": "baker mixes dough"
+          },
+          "right_nt": {
+            "subject": "the old sailor",
+            "verb": "mends",
+            "obj": "the sail",
+            "meaning": "sailor mends sail"
+          },
+          "left_letters": 26,
+          "right_letters": 24,
+          "local_same_position_matches": 3,
+          "unresolved_character_debt": 2
+        }
+      }
+    ]
+  },
+  "provenance": {
+    "source": "experiments/bilateral_semantic_cfg_20260916.py",
+    "generator_sha256": "eb4fd26a4d0f13d8e184fd3034287157263e3cabbfe769e4c09e7d93adc7246f",
+    "pair_count": 3,
+    "pair_meanings": [
+      [
+        "clerk records parcel",
+        "guard checks seal"
+      ],
+      [
+        "courier carries letter",
+        "keeper opens gate"
+      ],
+      [
+        "baker mixes dough",
+        "sailor mends sail"
+      ]
+    ]
+  },
+  "reader_status": "diagnostic near-miss: intact six-clause prose; not promoted without exact closure",
+  "next_repair": "expand the held-out semantic object domains jointly with verb valency while retaining the live frontier"
+}

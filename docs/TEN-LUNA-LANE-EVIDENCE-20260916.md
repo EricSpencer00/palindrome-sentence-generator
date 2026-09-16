@@ -346,15 +346,22 @@ lexical targeting, typed adjunct substitution, or joint instrument/purpose
 replacement respectively.
 
 The outside-in scene grammar CSP was repaired to use distinct held-out right
-frames rather than reflecting the left frame. Six fresh 102--124-letter prose
-pairs survive the all-different content-word filter; all fail exactness at the
-outer seam and carry unequal forward/reverse hashes plus a distinct-frame
-transitive repair. The exact-tape-first resegmentation control is kept outside
+frames rather than reflecting the left frame. Its longest fresh pair is “At
+first light, the marine biologist records patient observations beside the
+sheltered tide pool. At dusk, the coastal engineer maps hidden channels.” (124
+letters); six fresh 102--124-letter prose pairs survive the all-different
+content-word filter. All fail exactness at the outer seam and carry unequal
+forward/reverse hashes plus a distinct-frame transitive repair. The exact-tape-first
+resegmentation control is kept outside
 the aggregate because its only closure is the known 16-letter “Able was I; I
 saw Elba” catalogue sentence, below the long-prose floor.
 
 A ten-clause residual-equation solver adds a 242-letter clinic scene with ten
-complete coordinated clauses. It jointly substitutes verb/object spans against
-the first twenty residual positions while locking agreement and content-word
-uniqueness; independent pointer/hash checks reject exactness and the next
-paired verb/object repair is recorded.
+complete coordinated clauses: “At first light Mara opens the clinic, checks the
+quiet generators, greets the two nurses, and records the medicine count. She
+carries clean water to the waiting room, labels each parcel, phones the mountain
+driver, updates the weather board, thanks the volunteers, and closes the ledger
+before dusk.” It jointly substitutes verb/object spans against the first twenty
+residual positions while locking agreement and content-word uniqueness;
+independent pointer/hash checks reject exactness and the next paired verb/object
+repair is recorded.

@@ -2060,9 +2060,15 @@ item-aware analysis plan.
 
   **Latest constructive repairs:** the outside-in typed scene CSP now uses
   distinct held-out right frames, retaining six 102--124-letter ordinary prose
-  pairs after all-different filtering. The exact-tape-first route is excluded
+  pairs after all-different filtering; the longest is “At first light, the marine
+  biologist records patient observations beside the sheltered tide pool. At
+  dusk, the coastal engineer maps hidden channels.” The exact-tape-first route is excluded
   from the retained aggregate because its only closure is the known 16-letter
   “Able was I; I saw Elba” catalogue control. A ten-clause residual-equation
-  solver adds a 242-letter clinic scene with a paired verb/object repair. All
+  solver adds a 242-letter clinic scene (“At first light Mara opens the clinic,
+  checks the quiet generators, greets the two nurses, and records the medicine
+  count. She carries clean water to the waiting room, labels each parcel, phones
+  the mountain driver, updates the weather board, thanks the volunteers, and
+  closes the ledger before dusk.”) with a paired verb/object repair. All
   have independent exact/hash audits, provenance, and novelty records; none is
   mechanically admitted.

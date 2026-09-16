@@ -52,7 +52,7 @@ stack-machine lane was rejected because its exact surface is a semordnilap
 word chain, not intact prose. Only the first two are retained as runnable
 families; the stack route is an explicit exclusion with a grammar pivot.
 
-The current aggregate is 3888 audit-compatible rendered rows across 92 route
+The current aggregate is 4224 audit-compatible rendered rows across 95 route
 phases, with 73 exact-but-rejected tapes and 0 mechanically admitted rows.
 
 ## Orthogonal continuation wave
@@ -76,3 +76,9 @@ agreement/attachment/sense edit program (54 states, 18 normalized outputs).
 All are complete ordinary prose with dual exact audits and held-out repairs;
 all have zero exact closures. These are retained as repair evidence, not
 reader claims.
+
+The latest Luna wave added an event-graph character SAT, a syntax-stack
+semantic-role decoder, and a meet-in-the-middle phrase-equation inventory
+solver. They retain 81, 81, and 243 complete probes respectively (the common
+audit normalized 81, 12, and 243 rows). Their longest actual prose surfaces
+are 61, 81, and 74 letters; all fail both exact audits and remain unpromoted.

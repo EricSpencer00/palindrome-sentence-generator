@@ -34,6 +34,9 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `bilateral-semantic-cfg-20260916` | semantic nonterminal pairs expand complete ordinary-order clauses while a memoized bilateral character frontier carries debt | bilateral semantic CFG | one 154-letter six-clause realization; 0 exact and 0 reader-eligible |
 | `human-scene-equation-frames-20260916` | human-authored multi-sentence scene frames are assembled slot-by-slot with a live character equation and held-out frame repair | human scene equation frames | one 145-letter three-frame realization; 0 exact and 0 reader-eligible |
 | `typed-edit-program-repair-20260916` | agreement, attachment, and lexical-sense edits are jointly typed and certified at the first mirrored mismatch on complete scenes | typed edit-program repair | 54 states, 18 normalized outputs at 79–82 letters; 0 exact and 0 reader-eligible |
+| `event-graph-character-sat-20260916` | independent event topologies and variable word boundaries are solved by position equations before lexical realization | event-graph character SAT | 81 complete probes, longest 61 letters; 0 exact and 0 reader-eligible |
+| `syntax-stack-semantic-role-decoder-20260916` | an ordinary-order semantic-role continuation stack carries complete frames and mirrored debt | syntax-stack semantic-role decoder | 81 complete probes, longest 81 letters; 0 exact and 0 reader-eligible |
+| `phrase-equation-inventory-solver-20260916` | independently authored role phrases are paired by a global reversed-tape equation using meet-in-the-middle character vectors | phrase-equation inventory solver | 243 complete 74-letter probes; 0 exact and 0 reader-eligible |
 | `weighted-morphology-fst-lockstep-20260916` | paired lexical chunks emit in character lockstep while agreement, tense, lemma, semantic roles, and fluency remain in the transducer state | agreement-carrying morphology transducer | 24 complete 58–60-letter prose probes; 0 exact and 0 reader-eligible |
 | `reader-first-discourse-scene-lattice-20260916` | two human-authored scenes preserve topic continuity while complete clause, tense, attachment, punctuation, and one-slot repair states vary under a live equation | human-authored scene lattice with live equations | 24 complete 107–124-letter probes; 0 exact and 0 reader-eligible |
 | `inflectional-clitic-boundary-csp-20260916` | productive tense/agreement and possessive-clitic/of boundaries are selected jointly in a complete harbor scene, with held-out boundary repair | inflectional and clitic boundary search | 24 complete 120–131-letter probes; 0 exact and 0 reader-eligible |
@@ -246,7 +249,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 197 retained families and 24 explicit
+family. The current audit covers all 200 retained families and 24 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

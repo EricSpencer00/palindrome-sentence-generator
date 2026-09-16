@@ -144,6 +144,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "bilateral-semantic-cfg-20260916" in ids
     assert "human-scene-equation-frames-20260916" in ids
     assert "typed-edit-program-repair-20260916" in ids
+    assert "event-graph-character-sat-20260916" in ids
+    assert "syntax-stack-semantic-role-decoder-20260916" in ids
+    assert "phrase-equation-inventory-solver-20260916" in ids
     assert "proper-name-caption-crossword" in ids
     assert "information-structure-focus-scope" in ids
     assert "anaphoric-scene-chain-composition" in ids

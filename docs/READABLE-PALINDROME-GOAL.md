@@ -1875,5 +1875,13 @@ item-aware analysis plan.
   are 154, 145, and 82 letters respectively; every one is complete ordinary
   prose with provenance, independent exact/hash checks, and a held-out repair,
   but all three fail the exact palindrome gate. The aggregate now contains
-  3888 normalized rows across 92 route phases, 73 exact-but-rejected tapes,
+  4224 normalized rows across 95 route phases, 73 exact-but-rejected tapes,
   and 0 mechanically admitted candidates.
+
+  A further three-Luna wave tested event-graph character SAT, a syntax-stack
+  semantic-role decoder, and a meet-in-the-middle phrase-equation inventory.
+  They produced complete ordinary prose at 61, 81, and 74 letters with
+  provenance, independent audits, and held-out repairs, but no exact closure.
+  Their evidence is retained as constructive search progress; it does not
+  become a readable example or a reader-study claim until the exact gate is
+  passed.

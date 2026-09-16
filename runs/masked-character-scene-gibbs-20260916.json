@@ -1,0 +1,602 @@
+{
+  "experiment_id": "masked-character-scene-gibbs-20260916",
+  "signature": "masked-character-scene-gibbs|pairwise-mirror-resampling|semantic-slot-alphabet|whole-tape-local-score|two-pointer-hash-audit",
+  "signature_sha256": "7005efb4b8f000efe0752df64685cc338046a9b3b43709246e113c96ccf1904d",
+  "novelty_preflight": {
+    "entries_inspected": 188,
+    "exact_signature_collision": false,
+    "nearest_prior": [
+      {
+        "id": "assumption-core-scene-solver-20260916",
+        "jaccard": 0.0,
+        "shared_atoms": []
+      },
+      {
+        "id": "exact-tape-semantic-slot-repair-20260916",
+        "jaccard": 0.0,
+        "shared_atoms": []
+      },
+      {
+        "id": "scalable-compositional-clause-grammar-20260916",
+        "jaccard": 0.0,
+        "shared_atoms": []
+      },
+      {
+        "id": "inflectional-clitic-boundary-csp-20260916",
+        "jaccard": 0.0,
+        "shared_atoms": []
+      },
+      {
+        "id": "reader-first-discourse-scene-lattice-20260916",
+        "jaccard": 0.0,
+        "shared_atoms": []
+      }
+    ],
+    "passed": true
+  },
+  "operator": "mask mirrored character pairs, resample under semantic-slot locks, and score complete tapes locally",
+  "probes": [
+    {
+      "scene_id": "garden",
+      "meaning": "a gardener waters roses beside a wall",
+      "text": "The patient gardener waters young roses beside a stone wall.",
+      "search": {
+        "initial": "thepatientgardenerwatersyoungrosesbesideastonewall",
+        "final": "thepatientgardenerwatersyoungrosesbesideastonewall",
+        "rounds": 3,
+        "decisions": [
+          {
+            "round": 0,
+            "pair": [
+              0,
+              49
+            ],
+            "masked": true,
+            "chosen": [
+              "t",
+              "l"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              1,
+              48
+            ],
+            "masked": true,
+            "chosen": [
+              "h",
+              "l"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              2,
+              47
+            ],
+            "masked": true,
+            "chosen": [
+              "e",
+              "a"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              3,
+              46
+            ],
+            "masked": true,
+            "chosen": [
+              "p",
+              "w"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              4,
+              45
+            ],
+            "masked": true,
+            "chosen": [
+              "a",
+              "e"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              5,
+              44
+            ],
+            "masked": true,
+            "chosen": [
+              "t",
+              "n"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              6,
+              43
+            ],
+            "masked": true,
+            "chosen": [
+              "i",
+              "o"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              7,
+              42
+            ],
+            "masked": true,
+            "chosen": [
+              "e",
+              "t"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          }
+        ],
+        "complete_assignment": true,
+        "local_model_used_only_for_search_score": true
+      },
+      "audit": {
+        "tape_length": 50,
+        "exact": false,
+        "sha256_tape": "e686bb01be19667da7bbfe9d9cf079e0a492644cd8294fb3c8daa4627fb7a382",
+        "sha256_reverse": "635ae6e8b1eaafea4b1324502f188163e198a58c804795c0430d2534c774630b",
+        "hash_equal": false,
+        "two_pointer": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "l"
+        ]
+      },
+      "repair": {
+        "strategy": "reject-and-remask-pair",
+        "pair": [
+          0,
+          49
+        ],
+        "mismatch": [
+          "t",
+          "l"
+        ],
+        "result": "The patient gardener waters young roses beside a stone wall.",
+        "audit_after": {
+          "tape_length": 50,
+          "exact": false,
+          "sha256_tape": "e686bb01be19667da7bbfe9d9cf079e0a492644cd8294fb3c8daa4627fb7a382",
+          "sha256_reverse": "635ae6e8b1eaafea4b1324502f188163e198a58c804795c0430d2534c774630b",
+          "hash_equal": false,
+          "two_pointer": false,
+          "first_mismatch": [
+            0,
+            "t",
+            "l"
+          ]
+        },
+        "accepted": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "intact_english": true,
+      "provenance": "fresh hand-authored complete scene; no catalogue text"
+    },
+    {
+      "scene_id": "station",
+      "meaning": "a porter carries a parcel to a bench after rain",
+      "text": "After rain, the station porter carries a wet parcel to the bench.",
+      "search": {
+        "initial": "afterrainthestationportercarriesawetparceltothebench",
+        "final": "afterrainthestationportercarriesawetparceltothebench",
+        "rounds": 3,
+        "decisions": [
+          {
+            "round": 0,
+            "pair": [
+              0,
+              51
+            ],
+            "masked": true,
+            "chosen": [
+              "a",
+              "h"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              1,
+              50
+            ],
+            "masked": true,
+            "chosen": [
+              "f",
+              "c"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              2,
+              49
+            ],
+            "masked": true,
+            "chosen": [
+              "t",
+              "n"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              3,
+              48
+            ],
+            "masked": true,
+            "chosen": [
+              "e",
+              "e"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              4,
+              47
+            ],
+            "masked": true,
+            "chosen": [
+              "r",
+              "b"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              5,
+              46
+            ],
+            "masked": true,
+            "chosen": [
+              "r",
+              "e"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              6,
+              45
+            ],
+            "masked": true,
+            "chosen": [
+              "a",
+              "h"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              7,
+              44
+            ],
+            "masked": true,
+            "chosen": [
+              "i",
+              "t"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          }
+        ],
+        "complete_assignment": true,
+        "local_model_used_only_for_search_score": true
+      },
+      "audit": {
+        "tape_length": 52,
+        "exact": false,
+        "sha256_tape": "847a42645a128d9a4d834fbb31ff9a66d1b9601799a94c90a5784580863b537d",
+        "sha256_reverse": "830b695433e5443bfbdb5891ebd7f8402b288e865e9c6fba39b437ad5a9b267f",
+        "hash_equal": false,
+        "two_pointer": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "h"
+        ]
+      },
+      "repair": {
+        "strategy": "reject-and-remask-pair",
+        "pair": [
+          0,
+          51
+        ],
+        "mismatch": [
+          "a",
+          "h"
+        ],
+        "result": "After rain, the station porter carries a wet parcel to the bench.",
+        "audit_after": {
+          "tape_length": 52,
+          "exact": false,
+          "sha256_tape": "847a42645a128d9a4d834fbb31ff9a66d1b9601799a94c90a5784580863b537d",
+          "sha256_reverse": "830b695433e5443bfbdb5891ebd7f8402b288e865e9c6fba39b437ad5a9b267f",
+          "hash_equal": false,
+          "two_pointer": false,
+          "first_mismatch": [
+            0,
+            "a",
+            "h"
+          ]
+        },
+        "accepted": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "intact_english": true,
+      "provenance": "fresh hand-authored complete scene; no catalogue text"
+    },
+    {
+      "scene_id": "archive",
+      "meaning": "an archivist labels maps before evening",
+      "text": "A careful archivist labels old maps before the evening bell.",
+      "search": {
+        "initial": "acarefularchivistlabelsoldmapsbeforetheeveningbell",
+        "final": "acarefularchivistlabelsoldmapsbeforetheeveningbell",
+        "rounds": 3,
+        "decisions": [
+          {
+            "round": 0,
+            "pair": [
+              0,
+              49
+            ],
+            "masked": true,
+            "chosen": [
+              "a",
+              "l"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              1,
+              48
+            ],
+            "masked": true,
+            "chosen": [
+              "c",
+              "l"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              2,
+              47
+            ],
+            "masked": true,
+            "chosen": [
+              "a",
+              "e"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              3,
+              46
+            ],
+            "masked": true,
+            "chosen": [
+              "r",
+              "b"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              4,
+              45
+            ],
+            "masked": true,
+            "chosen": [
+              "e",
+              "g"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              5,
+              44
+            ],
+            "masked": true,
+            "chosen": [
+              "f",
+              "n"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              6,
+              43
+            ],
+            "masked": true,
+            "chosen": [
+              "u",
+              "i"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          },
+          {
+            "round": 0,
+            "pair": [
+              7,
+              42
+            ],
+            "masked": true,
+            "chosen": [
+              "l",
+              "n"
+            ],
+            "alternatives_scored": 1,
+            "reason": "complete-scene semantics and punctuation lock"
+          }
+        ],
+        "complete_assignment": true,
+        "local_model_used_only_for_search_score": true
+      },
+      "audit": {
+        "tape_length": 50,
+        "exact": false,
+        "sha256_tape": "5473d149e7d113ab753234a1539601b55a0f87c1e5c9d3bfd432241552b2cb5f",
+        "sha256_reverse": "ce1a51e3a700efed88da83182b0fd95e9e6efd2af2cd4c3c0ebfc5277dade217",
+        "hash_equal": false,
+        "two_pointer": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "l"
+        ]
+      },
+      "repair": {
+        "strategy": "reject-and-remask-pair",
+        "pair": [
+          0,
+          49
+        ],
+        "mismatch": [
+          "a",
+          "l"
+        ],
+        "result": "A careful archivist labels old maps before the evening bell.",
+        "audit_after": {
+          "tape_length": 50,
+          "exact": false,
+          "sha256_tape": "5473d149e7d113ab753234a1539601b55a0f87c1e5c9d3bfd432241552b2cb5f",
+          "sha256_reverse": "ce1a51e3a700efed88da83182b0fd95e9e6efd2af2cd4c3c0ebfc5277dade217",
+          "hash_equal": false,
+          "two_pointer": false,
+          "first_mismatch": [
+            0,
+            "a",
+            "l"
+          ]
+        },
+        "accepted": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "intact_english": true,
+      "provenance": "fresh hand-authored complete scene; no catalogue text"
+    }
+  ],
+  "best_prose": "After rain, the station porter carries a wet parcel to the bench.",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "reason": "character masks remained semantically locked; no fabricated repair admitted"
+}

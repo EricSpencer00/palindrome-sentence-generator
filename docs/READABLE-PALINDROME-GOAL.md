@@ -1045,3 +1045,22 @@ item-aware analysis plan.
   package only any complete-clause survivor with an intact-prose control, a
   word-shuffled control, randomized blinded order, and reproducible rater
   instructions.
+
+- **Fixed-tape grammar boundary repair, 2026-09-15:** applied the declared
+  successor to the 116-letter tape without changing a single letter.  The
+  Brown-POS weighted chart's 20k-word coverage run and its first 80k-word run
+  had no complete segmentation; after correcting the short-word coverage bug,
+  the held-out v3 produced two exact, mechanically admitted segmentations:
+
+  > `No it can won knee bye know oh so than its opera was sec cases Utah; two new we now that uses access aware post in ah to show on key been known action.`
+
+  > `No it can won knee bye know oh so than its opera was sec cases Utah; two new we now that uses access aware post in ah to show on key been known act ion.`
+
+  Both preserve the 116-letter tape and pass every mechanical check, but
+  neither is intact English prose.  All three runs, the source tape hash, POS
+  sequence, and independent exact checks are retained in
+  `runs/grammar-boundary-resegmentation-repair-20260915*.json`.  The next
+  constructive operator is a fixed-tape valency chart (finite-verb and
+  argument-role constraints carried through the same boundary states); only a
+  complete-clause survivor will be eligible for intact/shuffled blinded
+  readers.

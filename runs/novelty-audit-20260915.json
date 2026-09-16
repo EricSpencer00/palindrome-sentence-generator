@@ -1580,6 +1580,28 @@
         "uniqueness",
         "wordfreq"
       ]
+    },
+    {
+      "id": "grammar-boundary-resegmentation-repair",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "multiword-unit-transducer-local-repair",
+        "jaccard": 0.1,
+        "shared_atoms": [
+          "boundary",
+          "resegmentation"
+        ]
+      },
+      "signature_atoms": [
+        "boundary",
+        "diagnostic",
+        "fixed",
+        "pos",
+        "resegmentation",
+        "segmentation",
+        "valency",
+        "weighted"
+      ]
     }
   ],
   "exact_signature_collisions": false,
@@ -1779,7 +1801,7 @@
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 60,
+  "registered_entries": 61,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

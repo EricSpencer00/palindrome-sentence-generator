@@ -1,0 +1,51 @@
+{
+  "status": "grammar_boundary_resegmentation_repair_complete",
+  "experiment_id": "grammar-boundary-resegmentation-repair",
+  "signature": "grammar-boundary-resegmentation|fixed-exact-tape|pos-weighted-segmentation|valency-diagnostic|independent-audit",
+  "repair_of": "lexical-admission-centerout",
+  "input": {
+    "source_run": "runs/lexical-admission-centerout-20260915.json",
+    "source_rendered": "no it can won knee bye know oh so than its opera was sec cases utah two new we now that uses access aware post in ah to show on key been known action.",
+    "fixed_normalized_tape": "noitcanwonkneebyeknowohsothanitsoperawasseccasesutahtwonewwenowthatusesaccessawarepostinahtoshowonkeybeenknownaction",
+    "letters": 116,
+    "tape_sha256": "2fa8a5157fd448aa119bbe1909da7e8cf04344898fe1ead03e7f0ef4898ef373"
+  },
+  "config": {
+    "candidate_limit": 40,
+    "vocabulary_size_requested": 80000,
+    "vocabulary_size": 74805,
+    "max_word_length": 18,
+    "pos_source": "Brown universal tags",
+    "tape_mutation": false,
+    "catalogue_text_imported": false
+  },
+  "novelty_audit": {
+    "registry_entries_read_before_run": 60,
+    "excluded_routes_read_before_run": 3,
+    "signature_overlap": [],
+    "conceptual_near_pairs": [],
+    "manual_review_required": false,
+    "repair_of_registered_family": true,
+    "self_entry_present": false,
+    "preflight_required_before_artifact": true,
+    "construction_dimension": "fixed exact tape with a POS-weighted boundary search; unlike the preceding generator, no new palindrome letters are emitted"
+  },
+  "stats": {
+    "segmentations": 0,
+    "mechanically_admitted": 0,
+    "subject_before_finite_verb": 0,
+    "reader_eligible": 0
+  },
+  "rendered_candidates_and_probes": [],
+  "admitted": [],
+  "provenance": {
+    "generator_sha256": "216e256382d08d076c06a3232cc3f4cbf9da02b0b414d2ba0c25b1eadfc47ab4",
+    "vocabulary_sha256": "51c361d56cea8d0311a0cddce057888e1215d70f379a11a7be7053f534769727",
+    "source_sentences_copied": false,
+    "known_palindromes_imported": false,
+    "independent_validator": "ASCII tape equality plus shared mechanical admission",
+    "readability_certificate": false
+  },
+  "next_operator": "If no segmentation yields an intact clause, carry finite-verb valency and argument-role constraints in the same fixed-tape chart; do not alter letters or reuse the center-out beam.",
+  "reader_gate": "Only a human-confirmed intact-prose survivor may enter a randomized reader package with an intact control and a shuffled control."
+}

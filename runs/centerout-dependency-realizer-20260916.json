@@ -1,0 +1,235 @@
+{
+  "experiment_id": "centerout-dependency-realizer-20260916",
+  "signature": "centerout-dependency-realizer|three-clause-discourse-plan|topic-continuity-state|typed-argument-agreement|bilateral-character-obligations|independent-lexicalization|deterministic-exhaustive",
+  "status": "completed_no_reader_promotion",
+  "method": "Three-clause topic-continuous discourse plans are independently lexicalized on left and right. A center-out ledger begins at the discourse seam, expands toward both exteriors, and enforces typed singular argument agreement and topic-pronoun continuity before exact tape audit.",
+  "novelty_preflight": {
+    "registry_entries": 102,
+    "runtime_registry_entries": 103,
+    "excluded_routes": 6,
+    "exact_signature_collision": false,
+    "nearest_prior": [
+      {
+        "id": "anaphoric-scene-chain-composition",
+        "jaccard": 0.130435,
+        "shared_atoms": [
+          "continuity",
+          "discourse",
+          "three"
+        ]
+      },
+      {
+        "id": "semantic-relation-alignment-20260916",
+        "jaccard": 0.111111,
+        "shared_atoms": [
+          "deterministic",
+          "exhaustive",
+          "lexicalization"
+        ]
+      },
+      {
+        "id": "gpt2-topic-half-decoder-20260915",
+        "jaccard": 0.086957,
+        "shared_atoms": [
+          "continuity",
+          "topic"
+        ]
+      },
+      {
+        "id": "asymmetric-template-reservoir-centerout-20260915",
+        "jaccard": 0.083333,
+        "shared_atoms": [
+          "agreement",
+          "centerout"
+        ]
+      },
+      {
+        "id": "pos-template-centerout-longform-repair-20260915",
+        "jaccard": 0.083333,
+        "shared_atoms": [
+          "centerout",
+          "lexicalization"
+        ]
+      }
+    ]
+  },
+  "config": {
+    "plans": [
+      "archive_route",
+      "garden_route",
+      "signal_route"
+    ],
+    "clauses_per_side": 3,
+    "slots_per_side": 13,
+    "min_letters": 39,
+    "search_control": "deterministic exhaustive center-out recursion; no beam, MCTS, chart, CSP, ILP, fragments, catalogue input, or word-order mirror"
+  },
+  "stats": {
+    "plans": 3,
+    "exact": 0,
+    "mechanically_admitted": 0,
+    "rendered_probes": 3,
+    "max_letters": 95,
+    "per_plan": {
+      "archive_route": {
+        "states": 37,
+        "lexical_assignments": 30,
+        "char_pairs": 6,
+        "dead_char": 25,
+        "odd_center_trials": 0,
+        "max_matched": 1,
+        "budget_exhausted": false
+      },
+      "garden_route": {
+        "states": 31,
+        "lexical_assignments": 30,
+        "char_pairs": 0,
+        "dead_char": 25,
+        "odd_center_trials": 0,
+        "max_matched": 0,
+        "budget_exhausted": false
+      },
+      "signal_route": {
+        "states": 33,
+        "lexical_assignments": 30,
+        "char_pairs": 2,
+        "dead_char": 25,
+        "odd_center_trials": 0,
+        "max_matched": 1,
+        "budget_exhausted": false
+      }
+    }
+  },
+  "exact_candidates": [],
+  "rendered_probes": [
+    {
+      "rendered": "a baker keeps a map. it guides a harbor. it reads a book. a artist carries a alarm. it calls a office. it reads a letter.",
+      "letters": 90,
+      "tape": "abakerkeepsamapitguidesaharboritreadsabookaartistcarriesaalarmitcallsaofficeitreadsaletter",
+      "exact": false,
+      "ledger_replay": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "topic_and_agreement": {
+        "left": {
+          "topic_continuity": true,
+          "argument_agreement": true,
+          "side": "left"
+        },
+        "right": {
+          "topic_continuity": true,
+          "argument_agreement": true,
+          "side": "right"
+        }
+      },
+      "plan": "archive_route",
+      "probe_type": "complete-independent-plan-proposal"
+    },
+    {
+      "rendered": "a gardener plants a beans. it feeds a garden. it counts a basket. a doctor tests a data. it helps a office. it reads a report.",
+      "letters": 95,
+      "tape": "agardenerplantsabeansitfeedsagardenitcountsabasketadoctortestsadataithelpsaofficeitreadsareport",
+      "exact": false,
+      "ledger_replay": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "topic_and_agreement": {
+        "left": {
+          "topic_continuity": true,
+          "argument_agreement": true,
+          "side": "left"
+        },
+        "right": {
+          "topic_continuity": true,
+          "argument_agreement": true,
+          "side": "right"
+        }
+      },
+      "plan": "garden_route",
+      "probe_type": "complete-independent-plan-proposal"
+    },
+    {
+      "rendered": "a caller asks a alarm. it helps a harbor. it answers a friend. a artist draws a map. it helps a garden. it reads a child.",
+      "letters": 90,
+      "tape": "acallerasksaalarmithelpsaharboritanswersafriendaartistdrawsamapithelpsagardenitreadsachild",
+      "exact": false,
+      "ledger_replay": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "topic_and_agreement": {
+        "left": {
+          "topic_continuity": true,
+          "argument_agreement": true,
+          "side": "left"
+        },
+        "right": {
+          "topic_continuity": true,
+          "argument_agreement": true,
+          "side": "right"
+        }
+      },
+      "plan": "signal_route",
+      "probe_type": "complete-independent-plan-proposal"
+    }
+  ],
+  "provenance": {
+    "source_sentences_copied": false,
+    "catalogue_imported": false,
+    "reader_evidence": false,
+    "generator_sha256": "4c7d851605418d6a33c108e2617734d47e6cc4d703f63f576cc2d03c83644e27"
+  }
+}

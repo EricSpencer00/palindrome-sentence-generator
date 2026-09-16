@@ -1,0 +1,600 @@
+{
+  "experiment_id": "semantic-center-sat-20260916",
+  "signature": "authored-nonpalindromic-center-event|bilateral-role-slot-sat|global-character-equation|semantic-valency-gate|heldout-center-repair|independent-exact-hash-audit",
+  "status": "completed",
+  "method": "fix a non-palindromic authored event first; assign independent semantic role slots; score global character clauses; reject on exact pointer/hash audit",
+  "novelty_preflight": {
+    "exact_signature_collision": false,
+    "registry_entries": 200,
+    "nearest": [
+      {
+        "id": "event-graph-character-sat-20260916",
+        "shared_atoms": [
+          "audit",
+          "character",
+          "equation",
+          "event",
+          "exact",
+          "independent",
+          "repair",
+          "sat",
+          "semantic",
+          "slot"
+        ]
+      },
+      {
+        "id": "phrase-equation-inventory-solver-20260916",
+        "shared_atoms": [
+          "audit",
+          "character",
+          "equation",
+          "exact",
+          "global",
+          "heldout",
+          "independent",
+          "repair",
+          "role",
+          "semantic"
+        ]
+      },
+      {
+        "id": "human-scene-equation-frames-20260916",
+        "shared_atoms": [
+          "audit",
+          "authored",
+          "equation",
+          "exact",
+          "heldout",
+          "independent",
+          "repair",
+          "semantic",
+          "slot"
+        ]
+      },
+      {
+        "id": "live-gpt2-character-decoder-preflight-20260916",
+        "shared_atoms": [
+          "bilateral",
+          "character",
+          "equation",
+          "hash",
+          "heldout",
+          "independent",
+          "repair",
+          "semantic",
+          "valency"
+        ]
+      },
+      {
+        "id": "parse-tree-exact-cover-20260916",
+        "shared_atoms": [
+          "audit",
+          "authored",
+          "character",
+          "exact",
+          "heldout",
+          "independent",
+          "repair",
+          "role"
+        ]
+      }
+    ],
+    "preflight_rule": "reject exact collision or a center-out/scene-stack replay"
+  },
+  "candidates": [
+    {
+      "label": "center-fixed-slot-probe",
+      "rendered": "the careful nurse carried a sealed letter. at dusk the nurse closed the market ledger.",
+      "letters": 70,
+      "center_event": "at dusk the nurse closed the market ledger",
+      "center_sense": "a nurse closes a ledger at dusk",
+      "slot_assignment": {
+        "subject": "the careful nurse",
+        "verb": "carried",
+        "object": "a sealed letter"
+      },
+      "sat_character_equation": {
+        "paired_positions": 35,
+        "satisfied_clauses": 0,
+        "total_clauses": 35,
+        "residual_debt": 35
+      },
+      "exact_audit": {
+        "letters": 70,
+        "forward": "thecarefulnursecarriedasealedletteratduskthenurseclosedthemarketledger",
+        "reverse": "regdeltekramehtdesolcesrunehtksudtaretteldelaesadeirracesrunluferaceht",
+        "exact": false,
+        "hash_forward": "97d817ecc047602fc69ef048d321306cec800434332d09e66ccf6b9c8ed94902",
+        "hash_reverse": "86b53771ab47fe1bcb40d5725cd02ea3a80d7e188995eb7e56d3c77e9cc9a201",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false,
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "label": "center-fixed-slot-probe",
+      "rendered": "the careful nurse carried the old ledger. at dusk the nurse closed the market ledger.",
+      "letters": 69,
+      "center_event": "at dusk the nurse closed the market ledger",
+      "center_sense": "a nurse closes a ledger at dusk",
+      "slot_assignment": {
+        "subject": "the careful nurse",
+        "verb": "carried",
+        "object": "the old ledger"
+      },
+      "sat_character_equation": {
+        "paired_positions": 34,
+        "satisfied_clauses": 0,
+        "total_clauses": 35,
+        "residual_debt": 35
+      },
+      "exact_audit": {
+        "letters": 69,
+        "forward": "thecarefulnursecarriedtheoldledgeratduskthenurseclosedthemarketledger",
+        "reverse": "regdeltekramehtdesolcesrunehtksudtaregdeldloehtdeirracesrunluferaceht",
+        "exact": false,
+        "hash_forward": "56a3cf23fe5e4cf0a1577c902a6918750ba7e7e7b09cabcb0c5a7619bc9133e5",
+        "hash_reverse": "e15d9ec9ac49b5ea7694f485047be2ebd564b9adb83beadf5e13324f92f3fa5e",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false,
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "label": "center-fixed-slot-probe",
+      "rendered": "the careful nurse carried the harbor chart. at dusk the nurse closed the market ledger.",
+      "letters": 71,
+      "center_event": "at dusk the nurse closed the market ledger",
+      "center_sense": "a nurse closes a ledger at dusk",
+      "slot_assignment": {
+        "subject": "the careful nurse",
+        "verb": "carried",
+        "object": "the harbor chart"
+      },
+      "sat_character_equation": {
+        "paired_positions": 35,
+        "satisfied_clauses": 0,
+        "total_clauses": 36,
+        "residual_debt": 36
+      },
+      "exact_audit": {
+        "letters": 71,
+        "forward": "thecarefulnursecarriedtheharborchartatduskthenurseclosedthemarketledger",
+        "reverse": "regdeltekramehtdesolcesrunehtksudtatrahcrobrahehtdeirracesrunluferaceht",
+        "exact": false,
+        "hash_forward": "65dda4f7fbd7b2d417ecb8dc5fc7bc88177577a6347b2fad1d886d0cfe44f2bd",
+        "hash_reverse": "374b0a58342826e505581c1f4d6ee068fb2c67d23a7f1b12046a337a2723dedc",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false,
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "label": "center-fixed-slot-probe",
+      "rendered": "the careful nurse carried a warm parcel. at dusk the nurse closed the market ledger.",
+      "letters": 68,
+      "center_event": "at dusk the nurse closed the market ledger",
+      "center_sense": "a nurse closes a ledger at dusk",
+      "slot_assignment": {
+        "subject": "the careful nurse",
+        "verb": "carried",
+        "object": "a warm parcel"
+      },
+      "sat_character_equation": {
+        "paired_positions": 33,
+        "satisfied_clauses": 0,
+        "total_clauses": 35,
+        "residual_debt": 35
+      },
+      "exact_audit": {
+        "letters": 68,
+        "forward": "thecarefulnursecarriedawarmparcelatduskthenurseclosedthemarketledger",
+        "reverse": "regdeltekramehtdesolcesrunehtksudtalecrapmrawadeirracesrunluferaceht",
+        "exact": false,
+        "hash_forward": "e3fb0ec9a16ca069a075534408539f370ed27ba1106381ec892a5e59ae192e50",
+        "hash_reverse": "d295ddf6fbad07ea03ed84cd34071e5f104b1269bfa57722ddf251d4e21ecab4",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false,
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "label": "center-fixed-slot-probe",
+      "rendered": "the careful nurse opened a sealed letter. at dusk the nurse closed the market ledger.",
+      "letters": 69,
+      "center_event": "at dusk the nurse closed the market ledger",
+      "center_sense": "a nurse closes a ledger at dusk",
+      "slot_assignment": {
+        "subject": "the careful nurse",
+        "verb": "opened",
+        "object": "a sealed letter"
+      },
+      "sat_character_equation": {
+        "paired_positions": 34,
+        "satisfied_clauses": 2,
+        "total_clauses": 35,
+        "residual_debt": 33
+      },
+      "exact_audit": {
+        "letters": 69,
+        "forward": "thecarefulnurseopenedasealedletteratduskthenurseclosedthemarketledger",
+        "reverse": "regdeltekramehtdesolcesrunehtksudtaretteldelaesadenepoesrunluferaceht",
+        "exact": false,
+        "hash_forward": "266ef89cf80972c8b96e05b32b45ce9041511cd939b9c3e0643fde06fe473d97",
+        "hash_reverse": "f05ad01a24f193bce8c8581ca0db96b320c2e2db04d92fa8a50e63371516d1e9",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false,
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "label": "center-fixed-slot-probe",
+      "rendered": "the careful nurse opened the old ledger. at dusk the nurse closed the market ledger.",
+      "letters": 68,
+      "center_event": "at dusk the nurse closed the market ledger",
+      "center_sense": "a nurse closes a ledger at dusk",
+      "slot_assignment": {
+        "subject": "the careful nurse",
+        "verb": "opened",
+        "object": "the old ledger"
+      },
+      "sat_character_equation": {
+        "paired_positions": 33,
+        "satisfied_clauses": 0,
+        "total_clauses": 35,
+        "residual_debt": 35
+      },
+      "exact_audit": {
+        "letters": 68,
+        "forward": "thecarefulnurseopenedtheoldledgeratduskthenurseclosedthemarketledger",
+        "reverse": "regdeltekramehtdesolcesrunehtksudtaregdeldloehtdenepoesrunluferaceht",
+        "exact": false,
+        "hash_forward": "9ab4f7b5c5cd6759a172d2893399e2f9041aea745b151cfeb25f1dd9aa87f3ed",
+        "hash_reverse": "3e36a2e5f4fe0d34542e911b02c29f4428ab3b5f82773a768f1980004e3d7fbd",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false,
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "label": "center-fixed-slot-probe",
+      "rendered": "the careful nurse opened the harbor chart. at dusk the nurse closed the market ledger.",
+      "letters": 70,
+      "center_event": "at dusk the nurse closed the market ledger",
+      "center_sense": "a nurse closes a ledger at dusk",
+      "slot_assignment": {
+        "subject": "the careful nurse",
+        "verb": "opened",
+        "object": "the harbor chart"
+      },
+      "sat_character_equation": {
+        "paired_positions": 35,
+        "satisfied_clauses": 0,
+        "total_clauses": 35,
+        "residual_debt": 35
+      },
+      "exact_audit": {
+        "letters": 70,
+        "forward": "thecarefulnurseopenedtheharborchartatduskthenurseclosedthemarketledger",
+        "reverse": "regdeltekramehtdesolcesrunehtksudtatrahcrobrahehtdenepoesrunluferaceht",
+        "exact": false,
+        "hash_forward": "2ca470ee96269254695f44fef85105d0ee75d1b77da309c643c894760148a684",
+        "hash_reverse": "b5f6cb7d90df937271ec60f7f5bb069acac8cb49d6276bf64ce765a8657b1066",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false,
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "label": "center-fixed-slot-probe",
+      "rendered": "the careful nurse opened a warm parcel. at dusk the nurse closed the market ledger.",
+      "letters": 67,
+      "center_event": "at dusk the nurse closed the market ledger",
+      "center_sense": "a nurse closes a ledger at dusk",
+      "slot_assignment": {
+        "subject": "the careful nurse",
+        "verb": "opened",
+        "object": "a warm parcel"
+      },
+      "sat_character_equation": {
+        "paired_positions": 32,
+        "satisfied_clauses": 0,
+        "total_clauses": 35,
+        "residual_debt": 35
+      },
+      "exact_audit": {
+        "letters": 67,
+        "forward": "thecarefulnurseopenedawarmparcelatduskthenurseclosedthemarketledger",
+        "reverse": "regdeltekramehtdesolcesrunehtksudtalecrapmrawadenepoesrunluferaceht",
+        "exact": false,
+        "hash_forward": "e095234ca26e2b16e81b7afa9e3408a1a5d25e324f67c3d79668149607ea475f",
+        "hash_reverse": "27575173626e268cc630a36daaa7e66380f298fa8f0610a80afe3a4f4639a78a",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false,
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      }
+    },
+    {
+      "label": "held-out-center-repair",
+      "rendered": "the observant pilot checked the harbor chart. at dawn the pilot marked the harbor chart.",
+      "letters": 72,
+      "center_event": "at dawn the pilot marked the harbor chart",
+      "center_sense": "a pilot marks a chart at dawn",
+      "slot_assignment": {
+        "subject": "the observant pilot",
+        "verb": "checked",
+        "object": "the harbor chart"
+      },
+      "sat_character_equation": {
+        "paired_positions": 34,
+        "satisfied_clauses": 2,
+        "total_clauses": 38,
+        "residual_debt": 36
+      },
+      "exact_audit": {
+        "letters": 72,
+        "forward": "theobservantpilotcheckedtheharborchartatdawnthepilotmarkedtheharborchart",
+        "reverse": "trahcrobrahehtdekramtolipehtnwadtatrahcrobrahehtdekcehctoliptnavresboeht",
+        "exact": false,
+        "hash_forward": "d9fec267b21946b9a6a36af710ceaaa3dd1c41934e751b86dd011ab5300ddbfd",
+        "hash_reverse": "4525ca469f9b69d7f7e5ec4f844b498e510608ed345a5228af293ca145b9109c",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false,
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      }
+    }
+  ],
+  "stats": {
+    "candidates": 9,
+    "admitted": 0,
+    "exact": 0
+  },
+  "next_repair": "expand held-out verb/object paradigms while preserving the fixed event and add a typed seam CSP for residual character debt",
+  "provenance": {
+    "generator_sha256": "9a131c6c65cbb8888c4a8c062eb0ef6bd1d3874148aed436edccdc9aa8965bca",
+    "copied_text": false
+  }
+}

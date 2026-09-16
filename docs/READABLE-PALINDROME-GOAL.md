@@ -1223,9 +1223,10 @@ item-aware analysis plan.
   enumerated 180 complete dictionary segmentations per position. A local GPT-2
   reranked 180 complete renderings, while the tape remained immutable and was
   checked by independent normalized-string and two-pointer audits. The best
-  admitted diagnostic rendering was `Test sale not care pro fit name till
-  item anti for per act one last set.` (56 letters); it is exact and
-  mechanically admitted but not intact prose, so no reader package was made.
+  exact diagnostic rendering was `Test sale not care pro fit name till
+  item anti for per act one last set.` (56 letters); the full gate admitted
+  zero rows and the rendering is not intact prose, so no reader package was
+  made.
   The artifact records all renderings, model scores, tape hash, and the next
   repair (typed valency transitions over the same frozen tape):
   `runs/fixed-tape-gpt2-boundary-decoder-20260915.json`.
@@ -1244,3 +1245,31 @@ item-aware analysis plan.
   This closes the route without relaxing the reader gate; the next construction
   must replace the lexical inventory/state rather than replaying the same POS
   templates.
+
+- **Role-aware reversible reservoir center-out, 2026-09-15:** replaced the
+  hand-list lexical menu with 66 reversible pairs derived from Brown
+  universal-POS counts and a word-frequency floor, then injected each member
+  into its attested role before solving the character debt. The run explored
+  78,933 states across three templates and found no exact terminal, so no
+  surface is being promoted as prose. The run and reservoir
+  pair provenance are preserved in
+  `runs/role-aware-reversible-reservoir-centerout-20260915.json`.
+
+- **Variable-length role reservoir center-out, 2026-09-15:** changed the
+  grammar dimension rather than enlarging the prior search: six complete
+  5--10-slot templates were solved independently against the same
+  corpus-derived reservoir. The short templates died at the outer seam and
+  the longer template reached only residual-mismatch terminals; exact,
+  mechanically admitted, and reader-eligible counts are all zero. Its next
+  operator is explicitly not another same-template or reservoir-size replay;
+  see `runs/variable-length-role-reservoir-centerout-20260915.json`.
+
+- **Asymmetric template reservoir center-out, 2026-09-15:** paired four
+  different left/right semantic templates and carried a subject-number
+  agreement state through the bilateral debt transitions. This is a separate
+  state product from both the fixed and variable same-template routes. The
+  bounded run produced 552 explored states, zero terminal closures, zero
+  mechanically admitted rows, and zero reader rows. The independent preflight,
+  rendered-output log, and next repair are in
+  `runs/asymmetric-template-reservoir-centerout-20260915.json`; no candidate is
+  represented as readable evidence.

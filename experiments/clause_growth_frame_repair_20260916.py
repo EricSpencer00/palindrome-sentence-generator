@@ -21,6 +21,11 @@ FRAMES = [
  {"id":"gardener", "subject":"the careful gardener", "verb":"watered", "object":"the young cedar", "adjunct":"after rain", "sense":"a gardener waters a young cedar after rain"},
  {"id":"keeper", "subject":"the patient keeper", "verb":"recorded", "object":"the harbor signal", "adjunct":"at noon", "sense":"a keeper records a harbor signal at noon"},
 ]
+FOURTH_FRAMES = [
+ {"id":"librarian", "subject":"the calm librarian", "verb":"shelved", "object":"the borrowed atlas", "adjunct":"after lunch", "sense":"a librarian shelves a borrowed atlas after lunch"},
+ {"id":"sailor", "subject":"the weary sailor", "verb":"mended", "object":"the canvas sail", "adjunct":"near harbor", "sense":"a sailor mends a canvas sail near harbor"},
+ {"id":"teacher", "subject":"the kind teacher", "verb":"marked", "object":"the final essay", "adjunct":"after class", "sense":"a teacher marks the final essay after class"},
+]
 
 def audit(text: str) -> dict:
     letters = normalize_letters(text)
@@ -47,6 +52,24 @@ def candidate(frames, label, repair_from=None):
         "reversed_finished_sentence":False,"word_order_symmetry":False,"repeated_self_palindromic_unit":False,
         "repair_from":repair_from}}
 
+def frontier_fourth_clause():
+    """Select a fresh fourth clause by the newly exposed outer debt frontier.
+
+    The first three clauses are fixed; candidates are scored only on the
+    character pairs exposed by the extension, then the winning complete scene
+    is independently audited.  This is a repair operator, not a random
+    append.
+    """
+    prefix = FRAMES[:3]
+    scored=[]
+    for frame in FOURTH_FRAMES:
+        row=candidate(prefix+[frame],"frontier-selected-fourth-clause",repair_from="growth-3-clause")
+        old=candidate(prefix,"growth-3-clause")
+        scored.append((row["global_debt"]["matches"]-old["global_debt"]["matches"], row))
+    gain,row=max(scored,key=lambda x:(x[0],-x[1]["letters"]))
+    row["frontier_selection"]={"operator":"maximize newly exposed mirrored-position matches", "tested_frames":len(scored), "match_gain":gain}
+    return row
+
 def novelty():
     reg=json.loads((ROOT/"docs/experiment-novelty-registry.json").read_text())
     return {"exact_signature_collision":any(x["id"] != EXPERIMENT_ID and x["signature"] == SIGNATURE for x in reg["entries"]),
@@ -58,12 +81,12 @@ def run():
     for n in (1,2,3): base.append(candidate(FRAMES[:n],f"growth-{n}-clause"))
     held=list(FRAMES[:2]); held[1]={**FRAMES[3],"id":"keeper-repair"}
     repair=candidate(held,"held-out-frame-repair",repair_from="growth-2-clause")
-    rows=base+[repair]
+    rows=base+[repair,frontier_fourth_clause()]
     return {"experiment_id":EXPERIMENT_ID,"signature":SIGNATURE,"status":"completed",
       "method":"grow intact authored clauses while carrying a global debt ledger; substitute a held-out typed valency frame and recompute the complete scene",
       "novelty_preflight":novelty(),"candidates":rows,
       "stats":{"candidates":len(rows),"exact":sum(x["exact_audit"]["exact"] for x in rows),"admitted":sum(x["admitted"] for x in rows)},
-      "next_repair":"author a fourth clause whose subject/object/adjunct letters are selected against the current debt frontier, then run a blinded intact-prose versus shuffled-order reader pretest if exact closure occurs",
+      "next_repair":"use the selected fourth-clause debt frontier to author a fifth clause with a new semantic frame; if exact closure occurs, run a blinded intact-prose versus shuffled-order reader pretest",
       "provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"source_catalogue":False}}
 
 if __name__ == "__main__":

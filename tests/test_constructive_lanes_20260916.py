@@ -61,7 +61,7 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4542
+    assert report["candidate_count"] == 4545
     assert report["exact_count"] == 78
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
@@ -80,6 +80,8 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/corpus-backed-reverse-segmentation-20260916.json"]["rows"] == 2
     assert by_source["runs/wordpair-graph-2026-09-16.json"]["rows"] == 1
     assert by_source["runs/paired-semantic-mutation-20260916.json"]["rows"] == 2
+    assert by_source["runs/wordpair-graph-repair-2026-09-16.json"]["rows"] == 1
+    assert by_source["runs/semantic-scene-repair-lane6-20260916.json"]["rows"] == 2
 
 
 def test_fresh_typed_frame_preserves_prose_and_live_obligation_evidence():
@@ -150,6 +152,25 @@ def test_wordpair_graph_preserves_long_intact_frontier_without_closure():
     # candidate's exact boolean is independently recomputed above.
     assert "independent tape" in run["audits"]["pointer"]
     assert "SHA-256" in run["audits"]["hash"]
+
+
+def test_wordpair_graph_repair_keeps_long_fresh_scene_and_residual():
+    run = json.loads((ROOT / "runs/wordpair-graph-repair-2026-09-16.json").read_text())
+    row = run["candidate"]
+    assert row["letters"] == 239
+    assert row["exact"] is False and row["admitted"] is False
+    assert row["pointer_audit"]["equal"] is False
+    assert row["hash_audit"]["rendered"]
+    assert run["next_repair"]
+
+
+def test_semantic_scene_repair_keeps_two_fresh_over100_controls():
+    run = json.loads((ROOT / "runs/semantic-scene-repair-lane6-20260916.json").read_text())
+    assert run["stats"] == {"rendered": 2, "over_100": 2, "exact": 0, "admitted": 0}
+    assert all(row["rendered"] and row["letters"] > 100 for row in run["rendered_candidates"])
+    assert all(row["independent_ascii_exact"] is False for row in run["rendered_candidates"])
+    assert all(row["two_pointer_mismatches"] for row in run["rendered_candidates"])
+    assert run["next_repair"]["operator"]
 
 
 def test_paired_semantic_mutation_retains_fresh_controls_and_mismatch_trace():

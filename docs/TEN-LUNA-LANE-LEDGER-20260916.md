@@ -336,4 +336,14 @@ lexicon gate.
 The A* typed word-boundary probe adds a 140-letter garden/schoolhouse scene;
 the human single-slot search adds seven deduplicated 92--97-letter scenes. An
 attested phrase-bridge preflight emitted no complete clause and is explicitly
-excluded.
+    excluded.
+
+## Paired lexical grammar continuation (2026-09-16)
+
+`experiments/paired_lexical_grammar_20260916.py` jointly selects two distinct
+semantic SVO frames and synthesizes both clauses under a live ledger of
+word-boundary character equations. Six fresh intact-prose pairs were rendered;
+independent two-pointer and SHA-256 audits found zero exact closures. Novelty
+preflight checked 261 registry entries with no collision. The next repair
+replaces only the first failing boundary pair with held-out lexical
+alternatives while preserving frame roles and agreement.

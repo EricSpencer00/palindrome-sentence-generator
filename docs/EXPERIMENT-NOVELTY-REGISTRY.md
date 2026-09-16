@@ -21,6 +21,8 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `semantic-interleaving-frontback-20260916` | one continuous semicolon-linked sentence alternates independently authored front/back SVO clauses while consuming mirrored characters online | semantic front/back interleaving | 5 base + 10 repair surfaces, 44–48 letters; 0 exact and 0 reader-eligible |
 | `regular-seam-grammar-20260916` | a length-indexed finite-state grammar grows typed clauses through a non-palindromic connective seam and applies seam-directed lexical repair | scalable regular seam grammar | 11,997 generated surfaces; 5 retained 95–115-letter outputs; 0 exact and 0 reader-eligible |
 | `human-guided-global-equation-editor-20260916` | a fresh four-clause scene is edited globally across lexical, tense, and punctuation states while a semantic-invariance ledger and character equation remain live | global semantic equation editing | 648 states; 24 retained 148–161-letter renderings; 0 exact and 0 reader-eligible |
+| `joint-morpheme-affix-closure-20260916` | two independent clause frames choose stem and inflectional/derivational ending bundles jointly under non-mirror clause orders and a live character audit | joint morpheme/affix closure | 48 failed outputs; 0 exact and 0 reader-eligible |
+| `cumulative-boundary-profile-fixedpoint-20260916` (preflight-excluded) | reflected cumulative word-boundary positions are fixed during POS/role lexical emission with a cross-boundary match ledger | cumulative boundary profile | 1,350 generated rows (647 unique); 0 exact; excluded after overlap review with existing boundary families |
 | `quantified-comparison-preflight-20260916` | quantified measurement/comparison clauses with independently authored evidence and scalar predicates | preflight-only quantified measurement | blocked before rendering: comparative/modal and semantic arithmetic families already cover this state |
 | `minimal-edit-fresh-center-20260916` | genuinely authored free prose centers receive a bounded one-word lexical repair while punctuation, order, and clause structure remain intact | template-free minimal-edit authoring | 3 fresh centers + 6 lexical repairs, 58–72 letters; 0 exact and 0 reader-eligible |
 | `comparative-modal-scene-search-20260916` | measurement/comparison scenes jointly vary comparative adjectives and modal commitment, then apply a held-out modal repair with independent exact auditing | comparative state and modal commitment | 81 base + 81 repair complete-sentence probes, 31–41 letters; 0 exact and 0 reader-eligible |
@@ -221,7 +223,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 172 retained families and 21 explicit
+family. The current audit covers all 176 retained families and 22 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 
@@ -263,6 +265,7 @@ pairs for review. The latest routes are below the review threshold:
 | `corpus-neural-frame-realizer-20260916` | none (0.000) | 0.000 | retained because semantic frame planning precedes character-equation lexical realization and corpus-bigram ordering; 0 exact/admitted/reader rows |
 | `weighted-cfg-sync-dp-20260916` | none (0.000) | 0.000 | retained because independent weighted parse forests are intersected by character position; base and adjunct repair produced no exact closure |
 | `reversible-grammar-insertion-20260916` | none (0.000) | 0.000 | retained because five distinct reverse lexical units grow the seed without repetition; exact outputs were seam-incoherent and withheld from readers |
+| `joint-morpheme-affix-closure-20260916` | none (0.000) | 0.000 | retained because two independently ordered intact clauses jointly choose explicit stem+ending bundles; 19,200 lockstep pairs and 48 >38-letter failures, 0 exact/admitted/reader rows |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

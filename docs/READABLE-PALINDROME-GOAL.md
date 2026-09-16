@@ -1761,6 +1761,15 @@ item-aware analysis plan.
   repair frontier, not a readability claim; the reader packet still waits for
   an exact mechanically clean output.
 
+  The boundary-fixed-point lane then jointly enforced reflected cumulative
+  word-boundary profiles during lexical emission (1,350 generated rows, 647
+  unique retained renderings, 52--64 letters). It tracked cross-boundary
+  matches online and applied a concrete five-letter profile-class expansion;
+  no exact closure or proper-span violation was found. The aggregate is now
+  3226 rendered rows across 69 route phases, with 72 exact-but-rejected tapes
+  and 0 mechanically admitted rows. This lane is preserved as a constructive
+  diagnostic, not a reader result.
+
   A subsequent three-Luna pass added an intact-prose lexical/inflectional
   repair operator (311 complete renderings, 62--81 letters), a semantic
   front/back interleaving route (15 complete one-sentence surfaces, 44--48

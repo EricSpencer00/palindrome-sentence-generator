@@ -1221,6 +1221,14 @@
       "signature": "length-indexed-regular-grammar|finite-state-adjunct-cycle|non-palindromic-connective-seam|seam-directed-lexical-repair|independent-two-pointer-audit",
       "artifact": "experiments/regular_seam_grammar_20260916.py",
       "run_artifacts": ["runs/regular-seam-grammar-20260916.json"]
+    },
+    {
+      "id": "joint-morpheme-affix-closure-20260916",
+      "signature": "joint-morpheme-affix-closure|intact-independent-clauses|stem-ending-bundle-equations|nonmirror-clause-orders|all-different-content|independent-two-pointer-hash-audit",
+      "artifact": "experiments/joint_morpheme_affix_closure_20260916.py",
+      "run_artifacts": ["runs/joint-morpheme-affix-closure-20260916.json"],
+      "distinction": "Two intact English clause frames jointly choose explicit stem plus inflectional/derivational ending bundles on both sides; the right clause has an independent order and is never emitted by reversing words. Failed outputs retain a first-mismatch held-out affix-swap repair operator.",
+      "reader_evidence": false
     }
   ],
   "excluded": [
@@ -1375,14 +1383,6 @@
         "semantic-sentence-pair-alignment"
       ],
       "reason": "The typed SVO/PP frame bank is another independently grammatical clause cross-product joined by a reverse-tape equation. Its 17,280-frame run and bounded reverse-prefix repair add useful failure diagnostics but no distinct construction state; all three run artifacts remain preserved outside the retained-family count."
-    },
-    {
-      "id": "joint-morpheme-affix-closure-20260916",
-      "signature": "joint-morpheme-affix-closure|intact-independent-clauses|stem-ending-bundle-equations|nonmirror-clause-orders|all-different-content|independent-two-pointer-hash-audit",
-      "artifact": "experiments/joint_morpheme_affix_closure_20260916.py",
-      "run_artifacts": ["runs/joint-morpheme-affix-closure-20260916.json"],
-      "distinction": "Two intact English clause frames jointly choose explicit stem plus inflectional/derivational ending bundles on both sides; the right clause has an independent order and is never emitted by reversing words. Failed outputs retain a first-mismatch held-out affix-swap repair operator.",
-      "reader_evidence": false
     },
     {
       "id": "multiset-balanced-grammar-invalid-excluded",

@@ -1,0 +1,306 @@
+{
+  "experiment_id": "regular-seam-grammar-20260916",
+  "signature": "length-indexed-regular-grammar|finite-state-adjunct-cycle|non-palindromic-connective-seam|seam-directed-lexical-repair|independent-two-pointer-audit",
+  "registry_preflight": {
+    "status": "novel-replay",
+    "experiment_id": "regular-seam-grammar-20260916",
+    "signature": "length-indexed-regular-grammar|finite-state-adjunct-cycle|non-palindromic-connective-seam|seam-directed-lexical-repair|independent-two-pointer-audit",
+    "artifact": "experiments/regular_seam_grammar_20260916.py",
+    "registered_families_checked": 173,
+    "excluded_routes_checked": 21,
+    "self_entry_ignored_for_replay": true
+  },
+  "method": "length-indexed regular grammar with finite adjunct cycle and non-palindromic connective seam",
+  "grammar": {
+    "states": [
+      "q0",
+      "q1",
+      "q2"
+    ],
+    "transitions": "q0 -> q1 -> q2; optional adjunct emission at each state",
+    "seam_transitions": [
+      "while",
+      "because",
+      "although"
+    ],
+    "search_space": "independent typed lexical slots on each side; no complete-sentence reverse lookup"
+  },
+  "instantiated_outputs": [
+    {
+      "text": "the careful curator labels the bronze vessel before dawn, while a young pilot carries a paper chart near the harbor.",
+      "letters": 95,
+      "target": 95,
+      "grammar_state": {
+        "left_adjunct_state": 1,
+        "right_adjunct_state": 1,
+        "seam_transition": "while"
+      },
+      "seam": {
+        "seam": "while",
+        "seam_tape": "while",
+        "seam_is_palindromic": false,
+        "left_last_letter": "n",
+        "right_first_letter": "a",
+        "cross_word_boundary": true,
+        "boundary_pair": "nwa"
+      },
+      "independent_audit": {
+        "exact": false,
+        "letters": 95,
+        "mismatch_count": 42,
+        "first_mismatch": 0,
+        "sha256": "001168394123c3c94710aa4edc27c0601e80ce2cea40f77277f93004bb5b164d"
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "complete_prose": true,
+      "repeated_content_rejected": false,
+      "catalogue_material_absent": true,
+      "reader_eligible": false
+    },
+    {
+      "text": "the careful curator labels the bronze vessel before dawn, because a patient courier carries a sealed parcel after the meeting.",
+      "letters": 105,
+      "target": 105,
+      "grammar_state": {
+        "left_adjunct_state": 1,
+        "right_adjunct_state": 1,
+        "seam_transition": "because"
+      },
+      "seam": {
+        "seam": "because",
+        "seam_tape": "because",
+        "seam_is_palindromic": false,
+        "left_last_letter": "n",
+        "right_first_letter": "a",
+        "cross_word_boundary": true,
+        "boundary_pair": "nba"
+      },
+      "independent_audit": {
+        "exact": false,
+        "letters": 105,
+        "mismatch_count": 50,
+        "first_mismatch": 0,
+        "sha256": "93909b80ff7290c1c6e05d26bc148d98ff34467a96630d622db8ad466b5e0ebb"
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "complete_prose": true,
+      "repeated_content_rejected": false,
+      "catalogue_material_absent": true,
+      "reader_eligible": false
+    },
+    {
+      "text": "the careful curator labels the bronze vessel before dawn, while a patient courier measures a paper chart near the harbor after the meeting.",
+      "letters": 115,
+      "target": 115,
+      "grammar_state": {
+        "left_adjunct_state": 1,
+        "right_adjunct_state": 2,
+        "seam_transition": "while"
+      },
+      "seam": {
+        "seam": "while",
+        "seam_tape": "while",
+        "seam_is_palindromic": false,
+        "left_last_letter": "n",
+        "right_first_letter": "a",
+        "cross_word_boundary": true,
+        "boundary_pair": "nwa"
+      },
+      "independent_audit": {
+        "exact": false,
+        "letters": 115,
+        "mismatch_count": 56,
+        "first_mismatch": 0,
+        "sha256": "d0521e101c3e682b0882831e1121ecde64972890aff94c4663c6e8e8471741ab"
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "complete_prose": true,
+      "repeated_content_rejected": false,
+      "catalogue_material_absent": true,
+      "reader_eligible": false
+    }
+  ],
+  "repair_outputs": [
+    {
+      "text": "the careful curator labels the bronze vessel before dawn, while a young pilot carries a paper chart near the harbor.",
+      "edits": [],
+      "independent_audit": {
+        "exact": false,
+        "letters": 95,
+        "mismatch_count": 42,
+        "first_mismatch": 0,
+        "sha256": "001168394123c3c94710aa4edc27c0601e80ce2cea40f77277f93004bb5b164d"
+      },
+      "letters": 95,
+      "complete_prose": true,
+      "reader_eligible": false,
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    },
+    {
+      "text": "the careful curator labels the silver lantern before dawn, because a patient courier carries a sealed parcel after the meeting.",
+      "edits": [
+        {
+          "old": "bronze vessel",
+          "new": "silver lantern"
+        }
+      ],
+      "independent_audit": {
+        "exact": false,
+        "letters": 106,
+        "mismatch_count": 46,
+        "first_mismatch": 0,
+        "sha256": "4aeff6bc62d9ad7785f0e4de6b7640934c574f2ebef0e7c92df2e863b1297d65"
+      },
+      "letters": 106,
+      "complete_prose": true,
+      "reader_eligible": false,
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    },
+    {
+      "text": "the steady scholar marks the bronze vessel before dawn, while a patient courier measures a paper chart near the harbor after the meeting.",
+      "edits": [
+        {
+          "old": "careful curator",
+          "new": "steady scholar"
+        },
+        {
+          "old": "labels",
+          "new": "marks"
+        }
+      ],
+      "independent_audit": {
+        "exact": false,
+        "letters": 113,
+        "mismatch_count": 48,
+        "first_mismatch": 0,
+        "sha256": "1d68389335fe69143056ea5ae7917b284611dc7fd05d95d03a410eda59b1b782"
+      },
+      "letters": 113,
+      "complete_prose": true,
+      "reader_eligible": false,
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    }
+  ],
+  "generated_candidates": 11997,
+  "exact_candidates": 0,
+  "exact_outputs": [],
+  "independent_exact_validation": "indexed two-pointer comparison over ASCII letters",
+  "readability_diagnostics": {
+    "complete_prose_outputs": 3,
+    "outputs_over_38_letters": 3,
+    "repair_outputs_over_38_letters": 3,
+    "reader_eligible": 0,
+    "note": "Mechanical admission is not a readability claim; no blinded human ratings were run."
+  },
+  "repair_operator": "greedy seam-directed typed lexical substitution, at most two edits, re-audit after each edit",
+  "provenance": "fresh hand-authored lexical inventory; no known-palindrome text or repeated content units",
+  "generator_sha256": "e7f596ed6eb23ca13a619054a510cc5c3cb60d6d47a31c0388bb72aa161e5ebd"
+}

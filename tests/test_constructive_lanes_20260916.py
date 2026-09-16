@@ -61,7 +61,7 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4425
+    assert report["candidate_count"] == 4426
     assert report["exact_count"] == 77
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
@@ -72,6 +72,17 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/seam-feature-slot-repair-20260916.json"]["rows"] == 11
     assert by_source["runs/seam-feature-slot-repair-20260916.json#base"]["rows"] == 1
     assert by_source["runs/typed-boundary-resegment-shortwords-20260916.json"]["rows"] == 23
+    assert by_source["runs/fresh-typed-frame-live-seam-20260916.json"]["rows"] == 1
+
+
+def test_fresh_typed_frame_preserves_prose_and_live_obligation_evidence():
+    run = json.loads((ROOT / "runs/fresh-typed-frame-live-seam-20260916.json").read_text())
+    assert run["novelty_preflight"]["status"] == "passed"
+    assert run["candidate"] == "The baker carries a letter near the quiet harbor"
+    assert run["audit"]["two_pointer"] is False
+    assert run["audit"]["sha256"]
+    assert len(run["live_obligations"]) == 8
+    assert run["provenance"]["fresh_domains"] is True
 
 
 def test_seam_feature_repair_keeps_each_targeted_attempt_and_next_operator():

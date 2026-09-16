@@ -246,7 +246,7 @@ witness. Every attempt has independent pointer/hash checks and provenance; no
 substitution remained exact or mechanically admissible. The next operator is
 typed boundary resegmentation at the first failing seam, allowing adjacent
 short words to absorb reflected suffixes. With this artifact included, the
-authoritative aggregate is **4,425 rows, 136 route phases, 77 exact tapes, and
+authoritative aggregate is **4,426 rows, 137 route phases, 77 exact tapes, and
 0 mechanically admitted outputs**.
 
 ## Typed-boundary follow-up (2026-09-16)
@@ -258,3 +258,11 @@ first failing seam. All have independent pointer and SHA-256 checks; none is
 exact or mechanically admissible. Its next operator is a fresh
 non-palindromic subject/verb/object frame with typed agreement, rather than
 another substitution sweep.
+
+## Fresh typed-frame follow-up (2026-09-16)
+
+`runs/fresh-typed-frame-live-seam-20260916.json` renders “The baker carries a
+letter near the quiet harbor” (40 letters), a new singular-agreement frame
+with eight live obligations. It passes novelty and every mechanical quality
+check except exactness. The next repair targets only the adjunct boundary
+lexeme selected by the first residual obligation.

@@ -185,7 +185,7 @@ construction step. Novelty preflight passed; 11 single-slot substitutions were
 rendered and independently checked, with no exact or mechanically admissible
 result. The recorded next repair is typed boundary resegmentation at the first
 failing seam, permitting adjacent short words to absorb reflected suffixes.
-The current aggregate is **4,425 rows across 136 route phases, 77 exact tapes,
+The current aggregate is **4,426 rows across 137 route phases, 77 exact tapes,
 and 0 mechanically admitted outputs**.
 
 ## Typed-boundary follow-up (2026-09-16)
@@ -195,3 +195,11 @@ preflight and tested 23 fresh boundary variants with adjacent short-word
 absorption. Independent pointer/hash audits found 0 exact and 0 mechanically
 admissible rows. The concrete next repair is a fresh non-palindromic typed
 subject/verb/object frame preserving agreement.
+
+## Fresh typed-frame follow-up (2026-09-16)
+
+The new artifact `runs/fresh-typed-frame-live-seam-20260916.json` renders
+“The baker carries a letter near the quiet harbor” (40 letters) with eight live
+character obligations. It passes novelty and all mechanical quality checks
+except exactness; the next repair targets only the first residual adjunct
+boundary lexeme.

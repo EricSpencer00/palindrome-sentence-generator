@@ -1985,7 +1985,7 @@ item-aware analysis plan.
   pointer/hash checks found no surviving exact closure and no mechanically
   admissible output. Its concrete next construction is typed boundary
   resegmentation at the first failing seam, allowing adjacent short words to
-  absorb reflected suffixes. The aggregate is now 4,425 rows across 136 route
+  absorb reflected suffixes. The aggregate is now 4,426 rows across 137 route
   phases, with 77 exact tapes and 0 mechanically admitted outputs.
 
   **Typed-boundary follow-up (2026-09-16):**
@@ -1994,3 +1994,10 @@ item-aware analysis plan.
   the failing seam. Independent pointer/hash checks found 0 exact and 0
   mechanically admissible rows. The next repair is a fresh non-palindromic
   typed subject/verb/object frame with agreement preserved.
+
+  **Fresh typed-frame follow-up (2026-09-16):**
+  `runs/fresh-typed-frame-live-seam-20260916.json` renders “The baker carries
+  a letter near the quiet harbor” (40 letters), a new singular-agreement frame
+  with eight live obligations. It passes novelty and every mechanical quality
+  check except exactness. The next repair targets only the adjunct boundary
+  lexeme selected by the first residual obligation.

@@ -61,7 +61,7 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4545
+    assert report["candidate_count"] == 4548
     assert report["exact_count"] == 78
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
@@ -82,6 +82,9 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/paired-semantic-mutation-20260916.json"]["rows"] == 2
     assert by_source["runs/wordpair-graph-repair-2026-09-16.json"]["rows"] == 1
     assert by_source["runs/semantic-scene-repair-lane6-20260916.json"]["rows"] == 2
+    assert by_source["runs/char-lm-grammar-2026-09-16.json"]["rows"] == 1
+    assert by_source["runs/dependency-seam-csp-20260916.json"]["rows"] == 1
+    assert by_source["runs/agreement-morphology-clitic-lane4-20260916.json"]["rows"] == 1
 
 
 def test_fresh_typed_frame_preserves_prose_and_live_obligation_evidence():
@@ -170,6 +173,34 @@ def test_semantic_scene_repair_keeps_two_fresh_over100_controls():
     assert all(row["rendered"] and row["letters"] > 100 for row in run["rendered_candidates"])
     assert all(row["independent_ascii_exact"] is False for row in run["rendered_candidates"])
     assert all(row["two_pointer_mismatches"] for row in run["rendered_candidates"])
+    assert run["next_repair"]["operator"]
+
+
+def test_char_lm_grammar_lane_keeps_complete_frontier_and_audits():
+    run = json.loads((ROOT / "runs/char-lm-grammar-2026-09-16.json").read_text())
+    assert len(run["candidates"]) == 1
+    row = run["candidates"][0]
+    assert row["letters"] == 77 and row["exact"] is False
+    assert row["pointer_audit"]["equal"] is False
+    assert run["provenance"]
+    assert run["next_repair"]
+
+
+def test_dependency_seam_csp_lane_keeps_typed_scene_and_residual():
+    run = json.loads((ROOT / "runs/dependency-seam-csp-20260916.json").read_text())
+    assert run["exact_count"] == 0 and run["admitted_count"] == 0
+    row = run["candidates"][0]
+    assert row["letters"] == 105 and row["exact"] is False
+    assert row["novelty_preflight"]["catalogue_match"] is False
+    assert run["next_repair"]
+
+
+def test_agreement_morphology_lane_keeps_long_clitic_scene():
+    run = json.loads((ROOT / "runs/agreement-morphology-clitic-lane4-20260916.json").read_text())
+    assert run["stats"] == {"rendered": 1, "over_100": True, "exact": False, "admitted": False}
+    row = run["rendered_candidates"][0]
+    assert row["letters"] > 100 and row["independent_ascii_exact"] is False
+    assert run["transducer"]["clitic_policy"]
     assert run["next_repair"]["operator"]
 
 

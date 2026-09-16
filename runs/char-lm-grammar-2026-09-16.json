@@ -2,26 +2,47 @@
   "method": "character_lm_grammar_constrained_decode_v1",
   "candidates": [
     {
-      "text": "a patient child carries the river trail at dusk. a patient child carries the river trail at dusk.",
-      "letters": 78,
+      "text": "a patient child carries the river trail at dusk. the keeper opens old wooden gates before dawn.",
+      "letters": 77,
       "exact": false,
       "admitted": false,
       "pointer_audit": {
         "equal": false,
         "matched": 0,
         "left_remaining": "apatientchildcarriestherivertrailatdusk",
-        "right_remaining": "apatientchildcarriestherivertrailatdusk"
+        "right_remaining": "thekeeperopensoldwoodengatesbeforedawn"
       },
       "hash_audit": {
         "left": "50f010028ab7d3f8239f60cdaef1542bdbee793b17bb5c1c8c3151b66ae84d4d",
-        "right": "50f010028ab7d3f8239f60cdaef1542bdbee793b17bb5c1c8c3151b66ae84d4d",
-        "rendered": "fb9bb8442eff8c2728d0ecceda562fb588255d8a16d2f4870ffcc7b1aab60550"
+        "right": "e92a1067cee323edc8512cf8a0eb81efa123d740e6069e26ccf0eb5ae90b26a4",
+        "rendered": "844c8f8fd9b512223c3436c81f62d480ac19f2382f3fcb197ae9681605bdef41",
+        "reverse_rendered": "3b70c701d26b6152e516e8b2bde50c47ae0f1eb739206652f9d9a6e6cf2104f9",
+        "equal": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
       }
     }
   ],
   "frontier": {
     "left_clause": "a patient child carries the river trail at dusk.",
-    "right_clause": "a patient child carries the river trail at dusk.",
+    "right_clause": "the keeper opens old wooden gates before dawn.",
     "slots": [
       {
         "state": "subject",
@@ -71,7 +92,7 @@
     "constraint": "LM ranks legal choices; it never relaxes grammar"
   },
   "novelty_preflight": {
-    "tape_sha256": "fb9bb8442eff8c2728d0ecceda562fb588255d8a16d2f4870ffcc7b1aab60550",
+    "tape_sha256": "844c8f8fd9b512223c3436c81f62d480ac19f2382f3fcb197ae9681605bdef41",
     "action": "compare digest with prior artifacts"
   },
   "next_repair": "Train character counts on an expanded ordinary-prose corpus, then add a reverse-residual state so decoding can target the first unmatched character."

@@ -142,9 +142,12 @@
     "runs/wordpair-graph-2026-09-16.json",
     "runs/paired-semantic-mutation-20260916.json",
     "runs/wordpair-graph-repair-2026-09-16.json",
-    "runs/semantic-scene-repair-lane6-20260916.json"
+    "runs/semantic-scene-repair-lane6-20260916.json",
+    "runs/char-lm-grammar-2026-09-16.json",
+    "runs/dependency-seam-csp-20260916.json",
+    "runs/agreement-morphology-clitic-lane4-20260916.json"
   ],
-  "candidate_count": 4545,
+  "candidate_count": 4548,
   "exact_count": 78,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -157,6 +160,16 @@
       "max_letters": 38,
       "mean_zipf_frequency": 5.743333333333333,
       "mean_brown_order_gain_vs_shuffle": 1.47661389564146
+    },
+    {
+      "source_run": "runs/agreement-morphology-clitic-lane4-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 122,
+      "max_letters": 122,
+      "mean_zipf_frequency": 5.451666666666667,
+      "mean_brown_order_gain_vs_shuffle": 0.478422971244747
     },
     {
       "source_run": "runs/assumption-core-scene-solver-20260916.json",
@@ -389,6 +402,16 @@
       "mean_brown_order_gain_vs_shuffle": 1.195033937059451
     },
     {
+      "source_run": "runs/char-lm-grammar-2026-09-16.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 77,
+      "max_letters": 77,
+      "mean_zipf_frequency": 5.280588235294117,
+      "mean_brown_order_gain_vs_shuffle": 0.5083013824616422
+    },
+    {
       "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
       "rows": 20,
       "exact_count": 0,
@@ -577,6 +600,16 @@
       "max_letters": 68,
       "mean_zipf_frequency": 5.459807692307692,
       "mean_brown_order_gain_vs_shuffle": 1.314554886905022
+    },
+    {
+      "source_run": "runs/dependency-seam-csp-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 105,
+      "max_letters": 105,
+      "mean_zipf_frequency": 4.990526315789474,
+      "mean_brown_order_gain_vs_shuffle": 1.2922738206064608
     },
     {
       "source_run": "runs/dependency-tree-seam-solver-20260916.json",
@@ -218441,6 +218474,137 @@
         "mean_zipf_frequency": 5.359999999999999,
         "word_count": 24,
         "repeated_word_rate": 0.08333333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a patient child carries the river trail at dusk. the keeper opens old wooden gates before dawn.",
+      "source_run": "runs/char-lm-grammar-2026-09-16.json",
+      "provenance": "character_lm_grammar_constrained_decode_v1",
+      "repair": null,
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5083013824616422,
+        "mean_zipf_frequency": 5.280588235294117,
+        "word_count": 17,
+        "repeated_word_rate": 0.05882352941176472,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient archivist carefully maps a quiet museum archive before dawn. Curious visitors study faded stars beside the river.",
+      "source_run": "runs/dependency-seam-csp-20260916.json",
+      "provenance": {
+        "fresh_dependency_frame": true,
+        "source_sentences_copied": false,
+        "inventory_expansion": false,
+        "reversed_finished_sentence": false
+      },
+      "repair": null,
+      "letters": 105,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2922738206064608,
+        "mean_zipf_frequency": 4.990526315789474,
+        "word_count": 19,
+        "repeated_word_rate": 0.052631578947368474,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "When the careful archivist restores the damaged ledger, she records each witness name and sends the sealed copy to the harbor office before winter.",
+      "source_run": "runs/agreement-morphology-clitic-lane4-20260916.json",
+      "provenance": {
+        "generator_sha256": "7de153a7480f8355ab09256c670bf6b117871c70dccdd27a5e4434a718a50544",
+        "lexical_source": "fresh hand-authored scene",
+        "independent_audits": [
+          "normalized reversal",
+          "ASCII reversal",
+          "two-pointer",
+          "SHA-256"
+        ]
+      },
+      "repair": null,
+      "letters": 122,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.478422971244747,
+        "mean_zipf_frequency": 5.451666666666667,
+        "word_count": 24,
+        "repeated_word_rate": 0.125,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

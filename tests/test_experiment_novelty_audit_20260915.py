@@ -7,7 +7,7 @@ from tools.audit_experiment_novelty_20260915 import audit
 def test_novelty_audit_has_no_exact_collisions_and_catches_real_near_pairs():
     report = audit()
     assert report["exact_signature_collisions"] is False
-    assert report["registered_entries"] == 67
+    assert report["registered_entries"] == 72
     assert report["excluded_routes"] == 6
     pairs = {(row["newer"], row["older"]) for row in report["near_pairs"]}
     # These are intentionally close families already in the historical ledger;
@@ -28,3 +28,7 @@ def test_latest_routes_are_not_flagged_as_near_duplicates():
     assert by_id["anaphoric-scene-chain-composition"]["manual_review_required"] is False
     assert by_id["multiset-balanced-pair-sampling"]["manual_review_required"] is False
     assert by_id["proper-name-reverse-grammar"]["manual_review_required"] is False
+    assert by_id["adaptive-crossword-span-cover"]["manual_review_required"] is False
+    assert by_id["context-template-crossword-repair"]["manual_review_required"] is False
+    assert by_id["syntactic-mirror-template-repair"]["manual_review_required"] is False
+    assert by_id["semantic-selectional-prefix-automaton"]["manual_review_required"] is False

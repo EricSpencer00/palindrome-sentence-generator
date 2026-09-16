@@ -1,9 +1,30 @@
 {
   "entries": [
     {
-      "id": "semantic-proposal-verifier",
+      "id": "lexical-chain-walk",
       "manual_review_required": false,
       "nearest_prior": null,
+      "signature_atoms": [
+        "clause",
+        "collocation",
+        "edge",
+        "emission",
+        "graph",
+        "no",
+        "path",
+        "single",
+        "variable",
+        "walk"
+      ]
+    },
+    {
+      "id": "semantic-proposal-verifier",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "lexical-chain-walk",
+        "jaccard": 0.0,
+        "shared_atoms": []
+      },
       "signature_atoms": [
         "acceptance",
         "check",
@@ -23,7 +44,7 @@
       "id": "typed-semordnilap",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-proposal-verifier",
+        "id": "lexical-chain-walk",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -39,7 +60,7 @@
       "id": "global-brown-pos",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-proposal-verifier",
+        "id": "lexical-chain-walk",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -96,7 +117,7 @@
       "id": "brown-two-svo-attachments",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-proposal-verifier",
+        "id": "lexical-chain-walk",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -112,7 +133,7 @@
       "id": "brown-cross-clause",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-proposal-verifier",
+        "id": "lexical-chain-walk",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -127,7 +148,7 @@
       "id": "brown-shared-relative",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-proposal-verifier",
+        "id": "lexical-chain-walk",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -202,7 +223,7 @@
       "id": "brown-bounded-repair",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-proposal-verifier",
+        "id": "lexical-chain-walk",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -311,7 +332,7 @@
       "id": "fresh-paired-clause-ledger",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-proposal-verifier",
+        "id": "lexical-chain-walk",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -705,10 +726,11 @@
       "id": "clause-lattice-joint-dp",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "brown-bounded-repair",
-        "jaccard": 0.05,
+        "id": "lexical-chain-walk",
+        "jaccard": 0.08,
         "shared_atoms": [
-          "boundary"
+          "clause",
+          "no"
         ]
       },
       "signature_atoms": [
@@ -1080,14 +1102,18 @@
     },
     {
       "id": "collocation-graph-path",
-      "manual_review_required": false,
+      "manual_review_required": true,
       "nearest_prior": {
-        "id": "collocation-synchronous-grammar",
-        "jaccard": 0.15,
+        "id": "lexical-chain-walk",
+        "jaccard": 0.411765,
         "shared_atoms": [
           "clause",
           "collocation",
-          "role"
+          "edge",
+          "graph",
+          "path",
+          "single",
+          "walk"
         ]
       },
       "signature_atoms": [
@@ -1171,12 +1197,12 @@
       "id": "neural-dual-prefix-beam-v2",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "collocation-graph-path",
-        "jaccard": 0.12,
+        "id": "lexical-chain-walk",
+        "jaccard": 0.142857,
         "shared_atoms": [
           "clause",
           "edge",
-          "role"
+          "emission"
         ]
       },
       "signature_atoms": [
@@ -1682,10 +1708,11 @@
       "id": "anaphoric-scene-chain-composition",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "typed-lexical-graph",
-        "jaccard": 0.0625,
+        "id": "lexical-chain-walk",
+        "jaccard": 0.111111,
         "shared_atoms": [
-          "number"
+          "emission",
+          "no"
         ]
       },
       "signature_atoms": [
@@ -1746,6 +1773,125 @@
         "roles",
         "segmentation",
         "trie"
+      ]
+    },
+    {
+      "id": "adaptive-crossword-span-cover",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "semantic-dependency-outside-in",
+        "jaccard": 0.111111,
+        "shared_atoms": [
+          "semantic",
+          "span",
+          "variable"
+        ]
+      },
+      "signature_atoms": [
+        "adaptive",
+        "backtracking",
+        "boundary",
+        "conditioned",
+        "context",
+        "cover",
+        "crossword",
+        "lattice",
+        "obligation",
+        "proposals",
+        "reversible",
+        "semantic",
+        "span",
+        "variable"
+      ]
+    },
+    {
+      "id": "context-template-crossword-repair",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "adaptive-crossword-span-cover",
+        "jaccard": 0.181818,
+        "shared_atoms": [
+          "adaptive",
+          "backtracking",
+          "context",
+          "crossword"
+        ]
+      },
+      "signature_atoms": [
+        "adaptive",
+        "backtracking",
+        "context",
+        "crossword",
+        "echoing",
+        "length",
+        "minimum",
+        "non",
+        "phrase",
+        "prose",
+        "reflected",
+        "template"
+      ]
+    },
+    {
+      "id": "syntactic-mirror-template-repair",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "multiset-balanced-pair-sampling",
+        "jaccard": 0.210526,
+        "shared_atoms": [
+          "clause",
+          "letter",
+          "pairing",
+          "role"
+        ]
+      },
+      "signature_atoms": [
+        "binding",
+        "clause",
+        "letter",
+        "minimum",
+        "mirror",
+        "pairing",
+        "reflected",
+        "role",
+        "semantic",
+        "syntactic",
+        "template",
+        "two"
+      ]
+    },
+    {
+      "id": "semantic-selectional-prefix-automaton",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "character-clause-fst-joint-emission",
+        "jaccard": 0.125,
+        "shared_atoms": [
+          "boundary",
+          "mirrored",
+          "semantic",
+          "trie"
+        ]
+      },
+      "signature_atoms": [
+        "automaton",
+        "boundary",
+        "learned",
+        "lexicon",
+        "majority",
+        "mirrored",
+        "non",
+        "object",
+        "pos",
+        "preferences",
+        "prefix",
+        "selectional",
+        "semantic",
+        "slot",
+        "subject",
+        "synchronous",
+        "trie",
+        "verb"
       ]
     }
   ],
@@ -1943,10 +2089,24 @@
         "product",
         "prompts"
       ]
+    },
+    {
+      "jaccard": 0.411765,
+      "newer": "collocation-graph-path",
+      "older": "lexical-chain-walk",
+      "shared_atoms": [
+        "clause",
+        "collocation",
+        "edge",
+        "graph",
+        "path",
+        "single",
+        "walk"
+      ]
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 67,
+  "registered_entries": 72,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

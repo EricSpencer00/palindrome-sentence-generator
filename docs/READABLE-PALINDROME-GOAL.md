@@ -149,6 +149,47 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   next repair is a finite name/locative dependency state, not a larger name
   list alone.
 
+- **Adaptive crossword span cover (2026-09-15).** A formally preflighted,
+  whole-tape search allocated mirrored character variables first, placed
+  context-conditioned phrase spans with reversible backtracking, and recovered
+  non-mirrored word boundaries only after completion. It produced 10,785 exact
+  tapes across 40--60 letters, independently confirmed by direct reverse-string
+  and opposing-index audits, but every surface collapsed into one-letter
+  fragments and failed the admission gate. This is retained as a distinct
+  state-space result, not as readable progress. The concrete repair is a
+  minimum-word-length, non-echoing contextual-template operator.
+
+- **Context-template prose repair (2026-09-15).** The repair held authored
+  contextual phrases intact and rejected one-letter reflected segmentation,
+  reverse phrase echoes, and short function-word templates. It preserved 18
+  rendered probes from roughly 40--100 letters and used separate direct and
+  opposing-index audits; it found zero exact closures. This closes the
+  diagnostic branch rather than relaxing the reader gate. The next frontier is
+  a genuinely open-vocabulary construction that proposes complete clause
+  expansions under semantic obligations before mirrored character commitment.
+
+- **Lexical-chain walk (2026-09-15).** A separate forward-only typed lexical
+  graph walk generated 6,375 complete single-clause probes from collocational
+  edges without paired clauses, reverse emission, or mirrored units. It found
+  zero exact closures. It remains useful evidence that a forward lexical graph
+  alone is insufficient; it is not a reader result and will not be replayed by
+  changing its seed or beam.
+
+- **Syntactic mirror-template repair (2026-09-15).** A second-pass repair
+  enforced typed subject/event/continuation slots and a minimum-two-letter
+  surface. It found two exact surfaces at 43 and 51 letters, but an independent
+  catalogue/duplicate-span audit rejected both; they are preserved as failure
+  evidence and cannot be presented as generated prose.
+
+- **Selectional-preference prefix automaton (2026-09-15).** This preflighted
+  route learned coarse subject--verb--object preferences from Brown tag
+  sequences and kept those preferences live while synchronizing two independent
+  slot grammars character by character. It evaluated 324 frame/shape pairs and
+  11,854 search states, with separate direct and opposing-index audit paths;
+  no exact closure survived. Its best partial frontier is retained, and the
+  next action is to add subordinate-clause states rather than enlarge this
+  lexical bank.
+
 ## Scalable-construction requirement (2026-09-15)
 
 The active construction objective now has two explicit layers: (1) a

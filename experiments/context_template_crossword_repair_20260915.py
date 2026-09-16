@@ -40,8 +40,20 @@ def norm(s: str) -> str:
     return normalize_letters(s)
 
 
-def audit(tape: str) -> bool:
+def direct_reverse_audit(tape: str) -> bool:
     return bool(tape) and tape == tape[::-1]
+
+
+def opposing_index_audit(tape: str) -> bool:
+    if not tape:
+        return False
+    left, right = 0, len(tape) - 1
+    while left < right:
+        if tape[left] != tape[right]:
+            return False
+        left += 1
+        right -= 1
+    return True
 
 
 def prose_words(text: str) -> tuple[str, ...]:
@@ -96,15 +108,15 @@ def run(targets=(40, 52, 64, 76, 88, 100)) -> dict:
                 right_words = reflected_segment(reflected)
                 checks = mechanical_admission_checks(phrase, min_letters=39, max_letters=260)
                 row = {"goal": goal, "variant": variant, "target": target, "rendered": phrase,
-                       "letters": len(tape), "exact": audit(tape),
-                       "independent_two_pointer": audit(tape),
+                       "letters": len(tape), "exact": direct_reverse_audit(tape),
+                       "independent_two_pointer": opposing_index_audit(tape),
                        "left_template_intact": valid_phrase(left_words),
                        "right_min_word_length": bool(right_words and all(len(w) >= 3 for w in right_words)),
                        "no_mirrored_phrase_echo": tuple(left_words) != tuple(reversed(right_words or ())),
                        "reflected_segmentation": right_words,
                        "failed_checks": [k for k, v in checks.items() if not v],
                        "admitted": all(checks.values()) and valid_phrase(left_words) and right_words is not None,
-                       "failure_preserved": right_words is None or not audit(tape),
+                       "failure_preserved": right_words is None or not direct_reverse_audit(tape),
                        "normalized_sha256": hashlib.sha256(tape.encode()).hexdigest()}
                 rows.append(row)
     return {"experiment_id": ID, "signature": SIGNATURE, "preflight": pf,
@@ -112,7 +124,7 @@ def run(targets=(40, 52, 64, 76, 88, 100)) -> dict:
             "targets": list(targets), "rows": rows,
             "exact_count": sum(r["exact"] for r in rows),
             "admitted_count": sum(r["admitted"] for r in rows),
-            "independent_audit": {"method": "second opposing-index scan", "probes": len(rows),
+            "independent_audit": {"method": "direct reverse-string comparison versus second opposing-index scan", "probes": len(rows),
                                   "primary_exact": sum(r["exact"] for r in rows),
                                   "independent_exact": sum(r["independent_two_pointer"] for r in rows)},
             "provenance": "authored contextual templates; no catalogue palindrome or one-letter fallback"}

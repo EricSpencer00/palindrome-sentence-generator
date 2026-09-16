@@ -17,8 +17,8 @@ SIGNATURE = "fresh-clause-tape|weighted-word-boundary-dp|independent-pointer-has
 # Complete, newly authored clauses (not catalogue material).  Long tapes make
 # accidental short-palindrome or endpoint reuse especially visible.
 CLAUSES = [
-    "At dawn, the patient archivist carried maps through the quiet museum while curious visitors studied faded stars.",
-    "Beyond the winter station, a careful engineer repaired lanterns beside the river as tired travelers waited patiently.",
+    "At dawn, the patient archivist carefully carried maps through the quiet museum while curious visitors studied faded stars.",
+    "Beyond the winter station, a careful engineer repaired brass lanterns beside the river as tired travelers waited patiently.",
 ]
 
 def corpus_counts() -> Counter[str]:

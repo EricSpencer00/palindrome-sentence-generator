@@ -1,0 +1,47 @@
+{
+  "experiment": "corpus-backed-reverse-segmentation-20260916",
+  "signature": "fresh-clause-tape|weighted-word-boundary-dp|independent-pointer-hash|copied-span-rejection",
+  "method": "weighted lexical boundary DP over reversed fresh clause tape",
+  "candidates": [
+    {
+      "source_clause": "At dawn, the patient archivist carefully carried maps through the quiet museum while curious visitors studied faded stars.",
+      "source_letters": 103,
+      "reverse_tape_letters": 103,
+      "segmentation": null,
+      "composed_clause": null,
+      "exact": false,
+      "complete_clause": false,
+      "copied_span_rejected": false,
+      "pointer_hash": "06efa9463b1e409b0056a1d0d35b8d40aadaf7e7418bc8a8f6069151ab97b589",
+      "audit": {
+        "left_right_equal": false,
+        "two_pointer_mismatches": 94
+      }
+    },
+    {
+      "source_clause": "Beyond the winter station, a careful engineer repaired brass lanterns beside the river as tired travelers waited patiently.",
+      "source_letters": 104,
+      "reverse_tape_letters": 104,
+      "segmentation": null,
+      "composed_clause": null,
+      "exact": false,
+      "complete_clause": false,
+      "copied_span_rejected": false,
+      "pointer_hash": "91b9ff41ac90594485c63bb557ceef4a19cc7e3353c451892cda301c733560cb",
+      "audit": {
+        "left_right_equal": false,
+        "two_pointer_mismatches": 94
+      }
+    }
+  ],
+  "exact_count": 0,
+  "provenance": {
+    "source_material": "fresh hand-authored complete clauses; lexicon frequencies only",
+    "catalogue_text_used": false,
+    "source_sentences_copied": false,
+    "reversed_finished_sentence": false,
+    "word_order_symmetry": false,
+    "generator_sha256": "aa4bd49faf972c454a3fe1d609a5e6ba108739dacb811f69842bb971719e1bbe"
+  },
+  "repair_operator": "expand held-out lexical/POS inventory and rerun DP; never copy or reverse a finished sentence"
+}

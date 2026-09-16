@@ -1,0 +1,45 @@
+{
+  "experiment": "direct-constrained-authoring-20260916",
+  "signature": "local-model-whole-sentence-authoring|single-scene-contract|live-palindrome-instruction|independent-letter-audit|mismatch-directed-repair",
+  "generator_sha256": "68629bf3171bc9ec16a6c1961fcf873590bd243df25ce23ffbab5a23a9370091",
+  "candidates": [
+    {
+      "id": "direct-1",
+      "prompt": "Write one original, grammatical English sentence of at least 100 letters whose letters, ignoring spaces and punctuation and case, form an exact palindrome. Do not repeat clauses or words, do not quote known examples, and use ordinary concrete prose. Output only the sentence.",
+      "model": "gpt-oss:20b",
+      "model_hash": "2509bc7a578711924433d7692a1c087af48dd66c82f55d00803c633dc208317c",
+      "provenance": "local-ollama-direct-authoring",
+      "attempt": null,
+      "error": "TimeoutExpired: Command '['ollama', 'run', 'gpt-oss:20b', 'Write one original, grammatical English sentence of at least 100 letters whose letters, ignoring spaces and punctuation and case, form an exact palindrome. Do not repeat clauses or words, do not quote known examples, and use ordinary concrete prose. Output only the sentence.']' timed out after 20 seconds"
+    },
+    {
+      "id": "direct-2",
+      "prompt": "Invent a single coherent English sentence (at least 100 letters) that is an exact character palindrome after lowercasing and removing nonletters. It must have normal subject-verb-object syntax, distinct words, and no list, quotation, or mirrored word order. Output only the sentence.",
+      "model": "gpt-oss:20b",
+      "model_hash": "2509bc7a578711924433d7692a1c087af48dd66c82f55d00803c633dc208317c",
+      "provenance": "local-ollama-direct-authoring",
+      "attempt": null,
+      "error": "TimeoutExpired: Command '['ollama', 'run', 'gpt-oss:20b', 'Invent a single coherent English sentence (at least 100 letters) that is an exact character palindrome after lowercasing and removing nonletters. It must have normal subject-verb-object syntax, distinct words, and no list, quotation, or mirrored word order. Output only the sentence.']' timed out after 20 seconds"
+    },
+    {
+      "id": "direct-3",
+      "prompt": "Author fresh readable prose of 100+ letters that is a letter-level palindrome. Keep one scene and natural English syntax; no repeated/self-palindromic chunks, no copied catalogue text, no fragments. Output only the sentence.",
+      "model": "gpt-oss:20b",
+      "model_hash": "2509bc7a578711924433d7692a1c087af48dd66c82f55d00803c633dc208317c",
+      "provenance": "local-ollama-direct-authoring",
+      "attempt": null,
+      "error": "TimeoutExpired: Command '['ollama', 'run', 'gpt-oss:20b', 'Author fresh readable prose of 100+ letters that is a letter-level palindrome. Keep one scene and natural English syntax; no repeated/self-palindromic chunks, no copied catalogue text, no fragments. Output only the sentence.']' timed out after 20 seconds"
+    },
+    {
+      "id": "direct-repair-1",
+      "prompt": "Rewrite this sentence as one original coherent English sentence of 100+ letters, making its letters (case/punctuation ignored) an exact palindrome. Do not repeat words or clauses. Output only sentence.\n",
+      "model": "gpt-oss:20b",
+      "model_hash": "2509bc7a578711924433d7692a1c087af48dd66c82f55d00803c633dc208317c",
+      "provenance": "local-ollama-direct-authoring|mismatch-directed-repair",
+      "attempt": null,
+      "error": "TimeoutExpired: Command '['ollama', 'run', 'gpt-oss:20b', 'Rewrite this sentence as one original coherent English sentence of 100+ letters, making its letters (case/punctuation ignored) an exact palindrome. Do not repeat words or clauses. Output only sentence.\\n']' timed out after 20 seconds"
+    }
+  ],
+  "exact_count": 0,
+  "repair_action": "direct model rewrite of first nonempty proposal with exact-tape constraint"
+}

@@ -1,0 +1,89 @@
+{
+  "experiment": "dependency-seam-csp-20260916",
+  "signature": "typed-dependency-tree|semantic-role-agreement|seam-character-csp|ordinary-order-realization",
+  "method": "solve typed semantic-role seam obligations, then realize ordinary-order clauses",
+  "candidates": [
+    {
+      "rendered": "The patient archivist carefully maps a quiet museum archive before dawn. Curious visitors study faded stars beside the river.",
+      "letters": 105,
+      "dependency_roles": [
+        {
+          "subject": {
+            "text": "the patient archivist",
+            "number": "sg"
+          },
+          "verb": {
+            "text": "carefully maps",
+            "number": "sg"
+          },
+          "object": {
+            "text": "a quiet museum archive",
+            "number": "sg"
+          },
+          "adjunct": "before dawn"
+        },
+        {
+          "subject": {
+            "text": "curious visitors",
+            "number": "pl"
+          },
+          "verb": {
+            "text": "study",
+            "number": "pl"
+          },
+          "object": {
+            "text": "faded stars",
+            "number": "pl"
+          },
+          "adjunct": "beside the river"
+        }
+      ],
+      "seam_obligations": 44,
+      "first_seam_mismatch": {
+        "left_index": 0,
+        "right_index": 43,
+        "character": "t"
+      },
+      "pointer_hash": "5bf35411900d8f45e89bf02192315b9f576212d89ec239f3ec9585cb3c2b0b68",
+      "exact": false,
+      "admitted": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "novelty_preflight": {
+        "copied_text": false,
+        "catalogue_match": false,
+        "word_order_mirror": false
+      },
+      "provenance": {
+        "fresh_dependency_frame": true,
+        "source_sentences_copied": false,
+        "inventory_expansion": false,
+        "reversed_finished_sentence": false
+      }
+    }
+  ],
+  "exact_count": 0,
+  "admitted_count": 0,
+  "next_repair": "change one typed role realization while preserving subject number and verb agreement; rerun seam CSP and independent pointer audit",
+  "provenance": {
+    "generator_sha256": "9b68b73769e591da9d9cd07cc9ea57b1c109857409a50e1732e5e29f1b5bd8b1",
+    "catalogue_used": false
+  }
+}

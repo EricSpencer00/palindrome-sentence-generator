@@ -62,13 +62,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 1958
+    assert report["candidate_count"] == 1968
     assert report["exact_count"] == 72
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 52
+    assert len(report["route_summary"]) == 53
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
 
 
@@ -342,5 +342,16 @@ def test_simultaneous_phrase_beam_keeps_ngram_ranked_prose_outside_exact_gate():
     assert run["exact_count"] == 0
     assert run["reader_eligible_count"] == 0
     assert max(row["audit"]["letters"] for row in run["candidates"] + run["repair"]) == 72
+    assert all(row["audit"]["complete_sentence"] and not row["audit"]["reader_eligible"]
+               for row in run["candidates"] + run["repair"])
+
+
+def test_discourse_connective_coupling_keeps_scene_repairs_complete_and_unadmitted():
+    run = load("discourse-connective-coupled-20260916.json")
+    assert len(run["candidates"]) == 6
+    assert len(run["repair"]) == 6
+    assert run["exact_count"] == 0
+    assert run["reader_eligible_count"] == 0
+    assert max(row["audit"]["letters"] for row in run["candidates"] + run["repair"]) == 57
     assert all(row["audit"]["complete_sentence"] and not row["audit"]["reader_eligible"]
                for row in run["candidates"] + run["repair"])

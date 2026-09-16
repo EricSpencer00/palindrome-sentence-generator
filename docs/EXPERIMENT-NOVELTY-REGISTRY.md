@@ -12,6 +12,8 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
+| `discourse-connective-coupled-20260916` | coherent multi-sentence scenes are coupled to semantic paraphrase and discourse-connective choices while the mirrored ledger is live | connective-coupled discourse authoring | 6 base + 6 repair scenes, 49–57 letters; 0 exact and 0 reader-eligible (10 unique renderings after deduplication) |
+| `open-morpheme-csp-preflight-20260916-excluded` | open-vocabulary morpheme/anagram choices with inflectional grammar validity and scalable target length | preflight-only morpheme CSP | blocked before rendering: derivational, multiset, and inflectional state is already represented |
 | `simultaneous-phrase-beam-20260916` | both sides grow phrase-level semantic commitments in lockstep; corpus n-grams rank local order only after a live character-obligation update | simultaneous phrase-level growth and mismatch repair | 9 base + 9 repair complete-prose probes, 52–72 letters; 0 exact and 0 reader-eligible |
 | `conditional-role-pair-preflight-20260916-excluded` | conditional role-changing lexical pairs with held-out synonym/inflection repair and a joint character obligation | preflight-only conditional role pairing | blocked before rendering: existing reversible-role, conditional, and lexical-repair families already cover the state |
 | `conditional-embedding-solver-20260916` | conditional `if`/`then` composition keeps antecedent, consequent, and causal subordinate clauses live while lexical choices satisfy an online character obligation | conditional semantic topology and held-out antecedent repair | 4 base + 4 repair complete-prose probes, 80–89 letters; 0 exact and 0 reader-eligible |
@@ -176,6 +178,7 @@ the next frontier was chosen:
 | `experiments/semantic_word_pair_cross_boundary_preflight_20260916.py` | cross-boundary semordnilap word pairing overlaps retained lexical-boundary and complete-clause families; no relabeled run was counted |
 | `experiments/bidirectional_phrase_pair_preflight_20260916.py` | bidirectional phrase pairing overlaps manual endpoint and attested phrase-pair wrappers; its preflight evidence remains excluded |
 | `experiments/reversible_phrase_chain_preflight_20260916.py` | mirror-pair phrase paths overlap retained lexical-chain, chain-walk, and collocation-path families; changing the evidence source would not create a new construction state |
+| `experiments/coordination_ellipsis_preflight_20260916.py` | coordination/ellipsis, attachment, and appositive scene graphs are already represented; no duplicate run was executed |
 | `experiments/function_word_boundary_balance_preflight_20260916.py` | function-word boundary balancing overlaps variable-boundary, lexical-equation, and complete-clause state; the explicit registry entry records the block |
 | `experiments/question_answer_composition_preflight_20260916.py` | question/answer discourse realization overlaps speech-act and interrogative inventories; the explicit registry entry records the block |
 | `experiments/pivot_growth_preflight_20260916.py` | pivoted sentence growth overlaps pivot-paragraph, scene-growth, and recursive-obligation families; the explicit registry entry records the block |
@@ -194,7 +197,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 154 retained families and 13 explicit
+family. The current audit covers all 156 retained families and 14 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

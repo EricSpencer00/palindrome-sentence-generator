@@ -1,0 +1,457 @@
+{
+  "experiment_id": "morphology-first-dependency-lattice-20260916",
+  "family_id": "morphology-first-dependency-lattice",
+  "state_space_signature": "morphology-first-dependency-lattice|lemma-derivation-inflection-path|typed-dependency-tree-yield|node-local-morphological-unification|whole-yield-palindrome-audit",
+  "status": "completed",
+  "method": "Select typed dependency topology; enumerate node-local lemma/derivation/inflection paths; unify feature attributes; render ordinary order; audit the whole yield independently.",
+  "novelty_preflight": {
+    "registry_entries_read": 93,
+    "exact_signature_collision": [],
+    "artifact_collision": [],
+    "status": "novel_exact_signature",
+    "prior_families_explicitly_excluded": [
+      "MCTS",
+      "beam",
+      "center-out",
+      "clause-product",
+      "grammar-template",
+      "reverse-segmentation"
+    ],
+    "manual_distinction": "A node-local morphology path is chosen before surface emission; no fixed clause bank, reverse tape, center-out cursor, beam, MCTS, or clause cross-product is used.",
+    "related_but_distinct": [
+      "morphological-derivational-seam",
+      "dependency-attribute-grammar-chart"
+    ],
+    "forbidden_terms_in_signature": [],
+    "registry_text_digest": "34639ce19046a1eab3a1e83947e25c87a535aa11fee003698a331525926945fa"
+  },
+  "config": {
+    "tree_count": 4,
+    "min_letters": 15,
+    "known_catalogue_imported_for_generation": false,
+    "known_catalogue_used_only_for_admission": true,
+    "reverse_emission": false,
+    "center_out_search": false,
+    "independent_two_pointer_audit": true
+  },
+  "stats": {
+    "trees": 4,
+    "raw_yields": 1728,
+    "exact_yields": 3,
+    "catalogue_rejects": 2,
+    "mechanically_admitted": 0
+  },
+  "exact_candidates": [
+    {
+      "tree": "vocative_transitive_derivational_object",
+      "rendered": "Satan oscillate my metallic sonatas.",
+      "audit": {
+        "exact": true,
+        "letters": 31,
+        "normalized_tape": "satanoscillatemymetallicsonatas",
+        "pairs_checked": 15,
+        "mismatch_count": 0,
+        "mismatches": [],
+        "sha256": "9bb32f7086ab0f48588c6e2d0c13dbced7cd11b23e224492439b42e50d4c4a60"
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": false,
+        "local_catalogue_absent": false
+      },
+      "mechanically_admitted": false,
+      "dependency_arcs": [
+        [
+          "root",
+          "voc",
+          "vocative"
+        ],
+        [
+          "root",
+          "obj",
+          "obj"
+        ],
+        [
+          "obj",
+          "det",
+          "det"
+        ],
+        [
+          "obj",
+          "amod",
+          "amod"
+        ]
+      ],
+      "morphology_path": [
+        {
+          "lemma": "satan",
+          "category": "PROPN",
+          "derivation": [],
+          "inflection": [],
+          "surface": "satan"
+        },
+        {
+          "lemma": "oscillate",
+          "category": "V",
+          "derivation": [],
+          "inflection": [],
+          "surface": "oscillate"
+        },
+        {
+          "lemma": "my",
+          "category": "DET",
+          "derivation": [],
+          "inflection": [],
+          "surface": "my"
+        },
+        {
+          "lemma": "metal",
+          "category": "ADJ",
+          "derivation": [
+            "-ic"
+          ],
+          "inflection": [],
+          "surface": "metallic"
+        },
+        {
+          "lemma": "sonata",
+          "category": "N",
+          "derivation": [],
+          "inflection": [
+            "plural"
+          ],
+          "surface": "sonatas"
+        }
+      ],
+      "reader_status": "not_run; exactness and morphology are not readability evidence"
+    },
+    {
+      "tree": "inverted_car_cat_question",
+      "rendered": "Was it a car or a cat i saw?",
+      "audit": {
+        "exact": true,
+        "letters": 19,
+        "normalized_tape": "wasitacaroracatisaw",
+        "pairs_checked": 9,
+        "mismatch_count": 0,
+        "mismatches": [],
+        "sha256": "209eb7935ce31240bd5154eef31c6845e3b02e28c675fede3eb55bbc4c583ed4"
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": false,
+        "local_catalogue_absent": false
+      },
+      "mechanically_admitted": false,
+      "dependency_arcs": [
+        [
+          "root",
+          "subj",
+          "nsubj"
+        ],
+        [
+          "root",
+          "obj",
+          "xcomp"
+        ],
+        [
+          "obj",
+          "det",
+          "det"
+        ],
+        [
+          "root",
+          "conj",
+          "cc"
+        ],
+        [
+          "conj",
+          "obj2",
+          "obj"
+        ]
+      ],
+      "morphology_path": [
+        {
+          "lemma": "be",
+          "category": "COP",
+          "derivation": [],
+          "inflection": [
+            "past"
+          ],
+          "surface": "was"
+        },
+        {
+          "lemma": "it",
+          "category": "PRON",
+          "derivation": [],
+          "inflection": [],
+          "surface": "it"
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "derivation": [],
+          "inflection": [],
+          "surface": "a"
+        },
+        {
+          "lemma": "car",
+          "category": "N",
+          "derivation": [],
+          "inflection": [
+            "sg"
+          ],
+          "surface": "car"
+        },
+        {
+          "lemma": "or",
+          "category": "CONJ",
+          "derivation": [],
+          "inflection": [],
+          "surface": "or"
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "derivation": [],
+          "inflection": [],
+          "surface": "a"
+        },
+        {
+          "lemma": "cat",
+          "category": "N",
+          "derivation": [],
+          "inflection": [
+            "sg"
+          ],
+          "surface": "cat"
+        },
+        {
+          "lemma": "i",
+          "category": "PRON",
+          "derivation": [],
+          "inflection": [],
+          "surface": "i"
+        },
+        {
+          "lemma": "see",
+          "category": "V",
+          "derivation": [],
+          "inflection": [
+            "past"
+          ],
+          "surface": "saw"
+        }
+      ],
+      "reader_status": "not_run; exactness and morphology are not readability evidence"
+    },
+    {
+      "tree": "imperative_article_object",
+      "rendered": "Level a level.",
+      "audit": {
+        "exact": true,
+        "letters": 11,
+        "normalized_tape": "levelalevel",
+        "pairs_checked": 5,
+        "mismatch_count": 0,
+        "mismatches": [],
+        "sha256": "7e296227985ed3fc09e0b7e586d01ea19f0e7cfd1ed52ea44e11a8966471fef3"
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": false,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "dependency_arcs": [
+        [
+          "root",
+          "obj",
+          "obj"
+        ],
+        [
+          "obj",
+          "det",
+          "det"
+        ]
+      ],
+      "morphology_path": [
+        {
+          "lemma": "level",
+          "category": "V",
+          "derivation": [],
+          "inflection": [],
+          "surface": "level"
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "derivation": [],
+          "inflection": [],
+          "surface": "a"
+        },
+        {
+          "lemma": "level",
+          "category": "N",
+          "derivation": [],
+          "inflection": [
+            "sg"
+          ],
+          "surface": "level"
+        }
+      ],
+      "reader_status": "not_run; exactness and morphology are not readability evidence"
+    }
+  ],
+  "prominent_exact_candidate": {
+    "tree": "vocative_transitive_derivational_object",
+    "rendered": "Satan oscillate my metallic sonatas.",
+    "audit": {
+      "exact": true,
+      "letters": 31,
+      "normalized_tape": "satanoscillatemymetallicsonatas",
+      "pairs_checked": 15,
+      "mismatch_count": 0,
+      "mismatches": [],
+      "sha256": "9bb32f7086ab0f48588c6e2d0c13dbced7cd11b23e224492439b42e50d4c4a60"
+    },
+    "mechanical_checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": true,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": false,
+      "local_catalogue_absent": false
+    },
+    "mechanically_admitted": false,
+    "dependency_arcs": [
+      [
+        "root",
+        "voc",
+        "vocative"
+      ],
+      [
+        "root",
+        "obj",
+        "obj"
+      ],
+      [
+        "obj",
+        "det",
+        "det"
+      ],
+      [
+        "obj",
+        "amod",
+        "amod"
+      ]
+    ],
+    "morphology_path": [
+      {
+        "lemma": "satan",
+        "category": "PROPN",
+        "derivation": [],
+        "inflection": [],
+        "surface": "satan"
+      },
+      {
+        "lemma": "oscillate",
+        "category": "V",
+        "derivation": [],
+        "inflection": [],
+        "surface": "oscillate"
+      },
+      {
+        "lemma": "my",
+        "category": "DET",
+        "derivation": [],
+        "inflection": [],
+        "surface": "my"
+      },
+      {
+        "lemma": "metal",
+        "category": "ADJ",
+        "derivation": [
+          "-ic"
+        ],
+        "inflection": [],
+        "surface": "metallic"
+      },
+      {
+        "lemma": "sonata",
+        "category": "N",
+        "derivation": [],
+        "inflection": [
+          "plural"
+        ],
+        "surface": "sonatas"
+      }
+    ],
+    "reader_status": "not_run; exactness and morphology are not readability evidence"
+  },
+  "next_repair": "Expand derivational families with independently annotated argument structure and add a blinded intact-vs-shuffled reader gate; do not rescue catalogue-rejected or word-order-symmetric surfaces.",
+  "provenance": {
+    "generator_sha256": "f815f5c9d38e424f8c63ae3647faa6d11c0b299c36f83b6a72f39e7942ae07a7",
+    "lexical_source": "fresh hand-authored morphology families",
+    "source_text_copied": false,
+    "readability_certificate": false
+  },
+  "reader_gate": {
+    "status": "not_run",
+    "eligible": 0,
+    "reason": "Any eligible exact surface still requires blinded human readability evidence."
+  }
+}

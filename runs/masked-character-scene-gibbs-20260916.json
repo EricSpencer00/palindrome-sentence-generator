@@ -3,8 +3,8 @@
   "signature": "masked-character-scene-gibbs|pairwise-mirror-resampling|semantic-slot-alphabet|whole-tape-local-score|two-pointer-hash-audit",
   "signature_sha256": "7005efb4b8f000efe0752df64685cc338046a9b3b43709246e113c96ccf1904d",
   "novelty_preflight": {
-    "entries_inspected": 188,
-    "exact_signature_collision": false,
+    "entries_inspected": 189,
+    "exact_signature_collision": true,
     "nearest_prior": [
       {
         "id": "assumption-core-scene-solver-20260916",
@@ -32,7 +32,7 @@
         "shared_atoms": []
       }
     ],
-    "passed": true
+    "passed": false
   },
   "operator": "mask mirrored character pairs, resample under semantic-slot locks, and score complete tapes locally",
   "probes": [
@@ -44,6 +44,28 @@
         "initial": "thepatientgardenerwatersyoungrosesbesideastonewall",
         "final": "thepatientgardenerwatersyoungrosesbesideastonewall",
         "rounds": 3,
+        "complete_assignments": [
+          {
+            "text": "The patient gardener waters young roses beside a stone wall.",
+            "tape": "thepatientgardenerwatersyoungrosesbesideastonewall",
+            "score": 19.0
+          },
+          {
+            "text": "The patient gardener tends young roses beside a stone wall.",
+            "tape": "thepatientgardenertendsyoungrosesbesideastonewall",
+            "score": 17.0
+          },
+          {
+            "text": "The careful gardener waters young roses beside an old wall.",
+            "tape": "thecarefulgardenerwatersyoungrosesbesideanoldwall",
+            "score": 19.0
+          }
+        ],
+        "selected_assignment": {
+          "text": "The patient gardener waters young roses beside a stone wall.",
+          "tape": "thepatientgardenerwatersyoungrosesbesideastonewall",
+          "score": 19.0
+        },
         "decisions": [
           {
             "round": 0,
@@ -52,12 +74,25 @@
               49
             ],
             "masked": true,
+            "before": [
+              "t",
+              "l"
+            ],
             "chosen": [
               "t",
               "l"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "The patient gardener waters young roses beside a stone wall.",
+                "pair": [
+                  "t",
+                  "l"
+                ],
+                "score": 19.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -66,12 +101,41 @@
               48
             ],
             "masked": true,
+            "before": [
+              "h",
+              "l"
+            ],
             "chosen": [
               "h",
               "l"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "The patient gardener waters young roses beside a stone wall.",
+                "pair": [
+                  "h",
+                  "l"
+                ],
+                "score": 19.0
+              },
+              {
+                "scene": "The patient gardener tends young roses beside a stone wall.",
+                "pair": [
+                  "h",
+                  "l"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "The careful gardener waters young roses beside an old wall.",
+                "pair": [
+                  "h",
+                  "l"
+                ],
+                "score": 19.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -80,12 +144,41 @@
               47
             ],
             "masked": true,
+            "before": [
+              "e",
+              "a"
+            ],
             "chosen": [
               "e",
               "a"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "The patient gardener waters young roses beside a stone wall.",
+                "pair": [
+                  "e",
+                  "a"
+                ],
+                "score": 19.0
+              },
+              {
+                "scene": "The patient gardener tends young roses beside a stone wall.",
+                "pair": [
+                  "e",
+                  "l"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "The careful gardener waters young roses beside an old wall.",
+                "pair": [
+                  "e",
+                  "l"
+                ],
+                "score": 19.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -94,12 +187,41 @@
               46
             ],
             "masked": true,
+            "before": [
+              "p",
+              "w"
+            ],
             "chosen": [
               "p",
               "w"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "The patient gardener waters young roses beside a stone wall.",
+                "pair": [
+                  "p",
+                  "w"
+                ],
+                "score": 19.0
+              },
+              {
+                "scene": "The patient gardener tends young roses beside a stone wall.",
+                "pair": [
+                  "p",
+                  "a"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "The careful gardener waters young roses beside an old wall.",
+                "pair": [
+                  "c",
+                  "a"
+                ],
+                "score": 19.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -108,12 +230,41 @@
               45
             ],
             "masked": true,
+            "before": [
+              "a",
+              "e"
+            ],
             "chosen": [
               "a",
               "e"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "The patient gardener waters young roses beside a stone wall.",
+                "pair": [
+                  "a",
+                  "e"
+                ],
+                "score": 19.0
+              },
+              {
+                "scene": "The patient gardener tends young roses beside a stone wall.",
+                "pair": [
+                  "a",
+                  "w"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "The careful gardener waters young roses beside an old wall.",
+                "pair": [
+                  "a",
+                  "w"
+                ],
+                "score": 19.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -122,12 +273,41 @@
               44
             ],
             "masked": true,
+            "before": [
+              "t",
+              "n"
+            ],
             "chosen": [
               "t",
               "n"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "The patient gardener waters young roses beside a stone wall.",
+                "pair": [
+                  "t",
+                  "n"
+                ],
+                "score": 19.0
+              },
+              {
+                "scene": "The patient gardener tends young roses beside a stone wall.",
+                "pair": [
+                  "t",
+                  "e"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "The careful gardener waters young roses beside an old wall.",
+                "pair": [
+                  "r",
+                  "d"
+                ],
+                "score": 19.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -136,12 +316,41 @@
               43
             ],
             "masked": true,
+            "before": [
+              "i",
+              "o"
+            ],
             "chosen": [
               "i",
               "o"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "The patient gardener waters young roses beside a stone wall.",
+                "pair": [
+                  "i",
+                  "o"
+                ],
+                "score": 19.0
+              },
+              {
+                "scene": "The patient gardener tends young roses beside a stone wall.",
+                "pair": [
+                  "i",
+                  "n"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "The careful gardener waters young roses beside an old wall.",
+                "pair": [
+                  "e",
+                  "l"
+                ],
+                "score": 19.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -150,12 +359,41 @@
               42
             ],
             "masked": true,
+            "before": [
+              "e",
+              "t"
+            ],
             "chosen": [
               "e",
               "t"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "The patient gardener waters young roses beside a stone wall.",
+                "pair": [
+                  "e",
+                  "t"
+                ],
+                "score": 19.0
+              },
+              {
+                "scene": "The patient gardener tends young roses beside a stone wall.",
+                "pair": [
+                  "e",
+                  "o"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "The careful gardener waters young roses beside an old wall.",
+                "pair": [
+                  "f",
+                  "o"
+                ],
+                "score": 19.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           }
         ],
         "complete_assignment": true,
@@ -230,6 +468,28 @@
         "initial": "afterrainthestationportercarriesawetparceltothebench",
         "final": "afterrainthestationportercarriesawetparceltothebench",
         "rounds": 3,
+        "complete_assignments": [
+          {
+            "text": "After rain, the station porter carries a wet parcel to the bench.",
+            "tape": "afterrainthestationportercarriesawetparceltothebench",
+            "score": 21.0
+          },
+          {
+            "text": "After rain, the station porter brings a wet parcel to the bench.",
+            "tape": "afterrainthestationporterbringsawetparceltothebench",
+            "score": 20.0
+          },
+          {
+            "text": "After rain, the station clerk carries a damp parcel to the bench.",
+            "tape": "afterrainthestationclerkcarriesadampparceltothebench",
+            "score": 21.0
+          }
+        ],
+        "selected_assignment": {
+          "text": "After rain, the station porter carries a wet parcel to the bench.",
+          "tape": "afterrainthestationportercarriesawetparceltothebench",
+          "score": 21.0
+        },
         "decisions": [
           {
             "round": 0,
@@ -238,12 +498,33 @@
               51
             ],
             "masked": true,
+            "before": [
+              "a",
+              "h"
+            ],
             "chosen": [
               "a",
               "h"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "After rain, the station porter carries a wet parcel to the bench.",
+                "pair": [
+                  "a",
+                  "h"
+                ],
+                "score": 21.0
+              },
+              {
+                "scene": "After rain, the station clerk carries a damp parcel to the bench.",
+                "pair": [
+                  "a",
+                  "h"
+                ],
+                "score": 21.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -252,12 +533,41 @@
               50
             ],
             "masked": true,
+            "before": [
+              "f",
+              "c"
+            ],
             "chosen": [
               "f",
               "c"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "After rain, the station porter carries a wet parcel to the bench.",
+                "pair": [
+                  "f",
+                  "c"
+                ],
+                "score": 21.0
+              },
+              {
+                "scene": "After rain, the station porter brings a wet parcel to the bench.",
+                "pair": [
+                  "f",
+                  "h"
+                ],
+                "score": 20.0
+              },
+              {
+                "scene": "After rain, the station clerk carries a damp parcel to the bench.",
+                "pair": [
+                  "f",
+                  "c"
+                ],
+                "score": 21.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -266,12 +576,41 @@
               49
             ],
             "masked": true,
+            "before": [
+              "t",
+              "n"
+            ],
             "chosen": [
               "t",
               "n"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "After rain, the station porter carries a wet parcel to the bench.",
+                "pair": [
+                  "t",
+                  "n"
+                ],
+                "score": 21.0
+              },
+              {
+                "scene": "After rain, the station porter brings a wet parcel to the bench.",
+                "pair": [
+                  "t",
+                  "c"
+                ],
+                "score": 20.0
+              },
+              {
+                "scene": "After rain, the station clerk carries a damp parcel to the bench.",
+                "pair": [
+                  "t",
+                  "n"
+                ],
+                "score": 21.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -280,12 +619,41 @@
               48
             ],
             "masked": true,
+            "before": [
+              "e",
+              "e"
+            ],
             "chosen": [
               "e",
               "e"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "After rain, the station porter carries a wet parcel to the bench.",
+                "pair": [
+                  "e",
+                  "e"
+                ],
+                "score": 21.0
+              },
+              {
+                "scene": "After rain, the station porter brings a wet parcel to the bench.",
+                "pair": [
+                  "e",
+                  "n"
+                ],
+                "score": 20.0
+              },
+              {
+                "scene": "After rain, the station clerk carries a damp parcel to the bench.",
+                "pair": [
+                  "e",
+                  "e"
+                ],
+                "score": 21.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -294,12 +662,41 @@
               47
             ],
             "masked": true,
+            "before": [
+              "r",
+              "b"
+            ],
             "chosen": [
               "r",
               "b"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "After rain, the station porter carries a wet parcel to the bench.",
+                "pair": [
+                  "r",
+                  "b"
+                ],
+                "score": 21.0
+              },
+              {
+                "scene": "After rain, the station porter brings a wet parcel to the bench.",
+                "pair": [
+                  "r",
+                  "e"
+                ],
+                "score": 20.0
+              },
+              {
+                "scene": "After rain, the station clerk carries a damp parcel to the bench.",
+                "pair": [
+                  "r",
+                  "b"
+                ],
+                "score": 21.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -308,12 +705,41 @@
               46
             ],
             "masked": true,
+            "before": [
+              "r",
+              "e"
+            ],
             "chosen": [
               "r",
               "e"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "After rain, the station porter carries a wet parcel to the bench.",
+                "pair": [
+                  "r",
+                  "e"
+                ],
+                "score": 21.0
+              },
+              {
+                "scene": "After rain, the station porter brings a wet parcel to the bench.",
+                "pair": [
+                  "r",
+                  "b"
+                ],
+                "score": 20.0
+              },
+              {
+                "scene": "After rain, the station clerk carries a damp parcel to the bench.",
+                "pair": [
+                  "r",
+                  "e"
+                ],
+                "score": 21.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -322,12 +748,41 @@
               45
             ],
             "masked": true,
+            "before": [
+              "a",
+              "h"
+            ],
             "chosen": [
               "a",
               "h"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "After rain, the station porter carries a wet parcel to the bench.",
+                "pair": [
+                  "a",
+                  "h"
+                ],
+                "score": 21.0
+              },
+              {
+                "scene": "After rain, the station porter brings a wet parcel to the bench.",
+                "pair": [
+                  "a",
+                  "e"
+                ],
+                "score": 20.0
+              },
+              {
+                "scene": "After rain, the station clerk carries a damp parcel to the bench.",
+                "pair": [
+                  "a",
+                  "h"
+                ],
+                "score": 21.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -336,12 +791,41 @@
               44
             ],
             "masked": true,
+            "before": [
+              "i",
+              "t"
+            ],
             "chosen": [
               "i",
               "t"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "After rain, the station porter carries a wet parcel to the bench.",
+                "pair": [
+                  "i",
+                  "t"
+                ],
+                "score": 21.0
+              },
+              {
+                "scene": "After rain, the station porter brings a wet parcel to the bench.",
+                "pair": [
+                  "i",
+                  "h"
+                ],
+                "score": 20.0
+              },
+              {
+                "scene": "After rain, the station clerk carries a damp parcel to the bench.",
+                "pair": [
+                  "i",
+                  "t"
+                ],
+                "score": 21.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           }
         ],
         "complete_assignment": true,
@@ -416,6 +900,28 @@
         "initial": "acarefularchivistlabelsoldmapsbeforetheeveningbell",
         "final": "acarefularchivistlabelsoldmapsbeforetheeveningbell",
         "rounds": 3,
+        "complete_assignments": [
+          {
+            "text": "A careful archivist labels old maps before the evening bell.",
+            "tape": "acarefularchivistlabelsoldmapsbeforetheeveningbell",
+            "score": 18.0
+          },
+          {
+            "text": "A careful archivist files old maps before the evening bell.",
+            "tape": "acarefularchivistfilesoldmapsbeforetheeveningbell",
+            "score": 17.0
+          },
+          {
+            "text": "A patient archivist labels old maps before the evening bell.",
+            "tape": "apatientarchivistlabelsoldmapsbeforetheeveningbell",
+            "score": 17.0
+          }
+        ],
+        "selected_assignment": {
+          "text": "A careful archivist labels old maps before the evening bell.",
+          "tape": "acarefularchivistlabelsoldmapsbeforetheeveningbell",
+          "score": 18.0
+        },
         "decisions": [
           {
             "round": 0,
@@ -424,12 +930,33 @@
               49
             ],
             "masked": true,
+            "before": [
+              "a",
+              "l"
+            ],
             "chosen": [
               "a",
               "l"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "A careful archivist labels old maps before the evening bell.",
+                "pair": [
+                  "a",
+                  "l"
+                ],
+                "score": 18.0
+              },
+              {
+                "scene": "A patient archivist labels old maps before the evening bell.",
+                "pair": [
+                  "a",
+                  "l"
+                ],
+                "score": 17.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -438,12 +965,41 @@
               48
             ],
             "masked": true,
+            "before": [
+              "c",
+              "l"
+            ],
             "chosen": [
               "c",
               "l"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "A careful archivist labels old maps before the evening bell.",
+                "pair": [
+                  "c",
+                  "l"
+                ],
+                "score": 18.0
+              },
+              {
+                "scene": "A careful archivist files old maps before the evening bell.",
+                "pair": [
+                  "c",
+                  "l"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "A patient archivist labels old maps before the evening bell.",
+                "pair": [
+                  "p",
+                  "l"
+                ],
+                "score": 17.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -452,12 +1008,41 @@
               47
             ],
             "masked": true,
+            "before": [
+              "a",
+              "e"
+            ],
             "chosen": [
               "a",
               "e"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "A careful archivist labels old maps before the evening bell.",
+                "pair": [
+                  "a",
+                  "e"
+                ],
+                "score": 18.0
+              },
+              {
+                "scene": "A careful archivist files old maps before the evening bell.",
+                "pair": [
+                  "a",
+                  "l"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "A patient archivist labels old maps before the evening bell.",
+                "pair": [
+                  "a",
+                  "e"
+                ],
+                "score": 17.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -466,12 +1051,41 @@
               46
             ],
             "masked": true,
+            "before": [
+              "r",
+              "b"
+            ],
             "chosen": [
               "r",
               "b"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "A careful archivist labels old maps before the evening bell.",
+                "pair": [
+                  "r",
+                  "b"
+                ],
+                "score": 18.0
+              },
+              {
+                "scene": "A careful archivist files old maps before the evening bell.",
+                "pair": [
+                  "r",
+                  "e"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "A patient archivist labels old maps before the evening bell.",
+                "pair": [
+                  "t",
+                  "b"
+                ],
+                "score": 17.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -480,12 +1094,41 @@
               45
             ],
             "masked": true,
+            "before": [
+              "e",
+              "g"
+            ],
             "chosen": [
               "e",
               "g"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "A careful archivist labels old maps before the evening bell.",
+                "pair": [
+                  "e",
+                  "g"
+                ],
+                "score": 18.0
+              },
+              {
+                "scene": "A careful archivist files old maps before the evening bell.",
+                "pair": [
+                  "e",
+                  "b"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "A patient archivist labels old maps before the evening bell.",
+                "pair": [
+                  "i",
+                  "g"
+                ],
+                "score": 17.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -494,12 +1137,41 @@
               44
             ],
             "masked": true,
+            "before": [
+              "f",
+              "n"
+            ],
             "chosen": [
               "f",
               "n"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "A careful archivist labels old maps before the evening bell.",
+                "pair": [
+                  "f",
+                  "n"
+                ],
+                "score": 18.0
+              },
+              {
+                "scene": "A careful archivist files old maps before the evening bell.",
+                "pair": [
+                  "f",
+                  "g"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "A patient archivist labels old maps before the evening bell.",
+                "pair": [
+                  "e",
+                  "n"
+                ],
+                "score": 17.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -508,12 +1180,41 @@
               43
             ],
             "masked": true,
+            "before": [
+              "u",
+              "i"
+            ],
             "chosen": [
               "u",
               "i"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "A careful archivist labels old maps before the evening bell.",
+                "pair": [
+                  "u",
+                  "i"
+                ],
+                "score": 18.0
+              },
+              {
+                "scene": "A careful archivist files old maps before the evening bell.",
+                "pair": [
+                  "u",
+                  "n"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "A patient archivist labels old maps before the evening bell.",
+                "pair": [
+                  "n",
+                  "i"
+                ],
+                "score": 17.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           },
           {
             "round": 0,
@@ -522,12 +1223,41 @@
               42
             ],
             "masked": true,
+            "before": [
+              "l",
+              "n"
+            ],
             "chosen": [
               "l",
               "n"
             ],
-            "alternatives_scored": 1,
-            "reason": "complete-scene semantics and punctuation lock"
+            "alternatives": [
+              {
+                "scene": "A careful archivist labels old maps before the evening bell.",
+                "pair": [
+                  "l",
+                  "n"
+                ],
+                "score": 18.0
+              },
+              {
+                "scene": "A careful archivist files old maps before the evening bell.",
+                "pair": [
+                  "l",
+                  "i"
+                ],
+                "score": 17.0
+              },
+              {
+                "scene": "A patient archivist labels old maps before the evening bell.",
+                "pair": [
+                  "t",
+                  "n"
+                ],
+                "score": 17.0
+              }
+            ],
+            "reason": "semantic-slot alternatives; complete assignment scored"
           }
         ],
         "complete_assignment": true,

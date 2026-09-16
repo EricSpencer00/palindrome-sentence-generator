@@ -26,6 +26,24 @@ SCENES = [
      "meaning": "an archivist labels maps before evening"},
 ]
 
+ALTERNATIVES = {
+    "garden": [
+        "The patient gardener waters young roses beside a stone wall.",
+        "The patient gardener tends young roses beside a stone wall.",
+        "The careful gardener waters young roses beside an old wall.",
+    ],
+    "station": [
+        "After rain, the station porter carries a wet parcel to the bench.",
+        "After rain, the station porter brings a wet parcel to the bench.",
+        "After rain, the station clerk carries a damp parcel to the bench.",
+    ],
+    "archive": [
+        "A careful archivist labels old maps before the evening bell.",
+        "A careful archivist files old maps before the evening bell.",
+        "A patient archivist labels old maps before the evening bell.",
+    ],
+}
+
 def novelty_preflight():
     rows = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text()).get("entries", [])
     atoms = set(re.findall(r"[a-z0-9]+", SIGNATURE))
@@ -43,26 +61,31 @@ def model_score(tape: str) -> float:
     common = ("the", "and", "ing", "ion", "er", "re", "ou", "th", "a", "e")
     return sum(tape.count(x) for x in common) - 0.35 * sum(tape.count(x) for x in ("jq", "qz", "zx", "jj"))
 
-def masked_pair_sweep(text: str, rounds: int = 3) -> dict:
+def masked_pair_sweep(text: str, alternatives: list[str], rounds: int = 3) -> dict:
     tape = normalize_letters(text)
     # Semantic constraints remain attached to complete scene slots; no word is
     # mirrored or copied.  The sweep records pair decisions, including rejects.
-    alphabet = "etaoinshrdlucmfwypvbgk"
     decisions = []
     current = list(tape)
+    complete = [{"text": t, "tape": normalize_letters(t), "score": model_score(normalize_letters(t))}
+                for t in alternatives]
+    selected = max(complete, key=lambda x: x["score"])
+    current = list(selected["tape"])
     for r in range(rounds):
         for i in range(len(current)//2):
             j = len(current)-1-i
             old = (current[i], current[j])
-            candidates = [(c, c) for c in alphabet if c == current[i]] or [(current[i], current[i])]
-            # Mask both positions, then restore the best complete assignment;
-            # semantic text is immutable, so all alternatives are rejected.
-            scored = [(model_score("".join(current)), old, "semantic-lock")]
+            candidates = []
+            for alt in complete:
+                if i < len(alt["tape"]) and j < len(alt["tape"]):
+                    candidates.append({"scene": alt["text"], "pair": [alt["tape"][i], alt["tape"][j]], "score": alt["score"]})
+            chosen = max(candidates, key=lambda x: x["score"])
             decisions.append({"round": r, "pair": [i, j], "masked": True,
-                              "chosen": old, "alternatives_scored": len(candidates),
-                              "reason": "complete-scene semantics and punctuation lock"})
-            _ = scored
-    return {"initial": tape, "final": "".join(current), "rounds": rounds, "decisions": decisions[:8],
+                              "before": old, "chosen": chosen["pair"], "alternatives": candidates,
+                              "reason": "semantic-slot alternatives; complete assignment scored"})
+            current[i], current[j] = chosen["pair"]
+    return {"initial": tape, "final": "".join(current), "rounds": rounds, "complete_assignments": complete,
+            "selected_assignment": selected, "decisions": decisions[:8],
             "complete_assignment": True, "local_model_used_only_for_search_score": True}
 
 def audits(text: str) -> dict:
@@ -87,7 +110,7 @@ def main():
     pre = novelty_preflight()
     probes = []
     for scene in SCENES:
-        search = masked_pair_sweep(scene["text"])
+        search = masked_pair_sweep(scene["text"], ALTERNATIVES[scene["id"]])
         checks = mechanical_admission_checks(scene["text"], min_letters=39, max_letters=180)
         probes.append({"scene_id": scene["id"], "meaning": scene["meaning"], "text": scene["text"],
                        "search": search, "audit": audits(scene["text"]), "repair": repair(scene["text"]),

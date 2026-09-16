@@ -86,6 +86,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `semantic-selectional-prefix-automaton` | corpus-derived subject--verb--object preferences remain live while two independently ordered slot grammars synchronize characters through a prefix trie | learned selectional preference state | 441 frame/shape runs, 15,477 states after the subordinate-clause repair, 0 exact closures; best matched frontier preserved; 0 reader-eligible outputs |
 | `model-authored-clause-bank-index` | a fresh model-authored bank of de-duplicated complete clauses is partitioned into independent banks; one- and two-clause concatenations are joined only through a character reverse index | independent complete-clause proposal bank and composition depth | 172 clauses; 75x97 single-clause probes plus 5,550 two-clause probes; 0 exact closures; 0 reader-eligible outputs |
 | `semantic-scene-seam-growth` | complete model-authored events are grown into topic-linked three-event scenes; each event boundary carries a local two-character seam before an independent reverse lookup over full scenes | incremental semantic-scene growth and seam state | 333,306 coherent scene states plus 42,070 terminal-event repairs; best repair matched 2 reflected characters; 0 exact closures; 0 reader-eligible outputs |
+| `live-seam-intent-continuation` | an intent-conditioned model continuation receives ordinary left prose plus the exact required reversed tape at a live seam; no proposal bank or reverse index is used | direct constrained continuation at a live character seam | 6 complete-sentence seam trials; all timed out before producing a candidate; 0 exact closures; bounded short-continuation repair recorded |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
@@ -120,7 +121,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 74 retained families and 6 explicit
+family. The current audit covers all 75 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The two latest routes are below the review threshold:
 
@@ -144,6 +145,7 @@ pairs for review. The two latest routes are below the review threshold:
 | `semantic-selectional-prefix-automaton` | none (0.000) | 0.000 | retained because corpus-derived selectional preferences and live character-synchronous slot states change the construction dimension; no exact output |
 | `model-authored-clause-bank-index` | none (0.000) | 0.000 | retained because the clauses are independently model-authored complete prose and the search indexes intact one- and two-clause compositions rather than emitting reflected units; no exact output |
 | `semantic-scene-seam-growth` | none (0.000) | 0.000 | retained because scene states grow incrementally with topic continuity and local seam constraints before joining, rather than indexing independent clauses directly; no exact output |
+| `live-seam-intent-continuation` | none (0.000) | 0.000 | retained because the model is queried directly at a live exact character seam, without a proposal bank or reverse index; all six bounded trials timed out |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

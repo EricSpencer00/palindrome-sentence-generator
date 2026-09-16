@@ -1208,3 +1208,12 @@ item-aware analysis plan.
   This is a new construction state, not a larger clause-bank cross-product;
   the next repair must change the seam-aware event lexicalization rather than
   replaying the same scene bank.
+
+- **Live seam intent continuation, 2026-09-15:** a separate preflighted route
+  queried the model directly with ordinary left prose and the exact required
+  reversed tape, without a clause bank or reverse index. Six complete-sentence
+  trials timed out before returning a candidate, so exact and reader counts are
+  zero. The timeout evidence is retained with a concrete bounded repair:
+  request short continuations at each live seam with timeout-safe batching,
+  rather than repeating whole-sentence calls. Artifact:
+  `runs/live-seam-intent-continuation-20260915.json`.

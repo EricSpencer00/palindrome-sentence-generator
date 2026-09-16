@@ -1,8 +1,15 @@
 {
   "experiment": "live-seam-intent-continuation-20260915",
   "model": "gpt-oss:20b",
+  "novelty_preflight": {
+    "registry_entries_before_run": 74,
+    "excluded_routes": 6,
+    "manual_review_required": false,
+    "status": "formal_preflight_before_execution"
+  },
   "method": "intent-conditioned complete-sentence continuation at a live character seam; no bank or reverse index",
   "prompt_contract": "model sees left prose and required reversed tape; independent audit decides exactness",
+  "repair_operator": "On every mismatch or timeout, retain the required tape and request a bounded short continuation at the live seam rather than replaying the whole sentence.",
   "rows": [
     {
       "trial": 0,

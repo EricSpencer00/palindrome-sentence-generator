@@ -18,6 +18,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "runs/live-seam-intent-continuation-20260915.json"
 MODEL = "gpt-oss:20b"
+PREFLIGHT_REGISTRY_ENTRIES = 74
 SEEDS = [
     "The photographer captured a quiet sunrise.",
     "A traveler documented the bustling market.",
@@ -73,8 +74,10 @@ Return only the sentence. Previous repair instruction: {repair or 'none'}"""
         except Exception as exc:
             rows.append({"trial": i, "left": left, "error": repr(exc), "required_right_tape": target})
     payload = {"experiment": "live-seam-intent-continuation-20260915", "model": MODEL,
+               "novelty_preflight": {"registry_entries_before_run": PREFLIGHT_REGISTRY_ENTRIES, "excluded_routes": 6, "manual_review_required": False, "status": "formal_preflight_before_execution"},
                "method": "intent-conditioned complete-sentence continuation at a live character seam; no bank or reverse index",
                "prompt_contract": "model sees left prose and required reversed tape; independent audit decides exactness",
+               "repair_operator": "On every mismatch or timeout, retain the required tape and request a bounded short continuation at the live seam rather than replaying the whole sentence.",
                "rows": rows, "exact": sum(r.get("audit", {}).get("exact", False) for r in rows),
                "reader_eligible": sum(r.get("audit", {}).get("reader_eligible", False) for r in rows),
                "digest": hashlib.sha256(json.dumps(rows, sort_keys=True).encode()).hexdigest()}

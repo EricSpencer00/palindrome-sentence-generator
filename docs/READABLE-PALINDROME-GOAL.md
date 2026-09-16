@@ -184,11 +184,13 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
 - **Selectional-preference prefix automaton (2026-09-15).** This preflighted
   route learned coarse subject--verb--object preferences from Brown tag
   sequences and kept those preferences live while synchronizing two independent
-  slot grammars character by character. It evaluated 324 frame/shape pairs and
-  11,854 search states, with separate direct and opposing-index audit paths;
-  no exact closure survived. Its best partial frontier is retained, and the
-  next action is to add subordinate-clause states rather than enlarge this
-  lexical bank.
+  slot grammars character by character. The base run evaluated 324 frame/shape
+  pairs and 11,854 search states; the concrete subordinate-clause repair
+  expanded this to 441 runs and 15,477 states, with separate direct and
+  opposing-index audit paths. No exact closure survived. Its best partial
+  frontier is retained, and the next frontier changes construction family to
+  an independent model-authored clause bank rather than replaying this lexical
+  automaton.
 
 ## Scalable-construction requirement (2026-09-15)
 
@@ -1180,3 +1182,17 @@ item-aware analysis plan.
   step is typed argument-role lexicalization at those surviving boundaries,
   preserving exact letters and the hard anti-shortcut checks before any reader
   package is built.
+
+- **Model-authored complete-clause bank index, 2026-09-15:** preflighted a new
+  construction dimension before execution: a local model authored 180 ordinary
+  sentences, which were de-duplicated to 172 intact complete clauses with raw
+  response provenance retained. A deterministic hash split made independent
+  left/right banks; exact reverse indexes tested 75 x 97 one-clause joins and a
+  bounded 5,550 two-clause composition frontier. Both direct reverse-string and
+  opposing-index audits were independent, and no exact closure occurred. This
+  is not a readability result and no clause is treated as model-certified prose;
+  the raw proposals and zero-closure run are preserved in
+  `runs/model-authored-clause-proposals-20260915.json` and
+  `runs/model-authored-clause-bank-index-20260915.json`. The next repair must
+  change the construction state (for example, intent-conditioned clause
+  continuation around a live character seam), not simply resample this bank.

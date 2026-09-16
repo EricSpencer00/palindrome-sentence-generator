@@ -1,0 +1,2725 @@
+{
+  "experiment_id": "model-authored-clause-bank-index",
+  "signature": "model-authored-clause-bank|semantic-intent-conditioned-proposals|independent-complete-clause-bank|character-synchronous-reverse-index|no-catalogue-import|blinded-readability-gate",
+  "preflight": {
+    "registry_entries_before_registration": 72,
+    "excluded_families": 6,
+    "status": "formal_preflight_before_execution",
+    "manual_review_required": false
+  },
+  "method": "independent model-authored complete-clause bank with one- and two-clause character reverse indexes",
+  "proposal_artifact": "runs/model-authored-clause-proposals-20260915.json",
+  "proposal_sha256": "8459c15fb142e8e5fa423941a78f1a1c62059770964be56e14bdad3656be94d1",
+  "model": "gpt-oss:20b",
+  "prompt": "Write 180 original, ordinary English complete sentences, one per line.\nEach should be 5 to 10 words and describe observation, making, travelling, or\nrecording something concrete. Use plain prose, no lists, no palindromes, no\nquotations, no explanations, and no numbering. These are independent proposal\nsentences for a later exact letter-palindrome search; do not try to mirror any\nsentence or its word order.",
+  "parsed_bank": [
+    {
+      "source_line": 1,
+      "raw_line": "The train leaves the platform, steam curling upward.  ",
+      "text": "The train leaves the platform, steam curling upward.",
+      "normalized": "thetrainleavestheplatformsteamcurlingupward",
+      "words": [
+        "the",
+        "train",
+        "leaves",
+        "the",
+        "platform",
+        "steam",
+        "curling",
+        "upward"
+      ],
+      "word_count": 8
+    },
+    {
+      "source_line": 2,
+      "raw_line": "She paints a portrait, blending warm ochre tones.  ",
+      "text": "She paints a portrait, blending warm ochre tones.",
+      "normalized": "shepaintsaportraitblendingwarmochretones",
+      "words": [
+        "she",
+        "paints",
+        "a",
+        "portrait",
+        "blending",
+        "warm",
+        "ochre",
+        "tones"
+      ],
+      "word_count": 8
+    },
+    {
+      "source_line": 3,
+      "raw_line": "The river bends beneath a low, humming bridge.  ",
+      "text": "The river bends beneath a low, humming bridge.",
+      "normalized": "theriverbendsbeneathalowhummingbridge",
+      "words": [
+        "the",
+        "river",
+        "bends",
+        "beneath",
+        "a",
+        "low",
+        "humming",
+        "bridge"
+      ],
+      "word_count": 8
+    },
+    {
+      "source_line": 5,
+      "raw_line": "The hikers cross a granite ridge, wind whipping.  ",
+      "text": "The hikers cross a granite ridge, wind whipping.",
+      "normalized": "thehikerscrossagraniteridgewindwhipping",
+      "words": [
+        "the",
+        "hikers",
+        "cross",
+        "a",
+        "granite",
+        "ridge",
+        "wind",
+        "whipping"
+      ],
+      "word_count": 8
+    },
+    {
+      "source_line": 6,
+      "raw_line": "She sketches the garden, noting dew on petals.  ",
+      "text": "She sketches the garden, noting dew on petals.",
+      "normalized": "shesketchesthegardennotingdewonpetals",
+      "words": [
+        "she",
+        "sketches",
+        "the",
+        "garden",
+        "noting",
+        "dew",
+        "on",
+        "petals"
+      ],
+      "word_count": 8
+    },
+    {
+      "source_line": 7,
+      "raw_line": "The dog bounds through a field of tall grass.  ",
+      "text": "The dog bounds through a field of tall grass.",
+      "normalized": "thedogboundsthroughafieldoftallgrass",
+      "words": [
+        "the",
+        "dog",
+        "bounds",
+        "through",
+        "a",
+        "field",
+        "of",
+        "tall",
+        "grass"
+      ],
+      "word_count": 9
+    },
+    {
+      "source_line": 8,
+      "raw_line": "They travel eastward, crossing several time zones.  ",
+      "text": "They travel eastward, crossing several time zones.",
+      "normalized": "theytraveleastwardcrossingseveraltimezones",
+      "words": [
+        "they",
+        "travel",
+        "eastward",
+        "crossing",
+        "several",
+        "time",
+        "zones"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 9,
+      "raw_line": "The mechanic repairs a motorcycle, tightening bolts.  ",
+      "text": "The mechanic repairs a motorcycle, tightening bolts.",
+      "normalized": "themechanicrepairsamotorcycletighteningbolts",
+      "words": [
+        "the",
+        "mechanic",
+        "repairs",
+        "a",
+        "motorcycle",
+        "tightening",
+        "bolts"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 10,
+      "raw_line": "She photographs the waterfall, framing cascading silver.  ",
+      "text": "She photographs the waterfall, framing cascading silver.",
+      "normalized": "shephotographsthewaterfallframingcascadingsilver",
+      "words": [
+        "she",
+        "photographs",
+        "the",
+        "waterfall",
+        "framing",
+        "cascading",
+        "silver"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 11,
+      "raw_line": "The chef seasons a sauce, tasting every spice.  ",
+      "text": "The chef seasons a sauce, tasting every spice.",
+      "normalized": "thechefseasonsasaucetastingeveryspice",
+      "words": [
+        "the",
+        "chef",
+        "seasons",
+        "a",
+        "sauce",
+        "tasting",
+        "every",
+        "spice"
+      ],
+      "word_count": 8
+    },
+    {
+      "source_line": 12,
+      "raw_line": "They walk along the coast, salt spray rising.  ",
+      "text": "They walk along the coast, salt spray rising.",
+      "normalized": "theywalkalongthecoastsaltsprayrising",
+      "words": [
+        "they",
+        "walk",
+        "along",
+        "the",
+        "coast",
+        "salt",
+        "spray",
+        "rising"
+      ],
+      "word_count": 8
+    },
+    {
+      "source_line": 13,
+      "raw_line": "The writer drafts a letter, arranging crisp sentences.  ",
+      "text": "The writer drafts a letter, arranging crisp sentences.",
+      "normalized": "thewriterdraftsaletterarrangingcrispsentences",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "a",
+        "letter",
+        "arranging",
+        "crisp",
+        "sentences"
+      ],
+      "word_count": 8
+    },
+    {
+      "source_line": 14,
+      "raw_line": "The gardener waters seedlings, listening to their rustle.  ",
+      "text": "The gardener waters seedlings, listening to their rustle.",
+      "normalized": "thegardenerwatersseedlingslisteningtotheirrustle",
+      "words": [
+        "the",
+        "gardener",
+        "waters",
+        "seedlings",
+        "listening",
+        "to",
+        "their",
+        "rustle"
+      ],
+      "word_count": 8
+    },
+    {
+      "source_line": 15,
+      "raw_line": "He watches clouds drift, noting shapes.  ",
+      "text": "He watches clouds drift, noting shapes.",
+      "normalized": "hewatchescloudsdriftnotingshapes",
+      "words": [
+        "he",
+        "watches",
+        "clouds",
+        "drift",
+        "noting",
+        "shapes"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 16,
+      "raw_line": "The musician tunes a guitar, humming softly.  ",
+      "text": "The musician tunes a guitar, humming softly.",
+      "normalized": "themusiciantunesaguitarhummingsoftly",
+      "words": [
+        "the",
+        "musician",
+        "tunes",
+        "a",
+        "guitar",
+        "humming",
+        "softly"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 17,
+      "raw_line": "The child builds a fort from cushions, giggling.  ",
+      "text": "The child builds a fort from cushions, giggling.",
+      "normalized": "thechildbuildsafortfromcushionsgiggling",
+      "words": [
+        "the",
+        "child",
+        "builds",
+        "a",
+        "fort",
+        "from",
+        "cushions",
+        "giggling"
+      ],
+      "word_count": 8
+    },
+    {
+      "source_line": 18,
+      "raw_line": "They ride bicycles, passing old oak trees.  ",
+      "text": "They ride bicycles, passing old oak trees.",
+      "normalized": "theyridebicyclespassingoldoaktrees",
+      "words": [
+        "they",
+        "ride",
+        "bicycles",
+        "passing",
+        "old",
+        "oak",
+        "trees"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 19,
+      "raw_line": "The photographer captures a sunrise over dunes.  ",
+      "text": "The photographer captures a sunrise over dunes.",
+      "normalized": "thephotographercapturesasunriseoverdunes",
+      "words": [
+        "the",
+        "photographer",
+        "captures",
+        "a",
+        "sunrise",
+        "over",
+        "dunes"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 20,
+      "raw_line": "The teacher explains a lesson, gesturing clearly.  ",
+      "text": "The teacher explains a lesson, gesturing clearly.",
+      "normalized": "theteacherexplainsalessongesturingclearly",
+      "words": [
+        "the",
+        "teacher",
+        "explains",
+        "a",
+        "lesson",
+        "gesturing",
+        "clearly"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 21,
+      "raw_line": "She explores a cave, lantern swinging.  ",
+      "text": "She explores a cave, lantern swinging.",
+      "normalized": "sheexploresacavelanternswinging",
+      "words": [
+        "she",
+        "explores",
+        "a",
+        "cave",
+        "lantern",
+        "swinging"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 22,
+      "raw_line": "The architect sketches a new building design.  ",
+      "text": "The architect sketches a new building design.",
+      "normalized": "thearchitectsketchesanewbuildingdesign",
+      "words": [
+        "the",
+        "architect",
+        "sketches",
+        "a",
+        "new",
+        "building",
+        "design"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 23,
+      "raw_line": "They drive through mountains, enjoying the view.  ",
+      "text": "They drive through mountains, enjoying the view.",
+      "normalized": "theydrivethroughmountainsenjoyingtheview",
+      "words": [
+        "they",
+        "drive",
+        "through",
+        "mountains",
+        "enjoying",
+        "the",
+        "view"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 24,
+      "raw_line": "The baker kneads dough, smelling rising bread.  ",
+      "text": "The baker kneads dough, smelling rising bread.",
+      "normalized": "thebakerkneadsdoughsmellingrisingbread",
+      "words": [
+        "the",
+        "baker",
+        "kneads",
+        "dough",
+        "smelling",
+        "rising",
+        "bread"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 25,
+      "raw_line": "The cyclist passes a stream, splashing water.  ",
+      "text": "The cyclist passes a stream, splashing water.",
+      "normalized": "thecyclistpassesastreamsplashingwater",
+      "words": [
+        "the",
+        "cyclist",
+        "passes",
+        "a",
+        "stream",
+        "splashing",
+        "water"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 26,
+      "raw_line": "She records a podcast, speaking passionately.  ",
+      "text": "She records a podcast, speaking passionately.",
+      "normalized": "sherecordsapodcastspeakingpassionately",
+      "words": [
+        "she",
+        "records",
+        "a",
+        "podcast",
+        "speaking",
+        "passionately"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 27,
+      "raw_line": "The painter mixes pigments on a palette.  ",
+      "text": "The painter mixes pigments on a palette.",
+      "normalized": "thepaintermixespigmentsonapalette",
+      "words": [
+        "the",
+        "painter",
+        "mixes",
+        "pigments",
+        "on",
+        "a",
+        "palette"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 28,
+      "raw_line": "They walk through the park, watching sparrows.  ",
+      "text": "They walk through the park, watching sparrows.",
+      "normalized": "theywalkthroughtheparkwatchingsparrows",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "the",
+        "park",
+        "watching",
+        "sparrows"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 29,
+      "raw_line": "The mechanic checks an engine, listening closely.  ",
+      "text": "The mechanic checks an engine, listening closely.",
+      "normalized": "themechanicchecksanenginelisteningclosely",
+      "words": [
+        "the",
+        "mechanic",
+        "checks",
+        "an",
+        "engine",
+        "listening",
+        "closely"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 30,
+      "raw_line": "He writes a report, noting key figures.  ",
+      "text": "He writes a report, noting key figures.",
+      "normalized": "hewritesareportnotingkeyfigures",
+      "words": [
+        "he",
+        "writes",
+        "a",
+        "report",
+        "noting",
+        "key",
+        "figures"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 31,
+      "raw_line": "The sailor navigates a narrow channel, charting.  ",
+      "text": "The sailor navigates a narrow channel, charting.",
+      "normalized": "thesailornavigatesanarrowchannelcharting",
+      "words": [
+        "the",
+        "sailor",
+        "navigates",
+        "a",
+        "narrow",
+        "channel",
+        "charting"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 32,
+      "raw_line": "She explores a museum, studying ancient artifacts.  ",
+      "text": "She explores a museum, studying ancient artifacts.",
+      "normalized": "sheexploresamuseumstudyingancientartifacts",
+      "words": [
+        "she",
+        "explores",
+        "a",
+        "museum",
+        "studying",
+        "ancient",
+        "artifacts"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 33,
+      "raw_line": "They travel by train, watching countryside blur.  ",
+      "text": "They travel by train, watching countryside blur.",
+      "normalized": "theytravelbytrainwatchingcountrysideblur",
+      "words": [
+        "they",
+        "travel",
+        "by",
+        "train",
+        "watching",
+        "countryside",
+        "blur"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 34,
+      "raw_line": "The drummer beats rhythms, keeping steady tempo.  ",
+      "text": "The drummer beats rhythms, keeping steady tempo.",
+      "normalized": "thedrummerbeatsrhythmskeepingsteadytempo",
+      "words": [
+        "the",
+        "drummer",
+        "beats",
+        "rhythms",
+        "keeping",
+        "steady",
+        "tempo"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 35,
+      "raw_line": "The gardener trims hedges, shaping precise curves.  ",
+      "text": "The gardener trims hedges, shaping precise curves.",
+      "normalized": "thegardenertrimshedgesshapingprecisecurves",
+      "words": [
+        "the",
+        "gardener",
+        "trims",
+        "hedges",
+        "shaping",
+        "precise",
+        "curves"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 36,
+      "raw_line": "She records a song, humming melodies.  ",
+      "text": "She records a song, humming melodies.",
+      "normalized": "sherecordsasonghummingmelodies",
+      "words": [
+        "she",
+        "records",
+        "a",
+        "song",
+        "humming",
+        "melodies"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 37,
+      "raw_line": "The photographer frames a street market scene.  ",
+      "text": "The photographer frames a street market scene.",
+      "normalized": "thephotographerframesastreetmarketscene",
+      "words": [
+        "the",
+        "photographer",
+        "frames",
+        "a",
+        "street",
+        "market",
+        "scene"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 38,
+      "raw_line": "They hike up a hill, breathing hard.  ",
+      "text": "They hike up a hill, breathing hard.",
+      "normalized": "theyhikeupahillbreathinghard",
+      "words": [
+        "they",
+        "hike",
+        "up",
+        "a",
+        "hill",
+        "breathing",
+        "hard"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 39,
+      "raw_line": "The chef seasons soup, adding fresh herbs.  ",
+      "text": "The chef seasons soup, adding fresh herbs.",
+      "normalized": "thechefseasonssoupaddingfreshherbs",
+      "words": [
+        "the",
+        "chef",
+        "seasons",
+        "soup",
+        "adding",
+        "fresh",
+        "herbs"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 40,
+      "raw_line": "The child builds a LEGO castle, laughing.  ",
+      "text": "The child builds a LEGO castle, laughing.",
+      "normalized": "thechildbuildsalegocastlelaughing",
+      "words": [
+        "the",
+        "child",
+        "builds",
+        "a",
+        "lego",
+        "castle",
+        "laughing"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 41,
+      "raw_line": "He reads a novel, turning pages.  ",
+      "text": "He reads a novel, turning pages.",
+      "normalized": "hereadsanovelturningpages",
+      "words": [
+        "he",
+        "reads",
+        "a",
+        "novel",
+        "turning",
+        "pages"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 42,
+      "raw_line": "The writer drafts a poem, choosing metaphors.  ",
+      "text": "The writer drafts a poem, choosing metaphors.",
+      "normalized": "thewriterdraftsapoemchoosingmetaphors",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "a",
+        "poem",
+        "choosing",
+        "metaphors"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 43,
+      "raw_line": "The cyclist rides past a sunflower field.  ",
+      "text": "The cyclist rides past a sunflower field.",
+      "normalized": "thecyclistridespastasunflowerfield",
+      "words": [
+        "the",
+        "cyclist",
+        "rides",
+        "past",
+        "a",
+        "sunflower",
+        "field"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 44,
+      "raw_line": "They walk through a library, browsing shelves.  ",
+      "text": "They walk through a library, browsing shelves.",
+      "normalized": "theywalkthroughalibrarybrowsingshelves",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "a",
+        "library",
+        "browsing",
+        "shelves"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 45,
+      "raw_line": "The mechanic lifts a car, checking pistons.  ",
+      "text": "The mechanic lifts a car, checking pistons.",
+      "normalized": "themechanicliftsacarcheckingpistons",
+      "words": [
+        "the",
+        "mechanic",
+        "lifts",
+        "a",
+        "car",
+        "checking",
+        "pistons"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 46,
+      "raw_line": "She paints a sunset, blending pink hues.  ",
+      "text": "She paints a sunset, blending pink hues.",
+      "normalized": "shepaintsasunsetblendingpinkhues",
+      "words": [
+        "she",
+        "paints",
+        "a",
+        "sunset",
+        "blending",
+        "pink",
+        "hues"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 47,
+      "raw_line": "The musician plays piano, fingers dancing.  ",
+      "text": "The musician plays piano, fingers dancing.",
+      "normalized": "themusicianplayspianofingersdancing",
+      "words": [
+        "the",
+        "musician",
+        "plays",
+        "piano",
+        "fingers",
+        "dancing"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 48,
+      "raw_line": "They travel on a boat, waves rocking.  ",
+      "text": "They travel on a boat, waves rocking.",
+      "normalized": "theytravelonaboatwavesrocking",
+      "words": [
+        "they",
+        "travel",
+        "on",
+        "a",
+        "boat",
+        "waves",
+        "rocking"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 49,
+      "raw_line": "The photographer captures night lights, stars.  ",
+      "text": "The photographer captures night lights, stars.",
+      "normalized": "thephotographercapturesnightlightsstars",
+      "words": [
+        "the",
+        "photographer",
+        "captures",
+        "night",
+        "lights",
+        "stars"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 50,
+      "raw_line": "The gardener waters roses, pruning stems.  ",
+      "text": "The gardener waters roses, pruning stems.",
+      "normalized": "thegardenerwatersrosespruningstems",
+      "words": [
+        "the",
+        "gardener",
+        "waters",
+        "roses",
+        "pruning",
+        "stems"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 51,
+      "raw_line": "He records weather, noting temperature shifts.  ",
+      "text": "He records weather, noting temperature shifts.",
+      "normalized": "herecordsweathernotingtemperatureshifts",
+      "words": [
+        "he",
+        "records",
+        "weather",
+        "noting",
+        "temperature",
+        "shifts"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 52,
+      "raw_line": "The child draws a spaceship, colors bright.  ",
+      "text": "The child draws a spaceship, colors bright.",
+      "normalized": "thechilddrawsaspaceshipcolorsbright",
+      "words": [
+        "the",
+        "child",
+        "draws",
+        "a",
+        "spaceship",
+        "colors",
+        "bright"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 53,
+      "raw_line": "The writer drafts an email, sending promptly.  ",
+      "text": "The writer drafts an email, sending promptly.",
+      "normalized": "thewriterdraftsanemailsendingpromptly",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "an",
+        "email",
+        "sending",
+        "promptly"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 54,
+      "raw_line": "The cyclist races downhill, wind rushing.  ",
+      "text": "The cyclist races downhill, wind rushing.",
+      "normalized": "thecyclistracesdownhillwindrushing",
+      "words": [
+        "the",
+        "cyclist",
+        "races",
+        "downhill",
+        "wind",
+        "rushing"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 55,
+      "raw_line": "They walk through a desert, mirages appearing.  ",
+      "text": "They walk through a desert, mirages appearing.",
+      "normalized": "theywalkthroughadesertmiragesappearing",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "a",
+        "desert",
+        "mirages",
+        "appearing"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 56,
+      "raw_line": "The chef mixes batter, whisking vigorously.  ",
+      "text": "The chef mixes batter, whisking vigorously.",
+      "normalized": "thechefmixesbatterwhiskingvigorously",
+      "words": [
+        "the",
+        "chef",
+        "mixes",
+        "batter",
+        "whisking",
+        "vigorously"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 57,
+      "raw_line": "The mechanic inspects brakes, tightening screws.  ",
+      "text": "The mechanic inspects brakes, tightening screws.",
+      "normalized": "themechanicinspectsbrakestighteningscrews",
+      "words": [
+        "the",
+        "mechanic",
+        "inspects",
+        "brakes",
+        "tightening",
+        "screws"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 58,
+      "raw_line": "She records a story, narrating clearly.  ",
+      "text": "She records a story, narrating clearly.",
+      "normalized": "sherecordsastorynarratingclearly",
+      "words": [
+        "she",
+        "records",
+        "a",
+        "story",
+        "narrating",
+        "clearly"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 59,
+      "raw_line": "The photographer frames a portrait, lighting softly.  ",
+      "text": "The photographer frames a portrait, lighting softly.",
+      "normalized": "thephotographerframesaportraitlightingsoftly",
+      "words": [
+        "the",
+        "photographer",
+        "frames",
+        "a",
+        "portrait",
+        "lighting",
+        "softly"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 60,
+      "raw_line": "They travel by bus, watching city life.  ",
+      "text": "They travel by bus, watching city life.",
+      "normalized": "theytravelbybuswatchingcitylife",
+      "words": [
+        "they",
+        "travel",
+        "by",
+        "bus",
+        "watching",
+        "city",
+        "life"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 61,
+      "raw_line": "The dancer practices steps, moving gracefully.  ",
+      "text": "The dancer practices steps, moving gracefully.",
+      "normalized": "thedancerpracticesstepsmovinggracefully",
+      "words": [
+        "the",
+        "dancer",
+        "practices",
+        "steps",
+        "moving",
+        "gracefully"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 62,
+      "raw_line": "The gardener prunes bushes, shaping neatly.  ",
+      "text": "The gardener prunes bushes, shaping neatly.",
+      "normalized": "thegardenerprunesbushesshapingneatly",
+      "words": [
+        "the",
+        "gardener",
+        "prunes",
+        "bushes",
+        "shaping",
+        "neatly"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 63,
+      "raw_line": "He writes a note, signing his name.  ",
+      "text": "He writes a note, signing his name.",
+      "normalized": "hewritesanotesigninghisname",
+      "words": [
+        "he",
+        "writes",
+        "a",
+        "note",
+        "signing",
+        "his",
+        "name"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 64,
+      "raw_line": "The child builds a cardboard spaceship, imaginative.  ",
+      "text": "The child builds a cardboard spaceship, imaginative.",
+      "normalized": "thechildbuildsacardboardspaceshipimaginative",
+      "words": [
+        "the",
+        "child",
+        "builds",
+        "a",
+        "cardboard",
+        "spaceship",
+        "imaginative"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 65,
+      "raw_line": "The writer drafts a letter, reflecting feelings.  ",
+      "text": "The writer drafts a letter, reflecting feelings.",
+      "normalized": "thewriterdraftsaletterreflectingfeelings",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "a",
+        "letter",
+        "reflecting",
+        "feelings"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 66,
+      "raw_line": "The cyclist rides at dawn, sunrise glimmering.  ",
+      "text": "The cyclist rides at dawn, sunrise glimmering.",
+      "normalized": "thecyclistridesatdawnsunriseglimmering",
+      "words": [
+        "the",
+        "cyclist",
+        "rides",
+        "at",
+        "dawn",
+        "sunrise",
+        "glimmering"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 67,
+      "raw_line": "They walk through an orchard, apples hanging.  ",
+      "text": "They walk through an orchard, apples hanging.",
+      "normalized": "theywalkthroughanorchardappleshanging",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "an",
+        "orchard",
+        "apples",
+        "hanging"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 68,
+      "raw_line": "The chef seasons stew, adding salt.  ",
+      "text": "The chef seasons stew, adding salt.",
+      "normalized": "thechefseasonsstewaddingsalt",
+      "words": [
+        "the",
+        "chef",
+        "seasons",
+        "stew",
+        "adding",
+        "salt"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 69,
+      "raw_line": "The mechanic repairs a bicycle, fixing gears.  ",
+      "text": "The mechanic repairs a bicycle, fixing gears.",
+      "normalized": "themechanicrepairsabicyclefixinggears",
+      "words": [
+        "the",
+        "mechanic",
+        "repairs",
+        "a",
+        "bicycle",
+        "fixing",
+        "gears"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 70,
+      "raw_line": "She records a video, editing later.  ",
+      "text": "She records a video, editing later.",
+      "normalized": "sherecordsavideoeditinglater",
+      "words": [
+        "she",
+        "records",
+        "a",
+        "video",
+        "editing",
+        "later"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 71,
+      "raw_line": "The photographer captures a fox, tail curled.  ",
+      "text": "The photographer captures a fox, tail curled.",
+      "normalized": "thephotographercapturesafoxtailcurled",
+      "words": [
+        "the",
+        "photographer",
+        "captures",
+        "a",
+        "fox",
+        "tail",
+        "curled"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 72,
+      "raw_line": "They travel by plane, clouds below.  ",
+      "text": "They travel by plane, clouds below.",
+      "normalized": "theytravelbyplanecloudsbelow",
+      "words": [
+        "they",
+        "travel",
+        "by",
+        "plane",
+        "clouds",
+        "below"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 73,
+      "raw_line": "The musician writes sheet music, noting dynamics.  ",
+      "text": "The musician writes sheet music, noting dynamics.",
+      "normalized": "themusicianwritessheetmusicnotingdynamics",
+      "words": [
+        "the",
+        "musician",
+        "writes",
+        "sheet",
+        "music",
+        "noting",
+        "dynamics"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 74,
+      "raw_line": "The gardener waters herbs, smelling basil.  ",
+      "text": "The gardener waters herbs, smelling basil.",
+      "normalized": "thegardenerwatersherbssmellingbasil",
+      "words": [
+        "the",
+        "gardener",
+        "waters",
+        "herbs",
+        "smelling",
+        "basil"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 75,
+      "raw_line": "He writes a journal entry, reflecting.  ",
+      "text": "He writes a journal entry, reflecting.",
+      "normalized": "hewritesajournalentryreflecting",
+      "words": [
+        "he",
+        "writes",
+        "a",
+        "journal",
+        "entry",
+        "reflecting"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 76,
+      "raw_line": "The child sketches a dragon, scales detailed.  ",
+      "text": "The child sketches a dragon, scales detailed.",
+      "normalized": "thechildsketchesadragonscalesdetailed",
+      "words": [
+        "the",
+        "child",
+        "sketches",
+        "a",
+        "dragon",
+        "scales",
+        "detailed"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 77,
+      "raw_line": "The writer drafts a scene, describing setting.  ",
+      "text": "The writer drafts a scene, describing setting.",
+      "normalized": "thewriterdraftsascenedescribingsetting",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "a",
+        "scene",
+        "describing",
+        "setting"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 78,
+      "raw_line": "They walk through a tunnel, echoing footsteps.  ",
+      "text": "They walk through a tunnel, echoing footsteps.",
+      "normalized": "theywalkthroughatunnelechoingfootsteps",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "a",
+        "tunnel",
+        "echoing",
+        "footsteps"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 79,
+      "raw_line": "The mechanic checks oil, topping levels.  ",
+      "text": "The mechanic checks oil, topping levels.",
+      "normalized": "themechanicchecksoiltoppinglevels",
+      "words": [
+        "the",
+        "mechanic",
+        "checks",
+        "oil",
+        "topping",
+        "levels"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 80,
+      "raw_line": "The photographer frames a skyline, evening glow.  ",
+      "text": "The photographer frames a skyline, evening glow.",
+      "normalized": "thephotographerframesaskylineeveningglow",
+      "words": [
+        "the",
+        "photographer",
+        "frames",
+        "a",
+        "skyline",
+        "evening",
+        "glow"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 81,
+      "raw_line": "She records a lecture, taking notes.  ",
+      "text": "She records a lecture, taking notes.",
+      "normalized": "sherecordsalecturetakingnotes",
+      "words": [
+        "she",
+        "records",
+        "a",
+        "lecture",
+        "taking",
+        "notes"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 82,
+      "raw_line": "The cyclist rides through rain, splashing puddles.  ",
+      "text": "The cyclist rides through rain, splashing puddles.",
+      "normalized": "thecyclistridesthroughrainsplashingpuddles",
+      "words": [
+        "the",
+        "cyclist",
+        "rides",
+        "through",
+        "rain",
+        "splashing",
+        "puddles"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 83,
+      "raw_line": "They travel by train, watching mountains pass.  ",
+      "text": "They travel by train, watching mountains pass.",
+      "normalized": "theytravelbytrainwatchingmountainspass",
+      "words": [
+        "they",
+        "travel",
+        "by",
+        "train",
+        "watching",
+        "mountains",
+        "pass"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 84,
+      "raw_line": "The chef bakes bread, watching crust.  ",
+      "text": "The chef bakes bread, watching crust.",
+      "normalized": "thechefbakesbreadwatchingcrust",
+      "words": [
+        "the",
+        "chef",
+        "bakes",
+        "bread",
+        "watching",
+        "crust"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 85,
+      "raw_line": "The gardener trims vines, shaping neatly.  ",
+      "text": "The gardener trims vines, shaping neatly.",
+      "normalized": "thegardenertrimsvinesshapingneatly",
+      "words": [
+        "the",
+        "gardener",
+        "trims",
+        "vines",
+        "shaping",
+        "neatly"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 86,
+      "raw_line": "He writes a poem, rhyming softly.  ",
+      "text": "He writes a poem, rhyming softly.",
+      "normalized": "hewritesapoemrhymingsoftly",
+      "words": [
+        "he",
+        "writes",
+        "a",
+        "poem",
+        "rhyming",
+        "softly"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 87,
+      "raw_line": "The child builds a fort, using blankets.  ",
+      "text": "The child builds a fort, using blankets.",
+      "normalized": "thechildbuildsafortusingblankets",
+      "words": [
+        "the",
+        "child",
+        "builds",
+        "a",
+        "fort",
+        "using",
+        "blankets"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 88,
+      "raw_line": "The writer drafts a dialogue, speaking naturally.  ",
+      "text": "The writer drafts a dialogue, speaking naturally.",
+      "normalized": "thewriterdraftsadialoguespeakingnaturally",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "a",
+        "dialogue",
+        "speaking",
+        "naturally"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 89,
+      "raw_line": "The photographer captures a bridge, reflections.  ",
+      "text": "The photographer captures a bridge, reflections.",
+      "normalized": "thephotographercapturesabridgereflections",
+      "words": [
+        "the",
+        "photographer",
+        "captures",
+        "a",
+        "bridge",
+        "reflections"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 90,
+      "raw_line": "They walk through a forest, hearing leaves.  ",
+      "text": "They walk through a forest, hearing leaves.",
+      "normalized": "theywalkthroughaforesthearingleaves",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "a",
+        "forest",
+        "hearing",
+        "leaves"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 91,
+      "raw_line": "The mechanic repairs a scooter, checking tires.  ",
+      "text": "The mechanic repairs a scooter, checking tires.",
+      "normalized": "themechanicrepairsascootercheckingtires",
+      "words": [
+        "the",
+        "mechanic",
+        "repairs",
+        "a",
+        "scooter",
+        "checking",
+        "tires"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 92,
+      "raw_line": "She records a vlog, speaking casually.  ",
+      "text": "She records a vlog, speaking casually.",
+      "normalized": "sherecordsavlogspeakingcasually",
+      "words": [
+        "she",
+        "records",
+        "a",
+        "vlog",
+        "speaking",
+        "casually"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 93,
+      "raw_line": "The cyclist rides a trail, gravel crunching.  ",
+      "text": "The cyclist rides a trail, gravel crunching.",
+      "normalized": "thecyclistridesatrailgravelcrunching",
+      "words": [
+        "the",
+        "cyclist",
+        "rides",
+        "a",
+        "trail",
+        "gravel",
+        "crunching"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 94,
+      "raw_line": "They travel by boat, waves lapping.  ",
+      "text": "They travel by boat, waves lapping.",
+      "normalized": "theytravelbyboatwaveslapping",
+      "words": [
+        "they",
+        "travel",
+        "by",
+        "boat",
+        "waves",
+        "lapping"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 95,
+      "raw_line": "The chef seasons a salad, tossing greens.  ",
+      "text": "The chef seasons a salad, tossing greens.",
+      "normalized": "thechefseasonsasaladtossinggreens",
+      "words": [
+        "the",
+        "chef",
+        "seasons",
+        "a",
+        "salad",
+        "tossing",
+        "greens"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 96,
+      "raw_line": "The gardener prunes tomatoes, supporting stems.  ",
+      "text": "The gardener prunes tomatoes, supporting stems.",
+      "normalized": "thegardenerprunestomatoessupportingstems",
+      "words": [
+        "the",
+        "gardener",
+        "prunes",
+        "tomatoes",
+        "supporting",
+        "stems"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 97,
+      "raw_line": "He writes a note, folding paper.  ",
+      "text": "He writes a note, folding paper.",
+      "normalized": "hewritesanotefoldingpaper",
+      "words": [
+        "he",
+        "writes",
+        "a",
+        "note",
+        "folding",
+        "paper"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 98,
+      "raw_line": "The child draws a rainbow, colors bright.  ",
+      "text": "The child draws a rainbow, colors bright.",
+      "normalized": "thechilddrawsarainbowcolorsbright",
+      "words": [
+        "the",
+        "child",
+        "draws",
+        "a",
+        "rainbow",
+        "colors",
+        "bright"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 99,
+      "raw_line": "The writer drafts an outline, planning chapters.  ",
+      "text": "The writer drafts an outline, planning chapters.",
+      "normalized": "thewriterdraftsanoutlineplanningchapters",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "an",
+        "outline",
+        "planning",
+        "chapters"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 100,
+      "raw_line": "The photographer frames a storm, lightning flashing.  ",
+      "text": "The photographer frames a storm, lightning flashing.",
+      "normalized": "thephotographerframesastormlightningflashing",
+      "words": [
+        "the",
+        "photographer",
+        "frames",
+        "a",
+        "storm",
+        "lightning",
+        "flashing"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 101,
+      "raw_line": "They walk through a village, greeting neighbors.  ",
+      "text": "They walk through a village, greeting neighbors.",
+      "normalized": "theywalkthroughavillagegreetingneighbors",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "a",
+        "village",
+        "greeting",
+        "neighbors"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 102,
+      "raw_line": "The mechanic checks brakes, listening.  ",
+      "text": "The mechanic checks brakes, listening.",
+      "normalized": "themechanicchecksbrakeslistening",
+      "words": [
+        "the",
+        "mechanic",
+        "checks",
+        "brakes",
+        "listening"
+      ],
+      "word_count": 5
+    },
+    {
+      "source_line": 103,
+      "raw_line": "She records a podcast, interviewing guests.  ",
+      "text": "She records a podcast, interviewing guests.",
+      "normalized": "sherecordsapodcastinterviewingguests",
+      "words": [
+        "she",
+        "records",
+        "a",
+        "podcast",
+        "interviewing",
+        "guests"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 104,
+      "raw_line": "The cyclist rides uphill, breathing hard.  ",
+      "text": "The cyclist rides uphill, breathing hard.",
+      "normalized": "thecyclistridesuphillbreathinghard",
+      "words": [
+        "the",
+        "cyclist",
+        "rides",
+        "uphill",
+        "breathing",
+        "hard"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 105,
+      "raw_line": "They travel by car, passing cities.  ",
+      "text": "They travel by car, passing cities.",
+      "normalized": "theytravelbycarpassingcities",
+      "words": [
+        "they",
+        "travel",
+        "by",
+        "car",
+        "passing",
+        "cities"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 106,
+      "raw_line": "The chef mixes sauce, stirring slowly.  ",
+      "text": "The chef mixes sauce, stirring slowly.",
+      "normalized": "thechefmixessaucestirringslowly",
+      "words": [
+        "the",
+        "chef",
+        "mixes",
+        "sauce",
+        "stirring",
+        "slowly"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 107,
+      "raw_line": "The gardener waters lilies, petals shimmering.  ",
+      "text": "The gardener waters lilies, petals shimmering.",
+      "normalized": "thegardenerwatersliliespetalsshimmering",
+      "words": [
+        "the",
+        "gardener",
+        "waters",
+        "lilies",
+        "petals",
+        "shimmering"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 108,
+      "raw_line": "He writes a letter, sealing envelope.  ",
+      "text": "He writes a letter, sealing envelope.",
+      "normalized": "hewritesalettersealingenvelope",
+      "words": [
+        "he",
+        "writes",
+        "a",
+        "letter",
+        "sealing",
+        "envelope"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 109,
+      "raw_line": "The child builds a tower, stacking blocks.  ",
+      "text": "The child builds a tower, stacking blocks.",
+      "normalized": "thechildbuildsatowerstackingblocks",
+      "words": [
+        "the",
+        "child",
+        "builds",
+        "a",
+        "tower",
+        "stacking",
+        "blocks"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 110,
+      "raw_line": "The writer drafts a character, adding depth.  ",
+      "text": "The writer drafts a character, adding depth.",
+      "normalized": "thewriterdraftsacharacteraddingdepth",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "a",
+        "character",
+        "adding",
+        "depth"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 111,
+      "raw_line": "The photographer captures a sunset, horizon.  ",
+      "text": "The photographer captures a sunset, horizon.",
+      "normalized": "thephotographercapturesasunsethorizon",
+      "words": [
+        "the",
+        "photographer",
+        "captures",
+        "a",
+        "sunset",
+        "horizon"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 112,
+      "raw_line": "They walk through a canyon, echoing sounds.  ",
+      "text": "They walk through a canyon, echoing sounds.",
+      "normalized": "theywalkthroughacanyonechoingsounds",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "a",
+        "canyon",
+        "echoing",
+        "sounds"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 113,
+      "raw_line": "The mechanic fixes a clutch, replacing parts.  ",
+      "text": "The mechanic fixes a clutch, replacing parts.",
+      "normalized": "themechanicfixesaclutchreplacingparts",
+      "words": [
+        "the",
+        "mechanic",
+        "fixes",
+        "a",
+        "clutch",
+        "replacing",
+        "parts"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 114,
+      "raw_line": "She records a story, narrating vividly.  ",
+      "text": "She records a story, narrating vividly.",
+      "normalized": "sherecordsastorynarratingvividly",
+      "words": [
+        "she",
+        "records",
+        "a",
+        "story",
+        "narrating",
+        "vividly"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 115,
+      "raw_line": "The cyclist rides beside a river, breeze.  ",
+      "text": "The cyclist rides beside a river, breeze.",
+      "normalized": "thecyclistridesbesideariverbreeze",
+      "words": [
+        "the",
+        "cyclist",
+        "rides",
+        "beside",
+        "a",
+        "river",
+        "breeze"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 116,
+      "raw_line": "They travel by train, watching scenery shift.  ",
+      "text": "They travel by train, watching scenery shift.",
+      "normalized": "theytravelbytrainwatchingsceneryshift",
+      "words": [
+        "they",
+        "travel",
+        "by",
+        "train",
+        "watching",
+        "scenery",
+        "shift"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 117,
+      "raw_line": "The chef bakes pastries, golden crust.  ",
+      "text": "The chef bakes pastries, golden crust.",
+      "normalized": "thechefbakespastriesgoldencrust",
+      "words": [
+        "the",
+        "chef",
+        "bakes",
+        "pastries",
+        "golden",
+        "crust"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 118,
+      "raw_line": "The gardener prunes roses, trimming thorns.  ",
+      "text": "The gardener prunes roses, trimming thorns.",
+      "normalized": "thegardenerprunesrosestrimmingthorns",
+      "words": [
+        "the",
+        "gardener",
+        "prunes",
+        "roses",
+        "trimming",
+        "thorns"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 119,
+      "raw_line": "He writes a note, curling edge.  ",
+      "text": "He writes a note, curling edge.",
+      "normalized": "hewritesanotecurlingedge",
+      "words": [
+        "he",
+        "writes",
+        "a",
+        "note",
+        "curling",
+        "edge"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 120,
+      "raw_line": "The child draws a spaceship, rockets flying.  ",
+      "text": "The child draws a spaceship, rockets flying.",
+      "normalized": "thechilddrawsaspaceshiprocketsflying",
+      "words": [
+        "the",
+        "child",
+        "draws",
+        "a",
+        "spaceship",
+        "rockets",
+        "flying"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 121,
+      "raw_line": "The writer drafts a plot, twists emerging.  ",
+      "text": "The writer drafts a plot, twists emerging.",
+      "normalized": "thewriterdraftsaplottwistsemerging",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "a",
+        "plot",
+        "twists",
+        "emerging"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 122,
+      "raw_line": "The photographer frames a child, laughing.  ",
+      "text": "The photographer frames a child, laughing.",
+      "normalized": "thephotographerframesachildlaughing",
+      "words": [
+        "the",
+        "photographer",
+        "frames",
+        "a",
+        "child",
+        "laughing"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 123,
+      "raw_line": "They walk through a meadow, wildflowers blooming.  ",
+      "text": "They walk through a meadow, wildflowers blooming.",
+      "normalized": "theywalkthroughameadowwildflowersblooming",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "a",
+        "meadow",
+        "wildflowers",
+        "blooming"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 124,
+      "raw_line": "The mechanic checks spark plugs, tightening.  ",
+      "text": "The mechanic checks spark plugs, tightening.",
+      "normalized": "themechaniccheckssparkplugstightening",
+      "words": [
+        "the",
+        "mechanic",
+        "checks",
+        "spark",
+        "plugs",
+        "tightening"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 125,
+      "raw_line": "She records a song, humming tune.  ",
+      "text": "She records a song, humming tune.",
+      "normalized": "sherecordsasonghummingtune",
+      "words": [
+        "she",
+        "records",
+        "a",
+        "song",
+        "humming",
+        "tune"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 126,
+      "raw_line": "The cyclist rides through fog, muffled.  ",
+      "text": "The cyclist rides through fog, muffled.",
+      "normalized": "thecyclistridesthroughfogmuffled",
+      "words": [
+        "the",
+        "cyclist",
+        "rides",
+        "through",
+        "fog",
+        "muffled"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 127,
+      "raw_line": "They travel by boat, stars overhead.  ",
+      "text": "They travel by boat, stars overhead.",
+      "normalized": "theytravelbyboatstarsoverhead",
+      "words": [
+        "they",
+        "travel",
+        "by",
+        "boat",
+        "stars",
+        "overhead"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 128,
+      "raw_line": "The chef seasons soup, adding pepper.  ",
+      "text": "The chef seasons soup, adding pepper.",
+      "normalized": "thechefseasonssoupaddingpepper",
+      "words": [
+        "the",
+        "chef",
+        "seasons",
+        "soup",
+        "adding",
+        "pepper"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 129,
+      "raw_line": "The gardener waters pumpkins, vines climbing.  ",
+      "text": "The gardener waters pumpkins, vines climbing.",
+      "normalized": "thegardenerwaterspumpkinsvinesclimbing",
+      "words": [
+        "the",
+        "gardener",
+        "waters",
+        "pumpkins",
+        "vines",
+        "climbing"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 130,
+      "raw_line": "He writes a diary entry, reflecting moments.  ",
+      "text": "He writes a diary entry, reflecting moments.",
+      "normalized": "hewritesadiaryentryreflectingmoments",
+      "words": [
+        "he",
+        "writes",
+        "a",
+        "diary",
+        "entry",
+        "reflecting",
+        "moments"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 131,
+      "raw_line": "The child builds a robot, assembling parts.  ",
+      "text": "The child builds a robot, assembling parts.",
+      "normalized": "thechildbuildsarobotassemblingparts",
+      "words": [
+        "the",
+        "child",
+        "builds",
+        "a",
+        "robot",
+        "assembling",
+        "parts"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 132,
+      "raw_line": "The writer drafts a scene, lighting described.  ",
+      "text": "The writer drafts a scene, lighting described.",
+      "normalized": "thewriterdraftsascenelightingdescribed",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "a",
+        "scene",
+        "lighting",
+        "described"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 133,
+      "raw_line": "The photographer captures a street, neon lights.  ",
+      "text": "The photographer captures a street, neon lights.",
+      "normalized": "thephotographercapturesastreetneonlights",
+      "words": [
+        "the",
+        "photographer",
+        "captures",
+        "a",
+        "street",
+        "neon",
+        "lights"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 134,
+      "raw_line": "They walk through a tunnel, lights flickering.  ",
+      "text": "They walk through a tunnel, lights flickering.",
+      "normalized": "theywalkthroughatunnellightsflickering",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "a",
+        "tunnel",
+        "lights",
+        "flickering"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 135,
+      "raw_line": "The mechanic repairs a generator, checking voltage.  ",
+      "text": "The mechanic repairs a generator, checking voltage.",
+      "normalized": "themechanicrepairsageneratorcheckingvoltage",
+      "words": [
+        "the",
+        "mechanic",
+        "repairs",
+        "a",
+        "generator",
+        "checking",
+        "voltage"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 136,
+      "raw_line": "She records a lecture, taking minutes.  ",
+      "text": "She records a lecture, taking minutes.",
+      "normalized": "sherecordsalecturetakingminutes",
+      "words": [
+        "she",
+        "records",
+        "a",
+        "lecture",
+        "taking",
+        "minutes"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 137,
+      "raw_line": "The cyclist rides a path, trees swaying.  ",
+      "text": "The cyclist rides a path, trees swaying.",
+      "normalized": "thecyclistridesapathtreesswaying",
+      "words": [
+        "the",
+        "cyclist",
+        "rides",
+        "a",
+        "path",
+        "trees",
+        "swaying"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 138,
+      "raw_line": "They travel by train, watching countryside.  ",
+      "text": "They travel by train, watching countryside.",
+      "normalized": "theytravelbytrainwatchingcountryside",
+      "words": [
+        "they",
+        "travel",
+        "by",
+        "train",
+        "watching",
+        "countryside"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 139,
+      "raw_line": "The chef kneads dough, feeling elasticity.  ",
+      "text": "The chef kneads dough, feeling elasticity.",
+      "normalized": "thechefkneadsdoughfeelingelasticity",
+      "words": [
+        "the",
+        "chef",
+        "kneads",
+        "dough",
+        "feeling",
+        "elasticity"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 140,
+      "raw_line": "The gardener prunes a hedge, shaping curves.  ",
+      "text": "The gardener prunes a hedge, shaping curves.",
+      "normalized": "thegardenerprunesahedgeshapingcurves",
+      "words": [
+        "the",
+        "gardener",
+        "prunes",
+        "a",
+        "hedge",
+        "shaping",
+        "curves"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 141,
+      "raw_line": "He writes a note, signing.  ",
+      "text": "He writes a note, signing.",
+      "normalized": "hewritesanotesigning",
+      "words": [
+        "he",
+        "writes",
+        "a",
+        "note",
+        "signing"
+      ],
+      "word_count": 5
+    },
+    {
+      "source_line": 142,
+      "raw_line": "The child draws a cat, whiskers detailed.  ",
+      "text": "The child draws a cat, whiskers detailed.",
+      "normalized": "thechilddrawsacatwhiskersdetailed",
+      "words": [
+        "the",
+        "child",
+        "draws",
+        "a",
+        "cat",
+        "whiskers",
+        "detailed"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 143,
+      "raw_line": "The writer drafts a dialogue, capturing voice.  ",
+      "text": "The writer drafts a dialogue, capturing voice.",
+      "normalized": "thewriterdraftsadialoguecapturingvoice",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "a",
+        "dialogue",
+        "capturing",
+        "voice"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 144,
+      "raw_line": "The photographer frames a mountain, clouds below.  ",
+      "text": "The photographer frames a mountain, clouds below.",
+      "normalized": "thephotographerframesamountaincloudsbelow",
+      "words": [
+        "the",
+        "photographer",
+        "frames",
+        "a",
+        "mountain",
+        "clouds",
+        "below"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 145,
+      "raw_line": "They walk through a canyon, echoing wind.  ",
+      "text": "They walk through a canyon, echoing wind.",
+      "normalized": "theywalkthroughacanyonechoingwind",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "a",
+        "canyon",
+        "echoing",
+        "wind"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 146,
+      "raw_line": "The mechanic checks coolant, topping fluid.  ",
+      "text": "The mechanic checks coolant, topping fluid.",
+      "normalized": "themechaniccheckscoolanttoppingfluid",
+      "words": [
+        "the",
+        "mechanic",
+        "checks",
+        "coolant",
+        "topping",
+        "fluid"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 147,
+      "raw_line": "She records a vlog, narrating journey.  ",
+      "text": "She records a vlog, narrating journey.",
+      "normalized": "sherecordsavlognarratingjourney",
+      "words": [
+        "she",
+        "records",
+        "a",
+        "vlog",
+        "narrating",
+        "journey"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 148,
+      "raw_line": "The cyclist rides beside a lake, ripples.  ",
+      "text": "The cyclist rides beside a lake, ripples.",
+      "normalized": "thecyclistridesbesidealakeripples",
+      "words": [
+        "the",
+        "cyclist",
+        "rides",
+        "beside",
+        "a",
+        "lake",
+        "ripples"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 149,
+      "raw_line": "They travel by boat, paddling gently.  ",
+      "text": "They travel by boat, paddling gently.",
+      "normalized": "theytravelbyboatpaddlinggently",
+      "words": [
+        "they",
+        "travel",
+        "by",
+        "boat",
+        "paddling",
+        "gently"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 150,
+      "raw_line": "The chef seasons steak, adding salt.  ",
+      "text": "The chef seasons steak, adding salt.",
+      "normalized": "thechefseasonssteakaddingsalt",
+      "words": [
+        "the",
+        "chef",
+        "seasons",
+        "steak",
+        "adding",
+        "salt"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 151,
+      "raw_line": "The gardener waters ivy, climbing walls.  ",
+      "text": "The gardener waters ivy, climbing walls.",
+      "normalized": "thegardenerwatersivyclimbingwalls",
+      "words": [
+        "the",
+        "gardener",
+        "waters",
+        "ivy",
+        "climbing",
+        "walls"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 152,
+      "raw_line": "He writes a letter, drafting carefully.  ",
+      "text": "He writes a letter, drafting carefully.",
+      "normalized": "hewritesaletterdraftingcarefully",
+      "words": [
+        "he",
+        "writes",
+        "a",
+        "letter",
+        "drafting",
+        "carefully"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 153,
+      "raw_line": "The child builds a bridge, using straws.  ",
+      "text": "The child builds a bridge, using straws.",
+      "normalized": "thechildbuildsabridgeusingstraws",
+      "words": [
+        "the",
+        "child",
+        "builds",
+        "a",
+        "bridge",
+        "using",
+        "straws"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 154,
+      "raw_line": "The writer drafts an outline, structuring chapters.  ",
+      "text": "The writer drafts an outline, structuring chapters.",
+      "normalized": "thewriterdraftsanoutlinestructuringchapters",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "an",
+        "outline",
+        "structuring",
+        "chapters"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 155,
+      "raw_line": "The photographer captures a bird, wings spread.  ",
+      "text": "The photographer captures a bird, wings spread.",
+      "normalized": "thephotographercapturesabirdwingsspread",
+      "words": [
+        "the",
+        "photographer",
+        "captures",
+        "a",
+        "bird",
+        "wings",
+        "spread"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 156,
+      "raw_line": "They walk through a forest, sunlight filtering.  ",
+      "text": "They walk through a forest, sunlight filtering.",
+      "normalized": "theywalkthroughaforestsunlightfiltering",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "a",
+        "forest",
+        "sunlight",
+        "filtering"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 157,
+      "raw_line": "The mechanic repairs a tire, balancing.  ",
+      "text": "The mechanic repairs a tire, balancing.",
+      "normalized": "themechanicrepairsatirebalancing",
+      "words": [
+        "the",
+        "mechanic",
+        "repairs",
+        "a",
+        "tire",
+        "balancing"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 158,
+      "raw_line": "She records a podcast, discussing topics.  ",
+      "text": "She records a podcast, discussing topics.",
+      "normalized": "sherecordsapodcastdiscussingtopics",
+      "words": [
+        "she",
+        "records",
+        "a",
+        "podcast",
+        "discussing",
+        "topics"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 160,
+      "raw_line": "They travel by train, watching nightfall.  ",
+      "text": "They travel by train, watching nightfall.",
+      "normalized": "theytravelbytrainwatchingnightfall",
+      "words": [
+        "they",
+        "travel",
+        "by",
+        "train",
+        "watching",
+        "nightfall"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 161,
+      "raw_line": "The chef mixes batter, whisking swiftly.  ",
+      "text": "The chef mixes batter, whisking swiftly.",
+      "normalized": "thechefmixesbatterwhiskingswiftly",
+      "words": [
+        "the",
+        "chef",
+        "mixes",
+        "batter",
+        "whisking",
+        "swiftly"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 162,
+      "raw_line": "The gardener trims a tree, shaping canopy.  ",
+      "text": "The gardener trims a tree, shaping canopy.",
+      "normalized": "thegardenertrimsatreeshapingcanopy",
+      "words": [
+        "the",
+        "gardener",
+        "trims",
+        "a",
+        "tree",
+        "shaping",
+        "canopy"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 163,
+      "raw_line": "He writes a note, folding neatly.  ",
+      "text": "He writes a note, folding neatly.",
+      "normalized": "hewritesanotefoldingneatly",
+      "words": [
+        "he",
+        "writes",
+        "a",
+        "note",
+        "folding",
+        "neatly"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 164,
+      "raw_line": "The child draws a dinosaur, scales bright.  ",
+      "text": "The child draws a dinosaur, scales bright.",
+      "normalized": "thechilddrawsadinosaurscalesbright",
+      "words": [
+        "the",
+        "child",
+        "draws",
+        "a",
+        "dinosaur",
+        "scales",
+        "bright"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 165,
+      "raw_line": "The writer drafts a scene, sensory details.  ",
+      "text": "The writer drafts a scene, sensory details.",
+      "normalized": "thewriterdraftsascenesensorydetails",
+      "words": [
+        "the",
+        "writer",
+        "drafts",
+        "a",
+        "scene",
+        "sensory",
+        "details"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 166,
+      "raw_line": "The photographer frames a sunset, horizon glow.  ",
+      "text": "The photographer frames a sunset, horizon glow.",
+      "normalized": "thephotographerframesasunsethorizonglow",
+      "words": [
+        "the",
+        "photographer",
+        "frames",
+        "a",
+        "sunset",
+        "horizon",
+        "glow"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 167,
+      "raw_line": "They walk through a canyon, echoing footsteps.  ",
+      "text": "They walk through a canyon, echoing footsteps.",
+      "normalized": "theywalkthroughacanyonechoingfootsteps",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "a",
+        "canyon",
+        "echoing",
+        "footsteps"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 168,
+      "raw_line": "The mechanic checks oil, adding fluid.  ",
+      "text": "The mechanic checks oil, adding fluid.",
+      "normalized": "themechanicchecksoiladdingfluid",
+      "words": [
+        "the",
+        "mechanic",
+        "checks",
+        "oil",
+        "adding",
+        "fluid"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 170,
+      "raw_line": "The cyclist rides beside a river, wind.  ",
+      "text": "The cyclist rides beside a river, wind.",
+      "normalized": "thecyclistridesbesideariverwind",
+      "words": [
+        "the",
+        "cyclist",
+        "rides",
+        "beside",
+        "a",
+        "river",
+        "wind"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 172,
+      "raw_line": "The chef seasons a salad, dressing drizzle.  ",
+      "text": "The chef seasons a salad, dressing drizzle.",
+      "normalized": "thechefseasonsasaladdressingdrizzle",
+      "words": [
+        "the",
+        "chef",
+        "seasons",
+        "a",
+        "salad",
+        "dressing",
+        "drizzle"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 173,
+      "raw_line": "The gardener waters basil, leaves shimmering.  ",
+      "text": "The gardener waters basil, leaves shimmering.",
+      "normalized": "thegardenerwatersbasilleavesshimmering",
+      "words": [
+        "the",
+        "gardener",
+        "waters",
+        "basil",
+        "leaves",
+        "shimmering"
+      ],
+      "word_count": 6
+    },
+    {
+      "source_line": 177,
+      "raw_line": "The photographer captures a night sky, stars.  ",
+      "text": "The photographer captures a night sky, stars.",
+      "normalized": "thephotographercapturesanightskystars",
+      "words": [
+        "the",
+        "photographer",
+        "captures",
+        "a",
+        "night",
+        "sky",
+        "stars"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 178,
+      "raw_line": "They walk through a meadow, wildflowers dancing.  ",
+      "text": "They walk through a meadow, wildflowers dancing.",
+      "normalized": "theywalkthroughameadowwildflowersdancing",
+      "words": [
+        "they",
+        "walk",
+        "through",
+        "a",
+        "meadow",
+        "wildflowers",
+        "dancing"
+      ],
+      "word_count": 7
+    },
+    {
+      "source_line": 179,
+      "raw_line": "The mechanic repairs a battery, tightening terminals.",
+      "text": "The mechanic repairs a battery, tightening terminals.",
+      "normalized": "themechanicrepairsabatterytighteningterminals",
+      "words": [
+        "the",
+        "mechanic",
+        "repairs",
+        "a",
+        "battery",
+        "tightening",
+        "terminals"
+      ],
+      "word_count": 7
+    }
+  ],
+  "search": {
+    "bank_count": 172,
+    "left_bank_count": 75,
+    "right_bank_count": 97,
+    "single_clause_probes": 75,
+    "two_clause_probes": 5550,
+    "exact_count": 0,
+    "admitted_count": 0,
+    "rows": []
+  },
+  "rendered_candidates": [],
+  "reader_gate": "No programmatic score certifies readability; any admitted row requires randomized blinded human ratings with intact-prose and shuffled controls."
+}

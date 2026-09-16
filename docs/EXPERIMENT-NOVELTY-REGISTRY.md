@@ -83,7 +83,8 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `adaptive-crossword-span-cover` | a whole normalized tape is solved as a variable-boundary span lattice; context-conditioned phrase proposals propagate mirrored character variables with reversible backtracking, then a non-mirrored lexical chart recovers prose | adaptive variable-boundary span cover | 10,785 exact tapes; all 10,785 failed the no-fragment/admission gate because lexical recovery collapsed to one-letter fragments; 0 reader-eligible outputs |
 | `context-template-crossword-repair` | authored contextual phrase templates are held intact while a minimum-three-letter reflected segmentation and non-echo constraint reject the adaptive route's one-letter collapse | minimum-word-length prose repair | 18 probes; 0 exact closures; 0 admitted or reader-eligible outputs |
 | `syntactic-mirror-template-repair` | independent typed subject/event/continuation slots enforce a minimum-two-letter surface and whole-tape audit | semantic-role-bound template repair | 2 exact surfaces at 43 and 51 letters, both rejected as known catalogue/duplicate-span material; 0 admitted |
-| `semantic-selectional-prefix-automaton` | corpus-derived subject--verb--object preferences remain live while two independently ordered slot grammars synchronize characters through a prefix trie | learned selectional preference state | 324 frame/shape runs, 11,854 states, 0 exact closures; best matched frontier preserved; 0 reader-eligible outputs |
+| `semantic-selectional-prefix-automaton` | corpus-derived subject--verb--object preferences remain live while two independently ordered slot grammars synchronize characters through a prefix trie | learned selectional preference state | 441 frame/shape runs, 15,477 states after the subordinate-clause repair, 0 exact closures; best matched frontier preserved; 0 reader-eligible outputs |
+| `model-authored-clause-bank-index` | a fresh model-authored bank of de-duplicated complete clauses is partitioned into independent banks; one- and two-clause concatenations are joined only through a character reverse index | independent complete-clause proposal bank and composition depth | 172 clauses; 75x97 single-clause probes plus 5,550 two-clause probes; 0 exact closures; 0 reader-eligible outputs |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
@@ -109,7 +110,7 @@ the next frontier was chosen:
 Their run records remain available for failure analysis (`runs/seed-symmetric-
 mutation-20260915.json` and `runs/seed-boundary-shift-typed-resegmentation-
 20260915*.json`). A future route may use their residuals only after a new
-signature is pre-registered and its state space is disjoint from all 70
+signature is pre-registered and its state space is disjoint from all previously
 registered families.
 
 ## Novelty audit policy (2026-09-15)
@@ -118,7 +119,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 72 retained families and 6 explicit
+family. The current audit covers all 73 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The two latest routes are below the review threshold:
 
@@ -140,6 +141,7 @@ pairs for review. The two latest routes are below the review threshold:
 | `context-template-crossword-repair` | none (0.000) | 0.000 | retained as a concrete minimum-word-length/non-echo repair operator for the adaptive collapse; it produced no exact closure |
 | `syntactic-mirror-template-repair` | none (0.000) | 0.000 | retained only as a documented typed-slot repair; its two exact outputs were known catalogue/duplicate-span material and are not candidates |
 | `semantic-selectional-prefix-automaton` | none (0.000) | 0.000 | retained because corpus-derived selectional preferences and live character-synchronous slot states change the construction dimension; no exact output |
+| `model-authored-clause-bank-index` | none (0.000) | 0.000 | retained because the clauses are independently model-authored complete prose and the search indexes intact one- and two-clause compositions rather than emitting reflected units; no exact output |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

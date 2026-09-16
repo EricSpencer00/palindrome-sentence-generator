@@ -185,7 +185,7 @@ construction step. Novelty preflight passed; 11 single-slot substitutions were
 rendered and independently checked, with no exact or mechanically admissible
 result. The recorded next repair is typed boundary resegmentation at the first
 failing seam, permitting adjacent short words to absorb reflected suffixes.
-The current aggregate is **4,537 rows across 141 route phases, 78 exact tapes,
+The current aggregate is **4,539 rows across 142 route phases, 78 exact tapes,
 and 0 mechanically admitted outputs**.
 
 ## Typed-boundary follow-up (2026-09-16)
@@ -220,3 +220,21 @@ fresh `near` to `by` repair while preserving the typed SVO frame. The rendered
 38-letter sentence remains non-exact and below the 39-letter floor; provenance,
 pointer/hash checks, and novelty preflight are recorded. The next repair is the
 determiner slot.
+
+## Additional reverse-segmentation evidence (2026-09-16)
+
+The corpus-backed reverse-segmentation lane retains two fresh 103--104-letter
+clauses; weighted boundary DP finds no exact reverse segmentation. Provenance,
+copied-span rejection, and the next held-out lexical/POS inventory repair are
+recorded.
+
+## Latest authoritative continuation (2026-09-16)
+
+The aggregate is **4,542 normalized rows across 144 route phases, 78 exact
+tapes, and 0 mechanically admitted outputs**. Novelty validation reports 246
+unique artifacts (24 exclusions; 224 run artifacts). The new word-pair graph,
+paired semantic mutation, central-pivot CSP, semantic-slot lattice, and
+corpus-backed reverse-segmentation runs all retain rendered ordinary-prose
+states plus independent exact/hash audits and named next repairs. The 164-letter
+word-pair frontier is the longest of this wave; it is not exact and is not
+presented as a palindrome.

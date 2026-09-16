@@ -61,14 +61,15 @@ def main() -> None:
         reverse = tape[::-1]
         words = weighted_segment(reverse, counts)
         candidate = " ".join(words) if words else None
-        rows.append({"source_clause": clause, "source_letters": len(tape),
+        rows.append({"rendered": clause, "source_clause": clause, "source_letters": len(tape),
                      "reverse_tape_letters": len(reverse), "segmentation": words,
                      "composed_clause": candidate, "exact": bool(candidate),
                      "complete_clause": bool(candidate and candidate[-1:] in ".!?"),
                      "copied_span_rejected": bool(candidate and copied_span(clause, candidate)),
                      "pointer_hash": pointer_hash(clause),
                      "audit": {"left_right_equal": bool(candidate and normalize_letters(candidate)==reverse),
-                               "two_pointer_mismatches": sum(a != b for a,b in zip(tape, tape[::-1]))}})
+                               "two_pointer_mismatches": sum(a != b for a,b in zip(tape, tape[::-1]))},
+                     "provenance": "fresh hand-authored clause; reverse tape segmentation attempted; no catalogue text"})
     admitted = [r for r in rows if r["source_letters"] > 100 and r["exact"] and not r["copied_span_rejected"]]
     report = {"experiment": EXPERIMENT, "signature": SIGNATURE, "method": "weighted lexical boundary DP over reversed fresh clause tape",
               "candidates": rows, "exact_count": len(admitted),

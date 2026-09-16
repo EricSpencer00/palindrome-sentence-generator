@@ -27,7 +27,7 @@ builds ordinary scenes: typed grammar and semantic slots propose the next
 words, and targeted repairs are selected from the current mirrored-letter
 debt.  Ten deliberately orthogonal construction lanes share an independent
 two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 4,537 candidates from 141 route
+The current development snapshot contains 4,542 candidates from 144 route
 summaries; 78 are exact, but none passes the mechanical admission gate and no row has
 yet been promoted by readers.  We report the rendered candidates and the
 failed gates explicitly, then use each failure to define the next repair
@@ -147,6 +147,13 @@ decoder also reproduces the 51-letter ``Doc, note: I dissent.'' palindrome,
 but the provenance gate identifies it as catalogue text and keeps it out of the
 result set.
 
+The word-pair graph contributes a 164-letter intact scene frontier but no
+closure.  Paired semantic mutation produces two fresh 61-letter controls and
+no closure.  Finally, weighted reverse-tape segmentation retains two authored
+103--104-letter clauses but finds no legal segmentation.  These runs are
+separate construction states; each leaves an explicit repair rather than being
+counted as a larger duplicate sweep.
+
 \section{Independent verification and provenance}
 For every row, the verifier recomputes normalization, length, first mismatch,
 two-pointer equality, and a forward/reverse digest without importing the
@@ -154,9 +161,9 @@ generator's booleans.  The mechanical admission vector records ASCII support,
 lexical form, distinctness, catalogue-family exclusion, repeated-unit and
 self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
 one signature to each run and rejects duplicate families before aggregation.
-On the authoritative snapshot the registry contains 243 unique artifacts (24
-preflight exclusions); the aggregate contains 4,537 rows, 78 exact rows, and
-zero mechanically admitted rows across 141 route summaries.  Every exact row
+On the authoritative snapshot the registry contains 246 unique artifacts (24
+preflight exclusions); the aggregate contains 4,542 rows, 78 exact rows, and
+zero mechanically admitted rows across 144 route summaries.  Every exact row
 therefore has a visible reason for rejection or promotion status rather than
 being silently discarded.
 

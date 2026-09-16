@@ -246,7 +246,7 @@ witness. Every attempt has independent pointer/hash checks and provenance; no
 substitution remained exact or mechanically admissible. The next operator is
 typed boundary resegmentation at the first failing seam, allowing adjacent
 short words to absorb reflected suffixes. With this artifact included, the
-authoritative aggregate is **4,537 rows, 141 route phases, 78 exact tapes, and
+authoritative aggregate is **4,539 rows, 142 route phases, 78 exact tapes, and
 0 mechanically admitted outputs**.
 
 ## Typed-boundary follow-up (2026-09-16)
@@ -288,3 +288,24 @@ harbor.” The typed SVO frame and singular agreement are preserved. Independent
 pointer/hash validation remains non-exact (38 letters, below the 39-letter
 mechanical floor), and the next repair carries the residual into the determiner
 slot.
+
+## Additional reverse-segmentation evidence (2026-09-16)
+
+The corpus-backed reverse-segmentation lane retains two fresh authored clauses
+at 103--104 letters. Its weighted boundary DP finds no valid reverse
+segmentation, so both remain intact prose controls with exactness false and a
+concrete next repair to expand the held-out lexical/POS inventory.
+
+## Authoritative continuation snapshot (2026-09-16, latest)
+
+The common audit now contains **4,542 normalized rows across 144 route phases,
+78 exact tapes, and 0 mechanically admitted outputs**. The registry validator
+reports **246 unique artifacts, 24 preflight exclusions, and 224 run
+artifacts**. The latest orthogonal additions are preserved as reader-facing
+prose evidence: a 164-letter word-pair graph frontier (no closure), two fresh
+61-letter paired semantic mutations (no closure), a 113-letter central-pivot
+two-clause scene (first-character mismatch), a 108-state semantic-slot lattice
+(all pruned), and two fresh 103--104-letter reverse-segmentation clauses (no
+legal segmentation). Each row has independent pointer/hash validation,
+provenance, novelty preflight, and a concrete next repair; none is promoted as
+readability evidence.

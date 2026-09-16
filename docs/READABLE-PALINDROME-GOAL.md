@@ -1985,7 +1985,7 @@ item-aware analysis plan.
   pointer/hash checks found no surviving exact closure and no mechanically
   admissible output. Its concrete next construction is typed boundary
   resegmentation at the first failing seam, allowing adjacent short words to
-  absorb reflected suffixes. The aggregate is now 4,537 rows across 141 route
+  absorb reflected suffixes. The aggregate is now 4,539 rows across 142 route
   phases, with 77 exact tapes and 0 mechanically admitted outputs.
 
   **Typed-boundary follow-up (2026-09-16):**
@@ -2015,3 +2015,18 @@ item-aware analysis plan.
   quiet harbor.” The SVO frame and agreement stay fixed; independent validation
   is non-exact at 38 letters, below the 39-letter floor. The next repair carries
   the residual into the determiner slot.
+
+  **Additional reverse-segmentation evidence (2026-09-16):** the
+  corpus-backed lane retains two fresh 103--104-letter authored clauses.
+  Weighted boundary DP finds no exact reverse segmentation; copied-span
+  rejection, provenance, and a concrete held-out lexical/POS expansion repair
+  are recorded.
+
+  **Latest authoritative continuation (2026-09-16):** the common audit now
+  contains 4,542 normalized rows across 144 route phases, 78 exact tapes, and
+  0 mechanically admitted outputs; the novelty registry contains 246 unique
+  artifacts (24 exclusions, 224 run artifacts). The 164-letter word-pair
+  graph frontier, two fresh 61-letter paired mutations, 113-letter clause CSP,
+  108 semantic-slot states, and 103--104-letter reverse-segmentation clauses
+  are all rendered, independently checked, provenance-backed, and paired with
+  concrete next repairs. None is promoted as a readable palindrome.

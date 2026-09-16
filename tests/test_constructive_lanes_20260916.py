@@ -61,7 +61,7 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4537
+    assert report["candidate_count"] == 4542
     assert report["exact_count"] == 78
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
@@ -77,6 +77,9 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/bidirectional-scene-decoder-20260916.json"]["rows"] == 1
     assert by_source["runs/semantic-slot-lattice-smt-20260916/run.json"]["rows"] == 108
     assert by_source["runs/clause-pair-csp-central-pivot-20260916/run.json"]["rows"] == 1
+    assert by_source["runs/corpus-backed-reverse-segmentation-20260916.json"]["rows"] == 2
+    assert by_source["runs/wordpair-graph-2026-09-16.json"]["rows"] == 1
+    assert by_source["runs/paired-semantic-mutation-20260916.json"]["rows"] == 2
 
 
 def test_fresh_typed_frame_preserves_prose_and_live_obligation_evidence():
@@ -125,6 +128,37 @@ def test_bidirectional_scene_decoder_rejects_known_control_with_exact_audit():
     assert run["candidate"]["independent_exact"] is True
     assert run["candidate"]["mechanically_admitted"] is False
     assert run["novelty_preflight"]["admitted"] is False
+
+
+def test_reverse_segmentation_keeps_fresh_long_clauses_when_dp_fails():
+    run = json.loads((ROOT / "runs/corpus-backed-reverse-segmentation-20260916.json").read_text())
+    assert run["exact_count"] == 0
+    assert len(run["candidates"]) == 2
+    assert all(row["rendered"] and row["source_letters"] > 100 for row in run["candidates"])
+    assert all(row["segmentation"] is None and row["exact"] is False for row in run["candidates"])
+    assert all(row["provenance"] for row in run["candidates"])
+
+
+def test_wordpair_graph_preserves_long_intact_frontier_without_closure():
+    run = json.loads((ROOT / "runs/wordpair-graph-2026-09-16.json").read_text())
+    row = run["candidates"][0]
+    assert run["closures"] == 0
+    assert row["letters"] == 164
+    assert row["exact"] is False
+    assert row["pos_valency_gate"] is True
+    # The graph lane stores audit provenance as method descriptions; the
+    # candidate's exact boolean is independently recomputed above.
+    assert "independent tape" in run["audits"]["pointer"]
+    assert "SHA-256" in run["audits"]["hash"]
+
+
+def test_paired_semantic_mutation_retains_fresh_controls_and_mismatch_trace():
+    run = json.loads((ROOT / "runs/paired-semantic-mutation-20260916.json").read_text())
+    assert run["stats"]["rendered"] == 2
+    assert run["stats"]["exact"] == 0
+    assert all(row["coherent_scene_slots"] for row in run["rendered_candidates"])
+    assert all(row["independent_ascii_exact"] is False for row in run["rendered_candidates"])
+    assert all(row["two_pointer_mismatches"] for row in run["rendered_candidates"])
 
 
 def test_seam_feature_repair_keeps_each_targeted_attempt_and_next_operator():

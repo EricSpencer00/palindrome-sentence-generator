@@ -1,0 +1,256 @@
+{
+  "experiment": "typed_reversible_lexeme_graph",
+  "date": "2026-09-16",
+  "method": "typed SVOA clauses; each edge is an independently selected ordinary reverse-spelling pair; mirrored role order is grammar-constrained",
+  "forbidden_inputs": [
+    "known palindrome seeds",
+    "catalogue text",
+    "repeated clauses/units",
+    "post-hoc wrappers"
+  ],
+  "best_candidate": {
+    "text": "Stressed deliver loop now diaper stop smart live drawer part dog draw stressed deliver loop now diaper stop smart live drawer part dog draw stressed deliver loop now diaper stop smart live drawer part dog draw; ward god trap reward evil trams pots repaid won pool reviled desserts ward god trap reward evil trams pots repaid won pool reviled desserts ward god trap reward evil trams pots repaid won pool reviled trams.",
+    "metrics": {
+      "letters": 345,
+      "words": 72,
+      "unique_word_ratio": 0.333,
+      "sentence_count": 1,
+      "closure": false,
+      "mismatches": 157
+    },
+    "edges": [
+      {
+        "role": "subject",
+        "left": "stressed",
+        "right": "desserts",
+        "reversible": true
+      },
+      {
+        "role": "verb",
+        "left": "deliver",
+        "right": "reviled",
+        "reversible": true
+      },
+      {
+        "role": "object",
+        "left": "loop",
+        "right": "pool",
+        "reversible": true
+      },
+      {
+        "role": "adverb",
+        "left": "now",
+        "right": "won",
+        "reversible": true
+      },
+      {
+        "role": "subject",
+        "left": "diaper",
+        "right": "repaid",
+        "reversible": true
+      },
+      {
+        "role": "verb",
+        "left": "stop",
+        "right": "pots",
+        "reversible": true
+      },
+      {
+        "role": "object",
+        "left": "smart",
+        "right": "trams",
+        "reversible": true
+      },
+      {
+        "role": "adverb",
+        "left": "live",
+        "right": "evil",
+        "reversible": true
+      },
+      {
+        "role": "subject",
+        "left": "drawer",
+        "right": "reward",
+        "reversible": true
+      },
+      {
+        "role": "verb",
+        "left": "part",
+        "right": "trap",
+        "reversible": true
+      },
+      {
+        "role": "object",
+        "left": "dog",
+        "right": "god",
+        "reversible": true
+      },
+      {
+        "role": "adverb",
+        "left": "draw",
+        "right": "ward",
+        "reversible": true
+      },
+      {
+        "role": "subject",
+        "left": "stressed",
+        "right": "desserts",
+        "reversible": true
+      },
+      {
+        "role": "verb",
+        "left": "deliver",
+        "right": "reviled",
+        "reversible": true
+      },
+      {
+        "role": "object",
+        "left": "loop",
+        "right": "pool",
+        "reversible": true
+      },
+      {
+        "role": "adverb",
+        "left": "now",
+        "right": "won",
+        "reversible": true
+      },
+      {
+        "role": "subject",
+        "left": "diaper",
+        "right": "repaid",
+        "reversible": true
+      },
+      {
+        "role": "verb",
+        "left": "stop",
+        "right": "pots",
+        "reversible": true
+      },
+      {
+        "role": "object",
+        "left": "smart",
+        "right": "trams",
+        "reversible": true
+      },
+      {
+        "role": "adverb",
+        "left": "live",
+        "right": "evil",
+        "reversible": true
+      },
+      {
+        "role": "subject",
+        "left": "drawer",
+        "right": "reward",
+        "reversible": true
+      },
+      {
+        "role": "verb",
+        "left": "part",
+        "right": "trap",
+        "reversible": true
+      },
+      {
+        "role": "object",
+        "left": "dog",
+        "right": "god",
+        "reversible": true
+      },
+      {
+        "role": "adverb",
+        "left": "draw",
+        "right": "ward",
+        "reversible": true
+      },
+      {
+        "role": "subject",
+        "left": "stressed",
+        "right": "desserts",
+        "reversible": true
+      },
+      {
+        "role": "verb",
+        "left": "deliver",
+        "right": "reviled",
+        "reversible": true
+      },
+      {
+        "role": "object",
+        "left": "loop",
+        "right": "pool",
+        "reversible": true
+      },
+      {
+        "role": "adverb",
+        "left": "now",
+        "right": "won",
+        "reversible": true
+      },
+      {
+        "role": "subject",
+        "left": "diaper",
+        "right": "repaid",
+        "reversible": true
+      },
+      {
+        "role": "verb",
+        "left": "stop",
+        "right": "pots",
+        "reversible": true
+      },
+      {
+        "role": "object",
+        "left": "smart",
+        "right": "trams",
+        "reversible": true
+      },
+      {
+        "role": "adverb",
+        "left": "live",
+        "right": "evil",
+        "reversible": true
+      },
+      {
+        "role": "subject",
+        "left": "drawer",
+        "right": "reward",
+        "reversible": true
+      },
+      {
+        "role": "verb",
+        "left": "part",
+        "right": "trap",
+        "reversible": true
+      },
+      {
+        "role": "object",
+        "left": "dog",
+        "right": "god",
+        "reversible": true
+      },
+      {
+        "role": "adverb",
+        "left": "draw",
+        "right": "ward",
+        "reversible": true
+      },
+      {
+        "role": "repair_probe",
+        "left": "pool",
+        "right": "trams",
+        "reversible": false
+      }
+    ]
+  },
+  "edge_repair_operator": "replace one edge by the same-role unused pair, then re-score boundary residual and role agreement",
+  "novelty": {
+    "checked_against": "/Users/eric/GitHub/palindrome-sentence-generator/data/known_palindromes.json",
+    "status": "not_loaded_by_generator; candidate is not accepted as novel exact output"
+  },
+  "provenance": {
+    "generator": "experiments/typed_reversible_lexeme_graph_20260916.py",
+    "sha256": "900e9dfa13e5e886df6203f34e02a5ba2085650d59af8b22ffb319642a0ea759",
+    "pointer": "best_candidate.text"
+  }
+}

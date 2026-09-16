@@ -1,9 +1,53 @@
 {
   "entries": [
     {
-      "id": "seedless-semantic-cfg-bilateral-20260916",
+      "id": "rhetorical-plan-lattice-20260916",
       "manual_review_required": false,
       "nearest_prior": null,
+      "signature_atoms": [
+        "anaphoric",
+        "cause",
+        "concession",
+        "connective",
+        "continuity",
+        "contrast",
+        "discourse",
+        "lattice",
+        "plan",
+        "rhetorical"
+      ]
+    },
+    {
+      "id": "inflectional-fst-clitic-tape-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "rhetorical-plan-lattice-20260916",
+        "jaccard": 0.0,
+        "shared_atoms": []
+      },
+      "signature_atoms": [
+        "agreement",
+        "clause",
+        "clitic",
+        "fst",
+        "inflectional",
+        "ledger",
+        "mirrored",
+        "realization",
+        "transducer"
+      ]
+    },
+    {
+      "id": "seedless-semantic-cfg-bilateral-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "inflectional-fst-clitic-tape-20260916",
+        "jaccard": 0.095238,
+        "shared_atoms": [
+          "clause",
+          "realization"
+        ]
+      },
       "signature_atoms": [
         "action",
         "agent",
@@ -45,8 +89,8 @@
       "id": "dialogue-speech-act-residual-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "seedless-semantic-cfg-bilateral-20260916",
-        "jaccard": 0.038462,
+        "id": "inflectional-fst-clitic-tape-20260916",
+        "jaccard": 0.047619,
         "shared_atoms": [
           "realization"
         ]
@@ -71,9 +115,11 @@
       "id": "brown-attested-residual-lattice-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "seedless-semantic-cfg-bilateral-20260916",
-        "jaccard": 0.0,
-        "shared_atoms": []
+        "id": "rhetorical-plan-lattice-20260916",
+        "jaccard": 0.047619,
+        "shared_atoms": [
+          "lattice"
+        ]
       },
       "signature_atoms": [
         "attested",
@@ -540,8 +586,8 @@
       "id": "morphosemantic-product-delay-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "paired-transitive-role-seam-dp-20260916",
-        "jaccard": 0.076923,
+        "id": "inflectional-fst-clitic-tape-20260916",
+        "jaccard": 0.086957,
         "shared_atoms": [
           "clause",
           "realization"
@@ -2118,10 +2164,10 @@
       "id": "global-tied-masked-denoising",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "weighted-cfg-sync-dp-20260916",
-        "jaccard": 0.047619,
+        "id": "inflectional-fst-clitic-tape-20260916",
+        "jaccard": 0.052632,
         "shared_atoms": [
-          "position"
+          "ledger"
         ]
       },
       "signature_atoms": [
@@ -2338,11 +2384,11 @@
       "id": "anaphoric-scene-chain-composition",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "lexical-chain-walk",
+        "id": "rhetorical-plan-lattice-20260916",
         "jaccard": 0.111111,
         "shared_atoms": [
-          "emission",
-          "no"
+          "continuity",
+          "discourse"
         ]
       },
       "signature_atoms": [
@@ -3099,12 +3145,12 @@
       "id": "centerout-dependency-realizer-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "anaphoric-scene-chain-composition",
+        "id": "rhetorical-plan-lattice-20260916",
         "jaccard": 0.130435,
         "shared_atoms": [
           "continuity",
           "discourse",
-          "three"
+          "plan"
         ]
       },
       "signature_atoms": [
@@ -3182,6 +3228,32 @@
         "synonym",
         "tense",
         "units"
+      ]
+    },
+    {
+      "id": "induced-pcfg-character-equation-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "dependency-attribute-grammar-chart",
+        "jaccard": 0.12,
+        "shared_atoms": [
+          "bilateral",
+          "role",
+          "unification"
+        ]
+      },
+      "signature_atoms": [
+        "attested",
+        "bilateral",
+        "induced",
+        "pcfg",
+        "pp",
+        "probabilistic",
+        "prose",
+        "role",
+        "sampling",
+        "semantic",
+        "unification"
       ]
     },
     {
@@ -3461,7 +3533,7 @@
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 119,
+  "registered_entries": 122,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

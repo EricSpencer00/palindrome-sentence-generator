@@ -1,0 +1,126 @@
+{
+  "id": "semantic-scene-stack-machine-20260916",
+  "construction": {
+    "recursive_scene_frames": 4,
+    "normal_word_order": true,
+    "live_stack": true,
+    "fixed_tape": false,
+    "catalogue_lookup": false,
+    "exact_pairs_checked_during_construction": true
+  },
+  "text": "live on time; drawer; stressed; deliver; reviled; desserts; reward; emit no evil",
+  "letters": 62,
+  "audits": {
+    "exact": true,
+    "two_pointer": true,
+    "hash": true,
+    "mechanical": true,
+    "mismatch": null
+  },
+  "repair": {
+    "before": {
+      "text": "live on time; drawer; stressed; deliver; reviled; desserts; reward; emit no veil",
+      "mismatch": {
+        "index": 2,
+        "left": "v",
+        "right": "e"
+      },
+      "trace_tail": [
+        {
+          "event": "pop",
+          "surface": "reward",
+          "remaining": 10
+        },
+        {
+          "event": "mismatch",
+          "expected": "v",
+          "surface": "emit no veil"
+        }
+      ]
+    },
+    "text": "live on time; drawer; stressed; deliver; reviled; desserts; reward; emit no evil",
+    "letters": 62,
+    "audits": {
+      "exact": true,
+      "two_pointer": true,
+      "hash": true,
+      "mismatch": null
+    }
+  },
+  "provenance": {
+    "frames": [
+      {
+        "left": "live on time",
+        "right": "emit no evil",
+        "meaning": "a crew keeps its promise; the reply confirms it"
+      },
+      {
+        "left": "drawer",
+        "right": "reward",
+        "meaning": "a clerk opens a drawer; the return names the reward"
+      },
+      {
+        "left": "stressed",
+        "right": "desserts",
+        "meaning": "a baker is stressed; the scene ends with desserts"
+      },
+      {
+        "left": "deliver",
+        "right": "reviled",
+        "meaning": "a courier can deliver; a rival is reviled"
+      }
+    ],
+    "trace": [
+      {
+        "event": "push",
+        "meaning": "a crew keeps its promise; the reply confirms it",
+        "surface": "live on time",
+        "depth": 10,
+        "obligations": 10
+      },
+      {
+        "event": "push",
+        "meaning": "a clerk opens a drawer; the return names the reward",
+        "surface": "drawer",
+        "depth": 16,
+        "obligations": 6
+      },
+      {
+        "event": "push",
+        "meaning": "a baker is stressed; the scene ends with desserts",
+        "surface": "stressed",
+        "depth": 24,
+        "obligations": 8
+      },
+      {
+        "event": "push",
+        "meaning": "a courier can deliver; a rival is reviled",
+        "surface": "deliver",
+        "depth": 31,
+        "obligations": 7
+      },
+      {
+        "event": "pop",
+        "surface": "reviled",
+        "remaining": 24
+      },
+      {
+        "event": "pop",
+        "surface": "desserts",
+        "remaining": 16
+      },
+      {
+        "event": "pop",
+        "surface": "reward",
+        "remaining": 10
+      },
+      {
+        "event": "pop",
+        "surface": "emit no evil",
+        "remaining": 0
+      }
+    ],
+    "generator_sha256": "7f7ffa078d8ac9d3f5f8491e71ea66eb4cf6b9061eaa02bf26d5388d61e529c8"
+  },
+  "reader_status": "diagnostic only; no reader-facing claim"
+}

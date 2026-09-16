@@ -3,7 +3,7 @@ import hashlib,json
 from pathlib import Path
 from llm_palindrome.admission import normalize_letters,mechanical_admission_checks,tokenize,has_repeated_nontrivial_unit
 ROOT=Path(__file__).resolve().parents[1]
-CLAUSE="The careful engineer repairs brass lanterns beside the winter station while tired travelers wait."
+CLAUSE="The careful engineer repairs brass lanterns beside the winter station while tired travelers wait patiently beneath quiet signals."
 def main():
  tape=normalize_letters(CLAUSE); # boundary-shift states may consume 1..3 chars
  states=[];i=0

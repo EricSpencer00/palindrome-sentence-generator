@@ -164,3 +164,15 @@ def test_latest_artifacts_were_preflighted_before_self_registration():
     assert semantic["status"] == "preflight_only_no_promotion"
     assert semantic["probes"][0]["text"] == "Deliver no evil. Live on, reviled."
     assert semantic["probes"][0]["exact_letter_palindrome"] is True
+
+
+def test_latest_constructive_repairs_record_distinct_preflight_and_failure_frontier():
+    root = Path(__file__).parents[1]
+    centerout = json.loads((root / "runs/lexical-admission-centerout-20260915.json").read_text())
+    assert centerout["novelty_audit"]["manual_review_required"] is False
+    assert centerout["stats"]["mechanically_admitted"] == 4
+    assert max(row["letters"] for row in centerout["rendered_candidates_and_probes"]) == 116
+    valency = json.loads((root / "runs/fixed-tape-valency-chart-repair-20260915.json").read_text())
+    assert valency["novelty_audit"]["repair_of_registered_family"] is True
+    assert valency["stats"]["mechanically_admitted"] == 2
+    assert valency["stats"]["complete_clause_parses"] == 0

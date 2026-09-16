@@ -5,7 +5,8 @@ ROOT=Path(__file__).resolve().parents[1];sys.path.insert(0,str(ROOT))
 from llm_palindrome.admission import normalize_letters,mechanical_admission_checks
 ID='ten-clause-residual-equation-20260916'
 TEXT=('At first light Mara opens the clinic, checks the quiet generators, greets the two nurses, and records the medicine count. '
-'She carries clean water to the waiting room, labels each parcel, phones the mountain driver, updates the weather board, thanks the volunteers, and closes the ledger before dusk.')
+'She carries clean water to the waiting room, labels each parcel, phones the mountain driver, updates the weather board, thanks the volunteers, and closes the ledger before dusk. '
+'After supper she inventories the blankets, answers the radio, repairs a torn notice, and leaves clear instructions for the morning shift.')
 def audit(t):
  n=normalize_letters(t);m=[i for i in range(len(n)//2) if n[i]!=n[-1-i]]
  return {'rendered':t,'letters':len(n),'exact':n==n[::-1],'two_pointer_exact':not m,'mismatch_positions':m[:20],'forward_hash':hashlib.sha256(n.encode()).hexdigest(),'reverse_hash':hashlib.sha256(n[::-1].encode()).hexdigest(),'mechanical_checks':mechanical_admission_checks(t,min_letters=100,max_letters=360)}

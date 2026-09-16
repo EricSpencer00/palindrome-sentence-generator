@@ -1,0 +1,170 @@
+{
+  "experiment_id": "encoder-semantic-scene-pseudolikelihood-20260916",
+  "signature": "bidirectional-encoder|semantic-slot-alternative-cartesian-search|mirrored-obligation-state|complete-assignment-pseudolikelihood|two-pointer-hash-audit",
+  "signature_sha256": "5f4c9ebc3d46db13315576f938f2f74f361b4ebbb22d9ffd285e36719bb8ae1f",
+  "novelty_preflight": {
+    "registry_path": "docs/experiment-novelty-registry.json",
+    "entries_inspected": 189,
+    "exact_signature_collision": false,
+    "passed": true,
+    "nearest_prior": "masked-character-scene-gibbs-20260916",
+    "pivot_reason": "encoder token pseudo-likelihood and complete semantic assignment differ from character-pair Gibbs"
+  },
+  "model": "bert-base-multilingual-cased",
+  "operator": "enumerate complete semantic scene assignments, enforce mirrored obligations in state, then mask each token in turn for bidirectional pseudo-likelihood",
+  "probes": [
+    {
+      "scene_id": "garden",
+      "meaning": "a patient gardener waters roses beside a wall",
+      "alternatives_evaluated": 3,
+      "best_prose": "The patient gardener waters young roses beside a stone wall.",
+      "length": 50,
+      "audit": {
+        "letters": 50,
+        "exact": false,
+        "two_pointer": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "l"
+        ],
+        "sha256": "e686bb01be19667da7bbfe9d9cf079e0a492644cd8294fb3c8daa4627fb7a382",
+        "reverse_sha256": "635ae6e8b1eaafea4b1324502f188163e198a58c804795c0430d2534c774630b",
+        "hash_equal": false
+      },
+      "repair": {
+        "accepted": false,
+        "strategy": "replace-semantic-slot-and-rebuild-complete-assignment",
+        "first_mismatch": [
+          0,
+          "t",
+          "l"
+        ],
+        "reason": "one-sided character edit would violate the selected scene meaning"
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "provenance": "fresh hand-authored semantic alternatives; no catalogue/corpus text"
+    },
+    {
+      "scene_id": "station",
+      "meaning": "after rain a porter carries a parcel to a bench",
+      "alternatives_evaluated": 3,
+      "best_prose": "After rain, the station porter carries a wet parcel to the bench.",
+      "length": 52,
+      "audit": {
+        "letters": 52,
+        "exact": false,
+        "two_pointer": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "h"
+        ],
+        "sha256": "847a42645a128d9a4d834fbb31ff9a66d1b9601799a94c90a5784580863b537d",
+        "reverse_sha256": "830b695433e5443bfbdb5891ebd7f8402b288e865e9c6fba39b437ad5a9b267f",
+        "hash_equal": false
+      },
+      "repair": {
+        "accepted": false,
+        "strategy": "replace-semantic-slot-and-rebuild-complete-assignment",
+        "first_mismatch": [
+          0,
+          "a",
+          "h"
+        ],
+        "reason": "one-sided character edit would violate the selected scene meaning"
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "provenance": "fresh hand-authored semantic alternatives; no catalogue/corpus text"
+    },
+    {
+      "scene_id": "archive",
+      "meaning": "an archivist labels maps before the evening bell",
+      "alternatives_evaluated": 3,
+      "best_prose": "A patient archivist labels old maps before the evening bell.",
+      "length": 50,
+      "audit": {
+        "letters": 50,
+        "exact": false,
+        "two_pointer": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "l"
+        ],
+        "sha256": "ff301b479d4a0f43d5803fdd4849b7f74629088f76187518ba728097759ecbdf",
+        "reverse_sha256": "9586f7b7df11cfbaa3132dd0c5e14cf7d8beb4dc9aeb44a32a1b1680d5cab753",
+        "hash_equal": false
+      },
+      "repair": {
+        "accepted": false,
+        "strategy": "replace-semantic-slot-and-rebuild-complete-assignment",
+        "first_mismatch": [
+          0,
+          "a",
+          "l"
+        ],
+        "reason": "one-sided character edit would violate the selected scene meaning"
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "provenance": "fresh hand-authored semantic alternatives; no catalogue/corpus text"
+    }
+  ],
+  "best_actual_prose": "After rain, the station porter carries a wet parcel to the bench.",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false
+}

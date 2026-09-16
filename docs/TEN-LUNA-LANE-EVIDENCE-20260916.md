@@ -140,9 +140,10 @@ The next orthogonal continuation wave adds three state representations:
 | route | rendered prose | letters | exact / admission | provenance and concrete next repair |
 |---|---|---:|---|---|
 | online grammar-state character decoder | “The careful porter carries the sealed parcel beside the quiet gate.” | 56 | two-pointer `False`; SHA-256 `False`; admission `False` | two ordinary-order grammar cursors with live obligations; replace the first mismatching semantic slot and replay the ledger |
-| live slot-equation CFG resegmentation | “the careful courier carries sealed letter before dawn.” | 46 | direct and SHA-256 `False`; admission `False` | authored event frames are charted only after slot obligations; replace one low-overlap agent/verb pair with held-out agreement-compatible alternatives |
-| clause-growth semantic frame repair | “the patient courier delivered the sealed letter before dusk. the quiet clerk opened the wooden parcel by the window. the careful gardener watered the young cedar after rain.” | 143 | two-pointer and SHA-256 `False`; admission `False` | incremental ordinary-order scene growth with typed held-out frame repair; author a fourth clause against the current debt frontier |
+| live slot-equation CFG resegmentation | “The patient courier delivers sealed letter before dawn. The quiet teacher opens marked parcel beside the gate.” | 92 | direct and SHA-256 `False`; admission `False` | held-out agent/verb replacement re-solves obligations before charting; replace one object/adjunct slot pair with a fresh authored alternative |
+| clause-growth semantic frame repair | “the patient courier delivered the sealed letter before dusk. the quiet clerk opened the wooden parcel by the window. the careful gardener watered the young cedar after rain. the weary sailor mended the canvas sail near harbor.” | 186 | two-pointer and SHA-256 `False`; admission `False` | incremental ordinary-order scene growth with a fourth typed frame; author a fifth semantic frame against the updated debt frontier |
+| online grammar-state slot repair | “The careful porter carries the sealed package beside the quiet gate.” | 57 | two-pointer `False`; SHA-256 `False`; admission `False` | three held-out semantic-slot substitutions replayed the live ledger; author a new outer-edge-compatible frame |
 
-The aggregate after this wave is 4292 normalized rows across 103 route phases,
+The aggregate after this wave is 4297 normalized rows across 104 route phases,
 with 73 exact-but-rejected tapes and 0 mechanically admitted rows. These
 outputs remain diagnostic; none is reader-eligible.

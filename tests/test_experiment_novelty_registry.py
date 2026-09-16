@@ -152,6 +152,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "dependency-mirror-pair-constructor-20260916" in ids
     assert "dependency-mirror-pair-repair-20260916" in ids
     assert "online-grammar-state-char-decoder-20260916" in ids
+    assert "online-grammar-state-slot-repair-20260916" in ids
     assert "live-slot-equation-cfg-resegmentation-20260916" in ids
     assert "clause-growth-frame-repair-20260916" in ids
     assert "proper-name-caption-crossword" in ids

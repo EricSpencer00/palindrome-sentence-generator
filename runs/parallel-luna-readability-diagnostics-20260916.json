@@ -100,9 +100,10 @@
     "runs/dependency-mirror-pair-repair-20260916.json",
     "runs/online-grammar-state-char-decoder-20260916.json",
     "runs/live-slot-equation-cfg-resegmentation-20260916.json",
-    "runs/clause-growth-frame-repair-20260916.json"
+    "runs/clause-growth-frame-repair-20260916.json",
+    "runs/online-grammar-state-slot-repair-20260916.json"
   ],
-  "candidate_count": 4292,
+  "candidate_count": 4297,
   "exact_count": 73,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -168,13 +169,13 @@
     },
     {
       "source_run": "runs/clause-growth-frame-repair-20260916.json",
-      "rows": 4,
+      "rows": 5,
       "exact_count": 0,
       "mechanically_admitted_count": 0,
       "min_letters": 51,
-      "max_letters": 143,
-      "mean_zipf_frequency": 5.326772660818714,
-      "mean_brown_order_gain_vs_shuffle": 1.0651118825649286
+      "max_letters": 186,
+      "mean_zipf_frequency": 5.304607317844161,
+      "mean_brown_order_gain_vs_shuffle": 0.971288501732451
     },
     {
       "source_run": "runs/comparative-modal-scene-20260916.json",
@@ -598,13 +599,13 @@
     },
     {
       "source_run": "runs/live-slot-equation-cfg-resegmentation-20260916.json",
-      "rows": 3,
+      "rows": 4,
       "exact_count": 0,
       "mechanically_admitted_count": 0,
       "min_letters": 45,
-      "max_letters": 91,
-      "mean_zipf_frequency": 5.040168845315904,
-      "mean_brown_order_gain_vs_shuffle": 1.2095810790514043
+      "max_letters": 92,
+      "mean_zipf_frequency": 5.038361928104575,
+      "mean_brown_order_gain_vs_shuffle": 1.1905019280655575
     },
     {
       "source_run": "runs/manual-bidirectional-scene-20260916.json",
@@ -715,6 +716,16 @@
       "max_letters": 56,
       "mean_zipf_frequency": 5.323545454545454,
       "mean_brown_order_gain_vs_shuffle": 1.2619526605944653
+    },
+    {
+      "source_run": "runs/online-grammar-state-slot-repair-20260916.json",
+      "rows": 3,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 56,
+      "max_letters": 57,
+      "mean_zipf_frequency": 5.213939393939395,
+      "mean_brown_order_gain_vs_shuffle": 1.0910150551926627
     },
     {
       "source_run": "runs/paragraph-paraphrase-obligation-20260916.json",
@@ -207139,6 +207150,45 @@
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     },
     {
+      "rendered": "the patient courier delivers sealed letter before dawn. the quiet teacher opens marked parcel beside the gate.",
+      "source_run": "runs/live-slot-equation-cfg-resegmentation-20260916.json",
+      "provenance": "held-out agreement-compatible patient courier / delivers replacement; original frames otherwise frozen",
+      "repair": null,
+      "letters": 92,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1332644751080174,
+        "mean_zipf_frequency": 5.0329411764705885,
+        "word_count": 17,
+        "repeated_word_rate": 0.11764705882352944,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
       "rendered": "the patient courier delivered the sealed letter before dusk.",
       "source_run": "runs/clause-growth-frame-repair-20260916.json",
       "provenance": {
@@ -207326,6 +207376,182 @@
         "word_count": 18,
         "repeated_word_rate": 0.2222222222222222,
         "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient courier delivered the sealed letter before dusk. the quiet clerk opened the wooden parcel by the window. the careful gardener watered the young cedar after rain. the weary sailor mended the canvas sail near harbor.",
+      "source_run": "runs/clause-growth-frame-repair-20260916.json",
+      "provenance": {
+        "human_authored_frames": true,
+        "ordinary_order": true,
+        "copied_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "repair_from": "growth-3-clause"
+      },
+      "repair": null,
+      "letters": 186,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5959949784025405,
+        "mean_zipf_frequency": 5.215945945945946,
+        "word_count": 37,
+        "repeated_word_rate": 0.21621621621621623,
+        "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful keeper carries the sealed parcel beside the quiet gate.",
+      "source_run": "runs/online-grammar-state-slot-repair-20260916.json",
+      "provenance": {
+        "construction": "held-out semantic slot substitution",
+        "source_sentences_copied": false,
+        "reverse_emission": false
+      },
+      "repair": null,
+      "letters": 56,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.177712718283999,
+        "mean_zipf_frequency": 5.193636363636364,
+        "word_count": 11,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful porter carries the sealed package beside the quiet gate.",
+      "source_run": "runs/online-grammar-state-slot-repair-20260916.json",
+      "provenance": {
+        "construction": "held-out semantic slot substitution",
+        "source_sentences_copied": false,
+        "reverse_emission": false
+      },
+      "repair": null,
+      "letters": 57,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0368719507375488,
+        "mean_zipf_frequency": 5.261818181818182,
+        "word_count": 11,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful porter carries the sealed parcel beside the bright gate.",
+      "source_run": "runs/online-grammar-state-slot-repair-20260916.json",
+      "provenance": {
+        "construction": "held-out semantic slot substitution",
+        "source_sentences_copied": false,
+        "reverse_emission": false
+      },
+      "repair": null,
+      "letters": 57,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0584604965564406,
+        "mean_zipf_frequency": 5.1863636363636365,
+        "word_count": 11,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

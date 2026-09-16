@@ -99,9 +99,10 @@ reader-eligible, so the intact-versus-shuffled reader package remains gated.
 
 Three further orthogonal Luna continuations are retained: an online
 grammar-state character decoder (three 51--56-letter probes), a live
-slot-equation CFG resegmentation chart (three 45--91-letter probes), and a
-clause-growth semantic frame lattice with held-out repair (four 51--143-letter
-probes). Each has rendered ordinary prose, novelty preflight, independent
-exact/hash checks, provenance, and a concrete next repair; all have zero exact
-closures. The aggregate is now 4292 normalized rows across 103 route phases,
-with 0 mechanically admitted candidates.
+slot-equation CFG resegmentation chart with one 92-letter held-out repair, and
+a clause-growth semantic frame lattice with held-out repair (five 51--186-
+letter probes). The online lane then replayed three held-out semantic-slot
+substitutions at 56--57 letters. Each has rendered ordinary prose, novelty
+preflight, independent exact/hash checks, provenance, and a concrete next
+repair; all have zero exact closures. The aggregate is now 4297 normalized
+rows across 104 route phases, with 0 mechanically admitted candidates.

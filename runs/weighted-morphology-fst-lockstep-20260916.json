@@ -1,0 +1,1477 @@
+{
+  "experiment_id": "weighted-morphology-fst-lockstep-20260916",
+  "signature": "weighted-morphology-fst|lexical-chunk-pair-emission|agreement-tense-register|fluency-objective-during-character-lockstep|heldout-morphology-repair|independent-exact-admission-audit",
+  "status": "completed_weighted_morphology_fst_lockstep",
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_before_run": 181,
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "manual_review_required": false,
+    "excluded_routes": [
+      "fixed-tape reverse decoder",
+      "post-hoc morphology",
+      "unweighted lexical cross-product"
+    ]
+  },
+  "method": "Weighted finite-state morphology transducer emits paired lexical chunks while a forward and reverse character lockstep is active; number, tense, lemma, semantic roles, and a cumulative fluency score are in the state.",
+  "config": {
+    "min_letters": 39,
+    "max_letters": 180,
+    "max_states_per_frame_pair": 80000,
+    "catalogue_text_imported": false,
+    "post_hoc_reverse_segmentation": false
+  },
+  "stats": {
+    "states": 13,
+    "character_pairs_emitted": 12,
+    "weighted_transitions": 12,
+    "node_budget_hit": 0,
+    "frame_pairs": 1,
+    "rendered_candidates": 0,
+    "exact_count": 0,
+    "mechanically_admitted": 0,
+    "rendered_probes": 24,
+    "reader_eligible": 0
+  },
+  "frame_runs": [
+    {
+      "left": "event",
+      "right": "event",
+      "states": 13,
+      "character_pairs_emitted": 12,
+      "weighted_transitions": 12,
+      "node_budget_hit": 0,
+      "closures": 0
+    }
+  ],
+  "rendered_candidates": [],
+  "rendered_probes": [
+    {
+      "rendered": "A nerd carries a candle in our gardens; a nerd carries a candle in the arena.",
+      "fluency_score": 20.400000000000002,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle in our gardens; a nerd carries a candle in the arena.",
+        "letters": 60,
+        "normalized_tape": "anerdcarriesacandleinourgardensanerdcarriesacandleinthearena",
+        "independent_ascii_tape": "anerdcarriesacandleinourgardensanerdcarriesacandleinthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "29dec68105dfc1922bc8ca9d6ae3c353cb55b0d929e1d1156e09927d8f49c6a5",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle in our gardens; a nerd carries a candle on the arena.",
+      "fluency_score": 20.400000000000002,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle in our gardens; a nerd carries a candle on the arena.",
+        "letters": 60,
+        "normalized_tape": "anerdcarriesacandleinourgardensanerdcarriesacandleonthearena",
+        "independent_ascii_tape": "anerdcarriesacandleinourgardensanerdcarriesacandleonthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "6e1f1e85903e62b77de893a5a6665cdd3cf04303f3b03ed7b5aedfbede5d3d7f",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle on our gardens; a nerd carries a candle in the arena.",
+      "fluency_score": 20.400000000000002,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle on our gardens; a nerd carries a candle in the arena.",
+        "letters": 60,
+        "normalized_tape": "anerdcarriesacandleonourgardensanerdcarriesacandleinthearena",
+        "independent_ascii_tape": "anerdcarriesacandleonourgardensanerdcarriesacandleinthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "5d7fa3a71e6496aa973595e580820c49f5cbf1ff2c52bc957392c4f70ef4fd61",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle on our gardens; a nerd carries a candle on the arena.",
+      "fluency_score": 20.400000000000002,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle on our gardens; a nerd carries a candle on the arena.",
+        "letters": 60,
+        "normalized_tape": "anerdcarriesacandleonourgardensanerdcarriesacandleonthearena",
+        "independent_ascii_tape": "anerdcarriesacandleonourgardensanerdcarriesacandleonthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "072f9666d02ad17983e71008f7a59fde5a60e5e6bd71d420956b8abd327917f6",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle in the garden; a nerd carries a candle in the arena.",
+      "fluency_score": 20.400000000000002,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle in the garden; a nerd carries a candle in the arena.",
+        "letters": 59,
+        "normalized_tape": "anerdcarriesacandleinthegardenanerdcarriesacandleinthearena",
+        "independent_ascii_tape": "anerdcarriesacandleinthegardenanerdcarriesacandleinthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "ecea7957c90767be6ba073d9619327587efc0f34aca4769e9f3cc60df1d680db",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle in the garden; a nerd carries a candle on the arena.",
+      "fluency_score": 20.400000000000002,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle in the garden; a nerd carries a candle on the arena.",
+        "letters": 59,
+        "normalized_tape": "anerdcarriesacandleinthegardenanerdcarriesacandleonthearena",
+        "independent_ascii_tape": "anerdcarriesacandleinthegardenanerdcarriesacandleonthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "ff3b237a8286789081c78f8aaab13e79da3a407ee897a188b049daf1abbc2331",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle on the garden; a nerd carries a candle in the arena.",
+      "fluency_score": 20.400000000000002,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle on the garden; a nerd carries a candle in the arena.",
+        "letters": 59,
+        "normalized_tape": "anerdcarriesacandleonthegardenanerdcarriesacandleinthearena",
+        "independent_ascii_tape": "anerdcarriesacandleonthegardenanerdcarriesacandleinthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "99a486f734f9b7c4223db6b3fa47b41334d2d1febeea249333ebcbe99fe63c41",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle on the garden; a nerd carries a candle on the arena.",
+      "fluency_score": 20.400000000000002,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle on the garden; a nerd carries a candle on the arena.",
+        "letters": 59,
+        "normalized_tape": "anerdcarriesacandleonthegardenanerdcarriesacandleonthearena",
+        "independent_ascii_tape": "anerdcarriesacandleonthegardenanerdcarriesacandleonthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "24ceab93529785a5ad0514ed3c4f1c5625c760e380ca73c2a50b623bd4899c48",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle in the harbor; a nerd carries a candle in the arena.",
+      "fluency_score": 20.200000000000003,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle in the harbor; a nerd carries a candle in the arena.",
+        "letters": 59,
+        "normalized_tape": "anerdcarriesacandleintheharboranerdcarriesacandleinthearena",
+        "independent_ascii_tape": "anerdcarriesacandleintheharboranerdcarriesacandleinthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "d3eeab997c9f383e70dfb3d7aff91a5426f5aea13d76a0a4d6fa918035ccabf4",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle in the harbor; a nerd carries a candle on the arena.",
+      "fluency_score": 20.200000000000003,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle in the harbor; a nerd carries a candle on the arena.",
+        "letters": 59,
+        "normalized_tape": "anerdcarriesacandleintheharboranerdcarriesacandleonthearena",
+        "independent_ascii_tape": "anerdcarriesacandleintheharboranerdcarriesacandleonthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "7e7804e28ae4ee8a9f0125a9849bb273e101df299c4df3fdcb4b3e4cab5d83fc",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle on the harbor; a nerd carries a candle in the arena.",
+      "fluency_score": 20.200000000000003,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle on the harbor; a nerd carries a candle in the arena.",
+        "letters": 59,
+        "normalized_tape": "anerdcarriesacandleontheharboranerdcarriesacandleinthearena",
+        "independent_ascii_tape": "anerdcarriesacandleontheharboranerdcarriesacandleinthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "290b046f7e0cedaf68d3e34a62996931bac9e4e3cdeefd98a8069cb2ca2b5073",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle on the harbor; a nerd carries a candle on the arena.",
+      "fluency_score": 20.200000000000003,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle on the harbor; a nerd carries a candle on the arena.",
+        "letters": 59,
+        "normalized_tape": "anerdcarriesacandleontheharboranerdcarriesacandleonthearena",
+        "independent_ascii_tape": "anerdcarriesacandleontheharboranerdcarriesacandleonthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "7326aebb6b54f31f058aa504542add41bfe81aeee709d285f2f5119ef774d4bc",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle in the arena; a nerd carries a candle in the arena.",
+      "fluency_score": 20.200000000000003,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle in the arena; a nerd carries a candle in the arena.",
+        "letters": 58,
+        "normalized_tape": "anerdcarriesacandleinthearenaanerdcarriesacandleinthearena",
+        "independent_ascii_tape": "anerdcarriesacandleinthearenaanerdcarriesacandleinthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "1663658463edf87f413e40be88e73420f514ecb998eeb632c9dc038fef13b268",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle in the arena; a nerd carries a candle on the arena.",
+      "fluency_score": 20.200000000000003,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle in the arena; a nerd carries a candle on the arena.",
+        "letters": 58,
+        "normalized_tape": "anerdcarriesacandleinthearenaanerdcarriesacandleonthearena",
+        "independent_ascii_tape": "anerdcarriesacandleinthearenaanerdcarriesacandleonthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "7aa409104655207a2d7679f7fc497b28f9ea83a1c0697fcdd7760d8d0563c29f",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle on the arena; a nerd carries a candle in the arena.",
+      "fluency_score": 20.200000000000003,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle on the arena; a nerd carries a candle in the arena.",
+        "letters": 58,
+        "normalized_tape": "anerdcarriesacandleonthearenaanerdcarriesacandleinthearena",
+        "independent_ascii_tape": "anerdcarriesacandleonthearenaanerdcarriesacandleinthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "396a38bf6f2726611d05832ba6d277f2308d2d7634be7fd9d9e36e9fa98cb5ac",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle on the arena; a nerd carries a candle on the arena.",
+      "fluency_score": 20.200000000000003,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle on the arena; a nerd carries a candle on the arena.",
+        "letters": 58,
+        "normalized_tape": "anerdcarriesacandleonthearenaanerdcarriesacandleonthearena",
+        "independent_ascii_tape": "anerdcarriesacandleonthearenaanerdcarriesacandleonthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "b7af9039f2e11e9f4c303a18843c02418f63ab4471ed014b1f8cc45fb68406fc",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle in our gardens; a nerd carries a candle in one arena.",
+      "fluency_score": 18.6,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle in our gardens; a nerd carries a candle in one arena.",
+        "letters": 60,
+        "normalized_tape": "anerdcarriesacandleinourgardensanerdcarriesacandleinonearena",
+        "independent_ascii_tape": "anerdcarriesacandleinourgardensanerdcarriesacandleinonearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "42dfb1674c7fe98124053b686a22f6355022a61bf453ff36ec223c06587db4d4",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle in our gardens; a nerd carries a candle on one arena.",
+      "fluency_score": 18.6,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle in our gardens; a nerd carries a candle on one arena.",
+        "letters": 60,
+        "normalized_tape": "anerdcarriesacandleinourgardensanerdcarriesacandleononearena",
+        "independent_ascii_tape": "anerdcarriesacandleinourgardensanerdcarriesacandleononearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "23e38a1c6696e1b3b466c56a95fadbb871819c65e4da507be07fc2ec55b53f7f",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle on our gardens; a nerd carries a candle in one arena.",
+      "fluency_score": 18.6,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle on our gardens; a nerd carries a candle in one arena.",
+        "letters": 60,
+        "normalized_tape": "anerdcarriesacandleonourgardensanerdcarriesacandleinonearena",
+        "independent_ascii_tape": "anerdcarriesacandleonourgardensanerdcarriesacandleinonearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "c7de297be6849bc66c63639f57beea53b5dfb10a0f1a0b047594dddf4e456fcb",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle on our gardens; a nerd carries a candle on one arena.",
+      "fluency_score": 18.6,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle on our gardens; a nerd carries a candle on one arena.",
+        "letters": 60,
+        "normalized_tape": "anerdcarriesacandleonourgardensanerdcarriesacandleononearena",
+        "independent_ascii_tape": "anerdcarriesacandleonourgardensanerdcarriesacandleononearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "282550181a86311e7016baf22e362c44d148c54d5e074c07f4886e146e1e278b",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle in the garden; a nerd carries a candle in one arena.",
+      "fluency_score": 18.6,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle in the garden; a nerd carries a candle in one arena.",
+        "letters": 59,
+        "normalized_tape": "anerdcarriesacandleinthegardenanerdcarriesacandleinonearena",
+        "independent_ascii_tape": "anerdcarriesacandleinthegardenanerdcarriesacandleinonearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "0eaa318e39941a0648c86da2f81af5d2d99609329ba06d05d221a5b9f2e6a924",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle in the garden; a nerd carries a candle on one arena.",
+      "fluency_score": 18.6,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle in the garden; a nerd carries a candle on one arena.",
+        "letters": 59,
+        "normalized_tape": "anerdcarriesacandleinthegardenanerdcarriesacandleononearena",
+        "independent_ascii_tape": "anerdcarriesacandleinthegardenanerdcarriesacandleononearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "5d71edb6bc4cef25036d7fb6c7a45df099f682f6bd7843627030eab9bc3e08c0",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle on the garden; a nerd carries a candle in one arena.",
+      "fluency_score": 18.6,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle on the garden; a nerd carries a candle in one arena.",
+        "letters": 59,
+        "normalized_tape": "anerdcarriesacandleonthegardenanerdcarriesacandleinonearena",
+        "independent_ascii_tape": "anerdcarriesacandleonthegardenanerdcarriesacandleinonearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "e23f1a502a510fdf507782707e51f5d73a7c96d4bf052dc7514caf977ec2408c",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    },
+    {
+      "rendered": "A nerd carries a candle on the garden; a nerd carries a candle on one arena.",
+      "fluency_score": 18.6,
+      "matched_outer_letters_before_mismatch": 4,
+      "audit": {
+        "rendered": "A nerd carries a candle on the garden; a nerd carries a candle on one arena.",
+        "letters": 59,
+        "normalized_tape": "anerdcarriesacandleonthegardenanerdcarriesacandleononearena",
+        "independent_ascii_tape": "anerdcarriesacandleonthegardenanerdcarriesacandleononearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "dcdc6d42713f2bccf5a57686adca8b1076822973e751b2b9dc862150ca5ddca2",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "independent finite-state morphology derivations; diagnostic probe, not closure"
+    }
+  ],
+  "dead_frontier": [
+    {
+      "left_slot": 1,
+      "right_slot": 7,
+      "left_words": [
+        "a"
+      ],
+      "right_words_reversed": [],
+      "left_morphology": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "tense": null,
+        "lemma": null,
+        "roles": [
+          "agent:nerd"
+        ]
+      },
+      "right_morphology": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "tense": null,
+        "lemma": null,
+        "roles": [
+          "setting:arena"
+        ]
+      },
+      "fluency_score": 7.5,
+      "characters_emitted_lockstep": 4,
+      "reason": "no-morphology-compatible-character-transition"
+    },
+    {
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_morphology": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "tense": null,
+        "lemma": null,
+        "roles": []
+      },
+      "right_morphology": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "tense": null,
+        "lemma": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "fluency_score": 0.0,
+      "characters_emitted_lockstep": 1,
+      "reason": "no-morphology-compatible-character-transition"
+    },
+    {
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_morphology": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "tense": null,
+        "lemma": null,
+        "roles": []
+      },
+      "right_morphology": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "tense": null,
+        "lemma": null,
+        "roles": [
+          "setting:gardens"
+        ]
+      },
+      "fluency_score": 0.0,
+      "characters_emitted_lockstep": 1,
+      "reason": "no-morphology-compatible-character-transition"
+    },
+    {
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_morphology": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "tense": null,
+        "lemma": null,
+        "roles": []
+      },
+      "right_morphology": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "tense": null,
+        "lemma": null,
+        "roles": [
+          "setting:harbors"
+        ]
+      },
+      "fluency_score": 0.0,
+      "characters_emitted_lockstep": 1,
+      "reason": "no-morphology-compatible-character-transition"
+    },
+    {
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_morphology": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "tense": null,
+        "lemma": null,
+        "roles": []
+      },
+      "right_morphology": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "tense": null,
+        "lemma": null,
+        "roles": [
+          "setting:markets"
+        ]
+      },
+      "fluency_score": 0.0,
+      "characters_emitted_lockstep": 1,
+      "reason": "no-morphology-compatible-character-transition"
+    },
+    {
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_morphology": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "tense": null,
+        "lemma": null,
+        "roles": []
+      },
+      "right_morphology": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "tense": null,
+        "lemma": null,
+        "roles": [
+          "setting:stations"
+        ]
+      },
+      "fluency_score": 0.0,
+      "characters_emitted_lockstep": 1,
+      "reason": "no-morphology-compatible-character-transition"
+    },
+    {
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_morphology": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "tense": null,
+        "lemma": null,
+        "roles": []
+      },
+      "right_morphology": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "tense": null,
+        "lemma": null,
+        "roles": [
+          "setting:theaters"
+        ]
+      },
+      "fluency_score": 0.0,
+      "characters_emitted_lockstep": 1,
+      "reason": "no-morphology-compatible-character-transition"
+    },
+    {
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_morphology": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "tense": null,
+        "lemma": null,
+        "roles": []
+      },
+      "right_morphology": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "tense": null,
+        "lemma": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "fluency_score": 0.0,
+      "characters_emitted_lockstep": 1,
+      "reason": "no-morphology-compatible-character-transition"
+    },
+    {
+      "left_slot": 1,
+      "right_slot": 7,
+      "left_words": [
+        "a"
+      ],
+      "right_words_reversed": [],
+      "left_morphology": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "tense": null,
+        "lemma": null,
+        "roles": [
+          "agent:nurse"
+        ]
+      },
+      "right_morphology": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "tense": null,
+        "lemma": null,
+        "roles": [
+          "setting:arena"
+        ]
+      },
+      "fluency_score": 0.0,
+      "characters_emitted_lockstep": 2,
+      "reason": "no-morphology-compatible-character-transition"
+    }
+  ],
+  "mismatch_directed_morphology_repair": {
+    "held_out_variants": [
+      {
+        "text": "leads",
+        "category": "verb",
+        "number": "sg",
+        "tense": "pres",
+        "lemma": "lead"
+      },
+      {
+        "text": "lead",
+        "category": "verb",
+        "number": "pl",
+        "tense": "pres",
+        "lemma": "lead"
+      },
+      {
+        "text": "led",
+        "category": "verb",
+        "number": "sg",
+        "tense": "past",
+        "lemma": "lead"
+      },
+      {
+        "text": "led",
+        "category": "verb",
+        "number": "pl",
+        "tense": "past",
+        "lemma": "lead"
+      }
+    ],
+    "target": "highest-fluency event/event dead frontier",
+    "closures": [],
+    "dead_frontier": [
+      {
+        "left_slot": 1,
+        "right_slot": 7,
+        "left_words": [
+          "a"
+        ],
+        "right_words_reversed": [],
+        "left_morphology": {
+          "subject_number": "sg",
+          "object_number": null,
+          "locative_number": null,
+          "tense": null,
+          "lemma": null,
+          "roles": [
+            "agent:nerd"
+          ]
+        },
+        "right_morphology": {
+          "subject_number": null,
+          "object_number": null,
+          "locative_number": "sg",
+          "tense": null,
+          "lemma": null,
+          "roles": [
+            "setting:arena"
+          ]
+        },
+        "fluency_score": 7.5,
+        "characters_emitted_lockstep": 4,
+        "reason": "no-morphology-compatible-character-transition"
+      },
+      {
+        "left_slot": 0,
+        "right_slot": 7,
+        "left_words": [],
+        "right_words_reversed": [],
+        "left_morphology": {
+          "subject_number": "sg",
+          "object_number": null,
+          "locative_number": null,
+          "tense": null,
+          "lemma": null,
+          "roles": []
+        },
+        "right_morphology": {
+          "subject_number": null,
+          "object_number": null,
+          "locative_number": "sg",
+          "tense": null,
+          "lemma": null,
+          "roles": [
+            "setting:market"
+          ]
+        },
+        "fluency_score": 0.0,
+        "characters_emitted_lockstep": 1,
+        "reason": "no-morphology-compatible-character-transition"
+      },
+      {
+        "left_slot": 0,
+        "right_slot": 7,
+        "left_words": [],
+        "right_words_reversed": [],
+        "left_morphology": {
+          "subject_number": "pl",
+          "object_number": null,
+          "locative_number": null,
+          "tense": null,
+          "lemma": null,
+          "roles": []
+        },
+        "right_morphology": {
+          "subject_number": null,
+          "object_number": null,
+          "locative_number": "pl",
+          "tense": null,
+          "lemma": null,
+          "roles": [
+            "setting:gardens"
+          ]
+        },
+        "fluency_score": 0.0,
+        "characters_emitted_lockstep": 1,
+        "reason": "no-morphology-compatible-character-transition"
+      },
+      {
+        "left_slot": 0,
+        "right_slot": 7,
+        "left_words": [],
+        "right_words_reversed": [],
+        "left_morphology": {
+          "subject_number": "pl",
+          "object_number": null,
+          "locative_number": null,
+          "tense": null,
+          "lemma": null,
+          "roles": []
+        },
+        "right_morphology": {
+          "subject_number": null,
+          "object_number": null,
+          "locative_number": "pl",
+          "tense": null,
+          "lemma": null,
+          "roles": [
+            "setting:harbors"
+          ]
+        },
+        "fluency_score": 0.0,
+        "characters_emitted_lockstep": 1,
+        "reason": "no-morphology-compatible-character-transition"
+      },
+      {
+        "left_slot": 0,
+        "right_slot": 7,
+        "left_words": [],
+        "right_words_reversed": [],
+        "left_morphology": {
+          "subject_number": "pl",
+          "object_number": null,
+          "locative_number": null,
+          "tense": null,
+          "lemma": null,
+          "roles": []
+        },
+        "right_morphology": {
+          "subject_number": null,
+          "object_number": null,
+          "locative_number": "pl",
+          "tense": null,
+          "lemma": null,
+          "roles": [
+            "setting:markets"
+          ]
+        },
+        "fluency_score": 0.0,
+        "characters_emitted_lockstep": 1,
+        "reason": "no-morphology-compatible-character-transition"
+      },
+      {
+        "left_slot": 0,
+        "right_slot": 7,
+        "left_words": [],
+        "right_words_reversed": [],
+        "left_morphology": {
+          "subject_number": "pl",
+          "object_number": null,
+          "locative_number": null,
+          "tense": null,
+          "lemma": null,
+          "roles": []
+        },
+        "right_morphology": {
+          "subject_number": null,
+          "object_number": null,
+          "locative_number": "pl",
+          "tense": null,
+          "lemma": null,
+          "roles": [
+            "setting:stations"
+          ]
+        },
+        "fluency_score": 0.0,
+        "characters_emitted_lockstep": 1,
+        "reason": "no-morphology-compatible-character-transition"
+      },
+      {
+        "left_slot": 0,
+        "right_slot": 7,
+        "left_words": [],
+        "right_words_reversed": [],
+        "left_morphology": {
+          "subject_number": "pl",
+          "object_number": null,
+          "locative_number": null,
+          "tense": null,
+          "lemma": null,
+          "roles": []
+        },
+        "right_morphology": {
+          "subject_number": null,
+          "object_number": null,
+          "locative_number": "pl",
+          "tense": null,
+          "lemma": null,
+          "roles": [
+            "setting:theaters"
+          ]
+        },
+        "fluency_score": 0.0,
+        "characters_emitted_lockstep": 1,
+        "reason": "no-morphology-compatible-character-transition"
+      },
+      {
+        "left_slot": 0,
+        "right_slot": 7,
+        "left_words": [],
+        "right_words_reversed": [],
+        "left_morphology": {
+          "subject_number": "pl",
+          "object_number": null,
+          "locative_number": null,
+          "tense": null,
+          "lemma": null,
+          "roles": []
+        },
+        "right_morphology": {
+          "subject_number": null,
+          "object_number": null,
+          "locative_number": "sg",
+          "tense": null,
+          "lemma": null,
+          "roles": [
+            "setting:market"
+          ]
+        },
+        "fluency_score": 0.0,
+        "characters_emitted_lockstep": 1,
+        "reason": "no-morphology-compatible-character-transition"
+      },
+      {
+        "left_slot": 1,
+        "right_slot": 7,
+        "left_words": [
+          "a"
+        ],
+        "right_words_reversed": [],
+        "left_morphology": {
+          "subject_number": "sg",
+          "object_number": null,
+          "locative_number": null,
+          "tense": null,
+          "lemma": null,
+          "roles": [
+            "agent:nurse"
+          ]
+        },
+        "right_morphology": {
+          "subject_number": null,
+          "object_number": null,
+          "locative_number": "sg",
+          "tense": null,
+          "lemma": null,
+          "roles": [
+            "setting:arena"
+          ]
+        },
+        "fluency_score": 0.0,
+        "characters_emitted_lockstep": 2,
+        "reason": "no-morphology-compatible-character-transition"
+      }
+    ],
+    "stats": {
+      "states": 13,
+      "character_pairs_emitted": 12,
+      "weighted_transitions": 12,
+      "node_budget_hit": 0
+    },
+    "exact_count": 0,
+    "mechanically_admitted": 0
+  },
+  "independent_audit": [],
+  "next_repair_operator": "At the highest-fluency dead transition, add one held-out inflectional variant (same lemma and semantic role, alternate number/tense realization) to the transducer alphabet, then rerun the character-lockstep optimization; do not resegment a completed tape.",
+  "reader_gate": "No row is readability evidence; exact mechanically admitted rows require blinded intact/shuffled reading.",
+  "provenance": {
+    "generator_sha256": "aa6ee8e7fc9ccb568d00efa2f8bd2987215f6639da84facf5476d9c635198652",
+    "lexicon": "authored inflectional lexical banks",
+    "source_sentences_copied": false,
+    "known_catalogue_excluded": true,
+    "independent_audits": [
+      "normalized tape reversal",
+      "ASCII two-pointer",
+      "mechanical_admission_checks"
+    ]
+  }
+}

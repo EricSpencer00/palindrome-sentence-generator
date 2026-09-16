@@ -1,0 +1,57 @@
+{
+  "experiment_id": "reverse-lexicon-typed-complement-frame-20260916",
+  "signature": "reverse-lexicon-centered-complement|typed-transitive-complement-frame|live-reverse-chart-argument-selection|inherited-singular-agreement|heldout-scene|independent-pointer-sha-audit",
+  "status": "completed",
+  "method": "select one typed transitive complement frame from the live reverse chart and render it inside the inherited-agreement scene; no independent frame sweep",
+  "novelty_preflight": {
+    "exact_signature_collision": false,
+    "preflight_rule": "reject frame sweeps, post-hoc edits, and completed-tape reversal",
+    "registry_entries_at_run": 223
+  },
+  "candidates": [
+    {
+      "label": "typed-complement-heldout",
+      "rendered": "The patient courier knows that the careful clerk seals the marked parcel before dusk and waits by the quiet gate.",
+      "letters": 93,
+      "typed_frame": {
+        "complement_subject": "the careful clerk",
+        "verb": "seals",
+        "object": "the marked parcel",
+        "valency": "transitive SVO"
+      },
+      "inherited_agreement_state": "singular agreement inherited from outer courier/clerk scene",
+      "exact_audit": {
+        "letters": 93,
+        "forward": "thepatientcourierknowsthatthecarefulclerksealsthemarkedparcelbeforeduskandwaitsbythequietgate",
+        "reverse": "etagteiuqehtybstiawdnaksuderofeblecrapdekramehtslaeskrelcluferacehttahtswonkreiruoctneitapeht",
+        "exact": false,
+        "hash_forward": "ec5d7393d5f7305887686be34d260a990ed51efe0af807e6a07ad90651ccc502",
+        "hash_reverse": "e4cd99b01c2402dd721ea674cd91122a5cd4639d93a97d99daefa6790f0d0af1",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "min_letters": true,
+        "complete_prose": true,
+        "mechanical_gate": false
+      },
+      "admitted": false,
+      "provenance": {
+        "heldout_scene": true,
+        "source_sentences_copied": false,
+        "posthoc_spelling_edit": false,
+        "reversed_finished_sentence": false,
+        "typed_argument_selected_live": true
+      }
+    }
+  ],
+  "stats": {
+    "candidates": 1,
+    "exact": 0,
+    "admitted": 0
+  },
+  "next_repair": "bind the typed object to a semantic role lattice and choose one noun whose boundary characters reduce the outer residual without breaking agreement",
+  "provenance": {
+    "generator_sha256": "5c82d7d340777cc9384cb83443c6c9b37d8d7fe5bc4a47de9a4bb4bcd1a3653e"
+  }
+}

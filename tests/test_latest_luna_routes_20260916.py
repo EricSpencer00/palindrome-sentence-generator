@@ -79,10 +79,14 @@ def test_latest_followup_lanes_are_retained_without_promoting_unreadable_text():
     assert seam["exact_count"] == 0 and seam["reader_eligible_count"] == 0
     assert len(manual["candidates"]) == 6
     assert manual["exact_count"] == 0 and manual["reader_eligible_count"] == 0
-    for row in seam["candidates"] + seam["repair"] + manual["candidates"]:
-        tape = "".join(re.findall(r"[A-Za-z]", row["rendered"])).lower()
-        assert row["independent_audit"]["letters"] == len(tape)
-        assert row["independent_audit"]["exact"] is False
+    for row in seam["candidates"] + seam["repair"]:
+        tape = "".join(re.findall(r"[A-Za-z]", row["text"])).lower()
+        assert row["audit"]["letters"] == len(tape)
+        assert row["audit"]["exact"] is False
+    for row in manual["candidates"]:
+        tape = "".join(re.findall(r"[A-Za-z]", row["text"])).lower()
+        assert row["normalized_length"] == len(tape)
+        assert row["exact_independent_two_pointer"] is False
 
 
 def test_followup_preflights_are_explicit_and_generate_no_rows():
@@ -92,7 +96,7 @@ def test_followup_preflights_are_explicit_and_generate_no_rows():
     ):
         run = load(name)
         assert run["status"] == "preflight_blocked"
-        assert run.get("rendered_candidates", 0) == 0
+        assert not run.get("rendered_candidates", [])
         assert run["pivot"]
 
 

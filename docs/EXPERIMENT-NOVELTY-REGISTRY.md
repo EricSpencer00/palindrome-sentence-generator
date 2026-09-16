@@ -12,6 +12,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
+| `intact-prose-letter-repair-20260916` | intact multi-clause prose seeds with a bounded letter-level edit script combining lexical substitutions, explicit inflection, and adjunct-clause rewrites; first mirrored mismatch ranks repairs while word order and self-palindromic-unit gates remain live | intact-prose edit-script repair frontier | 311 attempted scripts, 15 selected frontier rows, 62–81 letters; 0 exact, 0 mechanically admitted, 0 reader-eligible |
 | `scalar-evaluation-evidence-20260916` | event scenes are independently lexicalized through a scalar evaluation predicate and a separate evidence proposition, with held-out evaluator/evidence repair under a live character obligation | scalar judgment plus evidence-clause composition | 4 base + 4 repair complete-prose probes, 78–85 letters; 0 exact and 0 reader-eligible |
 | `grammar-centerout-manual-20260916` | fresh common-word prose is authored around a semantic center, then expanded with a bounded grammar-aware repair while cross-word seam and exact audits remain live | manual grammar-aware center expansion | 3 fresh centers + 3 center-expansion repairs, 45–53 letters; 0 exact and 0 reader-eligible |
 | `c3-seam-dp-semantic-pairs-20260916` | fresh semantic scenes are joined through heteropalindromic word-pair seams with character-level boundary-shift DP and connective repair | semantic seam-DP interleaving | 9 fresh scenes + 9 repairs, 32–41 letters; 0 exact and 0 reader-eligible |
@@ -216,7 +217,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 171 retained families and 20 explicit
+family. The current audit covers all 172 retained families and 21 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

@@ -98,6 +98,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `gpt2-center-letter-bridge-20260915` | GPT-2 half clauses are joined through an explicit odd-length center-letter insertion before independent right-tape decoding | odd-center bridge state | 384 samples, 3,848 center decodes, 4 exact 39-letter surfaces, 0 mechanically admitted/reader rows; orientation repair also yielded 0 exact rows |
 | `gpt2-center-fsm-bridge-20260915` | Brown-backed POS/constituency states are carried into the odd-center reverse decode; fragments are rejected before scoring | right-side clause automaton | 384 samples, 3,354 center trials, 0 complete POS-frame hits, 0 exact/admitted/reader rows |
 | `interrogative-quantifier-fsm-20260915` | explicit auxiliary-inversion question states are joined to quantified-answer dependency states under an odd-center character equation | question–answer discourse automaton | base: 420,000 left assignments and 52,197,516 right-frame yields; indexed repair: 62,901,860 slot-prefix trials, 1 hit (known catalogue), 0 novel exact/admitted/reader rows |
+| `morphology-first-dependency-lattice-20260916` | dependency topology is selected before node-local lemma, derivation, and inflection paths are unified and rendered in ordinary order | morphology-first dependency yield | 1,728 yields; 3 exact diagnostics, all catalogue/symmetry rejected; 0 mechanically admitted/reader rows |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
@@ -132,7 +133,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 92 retained families and 6 explicit
+family. The current audit covers all 94 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The two latest routes are below the review threshold:
 
@@ -164,6 +165,8 @@ pairs for review. The two latest routes are below the review threshold:
 | `homograph-sense-lattice-20260915` | none (0.000) | 0.000 | retained because dual-sense orthographic parses are carried in the construction state; no exact output |
 | `terminal-aware-grammar-intersection-20260916` | none (0.000) | 0.000 | retained because independent typed clause grammars explicitly take lexical-boundary epsilon transitions during character intersection; 9 short closures, 0 admitted/reader rows |
 | `semantic-mcts-derivation-20260916` | none (0.000) | 0.000 | retained because UCT allocates rollouts over typed semantic derivation actions with a live reflected-character ledger; base: 30,000 rollouts, longest probe 29 letters; reverse-prior repair: 30,000 rollouts, longest probe 30; 0 admitted/reader rows |
+| `morphosemantic-product-delay-20260916` | none (0.000) | 0.000 | retained because looping feature automata realize morphology on demand through a persistent output-delay monoid without complete-clause materialization; 0 closures |
+| `morphology-first-dependency-lattice-20260916` | none (0.000) | 0.000 | retained because lemma/derivation/inflection paths are unified on typed dependency nodes before ordinary-order yield; exact diagnostics were catalogue/symmetry rejected |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

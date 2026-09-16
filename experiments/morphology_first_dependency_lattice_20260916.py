@@ -166,14 +166,20 @@ def novelty_preflight() -> dict[str, object]:
     artifact = "experiments/morphology_first_dependency_lattice_20260916.py"
     exact_signature = [row["id"] for row in rows if row["signature"] == STATE_SPACE_SIGNATURE]
     artifact_collision = [row["id"] for row in rows if row["artifact"] == artifact]
+    # After the first committed run the registry necessarily contains this
+    # route.  Treat that one exact self-match as an auditable replay of the
+    # same artifact, while still failing closed on any other collision.
+    self_registered = exact_signature == [EXPERIMENT_ID] and artifact_collision == [EXPERIMENT_ID]
+    other_signature = [row_id for row_id in exact_signature if row_id != EXPERIMENT_ID]
+    other_artifact = [row_id for row_id in artifact_collision if row_id != EXPERIMENT_ID]
     forbidden_families = {"center-out", "reverse-segmentation", "grammar-template", "MCTS", "beam", "clause-product"}
     text = (" ".join(row["id"] + " " + row["signature"] for row in rows)).casefold()
-    return {"registry_entries_read": len(rows), "exact_signature_collision": exact_signature, "artifact_collision": artifact_collision, "status": "novel_exact_signature" if not exact_signature and not artifact_collision else "collision", "prior_families_explicitly_excluded": sorted(forbidden_families), "manual_distinction": "A node-local morphology path is chosen before surface emission; no fixed clause bank, reverse tape, center-out cursor, beam, MCTS, or clause cross-product is used.", "related_but_distinct": [row["id"] for row in rows if row["id"] in {"dependency-attribute-grammar-chart", "morphological-derivational-seam", "wordnet-featured-frame-repair"}], "forbidden_terms_in_signature": sorted(term for term in forbidden_families if term.casefold() in STATE_SPACE_SIGNATURE.casefold()), "registry_text_digest": hashlib.sha256(text.encode()).hexdigest()}
+    return {"registry_entries_read": len(rows), "exact_signature_collision": other_signature, "artifact_collision": other_artifact, "self_registered": self_registered, "status": "registered_self" if self_registered else ("novel_exact_signature" if not exact_signature and not artifact_collision else "collision"), "prior_families_explicitly_excluded": sorted(forbidden_families), "manual_distinction": "A node-local morphology path is chosen before surface emission; no fixed clause bank, reverse tape, center-out cursor, beam, MCTS, or clause cross-product is used.", "related_but_distinct": [row["id"] for row in rows if row["id"] in {"dependency-attribute-grammar-chart", "morphological-derivational-seam", "wordnet-featured-frame-repair"}], "forbidden_terms_in_signature": sorted(term for term in forbidden_families if term.casefold() in STATE_SPACE_SIGNATURE.casefold()), "registry_text_digest": hashlib.sha256(text.encode()).hexdigest()}
 
 
 def run() -> dict[str, object]:
     preflight = novelty_preflight()
-    if preflight["status"] != "novel_exact_signature":
+    if preflight["status"] not in {"novel_exact_signature", "registered_self"}:
         raise RuntimeError(f"novelty preflight failed: {preflight}")
     stats = Counter(trees=len(trees()), raw_yields=0, exact_yields=0, catalogue_rejects=0, mechanically_admitted=0)
     candidates: list[dict[str, object]] = []

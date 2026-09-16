@@ -10,7 +10,7 @@ from experiments.morphology_first_dependency_lattice_20260916 import (
 
 def test_novelty_preflight_is_before_generation_and_collision_free():
     result = novelty_preflight()
-    assert result["status"] == "novel_exact_signature"
+    assert result["status"] in {"novel_exact_signature", "registered_self"}
     assert result["exact_signature_collision"] == []
     assert result["artifact_collision"] == []
     assert "lemma-derivation-inflection-path" in STATE_SPACE_SIGNATURE

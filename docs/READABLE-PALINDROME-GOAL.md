@@ -1386,14 +1386,22 @@ item-aware analysis plan.
   It is recorded as a repair artifact, not a second family, and the next route
   must change semantic state rather than tune this prior again.
 
-- **Interrogative–quantifier dependency automaton, 2026-09-16:** preflighted a
-  genuinely different construction state: auxiliary inversion and question
-  polarity on the left are joined to an independently ordered quantified
-  answer frame on the right, with an odd center letter carried in the exact
-  character equation. The run checked 420,000 left assignments, 7,165,600
-  center equations, and 52,197,516 right-frame yields; it found no reverse
-  hit, exact closure, or reader row. The artifact is
-  `runs/interrogative-quantifier-fsm-20260915.json`. Its concrete repair is to
-  replace full right-frame materialization with target-tape indexed joins while
-  preserving the inversion/dependency state; no larger undifferentiated bank
-  is being counted as a new experiment.
+- **Morphosemantic product-delay pilot, 2026-09-16:** preflighted a new
+  productive state in which looping feature automata realize morphology on
+  demand and a persistent output-delay monoid cancels independent yields; no
+  complete clause bank, fixed-tape segmentation, beam, or MCTS was reused.
+  The 100,000-state bounded run made 480,563 transitions and 183,140
+  character rejections but found zero exact closures. It is recorded as a
+  failed construction with no reader evidence in
+  `runs/morphosemantic-product-delay-20260916.json`; the next repair must
+  change the lexical realization frontier, not replay this state.
+
+- **Morphology-first dependency lattice, 2026-09-16:** preflighted a distinct
+  route that chooses a typed dependency topology first, then unifies
+  node-local lemma, derivation, and inflection paths before ordinary-order
+  emission. Of 1,728 yields, three were exact diagnostics; all were rejected
+  independently as catalogue or word-order/self-symmetry material, leaving
+  zero mechanically admitted or reader-eligible rows. The complete candidate
+  surfaces and morphology paths are preserved in
+  `runs/morphology-first-dependency-lattice-20260916.json`; no catalogue text
+  is treated as generated output.

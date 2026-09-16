@@ -2027,6 +2027,21 @@
       "distinction": "An agreement-carrying morphology transducer jointly realizes tense, number, person, and legal clitic boundaries in a fresh scene; it is not a replay of the earlier weighted-FST bank.",
       "reader_evidence": false,
       "status": "run; 122-letter complete scene; 0 exact and 0 mechanically admitted"
+    },
+    {
+      "id": "cfg-earley-joint-intersection-20260916",
+      "signature": "fresh-cfg-earley|joint-character-intersection|bidirectional-scene-grammar",
+      "artifact": "experiments/cfg_earley_joint_intersection_20260916.py",
+      "run_artifacts": [
+        "runs/cfg-earley-joint-intersection-20260916.json"
+      ],
+      "overlaps": [
+        "earley-finite-state-grammar-intersection-20260916",
+        "joint-cfg-intersection-20260916"
+      ],
+      "distinction": "A single fresh pair of independently authored CFG/Earley clauses is generated jointly with bidirectional character obligations; unlike the rejected cross-product sweep, this artifact contains one held-out scene and no catalogue text.",
+      "reader_evidence": false,
+      "status": "run; 140-letter ordinary-prose scene; 0 exact and 0 mechanically admitted"
     }
   ],
   "excluded": [
@@ -2289,6 +2304,19 @@
         "recursive-obligation-clause-growth-20260916"
       ],
       "reason": "The recursive stack state is distinct, but the only exact 62-letter surface is a semordnilap word chain with failed word-order and proper-span mechanical gates, not intact prose. It is retained as rejected failure evidence; future work must add complete subject-verb-argument frames before promotion."
+    },
+    {
+      "id": "joint-cfg-intersection-20260916-excluded",
+      "signature": "joint-cfg-cross-product|agreement-feature-seam|ordinary-order-clauses|independent-exact-audit",
+      "artifact": "experiments/joint_cfg_intersection_20260916.py",
+      "run_artifacts": [
+        "runs/joint-cfg-intersection-20260916.json"
+      ],
+      "overlaps": [
+        "cfg-earley-joint-intersection-20260916",
+        "authored-clause-template-sat-20260916"
+      ],
+      "reason": "The 729-row cross-product repeats the same ordinary clauses and includes identical-clause pairs; it is a larger duplicate sweep rather than a new construction state. Its prose and zero-closure audit remain preserved, but the family is explicitly excluded from the retained aggregate."
     }
   ]
 }

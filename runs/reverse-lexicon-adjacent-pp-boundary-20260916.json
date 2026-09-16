@@ -1,0 +1,55 @@
+{
+  "experiment_id": "reverse-lexicon-adjacent-pp-boundary-20260916",
+  "signature": "reverse-lexicon-role-noun-boundary|adjacent-prepositional-attachment|two-boundary-residual-decrease|live-reverse-chart|heldout-scene|independent-pointer-sha-audit",
+  "status": "completed",
+  "method": "carry the selected object noun boundary into one adjacent PP attachment and require a joint two-boundary residual decrease before rendering",
+  "novelty_preflight": {
+    "exact_signature_collision": false,
+    "preflight_rule": "reject PP sweeps, post-hoc edits, and completed-tape reversal",
+    "registry_entries_at_run": 229
+  },
+  "candidates": [
+    {
+      "label": "adjacent-pp-boundary-heldout",
+      "rendered": "The patient courier knows that the careful clerk seals the marked parcel beside the quiet dock before dusk and waits by the gate.",
+      "letters": 106,
+      "attachments": {
+        "object_boundary": "marked parcel",
+        "pp": "beside the quiet dock",
+        "two_boundary_constraint": "parcel->beside and dock->before must jointly reduce residual"
+      },
+      "exact_audit": {
+        "letters": 106,
+        "forward": "thepatientcourierknowsthatthecarefulclerksealsthemarkedparcelbesidethequietdockbeforeduskandwaitsbythegate",
+        "reverse": "etagehtybstiawdnaksuderofebkcodteiuqehtediseblecrapdekramehtslaeskrelcluferacehttahtswonkreiruoctneitapeht",
+        "exact": false,
+        "hash_forward": "f832b669c50ffd7ad6b20b1c9a26339dc2ee5e454d180c57d24fe69d014feae7",
+        "hash_reverse": "6352a3259b77abbbd58d2eb6697aeae0a68346478c562e6c36d979e3d9a819ef",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "min_letters": true,
+        "complete_prose": true,
+        "mechanical_gate": false
+      },
+      "admitted": false,
+      "provenance": {
+        "heldout_scene": true,
+        "source_sentences_copied": false,
+        "posthoc_spelling_edit": false,
+        "reversed_finished_sentence": false,
+        "two_boundary_residual_tested": true
+      }
+    }
+  ],
+  "stats": {
+    "candidates": 1,
+    "exact": 0,
+    "admitted": 0
+  },
+  "next_repair": "insert one agreement-carrying relative clause at the PP attachment and require its boundary to close the remaining residual",
+  "provenance": {
+    "generator_sha256": "7f8c50cd6d78591adc3826f24eb33b0d1e07697f340491d9c0e0bce08f856136"
+  }
+}

@@ -28,8 +28,10 @@ def run():
   parts=[CLAUSES[i][1][choices[i]] for i in order]
   # Realize the selected order as one readable compound/complex sentence;
   # connectors are grammatical surface material, never tape manipulation.
-  connectors=('', ', and ', ', while ', ', and ')
-  text=parts[0]+connectors[1]+parts[1]+connectors[2]+parts[2]+connectors[3]+parts[3]+'.'; a=audit(text); checks=mechanical_admission_checks(text,min_letters=90,max_letters=220)
+  # Every lattice arm is a grammatical sequence of complete sentences. This
+  # keeps arbitrary online order from creating comma fragments or dangling
+  # subordinators while retaining the same normalized character tape.
+  text='. '.join(parts)+'.'; a=audit(text); checks=mechanical_admission_checks(text,min_letters=90,max_letters=220)
   rows.append({'rendered':text,'letters':a['letters'],'clause_order':list(order),'slot_choices':list(choices),'live_equation':{'equation':'t[i]=t[N-1-i] while each complete clause is appended','first_mismatch':a['first_mismatch'],'matched_prefix_pairs':next((i for i in range(a['letters']//2) if normalize_letters(text)[i]!=normalize_letters(text)[-1-i]),a['letters']//2)},'exact_audit':a,'checks':checks,'mechanically_admitted':bool(a['two_pointer_exact'] and a['sha_equal'] and all(checks.values())),'provenance':{'fresh_authored_scene':True,'source_sentences_copied':False,'catalogue_imported':False,'borrowed_text':False,'reversed_finished_sentence':False,'word_order_symmetry':False,'repeated_self_palindromic_unit':False,'known_palindrome_wrapped':False}})
  h=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
  for r in rows:r['provenance']['generator_sha256']=h

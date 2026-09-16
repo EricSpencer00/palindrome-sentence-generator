@@ -309,3 +309,17 @@ two-clause scene (first-character mismatch), a 108-state semantic-slot lattice
 legal segmentation). Each row has independent pointer/hash validation,
 provenance, novelty preflight, and a concrete next repair; none is promoted as
 readability evidence.
+
+The latest lane-specific renderings are also frozen here: the character-LM
+decoder emits “a patient child carries the river trail at dusk. the keeper
+opens old wooden gates before dawn.” (77 letters); the dependency seam CSP emits
+“The patient archivist carefully maps a quiet museum archive before dawn.
+Curious visitors study faded stars beside the river.” (105); the morphology /
+clitic transducer emits “When the careful archivist restores the damaged ledger,
+she records each witness name and sends the sealed copy to the harbor office
+before winter.” (122); and the joint CFG/Earley chart emits “The patient
+gardener waters the cedar seedlings beside the schoolhouse before sunrise The
+teacher labels every seedling and stores the tools beneath the quiet porch.”
+(140). All four are intact, independently audited, novelty-checked, non-exact,
+and paired with a concrete next repair. The 729-row repeated-clause CFG sweep
+is explicitly excluded as non-progress.

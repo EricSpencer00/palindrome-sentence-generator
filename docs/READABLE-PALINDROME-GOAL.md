@@ -2030,3 +2030,11 @@ item-aware analysis plan.
   108 semantic-slot states, and 103--104-letter reverse-segmentation clauses
   are all rendered, independently checked, provenance-backed, and paired with
   concrete next repairs. None is promoted as a readable palindrome.
+
+  **Latest rendered controls:** the character-LM grammar lane emits a 77-letter
+  two-clause scene; dependency-seam CSP emits a 105-letter archivist/visitor
+  scene; agreement/clitic transduction emits a 122-letter ledger scene; and
+  joint CFG/Earley intersection emits a 140-letter gardener/teacher scene.
+  Their full strings, independent exact/hash failures, provenance, novelty
+  checks, and next repairs are recorded in the lane evidence ledger. The
+  repeated-clause 729-row CFG sweep is excluded as non-progress.

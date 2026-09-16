@@ -238,3 +238,16 @@ corpus-backed reverse-segmentation runs all retain rendered ordinary-prose
 states plus independent exact/hash audits and named next repairs. The 164-letter
 word-pair frontier is the longest of this wave; it is not exact and is not
 presented as a palindrome.
+
+The latest rendered controls are: 77-letter character-LM grammar prose (“a
+patient child carries the river trail at dusk. the keeper opens old wooden
+gates before dawn”); 105-letter dependency-seam prose (“The patient archivist
+carefully maps a quiet museum archive before dawn. Curious visitors study faded
+stars beside the river”); 122-letter agreement/clitic prose (“When the careful
+archivist restores the damaged ledger, she records each witness name and sends
+the sealed copy to the harbor office before winter”); and a 140-letter joint
+CFG/Earley scene (“The patient gardener waters the cedar seedlings beside the
+schoolhouse before sunrise The teacher labels every seedling and stores the
+tools beneath the quiet porch”). Each has independent exact/hash rejection,
+provenance, novelty preflight, and a named repair. The repeated-clause CFG
+cross-product is excluded.

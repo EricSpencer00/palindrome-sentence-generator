@@ -192,3 +192,9 @@ at 87 letters, a center-out time-adjunct repair at 70 letters, and a guide-
 clause SAT complement at 103 letters. All fail independent exact/hash and
 mechanical gates. The aggregate is now 4350 normalized rows across 120 route
 phases, with 0 mechanically admitted rows.
+
+The next targeted repairs retained a typed-complement reverse-lexicon scene at
+93 letters, a residual center-out adjunct at 75 letters, and a same-valency SAT
+guide-verb repair at 102 letters. Each fails independent exact/hash and
+mechanical gates. The aggregate is now 4353 normalized rows across 123 route
+phases, with 0 mechanically admitted rows.

@@ -62,13 +62,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 4350
+    assert report["candidate_count"] == 4353
     assert report["exact_count"] == 73
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 120
+    assert len(report["route_summary"]) == 123
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
 
 
@@ -147,6 +147,9 @@ def test_aggregate_includes_nested_rendered_candidate_formats():
     assert by_source["runs/reverse-lexicon-centered-complement-20260916.json"]["rows"] == 1
     assert by_source["runs/centerout-grammar-boundary-repair4-20260916.json"]["rows"] == 1
     assert by_source["runs/authored-clause-template-sat-repair4-20260916.json"]["rows"] == 1
+    assert by_source["runs/reverse-lexicon-typed-complement-frame-20260916.json"]["rows"] == 1
+    assert by_source["runs/centerout-grammar-boundary-repair5-20260916.json"]["rows"] == 1
+    assert by_source["runs/authored-clause-template-sat-repair5-20260916.json"]["rows"] == 1
 
 
 def test_followup_preflights_are_explicit_and_generate_no_rows():

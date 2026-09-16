@@ -1939,6 +1939,13 @@ item-aware analysis plan.
   normalized rows across 120 route phases, with 0 mechanically admitted
   candidates.
 
+  The next targeted repairs retained a typed-complement reverse-lexicon scene
+  at 93 letters, a residual center-out adjunct at 75 letters, and a same-
+  valency SAT guide-verb repair at 102 letters. Each remains intact,
+  independently audited, and unadmitted. The aggregate now contains 4353
+  normalized rows across 123 route phases, with 0 mechanically admitted
+  candidates.
+
   The next directed repairs retained four reverse-lexicon seam candidates at
   65--68 letters, a second center-out adjunct repair at 75 letters, and a
   second SAT outer-character repair at 102 letters. All remain intact,

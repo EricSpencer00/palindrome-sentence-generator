@@ -1,0 +1,271 @@
+{
+  "experiment": "endpoint-aware-bilateral-seam-20260916",
+  "novelty_preflight": {
+    "passed": true,
+    "signature": "endpoint-aware-character-decoding|bilateral-lexical-seam|reserve-terminals-before-interior|typed-scene-beam",
+    "overlaps_checked": [
+      "char-lm-semantic-beam-20260916",
+      "char-lm-constrained-decoding-20260916"
+    ],
+    "reason": "The endpoint reservation is a new state variable applied before interior decoding; no completed tape is reversed."
+  },
+  "rows": [
+    {
+      "id": "seam-0-1",
+      "rendered": "The archivist keeps the weathered journals near the fire; a calm teacher guides the curious children through the garden.",
+      "seam_state": {
+        "reserved_left_terminal": "t",
+        "reserved_right_terminal": "n",
+        "interior_decoding": "bilateral lexical seam beam",
+        "endpoint_reservation_before_interior": true
+      },
+      "audit": {
+        "length": 100,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "32c40ecc84e1f0caebedb30988d52b09fa83bee50cfbe325fc8c718badfa4ef7",
+        "sha256_reverse": "46f7bedf664c129bdc37d0d0f820f39e66f9cb0bbd28ca459685612ea54508af",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "endpoint-aware character decoding reserves bilateral lexical seam terminals before interior LM expansion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "15b885dad78690bf0178af220075b989bf56f1a9764006fd6b8b44fe4f34cbd6",
+        "source_sha256": "32c40ecc84e1f0caebedb30988d52b09fa83bee50cfbe325fc8c718badfa4ef7"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false,
+        "nested_palindrome_spans": false
+      },
+      "next_repair": "Repair seam at normalized index 0: replace the right lexical terminal bundle with a same-role synonym whose boundary letter is 't', then re-decode interior."
+    },
+    {
+      "id": "seam-0-2",
+      "rendered": "The archivist keeps the weathered journals near the fire; the field nurse carries the clean water bottles along the trail.",
+      "seam_state": {
+        "reserved_left_terminal": "t",
+        "reserved_right_terminal": "l",
+        "interior_decoding": "bilateral lexical seam beam",
+        "endpoint_reservation_before_interior": true
+      },
+      "audit": {
+        "length": 101,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "l"
+        },
+        "sha256_forward": "9a8a2e75de1b507b99abdfa15459abad984cbe0fd91f6d23c18ce585a5094756",
+        "sha256_reverse": "7a015082ed293bcfa93684cdaf8097ec57d345431997063b78fc87c518d55b8c",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "endpoint-aware character decoding reserves bilateral lexical seam terminals before interior LM expansion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "15b885dad78690bf0178af220075b989bf56f1a9764006fd6b8b44fe4f34cbd6",
+        "source_sha256": "9a8a2e75de1b507b99abdfa15459abad984cbe0fd91f6d23c18ce585a5094756"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false,
+        "nested_palindrome_spans": false
+      },
+      "next_repair": "Repair seam at normalized index 0: replace the right lexical terminal bundle with a same-role synonym whose boundary letter is 't', then re-decode interior."
+    },
+    {
+      "id": "seam-1-0",
+      "rendered": "A calm teacher guides the curious children through the garden; the archivist keeps the weathered journals near the fire.",
+      "seam_state": {
+        "reserved_left_terminal": "a",
+        "reserved_right_terminal": "e",
+        "interior_decoding": "bilateral lexical seam beam",
+        "endpoint_reservation_before_interior": true
+      },
+      "audit": {
+        "length": 100,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "e"
+        },
+        "sha256_forward": "a6c9cdcb45a45432d102ac9520ad5146dbecc4fefb5807fa7f6e6eb882e1a1aa",
+        "sha256_reverse": "1a1cdf5466b01c1f517501ee6e897fb279426ccc9659f482c3af38facfd76c76",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "endpoint-aware character decoding reserves bilateral lexical seam terminals before interior LM expansion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "15b885dad78690bf0178af220075b989bf56f1a9764006fd6b8b44fe4f34cbd6",
+        "source_sha256": "a6c9cdcb45a45432d102ac9520ad5146dbecc4fefb5807fa7f6e6eb882e1a1aa"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false,
+        "nested_palindrome_spans": false
+      },
+      "next_repair": "Repair seam at normalized index 0: replace the right lexical terminal bundle with a same-role synonym whose boundary letter is 'a', then re-decode interior."
+    },
+    {
+      "id": "seam-1-2",
+      "rendered": "A calm teacher guides the curious children through the garden; the field nurse carries the clean water bottles along the trail.",
+      "seam_state": {
+        "reserved_left_terminal": "a",
+        "reserved_right_terminal": "l",
+        "interior_decoding": "bilateral lexical seam beam",
+        "endpoint_reservation_before_interior": true
+      },
+      "audit": {
+        "length": 105,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "l"
+        },
+        "sha256_forward": "844fc45e40f9a2206220653ae3bc0dd6e1f20a94c532851bc78e0bba501c6a8d",
+        "sha256_reverse": "dc8ac5b14c219e200832d6fc4a3e2dca29b646258a5abec3c0fcede76fec82a2",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "endpoint-aware character decoding reserves bilateral lexical seam terminals before interior LM expansion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "15b885dad78690bf0178af220075b989bf56f1a9764006fd6b8b44fe4f34cbd6",
+        "source_sha256": "844fc45e40f9a2206220653ae3bc0dd6e1f20a94c532851bc78e0bba501c6a8d"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false,
+        "nested_palindrome_spans": false
+      },
+      "next_repair": "Repair seam at normalized index 0: replace the right lexical terminal bundle with a same-role synonym whose boundary letter is 'a', then re-decode interior."
+    },
+    {
+      "id": "seam-2-0",
+      "rendered": "The field nurse carries the clean water bottles along the trail; the archivist keeps the weathered journals near the fire.",
+      "seam_state": {
+        "reserved_left_terminal": "t",
+        "reserved_right_terminal": "e",
+        "interior_decoding": "bilateral lexical seam beam",
+        "endpoint_reservation_before_interior": true
+      },
+      "audit": {
+        "length": 101,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "e"
+        },
+        "sha256_forward": "2bb0d6e8df15e47572b893ca18c58f91ae3dcb08de5d722bd31cc96efa607df0",
+        "sha256_reverse": "eec9ea5461d5b0a051e1fa36a502763177b87da5512bd8caeae6fd1b1b83d74d",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "endpoint-aware character decoding reserves bilateral lexical seam terminals before interior LM expansion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "15b885dad78690bf0178af220075b989bf56f1a9764006fd6b8b44fe4f34cbd6",
+        "source_sha256": "2bb0d6e8df15e47572b893ca18c58f91ae3dcb08de5d722bd31cc96efa607df0"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false,
+        "nested_palindrome_spans": false
+      },
+      "next_repair": "Repair seam at normalized index 0: replace the right lexical terminal bundle with a same-role synonym whose boundary letter is 't', then re-decode interior."
+    },
+    {
+      "id": "seam-2-1",
+      "rendered": "The field nurse carries the clean water bottles along the trail; a calm teacher guides the curious children through the garden.",
+      "seam_state": {
+        "reserved_left_terminal": "t",
+        "reserved_right_terminal": "n",
+        "interior_decoding": "bilateral lexical seam beam",
+        "endpoint_reservation_before_interior": true
+      },
+      "audit": {
+        "length": 105,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "d8249b9f55e62f4d9820e2ecc488c5e976e7384cd1e249165c628260532fd613",
+        "sha256_reverse": "9dda4d6ef5883e8a5f4d8e7ff54226255ae1fed8b3d9734a2573bc127960c0c4",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "endpoint-aware character decoding reserves bilateral lexical seam terminals before interior LM expansion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "15b885dad78690bf0178af220075b989bf56f1a9764006fd6b8b44fe4f34cbd6",
+        "source_sha256": "d8249b9f55e62f4d9820e2ecc488c5e976e7384cd1e249165c628260532fd613"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false,
+        "nested_palindrome_spans": false
+      },
+      "next_repair": "Repair seam at normalized index 0: replace the right lexical terminal bundle with a same-role synonym whose boundary letter is 't', then re-decode interior."
+    }
+  ],
+  "summary": {
+    "candidate_count": 6,
+    "exact_count": 0,
+    "max_length": 105
+  }
+}

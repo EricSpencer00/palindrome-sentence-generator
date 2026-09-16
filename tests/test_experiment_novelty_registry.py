@@ -154,6 +154,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "online-grammar-state-char-decoder-20260916" in ids
     assert "online-grammar-state-slot-repair-20260916" in ids
     assert "online-grammar-state-outer-frame-repair-20260916" in ids
+    assert "reverse-lexicon-synthesis-20260916" in ids
+    assert "centerout-grammar-boundary-dp-20260916" in ids
+    assert "authored-clause-template-sat-20260916" in ids
     assert "live-slot-equation-cfg-resegmentation-20260916" in ids
     assert "clause-growth-frame-repair-20260916" in ids
     assert "proper-name-caption-crossword" in ids

@@ -1908,3 +1908,12 @@ item-aware analysis plan.
   zero exact closures. The aggregate now contains 4301 normalized rows across
   105 route phases, with 0 mechanically admitted candidates. The reader
   package remains gated until an exact mechanically admitted output exists.
+
+  A separate closure attempt then changed the construction state rather than
+  widening these routes: reverse-lexicon phrase synthesis retained 46--81
+  letter probes, center-out grammar boundary DP retained 61--77 letter
+  probes, and authored clause-template SAT retained 89--100 letter probes.
+  Each produced intact prose with independent exact/hash audits, provenance,
+  novelty preflight, and a concrete repair, but no exact closure. The
+  aggregate now contains 4328 normalized rows across 108 route phases, with 0
+  mechanically admitted candidates; reader testing remains gated.

@@ -148,3 +148,17 @@ The next orthogonal continuation wave adds three state representations:
 The aggregate after this wave is 4301 normalized rows across 105 route phases,
 with 73 exact-but-rejected tapes and 0 mechanically admitted rows. These
 outputs remain diagnostic; none is reader-eligible.
+
+The subsequent closure attempts changed the construction state rather than
+ widening an existing sweep:
+
+| route | rendered prose | letters | exact / admission | provenance and concrete next repair |
+|---|---|---:|---|---|
+| reverse-lexicon synthesis | “The careful porter carries the sealed parcel beside the lantern-lit school for the waiting child.” | 81 | two-pointer `False`; SHA-256 `False`; admission `False` | left-to-right semantic clause plus reverse-lexicon chart; replace the fixed lexical chart with held-out inflectional variants |
+| center-out grammar boundary DP | “The careful porter delivers the sealed parcel. Beside the lamplit school for a waiting child.” | 77 | two-pointer `False`; SHA-256 `False`; admission `False` | center-out whole-word emissions with grammar/boundary state; replace the first mismatching boundary with a held-out agreement-compatible adjunct |
+| authored clause-template SAT | “The observant nurse carries a sealed parcel near the station. The careful nurse carries a warm parcel beside the lamp.” | 97 | two-pointer `False`; SHA-256 `False`; admission `False` | authored valency/template variables solved under a full character equation; choose a fresh held-out valency frame at the first debt conflict |
+
+The common audit now contains 4328 normalized rows across 108 route phases,
+with 73 exact-but-rejected tapes and 0 mechanically admitted rows. These
+lanes produced readable diagnostics but no exact closure, so the blinded
+intact-versus-shuffled reader package remains gated.

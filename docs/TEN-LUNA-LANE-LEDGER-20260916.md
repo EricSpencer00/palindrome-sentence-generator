@@ -107,3 +107,12 @@ rendered ordinary prose, novelty preflight, independent exact/hash checks,
 provenance, and a concrete next repair; all have zero exact closures. The
 aggregate is now 4301 normalized rows across 105 route phases, with 0
 mechanically admitted candidates.
+
+The next closure attempt deliberately changed the state representation again:
+reverse-lexicon phrase synthesis retained four 46--81-letter probes,
+center-out grammar boundary DP retained ten 61--77-letter probes, and an
+authored clause-template SAT solver retained thirteen 89--100-letter probes.
+All three have rendered ordinary prose, independent exact/hash audits,
+provenance, novelty preflight, and concrete repairs; all have zero exact
+closures. The aggregate is now 4328 normalized rows across 108 route phases,
+with 0 mechanically admitted candidates.

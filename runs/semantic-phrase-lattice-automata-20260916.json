@@ -1,0 +1,4726 @@
+{
+  "experiment": "semantic-phrase-lattice-automata-20260916",
+  "signature": "independent-semantic-phrase-lattices|weighted-fst-phrase-transitions|online-character-yield-intersection|ordinary-word-order|complete-prose|independent-exact-audit",
+  "novelty_preflight": {
+    "entries_inspected": 188,
+    "related_families": [
+      "corpus-sentence-gram-fst",
+      "wordnet-synonym-frame-csp-20260915",
+      "conditional-embedding-solver-20260916",
+      "scalar-evaluation-evidence-20260916"
+    ],
+    "passed": false,
+    "reason": "semantic phrase lattices and phrase-token FST intersection are already retained"
+  },
+  "automata": {
+    "left": {
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "start": "q0",
+      "accept": "q3",
+      "transitions": [
+        {
+          "from": "q0",
+          "to": "q1",
+          "phrase": "At dawn, the patient gardener waters a young fig tree",
+          "weight": 1.0
+        },
+        {
+          "from": "q0",
+          "to": "q1",
+          "phrase": "Before noon, the careful keeper tends a small olive tree",
+          "weight": 1.0
+        },
+        {
+          "from": "q1",
+          "to": "q2",
+          "phrase": "and records its first green leaf",
+          "weight": 0.7
+        },
+        {
+          "from": "q1",
+          "to": "q2",
+          "phrase": "then notes the new soft leaf",
+          "weight": 0.7
+        },
+        {
+          "from": "q2",
+          "to": "q3",
+          "phrase": "while the quiet birds cross the yard",
+          "weight": 1.2
+        },
+        {
+          "from": "q2",
+          "to": "q3",
+          "phrase": "as a distant bell sounds over the yard",
+          "weight": 1.2
+        }
+      ]
+    },
+    "right": {
+      "states": [
+        "q0",
+        "q1",
+        "q2",
+        "q3"
+      ],
+      "start": "q0",
+      "accept": "q3",
+      "transitions": [
+        {
+          "from": "q0",
+          "to": "q1",
+          "phrase": "At dusk, the patient gardener waters a young fig tree",
+          "weight": 1.0
+        },
+        {
+          "from": "q0",
+          "to": "q1",
+          "phrase": "After sunset, the careful keeper tends a small olive tree",
+          "weight": 1.0
+        },
+        {
+          "from": "q1",
+          "to": "q2",
+          "phrase": "and records its first green leaf",
+          "weight": 0.7
+        },
+        {
+          "from": "q1",
+          "to": "q2",
+          "phrase": "then notes the new soft leaf",
+          "weight": 0.7
+        },
+        {
+          "from": "q2",
+          "to": "q3",
+          "phrase": "while the quiet birds cross the yard",
+          "weight": 1.2
+        },
+        {
+          "from": "q2",
+          "to": "q3",
+          "phrase": "as a distant bell sounds over the yard",
+          "weight": 1.2
+        }
+      ]
+    }
+  },
+  "candidate_count": 64,
+  "candidates": [
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 100,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 100,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 100,
+      "right_letters": 96,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 96,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 100,
+      "right_letters": 97,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 97,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 100,
+      "right_letters": 104,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 104,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 100,
+      "right_letters": 105,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 105,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 105,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 105
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 100,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 100,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 101,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 101,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 101,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 101,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 101,
+      "right_letters": 96,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 101,
+        "right_letters": 96,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 101,
+      "right_letters": 97,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 101,
+        "right_letters": 97,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 101,
+      "right_letters": 104,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 101,
+        "right_letters": 104,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 101,
+      "right_letters": 105,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 101,
+        "right_letters": 105,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 105,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 105
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 101,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 101,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 101,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 101,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 96,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 96,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 96,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 96,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 96,
+      "right_letters": 96,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 96,
+        "right_letters": 96,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 96,
+      "right_letters": 97,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 96,
+        "right_letters": 97,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 96,
+      "right_letters": 104,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 96,
+        "right_letters": 104,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 96,
+      "right_letters": 105,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 96,
+        "right_letters": 105,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 105,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 105
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 96,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 96,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 96,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 96,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 97,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 97,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 97,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 97,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 97,
+      "right_letters": 96,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 97,
+        "right_letters": 96,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 97,
+      "right_letters": 97,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 97,
+        "right_letters": 97,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 97,
+      "right_letters": 104,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 97,
+        "right_letters": 104,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 97,
+      "right_letters": 105,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 97,
+        "right_letters": 105,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 105,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 105
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 97,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 97,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "At dawn, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 97,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 97,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 103,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 103,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 103,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 103
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 103,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 103,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 103,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 103
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 103,
+      "right_letters": 96,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 103,
+        "right_letters": 96,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 103,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 103
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 103,
+      "right_letters": 97,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 103,
+        "right_letters": 97,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 103,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 103
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 103,
+      "right_letters": 104,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 103,
+        "right_letters": 104,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 103,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 103
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 103,
+      "right_letters": 105,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 103,
+        "right_letters": 105,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 103,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 103
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 105,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 105
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 103,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 103,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 103,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 103
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 103,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 103,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 103,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 103
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 104,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 104,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 104,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 104,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 104,
+      "right_letters": 96,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 104,
+        "right_letters": 96,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 104,
+      "right_letters": 97,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 104,
+        "right_letters": 97,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 104,
+      "right_letters": 104,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 104,
+        "right_letters": 104,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 104,
+      "right_letters": 105,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 104,
+        "right_letters": 105,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 105,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 105
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 104,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 104,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 104,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 104,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 99,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 99,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 99,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 99
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 99,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 99,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 99,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 99
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 99,
+      "right_letters": 96,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 99,
+        "right_letters": 96,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 99,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 99
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 99,
+      "right_letters": 97,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 99,
+        "right_letters": 97,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 99,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 99
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 99,
+      "right_letters": 104,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 99,
+        "right_letters": 104,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 99,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 99
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 99,
+      "right_letters": 105,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 99,
+        "right_letters": 105,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 99,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 99
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 105,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 105
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 99,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 99,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 99,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 99
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 99,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 99,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 99,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 99
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 23,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 23
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 100,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 100,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 100,
+      "right_letters": 96,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 96,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 96,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 96
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "At dusk, the patient gardener waters a young fig tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 100,
+      "right_letters": 97,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 97,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 97,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            9
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 97
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; while the quiet birds cross the yard.",
+      "left_letters": 100,
+      "right_letters": 104,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 104,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 104,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 104
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; and records its first green leaf; as a distant bell sounds over the yard.",
+      "left_letters": 100,
+      "right_letters": 105,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 105,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 105,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 105
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; while the quiet birds cross the yard.",
+      "left_letters": 100,
+      "right_letters": 100,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 100,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    },
+    {
+      "left": "Before noon, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "right": "After sunset, the careful keeper tends a small olive tree; then notes the new soft leaf; as a distant bell sounds over the yard.",
+      "left_letters": 100,
+      "right_letters": 101,
+      "online_product": {
+        "matched_prefix_characters": 0,
+        "left_letters": 100,
+        "right_letters": 101,
+        "closed": false
+      },
+      "exact_audit_left": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 100,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 100
+        }
+      },
+      "exact_audit_right": {
+        "two_pointer": {
+          "algorithm": "independent_two_pointer",
+          "exact": false,
+          "letters": 101,
+          "mismatch_offsets": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ]
+        },
+        "hash": {
+          "algorithm": "sha256_forward_reverse",
+          "exact": false,
+          "letters": 101
+        }
+      },
+      "admission": {
+        "complete_sentence": true,
+        "word_count": 24,
+        "ordinary_word_order": true,
+        "no_repeated_unit": false
+      },
+      "readability": {
+        "status": "mechanical diagnostic only; complete ordinary-order prose",
+        "word_count": 24
+      },
+      "provenance": {
+        "source": "two independent human-authored semantic phrase lattices",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false
+      }
+    }
+  ],
+  "closure_count": 0,
+  "next_repair": "If admitted as a new lane, replace one held-out semantic end-phrase arc in each lattice and rerun the online product; current preflight blocks retention."
+}

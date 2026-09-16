@@ -1798,3 +1798,26 @@ item-aware analysis plan.
   not readability certification: the intact-versus-shuffled blinded reader
   package and the API stay closed until an exact, mechanically clean,
   reader-worthy output exists.
+
+  The ten-lane Luna ledger is now complete. The wave ran ten orthogonal
+  construction dimensions: direct character-level GPT-2 decoding; immutable
+  exact-tape typed-CFG resegmentation; dependency-tree seam CSP; weighted
+  agreement-carrying morphology; CFG/Earley character intersection;
+  human-authored discourse scenes; semantic valency/attachment; inflectional
+  and clitic boundaries; length-indexed compositional grammar; and semantic
+  slot repair of an exact source tape. Each lane retains rendered ordinary
+  prose (or a clearly labelled control), provenance, novelty preflight, two
+  independent exact checks, and a concrete held-out repair. Duplicate sweeps
+  were not counted. The direct decoder's best intact probe is “A baker marks
+  the button near a bright field. A caller answers the message behind a brief
+  plaza.” (77 letters); the scalable grammar reaches 137-letter probes, and
+  the scene lattice reaches 124-letter probes. None is exact and mechanically
+  admitted, so none is reader-eligible.
+
+  The refreshed aggregate contains 3484 rendered rows across 81 route phases,
+  73 exact-but-rejected tapes, and 0 mechanically admitted candidates, with
+  zero independent tape mismatches. The typed-CFG lane's 46-letter tape is
+  explicitly rejected as a word-order/semordnilap control, not promoted as
+  generated prose. This is the current constructive frontier: the paper and
+  API remain gated, and the next repair must change lexical material or a
+  recorded semantic frontier rather than replaying any of these ten lanes.

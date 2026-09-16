@@ -1301,6 +1301,22 @@
       "run_artifacts": ["runs/live-gpt2-character-decoder-preflight-20260916.json"],
       "distinction": "A direct grammar-prefix decoder queries GPT-2 next-token probabilities at each licensed character and word-boundary transition while a live equation obligation is resolved; both sides remain normal-order prefixes and no proposal bank, fixed tape, or reverse half is used.",
       "reader_evidence": false
+    },
+    {
+      "id": "weighted-morphology-fst-lockstep-20260916",
+      "signature": "weighted-morphology-fst|lexical-chunk-pair-emission|agreement-tense-register|fluency-objective-during-character-lockstep|heldout-morphology-repair|independent-exact-admission-audit",
+      "artifact": "experiments/weighted_morphology_fst_lockstep_20260916.py",
+      "run_artifacts": ["runs/weighted-morphology-fst-lockstep-20260916.json"],
+      "distinction": "A weighted transducer selects paired lexical chunks and emits their characters in lockstep while number, tense, lemma, semantic roles, and a cumulative fluency objective remain in state. Held-out morphology repair is applied to a dead transition; no completed tape is reverse-segmented.",
+      "reader_evidence": false
+    },
+    {
+      "id": "typed-cfg-exact-tape-resegmentation-20260916",
+      "signature": "fresh-lexical-exact-tape-constructor|global-typed-cfg-boundary-dp|finite-verb-valency-in-state|lm-tie-break-at-boundaries|immutable-tape|heldout-morphology-repair|independent-exact-admission-audit",
+      "artifact": "experiments/typed_cfg_exact_tape_resegmentation_20260916.py",
+      "run_artifacts": ["runs/typed-cfg-exact-tape-resegmentation-20260916.json"],
+      "distinction": "A fresh exact tape is constructed from lexical chunks, then globally resegmented with typed CFG and finite-verb valency enforced on every dictionary-boundary DP edge; deterministic LM scores only break ties. The fixed tape is never changed.",
+      "reader_evidence": false
     }
   ],
   "excluded": [
@@ -1472,22 +1488,6 @@
       "artifact": "experiments/cumulative_boundary_profile_fixedpoint_20260916.py",
       "overlaps": ["variable-boundary-tape-ilp", "grammar-boundary-resegmentation-repair", "lexicalized-tag-yield-equation"],
       "reason": "The route is distinct because reflected cumulative word-boundary positions are fixed during POS/role lexical emission. The tape is audited independently, with cross-boundary matches and proper palindrome spans recorded; no completed tape is reverse-segmented."
-    },
-    {
-      "id": "weighted-morphology-fst-lockstep-20260916",
-      "signature": "weighted-morphology-fst|lexical-chunk-pair-emission|agreement-tense-register|fluency-objective-during-character-lockstep|heldout-morphology-repair|independent-exact-admission-audit",
-      "artifact": "experiments/weighted_morphology_fst_lockstep_20260916.py",
-      "run_artifacts": ["runs/weighted-morphology-fst-lockstep-20260916.json"],
-      "distinction": "A weighted transducer selects paired lexical chunks and emits their characters in lockstep while number, tense, lemma, semantic roles, and a cumulative fluency objective remain in state. Held-out morphology repair is applied to a dead transition; no completed tape is reverse-segmented.",
-      "reader_evidence": false
-    },
-    {
-      "id": "typed-cfg-exact-tape-resegmentation-20260916",
-      "signature": "fresh-lexical-exact-tape-constructor|global-typed-cfg-boundary-dp|finite-verb-valency-in-state|lm-tie-break-at-boundaries|immutable-tape|heldout-morphology-repair|independent-exact-admission-audit",
-      "artifact": "experiments/typed_cfg_exact_tape_resegmentation_20260916.py",
-      "run_artifacts": ["runs/typed-cfg-exact-tape-resegmentation-20260916.json"],
-      "distinction": "A fresh exact tape is constructed from lexical chunks, then globally resegmented with typed CFG and finite-verb valency enforced on every dictionary-boundary DP edge; deterministic LM scores only break ties. The fixed tape is never changed.",
-      "reader_evidence": false
     }
   ]
 }

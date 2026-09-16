@@ -1,6 +1,7 @@
 {
   "version": 1,
   "entries": [
+    {"id":"char-lm-tape-resegment-20260916","signature":"character-trigram-constrained-decoding|reverse-tape-dynamic-programming-resegmentation|ordinary-prose-seeds|full-tape-replay|independent-hash-audit","artifact":"experiments/char_lm_tape_resegment_20260916.py","run_artifacts":["runs/char-lm-tape-resegment-20260916.json"],"distinction":"A character-trigram LM proposes ordinary prose before a DP word-boundary solver resegments the reversed character tape; this is not an independent seam sweep or post-hoc reversal.","reader_evidence":false,"status":"run; 1 exact closure rejected as catalogue/self-unit and 4 non-exact prose proposals"},
     {"id":"constructive-seam-morph-cfg-20260916","signature":"dependency-tree-seam-csp|agreement-carrying-morphology-transducer|cfg-earley-character-intersection|live-tape-construction|independent-exact-audit","artifact":"experiments/constructive_seam_morph_cfg_20260916.py","run_artifacts":["runs/constructive-seam-morph-cfg-20260916.json"],"distinction":"One bounded three-lane probe constructs typed dependency seams, carries agreement features, and intersects CFG items with emitted characters; all lanes use fresh live construction and an independent tape audit.","reader_evidence":true,"status":"exact witness: Ava saw radar was Ava"},
     {"id":"centerout-paired-boundary-csp-verbframe-20260916","signature":"paired-subject-adjunct-boundary-csp|fresh-verb-frame|ordinary-svo-grammar|live-character-obligation|independent-exact-hash-audit","artifact":"experiments/centerout_paired_boundary_csp_verbframe_20260916.py","run_artifacts":["runs/centerout-paired-boundary-csp-verbframe-20260916.json"],"distinction":"Adds a second ordinary transitive verb frame with fresh lexical domains to the paired boundary CSP; no prior candidate is replayed.","reader_evidence":false,"status":"run; 0 exact closures and 0 mechanically admitted probes"},
     {
@@ -2206,6 +2207,5 @@
       ],
       "reason": "The recursive stack state is distinct, but the only exact 62-letter surface is a semordnilap word chain with failed word-order and proper-span mechanical gates, not intact prose. It is retained as rejected failure evidence; future work must add complete subject-verb-argument frames before promotion."
     }
-    ,{"id":"char-lm-tape-resegment-20260916","signature":"character-trigram-constrained-decoding|reverse-tape-dynamic-programming-resegmentation|ordinary-prose-seeds|full-tape-replay|independent-hash-audit","artifact":"experiments/char_lm_tape_resegment_20260916.py","run_artifacts":["runs/char-lm-tape-resegment-20260916.json"],"distinction":"A character-trigram LM proposes ordinary prose before a DP word-boundary solver resegments the reversed character tape; this is not an independent seam sweep or post-hoc reversal.","reader_evidence":false,"status":"run; 1 exact closure and 4 non-exact prose proposals"}
   ]
 }

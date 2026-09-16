@@ -62,13 +62,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 4359
-    assert report["exact_count"] == 73
+    assert report["candidate_count"] == 4390
+    assert report["exact_count"] == 76
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 129
+    assert len(report["route_summary"]) == 133
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
 
 
@@ -118,7 +118,7 @@ def test_aggregate_includes_nested_rendered_candidate_formats():
     assert by_source["runs/paraphrase-graph-debt-paths-20260916.json#repair"]["rows"] == 1
     assert by_source["runs/parse-tree-exact-cover-20260916.json#base"]["rows"] == 6
     assert by_source["runs/bilateral-semantic-cfg-20260916.json"]["rows"] == 1
-    assert by_source["runs/human-scene-equation-frames-20260916.json"]["rows"] == 1
+    assert by_source["runs/human-scene-equation-frames-20260916.json"]["rows"] == 2
     assert by_source["runs/typed-edit-program-repair-20260916.json"]["rows"] == 18
     assert by_source["runs/event-graph-character-sat-20260916.json"]["rows"] == 81
     assert by_source["runs/phrase-equation-inventory-solver-20260916.json"]["rows"] == 279

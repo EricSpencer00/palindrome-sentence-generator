@@ -69,12 +69,24 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
             "closed_leads",
             "mechanically_admitted_leads",
             "admitted",
+            # Ten-lane constructive audits keep their ordinary prose under
+            # lane-specific names rather than flattening it into a generic
+            # ``rows`` field.  Preserve those rows in the common report.
+            "candidate_prose",
+            "heldout_repairs",
+            "lanes",
         ):
             values = payload.get(key)
             if isinstance(values, list):
                 for row in values:
                     if isinstance(row, dict):
-                        text = row.get("rendered") or row.get("text") or row.get("best_prose")
+                        text = row.get("rendered") or row.get("text") or row.get("best_prose") or row.get("candidate")
+                        # Character-LM tape resegmentation stores the two
+                        # independently read surfaces as left/right fields.
+                        # Joining them here keeps the rendered control visible
+                        # without treating a failed resegmentation as exact.
+                        if not text and isinstance(row.get("left"), str) and isinstance(row.get("right_resegmented"), str):
+                            text = sentence_join(row["left"], row["right_resegmented"])
                         if not text and isinstance(row.get("audit"), dict):
                             text = row["audit"].get("rendered")
                         if not text and isinstance(row.get("left"), str) and isinstance(row.get("right"), str):
@@ -127,6 +139,15 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
                 if context_provenance and "provenance" not in item:
                     item["provenance"] = context_provenance
                 yield item
+        elif isinstance(candidate, str) and candidate.strip():
+            # A compact constructive lane may retain one authored surface as
+            # a top-level string.  It is still independently audited here.
+            yield {
+                "source_run": source,
+                "rendered": candidate,
+                "provenance": context_provenance,
+                "lane": payload.get("experiment") or payload.get("experiment_id"),
+            }
         # A few older artifacts store one candidate at the top level.
         text = payload.get("rendered") or payload.get("text")
         if isinstance(text, str) and text.strip():

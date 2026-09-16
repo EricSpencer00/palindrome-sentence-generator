@@ -126,10 +126,14 @@
     "runs/authored-clause-template-sat-repair6-20260916.json",
     "runs/reverse-lexicon-adjacent-pp-boundary-20260916.json",
     "runs/centerout-paired-boundary-csp-verbframe-20260916.json",
-    "runs/authored-clause-template-sat-repair7-20260916.json"
+    "runs/authored-clause-template-sat-repair7-20260916.json",
+    "runs/char-lm-tape-resegment-20260916.json",
+    "runs/char-lm-multiclause-heldout-20260916.json",
+    "runs/constructive-seam-morph-cfg-20260916.json",
+    "runs/constructive-lanes-6-10-cross-audit-20260916.json"
   ],
-  "candidate_count": 4359,
-  "exact_count": 73,
+  "candidate_count": 4390,
+  "exact_count": 76,
   "mechanically_admitted_count": 0,
   "route_summary": [
     {
@@ -353,6 +357,26 @@
       "mean_brown_order_gain_vs_shuffle": 1.195033937059451
     },
     {
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "rows": 20,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 66,
+      "max_letters": 72,
+      "mean_zipf_frequency": 5.3582857142857145,
+      "mean_brown_order_gain_vs_shuffle": 0.6304823208162924
+    },
+    {
+      "source_run": "runs/char-lm-tape-resegment-20260916.json",
+      "rows": 5,
+      "exact_count": 1,
+      "mechanically_admitted_count": 0,
+      "min_letters": 21,
+      "max_letters": 28,
+      "mean_zipf_frequency": 5.625142857142857,
+      "mean_brown_order_gain_vs_shuffle": 1.0769265369711607
+    },
+    {
       "source_run": "runs/clause-growth-frame-repair-20260916.json",
       "rows": 6,
       "exact_count": 0,
@@ -401,6 +425,26 @@
       "max_letters": 87,
       "mean_zipf_frequency": 5.640000000000001,
       "mean_brown_order_gain_vs_shuffle": 0.9507421615523919
+    },
+    {
+      "source_run": "runs/constructive-lanes-6-10-cross-audit-20260916.json",
+      "rows": 3,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 52,
+      "max_letters": 55,
+      "mean_zipf_frequency": 5.598696581196581,
+      "mean_brown_order_gain_vs_shuffle": 1.1074146309493387
+    },
+    {
+      "source_run": "runs/constructive-seam-morph-cfg-20260916.json",
+      "rows": 2,
+      "exact_count": 2,
+      "mechanically_admitted_count": 0,
+      "min_letters": 42,
+      "max_letters": 42,
+      "mean_zipf_frequency": 4.636000000000001,
+      "mean_brown_order_gain_vs_shuffle": -0.5232175563247328
     },
     {
       "source_run": "runs/coordination-attachment-constructor-20260916.json#base",
@@ -674,13 +718,13 @@
     },
     {
       "source_run": "runs/human-scene-equation-frames-20260916.json",
-      "rows": 1,
+      "rows": 2,
       "exact_count": 0,
       "mechanically_admitted_count": 0,
-      "min_letters": 145,
+      "min_letters": 142,
       "max_letters": 145,
-      "mean_zipf_frequency": 5.536428571428572,
-      "mean_brown_order_gain_vs_shuffle": 1.0458896083453464
+      "mean_zipf_frequency": 5.577007389162562,
+      "mean_brown_order_gain_vs_shuffle": 1.0184380712913894
     },
     {
       "source_run": "runs/induced-grammar-reverse-decoder-20260916.json",
@@ -182991,6 +183035,51 @@
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     },
     {
+      "rendered": "the patient courier delivered the sealed letter to the quiet office. the waiting clerk opened the letter at the old desk. the grateful clerk thanked the courier before noon.",
+      "source_run": "runs/human-scene-equation-frames-20260916.json",
+      "provenance": {
+        "construction": "held-out response-frame place substitution",
+        "changed_frame": "response",
+        "changed_slot": "place"
+      },
+      "repair": null,
+      "letters": 142,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9909865342374324,
+        "mean_zipf_frequency": 5.617586206896552,
+        "word_count": 29,
+        "repeated_word_rate": 0.3448275862068966,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
       "rendered": "The careful nurse carries a warm blanket while birds settle; carefully, the clerk checks the ledger.",
       "source_run": "runs/typed-edit-program-repair-20260916.json",
       "provenance": {
@@ -210776,6 +210865,1189 @@
         "word_count": 20,
         "repeated_word_rate": 0.15000000000000002,
         "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the guide greets a calm visitor",
+      "source_run": "runs/char-lm-tape-resegment-20260916.json",
+      "provenance": "fresh lexical proposal; no catalogue text imported",
+      "repair": null,
+      "letters": 26,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "length_band"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9636986898649109,
+        "mean_zipf_frequency": 5.251666666666666,
+        "word_count": 6,
+        "repeated_word_rate": 0.0,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a child reads the small book",
+      "source_run": "runs/char-lm-tape-resegment-20260916.json",
+      "provenance": "fresh lexical proposal; no catalogue text imported",
+      "repair": null,
+      "letters": 23,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "length_band"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1874680310173513,
+        "mean_zipf_frequency": 5.93,
+        "word_count": 6,
+        "repeated_word_rate": 0.0,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful teacher helps a pupil",
+      "source_run": "runs/char-lm-tape-resegment-20260916.json",
+      "provenance": "fresh lexical proposal; no catalogue text imported",
+      "repair": null,
+      "letters": 28,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "length_band"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6738745505263211,
+        "mean_zipf_frequency": 5.5183333333333335,
+        "word_count": 6,
+        "repeated_word_rate": 0.0,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a sailor carries the red map",
+      "source_run": "runs/char-lm-tape-resegment-20260916.json",
+      "provenance": "fresh lexical proposal; no catalogue text imported",
+      "repair": null,
+      "letters": 23,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "length_band"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.379521363634419,
+        "mean_zipf_frequency": 5.53,
+        "word_count": 6,
+        "repeated_word_rate": 0.0,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a man a plan a canal panama",
+      "source_run": "runs/char-lm-tape-resegment-20260916.json",
+      "provenance": "fresh lexical proposal; no catalogue text imported",
+      "repair": null,
+      "letters": 21,
+      "exact_letter_palindrome": true,
+      "independent_sha256_exact": true,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": false,
+        "local_catalogue_absent": false
+      },
+      "failed_checks": [
+        "absent_from_local_catalogue",
+        "length_band",
+        "local_catalogue_absent"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1800700498128016,
+        "mean_zipf_frequency": 5.895714285714285,
+        "word_count": 7,
+        "repeated_word_rate": 0.2857142857142857,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful teacher guides a young visitor; a patient sailor carries the red lantern",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 70,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6762120146744,
+        "mean_zipf_frequency": 5.342142857142858,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful teacher guides a young visitor; the quiet child reads a difficult book",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 68,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4241740610573377,
+        "mean_zipf_frequency": 5.555714285714286,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful teacher guides a young visitor; a thoughtful farmer repairs the old wagon",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 71,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7004303543998471,
+        "mean_zipf_frequency": 5.342142857142856,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful teacher guides a young visitor; the bright keeper watches a distant harbor",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 72,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5061221922997206,
+        "mean_zipf_frequency": 5.296428571428572,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a patient sailor carries the red lantern; the careful teacher guides a young visitor",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 70,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8836029054880896,
+        "mean_zipf_frequency": 5.342142857142858,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a patient sailor carries the red lantern; the quiet child reads a difficult book",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 66,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6550492076924641,
+        "mean_zipf_frequency": 5.470714285714286,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a patient sailor carries the red lantern; a thoughtful farmer repairs the old wagon",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 69,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8578557055466423,
+        "mean_zipf_frequency": 5.257142857142857,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a patient sailor carries the red lantern; the bright keeper watches a distant harbor",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 70,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7475072764991211,
+        "mean_zipf_frequency": 5.211428571428572,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet child reads a difficult book; the careful teacher guides a young visitor",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 68,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6355384791842322,
+        "mean_zipf_frequency": 5.555714285714287,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet child reads a difficult book; a patient sailor carries the red lantern",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 66,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5426708470139392,
+        "mean_zipf_frequency": 5.470714285714287,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet child reads a difficult book; a thoughtful farmer repairs the old wagon",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 67,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5868716473460402,
+        "mean_zipf_frequency": 5.470714285714286,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet child reads a difficult book; the bright keeper watches a distant harbor",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 68,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4198210967582572,
+        "mean_zipf_frequency": 5.425,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a thoughtful farmer repairs the old wagon; the careful teacher guides a young visitor",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 71,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.781802444152703,
+        "mean_zipf_frequency": 5.342142857142858,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a thoughtful farmer repairs the old wagon; a patient sailor carries the red lantern",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 69,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6223273797903008,
+        "mean_zipf_frequency": 5.257142857142858,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a thoughtful farmer repairs the old wagon; the quiet child reads a difficult book",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 67,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5732312069637313,
+        "mean_zipf_frequency": 5.470714285714286,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a thoughtful farmer repairs the old wagon; the bright keeper watches a distant harbor",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 71,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6257243545570805,
+        "mean_zipf_frequency": 5.211428571428572,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the bright keeper watches a distant harbor; the careful teacher guides a young visitor",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 72,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7545236845997874,
+        "mean_zipf_frequency": 5.296428571428573,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the bright keeper watches a distant harbor; a patient sailor carries the red lantern",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 70,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5725481389743017,
+        "mean_zipf_frequency": 5.211428571428571,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the bright keeper watches a distant harbor; the quiet child reads a difficult book",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 68,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4568581709314312,
+        "mean_zipf_frequency": 5.425000000000002,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the bright keeper watches a distant harbor; a thoughtful farmer repairs the old wagon",
+      "source_run": "runs/char-lm-multiclause-heldout-20260916.json",
+      "provenance": "fresh held-out authored clause pair; no catalogue text",
+      "repair": null,
+      "letters": 71,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.586775248396421,
+        "mean_zipf_frequency": 5.211428571428571,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Ava saw radar level civic civic level radar was Ava",
+      "source_run": "runs/constructive-seam-morph-cfg-20260916.json",
+      "provenance": "constructive-seam-morph-cfg-20260916",
+      "repair": null,
+      "letters": 42,
+      "exact_letter_palindrome": true,
+      "independent_sha256_exact": true,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": false,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "no_self_palindromic_proper_multiword_span",
+        "no_self_palindromic_word",
+        "not_word_order_symmetry"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": -0.5232175563247328,
+        "mean_zipf_frequency": 4.636000000000001,
+        "word_count": 10,
+        "repeated_word_rate": 0.4,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Ava saw radar level civic; civic level radar was Ava",
+      "source_run": "runs/constructive-seam-morph-cfg-20260916.json",
+      "provenance": "constructive-seam-morph-cfg-20260916",
+      "repair": null,
+      "letters": 42,
+      "exact_letter_palindrome": true,
+      "independent_sha256_exact": true,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": false,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "no_self_palindromic_proper_multiword_span",
+        "no_self_palindromic_word",
+        "not_word_order_symmetry"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": -0.5232175563247328,
+        "mean_zipf_frequency": 4.636000000000001,
+        "word_count": 10,
+        "repeated_word_rate": 0.4,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, the patient guide carries a red map to the waiting child.",
+      "source_run": "runs/constructive-lanes-6-10-cross-audit-20260916.json",
+      "provenance": "fresh human-authored ordinary scene; no catalogue or palindrome unit",
+      "repair": null,
+      "letters": 52,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4000646954265044,
+        "mean_zipf_frequency": 5.80076923076923,
+        "word_count": 13,
+        "repeated_word_rate": 0.07692307692307687,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "By noon, the careful nurse labels the sealed vial for the quiet ward.",
+      "source_run": "runs/constructive-lanes-6-10-cross-audit-20260916.json",
+      "provenance": "fresh human-authored ordinary scene; no catalogue or palindrome unit",
+      "repair": null,
+      "letters": 55,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9946692312024847,
+        "mean_zipf_frequency": 5.406153846153846,
+        "word_count": 13,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the young keeper opens the old gate beside the garden.",
+      "source_run": "runs/constructive-lanes-6-10-cross-audit-20260916.json",
+      "provenance": "fresh human-authored ordinary scene; no catalogue or palindrome unit",
+      "repair": null,
+      "letters": 53,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9275099662190271,
+        "mean_zipf_frequency": 5.589166666666666,
+        "word_count": 12,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

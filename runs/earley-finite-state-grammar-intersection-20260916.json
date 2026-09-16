@@ -1,0 +1,2243 @@
+{
+  "experiment_id": "earley-finite-state-grammar-intersection-20260916",
+  "signature": "earley-finite-state-grammar-product|forward-reverse-character-lockstep|epsilon-word-boundaries|agreement-in-parser-state|event-role-clause-semantics|independent-exact-admission-audit",
+  "status": "completed_character_synchronous_earley_intersection",
+  "method": "A finite Earley-style product scans one forward and one reverse lexical character per transition, with epsilon word-boundary closure. Agreement features and clause semantic roles are registers in each parser state.",
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_before_run": 178,
+    "signature": "earley-finite-state-grammar-product|forward-reverse-character-lockstep|epsilon-word-boundaries|agreement-in-parser-state|event-role-clause-semantics|independent-exact-admission-audit",
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "manual_review_required": false,
+    "excluded_routes": [
+      "reverse-tape decoder",
+      "word-order mirror",
+      "post-hoc agreement filter"
+    ]
+  },
+  "config": {
+    "min_letters": 39,
+    "max_letters": 180,
+    "max_states_per_frame_pair": 160000,
+    "forward_frames": [
+      "event",
+      "state"
+    ],
+    "reverse_frames": [
+      "event",
+      "state"
+    ],
+    "catalogue_text_imported": false,
+    "post_hoc_decoder": false
+  },
+  "stats": {
+    "states": 68,
+    "character_matches": 64,
+    "character_mismatch_pruned": 96,
+    "node_budget_hit": 0,
+    "frame_pairs": 4,
+    "rendered_candidates": 0,
+    "exact_count": 0,
+    "mechanically_admitted": 0,
+    "rendered_probes": 12,
+    "reader_eligible": 0
+  },
+  "frame_runs": [
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "states": 17,
+      "character_matches": 16,
+      "character_mismatch_pruned": 24,
+      "node_budget_hit": 0,
+      "closures": 0
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "states": 17,
+      "character_matches": 16,
+      "character_mismatch_pruned": 24,
+      "node_budget_hit": 0,
+      "closures": 0
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "states": 17,
+      "character_matches": 16,
+      "character_mismatch_pruned": 24,
+      "node_budget_hit": 0,
+      "closures": 0
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "states": 17,
+      "character_matches": 16,
+      "character_mismatch_pruned": 24,
+      "node_budget_hit": 0,
+      "closures": 0
+    }
+  ],
+  "rendered_candidates": [],
+  "rendered_probes": [
+    {
+      "rendered": "A nerd carries a candle at our gardens; a nerd carries a candle beside the arena.",
+      "left_frame": "event",
+      "right_frame": "event",
+      "matched_outer_letters_before_mismatch": 4,
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": "sg",
+        "locative_number": "pl",
+        "predicate": "carry",
+        "roles": [
+          "agent:nerd",
+          "event:carry",
+          "patient:candle",
+          "location_preposition:at",
+          "setting:gardens"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": "sg",
+        "object_number": "sg",
+        "locative_number": "sg",
+        "predicate": "carry",
+        "roles": [
+          "agent:nerd",
+          "event:carry",
+          "patient:candle",
+          "location_preposition:beside",
+          "setting:arena"
+        ]
+      },
+      "audit": {
+        "rendered": "A nerd carries a candle at our gardens; a nerd carries a candle beside the arena.",
+        "letters": 64,
+        "normalized_tape": "anerdcarriesacandleatourgardensanerdcarriesacandlebesidethearena",
+        "independent_ascii_tape": "anerdcarriesacandleatourgardensanerdcarriesacandlebesidethearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "fd3f1dfbb200e95d011a2f0a295c4f2ccfffe93c523c2c26c4ea452a3d0f0828",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure"
+    },
+    {
+      "rendered": "A nerd carries a candle at our gardens; a nerd carries a candle beyond the arena.",
+      "left_frame": "event",
+      "right_frame": "event",
+      "matched_outer_letters_before_mismatch": 4,
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": "sg",
+        "locative_number": "pl",
+        "predicate": "carry",
+        "roles": [
+          "agent:nerd",
+          "event:carry",
+          "patient:candle",
+          "location_preposition:at",
+          "setting:gardens"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": "sg",
+        "object_number": "sg",
+        "locative_number": "sg",
+        "predicate": "carry",
+        "roles": [
+          "agent:nerd",
+          "event:carry",
+          "patient:candle",
+          "location_preposition:beyond",
+          "setting:arena"
+        ]
+      },
+      "audit": {
+        "rendered": "A nerd carries a candle at our gardens; a nerd carries a candle beyond the arena.",
+        "letters": 64,
+        "normalized_tape": "anerdcarriesacandleatourgardensanerdcarriesacandlebeyondthearena",
+        "independent_ascii_tape": "anerdcarriesacandleatourgardensanerdcarriesacandlebeyondthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "30dcd627e4a40ab92e346415be88f6d881632ec856524f6e7cf9a79282db2887",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure"
+    },
+    {
+      "rendered": "A nerd carries a candle at our gardens; a nerd carries a candle at the arena.",
+      "left_frame": "event",
+      "right_frame": "event",
+      "matched_outer_letters_before_mismatch": 4,
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": "sg",
+        "locative_number": "pl",
+        "predicate": "carry",
+        "roles": [
+          "agent:nerd",
+          "event:carry",
+          "patient:candle",
+          "location_preposition:at",
+          "setting:gardens"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": "sg",
+        "object_number": "sg",
+        "locative_number": "sg",
+        "predicate": "carry",
+        "roles": [
+          "agent:nerd",
+          "event:carry",
+          "patient:candle",
+          "location_preposition:at",
+          "setting:arena"
+        ]
+      },
+      "audit": {
+        "rendered": "A nerd carries a candle at our gardens; a nerd carries a candle at the arena.",
+        "letters": 60,
+        "normalized_tape": "anerdcarriesacandleatourgardensanerdcarriesacandleatthearena",
+        "independent_ascii_tape": "anerdcarriesacandleatourgardensanerdcarriesacandleatthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "3ccface2c794075a0d3fa712d7c3a1ce6efa06aa227c76b4a0e0baf90fc1689b",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure"
+    },
+    {
+      "rendered": "A nerd carries a candle at our gardens; a nerd is bright beside the arena.",
+      "left_frame": "event",
+      "right_frame": "state",
+      "matched_outer_letters_before_mismatch": 4,
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": "sg",
+        "locative_number": "pl",
+        "predicate": "carry",
+        "roles": [
+          "agent:nerd",
+          "event:carry",
+          "patient:candle",
+          "location_preposition:at",
+          "setting:gardens"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": "is",
+        "roles": [
+          "experiencer:nerd",
+          "state:is",
+          "property:bright",
+          "location_preposition:beside",
+          "setting:arena"
+        ]
+      },
+      "audit": {
+        "rendered": "A nerd carries a candle at our gardens; a nerd is bright beside the arena.",
+        "letters": 58,
+        "normalized_tape": "anerdcarriesacandleatourgardensanerdisbrightbesidethearena",
+        "independent_ascii_tape": "anerdcarriesacandleatourgardensanerdisbrightbesidethearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "9f9f5d1dface35f329ac5202dbaa499132b53c33a891d220b1262fb17c24cc81",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure"
+    },
+    {
+      "rendered": "A nerd carries a candle at our gardens; a nerd is bright beyond the arena.",
+      "left_frame": "event",
+      "right_frame": "state",
+      "matched_outer_letters_before_mismatch": 4,
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": "sg",
+        "locative_number": "pl",
+        "predicate": "carry",
+        "roles": [
+          "agent:nerd",
+          "event:carry",
+          "patient:candle",
+          "location_preposition:at",
+          "setting:gardens"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": "is",
+        "roles": [
+          "experiencer:nerd",
+          "state:is",
+          "property:bright",
+          "location_preposition:beyond",
+          "setting:arena"
+        ]
+      },
+      "audit": {
+        "rendered": "A nerd carries a candle at our gardens; a nerd is bright beyond the arena.",
+        "letters": 58,
+        "normalized_tape": "anerdcarriesacandleatourgardensanerdisbrightbeyondthearena",
+        "independent_ascii_tape": "anerdcarriesacandleatourgardensanerdisbrightbeyondthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "1b6c555d63b68db0b9e713505a0eb1066f28e277674a3bba2f6e977886438828",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure"
+    },
+    {
+      "rendered": "A nerd is bright at our gardens; a nerd carries a candle beside the arena.",
+      "left_frame": "state",
+      "right_frame": "event",
+      "matched_outer_letters_before_mismatch": 4,
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": "is",
+        "roles": [
+          "experiencer:nerd",
+          "state:is",
+          "property:bright",
+          "location_preposition:at",
+          "setting:gardens"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": "sg",
+        "object_number": "sg",
+        "locative_number": "sg",
+        "predicate": "carry",
+        "roles": [
+          "agent:nerd",
+          "event:carry",
+          "patient:candle",
+          "location_preposition:beside",
+          "setting:arena"
+        ]
+      },
+      "audit": {
+        "rendered": "A nerd is bright at our gardens; a nerd carries a candle beside the arena.",
+        "letters": 58,
+        "normalized_tape": "anerdisbrightatourgardensanerdcarriesacandlebesidethearena",
+        "independent_ascii_tape": "anerdisbrightatourgardensanerdcarriesacandlebesidethearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "3123feae7c295806fefa3a712452b2bf2f64691a09290c22440b516c51df89d9",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure"
+    },
+    {
+      "rendered": "A nerd is bright at our gardens; a nerd carries a candle beyond the arena.",
+      "left_frame": "state",
+      "right_frame": "event",
+      "matched_outer_letters_before_mismatch": 4,
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": "is",
+        "roles": [
+          "experiencer:nerd",
+          "state:is",
+          "property:bright",
+          "location_preposition:at",
+          "setting:gardens"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": "sg",
+        "object_number": "sg",
+        "locative_number": "sg",
+        "predicate": "carry",
+        "roles": [
+          "agent:nerd",
+          "event:carry",
+          "patient:candle",
+          "location_preposition:beyond",
+          "setting:arena"
+        ]
+      },
+      "audit": {
+        "rendered": "A nerd is bright at our gardens; a nerd carries a candle beyond the arena.",
+        "letters": 58,
+        "normalized_tape": "anerdisbrightatourgardensanerdcarriesacandlebeyondthearena",
+        "independent_ascii_tape": "anerdisbrightatourgardensanerdcarriesacandlebeyondthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "4efac9c7e29d7bba3a315643ccd891b5299377eb444970f51a33b1a0bd5b7e01",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure"
+    },
+    {
+      "rendered": "A nerd carries a candle at our gardens; a nerd is bright at the arena.",
+      "left_frame": "event",
+      "right_frame": "state",
+      "matched_outer_letters_before_mismatch": 4,
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": "sg",
+        "locative_number": "pl",
+        "predicate": "carry",
+        "roles": [
+          "agent:nerd",
+          "event:carry",
+          "patient:candle",
+          "location_preposition:at",
+          "setting:gardens"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": "is",
+        "roles": [
+          "experiencer:nerd",
+          "state:is",
+          "property:bright",
+          "location_preposition:at",
+          "setting:arena"
+        ]
+      },
+      "audit": {
+        "rendered": "A nerd carries a candle at our gardens; a nerd is bright at the arena.",
+        "letters": 54,
+        "normalized_tape": "anerdcarriesacandleatourgardensanerdisbrightatthearena",
+        "independent_ascii_tape": "anerdcarriesacandleatourgardensanerdisbrightatthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "7946f116d7f47e0ce49c0d3428a3daa5efefd5908ec9f052d023e2f690145d17",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure"
+    },
+    {
+      "rendered": "A nerd is bright at our gardens; a nerd carries a candle at the arena.",
+      "left_frame": "state",
+      "right_frame": "event",
+      "matched_outer_letters_before_mismatch": 4,
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": "is",
+        "roles": [
+          "experiencer:nerd",
+          "state:is",
+          "property:bright",
+          "location_preposition:at",
+          "setting:gardens"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": "sg",
+        "object_number": "sg",
+        "locative_number": "sg",
+        "predicate": "carry",
+        "roles": [
+          "agent:nerd",
+          "event:carry",
+          "patient:candle",
+          "location_preposition:at",
+          "setting:arena"
+        ]
+      },
+      "audit": {
+        "rendered": "A nerd is bright at our gardens; a nerd carries a candle at the arena.",
+        "letters": 54,
+        "normalized_tape": "anerdisbrightatourgardensanerdcarriesacandleatthearena",
+        "independent_ascii_tape": "anerdisbrightatourgardensanerdcarriesacandleatthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "027b94bb8842bf0c408bf7f879ad3f92cc7f01fe2b204cae4a0865250eea8c20",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure"
+    },
+    {
+      "rendered": "A nerd is bright at our gardens; a nerd is bright beside the arena.",
+      "left_frame": "state",
+      "right_frame": "state",
+      "matched_outer_letters_before_mismatch": 4,
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": "is",
+        "roles": [
+          "experiencer:nerd",
+          "state:is",
+          "property:bright",
+          "location_preposition:at",
+          "setting:gardens"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": "is",
+        "roles": [
+          "experiencer:nerd",
+          "state:is",
+          "property:bright",
+          "location_preposition:beside",
+          "setting:arena"
+        ]
+      },
+      "audit": {
+        "rendered": "A nerd is bright at our gardens; a nerd is bright beside the arena.",
+        "letters": 52,
+        "normalized_tape": "anerdisbrightatourgardensanerdisbrightbesidethearena",
+        "independent_ascii_tape": "anerdisbrightatourgardensanerdisbrightbesidethearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "02d4c28dc43ddca0384c26b338fece2feb3a15a23420076feadbb706682eec32",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure"
+    },
+    {
+      "rendered": "A nerd is bright at our gardens; a nerd is bright beyond the arena.",
+      "left_frame": "state",
+      "right_frame": "state",
+      "matched_outer_letters_before_mismatch": 4,
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": "is",
+        "roles": [
+          "experiencer:nerd",
+          "state:is",
+          "property:bright",
+          "location_preposition:at",
+          "setting:gardens"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": "is",
+        "roles": [
+          "experiencer:nerd",
+          "state:is",
+          "property:bright",
+          "location_preposition:beyond",
+          "setting:arena"
+        ]
+      },
+      "audit": {
+        "rendered": "A nerd is bright at our gardens; a nerd is bright beyond the arena.",
+        "letters": 52,
+        "normalized_tape": "anerdisbrightatourgardensanerdisbrightbeyondthearena",
+        "independent_ascii_tape": "anerdisbrightatourgardensanerdisbrightbeyondthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "fce1b7e648d17af4474a7ea3a6a7329bbca390dbe00eebc4e7a71cedfa4f8617",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure"
+    },
+    {
+      "rendered": "A nerd is bright at our gardens; a nerd is bright at the arena.",
+      "left_frame": "state",
+      "right_frame": "state",
+      "matched_outer_letters_before_mismatch": 4,
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": "is",
+        "roles": [
+          "experiencer:nerd",
+          "state:is",
+          "property:bright",
+          "location_preposition:at",
+          "setting:gardens"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": "is",
+        "roles": [
+          "experiencer:nerd",
+          "state:is",
+          "property:bright",
+          "location_preposition:at",
+          "setting:arena"
+        ]
+      },
+      "audit": {
+        "rendered": "A nerd is bright at our gardens; a nerd is bright at the arena.",
+        "letters": 48,
+        "normalized_tape": "anerdisbrightatourgardensanerdisbrightatthearena",
+        "independent_ascii_tape": "anerdisbrightatourgardensanerdisbrightatthearena",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "independent_sha256": "16ed6d06d64bdfcd98a92f3d12e71e3d8cdf5f0cf2b1e4978faec48df343e13f",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure"
+    }
+  ],
+  "dead_frontier": [
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:village"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:gardens"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:harbors"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:markets"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:stations"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:theaters"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:villages"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 1,
+      "right_slot": 7,
+      "left_words": [
+        "a"
+      ],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": [
+          "agent:nurse"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:arena"
+        ]
+      },
+      "matched_letters": 2,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "event",
+      "left_slot": 1,
+      "right_slot": 7,
+      "left_words": [
+        "a"
+      ],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": [
+          "agent:nerd"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:arena"
+        ]
+      },
+      "matched_letters": 4,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:village"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:gardens"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:harbors"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:markets"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:stations"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:theaters"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:villages"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 1,
+      "right_slot": 6,
+      "left_words": [
+        "a"
+      ],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": [
+          "agent:nurse"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:arena"
+        ]
+      },
+      "matched_letters": 2,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "event",
+      "right_frame": "state",
+      "left_slot": 1,
+      "right_slot": 6,
+      "left_words": [
+        "a"
+      ],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": [
+          "agent:nerd"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:arena"
+        ]
+      },
+      "matched_letters": 4,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:village"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:gardens"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:harbors"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:markets"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:stations"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:theaters"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:villages"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 0,
+      "right_slot": 7,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 1,
+      "right_slot": 7,
+      "left_words": [
+        "a"
+      ],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": [
+          "experiencer:nurse"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:arena"
+        ]
+      },
+      "matched_letters": 2,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "event",
+      "left_slot": 1,
+      "right_slot": 7,
+      "left_words": [
+        "a"
+      ],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": [
+          "experiencer:nerd"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:arena"
+        ]
+      },
+      "matched_letters": 4,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:village"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:gardens"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:harbors"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:markets"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:stations"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:theaters"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "pl",
+        "predicate": null,
+        "roles": [
+          "setting:villages"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 0,
+      "right_slot": 6,
+      "left_words": [],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "pl",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": []
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:market"
+        ]
+      },
+      "matched_letters": 1,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 1,
+      "right_slot": 6,
+      "left_words": [
+        "a"
+      ],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": [
+          "experiencer:nurse"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:arena"
+        ]
+      },
+      "matched_letters": 2,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    },
+    {
+      "left_frame": "state",
+      "right_frame": "state",
+      "left_slot": 1,
+      "right_slot": 6,
+      "left_words": [
+        "a"
+      ],
+      "right_words_reversed": [],
+      "left_semantics": {
+        "subject_number": "sg",
+        "object_number": null,
+        "locative_number": null,
+        "predicate": null,
+        "roles": [
+          "experiencer:nerd"
+        ]
+      },
+      "right_semantics": {
+        "subject_number": null,
+        "object_number": null,
+        "locative_number": "sg",
+        "predicate": null,
+        "roles": [
+          "setting:arena"
+        ]
+      },
+      "matched_letters": 4,
+      "reason": "no-character-compatible-Earley-scan-transition"
+    }
+  ],
+  "independent_audit": [],
+  "reader_gate": "No row is readability evidence; exact mechanically admitted rows require randomized blinded intact/shuffled reading.",
+  "next_repair_operator": "Take the deepest dead Earley state at the first character mismatch and add one held-out lexical transition licensed by the same event-role and agreement registers; rerun the full lockstep product without reverse-segmenting a completed tape.",
+  "provenance": {
+    "generator_sha256": "424fa94d5522e79361f72fdd9ab442ec1e79b147c19a9ec12d875c197f81d68c",
+    "lexicon": "authored finite lexical banks in this script",
+    "source_sentences_copied": false,
+    "known_catalogue_excluded": true,
+    "independent_audits": [
+      "normalize_letters tape reversal",
+      "independent ASCII two-pointer",
+      "mechanical_admission_checks"
+    ]
+  }
+}

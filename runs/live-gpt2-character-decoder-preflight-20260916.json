@@ -1,0 +1,132 @@
+{
+  "experiment_id": "live-gpt2-character-decoder-preflight-20260916",
+  "signature": "live-gpt2-next-token-character-decoder|bilateral-normal-order-lexeme-expansion|semantic-valency-state|character-seam-obligation|independent-tape-hash-admission|mismatch-heldout-repair",
+  "novelty_preflight": {
+    "registry_entries": 182,
+    "excluded_routes": 24,
+    "overlaps": [
+      {
+        "id": "gpt2-topic-half-decoder-20260915",
+        "jaccard": 0.142857,
+        "shared_atoms": [
+          "decoder",
+          "gpt2",
+          "semantic",
+          "state"
+        ],
+        "reason": "retained GPT-2 character/token/prefix decoder family"
+      },
+      {
+        "id": "fixed-tape-gpt2-boundary-decoder-20260915",
+        "jaccard": 0.103448,
+        "shared_atoms": [
+          "decoder",
+          "gpt2",
+          "tape"
+        ],
+        "reason": "retained GPT-2 character/token/prefix decoder family"
+      },
+      {
+        "id": "bpe-dual-continuation",
+        "jaccard": 0.111111,
+        "shared_atoms": [
+          "gpt2",
+          "repair",
+          "seam",
+          "token"
+        ],
+        "reason": "retained GPT-2 character/token/prefix decoder family"
+      },
+      {
+        "id": "neural-dual-prefix-beam-v2",
+        "jaccard": 0.055556,
+        "shared_atoms": [
+          "bilateral",
+          "gpt2"
+        ],
+        "reason": "retained GPT-2 character/token/prefix decoder family"
+      }
+    ],
+    "blocked": true,
+    "performed_before_model_load": true
+  },
+  "method": "Live character-synchronous lexical expansion charges local GPT-2 next-token log-probabilities before each lexical action and carries semantic role state through a bilateral seam frontier; completed text is independently audited afterward.",
+  "config": {
+    "model": "gpt2-local-cache",
+    "decoder": "character-synchronous-next-token",
+    "normal_order_lexeme_actions": true,
+    "posthoc_reranking": false,
+    "half_tape_decoder": false,
+    "min_letters": 39,
+    "max_letters": 220
+  },
+  "stats": {
+    "model_loaded": 0,
+    "live_expansions": 0,
+    "rendered_probes": 0,
+    "exact": 0,
+    "mechanically_admitted": 0,
+    "reader_eligible": 0
+  },
+  "rendered_candidates": [],
+  "rendered_probes": [],
+  "repair": {
+    "operator": "At the first live seam mismatch, replace only the held-out lexeme with the same POS/sense and re-expand its characters under GPT-2 next-token probability; rerun independent tape/hash validation and the shared mechanical gate.",
+    "status": "not_run"
+  },
+  "provenance": {
+    "generator_sha256": "3845c4ef6d3159d1aa662ae2afd651c6f1ee5f8bfa735469ba9df1b62f609b52",
+    "model_loaded": false,
+    "source_sentences_copied": false,
+    "known_palindromes_used": false,
+    "readability_certificate": false
+  },
+  "pivot": {
+    "status": "preflight_blocked",
+    "reason": "The registry retains GPT-2 bilateral prefix/token-lattice and reverse-character decoder families; running this lane would duplicate the same model-in-the-loop character decoder dimension.",
+    "overlaps": [
+      {
+        "id": "gpt2-topic-half-decoder-20260915",
+        "jaccard": 0.142857,
+        "shared_atoms": [
+          "decoder",
+          "gpt2",
+          "semantic",
+          "state"
+        ],
+        "reason": "retained GPT-2 character/token/prefix decoder family"
+      },
+      {
+        "id": "fixed-tape-gpt2-boundary-decoder-20260915",
+        "jaccard": 0.103448,
+        "shared_atoms": [
+          "decoder",
+          "gpt2",
+          "tape"
+        ],
+        "reason": "retained GPT-2 character/token/prefix decoder family"
+      },
+      {
+        "id": "bpe-dual-continuation",
+        "jaccard": 0.111111,
+        "shared_atoms": [
+          "gpt2",
+          "repair",
+          "seam",
+          "token"
+        ],
+        "reason": "retained GPT-2 character/token/prefix decoder family"
+      },
+      {
+        "id": "neural-dual-prefix-beam-v2",
+        "jaccard": 0.055556,
+        "shared_atoms": [
+          "bilateral",
+          "gpt2"
+        ],
+        "reason": "retained GPT-2 character/token/prefix decoder family"
+      }
+    ],
+    "next_route": "Use a non-neural semantic construction or obtain an explicitly new model/state dimension before loading GPT-2."
+  }
+}

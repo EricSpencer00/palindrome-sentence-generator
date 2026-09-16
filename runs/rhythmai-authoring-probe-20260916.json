@@ -1,0 +1,50 @@
+{
+  "experiment": "rhythmai-authoring-probe-20260916",
+  "repair_of": "direct-constrained-authoring-20260916",
+  "signature": "local-model-whole-sentence-authoring|alternate-rhythmai-model|single-scene-contract|independent-letter-audit",
+  "method": "one bounded alternate-model authoring call; first output line captured verbatim after ANSI stripping",
+  "model": "imetaexabeam/RhythmAI:27b",
+  "model_modelfile_sha256": "555499c8d2047d6010d203a6469614e747d5ccae3a370055adba4f17e4fbf715",
+  "prompt": "Write one original, ordinary-English sentence of at least 80 letters. After lowercasing and removing spaces and punctuation, the letters must be an exact palindrome. Use distinct content words, one coherent scene, normal grammar, no repeated clauses, no famous or catalogue palindrome, and output only the sentence.",
+  "captured_output": {
+    "text": "A rare, radiant, and radiant, rare aura.",
+    "letters": 30,
+    "normalized_tape": "arareradiantandradiantrareaura",
+    "exact": false,
+    "independent_sha256": "7d1bc321f2d8be52d331a8a42d334753a8ebd1132c618be719b60db585f57bd0",
+    "mechanical_checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": false,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": false,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "reader_eligible": false
+  },
+  "exact_count": 0,
+  "repair_action": "switch from timed-out gpt-oss authoring to a bounded RhythmAI call; next repair must return to a constructive lexical state space",
+  "provenance": {
+    "catalogue_used": false,
+    "borrowed_text": false,
+    "word_order_only": false,
+    "fragments": false,
+    "captured_from_local_command": true
+  },
+  "reader_gate": {
+    "status": "not_run",
+    "reason": "short non-palindromic output failed exactness and length before any reader packet"
+  }
+}

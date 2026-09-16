@@ -1475,7 +1475,7 @@ item-aware analysis plan.
   gate. The Brown route's empty `displayed` list is intentional because it
   found no text safe to show as generated.
 
-  A reproducible programmatic diagnostic over 1044 rendered rows is frozen in
+  A reproducible programmatic diagnostic over 1495 rendered rows is frozen in
   `runs/parallel-luna-readability-diagnostics-20260916.json`: 0 exact and 0
   mechanically admitted rows. The report breaks out Brown word-order gain,
   mean word frequency, repetition, punctuation segmentation, and length by
@@ -1509,7 +1509,7 @@ item-aware analysis plan.
   base and 144 held-out repairs (max 78); CCG produced 4 base and 4 category
   repairs (max 82). All were complete prose with independent audits but zero
   exact closures and zero reader-eligible rows. Their rendered text and
-  provenance remain frozen in the route artifacts and the 838-row diagnostic.
+  provenance remain frozen in the route artifacts and the 1495-row diagnostic.
   These routes change the construction state (reversible lexical roles,
   unseeded recursion, and online semantic mutation) and are not filename or
   beam-width replays.
@@ -1519,7 +1519,7 @@ item-aware analysis plan.
   candidates; the word-equation route ran 6 base and 6 POS-compatible repairs.
   Both kept complete clauses and independent provenance visible, but had zero
   exact closures and zero reader-eligible rows. The aggregate diagnostic now
-  contains 1044 rendered rows plus per-route summaries; its metrics remain
+  contains 1495 rendered rows plus per-route summaries; its metrics remain
   filters and failure diagnostics, never a readability certificate.
 
   A bounded direct-authoring reset also ran three local-model prompts plus one
@@ -1528,6 +1528,23 @@ item-aware analysis plan.
   `runs/direct-constrained-authoring-20260916.json`. This is a concrete
   authoring failure and a reason to change the construction state again, not a
   readability or impossibility claim.
+
+  The direct-authoring repair was then rerun with a bounded alternate local
+  model (RhythmAI). It returned the rendered line “A rare, radiant, and radiant,
+  rare aura.” (30 letters): the independent tape audit was non-palindromic and
+  below the length gate, so it is preserved only as repair evidence in
+  `runs/rhythmai-authoring-probe-20260916.json` and was not sent to readers.
+
+  A morphology-semantic template CSP reset selected derivational and
+  inflectional realizations jointly with semantic frames (216 base plus 216
+  affix-frontier repairs). Its complete sentence renderings and independent
+  audits are in `runs/morphology-semantic-template-csp-20260916.json`; zero
+  exact closures survived either pass. A pivot-centered paragraph beam then
+  authored 18 semantic-slot pairs and 18 near-synonym repairs, also with zero
+  exact closures (`runs/pivot-paragraph-beam-20260916.json`). These are new
+  construction states, not replays, and both leave the human reader gate
+  closed until a candidate passes exactness and the intact-versus-shuffled
+  study.
 
   A sixth reset used typed lexical-chain permutations rather than a model or
   clause cross-product: 24 complete base probes and 12 synonym repairs were

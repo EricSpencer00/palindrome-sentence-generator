@@ -60,13 +60,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 1044
+    assert report["candidate_count"] == 1495
     assert report["exact_count"] == 0
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 29
+    assert len(report["route_summary"]) == 33
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
 
 
@@ -183,6 +183,17 @@ def test_direct_authoring_timeout_is_preserved_without_fabricated_text():
     assert run["exact_count"] == 0
     assert all(row["attempt"] is None and "TimeoutExpired" in row["error"]
                for row in run["candidates"])
+
+
+def test_rhythmai_authoring_repair_is_a_real_failed_probe_not_a_candidate():
+    run = load("rhythmai-authoring-probe-20260916.json")
+    row = run["captured_output"]
+    assert run["repair_of"] == "direct-constrained-authoring-20260916"
+    assert row["letters"] == 30
+    assert row["exact"] is False
+    assert row["mechanically_admitted"] is False
+    assert row["reader_eligible"] is False
+    assert "exact_letter_palindrome" in [key for key, value in row["mechanical_checks"].items() if not value]
 
 
 def test_lexical_chain_permutation_keeps_repair_probes_outside_gate():

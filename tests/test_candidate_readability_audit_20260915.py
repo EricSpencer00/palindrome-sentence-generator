@@ -41,3 +41,8 @@ def test_iter_rows_includes_list_valued_repair_phase() -> None:
     rows = list(iter_rows({"candidates": [{"rendered": "A man."}],
                            "repair": [{"rendered": "A nurse."}]}, "run.json"))
     assert [row["rendered"] for row in rows] == ["A man.", "A nurse."]
+
+
+def test_iter_rows_includes_single_captured_authoring_probe() -> None:
+    rows = list(iter_rows({"experiment": "probe", "captured_output": {"text": "A rare aura."}}, "run.json"))
+    assert rows == [{"source_run": "run.json", "text": "A rare aura.", "rendered": "A rare aura.", "provenance": "probe"}]

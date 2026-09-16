@@ -71,6 +71,18 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
             nested = payload.get(phase)
             if isinstance(nested, dict):
                 yield from iter_rows(nested, f"{source}#{phase}", context_provenance)
+        # Bounded single-call authoring probes keep one captured model output
+        # under ``captured_output`` rather than manufacturing a list wrapper.
+        # Surface that row explicitly so repair evidence enters the same
+        # candidate-first aggregate instead of disappearing from the report.
+        captured = payload.get("captured_output")
+        if isinstance(captured, dict):
+            text = captured.get("rendered") or captured.get("text")
+            if isinstance(text, str) and text.strip():
+                item = {"source_run": source, **captured, "rendered": text}
+                if context_provenance and "provenance" not in item:
+                    item["provenance"] = context_provenance
+                yield item
         # A few older artifacts store one candidate at the top level.
         text = payload.get("rendered") or payload.get("text")
         if isinstance(text, str) and text.strip():

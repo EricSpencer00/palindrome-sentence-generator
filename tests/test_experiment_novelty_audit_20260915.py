@@ -8,7 +8,7 @@ def test_novelty_audit_has_no_exact_collisions_and_catches_real_near_pairs():
     report = audit()
     assert report["exact_signature_collisions"] is False
     assert report["registered_entries"] >= 113
-    assert report["excluded_routes"] == 6
+    assert report["excluded_routes"] == 7
     pairs = {(row["newer"], row["older"]) for row in report["near_pairs"]}
     # These are intentionally close families already in the historical ledger;
     # the report makes them visible so future work cannot silently replay them.
@@ -57,3 +57,5 @@ def test_latest_routes_are_not_flagged_as_near_duplicates():
     assert by_id["lexical-word-equation-inventory-20260916"]["manual_review_required"] is False
     assert by_id["direct-constrained-authoring-20260916"]["manual_review_required"] is False
     assert by_id["lexical-chain-palindrome-20260916"]["manual_review_required"] is False
+    assert by_id["morphology-semantic-template-csp-20260916"]["manual_review_required"] is False
+    assert by_id["pivot-paragraph-beam-20260916"]["manual_review_required"] is False

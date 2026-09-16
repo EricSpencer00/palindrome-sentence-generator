@@ -1,9 +1,112 @@
 {
   "entries": [
     {
-      "id": "direct-constrained-authoring-20260916",
+      "id": "pivot-paragraph-beam-20260916",
       "manual_review_required": false,
       "nearest_prior": null,
+      "signature_atoms": [
+        "beam",
+        "centered",
+        "edit",
+        "ledger",
+        "letter",
+        "mirrored",
+        "near",
+        "online",
+        "paragraph",
+        "pivot",
+        "planning",
+        "semantic",
+        "slot",
+        "synonym"
+      ]
+    },
+    {
+      "id": "morphology-semantic-template-csp-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "pivot-paragraph-beam-20260916",
+        "jaccard": 0.038462,
+        "shared_atoms": [
+          "semantic"
+        ]
+      },
+      "signature_atoms": [
+        "affix",
+        "agreement",
+        "choice",
+        "csp",
+        "derivational",
+        "equations",
+        "frame",
+        "inflection",
+        "live",
+        "morphology",
+        "realization",
+        "semantic",
+        "template"
+      ]
+    },
+    {
+      "id": "lexical-chain-palindrome-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "pivot-paragraph-beam-20260916",
+        "jaccard": 0.095238,
+        "shared_atoms": [
+          "letter",
+          "synonym"
+        ]
+      },
+      "signature_atoms": [
+        "chain",
+        "deterministic",
+        "emission",
+        "enumeration",
+        "first",
+        "letter",
+        "permutation",
+        "repeat",
+        "synonym"
+      ]
+    },
+    {
+      "id": "coordination-attachment-constructor-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "pivot-paragraph-beam-20260916",
+        "jaccard": 0.136364,
+        "shared_atoms": [
+          "ledger",
+          "mirrored",
+          "semantic"
+        ]
+      },
+      "signature_atoms": [
+        "attachment",
+        "conjunct",
+        "coordination",
+        "discontinuous",
+        "ledger",
+        "local",
+        "mirrored",
+        "realization",
+        "role",
+        "semantic",
+        "single"
+      ]
+    },
+    {
+      "id": "direct-constrained-authoring-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "coordination-attachment-constructor-20260916",
+        "jaccard": 0.095238,
+        "shared_atoms": [
+          "local",
+          "single"
+        ]
+      },
       "signature_atoms": [
         "contract",
         "directed",
@@ -23,9 +126,12 @@
       "id": "dependency-completion-csp-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "direct-constrained-authoring-20260916",
-        "jaccard": 0.0,
-        "shared_atoms": []
+        "id": "coordination-attachment-constructor-20260916",
+        "jaccard": 0.083333,
+        "shared_atoms": [
+          "mirrored",
+          "semantic"
+        ]
       },
       "signature_atoms": [
         "active",
@@ -49,9 +155,10 @@
       "id": "graph-to-prose-path-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "dependency-completion-csp-20260916",
-        "jaccard": 0.043478,
+        "id": "coordination-attachment-constructor-20260916",
+        "jaccard": 0.111111,
         "shared_atoms": [
+          "realization",
           "semantic"
         ]
       },
@@ -71,7 +178,7 @@
       "id": "rhetorical-plan-lattice-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "direct-constrained-authoring-20260916",
+        "id": "pivot-paragraph-beam-20260916",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -92,9 +199,11 @@
       "id": "inflectional-fst-clitic-tape-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "graph-to-prose-path-20260916",
-        "jaccard": 0.058824,
+        "id": "coordination-attachment-constructor-20260916",
+        "jaccard": 0.176471,
         "shared_atoms": [
+          "ledger",
+          "mirrored",
           "realization"
         ]
       },
@@ -957,10 +1066,10 @@
       "id": "brown-bounded-repair",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "bilateral-slot-synchronizer-adjunct-repair-20260916",
-        "jaccard": 0.071429,
+        "id": "lexical-chain-palindrome-20260916",
+        "jaccard": 0.083333,
         "shared_atoms": [
-          "boundary"
+          "chain"
         ]
       },
       "signature_atoms": [
@@ -1418,11 +1527,12 @@
       "id": "morphological-derivational-seam",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "corpus-span-boundary-dp-20260916",
-        "jaccard": 0.117647,
+        "id": "morphology-semantic-template-csp-20260916",
+        "jaccard": 0.166667,
         "shared_atoms": [
-          "boundary",
-          "frame"
+          "frame",
+          "inflection",
+          "morphology"
         ]
       },
       "signature_atoms": [
@@ -1502,12 +1612,13 @@
       "id": "character-clause-fst-joint-emission",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "bilateral-slot-synchronizer-20260916",
-        "jaccard": 0.115385,
+        "id": "morphology-semantic-template-csp-20260916",
+        "jaccard": 0.148148,
         "shared_atoms": [
-          "banks",
-          "boundary",
-          "clause"
+          "choice",
+          "inflection",
+          "semantic",
+          "template"
         ]
       },
       "signature_atoms": [
@@ -1735,12 +1846,12 @@
       "id": "discourse-plan-coupled-expansion",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "paired-transitive-role-seam-dp-20260916",
-        "jaccard": 0.125,
+        "id": "coordination-attachment-constructor-20260916",
+        "jaccard": 0.130435,
         "shared_atoms": [
-          "preserving",
+          "mirrored",
           "role",
-          "substitution"
+          "semantic"
         ]
       },
       "signature_atoms": [
@@ -1823,12 +1934,13 @@
       "id": "global-semantic-paraphrase-rewrite",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "discourse-plan-coupled-expansion",
-        "jaccard": 0.125,
+        "id": "pivot-paragraph-beam-20260916",
+        "jaccard": 0.181818,
         "shared_atoms": [
           "mirrored",
           "online",
-          "semantic"
+          "semantic",
+          "slot"
         ]
       },
       "signature_atoms": [
@@ -2954,10 +3066,11 @@
       "id": "wordnet-synonym-frame-csp-20260915",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "lexicalized-dependency-frame-pairing-20260916",
-        "jaccard": 0.15,
+        "id": "morphology-semantic-template-csp-20260916",
+        "jaccard": 0.181818,
         "shared_atoms": [
-          "dependency",
+          "choice",
+          "csp",
           "frame",
           "semantic"
         ]
@@ -3279,14 +3392,14 @@
       "id": "semantic-mutation-residual-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "clause-lattice-joint-dp",
-        "jaccard": 0.185185,
+        "id": "pivot-paragraph-beam-20260916",
+        "jaccard": 0.208333,
         "shared_atoms": [
-          "argument",
-          "no",
-          "repeated",
-          "tense",
-          "units"
+          "ledger",
+          "mirrored",
+          "online",
+          "semantic",
+          "synonym"
         ]
       },
       "signature_atoms": [
@@ -3445,10 +3558,38 @@
         "semantic",
         "slot"
       ]
+    },
+    {
+      "id": "discontinuous-gap-filler-composition-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "ccg-semantic-solver-20260916",
+        "jaccard": 0.181818,
+        "shared_atoms": [
+          "clause",
+          "composition",
+          "ledger",
+          "yields"
+        ]
+      },
+      "signature_atoms": [
+        "clause",
+        "composition",
+        "crossing",
+        "dependency",
+        "discontinuous",
+        "filler",
+        "gap",
+        "ledger",
+        "preserving",
+        "relative",
+        "semantic",
+        "yields"
+      ]
     }
   ],
   "exact_signature_collisions": false,
-  "excluded_routes": 6,
+  "excluded_routes": 7,
   "near_pairs": [
     {
       "jaccard": 0.736842,
@@ -3694,7 +3835,7 @@
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 128,
+  "registered_entries": 133,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

@@ -1475,7 +1475,7 @@ item-aware analysis plan.
   gate. The Brown route's empty `displayed` list is intentional because it
   found no text safe to show as generated.
 
-  A reproducible programmatic diagnostic over 2000 rendered rows is frozen in
+  A reproducible programmatic diagnostic over 2015 rendered rows is frozen in
   `runs/parallel-luna-readability-diagnostics-20260916.json`: 72 exact rows
   (36 semantic-frame tapes plus their 36 residual-decoder rejections) and 0
   mechanically admitted rows. The report breaks out Brown word-order gain,
@@ -1510,7 +1510,7 @@ item-aware analysis plan.
   base and 144 held-out repairs (max 78); CCG produced 4 base and 4 category
   repairs (max 82). All were complete prose with independent audits but zero
   exact closures and zero reader-eligible rows. Their rendered text and
-  provenance remain frozen in the route artifacts and the 2000-row diagnostic.
+  provenance remain frozen in the route artifacts and the 2015-row diagnostic.
   These routes change the construction state (reversible lexical roles,
   unseeded recursion, and online semantic mutation) and are not filename or
   beam-width replays.
@@ -1520,7 +1520,7 @@ item-aware analysis plan.
   candidates; the word-equation route ran 6 base and 6 POS-compatible repairs.
   Both kept complete clauses and independent provenance visible, but had zero
   exact closures and zero reader-eligible rows. The aggregate diagnostic now
-  contains 2000 rendered rows across 56 route phases plus per-route summaries; its metrics remain
+  contains 2015 rendered rows across 57 route phases plus per-route summaries; its metrics remain
   filters and failure diagnostics, never a readability certificate.
 
   A bounded direct-authoring reset also ran three local-model prompts plus one
@@ -1681,8 +1681,25 @@ item-aware analysis plan.
   `runs/coupled-syntax-lexical-authoring-20260916.json`, with the modal block
   preserved in `runs/modal-scope-preflight-20260916.json`.
 
-  The aggregate now contains exactly 2000 rendered rows across 56 route phases.
+  The aggregate now contains exactly 2015 rendered rows across 57 route phases.
   Independent recomputation reports zero tape mismatches, 72 exact-but-
   rejected tapes, and 0 mechanically admitted rows. No output has reached the
   blinded intact-versus-shuffled reader test; these measurements remain
   diagnostics while the constructive search continues.
+
+  A fifth wave tested semantic wrappers around fresh, non-catalogue centers.
+  Nine base scenes and nine wrapper-connective repairs were authored (57--62
+  letters); three repaired renderings duplicate base text, leaving 15 unique
+  rows in the aggregate. All are intact complete prose with independent
+  provenance and exact audits, but none closes the tape or reaches the reader
+  gate. Nested quotation and open-model-bank reverse decoding were preflighted
+  and blocked as reported-speech/dialogue and fixed-tape/model-bank replays.
+  The runnable evidence is in
+  `runs/reversible-semantic-wrappers-20260916.json`; the preflight records are
+  retained beside it.
+
+  The aggregate now contains 2015 rendered rows across 57 route phases, with
+  zero independent audit mismatches, 72 exact-but-rejected tapes, and 0
+  mechanically admitted rows. The next reader-facing test remains the
+  randomized blinded intact-versus-shuffled study, which cannot start until an
+  exact candidate clears every mechanical gate.

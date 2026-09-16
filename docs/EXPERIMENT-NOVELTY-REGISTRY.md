@@ -12,6 +12,8 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
+| `reversible-semantic-wrappers-20260916` | fresh semantic centers are surrounded by character-pair wrapper primitives, then mutated through connective choices with distinct-content and independent-audit gates | semantic-wrapper composition | 9 base + 9 repair scenes, 57–62 letters; 0 exact and 0 reader-eligible (15 unique renderings after deduplication) |
+| `rhythmai-open-bank-reverse-decoder-preflight-20260916-excluded` | a local model authors an open sentence bank which a reverse decoder realizes under grammar constraints | preflight-only model-bank/reverse-decoder coupling | blocked before rendering: model-authored banks and fixed-tape decoders are already retained |
 | `coupled-syntax-lexical-authoring-20260916` | intact event scenes jointly vary syntax and lexical choices, with a deterministic fallback repair and independent tape audit | joint syntax/lexical authoring | 9 base + 9 repair scenes, 45–50 letters; 0 exact and 0 reader-eligible (14 unique renderings after deduplication) |
 | `topicalization-scope-constructor-20260916` | topicalized objects preserve semantic subject/verb roles while scope is realized and repaired with parenthetical material under a live character obligation | topicalization and information-structure scope | 6 base + 12 parenthetical repairs, 48–83 letters; 0 exact and 0 reader-eligible |
 | `discourse-connective-coupled-20260916` | coherent multi-sentence scenes are coupled to semantic paraphrase and discourse-connective choices while the mirrored ledger is live | connective-coupled discourse authoring | 6 base + 6 repair scenes, 49–57 letters; 0 exact and 0 reader-eligible (10 unique renderings after deduplication) |
@@ -182,6 +184,7 @@ the next frontier was chosen:
 | `experiments/reversible_phrase_chain_preflight_20260916.py` | mirror-pair phrase paths overlap retained lexical-chain, chain-walk, and collocation-path families; changing the evidence source would not create a new construction state |
 | `experiments/coordination_ellipsis_preflight_20260916.py` | coordination/ellipsis, attachment, and appositive scene graphs are already represented; no duplicate run was executed |
 | `experiments/modal_scope_preflight_20260916.py` | modal/evidential scope wording overlaps retained scope-bearing clause plans and evidential-slot families; no duplicate run was executed |
+| `experiments/nested_quotation_preflight_20260916.py` | nested quotation/reporting levels overlap retained reported-speech and dialogue families; no duplicate run was executed |
 | `experiments/function_word_boundary_balance_preflight_20260916.py` | function-word boundary balancing overlaps variable-boundary, lexical-equation, and complete-clause state; the explicit registry entry records the block |
 | `experiments/question_answer_composition_preflight_20260916.py` | question/answer discourse realization overlaps speech-act and interrogative inventories; the explicit registry entry records the block |
 | `experiments/pivot_growth_preflight_20260916.py` | pivoted sentence growth overlaps pivot-paragraph, scene-growth, and recursive-obligation families; the explicit registry entry records the block |
@@ -200,7 +203,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 158 retained families and 15 explicit
+family. The current audit covers all 160 retained families and 16 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

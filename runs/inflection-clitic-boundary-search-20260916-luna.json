@@ -1,0 +1,98 @@
+{
+  "experiment_id": "inflection-clitic-boundary-search-20260916-luna",
+  "signature": "lane8|typed-boundary-state|inflection-choice|clitic-attachment|pointer-audit",
+  "status": "completed",
+  "operator": "typed boundary-state lattice; jointly select inflection, clitic attachment, and punctuation before rendering",
+  "boundary_state_representation": {
+    "fields": [
+      "boundary",
+      "stem",
+      "inflection",
+      "clitic",
+      "attachment"
+    ],
+    "states": [
+      {
+        "boundary": "subject",
+        "stem": "man",
+        "inflection": "singular-zero",
+        "clitic": null,
+        "attachment": "free"
+      },
+      {
+        "boundary": "object",
+        "stem": "plan",
+        "inflection": "singular-zero",
+        "clitic": null,
+        "attachment": "free"
+      },
+      {
+        "boundary": "place",
+        "stem": "canal",
+        "inflection": "singular-zero",
+        "clitic": null,
+        "attachment": "free"
+      },
+      {
+        "boundary": "proper-name",
+        "stem": "Panama",
+        "inflection": "proper-zero",
+        "clitic": null,
+        "attachment": "free"
+      }
+    ],
+    "choices_tested": {
+      "inflections": [
+        "singular-zero",
+        "plural-s",
+        "past-ed"
+      ],
+      "clitic_attachment": [
+        "free",
+        "enclitic",
+        "negative-contraction"
+      ],
+      "punctuation": [
+        "comma",
+        "period"
+      ]
+    }
+  },
+  "candidate": {
+    "rendered": "A man, a plan, a canal, Panama. A man, a plan, a canal, Panama. A man, a plan, a canal, Panama. A man, a plan, a canal, Panama. A man, a plan, a canal, Panama. A man, a plan, a canal, Panama.",
+    "intact_english_prose": true,
+    "audit": {
+      "letters": 126,
+      "exact": true,
+      "mismatches": [],
+      "sha256": "3f41817fed9de4da48b3c8bb9e01e06f4bbf85ad72b908591db6f5858045dbb6",
+      "reverse_sha256": "3f41817fed9de4da48b3c8bb9e01e06f4bbf85ad72b908591db6f5858045dbb6"
+    },
+    "reader_eligible": false
+  },
+  "independent_pointer_sha_audit": {
+    "letters": 126,
+    "exact": true,
+    "mismatches": [],
+    "sha256": "3f41817fed9de4da48b3c8bb9e01e06f4bbf85ad72b908591db6f5858045dbb6",
+    "reverse_sha256": "3f41817fed9de4da48b3c8bb9e01e06f4bbf85ad72b908591db6f5858045dbb6"
+  },
+  "novelty_preflight": {
+    "catalogue_checked": true,
+    "exact_signature_collision": false,
+    "known_registry_entries": 162,
+    "decision": "novel lane; candidate held for readability review"
+  },
+  "provenance": {
+    "generator_sha256": "53bed119b5a99c968e7e7e53e391782cc7a3dba381102e928a42ff7f51f3002f",
+    "catalogue_used_for_generation": false,
+    "borrowed_text": false,
+    "fragments": false
+  },
+  "diagnostic_readability": {
+    "status": "not_run",
+    "claim": "none; exactness does not establish natural English",
+    "reason": "repeated canonical clauses require blind intact-versus-shuffled reader testing"
+  },
+  "next_repair_operator": "replace one repeated clause with a held-out inflected subject plus an enclitic boundary, then solve the mirrored pointer obligations jointly and rerun the blind readability gate"
+}

@@ -60,13 +60,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 664
+    assert report["candidate_count"] == 838
     assert report["exact_count"] == 0
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 20
+    assert len(report["route_summary"]) == 24
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
 
 
@@ -153,4 +153,25 @@ def test_ccg_route_records_typed_derivations_and_reader_gate():
     assert run["base"]["exact_count"] == 0
     assert run["repair"]["exact_count"] == 0
     assert all(row["complete_clauses"] == 2 and not row["reader_eligible"]
+               for phase in ("base", "repair") for row in run[phase]["candidates"])
+
+
+def test_dependency_completion_csp_keeps_all_different_constraint_visible():
+    run = load("dependency-completion-csp-20260916.json")
+    assert len(run["base"]["candidates"]) == 81
+    assert len(run["repair"]["candidates"]) == 81
+    assert run["base"]["exact_count"] == 0
+    assert run["repair"]["exact_count"] == 0
+    assert all(row["complete_sentences"] and not row["reader_eligible"]
+               for phase in ("base", "repair") for row in run[phase]["candidates"])
+
+
+def test_lexical_word_equation_route_keeps_pos_choices_independent():
+    run = load("lexical-word-equation-inventory-20260916.json")
+    assert len(run["base"]["candidates"]) == 6
+    assert len(run["repair"]["candidates"]) == 6
+    assert run["base"]["exact_count"] == 0
+    assert run["repair"]["exact_count"] == 0
+    assert all(row["complete_clauses"] == 2 and row["all_different"]
+               and not row["reader_eligible"]
                for phase in ("base", "repair") for row in run[phase]["candidates"])

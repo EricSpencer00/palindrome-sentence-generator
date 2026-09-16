@@ -13,6 +13,8 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
 | `semantic-mutation-residual-20260916` | authored complete clauses mutated online by synonym/tense/argument operators while a mirrored residual is live | semantics-preserving online mutation | 41 base + 57 repair probes; 0 exact and 0 reader-eligible |
+| `dependency-completion-csp-20260916` | all-different semantic dependency graphs choose active/passive/relative linearizations jointly with mirrored character constraints | dependency completion and syntax repair | 81 base + 81 repair probes; 0 exact and 0 reader-eligible |
+| `lexical-word-equation-inventory-20260916` | independent POS-slot inventories and variable word boundaries are scored inside a lexical character equation | all-different lexical equation choices | 6 base + 6 repair probes, up to 74 letters; 0 exact and 0 reader-eligible |
 | `graph-to-prose-path-20260916` | typed ownership/attribute graph paths are selected with lexical realization under a mirrored character residual | graph topology and alternate-path repair | 9 base + 16 repair probes, up to 110 letters; 0 exact and 0 reader-eligible |
 | `voice-alternation-residual-20260916` | active/passive voice, transitivity, and agreement choices are solved jointly with the reflected character ledger | voice and agreement state | 64 base + 144 repair probes, up to 78 letters; 0 exact and 0 reader-eligible |
 | `ccg-semantic-solver-20260916` | typed CCG categories and lambda-event derivations are intersected with bilateral character equations | type-logical lexical composition | 4 base + 4 repair probes, up to 82 letters; 0 exact and 0 reader-eligible |
@@ -159,7 +161,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 125 retained families and 6 explicit
+family. The current audit covers all 127 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

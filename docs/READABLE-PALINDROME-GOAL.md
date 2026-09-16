@@ -1475,7 +1475,7 @@ item-aware analysis plan.
   gate. The Brown route's empty `displayed` list is intentional because it
   found no text safe to show as generated.
 
-  A reproducible programmatic diagnostic over 664 rendered rows is frozen in
+  A reproducible programmatic diagnostic over 838 rendered rows is frozen in
   `runs/parallel-luna-readability-diagnostics-20260916.json`: 0 exact and 0
   mechanically admitted rows. The report breaks out Brown word-order gain,
   mean word frequency, repetition, punctuation segmentation, and length by
@@ -1509,7 +1509,15 @@ item-aware analysis plan.
   base and 144 held-out repairs (max 78); CCG produced 4 base and 4 category
   repairs (max 82). All were complete prose with independent audits but zero
   exact closures and zero reader-eligible rows. Their rendered text and
-  provenance remain frozen in the route artifacts and the 664-row diagnostic.
+  provenance remain frozen in the route artifacts and the 838-row diagnostic.
   These routes change the construction state (reversible lexical roles,
   unseeded recursion, and online semantic mutation) and are not filename or
   beam-width replays.
+
+  A fifth reset added dependency-completion CSP and an all-different lexical
+  word-equation inventory. The CSP ran 81 base and 81 syntax-completion repair
+  candidates; the word-equation route ran 6 base and 6 POS-compatible repairs.
+  Both kept complete clauses and independent provenance visible, but had zero
+  exact closures and zero reader-eligible rows. The aggregate diagnostic now
+  contains 838 rendered rows plus per-route summaries; its metrics remain
+  filters and failure diagnostics, never a readability certificate.

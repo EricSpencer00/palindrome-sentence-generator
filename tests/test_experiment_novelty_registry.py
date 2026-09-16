@@ -156,6 +156,8 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "graph-to-prose-path-20260916" in ids
     assert "voice-alternation-residual-20260916" in ids
     assert "ccg-semantic-solver-20260916" in ids
+    assert "dependency-completion-csp-20260916" in ids
+    assert "lexical-word-equation-inventory-20260916" in ids
 
 
 def test_new_centerout_repairs_keep_failure_evidence_and_reader_gate_closed():

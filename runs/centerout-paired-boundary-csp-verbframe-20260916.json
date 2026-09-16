@@ -1,0 +1,96 @@
+{
+  "experiment_id": "centerout-paired-boundary-csp-verbframe-20260916",
+  "signature": "paired-subject-adjunct-boundary-csp|fresh-verb-frame|ordinary-svo-grammar|live-character-obligation|independent-exact-hash-audit",
+  "status": "completed",
+  "method": "paired boundary CSP with fresh subject, verb, object, and adjunct domains; second ordinary verb frame added",
+  "candidate": {
+    "label": "fresh-verb-frame-paired-csp",
+    "rendered": "the steady mason seals the parcel. beside the riverside depot at noon.",
+    "letters": 57,
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_sha256",
+      "letters": 57,
+      "two_pointer_exact": false,
+      "mismatch_count": 26,
+      "first_mismatch": {
+        "left": 0,
+        "right": 56,
+        "a": "t",
+        "b": "n"
+      },
+      "sha256_forward": "8e1185b4a838e27d138126574dbdefb2fede913750dcf1f2988c2e5f79affdcc",
+      "sha256_reverse": "ee41978dd5aa4948edb5cff3d342ba77e7f795506e5cc792a97129e5131012a6",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": false,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "csp": {
+      "fresh_domains": {
+        "subjects": [
+          "the steady mason",
+          "the watchful clerk"
+        ],
+        "frames": [
+          [
+            "seals",
+            "the parcel"
+          ],
+          [
+            "records",
+            "the invoice"
+          ]
+        ],
+        "adjuncts": [
+          "beside the riverside depot at noon",
+          "under the copper awning before rain"
+        ]
+      },
+      "selected": {
+        "subject": "the steady mason",
+        "verb": "seals",
+        "object": "the parcel",
+        "adjunct": "beside the riverside depot at noon"
+      },
+      "objective": "minimize mirrored boundary mismatch count"
+    },
+    "provenance": {
+      "authored_event_preserved": true,
+      "ordinary_svo_order": true,
+      "fresh_lexical_domains": true,
+      "catalogue_text_copied": false,
+      "finished_sentence_reversed": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false
+    }
+  },
+  "stats": {
+    "bounded_assignments": 8,
+    "candidates": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "next_repair": "add a fresh transitive frame with a tense/agreement state and carry the selected boundary obligations forward; no replay",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "7c4c35915d1debe7e27244affe3be4ab9ce1295a5bb74a2da1904aa276f78a24",
+    "generated_not_catalogue": true
+  }
+}

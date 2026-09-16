@@ -1348,6 +1348,20 @@ item-aware analysis plan.
   genuinely different construction state: auxiliary inversion and question
   polarity on the left are joined to an independently ordered quantified
   answer frame on the right, with an odd center letter carried in the exact
+  character equation. The base run checked 420,000 left assignments,
+  7,165,600 center equations, and 52,197,516 right-frame yields; it found no
+  reverse hit, exact closure, or reader row. A concrete target-indexed repair
+  then performed 62,901,860 slot-prefix trials without materializing that
+  product, found one hit, and rejected it as known catalogue text. The artifacts
+  are `runs/interrogative-quantifier-fsm-20260915.json` and
+  `runs/interrogative-quantifier-indexed-repair-20260916.json`; this family is
+  not being widened again. The next route must change dependency topology and
+  author both sides independently.
+
+- **Interrogative–quantifier dependency automaton, 2026-09-16:** preflighted a
+  genuinely different construction state: auxiliary inversion and question
+  polarity on the left are joined to an independently ordered quantified
+  answer frame on the right, with an odd center letter carried in the exact
   character equation. The run checked 420,000 left assignments, 7,165,600
   center equations, and 52,197,516 right-frame yields; it found no reverse
   hit, exact closure, or reader row. The artifact is

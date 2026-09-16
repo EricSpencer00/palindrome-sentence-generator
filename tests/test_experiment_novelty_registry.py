@@ -12,7 +12,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 6
     assert result["entries"] == 90
-    assert result["run_artifacts"] == 54
+    assert result["run_artifacts"] == 55
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -168,6 +168,14 @@ def test_asymmetric_reservoir_route_is_preflighted_and_keeps_reader_gate_closed(
     assert homograph_run["stats"]["mechanically_admitted"] == 0
     assert homograph_run["stats"]["reader_eligible"] == 0
     assert homograph_run["rendered_probes"]
+
+    indexed = json.loads((root / "runs/interrogative-quantifier-indexed-repair-20260916.json").read_text())
+    assert indexed["repair_of"] == "interrogative-quantifier-fsm-20260915"
+    assert indexed["novelty_preflight"]["manual_review_required"] is True
+    assert indexed["stats"]["target_index_hits"] == 1
+    assert indexed["stats"]["known_or_duplicate_reject"] == 1
+    assert indexed["stats"]["mechanically_admitted"] == 0
+    assert indexed["stats"]["reader_eligible"] == 0
 
 
 def test_scene_growth_records_preflight_before_self_registration():

@@ -17,7 +17,7 @@ CORPUS = ROOT / "data/authored_sentences.txt"
 CATALOGUE = ROOT / "data/canon_spelled.json"
 OUT = ROOT / "runs/corpus-neural-frame-realizer-20260916.json"
 EXPERIMENT_ID = "corpus-neural-frame-realizer-20260916"
-SIGNATURE = "corpus-semantic-frame-planning|character-equation-lexical-realization|corpus-bigram-neural-ranking|whole-tape-no-repeat-catalogue-gate"
+SIGNATURE = "corpus-semantic-frame-planning|character-equation-lexical-realization|corpus-bigram-ranking|whole-tape-no-repeat-catalogue-gate"
 
 def norm(s): return "".join(c.lower() for c in s if c.isalpha() and c.isascii())
 def exact(s):
@@ -68,7 +68,7 @@ def run():
             if row["exact_letter_palindrome"]: exact_rows.append(row)
     candidates=sorted(candidates,key=lambda r:r["lm_score"],reverse=True)[:40]
     for r in exact_rows: r["mechanically_admitted"]=r["exact_letter_palindrome"] and not r["catalogue_hit"] and not r["repeated_content_words"] and r["letters"]>=39
-    payload={"experiment_id":EXPERIMENT_ID,"signature":SIGNATURE,"method":"corpus-derived semantic frame planner + character-equation constrained lexical realization + corpus bigram ranking","novelty_preflight":{"registry_entries_before_run":len(prior),"exact_signature_collision":False,"excluded_routes":["clause-bank","reverse-prefix","center-out","beam","MCTS","grammar-intersection"]},"stats":{"frames":len(fs),"attempted_pairs":attempted,"rendered_probes":len(candidates),"exact":len(exact_rows),"admitted":sum(r.get("mechanically_admitted",False) for r in exact_rows),"reader_eligible":0},"rendered_candidates":candidates,"exact_audit":exact_rows,"reader_eligible":[],"readability_note":"No readability claim: no blinded human readers were run.","provenance":{"corpus":str(CORPUS.relative_to(ROOT)),"catalogue":str(CATALOGUE.relative_to(ROOT)),"corpus_sha256":hashlib.sha256(CORPUS.read_bytes()).hexdigest(),"catalogue_gate":"normalized whole-tape membership; no catalogue text imported"}}
+    payload={"experiment_id":EXPERIMENT_ID,"signature":SIGNATURE,"method":"corpus-derived semantic frame planner + character-equation constrained lexical realization + corpus bigram ranking (no neural model)","novelty_preflight":{"registry_entries_before_run":len(prior),"exact_signature_collision":False,"excluded_routes":["clause-bank","reverse-prefix","center-out","beam","MCTS","grammar-intersection"]},"stats":{"frames":len(fs),"attempted_pairs":attempted,"rendered_probes":len(candidates),"exact":len(exact_rows),"admitted":sum(r.get("mechanically_admitted",False) for r in exact_rows),"reader_eligible":0},"rendered_candidates":candidates,"exact_audit":exact_rows,"reader_eligible":[],"readability_note":"No readability claim: no blinded human readers were run.","provenance":{"corpus":str(CORPUS.relative_to(ROOT)),"catalogue":str(CATALOGUE.relative_to(ROOT)),"corpus_sha256":hashlib.sha256(CORPUS.read_bytes()).hexdigest(),"catalogue_gate":"normalized whole-tape membership; no catalogue text imported","neural_model_used":False}}
     OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(payload,indent=2)+"\n"); return payload
 
 if __name__ == "__main__": print(json.dumps(run()["stats"],sort_keys=True))

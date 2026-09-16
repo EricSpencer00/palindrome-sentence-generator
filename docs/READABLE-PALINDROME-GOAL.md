@@ -1436,3 +1436,11 @@ item-aware analysis plan.
   independently grammatical adjuncts in a complete prose frame; all 12
   combinations were near misses and none closed exactly. The repair evidence is
   in `runs/semantic-insertion-repair-20260916.json`.
+
+- **Corpus semantic-frame realizer, 2026-09-16:** preflighted a distinct
+  semantic-frame planner that independently realizes agent/action/artifact
+  slots and orders them with a corpus bigram model after character-equation
+  filtering. It attempted 4,961 disjoint frame pairs from 6,840 frames and
+  retained 40 ordinary probes, with zero exact, admitted, or reader-eligible
+  rows. No neural model or catalogue text was used; the frozen evidence is in
+  `runs/corpus-neural-frame-realizer-20260916.json`.

@@ -11,8 +11,8 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 6
-    assert result["entries"] == 97
-    assert result["run_artifacts"] == 66
+    assert result["entries"] == 98
+    assert result["run_artifacts"] == 67
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -50,7 +50,7 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 97
+    assert result["registered_families_checked"] == 98
     assert result["excluded_routes_checked"] == 6
     assert result["manual_review_required"] is False
     assert result["conceptual_near_pairs"] == []
@@ -102,6 +102,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "morphology-first-dependency-lattice-20260916" in ids
     assert "weighted-cfg-sync-dp-20260916" in ids
     assert "reversible-grammar-insertion-20260916" in ids
+    assert "corpus-neural-frame-realizer-20260916" in ids
     assert "variable-boundary-tape-ilp" in ids
     assert "reverse-complement-eulerian" in ids
     assert "prosodic-foot-surface-realizer" in ids

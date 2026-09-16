@@ -1,9 +1,54 @@
 {
   "entries": [
     {
-      "id": "pivot-paragraph-beam-20260916",
+      "id": "microgrammar-lexical-debt-20260916",
       "manual_review_required": false,
       "nearest_prior": null,
+      "signature_atoms": [
+        "adjunct",
+        "frontier",
+        "growth",
+        "microgrammar",
+        "ordinary",
+        "recursive",
+        "semantic",
+        "substitution",
+        "synchronous",
+        "validator"
+      ]
+    },
+    {
+      "id": "reversible-relation-coherence-preflight-20260916-excluded",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "microgrammar-lexical-debt-20260916",
+        "jaccard": 0.0,
+        "shared_atoms": []
+      },
+      "signature_atoms": [
+        "center",
+        "continuity",
+        "coreference",
+        "debt",
+        "discourse",
+        "dp",
+        "planner",
+        "relations",
+        "reversible",
+        "tense",
+        "topic"
+      ]
+    },
+    {
+      "id": "pivot-paragraph-beam-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "microgrammar-lexical-debt-20260916",
+        "jaccard": 0.043478,
+        "shared_atoms": [
+          "semantic"
+        ]
+      },
       "signature_atoms": [
         "beam",
         "centered",
@@ -25,8 +70,8 @@
       "id": "morphology-semantic-template-csp-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "pivot-paragraph-beam-20260916",
-        "jaccard": 0.038462,
+        "id": "microgrammar-lexical-debt-20260916",
+        "jaccard": 0.045455,
         "shared_atoms": [
           "semantic"
         ]
@@ -178,9 +223,12 @@
       "id": "rhetorical-plan-lattice-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "pivot-paragraph-beam-20260916",
-        "jaccard": 0.0,
-        "shared_atoms": []
+        "id": "reversible-relation-coherence-preflight-20260916-excluded",
+        "jaccard": 0.105263,
+        "shared_atoms": [
+          "continuity",
+          "discourse"
+        ]
       },
       "signature_atoms": [
         "anaphoric",
@@ -251,10 +299,10 @@
       "id": "recursive-grammar-residual-dp-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "seedless-semantic-cfg-bilateral-20260916",
-        "jaccard": 0.111111,
+        "id": "microgrammar-lexical-debt-20260916",
+        "jaccard": 0.142857,
         "shared_atoms": [
-          "clause",
+          "frontier",
           "recursive"
         ]
       },
@@ -744,10 +792,11 @@
       "id": "weighted-cfg-sync-dp-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "bilateral-slot-synchronizer-adjunct-repair-20260916",
-        "jaccard": 0.047619,
+        "id": "microgrammar-lexical-debt-20260916",
+        "jaccard": 0.105263,
         "shared_atoms": [
-          "adjunct"
+          "adjunct",
+          "synchronous"
         ]
       },
       "signature_atoms": [
@@ -1786,12 +1835,13 @@
       "id": "synchronous-semantic-parse-equations",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "paired-obligation-astar-debt-repair-20260916",
-        "jaccard": 0.115385,
+        "id": "microgrammar-lexical-debt-20260916",
+        "jaccard": 0.210526,
         "shared_atoms": [
           "frontier",
-          "role",
-          "semantic"
+          "semantic",
+          "substitution",
+          "synchronous"
         ]
       },
       "signature_atoms": [
@@ -2795,10 +2845,10 @@
       "id": "semantic-scene-seam-growth",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "event-frame-independent-relexicalization",
+        "id": "microgrammar-lexical-debt-20260916",
         "jaccard": 0.105263,
         "shared_atoms": [
-          "event",
+          "growth",
           "semantic"
         ]
       },
@@ -3589,7 +3639,7 @@
     }
   ],
   "exact_signature_collisions": false,
-  "excluded_routes": 7,
+  "excluded_routes": 8,
   "near_pairs": [
     {
       "jaccard": 0.736842,
@@ -3835,7 +3885,7 @@
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 133,
+  "registered_entries": 135,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

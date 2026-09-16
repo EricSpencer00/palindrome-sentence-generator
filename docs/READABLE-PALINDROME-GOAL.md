@@ -1064,3 +1064,14 @@ item-aware analysis plan.
   argument-role constraints carried through the same boundary states); only a
   complete-clause survivor will be eligible for intact/shuffled blinded
   readers.
+
+- **Fixed-tape valency chart repair, 2026-09-15:** carried subject, finite
+  verb, object, and clause-boundary states through the same immutable 116-letter
+  tape.  Both exact mechanical segmentations survived the dictionary gate,
+  but the stricter chart found zero complete-clause parses.  This is a genuine
+  new repair state, not another beam or vocabulary replay; its complete
+  provenance and failure frontier are in
+  `runs/fixed-tape-valency-chart-repair-20260915.json`.  The next construction
+  step is typed argument-role lexicalization at those surviving boundaries,
+  preserving exact letters and the hard anti-shortcut checks before any reader
+  package is built.

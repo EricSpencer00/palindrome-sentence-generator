@@ -11,7 +11,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 6
-    assert result["run_artifacts"] == 24
+    assert result["run_artifacts"] == 25
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -49,7 +49,7 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 65
+    assert result["registered_families_checked"] == 66
     assert result["excluded_routes_checked"] == 6
     assert result["manual_review_required"] is False
     assert result["conceptual_near_pairs"] == []
@@ -109,6 +109,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "proper-name-caption-crossword" in ids
     assert "information-structure-focus-scope" in ids
     assert "anaphoric-scene-chain-composition" in ids
+    assert "multiset-balanced-pair-sampling" in ids
 
 
 def test_latest_artifacts_were_preflighted_before_self_registration():
@@ -220,3 +221,8 @@ def test_latest_constructive_repairs_record_distinct_preflight_and_failure_front
     assert anaphoric["independent_audit"]["primary_exact"] == 0
     assert anaphoric["independent_audit"]["independent_exact"] == 0
     assert anaphoric["independent_audit"]["disagreements"] == []
+    multiset = json.loads((root / "runs/multiset-balanced-pair-sampling-20260915.json").read_text())
+    assert multiset["novelty_preflight"]["registry_entries"] == 65
+    assert multiset["parity_survivors"] == 0
+    assert multiset["independent_audit"]["primary_exact"] == 0
+    assert multiset["independent_audit"]["independent_exact"] == 0

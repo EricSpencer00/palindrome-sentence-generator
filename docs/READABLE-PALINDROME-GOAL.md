@@ -119,6 +119,14 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   “multiset-balanced” stochastic sampler was rejected from the ledger because
   its implementation never enforced the advertised balance state.
 
+- **Corrected multiset-balanced pair sampling (2026-09-15).** The corrected
+  route genuinely tracked the 26-letter parity vector while sampling two
+  independently authored, content-disjoint complete clauses. Across 50,000
+  pairs it found zero parity survivors, so it produced zero exact closures; the
+  strongest readable controls remain diagnostic only. The next operator is a
+  parity-indexed clause lattice that chooses lexical continuations from the
+  count-vector frontier instead of random sampling.
+
 ## Scalable-construction requirement (2026-09-15)
 
 The active construction objective now has two explicit layers: (1) a

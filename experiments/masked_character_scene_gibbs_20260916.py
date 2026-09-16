@@ -15,7 +15,7 @@ sys.path.insert(0, str(Path(__file__).parents[1]))
 from llm_palindrome.admission import mechanical_admission_checks, normalize_letters
 
 ROOT = Path(__file__).parents[1]
-SIGNATURE = "masked-character-scene-gibbs|pairwise-mirror-resampling|semantic-slot-alphabet|whole-tape-local-score|two-pointer-hash-audit"
+SIGNATURE = "heldout-scene-alternative-gibbs|character-pair-mask-resampling|semantic-slot-substitution|complete-tape-ranking|independent-pointer-hash-audit"
 
 SCENES = [
     {"id": "garden", "text": "The patient gardener waters young roses beside a stone wall.",

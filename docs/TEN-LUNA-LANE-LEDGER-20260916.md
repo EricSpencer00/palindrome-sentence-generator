@@ -116,3 +116,10 @@ All three have rendered ordinary prose, independent exact/hash audits,
 provenance, novelty preflight, and concrete repairs; all have zero exact
 closures. The aggregate is now 4328 normalized rows across 108 route phases,
 with 0 mechanically admitted candidates.
+
+The bounded continuation repairs then retained six reverse-lexicon inflection
+variants at 65--69 letters, one center-out adjunct repair at 75 letters, and
+one authored clause-template SAT repair at 106 letters. All preserve complete
+prose, provenance, independent exact/hash checks, and a concrete next repair;
+none is exact or reader-eligible. The aggregate is now 4336 normalized rows
+across 111 route phases, with 0 mechanically admitted candidates.

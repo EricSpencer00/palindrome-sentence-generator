@@ -162,3 +162,14 @@ The common audit now contains 4328 normalized rows across 108 route phases,
 with 73 exact-but-rejected tapes and 0 mechanically admitted rows. These
 lanes produced readable diagnostics but no exact closure, so the blinded
 intact-versus-shuffled reader package remains gated.
+
+Their bounded repairs are retained separately:
+
+| repair route | rendered prose | letters | exact / admission | concrete next repair |
+|---|---|---:|---|---|
+| reverse-lexicon inflection repair | “The patient courier delivered the sealed letter for the waiting child before dusk.” | 69 | two-pointer `False`; SHA-256 `False`; admission `False` | jointly solve determiner/adjective boundary seams rather than varying only the verb |
+| center-out grammar boundary repair | “The careful porter delivers the sealed parcel. Near the lamplit school for a waiting child.” | 75 | two-pointer `False`; SHA-256 `False`; admission `False` | author one semantically compatible adjunct targeting the boundary mismatch |
+| authored clause-template SAT repair | “the observant usher guides a young visitor toward the quiet gallery before noon. The quiet guide checks the gallery before noon.” | 106 | two-pointer `False`; SHA-256 `False`; admission `False` | add one fresh usher–guide–visitor frame whose adjunct targets the unmatched outer character |
+
+The aggregate after these repairs is 4336 normalized rows across 111 route
+phases, with 73 exact-but-rejected tapes and 0 mechanically admitted rows.

@@ -1917,3 +1917,10 @@ item-aware analysis plan.
   novelty preflight, and a concrete repair, but no exact closure. The
   aggregate now contains 4328 normalized rows across 108 route phases, with 0
   mechanically admitted candidates; reader testing remains gated.
+
+  The bounded repairs for those closure attempts then retained six
+  reverse-lexicon inflection variants at 65--69 letters, one center-out
+  adjunct repair at 75 letters, and one fresh clause-template SAT frame at
+  106 letters. All remain intact, independently audited, and unadmitted. The
+  aggregate now contains 4336 normalized rows across 111 route phases, with 0
+  mechanically admitted candidates.

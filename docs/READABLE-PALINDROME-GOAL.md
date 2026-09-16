@@ -1836,3 +1836,17 @@ item-aware analysis plan.
   exact-but-rejected tapes and 0 mechanically admitted candidates. These
   follow-ups provide new repair frontiers, not a readable palindrome; the
   blinded reader study, paper promotion, and API release remain gated.
+
+  A further wave tested a bidirectional encoder pseudo-likelihood state and a
+  residual min-cost-flow state. The encoder enumerated three complete
+  50--52-letter semantic scenes, but the cached checkpoint was TF-only under
+  the installed runtime, so it failed closed without claiming model evidence.
+  The flow solver produced two complete 76--77-letter clause compositions,
+  both non-exact under independent tape/hash audits, with held-out lexical
+  repair recorded. A recursive stack-machine exact closure was explicitly
+  rejected because its surface was a semordnilap word chain rather than prose.
+
+  The current aggregate is 3732 rendered rows across 85 route phases, with 73
+  exact-but-rejected tapes and 0 mechanically admitted candidates. The next
+  repair must improve a recorded semantic frontier; no reader study, paper
+  promotion, or API release is justified yet.

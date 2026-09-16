@@ -53,3 +53,31 @@ explicit preflight exclusion because it duplicates existing phrase-FST state.
 
 After these repairs the aggregate is 3727 rendered rows across 83 route phases,
 73 exact-but-rejected tapes, and 0 mechanically admitted rows.
+
+## Additional constructive wave
+
+The min-cost-flow lane retained this complete 76-letter pair:
+
+> the pilot charts harbor. the keeper opens gate. the farmer tends garden. the writer marks page.
+
+Its residual flow matched only 27 character obligations; the independent tape
+and hash audits both reported non-exact, and its held-out 77-letter lexical
+repair also failed. Provenance records independent typed clause supplies with
+no catalogue or repeated units.
+
+The encoder lane retained three complete probes, including:
+
+> After rain, the station porter carries a wet parcel to the bench.
+
+This is 52 letters and fails direct tape, two-pointer, and reverse-hash checks.
+The bidirectional checkpoint was unavailable as PyTorch weights in the local
+cache, so the run explicitly used a fail-closed inspection fallback; no model
+evidence is claimed.
+
+The recursive stack route produced an exact 62-letter semordnilap chain, but
+the shared mechanical gate rejects it for word-order symmetry and a proper
+multiword palindrome span. It is preserved as rejected failure evidence, not
+as prose or a candidate.
+
+The current aggregate is 3732 rendered rows across 85 route phases, with 73
+exact-but-rejected tapes and 0 mechanically admitted rows.

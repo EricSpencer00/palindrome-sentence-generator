@@ -38,5 +38,19 @@ alternatives rather than repeating the input (`a3c4e26`, `49ef011`). They add
 outputs. The phrase-lattice automata proposal is explicitly preflight-excluded
 because it duplicates retained phrase-FST families.
 
-The refreshed aggregate is 3727 rendered rows across 83 route phases, with 73
+The refreshed aggregate after these repairs was 3727 rendered rows across 83
+route phases, with 73 exact-but-rejected tapes and 0 mechanically admitted
+rows.
+
+## Additional constructive wave
+
+Three more disjoint states were tested. The bidirectional encoder lane
+enumerated complete semantic alternatives but correctly fell back when the
+cached checkpoint exposed TF-only weights; the min-cost-flow lane retained two
+76--77-letter complete clause pairs with residual debt; and the recursive
+stack-machine lane was rejected because its exact surface is a semordnilap
+word chain, not intact prose. Only the first two are retained as runnable
+families; the stack route is an explicit exclusion with a grammar pivot.
+
+The current aggregate is 3732 rendered rows across 85 route phases, with 73
 exact-but-rejected tapes and 0 mechanically admitted rows.

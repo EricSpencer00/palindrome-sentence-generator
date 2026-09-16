@@ -28,7 +28,7 @@ SCENES = [
 
 def novelty_preflight():
     rows=json.loads((ROOT/"docs/experiment-novelty-registry.json").read_text()).get("entries",[])
-    exact=any(r.get("signature")==SIGNATURE or r.get("id")==EXPERIMENT_ID for r in rows)
+    exact=any(r.get("id") != EXPERIMENT_ID and r.get("signature") == SIGNATURE for r in rows)
     return {"registry_path":"docs/experiment-novelty-registry.json","entries_inspected":len(rows),"exact_signature_collision":exact,"passed":not exact,"nearest_prior":"masked-character-scene-gibbs-20260916","pivot_reason":"encoder token pseudo-likelihood and complete semantic assignment differ from character-pair Gibbs"}
 
 class EncoderPseudoLikelihood:

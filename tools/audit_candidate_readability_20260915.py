@@ -74,7 +74,7 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
             if isinstance(values, list):
                 for row in values:
                     if isinstance(row, dict):
-                        text = row.get("rendered") or row.get("text")
+                        text = row.get("rendered") or row.get("text") or row.get("best_prose")
                         if not text and isinstance(row.get("audit"), dict):
                             text = row["audit"].get("rendered")
                         if not text and isinstance(row.get("left"), str) and isinstance(row.get("right"), str):

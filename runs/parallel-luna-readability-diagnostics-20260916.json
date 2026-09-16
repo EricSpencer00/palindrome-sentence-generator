@@ -81,9 +81,11 @@
     "runs/scalable-compositional-clause-grammar-20260916.json",
     "runs/exact-tape-semantic-slot-repair-20260916.json",
     "runs/assumption-core-scene-solver-20260916.json",
-    "runs/masked-character-scene-gibbs-20260916.json"
+    "runs/masked-character-scene-gibbs-20260916.json",
+    "runs/min-cost-flow-clause-realizer-20260916.json",
+    "runs/encoder-semantic-scene-pseudolikelihood-20260916.json"
   ],
-  "candidate_count": 3727,
+  "candidate_count": 3732,
   "exact_count": 73,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -296,6 +298,16 @@
       "max_letters": 64,
       "mean_zipf_frequency": 5.5806547619047615,
       "mean_brown_order_gain_vs_shuffle": 0.4489056491900076
+    },
+    {
+      "source_run": "runs/encoder-semantic-scene-pseudolikelihood-20260916.json",
+      "rows": 3,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 50,
+      "max_letters": 52,
+      "mean_zipf_frequency": 5.3100555555555555,
+      "mean_brown_order_gain_vs_shuffle": 1.478498358793458
     },
     {
       "source_run": "runs/equal-length-clause-collision-20260916.json",
@@ -546,6 +558,16 @@
       "max_letters": 152,
       "mean_zipf_frequency": 5.693398148148148,
       "mean_brown_order_gain_vs_shuffle": 0.8233839832475272
+    },
+    {
+      "source_run": "runs/min-cost-flow-clause-realizer-20260916.json",
+      "rows": 2,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 76,
+      "max_letters": 77,
+      "mean_zipf_frequency": 5.145,
+      "mean_brown_order_gain_vs_shuffle": 0.5953309573403631
     },
     {
       "source_run": "runs/minimal-edit-fresh-center-20260916.json",
@@ -175947,6 +175969,229 @@
       "diagnostics_not_readability": {
         "brown_order_gain_vs_shuffle": 1.7803417657948106,
         "mean_zipf_frequency": 5.211,
+        "word_count": 10,
+        "repeated_word_rate": 0.0,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the pilot charts harbor. the keeper opens gate. the farmer tends garden. the writer marks page.",
+      "source_run": "runs/min-cost-flow-clause-realizer-20260916.json",
+      "provenance": "independent typed clause supplies -> all-different feature flow -> residual bipartite min-cost character matching; no reverse-tape replay, CFG/Earley/FST/dependency lanes, catalogue, repeated unit, or mirrored word order",
+      "repair": null,
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8885621355853814,
+        "mean_zipf_frequency": 5.250624999999999,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the pilot charts harbor. the keeper opens gate. the sailor charts inlet. the mason opens portal.",
+      "source_run": "runs/min-cost-flow-clause-realizer-20260916.json",
+      "provenance": "independent typed clause supplies -> all-different feature flow -> residual bipartite min-cost character matching; no reverse-tape replay, CFG/Earley/FST/dependency lanes, catalogue, repeated unit, or mirrored word order",
+      "repair": null,
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.3020997790953448,
+        "mean_zipf_frequency": 5.039375,
+        "word_count": 16,
+        "repeated_word_rate": 0.3125,
+        "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardener waters young roses beside a stone wall.",
+      "source_run": "runs/encoder-semantic-scene-pseudolikelihood-20260916.json",
+      "provenance": "fresh hand-authored semantic alternatives; no catalogue/corpus text",
+      "repair": {
+        "accepted": false,
+        "strategy": "replace-semantic-slot-and-rebuild-complete-assignment",
+        "first_mismatch": [
+          0,
+          "t",
+          "l"
+        ],
+        "reason": "one-sided character edit would violate the selected scene meaning"
+      },
+      "letters": 50,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.7682596795134131,
+        "mean_zipf_frequency": 5.127,
+        "word_count": 10,
+        "repeated_word_rate": 0.0,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the station porter carries a wet parcel to the bench.",
+      "source_run": "runs/encoder-semantic-scene-pseudolikelihood-20260916.json",
+      "provenance": "fresh hand-authored semantic alternatives; no catalogue/corpus text",
+      "repair": {
+        "accepted": false,
+        "strategy": "replace-semantic-slot-and-rebuild-complete-assignment",
+        "first_mismatch": [
+          0,
+          "a",
+          "h"
+        ],
+        "reason": "one-sided character edit would violate the selected scene meaning"
+      },
+      "letters": 52,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9956114905487858,
+        "mean_zipf_frequency": 5.574166666666667,
+        "word_count": 12,
+        "repeated_word_rate": 0.08333333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A patient archivist labels old maps before the evening bell.",
+      "source_run": "runs/encoder-semantic-scene-pseudolikelihood-20260916.json",
+      "provenance": "fresh hand-authored semantic alternatives; no catalogue/corpus text",
+      "repair": {
+        "accepted": false,
+        "strategy": "replace-semantic-slot-and-rebuild-complete-assignment",
+        "first_mismatch": [
+          0,
+          "a",
+          "l"
+        ],
+        "reason": "one-sided character edit would violate the selected scene meaning"
+      },
+      "letters": 50,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.6716239063181746,
+        "mean_zipf_frequency": 5.229000000000001,
         "word_count": 10,
         "repeated_word_rate": 0.0,
         "punctuation_segments": 1

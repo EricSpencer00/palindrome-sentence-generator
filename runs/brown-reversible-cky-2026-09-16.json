@@ -1,0 +1,54 @@
+{
+  "method": "brown_frequency_reversible_cky_beam_v1",
+  "chart": [
+    {
+      "left": "stressed",
+      "right": "desserts",
+      "pos": "ADJ/NOUN",
+      "freq": 12
+    },
+    {
+      "left": "drawer",
+      "right": "reward",
+      "pos": "NOUN/VERB",
+      "freq": 9
+    },
+    {
+      "left": "diaper",
+      "right": "repaid",
+      "pos": "NOUN/VERB",
+      "freq": 7
+    },
+    {
+      "left": "deliver",
+      "right": "reviled",
+      "pos": "VERB/ADJ",
+      "freq": 5
+    }
+  ],
+  "beam_width": 8,
+  "candidates": [
+    {
+      "text": "The baker served stressed desserts at dusk. A careful pilot delivered bread before dawn. Quiet readers repaired a drawer beside the fire.",
+      "letters": 113,
+      "audit": {
+        "exact": false,
+        "forward_hash": "f44448b8cf814d75e999b6c6eb323bfecee0ea0789a5e43973fd4192b2b29847",
+        "reverse_hash": "8dd7f07d804c2a8ab6b760d38c39cf693c9657a57c3f3b2815a4e57a778186a8"
+      },
+      "admitted": false
+    }
+  ],
+  "provenance": {
+    "brown": "frequency field retained for ranking; chart is manually POS-typed",
+    "parser": "typed CKY-style subject/verb/object/adjunct clause beam",
+    "constraints": "both halves must parse; distinct content words; no catalogue or word-order mirror"
+  },
+  "novelty_preflight": {
+    "digests": [
+      "f44448b8cf814d75e999b6c6eb323bfecee0ea0789a5e43973fd4192b2b29847"
+    ],
+    "action": "compare against previous run artifacts"
+  },
+  "next_repair": "Load Brown corpus POS tags and add boundary-shift function words to CKY states; reject any derivation lacking two complete parses."
+}

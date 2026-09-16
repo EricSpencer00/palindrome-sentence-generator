@@ -49,7 +49,23 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
             or payload.get("experiment_id")
             or payload.get("signature")
         )
-        for key in ("rendered_probes", "rendered_candidates_and_probes", "rows", "candidates", "probes", "repair", "rejected", "closed_leads", "mechanically_admitted_leads", "admitted"):
+        for key in (
+            "rendered_probes",
+            "rendered_candidates_and_probes",
+            "rendered_candidates",
+            "repair_candidates",
+            "instantiated_outputs",
+            "repair_outputs",
+            "exact_outputs",
+            "rows",
+            "candidates",
+            "probes",
+            "repair",
+            "rejected",
+            "closed_leads",
+            "mechanically_admitted_leads",
+            "admitted",
+        ):
             values = payload.get(key)
             if isinstance(values, list):
                 for row in values:

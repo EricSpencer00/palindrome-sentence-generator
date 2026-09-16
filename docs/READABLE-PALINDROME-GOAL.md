@@ -1750,3 +1750,15 @@ item-aware analysis plan.
   and 0 mechanically admitted rows. These are diagnostic records only; the
   reader gate and API remain closed while the next constructive lanes seek a
   genuinely readable long palindrome.
+
+  A subsequent three-Luna pass added an intact-prose lexical/inflectional
+  repair operator (311 complete renderings, 62--81 letters), a semantic
+  front/back interleaving route (15 complete one-sentence surfaces, 44--48
+  letters), and a length-indexed regular seam grammar (11,997 generated
+  surfaces, five retained 95--115-letter outputs). Every row has independent
+  exact/hash evidence and provenance; none is exact or mechanically admitted.
+  The aggregate is now 2555 rendered rows across 67 route phases, still with
+  zero audit mismatches, 72 exact-but-rejected tapes, and 0 mechanically
+  admitted rows. The longer outputs are useful construction diagnostics, not
+  reader evidence; the blinded study and API remain gated until an exact,
+  mechanically clean candidate exists.

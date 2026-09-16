@@ -52,7 +52,7 @@ than a larger duplicate sweep.
 The closing queue pass added three non-overlapping Luna states: constrained
 meaning-preserving edits, append-preserving clause algebra, and discourse
 relation involution. Their 20 rendered prose rows are included in the latest
-aggregate (4,696 rows / 191 route phases), with independent audits and named
+aggregate (4,711 rows / 194 route phases), with independent audits and named
 repairs; none is exact or reader-eligible.
 
 A second repair pass added typed semantic center-out construction, lexical
@@ -61,6 +61,12 @@ reviewers required that malformed outputs be removed from the prose claim; the
 slot lane was repaired from determiner duplication to nine complete 45--62-
 letter scenes. The three lanes remain non-exact, independently audited, and
 reader-ineligible.
+
+A subsequent constructive pass added a paired semantic CFG, a joint
+semantic/inflection boundary DP, and an online clause-order scene lattice.
+They contribute 108-, 109-, and 151-letter intact prose states with
+independent audits, provenance, novelty checks, and concrete repairs; none is
+exact or reader-eligible.
 
 The follow-up queue added two more non-overlapping Luna states: a typed
 character-semantic beam (12 complete 109--115-letter scenes) and a fresh

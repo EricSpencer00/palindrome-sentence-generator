@@ -62,13 +62,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 4696
+    assert report["candidate_count"] == 4711
     assert report["exact_count"] == 79
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 191
+    assert len(report["route_summary"]) == 194
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/hand-authored-clause-breakthrough-2026-09-16.json"]["rows"] == 1
@@ -112,6 +112,9 @@ def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     assert by_source["runs/seed-joint-slot-resegment-20260916.json"]["rows"] == 9
     assert by_source["runs/char-lm-semantic-beam-20260916.json"]["rows"] == 12
     assert by_source["runs/cfg-earley-character-intersection-fresh-20260916.json"]["rows"] == 2
+    assert by_source["runs/paired-grammar-terminal-closure-20260916.json"]["rows"] == 6
+    assert by_source["runs/word-boundary-semantic-inflection-dp-20260916.json"]["rows"] == 3
+    assert by_source["runs/online-clause-order-slot-lattice-20260916.json"]["rows"] == 6
 
 
 def test_latest_followup_lanes_are_retained_without_promoting_unreadable_text():

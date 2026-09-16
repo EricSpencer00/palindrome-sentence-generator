@@ -457,10 +457,10 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,696 rows
-across 191 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **292 retained artifacts, 31
-explicit exclusions, and 270 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,711 rows
+across 194 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **295 retained artifacts, 31
+explicit exclusions, and 273 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
 
@@ -508,6 +508,21 @@ the lamps before opening the gate.” (137 letters; first mismatch 0; SHA
 prefixes `a24dca02...` and `8b577593...`). Both are complete prose with independent
 pointer/SHA checks, provenance, novelty preflight, and typed next repairs;
 neither is exact or reader-eligible.
+
+Three additional Luna constructions are retained as fresh states. A paired
+semantic CFG emits “A patient gardener waters the young cedar trees after the
+rain; the careful pilot maps the distant landing lights through the mist.”
+(108 letters; first mismatch 0; SHA prefixes `48d4b48c...` and
+`61adb2f6...`). A joint semantic/inflection word-boundary DP emits “The
+curator records the eastern seedlings before the evening archive closes. A
+young pilot carries fresh charts to the lighthouse.” (109 letters; first
+mismatch 0; SHA prefixes `1891fdf8...` and `025253bc...`). An online clause-order
+scene lattice emits “At dawn, the archivist opened the cedar cabinet. The patient
+apprentice copied each date into a clean ledger. The curator sorted four
+journals for the river school. Evening bells faded.” (151 letters; first
+mismatch 0; SHA prefixes `a8ac451b...` and `66d84b33...`). All have independent
+pointer/SHA validation, fresh provenance, novelty preflight, and concrete
+repairs; none is exact or reader-eligible.
 
 ## Three orthogonal Luna continuations (2026-09-16)
 

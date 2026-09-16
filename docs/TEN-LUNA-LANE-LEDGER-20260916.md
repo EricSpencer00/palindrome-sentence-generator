@@ -357,7 +357,7 @@ states at 55, 114, 168, and 223 letters. Both continuations have fresh
 provenance and novelty fingerprints, and neither produced an exact closure;
 they are retained as construction evidence rather than duplicate sweeps.
 
-The authoritative aggregate is therefore **4,696 rows across 191 route
+The authoritative aggregate is therefore **4,711 rows across 194 route
 phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**. The
 next reader-facing test remains the randomized blinded intact-versus-shuffled
 packet, gated on a genuinely exact, anti-shortcut-clean candidate.
@@ -368,8 +368,8 @@ function/inflection editor (five 96--104-letter scenes). Both are registered
 as distinct retained families with independent audits and concrete repairs.
 An entailment-preserving active/passive rewrite is explicitly excluded after
 novelty preflight found overlap with existing voice/information-structure
-families. The registry now contains 292 retained artifacts, 31 exclusions,
-and 270 retained run artifacts.
+families. The registry now contains 295 retained artifacts, 31 exclusions,
+and 273 retained run artifacts.
 
 Representative renderings are preserved verbatim: “The baker repairs the
 gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA
@@ -404,3 +404,10 @@ current while the baker warms bread for the waiting crew, and the harbor keeper
 checks the lamps before opening the gate.''). Their independent first-mismatch
 and SHA audits reject both; each records provenance, novelty preflight, and a
 typed next repair.
+
+Three further retained constructions add a 108-letter paired semantic CFG
+scene, a 109-letter joint semantic/inflection boundary-DP scene, and a
+151-letter online clause-order archive scene. Their representative renderings,
+independent first-mismatch/SHA digests, provenance, novelty checks, and next
+repairs are preserved in the corresponding run artifacts; none is exact or
+reader-eligible.

@@ -186,9 +186,12 @@
     "runs/centerout-typed-semantic-debt-20260916.json",
     "runs/seed-joint-slot-resegment-20260916.json",
     "runs/char-lm-semantic-beam-20260916.json",
-    "runs/cfg-earley-character-intersection-fresh-20260916.json"
+    "runs/cfg-earley-character-intersection-fresh-20260916.json",
+    "runs/paired-grammar-terminal-closure-20260916.json",
+    "runs/word-boundary-semantic-inflection-dp-20260916.json",
+    "runs/online-clause-order-slot-lattice-20260916.json"
   ],
-  "candidate_count": 4696,
+  "candidate_count": 4711,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -1363,6 +1366,16 @@
       "mean_brown_order_gain_vs_shuffle": 1.2583020794968724
     },
     {
+      "source_run": "runs/online-clause-order-slot-lattice-20260916.json",
+      "rows": 6,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 151,
+      "max_letters": 151,
+      "mean_zipf_frequency": 5.256333333333334,
+      "mean_brown_order_gain_vs_shuffle": 0.5739407573622604
+    },
+    {
       "source_run": "runs/online-grammar-state-char-decoder-20260916.json",
       "rows": 3,
       "exact_count": 0,
@@ -1401,6 +1414,16 @@
       "max_letters": 124,
       "mean_zipf_frequency": 5.038736937039568,
       "mean_brown_order_gain_vs_shuffle": 0.6588587277465242
+    },
+    {
+      "source_run": "runs/paired-grammar-terminal-closure-20260916.json",
+      "rows": 6,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 100,
+      "max_letters": 108,
+      "mean_zipf_frequency": 5.404114832535885,
+      "mean_brown_order_gain_vs_shuffle": 0.7300382316141825
     },
     {
       "source_run": "runs/paired-lexical-grammar-20260916.json",
@@ -2081,6 +2104,16 @@
       "max_letters": 62,
       "mean_zipf_frequency": 5.387251683501684,
       "mean_brown_order_gain_vs_shuffle": 0.5423227696188503
+    },
+    {
+      "source_run": "runs/word-boundary-semantic-inflection-dp-20260916.json",
+      "rows": 3,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 109,
+      "max_letters": 111,
+      "mean_zipf_frequency": 5.355206349206348,
+      "mean_brown_order_gain_vs_shuffle": 0.7636092192181275
     },
     {
       "source_run": "runs/wordpair-graph-2026-09-16.json",
@@ -225653,6 +225686,705 @@
         "word_count": 29,
         "repeated_word_rate": 0.2068965517241379,
         "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A patient gardener waters the young cedar trees after the rain; the careful pilot maps the distant landing lights through the mist.",
+      "source_run": "runs/paired-grammar-terminal-closure-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "4efa1267e6768664e82dbf2dd259b147175e6f7bdeb6473e4452c05f575e4581",
+        "source_sha256": "48d4b48c3fc0bd2cdd9a72ff5ac2b2af12fa1f002c5657b030766e7e187b0dc1"
+      },
+      "repair": null,
+      "letters": 108,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6758521222887897,
+        "mean_zipf_frequency": 5.441818181818182,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful pilot maps the distant landing lights through the mist; a patient gardener waters the young cedar trees after the rain.",
+      "source_run": "runs/paired-grammar-terminal-closure-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "4efa1267e6768664e82dbf2dd259b147175e6f7bdeb6473e4452c05f575e4581",
+        "source_sha256": "91948602057a6113a69e00b0ad7f0d26ad7359986d2bd4168b9892362862f04d"
+      },
+      "repair": null,
+      "letters": 108,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8944401613421906,
+        "mean_zipf_frequency": 5.441818181818181,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist records the winter letters before sunrise; the careful pilot maps the distant landing lights through the mist.",
+      "source_run": "runs/paired-grammar-terminal-closure-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "4efa1267e6768664e82dbf2dd259b147175e6f7bdeb6473e4452c05f575e4581",
+        "source_sha256": "5490f5f40a369a5cc11b1d46bffdb957486a019258e2d5af3aec3834e21725f4"
+      },
+      "repair": null,
+      "letters": 104,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6977878142565093,
+        "mean_zipf_frequency": 5.365789473684212,
+        "word_count": 19,
+        "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful pilot maps the distant landing lights through the mist; the archivist records the winter letters before sunrise.",
+      "source_run": "runs/paired-grammar-terminal-closure-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "4efa1267e6768664e82dbf2dd259b147175e6f7bdeb6473e4452c05f575e4581",
+        "source_sha256": "5a996dc6f0de7c5cdfb40947b6bf7673311f584270defe594500f32ca62ee812"
+      },
+      "repair": null,
+      "letters": 104,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5394758285416312,
+        "mean_zipf_frequency": 5.3657894736842096,
+        "word_count": 19,
+        "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist records the winter letters before sunrise; a patient gardener waters the young cedar trees after the rain.",
+      "source_run": "runs/paired-grammar-terminal-closure-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "4efa1267e6768664e82dbf2dd259b147175e6f7bdeb6473e4452c05f575e4581",
+        "source_sha256": "7e1074da665a036dabb7730c3142c9f28d6c66edd7fcd92c956bb46d79e74f81"
+      },
+      "repair": null,
+      "letters": 100,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8527638052828248,
+        "mean_zipf_frequency": 5.404736842105263,
+        "word_count": 19,
+        "repeated_word_rate": 0.1578947368421053,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A patient gardener waters the young cedar trees after the rain; the archivist records the winter letters before sunrise.",
+      "source_run": "runs/paired-grammar-terminal-closure-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "4efa1267e6768664e82dbf2dd259b147175e6f7bdeb6473e4452c05f575e4581",
+        "source_sha256": "2fda21c6e8e99af9983503fc59074acba2b56dfc5b99a313e295c3d0529d3d16"
+      },
+      "repair": null,
+      "letters": 100,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7199096579731492,
+        "mean_zipf_frequency": 5.404736842105263,
+        "word_count": 19,
+        "repeated_word_rate": 0.1578947368421053,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The curator records the eastern seedlings before the evening archive closes. A young pilot carries fresh charts to the lighthouse.",
+      "source_run": "runs/word-boundary-semantic-inflection-dp-20260916.json",
+      "provenance": "beam dynamic program jointly selecting semantic SVO slots and agreement-carrying inflections while tracking cross-word mirrored boundary debt",
+      "repair": null,
+      "letters": 109,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8113733891420303,
+        "mean_zipf_frequency": 5.3755,
+        "word_count": 20,
+        "repeated_word_rate": 0.15000000000000002,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The gardener records the eastern seedlings before the evening archive closes. A young pilot carries fresh charts to the lighthouse.",
+      "source_run": "runs/word-boundary-semantic-inflection-dp-20260916.json",
+      "provenance": "beam dynamic program jointly selecting semantic SVO slots and agreement-carrying inflections while tracking cross-word mirrored boundary debt",
+      "repair": null,
+      "letters": 110,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9184222852491004,
+        "mean_zipf_frequency": 5.3725,
+        "word_count": 20,
+        "repeated_word_rate": 0.15000000000000002,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The curator records the weathered harbor map before the evening archive closes. A young pilot carries fresh charts to the lighthouse.",
+      "source_run": "runs/word-boundary-semantic-inflection-dp-20260916.json",
+      "provenance": "beam dynamic program jointly selecting semantic SVO slots and agreement-carrying inflections while tracking cross-word mirrored boundary debt",
+      "repair": null,
+      "letters": 111,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.561031983263252,
+        "mean_zipf_frequency": 5.317619047619047,
+        "word_count": 21,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, the archivist opened the cedar cabinet. The curator sorted four journals for the river school. The patient apprentice copied each date into a clean ledger. Evening bells faded.",
+      "source_run": "runs/online-clause-order-slot-lattice-20260916.json",
+      "provenance": {
+        "fresh_authored_scene": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "known_palindrome_wrapped": false,
+        "generator_sha256": "6dec868098da3152dfb5ac4db473dffa7907c37414f46493dd12800b89a62769"
+      },
+      "repair": null,
+      "letters": 151,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5441110343207072,
+        "mean_zipf_frequency": 5.256333333333335,
+        "word_count": 30,
+        "repeated_word_rate": 0.1333333333333333,
+        "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, the archivist opened the cedar cabinet. The curator sorted four journals for the river school. Evening bells faded. The patient apprentice copied each date into a clean ledger.",
+      "source_run": "runs/online-clause-order-slot-lattice-20260916.json",
+      "provenance": {
+        "fresh_authored_scene": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "known_palindrome_wrapped": false,
+        "generator_sha256": "6dec868098da3152dfb5ac4db473dffa7907c37414f46493dd12800b89a62769"
+      },
+      "repair": null,
+      "letters": 151,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.42060747145987776,
+        "mean_zipf_frequency": 5.256333333333335,
+        "word_count": 30,
+        "repeated_word_rate": 0.1333333333333333,
+        "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, the archivist opened the cedar cabinet. The patient apprentice copied each date into a clean ledger. The curator sorted four journals for the river school. Evening bells faded.",
+      "source_run": "runs/online-clause-order-slot-lattice-20260916.json",
+      "provenance": {
+        "fresh_authored_scene": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "known_palindrome_wrapped": false,
+        "generator_sha256": "6dec868098da3152dfb5ac4db473dffa7907c37414f46493dd12800b89a62769"
+      },
+      "repair": null,
+      "letters": 151,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5169988138166755,
+        "mean_zipf_frequency": 5.256333333333334,
+        "word_count": 30,
+        "repeated_word_rate": 0.1333333333333333,
+        "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, the archivist opened the cedar cabinet. The patient apprentice copied each date into a clean ledger. Evening bells faded. The curator sorted four journals for the river school.",
+      "source_run": "runs/online-clause-order-slot-lattice-20260916.json",
+      "provenance": {
+        "fresh_authored_scene": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "known_palindrome_wrapped": false,
+        "generator_sha256": "6dec868098da3152dfb5ac4db473dffa7907c37414f46493dd12800b89a62769"
+      },
+      "repair": null,
+      "letters": 151,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5832101698137215,
+        "mean_zipf_frequency": 5.256333333333332,
+        "word_count": 30,
+        "repeated_word_rate": 0.1333333333333333,
+        "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, the archivist opened the cedar cabinet. Evening bells faded. The curator sorted four journals for the river school. The patient apprentice copied each date into a clean ledger.",
+      "source_run": "runs/online-clause-order-slot-lattice-20260916.json",
+      "provenance": {
+        "fresh_authored_scene": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "known_palindrome_wrapped": false,
+        "generator_sha256": "6dec868098da3152dfb5ac4db473dffa7907c37414f46493dd12800b89a62769"
+      },
+      "repair": null,
+      "letters": 151,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6378833386076241,
+        "mean_zipf_frequency": 5.256333333333335,
+        "word_count": 30,
+        "repeated_word_rate": 0.1333333333333333,
+        "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, the archivist opened the cedar cabinet. Evening bells faded. The patient apprentice copied each date into a clean ledger. The curator sorted four journals for the river school.",
+      "source_run": "runs/online-clause-order-slot-lattice-20260916.json",
+      "provenance": {
+        "fresh_authored_scene": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "known_palindrome_wrapped": false,
+        "generator_sha256": "6dec868098da3152dfb5ac4db473dffa7907c37414f46493dd12800b89a62769"
+      },
+      "repair": null,
+      "letters": 151,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7408337161549561,
+        "mean_zipf_frequency": 5.256333333333332,
+        "word_count": 30,
+        "repeated_word_rate": 0.1333333333333333,
+        "punctuation_segments": 4
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

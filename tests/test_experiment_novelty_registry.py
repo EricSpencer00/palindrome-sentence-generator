@@ -198,6 +198,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "context-template-crossword-repair" in ids
     assert "syntactic-mirror-template-repair" in ids
     assert "semantic-selectional-prefix-automaton" in ids
+    assert "paired-grammar-terminal-closure-20260916" in ids
+    assert "word-boundary-semantic-inflection-dp-20260916" in ids
+    assert "online-clause-order-slot-lattice-20260916" in ids
     assert "model-authored-clause-bank-index" in ids
     assert "semantic-scene-seam-growth" in ids
     assert "live-seam-intent-continuation" in ids

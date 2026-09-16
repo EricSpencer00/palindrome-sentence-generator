@@ -2,6 +2,14 @@
   "version": 1,
   "entries": [
     {
+      "id": "inflectional-clitic-boundary-csp-20260916",
+      "signature": "ordinary-order-inflectional-clitic-grammar|agreement-tense-realization|stem-ending-clitic-boundary-csp|joint-complete-prose-rendering|heldout-boundary-inflection-repair|independent-exact-admission-audit",
+      "artifact": "experiments/inflectional_clitic_boundary_csp_20260916.py",
+      "run_artifacts": ["runs/inflectional-clitic-boundary-csp-20260916.json"],
+      "distinction": "A fresh harbor scene is realized by productive subject-agreement and tense forms plus possessive clitic or of-attachment boundaries. Complete ordinary-order prose is audited jointly at stem/ending/clitic edges, with a held-out one-slot repair at each first mismatch.",
+      "reader_evidence": false
+    },
+    {
       "id": "reader-first-discourse-scene-lattice-20260916",
       "signature": "reader-first-authored-discourse-scenes|topic-continuity-ledger|coherent-scene-tense-attachment-lattice|live-prefix-suffix-character-equation|first-mismatch-single-slot-repair|independent-exact-admission-audit",
       "artifact": "experiments/reader_first_discourse_scene_lattice_20260916.py",
@@ -1447,6 +1455,15 @@
       "artifact": "experiments/weighted_morphology_fst_lockstep_20260916.py",
       "run_artifacts": ["runs/weighted-morphology-fst-lockstep-20260916.json"],
       "distinction": "A weighted transducer selects paired lexical chunks and emits their characters in lockstep while number, tense, lemma, semantic roles, and a cumulative fluency objective remain in state. Held-out morphology repair is applied to a dead transition; no completed tape is reverse-segmented.",
+      "reader_evidence": false
+    },
+    {
+      "id": "live-gpt2-character-decoder-preflight-20260916",
+      "signature": "live-gpt2-next-token-character-decoder|bilateral-normal-order-lexeme-expansion|semantic-valency-state|character-seam-obligation|independent-tape-hash-admission|mismatch-heldout-repair",
+      "artifact": "experiments/live_gpt2_character_decoder_preflight_20260916.py",
+      "run_artifacts": ["runs/live-gpt2-character-decoder-preflight-20260916.json"],
+      "overlaps": ["gpt2-topic-half-decoder-20260915", "fixed-tape-gpt2-boundary-decoder-20260915", "bpe-dual-continuation", "neural-dual-prefix-beam-v2"],
+      "reason": "Novelty preflight found the requested local GPT-2 model-in-the-loop character/token decoder dimension already retained across bilateral prefix, BPE token-lattice, and reverse-character decoder routes. No model was loaded and no duplicate search evidence was counted; the live next-token implementation remains preserved only as a blocked pivot.",
       "reader_evidence": false
     }
   ]

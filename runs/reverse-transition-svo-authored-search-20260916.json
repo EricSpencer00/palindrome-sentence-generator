@@ -1,0 +1,295 @@
+{
+  "experiment_id": "reverse-transition-svo-authored-search-20260916",
+  "repair_of": "reverse-transition-svo-beam-adjunct-repair-20260916",
+  "signature": "authored-role-lexicalization|complete-svo-adjunct-grammar|reverse-boundary-unit-matching|independent-semantic-banks|exact-two-sided-ledger",
+  "status": "completed_no_reader_promotion",
+  "method": "Hand-authored role alternatives are searched by exact reverse-boundary character matching over complete determiner-aware SVO+adjunct clauses.",
+  "novelty_preflight": {
+    "registry_entries": 113,
+    "exact_signature_collision": false,
+    "nearest_prior": []
+  },
+  "config": {
+    "grammar": "DET SUBJ VERB DET ADJ OBJ PREP DET NOUN",
+    "left_slots": [
+      "det",
+      "subject_l",
+      "verb_l",
+      "det",
+      "adj_l",
+      "object_l",
+      "prep",
+      "det",
+      "place_l"
+    ],
+    "right_slots": [
+      "det",
+      "subject_r",
+      "verb_r",
+      "det",
+      "adj_r",
+      "object_r",
+      "prep",
+      "det",
+      "place_r"
+    ],
+    "authored_alternatives": {
+      "subject_l": [
+        "baker",
+        "farmer",
+        "pilot",
+        "teacher",
+        "writer"
+      ],
+      "verb_l": [
+        "asks",
+        "calls",
+        "finds",
+        "keeps",
+        "reads",
+        "sends",
+        "writes"
+      ],
+      "object_l": [
+        "book",
+        "letter",
+        "map",
+        "note",
+        "record",
+        "story",
+        "token"
+      ],
+      "adj_l": [
+        "bright",
+        "calm",
+        "clear",
+        "fresh",
+        "quiet",
+        "safe"
+      ],
+      "place_l": [
+        "field",
+        "home",
+        "market",
+        "office",
+        "river",
+        "shore",
+        "yard"
+      ],
+      "subject_r": [
+        "caller",
+        "clerk",
+        "friend",
+        "reader",
+        "sailor"
+      ],
+      "verb_r": [
+        "answers",
+        "carries",
+        "helps",
+        "opens",
+        "replies",
+        "speaks",
+        "waits"
+      ],
+      "object_r": [
+        "chart",
+        "file",
+        "flower",
+        "house",
+        "parcel",
+        "reply",
+        "signal"
+      ],
+      "adj_r": [
+        "ancient",
+        "brief",
+        "clean",
+        "dark",
+        "fine",
+        "gentle",
+        "open"
+      ],
+      "place_r": [
+        "area",
+        "cinema",
+        "garden",
+        "hall",
+        "opera",
+        "plaza",
+        "school",
+        "villa"
+      ]
+    },
+    "state_budget": 1000000,
+    "catalogue_imported": false,
+    "search_control": "exact bilateral boundary walker; no fragments, reranking, or word-order mirror"
+  },
+  "stats": {
+    "states": 17,
+    "dead_char": 76,
+    "lexical_assignments": 87,
+    "budget_exhausted": false,
+    "exact": 0,
+    "mechanically_admitted": 0,
+    "rendered_probes": 3,
+    "max_probe_letters": 73
+  },
+  "exact_candidates": [],
+  "rendered_probes": [
+    {
+      "rendered": "a baker reads the bright book. in the field. a caller answers the dark chart. at the plaza.",
+      "letters": 70,
+      "tape": "abakerreadsthebrightbookinthefieldacalleranswersthedarkchartattheplaza",
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_words": [
+        "a",
+        "baker",
+        "reads",
+        "the",
+        "bright",
+        "book",
+        "in",
+        "the",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "dark",
+        "chart",
+        "at",
+        "the",
+        "plaza"
+      ],
+      "probe_type": "complete-authored-control"
+    },
+    {
+      "rendered": "a farmer calls the calm note. near the market. a sailor replies the fine signal. in the opera.",
+      "letters": 73,
+      "tape": "afarmercallsthecalmnotenearthemarketasailorrepliesthefinesignalintheopera",
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_words": [
+        "a",
+        "farmer",
+        "calls",
+        "the",
+        "calm",
+        "note",
+        "near",
+        "the",
+        "market"
+      ],
+      "right_words": [
+        "a",
+        "sailor",
+        "replies",
+        "the",
+        "fine",
+        "signal",
+        "in",
+        "the",
+        "opera"
+      ],
+      "probe_type": "complete-authored-control"
+    },
+    {
+      "rendered": "a pilot keeps the clear map. by the shore. a reader opens the gentle file. for the cinema.",
+      "letters": 69,
+      "tape": "apilotkeepstheclearmapbytheshoreareaderopensthegentlefileforthecinema",
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_words": [
+        "a",
+        "pilot",
+        "keeps",
+        "the",
+        "clear",
+        "map",
+        "by",
+        "the",
+        "shore"
+      ],
+      "right_words": [
+        "a",
+        "reader",
+        "opens",
+        "the",
+        "gentle",
+        "file",
+        "for",
+        "the",
+        "cinema"
+      ],
+      "probe_type": "complete-authored-control"
+    }
+  ],
+  "provenance": {
+    "base_repair_evidence": "runs/reverse-transition-svo-beam-adjunct-repair-20260916.json",
+    "source_sentences_copied": false,
+    "catalogue_imported": false,
+    "reader_evidence": false,
+    "generator_sha256": "bfdfe1ec890e94131c954d9db7e1793d58bd14f3a7fb512464e603a705cf249b"
+  }
+}

@@ -1,0 +1,256 @@
+{
+  "experiment_id": "reverse-transition-svo-beam-adjunct-repair-20260916",
+  "repair_of": "reverse-transition-svo-beam-20260916",
+  "signature": "reverse-compatible-lexical-transitions|broad-bigram-mining|bilateral-svo-adjunct-grammar|independent-role-banks|frequency-scored-beam-dp|exact-tape-join|determiner-licensed-adjunct-repair|mismatch-keyed-terminal-expansion",
+  "status": "completed_no_reader_promotion",
+  "method": "Held-out terminal lexical alternatives are selected only from first reverse-edge mismatches in the frozen base probes; both sides then receive a determiner-aware SVO+adjunct beam and exact reversed-tape join.",
+  "novelty_preflight": {
+    "registry_entries": 111,
+    "exact_signature_collision": false,
+    "nearest_prior": [
+      {
+        "id": "reverse-transition-svo-beam-20260916",
+        "jaccard": 0.7,
+        "shared_atoms": [
+          "adjunct",
+          "banks",
+          "beam",
+          "bigram",
+          "bilateral",
+          "broad",
+          "compatible",
+          "dp",
+          "frequency",
+          "mining",
+          "role",
+          "scored",
+          "svo",
+          "transitions"
+        ]
+      },
+      {
+        "id": "bilateral-slot-synchronizer-20260916",
+        "jaccard": 0.107143,
+        "shared_atoms": [
+          "banks",
+          "bilateral",
+          "transitions"
+        ]
+      },
+      {
+        "id": "neural-dual-prefix-beam-v2",
+        "jaccard": 0.096774,
+        "shared_atoms": [
+          "beam",
+          "bilateral",
+          "role"
+        ]
+      },
+      {
+        "id": "paired-obligation-astar-debt-repair-20260916",
+        "jaccard": 0.090909,
+        "shared_atoms": [
+          "mismatch",
+          "role",
+          "terminal"
+        ]
+      },
+      {
+        "id": "dependency-attribute-grammar-chart",
+        "jaccard": 0.088235,
+        "shared_atoms": [
+          "banks",
+          "bilateral",
+          "role"
+        ]
+      }
+    ]
+  },
+  "config": {
+    "transition_rows_considered": 6000,
+    "transition_keys": 61,
+    "beam_width": 256,
+    "min_letters": 39,
+    "grammar": "DET SUBJ VERB DET ADJ OBJ PREP DET NOUN",
+    "mismatch_keys": [
+      "ab"
+    ],
+    "held_out_terminals": [
+      "area",
+      "cinema",
+      "opera",
+      "plaza",
+      "villa"
+    ],
+    "catalogue_imported": false,
+    "search_control": "deterministic frequency-scored beam/DP; no fragments or word-order mirror"
+  },
+  "stats": {
+    "left_bank": 256,
+    "right_bank": 256,
+    "exact": 0,
+    "mechanically_admitted": 0,
+    "rendered_probes": 3,
+    "max_probe_letters": 71
+  },
+  "exact_candidates": [],
+  "rendered_probes": [
+    {
+      "rendered": "a farmer asks the bright token. at a shore. a sailor answers the ancient file. at the area.",
+      "letters": 70,
+      "tape": "afarmerasksthebrighttokenatashoreasailoranswerstheancientfileatthearea",
+      "exact": false,
+      "ledger_replay": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_words": [
+        "a",
+        "farmer",
+        "asks",
+        "the",
+        "bright",
+        "token",
+        "at",
+        "a",
+        "shore"
+      ],
+      "right_words": [
+        "a",
+        "sailor",
+        "answers",
+        "the",
+        "ancient",
+        "file",
+        "at",
+        "the",
+        "area"
+      ],
+      "probe_type": "complete-independent-svo-determiner-adjunct"
+    },
+    {
+      "rendered": "a farmer asks the bright token. by a shore. a sailor answers the ancient file. at the area.",
+      "letters": 70,
+      "tape": "afarmerasksthebrighttokenbyashoreasailoranswerstheancientfileatthearea",
+      "exact": false,
+      "ledger_replay": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_words": [
+        "a",
+        "farmer",
+        "asks",
+        "the",
+        "bright",
+        "token",
+        "by",
+        "a",
+        "shore"
+      ],
+      "right_words": [
+        "a",
+        "sailor",
+        "answers",
+        "the",
+        "ancient",
+        "file",
+        "at",
+        "the",
+        "area"
+      ],
+      "probe_type": "complete-independent-svo-determiner-adjunct"
+    },
+    {
+      "rendered": "a farmer asks the bright token. for a shore. a sailor answers the ancient file. at the area.",
+      "letters": 71,
+      "tape": "afarmerasksthebrighttokenforashoreasailoranswerstheancientfileatthearea",
+      "exact": false,
+      "ledger_replay": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_words": [
+        "a",
+        "farmer",
+        "asks",
+        "the",
+        "bright",
+        "token",
+        "for",
+        "a",
+        "shore"
+      ],
+      "right_words": [
+        "a",
+        "sailor",
+        "answers",
+        "the",
+        "ancient",
+        "file",
+        "at",
+        "the",
+        "area"
+      ],
+      "probe_type": "complete-independent-svo-determiner-adjunct"
+    }
+  ],
+  "provenance": {
+    "base_evidence": "runs/reverse-transition-svo-beam-20260916.json",
+    "source_sentences_copied": false,
+    "catalogue_imported": false,
+    "reader_evidence": false,
+    "generator_sha256": "c4263a9b563cf37b9b8b99e24c8685f67571129cf4f83365619841fd867fd746"
+  }
+}

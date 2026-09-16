@@ -1,0 +1,54 @@
+{
+  "experiment_id": "human-scene-lattice-live-equations-20260916",
+  "signature": "lane6|human-authored-scene-lattice|semantic-slot-equations|live-debt|independent-pointer-hash",
+  "method": {
+    "description": "A new ordinary-English archive-recovery scene was authored first, then realized through semantic slots. Each slot is constrained by a live equation against the corresponding character from the eventual reverse side; no corpus sentence, palindrome, or parameter sweep is used.",
+    "equation": "for each emitted letter x[i], require x[i] == x[N-1-i] when its opposite position is known; debt[i] = x[i] XOR x[N-1-i]",
+    "slots": [
+      {"id": "time", "semantic_role": "when", "phrase": "At first light"},
+      {"id": "agent", "semantic_role": "who", "phrase": "Mara"},
+      {"id": "artifact", "semantic_role": "what", "phrase": "the brass key"},
+      {"id": "route", "semantic_role": "where", "phrase": "across the flooded courtyard"},
+      {"id": "action", "semantic_role": "event", "phrase": "unlocked the archive door"},
+      {"id": "purpose", "semantic_role": "continuation", "phrase": "waited while the rescued records dried"}
+    ]
+  },
+  "novelty_preflight": {
+    "registry": "data/known_palindromes.json",
+    "registry_entries_read": 162,
+    "catalogue_text_imported": false,
+    "known_palindrome_imported": false,
+    "exact_signature_collision": false,
+    "state_space_distinction": "human-authored semantic slots with online mirror equations and one complete scene; not a parameter sweep"
+  },
+  "candidate": {
+    "rendered": "At first light, Mara carried the brass key across the flooded courtyard, unlocked the archive door, and waited while the rescued records dried.",
+    "letters": 117,
+    "normalized": "atfirstlightmaracarriedthebrasskeyacrossthefloodedcourtyardunlockedthearchivedoorandwaitedwhiletherescuedrecordsdried",
+    "provenance": "human-authored-from-scratch|scene-lattice-live-equations|lane6",
+    "slot_trace": [
+      {"slot": "time", "emitted_letters": 13, "opposite_known": 13, "matching_pairs": 1, "unresolved_debt": 12},
+      {"slot": "agent", "emitted_letters": 17, "opposite_known": 17, "matching_pairs": 1, "unresolved_debt": 16},
+      {"slot": "artifact", "emitted_letters": 28, "opposite_known": 28, "matching_pairs": 3, "unresolved_debt": 25},
+      {"slot": "route", "emitted_letters": 53, "opposite_known": 53, "matching_pairs": 7, "unresolved_debt": 46},
+      {"slot": "action", "emitted_letters": 76, "opposite_known": 41, "matching_pairs": 8, "unresolved_debt": 33},
+      {"slot": "purpose", "emitted_letters": 117, "opposite_known": 0, "matching_pairs": 9, "unresolved_debt": 0}
+    ],
+    "independent_validation": {
+      "audit_a_two_pointer": false,
+      "audit_b_ascii_reverse": false,
+      "first_mismatch": {"left": 0, "right": 116, "left_char": "a", "right_char": "d"},
+      "matching_pairs": 9,
+      "sha256_normalized": "cc6012b6cec8b1cc6b9468c6dbeac95e8b6ae49975d56d8ed260c9ccb6a3d72e",
+      "sha256_reversed": "3c848490d63988141f22d1d00c56d7f40bd249e1baa93bc5510a376c883ba6c8"
+    },
+    "mechanical_readability_diagnostic": {
+      "intact_english_prose": true,
+      "length_band_100_160": true,
+      "scene_slots_covered": ["time", "agent", "artifact", "route", "action", "purpose"],
+      "reader_claim": "none; human review remains pending",
+      "near_miss": true
+    },
+    "next_repair": "Author a second purpose-frame realization whose final phrase begins with characters that satisfy the outstanding outer debt (d,e,i,r,...) while preserving Mara's archive scene; rerun the complete slot equation and blinded intact-prose gate."
+  }
+}

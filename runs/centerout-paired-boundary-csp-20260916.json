@@ -1,0 +1,81 @@
+{
+  "experiment_id": "centerout-paired-boundary-csp-20260916",
+  "signature": "paired-subject-adjunct-boundary-csp|ordinary-svo-grammar|live-character-obligation|event-preserving-valency|bounded-single-construction|independent-exact-hash-audit",
+  "status": "completed",
+  "method": "bounded paired subject/adjunct CSP with live character obligations and ordinary SVO valency",
+  "candidate": {
+    "label": "bounded-paired-subject-adjunct-csp",
+    "rendered": "the gray porter delivers the sealed parcel. near the lamplit school at the quiet height.",
+    "letters": 72,
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_sha256",
+      "letters": 72,
+      "two_pointer_exact": false,
+      "mismatch_count": 31,
+      "first_mismatch": {
+        "left": 2,
+        "right": 69,
+        "a": "e",
+        "b": "g"
+      },
+      "sha256_forward": "39b6f1cbdd7ea22834d44be33dddd27c19093e0c3d002d08c31c4e277e749745",
+      "sha256_reverse": "02473a5efc5c8d0c9faa8f179f17fe9a94a10d7b1a7077db6c1e032208aaccd9",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": false,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "csp": {
+      "domains": {
+        "subject": [
+          "the careful porter",
+          "the gray porter"
+        ],
+        "adjunct": [
+          "near the lamplit school at the quiet height",
+          "near the lamplit school beside the quiet gate"
+        ]
+      },
+      "selected_subject": "the gray porter",
+      "selected_adjunct": "near the lamplit school at the quiet height",
+      "objective": "minimize mirrored boundary mismatch count under ordinary grammar"
+    },
+    "provenance": {
+      "authored_event_preserved": true,
+      "ordinary_svo_order": true,
+      "catalogue_text_copied": false,
+      "finished_sentence_reversed": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false
+    }
+  },
+  "stats": {
+    "bounded_assignments": 4,
+    "candidates": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "next_repair": "expand the CSP with a second ordinary verb frame while retaining paired boundary obligations; do not replay the same lexical domains",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "9fab7b63f2289ddabb542a96ef32656aa4d4b5d34e055c4e4adf91a7dcddc3d0",
+    "generated_not_catalogue": true
+  }
+}

@@ -19,13 +19,14 @@ def main():
   nxt=[]
   for st in states:
    for choice in choices[:2]:
-    text=(st["text"]+" "+choice).strip(); tape=normalize_letters(text)
+    separator = ". " if name == "second" else " "
+    text=(st["text"]+separator+choice).strip(); tape=normalize_letters(text)
     nxt.append({"text":text,"debt":tape[:8][::-1],"features":st["features"],"choices":st["choices"]+[(name,choice)]})
   states=sorted(nxt,key=lambda x:(len(x["text"]),x["debt"]))[:8]
  rows=[]
  for st in states[:3]:
   text=st["text"]+"."
   rows.append({"dp_state":{"choices":st["choices"],"mirrored_boundary_debt":st["debt"],"agreement":st["features"]},"semantic_consistency":True,"audit":audit(text)})
- out={"experiment_id":ID,"signature":SIGNATURE,"status":"completed_no_exact_closure","reader_eligible":False,"method":"beam dynamic program jointly selecting semantic SVO slots and agreement-carrying inflections while tracking cross-word mirrored boundary debt","candidates":rows,"stats":{"rendered":len(rows),"exact":sum(x["audit"]["exact"] for x in rows)},"novelty_preflight":{"registry_entries_read":len(allr),"exact_signature_collision":False,"catalogue_text_imported":False,"fixed_tape_used":False},"next_repair":{"operator":"retain beam states by full residual vector and add held-out plural/tense inflections at the highest boundary-debt slot, then extend with a second independent SVO frame","reason":"the current bounded beam emits grammatical prose but loses the outer mirrored character equation before the final slot"},"provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"lexical_source":"fresh semantic slot lexicon","audits":["independent two-pointer","forward/reverse SHA-256","mechanical admission","anti-shortcut"]}}
+ out={"experiment_id":ID,"signature":SIGNATURE,"status":"completed_no_exact_closure","reader_eligible":False,"method":"beam dynamic program jointly selecting semantic SVO slots and agreement-carrying inflections while tracking cross-word mirrored boundary debt","candidates":rows,"stats":{"rendered":len(rows),"exact":sum(x["audit"]["exact"] for x in rows)},"novelty_preflight":{"registry_entries_read":len(allr),"exact_signature_collision":False,"catalogue_text_imported":False,"fixed_tape_used":False},"next_repair":{"operator":"retain beam states by full residual vector and add held-out plural/tense inflections at the highest boundary-debt slot, then extend with a second independent SVO frame","reason":"the current bounded beam emits grammatical prose but loses the outer mirrored character equation before the final slot"},"provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"lexical_source":"fresh semantic slot lexicon","repair":"inserted a period before the independently generated second SVO clause; punctuation changes presentation only and leaves normalized tape unchanged","audits":["independent two-pointer","forward/reverse SHA-256","mechanical admission","anti-shortcut"]}}
  (ROOT/"runs"/(ID+".json")).write_text(json.dumps(out,indent=2)+"\n"); print(json.dumps(out["stats"],sort_keys=True))
 if __name__=="__main__":main()

@@ -6,4 +6,6 @@ def test_joint_dp_emits_prose_and_audits():
  lane.main(); d=json.loads((ROOT/"runs"/(lane.ID+".json")).read_text())
  assert all(x["audit"]["letters"]>100 for x in d["candidates"])
  assert all(x["audit"]["two_pointer_exact"] is False for x in d["candidates"])
+ assert all(". A young pilot" in x["audit"]["rendered"] for x in d["candidates"])
+ assert "inserted a period" in d["provenance"]["repair"]
  assert d["novelty_preflight"]["fixed_tape_used"] is False

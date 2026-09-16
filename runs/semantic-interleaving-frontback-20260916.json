@@ -1,0 +1,3027 @@
+{
+  "experiment_id": "semantic-interleaving-frontback-20260916",
+  "signature": "semantic-interleaving|single-continuous-sentence|front-back-clause-alternation|cross-side-clause-state|character-ledger|independent-two-pointer-audit|repair-operator",
+  "status": "completed_no_reader_promotion",
+  "method": "A semicolon-linked one-sentence SVO construction alternates front-clause and back-clause lexical choices, then consumes mirrored character pairs online; it never appends a reflected clause or reuses a completed mirror block.",
+  "novelty_preflight": {
+    "status": "novel",
+    "experiment_id": "semantic-interleaving-frontback-20260916",
+    "signature": "semantic-interleaving|single-continuous-sentence|front-back-clause-alternation|cross-side-clause-state|character-ledger|independent-two-pointer-audit|repair-operator",
+    "artifact": "experiments/semantic_interleaving_frontback_20260916.py",
+    "preflight_checked_artifact": "experiments/.semantic_interleaving_frontback_20260916.preflight",
+    "registered_families_checked": 173,
+    "excluded_routes_checked": 21,
+    "conceptual_near_pairs": [],
+    "manual_review_required": false,
+    "performed_before_generation": true
+  },
+  "config": {
+    "grammar": "DET SUBJECT VERB DET OBJECT ; DET SUBJECT VERB DET OBJECT",
+    "scenes": 3,
+    "state_budget_per_scene": 50000,
+    "min_letters": 39,
+    "max_letters": 180,
+    "search_order": "paired front/back word choices with character-level continuation when word lengths differ",
+    "repair_operator": "held-out same-role lexical substitution at the first mismatching front/back slot",
+    "catalogue_imported": false,
+    "known_strings_reused": false
+  },
+  "stats": {
+    "scenes": 3,
+    "exact": 0,
+    "mechanically_admitted": 0,
+    "rendered_candidates": 5,
+    "partial_ledger_probes": 24,
+    "repairs": 10,
+    "max_candidate_letters": 48,
+    "max_matched_characters": 1,
+    "all_surfaces_one_sentence": true
+  },
+  "per_scene": {
+    "garden-record": {
+      "relation": "care causes preservation",
+      "stats": {
+        "states": 9,
+        "paired_word_choices": 8,
+        "char_pairs": 0,
+        "dead_char": 8,
+        "max_matched": 0,
+        "budget_exhausted": false
+      },
+      "exact": 0,
+      "near_miss_probes": 8,
+      "controls": 2,
+      "repairs": 4
+    },
+    "signal-response": {
+      "relation": "a warning prompts a response",
+      "stats": {
+        "states": 11,
+        "paired_word_choices": 8,
+        "char_pairs": 2,
+        "dead_char": 8,
+        "max_matched": 1,
+        "budget_exhausted": false
+      },
+      "exact": 0,
+      "near_miss_probes": 8,
+      "controls": 1,
+      "repairs": 2
+    },
+    "craft-delivery": {
+      "relation": "making enables delivery",
+      "stats": {
+        "states": 9,
+        "paired_word_choices": 8,
+        "char_pairs": 0,
+        "dead_char": 8,
+        "max_matched": 0,
+        "budget_exhausted": false
+      },
+      "exact": 0,
+      "near_miss_probes": 8,
+      "controls": 2,
+      "repairs": 4
+    }
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "The gardener tends the garden; one writer marks one note.",
+      "front_words": [
+        "the",
+        "gardener",
+        "tends",
+        "the",
+        "garden"
+      ],
+      "back_words": [
+        "one",
+        "writer",
+        "marks",
+        "one",
+        "note"
+      ],
+      "probe_type": "complete-independent-control",
+      "independent_exact_validation": {
+        "letters": 46,
+        "tape": "thegardenertendsthegardenonewritermarksonenote",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 46,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.6,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": []
+    },
+    {
+      "rendered": "One keeper waters one seed; the teacher copies the map.",
+      "front_words": [
+        "one",
+        "keeper",
+        "waters",
+        "one",
+        "seed"
+      ],
+      "back_words": [
+        "the",
+        "teacher",
+        "copies",
+        "the",
+        "map"
+      ],
+      "probe_type": "complete-independent-control",
+      "independent_exact_validation": {
+        "letters": 44,
+        "tape": "onekeeperwatersoneseedtheteachercopiesthemap",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "p"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 44,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.4,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": []
+    },
+    {
+      "rendered": "The caller signals the sailor; one teacher helps one pilot.",
+      "front_words": [
+        "the",
+        "caller",
+        "signals",
+        "the",
+        "sailor"
+      ],
+      "back_words": [
+        "one",
+        "teacher",
+        "helps",
+        "one",
+        "pilot"
+      ],
+      "probe_type": "complete-independent-control",
+      "independent_exact_validation": {
+        "letters": 48,
+        "tape": "thecallersignalsthesailoroneteacherhelpsonepilot",
+        "exact": false,
+        "comparisons": 2,
+        "first_mismatch": {
+          "offset_from_front": 1,
+          "offset_from_back": 1,
+          "front": "h",
+          "back": "o"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 48,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.8,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": []
+    },
+    {
+      "rendered": "The maker makes the parcel; one sailor sends one bread.",
+      "front_words": [
+        "the",
+        "maker",
+        "makes",
+        "the",
+        "parcel"
+      ],
+      "back_words": [
+        "one",
+        "sailor",
+        "sends",
+        "one",
+        "bread"
+      ],
+      "probe_type": "complete-independent-control",
+      "independent_exact_validation": {
+        "letters": 44,
+        "tape": "themakermakestheparcelonesailorsendsonebread",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "d"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 44,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.4,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": []
+    },
+    {
+      "rendered": "One baker bakes one bread; the porter offers the table.",
+      "front_words": [
+        "one",
+        "baker",
+        "bakes",
+        "one",
+        "bread"
+      ],
+      "back_words": [
+        "the",
+        "porter",
+        "offers",
+        "the",
+        "table"
+      ],
+      "probe_type": "complete-independent-control",
+      "independent_exact_validation": {
+        "letters": 44,
+        "tape": "onebakerbakesonebreadtheporteroffersthetable",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 44,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.4,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": []
+    }
+  ],
+  "partial_ledger_probes": [
+    {
+      "rendered": "The; letter.",
+      "front_words": [
+        "the"
+      ],
+      "back_words": [
+        "letter"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 9,
+        "tape": "theletter",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "r"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 9,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.5,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "t",
+          "reflected_char": "r",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "t",
+        "back_char": "r",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "The; note.",
+      "front_words": [
+        "the"
+      ],
+      "back_words": [
+        "note"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 7,
+        "tape": "thenote",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 7,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 3.5,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "t",
+          "reflected_char": "e",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "t",
+        "back_char": "e",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "The; map.",
+      "front_words": [
+        "the"
+      ],
+      "back_words": [
+        "map"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 6,
+        "tape": "themap",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "p"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 6,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 3.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "t",
+          "reflected_char": "p",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "t",
+        "back_char": "p",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "The; record.",
+      "front_words": [
+        "the"
+      ],
+      "back_words": [
+        "record"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 9,
+        "tape": "therecord",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "d"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 9,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.5,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "t",
+          "reflected_char": "d",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "t",
+        "back_char": "d",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "One; letter.",
+      "front_words": [
+        "one"
+      ],
+      "back_words": [
+        "letter"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 9,
+        "tape": "oneletter",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "r"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 9,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.5,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "o",
+          "reflected_char": "r",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "o",
+        "back_char": "r",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "One; note.",
+      "front_words": [
+        "one"
+      ],
+      "back_words": [
+        "note"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 7,
+        "tape": "onenote",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 7,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 3.5,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "o",
+          "reflected_char": "e",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "o",
+        "back_char": "e",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "One; map.",
+      "front_words": [
+        "one"
+      ],
+      "back_words": [
+        "map"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 6,
+        "tape": "onemap",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "p"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 6,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 3.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "o",
+          "reflected_char": "p",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "o",
+        "back_char": "p",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "One; record.",
+      "front_words": [
+        "one"
+      ],
+      "back_words": [
+        "record"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 9,
+        "tape": "onerecord",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "d"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 9,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.5,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "o",
+          "reflected_char": "d",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "o",
+        "back_char": "d",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "The; caller.",
+      "front_words": [
+        "the"
+      ],
+      "back_words": [
+        "caller"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 9,
+        "tape": "thecaller",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "r"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 9,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.5,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "t",
+          "reflected_char": "r",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "t",
+        "back_char": "r",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "The; pilot.",
+      "front_words": [
+        "the"
+      ],
+      "back_words": [
+        "pilot"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 8,
+        "tape": "thepilot",
+        "exact": false,
+        "comparisons": 2,
+        "first_mismatch": {
+          "offset_from_front": 1,
+          "offset_from_back": 1,
+          "front": "h",
+          "back": "o"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 8,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "t",
+          "front_slot": 0,
+          "back_slot": 4
+        },
+        {
+          "char": "h",
+          "reflected_char": "o",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "h",
+        "back_char": "o",
+        "matched_before_mismatch": 1
+      }
+    },
+    {
+      "rendered": "The; guide.",
+      "front_words": [
+        "the"
+      ],
+      "back_words": [
+        "guide"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 8,
+        "tape": "theguide",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 8,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "t",
+          "reflected_char": "e",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "t",
+        "back_char": "e",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "The; scout.",
+      "front_words": [
+        "the"
+      ],
+      "back_words": [
+        "scout"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 8,
+        "tape": "thescout",
+        "exact": false,
+        "comparisons": 2,
+        "first_mismatch": {
+          "offset_from_front": 1,
+          "offset_from_back": 1,
+          "front": "h",
+          "back": "u"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 8,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "t",
+          "front_slot": 0,
+          "back_slot": 4
+        },
+        {
+          "char": "h",
+          "reflected_char": "u",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "h",
+        "back_char": "u",
+        "matched_before_mismatch": 1
+      }
+    },
+    {
+      "rendered": "One; caller.",
+      "front_words": [
+        "one"
+      ],
+      "back_words": [
+        "caller"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 9,
+        "tape": "onecaller",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "r"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 9,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.5,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "o",
+          "reflected_char": "r",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "o",
+        "back_char": "r",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "One; pilot.",
+      "front_words": [
+        "one"
+      ],
+      "back_words": [
+        "pilot"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 8,
+        "tape": "onepilot",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "t"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 8,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "o",
+          "reflected_char": "t",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "o",
+        "back_char": "t",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "One; guide.",
+      "front_words": [
+        "one"
+      ],
+      "back_words": [
+        "guide"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 8,
+        "tape": "oneguide",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 8,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "o",
+          "reflected_char": "e",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "o",
+        "back_char": "e",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "One; scout.",
+      "front_words": [
+        "one"
+      ],
+      "back_words": [
+        "scout"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 8,
+        "tape": "onescout",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "t"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 8,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "o",
+          "reflected_char": "t",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "o",
+        "back_char": "t",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "The; parcel.",
+      "front_words": [
+        "the"
+      ],
+      "back_words": [
+        "parcel"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 9,
+        "tape": "theparcel",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "l"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 9,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.5,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "t",
+          "reflected_char": "l",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "t",
+        "back_char": "l",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "The; bread.",
+      "front_words": [
+        "the"
+      ],
+      "back_words": [
+        "bread"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 8,
+        "tape": "thebread",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "d"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 8,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "t",
+          "reflected_char": "d",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "t",
+        "back_char": "d",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "The; table.",
+      "front_words": [
+        "the"
+      ],
+      "back_words": [
+        "table"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 8,
+        "tape": "thetable",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 8,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "t",
+          "reflected_char": "e",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "t",
+        "back_char": "e",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "The; image.",
+      "front_words": [
+        "the"
+      ],
+      "back_words": [
+        "image"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 8,
+        "tape": "theimage",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 8,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "t",
+          "reflected_char": "e",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "t",
+        "back_char": "e",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "One; parcel.",
+      "front_words": [
+        "one"
+      ],
+      "back_words": [
+        "parcel"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 9,
+        "tape": "oneparcel",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "l"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 9,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.5,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "o",
+          "reflected_char": "l",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "o",
+        "back_char": "l",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "One; bread.",
+      "front_words": [
+        "one"
+      ],
+      "back_words": [
+        "bread"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 8,
+        "tape": "onebread",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "d"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 8,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "o",
+          "reflected_char": "d",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "o",
+        "back_char": "d",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "One; table.",
+      "front_words": [
+        "one"
+      ],
+      "back_words": [
+        "table"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 8,
+        "tape": "onetable",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 8,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "o",
+          "reflected_char": "e",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "o",
+        "back_char": "e",
+        "matched_before_mismatch": 0
+      }
+    },
+    {
+      "rendered": "One; image.",
+      "front_words": [
+        "one"
+      ],
+      "back_words": [
+        "image"
+      ],
+      "probe_type": "complete-interleaved-near-miss",
+      "independent_exact_validation": {
+        "letters": 8,
+        "tape": "oneimage",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 8,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": false,
+        "front_clause_words": 1,
+        "back_clause_words": 1,
+        "word_count": 2,
+        "content_word_count": 1,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.0,
+        "readability_proxy": 0.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [
+        {
+          "char": "o",
+          "reflected_char": "e",
+          "front_slot": 0,
+          "back_slot": 4
+        }
+      ],
+      "mismatch": {
+        "front_slot": 0,
+        "back_slot": 4,
+        "front_char": "o",
+        "back_char": "e",
+        "matched_before_mismatch": 0
+      }
+    }
+  ],
+  "repair_candidates": [
+    {
+      "rendered": "One gardener tends the garden; one writer marks one note.",
+      "front_words": [
+        "one",
+        "gardener",
+        "tends",
+        "the",
+        "garden"
+      ],
+      "back_words": [
+        "one",
+        "writer",
+        "marks",
+        "one",
+        "note"
+      ],
+      "probe_type": "first-mismatch-role-repair",
+      "independent_exact_validation": {
+        "letters": 46,
+        "tape": "onegardenertendsthegardenonewritermarksonenote",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 46,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.6,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [],
+      "repair": {
+        "side": "front",
+        "slot": 0,
+        "replaced": "the",
+        "replacement": "one",
+        "mismatch_before_repair": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "e"
+        }
+      }
+    },
+    {
+      "rendered": "The gardener tends the garden; the writer marks one note.",
+      "front_words": [
+        "the",
+        "gardener",
+        "tends",
+        "the",
+        "garden"
+      ],
+      "back_words": [
+        "the",
+        "writer",
+        "marks",
+        "one",
+        "note"
+      ],
+      "probe_type": "first-mismatch-role-repair",
+      "independent_exact_validation": {
+        "letters": 46,
+        "tape": "thegardenertendsthegardenthewritermarksonenote",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 46,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.6,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [],
+      "repair": {
+        "side": "back",
+        "slot": 0,
+        "replaced": "one",
+        "replacement": "the",
+        "mismatch_before_repair": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "e"
+        }
+      }
+    },
+    {
+      "rendered": "The keeper waters one seed; the teacher copies the map.",
+      "front_words": [
+        "the",
+        "keeper",
+        "waters",
+        "one",
+        "seed"
+      ],
+      "back_words": [
+        "the",
+        "teacher",
+        "copies",
+        "the",
+        "map"
+      ],
+      "probe_type": "first-mismatch-role-repair",
+      "independent_exact_validation": {
+        "letters": 44,
+        "tape": "thekeeperwatersoneseedtheteachercopiesthemap",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "p"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 44,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.4,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [],
+      "repair": {
+        "side": "front",
+        "slot": 0,
+        "replaced": "one",
+        "replacement": "the",
+        "mismatch_before_repair": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "p"
+        }
+      }
+    },
+    {
+      "rendered": "One keeper waters one seed; one teacher copies the map.",
+      "front_words": [
+        "one",
+        "keeper",
+        "waters",
+        "one",
+        "seed"
+      ],
+      "back_words": [
+        "one",
+        "teacher",
+        "copies",
+        "the",
+        "map"
+      ],
+      "probe_type": "first-mismatch-role-repair",
+      "independent_exact_validation": {
+        "letters": 44,
+        "tape": "onekeeperwatersoneseedoneteachercopiesthemap",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "p"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 44,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.4,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [],
+      "repair": {
+        "side": "back",
+        "slot": 0,
+        "replaced": "the",
+        "replacement": "one",
+        "mismatch_before_repair": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "p"
+        }
+      }
+    },
+    {
+      "rendered": "One caller signals the sailor; one teacher helps one pilot.",
+      "front_words": [
+        "one",
+        "caller",
+        "signals",
+        "the",
+        "sailor"
+      ],
+      "back_words": [
+        "one",
+        "teacher",
+        "helps",
+        "one",
+        "pilot"
+      ],
+      "probe_type": "first-mismatch-role-repair",
+      "independent_exact_validation": {
+        "letters": 48,
+        "tape": "onecallersignalsthesailoroneteacherhelpsonepilot",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "t"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 48,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.8,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [],
+      "repair": {
+        "side": "front",
+        "slot": 0,
+        "replaced": "the",
+        "replacement": "one",
+        "mismatch_before_repair": {
+          "offset_from_front": 1,
+          "offset_from_back": 1,
+          "front": "h",
+          "back": "o"
+        }
+      }
+    },
+    {
+      "rendered": "The caller signals the sailor; the teacher helps one pilot.",
+      "front_words": [
+        "the",
+        "caller",
+        "signals",
+        "the",
+        "sailor"
+      ],
+      "back_words": [
+        "the",
+        "teacher",
+        "helps",
+        "one",
+        "pilot"
+      ],
+      "probe_type": "first-mismatch-role-repair",
+      "independent_exact_validation": {
+        "letters": 48,
+        "tape": "thecallersignalsthesailortheteacherhelpsonepilot",
+        "exact": false,
+        "comparisons": 2,
+        "first_mismatch": {
+          "offset_from_front": 1,
+          "offset_from_back": 1,
+          "front": "h",
+          "back": "o"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 48,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.8,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [],
+      "repair": {
+        "side": "back",
+        "slot": 0,
+        "replaced": "one",
+        "replacement": "the",
+        "mismatch_before_repair": {
+          "offset_from_front": 1,
+          "offset_from_back": 1,
+          "front": "h",
+          "back": "o"
+        }
+      }
+    },
+    {
+      "rendered": "One maker makes the parcel; one sailor sends one bread.",
+      "front_words": [
+        "one",
+        "maker",
+        "makes",
+        "the",
+        "parcel"
+      ],
+      "back_words": [
+        "one",
+        "sailor",
+        "sends",
+        "one",
+        "bread"
+      ],
+      "probe_type": "first-mismatch-role-repair",
+      "independent_exact_validation": {
+        "letters": 44,
+        "tape": "onemakermakestheparcelonesailorsendsonebread",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "d"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 44,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.4,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [],
+      "repair": {
+        "side": "front",
+        "slot": 0,
+        "replaced": "the",
+        "replacement": "one",
+        "mismatch_before_repair": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "d"
+        }
+      }
+    },
+    {
+      "rendered": "The maker makes the parcel; the sailor sends one bread.",
+      "front_words": [
+        "the",
+        "maker",
+        "makes",
+        "the",
+        "parcel"
+      ],
+      "back_words": [
+        "the",
+        "sailor",
+        "sends",
+        "one",
+        "bread"
+      ],
+      "probe_type": "first-mismatch-role-repair",
+      "independent_exact_validation": {
+        "letters": 44,
+        "tape": "themakermakestheparcelthesailorsendsonebread",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "d"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 44,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.4,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [],
+      "repair": {
+        "side": "back",
+        "slot": 0,
+        "replaced": "one",
+        "replacement": "the",
+        "mismatch_before_repair": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "d"
+        }
+      }
+    },
+    {
+      "rendered": "The baker bakes one bread; the porter offers the table.",
+      "front_words": [
+        "the",
+        "baker",
+        "bakes",
+        "one",
+        "bread"
+      ],
+      "back_words": [
+        "the",
+        "porter",
+        "offers",
+        "the",
+        "table"
+      ],
+      "probe_type": "first-mismatch-role-repair",
+      "independent_exact_validation": {
+        "letters": 44,
+        "tape": "thebakerbakesonebreadtheporteroffersthetable",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "t",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 44,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.4,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [],
+      "repair": {
+        "side": "front",
+        "slot": 0,
+        "replaced": "one",
+        "replacement": "the",
+        "mismatch_before_repair": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "e"
+        }
+      }
+    },
+    {
+      "rendered": "One baker bakes one bread; one porter offers the table.",
+      "front_words": [
+        "one",
+        "baker",
+        "bakes",
+        "one",
+        "bread"
+      ],
+      "back_words": [
+        "one",
+        "porter",
+        "offers",
+        "the",
+        "table"
+      ],
+      "probe_type": "first-mismatch-role-repair",
+      "independent_exact_validation": {
+        "letters": 44,
+        "tape": "onebakerbakesonebreadoneporteroffersthetable",
+        "exact": false,
+        "comparisons": 1,
+        "first_mismatch": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "e"
+        },
+        "two_pointer_closed": false
+      },
+      "letters": 44,
+      "exact": false,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "readability_diagnostics": {
+        "one_sentence_surface": true,
+        "semicolon_coordination": true,
+        "two_complete_svo_clauses": true,
+        "front_clause_words": 5,
+        "back_clause_words": 5,
+        "word_count": 10,
+        "content_word_count": 6,
+        "distinct_content_words": true,
+        "short_word_rate": 0.0,
+        "mean_word_length": 4.4,
+        "readability_proxy": 1.25,
+        "human_readability_evidence": false
+      },
+      "interleaving_trace": [],
+      "repair": {
+        "side": "back",
+        "slot": 0,
+        "replaced": "the",
+        "replacement": "one",
+        "mismatch_before_repair": {
+          "offset_from_front": 0,
+          "offset_from_back": 0,
+          "front": "o",
+          "back": "e"
+        }
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "provenance": {
+    "source_sentences_copied": false,
+    "known_catalogue_strings_reused": false,
+    "lexical_material": "hand-authored role banks, checked by shared dictionary admission",
+    "reader_evidence": false,
+    "generator_sha256": "38e75ec9d15dc75c724ed92a1cba02c90d1c56a69df179a256e5439a16499c09"
+  }
+}

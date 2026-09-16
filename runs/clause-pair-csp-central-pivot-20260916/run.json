@@ -1,0 +1,89 @@
+{
+  "id": "clause-pair-csp-central-pivot",
+  "status": "diagnostic_no_exact_closure",
+  "text": "The archivist records the carefully folded winter map at dawn. A patient sailor observes a weathered cedar rescue boat beside the river.",
+  "letters": 113,
+  "clauses": {
+    "left": "The archivist records the carefully folded winter map at dawn.",
+    "right": "A patient sailor observes a weathered cedar rescue boat beside the river.",
+    "different": true,
+    "complete": true,
+    "typed_valency": true
+  },
+  "pivot_csp": {
+    "matched_from_pivot": 0,
+    "debt": {
+      "left_unmatched": "thearchivistrecordsthecarefullyfoldedwintermapatdawn",
+      "right_unmatched": "apatientsailorobservesaweatheredcedarrescueboatbesidetheriver",
+      "letters": 113
+    },
+    "pivot": " at dawn",
+    "text": "The archivist records the carefully folded winter map at dawn. A patient sailor observes a weathered cedar rescue boat beside the river.",
+    "left": "The archivist records the carefully folded winter map at dawn.",
+    "right": "A patient sailor observes a weathered cedar rescue boat beside the river.",
+    "left_types": [
+      "animate",
+      "animate",
+      "artifact"
+    ],
+    "right_types": [
+      "animate",
+      "animate",
+      "artifact"
+    ]
+  },
+  "audits": {
+    "two_pointer": {
+      "exact": false,
+      "letters": 113,
+      "comparisons": 0,
+      "first_mismatch": {
+        "index": 0,
+        "left": "t",
+        "right": "r"
+      }
+    },
+    "independent_reverse_sha": {
+      "exact": false,
+      "letters": 113,
+      "sha256": "8a0757aa5e8331441f8c2e037237dcec5f809afc8875d40352df076eff3e6346",
+      "reverse_sha256": "8063c1ba148d8ed3c02bd115efe7658a92176f4d13b906a68b4e074670e36601"
+    }
+  },
+  "mechanical_gates": {
+    "supported_ascii_letters": true,
+    "nonempty": true,
+    "exact_letter_palindrome": false,
+    "length_band": true,
+    "word_form": true,
+    "lexicon_words": true,
+    "ordinary_short_words": true,
+    "distinct_words": true,
+    "no_self_palindromic_word": true,
+    "not_word_order_symmetry": true,
+    "no_repeated_nontrivial_unit": true,
+    "no_self_palindromic_proper_multiword_span": true,
+    "not_forbidden_catalogue_control": true,
+    "not_catalogue_family_derivative": true,
+    "not_forbidden_catalogue_endpoint_scaffold": true,
+    "absent_from_local_catalogue": true,
+    "local_catalogue_absent": true
+  },
+  "novelty_preflight": {
+    "registry_checked": true,
+    "family_id": "clause-pair-csp-central-pivot",
+    "signature": "typed-svo-valency|independent-scene-pairs|central-pivot|character-tape-csp|no-word-mirror",
+    "catalogue_text_imported": false
+  },
+  "provenance": {
+    "generator": "/Users/eric/GitHub/palindrome-sentence-generator/experiments/clause_pair_csp_20260916.py",
+    "generator_sha256": "2bc59b369bed65ac775b377effdef9407a5d39b3f7c56998913f1f56d6598942",
+    "candidate_count": 192
+  },
+  "exact_debt": {
+    "left_unmatched": "thearchivistrecordsthecarefullyfoldedwintermapatdawn",
+    "right_unmatched": "apatientsailorobservesaweatheredcedarrescueboatbesidetheriver",
+    "letters": 113
+  },
+  "next_repair": "replace only the right clause's pivot-adjacent typed complement, then rerun the reverse-index CSP and both audits."
+}

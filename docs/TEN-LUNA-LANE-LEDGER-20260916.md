@@ -185,7 +185,7 @@ construction step. Novelty preflight passed; 11 single-slot substitutions were
 rendered and independently checked, with no exact or mechanically admissible
 result. The recorded next repair is typed boundary resegmentation at the first
 failing seam, permitting adjacent short words to absorb reflected suffixes.
-The current aggregate is **4,427 rows across 138 route phases, 77 exact tapes,
+The current aggregate is **4,537 rows across 141 route phases, 78 exact tapes,
 and 0 mechanically admitted outputs**.
 
 ## Typed-boundary follow-up (2026-09-16)
@@ -195,6 +195,15 @@ preflight and tested 23 fresh boundary variants with adjacent short-word
 absorption. Independent pointer/hash audits found 0 exact and 0 mechanically
 admissible rows. The concrete next repair is a fresh non-palindromic typed
 subject/verb/object frame preserving agreement.
+
+## Additional joint construction lanes (2026-09-16)
+
+The central-pivot clause CSP keeps a fresh 113-letter complete two-clause scene
+with independent pointer/hash rejection. The semantic-slot lattice renders
+108 joint states and prunes all of them before admission. The bidirectional
+scene decoder's 51-letter exact surface is the known “Doc, note” catalogue
+palindrome and is rejected by provenance. These lanes are recorded as distinct
+methods with concrete repairs, not as promoted outputs.
 
 ## Fresh typed-frame follow-up (2026-09-16)
 

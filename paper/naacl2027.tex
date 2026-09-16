@@ -27,8 +27,8 @@ builds ordinary scenes: typed grammar and semantic slots propose the next
 words, and targeted repairs are selected from the current mirrored-letter
 debt.  Ten deliberately orthogonal construction lanes share an independent
 two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 4,427 candidates from 138 route
-summaries; 77 are exact, but none passes the mechanical admission gate and no row has
+The current development snapshot contains 4,537 candidates from 141 route
+summaries; 78 are exact, but none passes the mechanical admission gate and no row has
 yet been promoted by readers.  We report the rendered candidates and the
 failed gates explicitly, then use each failure to define the next repair
 operator.  The contribution is therefore a reproducible construction and
@@ -137,6 +137,16 @@ residual obligation.  That targeted repair changes ``near'' to ``by'', yielding
 letters, below the mechanical length floor, and records the determiner slot as
 the next repair.
 
+Two further joint searches extend the constructive evidence.  A central-pivot
+CSP retains the intact 113-letter pair ``The archivist records the carefully
+folded winter map at dawn. A patient sailor observes a weathered cedar rescue
+boat beside the river.''  Its first mirrored characters already disagree, so
+both independent audits reject it.  A semantic-slot lattice renders 108
+jointly selected states and prunes all 108 before admission.  A bidirectional
+decoder also reproduces the 51-letter ``Doc, note: I dissent.'' palindrome,
+but the provenance gate identifies it as catalogue text and keeps it out of the
+result set.
+
 \section{Independent verification and provenance}
 For every row, the verifier recomputes normalization, length, first mismatch,
 two-pointer equality, and a forward/reverse digest without importing the
@@ -144,9 +154,9 @@ generator's booleans.  The mechanical admission vector records ASCII support,
 lexical form, distinctness, catalogue-family exclusion, repeated-unit and
 self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
 one signature to each run and rejects duplicate families before aggregation.
-On the authoritative snapshot the registry contains 240 unique artifacts (24
-preflight exclusions); the aggregate contains 4,427 rows, 77 exact rows, and
-zero mechanically admitted rows across 138 route summaries.  Every exact row
+On the authoritative snapshot the registry contains 243 unique artifacts (24
+preflight exclusions); the aggregate contains 4,537 rows, 78 exact rows, and
+zero mechanically admitted rows across 141 route summaries.  Every exact row
 therefore has a visible reason for rejection or promotion status rather than
 being silently discarded.
 

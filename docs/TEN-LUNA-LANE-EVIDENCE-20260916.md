@@ -246,7 +246,7 @@ witness. Every attempt has independent pointer/hash checks and provenance; no
 substitution remained exact or mechanically admissible. The next operator is
 typed boundary resegmentation at the first failing seam, allowing adjacent
 short words to absorb reflected suffixes. With this artifact included, the
-authoritative aggregate is **4,427 rows, 138 route phases, 77 exact tapes, and
+authoritative aggregate is **4,537 rows, 141 route phases, 78 exact tapes, and
 0 mechanically admitted outputs**.
 
 ## Typed-boundary follow-up (2026-09-16)
@@ -258,6 +258,19 @@ first failing seam. All have independent pointer and SHA-256 checks; none is
 exact or mechanically admissible. Its next operator is a fresh
 non-palindromic subject/verb/object frame with typed agreement, rather than
 another substitution sweep.
+
+## Additional joint construction lanes (2026-09-16)
+
+Three distinct lanes now have persisted evidence. The central-pivot clause CSP
+retains the 113-letter intact pair “The archivist records the carefully folded
+winter map at dawn. A patient sailor observes a weathered cedar rescue boat
+beside the river.”; pointer and hash audits agree it is non-exact at the first
+character. The semantic-slot lattice renders 108 jointly selected states and
+prunes all 108 against the global equation. The bidirectional scene decoder
+reproduces the 51-letter “Doc, note: I dissent. A fast never prevents a
+fatness. I diet on cod.” exactly, but novelty/provenance identifies it as a
+known catalogue palindrome and excludes it. Their artifacts record the next
+repairs and remain out of any reader claim.
 
 ## Fresh typed-frame follow-up (2026-09-16)
 

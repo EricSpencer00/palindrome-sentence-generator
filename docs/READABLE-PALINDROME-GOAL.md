@@ -1985,7 +1985,7 @@ item-aware analysis plan.
   pointer/hash checks found no surviving exact closure and no mechanically
   admissible output. Its concrete next construction is typed boundary
   resegmentation at the first failing seam, allowing adjacent short words to
-  absorb reflected suffixes. The aggregate is now 4,427 rows across 138 route
+  absorb reflected suffixes. The aggregate is now 4,537 rows across 141 route
   phases, with 77 exact tapes and 0 mechanically admitted outputs.
 
   **Typed-boundary follow-up (2026-09-16):**
@@ -1994,6 +1994,13 @@ item-aware analysis plan.
   the failing seam. Independent pointer/hash checks found 0 exact and 0
   mechanically admissible rows. The next repair is a fresh non-palindromic
   typed subject/verb/object frame with agreement preserved.
+
+  **Additional joint construction lanes (2026-09-16):** the central-pivot CSP
+  retains a fresh 113-letter complete two-clause scene, independently rejected
+  at its first mirrored character; the semantic-slot lattice renders 108 joint
+  states and prunes all; and the bidirectional decoder's exact 51-letter “Doc,
+  note” palindrome is explicitly rejected as known catalogue text. All three
+  artifacts include provenance, audits, and next repairs; none is promoted.
 
   **Fresh typed-frame follow-up (2026-09-16):**
   `runs/fresh-typed-frame-live-seam-20260916.json` renders “The baker carries

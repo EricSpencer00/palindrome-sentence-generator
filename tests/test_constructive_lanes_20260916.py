@@ -61,8 +61,8 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4427
-    assert report["exact_count"] == 77
+    assert report["candidate_count"] == 4537
+    assert report["exact_count"] == 78
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/char-lm-tape-resegment-20260916.json"]["rows"] == 5
@@ -74,6 +74,9 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/typed-boundary-resegment-shortwords-20260916.json"]["rows"] == 23
     assert by_source["runs/fresh-typed-frame-live-seam-20260916.json"]["rows"] == 1
     assert by_source["runs/adjunct-boundary-targeted-repair-20260916.json"]["rows"] == 1
+    assert by_source["runs/bidirectional-scene-decoder-20260916.json"]["rows"] == 1
+    assert by_source["runs/semantic-slot-lattice-smt-20260916/run.json"]["rows"] == 108
+    assert by_source["runs/clause-pair-csp-central-pivot-20260916/run.json"]["rows"] == 1
 
 
 def test_fresh_typed_frame_preserves_prose_and_live_obligation_evidence():
@@ -93,6 +96,35 @@ def test_adjunct_boundary_repair_preserves_frame_and_records_next_slot():
     assert run["provenance"]["frame_preserved"] is True
     assert run["audit"]["two_pointer"] is False
     assert "determiner slot" in run["next_repair"]
+
+
+def test_clause_pair_csp_keeps_long_complete_prose_and_separate_audits():
+    run = json.loads((ROOT / "runs/clause-pair-csp-central-pivot-20260916/run.json").read_text())
+    assert run["letters"] == 113
+    assert run["clauses"]["complete"] is True
+    assert run["clauses"]["different"] is True
+    assert run["audits"]["two_pointer"]["exact"] is False
+    assert run["audits"]["independent_reverse_sha"]["exact"] is False
+    assert run["audits"]["two_pointer"]["first_mismatch"]["index"] == 0
+    assert run["provenance"]["candidate_count"] == 192
+
+
+def test_joint_slot_lattice_records_all_pruned_states():
+    run = json.loads((ROOT / "runs/semantic-slot-lattice-smt-20260916/run.json").read_text())
+    assert run["states"] == 108
+    assert run["pruned"] == 108
+    assert len(run["rendered_candidates"]) == 108
+    assert run["accepted"] == []
+    assert all(row["checks"]["two_pointer"] is False for row in run["rendered_candidates"])
+
+
+def test_bidirectional_scene_decoder_rejects_known_control_with_exact_audit():
+    run = json.loads((ROOT / "runs/bidirectional-scene-decoder-20260916.json").read_text())
+    assert run["candidate"]["normalized_length"] == 51
+    assert run["candidate"]["two_pointer_exact"] is True
+    assert run["candidate"]["independent_exact"] is True
+    assert run["candidate"]["mechanically_admitted"] is False
+    assert run["novelty_preflight"]["admitted"] is False
 
 
 def test_seam_feature_repair_keeps_each_targeted_attempt_and_next_operator():

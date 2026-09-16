@@ -298,9 +298,9 @@ concrete next repair to expand the held-out lexical/POS inventory.
 
 ## Authoritative continuation snapshot (2026-09-16, latest)
 
-The common audit now contains **4,553 normalized rows across 154 route phases,
+The common audit now contains **4,560 normalized rows across 156 route phases,
 78 exact tapes, and 0 mechanically admitted outputs**. The registry validator
-reports **256 unique artifacts, 25 preflight exclusions, and 234 run
+reports **258 unique artifacts, 26 preflight exclusions, and 236 run
 artifacts**. The latest orthogonal additions are preserved as reader-facing
 prose evidence: a 164-letter word-pair graph frontier (no closure), two fresh
 61-letter paired semantic mutations (no closure), a 113-letter central-pivot
@@ -344,3 +344,17 @@ live dependency character CSP emits a 127-letter marine-biologist scene with
 fresh provenance, novelty preflight, and a concrete local repair: boundary
 lexical targeting, typed adjunct substitution, or joint instrument/purpose
 replacement respectively.
+
+The outside-in scene grammar CSP was repaired to use distinct held-out right
+frames rather than reflecting the left frame. Six fresh 102--124-letter prose
+pairs survive the all-different content-word filter; all fail exactness at the
+outer seam and carry unequal forward/reverse hashes plus a distinct-frame
+transitive repair. The exact-tape-first resegmentation control is kept outside
+the aggregate because its only closure is the known 16-letter “Able was I; I
+saw Elba” catalogue sentence, below the long-prose floor.
+
+A ten-clause residual-equation solver adds a 242-letter clinic scene with ten
+complete coordinated clauses. It jointly substitutes verb/object spans against
+the first twenty residual positions while locking agreement and content-word
+uniqueness; independent pointer/hash checks reject exactness and the next
+paired verb/object repair is recorded.

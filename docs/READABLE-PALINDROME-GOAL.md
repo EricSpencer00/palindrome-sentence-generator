@@ -2023,9 +2023,9 @@ item-aware analysis plan.
   are recorded.
 
   **Latest authoritative continuation (2026-09-16):** the common audit now
-  contains 4,553 normalized rows across 154 route phases, 78 exact tapes, and
-  0 mechanically admitted outputs; the novelty registry contains 256 unique
-  artifacts (25 exclusions, 234 run artifacts). The 164-letter word-pair
+  contains 4,560 normalized rows across 156 route phases, 78 exact tapes, and
+  0 mechanically admitted outputs; the novelty registry contains 258 unique
+  artifacts (26 exclusions, 236 run artifacts). The 164-letter word-pair
   graph frontier, two fresh 61-letter paired mutations, 113-letter clause CSP,
   108 semantic-slot states, and 103--104-letter reverse-segmentation clauses
   are all rendered, independently checked, provenance-backed, and paired with
@@ -2057,3 +2057,12 @@ item-aware analysis plan.
   observatory scene with locked valency/agreement. Each has independent
   pointer/hash rejection, fresh provenance, novelty preflight, and a concrete
   next repair. None is exact or mechanically admitted.
+
+  **Latest constructive repairs:** the outside-in typed scene CSP now uses
+  distinct held-out right frames, retaining six 102--124-letter ordinary prose
+  pairs after all-different filtering. The exact-tape-first route is excluded
+  from the retained aggregate because its only closure is the known 16-letter
+  “Able was I; I saw Elba” catalogue control. A ten-clause residual-equation
+  solver adds a 242-letter clinic scene with a paired verb/object repair. All
+  have independent exact/hash audits, provenance, and novelty records; none is
+  mechanically admitted.

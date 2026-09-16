@@ -61,7 +61,7 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4553
+    assert report["candidate_count"] == 4560
     assert report["exact_count"] == 78
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
@@ -90,6 +90,8 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/boundary-fst-resegment-2026-09-16.json"]["rows"] == 1
     assert by_source["runs/live-dependency-character-csp-20260916.json"]["rows"] == 1
     assert by_source["runs/semantic-residual-slot-lattice-20260916.json"]["rows"] == 1
+    assert by_source["runs/outside-in-scene-grammar-csp-20260916.json"]["rows"] == 6
+    assert by_source["runs/ten-clause-residual-equation-20260916.json"]["rows"] == 1
 
 
 def test_fresh_typed_frame_preserves_prose_and_live_obligation_evidence():
@@ -260,6 +262,29 @@ def test_semantic_residual_slot_lattice_keeps_agreement_locked_scene():
     assert row["forward_hash"] != row["reverse_hash"]
     assert row["checks"]["distinct_words"] is True
     assert run["coupling"]["agreement"] == "third-person singular present"
+    assert run["next_repair"]["operator"]
+
+
+def test_outside_in_scene_csp_filters_repeated_frames_and_keeps_fresh_prose():
+    run = json.loads((ROOT / "runs/outside-in-scene-grammar-csp-20260916.json").read_text())
+    assert len(run["candidates"]) == 6
+    assert run["exact_count"] == 0 and run["admitted_count"] == 0
+    assert all(row["letters"] >= 100 for row in run["candidates"])
+    assert all(row["exact"] is False and row["two_pointer"] is False for row in run["candidates"])
+    assert all(row["hash_equal"] is False for row in run["candidates"])
+    assert all(row["checks"]["distinct_words"] for row in run["candidates"])
+    assert all(row["provenance"]["all_different_content_words"] for row in run["candidates"])
+    assert run["next_repair"]
+
+
+def test_ten_clause_residual_equation_keeps_long_scene_and_joint_repair():
+    run = json.loads((ROOT / "runs/ten-clause-residual-equation-20260916.json").read_text())
+    row = run["rendered_candidates"][0]
+    assert row["letters"] == 242 and row["exact"] is False
+    assert row["two_pointer_exact"] is False
+    assert row["forward_hash"] != row["reverse_hash"]
+    assert row["mechanical_checks"]["distinct_words"] is True
+    assert run["solver"]["all_different_content"] is True
     assert run["next_repair"]["operator"]
 
 

@@ -230,9 +230,9 @@ recorded.
 
 ## Latest authoritative continuation (2026-09-16)
 
-The aggregate is **4,553 normalized rows across 154 route phases, 78 exact
-tapes, and 0 mechanically admitted outputs**. Novelty validation reports 256
-unique artifacts (25 exclusions; 234 run artifacts). The new word-pair graph,
+The aggregate is **4,560 normalized rows across 156 route phases, 78 exact
+tapes, and 0 mechanically admitted outputs**. Novelty validation reports 258
+unique artifacts (26 exclusions; 236 run artifacts). The new word-pair graph,
 paired semantic mutation, central-pivot CSP, semantic-slot lattice, and
 corpus-backed reverse-segmentation runs all retain rendered ordinary-prose
 states plus independent exact/hash audits and named next repairs. The 164-letter
@@ -268,3 +268,10 @@ finite-state resegmentation (270 letters), live dependency-boundary equations
 agreement (122 letters). All three are intact English scenes with first-
 mismatch pointer traces, unequal forward/reverse hashes, fresh provenance,
 novelty preflight, and named repairs; none is exact or reader-eligible.
+
+The outside-in repair now retains six distinct-frame scenes at 102--124
+letters, with repeated content filtered before aggregation. The exact-tape-first
+route is explicitly excluded: its only exact surface is the known 16-letter
+“Able was I; I saw Elba” control. A ten-clause residual-equation route adds a
+242-letter clinic scene and a paired verb/object repair operator. These are
+preserved as construction evidence, not readability certification.

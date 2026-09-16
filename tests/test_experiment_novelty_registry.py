@@ -10,7 +10,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["missing"] == []
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
-    assert result["excluded"] == 25
+    assert result["excluded"] == 26
     # The ledger is append-only: parallel construction routes may add entries
     # without making this invariant stale.  The validator still requires every
     # registered artifact to resolve and every signature to be unique.
@@ -48,6 +48,7 @@ def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
             "semantic-phrase-lattice-automata-20260916-excluded",
             "semantic-scene-stack-machine-20260916-excluded",
             "joint-cfg-intersection-20260916-excluded",
+            "exact-tape-first-resegment-2026-09-16-excluded",
     }
     assert excluded["semantic-involution-frame-excluded"]["overlaps"] == []
     assert excluded["bidirectional-phrase-pair-preflight-20260916"]["overlaps"] == [
@@ -78,7 +79,7 @@ def test_preflight_checks_registered_and_excluded_routes():
     assert result["registered_families_checked"] == len(
         json.loads((Path(__file__).parents[1] / "docs/experiment-novelty-registry.json").read_text())["entries"]
     )
-    assert result["excluded_routes_checked"] == 25
+    assert result["excluded_routes_checked"] == 26
     assert result["manual_review_required"] is False
     assert result["conceptual_near_pairs"] == []
 
@@ -241,6 +242,8 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "boundary-fst-resegment-20260916" in ids
     assert "live-dependency-character-csp-20260916" in ids
     assert "semantic-residual-slot-lattice-20260916" in ids
+    assert "outside-in-scene-grammar-csp-20260916" in ids
+    assert "ten-clause-residual-equation-20260916" in ids
 
 
 def test_rhythmai_probe_is_registered_as_direct_authoring_repair_evidence():

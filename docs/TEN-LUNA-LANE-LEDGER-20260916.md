@@ -52,7 +52,7 @@ stack-machine lane was rejected because its exact surface is a semordnilap
 word chain, not intact prose. Only the first two are retained as runnable
 families; the stack route is an explicit exclusion with a grammar pivot.
 
-The current aggregate is 3868 audit-compatible rendered rows across 89 route
+The current aggregate is 3888 audit-compatible rendered rows across 92 route
 phases, with 73 exact-but-rejected tapes and 0 mechanically admitted rows.
 
 ## Orthogonal continuation wave
@@ -68,3 +68,11 @@ independent exact, two-pointer/hash, mechanical, provenance, and novelty
 records; none closed exactly. The aggregate includes only rows that the common
 audit parser could normalize (48 compound, 82 graph, and 6 parse-tree rows),
 not silently fabricated counts.
+
+The subsequent repair wave added three disjoint states: a memoized bilateral
+semantic CFG (one 154-letter six-clause realization), human-authored scene
+equation frames (one 145-letter three-frame realization), and a typed
+agreement/attachment/sense edit program (54 states, 18 normalized outputs).
+All are complete ordinary prose with dual exact audits and held-out repairs;
+all have zero exact closures. These are retained as repair evidence, not
+reader claims.

@@ -103,6 +103,17 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
                 if context_provenance and "provenance" not in item:
                     item["provenance"] = context_provenance
                 yield item
+        # Newer bilateral constructors keep their single complete realization
+        # under ``candidate``.  Treat it as a rendered row so the shared audit
+        # cannot silently drop an otherwise fully provenance-backed probe.
+        candidate = payload.get("candidate")
+        if isinstance(candidate, dict):
+            text = candidate.get("rendered") or candidate.get("text")
+            if isinstance(text, str) and text.strip():
+                item = {"source_run": source, **candidate, "rendered": text}
+                if context_provenance and "provenance" not in item:
+                    item["provenance"] = context_provenance
+                yield item
         # A few older artifacts store one candidate at the top level.
         text = payload.get("rendered") or payload.get("text")
         if isinstance(text, str) and text.strip():

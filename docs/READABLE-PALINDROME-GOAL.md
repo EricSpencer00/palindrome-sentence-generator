@@ -1862,9 +1862,18 @@ item-aware analysis plan.
   hash/mechanical audits, and a concrete next repair; all three have zero
   exact closures and zero mechanically admitted rows.
 
-  The common audit report now contains 3868 normalized rows across 89 route
+  The common audit report now contains 3888 normalized rows across 92 route
   phases, with 73 exact-but-rejected tapes and 0 mechanically admitted
   candidates. The normalization retains only rows with the shared audit schema
   (48 compound, 82 paraphrase-graph, and 6 parse-tree rows from the new wave),
   while the full run artifacts preserve every generated probe. No output is
   reader-eligible yet, so the intact-versus-shuffled human test remains gated.
+
+  A subsequent three-Luna repair wave added a memoized bilateral semantic CFG,
+  a human-authored scene-equation frame constructor, and a typed
+  agreement/attachment/lexical-sense edit program. Their rendered diagnostics
+  are 154, 145, and 82 letters respectively; every one is complete ordinary
+  prose with provenance, independent exact/hash checks, and a held-out repair,
+  but all three fail the exact palindrome gate. The aggregate now contains
+  3888 normalized rows across 92 route phases, 73 exact-but-rejected tapes,
+  and 0 mechanically admitted candidates.

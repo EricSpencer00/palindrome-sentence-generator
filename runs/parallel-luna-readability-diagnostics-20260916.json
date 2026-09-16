@@ -86,9 +86,12 @@
     "runs/encoder-semantic-scene-pseudolikelihood-20260916.json",
     "runs/compound-derivational-scene-csp-20260916.json",
     "runs/paraphrase-graph-debt-paths-20260916.json",
-    "runs/parse-tree-exact-cover-20260916.json"
+    "runs/parse-tree-exact-cover-20260916.json",
+    "runs/bilateral-semantic-cfg-20260916.json",
+    "runs/human-scene-equation-frames-20260916.json",
+    "runs/typed-edit-program-repair-20260916.json"
   ],
-  "candidate_count": 3868,
+  "candidate_count": 3888,
   "exact_count": 73,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -101,6 +104,16 @@
       "max_letters": 74,
       "mean_zipf_frequency": 5.62854487179487,
       "mean_brown_order_gain_vs_shuffle": 1.3017538294218745
+    },
+    {
+      "source_run": "runs/bilateral-semantic-cfg-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 154,
+      "max_letters": 154,
+      "mean_zipf_frequency": 5.4867647058823525,
+      "mean_brown_order_gain_vs_shuffle": 0.3383159634477977
     },
     {
       "source_run": "runs/bilateral-slot-synchronizer-adjunct-repair-20260916.json",
@@ -421,6 +434,16 @@
       "max_letters": 161,
       "mean_zipf_frequency": 5.543936237373739,
       "mean_brown_order_gain_vs_shuffle": 1.2747234918302486
+    },
+    {
+      "source_run": "runs/human-scene-equation-frames-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 145,
+      "max_letters": 145,
+      "mean_zipf_frequency": 5.536428571428572,
+      "mean_brown_order_gain_vs_shuffle": 1.0458896083453464
     },
     {
       "source_run": "runs/induced-grammar-reverse-decoder-20260916.json",
@@ -931,6 +954,16 @@
       "max_letters": 46,
       "mean_zipf_frequency": 3.776,
       "mean_brown_order_gain_vs_shuffle": 0.09494299784867444
+    },
+    {
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "rows": 18,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 74,
+      "max_letters": 82,
+      "mean_zipf_frequency": 5.18005324074074,
+      "mean_brown_order_gain_vs_shuffle": 0.5230487609719503
     },
     {
       "source_run": "runs/voice-alternation-residual-20260916.json#base",
@@ -182460,6 +182493,904 @@
         "word_count": 18,
         "repeated_word_rate": 0.2777777777777778,
         "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet clerk records the parcel. the courier carries the letter. the young baker mixes the dough. the patient guard checks the seal. the keeper opens the gate. the old sailor mends the sail",
+      "source_run": "runs/bilateral-semantic-cfg-20260916.json",
+      "provenance": "bilateral semantic nonterminal CFG",
+      "repair": null,
+      "letters": 154,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.3383159634477977,
+        "mean_zipf_frequency": 5.4867647058823525,
+        "word_count": 34,
+        "repeated_word_rate": 0.32352941176470584,
+        "punctuation_segments": 6
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient courier delivered the sealed letter to the quiet office. the waiting clerk opened the letter beside the window. the grateful clerk thanked the courier before noon.",
+      "source_run": "runs/human-scene-equation-frames-20260916.json",
+      "provenance": {
+        "construction": "human-authored three-frame semantic scene; left-to-right slot realization",
+        "frame_ids": [
+          "arrival",
+          "response",
+          "closure"
+        ]
+      },
+      "repair": null,
+      "letters": 145,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0458896083453464,
+        "mean_zipf_frequency": 5.536428571428572,
+        "word_count": 28,
+        "repeated_word_rate": 0.3571428571428571,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful nurse carries a warm blanket while birds settle; carefully, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 82,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.3723043994594928,
+        "mean_zipf_frequency": 5.2275,
+        "word_count": 16,
+        "repeated_word_rate": 0.125,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful nurse carries a warm blanket while birds settle; quietly, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 80,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4012148820530541,
+        "mean_zipf_frequency": 5.208125,
+        "word_count": 16,
+        "repeated_word_rate": 0.125,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful nurse carries a warm blanket while birds settle; gently, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 79,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4012148820530541,
+        "mean_zipf_frequency": 5.203749999999999,
+        "word_count": 16,
+        "repeated_word_rate": 0.125,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Careful nurses carry a warm blanket while birds settle; carefully, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.40062573699053416,
+        "mean_zipf_frequency": 5.0873333333333335,
+        "word_count": 15,
+        "repeated_word_rate": 0.06666666666666665,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient keeper records the tide while birds settle; carefully, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6210924926511652,
+        "mean_zipf_frequency": 5.316666666666666,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient keepers record the tide while birds settle; carefully, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6691743320292183,
+        "mean_zipf_frequency": 5.3,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet vendor packs the ripe pears while birds settle; carefully, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 77,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5836615169133008,
+        "mean_zipf_frequency": 5.053125,
+        "word_count": 16,
+        "repeated_word_rate": 0.125,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Careful nurses carry a warm blanket while birds settle; quietly, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.40062573699052884,
+        "mean_zipf_frequency": 5.066666666666666,
+        "word_count": 15,
+        "repeated_word_rate": 0.06666666666666665,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Quiet vendors pack the ripe pears while birds settle; carefully, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.24788909820134286,
+        "mean_zipf_frequency": 4.946000000000001,
+        "word_count": 15,
+        "repeated_word_rate": 0.1333333333333333,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful nurse carries a warm blanket before noon; carefully, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6953975393244853,
+        "mean_zipf_frequency": 5.256666666666666,
+        "word_count": 15,
+        "repeated_word_rate": 0.1333333333333333,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient keeper records the tide while birds settle; quietly, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6210924926511616,
+        "mean_zipf_frequency": 5.296,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient keepers record the tide while birds settle; quietly, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.66917433202922,
+        "mean_zipf_frequency": 5.279333333333333,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet vendor packs the ripe pears while birds settle; quietly, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 75,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5981167582100806,
+        "mean_zipf_frequency": 5.0337499999999995,
+        "word_count": 16,
+        "repeated_word_rate": 0.125,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Careful nurses carry a warm blanket while birds settle; gently, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 75,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.40062573699053416,
+        "mean_zipf_frequency": 5.062,
+        "word_count": 15,
+        "repeated_word_rate": 0.06666666666666665,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful nurse carries a warm blanket after rain; carefully, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 75,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4442841780574671,
+        "mean_zipf_frequency": 5.308666666666666,
+        "word_count": 15,
+        "repeated_word_rate": 0.1333333333333333,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient keeper records the tide while birds settle; gently, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 75,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6210924926511616,
+        "mean_zipf_frequency": 5.291333333333333,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient keepers record the tide while birds settle; gently, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 75,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6691743320292236,
+        "mean_zipf_frequency": 5.274666666666667,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet vendor packs the ripe pears while birds settle; gently, the clerk checks the ledger.",
+      "source_run": "runs/typed-edit-program-repair-20260916.json",
+      "provenance": {
+        "scene_authored_here": true,
+        "catalogue_imported": false,
+        "wrapper_used": false,
+        "word_order_mirror": false,
+        "complete_prose": true
+      },
+      "repair": null,
+      "letters": 74,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5981167582100806,
+        "mean_zipf_frequency": 5.029375,
+        "word_count": 16,
+        "repeated_word_rate": 0.125,
+        "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

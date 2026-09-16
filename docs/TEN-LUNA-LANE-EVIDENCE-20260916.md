@@ -79,7 +79,7 @@ the shared mechanical gate rejects it for word-order symmetry and a proper
 multiword palindrome span. It is preserved as rejected failure evidence, not
 as prose or a candidate.
 
-The current aggregate is 3868 audit-compatible rendered rows across 89 route
+The current aggregate is 3888 audit-compatible rendered rows across 92 route
 phases, with 73 exact-but-rejected tapes and 0 mechanically admitted rows.
 
 ## Orthogonal continuation wave
@@ -97,3 +97,11 @@ repair, and the parse-tree run 24 base probes plus 8 held-out repairs. The
 common audit report retains 48, 82, and 6 normalized rows respectively; this
 normalization difference is recorded rather than hidden. None is reader
 eligible, so no intact-versus-shuffled human study is claimed yet.
+
+The subsequent repair wave adds three actual prose diagnostics:
+
+| route | rendered prose | letters | exact / admission | concrete repair |
+|---|---|---:|---|---|
+| bilateral semantic CFG | “the quiet clerk records the parcel. the courier carries the letter. the young baker mixes the dough. the patient guard checks the seal. the keeper opens the gate. the old sailor mends the sail” | 154 | direct, two-pointer, SHA-256, mechanical `False` / `False` | held-out semantic substitution `gate → lock` |
+| human scene equation frames | “The patient courier delivered the sealed letter to the quiet office. The waiting clerk opened the letter beside the window. The grateful clerk thanked the courier before noon.” | 145 | two independent exact audits `False` / `False`; admission `False` | author a response place phrase against the live outer-character debt |
+| typed edit-program repair | “The careful nurse carries a warm blanket while birds settle; carefully, the clerk checks the ledger.” | 82 | two-pointer and SHA-256 agree `False`; admission `False` | held-out typed edit on certified agreement/attachment/sense dimension |

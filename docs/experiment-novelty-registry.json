@@ -1589,6 +1589,40 @@
       "distinction": "Independently authored constituency terminal spans are exact-cover columns jointly constrained by semantic role, agreement, word boundaries, and mirrored character obligations; held-out tree repairs change a lexical/agreement index rather than resegmenting a completed tape.",
       "reader_evidence": false,
       "status": "run; 0 exact closures and 0 mechanically admitted probes"
+    },
+    {
+      "id": "bilateral-semantic-cfg-20260916",
+      "signature": "semantic-nonterminal-pairing|memoized-bilateral-character-frontier|complete-six-clause-realization|heldout-semantic-repair|independent-four-audit",
+      "artifact": "experiments/bilateral_semantic_cfg_20260916.py",
+      "run_artifacts": [
+        "runs/bilateral-semantic-cfg-20260916.json"
+      ],
+      "distinction": "Paired semantic nonterminals expand ordinary-order clauses while a memoized bilateral character frontier tracks debt; the six-clause realization is emitted from complete grammar states, not a reverse tape or parse-tree exact-cover replay.",
+      "reader_evidence": false,
+      "status": "run; 0 exact closures and 0 mechanically admitted probes"
+    },
+    {
+      "id": "human-scene-equation-frames-20260916",
+      "signature": "human-authored-multi-sentence-scene-frames|semantic-slot-live-equation|ordinary-order-composition|heldout-frame-repair|dual-independent-exact-audit",
+      "artifact": "experiments/human_scene_equation_frames_20260916.py",
+      "run_artifacts": [
+        "runs/human-scene-equation-frames-20260916.json"
+      ],
+      "distinction": "A small set of complete human-authored scene frames is assembled left-to-right from semantic slots while recording live character debt after every slot. A held-out complete-frame substitution recomputes the whole scene. This is not a lattice sweep, reverse decoder, word-order mirror, or character-level token repair.",
+      "reader_evidence": false,
+      "status": "run; 0 exact closures and 0 mechanically admitted probes",
+      "next_repair": "Author a second response frame whose semantic place phrase closes the outstanding outer-character debt, then rerun the same complete-frame equation and blinded intact-prose reader gate."
+    },
+    {
+      "id": "typed-edit-program-repair-20260916",
+      "signature": "complete-authored-scenes|typed-edit-program|agreement-attachment-lexical-sense-joint-state|mismatch-certificates|heldout-repair|dual-exact-audit",
+      "artifact": "experiments/typed_edit_program_repair_20260916.py",
+      "run_artifacts": [
+        "runs/typed-edit-program-repair-20260916.json"
+      ],
+      "distinction": "Joint typed edit programs alter agreement, attachment, and lexical sense on complete authored scenes while issuing first-mismatch certificates and a held-out edit; it never mutates a completed tape, wraps a seed, or mirrors word order.",
+      "reader_evidence": false,
+      "status": "run; 0 exact closures and 0 mechanically admitted probes"
     }
   ],
   "excluded": [
@@ -1851,16 +1885,6 @@
         "recursive-obligation-clause-growth-20260916"
       ],
       "reason": "The recursive stack state is distinct, but the only exact 62-letter surface is a semordnilap word chain with failed word-order and proper-span mechanical gates, not intact prose. It is retained as rejected failure evidence; future work must add complete subject-verb-argument frames before promotion."
-    },
-    {
-      "id": "human-scene-equation-frames-20260916",
-      "signature": "human-authored-multi-sentence-scene-frames|semantic-slot-live-equation|ordinary-order-composition|heldout-frame-repair|dual-independent-exact-audit",
-      "artifact": "experiments/human_scene_equation_frames_20260916.py",
-      "run_artifacts": ["runs/human-scene-equation-frames-20260916.json"],
-      "distinction": "A small set of complete human-authored scene frames is assembled left-to-right from semantic slots while recording live character debt after every slot. A held-out complete-frame substitution recomputes the whole scene. This is not a lattice sweep, reverse decoder, word-order mirror, or character-level token repair.",
-      "reader_evidence": false,
-      "status": "retained_failure_evidence",
-      "next_repair": "Author a second response frame whose semantic place phrase closes the outstanding outer-character debt, then rerun the same complete-frame equation and blinded intact-prose reader gate."
     }
   ]
 }

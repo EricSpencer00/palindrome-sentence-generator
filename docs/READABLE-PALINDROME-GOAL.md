@@ -1735,3 +1735,18 @@ item-aware analysis plan.
   aggregate therefore stands at 2200 rendered rows across 62 route phases,
   with zero tape mismatches, 72 exact-but-rejected tapes, and 0 mechanically
   admitted rows.
+
+  A follow-up three-Luna fan-out added two runnable construction probes and two
+  explicit preflight records. The semantic seam-DP lane rendered nine fresh
+  scenes plus nine connective repairs (32--41 letters); a manual
+  bidirectional-scene lane rendered six fresh letter/weather/travel scenes
+  (37--44 letters). Both preserve intact prose, provenance, and independent
+  two-pointer/hash audits, but produced no exact closure and no reader-eligible
+  row. GPT-2 reverse reranking and weighted Brown-corpus reverse decoding were
+  rejected before sampling because their construction states duplicate retained
+  neural/reverse/corpus families; their pivots are preserved in the preflight
+  artifacts. The aggregate now contains 2224 rendered rows across 64 route
+  phases, with zero independent tape mismatches, 72 exact-but-rejected tapes,
+  and 0 mechanically admitted rows. These are diagnostic records only; the
+  reader gate and API remain closed while the next constructive lanes seek a
+  genuinely readable long palindrome.

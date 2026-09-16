@@ -62,14 +62,38 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 2200
+    assert report["candidate_count"] == 2224
     assert report["exact_count"] == 72
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 62
+    assert len(report["route_summary"]) == 64
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
+
+
+def test_latest_followup_lanes_are_retained_without_promoting_unreadable_text():
+    seam = load("c3-seam-dp-semantic-pairs-20260916.json")
+    manual = load("manual-bidirectional-scene-20260916.json")
+    assert len(seam["candidates"]) == 9 and len(seam["repair"]) == 9
+    assert seam["exact_count"] == 0 and seam["reader_eligible_count"] == 0
+    assert len(manual["candidates"]) == 6
+    assert manual["exact_count"] == 0 and manual["reader_eligible_count"] == 0
+    for row in seam["candidates"] + seam["repair"] + manual["candidates"]:
+        tape = "".join(re.findall(r"[A-Za-z]", row["rendered"])).lower()
+        assert row["independent_audit"]["letters"] == len(tape)
+        assert row["independent_audit"]["exact"] is False
+
+
+def test_followup_preflights_are_explicit_and_generate_no_rows():
+    for name in (
+        "gpt2-reverse-rerank-preflight-20260916.json",
+        "b3-corpus-weighted-reverse-preflight-20260916.json",
+    ):
+        run = load(name)
+        assert run["status"] == "preflight_blocked"
+        assert run.get("rendered_candidates", 0) == 0
+        assert run["pivot"]
 
 
 def test_parallel_report_recomputes_every_tape_and_hash_independently():

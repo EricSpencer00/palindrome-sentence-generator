@@ -1,132 +1,2928 @@
 {
   "experiment_id": "live-gpt2-character-decoder-preflight-20260916",
-  "signature": "live-gpt2-next-token-character-decoder|bilateral-normal-order-lexeme-expansion|semantic-valency-state|character-seam-obligation|independent-tape-hash-admission|mismatch-heldout-repair",
+  "signature": "direct-gpt2-next-character-equation|grammar-prefix-boundary-transitions|bilateral-normal-order-decoding|live-obligation-state|semantic-valency-lexicalization|independent-tape-hash-admission|mismatch-heldout-repair",
+  "status": "completed_no_reader_promotion",
+  "method": "Direct character-level grammar-prefix decoding. GPT-2 next-token probabilities are queried at every licensed character/boundary transition before the live character-equation obligation is applied; both sides remain normal-order prefixes.",
   "novelty_preflight": {
-    "registry_entries": 182,
+    "registry_entries": 185,
     "excluded_routes": 24,
-    "overlaps": [
-      {
-        "id": "gpt2-topic-half-decoder-20260915",
-        "jaccard": 0.142857,
-        "shared_atoms": [
-          "decoder",
-          "gpt2",
-          "semantic",
-          "state"
-        ],
-        "reason": "retained GPT-2 character/token/prefix decoder family"
-      },
-      {
-        "id": "fixed-tape-gpt2-boundary-decoder-20260915",
-        "jaccard": 0.103448,
-        "shared_atoms": [
-          "decoder",
-          "gpt2",
-          "tape"
-        ],
-        "reason": "retained GPT-2 character/token/prefix decoder family"
-      },
-      {
-        "id": "bpe-dual-continuation",
-        "jaccard": 0.111111,
-        "shared_atoms": [
-          "gpt2",
-          "repair",
-          "seam",
-          "token"
-        ],
-        "reason": "retained GPT-2 character/token/prefix decoder family"
-      },
-      {
-        "id": "neural-dual-prefix-beam-v2",
-        "jaccard": 0.055556,
-        "shared_atoms": [
-          "bilateral",
-          "gpt2"
-        ],
-        "reason": "retained GPT-2 character/token/prefix decoder family"
-      }
-    ],
-    "blocked": true,
+    "overlaps": [],
+    "blocked": false,
+    "operator": "direct character equation with grammar-prefix state; no proposal bank, fixed tape, or reverse emission",
     "performed_before_model_load": true
   },
-  "method": "Live character-synchronous lexical expansion charges local GPT-2 next-token log-probabilities before each lexical action and carries semantic role state through a bilateral seam frontier; completed text is independently audited afterward.",
   "config": {
     "model": "gpt2-local-cache",
-    "decoder": "character-synchronous-next-token",
-    "normal_order_lexeme_actions": true,
-    "posthoc_reranking": false,
-    "half_tape_decoder": false,
-    "min_letters": 39,
-    "max_letters": 220
+    "beam": 20,
+    "max_steps": 100,
+    "grammar": "DET SUBJECT VERB DET OBJECT PREP DET ADJUNCT",
+    "proposal_bank": false,
+    "fixed_tape": false,
+    "reverse_half_decoder": false
   },
   "stats": {
-    "model_loaded": 0,
-    "live_expansions": 0,
-    "rendered_probes": 0,
+    "model_loaded": 1,
+    "live_expansions": 58249,
+    "final_states": 20,
+    "rendered_probes": 20,
     "exact": 0,
     "mechanically_admitted": 0,
     "reader_eligible": 0
   },
-  "rendered_candidates": [],
-  "rendered_probes": [],
+  "rendered_candidates": [
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a brief plaza.",
+      "letters": 77,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindabriefplaza",
+      "sha256": "3c2120e34b6a97dab2e7e0e6661aff4a780cf4256c69aceb3fcccd744b5bed6a",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 35,
+        "first_mismatch": 1
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "brief",
+        "plaza"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 95,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a brief valley.",
+      "letters": 78,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindabriefvalley",
+      "sha256": "655741fb36698c01d105aa5dbe3195af87d9aa204fbb7e2f47eecc244373ef14",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "brief",
+        "valley"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 96,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a brief village.",
+      "letters": 79,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindabriefvillage",
+      "sha256": "fbcde35417f509223b50b6995528be090602531480654c98ff6527a4b5ce6f9e",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 38,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "brief",
+        "village"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 97,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a brief wall.",
+      "letters": 76,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindabriefwall",
+      "sha256": "ed158d8b81e0b6f4f6762bce8cf4174f68218ea7bb8363a10fd1461e3d531e7c",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "brief",
+        "wall"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 94,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a clean plaza.",
+      "letters": 77,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindacleanplaza",
+      "sha256": "4fabf2317799e1f111108e648fd00e9fc9e5d306630d224982659758d1fc2f40",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 1
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "clean",
+        "plaza"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 95,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a clean valley.",
+      "letters": 78,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindacleanvalley",
+      "sha256": "414238103e68243ce17b8effa5d50acd4f8a9de85fe57b0c7aab3d895ce1ae67",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 38,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "clean",
+        "valley"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 96,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a clean village.",
+      "letters": 79,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindacleanvillage",
+      "sha256": "fed9ce6893aca276deb05d32063d793536d25a62fd41e0954f890beab281fa07",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 38,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "clean",
+        "village"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 97,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a clean wall.",
+      "letters": 76,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindacleanwall",
+      "sha256": "4f360a47b41d2dc8605ad53b43e5e346961b7630fba7db3feeb919461d5d8f9f",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "clean",
+        "wall"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 94,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a dark plaza.",
+      "letters": 76,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindadarkplaza",
+      "sha256": "1c185a32aa42e1a68004e73e2648396e7640ba0850414abc318628817c0d9cda",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 34,
+        "first_mismatch": 1
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "dark",
+        "plaza"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 94,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a dark valley.",
+      "letters": 77,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindadarkvalley",
+      "sha256": "4a04eed0c0d93df2be980489fadd73594124b6f47c72add1b4e8dd5737bdf8c2",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 38,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "dark",
+        "valley"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 95,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a dark village.",
+      "letters": 78,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindadarkvillage",
+      "sha256": "6211be46d033b898465f39df0ce0b3a3a3af4d3f7769c5405061c8c05e3ae7af",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 37,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "dark",
+        "village"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 96,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a dark wall.",
+      "letters": 75,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindadarkwall",
+      "sha256": "e8eef232f1d12e82230226532d5ea92fc16fa1a01d1535fc6809d711514f7f4a",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "dark",
+        "wall"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 93,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a gentle plaza.",
+      "letters": 78,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindagentleplaza",
+      "sha256": "5db8984ac440f6eadec355806fb7298453b8096a8b10019d04588ac96899b1dd",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 37,
+        "first_mismatch": 1
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "gentle",
+        "plaza"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 96,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a gentle valley.",
+      "letters": 79,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindagentlevalley",
+      "sha256": "2df82877e369dbae054ce4cbbc744979522b4cfefb29302e79db28e88435a3fa",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "gentle",
+        "valley"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 97,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a gentle village.",
+      "letters": 80,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindagentlevillage",
+      "sha256": "42bf7b015944f645a94fccd20adb124c8ba70c27f35bfe35374c1ddf4a2060b4",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "gentle",
+        "village"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 98,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a gentle wall.",
+      "letters": 77,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindagentlewall",
+      "sha256": "476e5fb1e0203de7b2ce0b7de20b9d68da85b99878cef44d472d30936c4ad5d2",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "gentle",
+        "wall"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 95,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind the brief plaza.",
+      "letters": 79,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindthebriefplaza",
+      "sha256": "e17daec6ae1253f45972f771da4b796dc5778fa709b49c838990e2c42b5891ae",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 1
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "the",
+        "brief",
+        "plaza"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 97,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind the brief valley.",
+      "letters": 80,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindthebriefvalley",
+      "sha256": "b16b9456528786fbd41377a1a6fdf38f9980112090635f181087fcb75fa21ae7",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "the",
+        "brief",
+        "valley"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 98,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind the brief village.",
+      "letters": 81,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindthebriefvillage",
+      "sha256": "389eca481787ced0b5f89606d32f5a82bcc4b7c5384b28ef0d7ba87e3123e4b2",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 35,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "the",
+        "brief",
+        "village"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 99,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind the brief wall.",
+      "letters": 78,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindthebriefwall",
+      "sha256": "54135a0c7bc6d104a4d2f1a4b7d807ffc69309327c82161e62aa68a0f9f564b6",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 37,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "the",
+        "brief",
+        "wall"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 96,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    }
+  ],
+  "rendered_probes": [
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a brief plaza.",
+      "letters": 77,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindabriefplaza",
+      "sha256": "3c2120e34b6a97dab2e7e0e6661aff4a780cf4256c69aceb3fcccd744b5bed6a",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 35,
+        "first_mismatch": 1
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "brief",
+        "plaza"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 95,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a brief valley.",
+      "letters": 78,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindabriefvalley",
+      "sha256": "655741fb36698c01d105aa5dbe3195af87d9aa204fbb7e2f47eecc244373ef14",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "brief",
+        "valley"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 96,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a brief village.",
+      "letters": 79,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindabriefvillage",
+      "sha256": "fbcde35417f509223b50b6995528be090602531480654c98ff6527a4b5ce6f9e",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 38,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "brief",
+        "village"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 97,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a brief wall.",
+      "letters": 76,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindabriefwall",
+      "sha256": "ed158d8b81e0b6f4f6762bce8cf4174f68218ea7bb8363a10fd1461e3d531e7c",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "brief",
+        "wall"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 94,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a clean plaza.",
+      "letters": 77,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindacleanplaza",
+      "sha256": "4fabf2317799e1f111108e648fd00e9fc9e5d306630d224982659758d1fc2f40",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 1
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "clean",
+        "plaza"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 95,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a clean valley.",
+      "letters": 78,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindacleanvalley",
+      "sha256": "414238103e68243ce17b8effa5d50acd4f8a9de85fe57b0c7aab3d895ce1ae67",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 38,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "clean",
+        "valley"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 96,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a clean village.",
+      "letters": 79,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindacleanvillage",
+      "sha256": "fed9ce6893aca276deb05d32063d793536d25a62fd41e0954f890beab281fa07",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 38,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "clean",
+        "village"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 97,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a clean wall.",
+      "letters": 76,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindacleanwall",
+      "sha256": "4f360a47b41d2dc8605ad53b43e5e346961b7630fba7db3feeb919461d5d8f9f",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "clean",
+        "wall"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 94,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a dark plaza.",
+      "letters": 76,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindadarkplaza",
+      "sha256": "1c185a32aa42e1a68004e73e2648396e7640ba0850414abc318628817c0d9cda",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 34,
+        "first_mismatch": 1
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "dark",
+        "plaza"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 94,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a dark valley.",
+      "letters": 77,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindadarkvalley",
+      "sha256": "4a04eed0c0d93df2be980489fadd73594124b6f47c72add1b4e8dd5737bdf8c2",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 38,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "dark",
+        "valley"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 95,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a dark village.",
+      "letters": 78,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindadarkvillage",
+      "sha256": "6211be46d033b898465f39df0ce0b3a3a3af4d3f7769c5405061c8c05e3ae7af",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 37,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "dark",
+        "village"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 96,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a dark wall.",
+      "letters": 75,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindadarkwall",
+      "sha256": "e8eef232f1d12e82230226532d5ea92fc16fa1a01d1535fc6809d711514f7f4a",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "dark",
+        "wall"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 93,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a gentle plaza.",
+      "letters": 78,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindagentleplaza",
+      "sha256": "5db8984ac440f6eadec355806fb7298453b8096a8b10019d04588ac96899b1dd",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 37,
+        "first_mismatch": 1
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "gentle",
+        "plaza"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 96,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a gentle valley.",
+      "letters": 79,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindagentlevalley",
+      "sha256": "2df82877e369dbae054ce4cbbc744979522b4cfefb29302e79db28e88435a3fa",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "gentle",
+        "valley"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 97,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a gentle village.",
+      "letters": 80,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindagentlevillage",
+      "sha256": "42bf7b015944f645a94fccd20adb124c8ba70c27f35bfe35374c1ddf4a2060b4",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "gentle",
+        "village"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 98,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind a gentle wall.",
+      "letters": 77,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindagentlewall",
+      "sha256": "476e5fb1e0203de7b2ce0b7de20b9d68da85b99878cef44d472d30936c4ad5d2",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "a",
+        "gentle",
+        "wall"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 95,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind the brief plaza.",
+      "letters": 79,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindthebriefplaza",
+      "sha256": "e17daec6ae1253f45972f771da4b796dc5778fa709b49c838990e2c42b5891ae",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 1
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "the",
+        "brief",
+        "plaza"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 97,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind the brief valley.",
+      "letters": 80,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindthebriefvalley",
+      "sha256": "b16b9456528786fbd41377a1a6fdf38f9980112090635f181087fcb75fa21ae7",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "the",
+        "brief",
+        "valley"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 98,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind the brief village.",
+      "letters": 81,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindthebriefvillage",
+      "sha256": "389eca481787ced0b5f89606d32f5a82bcc4b7c5384b28ef0d7ba87e3123e4b2",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 35,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "the",
+        "brief",
+        "village"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 99,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    },
+    {
+      "rendered": "A baker marks the button near a bright field. A caller answers the message behind the brief wall.",
+      "letters": 78,
+      "normalized_tape": "abakermarksthebuttonnearabrightfieldacalleranswersthemessagebehindthebriefwall",
+      "sha256": "54135a0c7bc6d104a4d2f1a4b7d807ffc69309327c82161e62aa68a0f9f564b6",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 37,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "left_complete": true,
+      "right_complete": true,
+      "left_words": [
+        "a",
+        "baker",
+        "marks",
+        "the",
+        "button",
+        "near",
+        "a",
+        "bright",
+        "field"
+      ],
+      "right_words": [
+        "a",
+        "caller",
+        "answers",
+        "the",
+        "message",
+        "behind",
+        "the",
+        "brief",
+        "wall"
+      ],
+      "lm_logprob": -Infinity,
+      "live_character_transitions": 96,
+      "first_mismatch": {
+        "left_index": 35,
+        "right_index": 0,
+        "left": "d",
+        "right": "a"
+      },
+      "provenance": {
+        "model": "gpt2-local-cache",
+        "grammar_prefix_state": true,
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false
+      }
+    }
+  ],
   "repair": {
-    "operator": "At the first live seam mismatch, replace only the held-out lexeme with the same POS/sense and re-expand its characters under GPT-2 next-token probability; rerun independent tape/hash validation and the shared mechanical gate.",
-    "status": "not_run"
+    "status": "not_run",
+    "operator": "At the first live seam mismatch, replace the held-out word in the same POS/sense slot, re-query next-character probabilities from that grammar prefix, and replay independent tape/hash and mechanical gates.",
+    "first_mismatch": 1
   },
   "provenance": {
-    "generator_sha256": "3845c4ef6d3159d1aa662ae2afd651c6f1ee5f8bfa735469ba9df1b62f609b52",
-    "model_loaded": false,
+    "generator_sha256": "f3570cfa1194f31d967c5e131b37892dd1de48e20d18f6ffeae23ba7ae39b9a1",
+    "model_source": "gpt2-local-cache",
     "source_sentences_copied": false,
     "known_palindromes_used": false,
-    "readability_certificate": false
-  },
-  "pivot": {
-    "status": "preflight_blocked",
-    "reason": "The registry retains GPT-2 bilateral prefix/token-lattice and reverse-character decoder families; running this lane would duplicate the same model-in-the-loop character decoder dimension.",
-    "overlaps": [
-      {
-        "id": "gpt2-topic-half-decoder-20260915",
-        "jaccard": 0.142857,
-        "shared_atoms": [
-          "decoder",
-          "gpt2",
-          "semantic",
-          "state"
-        ],
-        "reason": "retained GPT-2 character/token/prefix decoder family"
-      },
-      {
-        "id": "fixed-tape-gpt2-boundary-decoder-20260915",
-        "jaccard": 0.103448,
-        "shared_atoms": [
-          "decoder",
-          "gpt2",
-          "tape"
-        ],
-        "reason": "retained GPT-2 character/token/prefix decoder family"
-      },
-      {
-        "id": "bpe-dual-continuation",
-        "jaccard": 0.111111,
-        "shared_atoms": [
-          "gpt2",
-          "repair",
-          "seam",
-          "token"
-        ],
-        "reason": "retained GPT-2 character/token/prefix decoder family"
-      },
-      {
-        "id": "neural-dual-prefix-beam-v2",
-        "jaccard": 0.055556,
-        "shared_atoms": [
-          "bilateral",
-          "gpt2"
-        ],
-        "reason": "retained GPT-2 character/token/prefix decoder family"
-      }
-    ],
-    "next_route": "Use a non-neural semantic construction or obtain an explicitly new model/state dimension before loading GPT-2."
+    "reader_evidence": false
   }
 }

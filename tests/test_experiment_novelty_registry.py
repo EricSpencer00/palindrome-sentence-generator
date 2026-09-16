@@ -147,6 +147,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "event-graph-character-sat-20260916" in ids
     assert "syntax-stack-semantic-role-decoder-20260916" in ids
     assert "phrase-equation-inventory-solver-20260916" in ids
+    assert "semantic-center-sat-20260916" in ids
+    assert "reverse-segmentation-cfg-valency-20260916" in ids
+    assert "dependency-mirror-pair-constructor-20260916" in ids
     assert "proper-name-caption-crossword" in ids
     assert "information-structure-focus-scope" in ids
     assert "anaphoric-scene-chain-composition" in ids

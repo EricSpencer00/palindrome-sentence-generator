@@ -63,7 +63,7 @@ def novelty():
     for x in reg["entries"]:
         shared=sorted(atoms & set(re.findall(r"[a-z0-9]+",x["signature"])))
         rows.append({"id":x["id"],"shared_atoms":shared})
-    return {"exact_signature_collision":any(x["signature"]==SIGNATURE for x in reg["entries"]),
+    return {"exact_signature_collision":any(x["id"] != EXPERIMENT_ID and x["signature"]==SIGNATURE for x in reg["entries"]),
             "registry_entries":len(reg["entries"]),"nearest":sorted(rows,key=lambda x:(-len(x["shared_atoms"]),x["id"]))[:5],
             "preflight_rule":"reject exact collision or a center-out/scene-stack replay"}
 

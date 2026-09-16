@@ -20,4 +20,4 @@ def test_reverse_segmentation_has_complete_prose_and_independent_audits():
 
 def test_registry_does_not_claim_reader_eligibility():
     data = json.loads(Path("docs/experiment-novelty-registry.json").read_text())
-    assert all(e.get("id") != "reverse-segmentation-cfg-valency-20260916" for e in data["entries"])
+    assert any(e.get("id") == "reverse-segmentation-cfg-valency-20260916" for e in data["entries"])

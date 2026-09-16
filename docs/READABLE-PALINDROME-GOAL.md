@@ -1862,7 +1862,7 @@ item-aware analysis plan.
   hash/mechanical audits, and a concrete next repair; all three have zero
   exact closures and zero mechanically admitted rows.
 
-  The common audit report now contains 3888 normalized rows across 92 route
+  At that stage, the common audit report contained 3888 normalized rows across 92 route
   phases, with 73 exact-but-rejected tapes and 0 mechanically admitted
   candidates. The normalization retains only rows with the shared audit schema
   (48 compound, 82 paraphrase-graph, and 6 parse-tree rows from the new wave),
@@ -1875,7 +1875,7 @@ item-aware analysis plan.
   are 154, 145, and 82 letters respectively; every one is complete ordinary
   prose with provenance, independent exact/hash checks, and a held-out repair,
   but all three fail the exact palindrome gate. The aggregate now contains
-  4224 normalized rows across 95 route phases, 73 exact-but-rejected tapes,
+  4240 normalized rows across 98 route phases, 73 exact-but-rejected tapes,
   and 0 mechanically admitted candidates.
 
   A further three-Luna wave tested event-graph character SAT, a syntax-stack
@@ -1885,3 +1885,9 @@ item-aware analysis plan.
   Their evidence is retained as constructive search progress; it does not
   become a readable example or a reader-study claim until the exact gate is
   passed.
+
+  The next repair wave tested semantic-center SAT, reverse-tape CFG/valency
+  segmentation, and dependency-preserving mirror-pair construction. Their
+  longest complete prose diagnostics were 70, 51, and 68 letters; all failed
+  independent exact audits. The aggregate now contains 4240 normalized rows
+  across 98 route phases, with 0 mechanically admitted candidates.

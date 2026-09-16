@@ -79,7 +79,7 @@ the shared mechanical gate rejects it for word-order symmetry and a proper
 multiword palindrome span. It is preserved as rejected failure evidence, not
 as prose or a candidate.
 
-The current aggregate is 4224 audit-compatible rendered rows across 95 route
+The current aggregate is 4240 audit-compatible rendered rows across 98 route
 phases, with 73 exact-but-rejected tapes and 0 mechanically admitted rows.
 
 ## Orthogonal continuation wave
@@ -113,3 +113,11 @@ The next repair wave adds three more complete-prose diagnostics:
 | event-graph character SAT | “At by the fire, nora writes a brief note. At near shore, eli mends the torn sail.” | 61 | two-pointer and hash `False`; admission `False` | replace one held-out event slot and re-propagate position equations |
 | syntax-stack semantic-role decoder | “the station porter; carries a wet parcel; beside the quiet bench; then the night guard locks the gate.” | 81 | two-pointer and hash `False`; admission `False` | replace the complete semantic role frame containing the first debt mismatch |
 | phrase-equation inventory solver | “the careful porter carries the sealed parcel beside the quiet gate for the waiting child.” | 74 | two-pointer and SHA-256 `False`; admission `False` | author a held-out place/purpose phrase against global character debt |
+
+The latest repair wave adds:
+
+| route | rendered prose | letters | exact / admission | concrete repair |
+|---|---|---:|---|---|
+| semantic-center SAT | “The careful nurse carried a sealed letter. At dusk the nurse closed the market ledger.” | 70 | pointer and SHA-256 `False`; admission `False` | expand held-out verb/object paradigms while preserving the fixed center event |
+| reverse-segmentation CFG/valency | “The patient courier delivered the sealed letter before noon.” | 51 | direct and two-pointer `False`; admission `False` | held-out tail-lexeme repair under the joint boundary/valency chart |
+| dependency mirror-pair constructor | “The patient courier delivers the sealed letter for the waiting child before dusk.” | 68 | pointer and SHA-256 `False`; admission `False` | held-out subject/adjunct repair while preserving dependency order |

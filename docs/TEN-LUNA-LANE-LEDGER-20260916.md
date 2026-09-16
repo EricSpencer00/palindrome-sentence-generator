@@ -52,7 +52,7 @@ stack-machine lane was rejected because its exact surface is a semordnilap
 word chain, not intact prose. Only the first two are retained as runnable
 families; the stack route is an explicit exclusion with a grammar pivot.
 
-The current aggregate is 4224 audit-compatible rendered rows across 95 route
+The current aggregate is 4240 audit-compatible rendered rows across 98 route
 phases, with 73 exact-but-rejected tapes and 0 mechanically admitted rows.
 
 ## Orthogonal continuation wave
@@ -82,3 +82,8 @@ semantic-role decoder, and a meet-in-the-middle phrase-equation inventory
 solver. They retain 81, 81, and 243 complete probes respectively (the common
 audit normalized 81, 12, and 243 rows). Their longest actual prose surfaces
 are 61, 81, and 74 letters; all fail both exact audits and remain unpromoted.
+
+The newest wave tested semantic-center SAT, reverse-tape CFG/valency
+segmentation, and dependency-preserving mirror-pair construction. The common
+audit retained 9, 3, and 4 rows respectively; each route has independent
+exact/hash checks, provenance, and a held-out repair, with zero exact closures.

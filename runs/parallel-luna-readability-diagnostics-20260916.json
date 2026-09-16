@@ -92,9 +92,12 @@
     "runs/typed-edit-program-repair-20260916.json",
     "runs/event-graph-character-sat-20260916.json",
     "runs/syntax-stack-semantic-role-decoder-20260916.json",
-    "runs/phrase-equation-inventory-solver-20260916.json"
+    "runs/phrase-equation-inventory-solver-20260916.json",
+    "runs/semantic-center-sat-20260916.json",
+    "runs/reverse-segmentation-cfg-valency-20260916.json",
+    "runs/dependency-mirror-pair-constructor-20260916.json"
   ],
-  "candidate_count": 4224,
+  "candidate_count": 4240,
   "exact_count": 73,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -257,6 +260,16 @@
       "max_letters": 98,
       "mean_zipf_frequency": 5.5575658436214,
       "mean_brown_order_gain_vs_shuffle": 1.1989835841340108
+    },
+    {
+      "source_run": "runs/dependency-mirror-pair-constructor-20260916.json",
+      "rows": 4,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 55,
+      "max_letters": 68,
+      "mean_zipf_frequency": 5.540576923076923,
+      "mean_brown_order_gain_vs_shuffle": 1.4802168435032372
     },
     {
       "source_run": "runs/dependency-tree-seam-solver-20260916.json",
@@ -799,6 +812,16 @@
       "mean_brown_order_gain_vs_shuffle": 0.7205480975006863
     },
     {
+      "source_run": "runs/reverse-segmentation-cfg-valency-20260916.json",
+      "rows": 3,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 43,
+      "max_letters": 51,
+      "mean_zipf_frequency": 5.465444444444444,
+      "mean_brown_order_gain_vs_shuffle": 1.408197800466992
+    },
+    {
       "source_run": "runs/reverse-transition-svo-authored-search-20260916.json",
       "rows": 3,
       "exact_count": 0,
@@ -887,6 +910,16 @@
       "max_letters": 992,
       "mean_zipf_frequency": 4.64331277777778,
       "mean_brown_order_gain_vs_shuffle": 0.463414600022532
+    },
+    {
+      "source_run": "runs/semantic-center-sat-20260916.json",
+      "rows": 9,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 67,
+      "max_letters": 72,
+      "mean_zipf_frequency": 5.4290370370370375,
+      "mean_brown_order_gain_vs_shuffle": 0.6809015665604549
     },
     {
       "source_run": "runs/semantic-frame-tape-solver-20260916.json",
@@ -203199,6 +203232,772 @@
         "mean_zipf_frequency": 5.757333333333334,
         "word_count": 15,
         "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful nurse carried a sealed letter. at dusk the nurse closed the market ledger.",
+      "source_run": "runs/semantic-center-sat-20260916.json",
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      },
+      "repair": null,
+      "letters": 70,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5430525453936923,
+        "mean_zipf_frequency": 5.44,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful nurse carried the old ledger. at dusk the nurse closed the market ledger.",
+      "source_run": "runs/semantic-center-sat-20260916.json",
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      },
+      "repair": null,
+      "letters": 69,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7825098580339045,
+        "mean_zipf_frequency": 5.476,
+        "word_count": 15,
+        "repeated_word_rate": 0.33333333333333337,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful nurse carried the harbor chart. at dusk the nurse closed the market ledger.",
+      "source_run": "runs/semantic-center-sat-20260916.json",
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      },
+      "repair": null,
+      "letters": 71,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5698163944952093,
+        "mean_zipf_frequency": 5.434666666666667,
+        "word_count": 15,
+        "repeated_word_rate": 0.2666666666666667,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful nurse carried a warm parcel. at dusk the nurse closed the market ledger.",
+      "source_run": "runs/semantic-center-sat-20260916.json",
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      },
+      "repair": null,
+      "letters": 68,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8083335705693155,
+        "mean_zipf_frequency": 5.394,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful nurse opened a sealed letter. at dusk the nurse closed the market ledger.",
+      "source_run": "runs/semantic-center-sat-20260916.json",
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      },
+      "repair": null,
+      "letters": 69,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5163610114665094,
+        "mean_zipf_frequency": 5.445333333333334,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful nurse opened the old ledger. at dusk the nurse closed the market ledger.",
+      "source_run": "runs/semantic-center-sat-20260916.json",
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      },
+      "repair": null,
+      "letters": 68,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8138001440091411,
+        "mean_zipf_frequency": 5.481333333333334,
+        "word_count": 15,
+        "repeated_word_rate": 0.33333333333333337,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful nurse opened the harbor chart. at dusk the nurse closed the market ledger.",
+      "source_run": "runs/semantic-center-sat-20260916.json",
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      },
+      "repair": null,
+      "letters": 70,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6011066804704477,
+        "mean_zipf_frequency": 5.44,
+        "word_count": 15,
+        "repeated_word_rate": 0.2666666666666667,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful nurse opened a warm parcel. at dusk the nurse closed the market ledger.",
+      "source_run": "runs/semantic-center-sat-20260916.json",
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      },
+      "repair": null,
+      "letters": 67,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7816420366421344,
+        "mean_zipf_frequency": 5.399333333333334,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the observant pilot checked the harbor chart. at dawn the pilot marked the harbor chart.",
+      "source_run": "runs/semantic-center-sat-20260916.json",
+      "provenance": {
+        "center_authored": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "repeated_self_palindromic_unit": false,
+        "word_order_symmetry": false
+      },
+      "repair": null,
+      "letters": 72,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7114918579637397,
+        "mean_zipf_frequency": 5.350666666666667,
+        "word_count": 15,
+        "repeated_word_rate": 0.4,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient courier delivered the sealed letter before noon.",
+      "source_run": "runs/reverse-segmentation-cfg-valency-20260916.json",
+      "provenance": {
+        "frame": {
+          "subject": "the patient courier",
+          "verb": "delivered",
+          "object": "the sealed letter",
+          "tail": "before noon",
+          "roles": [
+            "agent",
+            "theme",
+            "time"
+          ]
+        },
+        "source": "hand-authored semantic valency frame",
+        "generated_not_catalogue": true
+      },
+      "repair": null,
+      "letters": 51,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2957695905856,
+        "mean_zipf_frequency": 5.293333333333333,
+        "word_count": 9,
+        "repeated_word_rate": 0.11111111111111116,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet gardener watered the young roses near the gate.",
+      "source_run": "runs/reverse-segmentation-cfg-valency-20260916.json",
+      "provenance": {
+        "frame": {
+          "subject": "the quiet gardener",
+          "verb": "watered",
+          "object": "the young roses",
+          "tail": "near the gate",
+          "roles": [
+            "agent",
+            "theme",
+            "place"
+          ]
+        },
+        "source": "hand-authored semantic valency frame",
+        "generated_not_catalogue": true
+      },
+      "repair": null,
+      "letters": 47,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3725528581000237,
+        "mean_zipf_frequency": 5.3870000000000005,
+        "word_count": 10,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful nurse carried a warm blanket to the ward.",
+      "source_run": "runs/reverse-segmentation-cfg-valency-20260916.json",
+      "provenance": {
+        "frame": {
+          "subject": "the careful nurse",
+          "verb": "carried",
+          "object": "a warm blanket",
+          "tail": "to the ward",
+          "roles": [
+            "agent",
+            "theme",
+            "goal"
+          ]
+        },
+        "source": "hand-authored semantic valency frame",
+        "generated_not_catalogue": true
+      },
+      "repair": null,
+      "letters": 43,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5562709527153524,
+        "mean_zipf_frequency": 5.715999999999999,
+        "word_count": 10,
+        "repeated_word_rate": 0.09999999999999998,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient courier delivers the sealed letter for the waiting child before dusk.",
+      "source_run": "runs/dependency-mirror-pair-constructor-20260916.json",
+      "provenance": {
+        "source": "independently authored typed dependency trees",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "repair": null
+      },
+      "repair": null,
+      "letters": 68,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9983606050903173,
+        "mean_zipf_frequency": 5.485384615384616,
+        "word_count": 13,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient courier carries a small parcel for the quiet nurse before noon.",
+      "source_run": "runs/dependency-mirror-pair-constructor-20260916.json",
+      "provenance": {
+        "source": "independently authored typed dependency trees",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "repair": null
+      },
+      "repair": null,
+      "letters": 62,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.6865593956605727,
+        "mean_zipf_frequency": 5.444615384615384,
+        "word_count": 13,
+        "repeated_word_rate": 0.07692307692307687,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet keeper marks a clean chart for the patient courier before noon.",
+      "source_run": "runs/dependency-mirror-pair-constructor-20260916.json",
+      "provenance": {
+        "source": "independently authored typed dependency trees",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "repair": null
+      },
+      "repair": null,
+      "letters": 60,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.6204633165543214,
+        "mean_zipf_frequency": 5.455384615384615,
+        "word_count": 13,
+        "repeated_word_rate": 0.07692307692307687,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet keeper opens the wooden gate by the window after the rain.",
+      "source_run": "runs/dependency-mirror-pair-constructor-20260916.json",
+      "provenance": {
+        "source": "independently authored typed dependency trees",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "repair": null
+      },
+      "repair": null,
+      "letters": 55,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.6154840567077375,
+        "mean_zipf_frequency": 5.776923076923077,
+        "word_count": 13,
+        "repeated_word_rate": 0.23076923076923073,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

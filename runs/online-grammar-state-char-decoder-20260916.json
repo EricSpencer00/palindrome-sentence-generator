@@ -1,0 +1,95 @@
+{
+  "experiment_id": "online-grammar-state-char-decoder-20260916",
+  "signature": "online-grammar-state|two-frontier-character-actions|live-obligation-ledger|word-boundary-language-score|ordinary-order-clause-state|independent-hash-audit",
+  "status": "completed_no_exact_closure",
+  "novelty_preflight": {
+    "blocked": false,
+    "overlaps": [],
+    "performed_before_generation": true,
+    "operator": "two normal-order grammar cursors with live character obligations; no fixed tape and no reflected segmentation"
+  },
+  "method": "Two ordinary-order grammar cursors advance word and character actions; a live obligation ledger rejects incompatible frontier actions before completion.",
+  "stats": {
+    "rendered_probes": 3,
+    "exact": 0,
+    "reader_eligible": 0
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "The careful porter carries the sealed parcel beside the quiet gate.",
+      "letters": 56,
+      "normalized_tape": "thecarefulportercarriesthesealedparcelbesidethequietgate",
+      "sha256": "30f73f34ca0c73348db348fb011dcfbb8ca7396ce5339e51f23349a133dca6f5",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 27,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "provenance": {
+        "construction": "grammar-state cursor",
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false,
+        "word_order_generated": true
+      },
+      "reader_eligible": false,
+      "next_repair": "replace the first mismatching semantic slot while replaying the live obligation ledger"
+    },
+    {
+      "rendered": "The waiting nurse checks the warm letter beside the open window.",
+      "letters": 53,
+      "normalized_tape": "thewaitingnursechecksthewarmletterbesidetheopenwindow",
+      "sha256": "78d65d09fa83a2bcc56ffd81958d6a516538f2a9a0aac829f28d6e83a796652c",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 23,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "provenance": {
+        "construction": "grammar-state cursor",
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false,
+        "word_order_generated": true
+      },
+      "reader_eligible": false,
+      "next_repair": "replace the first mismatching semantic slot while replaying the live obligation ledger"
+    },
+    {
+      "rendered": "A patient baker carries fresh bread toward the bright market.",
+      "letters": 51,
+      "normalized_tape": "apatientbakercarriesfreshbreadtowardthebrightmarket",
+      "sha256": "e39f471e45cba5c3e798f6e71eb8d0ef8e27055c9ac031ff3a516f10a1b0d310",
+      "exact": false,
+      "two_pointer": {
+        "exact": false,
+        "mismatch_count": 24,
+        "first_mismatch": 0
+      },
+      "hash_replay": false,
+      "provenance": {
+        "construction": "grammar-state cursor",
+        "source_sentences_copied": false,
+        "fixed_tape": false,
+        "reverse_emission": false,
+        "word_order_generated": true
+      },
+      "reader_eligible": false,
+      "next_repair": "replace the first mismatching semantic slot while replaying the live obligation ledger"
+    }
+  ],
+  "repair": {
+    "status": "required",
+    "operator": "held-out semantic-slot substitution with state replay",
+    "reason": "all probes miss exact closure"
+  },
+  "provenance": {
+    "generator_sha256": "c8a380d4eab98aef4d6f370bacbfd631eff2c8a25e618f5aaa68f7d4c5111962",
+    "known_palindromes_used": false,
+    "reader_evidence": false
+  }
+}

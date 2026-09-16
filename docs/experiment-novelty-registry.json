@@ -2,6 +2,14 @@
   "version": 1,
   "entries": [
     {
+      "id": "open-morpheme-csp-preflight-20260916-excluded",
+      "signature": "open-vocabulary-morpheme-csp|anagram-morpheme-choice|inflectional-grammar-validity|scalable-target-length|independent-exact-audit",
+      "artifact": "experiments/open_morpheme_csp_preflight_20260916.py",
+      "run_artifacts": ["runs/open-morpheme-csp-preflight-20260916.json"],
+      "overlaps": ["orthographic-derivational-composition", "multiset-balanced-pair-sampling", "inflectional-fst-clitic-tape-20260916", "wordnet-featured-frame-repair"],
+      "reason": "Preflight blocked: morpheme choice, multiset balance, and inflectional grammar states are already represented."
+    },
+    {
       "id": "simultaneous-phrase-beam-20260916",
       "signature": "simultaneous-phrase-level-growth|semantic-commitments|diagnostic-ngram-ranking|independent-exact-audit|phrase-repair",
       "artifact": "experiments/simultaneous_phrase_beam_20260916.py",
@@ -1080,6 +1088,13 @@
     }
   ],
   "excluded": [
+    {
+      "id": "coordination-ellipsis-preflight-20260916",
+      "signature": "coordination-ellipsis-topology|typed-conjunct-growth|appositive-attachment|live-character-obligations|complete-prose-repair",
+      "artifact": "experiments/coordination_ellipsis_preflight_20260916.py",
+      "overlaps": ["coordination-attachment-constructor-20260916", "brown-two-svo-attachments", "typed-proper-name-caption-records"],
+      "reason": "Coordination, attachment, apposition, and coordinated scene graphs are already retained; preflight blocked to prevent replay."
+    },
     {
       "id": "reversible-phrase-chain-preflight-20260916",
       "signature": "mirror-pair-phrase-graph|distinct-phrase-path-composition|semantic-transition-constraints|intact-prose-grammar-score|scalable-path-extension",

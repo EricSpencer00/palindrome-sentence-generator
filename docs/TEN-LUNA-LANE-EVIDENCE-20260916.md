@@ -298,9 +298,9 @@ concrete next repair to expand the held-out lexical/POS inventory.
 
 ## Authoritative continuation snapshot (2026-09-16, latest)
 
-The common audit now contains **4,545 normalized rows across 146 route phases,
+The common audit now contains **4,549 normalized rows across 150 route phases,
 78 exact tapes, and 0 mechanically admitted outputs**. The registry validator
-reports **248 unique artifacts, 24 preflight exclusions, and 226 run
+reports **252 unique artifacts, 25 preflight exclusions, and 230 run
 artifacts**. The latest orthogonal additions are preserved as reader-facing
 prose evidence: a 164-letter word-pair graph frontier (no closure), two fresh
 61-letter paired semantic mutations (no closure), a 113-letter central-pivot

@@ -2023,9 +2023,9 @@ item-aware analysis plan.
   are recorded.
 
   **Latest authoritative continuation (2026-09-16):** the common audit now
-  contains 4,545 normalized rows across 146 route phases, 78 exact tapes, and
-  0 mechanically admitted outputs; the novelty registry contains 248 unique
-  artifacts (24 exclusions, 226 run artifacts). The 164-letter word-pair
+  contains 4,549 normalized rows across 150 route phases, 78 exact tapes, and
+  0 mechanically admitted outputs; the novelty registry contains 252 unique
+  artifacts (25 exclusions, 230 run artifacts). The 164-letter word-pair
   graph frontier, two fresh 61-letter paired mutations, 113-letter clause CSP,
   108 semantic-slot states, and 103--104-letter reverse-segmentation clauses
   are all rendered, independently checked, provenance-backed, and paired with

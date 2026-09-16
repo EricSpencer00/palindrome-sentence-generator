@@ -230,9 +230,9 @@ recorded.
 
 ## Latest authoritative continuation (2026-09-16)
 
-The aggregate is **4,545 normalized rows across 146 route phases, 78 exact
-tapes, and 0 mechanically admitted outputs**. Novelty validation reports 248
-unique artifacts (24 exclusions; 226 run artifacts). The new word-pair graph,
+The aggregate is **4,549 normalized rows across 150 route phases, 78 exact
+tapes, and 0 mechanically admitted outputs**. Novelty validation reports 252
+unique artifacts (25 exclusions; 230 run artifacts). The new word-pair graph,
 paired semantic mutation, central-pivot CSP, semantic-slot lattice, and
 corpus-backed reverse-segmentation runs all retain rendered ordinary-prose
 states plus independent exact/hash audits and named next repairs. The 164-letter

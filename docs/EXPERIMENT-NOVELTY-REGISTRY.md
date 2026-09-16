@@ -90,6 +90,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `role-aware-reversible-reservoir-centerout-20260915` | Brown/word-frequency reversible pairs are derived and assigned to attested POS roles before center-out debt solving | corpus-derived reversible lexical reservoir | 78,933 states across three templates; 0 exact terminals; 0 reader-eligible outputs |
 | `variable-length-role-reservoir-centerout-20260915` | six complete 5--10-slot templates are solved independently against the same role-aware reservoir | variable-length grammar family | 22,261 states; 0 exact terminals; 0 reader-eligible outputs |
 | `asymmetric-template-reservoir-centerout-20260915` | four distinct left/right semantic templates carry an agreement state through bilateral character debt | asymmetric paired-template state product | 552 states; 0 exact terminals; 0 reader-eligible outputs |
+| `attested-phrase-pair-wrapper-20260915` | Brown phrase spans are indexed as left chunks and their exact reverse tapes are segmented independently from a held-out lexical trie | phrase-level span lattice and reverse segmentation | 753 spans, 0 reverse segmentations, 0 exact closures; 0 reader-eligible outputs |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
@@ -124,7 +125,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 81 retained families and 6 explicit
+family. The current audit covers all 82 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The two latest routes are below the review threshold:
 
@@ -152,6 +153,7 @@ pairs for review. The two latest routes are below the review threshold:
 | `role-aware-reversible-reservoir-centerout-20260915` | none (0.000) | 0.000 | retained because reversible lexical pairs are derived from independent corpus/POS attestation before debt solving; no exact output |
 | `variable-length-role-reservoir-centerout-20260915` | none (0.000) | 0.000 | retained because a variable-length complete-template family changes the grammar dimension; no exact output |
 | `asymmetric-template-reservoir-centerout-20260915` | none (0.000) | 0.000 | retained because distinct left/right template products carry agreement state through bilateral debt; no exact output |
+| `attested-phrase-pair-wrapper-20260915` | none (0.000) | 0.000 | retained because phrase spans are indexed as construction units and reversed tapes are independently segmented; no exact output |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

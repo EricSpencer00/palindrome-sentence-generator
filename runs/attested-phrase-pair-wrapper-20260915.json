@@ -1,0 +1,62 @@
+{
+  "experiment_id": "attested-phrase-pair-wrapper-20260915",
+  "signature": "attested-phrase-pair-wrapper|independent-corpus-ngram-index|reverse-tape-segmentation|semantic-composition-around-frozen-center|reader-gated-audit",
+  "status": "completed_no_reader_promotion",
+  "novelty_audit": {
+    "registry_entries_read_before_run": 78,
+    "excluded_routes_read_before_run": 6,
+    "signature_overlap": [],
+    "conceptual_near_pairs": [],
+    "manual_review_required": false,
+    "self_entry_present": false,
+    "repair_of_registered_family": false
+  },
+  "config": {
+    "phrase_widths": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "left_tape_letters": [
+      10,
+      42
+    ],
+    "segment_max_words": 7,
+    "catalogue_spans_used_as_generated": false,
+    "frozen_center": false
+  },
+  "stats": {
+    "phrase_spans": 753,
+    "segment_vocabulary": 13821,
+    "reverse_segment_calls": 753,
+    "reverse_segment_hits": 0,
+    "exact": 0,
+    "mechanically_admitted": 0,
+    "reader_eligible": 0,
+    "rendered_rows": 0
+  },
+  "rendered_candidates": [],
+  "rendered_probes": [
+    {"rendered": "An excess of.", "letters": 10, "normalized_tape": "anexcessof", "required_reverse_tape": "fossecxena", "reverse_segment_status": "no independent lexical segmentation", "source_span": {"words": ["an", "excess", "of"], "source": "nltk.brown", "sentence_id": 5164, "start": 0}},
+    {"rendered": "And no spray.", "letters": 10, "normalized_tape": "andnospray", "required_reverse_tape": "yarpsondna", "reverse_segment_status": "no independent lexical segmentation", "source_span": {"words": ["and", "no", "spray"], "source": "nltk.brown", "sentence_id": 11291, "start": 2}},
+    {"rendered": "And parking.", "letters": 10, "normalized_tape": "andparking", "required_reverse_tape": "gnikrapdna", "reverse_segment_status": "no independent lexical segmentation", "source_span": {"words": ["and", "parking"], "source": "nltk.brown", "sentence_id": 14545, "start": 1}},
+    {"rendered": "And thyroid.", "letters": 10, "normalized_tape": "andthyroid", "required_reverse_tape": "dioryhtdna", "reverse_segment_status": "no independent lexical segmentation", "source_span": {"words": ["and", "thyroid"], "source": "nltk.brown", "sentence_id": 6000, "start": 1}},
+    {"rendered": "And where to.", "letters": 10, "normalized_tape": "andwhereto", "required_reverse_tape": "oterehwdna", "reverse_segment_status": "no independent lexical segmentation", "source_span": {"words": ["and", "where", "to"], "source": "nltk.brown", "sentence_id": 29728, "start": 1}},
+    {"rendered": "Back circle.", "letters": 10, "normalized_tape": "backcircle", "required_reverse_tape": "elcrickcab", "reverse_segment_status": "no independent lexical segmentation", "source_span": {"words": ["back", "circle"], "source": "nltk.brown", "sentence_id": 13888, "start": 0}},
+    {"rendered": "Basic needs.", "letters": 10, "normalized_tape": "basicneeds", "required_reverse_tape": "sdeencisab", "reverse_segment_status": "no independent lexical segmentation", "source_span": {"words": ["basic", "needs"], "source": "nltk.brown", "sentence_id": 10206, "start": 0}},
+    {"rendered": "Be scramble.", "letters": 10, "normalized_tape": "bescramble", "required_reverse_tape": "elbmarcseb", "reverse_segment_status": "no independent lexical segmentation", "source_span": {"words": ["be", "scramble"], "source": "nltk.brown", "sentence_id": 742, "start": 1}}
+  ],
+  "exact_candidates": [],
+  "next_repair": "Replace attested phrase spans with independently authored complete clause frames while retaining reverse segmentation and source provenance; do not import catalogue text or replay a word-level beam.",
+  "provenance": {
+    "script_sha256": "e00be5e459b3243164903e043fa2995f62d17df8a9e6a897e64e1acf7e6d6bcb",
+    "lexicon": "repository lexicon.txt plus wordfreq top-30k filter",
+    "left_source": "NLTK Brown contiguous spans",
+    "right_source": "independent word trie; no intact right phrase copied",
+    "programmatic_readability_claim": false
+  },
+  "reader_gate": "No row is reader evidence; only a manually inspected intact-prose survivor may enter randomized blinded intact/shuffled reading."
+}

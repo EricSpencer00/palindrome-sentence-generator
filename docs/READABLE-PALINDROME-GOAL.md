@@ -1273,3 +1273,14 @@ item-aware analysis plan.
   rendered-output log, and next repair are in
   `runs/asymmetric-template-reservoir-centerout-20260915.json`; no candidate is
   represented as readable evidence.
+
+- **Attested phrase-pair wrapper, 2026-09-15:** changed the construction unit
+  again, indexing 753 common Brown phrase spans and asking an independent
+  held-out word trie to segment each exact reverse tape. All 753 reverse
+  segmentation calls failed at the first lexical boundary; there are zero
+  exact, mechanically admitted, or reader-eligible rows. The run keeps eight
+  concrete span probes with their required reverse tapes and source offsets in
+  `runs/attested-phrase-pair-wrapper-20260915.json`. Because the source spans
+  are attested material, none is presented as generated prose; the next repair
+  must replace spans with independently authored complete clauses rather than
+  relax the lexical gate.

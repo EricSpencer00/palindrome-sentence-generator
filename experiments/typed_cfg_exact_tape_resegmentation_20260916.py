@@ -106,7 +106,8 @@ def typed_lexicon() -> tuple[set[str], dict[str, tuple[TypedWord, ...]]]:
         for word in words.split():
             if word in dictionary:
                 entries[word].append(TypedWord(word, category, number, valency, lemma or word))
-    add("a an the some one each this these many our", "det")
+    add("a an the one each this", "det", "sg")
+    add("some these many our", "det", "pl")
     add("man woman artist baker captain doctor farmer friend nurse poet sailor teacher writer", "noun", "sg")
     add("men women artists bakers captains doctors farmers friends nurses poets sailors teachers writers", "noun", "pl")
     add("candle canvas decal letter message method notice parcel report story ticket village", "noun", "sg")
@@ -230,6 +231,17 @@ def mismatch_directed_repair(tape: str, dictionary: set[str], typed: dict[str, t
             "dp_stats": stats, "exact_count": 0}
 
 
+def parse_control(words: tuple[str, ...], typed: dict[str, tuple[TypedWord, ...]]) -> CFGState | None:
+    """Parse a complete control sentence with the same transition system."""
+    state = CFGState("start")
+    for word in words:
+        candidates = [transition(state, item) for item in typed.get(word, ())]
+        state = next((candidate for candidate in candidates if candidate is not None), None)
+        if state is None:
+            return None
+    return state if is_complete(state) else None
+
+
 def run() -> dict[str, object]:
     preflight = novelty_preflight()
     source = construct_exact_tape()
@@ -237,6 +249,9 @@ def run() -> dict[str, object]:
     segmentations, partial, dp_stats = segment(source["tape"], dictionary, typed)
     repair = mismatch_directed_repair(source["tape"], dictionary, typed)
     source_audit = audit(source["rendered"], source["tape"])
+    control_text = "A baker carried a candle near the garden."
+    control_state = parse_control(tuple(re.findall(r"[a-z]+", control_text.casefold())), typed)
+    control_audit = audit(control_text, source["tape"])
     rendered = []
     for row in segmentations:
         row = dict(row); row["audit"] = audit(row["rendered"], source["tape"]); row["reader_eligible"] = False; rendered.append(row)
@@ -249,6 +264,9 @@ def run() -> dict[str, object]:
     admitted = [row for row in rendered if row["audit"]["mechanically_admitted"]]
     return {"experiment_id": EXPERIMENT_ID, "signature": SIGNATURE, "status": "completed_typed_cfg_exact_tape_dp", "novelty_preflight": preflight,
             "source_exact_tape": {**source, "independent_sha256": hashlib.sha256(source["tape"].encode()).hexdigest(), "independent_exact": source["tape"] == source["tape"][::-1], "mechanical_audit": source_audit},
+            "complete_intact_control": {"rendered": control_text, "cfg_state": control_state.__dict__ if control_state else None,
+                                         "complete_cfg_parse": control_state is not None, "candidate_status": "control_only_not_candidate",
+                                         "reason": "ordinary-English control is independently parsed but not produced from the immutable exact tape", "audit": control_audit},
             "config": {"min_letters": MIN_LETTERS, "max_word_length": MAX_WORD, "top_k_per_cfg_state": TOP_K, "dictionary": "data/lexicon.txt", "immutable_tape": True, "post_hoc_reverse_segmentation": False, "lm_tie_breaker": "deterministic lexical bigram bonus"},
             "dp_stats": dp_stats, "segmentations": rendered, "rendered_candidates_and_probes": rendered + probes, "mechanically_admitted": admitted, "reader_eligible": [],
             "mismatch_directed_repair": {"operator": "held-out morphology repair at the highest-scoring dead CFG edge", **repair},

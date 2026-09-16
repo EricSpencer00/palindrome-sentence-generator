@@ -4,7 +4,7 @@
   "status": "completed_typed_cfg_exact_tape_dp",
   "novelty_preflight": {
     "status": "passed",
-    "registry_entries_before_run": 182,
+    "registry_entries_before_run": 185,
     "signature_overlaps": [],
     "artifact_collisions": [],
     "conceptual_near_pairs": [
@@ -61,6 +61,55 @@
         "not_word_order_symmetry": false,
         "no_repeated_nontrivial_unit": true,
         "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false
+    }
+  },
+  "complete_intact_control": {
+    "rendered": "A baker carried a candle near the garden.",
+    "cfg_state": {
+      "phase": "end",
+      "subject_number": "sg",
+      "object_number": "sg",
+      "predicate": "carry",
+      "valency": "transitive",
+      "roles": [
+        "agent:baker",
+        "event:carry",
+        "patient:candle",
+        "relation:near",
+        "setting:garden"
+      ]
+    },
+    "complete_cfg_parse": true,
+    "candidate_status": "control_only_not_candidate",
+    "reason": "ordinary-English control is independently parsed but not produced from the immutable exact tape",
+    "audit": {
+      "rendered": "A baker carried a candle near the garden.",
+      "letters": 33,
+      "normalized_tape": "abakercarriedacandlenearthegarden",
+      "source_tape_unchanged": false,
+      "independent_ascii_tape": "abakercarriedacandlenearthegarden",
+      "independent_exact": false,
+      "independent_sha256": "eca493d2c93fc765d72fbcbb8fa590359db97daba5549439930c934680e05703",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
         "not_forbidden_catalogue_control": true,
         "not_catalogue_family_derivative": true,
         "not_forbidden_catalogue_endpoint_scaffold": true,
@@ -276,7 +325,7 @@
   },
   "next_operator": "At the highest-scoring dead CFG edge, add one held-out number/tense variant with the same lemma and valency, then rerun the immutable-tape DP; do not alter letters or use a reverse decoder.",
   "provenance": {
-    "generator_sha256": "a68f881cea6f04bee8009982daed925b5abb189db41086308e5c8da368b4b050",
+    "generator_sha256": "a45ecc148e0a2c587b320fe9a2f3e9ed4518c51d7eb2081a4910feac96e1b2f5",
     "constructor": "fresh-authored-lexical-chunk-pairs",
     "known_palindromes_imported": false,
     "source_sentences_copied": false,

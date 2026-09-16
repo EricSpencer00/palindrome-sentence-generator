@@ -1,0 +1,75 @@
+{
+  "experiment_id": "centerout-grammar-boundary-repair-20260916",
+  "signature": "center-out-grammar-state|first-mismatch-boundary-repair|heldout-adjunct-substitution|event-preserving-valency|independent-exact-hash-audit",
+  "status": "completed",
+  "method": "single held-out adjunct substitution at the first lexical-boundary repair site; all other grammar and event slots fixed",
+  "parent_run": "runs/centerout-grammar-boundary-dp-20260916.json",
+  "candidate": {
+    "label": "heldout-first-boundary-adjunct-repair",
+    "rendered": "the careful porter delivers the sealed parcel. near the lamplit school for a waiting child.",
+    "letters": 75,
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_sha256",
+      "letters": 75,
+      "two_pointer_exact": false,
+      "mismatch_count": 37,
+      "first_mismatch": {
+        "left": 0,
+        "right": 74,
+        "a": "t",
+        "b": "d"
+      },
+      "sha256_forward": "26191e503db0e9a5637574bfb37ea5a521518c735c4a6a38391405b97b9e64d1",
+      "sha256_reverse": "843b64bdfd9893f5ec686e5905465c8ad60f0dd19516771d76719b5c0d5cc956",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": false,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "repair": {
+      "parent_label": "heldout-boundary-repair",
+      "changed_span": {
+        "from": "beside the lamplit school for a waiting child",
+        "to": "near the lamplit school for a waiting child"
+      },
+      "changed_component": "right adjunct only",
+      "first_mismatch_target": null
+    },
+    "provenance": {
+      "authored_event_preserved": true,
+      "source_parent": "runs/centerout-grammar-boundary-dp-20260916.json",
+      "catalogue_text_copied": false,
+      "finished_sentence_reversed": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false
+    }
+  },
+  "stats": {
+    "candidates": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "next_repair": "author one semantically compatible adjunct with the required boundary letters, then rerun the same independent exact gate; do not sweep substitutions",
+  "reader_status": "not eligible: repaired candidate is not an exact mechanical closure",
+  "provenance": {
+    "generator_sha256": "212c5680b6d1e742e381d11c29ffcf8797553f818589a3423841ffa4168b8803",
+    "generated_not_catalogue": true
+  }
+}

@@ -492,8 +492,8 @@ the fragile map before the archivist stores the ledger, while rain gathers
 softly against the western windows and visitors wait beside the reading room.”
 (143 letters; first mismatch 0; SHA prefixes `ad660754...` and `3f372d81...`).
 A joint slot/boundary repair emits “The quiet curator labels the old faded map
-before dawn.” (51 letters; first mismatch 0; SHA prefixes `709b86e5...` and
-`92436837...`). All are complete ordinary prose with fresh provenance,
+before dawn.” (45 letters; first mismatch 0; SHA prefixes `032e4c56...` and
+`60a5d269...`). All are complete ordinary prose with fresh provenance,
 independent pointer/SHA validation, novelty preflight, and concrete repairs;
 none is exact or reader-eligible.
 

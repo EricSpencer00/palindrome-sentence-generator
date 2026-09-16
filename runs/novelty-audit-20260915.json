@@ -1677,10 +1677,33 @@
         "seam",
         "structure"
       ]
+    },
+    {
+      "id": "anaphoric-scene-chain-composition",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "typed-lexical-graph",
+        "jaccard": 0.0625,
+        "shared_atoms": [
+          "number"
+        ]
+      },
+      "signature_atoms": [
+        "anaphora",
+        "antecedent",
+        "continuity",
+        "discourse",
+        "emission",
+        "no",
+        "number",
+        "scene",
+        "three",
+        "yield"
+      ]
     }
   ],
   "exact_signature_collisions": false,
-  "excluded_routes": 5,
+  "excluded_routes": 6,
   "near_pairs": [
     {
       "jaccard": 0.461538,
@@ -1876,7 +1899,7 @@
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 64,
+  "registered_entries": 65,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

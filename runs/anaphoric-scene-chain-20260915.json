@@ -2,6 +2,12 @@
   "family_id": "anaphoric-scene-chain-composition",
   "state_space_signature": "typed-anaphora|antecedent-number-state|three-sentence-scene-yield|discourse-continuity|no-reverse-emission",
   "method": "compose complete three-sentence scenes under typed singular-object anaphora; no reverse generation",
+  "preflight": {
+    "registry_entries": 63,
+    "excluded_families": 5,
+    "audit_passed": true,
+    "manual_review_required": false
+  },
   "stats": {
     "scenes": 4,
     "exact": 0,
@@ -15,7 +21,30 @@
       "audit": {
         "letters": 62,
         "palindrome": false,
-        "tape_sha256": "4e1744ec08c6051ed64df754f0310705b09429ab6fd13997b0239564eeb7bfbf"
+        "independent_two_pointer": false,
+        "tape_sha256": "4e1744ec08c6051ed64df754f0310705b09429ab6fd13997b0239564eeb7bfbf",
+        "failed_checks": [
+          "exact_letter_palindrome",
+          "distinct_words"
+        ],
+        "tokens": [
+          "mara",
+          "found",
+          "a",
+          "brass",
+          "key",
+          "she",
+          "cleaned",
+          "it",
+          "by",
+          "the",
+          "window",
+          "the",
+          "key",
+          "opened",
+          "the",
+          "drawer"
+        ]
       },
       "provenance": "independently authored intact scene with explicit pronoun antecedent"
     },
@@ -26,7 +55,29 @@
       "audit": {
         "letters": 59,
         "palindrome": false,
-        "tape_sha256": "cf60997c1db6cce8e1ba0e2fc7a54977aa2912fe9559e2714ae1c09a58abaa0d"
+        "independent_two_pointer": false,
+        "tape_sha256": "cf60997c1db6cce8e1ba0e2fc7a54977aa2912fe9559e2714ae1c09a58abaa0d",
+        "failed_checks": [
+          "exact_letter_palindrome",
+          "distinct_words"
+        ],
+        "tokens": [
+          "jon",
+          "carried",
+          "a",
+          "small",
+          "map",
+          "he",
+          "folded",
+          "it",
+          "after",
+          "lunch",
+          "the",
+          "map",
+          "showed",
+          "the",
+          "coast"
+        ]
       },
       "provenance": "independently authored intact scene with explicit pronoun antecedent"
     },
@@ -37,7 +88,29 @@
       "audit": {
         "letters": 59,
         "palindrome": false,
-        "tape_sha256": "feb21be185ff280ce4f00332867daa4d0099aca7446e49f2fd1ae6608a986f93"
+        "independent_two_pointer": false,
+        "tape_sha256": "feb21be185ff280ce4f00332867daa4d0099aca7446e49f2fd1ae6608a986f93",
+        "failed_checks": [
+          "exact_letter_palindrome",
+          "distinct_words"
+        ],
+        "tokens": [
+          "nell",
+          "planted",
+          "a",
+          "young",
+          "tree",
+          "she",
+          "watered",
+          "it",
+          "at",
+          "dusk",
+          "the",
+          "tree",
+          "shaded",
+          "the",
+          "path"
+        ]
       },
       "provenance": "independently authored intact scene with explicit pronoun antecedent"
     },
@@ -48,13 +121,42 @@
       "audit": {
         "letters": 62,
         "palindrome": false,
-        "tape_sha256": "8fbe8d61b504f0dd923c2bda01a15411c84681d40343db47f58fd4e194d5db06"
+        "independent_two_pointer": false,
+        "tape_sha256": "8fbe8d61b504f0dd923c2bda01a15411c84681d40343db47f58fd4e194d5db06",
+        "failed_checks": [
+          "exact_letter_palindrome",
+          "distinct_words"
+        ],
+        "tokens": [
+          "ruth",
+          "kept",
+          "an",
+          "old",
+          "letter",
+          "she",
+          "read",
+          "it",
+          "beside",
+          "the",
+          "fire",
+          "the",
+          "letter",
+          "named",
+          "the",
+          "town"
+        ]
       },
       "provenance": "independently authored intact scene with explicit pronoun antecedent"
     }
   ],
   "exact_candidates": [],
-  "independent_validation": "normalize then direct reverse tape equality",
+  "independent_validation": "explicit opposing-index scan plus mechanical admission checks",
+  "independent_audit": {
+    "probes_checked": 4,
+    "primary_exact": 0,
+    "independent_exact": 0,
+    "disagreements": []
+  },
   "readable_status": "ordinary grammatical prose; no reader certification",
   "shortcut_diagnostics": {
     "word_order_symmetry": false,
@@ -64,5 +166,5 @@
   },
   "concrete_repair": "Replace only the antecedent-bearing object noun with a held-out singular synonym while preserving pronoun number and discourse roles.",
   "novelty_fingerprint": "2ad70062544c12e5107be6030c17203b29a39dae18546772ab338743867c83e9",
-  "script_sha256": "fc50241730e22bc3f0e19d1a59bb1c7e453b5c6d80ebd6a1e566f4eeb24cfbed"
+  "script_sha256": "4d0025d28bb3cc565adb5a2ee420aa8bf99dc47f5bc87aea5ea68fee6974c71d"
 }

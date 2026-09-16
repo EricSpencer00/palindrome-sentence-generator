@@ -76,6 +76,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `fixed-tape-valency-chart-repair` | the same frozen tape is parsed by a subject--finite-verb/object chart with clause-boundary transitions after POS resegmentation | argument-role/valency state over fixed boundaries | 2 exact mechanically admitted segmentations; 0 complete-clause parses; 0 reader-eligible outputs |
 | `proper-name-caption-crossword` | typed proper-name/appositive incident records joined as complete captions with a crossword-style character compatibility filter | proper-name caption role grammar | 25 rendered probes; 0 exact closures; 0 reader-eligible outputs |
 | `information-structure-focus-scope` | independently authored negative cause/result clauses carry focus, presupposition, and polarity state before the whole rendered tape is audited | information-structure and polarity state | 16 intact probes plus a terminal-seam repair; 0 exact closures; 0 reader-eligible outputs |
+| `anaphoric-scene-chain-composition` | complete three-sentence scenes carry a singular object antecedent through pronoun and definite-description continuations | typed anaphora and discourse continuity | 4 intact scenes; 0 exact closures; 0 reader-eligible outputs |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an
@@ -96,6 +97,7 @@ the next frontier was chosen:
 | `experiments/semantic_involution_frame_20260915.py` | the probes repeat a frame in reverse lexical order and include a known catalogue palindrome, so they are explicitly rejected as a forbidden word-order shortcut rather than counted as a generator family |
 | `experiments/thematic_grid_clause_composition_20260915.py` | its 4x4 authored-clause cross-product and whole-tape audit replay the existing complete-prose pairing space; seam filtering changes ordering, not the construction dimension. The 16 probes and zero closures remain failure evidence, not a retained family |
 | `experiments/semantic_pairing_typed_clauses_20260915.py` | typed SVO/PP clause cross-product plus reverse-tape pairing overlaps the existing typed-semordnilap and complete-prose pairing families. The 17,280-frame run and bounded repair queue remain preserved, but are not counted as a new family |
+| `experiments/multiset_balanced_grammar_20260915.py` | the implementation never enforces its declared multiset/count state; it only samples typed role productions and scores mirrored matches, overlapping existing grammar-production probes. Its 5,000 samples remain preserved as invalid-route evidence |
 
 Their run records remain available for failure analysis (`runs/seed-symmetric-
 mutation-20260915.json` and `runs/seed-boundary-shift-typed-resegmentation-
@@ -109,7 +111,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 64 retained families and 5 explicit
+family. The current audit covers all 65 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The two latest routes are below the review threshold:
 
@@ -123,6 +125,7 @@ pairs for review. The two latest routes are below the review threshold:
 | `fixed-tape-valency-chart-repair` | none (0.000) | 0.000 | fixed-tape subject/verb/object chart; stricter successor to POS-only segmentation |
 | `proper-name-caption-crossword` | none (0.000) | 0.000 | retained because the proper-name/appositive record grammar is a distinct lexical-role state; no exact output |
 | `information-structure-focus-scope` | none (0.000) | 0.000 | retained because focus/presupposition/polarity is an explicit information-structure state; no exact output |
+| `anaphoric-scene-chain-composition` | none (0.000) | 0.000 | retained because antecedent-number continuity spans a complete three-sentence scene; no exact output |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

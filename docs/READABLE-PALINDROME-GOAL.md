@@ -110,6 +110,15 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   the same family rather than counted as a new method. The next repair changes
   connective/tense state at the causal seam, not merely the lexical bank.
 
+- **Typed anaphoric scene chain (2026-09-15).** A separate preflighted route
+  carried a singular object antecedent through three complete sentences using
+  pronoun and definite-description continuity. Four ordinary intact scenes
+  were checked by an explicit two-pointer audit and mechanical admission; all
+  four failed exactness. The concrete repair is a held-out antecedent-synonym
+  substitution that preserves number and discourse roles. A purported
+  “multiset-balanced” stochastic sampler was rejected from the ledger because
+  its implementation never enforced the advertised balance state.
+
 ## Scalable-construction requirement (2026-09-15)
 
 The active construction objective now has two explicit layers: (1) a

@@ -1399,12 +1399,14 @@ item-aware analysis plan.
 - **Morphology-first dependency lattice, 2026-09-16:** preflighted a distinct
   route that chooses a typed dependency topology first, then unifies
   node-local lemma, derivation, and inflection paths before ordinary-order
-  emission. Of 1,728 yields, three were exact diagnostics; all were rejected
-  independently as catalogue or word-order/self-symmetry material, leaving
-  zero mechanically admitted or reader-eligible rows. The complete candidate
-  surfaces and morphology paths are preserved in
-  `runs/morphology-first-dependency-lattice-20260916.json`; no catalogue text
-  is treated as generated output.
+  emission. Of 1,728 base yields, three were exact diagnostics; all were
+  rejected independently as catalogue or word-order/self-symmetry material.
+  Its derivational/topology repair expanded the same state family to 24,570
+  yields and retained 48 mismatch-audited near misses, with zero exact
+  closures. The complete surfaces and morphology paths are preserved in
+  `runs/morphology-first-dependency-lattice-20260916.json` and
+  `runs/morphology-first-dependency-lattice-derivational-repair-20260916.json`;
+  no catalogue text is treated as generated output.
 
 - **Semantic relation alignment, 2026-09-16:** preflighted a directed
   event-edge construction in which each side independently lexicalizes typed

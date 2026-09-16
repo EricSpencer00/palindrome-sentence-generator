@@ -2086,7 +2086,7 @@ item-aware analysis plan.
   **Fresh ten-lane closure audit (2026-09-16):** ten orthogonal Luna state
   representations now have append-only run artifacts with rendered prose,
   independent pointer/hash validation, provenance, novelty preflight, and a
-  named next repair. The aggregate is 4,637 rows across 183 route phases (79
+  named next repair. The aggregate is 4,657 rows across 186 route phases (79
   exact but rejected tapes; 0 mechanically admitted). The lane-8 exact
   126-letter surface is quarantined because it is six repetitions of the
   catalogue clause “A man, a plan, a canal, Panama.” The longest fresh intact
@@ -2094,7 +2094,9 @@ item-aware analysis plan.
   character-LM decoding, 208 from flat compositional growth, and 170 from
   semantic slot repair. Subsequent typed equation, dialogue, A* boundary,
   single-slot semantic, paired-lexical, free-center bridge, and productive
-  grammar-composition, grapheme-chunk, and reader-first function-edit probes
+  grammar-composition, grapheme-chunk, reader-first function-edit,
+  constrained-edit-program, append-algebra, and discourse-relation-involution
+  probes
   remain distinct non-exact repairs; an entailment rewrite was excluded after
   a novelty collision. The next
   reader-facing step remains a randomized
@@ -2102,3 +2104,19 @@ item-aware analysis plan.
   anti-shortcut-clean candidate. The repaired inflection/clitic lane adds a
   distinct 128-letter harbor near miss after the repeated-unit exact control
   was quarantined.
+
+  The newest three non-overlapping Luna states are preserved with their actual
+  renderings and independent digests. The constrained edit program starts from
+  “At dawn, the careful cartographer marked the northern trail, while a patient
+  ranger checked the bridge and recorded the weather.” (106 letters; pointer
+  and SHA exactness `False`; forward/reverse prefixes `b4ca1de6...` /
+  `d92f8d11...`) and lowers mirrored debt from 51 to 44 through parse-preserving
+  edits. The append-algebra lane reaches “Mara observes the harbor lantern. Jon
+  repairs the western gate. Iris records the morning tide. Noah carries a copper
+  compass.” (102 letters; exactness `False`; digests `2ae18869...` /
+  `746851d5...`) and records a typed suffix-obligation repair. The discourse
+  lane includes “The rain cooled the garden because the seedlings survived the
+  heat.” (56 letters; first residual 1; digests `f7687fb8...` /
+  `9d847a67...`) and 11 related complete propositions. These are diagnostic
+  near misses, not readability claims; each has fresh provenance, novelty
+  preflight, anti-shortcut flags, and a concrete next repair.

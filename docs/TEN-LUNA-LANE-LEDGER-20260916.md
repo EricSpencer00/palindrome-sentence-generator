@@ -357,7 +357,7 @@ states at 55, 114, 168, and 223 letters. Both continuations have fresh
 provenance and novelty fingerprints, and neither produced an exact closure;
 they are retained as construction evidence rather than duplicate sweeps.
 
-The authoritative aggregate is therefore **4,637 rows across 183 route
+The authoritative aggregate is therefore **4,657 rows across 186 route
 phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**. The
 next reader-facing test remains the randomized blinded intact-versus-shuffled
 packet, gated on a genuinely exact, anti-shortcut-clean candidate.
@@ -368,8 +368,8 @@ function/inflection editor (five 96--104-letter scenes). Both are registered
 as distinct retained families with independent audits and concrete repairs.
 An entailment-preserving active/passive rewrite is explicitly excluded after
 novelty preflight found overlap with existing voice/information-structure
-families. The registry now contains 284 retained artifacts, 31 exclusions,
-and 262 retained run artifacts.
+families. The registry now contains 287 retained artifacts, 31 exclusions,
+and 265 retained run artifacts.
 
 Representative renderings are preserved verbatim: “The baker repairs the
 gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA
@@ -377,3 +377,14 @@ gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA
 lantern across the quiet bridge, and Jonah records each rescued name so the
 town archive can open.” (104 letters, first mismatch 0, normalized SHA
 `49d8b841...` versus `443a004b...`). Neither is exact or reader-eligible.
+
+The latest three Luna lanes are also retained as distinct evidence. The
+constrained edit program's 106-letter cartographer/ranger scene has independent
+normalized digests `b4ca1de6...`/`d92f8d11...` and lowers mirrored debt from 51
+to 44 through parse-preserving edits. The append-algebra lane reaches a
+102-letter four-clause scene (digests `2ae18869...`/`746851d5...`) while
+testing the suffix-obligation invariant. The discourse-relation lane renders
+12 complete 43--56-letter linked propositions; its representative 56-letter
+rain/garden sentence has digests `f7687fb8...`/`9d847a67...` and first residual
+index 1. All three have no exact closure, explicit provenance and novelty
+preflight, and a concrete next repair; none enters the reader packet.

@@ -457,10 +457,10 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,637 rows
-across 183 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **284 retained artifacts, 31
-explicit exclusions, and 262 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,657 rows
+across 186 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **287 retained artifacts, 31
+explicit exclusions, and 265 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
 
@@ -482,3 +482,33 @@ town archive can open.” (104 letters; normalized SHA forward
 are fresh authored prose with no catalogue import or symmetry shortcut; the
 next reader-facing test remains blocked until an exact anti-shortcut survivor
 is independently admitted.
+
+## Three orthogonal Luna continuations (2026-09-16)
+
+The next queue pass added three distinct construction states rather than a
+larger duplicate sweep. The constrained edit program rendered the fresh scene
+“At dawn, the careful cartographer marked the northern trail, while a patient
+ranger checked the bridge and recorded the weather.” (106 letters; 51
+mirrored-character mismatches; normalized SHA forward
+`b4ca1de6...`, reverse `d92f8d11...`). Its accepted substitutions lower debt
+monotonically to 44 in a 97-letter final state while preserving the two-clause
+parse and semantic roles. The next repair is a held-out role-preserving
+inflection lexicon.
+
+The append-algebra probe emits complete, independently authored clauses, with
+the longest rendering “Mara observes the harbor lantern. Jon repairs the
+western gate. Iris records the morning tide. Noah carries a copper compass.”
+(102 letters; first mismatch 0; normalized SHA forward `2ae18869...`, reverse
+`746851d5...`). It records the failed append-preserving invariant and the
+concrete repair of selecting a typed macro against the live suffix obligation.
+
+The discourse-relation involution lane renders “The rain cooled the garden
+because the seedlings survived the heat.” (56 letters; first mismatch 1;
+normalized SHA forward `f7687fb8...`, reverse `9d847a67...`) among 12 complete
+cause/effect and contrast propositions. Its next repair changes only the
+connective and subordinate attachment at the first residual while preserving
+relation polarity. All three runs have fresh generator hashes, explicit
+anti-shortcut flags, novelty preflights with no signature collisions, and
+independent pointer/hash replays. All remain non-exact and reader-ineligible;
+the next reader-facing test is still the randomized intact-versus-shuffled
+packet, gated on a mechanically admitted exact survivor.

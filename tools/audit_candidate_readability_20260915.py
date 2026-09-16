@@ -76,6 +76,10 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
             "candidate_prose",
             "heldout_repairs",
             "lanes",
+            # Constructive growth lanes keep each complete authored surface
+            # under ``states``.  Include list-valued states so the aggregate
+            # cannot silently omit their prose or independent tape audits.
+            "states",
         ):
             values = payload.get(key)
             if isinstance(values, list):

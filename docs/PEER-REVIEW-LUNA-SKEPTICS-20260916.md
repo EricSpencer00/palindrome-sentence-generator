@@ -15,7 +15,7 @@ was not itself represented in the novelty registry. The registry now has an
 `runs/parallel-luna-readability-diagnostics-20260916.json`, explicitly marking
 it as a report rather than a construction lane. Historical checkpoint counts
 in the evidence ledger are labeled as checkpoints; the closing snapshot is
-the current 284-artifact / 31-exclusion registry.
+the current 287-artifact / 31-exclusion registry.
 
 ## Exactness and provenance
 
@@ -48,3 +48,9 @@ The reviews did not produce a reader-worthy palindrome. Their concrete repairs
 are committed, and the constructive goal remains active: every next failed
 generator must introduce a new construction state or a targeted repair rather
 than a larger duplicate sweep.
+
+The closing queue pass added three non-overlapping Luna states: constrained
+meaning-preserving edits, append-preserving clause algebra, and discourse
+relation involution. Their 20 rendered prose rows are included in the latest
+aggregate (4,657 rows / 186 route phases), with independent audits and named
+repairs; none is exact or reader-eligible.

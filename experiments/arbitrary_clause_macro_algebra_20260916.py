@@ -36,13 +36,15 @@ def audit(s: str) -> dict:
             "sha256_forward": f, "sha256_reverse": r, "sha256_exact": f == r}
 
 def run() -> dict:
-    # A one-letter centre is the only non-empty closed seed; no macro is used
-    # as a hidden palindrome or copied into a second arm.
+    # Start from an empty tape so every rendered state is intact prose.  The
+    # algebra is tested on the first authored clause and on each append; no
+    # hidden one-letter prefix is allowed to turn an otherwise fragmentary
+    # state into the displayed output.
     states = []
-    current = "a"
+    current = ""
     for depth, (name, clause) in enumerate(MACROS, 1):
         before = audit(current)
-        current = current + " " + clause + "."
+        current = (clause + ".") if not current else (current + " " + clause + ".")
         after = audit(current)
         states.append({"depth": depth, "macro": name, "rendered": current,
                        "before": before, "after": after,

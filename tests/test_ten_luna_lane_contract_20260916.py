@@ -47,7 +47,7 @@ def test_each_requested_lane_keeps_prose_audit_provenance_novelty_and_repair():
         ("cfg-earley-character-intersection-20260916.json", lambda d: (d["candidate"]["text"], d["independent_exact_audit"], d["novelty_preflight"], d["candidate"]["provenance"], d["repair"])),
         ("human-scene-lattice-live-equations-20260916.json", lambda d: (d["candidate"]["rendered"], d["candidate"]["independent_validation"], d["novelty_preflight"], d["candidate"]["provenance"], d["candidate"]["next_repair"])),
         ("semantic-valency-attachment-solver-20260916-luna.json", lambda d: (d["rendered"], d["audit"], d["novelty_preflight"], d["provenance"], d["repair_at_first_residual"])),
-        ("inflection-clitic-boundary-search-20260916-luna.json", lambda d: (d["candidate"]["rendered"], d["independent_pointer_sha_audit"], d["novelty_preflight"], d["provenance"], d["next_repair_operator"])),
+        ("inflection-clitic-distinct-repair-20260916-luna.json", lambda d: (d["candidate"]["rendered"], d["independent_pointer_sha_audit"], d["novelty_preflight"], d["provenance"], d["next_repair"])),
         ("scalable-compositional-grammar-20260916-luna.json", lambda d: (d["intact_english_prose_candidate"]["rendered"], d["intact_english_prose_candidate"]["independent_checks"], d["novelty_preflight"], d["intact_english_prose_candidate"]["provenance"], d["next_extension_repair"])),
         ("semantic-slot-substitution-repair-20260916-luna.json", lambda d: (d["candidate"]["rendered"], d["candidate"], d["novelty_preflight"], d["provenance"], d["next_repair"])),
     ]

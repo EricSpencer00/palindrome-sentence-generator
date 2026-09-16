@@ -306,7 +306,7 @@ The latest ten-lane run is append-only and keeps the dimensions orthogonal:
 | 5 | `cfg-earley-character-intersection-20260916.json` | 270 | no / no | terminal-frontier chart repair |
 | 6 | `human-scene-lattice-live-equations-20260916.json` | 117 | no / no | purpose-frame debt repair |
 | 7 | `semantic-valency-attachment-solver-20260916-luna.json` | 100 | no / no | sense-compatible adjunct substitution |
-| 8 | `inflection-clitic-boundary-search-20260916-luna.json` | 126 | exact, **rejected** / no | replace repeated catalogue unit |
+| 8 | `inflection-clitic-distinct-repair-20260916-luna.json` | 128 | no / no | replace exposed suffix/clitic boundary |
 | 9 | `scalable-compositional-grammar-20260916-luna.json` | 208 frontier (10 growth states) | no / no | append one held-out typed action |
 | 10 | `semantic-slot-substitution-repair-20260916-luna.json` | 170 | no / no | one typed adjunct substitution |
 

@@ -1,0 +1,2847 @@
+{
+  "experiment_id": "terminal-aware-grammar-intersection-20260916",
+  "signature": "terminal-aware-grammar-intersection|epsilon-word-boundary-closure|typed-svo-num-name-frames|independent-clause-realization|exact-audit",
+  "status": "completed_terminal_aware_intersection",
+  "method": "A product of independent typed clause grammars is intersected at characters from the outside inward; completed lexical tries take explicit epsilon boundary transitions before the next character is requested.",
+  "novelty_preflight": {
+    "registry_entries_before_run": 90,
+    "excluded_routes_before_run": 6,
+    "status": "formal_preflight_before_execution",
+    "signature_overlap": [],
+    "manual_review_required": false
+  },
+  "config": {
+    "left_frame_count": 6,
+    "right_frame_count": 5,
+    "max_states_per_pair": 300000,
+    "catalogue_text_imported": false,
+    "word_order_only_generation": false,
+    "terminal_epsilon_closure": true
+  },
+  "stats": {
+    "frame_pairs": 30,
+    "states": 8724,
+    "character_matches": 8766,
+    "character_mismatch_dead": 102862,
+    "grammar_exhaustion_dead": 52,
+    "short_closures": 9,
+    "content_reuse_rejects": 4,
+    "rendered_candidates": 0,
+    "reader_eligible": 0,
+    "mechanically_admitted": 0
+  },
+  "frame_runs": [
+    {
+      "left_frame": "det_noun_verb_num_noun",
+      "right_frame": "det_noun_verb_name",
+      "left_slots": [
+        "det",
+        "noun",
+        "verb",
+        "num",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "verb",
+        "name"
+      ],
+      "rows": 0,
+      "states": 598,
+      "character_mismatches": 7125,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_verb_num_noun",
+      "right_frame": "det_noun_verb_det_noun",
+      "left_slots": [
+        "det",
+        "noun",
+        "verb",
+        "num",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "rows": 0,
+      "states": 540,
+      "character_mismatches": 6474,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_verb_num_noun",
+      "right_frame": "pron_noun_verb_name",
+      "left_slots": [
+        "det",
+        "noun",
+        "verb",
+        "num",
+        "noun"
+      ],
+      "right_slots": [
+        "pron",
+        "noun",
+        "verb",
+        "name"
+      ],
+      "rows": 0,
+      "states": 589,
+      "character_mismatches": 7094,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_verb_num_noun",
+      "right_frame": "det_adj_noun_verb_det_noun",
+      "left_slots": [
+        "det",
+        "noun",
+        "verb",
+        "num",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "rows": 0,
+      "states": 540,
+      "character_mismatches": 6474,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_verb_num_noun",
+      "right_frame": "det_noun_aux_adj",
+      "left_slots": [
+        "det",
+        "noun",
+        "verb",
+        "num",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "aux",
+        "adj"
+      ],
+      "rows": 0,
+      "states": 23,
+      "character_mismatches": 247,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_adj_noun_verb_det_noun",
+      "right_frame": "det_noun_verb_name",
+      "left_slots": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "verb",
+        "name"
+      ],
+      "rows": 0,
+      "states": 85,
+      "character_mismatches": 991,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_adj_noun_verb_det_noun",
+      "right_frame": "det_noun_verb_det_noun",
+      "left_slots": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "rows": 0,
+      "states": 35,
+      "character_mismatches": 530,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_adj_noun_verb_det_noun",
+      "right_frame": "pron_noun_verb_name",
+      "left_slots": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "pron",
+        "noun",
+        "verb",
+        "name"
+      ],
+      "rows": 0,
+      "states": 85,
+      "character_mismatches": 991,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_adj_noun_verb_det_noun",
+      "right_frame": "det_adj_noun_verb_det_noun",
+      "left_slots": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "rows": 0,
+      "states": 35,
+      "character_mismatches": 530,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_adj_noun_verb_det_noun",
+      "right_frame": "det_noun_aux_adj",
+      "left_slots": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "aux",
+        "adj"
+      ],
+      "rows": 0,
+      "states": 23,
+      "character_mismatches": 247,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "pron_verb_det_noun",
+      "right_frame": "det_noun_verb_name",
+      "left_slots": [
+        "pron",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "verb",
+        "name"
+      ],
+      "rows": 0,
+      "states": 2,
+      "character_mismatches": 175,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "pron_verb_det_noun",
+      "right_frame": "det_noun_verb_det_noun",
+      "left_slots": [
+        "pron",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "rows": 0,
+      "states": 7,
+      "character_mismatches": 266,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "pron_verb_det_noun",
+      "right_frame": "pron_noun_verb_name",
+      "left_slots": [
+        "pron",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "pron",
+        "noun",
+        "verb",
+        "name"
+      ],
+      "rows": 0,
+      "states": 2,
+      "character_mismatches": 175,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "pron_verb_det_noun",
+      "right_frame": "det_adj_noun_verb_det_noun",
+      "left_slots": [
+        "pron",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "rows": 0,
+      "states": 7,
+      "character_mismatches": 266,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "pron_verb_det_noun",
+      "right_frame": "det_noun_aux_adj",
+      "left_slots": [
+        "pron",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "aux",
+        "adj"
+      ],
+      "rows": 0,
+      "states": 10,
+      "character_mismatches": 194,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_aux_adj",
+      "right_frame": "det_noun_verb_name",
+      "left_slots": [
+        "det",
+        "noun",
+        "aux",
+        "adj"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "verb",
+        "name"
+      ],
+      "rows": 0,
+      "states": 220,
+      "character_mismatches": 3262,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_aux_adj",
+      "right_frame": "det_noun_verb_det_noun",
+      "left_slots": [
+        "det",
+        "noun",
+        "aux",
+        "adj"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "rows": 0,
+      "states": 141,
+      "character_mismatches": 2136,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_aux_adj",
+      "right_frame": "pron_noun_verb_name",
+      "left_slots": [
+        "det",
+        "noun",
+        "aux",
+        "adj"
+      ],
+      "right_slots": [
+        "pron",
+        "noun",
+        "verb",
+        "name"
+      ],
+      "rows": 0,
+      "states": 220,
+      "character_mismatches": 3262,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_aux_adj",
+      "right_frame": "det_adj_noun_verb_det_noun",
+      "left_slots": [
+        "det",
+        "noun",
+        "aux",
+        "adj"
+      ],
+      "right_slots": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "rows": 0,
+      "states": 141,
+      "character_mismatches": 2136,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_aux_adj",
+      "right_frame": "det_noun_aux_adj",
+      "left_slots": [
+        "det",
+        "noun",
+        "aux",
+        "adj"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "aux",
+        "adj"
+      ],
+      "rows": 0,
+      "states": 23,
+      "character_mismatches": 247,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "name_verb_det_noun",
+      "right_frame": "det_noun_verb_name",
+      "left_slots": [
+        "name",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "verb",
+        "name"
+      ],
+      "rows": 0,
+      "states": 995,
+      "character_mismatches": 9877,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "name_verb_det_noun",
+      "right_frame": "det_noun_verb_det_noun",
+      "left_slots": [
+        "name",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "rows": 0,
+      "states": 483,
+      "character_mismatches": 5588,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "name_verb_det_noun",
+      "right_frame": "pron_noun_verb_name",
+      "left_slots": [
+        "name",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "pron",
+        "noun",
+        "verb",
+        "name"
+      ],
+      "rows": 0,
+      "states": 959,
+      "character_mismatches": 9753,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "name_verb_det_noun",
+      "right_frame": "det_adj_noun_verb_det_noun",
+      "left_slots": [
+        "name",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "rows": 0,
+      "states": 465,
+      "character_mismatches": 5670,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "name_verb_det_noun",
+      "right_frame": "det_noun_aux_adj",
+      "left_slots": [
+        "name",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "aux",
+        "adj"
+      ],
+      "rows": 0,
+      "states": 27,
+      "character_mismatches": 475,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_verb_det_noun",
+      "right_frame": "det_noun_verb_name",
+      "left_slots": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "verb",
+        "name"
+      ],
+      "rows": 0,
+      "states": 610,
+      "character_mismatches": 7196,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_verb_det_noun",
+      "right_frame": "det_noun_verb_det_noun",
+      "left_slots": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "rows": 0,
+      "states": 640,
+      "character_mismatches": 6968,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_verb_det_noun",
+      "right_frame": "pron_noun_verb_name",
+      "left_slots": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "pron",
+        "noun",
+        "verb",
+        "name"
+      ],
+      "rows": 0,
+      "states": 592,
+      "character_mismatches": 7134,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_verb_det_noun",
+      "right_frame": "det_adj_noun_verb_det_noun",
+      "left_slots": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "rows": 0,
+      "states": 604,
+      "character_mismatches": 7132,
+      "known_rejects": 0
+    },
+    {
+      "left_frame": "det_noun_verb_det_noun",
+      "right_frame": "det_noun_aux_adj",
+      "left_slots": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "right_slots": [
+        "det",
+        "noun",
+        "aux",
+        "adj"
+      ],
+      "rows": 0,
+      "states": 23,
+      "character_mismatches": 247,
+      "known_rejects": 0
+    }
+  ],
+  "rendered_candidates_and_probes": [],
+  "dead_frontier": [
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "iris",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "iris",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "diana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "anna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "eva",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "ada",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "nina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "nora",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "sara",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "maria",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "lena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "iris",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "maya",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "lana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "edna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "ariana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "alina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "elena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "serena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "olivia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "sophia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "amelia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "clara",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "luna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "dana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "tina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "sonia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "diana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "anna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "eva",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "ada",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "nina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "nora",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "sara",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "maria",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "lena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "maya",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "lana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "edna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "ariana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "alina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "elena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "serena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "olivia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "sophia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "amelia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "clara",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "luna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "dana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "tina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "sonia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "diana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "anna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "eva",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "ada",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "nina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "nora",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "sara",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "maria",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "lena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "iris",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "maya",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "lana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "edna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "ariana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "alina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "elena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "serena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "olivia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "sophia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "amelia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "clara",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "luna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "dana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "tina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "one",
+      "right_word": "sonia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "diana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "anna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "eva",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "ada",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "nina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "nora",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "sara",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "maria",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "lena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "iris",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "maya",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "lana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "edna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "ariana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "alina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "elena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "serena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "olivia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "sophia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "amelia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "clara",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "luna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "dana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "tina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "my",
+      "right_word": "sonia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "diana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "anna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "eva",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "ada",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "nina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "nora",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "sara",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "maria",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "lena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "iris",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "maya",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "lana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "edna",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "ariana",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "alina",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "elena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "serena",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "olivia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 3,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "our",
+      "right_word": "sophia",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "aid",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "aide",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "artist",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "baker",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "captain",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "child",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "doctor",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "farmer",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "friend",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "garden",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "harbor",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "letter",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "man",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "map",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "memo",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "memos",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "moon",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "nurse",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "poet",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "river",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "sailor",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "story",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "teacher",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "town",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "writer",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "woman",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "song",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "star",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "road",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "room",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "book",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "note",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "plan",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "word",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "day",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "way",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "time",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "a",
+      "right_word": "men",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "aid",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "aide",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "artist",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "baker",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "captain",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "child",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "doctor",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "farmer",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "friend",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "garden",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "harbor",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "letter",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "man",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "map",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "memo",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "memos",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "moon",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "nurse",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "poet",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "river",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "sailor",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "story",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "teacher",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "town",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "writer",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "woman",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "song",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "star",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "road",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "room",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "book",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "note",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "plan",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "word",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "day",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "way",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "time",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "an",
+      "right_word": "men",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "aid",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "aide",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "baker",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "captain",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "child",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "doctor",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "farmer",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "friend",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "garden",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "harbor",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "letter",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "man",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "map",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "memo",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "memos",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "moon",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "nurse",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "river",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "sailor",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "story",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "teacher",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "town",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "writer",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "woman",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "song",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "star",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "road",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "room",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "book",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "note",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "plan",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "word",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "day",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "way",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "time",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "the",
+      "right_word": "men",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "aid",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "aide",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "artist",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "baker",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "captain",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "child",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "doctor",
+      "reason": "outer-character-mismatch"
+    },
+    {
+      "left_slot": 0,
+      "right_slot_outward": 4,
+      "left_prefix": "",
+      "right_prefix": "",
+      "left_word": "some",
+      "right_word": "farmer",
+      "reason": "outer-character-mismatch"
+    }
+  ],
+  "provenance": {
+    "generator_sha256": "21272be891785ac23f1605111510663c4f1213a9f66024fd0267aef982504463",
+    "source": "hand-authored typed lexical alternatives; no intact source sentences",
+    "source_sentences_copied": false,
+    "independent_audits": [
+      "normalized-tape-reversal",
+      "ASCII-two-pointer"
+    ]
+  },
+  "next_repair": "Keep terminal epsilon closure fixed and add a semantic dependency graph that licenses clause roles before character intersection; do not rematerialize Cartesian products or mirror a lexical unit.",
+  "reader_gate": "No row is reader evidence. Only a novel exact surface that passes mechanical admission may enter randomized blinded intact/shuffled reading."
+}

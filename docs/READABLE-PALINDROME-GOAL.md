@@ -1358,6 +1358,16 @@ item-aware analysis plan.
   not being widened again. The next route must change dependency topology and
   author both sides independently.
 
+- **Terminal-aware grammar intersection, 2026-09-16:** preflighted a separate
+  construction state that keeps two independent typed clause grammars live while
+  taking explicit lexical-boundary epsilon transitions at simultaneous word
+  endings. The 30 frame pairs explored 8,724 states and 8,766 character matches;
+  nine short closures were rejected, with zero long exact, mechanically admitted,
+  or reader-eligible rows. This repairs a concrete boundary-loss bug in the prior
+  outside-in probe without replaying its lexical products. The artifact is
+  `runs/terminal-aware-grammar-intersection-20260916.json`; the next route must
+  change dependency topology or semantic state, not widen these same frames.
+
 - **Interrogative–quantifier dependency automaton, 2026-09-16:** preflighted a
   genuinely different construction state: auxiliary inversion and question
   polarity on the left are joined to an independently ordered quantified

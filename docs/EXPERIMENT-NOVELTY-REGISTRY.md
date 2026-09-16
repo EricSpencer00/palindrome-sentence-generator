@@ -132,7 +132,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 83 retained families and 6 explicit
+family. The current audit covers all 91 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The two latest routes are below the review threshold:
 
@@ -162,6 +162,7 @@ pairs for review. The two latest routes are below the review threshold:
 | `asymmetric-template-reservoir-centerout-20260915` | none (0.000) | 0.000 | retained because distinct left/right template products carry agreement state through bilateral debt; no exact output |
 | `attested-phrase-pair-wrapper-20260915` | none (0.000) | 0.000 | retained because phrase spans are indexed as construction units and reversed tapes are independently segmented; no exact output |
 | `homograph-sense-lattice-20260915` | none (0.000) | 0.000 | retained because dual-sense orthographic parses are carried in the construction state; no exact output |
+| `terminal-aware-grammar-intersection-20260916` | none (0.000) | 0.000 | retained because independent typed clause grammars explicitly take lexical-boundary epsilon transitions during character intersection; 9 short closures, 0 admitted/reader rows |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

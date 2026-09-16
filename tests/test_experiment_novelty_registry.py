@@ -11,8 +11,8 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 6
-    assert result["entries"] == 90
-    assert result["run_artifacts"] == 55
+    assert result["entries"] == 91
+    assert result["run_artifacts"] == 56
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -50,7 +50,7 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 90
+    assert result["registered_families_checked"] == 91
     assert result["excluded_routes_checked"] == 6
     assert result["manual_review_required"] is False
     assert result["conceptual_near_pairs"] == []
@@ -128,6 +128,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "attested-phrase-pair-wrapper-20260915" in ids
     assert "homograph-sense-lattice-20260915" in ids
     assert "interrogative-quantifier-fsm-20260915" in ids
+    assert "terminal-aware-grammar-intersection-20260916" in ids
 
 
 def test_new_centerout_repairs_keep_failure_evidence_and_reader_gate_closed():
@@ -176,6 +177,17 @@ def test_asymmetric_reservoir_route_is_preflighted_and_keeps_reader_gate_closed(
     assert indexed["stats"]["known_or_duplicate_reject"] == 1
     assert indexed["stats"]["mechanically_admitted"] == 0
     assert indexed["stats"]["reader_eligible"] == 0
+
+
+def test_terminal_aware_intersection_records_boundary_repair_and_closes_reader_gate():
+    root = Path(__file__).parents[1]
+    run = json.loads((root / "runs/terminal-aware-grammar-intersection-20260916.json").read_text())
+    assert run["novelty_preflight"]["registry_entries_before_run"] == 90
+    assert run["novelty_preflight"]["signature_overlap"] == []
+    assert run["config"]["terminal_epsilon_closure"] is True
+    assert run["stats"]["short_closures"] == 9
+    assert run["stats"]["mechanically_admitted"] == 0
+    assert run["stats"]["reader_eligible"] == 0
 
 
 def test_scene_growth_records_preflight_before_self_registration():

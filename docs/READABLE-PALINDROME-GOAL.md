@@ -1770,6 +1770,13 @@ item-aware analysis plan.
   and 0 mechanically admitted rows. This lane is preserved as a constructive
   diagnostic, not a reader result.
 
+  The morpheme/affix closure lane added 19,200 joint probes from independent
+  clause banks and retained 48 complete 57--64-letter failures. Its
+  first-mismatch held-out stem+affix swap is now the next repair operator;
+  every exact and SHA-256 audit agreed, but exact_count and admission_count
+  remain zero. The aggregate is 3274 rendered rows across 70 route phases,
+  with 72 exact-but-rejected tapes and no mechanically admitted candidate.
+
   A subsequent three-Luna pass added an intact-prose lexical/inflectional
   repair operator (311 complete renderings, 62--81 letters), a semantic
   front/back interleaving route (15 complete one-sentence surfaces, 44--48

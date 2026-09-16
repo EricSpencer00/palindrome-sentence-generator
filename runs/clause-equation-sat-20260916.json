@@ -1,0 +1,84 @@
+{
+  "experiment": "clause-equation-sat-20260916",
+  "signature": "finite-domain-boolean-svo-pp|independent-half-authoring|online-character-equations|no-seeds-no-repeated-units",
+  "method": "Boolean finite-domain SAT over lexical SVO/PP slots; every pair independently authored and constrained by reversed character equations",
+  "novelty_preflight": {
+    "entries_inspected": 271,
+    "exact_signature_collisions_before_run": [],
+    "passed": true
+  },
+  "candidate_count": 256,
+  "exact_count": 0,
+  "best": {
+    "rendered": "a patient cartographer charted a coastal inlet under a copper lamp; a careful mason carried the limestone steps through the narrow passage.",
+    "choices": {
+      "left": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "right": [
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    "independent_halves": {
+      "left": "a patient cartographer charted a coastal inlet under a copper lamp",
+      "right": "a careful mason carried the limestone steps through the narrow passage"
+    },
+    "character_equations": {
+      "equations_checked": 56,
+      "satisfied": false,
+      "mismatch_count": 50,
+      "first_mismatch": {
+        "left_index": 0,
+        "right_index": 59,
+        "left": "a",
+        "right": "e"
+      }
+    },
+    "audit": {
+      "letters": 116,
+      "direct_exact": false,
+      "mechanically_admitted": false,
+      "mechanical": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    },
+    "complete_prose": true,
+    "repeated_units": false
+  },
+  "provenance": {
+    "generator_sha256": "b6b160c81923f00bcd134593f98543c28be5672262576472de57baa251f4efac",
+    "independent_pointer_sha256": "f530dc7a2bf4c1116a6bea79270205ff59ab20bb7a24eea26aeb7b9c92dcebea",
+    "catalogue_import": false,
+    "known_palindrome_seeds": false,
+    "word_order_symmetry": false,
+    "duplicate_sweeps": false
+  },
+  "readability_diagnostics": {
+    "complete_clause_count": 2,
+    "fragment_rejected": false,
+    "status": "ordinary prose syntax; no human certificate"
+  },
+  "next_repair": "author a fresh PP complement on the side containing the first equation mismatch, then rerun the Boolean domains without copying either half"
+}

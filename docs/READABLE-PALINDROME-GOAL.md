@@ -1405,3 +1405,12 @@ item-aware analysis plan.
   surfaces and morphology paths are preserved in
   `runs/morphology-first-dependency-lattice-20260916.json`; no catalogue text
   is treated as generated output.
+
+- **Semantic relation alignment, 2026-09-16:** preflighted a directed
+  event-edge construction in which each side independently lexicalizes typed
+  roles while a deterministic boundary-synchronous ledger compares ordinary
+  yields. Four relation frames explored 36,662 states; the deepest match was
+  six characters and there were zero exact, mechanically admitted, or
+  reader-eligible rows. Its terminal-compatible phrase/odd-center repair is
+  the concrete next operator; the failed run is preserved in
+  `runs/semantic-relation-alignment-20260916.json`.

@@ -2,6 +2,18 @@
   "version": 1,
   "entries": [
     {
+      "id": "pivot-paragraph-beam-20260916",
+      "signature": "pivot-centered-paragraph-planning|semantic-slot-beam|online-mirrored-letter-ledger|near-synonym-edit-repair|independent-letter-audit",
+      "artifact": "experiments/pivot_paragraph_beam_20260916.py",
+      "run_artifacts": ["runs/pivot-paragraph-beam-20260916.json"]
+    },
+    {
+      "id": "morphology-semantic-template-csp-20260916",
+      "signature": "morphology-semantic-template-csp|derivational-affix-choice|inflection-agreement-state|semantic-frame-realization|live-character-equations|independent-exact-audit|affix-repair",
+      "artifact": "experiments/morphology_semantic_template_csp_20260916.py",
+      "run_artifacts": ["runs/morphology-semantic-template-csp-20260916.json"]
+    },
+    {
       "id": "lexical-chain-palindrome-20260916",
       "signature": "typed-lexical-chain|deterministic-permutation-enumeration|reverse-lexical-emission|first-repeat-synonym-repair|independent-letter-audit",
       "artifact": "experiments/lexical_chain_palindrome_20260916.py",
@@ -17,7 +29,11 @@
       "id": "direct-constrained-authoring-20260916",
       "signature": "local-model-whole-sentence-authoring|single-scene-contract|live-palindrome-instruction|independent-letter-audit|mismatch-directed-repair",
       "artifact": "experiments/direct_constrained_authoring_20260916.py",
-      "run_artifacts": ["runs/direct-constrained-authoring-20260916.json"]
+      "run_artifacts": [
+        "runs/direct-constrained-authoring-20260916.json",
+        "runs/rhythmai-authoring-probe-20260916.json"
+      ],
+      "repair_artifacts": ["runs/rhythmai-authoring-probe-20260916.json"]
     },
     {
       "id": "dependency-completion-csp-20260916",
@@ -926,6 +942,13 @@
     }
   ],
   "excluded": [
+    {
+      "id": "bidirectional-phrase-pair-preflight-20260916",
+      "signature": "bidirectional-lexicalized-phrase-pair|semantic-role-frame-joint-authoring|independent-complete-yields|character-mirror-equation|lexical-repair",
+      "artifact": "experiments/bidirectional_phrase_pair_preflight_20260916.py",
+      "overlaps": ["manual-endpoint-engineering", "attested-phrase-pair-wrapper"],
+      "reason": "Requested route replays retained authored seam-pair and phrase-wrapper dimensions; preflight blocked before rendering to preserve novelty accounting. Pivot recorded in run artifact."
+    },
     {
       "id": "semantic-involution-frame-excluded",
       "signature": "semantic-involution-frame|repeated-reverse-frame|authored-reversible-core|word-order-symmetry",

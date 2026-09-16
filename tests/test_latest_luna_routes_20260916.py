@@ -175,3 +175,11 @@ def test_lexical_word_equation_route_keeps_pos_choices_independent():
     assert all(row["complete_clauses"] == 2 and row["all_different"]
                and not row["reader_eligible"]
                for phase in ("base", "repair") for row in run[phase]["candidates"])
+
+
+def test_direct_authoring_timeout_is_preserved_without_fabricated_text():
+    run = load("direct-constrained-authoring-20260916.json")
+    assert len(run["candidates"]) == 4
+    assert run["exact_count"] == 0
+    assert all(row["attempt"] is None and "TimeoutExpired" in row["error"]
+               for row in run["candidates"])

@@ -1521,3 +1521,10 @@ item-aware analysis plan.
   exact closures and zero reader-eligible rows. The aggregate diagnostic now
   contains 838 rendered rows plus per-route summaries; its metrics remain
   filters and failure diagnostics, never a readability certificate.
+
+  A bounded direct-authoring reset also ran three local-model prompts plus one
+  mismatch repair. Every call timed out at 20 seconds before returning text;
+  the timeout evidence and model hash are preserved in
+  `runs/direct-constrained-authoring-20260916.json`. This is a concrete
+  authoring failure and a reason to change the construction state again, not a
+  readability or impossibility claim.

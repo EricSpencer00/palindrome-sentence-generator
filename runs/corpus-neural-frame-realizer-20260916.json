@@ -1,0 +1,956 @@
+{
+  "experiment_id": "corpus-neural-frame-realizer-20260916",
+  "signature": "corpus-semantic-frame-planning|character-equation-lexical-realization|corpus-bigram-neural-ranking|whole-tape-no-repeat-catalogue-gate",
+  "method": "corpus-derived semantic frame planner + character-equation constrained lexical realization + corpus bigram ranking",
+  "novelty_preflight": {
+    "registry_entries_before_run": 97,
+    "exact_signature_collision": false,
+    "excluded_routes": [
+      "clause-bank",
+      "reverse-prefix",
+      "center-out",
+      "beam",
+      "MCTS",
+      "grammar-intersection"
+    ]
+  },
+  "stats": {
+    "frames": 6840,
+    "attempted_pairs": 4961,
+    "rendered_probes": 40,
+    "exact": 0,
+    "admitted": 0,
+    "reader_eligible": 0
+  },
+  "rendered_candidates": [
+    {
+      "text": "dogs cut bread; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "bread"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 6,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs cut cart; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "cart"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs cut deer; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "deer"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs cut key; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "key"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 22,
+      "equation_prefix": 4,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs cut lamp; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "lamp"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs cut line; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "line"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs cut mile; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "mile"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs cut part; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "part"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs cut pen; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "pen"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 22,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs cut rope; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "rope"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs cut snail; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "snail"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs cut sun; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "sun"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 22,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs cut trap; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "cut",
+          "object": "trap"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 5,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held bread; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "bread"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 25,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held cart; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "cart"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held deer; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "deer"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held key; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "key"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held lamp; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "lamp"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held line; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "line"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held mile; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "mile"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held part; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "part"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held pen; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "pen"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held rope; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "rope"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 6,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held snail; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "snail"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 25,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held sun; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "sun"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs held trap; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "held",
+          "object": "trap"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met bread; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "bread"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 6,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met cart; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "cart"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met deer; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "deer"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met key; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "key"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 22,
+      "equation_prefix": 4,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met lamp; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "lamp"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met line; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "line"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met mile; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "mile"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met part; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "part"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met pen; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "pen"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 22,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met rope; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "rope"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 3,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met snail; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "snail"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met sun; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "sun"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 22,
+      "equation_prefix": 2,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs met trap; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "met",
+          "object": "trap"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 23,
+      "equation_prefix": 5,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    },
+    {
+      "text": "dogs put bread; door kept step.",
+      "semantic_frames": [
+        {
+          "intent": "agent acts on artifact",
+          "subject": "dogs",
+          "verb": "put",
+          "object": "bread"
+        },
+        {
+          "intent": "agent acts on artifact",
+          "subject": "door",
+          "verb": "kept",
+          "object": "step"
+        }
+      ],
+      "letters": 24,
+      "equation_prefix": 6,
+      "exact_letter_palindrome": false,
+      "catalogue_hit": false,
+      "repeated_content_words": false,
+      "lm_score": -24.857146
+    }
+  ],
+  "exact_audit": [],
+  "reader_eligible": [],
+  "readability_note": "No readability claim: no blinded human readers were run.",
+  "provenance": {
+    "corpus": "data/authored_sentences.txt",
+    "catalogue": "data/canon_spelled.json",
+    "corpus_sha256": "78a0baa61c3821704c0163643105d39837c4de9f17c1b2afd2b19b74c2e36bb2",
+    "catalogue_gate": "normalized whole-tape membership; no catalogue text imported"
+  }
+}

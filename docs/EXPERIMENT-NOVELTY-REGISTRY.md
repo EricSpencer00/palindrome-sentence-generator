@@ -163,7 +163,7 @@ pairs for review. The two latest routes are below the review threshold:
 | `attested-phrase-pair-wrapper-20260915` | none (0.000) | 0.000 | retained because phrase spans are indexed as construction units and reversed tapes are independently segmented; no exact output |
 | `homograph-sense-lattice-20260915` | none (0.000) | 0.000 | retained because dual-sense orthographic parses are carried in the construction state; no exact output |
 | `terminal-aware-grammar-intersection-20260916` | none (0.000) | 0.000 | retained because independent typed clause grammars explicitly take lexical-boundary epsilon transitions during character intersection; 9 short closures, 0 admitted/reader rows |
-| `semantic-mcts-derivation-20260916` | none (0.000) | 0.000 | retained because UCT allocates rollouts over typed semantic derivation actions with a live reflected-character ledger; 30,000 rollouts, longest probe 29 letters, 0 admitted/reader rows |
+| `semantic-mcts-derivation-20260916` | none (0.000) | 0.000 | retained because UCT allocates rollouts over typed semantic derivation actions with a live reflected-character ledger; base: 30,000 rollouts, longest probe 29 letters; reverse-prior repair: 30,000 rollouts, longest probe 30; 0 admitted/reader rows |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

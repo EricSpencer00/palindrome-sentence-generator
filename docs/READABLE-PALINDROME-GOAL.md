@@ -1378,6 +1378,14 @@ item-aware analysis plan.
   reverse-conditioned action prior over the right-edge residual, not another
   static-frame or beam replay.
 
+- **Reverse-conditioned MCTS repair, 2026-09-16:** retained the MCTS grammar and
+  lexical alternatives but changed only rollout policy: a softmax prior used
+  reflected-character lookahead and edge-length residual to choose the next
+  independent action. Thirty thousand rollouts made 2,814,090 ledger-prune
+  decisions, with no complete exact closure; the longest probe was 30 letters.
+  It is recorded as a repair artifact, not a second family, and the next route
+  must change semantic state rather than tune this prior again.
+
 - **Interrogative–quantifier dependency automaton, 2026-09-16:** preflighted a
   genuinely different construction state: auxiliary inversion and question
   polarity on the left are joined to an independently ordered quantified

@@ -12,7 +12,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 6
     assert result["entries"] == 92
-    assert result["run_artifacts"] == 57
+    assert result["run_artifacts"] == 58
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -198,6 +198,18 @@ def test_semantic_mcts_records_uct_rollouts_and_closes_reader_gate():
     assert run["novelty_preflight"]["signature_overlap"] == []
     assert run["stats"]["rollouts"] == 30_000
     assert run["stats"]["longest_probe_letters"] == 29
+    assert run["stats"]["mechanically_admitted"] == 0
+    assert run["stats"]["reader_eligible"] == 0
+
+
+def test_semantic_mcts_reverse_prior_is_recorded_as_a_concrete_repair():
+    root = Path(__file__).parents[1]
+    run = json.loads((root / "runs/semantic-mcts-reverse-prior-repair-20260916.json").read_text())
+    assert run["repair_of"] == "semantic-mcts-derivation-20260916"
+    assert run["novelty_preflight"]["manual_review_required"] is True
+    assert run["config"]["reverse_conditioned_prior"] is True
+    assert run["stats"]["rollouts"] == 30_000
+    assert run["stats"]["exact_complete"] == 0
     assert run["stats"]["mechanically_admitted"] == 0
     assert run["stats"]["reader_eligible"] == 0
 

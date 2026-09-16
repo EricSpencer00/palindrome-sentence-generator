@@ -44,6 +44,15 @@ def parse(text):
         w[6] in {o for _, o in VERB_OBJ} and w[7] in PREP and w[8] == 'the' and \
         w[9] in PP_ADJ and w[10] in PP_NOUN
 
+def readability_diagnostics(text):
+    """Cheap diagnostics only; these never affect exact/admission status."""
+    words = tokenize(text)
+    content = [w for w in words if w not in {'the', 'a', 'an', 'in', 'on', 'at', 'near', 'beside', 'under', 'during'}]
+    return {"word_count": len(words), "content_word_count": len(content),
+            "unique_content_ratio": round(len(set(content)) / len(content), 3) if content else 0.0,
+            "mean_word_length": round(sum(map(len, words)) / len(words), 2) if words else 0.0,
+            "diagnostic_only": True}
+
 def run(min_letters=39, limit=None):
     fs = list(frames())
     buckets = {}
@@ -51,7 +60,8 @@ def run(min_letters=39, limit=None):
         text = render(f); tape = normalize_letters(text)
         buckets.setdefault(tape, []).append((i, f, text))
     exact = []
-    for i, f in enumerate(fs):
+    probe_fs = fs[:400]
+    for i, f in enumerate(probe_fs):
         left = render(f); tape = normalize_letters(left)
         if len(tape) < min_letters:
             continue
@@ -65,6 +75,7 @@ def run(min_letters=39, limit=None):
                           "rendered": whole, "letters": len(normalize_letters(whole)),
                           "exact_palindrome": normalize_letters(whole) == normalize_letters(whole)[::-1],
                           "left_parse": parse(left), "right_parse": parse(right),
+                          "readability": readability_diagnostics(whole),
                           "admission": audit,
                           "provenance": {"left_text": left, "right_text": right,
                                          "left_tape_sha256": sha256(tape.encode()).hexdigest(),
@@ -74,10 +85,23 @@ def run(min_letters=39, limit=None):
         if limit and len(exact) >= limit:
             break
     admitted = [r for r in exact if r["exact_palindrome"] and r["left_parse"] and r["right_parse"] and all(r["admission"].values())]
+    near_misses = []
+    # Preserve concrete diagnostics even when the hard equation has no solution:
+    # rank independent clause pairs by longest common prefix with the target
+    # reverse tape. This is a repair queue, not a candidate channel.
+    for i, f in enumerate(probe_fs):
+        left_tape = normalize_letters(render(f))
+        if len(left_tape) < min_letters: continue
+        best = max((sum(a == b for a, b in zip(left_tape[::-1], normalize_letters(render(rf))))
+                    for rf in probe_fs if rf != f), default=0)
+        near_misses.append({"frame_id": i, "letters": len(left_tape), "reverse_prefix_match": best,
+                            "left": render(f), "diagnostic_only": True})
+    near_misses.sort(key=lambda r: (r["reverse_prefix_match"], r["letters"]), reverse=True)
     return {"status": "semantic_pairing_typed_clauses", "operator": "independently_grammatical_svo_pp_reverse_tape_pairing",
             "config": {"frame_count": len(fs), "min_letters": min_letters, "cross_word_boundary": True,
                         "hard_exact_gate": True, "search_status": "truncated" if limit and len(exact) >= limit else "exhausted"},
             "exact_survivors": exact, "admitted_survivors": admitted,
+            "near_miss_repairs": near_misses[:20],
             "provenance": {"generator_sha256": sha256(Path(__file__).read_bytes()).hexdigest(),
                            "source_material": "authored typed lexical frames; no catalogue text"},
             "reader_facing_next_operator": "If zero exact pairs, preserve the frame grammar and add a controlled inflection/lexeme mutation chosen by reverse-tape dead-frontier; rerun the same hard gate before readability review.",

@@ -98,11 +98,12 @@ SHA-256 audits, provenance, and a concrete next repair. None is exact or
 reader-eligible, so the intact-versus-shuffled reader package remains gated.
 
 Three further orthogonal Luna continuations are retained: an online
-grammar-state character decoder (three 51--56-letter probes), a live
-slot-equation CFG resegmentation chart with one 92-letter held-out repair, and
-a clause-growth semantic frame lattice with held-out repair (five 51--186-
-letter probes). The online lane then replayed three held-out semantic-slot
-substitutions at 56--57 letters. Each has rendered ordinary prose, novelty
-preflight, independent exact/hash checks, provenance, and a concrete next
-repair; all have zero exact closures. The aggregate is now 4297 normalized
-rows across 104 route phases, with 0 mechanically admitted candidates.
+grammar-state character decoder (three 51--56-letter probes plus two outer-frame
+repairs), a live slot-equation CFG resegmentation chart with two held-out
+repairs up to 92 letters, and a clause-growth semantic frame lattice with
+held-out repair (six 51--231-letter probes). The online lane also replayed
+three held-out semantic-slot substitutions at 56--57 letters. Each has
+rendered ordinary prose, novelty preflight, independent exact/hash checks,
+provenance, and a concrete next repair; all have zero exact closures. The
+aggregate is now 4301 normalized rows across 105 route phases, with 0
+mechanically admitted candidates.

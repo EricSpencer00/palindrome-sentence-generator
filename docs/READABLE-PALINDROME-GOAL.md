@@ -1899,12 +1899,12 @@ item-aware analysis plan.
   a duplicate sweep.
 
   Three further orthogonal Luna continuations then produced an online
-  grammar-state decoder (51--56 letters), a live slot-equation CFG
-  resegmentation chart plus a 92-letter held-out repair, and a scalable
-  clause-growth semantic-frame repair reaching 186 letters. The online lane
-  also replayed three held-out semantic-slot substitutions. All are intact
-  ordinary prose with independent exact/hash audits, provenance, novelty
-  preflight, and concrete next repairs; all have zero exact closures. The
-  aggregate now contains 4297 normalized rows across 104 route phases, with 0
-  mechanically admitted candidates. The reader package remains gated until an
-  exact mechanically admitted output exists.
+  grammar-state decoder (51--56 letters) with outer-frame repairs, a live
+  slot-equation CFG resegmentation chart with held-out repairs up to 92
+  letters, and a scalable clause-growth semantic-frame repair reaching 231
+  letters. The online lane also replayed three held-out semantic-slot
+  substitutions. All are intact ordinary prose with independent exact/hash
+  audits, provenance, novelty preflight, and concrete next repairs; all have
+  zero exact closures. The aggregate now contains 4301 normalized rows across
+  105 route phases, with 0 mechanically admitted candidates. The reader
+  package remains gated until an exact mechanically admitted output exists.

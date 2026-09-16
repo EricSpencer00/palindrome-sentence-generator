@@ -88,7 +88,7 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
         # as single dictionaries rather than list-valued phase fields.  Walk
         # those explicit surfaces so the shared aggregate cannot omit a
         # complete rendered repair.
-        for key in ("repaired", "heldout", "bounded_repair"):
+        for key in ("repaired", "heldout", "bounded_repair", "second_bounded_repair"):
             row = payload.get(key)
             if isinstance(row, dict):
                 text = row.get("rendered") or row.get("text") or row.get("best_prose")

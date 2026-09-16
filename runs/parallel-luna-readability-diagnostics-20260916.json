@@ -101,9 +101,10 @@
     "runs/online-grammar-state-char-decoder-20260916.json",
     "runs/live-slot-equation-cfg-resegmentation-20260916.json",
     "runs/clause-growth-frame-repair-20260916.json",
-    "runs/online-grammar-state-slot-repair-20260916.json"
+    "runs/online-grammar-state-slot-repair-20260916.json",
+    "runs/online-grammar-state-outer-frame-repair-20260916.json"
   ],
-  "candidate_count": 4297,
+  "candidate_count": 4301,
   "exact_count": 73,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -169,13 +170,13 @@
     },
     {
       "source_run": "runs/clause-growth-frame-repair-20260916.json",
-      "rows": 5,
+      "rows": 6,
       "exact_count": 0,
       "mechanically_admitted_count": 0,
       "min_letters": 51,
-      "max_letters": 186,
-      "mean_zipf_frequency": 5.304607317844161,
-      "mean_brown_order_gain_vs_shuffle": 0.971288501732451
+      "max_letters": 231,
+      "mean_zipf_frequency": 5.290868417044046,
+      "mean_brown_order_gain_vs_shuffle": 0.891211299919726
     },
     {
       "source_run": "runs/comparative-modal-scene-20260916.json",
@@ -599,13 +600,13 @@
     },
     {
       "source_run": "runs/live-slot-equation-cfg-resegmentation-20260916.json",
-      "rows": 4,
+      "rows": 5,
       "exact_count": 0,
       "mechanically_admitted_count": 0,
       "min_letters": 45,
       "max_letters": 92,
-      "mean_zipf_frequency": 5.038361928104575,
-      "mean_brown_order_gain_vs_shuffle": 1.1905019280655575
+      "mean_zipf_frequency": 5.042101307189542,
+      "mean_brown_order_gain_vs_shuffle": 1.1293478451764714
     },
     {
       "source_run": "runs/manual-bidirectional-scene-20260916.json",
@@ -716,6 +717,16 @@
       "max_letters": 56,
       "mean_zipf_frequency": 5.323545454545454,
       "mean_brown_order_gain_vs_shuffle": 1.2619526605944653
+    },
+    {
+      "source_run": "runs/online-grammar-state-outer-frame-repair-20260916.json",
+      "rows": 2,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 51,
+      "max_letters": 56,
+      "mean_zipf_frequency": 5.277727272727272,
+      "mean_brown_order_gain_vs_shuffle": 1.1279213636368892
     },
     {
       "source_run": "runs/online-grammar-state-slot-repair-20260916.json",
@@ -207189,6 +207200,45 @@
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     },
     {
+      "rendered": "the patient courier delivers sealed note at sunrise. the quiet teacher opens marked parcel beside the gate.",
+      "source_run": "runs/live-slot-equation-cfg-resegmentation-20260916.json",
+      "provenance": "fresh authored object/adjunct replacement after the prior held-out pair; all other slots frozen",
+      "repair": null,
+      "letters": 89,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8847315136201264,
+        "mean_zipf_frequency": 5.057058823529411,
+        "word_count": 17,
+        "repeated_word_rate": 0.11764705882352944,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
       "rendered": "the patient courier delivered the sealed letter before dusk.",
       "source_run": "runs/clause-growth-frame-repair-20260916.json",
       "provenance": {
@@ -207427,6 +207477,53 @@
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     },
     {
+      "rendered": "the patient courier delivered the sealed letter before dusk. the quiet clerk opened the wooden parcel by the window. the careful gardener watered the young cedar after rain. the weary sailor mended the canvas sail near harbor. the old farmer gathered the ripe apples before sunset.",
+      "source_run": "runs/clause-growth-frame-repair-20260916.json",
+      "provenance": {
+        "human_authored_frames": true,
+        "ordinary_order": true,
+        "copied_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "repair_from": "frontier-selected-fourth-clause"
+      },
+      "repair": null,
+      "letters": 231,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.49082529085610105,
+        "mean_zipf_frequency": 5.222173913043478,
+        "word_count": 46,
+        "repeated_word_rate": 0.23913043478260865,
+        "punctuation_segments": 5
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
       "rendered": "The careful keeper carries the sealed parcel beside the quiet gate.",
       "source_run": "runs/online-grammar-state-slot-repair-20260916.json",
       "provenance": {
@@ -207551,6 +207648,92 @@
         "mean_zipf_frequency": 5.1863636363636365,
         "word_count": 11,
         "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient keeper carries a sealed letter beside the quiet harbor.",
+      "source_run": "runs/online-grammar-state-outer-frame-repair-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "reverse_emission": false
+      },
+      "repair": null,
+      "letters": 56,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3671842003078023,
+        "mean_zipf_frequency": 5.263636363636363,
+        "word_count": 11,
+        "repeated_word_rate": 0.09090909090909094,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The gentle nurse opens a folded note beside the bright garden.",
+      "source_run": "runs/online-grammar-state-outer-frame-repair-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "reverse_emission": false
+      },
+      "repair": null,
+      "letters": 51,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8886585269659761,
+        "mean_zipf_frequency": 5.291818181818181,
+        "word_count": 11,
+        "repeated_word_rate": 0.09090909090909094,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

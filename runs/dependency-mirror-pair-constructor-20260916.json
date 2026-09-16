@@ -1,0 +1,1008 @@
+{
+  "experiment_id": "dependency-mirror-pair-constructor-20260916",
+  "signature": "typed-dependency-head-argument-pairs|joint-two-tree-realization|reverse-tape-equation|argument-order-preservation|heldout-dependency-repair|independent-two-pointer-hash-audit",
+  "novelty_preflight": {
+    "entries_inspected": 200,
+    "exact_signature_collision": false,
+    "passed": true,
+    "reason": "typed dependency trees are jointly lexicalized under one equation"
+  },
+  "operator": "joint complete dependency-tree lexicalization with typed argument order and global reverse-tape equation",
+  "candidate_count": 4,
+  "closure_count": 0,
+  "best_actual_prose": {
+    "rendered": "the patient courier delivers the sealed letter for the waiting child before dusk.",
+    "paired_rendered": "the patient courier delivers the sealed letter for the waiting child before dusk.",
+    "letters": 68,
+    "paired_letters": 68,
+    "equation": {
+      "left_letters": 68,
+      "right_letters": 68,
+      "equation": "left == reverse(right)",
+      "first_mismatch": [
+        0,
+        "t",
+        "k"
+      ],
+      "closed": false,
+      "residual_left": {},
+      "residual_right": {}
+    },
+    "dependency_provenance": {
+      "left": {
+        "tree": "courier_delivery",
+        "dependencies": [
+          {
+            "head": "delivers",
+            "relation": "nsubj",
+            "dependent": "the patient courier"
+          },
+          {
+            "head": "delivers",
+            "relation": "obj",
+            "dependent": "the sealed letter"
+          },
+          {
+            "head": "delivers",
+            "relation": "obl",
+            "dependent": "for the waiting child before dusk"
+          }
+        ],
+        "agreement": "third-person-singular-present",
+        "argument_order": [
+          "subject",
+          "verb",
+          "object",
+          "adjunct"
+        ]
+      },
+      "right": {
+        "tree": "courier_delivery",
+        "dependencies": [
+          {
+            "head": "delivers",
+            "relation": "nsubj",
+            "dependent": "the patient courier"
+          },
+          {
+            "head": "delivers",
+            "relation": "obj",
+            "dependent": "the sealed letter"
+          },
+          {
+            "head": "delivers",
+            "relation": "obl",
+            "dependent": "for the waiting child before dusk"
+          }
+        ],
+        "agreement": "third-person-singular-present",
+        "argument_order": [
+          "subject",
+          "verb",
+          "object",
+          "adjunct"
+        ]
+      }
+    },
+    "audit": {
+      "left_two_pointer": {
+        "algorithm": "independent-two-pointer",
+        "letters": 68,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "k"
+        ]
+      },
+      "right_two_pointer": {
+        "algorithm": "independent-two-pointer",
+        "letters": 68,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "k"
+        ]
+      },
+      "left_hash": {
+        "algorithm": "sha256-forward-reverse",
+        "forward": "51096bc5f176ea7851bde275359ec99c67442e31da2bb6625b044d389164a910",
+        "reverse": "fc9d502d3b5f0a38ba34a8d0fe29d6d2744fa5e4d0f642358f561ddef5b5e94f",
+        "exact": false
+      },
+      "right_hash": {
+        "algorithm": "sha256-forward-reverse",
+        "forward": "51096bc5f176ea7851bde275359ec99c67442e31da2bb6625b044d389164a910",
+        "reverse": "fc9d502d3b5f0a38ba34a8d0fe29d6d2744fa5e4d0f642358f561ddef5b5e94f",
+        "exact": false
+      }
+    },
+    "admission": {
+      "left": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "right": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "complete_prose": true
+    },
+    "provenance": {
+      "source": "independently authored typed dependency trees",
+      "catalogue_text_used": false,
+      "word_order_mirrored": false,
+      "repeated_unit_shortcut": false,
+      "repair": null
+    }
+  },
+  "candidates": [
+    {
+      "rendered": "the patient courier delivers the sealed letter for the waiting child before dusk.",
+      "paired_rendered": "the patient courier delivers the sealed letter for the waiting child before dusk.",
+      "letters": 68,
+      "paired_letters": 68,
+      "equation": {
+        "left_letters": 68,
+        "right_letters": 68,
+        "equation": "left == reverse(right)",
+        "first_mismatch": [
+          0,
+          "t",
+          "k"
+        ],
+        "closed": false,
+        "residual_left": {},
+        "residual_right": {}
+      },
+      "dependency_provenance": {
+        "left": {
+          "tree": "courier_delivery",
+          "dependencies": [
+            {
+              "head": "delivers",
+              "relation": "nsubj",
+              "dependent": "the patient courier"
+            },
+            {
+              "head": "delivers",
+              "relation": "obj",
+              "dependent": "the sealed letter"
+            },
+            {
+              "head": "delivers",
+              "relation": "obl",
+              "dependent": "for the waiting child before dusk"
+            }
+          ],
+          "agreement": "third-person-singular-present",
+          "argument_order": [
+            "subject",
+            "verb",
+            "object",
+            "adjunct"
+          ]
+        },
+        "right": {
+          "tree": "courier_delivery",
+          "dependencies": [
+            {
+              "head": "delivers",
+              "relation": "nsubj",
+              "dependent": "the patient courier"
+            },
+            {
+              "head": "delivers",
+              "relation": "obj",
+              "dependent": "the sealed letter"
+            },
+            {
+              "head": "delivers",
+              "relation": "obl",
+              "dependent": "for the waiting child before dusk"
+            }
+          ],
+          "agreement": "third-person-singular-present",
+          "argument_order": [
+            "subject",
+            "verb",
+            "object",
+            "adjunct"
+          ]
+        }
+      },
+      "audit": {
+        "left_two_pointer": {
+          "algorithm": "independent-two-pointer",
+          "letters": 68,
+          "exact": false,
+          "first_mismatch": [
+            0,
+            "t",
+            "k"
+          ]
+        },
+        "right_two_pointer": {
+          "algorithm": "independent-two-pointer",
+          "letters": 68,
+          "exact": false,
+          "first_mismatch": [
+            0,
+            "t",
+            "k"
+          ]
+        },
+        "left_hash": {
+          "algorithm": "sha256-forward-reverse",
+          "forward": "51096bc5f176ea7851bde275359ec99c67442e31da2bb6625b044d389164a910",
+          "reverse": "fc9d502d3b5f0a38ba34a8d0fe29d6d2744fa5e4d0f642358f561ddef5b5e94f",
+          "exact": false
+        },
+        "right_hash": {
+          "algorithm": "sha256-forward-reverse",
+          "forward": "51096bc5f176ea7851bde275359ec99c67442e31da2bb6625b044d389164a910",
+          "reverse": "fc9d502d3b5f0a38ba34a8d0fe29d6d2744fa5e4d0f642358f561ddef5b5e94f",
+          "exact": false
+        }
+      },
+      "admission": {
+        "left": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "right": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "complete_prose": true
+      },
+      "provenance": {
+        "source": "independently authored typed dependency trees",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "repair": null
+      }
+    },
+    {
+      "rendered": "the patient courier carries a small parcel for the quiet nurse before noon.",
+      "paired_rendered": "the quiet keeper marks a clean chart for the patient courier before noon.",
+      "letters": 62,
+      "paired_letters": 60,
+      "equation": {
+        "left_letters": 62,
+        "right_letters": 60,
+        "equation": "left == reverse(right)",
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "closed": false,
+        "residual_left": {
+          "i": 1,
+          "u": 1,
+          "r": 1,
+          "s": 2,
+          "l": 2
+        },
+        "residual_right": {
+          "e": 1,
+          "t": 1,
+          "h": 1,
+          "k": 2
+        }
+      },
+      "dependency_provenance": {
+        "left": {
+          "tree": "courier_delivery",
+          "dependencies": [
+            {
+              "head": "carries",
+              "relation": "nsubj",
+              "dependent": "the patient courier"
+            },
+            {
+              "head": "carries",
+              "relation": "obj",
+              "dependent": "a small parcel"
+            },
+            {
+              "head": "carries",
+              "relation": "obl",
+              "dependent": "for the quiet nurse before noon"
+            }
+          ],
+          "agreement": "third-person-singular-present",
+          "argument_order": [
+            "subject",
+            "verb",
+            "object",
+            "adjunct"
+          ]
+        },
+        "right": {
+          "tree": "keeper_watch",
+          "dependencies": [
+            {
+              "head": "marks",
+              "relation": "nsubj",
+              "dependent": "the quiet keeper"
+            },
+            {
+              "head": "marks",
+              "relation": "obj",
+              "dependent": "a clean chart"
+            },
+            {
+              "head": "marks",
+              "relation": "obl",
+              "dependent": "for the patient courier before noon"
+            }
+          ],
+          "agreement": "third-person-singular-present",
+          "argument_order": [
+            "subject",
+            "verb",
+            "object",
+            "adjunct"
+          ]
+        }
+      },
+      "audit": {
+        "left_two_pointer": {
+          "algorithm": "independent-two-pointer",
+          "letters": 62,
+          "exact": false,
+          "first_mismatch": [
+            0,
+            "t",
+            "n"
+          ]
+        },
+        "right_two_pointer": {
+          "algorithm": "independent-two-pointer",
+          "letters": 60,
+          "exact": false,
+          "first_mismatch": [
+            0,
+            "t",
+            "n"
+          ]
+        },
+        "left_hash": {
+          "algorithm": "sha256-forward-reverse",
+          "forward": "7cc5ebd8ace721b0f93f194160992c8d3feefa46f98e51be6c2dda7174fc0dcf",
+          "reverse": "7ab581213607bb3880f6316f5a7dd629eb67d43bff171dc2dd014076358cb7d8",
+          "exact": false
+        },
+        "right_hash": {
+          "algorithm": "sha256-forward-reverse",
+          "forward": "efd4a667dd085d60a0a019b9afb1567a1f394a58951dd031fd7f3704f26342dd",
+          "reverse": "25f9c30661d0967cd7b17374d4b3e0f04a5492932188b1c9fe1d67ee4adbe9fa",
+          "exact": false
+        }
+      },
+      "admission": {
+        "left": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": false,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "right": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": false,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "complete_prose": true
+      },
+      "provenance": {
+        "source": "independently authored typed dependency trees",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "repair": null
+      }
+    },
+    {
+      "rendered": "the quiet keeper marks a clean chart for the patient courier before noon.",
+      "paired_rendered": "the patient courier carries a small parcel for the quiet nurse before noon.",
+      "letters": 60,
+      "paired_letters": 62,
+      "equation": {
+        "left_letters": 60,
+        "right_letters": 62,
+        "equation": "left == reverse(right)",
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "closed": false,
+        "residual_left": {
+          "t": 1,
+          "h": 1,
+          "e": 1,
+          "k": 2
+        },
+        "residual_right": {
+          "r": 1,
+          "s": 2,
+          "u": 1,
+          "i": 1,
+          "l": 2
+        }
+      },
+      "dependency_provenance": {
+        "left": {
+          "tree": "keeper_watch",
+          "dependencies": [
+            {
+              "head": "marks",
+              "relation": "nsubj",
+              "dependent": "the quiet keeper"
+            },
+            {
+              "head": "marks",
+              "relation": "obj",
+              "dependent": "a clean chart"
+            },
+            {
+              "head": "marks",
+              "relation": "obl",
+              "dependent": "for the patient courier before noon"
+            }
+          ],
+          "agreement": "third-person-singular-present",
+          "argument_order": [
+            "subject",
+            "verb",
+            "object",
+            "adjunct"
+          ]
+        },
+        "right": {
+          "tree": "courier_delivery",
+          "dependencies": [
+            {
+              "head": "carries",
+              "relation": "nsubj",
+              "dependent": "the patient courier"
+            },
+            {
+              "head": "carries",
+              "relation": "obj",
+              "dependent": "a small parcel"
+            },
+            {
+              "head": "carries",
+              "relation": "obl",
+              "dependent": "for the quiet nurse before noon"
+            }
+          ],
+          "agreement": "third-person-singular-present",
+          "argument_order": [
+            "subject",
+            "verb",
+            "object",
+            "adjunct"
+          ]
+        }
+      },
+      "audit": {
+        "left_two_pointer": {
+          "algorithm": "independent-two-pointer",
+          "letters": 60,
+          "exact": false,
+          "first_mismatch": [
+            0,
+            "t",
+            "n"
+          ]
+        },
+        "right_two_pointer": {
+          "algorithm": "independent-two-pointer",
+          "letters": 62,
+          "exact": false,
+          "first_mismatch": [
+            0,
+            "t",
+            "n"
+          ]
+        },
+        "left_hash": {
+          "algorithm": "sha256-forward-reverse",
+          "forward": "efd4a667dd085d60a0a019b9afb1567a1f394a58951dd031fd7f3704f26342dd",
+          "reverse": "25f9c30661d0967cd7b17374d4b3e0f04a5492932188b1c9fe1d67ee4adbe9fa",
+          "exact": false
+        },
+        "right_hash": {
+          "algorithm": "sha256-forward-reverse",
+          "forward": "7cc5ebd8ace721b0f93f194160992c8d3feefa46f98e51be6c2dda7174fc0dcf",
+          "reverse": "7ab581213607bb3880f6316f5a7dd629eb67d43bff171dc2dd014076358cb7d8",
+          "exact": false
+        }
+      },
+      "admission": {
+        "left": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": false,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "right": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": false,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "complete_prose": true
+      },
+      "provenance": {
+        "source": "independently authored typed dependency trees",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "repair": null
+      }
+    },
+    {
+      "rendered": "the quiet keeper opens the wooden gate by the window after the rain.",
+      "paired_rendered": "the quiet keeper opens the wooden gate by the window after the rain.",
+      "letters": 55,
+      "paired_letters": 55,
+      "equation": {
+        "left_letters": 55,
+        "right_letters": 55,
+        "equation": "left == reverse(right)",
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "closed": false,
+        "residual_left": {},
+        "residual_right": {}
+      },
+      "dependency_provenance": {
+        "left": {
+          "tree": "keeper_watch",
+          "dependencies": [
+            {
+              "head": "opens",
+              "relation": "nsubj",
+              "dependent": "the quiet keeper"
+            },
+            {
+              "head": "opens",
+              "relation": "obj",
+              "dependent": "the wooden gate"
+            },
+            {
+              "head": "opens",
+              "relation": "obl",
+              "dependent": "by the window after the rain"
+            }
+          ],
+          "agreement": "third-person-singular-present",
+          "argument_order": [
+            "subject",
+            "verb",
+            "object",
+            "adjunct"
+          ]
+        },
+        "right": {
+          "tree": "keeper_watch",
+          "dependencies": [
+            {
+              "head": "opens",
+              "relation": "nsubj",
+              "dependent": "the quiet keeper"
+            },
+            {
+              "head": "opens",
+              "relation": "obj",
+              "dependent": "the wooden gate"
+            },
+            {
+              "head": "opens",
+              "relation": "obl",
+              "dependent": "by the window after the rain"
+            }
+          ],
+          "agreement": "third-person-singular-present",
+          "argument_order": [
+            "subject",
+            "verb",
+            "object",
+            "adjunct"
+          ]
+        }
+      },
+      "audit": {
+        "left_two_pointer": {
+          "algorithm": "independent-two-pointer",
+          "letters": 55,
+          "exact": false,
+          "first_mismatch": [
+            0,
+            "t",
+            "n"
+          ]
+        },
+        "right_two_pointer": {
+          "algorithm": "independent-two-pointer",
+          "letters": 55,
+          "exact": false,
+          "first_mismatch": [
+            0,
+            "t",
+            "n"
+          ]
+        },
+        "left_hash": {
+          "algorithm": "sha256-forward-reverse",
+          "forward": "a69ad80ef21ce3cfdc18876497d641ca74f736ab779298c6fbbca2911447a1cd",
+          "reverse": "fa39456ee1e2b1f40233f7586d0c5ed2ae2e53268a24ef86e719290da89db7d7",
+          "exact": false
+        },
+        "right_hash": {
+          "algorithm": "sha256-forward-reverse",
+          "forward": "a69ad80ef21ce3cfdc18876497d641ca74f736ab779298c6fbbca2911447a1cd",
+          "reverse": "fa39456ee1e2b1f40233f7586d0c5ed2ae2e53268a24ef86e719290da89db7d7",
+          "exact": false
+        }
+      },
+      "admission": {
+        "left": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "right": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "complete_prose": true
+      },
+      "provenance": {
+        "source": "independently authored typed dependency trees",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "repair": null
+      }
+    }
+  ],
+  "repair": [
+    {
+      "rendered": "the patient courier delivers the sealed letter for the waiting child before dusk.",
+      "paired_rendered": "the careful driver carries the sealed letter near the station after the rain.",
+      "letters": 68,
+      "paired_letters": 64,
+      "equation": {
+        "left_letters": 68,
+        "right_letters": 64,
+        "equation": "left == reverse(right)",
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "closed": false,
+        "residual_left": {
+          "p": 1,
+          "i": 2,
+          "o": 2,
+          "u": 1,
+          "d": 2,
+          "l": 1,
+          "w": 1,
+          "g": 1,
+          "b": 1,
+          "k": 1
+        },
+        "residual_right": {
+          "n": 1,
+          "a": 4,
+          "r": 3,
+          "t": 1
+        }
+      },
+      "dependency_provenance": {
+        "left": {
+          "tree": "courier_delivery",
+          "dependencies": [
+            {
+              "head": "delivers",
+              "relation": "nsubj",
+              "dependent": "the patient courier"
+            },
+            {
+              "head": "delivers",
+              "relation": "obj",
+              "dependent": "the sealed letter"
+            },
+            {
+              "head": "delivers",
+              "relation": "obl",
+              "dependent": "for the waiting child before dusk"
+            }
+          ],
+          "agreement": "third-person-singular-present",
+          "argument_order": [
+            "subject",
+            "verb",
+            "object",
+            "adjunct"
+          ]
+        },
+        "right": {
+          "tree": "courier_delivery",
+          "dependencies": [
+            {
+              "head": "carries",
+              "relation": "nsubj",
+              "dependent": "the careful driver"
+            },
+            {
+              "head": "carries",
+              "relation": "obj",
+              "dependent": "the sealed letter"
+            },
+            {
+              "head": "carries",
+              "relation": "obl",
+              "dependent": "near the station after the rain"
+            }
+          ],
+          "agreement": "third-person-singular-present",
+          "argument_order": [
+            "subject",
+            "verb",
+            "object",
+            "adjunct"
+          ]
+        }
+      },
+      "audit": {
+        "left_two_pointer": {
+          "algorithm": "independent-two-pointer",
+          "letters": 68,
+          "exact": false,
+          "first_mismatch": [
+            0,
+            "t",
+            "k"
+          ]
+        },
+        "right_two_pointer": {
+          "algorithm": "independent-two-pointer",
+          "letters": 64,
+          "exact": false,
+          "first_mismatch": [
+            0,
+            "t",
+            "n"
+          ]
+        },
+        "left_hash": {
+          "algorithm": "sha256-forward-reverse",
+          "forward": "51096bc5f176ea7851bde275359ec99c67442e31da2bb6625b044d389164a910",
+          "reverse": "fc9d502d3b5f0a38ba34a8d0fe29d6d2744fa5e4d0f642358f561ddef5b5e94f",
+          "exact": false
+        },
+        "right_hash": {
+          "algorithm": "sha256-forward-reverse",
+          "forward": "42557c99f829c2793138898dff9c9bea3c4bface16b7c9cbb83f53473def4a6d",
+          "reverse": "a305b4ce5674ff099b97049256e2ade980a4deb1276cdfa772206e385867f27a",
+          "exact": false
+        }
+      },
+      "admission": {
+        "left": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "right": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "complete_prose": true
+      },
+      "provenance": {
+        "source": "independently authored typed dependency trees",
+        "catalogue_text_used": false,
+        "word_order_mirrored": false,
+        "repeated_unit_shortcut": false,
+        "repair": {
+          "operator": "heldout-nsubj-and-adjunct-relexicalization",
+          "from": [
+            0,
+            "t",
+            "k"
+          ],
+          "next": "author a held-out object realization that closes the remaining dependency-pair residual, then run blinded intact-versus-shuffled reader test"
+        }
+      }
+    }
+  ],
+  "reader_eligible": false,
+  "status": "completed_no_exact_closure",
+  "next_repair": "held-out typed object/adjunct substitution against the recorded dependency residual"
+}

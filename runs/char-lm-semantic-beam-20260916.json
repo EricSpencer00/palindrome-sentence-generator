@@ -1,0 +1,500 @@
+{
+  "experiment": "char-lm-semantic-beam-20260916",
+  "novelty_preflight": {
+    "passed": true,
+    "signature": "character-beam-semantic-frame|live-debt-pruning|independent-prose-realization|typed-next-character",
+    "overlaps_checked": [
+      "char-lm-constrained-decoding-20260916",
+      "exact-tape-grammatical-resegmentation-20260916",
+      "centerout-typed-semantic-debt-20260916"
+    ],
+    "reason": "Beam state carries semantic frame identity and next-character debt jointly; it never decodes a finished reverse string."
+  },
+  "rows": [
+    {
+      "id": "beam-2-3",
+      "rendered": "The young botanist studies the silver seed cases beside the greenhouse; a careful pilot marks the distant landing lights through the mist.",
+      "length": 115,
+      "state": {
+        "semantic_frame_left": 2,
+        "semantic_frame_right": 3,
+        "beam_width": 8,
+        "boundary_debt": "propagated at every emitted character"
+      },
+      "audit": {
+        "length": 115,
+        "exact": false,
+        "first_mismatch": {
+          "index": 1,
+          "forward": "h",
+          "reverse": "s"
+        },
+        "sha256_forward": "e57cebaf71f80696db58a1b26b414ec7bd11a9455366b09fccecc7fe35d7808e",
+        "sha256_reverse": "99cbaec349605c7af6d79123df97ee4e0688c976feeecebc7e0f450316a9eaa5"
+      },
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "e57cebaf71f80696db58a1b26b414ec7bd11a9455366b09fccecc7fe35d7808e"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Use the first residual pointer as a hard beam feature: expand only typed synonym or adjunct alternatives whose next character equals the opposing debt, then preserve frame agreement."
+    },
+    {
+      "id": "beam-3-2",
+      "rendered": "A careful pilot marks the distant landing lights through the mist; the young botanist studies the silver seed cases beside the greenhouse.",
+      "length": 115,
+      "state": {
+        "semantic_frame_left": 3,
+        "semantic_frame_right": 2,
+        "beam_width": 8,
+        "boundary_debt": "propagated at every emitted character"
+      },
+      "audit": {
+        "length": 115,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "e"
+        },
+        "sha256_forward": "09c287dfca09c1550f96f6f1213dcb2c84e09b0536c9ef6889a4b5f8d3f90e52",
+        "sha256_reverse": "fe873ab5984f44009dfec377405014ad9154e4c6b372fb9ad128937586ee42d9"
+      },
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "09c287dfca09c1550f96f6f1213dcb2c84e09b0536c9ef6889a4b5f8d3f90e52"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Use the first residual pointer as a hard beam feature: expand only typed synonym or adjunct alternatives whose next character equals the opposing debt, then preserve frame agreement."
+    },
+    {
+      "id": "beam-1-2",
+      "rendered": "A patient mason restores the old stone arch before sunrise; the young botanist studies the silver seed cases beside the greenhouse.",
+      "length": 109,
+      "state": {
+        "semantic_frame_left": 1,
+        "semantic_frame_right": 2,
+        "beam_width": 8,
+        "boundary_debt": "propagated at every emitted character"
+      },
+      "audit": {
+        "length": 109,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "e"
+        },
+        "sha256_forward": "f967544abac8e1a1a7ad34cb1488c89a7abd26eca17866531e1aa664626be1b3",
+        "sha256_reverse": "510a0e5fa2022dbd46a94c609de1440fe25ab39d1af8bac3b797fbede0ec41e8"
+      },
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "f967544abac8e1a1a7ad34cb1488c89a7abd26eca17866531e1aa664626be1b3"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Use the first residual pointer as a hard beam feature: expand only typed synonym or adjunct alternatives whose next character equals the opposing debt, then preserve frame agreement."
+    },
+    {
+      "id": "beam-2-1",
+      "rendered": "The young botanist studies the silver seed cases beside the greenhouse; a patient mason restores the old stone arch before sunrise.",
+      "length": 109,
+      "state": {
+        "semantic_frame_left": 2,
+        "semantic_frame_right": 1,
+        "beam_width": 8,
+        "boundary_debt": "propagated at every emitted character"
+      },
+      "audit": {
+        "length": 109,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "e"
+        },
+        "sha256_forward": "1bfc4ac4a3ecb1389a97e60c6bd9d3c53b9de19508da9557d4f2f66f33ea934b",
+        "sha256_reverse": "d2bec9bd16815b26dd00a28ef68dfcc1bf4e18cafb2f26384e295938772a436b"
+      },
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "1bfc4ac4a3ecb1389a97e60c6bd9d3c53b9de19508da9557d4f2f66f33ea934b"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Use the first residual pointer as a hard beam feature: expand only typed synonym or adjunct alternatives whose next character equals the opposing debt, then preserve frame agreement."
+    },
+    {
+      "id": "beam-0-2",
+      "rendered": "The night curator records the harbor names after the rain; the young botanist studies the silver seed cases beside the greenhouse.",
+      "length": 108,
+      "state": {
+        "semantic_frame_left": 0,
+        "semantic_frame_right": 2,
+        "beam_width": 8,
+        "boundary_debt": "propagated at every emitted character"
+      },
+      "audit": {
+        "length": 108,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "e"
+        },
+        "sha256_forward": "8b4041199a443da0de8bf5579e590b9e6fe8f4d2cd8b0bfda8880abf01a6481c",
+        "sha256_reverse": "2a955477eedd81a9270ec9730ceb46731156b264e301445922f82b4d2ffa349c"
+      },
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "8b4041199a443da0de8bf5579e590b9e6fe8f4d2cd8b0bfda8880abf01a6481c"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Use the first residual pointer as a hard beam feature: expand only typed synonym or adjunct alternatives whose next character equals the opposing debt, then preserve frame agreement."
+    },
+    {
+      "id": "beam-2-0",
+      "rendered": "The young botanist studies the silver seed cases beside the greenhouse; the night curator records the harbor names after the rain.",
+      "length": 108,
+      "state": {
+        "semantic_frame_left": 2,
+        "semantic_frame_right": 0,
+        "beam_width": 8,
+        "boundary_debt": "propagated at every emitted character"
+      },
+      "audit": {
+        "length": 108,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "7a477d86033c3efc886d4e279aaea60ffc49a821aab892f1cefad0dd9bb3f55f",
+        "sha256_reverse": "2011173602f6fd50512b99a1ccb01bcb779d387e1efc7d34fac312019d8578c7"
+      },
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "7a477d86033c3efc886d4e279aaea60ffc49a821aab892f1cefad0dd9bb3f55f"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Use the first residual pointer as a hard beam feature: expand only typed synonym or adjunct alternatives whose next character equals the opposing debt, then preserve frame agreement."
+    },
+    {
+      "id": "beam-1-3",
+      "rendered": "A patient mason restores the old stone arch before sunrise; a careful pilot marks the distant landing lights through the mist.",
+      "length": 104,
+      "state": {
+        "semantic_frame_left": 1,
+        "semantic_frame_right": 3,
+        "beam_width": 8,
+        "boundary_debt": "propagated at every emitted character"
+      },
+      "audit": {
+        "length": 104,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "t"
+        },
+        "sha256_forward": "e179307444818646f14ae5273a25eb1a476c0694ecb7867c062e4978409b1051",
+        "sha256_reverse": "755636636149bbcaf93ceb708b13b6418bc044eaa7965d0fc72b9cb1ae6d9ce6"
+      },
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "e179307444818646f14ae5273a25eb1a476c0694ecb7867c062e4978409b1051"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Use the first residual pointer as a hard beam feature: expand only typed synonym or adjunct alternatives whose next character equals the opposing debt, then preserve frame agreement."
+    },
+    {
+      "id": "beam-3-1",
+      "rendered": "A careful pilot marks the distant landing lights through the mist; a patient mason restores the old stone arch before sunrise.",
+      "length": 104,
+      "state": {
+        "semantic_frame_left": 3,
+        "semantic_frame_right": 1,
+        "beam_width": 8,
+        "boundary_debt": "propagated at every emitted character"
+      },
+      "audit": {
+        "length": 104,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "e"
+        },
+        "sha256_forward": "399ea9882f3cb93c053ff38fe7caa50d5fa8b197ff0d4900d120bb499f350172",
+        "sha256_reverse": "5eb34546bf1555f2c370c9ae0eebe860602962c73ea6e8ed3a3a8f886e87b334"
+      },
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "399ea9882f3cb93c053ff38fe7caa50d5fa8b197ff0d4900d120bb499f350172"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Use the first residual pointer as a hard beam feature: expand only typed synonym or adjunct alternatives whose next character equals the opposing debt, then preserve frame agreement."
+    },
+    {
+      "id": "beam-0-3",
+      "rendered": "The night curator records the harbor names after the rain; a careful pilot marks the distant landing lights through the mist.",
+      "length": 103,
+      "state": {
+        "semantic_frame_left": 0,
+        "semantic_frame_right": 3,
+        "beam_width": 8,
+        "boundary_debt": "propagated at every emitted character"
+      },
+      "audit": {
+        "length": 103,
+        "exact": false,
+        "first_mismatch": {
+          "index": 1,
+          "forward": "h",
+          "reverse": "s"
+        },
+        "sha256_forward": "0a2cfd1bbb523773d672ff44321262cb3302291020deb13f5a6e788305e72a1c",
+        "sha256_reverse": "134e2acf51c1562ac840ab068caa9748fc64d77ab3bbea8468544341eed974f9"
+      },
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "0a2cfd1bbb523773d672ff44321262cb3302291020deb13f5a6e788305e72a1c"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Use the first residual pointer as a hard beam feature: expand only typed synonym or adjunct alternatives whose next character equals the opposing debt, then preserve frame agreement."
+    },
+    {
+      "id": "beam-3-0",
+      "rendered": "A careful pilot marks the distant landing lights through the mist; the night curator records the harbor names after the rain.",
+      "length": 103,
+      "state": {
+        "semantic_frame_left": 3,
+        "semantic_frame_right": 0,
+        "beam_width": 8,
+        "boundary_debt": "propagated at every emitted character"
+      },
+      "audit": {
+        "length": 103,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "n"
+        },
+        "sha256_forward": "f22db5a7f1c528f71bba8780b0542813ce82b6197c5ef49cf9d1976d77581d9b",
+        "sha256_reverse": "c1b04348362b717ff7f2a283df1e9c175011977fececa2dfb3604577f9a4c008"
+      },
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "f22db5a7f1c528f71bba8780b0542813ce82b6197c5ef49cf9d1976d77581d9b"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Use the first residual pointer as a hard beam feature: expand only typed synonym or adjunct alternatives whose next character equals the opposing debt, then preserve frame agreement."
+    },
+    {
+      "id": "beam-0-1",
+      "rendered": "The night curator records the harbor names after the rain; a patient mason restores the old stone arch before sunrise.",
+      "length": 97,
+      "state": {
+        "semantic_frame_left": 0,
+        "semantic_frame_right": 1,
+        "beam_width": 8,
+        "boundary_debt": "propagated at every emitted character"
+      },
+      "audit": {
+        "length": 97,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "e"
+        },
+        "sha256_forward": "fb7b22b0c3b102f1e140278c8542b7bedd23ff1d8764c7be5a5ecec14d8cd1bc",
+        "sha256_reverse": "77715cabc4611881ba7cc04b6a911c7807d38c69b4a8c02dd5f9a6645d6225c9"
+      },
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "fb7b22b0c3b102f1e140278c8542b7bedd23ff1d8764c7be5a5ecec14d8cd1bc"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Use the first residual pointer as a hard beam feature: expand only typed synonym or adjunct alternatives whose next character equals the opposing debt, then preserve frame agreement."
+    },
+    {
+      "id": "beam-1-0",
+      "rendered": "A patient mason restores the old stone arch before sunrise; the night curator records the harbor names after the rain.",
+      "length": 97,
+      "state": {
+        "semantic_frame_left": 1,
+        "semantic_frame_right": 0,
+        "beam_width": 8,
+        "boundary_debt": "propagated at every emitted character"
+      },
+      "audit": {
+        "length": 97,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "n"
+        },
+        "sha256_forward": "6525510dacfb142066967d6b7803861e4c4199887340078501738b89f516063e",
+        "sha256_reverse": "1088b08ccf350ae64fa4649255b9c2156d9ab5cd9433183e4e4ef0a7d99b410d"
+      },
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "6525510dacfb142066967d6b7803861e4c4199887340078501738b89f516063e"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Use the first residual pointer as a hard beam feature: expand only typed synonym or adjunct alternatives whose next character equals the opposing debt, then preserve frame agreement."
+    }
+  ],
+  "summary": {
+    "candidate_count": 12,
+    "exact_count": 0,
+    "max_length": 115
+  }
+}

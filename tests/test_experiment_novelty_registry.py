@@ -226,6 +226,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "agreement-morphology-transducer-20260916-luna" in ids
     assert "semantic-valency-attachment-solver-20260916-luna" in ids
     assert "scalable-compositional-grammar-20260916-luna" in ids
+    assert "exact-tape-grammatical-resegmentation-20260916-luna" in ids
+    assert "semantic-slot-substitution-repair-20260916-luna" in ids
+    assert "inflection-clitic-distinct-repair-20260916-luna" in ids
     assert "graph-to-prose-path-20260916" in ids
     assert "voice-alternation-residual-20260916" in ids
     assert "ccg-semantic-solver-20260916" in ids

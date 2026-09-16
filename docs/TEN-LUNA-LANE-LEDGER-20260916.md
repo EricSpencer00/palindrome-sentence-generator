@@ -310,6 +310,11 @@ The latest ten-lane run is append-only and keeps the dimensions orthogonal:
 | 9 | `scalable-compositional-grammar-20260916-luna.json` | 208 frontier (10 growth states) | no / no | append one held-out typed action |
 | 10 | `semantic-slot-substitution-repair-20260916-luna.json` | 170 | no / no | one typed adjunct substitution |
 
-The common audit is **4,582 rows, 168 route phases, 79 exact rejected tapes,
+Lane 8's distinct repair is recorded separately as
+`inflection-clitic-distinct-repair-20260916-luna.json`: a fresh 128-letter
+harbor scene with plural, past-tense, and possessive-clitic obligations. It is
+non-exact under both independent audits and passes the no-repeated-unit gate.
+
+The common audit is **4,583 rows, 169 route phases, 79 exact rejected tapes,
 and 0 mechanically admitted outputs**. The exact lane-8 hash is retained only
 as a quarantined duplicate-control failure; it cannot enter a reader packet.

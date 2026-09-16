@@ -385,9 +385,9 @@ novelty preflight, independent audits, and concrete repairs.
 ## Fresh ten-lane audit (2026-09-16)
 
 The ten requested dimensions were rerun as separate state representations. The
-aggregate now contains **4,582 rendered rows across 168 route phases, 79 exact
+aggregate now contains **4,583 rendered rows across 169 route phases, 79 exact
 but rejected tapes, and 0 mechanically admitted outputs**. The novelty registry
-has **270 unique retained artifacts, 27 explicit exclusions, and 248 run
+has **271 unique retained artifacts, 27 explicit exclusions, and 249 run
 artifacts**. Every retained lane below has an intact rendering, an independent
 pointer/hash audit, provenance, novelty preflight, and a concrete next repair.
 The lane-8 exact result is intentionally excluded because it repeats a
@@ -405,6 +405,13 @@ canonical catalogue clause six times.
 | 8 inflection/clitic boundary | “A man, a plan, a canal, Panama.” repeated six times | 126 | exact `True` with matching SHA, but **rejected** for repeated catalogue unit | Replace every repeated unit with held-out inflected/clitic clauses before any promotion. |
 | 9 scalable flat grammar | “At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path, labels the seed trays, carries the spare hose, mends the loose gate, folds the canvas tarp, writes a note for the neighbor, waters the herb bed.” | 208 | pointer/hash `False` (95 mismatches); proper-span and repetition gates pass | Append one held-out typed action increment and recompute the full tape. |
 | 10 semantic slot repair | “After rain, the patient gardener carries a wrapped bundle beside the quiet greenhouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart toward the dry storehouse.” | 170 | pointer/hash `False`; all anti-shortcut mechanical checks pass | Change only the typed adjunct at the first mismatch, then rerun the exact audit. |
+
+Lane 8's distinct repair replaces the rejected repeated unit with a fresh
+128-letter harbor scene: “At dusk, the harbor pilots checked the mooring lights,
+logged the tide in the crews' ledger, and warned each waiting sailor that boats
+would leave before dawn.” Its plural, past-tense, and possessive-clitic
+obligations are independently audited; exactness remains false and the next
+repair targets only the exposed suffix/clitic boundary.
 
 These are construction results, not a readability certificate. The next
 reader-facing test is still an intact-prose versus shuffled-control packet with

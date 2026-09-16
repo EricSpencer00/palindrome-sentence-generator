@@ -164,9 +164,10 @@
     "runs/semantic-valency-attachment-solver-20260916-luna.json",
     "runs/scalable-compositional-grammar-20260916-luna.json",
     "runs/exact-tape-grammatical-resegmentation-20260916-luna.json",
-    "runs/semantic-slot-substitution-repair-20260916-luna.json"
+    "runs/semantic-slot-substitution-repair-20260916-luna.json",
+    "runs/inflection-clitic-distinct-repair-20260916-luna.json"
   ],
-  "candidate_count": 4582,
+  "candidate_count": 4583,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -949,6 +950,16 @@
       "max_letters": 78,
       "mean_zipf_frequency": 5.370875,
       "mean_brown_order_gain_vs_shuffle": 0.5803173459112138
+    },
+    {
+      "source_run": "runs/inflection-clitic-distinct-repair-20260916-luna.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 128,
+      "max_letters": 128,
+      "mean_zipf_frequency": 5.292222222222223,
+      "mean_brown_order_gain_vs_shuffle": 0.35328897930018677
     },
     {
       "source_run": "runs/inflectional-clitic-boundary-csp-20260916.json",
@@ -220316,6 +220327,53 @@
         "mean_zipf_frequency": 5.4073529411764705,
         "word_count": 34,
         "repeated_word_rate": 0.1470588235294118,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dusk, the harbor pilots checked the mooring lights, logged the tide in the crews' ledger, and warned each waiting sailor that boats would leave before dawn.",
+      "source_run": "runs/inflection-clitic-distinct-repair-20260916-luna.json",
+      "provenance": {
+        "source": "newly authored harbor scene",
+        "catalogue_used_for_generation": false,
+        "borrowed_text": false,
+        "repeated_catalogue_clause": false,
+        "finished_sentence_reversed": false,
+        "word_order_mirror_used": false,
+        "generator_sha256": "b67d68ab6d5da33c619b14afa830b54c5cd10169f8aa381d0f4a4018699ace32"
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.35328897930018677,
+        "mean_zipf_frequency": 5.292222222222223,
+        "word_count": 27,
+        "repeated_word_rate": 0.11111111111111116,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

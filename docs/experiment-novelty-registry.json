@@ -2574,6 +2574,14 @@
       "run_artifacts": ["runs/inflection-clitic-boundary-search-20260916-luna.json"],
       "overlaps": ["known-palindrome-catalogue", "word-order-symmetry-controls"],
       "reason": "The reported 126-letter exact surface is the same canonical clause “A man, a plan, a canal, Panama.” repeated six times. It fails the no-repeated-nontrivial-unit and borrowed-catalogue constraints; the exact hash is preserved as a rejected control, not a generated readable palindrome. The next repair must replace every repeated unit with held-out inflected/clitic clauses before promotion."
+    },
+    {
+      "id": "reversible-lexical-shell-20260916-excluded",
+      "signature": "authored-clause-shell|held-out-reversible-spans|seed-preserving-tape-join|two-pointer-sha-audit|duplicate-sweep-rejection",
+      "artifact": "experiments/reversible_lexical_shell_20260916.py",
+      "run_artifacts": ["runs/reversible-lexical-shell-20260916.json"],
+      "overlaps": ["exact-tape-semantic-slot-repair-20260916", "exact-tape-first-resegment-2026-09-16-excluded"],
+      "reason": "The two 102--108-letter shells embed the known 38-letter seed sentence verbatim as an interior unit. Although the shell clauses are newly authored and non-exact, preserving a known palindrome inside a larger surface is a shortcut and is excluded from the retained aggregate. The run remains failure evidence with a first-mismatch shell repair."
     }
   ]
 }

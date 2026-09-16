@@ -387,7 +387,7 @@ novelty preflight, independent audits, and concrete repairs.
 The ten requested dimensions were rerun as separate state representations. The
 aggregate now contains **4,583 rendered rows across 169 route phases, 79 exact
 but rejected tapes, and 0 mechanically admitted outputs**. The novelty registry
-has **271 unique retained artifacts, 27 explicit exclusions, and 249 run
+has **271 unique retained artifacts, 28 explicit exclusions, and 249 run
 artifacts**. Every retained lane below has an intact rendering, an independent
 pointer/hash audit, provenance, novelty preflight, and a concrete next repair.
 The lane-8 exact result is intentionally excluded because it repeats a
@@ -417,3 +417,8 @@ These are construction results, not a readability certificate. The next
 reader-facing test is still an intact-prose versus shuffled-control packet with
 randomized blinded order; no row enters it until exactness and all mechanical
 anti-shortcut checks pass.
+
+The reversible lexical-shell follow-up is deliberately excluded: both of its
+near misses embed the known 38-letter seed verbatim. That is a seed-wrapping
+shortcut, not a generated long palindrome, so its evidence stays in the
+registry's excluded section with its first-mismatch repair.

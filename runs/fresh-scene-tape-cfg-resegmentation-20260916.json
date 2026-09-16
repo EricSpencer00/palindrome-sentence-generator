@@ -1,0 +1,153 @@
+{
+  "experiment_id": "fresh-scene-tape-cfg-resegmentation-20260916",
+  "signature": "fresh-scene-authorship|mutable-boundary-segmentation|typed-inflection-realization|exact-tape-cfg-intersection|no-catalogue",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "author a fresh semantic scene, emit a complete CFG parse, then resegment typed word boundaries and inflections while intersecting its emitted tape with the reverse obligation",
+  "candidates": [
+    {
+      "state": "initial",
+      "cfg_parse": {
+        "root": "S",
+        "productions": [
+          "NP VP PP",
+          "relative-clause"
+        ],
+        "complete": true
+      },
+      "segmentation": {
+        "mutable_boundaries": [
+          "sealed|chart",
+          "patient|readers"
+        ],
+        "terminal_letters": 123,
+        "reverse_obligation": "computed from emitted tape"
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The archivist carries a sealed chart from the quiet harbor to the village library, where patient readers compare old routes and record every change.",
+        "letters": 123,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "normalized_sha256": "7dec5be366918e69a26ae6695dd6e846de802af5b6c604b9d1d3f63928edc222",
+        "reverse_sha256": "e7b6c97f13eae39f4c45e4138d2708f5d9a2a3181f8fb85c0c08b97d39186884",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      }
+    },
+    {
+      "state": "boundary-inflection-repair",
+      "cfg_parse": {
+        "root": "S",
+        "productions": [
+          "NP VP PP",
+          "relative-clause"
+        ],
+        "complete": true
+      },
+      "segmentation": {
+        "mutable_boundaries": [
+          "sealed|chart",
+          "patient|readers"
+        ],
+        "terminal_letters": 126,
+        "reverse_obligation": "computed from emitted tape"
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The archivist carries a weathered chart from the quiet harbor to the village library, where careful readers compare old routes and record every change.",
+        "letters": 126,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "normalized_sha256": "bc2fa13312621bfa6bd602c5fd187f3efab1b67d7180d12c9b9c719380f4e597",
+        "reverse_sha256": "930e557ccab92e9bee2687d78ebd1a31df547149dc64aa2d609d806517d3576d",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 326,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "repeated_units": false
+  },
+  "next_repair": {
+    "operator": "move the mutable boundary across the PP attachment and choose a held-out determiner/verb inflection, preserving the complete relative-clause parse",
+    "reason": "the lexical repair changes the residual but does not close the outer tape"
+  },
+  "provenance": {
+    "generator_sha256": "1cb2dae5278c4254db584a34261e64839adac5a5be323c58a399f091f91f3d70",
+    "lexical_source": "fresh authored harbor-library scene",
+    "repair": "replaced sealed chart/patient readers with weathered chart/careful readers as complete lexical realizations, not character edits",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "complete CFG parse",
+      "anti-shortcut"
+    ]
+  }
+}

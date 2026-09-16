@@ -131,6 +131,13 @@ ordinary prose, and independent exact/hash checks; none is exact or
 reader-eligible. The aggregate is now 4342 normalized rows across 114 route
 phases, with 0 mechanically admitted candidates.
 
+The next frontier repairs retained a centered-complement reverse-lexicon scene
+at 87 letters, a center-out time-adjunct repair at 70 letters, and a guide-
+clause SAT complement at 103 letters. Each preserves complete prose,
+provenance, independent exact/hash checks, and a concrete next operator; none
+is exact or reader-eligible. The aggregate is now 4350 normalized rows across
+120 route phases, with 0 mechanically admitted candidates.
+
 The follow-up repairs retained three shared-agreement seam candidates at
 61--68 letters, a two-boundary center-out repair at 66 letters, and a fresh
 t-initial SAT subject repair at 103 letters. Each has independent exact/hash

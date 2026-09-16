@@ -186,3 +186,9 @@ t-initial SAT subject repair at 103 letters. Each has independent pointer and
 SHA-256 rejection, provenance, and a concrete next operator. The aggregate is
 now 4347 normalized rows across 117 route phases, with 0 mechanically admitted
 rows.
+
+The next frontier repairs retained a centered-complement reverse-lexicon scene
+at 87 letters, a center-out time-adjunct repair at 70 letters, and a guide-
+clause SAT complement at 103 letters. All fail independent exact/hash and
+mechanical gates. The aggregate is now 4350 normalized rows across 120 route
+phases, with 0 mechanically admitted rows.

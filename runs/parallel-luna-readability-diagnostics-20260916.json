@@ -114,9 +114,12 @@
     "runs/authored-clause-template-sat-repair2-20260916.json",
     "runs/reverse-lexicon-shared-agreement-seams-20260916.json",
     "runs/centerout-grammar-boundary-repair3-20260916.json",
-    "runs/authored-clause-template-sat-repair3-20260916.json"
+    "runs/authored-clause-template-sat-repair3-20260916.json",
+    "runs/reverse-lexicon-centered-complement-20260916.json",
+    "runs/centerout-grammar-boundary-repair4-20260916.json",
+    "runs/authored-clause-template-sat-repair4-20260916.json"
   ],
-  "candidate_count": 4347,
+  "candidate_count": 4350,
   "exact_count": 73,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -169,6 +172,16 @@
       "max_letters": 103,
       "mean_zipf_frequency": 5.361428571428573,
       "mean_brown_order_gain_vs_shuffle": 0.8297483199544722
+    },
+    {
+      "source_run": "runs/authored-clause-template-sat-repair4-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 103,
+      "max_letters": 103,
+      "mean_zipf_frequency": 5.319523809523811,
+      "mean_brown_order_gain_vs_shuffle": 0.6840836118475746
     },
     {
       "source_run": "runs/bilateral-semantic-cfg-20260916.json",
@@ -259,6 +272,16 @@
       "max_letters": 66,
       "mean_zipf_frequency": 5.132307692307693,
       "mean_brown_order_gain_vs_shuffle": 1.052861040902247
+    },
+    {
+      "source_run": "runs/centerout-grammar-boundary-repair4-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 70,
+      "max_letters": 70,
+      "mean_zipf_frequency": 5.240714285714286,
+      "mean_brown_order_gain_vs_shuffle": 1.3362775615860514
     },
     {
       "source_run": "runs/clause-growth-frame-repair-20260916.json",
@@ -979,6 +1002,16 @@
       "max_letters": 68,
       "mean_zipf_frequency": 5.520384615384616,
       "mean_brown_order_gain_vs_shuffle": 1.07885109036867
+    },
+    {
+      "source_run": "runs/reverse-lexicon-centered-complement-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 87,
+      "max_letters": 87,
+      "mean_zipf_frequency": 5.530526315789474,
+      "mean_brown_order_gain_vs_shuffle": 1.0396473299644757
     },
     {
       "source_run": "runs/reverse-lexicon-inflection-repair-20260916.json",
@@ -210051,6 +210084,159 @@
         "mean_zipf_frequency": 5.361428571428573,
         "word_count": 21,
         "repeated_word_rate": 0.33333333333333337,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient courier knows that the careful clerk seals the letter before dusk and waits by the quiet gate.",
+      "source_run": "runs/reverse-lexicon-centered-complement-20260916.json",
+      "provenance": {
+        "heldout_scene": true,
+        "source_sentences_copied": false,
+        "posthoc_spelling_edit": false,
+        "reversed_finished_sentence": false,
+        "three_obligations_jointly_solved": true
+      },
+      "repair": null,
+      "letters": 87,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0396473299644757,
+        "mean_zipf_frequency": 5.530526315789474,
+        "word_count": 19,
+        "repeated_word_rate": 0.1578947368421053,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the careful porter delivers the sealed parcel. near the lamplit school at the height.",
+      "source_run": "runs/centerout-grammar-boundary-repair4-20260916.json",
+      "provenance": {
+        "authored_event_preserved": true,
+        "catalogue_text_copied": false,
+        "finished_sentence_reversed": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false
+      },
+      "repair": {
+        "parent_run": "runs/centerout-grammar-boundary-repair3-20260916.json",
+        "changed_span": {
+          "from": "near the lamplit school at night",
+          "to": "near the lamplit school at the height"
+        },
+        "target_obligation": "next mirrored e/g after matched th",
+        "changed_component": "right adjunct only"
+      },
+      "letters": 70,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3362775615860514,
+        "mean_zipf_frequency": 5.240714285714286,
+        "word_count": 14,
+        "repeated_word_rate": 0.2142857142857143,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the thoughtful usher guides a young visitor toward the quiet gallery at sunset. the quiet guide checks the lantern at sunset.",
+      "source_run": "runs/authored-clause-template-sat-repair4-20260916.json",
+      "provenance": {
+        "fresh_complement_authored": true,
+        "fresh_frame_authored": true,
+        "preserved_roles": [
+          "usher",
+          "guide",
+          "visitor"
+        ],
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repair_parent": "the thoughtful usher guides a young visitor toward the quiet gallery at sunset. The quiet guide checks the gallery at sunset."
+      },
+      "repair": null,
+      "letters": 103,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6840836118475746,
+        "mean_zipf_frequency": 5.319523809523811,
+        "word_count": 21,
+        "repeated_word_rate": 0.2857142857142857,
         "punctuation_segments": 2
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

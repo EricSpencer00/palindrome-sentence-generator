@@ -1,0 +1,156 @@
+{
+  "experiment_id": "agreement-morphology-clitic-lane4-20260916",
+  "signature": "agreement-carrying-morphology|clitic-boundary-transducer|lane4-8",
+  "novelty_preflight": {
+    "registry_entries_read": 248,
+    "catalogue_text_imported": false,
+    "known_palindrome_imported": false,
+    "exact_signature_collision": false
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "When the careful archivist restores the damaged ledger, she records each witness name and sends the sealed copy to the harbor office before winter.",
+      "letters": 122,
+      "exact": false,
+      "independent_ascii_exact": false,
+      "two_pointer_mismatches": [
+        {
+          "left": 0,
+          "right": 121,
+          "a": "w",
+          "b": "r"
+        },
+        {
+          "left": 1,
+          "right": 120,
+          "a": "h",
+          "b": "e"
+        },
+        {
+          "left": 2,
+          "right": 119,
+          "a": "e",
+          "b": "t"
+        },
+        {
+          "left": 4,
+          "right": 117,
+          "a": "t",
+          "b": "i"
+        },
+        {
+          "left": 5,
+          "right": 116,
+          "a": "h",
+          "b": "w"
+        },
+        {
+          "left": 7,
+          "right": 114,
+          "a": "c",
+          "b": "r"
+        },
+        {
+          "left": 8,
+          "right": 113,
+          "a": "a",
+          "b": "o"
+        },
+        {
+          "left": 9,
+          "right": 112,
+          "a": "r",
+          "b": "f"
+        },
+        {
+          "left": 11,
+          "right": 110,
+          "a": "f",
+          "b": "b"
+        },
+        {
+          "left": 12,
+          "right": 109,
+          "a": "u",
+          "b": "e"
+        },
+        {
+          "left": 13,
+          "right": 108,
+          "a": "l",
+          "b": "c"
+        },
+        {
+          "left": 14,
+          "right": 107,
+          "a": "a",
+          "b": "i"
+        }
+      ],
+      "sha256": "19e5b720e2afd7f84f9991dfcc60aa6d5da7195e11a652717a68d37d0ce18e25",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "catalogue_family_derivative": false,
+      "mechanically_admitted": false
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "over_100": true,
+    "exact": false,
+    "admitted": false
+  },
+  "transducer": {
+    "slots": [
+      "when-clause",
+      "agent",
+      "tense",
+      "object",
+      "recipient",
+      "clitic-boundary"
+    ],
+    "agreement": {
+      "person": "third",
+      "number": "singular",
+      "tense": "present"
+    },
+    "clitic_policy": "attach only after finite verb; reject boundary-crossing clitics",
+    "obligation": "mirror slot features and consume character residual jointly"
+  },
+  "next_repair": {
+    "operator": "jointly replace finite-verb/clitic pair while retaining third-singular present agreement",
+    "reason": "scene is intact and long but residual mismatches remain",
+    "forbidden": [
+      "catalogue scaffolds",
+      "illegal clitic boundaries",
+      "copied clauses"
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "7de153a7480f8355ab09256c670bf6b117871c70dccdd27a5e4434a718a50544",
+    "lexical_source": "fresh hand-authored scene",
+    "independent_audits": [
+      "normalized reversal",
+      "ASCII reversal",
+      "two-pointer",
+      "SHA-256"
+    ]
+  }
+}

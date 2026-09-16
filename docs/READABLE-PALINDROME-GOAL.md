@@ -1475,7 +1475,7 @@ item-aware analysis plan.
   gate. The Brown route's empty `displayed` list is intentional because it
   found no text safe to show as generated.
 
-  A reproducible programmatic diagnostic over 1940 rendered rows is frozen in
+  A reproducible programmatic diagnostic over 1958 rendered rows is frozen in
   `runs/parallel-luna-readability-diagnostics-20260916.json`: 72 exact rows
   (36 semantic-frame tapes plus their 36 residual-decoder rejections) and 0
   mechanically admitted rows. The report breaks out Brown word-order gain,
@@ -1510,7 +1510,7 @@ item-aware analysis plan.
   base and 144 held-out repairs (max 78); CCG produced 4 base and 4 category
   repairs (max 82). All were complete prose with independent audits but zero
   exact closures and zero reader-eligible rows. Their rendered text and
-  provenance remain frozen in the route artifacts and the 1940-row diagnostic.
+  provenance remain frozen in the route artifacts and the 1958-row diagnostic.
   These routes change the construction state (reversible lexical roles,
   unseeded recursion, and online semantic mutation) and are not filename or
   beam-width replays.
@@ -1520,7 +1520,7 @@ item-aware analysis plan.
   candidates; the word-equation route ran 6 base and 6 POS-compatible repairs.
   Both kept complete clauses and independent provenance visible, but had zero
   exact closures and zero reader-eligible rows. The aggregate diagnostic now
-  contains 1940 rendered rows across 51 route phases plus per-route summaries; its metrics remain
+  contains 1958 rendered rows across 52 route phases plus per-route summaries; its metrics remain
   filters and failure diagnostics, never a readability certificate.
 
   A bounded direct-authoring reset also ran three local-model prompts plus one
@@ -1625,9 +1625,28 @@ item-aware analysis plan.
   `runs/reported-speech-topology-20260916.json`, and
   `runs/nested-conditional-mutation-20260916.json`.
 
-  After this wave the aggregate diagnostic contains 1940 rendered rows across
+  After that topology wave the aggregate diagnostic contained 1940 rendered rows across
   51 route phases. It still contains 72 exact but mechanically rejected tapes
   and 0 mechanically admitted rows; the independent recomputation remains
   mismatch-free. These counts are search evidence and repair guidance, never
   a readability certificate. No candidate has reached the intact-versus-
   shuffled blinded reader test, so the API and paper release gates stay closed.
+
+  A subsequent three-Luna scalability wave tested a simultaneous phrase-level
+  beam. It grew both sides from semantic commitments in lockstep and used the
+  Wikitext n-gram table only as a local-order diagnostic. Nine base and nine
+  mismatch-repair candidates were complete prose (52--72 letters), but none
+  was exact or reader-eligible. A mirror-pair phrase-chain graph and a
+  conditional role-changing pair search were preflight-blocked because their
+  path and role states duplicate retained lexical-chain, collocation, and
+  conditional/reversible families; both blocks and their concrete pivots are
+  preserved. The runnable artifact is
+  `runs/simultaneous-phrase-beam-20260916.json`, while the preflight artifacts
+  are `runs/reversible-phrase-chain-preflight-20260916.json` and
+  `runs/conditional-role-pair-preflight-20260916.json`.
+
+  The aggregate now contains 1958 rendered rows across 52 route phases. The
+  independent tape recomputation still has zero mismatches, 72 exact-but-
+  rejected tapes, and 0 mechanically admitted rows. No route has reached the
+  blinded intact-versus-shuffled reader test; these diagnostics therefore
+  guide the next construction rather than certify readability.

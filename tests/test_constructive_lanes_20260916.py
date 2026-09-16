@@ -280,7 +280,7 @@ def test_outside_in_scene_csp_filters_repeated_frames_and_keeps_fresh_prose():
 def test_ten_clause_residual_equation_keeps_long_scene_and_joint_repair():
     run = json.loads((ROOT / "runs/ten-clause-residual-equation-20260916.json").read_text())
     row = run["rendered_candidates"][0]
-    assert row["letters"] == 242 and row["exact"] is False
+    assert row["letters"] == 355 and row["exact"] is False
     assert row["two_pointer_exact"] is False
     assert row["forward_hash"] != row["reverse_hash"]
     assert row["mechanical_checks"]["distinct_words"] is True

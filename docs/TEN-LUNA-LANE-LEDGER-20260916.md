@@ -274,11 +274,14 @@ letters, with repeated content filtered before aggregation. The longest is “At
 first light, the marine biologist records patient observations beside the
 sheltered tide pool. At dusk, the coastal engineer maps hidden channels.” The
 exact-tape-first
-route is explicitly excluded: its only exact surface is the known 16-letter
-“Able was I; I saw Elba” control. A ten-clause residual-equation route adds a
-242-letter clinic scene (“At first light Mara opens the clinic, checks the quiet
+route is explicitly excluded: it preserves the known 16-letter “Able was I; I
+saw Elba” control and a fresh 72-letter exact tape whose reflected half is
+gibberish. A ten-clause residual-equation route adds a
+355-letter clinic scene (“At first light Mara opens the clinic, checks the quiet
 generators, greets the two nurses, and records the medicine count. She carries
 clean water to the waiting room, labels each parcel, phones the mountain driver,
 updates the weather board, thanks the volunteers, and closes the ledger before
-dusk.”) and a paired verb/object repair operator. These are
+dusk. After supper she inventories the blankets, answers the radio, repairs a
+torn notice, and leaves clear instructions for the morning shift.”) and a paired
+verb/object repair operator. These are
 preserved as construction evidence, not readability certification.

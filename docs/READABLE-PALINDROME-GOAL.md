@@ -2063,12 +2063,15 @@ item-aware analysis plan.
   pairs after all-different filtering; the longest is “At first light, the marine
   biologist records patient observations beside the sheltered tide pool. At
   dusk, the coastal engineer maps hidden channels.” The exact-tape-first route is excluded
-  from the retained aggregate because its only closure is the known 16-letter
-  “Able was I; I saw Elba” catalogue control. A ten-clause residual-equation
-  solver adds a 242-letter clinic scene (“At first light Mara opens the clinic,
+  from the retained aggregate because it preserves the known 16-letter “Able
+  was I; I saw Elba” catalogue control and a fresh 72-letter exact tape whose
+  reflected half is gibberish. A ten-clause residual-equation
+  solver adds a 355-letter clinic scene (“At first light Mara opens the clinic,
   checks the quiet generators, greets the two nurses, and records the medicine
   count. She carries clean water to the waiting room, labels each parcel, phones
   the mountain driver, updates the weather board, thanks the volunteers, and
-  closes the ledger before dusk.”) with a paired verb/object repair. All
+  closes the ledger before dusk. After supper she inventories the blankets,
+  answers the radio, repairs a torn notice, and leaves clear instructions for the
+  morning shift.”) with a paired verb/object repair. All
   have independent exact/hash audits, provenance, and novelty records; none is
   mechanically admitted.

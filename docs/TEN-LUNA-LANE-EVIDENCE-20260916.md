@@ -352,16 +352,17 @@ sheltered tide pool. At dusk, the coastal engineer maps hidden channels.” (124
 letters); six fresh 102--124-letter prose pairs survive the all-different
 content-word filter. All fail exactness at the outer seam and carry unequal
 forward/reverse hashes plus a distinct-frame transitive repair. The exact-tape-first
-resegmentation control is kept outside
-the aggregate because its only closure is the known 16-letter “Able was I; I
-saw Elba” catalogue sentence, below the long-prose floor.
+route is kept outside the aggregate because it preserves the known 16-letter
+“Able was I; I saw Elba” catalogue sentence, below the long-prose floor, and a
+fresh 72-letter exact tape whose reflected half is visibly gibberish.
 
-A ten-clause residual-equation solver adds a 242-letter clinic scene with ten
+A ten-clause residual-equation solver adds a 355-letter clinic scene with ten
 complete coordinated clauses: “At first light Mara opens the clinic, checks the
 quiet generators, greets the two nurses, and records the medicine count. She
 carries clean water to the waiting room, labels each parcel, phones the mountain
 driver, updates the weather board, thanks the volunteers, and closes the ledger
-before dusk.” It jointly substitutes verb/object spans against the first twenty
-residual positions while locking agreement and content-word uniqueness;
-independent pointer/hash checks reject exactness and the next paired verb/object
-repair is recorded.
+before dusk. After supper she inventories the blankets, answers the radio, repairs
+a torn notice, and leaves clear instructions for the morning shift.” It jointly
+substitutes verb/object spans against the first twenty residual positions while
+locking agreement and content-word uniqueness; independent pointer/hash checks
+reject exactness and the next paired verb/object repair is recorded.

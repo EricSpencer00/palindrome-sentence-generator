@@ -1,0 +1,137 @@
+{
+  "experiment_id": "cfg-earley-character-intersection-fresh-20260916",
+  "signature": "earley-chart|character-intersection|fresh-scene-grammar|mirrored-debt-terminal-choice|no-tape",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "Earley chart intersection of fresh scene CFG terminals with mirrored character debt; complete parses only",
+  "candidates": [
+    {
+      "chart": {
+        "start": "S",
+        "completed_items": [
+          "OPEN",
+          "CONNECT",
+          "CLOSE"
+        ],
+        "terminal_count": 83,
+        "intersection": "grammar terminals \u00d7 mirrored character debt"
+      },
+      "audit": {
+        "rendered": "At first light, the surveyor records the river level while the baker warms bread for the waiting crew.",
+        "letters": 83,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "w"
+        ],
+        "normalized_sha256": "23ad71deed7f223313149522f3682c15acd6e2194387888986cdb84e8c948386",
+        "reverse_sha256": "df60af980421a00ac6d6e07cece5b3f940342e4d05d52c8081d646743b78590d",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": false,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "semantic_consistency": true
+    },
+    {
+      "chart": {
+        "start": "S",
+        "completed_items": [
+          "OPEN",
+          "CONNECT",
+          "CLOSE"
+        ],
+        "terminal_count": 135,
+        "intersection": "grammar terminals \u00d7 mirrored character debt"
+      },
+      "audit": {
+        "rendered": "At first light, the surveyor records the river level while the baker warms bread for the waiting crew, and the harbor keeper checks the lamps before opening the gate.",
+        "letters": 135,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "normalized_sha256": "e58ad62539375fbf99981f0e583b91c1151c478e783af3d0e5bccdc4f6d80122",
+        "reverse_sha256": "00861d57456cfed36d211640971e1f485a9e60d063ffe2e37db0d29003419094",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": false,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "semantic_consistency": true
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 321,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false
+  },
+  "next_repair": {
+    "operator": "add a typed adjunct production whose terminal choices match the first unresolved chart debt while preserving a complete SVO parse",
+    "reason": "complete readable parses leave an outer character residual"
+  },
+  "provenance": {
+    "generator_sha256": "b9a7aaee26b3f146c3d4fc752aa07b50fffcd4259a28c3baaf54dc854ace00fc",
+    "lexical_source": "fresh authored scene CFG",
+    "audits": [
+      "normalized tape",
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "anti-shortcut"
+    ]
+  }
+}

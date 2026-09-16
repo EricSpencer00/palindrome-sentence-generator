@@ -23,7 +23,8 @@ and the frozen run record is
 [`semantic-relation-alignment-20260916.json`](../runs/semantic-relation-alignment-20260916.json).
 The proposed same-family repair is to use terminal-compatible phrase spans,
 precompute ≥3-character suffix compatibility, and permit a bounded odd center;
-that repair was not run in this evidence package.
+that repair is preserved below as a separate run artifact under the same
+family.
 
 ## Terminal-span repair
 

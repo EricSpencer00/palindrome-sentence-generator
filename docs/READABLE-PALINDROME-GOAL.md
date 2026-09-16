@@ -30,7 +30,7 @@ that benchmark (with the paper's promotion floor at 100 letters), followed by
 the blinded intact-prose versus shuffled-control study. No wrapper, catalogue
 relexicalization, repeated unit, fragment, or filler output can satisfy it.
 
-## Current frontier (2026-09-15)
+## Current frontier (2026-09-16)
 
 - **Acceptance gate remains unchanged.** A result must be an original,
   exact letter-level palindrome, rendered as intact English prose, mechanically

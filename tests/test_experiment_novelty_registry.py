@@ -12,7 +12,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 6
     assert result["entries"] == 95
-    assert result["run_artifacts"] == 61
+    assert result["run_artifacts"] == 62
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():

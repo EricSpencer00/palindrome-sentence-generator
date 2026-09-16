@@ -96,3 +96,12 @@ evaluated exactly 18 held-out substitutions per pair and retained four
 complete 60--68-letter diagnostics. Every repair has independent pointer and
 SHA-256 audits, provenance, and a concrete next repair. None is exact or
 reader-eligible, so the intact-versus-shuffled reader package remains gated.
+
+Three further orthogonal Luna continuations are retained: an online
+grammar-state character decoder (three 51--56-letter probes), a live
+slot-equation CFG resegmentation chart (three 45--91-letter probes), and a
+clause-growth semantic frame lattice with held-out repair (four 51--143-letter
+probes). Each has rendered ordinary prose, novelty preflight, independent
+exact/hash checks, provenance, and a concrete next repair; all have zero exact
+closures. The aggregate is now 4292 normalized rows across 103 route phases,
+with 0 mechanically admitted candidates.

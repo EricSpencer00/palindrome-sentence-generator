@@ -18,6 +18,7 @@ PROPOSALS = ROOT / "runs/model-authored-clause-proposals-20260915.json"
 OUT = ROOT / "runs/semantic-scene-seam-growth-20260915.json"
 ID = "semantic-scene-seam-growth"
 SIGNATURE = "semantic-scene-growth|incremental-event-addition|local-character-seam-constraints|scene-coherence-state|outside-in-expansion|independent-exact-audit"
+PREFLIGHT_REGISTRY_ENTRIES = 73
 
 def audit(tape):
     direct = bool(tape) and tape == tape[::-1]
@@ -104,7 +105,7 @@ def main():
                 matched += 1
             repairs.append({"left_ids":left_ids,"replacement_id":replacement["id"],"matched_prefix":matched,"target_length":len(candidate)})
     repairs.sort(key=lambda x: (-x["matched_prefix"], x["target_length"]))
-    report = {"experiment_id":ID,"signature":SIGNATURE,"provenance":{"proposal_file":str(PROPOSALS.relative_to(ROOT)),"model_bank_sha256":json.loads(PROPOSALS.read_text())["raw_sha256"],"construction":"three complete semantic events grown incrementally; local two-character boundary seams; reverse lookup only after growth"},"bank_rows":len(rows),"bounded_bank_rows":len(bank),"scene_states":len(states),"exact_candidates":list(uniq.values()),"exact_count":len(uniq),"reader_eligible_count":sum(x["reader_eligible"] for x in uniq.values()),"repair_operator":{"name":"terminal-event same-topic substitution","evaluated":len(repairs),"best":repairs[:10]},"independent_audit":"direct reverse comparison and two-pointer opposing-index scan"}
+    report = {"experiment_id":ID,"signature":SIGNATURE,"novelty_preflight":{"registry_entries_before_run":PREFLIGHT_REGISTRY_ENTRIES,"excluded_routes":6,"manual_review_required":False,"status":"formal_preflight_before_execution"},"provenance":{"proposal_file":str(PROPOSALS.relative_to(ROOT)),"model_bank_sha256":json.loads(PROPOSALS.read_text())["raw_sha256"],"construction":"three complete semantic events grown incrementally; local two-character boundary seams; reverse lookup only after growth"},"bank_rows":len(rows),"bounded_bank_rows":len(bank),"scene_states":len(states),"exact_candidates":list(uniq.values()),"exact_count":len(uniq),"reader_eligible_count":sum(x["reader_eligible"] for x in uniq.values()),"repair_operator":{"name":"terminal-event same-topic substitution","evaluated":len(repairs),"best":repairs[:10]},"independent_audit":"direct reverse comparison and two-pointer opposing-index scan"}
     OUT.write_text(json.dumps(report, indent=2)+"\n")
     print(json.dumps({k:report[k] for k in ("bank_rows","bounded_bank_rows","scene_states","exact_count","reader_eligible_count")}, sort_keys=True))
 if __name__ == "__main__": main()

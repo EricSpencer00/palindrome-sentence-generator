@@ -1196,3 +1196,15 @@ item-aware analysis plan.
   `runs/model-authored-clause-bank-index-20260915.json`. The next repair must
   change the construction state (for example, intent-conditioned clause
   continuation around a live character seam), not simply resample this bank.
+
+- **Incremental semantic-scene seam growth, 2026-09-15:** the next
+  preflighted route grew three topic-linked complete events one at a time,
+  carrying two-character seam obligations at each event boundary before any
+  full-scene reverse lookup. It explored 333,306 coherent scene states and a
+  terminal-event same-topic repair queue of 42,070 substitutions; the best
+  repair matched only two reflected characters and no exact palindrome closed.
+  The direct-reversal and opposing-index audits agree, and the full failure
+  frontier is preserved in `runs/semantic-scene-seam-growth-20260915.json`.
+  This is a new construction state, not a larger clause-bank cross-product;
+  the next repair must change the seam-aware event lexicalization rather than
+  replaying the same scene bank.

@@ -1,0 +1,54 @@
+{
+  "experiment": "lexical-trie-segmentation-repair-20260916",
+  "signature": "held-out-word-pos-trie|finite-state-clause-segmentation|exact-tape-target|no-reflected-unit-reuse|independent-exact-audit|left-clause-seed-repair",
+  "generator_sha256": "67f06818f25741d3ab2fd73bd7f22a458235b6e3a571850b0c622cee13f8343e",
+  "operator": "segment exact reverse half with held-out word/POS trie, then finite-state clause filter",
+  "candidates": [
+    {
+      "seed": "An aide rips nine memos; some men inspire Diana.",
+      "target_letters": 38,
+      "reverse_half_letters": 19,
+      "trie_segmentations": [
+        [
+          "some",
+          "men",
+          "inspire",
+          "diana"
+        ]
+      ],
+      "syntactic_complete_count": 0,
+      "exact": false,
+      "reader_eligible": false,
+      "provenance": "authored/benchmark seed tape; held-out lexical POS trie; no reflected unit reuse"
+    },
+    {
+      "seed": "The careful baker records a morning lesson beside the river.",
+      "target_letters": 50,
+      "reverse_half_letters": 25,
+      "trie_segmentations": [],
+      "syntactic_complete_count": 0,
+      "exact": false,
+      "reader_eligible": false,
+      "provenance": "authored/benchmark seed tape; held-out lexical POS trie; no reflected unit reuse"
+    },
+    {
+      "seed": "A patient nurse carries the silver lantern into the quiet room.",
+      "target_letters": 52,
+      "reverse_half_letters": 26,
+      "trie_segmentations": [],
+      "syntactic_complete_count": 0,
+      "exact": false,
+      "reader_eligible": false,
+      "provenance": "authored/benchmark seed tape; held-out lexical POS trie; no reflected unit reuse"
+    }
+  ],
+  "exact_count": 0,
+  "repair_action": "seeded newly authored left clauses and expanded trie segmentation; no complete valid closure found",
+  "provenance": {
+    "catalogue_used": false,
+    "borrowed_text": false,
+    "word_order_mirror": false,
+    "fragments": false,
+    "repeated_units_allowed": false
+  }
+}

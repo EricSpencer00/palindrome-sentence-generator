@@ -2,6 +2,14 @@
   "version": 1,
   "entries": [
     {
+      "id": "reader-first-discourse-scene-lattice-20260916",
+      "signature": "reader-first-authored-discourse-scenes|topic-continuity-ledger|coherent-scene-tense-attachment-lattice|live-prefix-suffix-character-equation|first-mismatch-single-slot-repair|independent-exact-admission-audit",
+      "artifact": "experiments/reader_first_discourse_scene_lattice_20260916.py",
+      "run_artifacts": ["runs/reader-first-discourse-scene-lattice-20260916.json"],
+      "distinction": "Two complete reader-first scenes carry explicit object-to-recipient-to-response topic chains. The lattice varies full clause realizations, clause-level tense/attachment states, and punctuation; first-mismatch repair changes one semantic slot and recomputes the complete scene equation.",
+      "reader_evidence": false
+    },
+    {
       "id": "semantic-valency-boundary-csp-20260916",
       "signature": "human-authored-station-scene|sense-specific-valency-frames|variable-word-boundary-csp|joint-complete-clause-realization|independent-exact-admission-readability-audit",
       "artifact": "experiments/semantic_valency_boundary_csp_20260916.py",
@@ -1253,6 +1261,14 @@
       "run_artifacts": ["runs/earley-finite-state-grammar-intersection-20260916.json"],
       "distinction": "Independent forward and reverse finite-state clause parses are intersected during character scans. Epsilon word-boundary transitions and agreement/event-role registers remain in the product state; no completed tape is reverse-segmented or decoded post hoc.",
       "reader_evidence": false
+    },
+    {
+      "id": "dependency-tree-seam-solver-20260916",
+      "signature": "dependency-tree-frontier-attachment-dp|agreement-aware-transitive-valency|live-seam-boundary-walk|normal-order-independent-clauses|two-pointer-hash-admission-audit",
+      "artifact": "experiments/dependency_tree_seam_solver_20260916.py",
+      "run_artifacts": ["runs/dependency-tree-seam-solver-20260916.json"],
+      "distinction": "Complete dependency trees explicitly carry nsubj, transitive obj valency, and adjunct attachment. A memoized dynamic program walks the live character seam while attachment frontiers are crossed, preserving normal word order on both independently built clauses; this is not a reversed-bank hash collision or reverse decoder.",
+      "reader_evidence": false
     }
   ],
   "excluded": [
@@ -1424,6 +1440,14 @@
       "artifact": "experiments/cumulative_boundary_profile_fixedpoint_20260916.py",
       "overlaps": ["variable-boundary-tape-ilp", "grammar-boundary-resegmentation-repair", "lexicalized-tag-yield-equation"],
       "reason": "The route is distinct because reflected cumulative word-boundary positions are fixed during POS/role lexical emission. The tape is audited independently, with cross-boundary matches and proper palindrome spans recorded; no completed tape is reverse-segmented."
+    },
+    {
+      "id": "weighted-morphology-fst-lockstep-20260916",
+      "signature": "weighted-morphology-fst|lexical-chunk-pair-emission|agreement-tense-register|fluency-objective-during-character-lockstep|heldout-morphology-repair|independent-exact-admission-audit",
+      "artifact": "experiments/weighted_morphology_fst_lockstep_20260916.py",
+      "run_artifacts": ["runs/weighted-morphology-fst-lockstep-20260916.json"],
+      "distinction": "A weighted transducer selects paired lexical chunks and emits their characters in lockstep while number, tense, lemma, semantic roles, and a cumulative fluency objective remain in state. Held-out morphology repair is applied to a dead transition; no completed tape is reverse-segmented.",
+      "reader_evidence": false
     }
   ]
 }

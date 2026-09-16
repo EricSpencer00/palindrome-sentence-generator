@@ -1,0 +1,1084 @@
+{
+  "experiment_id": "gpt2-right-half-bridge-20260915",
+  "signature": "gpt2-right-half-bridge|orientation-reversed-natural-clause-proposal|odd-center-character-equation|independent-left-grammar-decoding|exact-audit",
+  "method": "Repair orientation: GPT-2 proposes the natural right clause; a strict independent lexical decoder solves center + reverse(right) on the left.",
+  "novelty_preflight": {
+    "registry_entries_before_run": 88,
+    "excluded_routes_before_run": 6,
+    "status": "formal_preflight_before_execution",
+    "signature_overlap": [
+      {
+        "id": "gpt2-center-letter-bridge-20260915",
+        "jaccard": 0.4,
+        "disposition": "explicit orientation repair; no new family claim"
+      }
+    ],
+    "manual_review_required": true,
+    "counted_as": "repair"
+  },
+  "config": {
+    "model": "gpt2",
+    "prompt_count": 6,
+    "samples_per_prompt": 64,
+    "center_letters": 26,
+    "vocabulary_size": 55218,
+    "reverse_readings_per_center": 40,
+    "catalogue_text_imported": false,
+    "known_palindromes_imported": false
+  },
+  "stats": {
+    "model_samples": 384,
+    "center_decode_calls": 3354,
+    "right_shape_reject": 255,
+    "rendered_candidates": 0,
+    "reader_eligible": 0,
+    "mechanically_admitted": 0
+  },
+  "rendered_candidates_and_probes": [],
+  "probes": [
+    {
+      "prompt_index": 0,
+      "sample_index": 0,
+      "right": "This article's tagline reads:",
+      "right_letters": 24,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 1,
+      "right": "Please keep your notes to a minimum",
+      "right_letters": 29,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 2,
+      "right": "Editor, I'm going to be a writer someday.",
+      "right_letters": 31,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 5,
+      "right": "A note, containing something you've written.",
+      "right_letters": 36,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 6,
+      "right": "The editor reads a note .",
+      "right_letters": 19,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 8,
+      "right": "Please note, that I'm not very good at reading text!",
+      "right_letters": 40,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 9,
+      "right": "A short essay about a new paper.",
+      "right_letters": 25,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 10,
+      "right": "I'm writing this to tell you how to do better.",
+      "right_letters": 35,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 12,
+      "right": "You think there is something I'm going to do.",
+      "right_letters": 35,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 17,
+      "right": "I thought I just read a note.",
+      "right_letters": 22,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 19,
+      "right": "In my time there is nothing but .",
+      "right_letters": 25,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 22,
+      "right": "One sentence in English.",
+      "right_letters": 20,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 25,
+      "right": "You will be given four short English sentences.",
+      "right_letters": 39,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 32,
+      "right": "I know you can't spell that word.",
+      "right_letters": 25,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 33,
+      "right": "A short sentence about an editor reading an email.",
+      "right_letters": 41,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 34,
+      "right": "One sentence about an editor reading a note.",
+      "right_letters": 36,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 42,
+      "right": "The editor read the note, which was in English.",
+      "right_letters": 37,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 46,
+      "right": "I'll have a new friend in a new place later.",
+      "right_letters": 33,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 50,
+      "right": "One original sentence about an editor reading a note.",
+      "right_letters": 44,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 53,
+      "right": "'Why did you find this essay so important?",
+      "right_letters": 33,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 57,
+      "right": "This is an editor's note.",
+      "right_letters": 19,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 59,
+      "right": "An editor has to read you a note.",
+      "right_letters": 25,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 60,
+      "right": "What is the nature of life?",
+      "right_letters": 21,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 62,
+      "right": "Write one sentence about an editor in an English sentence.",
+      "right_letters": 48,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 63,
+      "right": "For this article: You must give the author the credit.",
+      "right_letters": 43,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 6,
+      "right": "texts sent with a single sentence",
+      "right_letters": 28,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 9,
+      "right": "A teacher sent a letter to children.",
+      "right_letters": 29,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 12,
+      "right": "The professor's letter was delivered to an English teacher.",
+      "right_letters": 49,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 20,
+      "right": "a short English sentence about teaching a teacher.",
+      "right_letters": 42,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 22,
+      "right": "She wanted to know if she could become a teacher.",
+      "right_letters": 39,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 25,
+      "right": "Your favorite college class of .",
+      "right_letters": 26,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 26,
+      "right": "How do you like teacher?",
+      "right_letters": 19,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 27,
+      "right": "I heard that a teacher sent a letter.",
+      "right_letters": 29,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 31,
+      "right": "Thank you for your note.",
+      "right_letters": 19,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 32,
+      "right": "Please look around the room.",
+      "right_letters": 23,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 34,
+      "right": "Please send one English sentence.",
+      "right_letters": 28,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 38,
+      "right": "Dear Principal, I think you're right.",
+      "right_letters": 29,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 40,
+      "right": "A teacher says, Dear Friend, please come to my studio.",
+      "right_letters": 42,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 45,
+      "right": "This week is going to be really fun today.",
+      "right_letters": 33,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 48,
+      "right": "You have a very simple, simple, ordinary experience.",
+      "right_letters": 42,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 53,
+      "right": "I hope the letter is beautiful.",
+      "right_letters": 25,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 54,
+      "right": "A little of your life's work.",
+      "right_letters": 22,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 55,
+      "right": "I am sorry for having a problem with my letter.",
+      "right_letters": 37,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 56,
+      "right": "Hey, I'm this morning, my student.",
+      "right_letters": 25,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 57,
+      "right": "I like you you're amazing.",
+      "right_letters": 20,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 59,
+      "right": "Your teacher sent you something interesting in your life.",
+      "right_letters": 48,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 61,
+      "right": "- 'The world's first artificial intelligence is coming along!",
+      "right_letters": 49,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 1,
+      "right": "One word per sentence.",
+      "right_letters": 18,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 4,
+      "right": "Start sentence: In the beginning a word.",
+      "right_letters": 32,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 5,
+      "right": "One letter about a farmer.",
+      "right_letters": 21,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 7,
+      "right": "Do not forget what he said to his mother",
+      "right_letters": 32,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 12,
+      "right": "The next sentence follows a similar strategy.",
+      "right_letters": 38,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 21,
+      "right": "Bought a pair of blue jeans to sell for .",
+      "right_letters": 31,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 23,
+      "right": "A farmer keeping a plan.",
+      "right_letters": 19,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 34,
+      "right": "A farmman's plan to get a good yield of water.",
+      "right_letters": 35,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 37,
+      "right": "A farmer was in a very poor shape.",
+      "right_letters": 26,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 39,
+      "right": "The farmer keeps a plan.",
+      "right_letters": 19,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 40,
+      "right": "First sentence: Farmers keep plan.",
+      "right_letters": 28,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 41,
+      "right": "The farmer's plan is a very short one.",
+      "right_letters": 29,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 43,
+      "right": "A plant grows on this land.",
+      "right_letters": 21,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 47,
+      "right": "My plan is to buy a farm in this county.",
+      "right_letters": 30,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 48,
+      "right": "A farmer is keeping a plan.",
+      "right_letters": 21,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 51,
+      "right": "My family is doing well.",
+      "right_letters": 19,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 52,
+      "right": "When the harvest begins I will do better.",
+      "right_letters": 33,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 54,
+      "right": "I see the land is empty with my eyes.",
+      "right_letters": 28,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 57,
+      "right": "I want to eat some cheese.",
+      "right_letters": 20,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 61,
+      "right": "What should you do about this?",
+      "right_letters": 24,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 4,
+      "right": "This is a complete and utter failure.",
+      "right_letters": 30,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 7,
+      "right": "For the most part, sentences are easy to follow.",
+      "right_letters": 38,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 9,
+      "right": "Your book is very clear.",
+      "right_letters": 19,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 14,
+      "right": "The writer said the writer made a clear record.",
+      "right_letters": 38,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 16,
+      "right": "You know I've been there before.",
+      "right_letters": 25,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 18,
+      "right": "I read it and I read it again.",
+      "right_letters": 22,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 20,
+      "right": "Write this sentence, and read it in order:",
+      "right_letters": 33,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 22,
+      "right": "W e've been reading many times.",
+      "right_letters": 24,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 26,
+      "right": "'What do you think about a lot of people?",
+      "right_letters": 31,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 35,
+      "right": "I wrote 'N-word' in my head for six years.",
+      "right_letters": 30,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 36,
+      "right": "Words used, sentences, sentences, sentences.",
+      "right_letters": 36,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 37,
+      "right": "A sentence is a complete piece of work.",
+      "right_letters": 31,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 38,
+      "right": "One word, one sentence",
+      "right_letters": 18,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 43,
+      "right": "'This book will make your head spin in a moment'.",
+      "right_letters": 37,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 47,
+      "right": "I had to take off a jacket.",
+      "right_letters": 20,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 52,
+      "right": "A short English sentence with a sentence structure.",
+      "right_letters": 43,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 55,
+      "right": "I believe you understand.",
+      "right_letters": 21,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 56,
+      "right": "What I said today is all I can remember.",
+      "right_letters": 31,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 58,
+      "right": "I thought you had made a strong point.",
+      "right_letters": 30,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 59,
+      "right": "It's not your fault I left you feeling so alone",
+      "right_letters": 37,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 60,
+      "right": "The author has done this.",
+      "right_letters": 20,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 7,
+      "right": "I have a book in my hands.",
+      "right_letters": 19,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 13,
+      "right": "The patient needs to be treated.",
+      "right_letters": 26,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 14,
+      "right": "- : The nurse carries a book",
+      "right_letters": 20,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 21,
+      "right": "You really have to have your own book.",
+      "right_letters": 30,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 24,
+      "right": "One person: The nurse carries a book.",
+      "right_letters": 29,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 25,
+      "right": "A nurse carries a book",
+      "right_letters": 18,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 26,
+      "right": "Saying that I didn't write that sentence.",
+      "right_letters": 33,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 27,
+      "right": "I hope you can read me this.",
+      "right_letters": 21,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 30,
+      "right": "We will always be with you.",
+      "right_letters": 21,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 35,
+      "right": "What I'm going to do to take out that book.",
+      "right_letters": 32,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 43,
+      "right": "When he has received his nurse, he takes the book.",
+      "right_letters": 39,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 44,
+      "right": "She looked at the book, and he read it.",
+      "right_letters": 29,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 47,
+      "right": "It's a great night for the ladies.",
+      "right_letters": 26,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 51,
+      "right": "Did she leave the book in her pocket?",
+      "right_letters": 29,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 52,
+      "right": "You look at your hands and your face.",
+      "right_letters": 29,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 53,
+      "right": "On my way home from work.",
+      "right_letters": 19,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 54,
+      "right": "I am now in the middle of a work-day.",
+      "right_letters": 27,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 57,
+      "right": "In the day, you're a doctor.",
+      "right_letters": 20,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 60,
+      "right": "And the nurse carried a book?",
+      "right_letters": 23,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 62,
+      "right": "You can use some of my words today.",
+      "right_letters": 27,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 1,
+      "right": "The pilot saw a little harbor.",
+      "right_letters": 24,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 4,
+      "right": "Did you see the harbor?",
+      "right_letters": 18,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 8,
+      "right": "You saw me just like that.",
+      "right_letters": 20,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 13,
+      "right": "You think you saw a harbor?",
+      "right_letters": 21,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 17,
+      "right": "I got a bird or somethin' that wants to fly.",
+      "right_letters": 33,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 21,
+      "right": "What about the rest of us in this place?",
+      "right_letters": 31,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 22,
+      "right": "or That's a great place",
+      "right_letters": 18,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 23,
+      "right": "A lot of people thought I was like that.",
+      "right_letters": 31,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 25,
+      "right": "The pilot is looking for a quiet harbor.",
+      "right_letters": 32,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 26,
+      "right": "'I wanted to talk to you.",
+      "right_letters": 18,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 29,
+      "right": "What do you think of this man?",
+      "right_letters": 23,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 34,
+      "right": "The pilot sees the harbor.",
+      "right_letters": 21,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 36,
+      "right": "English or English-speaking.",
+      "right_letters": 24,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 37,
+      "right": "I heard that ship was attacked by pirates.",
+      "right_letters": 34,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 39,
+      "right": "I saw something like that.",
+      "right_letters": 21,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 42,
+      "right": "I think this port's in great need of repair.",
+      "right_letters": 34,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 43,
+      "right": "A pilot sees a quiet harbor.",
+      "right_letters": 22,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 46,
+      "right": "I was very close to a boy.",
+      "right_letters": 19,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 54,
+      "right": "'My son just went fishing, so we must get him.",
+      "right_letters": 34,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 58,
+      "right": "The pilot saw a quiet harbor.",
+      "right_letters": 23,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 62,
+      "right": "We flew off the ship yesterday.",
+      "right_letters": 25,
+      "center_letters_tried": 26,
+      "status": "no-strict-independent-left-reading"
+    }
+  ],
+  "provenance": {
+    "generator_sha256": "26d33fde252d4c955100e677c7f550107222042959e5d77fde20e2491b34fe12",
+    "source": "GPT-2 local generation plus strict lexical decoder",
+    "source_sentences_copied": false,
+    "independent_audits": [
+      "normalized-tape-reversal",
+      "ASCII-two-pointer"
+    ],
+    "readability_certificate": false
+  },
+  "next_repair": "If orientation also produces only fragments, leave the bridge family and redesign the semantic proposal state; do not increase samples or loosen lexical admission.",
+  "reader_gate": "No row is reader evidence. Any mechanically admitted row must be manually screened and frozen with randomized intact/shuffled controls before a readability claim."
+}

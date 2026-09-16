@@ -1,0 +1,1109 @@
+{
+  "experiment_id": "gpt2-center-fsm-bridge-20260915",
+  "signature": "gpt2-center-fsm-bridge|odd-center-character-equation|right-side-pos-automaton|topic-state-transition|independent-audit",
+  "method": "GPT-2 topic half generation plus odd-center character insertion; an independent Brown-backed POS automaton must decode the right tape as a complete clause frame.",
+  "novelty_preflight": {
+    "registry_entries_before_run": 88,
+    "excluded_routes_before_run": 6,
+    "status": "formal_preflight_before_execution",
+    "signature_overlap": [],
+    "manual_review_required": false
+  },
+  "config": {
+    "model": "gpt2",
+    "prompt_count": 6,
+    "samples_per_prompt": 64,
+    "center_letters": 26,
+    "right_patterns": [
+      [
+        "DET",
+        "NOUN",
+        "VERB",
+        "DET",
+        "NOUN"
+      ],
+      [
+        "PRON",
+        "VERB",
+        "DET",
+        "NOUN"
+      ],
+      [
+        "DET",
+        "ADJ",
+        "NOUN",
+        "VERB",
+        "DET",
+        "NOUN"
+      ],
+      [
+        "DET",
+        "NOUN",
+        "COP",
+        "ADJ"
+      ],
+      [
+        "PRON",
+        "VERB",
+        "ADJ"
+      ]
+    ],
+    "catalogue_text_imported": false,
+    "known_palindromes_imported": false
+  },
+  "stats": {
+    "model_samples": 384,
+    "left_shape_reject": 255,
+    "center_trials": 3354,
+    "rendered_candidates": 0,
+    "reader_eligible": 0,
+    "mechanically_admitted": 0
+  },
+  "rendered_candidates_and_probes": [],
+  "probes": [
+    {
+      "prompt_index": 0,
+      "sample_index": 3,
+      "left": "A short English sentence about a writer writing a story.",
+      "left_letters": 46,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 5,
+      "left": "The editor said he had found an 'interesting' new manuscript",
+      "left_letters": 49,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 8,
+      "left": "You wrote a note about me, a friend of yours.",
+      "left_letters": 34,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 13,
+      "left": "One original sentence about an editor read.",
+      "left_letters": 36,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 21,
+      "left": "The editor is reading a note.",
+      "left_letters": 23,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 22,
+      "left": "What you read: Read what you read:",
+      "left_letters": 26,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 23,
+      "left": "One word English sentence.",
+      "left_letters": 22,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 26,
+      "left": "You know, I'm not very good at math.",
+      "left_letters": 26,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 29,
+      "left": "It is the beginning of the end of the world!",
+      "left_letters": 34,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 34,
+      "left": "This is a short text for a general reader.",
+      "left_letters": 33,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 35,
+      "left": "Editor: I've heard this from an editor.",
+      "left_letters": 30,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 40,
+      "left": "You should write only one original short English sentence.",
+      "left_letters": 49,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 44,
+      "left": "I can't believe that I can't make this decision.",
+      "left_letters": 37,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 45,
+      "left": "I found this very interesting, said I.",
+      "left_letters": 30,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 53,
+      "left": "The editors said I couldn't make this story about me.",
+      "left_letters": 42,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 0,
+      "sample_index": 60,
+      "left": "I see you've been reading my work.",
+      "left_letters": 26,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 0,
+      "left": "I think I have found another teacher.",
+      "left_letters": 30,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 1,
+      "left": "A new teacher had sent your student this letter.",
+      "left_letters": 39,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 3,
+      "left": "I was sent this letter yesterday.",
+      "left_letters": 27,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 6,
+      "left": "One English sentence about a teacher sending a letter.",
+      "left_letters": 45,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 7,
+      "left": "You are the best teacher for me.",
+      "left_letters": 25,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 11,
+      "left": "When you were born, did you ever have a problem?",
+      "left_letters": 37,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 14,
+      "left": "In my mind you taught me how to write.",
+      "left_letters": 29,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 19,
+      "left": "The teacher sent the letter to you.",
+      "left_letters": 28,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 23,
+      "left": "Dear teacher, I have just received your letter.",
+      "left_letters": 38,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 25,
+      "left": "The teacher is giving a letter to a student.",
+      "left_letters": 35,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 26,
+      "left": "My English teacher left me a letter.",
+      "left_letters": 29,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 27,
+      "left": "We are being discriminated against by our country.",
+      "left_letters": 42,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 30,
+      "left": "The teacher sent the letter with only one word.",
+      "left_letters": 38,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 34,
+      "left": "This is a great year for children.",
+      "left_letters": 27,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 35,
+      "left": "I read your book on a computer program.",
+      "left_letters": 31,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 38,
+      "left": "I am sorry for you today.",
+      "left_letters": 19,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 43,
+      "left": ", the following letter, in your class.",
+      "left_letters": 29,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 44,
+      "left": "I sent you a letter that you think is nice.",
+      "left_letters": 33,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 53,
+      "left": "I'll write this short sentence tomorrow.",
+      "left_letters": 33,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 56,
+      "left": "Thank you for your letter.",
+      "left_letters": 21,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 60,
+      "left": "I am pleased to be working.",
+      "left_letters": 21,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 61,
+      "left": "'Please come back to this room to help me.",
+      "left_letters": 32,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 1,
+      "sample_index": 62,
+      "left": "When a person reads a sentence, use a single word.",
+      "left_letters": 39,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 2,
+      "left": "Use two words in sentences using only these letters.",
+      "left_letters": 43,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 3,
+      "left": "The first three words to make a sentence.",
+      "left_letters": 33,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 4,
+      "left": "Start with the following sentence: He keeps a plan.",
+      "left_letters": 41,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 12,
+      "left": "But I did it, and he did it well",
+      "left_letters": 23,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 16,
+      "left": "Why didn't you send me a letter on the way?",
+      "left_letters": 32,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 18,
+      "left": "I have nothing but patience for you.",
+      "left_letters": 29,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 25,
+      "left": "An excellent man, an excellent farmer, and a good wife.",
+      "left_letters": 43,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 27,
+      "left": "I have read all the books you have read.",
+      "left_letters": 31,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 28,
+      "left": "A short English sentence about a farmer holding a plan.",
+      "left_letters": 45,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 34,
+      "left": "The farmer keeps a plan.",
+      "left_letters": 19,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 35,
+      "left": "An early English sentence.",
+      "left_letters": 22,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 36,
+      "left": "This simple sentence summarizes everything that a farmer does.",
+      "left_letters": 53,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 41,
+      "left": "Why did you keep a plan?",
+      "left_letters": 18,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 44,
+      "left": "The land has plenty of water and grass.",
+      "left_letters": 31,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 50,
+      "left": "First, take a short, regular sentence about the farmer.",
+      "left_letters": 44,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 53,
+      "left": "'This is my old village.",
+      "left_letters": 18,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 54,
+      "left": "A farmer keeps a plan to keep his people.",
+      "left_letters": 32,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 59,
+      "left": "It's a day of good, fair, and cheerful.",
+      "left_letters": 28,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 2,
+      "sample_index": 62,
+      "left": "We've set a plan for this summer.",
+      "left_letters": 25,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 0,
+      "left": "One, Two, Three, Four: I'm so sorry.",
+      "left_letters": 24,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 5,
+      "left": "I'm writing a book about my favorite man.",
+      "left_letters": 32,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 10,
+      "left": "The author of a short short description of a person.",
+      "left_letters": 42,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 11,
+      "left": "Words to read aloud when this person is writing.",
+      "left_letters": 39,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 12,
+      "left": "A summary of the following examples.",
+      "left_letters": 30,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 15,
+      "left": "'A man is able to hear his own voices.",
+      "left_letters": 28,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 17,
+      "left": "An essay by a prominent American English writer, A.",
+      "left_letters": 41,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 18,
+      "left": "in line with line number",
+      "left_letters": 20,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 27,
+      "left": "The writer has clearly produced the full record.",
+      "left_letters": 40,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 28,
+      "left": "A writer makes a clear record.",
+      "left_letters": 24,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 30,
+      "left": "I want to get a job for myself.",
+      "left_letters": 23,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 36,
+      "left": "The writer will write a clear record.",
+      "left_letters": 30,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 39,
+      "left": "Your work is worth something.",
+      "left_letters": 24,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 42,
+      "left": "The writer of a story made an obvious record.",
+      "left_letters": 36,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 43,
+      "left": "The writer makes a clear record.",
+      "left_letters": 26,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 46,
+      "left": "One of my most important and personal projects.",
+      "left_letters": 39,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 48,
+      "left": "She wrote 'I'm writing on your page'",
+      "left_letters": 27,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 49,
+      "left": "One person must stand alone.",
+      "left_letters": 23,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 50,
+      "left": "Hang on, I thought you knew where I was heading.",
+      "left_letters": 37,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 55,
+      "left": "The author speaks one word out of ten words.",
+      "left_letters": 35,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 56,
+      "left": "I don't know, maybe it could be just one sentence.",
+      "left_letters": 38,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 62,
+      "left": "One sentence at a time .",
+      "left_letters": 18,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 3,
+      "sample_index": 63,
+      "left": "The writer has made the record.",
+      "left_letters": 25,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 3,
+      "left": "I want to be in hospital.",
+      "left_letters": 19,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 6,
+      "left": "I was working on a novel.",
+      "left_letters": 19,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 10,
+      "left": "She is the nurse of a book.",
+      "left_letters": 20,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 14,
+      "left": "I wish I could read it in English.",
+      "left_letters": 26,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 15,
+      "left": "The nurse carrying a book has a book.",
+      "left_letters": 29,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 16,
+      "left": "'If you know something, you know all about it.",
+      "left_letters": 35,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 22,
+      "left": "On Monday, I read a book, and, with some",
+      "left_letters": 29,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 25,
+      "left": "A nurse carrying a book",
+      "left_letters": 19,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 26,
+      "left": "A nurse carried a book under her back .",
+      "left_letters": 30,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 29,
+      "left": "You have never heard of my nurse, your doctor.",
+      "left_letters": 36,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 34,
+      "left": "Do you think this is a good idea?",
+      "left_letters": 25,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 36,
+      "left": "Your husband is a book-seller.",
+      "left_letters": 24,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 38,
+      "left": "How could you do this to me, anyway?",
+      "left_letters": 27,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 39,
+      "left": "This is an English book.",
+      "left_letters": 19,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 45,
+      "left": "I am a nurse in a hospital with multiple patients.",
+      "left_letters": 40,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 48,
+      "left": "'I have heard of the lady with the book'",
+      "left_letters": 30,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 50,
+      "left": "You know there's a nurse who carries a book.",
+      "left_letters": 34,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 52,
+      "left": "A nurse carries a book.",
+      "left_letters": 18,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 54,
+      "left": "This sentence is a bestseller in English.",
+      "left_letters": 34,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 55,
+      "left": "'Here you go, where you go, where you go.",
+      "left_letters": 29,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 56,
+      "left": "in order of importance to your life",
+      "left_letters": 29,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 57,
+      "left": "I saw her carrying a book.",
+      "left_letters": 20,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 59,
+      "left": "There's a book, I'm going to buy one.",
+      "left_letters": 26,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 61,
+      "left": "A nurse is carrying a book.",
+      "left_letters": 21,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 62,
+      "left": "This is what it looks like.",
+      "left_letters": 21,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 4,
+      "sample_index": 63,
+      "left": "The nurse carried a book.",
+      "left_letters": 20,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 0,
+      "left": "The man who made the sails of the man's boat",
+      "left_letters": 34,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 1,
+      "left": "The pilot hears a quiet harbor.",
+      "left_letters": 25,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 2,
+      "left": "A great and beautiful land",
+      "left_letters": 22,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 12,
+      "left": "I'm a sailor, and am on a ship at anchor.",
+      "left_letters": 29,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 14,
+      "left": ": It is time to get ready for sea level rise.",
+      "left_letters": 33,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 15,
+      "left": "This is the pilot seeing a quiet harbor.",
+      "left_letters": 32,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 16,
+      "left": "I saw two ships sailing toward an island.",
+      "left_letters": 33,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 17,
+      "left": "You are a fisherman, sir.",
+      "left_letters": 19,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 19,
+      "left": "I am the pilot of a pilotless craft.",
+      "left_letters": 28,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 25,
+      "left": "I'd like to see your life in a better light.",
+      "left_letters": 33,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 27,
+      "left": "A sea of flowers and wild mushrooms.",
+      "left_letters": 29,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 28,
+      "left": "The ship is not moving.",
+      "left_letters": 18,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 31,
+      "left": "The pilot saw a quiet harbor.",
+      "left_letters": 23,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 33,
+      "left": "The pilot was watching a few birds at a time.",
+      "left_letters": 35,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 38,
+      "left": "This place is very beautiful.",
+      "left_letters": 24,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 41,
+      "left": "I thought the harbor was quiet.",
+      "left_letters": 25,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 46,
+      "left": "Sidenote: I had heard this one before.",
+      "left_letters": 30,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 52,
+      "left": "- Hello, a guy out for a walk down the beach.",
+      "left_letters": 32,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 54,
+      "left": "I don't know, they don't want to see me.",
+      "left_letters": 28,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 56,
+      "left": "Just two people on the ground.",
+      "left_letters": 24,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 57,
+      "left": "I remember being scared, but I'm OK, I'm fine.",
+      "left_letters": 33,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    },
+    {
+      "prompt_index": 5,
+      "sample_index": 62,
+      "left": "Why the harbor is quiet?",
+      "left_letters": 19,
+      "center_trials": 26,
+      "status": "no-complete-right-pos-frame"
+    }
+  ],
+  "provenance": {
+    "generator_sha256": "7656be10e874b79a667da56b7342e8bb4ac83363c3114893ba6f35a2f9c62020",
+    "source": "GPT-2 local generation plus Brown POS lexicon",
+    "source_sentences_copied": false,
+    "independent_audits": [
+      "normalized-tape-reversal",
+      "ASCII-two-pointer"
+    ],
+    "readability_certificate": false
+  },
+  "next_repair": "Add a semantic role graph and valency-conditioned right-frame transitions to this POS automaton; do not widen the lexical list without a new construction state.",
+  "reader_gate": "No row is reader evidence. Any mechanically admitted row must be manually screened and frozen with randomized intact/shuffled controls for blinded ratings."
+}

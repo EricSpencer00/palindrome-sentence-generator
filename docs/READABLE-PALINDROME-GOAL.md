@@ -1329,3 +1329,17 @@ item-aware analysis plan.
   rendered rows, lengths, audits, and model prompts are preserved in
   `runs/gpt2-center-letter-bridge-20260915.json`; the next repair must carry a
   syntactic state into online reverse decoding rather than relax this gate.
+
+- **Orientation repair, 2026-09-15:** reversed the proposal direction—GPT-2
+  supplied the natural right clause while a strict decoder solved the left
+  tape. This was preflighted as a repair because its signature shares the
+  odd-center bridge state. Across 384 samples and 3,354 center decodes it
+  produced zero exact or reader rows; the full negative evidence is in
+  `runs/gpt2-right-half-bridge-20260915.json`. The bridge family is now
+  exhausted at both orientations without weakening the lexical gate.
+
+- **POS/constituency bridge repair, 2026-09-15:** carried Brown-backed POS
+  labels and complete clause patterns into the odd-center decoder. The 384
+  samples generated 3,354 center trials but no complete right-frame hit, exact
+  closure, or reader row. This closes the fragment-resegmentation repair with
+  evidence in `runs/gpt2-center-fsm-bridge-20260915.json`.

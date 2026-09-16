@@ -1850,3 +1850,21 @@ item-aware analysis plan.
   exact-but-rejected tapes and 0 mechanically admitted candidates. The next
   repair must improve a recorded semantic frontier; no reader study, paper
   promotion, or API release is justified yet.
+
+  The next orthogonal Luna continuation added three new states rather than
+  duplicate sweeps. A compound/derivational scene CSP generated 80 complete
+  39+ letter probes with a held-out compound replacement repair. A graph of
+  complete authored scene realizations walked meaning-preserving paraphrase
+  edges, yielding 81 probes from 117--408 letters plus one held-out edge
+  repair. A constituency parse-tree exact-cover solver generated 24 complete
+  tree realizations and 8 held-out tree/agreement repairs. Each route keeps
+  actual prose, provenance, novelty preflight, independent exact/two-pointer/
+  hash/mechanical audits, and a concrete next repair; all three have zero
+  exact closures and zero mechanically admitted rows.
+
+  The common audit report now contains 3868 normalized rows across 89 route
+  phases, with 73 exact-but-rejected tapes and 0 mechanically admitted
+  candidates. The normalization retains only rows with the shared audit schema
+  (48 compound, 82 paraphrase-graph, and 6 parse-tree rows from the new wave),
+  while the full run artifacts preserve every generated probe. No output is
+  reader-eligible yet, so the intact-versus-shuffled human test remains gated.

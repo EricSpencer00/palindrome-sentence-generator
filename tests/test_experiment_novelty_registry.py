@@ -138,6 +138,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "lexical-admission-centerout" in ids
     assert "grammar-boundary-resegmentation-repair" in ids
     assert "fixed-tape-valency-chart-repair" in ids
+    assert "compound-derivational-scene-csp-20260916" in ids
+    assert "paraphrase-graph-debt-paths-20260916" in ids
+    assert "parse-tree-exact-cover-20260916" in ids
     assert "proper-name-caption-crossword" in ids
     assert "information-structure-focus-scope" in ids
     assert "anaphoric-scene-chain-composition" in ids

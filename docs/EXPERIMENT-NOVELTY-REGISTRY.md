@@ -28,6 +28,9 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `live-gpt2-character-decoder-preflight-20260916` | GPT-2 is queried at licensed character and boundary transitions while two normal-order grammar prefixes resolve a live character equation; no proposal bank or fixed tape | direct character-level LM-constrained decoding | 20 complete 75–81-letter prose probes; 0 exact and 0 reader-eligible |
 | `typed-cfg-exact-tape-resegmentation-20260916` | a fresh exact tape is immutable while a global typed-CFG boundary DP carries finite-verb valency and uses an LM only for boundary ties | exact-tape grammatical resegmentation | 3 rendered probes plus an intact control; source tape rejected as a shortcut; 0 admitted |
 | `dependency-tree-seam-solver-20260916` | independently built dependency trees carry agreement, transitive valency, and attachment frontiers during a live seam walk in normal word order | dependency-tree seam CSP | 12 complete 75–84-letter probes; 0 exact and 0 reader-eligible |
+| `compound-derivational-scene-csp-20260916` | modifier–head compound decomposition and derivational suffix state are carried inside authored scene frames while mirrored character obligations remain live | compound/derivational scene CSP | 80 complete 39+ letter probes; 0 exact and 0 reader-eligible |
+| `paraphrase-graph-debt-paths-20260916` | complete authored scene nodes are connected by labeled meaning-preserving paraphrase edges and two ordinary-order graph walks carry mirrored character debt | semantic paraphrase graph walk | 81 probes at 117–408 letters plus one held-out repair; 0 exact and 0 reader-eligible |
+| `parse-tree-exact-cover-20260916` | independently authored constituency terminal spans become side/role/agreement exact-cover columns with live word-boundary character obligations | parse-tree exact cover | 24 complete probes plus 8 held-out tree repairs; 0 exact and 0 reader-eligible |
 | `weighted-morphology-fst-lockstep-20260916` | paired lexical chunks emit in character lockstep while agreement, tense, lemma, semantic roles, and fluency remain in the transducer state | agreement-carrying morphology transducer | 24 complete 58–60-letter prose probes; 0 exact and 0 reader-eligible |
 | `reader-first-discourse-scene-lattice-20260916` | two human-authored scenes preserve topic continuity while complete clause, tense, attachment, punctuation, and one-slot repair states vary under a live equation | human-authored scene lattice with live equations | 24 complete 107–124-letter probes; 0 exact and 0 reader-eligible |
 | `inflectional-clitic-boundary-csp-20260916` | productive tense/agreement and possessive-clitic/of boundaries are selected jointly in a complete harbor scene, with held-out boundary repair | inflectional and clitic boundary search | 24 complete 120–131-letter probes; 0 exact and 0 reader-eligible |
@@ -240,7 +243,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 191 retained families and 24 explicit
+family. The current audit covers all 194 retained families and 24 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

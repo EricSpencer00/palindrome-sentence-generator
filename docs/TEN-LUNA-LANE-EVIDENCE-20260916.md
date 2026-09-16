@@ -79,5 +79,21 @@ the shared mechanical gate rejects it for word-order symmetry and a proper
 multiword palindrome span. It is preserved as rejected failure evidence, not
 as prose or a candidate.
 
-The current aggregate is 3732 rendered rows across 85 route phases, with 73
-exact-but-rejected tapes and 0 mechanically admitted rows.
+The current aggregate is 3868 audit-compatible rendered rows across 89 route
+phases, with 73 exact-but-rejected tapes and 0 mechanically admitted rows.
+
+## Orthogonal continuation wave
+
+The next three Luna lanes were executed as distinct state representations:
+
+| route | rendered prose | length | exact / admission | provenance and next repair |
+|---|---|---:|---|---|
+| compound/derivational scene CSP | “the gardener carries the lighthouse carefully; the raincoat carries carefully our gardener” | 78 | direct, two-pointer, hash, and mechanical exact `False`; admission `False` | hand-authored modifier–head compounds and scene frames; replace only the right compound at the first mismatch while preserving role and derivational path |
+| paraphrase graph debt paths | “At dawn, the harbor pilot checks the warning lamps and marks the tide. At dusk, the station keeper locks the gate and tells the waiting travelers.” | 117 | direct, two-pointer, SHA-256, and mechanical exact `False`; admission `False` | complete authored scene nodes joined by labeled meaning-preserving edges; repair the held-out `r2→r3` paraphrase edge and replay the debt |
+| parse-tree exact cover | “the young bakers repair the letters in the gardens. the quiet sailors observe the ledgers by the harbors.” | 86 | direct, two-pointer, hash, and mechanical exact `False`; admission `False` | authored constituency terminal spans with side/role/agreement columns; change one held-out tree lexical/agreement index at the first dead column |
+
+The compound run contains 80 complete probes, the graph run 81 probes plus one
+repair, and the parse-tree run 24 base probes plus 8 held-out repairs. The
+common audit report retains 48, 82, and 6 normalized rows respectively; this
+normalization difference is recorded rather than hidden. None is reader
+eligible, so no intact-versus-shuffled human study is claimed yet.

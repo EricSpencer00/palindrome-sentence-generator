@@ -52,5 +52,19 @@ stack-machine lane was rejected because its exact surface is a semordnilap
 word chain, not intact prose. Only the first two are retained as runnable
 families; the stack route is an explicit exclusion with a grammar pivot.
 
-The current aggregate is 3732 rendered rows across 85 route phases, with 73
-exact-but-rejected tapes and 0 mechanically admitted rows.
+The current aggregate is 3868 audit-compatible rendered rows across 89 route
+phases, with 73 exact-but-rejected tapes and 0 mechanically admitted rows.
+
+## Orthogonal continuation wave
+
+Three further Luna lanes were run as new construction states rather than larger
+duplicate sweeps. The compound/derivational scene CSP generated 80 complete
+39+ letter probes and holds a compound-slot substitution repair. The
+paraphrase-graph lane walked complete authored scene nodes through explicit
+meaning-preserving edges, producing 81 probes from 117--408 letters plus one
+held-out edge repair. The parse-tree exact-cover lane generated 24 complete
+tree realizations plus 8 held-out tree/agreement repairs. All three have
+independent exact, two-pointer/hash, mechanical, provenance, and novelty
+records; none closed exactly. The aggregate includes only rows that the common
+audit parser could normalize (48 compound, 82 graph, and 6 parse-tree rows),
+not silently fabricated counts.

@@ -11,6 +11,6 @@ def test_repair_is_bounded_debt_directed_and_complete():
     assert run["exact_count"]==0
     assert all(r["rendered"].endswith(".") and r["paired_rendered"].endswith(".") for r in run["candidates"])
     assert max(r["letters"] for r in run["candidates"])>=60
-    assert all(r["selection"]["trials"]==9 for r in run["candidates"])
+    assert all(r["selection"]["trials"]==18 for r in run["candidates"])
     assert all(r["provenance"]["word_order_mirrored"] is False for r in run["candidates"])
     assert all(r["repair"]["operator"].startswith("global-reverse-tape") for r in run["candidates"])

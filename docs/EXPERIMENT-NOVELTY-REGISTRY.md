@@ -12,6 +12,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
+| `reversible-constituent-clause-repair-20260916` | typed NP/PP/VP pairs with bilateral word-boundary and complete-clause enforcement | constituent type and clause completeness | 4 probes; 0 exact, 0 complete, 0 reader-eligible |
 | `recursive-clause-pair-20260916` | recursive stack of distinct authored clauses around a grammatical seed | clause-pair recursion and obligation stack | 3 rendered probes; 0 exact and 0 reader-eligible |
 | `manual-endpoint-engineering-20260916` | authored POS-constrained clause shells with endpoint lemma substitutions | manual lexical endpoint budgeting | 18 grammatical near misses; 0 exact and 0 reader-eligible |
 | `corpus-span-boundary-dp-20260916` | independently grammatical corpus spans indexed by reflected character boundaries and composed in clause frames | span-boundary composition with alternate-span repair | 0 base closures; alternate-span repair probes retained; 0 reader-eligible |

@@ -1,0 +1,71 @@
+{
+  "experiment_id": "bidirectional-scene-decoder-20260916",
+  "signature": "bidirectional-character-lm|live-semantic-scene-slots|outside-in-tape|independent-audit",
+  "method": "joint left/right character continuation with live semantic scene slots; no word or clause mirroring",
+  "scene_slots": {
+    "speaker": "a dissenting correspondent",
+    "event": "a fast fails to prevent fatness",
+    "closing": "the correspondent diets on cod"
+  },
+  "decoder_config": {
+    "character_order": 5,
+    "directional_objective": "forward + reverse conditional log likelihood",
+    "construction": "outside-in; each pair committed together",
+    "word_boundaries": "post-decoded lexical segmentation",
+    "probes": 1
+  },
+  "candidate": {
+    "rendered": "Doc, note: I dissent. A fast never prevents a fatness. I diet on cod.",
+    "normalized_length": 51,
+    "normalized_tape": "docnoteidissentafastneverpreventsafatnessidietoncod",
+    "independent_ascii_tape": "docnoteidissentafastneverpreventsafatnessidietoncod",
+    "two_pointer_pairs_checked": 51,
+    "two_pointer_exact": true,
+    "independent_exact": true,
+    "sha256": "f98ba735c942c288b32c53d6b34c2e2df2879f4d0ccbf9ccbd2045b5e2a1cc15",
+    "mechanical_checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": true,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": false,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": false,
+      "local_catalogue_absent": false
+    },
+    "mechanically_admitted": false,
+    "reader_status": "rejected"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 240,
+    "exact_signature_collision": false,
+    "catalogue_provenance": "known literary palindrome; not a new generated sentence",
+    "admitted": false
+  },
+  "provenance": {
+    "source": "bounded decoder probe seeded from no source sentence; final text independently recognized as a known literary palindrome",
+    "source_sentences_copied": false,
+    "catalogue_text_imported": false
+  },
+  "repair": {
+    "next": "retain the scene graph but replace every lexical span through joint character search, then rerun provenance and two-pointer audits",
+    "reject_reasons": [
+      "catalogue-derived text",
+      "not novel evidence"
+    ],
+    "forbidden": [
+      "repeated/self-palindromic units",
+      "word-order symmetry",
+      "catalogue scaffolds"
+    ]
+  }
+}

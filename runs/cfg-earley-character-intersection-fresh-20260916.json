@@ -13,12 +13,12 @@
           "CONNECT",
           "CLOSE"
         ],
-        "terminal_count": 83,
+        "terminal_count": 85,
         "intersection": "grammar terminals \u00d7 mirrored character debt"
       },
       "audit": {
-        "rendered": "At first light, the surveyor records the river level while the baker warms bread for the waiting crew.",
-        "letters": 83,
+        "rendered": "At first light, the surveyor records the river current while the baker warms bread for the waiting crew.",
+        "letters": 85,
         "exact": false,
         "two_pointer_exact": false,
         "first_mismatch": [
@@ -26,8 +26,8 @@
           "a",
           "w"
         ],
-        "normalized_sha256": "23ad71deed7f223313149522f3682c15acd6e2194387888986cdb84e8c948386",
-        "reverse_sha256": "df60af980421a00ac6d6e07cece5b3f940342e4d05d52c8081d646743b78590d",
+        "normalized_sha256": "50e45d38238b8c1bbf0cef5d7c98182e71d5a9b723b57661b0fe2bf38962dfbb",
+        "reverse_sha256": "308d6048c81f422c81aec4b3779481c5a505d9739741a25f035c645ddfb7ab83",
         "mechanical_checks": {
           "supported_ascii_letters": true,
           "nonempty": true,
@@ -37,7 +37,7 @@
           "lexicon_words": true,
           "ordinary_short_words": true,
           "distinct_words": true,
-          "no_self_palindromic_word": false,
+          "no_self_palindromic_word": true,
           "not_word_order_symmetry": true,
           "no_repeated_nontrivial_unit": true,
           "no_self_palindromic_proper_multiword_span": true,
@@ -65,12 +65,12 @@
           "CONNECT",
           "CLOSE"
         ],
-        "terminal_count": 135,
+        "terminal_count": 137,
         "intersection": "grammar terminals \u00d7 mirrored character debt"
       },
       "audit": {
-        "rendered": "At first light, the surveyor records the river level while the baker warms bread for the waiting crew, and the harbor keeper checks the lamps before opening the gate.",
-        "letters": 135,
+        "rendered": "At first light, the surveyor records the river current while the baker warms bread for the waiting crew, and the harbor keeper checks the lamps before opening the gate.",
+        "letters": 137,
         "exact": false,
         "two_pointer_exact": false,
         "first_mismatch": [
@@ -78,8 +78,8 @@
           "a",
           "e"
         ],
-        "normalized_sha256": "e58ad62539375fbf99981f0e583b91c1151c478e783af3d0e5bccdc4f6d80122",
-        "reverse_sha256": "00861d57456cfed36d211640971e1f485a9e60d063ffe2e37db0d29003419094",
+        "normalized_sha256": "a24dca0247f520c21185802aa7a2010082836d9d92b976341ae290f3b89ab1f4",
+        "reverse_sha256": "8b5775939b6dcac646779e29ca9b1e2a62e86b85734e1de5f5ca24e702d26216",
         "mechanical_checks": {
           "supported_ascii_letters": true,
           "nonempty": true,
@@ -89,7 +89,7 @@
           "lexicon_words": true,
           "ordinary_short_words": true,
           "distinct_words": true,
-          "no_self_palindromic_word": false,
+          "no_self_palindromic_word": true,
           "not_word_order_symmetry": true,
           "no_repeated_nontrivial_unit": true,
           "no_self_palindromic_proper_multiword_span": true,
@@ -115,7 +115,7 @@
     "exact": 0
   },
   "novelty_preflight": {
-    "registry_entries_read": 321,
+    "registry_entries_read": 323,
     "exact_signature_collision": false,
     "catalogue_text_imported": false,
     "fixed_tape_used": false
@@ -125,8 +125,10 @@
     "reason": "complete readable parses leave an outer character residual"
   },
   "provenance": {
-    "generator_sha256": "b9a7aaee26b3f146c3d4fc752aa07b50fffcd4259a28c3baaf54dc854ace00fc",
+    "generator_sha256": "ea40fd6535746e6a133fd06306ca01557dc9d6efcbd509dd0fc204bad4621196",
     "lexical_source": "fresh authored scene CFG",
+    "repair": "replaced self-palindromic noun 'level' with ordinary non-palindromic noun 'current' in every emitted frame",
+    "repair_reason": "remove a lexical self-palindrome that could trigger the no-self-palindromic-unit shortcut gate",
     "audits": [
       "normalized tape",
       "independent two-pointer",

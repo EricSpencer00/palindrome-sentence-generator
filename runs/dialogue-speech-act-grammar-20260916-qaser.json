@@ -1,0 +1,191 @@
+{
+  "experiment_id": "dialogue-speech-act-grammar-20260916-qaser",
+  "signature": "semantic-speech-act|question-answer|live-character-ledger|lane-qaser",
+  "novelty_preflight": {
+    "registry_entries_read": 577,
+    "exact_signature_collision": false,
+    "known_palindrome_reused": false,
+    "catalogue_or_repeated_clause": false,
+    "word_order_only": false,
+    "post_hoc_wrapper": false,
+    "novelty_basis": "independent interrogative and explanatory answer plans with bilateral obligations"
+  },
+  "grammar": {
+    "question_act": "wh-question",
+    "answer_act": "explicit-answer-plus-purpose",
+    "question_slots": [
+      "which artifact",
+      "agent",
+      "location",
+      "time"
+    ],
+    "answer_slots": [
+      "pronoun antecedent",
+      "artifact",
+      "location",
+      "beneficiary",
+      "purpose"
+    ],
+    "live_obligations": [
+      "Mara->she",
+      "lantern->lantern",
+      "tide gate/channel setting",
+      "before sunrise/night continuity"
+    ]
+  },
+  "question": "Which lantern did Mara leave beside the tide gate before sunrise?",
+  "answer": "She left the brass lantern there so the night ferryman could find the narrow channel safely.",
+  "rendered_dialogue": "Which lantern did Mara leave beside the tide gate before sunrise? She left the brass lantern there so the night ferryman could find the narrow channel safely.",
+  "audit": {
+    "letters": 130,
+    "exact": false,
+    "two_pointer_mismatches": [
+      {
+        "left": 0,
+        "right": 129,
+        "a": "w",
+        "b": "y"
+      },
+      {
+        "left": 1,
+        "right": 128,
+        "a": "h",
+        "b": "l"
+      },
+      {
+        "left": 2,
+        "right": 127,
+        "a": "i",
+        "b": "e"
+      },
+      {
+        "left": 3,
+        "right": 126,
+        "a": "c",
+        "b": "f"
+      },
+      {
+        "left": 4,
+        "right": 125,
+        "a": "h",
+        "b": "a"
+      },
+      {
+        "left": 5,
+        "right": 124,
+        "a": "l",
+        "b": "s"
+      },
+      {
+        "left": 6,
+        "right": 123,
+        "a": "a",
+        "b": "l"
+      },
+      {
+        "left": 7,
+        "right": 122,
+        "a": "n",
+        "b": "e"
+      },
+      {
+        "left": 8,
+        "right": 121,
+        "a": "t",
+        "b": "n"
+      },
+      {
+        "left": 9,
+        "right": 120,
+        "a": "e",
+        "b": "n"
+      },
+      {
+        "left": 10,
+        "right": 119,
+        "a": "r",
+        "b": "a"
+      },
+      {
+        "left": 11,
+        "right": 118,
+        "a": "n",
+        "b": "h"
+      },
+      {
+        "left": 12,
+        "right": 117,
+        "a": "d",
+        "b": "c"
+      },
+      {
+        "left": 13,
+        "right": 116,
+        "a": "i",
+        "b": "w"
+      },
+      {
+        "left": 14,
+        "right": 115,
+        "a": "d",
+        "b": "o"
+      },
+      {
+        "left": 15,
+        "right": 114,
+        "a": "m",
+        "b": "r"
+      },
+      {
+        "left": 16,
+        "right": 113,
+        "a": "a",
+        "b": "r"
+      },
+      {
+        "left": 17,
+        "right": 112,
+        "a": "r",
+        "b": "a"
+      },
+      {
+        "left": 18,
+        "right": 111,
+        "a": "a",
+        "b": "n"
+      },
+      {
+        "left": 19,
+        "right": 110,
+        "a": "l",
+        "b": "e"
+      }
+    ],
+    "sha256": "b422a332f402bc60a14099eb1fd1edcf090d917cf8360bf99dc0efcd6c53ce52",
+    "normalized_sha256": "6f5ff677c1b89361b78886386e697e30d1fd1dbc780b610470d658cc519793ec"
+  },
+  "readability_diagnostics": {
+    "certifying": false,
+    "sentence_count": 2,
+    "word_count": 27,
+    "diagnostics": [
+      "ordinary wh-question",
+      "distinct causal answer",
+      "pronoun and artifact obligations resolve",
+      "near miss retained intact"
+    ]
+  },
+  "provenance": {
+    "generator": "experiments/dialogue_speech_act_grammar_20260916.py",
+    "lexical_source": "fresh hand-authored slot lexicon",
+    "audits": [
+      "independent normalized two-pointer",
+      "raw and normalized SHA-256"
+    ]
+  },
+  "next_repair": {
+    "operator": "search paired slot alternatives against the live ledger",
+    "reason": "the current answer is readable but the boundary character debt is large",
+    "concrete": "vary artifact adjectives and channel nouns while preserving Mara/she and lantern obligations; rerun pointer audit"
+  }
+}

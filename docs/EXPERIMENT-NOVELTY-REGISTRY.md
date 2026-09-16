@@ -164,6 +164,17 @@ the next frontier was chosen:
 | `experiments/thematic_grid_clause_composition_20260915.py` | its 4x4 authored-clause cross-product and whole-tape audit replay the existing complete-prose pairing space; seam filtering changes ordering, not the construction dimension. The 16 probes and zero closures remain failure evidence, not a retained family |
 | `experiments/semantic_pairing_typed_clauses_20260915.py` | typed SVO/PP clause cross-product plus reverse-tape pairing overlaps the existing typed-semordnilap and complete-prose pairing families. The 17,280-frame run and bounded repair queue remain preserved, but are not counted as a new family |
 | `experiments/multiset_balanced_grammar_20260915.py` | the implementation never enforces its declared multiset/count state; it only samples typed role productions and scores mirrored matches, overlapping existing grammar-production probes. Its 5,000 samples remain preserved as invalid-route evidence |
+| `experiments/heteropalindromic_clause_pair_preflight_20260916.py` | fresh heteropalindromic clause pairing overlaps the retained independent-clause and cross-boundary seam dimensions; the preflight is preserved without running a duplicate |
+| `experiments/orthographic_derivation_preflight_20260916.py` | derivational/allomorphic choices are already covered by morphology and FST families; no duplicate route was executed |
+| `experiments/eliot_structural_control_preflight_20260916.py` | learning a slot pattern from the known Eliot catalogue palindrome would be structural imitation; Eliot remains a non-generated control only |
+| `experiments/event_extension_transducer_preflight_20260916.py` | typed event-extension/transducer state overlaps retained morphology and seam families; the proposed route was blocked before execution |
+| `experiments/semantic_word_pair_cross_boundary_preflight_20260916.py` | cross-boundary semordnilap word pairing overlaps retained lexical-boundary and complete-clause families; no relabeled run was counted |
+| `experiments/bidirectional_phrase_pair_preflight_20260916.py` | bidirectional phrase pairing overlaps manual endpoint and attested phrase-pair wrappers; its preflight evidence remains excluded |
+| `experiments/function_word_boundary_balance_preflight_20260916.py` | function-word boundary balancing overlaps variable-boundary, lexical-equation, and complete-clause state; the explicit registry entry records the block |
+| `experiments/question_answer_composition_preflight_20260916.py` | question/answer discourse realization overlaps speech-act and interrogative inventories; the explicit registry entry records the block |
+| `experiments/pivot_growth_preflight_20260916.py` | pivoted sentence growth overlaps pivot-paragraph, scene-growth, and recursive-obligation families; the explicit registry entry records the block |
+| `experiments/grammar_product_sat_preflight_20260916.py` | solver substitution does not add a linguistic construction dimension beyond retained grammar products; the explicit registry entry records the block |
+| `experiments/reversible_relation_coherence_preflight_20260916.py` | center-out reversible relation planning overlaps rhetorical, discourse-graph, anaphora, and dependency families; the explicit registry entry records the block |
 
 Their run records remain available for failure analysis (`runs/seed-symmetric-
 mutation-20260915.json` and `runs/seed-boundary-shift-typed-resegmentation-

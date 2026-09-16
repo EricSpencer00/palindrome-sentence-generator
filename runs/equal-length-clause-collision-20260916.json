@@ -1,0 +1,835 @@
+{
+  "experiment_id": "equal-length-clause-collision-20260916",
+  "signature": "equal-length-independent-svo-adjunct-banks|distinct-pos-sense-lexicons|reversed-tape-hash-collision|two-pointer-exact-audit|complete-clause-readability",
+  "status": "completed_no_reader_promotion",
+  "method": "Independent semantic SVO+adjunct clause banks are generated in normal lexical order, bucketed by equal tape length, joined by SHA-256 lookup of reversed left tapes, and replayed by a separate two-pointer audit before shared admission.",
+  "novelty_preflight": {
+    "registry_entries": 177,
+    "runtime_registry_entries": 178,
+    "exact_signature_collision": false,
+    "exact_id_collision": false,
+    "nearest_prior": [
+      {
+        "id": "benchmark-grammar-broad-lexical-sweep-20260916",
+        "jaccard": 0.153846,
+        "shared_atoms": [
+          "banks",
+          "clause",
+          "length",
+          "pointer"
+        ]
+      },
+      {
+        "id": "bilateral-slot-synchronizer-adjunct-repair-20260916",
+        "jaccard": 0.12,
+        "shared_atoms": [
+          "adjunct",
+          "clause",
+          "pointer"
+        ]
+      },
+      {
+        "id": "regular-seam-grammar-20260916",
+        "jaccard": 0.111111,
+        "shared_atoms": [
+          "adjunct",
+          "length",
+          "pointer"
+        ]
+      },
+      {
+        "id": "reverse-transition-svo-beam-20260916",
+        "jaccard": 0.111111,
+        "shared_atoms": [
+          "adjunct",
+          "banks",
+          "svo"
+        ]
+      },
+      {
+        "id": "semantic-valency-boundary-csp-20260916",
+        "jaccard": 0.103448,
+        "shared_atoms": [
+          "clause",
+          "readability",
+          "sense"
+        ]
+      }
+    ],
+    "performed_before_search": true
+  },
+  "config": {
+    "bank_limit": 120000,
+    "min_letters": 39,
+    "max_letters": 240,
+    "grammar": "DET SUBJECT VERB DET OBJECT PREP DET ADJ NOUN",
+    "equal_length_only": true,
+    "catalogue_imported": false,
+    "word_order_reversal": false,
+    "hash": "sha256(tape)"
+  },
+  "stats": {
+    "left_bank": 120000,
+    "right_bank": 120000,
+    "left_length_buckets": 18,
+    "right_length_buckets": 18,
+    "hash_hits": 0,
+    "exact": 0,
+    "mechanically_admitted": 0,
+    "rendered_probes": 8,
+    "max_probe_letters": 66,
+    "max_complete_clause_letters": 44
+  },
+  "exact_candidates": [],
+  "rendered_probes": [
+    {
+      "rendered": "A baker reads a journal in a quiet bakery. A caller answers a reply at a brief plaza.",
+      "letters": 66,
+      "left_letters": 33,
+      "right_letters": 33,
+      "equal_length": true,
+      "exact": false,
+      "two_pointer": {
+        "closed": false,
+        "equal_length": true,
+        "matched": 1,
+        "left_letters": 33,
+        "right_letters": 33,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 31,
+          "left": "b",
+          "right": "z"
+        }
+      },
+      "hash_left": "9e833bd5c0f32c37999be707065bf0adb8884a71696884d545e8cbb54f10d961",
+      "hash_right": "ed5bf9e4161a77980e65c232b4cc1ff90c1c59200d85218ad9e96c25737f1445",
+      "hash_target": "956f61b40c88c33b4d75c27ca0ac82bb8792523f58024d8bb0ed78a8c69353dd",
+      "left_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "right_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "response",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet field. A caller answers a file at a brief plaza.",
+      "letters": 64,
+      "left_letters": 32,
+      "right_letters": 32,
+      "equal_length": true,
+      "exact": false,
+      "two_pointer": {
+        "closed": false,
+        "equal_length": true,
+        "matched": 1,
+        "left_letters": 32,
+        "right_letters": 32,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 30,
+          "left": "b",
+          "right": "z"
+        }
+      },
+      "hash_left": "7b66bfc90d160a64f099ce50b1b90d12b1428997ecff4878d47a386a7ac0225c",
+      "hash_right": "399ae881c90a38b4cb263085fff61d736c1f6b48c4dfaf34e40eae845d8092e5",
+      "hash_target": "76b0a0c54a02c69380c1bf84c08dd78340bef481da595a8a477a3732acda8db2",
+      "left_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "right_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "response",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet field. A caller moves a signal at a clean plaza.",
+      "letters": 64,
+      "left_letters": 32,
+      "right_letters": 32,
+      "equal_length": true,
+      "exact": false,
+      "two_pointer": {
+        "closed": false,
+        "equal_length": true,
+        "matched": 1,
+        "left_letters": 32,
+        "right_letters": 32,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 30,
+          "left": "b",
+          "right": "z"
+        }
+      },
+      "hash_left": "7b66bfc90d160a64f099ce50b1b90d12b1428997ecff4878d47a386a7ac0225c",
+      "hash_right": "1bbeffa33838a544b3f7bb86494d4c034938875b8049c30d2104ba87aeb38168",
+      "hash_target": "76b0a0c54a02c69380c1bf84c08dd78340bef481da595a8a477a3732acda8db2",
+      "left_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "right_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": false,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "motion",
+          "object_sense": "physical-object",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet field. A caller fixes a alarm over a fine plaza.",
+      "letters": 64,
+      "left_letters": 32,
+      "right_letters": 32,
+      "equal_length": true,
+      "exact": false,
+      "two_pointer": {
+        "closed": false,
+        "equal_length": true,
+        "matched": 1,
+        "left_letters": 32,
+        "right_letters": 32,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 30,
+          "left": "b",
+          "right": "z"
+        }
+      },
+      "hash_left": "7b66bfc90d160a64f099ce50b1b90d12b1428997ecff4878d47a386a7ac0225c",
+      "hash_right": "ecab269eda64893ce41db86ae8a3c1590e556b9f6d4c5dc6fd31b2928970386c",
+      "hash_target": "76b0a0c54a02c69380c1bf84c08dd78340bef481da595a8a477a3732acda8db2",
+      "left_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "right_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": false,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "repair",
+          "object_sense": "physical-object",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet field. A caller leaves a hall at a gentle plaza.",
+      "letters": 64,
+      "left_letters": 32,
+      "right_letters": 32,
+      "equal_length": true,
+      "exact": false,
+      "two_pointer": {
+        "closed": false,
+        "equal_length": true,
+        "matched": 1,
+        "left_letters": 32,
+        "right_letters": 32,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 30,
+          "left": "b",
+          "right": "z"
+        }
+      },
+      "hash_left": "7b66bfc90d160a64f099ce50b1b90d12b1428997ecff4878d47a386a7ac0225c",
+      "hash_right": "bdbf8c5a0a62378b683ff55b0788c8f6aebcc9173579b5359d149b06d602cc9a",
+      "hash_target": "76b0a0c54a02c69380c1bf84c08dd78340bef481da595a8a477a3732acda8db2",
+      "left_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "right_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "departure",
+          "object_sense": "place",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet field. A child cooks a rice among a clean plaza.",
+      "letters": 64,
+      "left_letters": 32,
+      "right_letters": 32,
+      "equal_length": true,
+      "exact": false,
+      "two_pointer": {
+        "closed": false,
+        "equal_length": true,
+        "matched": 1,
+        "left_letters": 32,
+        "right_letters": 32,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 30,
+          "left": "b",
+          "right": "z"
+        }
+      },
+      "hash_left": "7b66bfc90d160a64f099ce50b1b90d12b1428997ecff4878d47a386a7ac0225c",
+      "hash_right": "ff3a54807deb38b5eda499aaeb256b11ce68f16675859b9447eec4fffe35cb5e",
+      "hash_target": "76b0a0c54a02c69380c1bf84c08dd78340bef481da595a8a477a3732acda8db2",
+      "left_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "right_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "preparation",
+          "object_sense": "food",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet shore. A caller answers a file at a brief plaza.",
+      "letters": 64,
+      "left_letters": 32,
+      "right_letters": 32,
+      "equal_length": true,
+      "exact": false,
+      "two_pointer": {
+        "closed": false,
+        "equal_length": true,
+        "matched": 1,
+        "left_letters": 32,
+        "right_letters": 32,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 30,
+          "left": "b",
+          "right": "z"
+        }
+      },
+      "hash_left": "62eadcd02a18ca3d5fbd0a60e1a89eeb06ae25b9b5b8bc632ed1ff3c660a694f",
+      "hash_right": "399ae881c90a38b4cb263085fff61d736c1f6b48c4dfaf34e40eae845d8092e5",
+      "hash_target": "6bf53d73e880928a7c3f0f0f477792d195ecb50e86fa2fb7b8b3b56ea1385b38",
+      "left_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "right_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "response",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet shore. A caller moves a signal at a clean plaza.",
+      "letters": 64,
+      "left_letters": 32,
+      "right_letters": 32,
+      "equal_length": true,
+      "exact": false,
+      "two_pointer": {
+        "closed": false,
+        "equal_length": true,
+        "matched": 1,
+        "left_letters": 32,
+        "right_letters": 32,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 30,
+          "left": "b",
+          "right": "z"
+        }
+      },
+      "hash_left": "62eadcd02a18ca3d5fbd0a60e1a89eeb06ae25b9b5b8bc632ed1ff3c660a694f",
+      "hash_right": "1bbeffa33838a544b3f7bb86494d4c034938875b8049c30d2104ba87aeb38168",
+      "hash_target": "6bf53d73e880928a7c3f0f0f477792d195ecb50e86fa2fb7b8b3b56ea1385b38",
+      "left_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": true,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "right_readability": {
+        "complete_svo_adjunct": true,
+        "semantic_selection": false,
+        "content_words_distinct": true,
+        "lexical_order_preserved": true,
+        "reader_evidence": false,
+        "independently_readable_input": true
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "motion",
+          "object_sense": "physical-object",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    }
+  ],
+  "best_readable_pair": {
+    "rendered": "A baker reads a journal in a quiet bakery. A caller answers a reply at a brief plaza.",
+    "letters": 66,
+    "left_letters": 33,
+    "right_letters": 33,
+    "equal_length": true,
+    "exact": false,
+    "two_pointer": {
+      "closed": false,
+      "equal_length": true,
+      "matched": 1,
+      "left_letters": 33,
+      "right_letters": 33,
+      "first_mismatch": {
+        "left_index": 1,
+        "right_index": 31,
+        "left": "b",
+        "right": "z"
+      }
+    },
+    "hash_left": "9e833bd5c0f32c37999be707065bf0adb8884a71696884d545e8cbb54f10d961",
+    "hash_right": "ed5bf9e4161a77980e65c232b4cc1ff90c1c59200d85218ad9e96c25737f1445",
+    "hash_target": "956f61b40c88c33b4d75c27ca0ac82bb8792523f58024d8bb0ed78a8c69353dd",
+    "left_readability": {
+      "complete_svo_adjunct": true,
+      "semantic_selection": true,
+      "content_words_distinct": true,
+      "lexical_order_preserved": true,
+      "reader_evidence": false,
+      "independently_readable_input": true
+    },
+    "right_readability": {
+      "complete_svo_adjunct": true,
+      "semantic_selection": true,
+      "content_words_distinct": true,
+      "lexical_order_preserved": true,
+      "reader_evidence": false,
+      "independently_readable_input": true
+    },
+    "admission": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": false,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "left_side": "left",
+      "right_side": "right",
+      "left_semantic_roles": {
+        "subject_sense": "person-agent",
+        "event_sense": "information",
+        "object_sense": "text-artifact",
+        "adjunct_sense": "location"
+      },
+      "right_semantic_roles": {
+        "subject_sense": "person-agent",
+        "event_sense": "response",
+        "object_sense": "text-artifact",
+        "adjunct_sense": "location"
+      },
+      "word_order_reversed": false,
+      "source_sentences_copied": false,
+      "known_palindromes_used": false,
+      "catalogue_imported": false
+    },
+    "diagnostic_only": true
+  },
+  "repair": {
+    "status": "not_run",
+    "operator": "At the first two-pointer mismatch, substitute one held-out lexeme with the same POS and semantic sense in the offending slot, retain the clause grammar and equal-length bucket, then rebuild only that bucket's reverse-hash index.",
+    "frontier": {
+      "left_index": 1,
+      "right_index": 31,
+      "left": "b",
+      "right": "z"
+    },
+    "preserves_independent_clause_readability": true
+  },
+  "provenance": {
+    "source_sentences_copied": false,
+    "known_palindromes_used": false,
+    "catalogue_imported": false,
+    "reader_evidence": false,
+    "generator_sha256": "ee4cf2938ce0f856c946e085bab83bd4019b49d37bddb68ec3f6967b0a7fae0e",
+    "left_inventory_sha256": "66289624b5bf69f5712d7e2213c2b117ca6c3f4f9b62a6b1d0f76b70097c7d0e",
+    "right_inventory_sha256": "a1ba8525f62e5f2aac00b222b15f0593d081ebea41c6c27c01639d768e042e9e"
+  }
+}

@@ -357,7 +357,7 @@ states at 55, 114, 168, and 223 letters. Both continuations have fresh
 provenance and novelty fingerprints, and neither produced an exact closure;
 they are retained as construction evidence rather than duplicate sweeps.
 
-The authoritative aggregate is therefore **4,682 rows across 189 route
+The authoritative aggregate is therefore **4,696 rows across 191 route
 phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**. The
 next reader-facing test remains the randomized blinded intact-versus-shuffled
 packet, gated on a genuinely exact, anti-shortcut-clean candidate.
@@ -368,8 +368,8 @@ function/inflection editor (five 96--104-letter scenes). Both are registered
 as distinct retained families with independent audits and concrete repairs.
 An entailment-preserving active/passive rewrite is explicitly excluded after
 novelty preflight found overlap with existing voice/information-structure
-families. The registry now contains 290 retained artifacts, 31 exclusions,
-and 268 retained run artifacts.
+families. The registry now contains 292 retained artifacts, 31 exclusions,
+and 270 retained run artifacts.
 
 Representative renderings are preserved verbatim: “The baker repairs the
 gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA
@@ -395,3 +395,12 @@ testing the suffix-obligation invariant. The discourse-relation lane renders
 rain/garden sentence has digests `f7687fb8...`/`9d847a67...` and first residual
 index 1. All three have no exact closure, explicit provenance and novelty
 preflight, and a concrete next repair; none enters the reader packet.
+
+The newest character-level lanes add a 115-letter typed semantic beam scene
+(``The young botanist studies the silver seed cases beside the greenhouse; a
+careful pilot marks the distant landing lights through the mist.'') and a
+135-letter CFG/Earley scene (``At first light, the surveyor records the river
+level while the baker warms bread for the waiting crew, and the harbor keeper
+checks the lamps before opening the gate.''). Their independent first-mismatch
+and SHA audits reject both; each records provenance, novelty preflight, and a
+typed next repair.

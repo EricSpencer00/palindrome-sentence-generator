@@ -184,9 +184,11 @@
     "runs/discourse-relation-involution-20260916.json",
     "runs/lexical-word-equation-grammar-intersection-20260916.json",
     "runs/centerout-typed-semantic-debt-20260916.json",
-    "runs/seed-joint-slot-resegment-20260916.json"
+    "runs/seed-joint-slot-resegment-20260916.json",
+    "runs/char-lm-semantic-beam-20260916.json",
+    "runs/cfg-earley-character-intersection-fresh-20260916.json"
   ],
-  "candidate_count": 4682,
+  "candidate_count": 4696,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -501,6 +503,16 @@
       "mean_brown_order_gain_vs_shuffle": 0.8129145484597018
     },
     {
+      "source_run": "runs/cfg-earley-character-intersection-fresh-20260916.json",
+      "rows": 2,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 83,
+      "max_letters": 135,
+      "mean_zipf_frequency": 5.677461685823755,
+      "mean_brown_order_gain_vs_shuffle": 0.9406426486273363
+    },
+    {
       "source_run": "runs/cfg-earley-joint-intersection-20260916.json",
       "rows": 1,
       "exact_count": 0,
@@ -539,6 +551,16 @@
       "max_letters": 72,
       "mean_zipf_frequency": 5.3582857142857145,
       "mean_brown_order_gain_vs_shuffle": 0.6304823208162924
+    },
+    {
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "rows": 12,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 97,
+      "max_letters": 115,
+      "mean_zipf_frequency": 5.390295815295816,
+      "mean_brown_order_gain_vs_shuffle": 0.9527002402108141
     },
     {
       "source_run": "runs/char-lm-tape-resegment-20260916.json",
@@ -224964,6 +224986,674 @@
         "mean_zipf_frequency": 5.443636363636364,
         "word_count": 11,
         "repeated_word_rate": 0.09090909090909094,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young botanist studies the silver seed cases beside the greenhouse; a careful pilot marks the distant landing lights through the mist.",
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "e57cebaf71f80696db58a1b26b414ec7bd11a9455366b09fccecc7fe35d7808e"
+      },
+      "repair": null,
+      "letters": 115,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8872197920063982,
+        "mean_zipf_frequency": 5.357727272727273,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A careful pilot marks the distant landing lights through the mist; the young botanist studies the silver seed cases beside the greenhouse.",
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "09c287dfca09c1550f96f6f1213dcb2c84e09b0536c9ef6889a4b5f8d3f90e52"
+      },
+      "repair": null,
+      "letters": 115,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6938241416440292,
+        "mean_zipf_frequency": 5.357727272727273,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A patient mason restores the old stone arch before sunrise; the young botanist studies the silver seed cases beside the greenhouse.",
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "f967544abac8e1a1a7ad34cb1488c89a7abd26eca17866531e1aa664626be1b3"
+      },
+      "repair": null,
+      "letters": 109,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7499222844210109,
+        "mean_zipf_frequency": 5.240476190476191,
+        "word_count": 21,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young botanist studies the silver seed cases beside the greenhouse; a patient mason restores the old stone arch before sunrise.",
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "1bfc4ac4a3ecb1389a97e60c6bd9d3c53b9de19508da9557d4f2f66f33ea934b"
+      },
+      "repair": null,
+      "letters": 109,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8590500220473345,
+        "mean_zipf_frequency": 5.24047619047619,
+        "word_count": 21,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The night curator records the harbor names after the rain; the young botanist studies the silver seed cases beside the greenhouse.",
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "8b4041199a443da0de8bf5579e590b9e6fe8f4d2cd8b0bfda8880abf01a6481c"
+      },
+      "repair": null,
+      "letters": 108,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7673932041053195,
+        "mean_zipf_frequency": 5.514761904761905,
+        "word_count": 21,
+        "repeated_word_rate": 0.23809523809523814,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young botanist studies the silver seed cases beside the greenhouse; the night curator records the harbor names after the rain.",
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "7a477d86033c3efc886d4e279aaea60ffc49a821aab892f1cefad0dd9bb3f55f"
+      },
+      "repair": null,
+      "letters": 108,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9809569794151791,
+        "mean_zipf_frequency": 5.5147619047619045,
+        "word_count": 21,
+        "repeated_word_rate": 0.23809523809523814,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A patient mason restores the old stone arch before sunrise; a careful pilot marks the distant landing lights through the mist.",
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "e179307444818646f14ae5273a25eb1a476c0694ecb7867c062e4978409b1051"
+      },
+      "repair": null,
+      "letters": 104,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1166485070707068,
+        "mean_zipf_frequency": 5.2647619047619045,
+        "word_count": 21,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A careful pilot marks the distant landing lights through the mist; a patient mason restores the old stone arch before sunrise.",
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "399ea9882f3cb93c053ff38fe7caa50d5fa8b197ff0d4900d120bb499f350172"
+      },
+      "repair": null,
+      "letters": 104,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.12223963130789,
+        "mean_zipf_frequency": 5.264761904761904,
+        "word_count": 21,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The night curator records the harbor names after the rain; a careful pilot marks the distant landing lights through the mist.",
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "0a2cfd1bbb523773d672ff44321262cb3302291020deb13f5a6e788305e72a1c"
+      },
+      "repair": null,
+      "letters": 103,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2331416178788839,
+        "mean_zipf_frequency": 5.53904761904762,
+        "word_count": 21,
+        "repeated_word_rate": 0.19047619047619047,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A careful pilot marks the distant landing lights through the mist; the night curator records the harbor names after the rain.",
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "f22db5a7f1c528f71bba8780b0542813ce82b6197c5ef49cf9d1976d77581d9b"
+      },
+      "repair": null,
+      "letters": 103,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0709407673893914,
+        "mean_zipf_frequency": 5.539047619047619,
+        "word_count": 21,
+        "repeated_word_rate": 0.19047619047619047,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The night curator records the harbor names after the rain; a patient mason restores the old stone arch before sunrise.",
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "fb7b22b0c3b102f1e140278c8542b7bedd23ff1d8764c7be5a5ecec14d8cd1bc"
+      },
+      "repair": null,
+      "letters": 97,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9732753778499355,
+        "mean_zipf_frequency": 5.425,
+        "word_count": 20,
+        "repeated_word_rate": 0.15000000000000002,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A patient mason restores the old stone arch before sunrise; the night curator records the harbor names after the rain.",
+      "source_run": "runs/char-lm-semantic-beam-20260916.json",
+      "provenance": {
+        "method": "character beam over typed semantic frames; lexical next-character choices are scored before clause completion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "6b408c4a619a0d8361da9c3778dfc34ae26b7b6ff2f812e72f4e3e71a0dfe27a",
+        "source_sha256": "6525510dacfb142066967d6b7803861e4c4199887340078501738b89f516063e"
+      },
+      "repair": null,
+      "letters": 97,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9777905573936909,
+        "mean_zipf_frequency": 5.425,
+        "word_count": 20,
+        "repeated_word_rate": 0.15000000000000002,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At first light, the surveyor records the river level while the baker warms bread for the waiting crew.",
+      "source_run": "runs/cfg-earley-character-intersection-fresh-20260916.json",
+      "provenance": "Earley chart intersection of fresh scene CFG terminals with mirrored character debt; complete parses only",
+      "repair": null,
+      "letters": 83,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0150907031859973,
+        "mean_zipf_frequency": 5.68388888888889,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At first light, the surveyor records the river level while the baker warms bread for the waiting crew, and the harbor keeper checks the lamps before opening the gate.",
+      "source_run": "runs/cfg-earley-character-intersection-fresh-20260916.json",
+      "provenance": "Earley chart intersection of fresh scene CFG terminals with mirrored character debt; complete parses only",
+      "repair": null,
+      "letters": 135,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8661945940686753,
+        "mean_zipf_frequency": 5.67103448275862,
+        "word_count": 29,
+        "repeated_word_rate": 0.2068965517241379,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

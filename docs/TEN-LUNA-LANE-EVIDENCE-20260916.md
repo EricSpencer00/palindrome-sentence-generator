@@ -457,10 +457,10 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,682 rows
-across 189 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **290 retained artifacts, 31
-explicit exclusions, and 268 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,696 rows
+across 191 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **292 retained artifacts, 31
+explicit exclusions, and 270 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
 
@@ -496,6 +496,18 @@ before dawn.” (45 letters; first mismatch 0; SHA prefixes `032e4c56...` and
 `60a5d269...`). All are complete ordinary prose with fresh provenance,
 independent pointer/SHA validation, novelty preflight, and concrete repairs;
 none is exact or reader-eligible.
+
+Two additional Luna lanes are retained as distinct constructive states. A
+character-level beam over typed semantic frames emits “The young botanist
+studies the silver seed cases beside the greenhouse; a careful pilot marks the
+distant landing lights through the mist.” (115 letters; first mismatch 1; SHA
+prefixes `e57cebaf...` and `99cbaec3...`). A fresh CFG/Earley character
+intersection emits “At first light, the surveyor records the river level while
+the baker warms bread for the waiting crew, and the harbor keeper checks the
+lamps before opening the gate.” (135 letters; first mismatch 0; SHA prefixes
+`e58ad625...` and `00861d57...`). Both are complete prose with independent
+pointer/SHA checks, provenance, novelty preflight, and typed next repairs;
+neither is exact or reader-eligible.
 
 ## Three orthogonal Luna continuations (2026-09-16)
 

@@ -26,7 +26,7 @@ builds ordinary scenes: typed grammar and semantic slots propose the next
 words, and targeted repairs are selected from the current mirrored-letter
 debt.  Ten deliberately orthogonal construction lanes share an independent
 two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 4,682 candidates from 189 route
+The current development snapshot contains 4,696 candidates from 191 route
 summaries; 79 are exact, but none passes the mechanical admission gate and no row has
 yet been promoted by readers.  We report the rendered candidates and the
 failed gates explicitly, then use each failure to define the next repair
@@ -296,7 +296,19 @@ ledger, while rain gathers softly against the western windows and visitors wait
 beside the reading room.'', and ``The quiet curator labels the old faded map
 before dawn.''  Their normalized tapes are independently rejected by
 two-pointer and forward/reverse SHA checks; each run records provenance,
-novelty, and a concrete boundary repair.
+ novelty, and a concrete boundary repair.
+
+Two further Luna lanes keep the search constructive. A character-level beam
+over typed semantic frames emits ``The young botanist studies the silver seed
+cases beside the greenhouse; a careful pilot marks the distant landing lights
+through the mist.'' (115 letters; first mismatch 1; normalized SHA prefixes
+``e57cebaf...'' and ``99cbaec3...''). A fresh CFG/Earley character
+intersection emits ``At first light, the surveyor records the river level while
+the baker warms bread for the waiting crew, and the harbor keeper checks the
+lamps before opening the gate.'' (135 letters; first mismatch 0; SHA prefixes
+``e58ad625...'' and ``00861d57...''). Both are complete prose with independent
+pointer/SHA checks, provenance, novelty preflight, and a typed next repair;
+neither is exact or reader-eligible.
 
 For audit transparency, the corrected grapheme lane's representative rendering
 is ``The baker repairs the gate; the pilot maps a gate.'' (39 letters, first
@@ -313,9 +325,9 @@ generator's booleans.  The mechanical admission vector records ASCII support,
 lexical form, distinctness, catalogue-family exclusion, repeated-unit and
 self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
 one signature to each run and rejects duplicate families before aggregation.
-On the authoritative snapshot the registry contains 290 unique artifacts (31
-preflight exclusions); the aggregate contains 4,682 rows, 79 exact rows, and
-zero mechanically admitted rows across 189 route summaries.  Every exact row
+On the authoritative snapshot the registry contains 292 unique artifacts (31
+preflight exclusions); the aggregate contains 4,696 rows, 79 exact rows, and
+zero mechanically admitted rows across 191 route summaries.  Every exact row
 therefore has a visible reason for rejection or promotion status rather than
 being silently discarded.  The aggregate report is registered separately as
 an audit artifact, never as a construction family.

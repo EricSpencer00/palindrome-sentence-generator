@@ -62,13 +62,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 2194
+    assert report["candidate_count"] == 2200
     assert report["exact_count"] == 72
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 61
+    assert len(report["route_summary"]) == 62
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
 
 
@@ -423,3 +423,15 @@ def test_scalar_evaluation_evidence_route_keeps_independent_semantics_unadmitted
     assert all(row["complete_clauses"] == 2 and not row["reader_eligible"]
                and row["semantic_topology"].startswith("event -> scalar evaluation")
                for phase in ("base", "repair") for row in run[phase]["candidates"])
+
+
+def test_grammar_centerout_manual_route_preserves_fresh_prose_and_repair_trace():
+    run = load("grammar-centerout-manual-20260916.json")
+    assert len(run["candidates"]) == 3
+    assert len(run["repair"]) == 3
+    assert run["exact_count"] == 0
+    assert run["reader_eligible_count"] == 0
+    assert all(row["audit"]["complete_sentence"] and not row["audit"]["reader_eligible"]
+               for row in run["candidates"] + run["repair"])
+    assert all(row["provenance"].startswith("manual-common-word")
+               for row in run["candidates"] + run["repair"])

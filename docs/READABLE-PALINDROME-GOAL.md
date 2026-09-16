@@ -1724,3 +1724,14 @@ item-aware analysis plan.
   intact-versus-shuffled reader test, so the paper release and API remain
   closed while the constructive search continues toward a genuinely readable
   long palindrome.
+
+  A follow-up Luna lane attempted manual grammar-aware center expansion from
+  three fresh common-word prose centers and three semantic-center repairs
+  (45--53 letters). The scenes remain intact and independently audited but
+  produced no exact closure or reader-eligible row. A reversible-pair
+  center-out route and a repair of the 72 exact-but-rejected tapes were both
+  preflighted and blocked because their construction states are already
+  represented; neither was rerun as a disguised decoder experiment. The
+  aggregate therefore stands at 2200 rendered rows across 62 route phases,
+  with zero tape mismatches, 72 exact-but-rejected tapes, and 0 mechanically
+  admitted rows.

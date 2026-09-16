@@ -1284,3 +1284,12 @@ item-aware analysis plan.
   are attested material, none is presented as generated prose; the next repair
   must replace spans with independently authored complete clauses rather than
   relax the lexical gate.
+
+- **Homograph-sense lattice, 2026-09-15:** preflighted a separate semantic
+  state in which one orthographic tape must admit two independent homograph
+  sense/POS parses. Twenty-five frame pairs explored 1,912 states; three
+  residual terminals were rejected before exact closure and the run produced
+  zero exact, mechanically admitted, or reader-eligible rows. The actual seam
+  probes (for example `An china.` and `A camera.`) are retained with their
+  residuals, but are fragments rather than prose. Artifact:
+  `runs/homograph-sense-lattice-20260915.json`.

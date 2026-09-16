@@ -11,8 +11,8 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 6
-    assert result["entries"] == 82
-    assert result["run_artifacts"] == 45
+    assert result["entries"] == 83
+    assert result["run_artifacts"] == 46
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -50,7 +50,7 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 82
+    assert result["registered_families_checked"] == 83
     assert result["excluded_routes_checked"] == 6
     assert result["manual_review_required"] is False
     assert result["conceptual_near_pairs"] == []
@@ -126,6 +126,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "variable-length-role-reservoir-centerout-20260915" in ids
     assert "asymmetric-template-reservoir-centerout-20260915" in ids
     assert "attested-phrase-pair-wrapper-20260915" in ids
+    assert "homograph-sense-lattice-20260915" in ids
 
 
 def test_new_centerout_repairs_keep_failure_evidence_and_reader_gate_closed():
@@ -160,6 +161,12 @@ def test_asymmetric_reservoir_route_is_preflighted_and_keeps_reader_gate_closed(
     assert phrase_run["stats"]["exact"] == 0
     assert phrase_run["stats"]["reader_eligible"] == 0
     assert phrase_run["rendered_probes"]
+
+    homograph_run = json.loads((root / "runs/homograph-sense-lattice-20260915.json").read_text())
+    assert homograph_run["novelty_audit"]["registry_entries_read_before_run"] == 82
+    assert homograph_run["stats"]["mechanically_admitted"] == 0
+    assert homograph_run["stats"]["reader_eligible"] == 0
+    assert homograph_run["rendered_probes"]
 
 
 def test_scene_growth_records_preflight_before_self_registration():

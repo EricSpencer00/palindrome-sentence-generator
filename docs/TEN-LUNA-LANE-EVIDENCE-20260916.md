@@ -422,3 +422,15 @@ The reversible lexical-shell follow-up is deliberately excluded: both of its
 near misses embed the known 38-letter seed verbatim. That is a seed-wrapping
 shortcut, not a generated long palindrome, so its evidence stays in the
 registry's excluded section with its first-mismatch repair.
+
+## Post-ten-lane constructive continuations
+
+Three additional Luna state representations were run after the ten-lane
+audit. A free-center semantic state machine produced a 138-letter scene; a
+phrase-level reverse parser retained nine independently parsed 116--118-letter
+clause pairs; and a finite-domain clause-equation SAT probe retained a
+116-letter two-clause scene. All are fresh intact prose with independent
+pointer/hash rejection, provenance, novelty preflight, and concrete repairs.
+They add **11 rows and 3 route phases** to the aggregate (now **4,594 rows,
+172 route phases, 79 exact rejected tapes, and 0 mechanically admitted**). None
+is promoted as reader evidence.

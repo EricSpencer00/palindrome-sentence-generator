@@ -165,9 +165,12 @@
     "runs/scalable-compositional-grammar-20260916-luna.json",
     "runs/exact-tape-grammatical-resegmentation-20260916-luna.json",
     "runs/semantic-slot-substitution-repair-20260916-luna.json",
-    "runs/inflection-clitic-distinct-repair-20260916-luna.json"
+    "runs/inflection-clitic-distinct-repair-20260916-luna.json",
+    "runs/free-center-semantic-state-machine-20260916/run.json",
+    "runs/phrase-level-reverse-parser-20260916.json",
+    "runs/clause-equation-sat-20260916.json"
   ],
-  "candidate_count": 4583,
+  "candidate_count": 4594,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -500,6 +503,16 @@
       "max_letters": 28,
       "mean_zipf_frequency": 5.625142857142857,
       "mean_brown_order_gain_vs_shuffle": 1.0769265369711607
+    },
+    {
+      "source_run": "runs/clause-equation-sat-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 116,
+      "max_letters": 116,
+      "mean_zipf_frequency": 5.1454545454545455,
+      "mean_brown_order_gain_vs_shuffle": 0.6845420394527082
     },
     {
       "source_run": "runs/clause-growth-frame-repair-20260916.json",
@@ -840,6 +853,16 @@
       "max_letters": 109,
       "mean_zipf_frequency": 5.0677777777777795,
       "mean_brown_order_gain_vs_shuffle": 1.0384721533988195
+    },
+    {
+      "source_run": "runs/free-center-semantic-state-machine-20260916/run.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 138,
+      "max_letters": 138,
+      "mean_zipf_frequency": 5.1636000000000015,
+      "mean_brown_order_gain_vs_shuffle": 0.8759739045687329
     },
     {
       "source_run": "runs/fresh-typed-frame-live-seam-20260916.json",
@@ -1270,6 +1293,16 @@
       "max_letters": 81,
       "mean_zipf_frequency": 5.514222233420526,
       "mean_brown_order_gain_vs_shuffle": 1.3865138781299955
+    },
+    {
+      "source_run": "runs/phrase-level-reverse-parser-20260916.json",
+      "rows": 9,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 116,
+      "max_letters": 118,
+      "mean_zipf_frequency": 5.345445761967502,
+      "mean_brown_order_gain_vs_shuffle": 1.3046153485607888
     },
     {
       "source_run": "runs/pivot-paragraph-beam-20260916.json",
@@ -220374,6 +220407,452 @@
         "mean_zipf_frequency": 5.292222222222223,
         "word_count": 27,
         "repeated_word_rate": 0.11111111111111116,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful curator labels the faded coastal chart while a patient gardener waters the late seedlings beside the eastern greenhouse before the quiet harbor closes.",
+      "source_run": "runs/free-center-semantic-state-machine-20260916/run.json",
+      "provenance": {
+        "generator": "/Users/eric/GitHub/palindrome-sentence-generator/experiments/free_center_state_machine_20260916.py",
+        "generator_sha256": "11e93b0f52c94f40437273a413dacdce299ee1614475e2a4eed18c50f8addb4e",
+        "construction": "center-first; constituent-by-constituent outward growth"
+      },
+      "repair": null,
+      "letters": 138,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8759739045687329,
+        "mean_zipf_frequency": 5.1636000000000015,
+        "word_count": 25,
+        "repeated_word_rate": 0.16000000000000003,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient curator carries a folded map through the quiet museum hall. The patient curator carries a folded map through the quiet museum hall.",
+      "source_run": "runs/phrase-level-reverse-parser-20260916.json",
+      "provenance": "typed clause -> independent phrase parser -> mechanical audit",
+      "repair": null,
+      "letters": 118,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2123631828126467,
+        "mean_zipf_frequency": 5.334166666666667,
+        "word_count": 24,
+        "repeated_word_rate": 0.5416666666666667,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient curator carries a folded map through the quiet museum hall. A careful sailor records the changing tide beside the old harbor wall.",
+      "source_run": "runs/phrase-level-reverse-parser-20260916.json",
+      "provenance": "typed clause -> independent phrase parser -> mechanical audit",
+      "repair": null,
+      "letters": 117,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3249910888957555,
+        "mean_zipf_frequency": 5.335000000000001,
+        "word_count": 24,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient curator carries a folded map through the quiet museum hall. The young botanist studies a silver leaf beneath the northern window.",
+      "source_run": "runs/phrase-level-reverse-parser-20260916.json",
+      "provenance": "typed clause -> independent phrase parser -> mechanical audit",
+      "repair": null,
+      "letters": 117,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3432975024106852,
+        "mean_zipf_frequency": 5.3500000000000005,
+        "word_count": 23,
+        "repeated_word_rate": 0.17391304347826086,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A careful sailor records the changing tide beside the old harbor wall. The patient curator carries a folded map through the quiet museum hall.",
+      "source_run": "runs/phrase-level-reverse-parser-20260916.json",
+      "provenance": "typed clause -> independent phrase parser -> mechanical audit",
+      "repair": null,
+      "letters": 117,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1206965949102337,
+        "mean_zipf_frequency": 5.335,
+        "word_count": 24,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A careful sailor records the changing tide beside the old harbor wall. A careful sailor records the changing tide beside the old harbor wall.",
+      "source_run": "runs/phrase-level-reverse-parser-20260916.json",
+      "provenance": "typed clause -> independent phrase parser -> mechanical audit",
+      "repair": null,
+      "letters": 116,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.109613493938106,
+        "mean_zipf_frequency": 5.335833333333333,
+        "word_count": 24,
+        "repeated_word_rate": 0.5416666666666667,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A careful sailor records the changing tide beside the old harbor wall. The young botanist studies a silver leaf beneath the northern window.",
+      "source_run": "runs/phrase-level-reverse-parser-20260916.json",
+      "provenance": "typed clause -> independent phrase parser -> mechanical audit",
+      "repair": null,
+      "letters": 116,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2841933006937793,
+        "mean_zipf_frequency": 5.350869565217391,
+        "word_count": 23,
+        "repeated_word_rate": 0.17391304347826086,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young botanist studies a silver leaf beneath the northern window. The patient curator carries a folded map through the quiet museum hall.",
+      "source_run": "runs/phrase-level-reverse-parser-20260916.json",
+      "provenance": "typed clause -> independent phrase parser -> mechanical audit",
+      "repair": null,
+      "letters": 117,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5175167055127403,
+        "mean_zipf_frequency": 5.3500000000000005,
+        "word_count": 23,
+        "repeated_word_rate": 0.17391304347826086,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young botanist studies a silver leaf beneath the northern window. A careful sailor records the changing tide beside the old harbor wall.",
+      "source_run": "runs/phrase-level-reverse-parser-20260916.json",
+      "provenance": "typed clause -> independent phrase parser -> mechanical audit",
+      "repair": null,
+      "letters": 116,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4917465395609035,
+        "mean_zipf_frequency": 5.350869565217393,
+        "word_count": 23,
+        "repeated_word_rate": 0.17391304347826086,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young botanist studies a silver leaf beneath the northern window. The young botanist studies a silver leaf beneath the northern window.",
+      "source_run": "runs/phrase-level-reverse-parser-20260916.json",
+      "provenance": "typed clause -> independent phrase parser -> mechanical audit",
+      "repair": null,
+      "letters": 116,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3371197283122491,
+        "mean_zipf_frequency": 5.367272727272726,
+        "word_count": 22,
+        "repeated_word_rate": 0.5454545454545454,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "a patient cartographer charted a coastal inlet under a copper lamp; a careful mason carried the limestone steps through the narrow passage.",
+      "source_run": "runs/clause-equation-sat-20260916.json",
+      "provenance": {
+        "generator_sha256": "b6b160c81923f00bcd134593f98543c28be5672262576472de57baa251f4efac",
+        "independent_pointer_sha256": "f530dc7a2bf4c1116a6bea79270205ff59ab20bb7a24eea26aeb7b9c92dcebea",
+        "catalogue_import": false,
+        "known_palindrome_seeds": false,
+        "word_order_symmetry": false,
+        "duplicate_sweeps": false
+      },
+      "repair": null,
+      "letters": 116,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6845420394527082,
+        "mean_zipf_frequency": 5.1454545454545455,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

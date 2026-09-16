@@ -12,6 +12,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
+| `corpus-span-boundary-dp-20260916` | independently grammatical corpus spans indexed by reflected character boundaries and composed in clause frames | span-boundary composition with alternate-span repair | 0 base closures; alternate-span repair probes retained; 0 reader-eligible |
 | `paired-obligation-astar-20260916` | paired grammar-obligation A* with deferred terminal realization and an admissible character-mismatch bound | best-first obligation scheduling | 50,000 states; 0 terminal completions; 120 partial ordinary-order probes; 0 exact/admitted/reader rows |
 | `paired-obligation-astar-debt-repair-20260916` | same obligation frontier with one exposed mismatch carried as bounded construction debt until terminal exactness | bounded mismatch-debt repair | 50,000 states; 0 terminal completions; 120 partial ordinary-order probes; 0 exact/admitted/reader rows |
 | `corpus-neural-frame-realizer-20260916` | corpus-derived semantic frame planning with character-equation lexical realization and corpus-bigram ranking | semantic frame source and ranking | 6,840 frames; 4,961 independent pairs; 0 exact/admitted/reader rows (no neural model was used) |

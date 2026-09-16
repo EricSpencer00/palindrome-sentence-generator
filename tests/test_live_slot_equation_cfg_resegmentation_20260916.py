@@ -16,6 +16,10 @@ def test_novelty_preflight_and_run():
     assert repair["audit"]["independent_sha256"]
     assert repair["audit"]["mechanically_admitted"] is False
     assert repair["provenance"].startswith("held-out")
+    second=result["second_bounded_repair"]
+    assert second["operator"].startswith("single-heldout-object")
+    assert second["audit"]["independent_sha256"]
+    assert second["audit"]["mechanically_admitted"] is False
 
 def test_slot_equation_is_not_word_order_symmetry():
     source=mod.construct_slot_equation()

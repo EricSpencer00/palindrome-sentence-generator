@@ -21,6 +21,7 @@ FRAMES=(
  {"det":"the","agent":"quiet teacher","verb":"opens","object":"marked parcel","adjunct":"beside the gate"},
 )
 HELDOUT_REPAIR={"agent":"patient courier","verb":"delivers"}
+SECOND_REPAIR={"object":"sealed note","adjunct":"at sunrise"}
 LEX=("the","a","careful","quiet","courier","teacher","carries","opens","sealed","marked","letter","parcel","before","beside","dawn","gate")
 
 def novelty_preflight():
@@ -51,6 +52,17 @@ def heldout_repair():
     return {"operator":"single-heldout-agent-verb-pair-replacement","replacement":HELDOUT_REPAIR,
       "rendered":rendered,"letters":len(tape),"tape":tape,"exact":tape==tape[::-1],
       "provenance":"held-out agreement-compatible patient courier / delivers replacement; original frames otherwise frozen",
+      "audit":audit(rendered),"chart":boundary_chart(tape)}
+
+def object_adjunct_repair():
+    """Single fresh object/adjunct edit after the prior repair; no resweep."""
+    repaired=[dict(x) for x in FRAMES]
+    repaired[0]["agent"]=HELDOUT_REPAIR["agent"]; repaired[0]["verb"]=HELDOUT_REPAIR["verb"]
+    repaired[0]["object"]=SECOND_REPAIR["object"]; repaired[0]["adjunct"]=SECOND_REPAIR["adjunct"]
+    left,right=frame_text(repaired[0]),frame_text(repaired[1]); rendered=left+" "+right; tape=normalize_letters(rendered)
+    return {"operator":"single-heldout-object-adjunct-pair-replacement","replacement":SECOND_REPAIR,
+      "rendered":rendered,"letters":len(tape),"tape":tape,"exact":tape==tape[::-1],
+      "provenance":"fresh authored object/adjunct replacement after the prior held-out pair; all other slots frozen",
       "audit":audit(rendered),"chart":boundary_chart(tape)}
 
 def boundary_chart(tape):
@@ -88,7 +100,7 @@ def run():
  if pre["status"]!="passed": raise RuntimeError(pre)
  source=construct_slot_equation(); chart=boundary_chart(source["tape"])
  candidates=[audit(source["left_rendered"]),audit(source["right_rendered"]),audit(source["rendered"])]
- out={"experiment_id":EXPERIMENT_ID,"signature":SIGNATURE,"novelty_preflight":pre,"source":source,"boundary_chart":chart,"rendered_candidates":candidates,"bounded_repair":heldout_repair(),"next_repair":{"status":"required","operator":"replace exactly one object/adjunct slot pair with a fresh authored agreement-compatible alternative, re-solve obligations before charting","target":"lowest-overlap object slot after the held-out repair","reader_test":"blind intact-prose versus shuffled controls only after mechanically admitted exact candidate"}}
+ out={"experiment_id":EXPERIMENT_ID,"signature":SIGNATURE,"novelty_preflight":pre,"source":source,"boundary_chart":chart,"rendered_candidates":candidates,"bounded_repair":heldout_repair(),"second_bounded_repair":object_adjunct_repair(),"next_repair":{"status":"required","operator":"author a new finite verb/adjunct pair and re-solve the live equations before charting","target":"remaining highest character debt","reader_test":"blind intact-prose versus shuffled controls only after mechanically admitted exact candidate"}}
  OUT.write_text(json.dumps(out,indent=2)+"\n"); return out
 
 if __name__=="__main__": print(json.dumps(run(),indent=2))

@@ -1,0 +1,131 @@
+{
+  "experiment": "induced-grammar-reverse-decoder-20260916",
+  "signature": "corpus-induced-pos-shapes|held-out-semantic-frames|neural-free-reverse-tape-decoder|fresh-lexical-realization|boundary-span-repair|independent-audit",
+  "generator_sha256": "d61df7efb9dc85025d16dd9b927e985af9ef2c662fa12a805a9e2fd13b8f5a05",
+  "induced_grammar": {
+    "source": "NLTK Brown sentence-shape counts",
+    "shapes": {
+      "DET NOUN VERB DET ADJ NOUN PREP NOUN": 1284,
+      "DET NOUN VERB DET ADJ NOUN PREP NOUN ADV": 317
+    },
+    "held_out_frames": 4
+  },
+  "candidates": [
+    {
+      "text": "the medic checks a sealed parcel at noon. At noon a sealed parcel checks the medic.",
+      "audit": {
+        "text": "the medic checks a sealed parcel at noon. At noon a sealed parcel checks the medic.",
+        "letters": 66,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "induced-pos-shape|held-out-semantic-frame",
+      "decoder": "reverse tape lexical span assignment"
+    },
+    {
+      "text": "a sailor keeps the quiet journal near shore. Near shore the quiet journal keeps a sailor.",
+      "audit": {
+        "text": "a sailor keeps the quiet journal near shore. Near shore the quiet journal keeps a sailor.",
+        "letters": 72,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "induced-pos-shape|held-out-semantic-frame",
+      "decoder": "reverse tape lexical span assignment"
+    },
+    {
+      "text": "the artist carries a silver lantern after rain. After rain a silver lantern carries the artist.",
+      "audit": {
+        "text": "the artist carries a silver lantern after rain. After rain a silver lantern carries the artist.",
+        "letters": 78,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "induced-pos-shape|held-out-semantic-frame",
+      "decoder": "reverse tape lexical span assignment"
+    },
+    {
+      "text": "a teacher opens the green cabinet by dawn. By dawn the green cabinet opens a teacher.",
+      "audit": {
+        "text": "a teacher opens the green cabinet by dawn. By dawn the green cabinet opens a teacher.",
+        "letters": 68,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "induced-pos-shape|held-out-semantic-frame",
+      "decoder": "reverse tape lexical span assignment"
+    }
+  ],
+  "repair": [
+    {
+      "text": "the medic checks a sealed parcel at noon. At noon a sealed parcel checks the medic.",
+      "audit": {
+        "text": "the medic checks a sealed parcel at noon. At noon a sealed parcel checks the medic.",
+        "letters": 66,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "induced-pos-shape|held-out-semantic-frame|reverse-debt-repair",
+      "repair": "replace lexical span at first reverse-debt boundary"
+    },
+    {
+      "text": "a sailor keeps the calm journal near shore. Near shore the quiet journal keeps a sailor.",
+      "audit": {
+        "text": "a sailor keeps the calm journal near shore. Near shore the quiet journal keeps a sailor.",
+        "letters": 71,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "induced-pos-shape|held-out-semantic-frame|reverse-debt-repair",
+      "repair": "replace lexical span at first reverse-debt boundary"
+    },
+    {
+      "text": "the artist carries a silver lantern after rain. After rain a silver lantern carries the artist.",
+      "audit": {
+        "text": "the artist carries a silver lantern after rain. After rain a silver lantern carries the artist.",
+        "letters": 78,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "induced-pos-shape|held-out-semantic-frame|reverse-debt-repair",
+      "repair": "replace lexical span at first reverse-debt boundary"
+    },
+    {
+      "text": "a teacher opens the green cabinet by dawn. By dawn the green cabinet opens a teacher.",
+      "audit": {
+        "text": "a teacher opens the green cabinet by dawn. By dawn the green cabinet opens a teacher.",
+        "letters": 68,
+        "exact": false,
+        "complete_sentence": true,
+        "no_repeated_units": false,
+        "borrowed_catalogue": false,
+        "reader_eligible": false
+      },
+      "provenance": "induced-pos-shape|held-out-semantic-frame|reverse-debt-repair",
+      "repair": "replace lexical span at first reverse-debt boundary"
+    }
+  ],
+  "exact_count": 0,
+  "provenance": "corpus used only for grammar-shape counts; no source sentence emitted"
+}

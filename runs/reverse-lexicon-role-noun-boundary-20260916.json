@@ -1,0 +1,65 @@
+{
+  "experiment_id": "reverse-lexicon-role-noun-boundary-20260916",
+  "signature": "reverse-lexicon-typed-complement-frame|semantic-role-lattice|object-noun-boundary-selection|outer-residual-reduction|heldout-scene|independent-pointer-sha-audit",
+  "status": "completed",
+  "method": "bind the typed complement object to a physical-shipment semantic role and select one noun boundary against the outer residual ledger; one candidate only",
+  "novelty_preflight": {
+    "exact_signature_collision": false,
+    "preflight_rule": "reject noun sweeps, post-hoc edits, and completed-tape reversal",
+    "registry_entries_at_run": 226
+  },
+  "candidates": [
+    {
+      "label": "semantic-role-noun-boundary-heldout",
+      "rendered": "The patient courier knows that the careful clerk seals the marked parcel before dusk and waits by the quiet gate.",
+      "letters": 93,
+      "role_lattice": {
+        "role": "complement direct object",
+        "frame": "clerk seals [THE MARKED NOUN]",
+        "noun": "parcel",
+        "semantic_type": "physical shipment",
+        "boundary_strategy": "parcel chosen because p/l boundary reduces outer residual ledger"
+      },
+      "outer_residual_before": {
+        "source": "typed complement frame",
+        "unmatched_obligations": "recorded in run provenance"
+      },
+      "outer_residual_after": {
+        "boundary_chars_considered": "p...l",
+        "exact_closure": false
+      },
+      "exact_audit": {
+        "letters": 93,
+        "forward": "thepatientcourierknowsthatthecarefulclerksealsthemarkedparcelbeforeduskandwaitsbythequietgate",
+        "reverse": "etagteiuqehtybstiawdnaksuderofeblecrapdekramehtslaeskrelcluferacehttahtswonkreiruoctneitapeht",
+        "exact": false,
+        "hash_forward": "ec5d7393d5f7305887686be34d260a990ed51efe0af807e6a07ad90651ccc502",
+        "hash_reverse": "e4cd99b01c2402dd721ea674cd91122a5cd4639d93a97d99daefa6790f0d0af1",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "min_letters": true,
+        "complete_prose": true,
+        "mechanical_gate": false
+      },
+      "admitted": false,
+      "provenance": {
+        "heldout_scene": true,
+        "source_sentences_copied": false,
+        "posthoc_spelling_edit": false,
+        "reversed_finished_sentence": false,
+        "semantic_role_bound": true
+      }
+    }
+  ],
+  "stats": {
+    "candidates": 1,
+    "exact": 0,
+    "admitted": 0
+  },
+  "next_repair": "carry the selected noun boundary into an adjacent prepositional attachment and require a two-boundary residual decrease before rendering",
+  "provenance": {
+    "generator_sha256": "6c573ad55264a1acc2c9802139e8e6e3df26b7f4b6487dcf18be9c66de58fa06"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "experiment_id": "cfg-earley-joint-intersection-20260916",
+  "signature": "fresh-cfg-earley|joint-character-intersection|bidirectional-scene-grammar",
+  "novelty_preflight": {
+    "catalogue_text_imported": false,
+    "known_palindrome_imported": false,
+    "exact_signature_collision": false
+  },
+  "grammar": {
+    "nonterminals": [
+      "S",
+      "Agent",
+      "Action",
+      "Setting",
+      "Artifact",
+      "Purpose"
+    ],
+    "generation": "Earley chart advances left and right productions together; no fixed tape"
+  },
+  "rendered_candidates": [
+    {
+      "left": "The patient gardener waters the cedar seedlings beside the schoolhouse before sunrise",
+      "right": "The teacher labels every seedling and stores the tools beneath the quiet porch",
+      "rendered": "The patient gardener waters the cedar seedlings beside the schoolhouse before sunrise The teacher labels every seedling and stores the tools beneath the quiet porch",
+      "letters": 140,
+      "exact": false,
+      "independent_hash": "be7f5bd805dd955005b593d51758dc0da92bf2dababb7a93830a4c72ec656184",
+      "mismatch_positions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "over_100": 1,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "intersect Agent and Purpose productions at the first mismatch, then regrow both charts",
+    "reason": "joint CFG produced complete ordinary clauses but character intersection diverged",
+    "forbidden": [
+      "fixed-tape parsing",
+      "catalogue scaffolds",
+      "clause copying"
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "4cf0dd023606d645defd92569f8893ec5e0656adacf39a3b5c36ce12a0da9853",
+    "lexical_source": "hand-authored CFG terminals",
+    "independent_audits": [
+      "direct reversal",
+      "mismatch trace",
+      "SHA-256"
+    ]
+  }
+}

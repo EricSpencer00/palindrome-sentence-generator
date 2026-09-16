@@ -1,6 +1,8 @@
 """Fresh joint CFG/Earley-style character intersection probe."""
 import hashlib,json
 from pathlib import Path
+import sys
+sys.path.insert(0,str(Path(__file__).resolve().parents[1]))
 from llm_palindrome.admission import normalize_letters,mechanical_admission_checks
 ROOT=Path(__file__).resolve().parents[1]; ID='cfg-earley-joint-intersection-20260916'
 PAIRS=[('The patient gardener waters the cedar seedlings beside the schoolhouse before sunrise','The teacher labels every seedling and stores the tools beneath the quiet porch')]

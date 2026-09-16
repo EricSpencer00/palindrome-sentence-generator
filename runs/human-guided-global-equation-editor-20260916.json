@@ -1,0 +1,4246 @@
+{
+  "experiment": "human-guided-global-equation-editor-20260916",
+  "signature": "human-authored-long-scene|global-clause-equation-editor|joint-lexical-tense-punctuation-state|semantic-invariance-ledger|independent-exact-admission-readability-audit",
+  "status": "complete_global_scene_search",
+  "novelty_preflight": {
+    "entries_inspected": 175,
+    "exact_signature_collisions_before_run": [],
+    "related_global_character_families": [
+      "lexical-chain-walk",
+      "cp-semantic-grammar-palindrome",
+      "maxsat-semantic-grammar-20260916"
+    ],
+    "passed": true,
+    "state_space_distinction": "joint scene-wide clause realization plus one scene-wide tense and punctuation state; no reflected text or local window repair"
+  },
+  "human_seed": {
+    "id": "archive-morning",
+    "meaning": "Before sunrise, an archivist opens a wooden chest, reads its old journal, explains a ferry delay to an assistant, and waits while the river boat arrives.",
+    "seed": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late."
+  },
+  "clause_count": 4,
+  "state_dimensions": {
+    "clause_realizations": 81,
+    "tense_states": 2,
+    "punctuation_states": 4
+  },
+  "states_examined": 648,
+  "exact_count": 0,
+  "mechanically_admitted_count": 0,
+  "independent_exact_agreement_count": 648,
+  "independent_admission_agreement_count": 648,
+  "best_rendered_candidates": [
+    {
+      "rank": 1,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest \u2014 examines the marked ledger beside the door, and explains the delay to the young helper, since the morning boat arrives late.",
+      "letters": 155,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          2,
+          0,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "dash"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 77,
+        "matching_pairs": 13,
+        "mismatch_pairs": 64,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.16883116883116883
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 155
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 155,
+        "mismatch_count": 64,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.498750000000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 2,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest, examines the marked ledger beside the door, and explains the delay to the young helper, since the morning boat arrives late.",
+      "letters": 155,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          2,
+          0,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "comma"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 77,
+        "matching_pairs": 13,
+        "mismatch_pairs": 64,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.16883116883116883
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 155
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 155,
+        "mismatch_count": 64,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.498750000000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 3,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest: examines the marked ledger beside the door, and explains the delay to the young helper, since the morning boat arrives late.",
+      "letters": 155,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          2,
+          0,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "colon"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 77,
+        "matching_pairs": 13,
+        "mismatch_pairs": 64,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.16883116883116883
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 155
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 155,
+        "mismatch_count": 64,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.498750000000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 4,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest; examines the marked ledger beside the door, and explains the delay to the young helper, since the morning boat arrives late.",
+      "letters": 155,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          2,
+          0,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "semicolon"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 77,
+        "matching_pairs": 13,
+        "mismatch_pairs": 64,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.16883116883116883
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 155
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 155,
+        "mismatch_count": 64,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.498750000000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 5,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest \u2014 reads the old journal by the window, and explains the delay to the young helper, since the morning boat arrives late.",
+      "letters": 148,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "dash"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 74,
+        "matching_pairs": 12,
+        "mismatch_pairs": 62,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.16216216216216217
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 148
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 148,
+        "mismatch_count": 62,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.666875000000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 6,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest, reads the old journal by the window, and explains the delay to the young helper, since the morning boat arrives late.",
+      "letters": 148,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "comma"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 74,
+        "matching_pairs": 12,
+        "mismatch_pairs": 62,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.16216216216216217
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 148
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 148,
+        "mismatch_count": 62,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.666875000000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 7,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest: reads the old journal by the window, and explains the delay to the young helper, since the morning boat arrives late.",
+      "letters": 148,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "colon"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 74,
+        "matching_pairs": 12,
+        "mismatch_pairs": 62,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.16216216216216217
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 148
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 148,
+        "mismatch_count": 62,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.666875000000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 8,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest; reads the old journal by the window, and explains the delay to the young helper, since the morning boat arrives late.",
+      "letters": 148,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          0,
+          0,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "semicolon"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 74,
+        "matching_pairs": 12,
+        "mismatch_pairs": 62,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.16216216216216217
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 148
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 148,
+        "mismatch_count": 62,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.666875000000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 9,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest \u2014 studies the faded journal near the window, and explains the delay to the young helper, since the morning boat arrives late.",
+      "letters": 154,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "dash"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 77,
+        "matching_pairs": 11,
+        "mismatch_pairs": 66,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.14285714285714285
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 154
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 154,
+        "mismatch_count": 66,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.583750000000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 10,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest, studies the faded journal near the window, and explains the delay to the young helper, since the morning boat arrives late.",
+      "letters": 154,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "comma"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 77,
+        "matching_pairs": 11,
+        "mismatch_pairs": 66,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.14285714285714285
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 154
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 154,
+        "mismatch_count": 66,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.583750000000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 11,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest: studies the faded journal near the window, and explains the delay to the young helper, since the morning boat arrives late.",
+      "letters": 154,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "colon"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 77,
+        "matching_pairs": 11,
+        "mismatch_pairs": 66,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.14285714285714285
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 154
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 154,
+        "mismatch_count": 66,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.583750000000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 12,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest; studies the faded journal near the window, and explains the delay to the young helper, since the morning boat arrives late.",
+      "letters": 154,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          1,
+          0,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "semicolon"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 77,
+        "matching_pairs": 11,
+        "mismatch_pairs": 66,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.14285714285714285
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 154
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 154,
+        "mismatch_count": 66,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.583750000000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 13,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest \u2014 examines the marked ledger beside the door, and describes the delay to the new assistant, since the morning boat arrives late.",
+      "letters": 157,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          2,
+          2,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "dash"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 78,
+        "matching_pairs": 11,
+        "mismatch_pairs": 67,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.14102564102564102
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 157
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 157,
+        "mismatch_count": 67,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.564687500000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 14,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest, examines the marked ledger beside the door, and describes the delay to the new assistant, since the morning boat arrives late.",
+      "letters": 157,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          2,
+          2,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "comma"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 78,
+        "matching_pairs": 11,
+        "mismatch_pairs": 67,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.14102564102564102
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 157
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 157,
+        "mismatch_count": 67,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.564687500000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 15,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest: examines the marked ledger beside the door, and describes the delay to the new assistant, since the morning boat arrives late.",
+      "letters": 157,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          2,
+          2,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "colon"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 78,
+        "matching_pairs": 11,
+        "mismatch_pairs": 67,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.14102564102564102
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 157
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 157,
+        "mismatch_count": 67,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.564687500000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 16,
+      "rendered": "At first light, the quiet archivist opens the narrow wooden chest; examines the marked ledger beside the door, and describes the delay to the new assistant, since the morning boat arrives late.",
+      "letters": 157,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          2,
+          2,
+          1
+        ],
+        "tense": "present",
+        "punctuation_policy": "semicolon"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 78,
+        "matching_pairs": 11,
+        "mismatch_pairs": 67,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.14102564102564102
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 157
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 157,
+        "mismatch_count": 67,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": true,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.564687500000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.1875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 17,
+      "rendered": "At first light, the quiet archivist opened the narrow wooden chest \u2014 studied the faded journal near the window, then told the waiting helper about the late ferry, since the morning boat arrived late.",
+      "letters": 161,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "tense": "past",
+        "punctuation_policy": "dash"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 80,
+        "matching_pairs": 11,
+        "mismatch_pairs": 69,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.1375
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 161
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 161,
+        "mismatch_count": 69,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": false,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": false,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 33,
+        "mean_zipf_frequency": 5.534242424242425,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.21212121212121215,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 18,
+      "rendered": "At first light, the quiet archivist opened the narrow wooden chest, studied the faded journal near the window, then told the waiting helper about the late ferry, since the morning boat arrived late.",
+      "letters": 161,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "tense": "past",
+        "punctuation_policy": "comma"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 80,
+        "matching_pairs": 11,
+        "mismatch_pairs": 69,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.1375
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 161
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 161,
+        "mismatch_count": 69,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": false,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": false,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 33,
+        "mean_zipf_frequency": 5.534242424242425,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.21212121212121215,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 19,
+      "rendered": "At first light, the quiet archivist opened the narrow wooden chest: studied the faded journal near the window, then told the waiting helper about the late ferry, since the morning boat arrived late.",
+      "letters": 161,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "tense": "past",
+        "punctuation_policy": "colon"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 80,
+        "matching_pairs": 11,
+        "mismatch_pairs": 69,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.1375
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 161
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 161,
+        "mismatch_count": 69,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": false,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": false,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 33,
+        "mean_zipf_frequency": 5.534242424242425,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.21212121212121215,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 20,
+      "rendered": "At first light, the quiet archivist opened the narrow wooden chest; studied the faded journal near the window, then told the waiting helper about the late ferry, since the morning boat arrived late.",
+      "letters": 161,
+      "edit_state": {
+        "clause_indices": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "tense": "past",
+        "punctuation_policy": "semicolon"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 80,
+        "matching_pairs": 11,
+        "mismatch_pairs": 69,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.1375
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 161
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 161,
+        "mismatch_count": 69,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "i",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "offset": 12,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": false,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": false,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 33,
+        "mean_zipf_frequency": 5.534242424242425,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.21212121212121215,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 21,
+      "rendered": "Before dawn, the patient curator unlatched the little cedar chest \u2014 studied the faded journal near the window, then told the waiting helper about the late ferry, since the morning boat arrived late.",
+      "letters": 161,
+      "edit_state": {
+        "clause_indices": [
+          2,
+          1,
+          1,
+          1
+        ],
+        "tense": "past",
+        "punctuation_policy": "dash"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 80,
+        "matching_pairs": 11,
+        "mismatch_pairs": 69,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.1375
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 161
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 161,
+        "mismatch_count": 69,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "b",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "o",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 6,
+            "left": "d",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "w",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "n",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 11,
+            "left": "h",
+            "right": "t"
+          },
+          {
+            "offset": 12,
+            "left": "e",
+            "right": "a"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": false,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": false,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.415312500000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.21875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 22,
+      "rendered": "Before dawn, the patient curator unlatched the little cedar chest, studied the faded journal near the window, then told the waiting helper about the late ferry, since the morning boat arrived late.",
+      "letters": 161,
+      "edit_state": {
+        "clause_indices": [
+          2,
+          1,
+          1,
+          1
+        ],
+        "tense": "past",
+        "punctuation_policy": "comma"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 80,
+        "matching_pairs": 11,
+        "mismatch_pairs": 69,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.1375
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 161
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 161,
+        "mismatch_count": 69,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "b",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "o",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 6,
+            "left": "d",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "w",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "n",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 11,
+            "left": "h",
+            "right": "t"
+          },
+          {
+            "offset": 12,
+            "left": "e",
+            "right": "a"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": false,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": false,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.415312500000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.21875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 23,
+      "rendered": "Before dawn, the patient curator unlatched the little cedar chest: studied the faded journal near the window, then told the waiting helper about the late ferry, since the morning boat arrived late.",
+      "letters": 161,
+      "edit_state": {
+        "clause_indices": [
+          2,
+          1,
+          1,
+          1
+        ],
+        "tense": "past",
+        "punctuation_policy": "colon"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 80,
+        "matching_pairs": 11,
+        "mismatch_pairs": 69,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.1375
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 161
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 161,
+        "mismatch_count": 69,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "b",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "o",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 6,
+            "left": "d",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "w",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "n",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 11,
+            "left": "h",
+            "right": "t"
+          },
+          {
+            "offset": 12,
+            "left": "e",
+            "right": "a"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": false,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": false,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.415312500000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.21875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    },
+    {
+      "rank": 24,
+      "rendered": "Before dawn, the patient curator unlatched the little cedar chest; studied the faded journal near the window, then told the waiting helper about the late ferry, since the morning boat arrived late.",
+      "letters": 161,
+      "edit_state": {
+        "clause_indices": [
+          2,
+          1,
+          1,
+          1
+        ],
+        "tense": "past",
+        "punctuation_policy": "semicolon"
+      },
+      "semantic_ledger": [
+        {
+          "clause": "open-chest",
+          "role": "main_event",
+          "meaning": "the archivist opens a wooden chest before sunrise"
+        },
+        {
+          "clause": "read-journal",
+          "role": "evidence_event",
+          "meaning": "the archivist reads the journal near a window"
+        },
+        {
+          "clause": "explain-delay",
+          "role": "communication_event",
+          "meaning": "the archivist explains the delay to an assistant"
+        },
+        {
+          "clause": "ferry-delay",
+          "role": "cause_event",
+          "meaning": "the river ferry is late"
+        }
+      ],
+      "seed_id": "archive-morning",
+      "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+      "equation_ledger": {
+        "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+        "positions_checked": 80,
+        "matching_pairs": 11,
+        "mismatch_pairs": 69,
+        "first_mismatch_offset": 0,
+        "match_rate": 0.1375
+      },
+      "exact_check_1": {
+        "algorithm": "normalized_tape_equals_reverse_slice",
+        "exact": false,
+        "letters": 161
+      },
+      "exact_check_2": {
+        "algorithm": "independent_two_pointer_scan",
+        "exact": false,
+        "letters": 161,
+        "mismatch_count": 69,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "b",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "offset": 2,
+            "left": "f",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "o",
+            "right": "l"
+          },
+          {
+            "offset": 4,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 6,
+            "left": "d",
+            "right": "v"
+          },
+          {
+            "offset": 7,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "offset": 8,
+            "left": "w",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "n",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "t",
+            "right": "a"
+          },
+          {
+            "offset": 11,
+            "left": "h",
+            "right": "t"
+          },
+          {
+            "offset": 12,
+            "left": "e",
+            "right": "a"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "algorithm": "independent_scene_shape_and_content_scan",
+        "ascii_letters_only": true,
+        "four_clause_shape": true,
+        "complete_terminal_punctuation": true,
+        "at_least_twelve_words": true,
+        "content_words_unique": false,
+        "not_word_order_mirror": true
+      },
+      "independent_admission_pass": false,
+      "admission_agreement": true,
+      "mechanically_admitted": false,
+      "readability_evidence": {
+        "diagnostic_not_human_readability": true,
+        "word_count": 32,
+        "mean_zipf_frequency": 5.415312500000001,
+        "punctuation_segments": 1,
+        "repeated_word_rate": 0.21875,
+        "reader_status": "not_run; requires frozen randomized blinded human study"
+      },
+      "provenance": {
+        "source": "human-authored coherent scene",
+        "catalogue_text_used": false,
+        "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+        "word_order_mirrored": false,
+        "pre_existing_palindrome_wrapped": false,
+        "semantic_preservation": true
+      }
+    }
+  ],
+  "seed_baseline": {
+    "rank": 0,
+    "rendered": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+    "letters": 147,
+    "edit_state": {
+      "seed": true,
+      "tense": "past",
+      "punctuation_policy": "comma"
+    },
+    "semantic_ledger": [
+      {
+        "clause": "open-chest",
+        "role": "main_event",
+        "meaning": "the archivist opens a wooden chest before sunrise"
+      },
+      {
+        "clause": "read-journal",
+        "role": "evidence_event",
+        "meaning": "the archivist reads the journal near a window"
+      },
+      {
+        "clause": "explain-delay",
+        "role": "communication_event",
+        "meaning": "the archivist explains the delay to an assistant"
+      },
+      {
+        "clause": "ferry-delay",
+        "role": "cause_event",
+        "meaning": "the river ferry is late"
+      }
+    ],
+    "seed_id": "archive-morning",
+    "seed_text": "Before sunrise, the careful keeper unlocked the small wooden chest, read the old journal by the window, and explained the delay to the young helper because the river ferry was late.",
+    "equation_ledger": {
+      "equation": "x[i] = x[N-1-i] for every character position in the rendered scene",
+      "positions_checked": 73,
+      "matching_pairs": 3,
+      "mismatch_pairs": 70,
+      "first_mismatch_offset": 0,
+      "match_rate": 0.0410958904109589
+    },
+    "exact_check_1": {
+      "algorithm": "normalized_tape_equals_reverse_slice",
+      "exact": false,
+      "letters": 147
+    },
+    "exact_check_2": {
+      "algorithm": "independent_two_pointer_scan",
+      "exact": false,
+      "letters": 147,
+      "mismatch_count": 70,
+      "mismatches": [
+        {
+          "offset": 0,
+          "left": "b",
+          "right": "e"
+        },
+        {
+          "offset": 1,
+          "left": "e",
+          "right": "t"
+        },
+        {
+          "offset": 2,
+          "left": "f",
+          "right": "a"
+        },
+        {
+          "offset": 3,
+          "left": "o",
+          "right": "l"
+        },
+        {
+          "offset": 4,
+          "left": "r",
+          "right": "s"
+        },
+        {
+          "offset": 5,
+          "left": "e",
+          "right": "a"
+        },
+        {
+          "offset": 6,
+          "left": "s",
+          "right": "w"
+        },
+        {
+          "offset": 7,
+          "left": "u",
+          "right": "y"
+        },
+        {
+          "offset": 8,
+          "left": "n",
+          "right": "r"
+        },
+        {
+          "offset": 10,
+          "left": "i",
+          "right": "e"
+        },
+        {
+          "offset": 11,
+          "left": "s",
+          "right": "f"
+        },
+        {
+          "offset": 12,
+          "left": "e",
+          "right": "r"
+        }
+      ]
+    },
+    "independent_exact_agreement": true,
+    "central_admission": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "independent_admission": {
+      "algorithm": "independent_scene_shape_and_content_scan",
+      "ascii_letters_only": true,
+      "four_clause_shape": true,
+      "complete_terminal_punctuation": true,
+      "at_least_twelve_words": true,
+      "content_words_unique": true,
+      "not_word_order_mirror": true
+    },
+    "independent_admission_pass": true,
+    "admission_agreement": true,
+    "mechanically_admitted": false,
+    "readability_evidence": {
+      "diagnostic_not_human_readability": true,
+      "word_count": 31,
+      "mean_zipf_frequency": 5.74258064516129,
+      "punctuation_segments": 1,
+      "repeated_word_rate": 0.19354838709677424,
+      "reader_status": "not_run; requires frozen randomized blinded human study"
+    },
+    "provenance": {
+      "source": "human-authored coherent scene",
+      "catalogue_text_used": false,
+      "catalogue_lookup_used_only_for_shared_exclusion_gate": true,
+      "word_order_mirrored": false,
+      "pre_existing_palindrome_wrapped": false,
+      "semantic_preservation": true
+    }
+  },
+  "failure_evidence": {
+    "all_states_retained_in_summary": true,
+    "next_operator": "author a new semantic scene or enlarge held-out clause realizations; do not wrap this scene around a known palindrome"
+  },
+  "readability_evidence": {
+    "status": "diagnostic_not_human_readability_result",
+    "candidate_rows": 24,
+    "reader_eligible_count": 0,
+    "method": "word frequency, word repetition, punctuation-shape diagnostics; no human readers run"
+  },
+  "provenance": {
+    "generator_sha256": "11dbb6455ccbab0a5d5fae94a843e1eb907bdffa034360d133283597e37bf102",
+    "registry_sha256": "3286e3c2545b6006b795d5ed2344f719f6ff785baa4e9062439b024fa9cb283d",
+    "catalogue_or_corpus_import": false,
+    "word_order_symmetry_used": false,
+    "pre_existing_palindrome_wrapped": false
+  }
+}

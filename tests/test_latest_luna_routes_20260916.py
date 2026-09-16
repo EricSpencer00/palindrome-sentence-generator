@@ -6,6 +6,8 @@ are preserved, but no route is promoted without an exact closure and readers.
 from __future__ import annotations
 
 import json
+import hashlib
+import re
 from pathlib import Path
 
 
@@ -68,6 +70,17 @@ def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
                for row in report["rows"])
     assert len(report["route_summary"]) == 45
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
+
+
+def test_parallel_report_recomputes_every_tape_and_hash_independently():
+    report = load("parallel-luna-readability-diagnostics-20260916.json")
+    for row in report["rows"]:
+        tape = "".join(re.findall(r"[A-Za-z]", row["rendered"])).lower()
+        exact = bool(tape) and tape == tape[::-1]
+        hashed = bool(tape) and hashlib.sha256(tape.encode()).hexdigest() == hashlib.sha256(tape[::-1].encode()).hexdigest()
+        assert row["letters"] == len(tape)
+        assert row["exact_letter_palindrome"] is exact
+        assert row["independent_sha256_exact"] is hashed
 
 
 def test_heldout_boundary_decoder_keeps_resegmentation_repairs_unadmitted():

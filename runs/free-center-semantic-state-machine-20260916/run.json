@@ -1,0 +1,105 @@
+{
+  "id": "free-center-semantic-state-machine-20260916",
+  "status": "diagnostic_no_exact_closure",
+  "text": "The careful curator labels the faded coastal chart while a patient gardener waters the late seedlings beside the eastern greenhouse before the quiet harbor closes.",
+  "letters": 138,
+  "complete_prose": true,
+  "center": {
+    "token": "while",
+    "selected_before_clauses": true,
+    "free": true
+  },
+  "grammar": {
+    "subject_number": "singular",
+    "subject_role": "agent",
+    "object_role": "patient",
+    "tense": "present"
+  },
+  "live_obligations": [
+    {
+      "left_constituent": "The careful curator",
+      "right_constituent": "a patient gardener",
+      "role": "agent",
+      "required_boundary_pair": [
+        "r",
+        "a"
+      ]
+    },
+    {
+      "left_constituent": "labels",
+      "right_constituent": "waters",
+      "role": "predicate",
+      "required_boundary_pair": [
+        "s",
+        "w"
+      ]
+    },
+    {
+      "left_constituent": "the faded coastal chart",
+      "right_constituent": "the late seedlings",
+      "role": "patient",
+      "required_boundary_pair": [
+        "t",
+        "t"
+      ]
+    },
+    {
+      "left_constituent": "before the quiet harbor closes",
+      "right_constituent": "beside the eastern greenhouse",
+      "role": "adjunct",
+      "required_boundary_pair": [
+        "s",
+        "b"
+      ]
+    }
+  ],
+  "audits": {
+    "two_pointer": {
+      "exact": false,
+      "letters": 138,
+      "first_mismatch": {
+        "index": 0,
+        "left": "t",
+        "right": "s"
+      }
+    },
+    "independent_pointer_sha": {
+      "forward": "fcc6079f6376338d82ee0c99b935d6ddbeedfb50da0577e0d4a7693ae1cc73a4",
+      "reverse": "da56c8689b844c872a1372629117e354611fedab7dd46f26f9486b69fd8925bd",
+      "exact": false
+    }
+  },
+  "mechanical_gates": {
+    "supported_ascii_letters": true,
+    "nonempty": true,
+    "exact_letter_palindrome": false,
+    "length_band": true,
+    "word_form": true,
+    "lexicon_words": true,
+    "ordinary_short_words": true,
+    "distinct_words": true,
+    "no_self_palindromic_word": true,
+    "not_word_order_symmetry": true,
+    "no_repeated_nontrivial_unit": true,
+    "no_self_palindromic_proper_multiword_span": true,
+    "not_forbidden_catalogue_control": true,
+    "not_catalogue_family_derivative": true,
+    "not_forbidden_catalogue_endpoint_scaffold": true,
+    "absent_from_local_catalogue": true,
+    "local_catalogue_absent": true
+  },
+  "novelty_preflight": {
+    "registry_checked": true,
+    "catalogue_text_imported": false,
+    "known_seed_used": false,
+    "duplicate_sweep": false,
+    "unique_units": false
+  },
+  "provenance": {
+    "generator": "/Users/eric/GitHub/palindrome-sentence-generator/experiments/free_center_state_machine_20260916.py",
+    "generator_sha256": "11e93b0f52c94f40437273a413dacdce299ee1614475e2a4eed18c50f8addb4e",
+    "construction": "center-first; constituent-by-constituent outward growth"
+  },
+  "exact_debt": "center pivot leaves first mismatch at the outer boundary; obligations remain live rather than repaired post-hoc",
+  "next_repair": "author one fresh patient-role complement whose first letter satisfies the oldest live obligation while preserving singular agreement."
+}

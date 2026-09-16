@@ -1,0 +1,3714 @@
+{
+  "experiment_id": "morphology-first-dependency-lattice-derivational-repair-20260916",
+  "family_id": "morphology-first-dependency-lattice",
+  "repair_of": "morphology-first-dependency-lattice-20260916",
+  "state_space_signature": "morphology-first-dependency-lattice|lemma-derivation-inflection-path|typed-dependency-tree-yield|node-local-morphological-unification|whole-yield-palindrome-audit",
+  "status": "completed",
+  "method": "Expand node-local derivation and inflection paths, enumerate richer valid dependency trees, unify agreement, render ordinary order, and independently audit complete yields.",
+  "novelty_preflight": {
+    "registry_entries_read": 95,
+    "same_family_base": true,
+    "same_family_signature": [
+      "morphology-first-dependency-lattice-20260916"
+    ],
+    "foreign_signature_collision": [],
+    "foreign_artifact_collision": [],
+    "status": "same_family_repair",
+    "excluded_families": [
+      "center-out",
+      "reverse-segmentation",
+      "grammar-template",
+      "MCTS",
+      "beam",
+      "clause-product"
+    ]
+  },
+  "config": {
+    "tree_count": 6,
+    "known_catalogue_imported_for_generation": false,
+    "known_catalogue_used_only_for_admission": true,
+    "reverse_emission": false,
+    "center_out_search": false,
+    "reader_gate_required": true
+  },
+  "stats": {
+    "tree_count": 6,
+    "raw_yields": 24570,
+    "exact_yields": 0,
+    "catalogue_rejects": 0,
+    "symmetry_rejects": 0,
+    "mechanically_admitted": 0,
+    "per_tree_yields": {
+      "agent_transitive": 2835,
+      "plural_transitive": 1890,
+      "passive_agent": 5670,
+      "progressive_event": 4536,
+      "relative_modifier": 5670,
+      "imperative_derivational": 3969
+    }
+  },
+  "exact_candidates_and_negative_evidence": [],
+  "negative_evidence_near_misses": [
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher carries a map.",
+      "audit": {
+        "exact": false,
+        "letters": 19,
+        "normalized_tape": "ateachercarriesamap",
+        "mismatch_count": 7,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "p"
+          },
+          {
+            "left": 1,
+            "right": 17,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 16,
+            "left_char": "e",
+            "right_char": "m"
+          },
+          {
+            "left": 4,
+            "right": 14,
+            "left_char": "c",
+            "right_char": "s"
+          }
+        ],
+        "sha256": "2f92450fdb49044718aa7202bd097296b8cda5dec19b88cee1717ee58f852bf9"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "carry",
+          "category": "V",
+          "surface": "carries",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "map",
+          "category": "N",
+          "surface": "map",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers the note.",
+      "audit": {
+        "exact": false,
+        "letters": 23,
+        "normalized_tape": "ateacherdeliversthenote",
+        "mismatch_count": 8,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 22,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 20,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 18,
+            "left_char": "c",
+            "right_char": "e"
+          }
+        ],
+        "sha256": "0c5a96f343bd54ffa447632082144922da3e9d1afbf1c26e04e3a6875cefbf57"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "note",
+          "category": "N",
+          "surface": "note",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs the note.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateacherrepairsthenote",
+        "mismatch_count": 8,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 17,
+            "left_char": "c",
+            "right_char": "e"
+          }
+        ],
+        "sha256": "b88de5e63d202a2e307ed299167e02a5a9f5481950268fbd0a83019f902705a8"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "note",
+          "category": "N",
+          "surface": "note",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher carries a note.",
+      "audit": {
+        "exact": false,
+        "letters": 20,
+        "normalized_tape": "ateachercarriesanote",
+        "mismatch_count": 8,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 17,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 16,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 15,
+            "left_char": "c",
+            "right_char": "a"
+          }
+        ],
+        "sha256": "bc155b9edec70cf10720a1b5e1e5f1f12b8c8b29c6c5f24577b2b8d134b34c00"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "carry",
+          "category": "V",
+          "surface": "carries",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "note",
+          "category": "N",
+          "surface": "note",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers a map.",
+      "audit": {
+        "exact": false,
+        "letters": 20,
+        "normalized_tape": "ateacherdeliversamap",
+        "mismatch_count": 8,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "p"
+          },
+          {
+            "left": 1,
+            "right": 18,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 17,
+            "left_char": "e",
+            "right_char": "m"
+          },
+          {
+            "left": 4,
+            "right": 15,
+            "left_char": "c",
+            "right_char": "s"
+          }
+        ],
+        "sha256": "3a94be59c6b7e5ca45395cd159604d411bca7b452322a9a76aad58c688fae0e5"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "map",
+          "category": "N",
+          "surface": "map",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs a map.",
+      "audit": {
+        "exact": false,
+        "letters": 19,
+        "normalized_tape": "ateacherrepairsamap",
+        "mismatch_count": 8,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "p"
+          },
+          {
+            "left": 1,
+            "right": 17,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 16,
+            "left_char": "e",
+            "right_char": "m"
+          },
+          {
+            "left": 4,
+            "right": 14,
+            "left_char": "c",
+            "right_char": "s"
+          }
+        ],
+        "sha256": "8ed131f699bc21edbab4c70766dd812a1ac547e19a81ac08c25085baa6b2e60e"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "map",
+          "category": "N",
+          "surface": "map",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers our note.",
+      "audit": {
+        "exact": false,
+        "letters": 23,
+        "normalized_tape": "ateacherdeliversournote",
+        "mismatch_count": 9,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 22,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 20,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 18,
+            "left_char": "c",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "bbb91e5cbe08e23ab2c66a17cdbcb73a501af2e42f76652b1a56932540d771c3"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "note",
+          "category": "N",
+          "surface": "note",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers the plan.",
+      "audit": {
+        "exact": false,
+        "letters": 23,
+        "normalized_tape": "ateacherdeliverstheplan",
+        "mismatch_count": 9,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 22,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 21,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 20,
+            "left_char": "e",
+            "right_char": "l"
+          },
+          {
+            "left": 3,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "ea776bbee47f3701f6a11843046a26741bdcf46bf0762efb5cde3d0c6ffa83bb"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "plan",
+          "category": "N",
+          "surface": "plan",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs our note.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateacherrepairsournote",
+        "mismatch_count": 9,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 17,
+            "left_char": "c",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "7800fdd7b9e3dbac6c0404fb1fc91de1ff3d0a5a89c397bdc4d650ff4cbc78cb"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "note",
+          "category": "N",
+          "surface": "note",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs the plan.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateacherrepairstheplan",
+        "mismatch_count": 9,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "l"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "9668627b8a8450dd36d5d286dd1e961ef2fe4e0dfbba95e8ebad121f45e83c3e"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "plan",
+          "category": "N",
+          "surface": "plan",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers a note.",
+      "audit": {
+        "exact": false,
+        "letters": 21,
+        "normalized_tape": "ateacherdeliversanote",
+        "mismatch_count": 9,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 20,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 18,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 17,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 16,
+            "left_char": "c",
+            "right_char": "a"
+          }
+        ],
+        "sha256": "2c11c584cdf5974c049260677ed9b76d14b6ae1cb70ade5b0d185b5147dbdf05"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "note",
+          "category": "N",
+          "surface": "note",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs our map.",
+      "audit": {
+        "exact": false,
+        "letters": 21,
+        "normalized_tape": "ateacherrepairsourmap",
+        "mismatch_count": 9,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 20,
+            "left_char": "a",
+            "right_char": "p"
+          },
+          {
+            "left": 1,
+            "right": 19,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 18,
+            "left_char": "e",
+            "right_char": "m"
+          },
+          {
+            "left": 3,
+            "right": 17,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "2653001e17da2a247653400c2ffb3b7fd44d4d8e6cfa4f2c86ba2182ca606ded"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "map",
+          "category": "N",
+          "surface": "map",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs the map.",
+      "audit": {
+        "exact": false,
+        "letters": 21,
+        "normalized_tape": "ateacherrepairsthemap",
+        "mismatch_count": 9,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 20,
+            "left_char": "a",
+            "right_char": "p"
+          },
+          {
+            "left": 1,
+            "right": 19,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 18,
+            "left_char": "e",
+            "right_char": "m"
+          },
+          {
+            "left": 3,
+            "right": 17,
+            "left_char": "a",
+            "right_char": "e"
+          }
+        ],
+        "sha256": "0fb0dbb07d1b58c4a72769e05a13448f3014652a77c3091b538df93a756fef06"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "map",
+          "category": "N",
+          "surface": "map",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher carries a plan.",
+      "audit": {
+        "exact": false,
+        "letters": 20,
+        "normalized_tape": "ateachercarriesaplan",
+        "mismatch_count": 9,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 18,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 17,
+            "left_char": "e",
+            "right_char": "l"
+          },
+          {
+            "left": 3,
+            "right": 16,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "f6b85f63a6b3f8b36a2fda1ea5b7e7ba222e34447286770768a2a92dd317f195"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "carry",
+          "category": "V",
+          "surface": "carries",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "plan",
+          "category": "N",
+          "surface": "plan",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs a note.",
+      "audit": {
+        "exact": false,
+        "letters": 20,
+        "normalized_tape": "ateacherrepairsanote",
+        "mismatch_count": 9,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 17,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 16,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 15,
+            "left_char": "c",
+            "right_char": "a"
+          }
+        ],
+        "sha256": "c9ec5945d85077c7c094925a01cc6a4af561f1e96d5f58bb1dcec9b874f9b3b8"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "note",
+          "category": "N",
+          "surface": "note",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers a garden.",
+      "audit": {
+        "exact": false,
+        "letters": 23,
+        "normalized_tape": "ateacherdeliversagarden",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 22,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 21,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 20,
+            "left_char": "e",
+            "right_char": "d"
+          },
+          {
+            "left": 3,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "3739f89d5d97ec408ab044b541f914388c991616814a9166f8ea7af8357017e7"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "garden",
+          "category": "N",
+          "surface": "garden",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers a letter.",
+      "audit": {
+        "exact": false,
+        "letters": 23,
+        "normalized_tape": "ateacherdeliversaletter",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 22,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 21,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 20,
+            "left_char": "e",
+            "right_char": "t"
+          },
+          {
+            "left": 3,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "t"
+          }
+        ],
+        "sha256": "a08f2c9826ee80e0a5f8d60a06235b210e6a07ae888a8e27adbd5610e5bbdfb0"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "letter",
+          "category": "N",
+          "surface": "letter",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers a parcel.",
+      "audit": {
+        "exact": false,
+        "letters": 23,
+        "normalized_tape": "ateacherdeliversaparcel",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 22,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 1,
+            "right": 21,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 20,
+            "left_char": "e",
+            "right_char": "c"
+          },
+          {
+            "left": 3,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "d45744b33c13e77191ea48a8374b8d6e63645eff846a69da2463ede1b528dc32"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "parcel",
+          "category": "N",
+          "surface": "parcel",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers a report.",
+      "audit": {
+        "exact": false,
+        "letters": 23,
+        "normalized_tape": "ateacherdeliversareport",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 22,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 1,
+            "right": 21,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 2,
+            "right": 20,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "524097036d55fb38955be1695d5b1ddb463a749b1d91c1d88bd2fa93011031a9"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "report",
+          "category": "N",
+          "surface": "report",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers our plan.",
+      "audit": {
+        "exact": false,
+        "letters": 23,
+        "normalized_tape": "ateacherdeliversourplan",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 22,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 21,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 20,
+            "left_char": "e",
+            "right_char": "l"
+          },
+          {
+            "left": 3,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "5dc382a43b660a47ef0fb57531b11e22c275de3a57bab1e57e40b9e4ed617c02"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "plan",
+          "category": "N",
+          "surface": "plan",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher carries a garden.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateachercarriesagarden",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "d"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "56cddacd8f9b8fbd225a005a480601649216d47afc081862aa5d45532f69308f"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "carry",
+          "category": "V",
+          "surface": "carries",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "garden",
+          "category": "N",
+          "surface": "garden",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher carries a letter.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateachercarriesaletter",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "t"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "t"
+          }
+        ],
+        "sha256": "20704c69d0992e1c72710e33c562a241c1412976665a995efeb7683c5cfb590e"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "carry",
+          "category": "V",
+          "surface": "carries",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "letter",
+          "category": "N",
+          "surface": "letter",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher carries a parcel.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateachercarriesaparcel",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 1,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "c"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "b872be77fa31c6e7bc1cc9c91e7034d28ca1fd4726943a8a19f9b8c8e6165394"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "carry",
+          "category": "V",
+          "surface": "carries",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "parcel",
+          "category": "N",
+          "surface": "parcel",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers our map.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateacherdeliversourmap",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "p"
+          },
+          {
+            "left": 1,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "m"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "416543b57c2a14e7e4c064a54ebde932d51a5385590503875db8ab6e0c0c751f"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "map",
+          "category": "N",
+          "surface": "map",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers the map.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateacherdeliversthemap",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "p"
+          },
+          {
+            "left": 1,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "m"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "e"
+          }
+        ],
+        "sha256": "19181003ee4f448543b2182e004f1f0415d013efbcc9ae4b1a116e87834cc0db"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "map",
+          "category": "N",
+          "surface": "map",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs a garden.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateacherrepairsagarden",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "d"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "92b50937e9a07a5d2b1e9dfdceb3de54141dea7e4b23be45c19f2d54510e01fd"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "garden",
+          "category": "N",
+          "surface": "garden",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs a letter.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateacherrepairsaletter",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "t"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "t"
+          }
+        ],
+        "sha256": "dceeb65ca4144b3c5315691d26ca914eba0474e04fc25e93f32ef5d8233b5285"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "letter",
+          "category": "N",
+          "surface": "letter",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs a parcel.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateacherrepairsaparcel",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 1,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "c"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "6b66ad7353d4df6213004357e61f2c150b3234a6cb5082190b78a20b98667abd"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "parcel",
+          "category": "N",
+          "surface": "parcel",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs a report.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateacherrepairsareport",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 1,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "980cc3b17bccf366a53eab7bb096b395076f2b573d425e12580340b6474623a8"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "report",
+          "category": "N",
+          "surface": "report",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs our plan.",
+      "audit": {
+        "exact": false,
+        "letters": 22,
+        "normalized_tape": "ateacherrepairsourplan",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 20,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 19,
+            "left_char": "e",
+            "right_char": "l"
+          },
+          {
+            "left": 3,
+            "right": 18,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "2a2d40ed9e051a240e3e0bf9c73bd8a6ce0f4a8124ad4e181aa542769e94ad9d"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "plan",
+          "category": "N",
+          "surface": "plan",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers a plan.",
+      "audit": {
+        "exact": false,
+        "letters": 21,
+        "normalized_tape": "ateacherdeliversaplan",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 20,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 19,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 18,
+            "left_char": "e",
+            "right_char": "l"
+          },
+          {
+            "left": 3,
+            "right": 17,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "c7e4c7e5ea6a3d0bef8074be32a9dd8a133dd2c844a4ee7f637adeaeb7cabdc6"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "plan",
+          "category": "N",
+          "surface": "plan",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs a plan.",
+      "audit": {
+        "exact": false,
+        "letters": 20,
+        "normalized_tape": "ateacherrepairsaplan",
+        "mismatch_count": 10,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 19,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 18,
+            "left_char": "t",
+            "right_char": "a"
+          },
+          {
+            "left": 2,
+            "right": 17,
+            "left_char": "e",
+            "right_char": "l"
+          },
+          {
+            "left": 3,
+            "right": 16,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "f9248acea8c4f09c75f21aec8f09f6e64f81241d5493a3122e74cff9fd8202ad"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "plan",
+          "category": "N",
+          "surface": "plan",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers the garden.",
+      "audit": {
+        "exact": false,
+        "letters": 25,
+        "normalized_tape": "ateacherdeliversthegarden",
+        "mismatch_count": 11,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 24,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 23,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 22,
+            "left_char": "e",
+            "right_char": "d"
+          },
+          {
+            "left": 3,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "a610a272395ff83b24392e091514b5ff70ca5f427b57f5a9604d0d133f131ea6"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "garden",
+          "category": "N",
+          "surface": "garden",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers the letter.",
+      "audit": {
+        "exact": false,
+        "letters": 25,
+        "normalized_tape": "ateacherdeliverstheletter",
+        "mismatch_count": 11,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 24,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 23,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 22,
+            "left_char": "e",
+            "right_char": "t"
+          },
+          {
+            "left": 3,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "t"
+          }
+        ],
+        "sha256": "af4a839ded4cfb1547ba181cdbe0faece99a6ec3ecb3defb4bbad2285b55b615"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "letter",
+          "category": "N",
+          "surface": "letter",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers the parcel.",
+      "audit": {
+        "exact": false,
+        "letters": 25,
+        "normalized_tape": "ateacherdeliverstheparcel",
+        "mismatch_count": 11,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 24,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 1,
+            "right": 23,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 22,
+            "left_char": "e",
+            "right_char": "c"
+          },
+          {
+            "left": 3,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "0ff65cc3555489d07f19a1e65cb0a88478525b4d4ee2f13f2160c37709b611f4"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "parcel",
+          "category": "N",
+          "surface": "parcel",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers the report.",
+      "audit": {
+        "exact": false,
+        "letters": 25,
+        "normalized_tape": "ateacherdeliversthereport",
+        "mismatch_count": 11,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 24,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 1,
+            "right": 23,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 2,
+            "right": 22,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "2377f8c0a593461599cd6c5a4d81de890bdef990389a71420f665d37a0ae2d1f"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "report",
+          "category": "N",
+          "surface": "report",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs the garden.",
+      "audit": {
+        "exact": false,
+        "letters": 24,
+        "normalized_tape": "ateacherrepairsthegarden",
+        "mismatch_count": 11,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 23,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 22,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 21,
+            "left_char": "e",
+            "right_char": "d"
+          },
+          {
+            "left": 3,
+            "right": 20,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "1aa95dcb047a93e3e77068a2656f2a20f15ea2278942176cd071b1b1d3f2fc91"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "garden",
+          "category": "N",
+          "surface": "garden",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs the letter.",
+      "audit": {
+        "exact": false,
+        "letters": 24,
+        "normalized_tape": "ateacherrepairstheletter",
+        "mismatch_count": 11,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 23,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 22,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 21,
+            "left_char": "e",
+            "right_char": "t"
+          },
+          {
+            "left": 3,
+            "right": 20,
+            "left_char": "a",
+            "right_char": "t"
+          }
+        ],
+        "sha256": "b5d87341380f748f587e1dd42bfcdddbce0de708207cc295cd08c3f6e7e6bcda"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "letter",
+          "category": "N",
+          "surface": "letter",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs the parcel.",
+      "audit": {
+        "exact": false,
+        "letters": 24,
+        "normalized_tape": "ateacherrepairstheparcel",
+        "mismatch_count": 11,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 23,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 1,
+            "right": 22,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 21,
+            "left_char": "e",
+            "right_char": "c"
+          },
+          {
+            "left": 3,
+            "right": 20,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "cd98683b789ce70e9aebea8364d2f0ad3748ac97494406488136bb93fb9fe122"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "parcel",
+          "category": "N",
+          "surface": "parcel",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs the report.",
+      "audit": {
+        "exact": false,
+        "letters": 24,
+        "normalized_tape": "ateacherrepairsthereport",
+        "mismatch_count": 11,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 23,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 1,
+            "right": 22,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 2,
+            "right": 21,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 20,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "f0d72054a514e1420b2dca9863fbb354788f6d7f385450f3b1580dc390937dcc"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "the",
+          "category": "DET",
+          "surface": "the",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "report",
+          "category": "N",
+          "surface": "report",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers our garden.",
+      "audit": {
+        "exact": false,
+        "letters": 25,
+        "normalized_tape": "ateacherdeliversourgarden",
+        "mismatch_count": 12,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 24,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 23,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 22,
+            "left_char": "e",
+            "right_char": "d"
+          },
+          {
+            "left": 3,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "73ff46a43137d6e50f21f1a13757f290cbabf2d69b74bae336369d33ce9a6978"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "garden",
+          "category": "N",
+          "surface": "garden",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers our letter.",
+      "audit": {
+        "exact": false,
+        "letters": 25,
+        "normalized_tape": "ateacherdeliversourletter",
+        "mismatch_count": 12,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 24,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 23,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 22,
+            "left_char": "e",
+            "right_char": "t"
+          },
+          {
+            "left": 3,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "t"
+          }
+        ],
+        "sha256": "632399dddba223f22ed869468b6bdf3985b9b7202e626436e8651ed153e93b17"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "letter",
+          "category": "N",
+          "surface": "letter",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers our parcel.",
+      "audit": {
+        "exact": false,
+        "letters": 25,
+        "normalized_tape": "ateacherdeliversourparcel",
+        "mismatch_count": 12,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 24,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 1,
+            "right": 23,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 22,
+            "left_char": "e",
+            "right_char": "c"
+          },
+          {
+            "left": 3,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "3d353440dafe66bff1b3380642fb99032c88084e4f370f4c965dd18738634aec"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "parcel",
+          "category": "N",
+          "surface": "parcel",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher delivers our report.",
+      "audit": {
+        "exact": false,
+        "letters": 25,
+        "normalized_tape": "ateacherdeliversourreport",
+        "mismatch_count": 12,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 24,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 1,
+            "right": 23,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 2,
+            "right": 22,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 21,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "881371152076d7c848b18d971dad4b367baa7a0fe44bdf8189e554c1acc04fa1"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "deliver",
+          "category": "V",
+          "surface": "delivers",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "report",
+          "category": "N",
+          "surface": "report",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs our garden.",
+      "audit": {
+        "exact": false,
+        "letters": 24,
+        "normalized_tape": "ateacherrepairsourgarden",
+        "mismatch_count": 12,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 23,
+            "left_char": "a",
+            "right_char": "n"
+          },
+          {
+            "left": 1,
+            "right": 22,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 21,
+            "left_char": "e",
+            "right_char": "d"
+          },
+          {
+            "left": 3,
+            "right": 20,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "cd9e022321427fa70770875685a52bbf734f6d0a8acfff774d57208aa15b8b5c"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "garden",
+          "category": "N",
+          "surface": "garden",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs our letter.",
+      "audit": {
+        "exact": false,
+        "letters": 24,
+        "normalized_tape": "ateacherrepairsourletter",
+        "mismatch_count": 12,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 23,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 1,
+            "right": 22,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 21,
+            "left_char": "e",
+            "right_char": "t"
+          },
+          {
+            "left": 3,
+            "right": 20,
+            "left_char": "a",
+            "right_char": "t"
+          }
+        ],
+        "sha256": "474aa85d6ecc179ca79586d624e3dc504b146faee814a084ec90620cd0f3938f"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "letter",
+          "category": "N",
+          "surface": "letter",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs our parcel.",
+      "audit": {
+        "exact": false,
+        "letters": 24,
+        "normalized_tape": "ateacherrepairsourparcel",
+        "mismatch_count": 12,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 23,
+            "left_char": "a",
+            "right_char": "l"
+          },
+          {
+            "left": 1,
+            "right": 22,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 2,
+            "right": 21,
+            "left_char": "e",
+            "right_char": "c"
+          },
+          {
+            "left": 3,
+            "right": 20,
+            "left_char": "a",
+            "right_char": "r"
+          }
+        ],
+        "sha256": "b2d07eaa352d8f4597661c579431fc0588b809721657892e3f0c0b89d9ab0025"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "parcel",
+          "category": "N",
+          "surface": "parcel",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    },
+    {
+      "tree": "agent_transitive",
+      "rendered": "A teacher repairs our report.",
+      "audit": {
+        "exact": false,
+        "letters": 24,
+        "normalized_tape": "ateacherrepairsourreport",
+        "mismatch_count": 12,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 23,
+            "left_char": "a",
+            "right_char": "t"
+          },
+          {
+            "left": 1,
+            "right": 22,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 2,
+            "right": 21,
+            "left_char": "e",
+            "right_char": "o"
+          },
+          {
+            "left": 3,
+            "right": 20,
+            "left_char": "a",
+            "right_char": "p"
+          }
+        ],
+        "sha256": "52e8267e968e7b781ee88813f9eace839cf5ffff7a159e6f11587f7fca5aeeea"
+      },
+      "morphology_path": [
+        {
+          "lemma": "a",
+          "category": "DET",
+          "surface": "a",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "teacher",
+          "category": "N",
+          "surface": "teacher",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "repair",
+          "category": "V",
+          "surface": "repairs",
+          "derivation": [],
+          "inflection": [
+            "3sg"
+          ]
+        },
+        {
+          "lemma": "our",
+          "category": "DET",
+          "surface": "our",
+          "derivation": [],
+          "inflection": []
+        },
+        {
+          "lemma": "report",
+          "category": "N",
+          "surface": "report",
+          "derivation": [],
+          "inflection": []
+        }
+      ]
+    }
+  ],
+  "prominent_exact_candidate": null,
+  "next_repair": "If the family is retained, add independently authored derivational paradigms with corpus-backed argument frames and run a blinded intact-vs-shuffled reading study; do not relax catalogue or symmetry gates.",
+  "provenance": {
+    "generator_sha256": "f1c461aaa89596448ba360c04d2bed89cb5904caec10fca145af0f0b688e40bb",
+    "lexical_source": "fresh hand-authored derivation and inflection families",
+    "source_text_copied": false,
+    "readability_certificate": false
+  },
+  "reader_gate": {
+    "status": "not_run",
+    "eligible": 0,
+    "reason": "Exactness and morphology do not certify readable prose."
+  }
+}

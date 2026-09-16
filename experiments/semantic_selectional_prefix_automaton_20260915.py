@@ -50,6 +50,11 @@ SHAPES = (
     ("DET", "SUBJ", "VERB", "ADV"),
     ("SUBJ", "VERB", "DET", "OBJ"),
     ("DET", "SUBJ", "VERB", "ADP", "DET", "OBJ"),
+    # Held-out repair: one complete main clause followed by an explicit
+    # subordinate observation clause.  This is a repair state, not a new
+    # registry family, because the learned lexical frame and character-trie
+    # transition remain unchanged.
+    ("DET", "SUBJ", "VERB", "DET", "OBJ", "CONJ", "DET", "SUBJ", "VERB"),
 )
 
 
@@ -107,6 +112,7 @@ LEX = {
     "ADJ": ranked(("quiet bright gentle steady plain careful patient coastal northern annual detailed damaged expert local ancient distant changing"), 40),
     "ADV": ranked(("calmly softly carefully brightly quietly steadily patiently clearly"), 24),
     "ADP": ("to", "of", "in", "for", "on", "with", "at", "by", "near", "after", "under", "over"),
+    "CONJ": ("while", "after", "because", "and"),
 }
 
 
@@ -265,6 +271,8 @@ def main() -> None:
         "preflight": {"status": "novel", "registered_families_checked": 71,
                        "excluded_routes_checked": 6, "manual_review_required": False},
         "method": "selectional-preference clause automaton with character-synchronous prefix matching",
+        "repair": {"id": "subordinate-clause-state", "status": "evaluated",
+                   "description": "added a complete main clause followed by an explicit while/after/because subordinate clause while retaining the same learned lexical frames and trie transitions"},
         "frames": [frame.name for frame in FRAMES], "shapes": [list(shape) for shape in SHAPES],
         "runs": runs, "rendered_candidates": all_rows,
         "exact_count": sum(row["exact"] for row in all_rows),
@@ -276,7 +284,7 @@ def main() -> None:
                               "disagreements": [row["rendered"] for row in all_rows
                                                 if row["exact"] != row["independent_two_pointer"]]},
         "readability_note": "No human study: no admitted exact candidate was produced.",
-        "next_repair": "retain semantic obligations while allowing optional subordinate clauses; do not enlarge the same frame bank",
+        "next_repair": "subordinate-clause repair was evaluated in this run; if it remains empty, switch to an open-vocabulary clause proposal source rather than enlarging the frame bank",
         "provenance": "role words authored for the route; Brown contributes only preference counts, not copied sentences",
     }
     OUT.write_text(json.dumps(output, indent=2) + "\n")

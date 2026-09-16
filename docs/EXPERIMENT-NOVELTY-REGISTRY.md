@@ -18,6 +18,8 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `microgrammar-lexical-debt-20260916` | deterministic ordinary-English microgrammar grows recursive adjuncts while solving mirrored lexical debt online, then applies frontier substitution repair | recursive microgrammar and lexical-debt repair | 24 base + 24 repair probes, 70–152 letters; 0 exact and 0 reader-eligible |
 | `prosodic-foot-scene-constructor-20260916` | semantic scene roles are realized through stress-foot templates while the mirrored character ledger is active, with held-out timing repairs | prosodic realization state | 54 base + 54 repair probes, up to 170 letters; 0 exact and 0 reader-eligible |
 | `induced-grammar-reverse-decoder-20260916` | corpus grammar shapes induce a decoder, but all lexical spans are freshly chosen from held-out semantic frames before reverse-debt repair | grammar induction plus fresh lexical realization | 4 base + 4 repair probes, 66–78 letters; 0 exact and 0 reader-eligible |
+| `semantic-frame-tape-solver-20260916` | semantic-frame slots are lexicalized with a live reverse-tape debt search and deterministic alternatives, then repaired at the debt fragment | semantic frame plus character-tape realization | 81 base + 81 repair probes; 60 exact fragments, 0 mechanically admitted/reader-eligible |
+| `maxsat-semantic-grammar-20260916` | Boolean lexicalization choices optimize global character-equality literals over complete event clauses, with held-out lexical repair | MaxSAT semantic-plan objective | 8 base + 8 repair probes, up to 76 letters; 0 exact and 0 reader-eligible |
 | `lexical-chain-palindrome-20260916` | typed lexical-chain permutations select independent complete clauses with a synonym repair frontier and reflected-character audit | lexical-chain permutation and repair | 24 base + 12 repair probes; 0 exact and 0 reader-eligible |
 | `morphology-semantic-template-csp-20260916` | derivational and inflectional template choices are selected jointly with semantic frames under live character equations | morphology-aware semantic template CSP | 216 base + 216 affix-frontier repairs; 0 exact and 0 reader-eligible |
 | `pivot-paragraph-beam-20260916` | pivot-centered paragraph plans choose semantic slots jointly while a mirrored letter ledger remains active, then apply near-synonym repairs | paragraph-level semantic planning | 18 base + 18 repair probes; 0 exact and 0 reader-eligible |
@@ -169,7 +171,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 137 retained families and 9 explicit
+family. The current audit covers all 140 retained families and 9 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

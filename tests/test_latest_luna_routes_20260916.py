@@ -60,13 +60,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 1641
-    assert report["exact_count"] == 0
+    assert report["candidate_count"] == 1750
+    assert report["exact_count"] == 36
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 37
+    assert len(report["route_summary"]) == 40
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
 
 
@@ -224,3 +224,14 @@ def test_prosodic_and_induced_grammar_routes_keep_complete_prose_unadmitted():
     assert len(induced["repair"]) == 4
     assert induced["exact_count"] == 0
     assert all(not row["audit"]["exact"] for row in induced["candidates"] + induced["repair"])
+
+
+def test_semantic_frame_tape_solver_records_exact_but_unreadable_fragments():
+    run = load("semantic-frame-tape-solver-20260916.json")
+    assert len(run["candidates"]) == 81
+    assert len(run["repair"]) == 81
+    assert run["exact_count"] == 60
+    exact_rows = [row for row in run["candidates"] + run["repair"] if row["audit"]["exact"]]
+    assert exact_rows
+    assert all(not row["audit"]["reader_eligible"] for row in exact_rows)
+    assert any("nwadybpameulbaspeekesruneht" in row["text"] for row in exact_rows)

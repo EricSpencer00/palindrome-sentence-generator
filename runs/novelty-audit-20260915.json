@@ -1,9 +1,49 @@
 {
   "entries": [
     {
-      "id": "induced-grammar-reverse-decoder-20260916",
+      "id": "semantic-frame-tape-solver-20260916",
       "manual_review_required": false,
       "nearest_prior": null,
+      "signature_atoms": [
+        "alternative",
+        "debt",
+        "deterministic",
+        "fragment",
+        "frame",
+        "search",
+        "semantic",
+        "slots"
+      ]
+    },
+    {
+      "id": "grammar-product-sat-preflight-20260916-excluded",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "semantic-frame-tape-solver-20260916",
+        "jaccard": 0.0,
+        "shared_atoms": []
+      },
+      "signature_atoms": [
+        "content",
+        "distinct",
+        "equations",
+        "length",
+        "product",
+        "sat",
+        "scalable",
+        "simultaneous"
+      ]
+    },
+    {
+      "id": "induced-grammar-reverse-decoder-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "semantic-frame-tape-solver-20260916",
+        "jaccard": 0.052632,
+        "shared_atoms": [
+          "semantic"
+        ]
+      },
       "signature_atoms": [
         "boundary",
         "corpus",
@@ -23,10 +63,10 @@
       "id": "prosodic-foot-scene-constructor-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "induced-grammar-reverse-decoder-20260916",
-        "jaccard": 0.1,
+        "id": "semantic-frame-tape-solver-20260916",
+        "jaccard": 0.125,
         "shared_atoms": [
-          "realization",
+          "debt",
           "semantic"
         ]
       },
@@ -47,8 +87,8 @@
       "id": "microgrammar-lexical-debt-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "prosodic-foot-scene-constructor-20260916",
-        "jaccard": 0.052632,
+        "id": "semantic-frame-tape-solver-20260916",
+        "jaccard": 0.058824,
         "shared_atoms": [
           "semantic"
         ]
@@ -70,8 +110,8 @@
       "id": "reversible-relation-coherence-preflight-20260916-excluded",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "prosodic-foot-scene-constructor-20260916",
-        "jaccard": 0.05,
+        "id": "semantic-frame-tape-solver-20260916",
+        "jaccard": 0.055556,
         "shared_atoms": [
           "debt"
         ]
@@ -94,8 +134,8 @@
       "id": "pivot-paragraph-beam-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "prosodic-foot-scene-constructor-20260916",
-        "jaccard": 0.043478,
+        "id": "semantic-frame-tape-solver-20260916",
+        "jaccard": 0.047619,
         "shared_atoms": [
           "semantic"
         ]
@@ -1258,8 +1298,8 @@
       "id": "event-frame-independent-relexicalization",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "lexicalized-dependency-frame-pairing-20260916",
-        "jaccard": 0.111111,
+        "id": "semantic-frame-tape-solver-20260916",
+        "jaccard": 0.125,
         "shared_atoms": [
           "frame",
           "semantic"
@@ -2342,13 +2382,13 @@
       "id": "variable-boundary-tape-ilp",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "semantic-dependency-outside-in",
-        "jaccard": 0.133333,
+        "id": "grammar-product-sat-preflight-20260916-excluded",
+        "jaccard": 0.181818,
         "shared_atoms": [
-          "boundaries",
+          "equations",
           "length",
-          "semantic",
-          "variable"
+          "product",
+          "simultaneous"
         ]
       },
       "signature_atoms": [
@@ -3692,6 +3732,33 @@
         "semantic",
         "yields"
       ]
+    },
+    {
+      "id": "maxsat-semantic-grammar-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "event-frame-independent-relexicalization",
+        "jaccard": 0.157895,
+        "shared_atoms": [
+          "event",
+          "lexicalization",
+          "semantic"
+        ]
+      },
+      "signature_atoms": [
+        "boolean",
+        "choice",
+        "clause",
+        "equality",
+        "event",
+        "lexicalization",
+        "maxsat",
+        "objective",
+        "plan",
+        "semantic",
+        "variables",
+        "yields"
+      ]
     }
   ],
   "exact_signature_collisions": false,
@@ -3941,7 +4008,7 @@
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 137,
+  "registered_entries": 140,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

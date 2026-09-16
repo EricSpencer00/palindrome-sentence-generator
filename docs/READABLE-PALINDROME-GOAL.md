@@ -1475,7 +1475,7 @@ item-aware analysis plan.
   gate. The Brown route's empty `displayed` list is intentional because it
   found no text safe to show as generated.
 
-  A reproducible programmatic diagnostic over 1641 rendered rows is frozen in
+  A reproducible programmatic diagnostic over 1750 rendered rows is frozen in
   `runs/parallel-luna-readability-diagnostics-20260916.json`: 0 exact and 0
   mechanically admitted rows. The report breaks out Brown word-order gain,
   mean word frequency, repetition, punctuation segmentation, and length by
@@ -1509,7 +1509,7 @@ item-aware analysis plan.
   base and 144 held-out repairs (max 78); CCG produced 4 base and 4 category
   repairs (max 82). All were complete prose with independent audits but zero
   exact closures and zero reader-eligible rows. Their rendered text and
-  provenance remain frozen in the route artifacts and the 1641-row diagnostic.
+  provenance remain frozen in the route artifacts and the 1750-row diagnostic.
   These routes change the construction state (reversible lexical roles,
   unseeded recursion, and online semantic mutation) and are not filename or
   beam-width replays.
@@ -1519,7 +1519,7 @@ item-aware analysis plan.
   candidates; the word-equation route ran 6 base and 6 POS-compatible repairs.
   Both kept complete clauses and independent provenance visible, but had zero
   exact closures and zero reader-eligible rows. The aggregate diagnostic now
-  contains 1641 rendered rows plus per-route summaries; its metrics remain
+  contains 1750 rendered rows plus per-route summaries; its metrics remain
   filters and failure diagnostics, never a readability certificate.
 
   A bounded direct-authoring reset also ran three local-model prompts plus one
@@ -1561,6 +1561,20 @@ item-aware analysis plan.
   66--78 letters). Both routes preserve complete renderings and independent
   tape audits in their run artifacts; neither produced an exact closure, so no
   text is being relabeled as a candidate or sent to readers.
+
+  A semantic-frame tape solver then produced 60 exact letter tapes among 162
+  lexical alternatives (52--61 letters). The exact rows expose the next
+  construction problem rather than solving it: for example, “the nurse keeps
+  a blue map by dawn. nwadybpameulbaspeekesruneht .” has an independently
+  verified 54-letter palindrome, but the right side is a non-word residual and
+  fails the lexical/reader gates. Those rows are retained as concrete exact
+  failure evidence in `runs/semantic-frame-tape-solver-20260916.json`; the
+  repair must decode the residual into intact English before any reader test.
+
+  A Boolean MaxSAT semantic-plan route separately optimized character-equality
+  literals over complete event clauses (8 base plus 8 held-out repairs, up to
+  76 letters). It improved the objective but produced no exact or reader-
+  eligible row (`runs/maxsat-semantic-grammar-20260916.json`).
 
   A sixth reset used typed lexical-chain permutations rather than a model or
   clause cross-product: 24 complete base probes and 12 synonym repairs were

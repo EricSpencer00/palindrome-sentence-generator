@@ -170,6 +170,8 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "pivot-paragraph-beam-20260916" in ids
     assert "prosodic-foot-scene-constructor-20260916" in ids
     assert "induced-grammar-reverse-decoder-20260916" in ids
+    assert "semantic-frame-tape-solver-20260916" in ids
+    assert "maxsat-semantic-grammar-20260916" in ids
 
 
 def test_rhythmai_probe_is_registered_as_direct_authoring_repair_evidence():

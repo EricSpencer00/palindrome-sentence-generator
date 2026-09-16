@@ -230,9 +230,9 @@ recorded.
 
 ## Latest authoritative continuation (2026-09-16)
 
-The aggregate is **4,550 normalized rows across 151 route phases, 78 exact
-tapes, and 0 mechanically admitted outputs**. Novelty validation reports 253
-unique artifacts (25 exclusions; 231 run artifacts). The new word-pair graph,
+The aggregate is **4,553 normalized rows across 154 route phases, 78 exact
+tapes, and 0 mechanically admitted outputs**. Novelty validation reports 256
+unique artifacts (25 exclusions; 234 run artifacts). The new word-pair graph,
 paired semantic mutation, central-pivot CSP, semantic-slot lattice, and
 corpus-backed reverse-segmentation runs all retain rendered ordinary-prose
 states plus independent exact/hash audits and named next repairs. The 164-letter
@@ -261,3 +261,10 @@ settle. At twilight, the patient tide returns. Beyond the hills, a quiet engine
 waits. At the shore, Owen listens for bells.” Independent pointer and hash
 audits both reject exactness (first mismatch at index 0); the next repair is a
 semordnilap-compatible verb-object substitution at the residual seam.
+
+The next non-duplicate wave adds three concrete states: boundary-conditioned
+finite-state resegmentation (270 letters), live dependency-boundary equations
+(127 letters), and residual semantic-slot substitution under locked valency and
+agreement (122 letters). All three are intact English scenes with first-
+mismatch pointer traces, unequal forward/reverse hashes, fresh provenance,
+novelty preflight, and named repairs; none is exact or reader-eligible.

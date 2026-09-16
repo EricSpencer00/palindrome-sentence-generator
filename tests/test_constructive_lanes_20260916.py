@@ -61,7 +61,7 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4550
+    assert report["candidate_count"] == 4553
     assert report["exact_count"] == 78
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
@@ -87,6 +87,9 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/agreement-morphology-clitic-lane4-20260916.json"]["rows"] == 1
     assert by_source["runs/cfg-earley-joint-intersection-20260916.json"]["rows"] == 1
     assert by_source["runs/hand-authored-clause-breakthrough-2026-09-16.json"]["rows"] == 1
+    assert by_source["runs/boundary-fst-resegment-2026-09-16.json"]["rows"] == 1
+    assert by_source["runs/live-dependency-character-csp-20260916.json"]["rows"] == 1
+    assert by_source["runs/semantic-residual-slot-lattice-20260916.json"]["rows"] == 1
 
 
 def test_fresh_typed_frame_preserves_prose_and_live_obligation_evidence():
@@ -226,6 +229,38 @@ def test_hand_authored_clause_breakthrough_keeps_intact_308_letter_frontier():
     assert row["mechanical_checks"]["distinct_words"] is True
     assert run["provenance"]["all_different_content_words"] is True
     assert run["next_repair"]
+
+
+def test_boundary_fst_resegment_keeps_long_prose_and_boundary_repair():
+    run = json.loads((ROOT / "runs/boundary-fst-resegment-2026-09-16.json").read_text())
+    row = run["candidate"]
+    assert row["letters"] == 270 and row["exact"] is False and row["admitted"] is False
+    assert row["pointer_audit"]["exact"] is False
+    assert row["forward_hash"] != row["reverse_hash"]
+    assert run["provenance"]["inventory"] == "fresh authored clauses"
+    assert run["next_repair"]
+
+
+def test_live_dependency_character_csp_keeps_typed_scene_and_equations():
+    run = json.loads((ROOT / "runs/live-dependency-character-csp-20260916.json").read_text())
+    row = run["candidates"][0]
+    assert row["letters"] == 127 and row["exact"] is False and row["admitted"] is False
+    assert row["two_pointer_exact"] is False
+    assert row["direct_hash"] != row["reverse_hash"]
+    assert row["checks"]["length_band"] is True
+    assert row["provenance"]["fresh_complete_scene"] is True
+    assert run["next_repair"]
+
+
+def test_semantic_residual_slot_lattice_keeps_agreement_locked_scene():
+    run = json.loads((ROOT / "runs/semantic-residual-slot-lattice-20260916.json").read_text())
+    row = run["rendered_candidates"][0]
+    assert row["letters"] == 122 and row["exact"] is False
+    assert row["two_pointer"] is False
+    assert row["forward_hash"] != row["reverse_hash"]
+    assert row["checks"]["distinct_words"] is True
+    assert run["coupling"]["agreement"] == "third-person singular present"
+    assert run["next_repair"]["operator"]
 
 
 def test_paired_semantic_mutation_retains_fresh_controls_and_mismatch_trace():

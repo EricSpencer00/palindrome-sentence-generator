@@ -298,9 +298,9 @@ concrete next repair to expand the held-out lexical/POS inventory.
 
 ## Authoritative continuation snapshot (2026-09-16, latest)
 
-The common audit now contains **4,550 normalized rows across 151 route phases,
+The common audit now contains **4,553 normalized rows across 154 route phases,
 78 exact tapes, and 0 mechanically admitted outputs**. The registry validator
-reports **253 unique artifacts, 25 preflight exclusions, and 231 run
+reports **256 unique artifacts, 25 preflight exclusions, and 234 run
 artifacts**. The latest orthogonal additions are preserved as reader-facing
 prose evidence: a 164-letter word-pair graph frontier (no closure), two fresh
 61-letter paired semantic mutations (no closure), a 113-letter central-pivot
@@ -335,3 +335,12 @@ listens for bells.” Its independent pointer audit mismatches at index 0 and it
 forward/reverse SHA digests differ; the mechanical gate therefore remains
 closed. Provenance records the five-clause bank, cross-word residual ledger,
 and a concrete semordnilap-compatible verb-object slot repair.
+
+Three genuinely new follow-up constructions are also frozen. Boundary-
+conditioned finite-state resegmentation emits a 270-letter six-clause scene;
+live dependency character CSP emits a 127-letter marine-biologist scene with
+127 explicit boundary equations; and a semantic residual-slot lattice emits a
+122-letter observatory scene. Each has independent pointer/hash rejection,
+fresh provenance, novelty preflight, and a concrete local repair: boundary
+lexical targeting, typed adjunct substitution, or joint instrument/purpose
+replacement respectively.

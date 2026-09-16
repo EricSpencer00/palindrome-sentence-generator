@@ -237,6 +237,10 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "paragraph-paraphrase-obligation-20260916" in ids
     assert "heteropalindromic-clause-composer-20260916" in ids
     assert "function-word-boundary-balance-preflight-20260916-excluded" in ids
+    assert "hand-authored-clause-breakthrough-20260916" in ids
+    assert "boundary-fst-resegment-20260916" in ids
+    assert "live-dependency-character-csp-20260916" in ids
+    assert "semantic-residual-slot-lattice-20260916" in ids
 
 
 def test_rhythmai_probe_is_registered_as_direct_authoring_repair_evidence():

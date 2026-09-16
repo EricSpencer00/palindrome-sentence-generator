@@ -147,9 +147,12 @@
     "runs/dependency-seam-csp-20260916.json",
     "runs/agreement-morphology-clitic-lane4-20260916.json",
     "runs/cfg-earley-joint-intersection-20260916.json",
-    "runs/hand-authored-clause-breakthrough-2026-09-16.json"
+    "runs/hand-authored-clause-breakthrough-2026-09-16.json",
+    "runs/boundary-fst-resegment-2026-09-16.json",
+    "runs/live-dependency-character-csp-20260916.json",
+    "runs/semantic-residual-slot-lattice-20260916.json"
   ],
-  "candidate_count": 4550,
+  "candidate_count": 4553,
   "exact_count": 78,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -292,6 +295,16 @@
       "max_letters": 65,
       "mean_zipf_frequency": 5.4174365218115215,
       "mean_brown_order_gain_vs_shuffle": 0.8602028525219575
+    },
+    {
+      "source_run": "runs/boundary-fst-resegment-2026-09-16.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 270,
+      "max_letters": 270,
+      "mean_zipf_frequency": 5.168461538461538,
+      "mean_brown_order_gain_vs_shuffle": 0.8129145484597018
     },
     {
       "source_run": "runs/c3-seam-dp-semantic-pairs-20260916.json",
@@ -934,6 +947,16 @@
       "mean_brown_order_gain_vs_shuffle": 1.0333828135924896
     },
     {
+      "source_run": "runs/live-dependency-character-csp-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 127,
+      "max_letters": 127,
+      "mean_zipf_frequency": 5.074761904761904,
+      "mean_brown_order_gain_vs_shuffle": 0.8765180211389989
+    },
+    {
       "source_run": "runs/live-gpt2-character-decoder-preflight-20260916.json",
       "rows": 20,
       "exact_count": 0,
@@ -1492,6 +1515,16 @@
       "max_letters": 60,
       "mean_zipf_frequency": 5.499298245614033,
       "mean_brown_order_gain_vs_shuffle": 0.6633322512521269
+    },
+    {
+      "source_run": "runs/semantic-residual-slot-lattice-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 122,
+      "max_letters": 122,
+      "mean_zipf_frequency": 5.4534782608695656,
+      "mean_brown_order_gain_vs_shuffle": 0.6457084640873632
     },
     {
       "source_run": "runs/semantic-scene-repair-lane6-20260916.json",
@@ -218714,6 +218747,135 @@
         "word_count": 63,
         "repeated_word_rate": 0.1428571428571429,
         "punctuation_segments": 10
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At evening the patient keeper closes the garden gate Beyond the hill a silver river carries moonlit leaves Quiet readers gather stories beside the warm fire Before sunrise the watchful traveler checks the old bridge Across the valley distant bells answer a waking village Careful hands arrange fresh maps beneath a window",
+      "source_run": "runs/boundary-fst-resegment-2026-09-16.json",
+      "provenance": "boundary_conditioned_fst_resegment_v1",
+      "repair": null,
+      "letters": 270,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8129145484597018,
+        "mean_zipf_frequency": 5.168461538461538,
+        "word_count": 52,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At first light, the marine biologist logged three patient observations while her assistant arranged clean instruments beside the sheltered tide pool.",
+      "source_run": "runs/live-dependency-character-csp-20260916.json",
+      "provenance": {
+        "fresh_complete_scene": true,
+        "source_sentences_copied": false,
+        "finished_sentence_reversed": false
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8765180211389989,
+        "mean_zipf_frequency": 5.074761904761904,
+        "word_count": 21,
+        "repeated_word_rate": 0.04761904761904767,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the winter storm, Lena repairs the observatory clock, checks the brass instruments, and writes a careful report for the coastal research crew.",
+      "source_run": "runs/semantic-residual-slot-lattice-20260916.json",
+      "provenance": {
+        "generator_sha256": "a785fdffe9a0f493ea10002cfdbfc962d1e2d8370d454708aa1db3d6427c7e7e",
+        "lexical_source": "fresh hand-authored lattice terminals",
+        "audits": [
+          "two-pointer",
+          "forward/reverse hash",
+          "mechanical admission"
+        ]
+      },
+      "repair": null,
+      "letters": 122,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6457084640873632,
+        "mean_zipf_frequency": 5.4534782608695656,
+        "word_count": 23,
+        "repeated_word_rate": 0.13043478260869568,
+        "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

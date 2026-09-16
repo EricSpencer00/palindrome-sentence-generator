@@ -2023,9 +2023,9 @@ item-aware analysis plan.
   are recorded.
 
   **Latest authoritative continuation (2026-09-16):** the common audit now
-  contains 4,550 normalized rows across 151 route phases, 78 exact tapes, and
-  0 mechanically admitted outputs; the novelty registry contains 253 unique
-  artifacts (25 exclusions, 231 run artifacts). The 164-letter word-pair
+  contains 4,553 normalized rows across 154 route phases, 78 exact tapes, and
+  0 mechanically admitted outputs; the novelty registry contains 256 unique
+  artifacts (25 exclusions, 234 run artifacts). The 164-letter word-pair
   graph frontier, two fresh 61-letter paired mutations, 113-letter clause CSP,
   108 semantic-slot states, and 103--104-letter reverse-segmentation clauses
   are all rendered, independently checked, provenance-backed, and paired with
@@ -2049,3 +2049,11 @@ item-aware analysis plan.
   bells.” Independent pointer and SHA audits disagree at the first character;
   it is non-exact and non-admitted, with provenance and a semordnilap-compatible
   verb-object slot repair recorded in its run artifact.
+
+  **Three orthogonal follow-ups:** boundary-conditioned finite-state
+  resegmentation emits a 270-letter six-clause scene; live dependency-boundary
+  CSP emits a 127-letter marine-biologist scene with explicit character
+  equations; and residual semantic-slot substitution emits a 122-letter
+  observatory scene with locked valency/agreement. Each has independent
+  pointer/hash rejection, fresh provenance, novelty preflight, and a concrete
+  next repair. None is exact or mechanically admitted.

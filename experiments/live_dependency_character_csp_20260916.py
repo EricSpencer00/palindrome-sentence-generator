@@ -12,7 +12,7 @@ def solve(text):
  mismatch=next((e for e in equations if e['left_char']!=e['right_char']),None)
  return t,equations,mismatch
 def main():
- t,eq,mismatch=solve(SCENE); checks=mechanical_admission_checks(SCENE)
+ t,eq,mismatch=solve(SCENE); checks=mechanical_admission_checks(SCENE,min_letters=100,max_letters=1000)
  reverse_hash=hashlib.sha256(t[::-1].encode()).hexdigest(); direct_hash=hashlib.sha256(t.encode()).hexdigest()
  row={"rendered":SCENE,"letters":len(t),"dependency_boundary_variables":len(eq),"first_mismatch":mismatch,
       "two_pointer_exact":not any(e['left_char']!=e['right_char'] for e in eq),"reverse_hash":reverse_hash,"direct_hash":direct_hash,

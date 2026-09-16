@@ -17,7 +17,7 @@ SIGNATURE = "reader-first|two-clause-scene|held-out-function-inflection-edits|se
 BASE = ("At dusk, Mara carries the blue lantern across the quiet bridge, "
         "and Jonah records each rescued name for the town archive.")
 # Each edit is a complete, reader-approved local sentence choice, not a letter patch.
-EDITS = (("plural-subject", "Mara", "Mara and Eli"),
+EDITS = (("plural-subject", "Mara carries", "Mara and Eli carry"),
          ("aspect", "records", "has recorded"),
          ("determiner", "the quiet bridge", "a quiet bridge"),
          ("purpose", "for the town archive", "so the town archive can open"))
@@ -36,7 +36,14 @@ def audit(text: str) -> dict:
 def main() -> None:
     output = ROOT / "runs" / f"{ID}.json"
     registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
-    signatures = {e["signature"] for e in registry["entries"] + registry.get("excluded", [])}
+    # The lane is registered before execution so later runs cannot silently
+    # replay it; omit this artifact's own registry row from the self-collision
+    # check while still checking every other retained and excluded signature.
+    signatures = {
+        e["signature"]
+        for e in registry["entries"] + registry.get("excluded", [])
+        if e.get("id") != ID
+    }
     if SIGNATURE in signatures:
         raise SystemExit("duplicate construction state rejected")
     candidates = [{"edit": "base", "semantic_consistency": True, "audit": audit(BASE)}]

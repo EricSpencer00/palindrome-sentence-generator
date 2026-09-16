@@ -33,14 +33,18 @@ def chunks(word):
 
 def finite_state_clauses(limit=12):
     # States encode grammatical category; transitions emit chunks and spaces.
-    transitions = {"START": ("det",), "det": ("subj",), "subj": ("verb",), "verb": ("obj",), "obj": ()}
+    transitions = {"START": ("det",), "det": ("subj",), "subj": ("verb",), "verb": ("obj_det",), "obj_det": ("obj",), "obj": ()}
     rows = []
     for d in LEX["det"]:
         for s in LEX["subj"]:
             for v in LEX["verb"]:
                 for o in LEX["obj"]:
-                    words = (d[1], s[1], v[1], o[1])
-                    rows.append({"words": words, "chunks": [chunks(x) for x in words], "states": ["START", *transitions["START"], "subj", "verb", "obj"]})
+                    # Keep both subject and object NPs complete; the prior
+                    # probe emitted bare objects such as “repairs gate,” which
+                    # is not intact ordinary prose.
+                    object_det = "the" if o[1] != "parcel" else "a"
+                    words = (d[1], s[1], v[1], object_det, o[1])
+                    rows.append({"words": words, "chunks": [chunks(x) for x in words], "states": ["START", *transitions["START"], "subj", "verb", "obj_det", "obj"]})
                     if len(rows) >= limit: return rows
     return rows
 

@@ -357,7 +357,23 @@ states at 55, 114, 168, and 223 letters. Both continuations have fresh
 provenance and novelty fingerprints, and neither produced an exact closure;
 they are retained as construction evidence rather than duplicate sweeps.
 
-The authoritative aggregate is therefore **4,620 rows across 181 route
+The authoritative aggregate is therefore **4,637 rows across 183 route
 phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**. The
 next reader-facing test remains the randomized blinded intact-versus-shuffled
 packet, gated on a genuinely exact, anti-shortcut-clean candidate.
+
+The next bounded wave contributes a typed onset/rime grapheme constructor
+(12 corrected complete clauses, 37--47 letters) and a reader-first
+function/inflection editor (five 96--104-letter scenes). Both are registered
+as distinct retained families with independent audits and concrete repairs.
+An entailment-preserving active/passive rewrite is explicitly excluded after
+novelty preflight found overlap with existing voice/information-structure
+families. The registry now contains 284 retained artifacts, 31 exclusions,
+and 262 retained run artifacts.
+
+Representative renderings are preserved verbatim: “The baker repairs the
+gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA
+`db308c0c...` versus `911b6228...`) and “At dusk, Mara carries the blue
+lantern across the quiet bridge, and Jonah records each rescued name so the
+town archive can open.” (104 letters, first mismatch 0, normalized SHA
+`49d8b841...` versus `443a004b...`). Neither is exact or reader-eligible.

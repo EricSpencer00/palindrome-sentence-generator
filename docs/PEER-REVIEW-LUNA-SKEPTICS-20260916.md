@@ -1,7 +1,7 @@
 # Three skeptical Luna reviews (2026-09-16)
 
 Three independent Luna passes reviewed the ten requested construction lanes,
-the three subsequent continuation lanes, the aggregate audit, and the reader
+the subsequent continuation lanes, the aggregate audit, and the reader
 gate. They were asked to find shortcuts or unsupported claims, not to defend
 the current result.
 
@@ -15,7 +15,7 @@ was not itself represented in the novelty registry. The registry now has an
 `runs/parallel-luna-readability-diagnostics-20260916.json`, explicitly marking
 it as a report rather than a construction lane. Historical checkpoint counts
 in the evidence ledger are labeled as checkpoints; the closing snapshot is
-the current 282-artifact / 30-exclusion registry.
+the current 284-artifact / 31-exclusion registry.
 
 ## Exactness and provenance
 
@@ -48,4 +48,3 @@ The reviews did not produce a reader-worthy palindrome. Their concrete repairs
 are committed, and the constructive goal remains active: every next failed
 generator must introduce a new construction state or a targeted repair rather
 than a larger duplicate sweep.
-

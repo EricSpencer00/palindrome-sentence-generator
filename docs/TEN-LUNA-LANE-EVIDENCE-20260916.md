@@ -457,9 +457,28 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,620 rows
-across 181 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **282 retained artifacts, 30
-explicit exclusions, and 260 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,637 rows
+across 183 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **284 retained artifacts, 31
+explicit exclusions, and 262 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
+
+The next bounded wave adds a typed onset/rime grapheme constructor with 12
+37--47-letter complete clauses and a reader-first function/inflection editor
+with five fresh 96--104-letter scenes. The grapheme constructor was repaired
+after its first probe omitted object determiners; the corrected renderings are
+ordinary prose and remain non-exact. An entailment-preserving active/passive
+rewrite was preflighted but overlaps existing voice/information-structure
+families, so it is retained only as excluded failure evidence.
+
+Representative corrected grapheme output is “The baker repairs the gate; the
+pilot maps a gate.” (39 letters; normalized SHA forward
+`db308c0c...`, reverse `911b6228...`, first mismatch 0; exact `False`). The
+longest reader-first function-edit output is “At dusk, Mara carries the blue
+lantern across the quiet bridge, and Jonah records each rescued name so the
+town archive can open.” (104 letters; normalized SHA forward
+`49d8b841...`, reverse `443a004b...`, first mismatch 0; exact `False`). Both
+are fresh authored prose with no catalogue import or symmetry shortcut; the
+next reader-facing test remains blocked until an exact anti-shortcut survivor
+is independently admitted.

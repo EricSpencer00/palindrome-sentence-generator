@@ -171,9 +171,11 @@
     "runs/clause-equation-sat-20260916.json",
     "runs/dialogue-speech-act-grammar-20260916-qaser.json",
     "runs/typed-morpheme-compound-20260916.json",
-    "runs/typed-equation-grammar-20260916.json"
+    "runs/typed-equation-grammar-20260916.json",
+    "runs/astar-typed-word-boundary-20260916.json",
+    "runs/human-two-sentence-slot-search-20260916.json"
   ],
-  "candidate_count": 4597,
+  "candidate_count": 4605,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -216,6 +218,16 @@
       "max_letters": 74,
       "mean_zipf_frequency": 5.62854487179487,
       "mean_brown_order_gain_vs_shuffle": 1.3017538294218745
+    },
+    {
+      "source_run": "runs/astar-typed-word-boundary-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 140,
+      "max_letters": 140,
+      "mean_zipf_frequency": 5.188000000000001,
+      "mean_brown_order_gain_vs_shuffle": 0.5481227195440024
     },
     {
       "source_run": "runs/authored-clause-template-sat-20260916.json",
@@ -976,6 +988,16 @@
       "max_letters": 117,
       "mean_zipf_frequency": 5.320434782608697,
       "mean_brown_order_gain_vs_shuffle": 0.7485285879473658
+    },
+    {
+      "source_run": "runs/human-two-sentence-slot-search-20260916.json",
+      "rows": 7,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 92,
+      "max_letters": 97,
+      "mean_zipf_frequency": 5.0635714285714295,
+      "mean_brown_order_gain_vs_shuffle": 0.8101382340856357
     },
     {
       "source_run": "runs/induced-grammar-reverse-decoder-20260916.json",
@@ -221023,6 +221045,330 @@
         "mean_zipf_frequency": 5.577777777777778,
         "word_count": 18,
         "repeated_word_rate": 0.2222222222222222,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardener waters the cedar seedlings beside the schoolhouse before sunrise. the teacher labels every seedling and stores the tools beneath the quiet porch.",
+      "source_run": "runs/astar-typed-word-boundary-20260916.json",
+      "provenance": {
+        "search": "A*",
+        "state": "(left lexical index,right lexical index,settled boundary obligations)",
+        "expansion": "typed lexical chunks and opposite-side boundaries jointly",
+        "forbidden": [
+          "fixed catalogue tape",
+          "repeated spans",
+          "mirrored word order",
+          "seed wrapper"
+        ]
+      },
+      "repair": null,
+      "letters": 140,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5481227195440024,
+        "mean_zipf_frequency": 5.188000000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful mason placed blue tiles beside the fountain. The bright painter sketched green shutters near the harbor.",
+      "source_run": "runs/human-two-sentence-slot-search-20260916.json",
+      "provenance": "human-author two complete scene sentences; vary exactly one semantic slot at a time while recomputing the live character equation",
+      "repair": null,
+      "letters": 97,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8265224574849253,
+        "mean_zipf_frequency": 5.037777777777779,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful mason placed blue tiles beside the fountain. The bright painter sketched warm lanterns near the harbor.",
+      "source_run": "runs/human-two-sentence-slot-search-20260916.json",
+      "provenance": "human-author two complete scene sentences; vary exactly one semantic slot at a time while recomputing the live character equation",
+      "repair": null,
+      "letters": 96,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9139565864050105,
+        "mean_zipf_frequency": 5.016111111111112,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful mason placed blue tiles beside the fountain. The bright painter sketched red arches beside the market.",
+      "source_run": "runs/human-two-sentence-slot-search-20260916.json",
+      "provenance": "human-author two complete scene sentences; vary exactly one semantic slot at a time while recomputing the live character equation",
+      "repair": null,
+      "letters": 95,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9279290919005287,
+        "mean_zipf_frequency": 5.066111111111112,
+        "word_count": 18,
+        "repeated_word_rate": 0.2222222222222222,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful mason placed blue tiles beside the fountain. The bright painter sketched red arches under the bridge.",
+      "source_run": "runs/human-two-sentence-slot-search-20260916.json",
+      "provenance": "human-author two complete scene sentences; vary exactly one semantic slot at a time while recomputing the live character equation",
+      "repair": null,
+      "letters": 94,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9165180341632819,
+        "mean_zipf_frequency": 5.122777777777778,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful mason placed blue tiles beside the fountain. The bright painter sketched small boats near the harbor.",
+      "source_run": "runs/human-two-sentence-slot-search-20260916.json",
+      "provenance": "human-author two complete scene sentences; vary exactly one semantic slot at a time while recomputing the live character equation",
+      "repair": null,
+      "letters": 94,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8064268794402345,
+        "mean_zipf_frequency": 5.118888888888891,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful mason placed blue tiles beside the fountain. The bright painter sketched red arches near the harbor.",
+      "source_run": "runs/human-two-sentence-slot-search-20260916.json",
+      "provenance": "human-author two complete scene sentences; vary exactly one semantic slot at a time while recomputing the live character equation",
+      "repair": null,
+      "letters": 93,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7881936766604678,
+        "mean_zipf_frequency": 5.06388888888889,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful mason placed blue tiles beside the fountain. The bright painter sketched red arches along the quay.",
+      "source_run": "runs/human-two-sentence-slot-search-20260916.json",
+      "provenance": "human-author two complete scene sentences; vary exactly one semantic slot at a time while recomputing the live character equation",
+      "repair": null,
+      "letters": 92,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4914209125450011,
+        "mean_zipf_frequency": 5.019444444444445,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
         "punctuation_segments": 2
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

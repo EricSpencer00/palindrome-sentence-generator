@@ -385,9 +385,9 @@ novelty preflight, independent audits, and concrete repairs.
 ## Fresh ten-lane audit (2026-09-16)
 
 The ten requested dimensions were rerun as separate state representations. The
-aggregate now contains **4,583 rendered rows across 169 route phases, 79 exact
+aggregate now contains **4,605 rendered rows across 177 route phases, 79 exact
 but rejected tapes, and 0 mechanically admitted outputs**. The novelty registry
-has **271 unique retained artifacts, 29 explicit exclusions, and 249 run
+has **279 unique retained artifacts, 30 explicit exclusions, and 257 run
 artifacts**. Every retained lane below has an intact rendering, an independent
 pointer/hash audit, provenance, novelty preflight, and a concrete next repair.
 The lane-8 exact result is intentionally excluded because it repeats a
@@ -432,7 +432,7 @@ clause pairs; and a finite-domain clause-equation SAT probe retained a
 116-letter two-clause scene. All are fresh intact prose with independent
 pointer/hash rejection, provenance, novelty preflight, and concrete repairs.
 They add **11 rows and 3 route phases** to the aggregate; the common report now
-contains **4,597 rows, 175 route phases, 79 exact rejected tapes, and 0
+contains **4,605 rows, 177 route phases, 79 exact rejected tapes, and 0
 mechanically admitted**. None
 is promoted as reader evidence.
 
@@ -442,3 +442,9 @@ a 91-letter first-token equation grammar. Their ordinary prose, independent
 audits, provenance, novelty records, and concrete repairs are retained; the
 morpheme probe is below the long-prose floor and fails its lexicon gate, so no
 shortcut is promoted.
+
+The A* typed word-boundary lane adds a 140-letter intact garden/schoolhouse
+scene, and a human two-sentence single-slot repair adds seven deduplicated
+92--97-letter scene variants. Both remain non-exact with independent audits and
+named repairs. An attested phrase-bridge preflight found zero complete-clause
+bridges and is excluded rather than counted as a fabricated candidate.

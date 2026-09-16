@@ -2318,6 +2318,26 @@
       "status": "run; 130-letter intact dialogue near miss; 0 exact and 0 mechanically admitted"
     },
     {
+      "id": "astar-typed-word-boundary-20260916",
+      "signature": "astar|typed-lexical-chunk|joint-opposite-word-boundary|hard-grammar-valency",
+      "artifact": "experiments/astar_typed_boundary_20260916.py",
+      "run_artifacts": ["runs/astar-typed-word-boundary-20260916.json"],
+      "overlaps": ["paired-obligation-astar-20260916", "boundary-fst-resegment-20260916"],
+      "distinction": "A* jointly expands typed lexical chunks and opposite-side word boundaries with hard grammar and valency constraints; it retains a 140-letter ordinary scene without a fixed tape or seed wrapper.",
+      "reader_evidence": false,
+      "status": "run; 140-letter intact prose near miss; 0 exact and 0 mechanically admitted"
+    },
+    {
+      "id": "human-two-sentence-slot-search-20260916",
+      "signature": "human-authored-two-sentence-scenes|single-slot-semantic-local-search|live-character-equation|independent-pointer-sha",
+      "artifact": "experiments/human_two_sentence_slot_search_20260916.py",
+      "run_artifacts": ["runs/human-two-sentence-slot-search-20260916.json"],
+      "overlaps": ["semantic-slot-substitution-repair-20260916-luna", "reader-first-discourse-scene-lattice-20260916"],
+      "distinction": "A human-authored two-sentence scene varies exactly one semantic slot per trial while recomputing the complete character equation; duplicate renderings are deduplicated before aggregation.",
+      "reader_evidence": false,
+      "status": "run; 92--97-letter intact near misses; 0 exact and 0 mechanically admitted"
+    },
+    {
       "id": "typed-equation-grammar-20260916",
       "signature": "typed-grammar-first-token-equations|semantic-predicates|agreement-carrying-realization|independent-pointer-sha",
       "artifact": "experiments/typed_equation_grammar_20260916.py",
@@ -2638,6 +2658,14 @@
       "run_artifacts": ["runs/typed-reversible-lexeme-graph-20260916.json"],
       "overlaps": ["semordnilap-typed-clause-2026-09-16", "wordpair-graph-2026-09-16"],
       "reason": "The 345-letter rendering is a repeated chain of semordnilap words and contains no intact subject-verb-object prose; its unique-word ratio is 0.333 and the same edge sequence is repeated three times. It is retained only as rejected failure evidence with an edge-repair operator."
+    },
+    {
+      "id": "attested-phrase-bridge-clause-20260916-excluded",
+      "signature": "attested-multiword-phrase|character-reversal|complete-clause-parser|distinct-bridge-composition|no-catalogue-seed",
+      "artifact": "experiments/attested_phrase_bridge_clause_20260916.py",
+      "run_artifacts": ["runs/attested-phrase-bridge-clause-20260916.json"],
+      "overlaps": ["corpus-sentence-gram-fst", "reverse-segmentation-cfg-valency-20260916"],
+      "reason": "The attested phrase bridge preflight found zero admitted bridges and emitted no rendered candidate. It is retained as a preflight failure with its strict complete-clause and morphology-aware next repair, not counted as a construction lane."
     }
   ]
 }

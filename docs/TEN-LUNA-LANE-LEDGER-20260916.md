@@ -315,7 +315,7 @@ Lane 8's distinct repair is recorded separately as
 harbor scene with plural, past-tense, and possessive-clitic obligations. It is
 non-exact under both independent audits and passes the no-repeated-unit gate.
 
-The common audit is **4,583 rows, 169 route phases, 79 exact rejected tapes,
+The common audit is **4,605 rows, 177 route phases, 79 exact rejected tapes,
 and 0 mechanically admitted outputs**. The exact lane-8 hash is retained only
 as a quarantined duplicate-control failure; it cannot enter a reader packet.
 
@@ -323,8 +323,8 @@ Post-audit continuations add a free-center semantic state machine (138
 letters), an independently reverse-parsed phrase lane (nine 116--118-letter
 probes), and a finite-domain clause-equation SAT lane (116 letters). They are
 new state representations, not larger duplicate sweeps; all remain non-exact
-and reader-ineligible with named repairs. The aggregate is now **4,597 rows
-across 175 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+and reader-ineligible with named repairs. The aggregate is now **4,605 rows
+across 177 route phases, 79 exact rejected tapes, and 0 mechanically admitted
 outputs**.
 
 The subsequent dialogue Q/A grammar, typed morpheme-compound boundary, and
@@ -332,3 +332,8 @@ first-token equation grammar add 130-, 68-, and 91-letter prose probes. They
 are retained as separate state representations with independent audits and
 repairs; the morpheme result is below the long-prose floor and fails its
 lexicon gate.
+
+The A* typed word-boundary probe adds a 140-letter garden/schoolhouse scene;
+the human single-slot search adds seven deduplicated 92--97-letter scenes. An
+attested phrase-bridge preflight emitted no complete clause and is explicitly
+excluded.

@@ -179,3 +179,10 @@ The next directed repair wave retained four reverse-lexicon seam candidates at
 SAT outer-character repair at 102 letters. The independent pointer/SHA checks
 and mechanical gate reject all of them. The aggregate is now 4342 normalized
 rows across 114 route phases, with 73 exact-but-rejected tapes and 0 admitted.
+
+The follow-up repairs retained three shared-agreement seam candidates at
+61--68 letters, a two-boundary center-out repair at 66 letters, and a fresh
+t-initial SAT subject repair at 103 letters. Each has independent pointer and
+SHA-256 rejection, provenance, and a concrete next operator. The aggregate is
+now 4347 normalized rows across 117 route phases, with 0 mechanically admitted
+rows.

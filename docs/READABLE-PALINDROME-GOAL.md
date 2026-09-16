@@ -1777,14 +1777,24 @@ item-aware analysis plan.
   remain zero. The aggregate is 3274 rendered rows across 70 route phases,
   with 72 exact-but-rejected tapes and no mechanically admitted candidate.
 
-  A subsequent three-Luna pass added an intact-prose lexical/inflectional
-  repair operator (311 complete renderings, 62--81 letters), a semantic
-  front/back interleaving route (15 complete one-sentence surfaces, 44--48
-  letters), and a length-indexed regular seam grammar (11,997 generated
-  surfaces, five retained 95--115-letter outputs). Every row has independent
-  exact/hash evidence and provenance; none is exact or mechanically admitted.
-  The aggregate is now 2555 rendered rows across 67 route phases, still with
-  zero audit mismatches, 72 exact-but-rejected tapes, and 0 mechanically
-  admitted rows. The longer outputs are useful construction diagnostics, not
-  reader evidence; the blinded study and API remain gated until an exact,
-  mechanically clean candidate exists.
+  The next three-Luna fan-out kept the search constructive while changing the
+  state representation in each lane. Equal-length semantic clause collision
+  joined independently authored SVO clauses by reversed-tape hash (120,000
+  clauses per side) and retained eight complete 64--66-letter probes. A
+  semantic valency boundary CSP searched 384 station-scene realizations and
+  retained 24 complete 127--147-letter renderings while varying sense,
+  agreement, tense, and word boundaries jointly. A character-synchronous
+  Earley/finite-state intersection kept agreement and event roles in parser
+  state and retained 12 complete 48--64-letter probes. All three lanes have
+  independent exact/hash audits and mismatch-directed repair operators; none
+  has yet produced an exact closure or a mechanically admitted candidate.
+  Their artifacts are `runs/equal-length-clause-collision-20260916.json`,
+  `runs/semantic-valency-boundary-csp-20260916.json`, and
+  `runs/earley-finite-state-grammar-intersection-20260916.json`.
+
+  The aggregate now contains 3318 rendered rows across 73 route phases, with
+  zero independent tape mismatches, 72 exact-but-rejected tapes, and 0
+  mechanically admitted candidates. These rows remain construction evidence,
+  not readability certification: the intact-versus-shuffled blinded reader
+  package and the API stay closed until an exact, mechanically clean,
+  reader-worthy output exists.

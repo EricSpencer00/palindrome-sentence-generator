@@ -1245,6 +1245,14 @@
       "run_artifacts": ["runs/equal-length-clause-collision-20260916.json"],
       "distinction": "Large left and right banks are independently generated from disjoint typed POS/sense inventories. Only equal-length complete SVO+adjunct clauses enter a reversed-tape SHA-256 collision index; normal right-side word order is preserved and every hit receives an independent two-pointer replay and shared admission audit.",
       "reader_evidence": false
+    },
+    {
+      "id": "earley-finite-state-grammar-intersection-20260916",
+      "signature": "earley-finite-state-grammar-product|forward-reverse-character-lockstep|epsilon-word-boundaries|agreement-in-parser-state|event-role-clause-semantics|independent-exact-admission-audit",
+      "artifact": "experiments/earley_finite_state_grammar_intersection_20260916.py",
+      "run_artifacts": ["runs/earley-finite-state-grammar-intersection-20260916.json"],
+      "distinction": "Independent forward and reverse finite-state clause parses are intersected during character scans. Epsilon word-boundary transitions and agreement/event-role registers remain in the product state; no completed tape is reverse-segmented or decoded post hoc.",
+      "reader_evidence": false
     }
   ],
   "excluded": [
@@ -1416,14 +1424,6 @@
       "artifact": "experiments/cumulative_boundary_profile_fixedpoint_20260916.py",
       "overlaps": ["variable-boundary-tape-ilp", "grammar-boundary-resegmentation-repair", "lexicalized-tag-yield-equation"],
       "reason": "The route is distinct because reflected cumulative word-boundary positions are fixed during POS/role lexical emission. The tape is audited independently, with cross-boundary matches and proper palindrome spans recorded; no completed tape is reverse-segmented."
-    },
-    {
-      "id": "earley-finite-state-grammar-intersection-20260916",
-      "signature": "earley-finite-state-grammar-product|forward-reverse-character-lockstep|epsilon-word-boundaries|agreement-in-parser-state|event-role-clause-semantics|independent-exact-admission-audit",
-      "artifact": "experiments/earley_finite_state_grammar_intersection_20260916.py",
-      "run_artifacts": ["runs/earley-finite-state-grammar-intersection-20260916.json"],
-      "distinction": "Independent forward and reverse finite-state clause parses are intersected during character scans. Epsilon word-boundary transitions and agreement/event-role registers remain in the product state; no completed tape is reverse-segmented or decoded post hoc.",
-      "reader_evidence": false
     }
   ]
 }

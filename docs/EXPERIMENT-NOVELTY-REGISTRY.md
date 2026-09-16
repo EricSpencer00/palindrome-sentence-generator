@@ -22,6 +22,9 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `regular-seam-grammar-20260916` | a length-indexed finite-state grammar grows typed clauses through a non-palindromic connective seam and applies seam-directed lexical repair | scalable regular seam grammar | 11,997 generated surfaces; 5 retained 95–115-letter outputs; 0 exact and 0 reader-eligible |
 | `human-guided-global-equation-editor-20260916` | a fresh four-clause scene is edited globally across lexical, tense, and punctuation states while a semantic-invariance ledger and character equation remain live | global semantic equation editing | 648 states; 24 retained 148–161-letter renderings; 0 exact and 0 reader-eligible |
 | `joint-morpheme-affix-closure-20260916` | two independent clause frames choose stem and inflectional/derivational ending bundles jointly under non-mirror clause orders and a live character audit | joint morpheme/affix closure | 48 failed outputs; 0 exact and 0 reader-eligible |
+| `equal-length-clause-collision-20260916` | independently generated typed SVO+adjunct clauses are bucketed by equal tape length and joined by reversed-tape hash, with normal right-side order and two-pointer replay | equal-length semantic clause collision | 120,000 clauses per side; 8 complete 64–66-letter probes; 0 exact and 0 reader-eligible |
+| `semantic-valency-boundary-csp-20260916` | a fresh station scene varies sense-specific valency frames, agreement, tense, punctuation, and word boundaries jointly under a whole-scene character CSP | semantic valency boundary CSP | 384 states; 24 complete 127–147-letter renderings; 0 exact and 0 reader-eligible |
+| `earley-finite-state-grammar-intersection-20260916` | independent forward/reverse finite-state clause parses intersect during character scans, retaining epsilon word boundaries plus agreement and event-role registers in parser state | character-synchronous Earley/finite-state intersection | 12 complete 48–64-letter probes; 0 exact and 0 reader-eligible |
 | `cumulative-boundary-profile-fixedpoint-20260916` (preflight-excluded) | reflected cumulative word-boundary positions are fixed during POS/role lexical emission with a cross-boundary match ledger | cumulative boundary profile | 1,350 generated rows (647 unique); 0 exact; excluded after overlap review with existing boundary families |
 | `quantified-comparison-preflight-20260916` | quantified measurement/comparison clauses with independently authored evidence and scalar predicates | preflight-only quantified measurement | blocked before rendering: comparative/modal and semantic arithmetic families already cover this state |
 | `minimal-edit-fresh-center-20260916` | genuinely authored free prose centers receive a bounded one-word lexical repair while punctuation, order, and clause structure remain intact | template-free minimal-edit authoring | 3 fresh centers + 6 lexical repairs, 58–72 letters; 0 exact and 0 reader-eligible |
@@ -223,7 +226,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 176 retained families and 22 explicit
+family. The current audit covers all 179 retained families and 22 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 
@@ -266,6 +269,9 @@ pairs for review. The latest routes are below the review threshold:
 | `weighted-cfg-sync-dp-20260916` | none (0.000) | 0.000 | retained because independent weighted parse forests are intersected by character position; base and adjunct repair produced no exact closure |
 | `reversible-grammar-insertion-20260916` | none (0.000) | 0.000 | retained because five distinct reverse lexical units grow the seed without repetition; exact outputs were seam-incoherent and withheld from readers |
 | `joint-morpheme-affix-closure-20260916` | none (0.000) | 0.000 | retained because two independently ordered intact clauses jointly choose explicit stem+ending bundles; 19,200 lockstep pairs and 48 >38-letter failures, 0 exact/admitted/reader rows |
+| `equal-length-clause-collision-20260916` | none (0.000) | 0.000 | retained because equal-length typed clause banks are joined by a reversed-tape hash before independent two-pointer replay; 120,000 clauses per side, 8 complete probes, 0 exact/admitted/reader rows |
+| `semantic-valency-boundary-csp-20260916` | none (0.000) | 0.000 | retained because sense-specific valency, agreement, and variable word boundaries remain in one scene-level CSP; 384 states, 24 complete 127–147-letter renderings, 0 exact/admitted/reader rows |
+| `earley-finite-state-grammar-intersection-20260916` | none (0.000) | 0.000 | retained because forward/reverse finite-state parses intersect character-by-character with epsilon boundaries and agreement/event-role registers; 12 complete probes, 0 exact/admitted/reader rows |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

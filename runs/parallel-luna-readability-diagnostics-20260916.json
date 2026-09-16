@@ -68,9 +68,12 @@
     "runs/regular-seam-grammar-20260916.json",
     "runs/human-guided-global-equation-editor-20260916.json",
     "runs/cumulative-boundary-profile-fixedpoint-20260916.json",
-    "runs/joint-morpheme-affix-closure-20260916.json"
+    "runs/joint-morpheme-affix-closure-20260916.json",
+    "runs/equal-length-clause-collision-20260916.json",
+    "runs/semantic-valency-boundary-csp-20260916.json",
+    "runs/earley-finite-state-grammar-intersection-20260916.json"
   ],
-  "candidate_count": 3274,
+  "candidate_count": 3318,
   "exact_count": 72,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -253,6 +256,26 @@
       "max_letters": 57,
       "mean_zipf_frequency": 5.647727272727272,
       "mean_brown_order_gain_vs_shuffle": 1.3004980488866935
+    },
+    {
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "rows": 12,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 48,
+      "max_letters": 64,
+      "mean_zipf_frequency": 5.5806547619047615,
+      "mean_brown_order_gain_vs_shuffle": 0.4489056491900076
+    },
+    {
+      "source_run": "runs/equal-length-clause-collision-20260916.json",
+      "rows": 8,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 64,
+      "max_letters": 66,
+      "mean_zipf_frequency": 5.669652777777778,
+      "mean_brown_order_gain_vs_shuffle": 0.4558965778654025
     },
     {
       "source_run": "runs/evidential-scene-planner-20260916.json#base",
@@ -703,6 +726,16 @@
       "max_letters": 60,
       "mean_zipf_frequency": 5.499298245614033,
       "mean_brown_order_gain_vs_shuffle": 0.6633322512521269
+    },
+    {
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "rows": 24,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 127,
+      "max_letters": 147,
+      "mean_zipf_frequency": 5.547573731615375,
+      "mean_brown_order_gain_vs_shuffle": 0.9693646207452367
     },
     {
       "source_run": "runs/simultaneous-phrase-beam-20260916.json",
@@ -141095,6 +141128,2092 @@
         "mean_zipf_frequency": 4.908571428571428,
         "word_count": 14,
         "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet bakery. A caller answers a reply at a brief plaza.",
+      "source_run": "runs/equal-length-clause-collision-20260916.json",
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "response",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 66,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_proper_multiword_span"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.39340405371440035,
+        "mean_zipf_frequency": 5.602222222222221,
+        "word_count": 18,
+        "repeated_word_rate": 0.2777777777777778,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet field. A caller answers a file at a brief plaza.",
+      "source_run": "runs/equal-length-clause-collision-20260916.json",
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "response",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 64,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_proper_multiword_span"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.3941778540263705,
+        "mean_zipf_frequency": 5.703333333333332,
+        "word_count": 18,
+        "repeated_word_rate": 0.2777777777777778,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet field. A caller moves a signal at a clean plaza.",
+      "source_run": "runs/equal-length-clause-collision-20260916.json",
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "motion",
+          "object_sense": "physical-object",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 64,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_proper_multiword_span"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6066342531912401,
+        "mean_zipf_frequency": 5.720555555555555,
+        "word_count": 18,
+        "repeated_word_rate": 0.2777777777777778,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet field. A caller fixes a alarm over a fine plaza.",
+      "source_run": "runs/equal-length-clause-collision-20260916.json",
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "repair",
+          "object_sense": "physical-object",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 64,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.38163891338508016,
+        "mean_zipf_frequency": 5.626111111111111,
+        "word_count": 18,
+        "repeated_word_rate": 0.2777777777777778,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet field. A caller leaves a hall at a gentle plaza.",
+      "source_run": "runs/equal-length-clause-collision-20260916.json",
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "departure",
+          "object_sense": "place",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 64,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_proper_multiword_span"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5001108001596055,
+        "mean_zipf_frequency": 5.7011111111111115,
+        "word_count": 18,
+        "repeated_word_rate": 0.2777777777777778,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet field. A child cooks a rice among a clean plaza.",
+      "source_run": "runs/equal-length-clause-collision-20260916.json",
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "preparation",
+          "object_sense": "food",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 64,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.46409966009811754,
+        "mean_zipf_frequency": 5.681111111111111,
+        "word_count": 18,
+        "repeated_word_rate": 0.2777777777777778,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet shore. A caller answers a file at a brief plaza.",
+      "source_run": "runs/equal-length-clause-collision-20260916.json",
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "response",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 64,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_proper_multiword_span"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.3473253445917681,
+        "mean_zipf_frequency": 5.652777777777777,
+        "word_count": 18,
+        "repeated_word_rate": 0.2777777777777778,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A baker reads a journal in a quiet shore. A caller moves a signal at a clean plaza.",
+      "source_run": "runs/equal-length-clause-collision-20260916.json",
+      "provenance": {
+        "left_side": "left",
+        "right_side": "right",
+        "left_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "information",
+          "object_sense": "text-artifact",
+          "adjunct_sense": "location"
+        },
+        "right_semantic_roles": {
+          "subject_sense": "person-agent",
+          "event_sense": "motion",
+          "object_sense": "physical-object",
+          "adjunct_sense": "location"
+        },
+        "word_order_reversed": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 64,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_proper_multiword_span"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5597817437566377,
+        "mean_zipf_frequency": 5.669999999999999,
+        "word_count": 18,
+        "repeated_word_rate": 0.2777777777777778,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the platform porter leaves a wet bundle beside the bench \u2014 requests the weary passenger's name, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5980659990114408,
+        "mean_zipf_frequency": 5.43037037037037,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the platform porter leaves a wet bundle beside the bench, requests the weary passenger's name, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5980659990114408,
+        "mean_zipf_frequency": 5.43037037037037,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the platform porter leaves a wet bundle beside the bench; requests the weary passenger's name, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5980659990114408,
+        "mean_zipf_frequency": 5.43037037037037,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the storm, the station porter places a wet parcel beside the bench \u2014 seeks the traveler's name from the weary passenger, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 142,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1977185825498182,
+        "mean_zipf_frequency": 5.561290322580645,
+        "word_count": 31,
+        "repeated_word_rate": 0.19354838709677424,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the storm, the station porter places a wet parcel beside the bench, seeks the traveler's name from the weary passenger, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 142,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1977185825498182,
+        "mean_zipf_frequency": 5.561290322580645,
+        "word_count": 31,
+        "repeated_word_rate": 0.19354838709677424,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the storm, the station porter places a wet parcel beside the bench; seeks the traveler's name from the weary passenger, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 142,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1977185825498182,
+        "mean_zipf_frequency": 5.561290322580645,
+        "word_count": 31,
+        "repeated_word_rate": 0.19354838709677424,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the storm, the station porter places a wet parcel beside the bench \u2014 learns a name from the tired traveler, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 131,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1716549044415245,
+        "mean_zipf_frequency": 5.603448275862069,
+        "word_count": 29,
+        "repeated_word_rate": 0.2068965517241379,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the storm, the station porter places a wet parcel beside the bench, learns a name from the tired traveler, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 131,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1716549044415245,
+        "mean_zipf_frequency": 5.603448275862069,
+        "word_count": 29,
+        "repeated_word_rate": 0.2068965517241379,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the storm, the station porter places a wet parcel beside the bench; learns a name from the tired traveler, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 131,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1716549044415245,
+        "mean_zipf_frequency": 5.603448275862069,
+        "word_count": 29,
+        "repeated_word_rate": 0.2068965517241379,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Following the storm, the railway porter stored a soaked parcel under the bench \u2014 learned a name from the tired traveler, and stayed while the delayed train rolled across the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 147,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0420854685779108,
+        "mean_zipf_frequency": 5.595,
+        "word_count": 30,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Following the storm, the railway porter stored a soaked parcel under the bench, learned a name from the tired traveler, and stayed while the delayed train rolled across the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 147,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0420854685779108,
+        "mean_zipf_frequency": 5.595,
+        "word_count": 30,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Following the storm, the railway porter stored a soaked parcel under the bench; learned a name from the tired traveler, and stayed while the delayed train rolled across the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 147,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0420854685779108,
+        "mean_zipf_frequency": 5.595,
+        "word_count": 30,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the platform porter left a wet bundle beside the bench \u2014 requested the weary passenger's name, then waited as the evening train passed the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7224199100606121,
+        "mean_zipf_frequency": 5.5018518518518515,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the platform porter left a wet bundle beside the bench, requested the weary passenger's name, then waited as the evening train passed the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7224199100606121,
+        "mean_zipf_frequency": 5.5018518518518515,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the platform porter left a wet bundle beside the bench; requested the weary passenger's name, then waited as the evening train passed the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7224199100606121,
+        "mean_zipf_frequency": 5.5018518518518515,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the storm, the station porter sets a damp package beside the bench \u2014 seeks the traveler's name from the weary passenger, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 142,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9998169990089067,
+        "mean_zipf_frequency": 5.546129032258064,
+        "word_count": 31,
+        "repeated_word_rate": 0.19354838709677424,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the storm, the station porter sets a damp package beside the bench, seeks the traveler's name from the weary passenger, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 142,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9998169990089067,
+        "mean_zipf_frequency": 5.546129032258064,
+        "word_count": 31,
+        "repeated_word_rate": 0.19354838709677424,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the storm, the station porter sets a damp package beside the bench; seeks the traveler's name from the weary passenger, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 142,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9998169990089067,
+        "mean_zipf_frequency": 5.546129032258064,
+        "word_count": 31,
+        "repeated_word_rate": 0.19354838709677424,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the platform porter leaves a wet bundle beside the bench \u2014 learns a name from the tired traveler, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9708391425723004,
+        "mean_zipf_frequency": 5.517857142857143,
+        "word_count": 28,
+        "repeated_word_rate": 0.1785714285714286,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the platform porter leaves a wet bundle beside the bench, learns a name from the tired traveler, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9708391425723004,
+        "mean_zipf_frequency": 5.517857142857143,
+        "word_count": 28,
+        "repeated_word_rate": 0.1785714285714286,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the platform porter leaves a wet bundle beside the bench; learns a name from the tired traveler, then waits as the evening train passes the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9708391425723004,
+        "mean_zipf_frequency": 5.517857142857143,
+        "word_count": 28,
+        "repeated_word_rate": 0.1785714285714286,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the platform porter left a wet bundle beside the bench \u2014 learned a name from the tired traveler, then waited as the evening train passed the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0523159597393779,
+        "mean_zipf_frequency": 5.624642857142857,
+        "word_count": 28,
+        "repeated_word_rate": 0.1785714285714286,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the platform porter left a wet bundle beside the bench, learned a name from the tired traveler, then waited as the evening train passed the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0523159597393779,
+        "mean_zipf_frequency": 5.624642857142857,
+        "word_count": 28,
+        "repeated_word_rate": 0.1785714285714286,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the platform porter left a wet bundle beside the bench; learned a name from the tired traveler, then waited as the evening train passed the bridge.",
+      "source_run": "runs/semantic-valency-boundary-csp-20260916.json",
+      "provenance": {
+        "human_scene_seed": "station-after-storm",
+        "catalogue_text_used": false,
+        "pre_existing_palindrome_wrapped": false,
+        "word_order_mirrored": false,
+        "repeated_palindromic_unit_used": false,
+        "semantic_frame_preserved": true
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0523159597393779,
+        "mean_zipf_frequency": 5.624642857142857,
+        "word_count": 28,
+        "repeated_word_rate": 0.1785714285714286,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A nerd carries a candle at our gardens; a nerd carries a candle beside the arena.",
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure",
+      "repair": null,
+      "letters": 64,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9366743725526323,
+        "mean_zipf_frequency": 5.396249999999999,
+        "word_count": 16,
+        "repeated_word_rate": 0.375,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A nerd carries a candle at our gardens; a nerd carries a candle beyond the arena.",
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure",
+      "repair": null,
+      "letters": 64,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.983886082463993,
+        "mean_zipf_frequency": 5.445625,
+        "word_count": 16,
+        "repeated_word_rate": 0.375,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A nerd carries a candle at our gardens; a nerd carries a candle at the arena.",
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure",
+      "repair": null,
+      "letters": 60,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.997687528499684,
+        "mean_zipf_frequency": 5.553125,
+        "word_count": 16,
+        "repeated_word_rate": 0.4375,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A nerd carries a candle at our gardens; a nerd is bright beside the arena.",
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure",
+      "repair": null,
+      "letters": 58,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.506555339271257,
+        "mean_zipf_frequency": 5.503333333333333,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A nerd carries a candle at our gardens; a nerd is bright beyond the arena.",
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure",
+      "repair": null,
+      "letters": 58,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4979470794338905,
+        "mean_zipf_frequency": 5.556,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A nerd is bright at our gardens; a nerd carries a candle beside the arena.",
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure",
+      "repair": null,
+      "letters": 58,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4580577805222035,
+        "mean_zipf_frequency": 5.503333333333333,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A nerd is bright at our gardens; a nerd carries a candle beyond the arena.",
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure",
+      "repair": null,
+      "letters": 58,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4639556615703988,
+        "mean_zipf_frequency": 5.556,
+        "word_count": 15,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A nerd carries a candle at our gardens; a nerd is bright at the arena.",
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure",
+      "repair": null,
+      "letters": 54,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5221236118668884,
+        "mean_zipf_frequency": 5.6706666666666665,
+        "word_count": 15,
+        "repeated_word_rate": 0.2666666666666667,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A nerd is bright at our gardens; a nerd carries a candle at the arena.",
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure",
+      "repair": null,
+      "letters": 54,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5243630696959976,
+        "mean_zipf_frequency": 5.6706666666666665,
+        "word_count": 15,
+        "repeated_word_rate": 0.2666666666666667,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A nerd is bright at our gardens; a nerd is bright beside the arena.",
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure",
+      "repair": null,
+      "letters": 52,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": -0.14095313089668515,
+        "mean_zipf_frequency": 5.625714285714286,
+        "word_count": 14,
+        "repeated_word_rate": 0.2857142857142857,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A nerd is bright at our gardens; a nerd is bright beyond the arena.",
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure",
+      "repair": null,
+      "letters": 52,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": -0.1849354201703779,
+        "mean_zipf_frequency": 5.682142857142857,
+        "word_count": 14,
+        "repeated_word_rate": 0.2857142857142857,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A nerd is bright at our gardens; a nerd is bright at the arena.",
+      "source_run": "runs/earley-finite-state-grammar-intersection-20260916.json",
+      "provenance": "two independent finite-state clause derivations; probe is not an exact closure",
+      "repair": null,
+      "letters": 48,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": -0.17849418452979116,
+        "mean_zipf_frequency": 5.805,
+        "word_count": 14,
+        "repeated_word_rate": 0.3571428571428571,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

@@ -27,7 +27,7 @@ builds ordinary scenes: typed grammar and semantic slots propose the next
 words, and targeted repairs are selected from the current mirrored-letter
 debt.  Ten deliberately orthogonal construction lanes share an independent
 two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 4,402 candidates from 135 route
+The current development snapshot contains 4,425 candidates from 136 route
 summaries; 77 are exact, but none passes the mechanical admission gate and no row has
 yet been promoted by readers.  We report the rendered candidates and the
 failed gates explicitly, then use each failure to define the next repair
@@ -106,7 +106,7 @@ surface cannot become a headline result.
 Lane family & Rendered surface & Letters & Exact & Next repair \\
 \midrule
 LM + tape & the careful teacher guides a young visitor; a patient sailor carries the red lantern & 70 & no & held-out LM boundary proposals \\
-Dependency + morphology + CFG & Ava saw radar level civic; civic level radar was Ava & 42 & yes$^\dagger$ & seam-directed lexical feature swap \\
+Dependency + morphology + CFG & Ava saw radar level civic; civic level radar was Ava & 42 & yes$^\dagger$ & typed boundary resegmentation / fresh frame \\
 Scene lattice & At dawn, the patient guide carries a red map to the waiting child. & 52 & no & replace one typed object slot \\
 Valency / attachment & By noon, the careful nurse labels the sealed vial for the quiet ward. & 55 & no & preserve valency while changing object/attachment \\
 Inflection / clitic & After rain, the young keeper opens the old gate beside the garden. & 53 & no & held-out inflection-boundary repair \\
@@ -135,9 +135,9 @@ generator's booleans.  The mechanical admission vector records ASCII support,
 lexical form, distinctness, catalogue-family exclusion, repeated-unit and
 self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
 one signature to each run and rejects duplicate families before aggregation.
-On the authoritative snapshot the registry contains 237 unique artifacts (24
-preflight exclusions); the aggregate contains 4,402 rows, 77 exact rows, and
-zero mechanically admitted rows across 135 route summaries.  Every exact row
+On the authoritative snapshot the registry contains 238 unique artifacts (24
+preflight exclusions); the aggregate contains 4,425 rows, 77 exact rows, and
+zero mechanically admitted rows across 136 route summaries.  Every exact row
 therefore has a visible reason for rejection or promotion status rather than
 being silently discarded.
 
@@ -158,9 +158,10 @@ manuscript reports no human responses and makes no readability claim.
 The present snapshot has not yet produced a $\geq100$-letter candidate that
 passes all gates.  That is a development status, not the intended contribution.
 The next run will change the construction state rather than repeat a sweep:
-the seam lane will substitute lexical features while preserving agreement;
-the scene lanes will solve an object/attachment slot against the live tape;
-and the LM lane will propose new clause boundaries on held-out vocabulary.
+the seam lane will use typed boundary resegmentation and then a fresh
+non-palindromic subject/verb/object frame while preserving agreement; the scene
+lanes will solve an object/attachment slot against the live tape; and the LM
+lane will propose new clause boundaries on held-out vocabulary.
 Each resulting surface will be rendered and audited before a reader-facing
 test.  Once a survivor appears, the reader package and paper tables will be
 regenerated from its immutable provenance record.

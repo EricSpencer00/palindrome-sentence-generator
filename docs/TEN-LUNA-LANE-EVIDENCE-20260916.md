@@ -246,5 +246,15 @@ witness. Every attempt has independent pointer/hash checks and provenance; no
 substitution remained exact or mechanically admissible. The next operator is
 typed boundary resegmentation at the first failing seam, allowing adjacent
 short words to absorb reflected suffixes. With this artifact included, the
-authoritative aggregate is **4,402 rows, 135 route phases, 77 exact tapes, and
+authoritative aggregate is **4,425 rows, 136 route phases, 77 exact tapes, and
 0 mechanically admitted outputs**.
+
+## Typed-boundary follow-up (2026-09-16)
+
+The next repair is now a distinct artifact,
+`runs/typed-boundary-resegment-shortwords-20260916.json`. It passed novelty
+preflight and rendered 23 fresh adjacent-short-word boundary variants at the
+first failing seam. All have independent pointer and SHA-256 checks; none is
+exact or mechanically admissible. Its next operator is a fresh
+non-palindromic subject/verb/object frame with typed agreement, rather than
+another substitution sweep.

@@ -185,5 +185,13 @@ construction step. Novelty preflight passed; 11 single-slot substitutions were
 rendered and independently checked, with no exact or mechanically admissible
 result. The recorded next repair is typed boundary resegmentation at the first
 failing seam, permitting adjacent short words to absorb reflected suffixes.
-The current aggregate is **4,402 rows across 135 route phases, 77 exact tapes,
+The current aggregate is **4,425 rows across 136 route phases, 77 exact tapes,
 and 0 mechanically admitted outputs**.
+
+## Typed-boundary follow-up (2026-09-16)
+
+`runs/typed-boundary-resegment-shortwords-20260916.json` passed novelty
+preflight and tested 23 fresh boundary variants with adjacent short-word
+absorption. Independent pointer/hash audits found 0 exact and 0 mechanically
+admissible rows. The concrete next repair is a fresh non-palindromic typed
+subject/verb/object frame preserving agreement.

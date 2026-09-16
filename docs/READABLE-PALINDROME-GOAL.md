@@ -1985,5 +1985,12 @@ item-aware analysis plan.
   pointer/hash checks found no surviving exact closure and no mechanically
   admissible output. Its concrete next construction is typed boundary
   resegmentation at the first failing seam, allowing adjacent short words to
-  absorb reflected suffixes. The aggregate is now 4,402 rows across 135 route
+  absorb reflected suffixes. The aggregate is now 4,425 rows across 136 route
   phases, with 77 exact tapes and 0 mechanically admitted outputs.
+
+  **Typed-boundary follow-up (2026-09-16):**
+  `runs/typed-boundary-resegment-shortwords-20260916.json` passed novelty
+  preflight and rendered 23 fresh adjacent-short-word boundary variants at
+  the failing seam. Independent pointer/hash checks found 0 exact and 0
+  mechanically admissible rows. The next repair is a fresh non-palindromic
+  typed subject/verb/object frame with agreement preserved.

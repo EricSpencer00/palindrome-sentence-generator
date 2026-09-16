@@ -1,6 +1,7 @@
 """Exact-tape-first grammar resegmentation attempt."""
 from pathlib import Path
 import hashlib,json
+import sys;sys.path.insert(0,str(Path(__file__).parents[1]))
 from llm_palindrome.wordpair_graph import tape
 TARGET='able was i ere i saw elba' # explicitly chosen control tape, not catalogued
 CLAUSES=['Able was I','Ere I saw Elba','A bell was heard','I saw a pale bay']

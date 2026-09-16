@@ -24,3 +24,16 @@ and the frozen run record is
 The proposed same-family repair is to use terminal-compatible phrase spans,
 precompute ≥3-character suffix compatibility, and permit a bounded odd center;
 that repair was not run in this evidence package.
+
+## Terminal-span repair
+
+The bounded successor
+[`semantic_relation_alignment_terminal_repair_20260916.py`](../experiments/semantic_relation_alignment_terminal_repair_20260916.py)
+was then run as a same-family repair. It tried 12 terminal phrase spans per
+frame and admitted at most one unmatched character as a centre, with the full
+tape reversal recheck still mandatory. Against the current 95-entry registry,
+the repair explored 646 states, tried 336 terminal spans, and found zero exact
+closures or mechanically admitted candidates. Its frozen record is
+[`semantic-relation-alignment-terminal-repair-20260916.json`](../runs/semantic-relation-alignment-terminal-repair-20260916.json).
+The repair is attached to the base registry entry and does not add a new
+construction family.

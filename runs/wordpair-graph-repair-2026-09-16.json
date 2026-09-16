@@ -1,0 +1,30 @@
+{
+  "method": "constructive_wordpair_residual_repair_v1",
+  "candidate": {
+    "text": "At dusk, Mira lights the lantern The river carries a quiet reflection We mark the trail beside the cedar Our maps grow warm beneath patient hands The old compass rests beside the fire Then small birds settle near the gate A distant bell answers across water Before dawn, Tomas folds the chart",
+    "letters": 239,
+    "exact": false,
+    "admitted": false,
+    "pointer_audit": {
+      "equal": false,
+      "matched": 0,
+      "left_remaining": "atduskmiralightsthelanterntherivercarriesaquietreflectionwemarkthetrailbesidethecedarourmapsgrowwarmbeneathpatienthands",
+      "right_remaining": "theoldcompassrestsbesidethefirethensmallbirdssettlenearthegateadistantbellanswersacrosswaterbeforedawntomasfoldsthechart"
+    },
+    "hash_audit": {
+      "left": "2d1f52135d1a3f865d6b3cb512b61052d29c2575f7a8ed585dade014214ef4d0",
+      "right": "b88724c126f55ef55cd512cdf6322ac3f3e2f5d75d8d261eb826a2dc8483965f",
+      "rendered": "e06876e711a4edcef8e54b14b992ccad8335adf991fabc6bff27bf477bb21da3"
+    }
+  },
+  "provenance": {
+    "inventory": "four fresh, independently authored finite clauses",
+    "composition": "left tape appends; independently authored right tape prepends",
+    "excluded": "catalogue lookup, self-palindrome, word-order symmetry, duplicate sweep"
+  },
+  "novelty_preflight": {
+    "tape_sha256": "e06876e711a4edcef8e54b14b992ccad8335adf991fabc6bff27bf477bb21da3",
+    "action": "compare against prior run hashes before publication"
+  },
+  "next_repair": "Repair the 1st unmatched boundary by replacing only the adjacent independently authored clause pair; preserve scene semantics and re-run both pointer and hash audits."
+}

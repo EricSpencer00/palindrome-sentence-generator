@@ -1,0 +1,141 @@
+{
+  "experiment_id": "min-cost-flow-clause-realizer-20260916",
+  "signature": "typed-clause-supply|residual-bipartite-min-cost-flow|all-different-lexical-id|agreement-tense-flow|exact-character-debt",
+  "status": "completed",
+  "method": "independent typed clause supplies -> all-different feature flow -> residual bipartite min-cost character matching; no reverse-tape replay, CFG/Earley/FST/dependency lanes, catalogue, repeated unit, or mirrored word order",
+  "config": {
+    "clauses_per_side": 2,
+    "min_letters": 39,
+    "network": "unit-capacity left-char/right-debt bipartite residual graph",
+    "repair_is_held_out": true
+  },
+  "novelty_preflight": {
+    "runtime_entries": 189,
+    "preflight_entries": 189,
+    "exact_signature_collision": false,
+    "nearest": [
+      {
+        "id": "reversible-relation-coherence-preflight-20260916-excluded",
+        "shared_atoms": [
+          "character",
+          "debt",
+          "exact",
+          "lexical",
+          "tense"
+        ]
+      },
+      {
+        "id": "weighted-morphology-fst-lockstep-20260916",
+        "shared_atoms": [
+          "agreement",
+          "character",
+          "exact",
+          "lexical",
+          "tense"
+        ]
+      },
+      {
+        "id": "bpe-dual-continuation",
+        "shared_atoms": [
+          "agreement",
+          "character",
+          "clause",
+          "residual"
+        ]
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "label": "independent-supply-miss",
+      "left": "the pilot charts harbor. the keeper opens gate.",
+      "right": "the farmer tends garden. the writer marks page.",
+      "rendered": "the pilot charts harbor. the keeper opens gate. the farmer tends garden. the writer marks page.",
+      "letters": 76,
+      "all_different": true,
+      "agreement": true,
+      "tense_conservation": true,
+      "character_flow": {
+        "left_letters": 38,
+        "right_letters": 38,
+        "matched": 27,
+        "residual_debt": 22,
+        "min_cost": 0,
+        "exact": false,
+        "independent_audit": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false
+    },
+    {
+      "label": "held-out-repair",
+      "repair_for": "independent-supply-miss",
+      "left": "the pilot charts harbor. the keeper opens gate.",
+      "right": "the sailor charts inlet. the mason opens portal.",
+      "rendered": "the pilot charts harbor. the keeper opens gate. the sailor charts inlet. the mason opens portal.",
+      "letters": 77,
+      "all_different": true,
+      "agreement": true,
+      "tense_conservation": true,
+      "character_flow": {
+        "left_letters": 38,
+        "right_letters": 39,
+        "matched": 29,
+        "residual_debt": 19,
+        "min_cost": 0,
+        "exact": false,
+        "independent_audit": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "admitted": false
+    }
+  ],
+  "stats": {
+    "candidates": 2,
+    "admitted": 0,
+    "misses": 2,
+    "min_letters_seen": 76
+  },
+  "provenance": {
+    "source_sentences_copied": false,
+    "catalogue_imported": false,
+    "repeated_units": false,
+    "generator_sha256": "ea5cc10af1b15afbd96a4e01d49d6510e3307b8e65ec0e8c5cd81445ce7dd415"
+  }
+}

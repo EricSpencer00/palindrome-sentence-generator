@@ -64,7 +64,7 @@ reader-ineligible.
 
 The follow-up queue added two more non-overlapping Luna states: a typed
 character-semantic beam (12 complete 109--115-letter scenes) and a fresh
-CFG/Earley character intersection (two complete 83--135-letter scenes). Their
+CFG/Earley character intersection (two complete 85--137-letter scenes). Their
 rendered prose, independent pointer/SHA audits, provenance, novelty checks,
 and typed next repairs are preserved; both remain non-exact and
 reader-ineligible.

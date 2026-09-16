@@ -399,8 +399,8 @@ preflight, and a concrete next repair; none enters the reader packet.
 The newest character-level lanes add a 115-letter typed semantic beam scene
 (``The young botanist studies the silver seed cases beside the greenhouse; a
 careful pilot marks the distant landing lights through the mist.'') and a
-135-letter CFG/Earley scene (``At first light, the surveyor records the river
-level while the baker warms bread for the waiting crew, and the harbor keeper
+137-letter CFG/Earley scene (``At first light, the surveyor records the river
+current while the baker warms bread for the waiting crew, and the harbor keeper
 checks the lamps before opening the gate.''). Their independent first-mismatch
 and SHA audits reject both; each records provenance, novelty preflight, and a
 typed next repair.

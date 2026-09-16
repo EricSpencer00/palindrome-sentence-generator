@@ -2137,7 +2137,7 @@ item-aware analysis plan.
   character-semantic beam scene “The young botanist studies the silver seed
   cases beside the greenhouse; a careful pilot marks the distant landing lights
   through the mist.” and the 135-letter CFG/Earley scene “At first light, the
-  surveyor records the river level while the baker warms bread for the waiting
+  surveyor records the river current while the baker warms bread for the waiting
   crew, and the harbor keeper checks the lamps before opening the gate.” Their
   independent pointer/SHA audits, provenance, novelty records, and typed next
   repairs are preserved; neither is exact or reader-eligible.

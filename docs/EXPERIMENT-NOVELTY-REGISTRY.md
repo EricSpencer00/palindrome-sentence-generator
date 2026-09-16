@@ -12,6 +12,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
+| `recursive-clause-pair-20260916` | recursive stack of distinct authored clauses around a grammatical seed | clause-pair recursion and obligation stack | 3 rendered probes; 0 exact and 0 reader-eligible |
 | `manual-endpoint-engineering-20260916` | authored POS-constrained clause shells with endpoint lemma substitutions | manual lexical endpoint budgeting | 18 grammatical near misses; 0 exact and 0 reader-eligible |
 | `corpus-span-boundary-dp-20260916` | independently grammatical corpus spans indexed by reflected character boundaries and composed in clause frames | span-boundary composition with alternate-span repair | 0 base closures; alternate-span repair probes retained; 0 reader-eligible |
 | `paired-obligation-astar-20260916` | paired grammar-obligation A* with deferred terminal realization and an admissible character-mismatch bound | best-first obligation scheduling | 50,000 states; 0 terminal completions; 120 partial ordinary-order probes; 0 exact/admitted/reader rows |

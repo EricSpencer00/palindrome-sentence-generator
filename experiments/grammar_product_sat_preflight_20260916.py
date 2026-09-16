@@ -1,0 +1,8 @@
+"""Novelty preflight for a proposed scalable grammar-product SAT route."""
+import json
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]
+def main():
+ p={"experiment":"grammar-product-sat-preflight-20260916","status":"preflight_blocked","proposed_signature":"grammar-product|sat-lexical-equations|distinct-content-words|simultaneous-english-generation|scalable-length|independent-exact-audit","overlaps":["complete-independent-clause-lattice","seam-first-outer-letter-constraints","semantic-scene-growth","global-character-equation","attested-pos-shape-grammar"],"reason":"The registry already covers grammar products, joint lexical character equations, distinct-word gates, and scalable scene growth. A SAT/ILP wrapper over those same dimensions would be a solver substitution, not a new construction state.","pivot":"No generation was run; preserve this block and require a new linguistic state dimension before the next scalable experiment."}
+ (ROOT/'runs/grammar-product-sat-preflight-20260916.json').write_text(json.dumps(p,indent=2)+'\n'); print(json.dumps(p))
+if __name__=='__main__': main()

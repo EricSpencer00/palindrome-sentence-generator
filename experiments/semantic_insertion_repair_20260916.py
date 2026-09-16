@@ -49,7 +49,7 @@ def intact_prose(text: str, span: tuple[str, str, str]) -> bool:
 
 
 def main() -> None:
-    rows = []
+    probes = []
     for (span, role, attested), (span2, role2, attested2) in product(SPANS, repeat=2):
         if span == span2:
             continue
@@ -59,7 +59,7 @@ def main() -> None:
         span_checks = [intact_prose(attested, (span, role, attested)), intact_prose(attested2, (span2, role2, attested2))]
         tape = letters(rendered)
         mismatch = next((i for i, (a, b) in enumerate(zip(tape, tape[::-1])) if a != b), None)
-        rows.append({
+        probes.append({
             "rendered": rendered,
             "spans": [span, span2],
             "roles": [role, role2],
@@ -74,16 +74,18 @@ def main() -> None:
         "experiment": "semantic-insertion-repair-20260916",
         "repair_of": "reversible-grammar-insertion-20260916",
         "method": "independent grammatical adjunct insertion into complete prose; no wrappers, stacks, reverse emission, or catalogue text",
+        "operator": "insert two independently authored adjunct spans after the complete seed predicate, then reparse the full ordinary-order sentence",
+        "corpus_bigram_label": "non-neural; no corpus-bigram model or catalogue text used",
         "novelty_preflight": {"status": "same_family_repair", "registry_entries_read_before_run": 97, "registry_entries_after_run": 97, "collisions": [], "excluded_routes_checked": 6},
         "seed": SEED,
-        "candidate_count": len(rows),
-        "exact_count": sum(row["exact"] for row in rows),
+        "probe_count": len(probes),
+        "exact_probe_count": sum(row["exact"] for row in probes),
         "reader_eligible_count": 0,
-        "near_miss_count": sum(not row["exact"] for row in rows),
-        "candidates": rows,
+        "near_miss_count": sum(not row["exact"] for row in probes),
+        "ordinary_order_probes": probes,
     }
     OUT.write_text(json.dumps(payload, indent=2) + "\n")
-    print(json.dumps({k: payload[k] for k in ("candidate_count", "exact_count", "near_miss_count", "reader_eligible_count")}))
+    print(json.dumps({k: payload[k] for k in ("probe_count", "exact_probe_count", "near_miss_count", "reader_eligible_count")}))
 
 
 if __name__ == "__main__":

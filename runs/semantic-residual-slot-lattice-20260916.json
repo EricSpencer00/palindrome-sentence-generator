@@ -1,0 +1,143 @@
+{
+  "experiment_id": "semantic-residual-slot-lattice-20260916",
+  "signature": "semantic-slot-lattice|valency-attachment|residual-debt-substitution|agreement-lock",
+  "novelty_preflight": {
+    "catalogue_imported": false,
+    "known_palindromes_imported": false,
+    "exact_signature_collision": false
+  },
+  "rendered_candidates": [
+    {
+      "text": "After the winter storm, Lena repairs the observatory clock, checks the brass instruments, and writes a careful report for the coastal research crew.",
+      "letters": 122,
+      "exact": false,
+      "two_pointer": false,
+      "forward_hash": "01eef23ae29b19099ac6100e684813731d15a7f4bc3589e1f1100d87fd824230",
+      "reverse_hash": "223f39cbcdc41b4804d617ff2690482cc2e82223ce0f1d3b1f06d7e504ff54d2",
+      "mismatches": [
+        {
+          "i": 0,
+          "j": 121,
+          "a": "a",
+          "b": "w"
+        },
+        {
+          "i": 1,
+          "j": 120,
+          "a": "f",
+          "b": "e"
+        },
+        {
+          "i": 2,
+          "j": 119,
+          "a": "t",
+          "b": "r"
+        },
+        {
+          "i": 3,
+          "j": 118,
+          "a": "e",
+          "b": "c"
+        },
+        {
+          "i": 4,
+          "j": 117,
+          "a": "r",
+          "b": "h"
+        },
+        {
+          "i": 5,
+          "j": 116,
+          "a": "t",
+          "b": "c"
+        },
+        {
+          "i": 6,
+          "j": 115,
+          "a": "h",
+          "b": "r"
+        },
+        {
+          "i": 7,
+          "j": 114,
+          "a": "e",
+          "b": "a"
+        },
+        {
+          "i": 8,
+          "j": 113,
+          "a": "w",
+          "b": "e"
+        },
+        {
+          "i": 9,
+          "j": 112,
+          "a": "i",
+          "b": "s"
+        },
+        {
+          "i": 10,
+          "j": 111,
+          "a": "n",
+          "b": "e"
+        },
+        {
+          "i": 11,
+          "j": 110,
+          "a": "t",
+          "b": "r"
+        }
+      ],
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    }
+  ],
+  "stats": {
+    "letters": 122,
+    "over_100": true,
+    "exact": false
+  },
+  "coupling": {
+    "slots": [
+      "agent",
+      "time",
+      "repair_action",
+      "instrument_object",
+      "report_purpose"
+    ],
+    "agreement": "third-person singular present",
+    "selection": "choose slot substitutions minimizing live mirrored residual debt",
+    "nonrepetition": "content lexemes unique"
+  },
+  "next_repair": {
+    "operator": "substitute instrument_object and report_purpose jointly at highest residual debt frontier",
+    "reason": "all valency slots attach coherently; character debt remains",
+    "mismatch_position": 0
+  },
+  "provenance": {
+    "generator_sha256": "a785fdffe9a0f493ea10002cfdbfc962d1e2d8370d454708aa1db3d6427c7e7e",
+    "lexical_source": "fresh hand-authored lattice terminals",
+    "audits": [
+      "two-pointer",
+      "forward/reverse hash",
+      "mechanical admission"
+    ]
+  }
+}

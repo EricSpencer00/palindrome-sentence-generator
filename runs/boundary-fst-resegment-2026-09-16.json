@@ -1,0 +1,29 @@
+{
+  "method": "boundary_conditioned_fst_resegment_v1",
+  "candidate": {
+    "text": "At evening the patient keeper closes the garden gate Beyond the hill a silver river carries moonlit leaves Quiet readers gather stories beside the warm fire Before sunrise the watchful traveler checks the old bridge Across the valley distant bells answer a waking village Careful hands arrange fresh maps beneath a window",
+    "letters": 270,
+    "pointer_audit": {
+      "exact": false,
+      "matched": 0,
+      "mismatch": {
+        "left": "ateveningthe",
+        "right": "theoldbridge"
+      }
+    },
+    "forward_hash": "743fb44c0c1d1deea9d7315b86aa99a7c3a84b8d7ba0990800340bb93d50cf43",
+    "reverse_hash": "2cea30f7aaeb310777c9b0f88b68d5aaad393e3ec97419974de830009cbc66af",
+    "exact": false,
+    "admitted": false
+  },
+  "provenance": {
+    "states": "clause boundary + held-out subject/verb/object lexical choice",
+    "lm": "character bigram ranking only among grammatical choices",
+    "inventory": "fresh authored clauses"
+  },
+  "novelty_preflight": {
+    "digest": "743fb44c0c1d1deea9d7315b86aa99a7c3a84b8d7ba0990800340bb93d50cf43",
+    "action": "compare against prior run digests"
+  },
+  "next_repair": "Use mismatch prefix as a constrained held-out lexical target at the adjacent clause boundary; preserve finite-state valency and scene."
+}

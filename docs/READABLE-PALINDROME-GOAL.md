@@ -1475,7 +1475,7 @@ item-aware analysis plan.
   gate. The Brown route's empty `displayed` list is intentional because it
   found no text safe to show as generated.
 
-  A reproducible programmatic diagnostic over 264 rendered rows is frozen in
+  A reproducible programmatic diagnostic over 423 rendered rows is frozen in
   `runs/parallel-luna-readability-diagnostics-20260916.json`: 0 exact and 0
   mechanically admitted rows. The report breaks out Brown word-order gain,
   mean word frequency, repetition, punctuation segmentation, and length by
@@ -1493,6 +1493,15 @@ item-aware analysis plan.
   A representative repair rendering was “The careful nurse records a dosage.
   The cautious nurse records a dosage.” It is preserved as a complete-prose
   diagnostic with its mutation provenance, not presented as an exact output.
+
+  A third parallel Luna reset added three non-overlapping routes. An induced
+  PCFG sampled 432 base and 1,728 PP-repair derivations with no exact closure.
+  A rhetorical-plan lattice generated 27 base and 36 held-out-connective repair
+  probes, longest 172 letters, with no exact closure. An inflectional FST with
+  agreement and clitic transitions generated 64 base and 32 negative-contraction
+  repairs, longest 68 letters, with no exact closure. Their rendered probes,
+  hashes, provenance, and independent audits remain in the corresponding run
+  artifacts; none is reader-eligible.
   These routes change the construction state (reversible lexical roles,
   unseeded recursion, and online semantic mutation) and are not filename or
   beam-width replays.

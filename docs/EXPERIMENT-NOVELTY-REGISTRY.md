@@ -13,6 +13,9 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
 | `semantic-mutation-residual-20260916` | authored complete clauses mutated online by synonym/tense/argument operators while a mirrored residual is live | semantics-preserving online mutation | 41 base + 57 repair probes; 0 exact and 0 reader-eligible |
+| `rhetorical-plan-lattice-20260916` | contrast/concession/cause discourse plans with anaphoric continuity and joint character residual search | rhetorical plan and held-out connective repair | 27 base + 36 repair probes, up to 172 letters; 0 exact and 0 reader-eligible |
+| `inflectional-fst-clitic-tape-20260916` | finite-state agreement and clitic transducer choices are solved jointly with the mirrored character ledger | inflectional/clitic transition state | 64 base + 32 negative-contraction repairs, up to 68 letters; 0 exact and 0 reader-eligible |
+| `induced-pcfg-character-equation-20260916` | probabilities induced from attested POS derivations guide bilateral character-equation sampling, with a held-out PP production repair | induced PCFG derivation distribution | 432 base + 1,728 repair derivations; 0 exact and 0 reader-eligible |
 | `seedless-semantic-cfg-bilateral-20260916` | seedless recursive CFG with agent/action/patient/locative roles and memoized bilateral character equation | unseeded recursive semantic clause growth | 10 complete candidates up to 91 letters; 0 exact and 0 reader-eligible |
 | `whole-sentence-semordnilap-clauses-20260916` | independently grammatical clauses with role-changing reversible lexical boundaries and joint residual search | whole-sentence semordnilap grammar | base 16 + repair 36 probes; 0 exact and 0 reader-eligible |
 | `recursive-grammar-residual-dp-20260916` | independently authored complete-clause frontier with recursive residual character DP | scalable clause growth and fresh-clause repair | 40 complete probes, up to 1,922 letters; 0 exact and 0 reader-eligible |
@@ -153,7 +156,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 119 retained families and 6 explicit
+family. The current audit covers all 122 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

@@ -47,3 +47,6 @@ def test_latest_routes_are_not_flagged_as_near_duplicates():
     assert by_id["seedless-semantic-cfg-bilateral-20260916"]["manual_review_required"] is False
     assert by_id["whole-sentence-semordnilap-clauses-20260916"]["manual_review_required"] is False
     assert by_id["semantic-mutation-residual-20260916"]["manual_review_required"] is False
+    assert by_id["rhetorical-plan-lattice-20260916"]["manual_review_required"] is False
+    assert by_id["inflectional-fst-clitic-tape-20260916"]["manual_review_required"] is False
+    assert by_id["induced-pcfg-character-equation-20260916"]["manual_review_required"] is False

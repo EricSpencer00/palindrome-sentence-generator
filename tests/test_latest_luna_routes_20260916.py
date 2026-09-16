@@ -60,7 +60,7 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 264
+    assert report["candidate_count"] == 423
     assert report["exact_count"] == 0
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
@@ -91,3 +91,34 @@ def test_semantic_mutation_keeps_complete_clauses_but_requires_exact_closure():
                for row in run[phase]["candidates"])
     assert all(not row["reader_eligible"] for phase in ("base", "repair")
                for row in run[phase]["candidates"])
+
+
+def test_fresh_rhetorical_plan_route_keeps_long_prose_outside_exact_gate():
+    run = load("rhetorical-plan-lattice-20260916.json")
+    assert run["base"]["exact_count"] == 0
+    assert run["repair"]["exact_count"] == 0
+    assert len(run["base"]["candidates"]) == 27
+    assert len(run["repair"]["candidates"]) == 36
+    assert max(row["audit"]["letters"] for phase in ("base", "repair")
+               for row in run[phase]["candidates"]) == 172
+    assert all(row["complete_prose"] and not row["reader_eligible"]
+               for phase in ("base", "repair") for row in run[phase]["candidates"])
+
+
+def test_inflectional_fst_and_clitic_repair_remain_complete_but_unadmitted():
+    run = load("inflectional-fst-clitic-tape-20260916.json")
+    assert len(run["base"]["candidates"]) == 64
+    assert len(run["repair"]["candidates"]) == 32
+    assert run["base"]["exact_count"] == 0
+    assert run["repair"]["exact_count"] == 0
+    assert all(row["complete_clauses"] and not row["reader_eligible"]
+               for phase in ("base", "repair") for row in run[phase]["candidates"])
+
+
+def test_induced_pcfg_records_derivation_search_without_fabricating_candidates():
+    run = load("induced-pcfg-character-equation-20260916.json")
+    assert run["base"]["derivations"] == 432
+    assert run["repair"]["derivations"] == 1728
+    assert run["base"]["exact_count"] == 0
+    assert run["repair"]["exact_count"] == 0
+    assert run["reader_eligible"] == []

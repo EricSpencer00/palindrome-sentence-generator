@@ -1,0 +1,177 @@
+{
+  "experiment_id": "reverse-segmentation-cfg-valency-20260916",
+  "signature": "fixed-reverse-tape|joint-boundary-semantic-parse|cfg-pos-valency-intersection|agreement-attachment-register|heldout-slot-repair|independent-four-audit",
+  "status": "completed_no_exact_closure",
+  "novelty_preflight": {
+    "entries_inspected": 200,
+    "exact_signature_collision": false,
+    "passed": true,
+    "nearest_prior": "typed-cfg-character-intersection",
+    "distinction": "reverse parser consumes fixed tape with joint semantic attachment registers; no Earley replay or tape-copy generation"
+  },
+  "operator": "fixed forward tape; reverse CFG/POS/valency chart with joint boundary, agreement, and semantic attachment state",
+  "rows": [
+    {
+      "rendered": "the patient courier delivered the sealed letter before noon.",
+      "length": 51,
+      "provenance": {
+        "frame": {
+          "subject": "the patient courier",
+          "verb": "delivered",
+          "object": "the sealed letter",
+          "tail": "before noon",
+          "roles": [
+            "agent",
+            "theme",
+            "time"
+          ]
+        },
+        "source": "hand-authored semantic valency frame",
+        "generated_not_catalogue": true
+      },
+      "reverse_parse": {
+        "accepted": false,
+        "states": 0,
+        "consumed": 0,
+        "expected_words": [
+          "noon",
+          "before",
+          "letter",
+          "sealed",
+          "the",
+          "delivered",
+          "courier",
+          "patient",
+          "the"
+        ],
+        "joint_state": "boundary,pos,POS,valency,agreement,attachment"
+      },
+      "exact_audit": {
+        "letters": 51,
+        "exact": false,
+        "two_pointer": false,
+        "first_mismatch": 0,
+        "sha256": "f9f8cded4a81680cd87e2e06b4241722c05acdf7d68e8d54a5782125f0c3c084",
+        "reverse_sha256": "495ec3fd1b4b8651fae4e74f72d5e00aa157d027e1bbe91ae6b8559fc39edac9"
+      },
+      "shortcut_gate": {
+        "not_word_order_symmetry": true,
+        "no_repeated_units": false,
+        "no_punctuation_letters": true,
+        "complete_clause": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "replace the held-out tail lexeme selected by the first reverse-parser boundary conflict, then rerun the complete joint chart"
+    },
+    {
+      "rendered": "the quiet gardener watered the young roses near the gate.",
+      "length": 47,
+      "provenance": {
+        "frame": {
+          "subject": "the quiet gardener",
+          "verb": "watered",
+          "object": "the young roses",
+          "tail": "near the gate",
+          "roles": [
+            "agent",
+            "theme",
+            "place"
+          ]
+        },
+        "source": "hand-authored semantic valency frame",
+        "generated_not_catalogue": true
+      },
+      "reverse_parse": {
+        "accepted": false,
+        "states": 0,
+        "consumed": 0,
+        "expected_words": [
+          "gate",
+          "the",
+          "near",
+          "roses",
+          "young",
+          "the",
+          "watered",
+          "gardener",
+          "quiet",
+          "the"
+        ],
+        "joint_state": "boundary,pos,POS,valency,agreement,attachment"
+      },
+      "exact_audit": {
+        "letters": 47,
+        "exact": false,
+        "two_pointer": false,
+        "first_mismatch": 0,
+        "sha256": "958cf8f0ee951cc2ccc133efa4e0d697eab7156447233d34fe6ebb778660b72d",
+        "reverse_sha256": "c0d07ff4c2d101f9172d9bccb8d5a0cf0b20e9b5c13b928eb80f7fe8c62a4302"
+      },
+      "shortcut_gate": {
+        "not_word_order_symmetry": true,
+        "no_repeated_units": false,
+        "no_punctuation_letters": true,
+        "complete_clause": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "replace the held-out tail lexeme selected by the first reverse-parser boundary conflict, then rerun the complete joint chart"
+    },
+    {
+      "rendered": "the careful nurse carried a warm blanket to the ward.",
+      "length": 43,
+      "provenance": {
+        "frame": {
+          "subject": "the careful nurse",
+          "verb": "carried",
+          "object": "a warm blanket",
+          "tail": "to the ward",
+          "roles": [
+            "agent",
+            "theme",
+            "goal"
+          ]
+        },
+        "source": "hand-authored semantic valency frame",
+        "generated_not_catalogue": true
+      },
+      "reverse_parse": {
+        "accepted": false,
+        "states": 0,
+        "consumed": 0,
+        "expected_words": [
+          "ward",
+          "the",
+          "to",
+          "blanket",
+          "warm",
+          "a",
+          "carried",
+          "nurse",
+          "careful",
+          "the"
+        ],
+        "joint_state": "boundary,pos,POS,valency,agreement,attachment"
+      },
+      "exact_audit": {
+        "letters": 43,
+        "exact": false,
+        "two_pointer": false,
+        "first_mismatch": 0,
+        "sha256": "56eb83ac1bb6188a347ff665a61db03018895edc35a23625f072ce343eafb8fd",
+        "reverse_sha256": "3f72941edb66bdf27b5fbb6f9ed8aebf5d2f08a1a9377e9c6cbf5daf49f9a92e"
+      },
+      "shortcut_gate": {
+        "not_word_order_symmetry": true,
+        "no_repeated_units": false,
+        "no_punctuation_letters": true,
+        "complete_clause": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "replace the held-out tail lexeme selected by the first reverse-parser boundary conflict, then rerun the complete joint chart"
+    }
+  ],
+  "best_actual_prose": "the patient courier delivered the sealed letter before noon.",
+  "reader_eligible": false,
+  "independent_validation": "direct normalized-string comparison plus opposing-index two-pointer audit",
+  "anti_shortcut": "all rows require complete ordinary-order clause, distinct lexical units, and non-word-order symmetry"
+}

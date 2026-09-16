@@ -12,6 +12,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
+| `paragraph-paraphrase-obligation-20260916` | whole paragraphs are authored as intact prose, then sentence-level paraphrase edits are selected against a mirrored character obligation | paragraph-level paraphrase repair | 3 base + 3 repair paragraphs, 61 letters; 0 exact and 0 reader-eligible |
 | `heldout-boundary-decoder-20260916` | independently authored semantic-role clauses decoded against a held-out lexical boundary beam, followed by resegmentation repair | held-out boundary decoding | 81 base + 81 repair probes, 67–78 letters; 0 exact and 0 reader-eligible |
 | `lexical-trie-segmentation-repair-20260916` | the verified seed's reverse tape is segmented with a held-out POS trie and complete-clause filter | held-out trie residual segmentation | 3 segmentation probes; 0 complete closures, 0 exact and 0 reader-eligible |
 | `residual-lexical-decoder-20260916` | exact semantic-frame tapes are resegmented recursively with a held-out POS lexicon and complete-clause filter | residual lexical decoder repair | 36 exact tapes rejected as unsegmentable; 0 survivors and 0 reader-eligible |
@@ -175,7 +176,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 145 retained families and 10 explicit
+family. The current audit covers all 147 retained families and 11 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

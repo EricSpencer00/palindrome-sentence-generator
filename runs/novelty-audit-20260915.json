@@ -1,9 +1,55 @@
 {
   "entries": [
     {
-      "id": "heldout-boundary-decoder-20260916",
+      "id": "paragraph-paraphrase-obligation-20260916",
       "manual_review_required": false,
       "nearest_prior": null,
+      "signature_atoms": [
+        "anti",
+        "boundary",
+        "catalogue",
+        "gate",
+        "level",
+        "obligation",
+        "paragraph",
+        "paraphrase",
+        "semantic",
+        "whole"
+      ]
+    },
+    {
+      "id": "question-answer-composition-preflight-20260916-excluded",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "paragraph-paraphrase-obligation-20260916",
+        "jaccard": 0.0,
+        "shared_atoms": []
+      },
+      "signature_atoms": [
+        "answer",
+        "clause",
+        "composition",
+        "debt",
+        "discourse",
+        "live",
+        "ordinary",
+        "prose",
+        "question",
+        "realization",
+        "scalable"
+      ]
+    },
+    {
+      "id": "heldout-boundary-decoder-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "paragraph-paraphrase-obligation-20260916",
+        "jaccard": 0.117647,
+        "shared_atoms": [
+          "boundary",
+          "semantic"
+        ]
+      },
       "signature_atoms": [
         "beam",
         "boundary",
@@ -109,9 +155,11 @@
       "id": "grammar-product-sat-preflight-20260916-excluded",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "heldout-boundary-decoder-20260916",
-        "jaccard": 0.0,
-        "shared_atoms": []
+        "id": "question-answer-composition-preflight-20260916-excluded",
+        "jaccard": 0.055556,
+        "shared_atoms": [
+          "scalable"
+        ]
       },
       "signature_atoms": [
         "content",
@@ -203,10 +251,11 @@
       "id": "reversible-relation-coherence-preflight-20260916-excluded",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "pivot-growth-preflight-20260916-excluded",
-        "jaccard": 0.055556,
+        "id": "question-answer-composition-preflight-20260916-excluded",
+        "jaccard": 0.1,
         "shared_atoms": [
-          "debt"
+          "debt",
+          "discourse"
         ]
       },
       "signature_atoms": [
@@ -506,9 +555,10 @@
       "id": "dialogue-speech-act-residual-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "graph-to-prose-path-20260916",
-        "jaccard": 0.047619,
+        "id": "question-answer-composition-preflight-20260916-excluded",
+        "jaccard": 0.090909,
         "shared_atoms": [
+          "answer",
           "realization"
         ]
       },
@@ -559,11 +609,12 @@
       "id": "recursive-template-composition-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "residual-lexical-decoder-20260916",
-        "jaccard": 0.142857,
+        "id": "question-answer-composition-preflight-20260916-excluded",
+        "jaccard": 0.166667,
         "shared_atoms": [
           "clause",
-          "recursive"
+          "composition",
+          "debt"
         ]
       },
       "signature_atoms": [
@@ -927,12 +978,13 @@
       "id": "corpus-neural-frame-realizer-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "lexicalized-dependency-frame-pairing-20260916",
-        "jaccard": 0.157895,
+        "id": "paragraph-paraphrase-obligation-20260916",
+        "jaccard": 0.222222,
         "shared_atoms": [
-          "frame",
-          "realization",
-          "semantic"
+          "catalogue",
+          "gate",
+          "semantic",
+          "whole"
         ]
       },
       "signature_atoms": [
@@ -2234,12 +2286,13 @@
       "id": "semantic-sentence-pair-alignment",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "event-frame-independent-relexicalization",
-        "jaccard": 0.130435,
+        "id": "paragraph-paraphrase-obligation-20260916",
+        "jaccard": 0.181818,
         "shared_atoms": [
-          "or",
-          "prefix",
-          "semantic"
+          "boundary",
+          "paraphrase",
+          "semantic",
+          "whole"
         ]
       },
       "signature_atoms": [
@@ -2885,12 +2938,12 @@
       "id": "adaptive-crossword-span-cover",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "reversible-constituent-clause-repair-20260916",
-        "jaccard": 0.136364,
+        "id": "paragraph-paraphrase-obligation-20260916",
+        "jaccard": 0.142857,
         "shared_atoms": [
           "boundary",
           "obligation",
-          "reversible"
+          "semantic"
         ]
       },
       "signature_atoms": [
@@ -3882,7 +3935,7 @@
     }
   ],
   "exact_signature_collisions": false,
-  "excluded_routes": 10,
+  "excluded_routes": 11,
   "near_pairs": [
     {
       "jaccard": 0.736842,
@@ -4128,7 +4181,7 @@
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 145,
+  "registered_entries": 147,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

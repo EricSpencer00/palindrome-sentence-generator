@@ -11,7 +11,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 5
-    assert result["run_artifacts"] == 22
+    assert result["run_artifacts"] == 23
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -203,3 +203,9 @@ def test_latest_constructive_repairs_record_distinct_preflight_and_failure_front
     assert info["independent_audit"]["primary_exact"] == 0
     assert info["independent_audit"]["independent_exact"] == 0
     assert info["independent_audit"]["disagreements"] == []
+    repair = json.loads((root / "runs/information-structure-terminal-seam-repair-2026-09-15.json").read_text())
+    assert repair["preflight"]["manual_review_required"] is True
+    assert repair["preflight"]["disposition"] == "repair, not a retained family"
+    assert repair["independent_audit"]["probes_checked"] == 16
+    assert repair["independent_audit"]["primary_exact"] == 0
+    assert repair["independent_audit"]["independent_exact"] == 0

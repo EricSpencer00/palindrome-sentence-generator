@@ -102,6 +102,14 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   repair is a polarity-preserving result clause whose terminal character stream
   crosses the causal seam, not another lexical-bank or beam replay.
 
+- **Terminal-seam repair (2026-09-15).** That repair held the information
+  structure fixed and substituted four authored result lexicalizations per
+  plan. It produced 16 intact probes, a best outer match of one character, and
+  zero exact or admitted outputs. Because the formal preflight marked it as a
+  0.529 conceptual overlap with its parent, it is recorded as a repair under
+  the same family rather than counted as a new method. The next repair changes
+  connective/tense state at the causal seam, not merely the lexical bank.
+
 ## Scalable-construction requirement (2026-09-15)
 
 The active construction objective now has two explicit layers: (1) a

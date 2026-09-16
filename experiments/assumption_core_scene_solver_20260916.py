@@ -16,21 +16,25 @@ def units(s): return tuple(re.findall(r"[a-z]+", s.lower()))
 SCENES = [
  {"id":"courier_past", "slots":[
    ["the", "a"], ["careful", "quiet", "young"], ["courier", "teacher", "sailor"],
-   ["delivered", "carried", "returned"], ["the", "a"], ["letter", "parcel", "map"]],
+   ["delivered", "carried", "returned"], ["the", "a"], ["letter", "parcel", "map"],
+   ["and", "while"], ["the", "a"], ["patient", "quiet"], ["watchman", "driver", "teacher"],
+   ["waited", "rested", "watched"], ["the", "a"], ["gate", "harbor", "garden"]],
   "tense":"past", "agreement":"singular"},
  {"id":"garden_present", "slots":[
    ["the", "a"], ["patient", "busy", "kind"], ["gardeners", "workers", "children"],
-   ["water", "carry", "sort"], ["the", "a"], ["plants", "baskets", "seeds"]],
+   ["water", "carry", "sort"], ["the", "a"], ["plants", "baskets", "seeds"],
+   ["and", "while"], ["the", "a"], ["patient", "busy"], ["gardeners", "workers", "children"],
+   ["wait", "rest", "sort"], ["the", "a"], ["tools", "seeds", "baskets"]],
   "tense":"present", "agreement":"plural"},
 ]
 
 def grammar_ok(choice, scene):
     # Explicit tense/agreement constraints are assumptions in the same state.
-    det, adj, subj, verb, odet, obj = choice
+    det, adj, subj, verb, odet, obj = choice[:6]
     if scene["agreement"] == "singular" and subj.endswith("s"): return False
     if scene["agreement"] == "plural" and not subj.endswith("s"): return False
-    if scene["tense"] == "past" and verb not in {"delivered","carried","returned"}: return False
-    if scene["tense"] == "present" and verb not in {"water","carry","sort"}: return False
+    if scene["tense"] == "past" and verb not in {"delivered","carried","returned","waited","rested","watched"}: return False
+    if scene["tense"] == "present" and verb not in {"water","carry","sort","wait","rest"}: return False
     return True
 
 def core(choice, scene):
@@ -61,13 +65,15 @@ def repair(choice, scene, failed):
                         "audit_b":tape(" ".join(candidate)) == tape(" ".join(candidate))[::-1]}
     return None
 
-def run(limit=240):
+def run(limit=240, min_letters=39):
     rows=[]; tested=0; closures=[]
     for scene in SCENES:
         for choice in itertools.product(*scene["slots"]):
             if tested >= limit: break
             tested += 1
             checks=core(choice,scene); text=" ".join(choice)
+            if len(tape(text)) < min_letters:
+                continue
             row={"scene":scene["id"],"text":text,"checks":checks,
                  "minimal_conflict_core":minimal_core(checks),"audit_a":audit(text),
                  "audit_b":tape(text)==tape(text)[::-1],

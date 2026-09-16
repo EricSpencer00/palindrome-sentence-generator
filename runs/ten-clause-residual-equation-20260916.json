@@ -1,0 +1,99 @@
+{
+  "experiment_id": "ten-clause-residual-equation-20260916",
+  "signature": "ten-clause|semantic-slot-substitution|residual-equation|fresh-lexicalization",
+  "novelty_preflight": {
+    "catalogue_imported": false,
+    "known_palindrome_imported": false,
+    "exact_signature_collision": false
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "At first light Mara opens the clinic, checks the quiet generators, greets the two nurses, and records the medicine count. She carries clean water to the waiting room, labels each parcel, phones the mountain driver, updates the weather board, thanks the volunteers, and closes the ledger before dusk.",
+      "letters": 242,
+      "exact": false,
+      "two_pointer_exact": false,
+      "mismatch_positions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "forward_hash": "c40aca5eeac8503dfbac94bf929238a30c9b7a2f4018c83f77fc75220aeb0ba4",
+      "reverse_hash": "0169e8031d0eb2d0d7ca2a1cfac19b927c21b9202f6806b08207304167b4b75a",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    }
+  ],
+  "stats": {
+    "letters": 242,
+    "over_100": true,
+    "exact": false
+  },
+  "solver": {
+    "slots": [
+      "agent",
+      "opening",
+      "instrument",
+      "recipient",
+      "object",
+      "purpose",
+      "agent",
+      "opening",
+      "instrument",
+      "recipient",
+      "object",
+      "purpose"
+    ],
+    "operator": "jointly replace complete verb/object/adjunct spans and solve mirrored character equations",
+    "agreement": "third-person singular present",
+    "all_different_content": true,
+    "result": "longest fresh near miss retained"
+  },
+  "next_repair": {
+    "operator": "solve the first 20 residual positions by paired verb/object substitution, then replay all later slots",
+    "reason": "coherent ten-clause scene exceeds target length but closure remains open",
+    "mismatch_position": 0
+  },
+  "provenance": {
+    "generator_sha256": "5d8251d9cb71c90849fd11735ba8e94b642805051ff4aeeccf38fe9fd32e9f0e",
+    "lexical_source": "fresh hand-authored ten-clause scene",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256",
+      "mechanical admission"
+    ]
+  }
+}

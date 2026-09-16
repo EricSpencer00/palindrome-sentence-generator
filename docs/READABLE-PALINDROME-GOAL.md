@@ -1217,3 +1217,30 @@ item-aware analysis plan.
   request short continuations at each live seam with timeout-safe batching,
   rather than repeating whole-sentence calls. Artifact:
   `runs/live-seam-intent-continuation-20260915.json`.
+
+- **Fixed-tape GPT-2 boundary decoder, 2026-09-15:** a new preflighted repair
+  froze the 115-letter exact tape from the lexical-admission frontier and
+  enumerated 180 complete dictionary segmentations per position. A local GPT-2
+  reranked 180 complete renderings, while the tape remained immutable and was
+  checked by independent normalized-string and two-pointer audits. The best
+  admitted diagnostic rendering was `Test sale not care pro fit name till
+  item anti for per act one last set.` (56 letters); it is exact and
+  mechanically admitted but not intact prose, so no reader package was made.
+  The artifact records all renderings, model scores, tape hash, and the next
+  repair (typed valency transitions over the same frozen tape):
+  `runs/fixed-tape-gpt2-boundary-decoder-20260915.json`.
+
+- **Long-form POS center-out lexicalization, 2026-09-15:** a distinct
+  preflighted constructor used 14--16 word POS templates and a debt-carrying
+  outside-in character equation with fresh Brown/word-frequency lexical
+  items. It explored 26,515 states across three templates and found no exact
+  terminal row. The concrete repair fixed a correctness bug: an odd-length
+  character tape may end with a one-letter (or otherwise palindromic) residual
+  inside the centre word, so the successor accepts only a palindromic centre
+  residual. The corrected run still found zero exact rows; both provenance and
+  independent-audit paths are preserved in
+  `runs/pos-template-centerout-longform-repair-20260915.json` and
+  `runs/pos-template-centerout-longform-center-residual-repair-20260915.json`.
+  This closes the route without relaxing the reader gate; the next construction
+  must replace the lexical inventory/state rather than replaying the same POS
+  templates.

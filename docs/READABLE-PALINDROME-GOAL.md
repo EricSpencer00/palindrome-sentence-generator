@@ -1475,7 +1475,7 @@ item-aware analysis plan.
   gate. The Brown route's empty `displayed` list is intentional because it
   found no text safe to show as generated.
 
-  A reproducible programmatic diagnostic over 166 rendered rows is frozen in
+  A reproducible programmatic diagnostic over 264 rendered rows is frozen in
   `runs/parallel-luna-readability-diagnostics-20260916.json`: 0 exact and 0
   mechanically admitted rows. The report breaks out Brown word-order gain,
   mean word frequency, repetition, punctuation segmentation, and length by
@@ -1487,8 +1487,12 @@ item-aware analysis plan.
   the same beams. A reversible-word whole-sentence grammar produced 16 base and
   36 repair probes with zero exact closures. A seedless semantic recursive CFG
   produced 10 complete candidates up to 91 letters with zero closures. A
-  semantics-preserving mutation search is recorded separately in the ledger;
-  its exact and reader counts remain zero pending its final artifact audit.
+  semantics-preserving mutation search ran 41 base and 57 repair probes over
+  authored clauses; every trial remained a complete clause, but exact and
+  reader counts were zero.
+  A representative repair rendering was “The careful nurse records a dosage.
+  The cautious nurse records a dosage.” It is preserved as a complete-prose
+  diagnostic with its mutation provenance, not presented as an exact output.
   These routes change the construction state (reversible lexical roles,
   unseeded recursion, and online semantic mutation) and are not filename or
   beam-width replays.

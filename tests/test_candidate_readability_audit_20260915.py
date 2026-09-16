@@ -21,3 +21,8 @@ def test_audit_row_reports_exactness_and_gate_failures() -> None:
     assert row["letters"] == 38
     assert "length_band" in row["failed_checks"]
     assert row["reader_next_test"].startswith("Not reader-eligible")
+
+
+def test_iter_rows_normalizes_authored_sentence_boundaries() -> None:
+    rows = list(iter_rows({"probes": [{"left": "A calm nurse.", "right": "writes notes!"}]}, "run.json"))
+    assert rows[0]["rendered"] == "A calm nurse. writes notes."

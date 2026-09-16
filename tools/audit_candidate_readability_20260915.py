@@ -30,10 +30,24 @@ def normalize(text: str) -> str:
     return "".join(WORD_RE.findall(text.lower()))
 
 
-def iter_rows(payload: object, source: str) -> Iterable[dict]:
+def sentence_join(left: str, right: str) -> str:
+    """Render two authored halves without manufacturing duplicate stops."""
+    def finish(value: str) -> str:
+        return value.rstrip().rstrip(".!?") + "."
+
+    return f"{finish(left)} {finish(right)}"
+
+
+def iter_rows(payload: object, source: str, _context_provenance: object = None) -> Iterable[dict]:
     """Yield rendered rows from the repository's append-only run formats."""
     if isinstance(payload, dict):
-        context_provenance = payload.get("method") or payload.get("provenance")
+        context_provenance = _context_provenance or (
+            payload.get("method")
+            or payload.get("provenance")
+            or payload.get("experiment")
+            or payload.get("experiment_id")
+            or payload.get("signature")
+        )
         for key in ("rendered_probes", "rendered_candidates_and_probes", "rows", "candidates", "probes", "closed_leads", "mechanically_admitted_leads", "admitted"):
             values = payload.get(key)
             if isinstance(values, list):
@@ -43,7 +57,7 @@ def iter_rows(payload: object, source: str) -> Iterable[dict]:
                         if not text and isinstance(row.get("audit"), dict):
                             text = row["audit"].get("rendered")
                         if not text and isinstance(row.get("left"), str) and isinstance(row.get("right"), str):
-                            text = f"{row['left']}. {row['right']}."
+                            text = sentence_join(row["left"], row["right"])
                         if isinstance(text, str) and text.strip():
                             item = {"source_run": source, **row, "rendered": text}
                             if context_provenance and "provenance" not in item:
@@ -55,7 +69,7 @@ def iter_rows(payload: object, source: str) -> Iterable[dict]:
         for phase in ("base", "repair"):
             nested = payload.get(phase)
             if isinstance(nested, dict):
-                yield from iter_rows(nested, f"{source}#{phase}")
+                yield from iter_rows(nested, f"{source}#{phase}", context_provenance)
         # A few older artifacts store one candidate at the top level.
         text = payload.get("rendered") or payload.get("text")
         if isinstance(text, str) and text.strip():

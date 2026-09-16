@@ -149,6 +149,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "brown-attested-residual-lattice-20260916" in ids
     assert "seedless-semantic-cfg-bilateral-20260916" in ids
     assert "whole-sentence-semordnilap-clauses-20260916" in ids
+    assert "semantic-mutation-residual-20260916" in ids
 
 
 def test_new_centerout_repairs_keep_failure_evidence_and_reader_gate_closed():

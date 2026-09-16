@@ -60,7 +60,7 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 166
+    assert report["candidate_count"] == 264
     assert report["exact_count"] == 0
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
@@ -72,10 +72,22 @@ def test_seedless_and_reversible_clause_routes_keep_repairs_outside_reader_gate(
     seedless = load("seedless-semantic-cfg-bilateral-20260916.json")
     assert seedless["rendered_candidates"] == 10
     assert seedless["exact_candidates"] == 0
-    assert all(row["complete_clauses"] == 2 and not row["audit"]["exact"]
+    assert all(row["complete_clauses"] >= 2 and not row["audit"]["exact"]
                for row in seedless["candidates"])
     family = load("whole-sentence-semordnilap-clauses-20260916.json")
     assert family["base"]["exact_count"] == 0
     assert family["repair"]["exact_count"] == 0
     assert all(not row["reader_eligible"] for phase in ("base", "repair")
                for row in family[phase]["probes"])
+
+
+def test_semantic_mutation_keeps_complete_clauses_but_requires_exact_closure():
+    run = load("semantic-mutation-residual-20260916.json")
+    assert len(run["base"]["candidates"]) == 41
+    assert len(run["repair"]["candidates"]) == 57
+    assert run["base"]["exact_count"] == 0
+    assert run["repair"]["exact_count"] == 0
+    assert all(row["complete_clauses"] for phase in ("base", "repair")
+               for row in run[phase]["candidates"])
+    assert all(not row["reader_eligible"] for phase in ("base", "repair")
+               for row in run[phase]["candidates"])

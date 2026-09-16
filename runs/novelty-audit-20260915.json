@@ -1,9 +1,37 @@
 {
   "entries": [
     {
-      "id": "recursive-grammar-residual-dp-20260916",
+      "id": "seedless-semantic-cfg-bilateral-20260916",
       "manual_review_required": false,
       "nearest_prior": null,
+      "signature_atoms": [
+        "action",
+        "agent",
+        "bilateral",
+        "cfg",
+        "clause",
+        "locative",
+        "memoized",
+        "patient",
+        "pointer",
+        "realization",
+        "recursive",
+        "seedless",
+        "semantic",
+        "two"
+      ]
+    },
+    {
+      "id": "recursive-grammar-residual-dp-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "seedless-semantic-cfg-bilateral-20260916",
+        "jaccard": 0.111111,
+        "shared_atoms": [
+          "clause",
+          "recursive"
+        ]
+      },
       "signature_atoms": [
         "clause",
         "dp",
@@ -17,9 +45,11 @@
       "id": "dialogue-speech-act-residual-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "recursive-grammar-residual-dp-20260916",
-        "jaccard": 0.0,
-        "shared_atoms": []
+        "id": "seedless-semantic-cfg-bilateral-20260916",
+        "jaccard": 0.038462,
+        "shared_atoms": [
+          "realization"
+        ]
       },
       "signature_atoms": [
         "acknowledgment",
@@ -41,7 +71,7 @@
       "id": "brown-attested-residual-lattice-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "recursive-grammar-residual-dp-20260916",
+        "id": "seedless-semantic-cfg-bilateral-20260916",
         "jaccard": 0.0,
         "shared_atoms": []
       },
@@ -115,11 +145,13 @@
       "id": "bilateral-slot-synchronizer-adjunct-repair-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "recursive-template-composition-20260916",
-        "jaccard": 0.105263,
+        "id": "seedless-semantic-cfg-bilateral-20260916",
+        "jaccard": 0.190476,
         "shared_atoms": [
+          "bilateral",
           "clause",
-          "pair"
+          "pointer",
+          "two"
         ]
       },
       "signature_atoms": [
@@ -194,11 +226,13 @@
       "id": "lexicalized-dependency-frame-pairing-20260916",
       "manual_review_required": false,
       "nearest_prior": {
-        "id": "paired-transitive-role-seam-dp-20260916",
-        "jaccard": 0.1,
+        "id": "seedless-semantic-cfg-bilateral-20260916",
+        "jaccard": 0.2,
         "shared_atoms": [
+          "agent",
+          "patient",
           "realization",
-          "role"
+          "semantic"
         ]
       },
       "signature_atoms": [
@@ -3093,6 +3127,64 @@
       ]
     },
     {
+      "id": "whole-sentence-semordnilap-clauses-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "role-aware-reversible-reservoir-centerout-20260915",
+        "jaccard": 0.15,
+        "shared_atoms": [
+          "reversible",
+          "role",
+          "semordnilap"
+        ]
+      },
+      "signature_atoms": [
+        "boundaries",
+        "changing",
+        "clause",
+        "no",
+        "prose",
+        "repetition",
+        "reversible",
+        "role",
+        "search",
+        "semordnilap",
+        "whole"
+      ]
+    },
+    {
+      "id": "semantic-mutation-residual-20260916",
+      "manual_review_required": false,
+      "nearest_prior": {
+        "id": "clause-lattice-joint-dp",
+        "jaccard": 0.185185,
+        "shared_atoms": [
+          "argument",
+          "no",
+          "repeated",
+          "tense",
+          "units"
+        ]
+      },
+      "signature_atoms": [
+        "argument",
+        "authored",
+        "clauses",
+        "ledger",
+        "mirrored",
+        "mutation",
+        "no",
+        "online",
+        "operator",
+        "ordinary",
+        "repeated",
+        "semantic",
+        "synonym",
+        "tense",
+        "units"
+      ]
+    },
+    {
       "id": "reverse-transition-svo-beam-20260916",
       "manual_review_required": false,
       "nearest_prior": {
@@ -3369,7 +3461,7 @@
     }
   ],
   "policy": "Exact collisions fail closed. A near pair is a human-review flag, not evidence of novelty; the proposer must document a different construction state-space dimension or classify the run as a repair.",
-  "registered_entries": 116,
+  "registered_entries": 119,
   "registry": "docs/experiment-novelty-registry.json",
   "threshold": 0.4
 }

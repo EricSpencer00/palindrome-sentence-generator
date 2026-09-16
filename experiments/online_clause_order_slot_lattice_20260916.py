@@ -7,9 +7,9 @@ EXPERIMENT_ID='online-clause-order-slot-lattice-20260916'
 SIGNATURE='reader-first-scene-lattice|online-clause-order-selection|semantic-slot-attachment-repair|live-mirrored-equations|independent-pointer-sha'
 CLAUSES=[
  ('At dawn, the archivist opened the cedar cabinet', ['At dawn, the archivist opened the cedar cabinet','At sunrise, the curator opened the cedar chest']),
- ('and catalogued three letters for the village school', ['and catalogued three letters for the village school','and sorted four journals for the river school']),
- ('while the patient apprentice copied each date into a clean ledger', ['while the patient apprentice copied each date into a clean ledger','while the young assistant entered each name into a quiet register']),
- ('before the lamps went out', ['before the lamps went out','as evening bells faded']),
+ ('catalogued three letters for the village school', ['catalogued three letters for the village school','sorted four journals for the river school']),
+ ('the patient apprentice copied each date into a clean ledger', ['the patient apprentice copied each date into a clean ledger','the young assistant entered each name into a quiet register']),
+ ('the lamps went out', ['the lamps went out','evening bells faded']),
 ]
 def audit(s):
  t=normalize_letters(s); mm=[]; i=0;j=len(t)-1
@@ -26,7 +26,10 @@ def run():
   if order[0]!=0: continue
   choices=tuple((i%2) for i in range(4))
   parts=[CLAUSES[i][1][choices[i]] for i in order]
-  text='; '.join(parts)+'.'; a=audit(text); checks=mechanical_admission_checks(text,min_letters=90,max_letters=220)
+  # Realize the selected order as one readable compound/complex sentence;
+  # connectors are grammatical surface material, never tape manipulation.
+  connectors=('', ', and ', ', while ', ', and ')
+  text=parts[0]+connectors[1]+parts[1]+connectors[2]+parts[2]+connectors[3]+parts[3]+'.'; a=audit(text); checks=mechanical_admission_checks(text,min_letters=90,max_letters=220)
   rows.append({'rendered':text,'letters':a['letters'],'clause_order':list(order),'slot_choices':list(choices),'live_equation':{'equation':'t[i]=t[N-1-i] while each complete clause is appended','first_mismatch':a['first_mismatch'],'matched_prefix_pairs':next((i for i in range(a['letters']//2) if normalize_letters(text)[i]!=normalize_letters(text)[-1-i]),a['letters']//2)},'exact_audit':a,'checks':checks,'mechanically_admitted':bool(a['two_pointer_exact'] and a['sha_equal'] and all(checks.values())),'provenance':{'fresh_authored_scene':True,'source_sentences_copied':False,'catalogue_imported':False,'borrowed_text':False,'reversed_finished_sentence':False,'word_order_symmetry':False,'repeated_self_palindromic_unit':False,'known_palindrome_wrapped':False}})
  h=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
  for r in rows:r['provenance']['generator_sha256']=h

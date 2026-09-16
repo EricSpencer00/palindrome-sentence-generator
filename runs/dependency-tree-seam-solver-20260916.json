@@ -1,0 +1,1653 @@
+{
+  "experiment_id": "dependency-tree-seam-solver-20260916",
+  "signature": "dependency-tree-frontier-attachment-dp|agreement-aware-transitive-valency|live-seam-boundary-walk|normal-order-independent-clauses|two-pointer-hash-admission-audit",
+  "status": "completed_no_reader_promotion",
+  "method": "Complete dependency trees are generated with explicit agreement and valency; a memoized live seam DP walks normal-order left and right tapes while retaining attachment-frontier events, then exact two-pointer/hash checks and shared mechanical admission run independently.",
+  "novelty_preflight": {
+    "registry_entries": 180,
+    "runtime_registry_entries": 181,
+    "exact_signature_collision": false,
+    "exact_id_collision": false,
+    "nearest_prior": [
+      {
+        "id": "paired-transitive-role-seam-dp-20260916",
+        "jaccard": 0.129032,
+        "shared_atoms": [
+          "aware",
+          "dp",
+          "seam",
+          "transitive"
+        ]
+      },
+      {
+        "id": "wave-b-dual-preflight-20260916-excluded",
+        "jaccard": 0.12,
+        "shared_atoms": [
+          "boundary",
+          "dependency",
+          "seam"
+        ]
+      },
+      {
+        "id": "bilateral-slot-synchronizer-adjunct-repair-20260916",
+        "jaccard": 0.111111,
+        "shared_atoms": [
+          "agreement",
+          "boundary",
+          "pointer"
+        ]
+      },
+      {
+        "id": "c3-seam-dp-semantic-pairs-20260916",
+        "jaccard": 0.107143,
+        "shared_atoms": [
+          "boundary",
+          "dp",
+          "seam"
+        ]
+      },
+      {
+        "id": "voice-alternation-residual-20260916",
+        "jaccard": 0.103448,
+        "shared_atoms": [
+          "agreement",
+          "aware",
+          "clauses"
+        ]
+      }
+    ],
+    "performed_before_search": true
+  },
+  "config": {
+    "tree_limit_per_side": 192,
+    "attachment_choices": [
+      "postverbal_event",
+      "postverbal_object",
+      "fronted_event"
+    ],
+    "min_letters": 39,
+    "max_letters": 220,
+    "hash_collision_only": false,
+    "reverse_decoding": false,
+    "grammar": "DET nsubj VERB obj obl"
+  },
+  "stats": {
+    "left_trees": 192,
+    "right_trees": 192,
+    "pair_states": 36864,
+    "dp_states": 38464,
+    "exact": 0,
+    "mechanically_admitted": 0,
+    "rendered_probes": 12,
+    "max_probe_letters": 84
+  },
+  "exact_candidates": [],
+  "rendered_probes": [
+    {
+      "rendered": "The baker reads the letter in the quiet room. The caller answers the answer at the brief plaza.",
+      "letters": 76,
+      "exact": false,
+      "seam_dp": {
+        "closed": false,
+        "equal_length": false,
+        "matched": 0,
+        "left_letters": 36,
+        "right_letters": 40,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 39,
+          "left": "t",
+          "right": "a"
+        },
+        "frontier_events": [],
+        "dp_states": 1,
+        "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+        "hash_right": "f6957ba9ee6d03f8b868cd5597e3d40af67f44bb47a693e3506d7480803bae72",
+        "hash_whole_palindrome": null
+      },
+      "two_pointer_exact": false,
+      "hash_exact": false,
+      "left_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "reads"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "baker"
+          ],
+          [
+            "obj",
+            "verb",
+            "letter"
+          ],
+          [
+            "obl",
+            "verb",
+            "room"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "right_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "answers"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "caller"
+          ],
+          [
+            "obj",
+            "verb",
+            "answer"
+          ],
+          [
+            "obl",
+            "verb",
+            "plaza"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "normal_word_order": true,
+        "word_order_reversal": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "The baker reads the letter in the quiet room. The caller answers the answer over the dark valley.",
+      "letters": 78,
+      "exact": false,
+      "seam_dp": {
+        "closed": false,
+        "equal_length": false,
+        "matched": 0,
+        "left_letters": 36,
+        "right_letters": 42,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 41,
+          "left": "t",
+          "right": "y"
+        },
+        "frontier_events": [],
+        "dp_states": 1,
+        "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+        "hash_right": "c7d7b3ace7d41b9ae95efd02d25ab3a7da69933dc5a2c0b8bf7a60bf9eb138a6",
+        "hash_whole_palindrome": null
+      },
+      "two_pointer_exact": false,
+      "hash_exact": false,
+      "left_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "reads"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "baker"
+          ],
+          [
+            "obj",
+            "verb",
+            "letter"
+          ],
+          [
+            "obl",
+            "verb",
+            "room"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "right_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "answers"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "caller"
+          ],
+          [
+            "obj",
+            "verb",
+            "answer"
+          ],
+          [
+            "obl",
+            "verb",
+            "valley"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "normal_word_order": true,
+        "word_order_reversal": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "The baker reads the letter in the quiet room. The caller answers the answer behind the clean wall.",
+      "letters": 79,
+      "exact": false,
+      "seam_dp": {
+        "closed": false,
+        "equal_length": false,
+        "matched": 0,
+        "left_letters": 36,
+        "right_letters": 43,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 42,
+          "left": "t",
+          "right": "l"
+        },
+        "frontier_events": [],
+        "dp_states": 1,
+        "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+        "hash_right": "6855dc0a21baf84bea28c69ed5ed46c51d5f993577a9688b05ed1cb9e549e6b2",
+        "hash_whole_palindrome": null
+      },
+      "two_pointer_exact": false,
+      "hash_exact": false,
+      "left_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "reads"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "baker"
+          ],
+          [
+            "obj",
+            "verb",
+            "letter"
+          ],
+          [
+            "obl",
+            "verb",
+            "room"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "right_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "answers"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "caller"
+          ],
+          [
+            "obj",
+            "verb",
+            "answer"
+          ],
+          [
+            "obl",
+            "verb",
+            "wall"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "normal_word_order": true,
+        "word_order_reversal": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "The baker reads the letter in the quiet room. The caller answers the answer within the gentle village.",
+      "letters": 83,
+      "exact": false,
+      "seam_dp": {
+        "closed": false,
+        "equal_length": false,
+        "matched": 0,
+        "left_letters": 36,
+        "right_letters": 47,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 46,
+          "left": "t",
+          "right": "e"
+        },
+        "frontier_events": [],
+        "dp_states": 1,
+        "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+        "hash_right": "4438266a73c5c756054f9c84b940e78f37f443d25b2b6a5335c61e3017de8749",
+        "hash_whole_palindrome": null
+      },
+      "two_pointer_exact": false,
+      "hash_exact": false,
+      "left_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "reads"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "baker"
+          ],
+          [
+            "obj",
+            "verb",
+            "letter"
+          ],
+          [
+            "obl",
+            "verb",
+            "room"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "right_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "answers"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "caller"
+          ],
+          [
+            "obj",
+            "verb",
+            "answer"
+          ],
+          [
+            "obl",
+            "verb",
+            "village"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "normal_word_order": true,
+        "word_order_reversal": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "The baker reads the letter in the quiet room. The caller answers the message at the brief plaza.",
+      "letters": 77,
+      "exact": false,
+      "seam_dp": {
+        "closed": false,
+        "equal_length": false,
+        "matched": 0,
+        "left_letters": 36,
+        "right_letters": 41,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 40,
+          "left": "t",
+          "right": "a"
+        },
+        "frontier_events": [],
+        "dp_states": 1,
+        "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+        "hash_right": "d708d05c44465ce1c3849897e3a30481fb2a3c256c67a183c49b1c26bcc7433d",
+        "hash_whole_palindrome": null
+      },
+      "two_pointer_exact": false,
+      "hash_exact": false,
+      "left_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "reads"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "baker"
+          ],
+          [
+            "obj",
+            "verb",
+            "letter"
+          ],
+          [
+            "obl",
+            "verb",
+            "room"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "right_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "answers"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "caller"
+          ],
+          [
+            "obj",
+            "verb",
+            "message"
+          ],
+          [
+            "obl",
+            "verb",
+            "plaza"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "normal_word_order": true,
+        "word_order_reversal": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "The baker reads the letter in the quiet room. The caller answers the message over the dark valley.",
+      "letters": 79,
+      "exact": false,
+      "seam_dp": {
+        "closed": false,
+        "equal_length": false,
+        "matched": 0,
+        "left_letters": 36,
+        "right_letters": 43,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 42,
+          "left": "t",
+          "right": "y"
+        },
+        "frontier_events": [],
+        "dp_states": 1,
+        "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+        "hash_right": "05bf14c6879e0957ef40f9157ed3fa949f6c26097a7fa8b6c9b8f4350ae28fb9",
+        "hash_whole_palindrome": null
+      },
+      "two_pointer_exact": false,
+      "hash_exact": false,
+      "left_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "reads"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "baker"
+          ],
+          [
+            "obj",
+            "verb",
+            "letter"
+          ],
+          [
+            "obl",
+            "verb",
+            "room"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "right_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "answers"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "caller"
+          ],
+          [
+            "obj",
+            "verb",
+            "message"
+          ],
+          [
+            "obl",
+            "verb",
+            "valley"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "normal_word_order": true,
+        "word_order_reversal": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "The baker reads the letter in the quiet room. The caller answers the message behind the clean wall.",
+      "letters": 80,
+      "exact": false,
+      "seam_dp": {
+        "closed": false,
+        "equal_length": false,
+        "matched": 0,
+        "left_letters": 36,
+        "right_letters": 44,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 43,
+          "left": "t",
+          "right": "l"
+        },
+        "frontier_events": [],
+        "dp_states": 1,
+        "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+        "hash_right": "942e734e757c6a4a8f64602d0c7e1021ec40d0c80b0e19ef5961f922ad6c12e6",
+        "hash_whole_palindrome": null
+      },
+      "two_pointer_exact": false,
+      "hash_exact": false,
+      "left_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "reads"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "baker"
+          ],
+          [
+            "obj",
+            "verb",
+            "letter"
+          ],
+          [
+            "obl",
+            "verb",
+            "room"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "right_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "answers"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "caller"
+          ],
+          [
+            "obj",
+            "verb",
+            "message"
+          ],
+          [
+            "obl",
+            "verb",
+            "wall"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "normal_word_order": true,
+        "word_order_reversal": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "The baker reads the letter in the quiet room. The caller answers the message within the gentle village.",
+      "letters": 84,
+      "exact": false,
+      "seam_dp": {
+        "closed": false,
+        "equal_length": false,
+        "matched": 0,
+        "left_letters": 36,
+        "right_letters": 48,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 47,
+          "left": "t",
+          "right": "e"
+        },
+        "frontier_events": [],
+        "dp_states": 1,
+        "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+        "hash_right": "9c1949ac6a1b2c2582ad750a42321b83da4ab11bfba711f4927b44ab03c72bfd",
+        "hash_whole_palindrome": null
+      },
+      "two_pointer_exact": false,
+      "hash_exact": false,
+      "left_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "reads"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "baker"
+          ],
+          [
+            "obj",
+            "verb",
+            "letter"
+          ],
+          [
+            "obl",
+            "verb",
+            "room"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "right_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "answers"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "caller"
+          ],
+          [
+            "obj",
+            "verb",
+            "message"
+          ],
+          [
+            "obl",
+            "verb",
+            "village"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "normal_word_order": true,
+        "word_order_reversal": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "The baker reads the letter in the quiet room. The caller answers the reply at the brief plaza.",
+      "letters": 75,
+      "exact": false,
+      "seam_dp": {
+        "closed": false,
+        "equal_length": false,
+        "matched": 0,
+        "left_letters": 36,
+        "right_letters": 39,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 38,
+          "left": "t",
+          "right": "a"
+        },
+        "frontier_events": [],
+        "dp_states": 1,
+        "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+        "hash_right": "cdc72f59e00b077caecd95ba7178613fd13607a417327e23a562b47d3937b29c",
+        "hash_whole_palindrome": null
+      },
+      "two_pointer_exact": false,
+      "hash_exact": false,
+      "left_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "reads"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "baker"
+          ],
+          [
+            "obj",
+            "verb",
+            "letter"
+          ],
+          [
+            "obl",
+            "verb",
+            "room"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "right_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "answers"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "caller"
+          ],
+          [
+            "obj",
+            "verb",
+            "reply"
+          ],
+          [
+            "obl",
+            "verb",
+            "plaza"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "normal_word_order": true,
+        "word_order_reversal": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "The baker reads the letter in the quiet room. The caller answers the reply over the dark valley.",
+      "letters": 77,
+      "exact": false,
+      "seam_dp": {
+        "closed": false,
+        "equal_length": false,
+        "matched": 0,
+        "left_letters": 36,
+        "right_letters": 41,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 40,
+          "left": "t",
+          "right": "y"
+        },
+        "frontier_events": [],
+        "dp_states": 1,
+        "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+        "hash_right": "bcfe9943bcac54cde33c02510641f7193fcf9599662eecda7d77f122f3a60937",
+        "hash_whole_palindrome": null
+      },
+      "two_pointer_exact": false,
+      "hash_exact": false,
+      "left_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "reads"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "baker"
+          ],
+          [
+            "obj",
+            "verb",
+            "letter"
+          ],
+          [
+            "obl",
+            "verb",
+            "room"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "right_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "answers"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "caller"
+          ],
+          [
+            "obj",
+            "verb",
+            "reply"
+          ],
+          [
+            "obl",
+            "verb",
+            "valley"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "normal_word_order": true,
+        "word_order_reversal": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "The baker reads the letter in the quiet room. The caller answers the reply behind the clean wall.",
+      "letters": 78,
+      "exact": false,
+      "seam_dp": {
+        "closed": false,
+        "equal_length": false,
+        "matched": 0,
+        "left_letters": 36,
+        "right_letters": 42,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 41,
+          "left": "t",
+          "right": "l"
+        },
+        "frontier_events": [],
+        "dp_states": 1,
+        "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+        "hash_right": "3092d49467f8b60126fd15fed32870fc9dd2a9441061f0c62a1ace12521fe22c",
+        "hash_whole_palindrome": null
+      },
+      "two_pointer_exact": false,
+      "hash_exact": false,
+      "left_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "reads"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "baker"
+          ],
+          [
+            "obj",
+            "verb",
+            "letter"
+          ],
+          [
+            "obl",
+            "verb",
+            "room"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "right_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "answers"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "caller"
+          ],
+          [
+            "obj",
+            "verb",
+            "reply"
+          ],
+          [
+            "obl",
+            "verb",
+            "wall"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "normal_word_order": true,
+        "word_order_reversal": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "The baker reads the letter in the quiet room. The caller answers the reply within the gentle village.",
+      "letters": 82,
+      "exact": false,
+      "seam_dp": {
+        "closed": false,
+        "equal_length": false,
+        "matched": 0,
+        "left_letters": 36,
+        "right_letters": 46,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 45,
+          "left": "t",
+          "right": "e"
+        },
+        "frontier_events": [],
+        "dp_states": 1,
+        "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+        "hash_right": "56a393708310e33ac459b7f888f17f5058ff5c56948aeaee615e371ab8084a61",
+        "hash_whole_palindrome": null
+      },
+      "two_pointer_exact": false,
+      "hash_exact": false,
+      "left_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "reads"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "baker"
+          ],
+          [
+            "obj",
+            "verb",
+            "letter"
+          ],
+          [
+            "obl",
+            "verb",
+            "room"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "right_tree": {
+        "attachment": "postverbal_event",
+        "dependencies": [
+          [
+            "root",
+            "verb",
+            "answers"
+          ],
+          [
+            "nsubj",
+            "verb",
+            "caller"
+          ],
+          [
+            "obj",
+            "verb",
+            "reply"
+          ],
+          [
+            "obl",
+            "verb",
+            "village"
+          ]
+        ],
+        "readability": {
+          "complete_clause": true,
+          "subject_verb_agreement": true,
+          "transitive_valency": true,
+          "adjunct_attachment": true,
+          "normal_word_order": true,
+          "reader_evidence": false
+        }
+      },
+      "admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "normal_word_order": true,
+        "word_order_reversal": false,
+        "source_sentences_copied": false,
+        "known_palindromes_used": false,
+        "catalogue_imported": false
+      },
+      "diagnostic_only": true
+    }
+  ],
+  "best_readable_pair": {
+    "rendered": "The baker reads the letter in the quiet room. The caller answers the answer at the brief plaza.",
+    "letters": 76,
+    "exact": false,
+    "seam_dp": {
+      "closed": false,
+      "equal_length": false,
+      "matched": 0,
+      "left_letters": 36,
+      "right_letters": 40,
+      "first_mismatch": {
+        "left_index": 0,
+        "right_index": 39,
+        "left": "t",
+        "right": "a"
+      },
+      "frontier_events": [],
+      "dp_states": 1,
+      "hash_left": "f0b8708ca43b74c024e62fafa4b92326216d74dba19385901601e77cc5f84d8d",
+      "hash_right": "f6957ba9ee6d03f8b868cd5597e3d40af67f44bb47a693e3506d7480803bae72",
+      "hash_whole_palindrome": null
+    },
+    "two_pointer_exact": false,
+    "hash_exact": false,
+    "left_tree": {
+      "attachment": "postverbal_event",
+      "dependencies": [
+        [
+          "root",
+          "verb",
+          "reads"
+        ],
+        [
+          "nsubj",
+          "verb",
+          "baker"
+        ],
+        [
+          "obj",
+          "verb",
+          "letter"
+        ],
+        [
+          "obl",
+          "verb",
+          "room"
+        ]
+      ],
+      "readability": {
+        "complete_clause": true,
+        "subject_verb_agreement": true,
+        "transitive_valency": true,
+        "adjunct_attachment": true,
+        "normal_word_order": true,
+        "reader_evidence": false
+      }
+    },
+    "right_tree": {
+      "attachment": "postverbal_event",
+      "dependencies": [
+        [
+          "root",
+          "verb",
+          "answers"
+        ],
+        [
+          "nsubj",
+          "verb",
+          "caller"
+        ],
+        [
+          "obj",
+          "verb",
+          "answer"
+        ],
+        [
+          "obl",
+          "verb",
+          "plaza"
+        ]
+      ],
+      "readability": {
+        "complete_clause": true,
+        "subject_verb_agreement": true,
+        "transitive_valency": true,
+        "adjunct_attachment": true,
+        "normal_word_order": true,
+        "reader_evidence": false
+      }
+    },
+    "admission": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "normal_word_order": true,
+      "word_order_reversal": false,
+      "source_sentences_copied": false,
+      "known_palindromes_used": false,
+      "catalogue_imported": false
+    },
+    "diagnostic_only": true
+  },
+  "repair": {
+    "status": "not_run",
+    "operator": "At the first live-seam mismatch, substitute a held-out lexeme preserving its POS, agreement, and valency, or switch only the mismatching adjunct attachment frontier; rerun the same seam DP and mechanical gate.",
+    "frontier": {
+      "left_index": 0,
+      "right_index": 39,
+      "left": "t",
+      "right": "a"
+    },
+    "preserves_tree_completeness": true
+  },
+  "provenance": {
+    "generator_sha256": "07cb183a1765829645c290304ff9bc41a320833de7ae2483ee399ca6ab6abe17",
+    "source_sentences_copied": false,
+    "known_palindromes_used": false,
+    "catalogue_imported": false,
+    "reader_evidence": false,
+    "normal_word_order": true
+  }
+}

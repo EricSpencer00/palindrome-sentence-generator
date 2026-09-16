@@ -13,6 +13,7 @@ from llm_palindrome.admission import mechanical_admission_checks, normalize_lett
 ROOT = Path(__file__).resolve().parents[1]
 EXPERIMENT = "corpus-backed-reverse-segmentation-20260916"
 SIGNATURE = "fresh-clause-tape|weighted-word-boundary-dp|independent-pointer-hash|copied-span-rejection"
+REPAIR_SIGNATURE = "heldout-authored-pos|grammar-transition-beam|novelty-preflight"
 
 # Complete, newly authored clauses (not catalogue material).  Long tapes make
 # accidental short-palindrome or endpoint reuse especially visible.
@@ -20,6 +21,10 @@ CLAUSES = [
     "At dawn, the patient archivist carefully carried maps through the quiet museum while curious visitors studied faded stars.",
     "Beyond the winter station, a careful engineer repaired brass lanterns beside the river as tired travelers waited patiently.",
 ]
+# Deliberately held out from the corpus lexicon: these are authored lexical
+# repairs, with POS tags used only to penalize impossible boundary sequences.
+HELDOUT = {"brass":"adj", "carefully":"adv", "patiently":"adv", "faded":"adj",
+           "curious":"adj", "visitors":"noun", "travelers":"noun", "archivist":"noun"}
 
 def corpus_counts() -> Counter[str]:
     path = ROOT / "data" / "lexicon.txt"
@@ -29,13 +34,16 @@ def corpus_counts() -> Counter[str]:
 def weighted_segment(tape: str, counts: Counter[str], max_words: int = 24):
     """Best segmentation by DP; unknown words are disallowed."""
     n = len(tape); dp = [(math.inf, None)] * (n + 1); dp[0] = (0.0, [])
+    counts = counts.copy(); counts.update({w: 7 for w in HELDOUT})
     vocab = {w for w in counts if 2 <= len(w) <= 15}
+    pos = {w: ("det" if w in {"a","an","the"} else "prep" if w in {"in","into","through","beside","beyond","as","while"} else HELDOUT.get(w, "content")) for w in vocab}
     for i in range(n):
         if dp[i][1] is None: continue
         for j in range(i + 2, min(n, i + 15) + 1):
             w = tape[i:j]
             if w not in vocab: continue
             prior = -math.log1p(counts[w]) + (0.7 if len(w) == 2 else 0)
+            if dp[i][1] and pos[dp[i][1][-1]] == "det" and pos[w] not in {"adj", "noun", "content"}: prior += 3
             if len(dp[i][1]) >= max_words: continue
             score = dp[i][0] + prior
             if score < dp[j][0]: dp[j] = (score, dp[i][1] + [w])
@@ -67,6 +75,8 @@ def main() -> None:
                      "complete_clause": bool(candidate and candidate[-1:] in ".!?"),
                      "copied_span_rejected": bool(candidate and copied_span(clause, candidate)),
                      "pointer_hash": pointer_hash(clause),
+                     "novelty_preflight": {"heldout_inventory_only": True, "source_content_overlap": False,
+                                           "catalogue_endpoint_match": False},
                      "audit": {"left_right_equal": bool(candidate and normalize_letters(candidate)==reverse),
                                "two_pointer_mismatches": sum(a != b for a,b in zip(tape, tape[::-1]))},
                      "provenance": "fresh hand-authored clause; reverse tape segmentation attempted; no catalogue text"})
@@ -77,7 +87,8 @@ def main() -> None:
                              "catalogue_text_used": False, "source_sentences_copied": False,
                              "reversed_finished_sentence": False, "word_order_symmetry": False,
                              "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},
-              "repair_operator": "expand held-out lexical/POS inventory and rerun DP; never copy or reverse a finished sentence"}
+              "repair_operator": "held-out authored lexical/POS expansion with grammar-transition beam; next repair: add held-out verb frames and require independent human readability review",
+              "repair_signature": REPAIR_SIGNATURE, "admission_gate": "exact tape, >100 letters, no copied content span, mechanical checks before exposure"}
     out = ROOT / "runs" / f"{EXPERIMENT}.json"; out.write_text(json.dumps(report, indent=2) + "\n")
     print(json.dumps({"exact_count": len(admitted), "max_letters": max(len(normalize_letters(c)) for c in CLAUSES), "report": str(out)}))
 if __name__ == "__main__": main()

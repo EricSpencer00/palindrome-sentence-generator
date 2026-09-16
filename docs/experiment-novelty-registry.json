@@ -2,6 +2,14 @@
   "version": 1,
   "entries": [
     {
+      "id": "reversible-relation-coherence-preflight-20260916-excluded",
+      "signature": "center-out-discourse-planner|reversible-lexical-relations|topic-continuity|tense-coreference|character-debt-dp|independent-exact-audit",
+      "artifact": "experiments/reversible_relation_coherence_preflight_20260916.py",
+      "run_artifacts": ["runs/reversible-relation-coherence-preflight-20260916.json"],
+      "overlaps": ["rhetorical-plan-lattice-20260916", "discourse-graph-walk-palindrome-20260915", "typed-anaphora", "centerout-dependency-realizer-20260916"],
+      "reason": "Preflight blocked: requested planner state variables and center-out debt search are already represented by retained discourse, anaphora, and center-out dependency families."
+    },
+    {
       "id": "pivot-paragraph-beam-20260916",
       "signature": "pivot-centered-paragraph-planning|semantic-slot-beam|online-mirrored-letter-ledger|near-synonym-edit-repair|independent-letter-audit",
       "artifact": "experiments/pivot_paragraph_beam_20260916.py",
@@ -942,6 +950,13 @@
     }
   ],
   "excluded": [
+    {
+      "id": "semantic-word-pair-cross-boundary-preflight-20260916",
+      "signature": "attested-semordnilap-word-pairs|cross-boundary-segmentation|distinct-syntactic-roles|complete-scene-search|length-gated-character-constraints",
+      "artifact": "experiments/semantic_word_pair_cross_boundary_preflight_20260916.py",
+      "overlaps": ["typed-semordnilap", "semordnilap-template-inventory", "whole-sentence-semordnilap-clauses-20260916"],
+      "reason": "Preflight found the requested reversible-word, cross-boundary, typed-role construction already retained; blocked before rendering and pivot recorded in the run artifact."
+    },
     {
       "id": "bidirectional-phrase-pair-preflight-20260916",
       "signature": "bidirectional-lexicalized-phrase-pair|semantic-role-frame-joint-authoring|independent-complete-yields|character-mirror-equation|lexical-repair",

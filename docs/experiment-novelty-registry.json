@@ -881,6 +881,12 @@
       "runs": ["runs/voice-alternation-residual-20260916.json"],
       "status": "run",
       "notes": "Joint active/passive voice selection with held-out transitive repair; 64 base and 144 repair probes, zero exact closures."
+    },
+    {
+      "id": "ccg-semantic-solver-20260916",
+      "signature": "ccg-type-logical-composition|lambda-event-terms|independent-complete-clause-yields|shared-character-mirror-ledger|category-compatible-repair",
+      "artifact": "experiments/ccg_semantic_solver_20260916.py",
+      "run_artifacts": ["runs/ccg-semantic-solver-20260916.json"]
     }
   ],
   "excluded": [
@@ -940,11 +946,5 @@
       ],
       "reason": "The implementation declares a multiset/count-state sampler but only draws random typed role productions and scores mirrored matches; it never enforces a balance state. It is therefore an invalid implementation of the claimed dimension and overlaps existing grammar-production probes. Its 5,000 samples remain preserved as failure evidence, not a retained family."
     }
-      ]
-    },
-    {
-      "id": "ccg-semantic-solver-20260916",
-      "signature": "ccg-type-logical-composition|lambda-event-terms|independent-complete-clause-yields|shared-character-mirror-ledger|category-compatible-repair",
-      "artifact": "experiments/ccg_semantic_solver_20260916.py",
-      "run_artifacts": ["runs/ccg-semantic-solver-20260916.json"]
-    }
+  ]
+}

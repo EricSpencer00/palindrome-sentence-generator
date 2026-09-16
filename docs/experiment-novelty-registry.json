@@ -1465,6 +1465,14 @@
       "overlaps": ["gpt2-topic-half-decoder-20260915", "fixed-tape-gpt2-boundary-decoder-20260915", "bpe-dual-continuation", "neural-dual-prefix-beam-v2"],
       "reason": "Novelty preflight found the requested local GPT-2 model-in-the-loop character/token decoder dimension already retained across bilateral prefix, BPE token-lattice, and reverse-character decoder routes. No model was loaded and no duplicate search evidence was counted; the live next-token implementation remains preserved only as a blocked pivot.",
       "reader_evidence": false
+    },
+    {
+      "id": "typed-cfg-exact-tape-resegmentation-20260916",
+      "signature": "fresh-lexical-exact-tape-constructor|global-typed-cfg-boundary-dp|finite-verb-valency-in-state|lm-tie-break-at-boundaries|immutable-tape|heldout-morphology-repair|independent-exact-admission-audit",
+      "artifact": "experiments/typed_cfg_exact_tape_resegmentation_20260916.py",
+      "run_artifacts": ["runs/typed-cfg-exact-tape-resegmentation-20260916.json"],
+      "distinction": "A fresh exact tape is constructed from lexical chunks, then globally resegmented with typed CFG and finite-verb valency enforced on every dictionary-boundary DP edge; deterministic LM scores only break ties. The fixed tape is never changed.",
+      "reader_evidence": false
     }
   ]
 }

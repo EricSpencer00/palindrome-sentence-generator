@@ -1,0 +1,286 @@
+{
+  "experiment_id": "typed-cfg-exact-tape-resegmentation-20260916",
+  "signature": "fresh-lexical-exact-tape-constructor|global-typed-cfg-boundary-dp|finite-verb-valency-in-state|lm-tie-break-at-boundaries|immutable-tape|heldout-morphology-repair|independent-exact-admission-audit",
+  "status": "completed_typed_cfg_exact_tape_dp",
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_before_run": 182,
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "conceptual_near_pairs": [
+      {
+        "id": "grammar-boundary-resegmentation-repair",
+        "reason": "prior route uses POS-weighted boundaries and a post-hoc valency diagnostic; this route enforces typed CFG/valency transitions during every DP edge and uses a fresh constructor tape"
+      },
+      {
+        "id": "fixed-tape-valency-chart-repair",
+        "reason": "prior route repairs a fixed tape with a valency chart; this route's lexical constructor provenance and global CFG state are new"
+      }
+    ],
+    "manual_review_required": false
+  },
+  "source_exact_tape": {
+    "left_chunks": [
+      "draw",
+      "decal",
+      "emit",
+      "pacer",
+      "rebut"
+    ],
+    "right_chunks": [
+      "tuber",
+      "recap",
+      "time",
+      "laced",
+      "ward"
+    ],
+    "rendered": "draw decal emit pacer rebut; tuber recap time laced ward.",
+    "tape": "drawdecalemitpacerrebuttuberrecaptimelacedward",
+    "letters": 46,
+    "constructor": "fresh-authored-lexical-chunk-pairs",
+    "independent_sha256": "2e433c325925a7732388abb7176a11b178b830ac061d4d46dd38760c8549ec38",
+    "independent_exact": true,
+    "mechanical_audit": {
+      "rendered": "draw decal emit pacer rebut; tuber recap time laced ward.",
+      "letters": 46,
+      "normalized_tape": "drawdecalemitpacerrebuttuberrecaptimelacedward",
+      "source_tape_unchanged": true,
+      "independent_ascii_tape": "drawdecalemitpacerrebuttuberrecaptimelacedward",
+      "independent_exact": true,
+      "independent_sha256": "2e433c325925a7732388abb7176a11b178b830ac061d4d46dd38760c8549ec38",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": false,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false
+    }
+  },
+  "config": {
+    "min_letters": 39,
+    "max_word_length": 14,
+    "top_k_per_cfg_state": 12,
+    "dictionary": "data/lexicon.txt",
+    "immutable_tape": true,
+    "post_hoc_reverse_segmentation": false,
+    "lm_tie_breaker": "deterministic lexical bigram bonus"
+  },
+  "dp_stats": {
+    "dp_positions": 47,
+    "dictionary_edges_considered": 3,
+    "typed_edges_accepted": 4
+  },
+  "segmentations": [],
+  "rendered_candidates_and_probes": [
+    {
+      "position": 9,
+      "words": [
+        "draw",
+        "decal"
+      ],
+      "rendered": "Draw decal \u2026",
+      "score": 0.54,
+      "cfg_state": {
+        "phase": "after_object",
+        "subject_number": "sg",
+        "object_number": "sg",
+        "predicate": "draw",
+        "valency": "transitive",
+        "roles": [
+          "event:draw",
+          "patient:decal"
+        ]
+      },
+      "audit": {
+        "rendered": "Draw decal.",
+        "letters": 9,
+        "normalized_tape": "drawdecal",
+        "source_tape_unchanged": false,
+        "independent_ascii_tape": "drawdecal",
+        "independent_exact": false,
+        "independent_sha256": "90ace7eae0b4803a03a86a376c78df156635c0e24e1fc46816f3273e2762789a",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": false,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "probe_status": "partial-prefix; unresolved tape suffix"
+    },
+    {
+      "position": 9,
+      "words": [
+        "draw",
+        "decal"
+      ],
+      "rendered": "Draw decal \u2026",
+      "score": 0.54,
+      "cfg_state": {
+        "phase": "after_object",
+        "subject_number": "pl",
+        "object_number": "sg",
+        "predicate": "draw",
+        "valency": "transitive",
+        "roles": [
+          "event:draw",
+          "patient:decal"
+        ]
+      },
+      "audit": {
+        "rendered": "Draw decal.",
+        "letters": 9,
+        "normalized_tape": "drawdecal",
+        "source_tape_unchanged": false,
+        "independent_ascii_tape": "drawdecal",
+        "independent_exact": false,
+        "independent_sha256": "90ace7eae0b4803a03a86a376c78df156635c0e24e1fc46816f3273e2762789a",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": false,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false,
+      "probe_status": "partial-prefix; unresolved tape suffix"
+    },
+    {
+      "rendered": "draw decal emit pacer rebut; tuber recap time laced ward.",
+      "words": [
+        "draw",
+        "decal",
+        "emit",
+        "pacer",
+        "rebut",
+        "tuber",
+        "recap",
+        "time",
+        "laced",
+        "ward"
+      ],
+      "score": 0.0,
+      "probe_status": "exact-source-tape; no complete CFG parse",
+      "audit": {
+        "rendered": "draw decal emit pacer rebut; tuber recap time laced ward.",
+        "letters": 46,
+        "normalized_tape": "drawdecalemitpacerrebuttuberrecaptimelacedward",
+        "source_tape_unchanged": true,
+        "independent_ascii_tape": "drawdecalemitpacerrebuttuberrecaptimelacedward",
+        "independent_exact": true,
+        "independent_sha256": "2e433c325925a7732388abb7176a11b178b830ac061d4d46dd38760c8549ec38",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": false,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "mechanically_admitted": false
+      },
+      "reader_eligible": false
+    }
+  ],
+  "mechanically_admitted": [],
+  "reader_eligible": [],
+  "mismatch_directed_repair": {
+    "operator": "held-out morphology repair at the highest-scoring dead CFG edge",
+    "status": "executed",
+    "held_out_variants": [
+      {
+        "text": "leads",
+        "category": "verb",
+        "number": "sg",
+        "valency": "transitive",
+        "lemma": "lead"
+      },
+      {
+        "text": "lead",
+        "category": "verb",
+        "number": "pl",
+        "valency": "transitive",
+        "lemma": "lead"
+      },
+      {
+        "text": "led",
+        "category": "verb",
+        "number": "sg",
+        "valency": "transitive",
+        "lemma": "lead"
+      }
+    ],
+    "tape_mutation": false,
+    "segmentations": 0,
+    "probes": 2,
+    "dp_stats": {
+      "dp_positions": 47,
+      "dictionary_edges_considered": 3,
+      "typed_edges_accepted": 4
+    },
+    "exact_count": 0
+  },
+  "next_operator": "At the highest-scoring dead CFG edge, add one held-out number/tense variant with the same lemma and valency, then rerun the immutable-tape DP; do not alter letters or use a reverse decoder.",
+  "provenance": {
+    "generator_sha256": "a68f881cea6f04bee8009982daed925b5abb189db41086308e5c8da368b4b050",
+    "constructor": "fresh-authored-lexical-chunk-pairs",
+    "known_palindromes_imported": false,
+    "source_sentences_copied": false,
+    "independent_validator": "normalized tape equality plus ASCII two-pointer/hash and mechanical admission",
+    "readability_certificate": false
+  }
+}

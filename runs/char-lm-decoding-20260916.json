@@ -1,0 +1,120 @@
+{
+  "experiment_id": "char-lm-constrained-decoding-20260916",
+  "signature": "character-4gram-lm|outside-in-mirror-state|beam-decoding|fresh-prose-seed|independent-pointer-sha-audit",
+  "status": "completed_no_exact_candidate",
+  "operator": "outside-in character-LM beam with live mirror obligations",
+  "candidate_count": 1,
+  "rendered_prose": "At first light, the patient archivist opened the cedar cabinet and read each map aloud. Outside, a small river carried leaves past the quiet bridge while neighbors planned a careful repair. By noon the room was warm, orderly, and full of useful stories for the returning children.",
+  "letters": 227,
+  "exact_palindrome": false,
+  "independent_exact_audit": {
+    "pointer": {
+      "algorithm": "independent-two-pointer",
+      "letters": 227,
+      "exact": false,
+      "first_mismatch": {
+        "index": 0,
+        "left": "a",
+        "right": "n"
+      }
+    },
+    "hash": {
+      "algorithm": "sha256-forward-vs-reverse",
+      "forward": "b017f1026fd6738845078c2e9cd4f86c8745faff1250fecce59affd97671e920",
+      "reverse": "468e37cd31f9a0c7244eeffa9a3247c58e678cc081923b451374837b9a51f715",
+      "equal": false
+    }
+  },
+  "novelty_preflight": {
+    "registry": "docs/experiment-novelty-registry.json",
+    "entries_inspected": 261,
+    "signature": "character-4gram-lm|outside-in-mirror-state|beam-decoding|fresh-prose-seed|independent-pointer-sha-audit",
+    "collisions": [],
+    "passed": true
+  },
+  "provenance": {
+    "seed": "freshly authored archival/river scene",
+    "catalogue_text_used": false,
+    "known_palindrome_units_used": false,
+    "model": {
+      "model": "task-local character 4-gram frequency surrogate",
+      "training_letters": 227,
+      "unique_4grams": 221,
+      "mean_log10_4gram_frequency": 0.004086380031637754
+    },
+    "decoding": "character-by-character beam; each extension checked against outside-in mirror state"
+  },
+  "readability_diagnostics": {
+    "word_count": 47,
+    "sentences": 3,
+    "diagnostic_only": true,
+    "note": "ordinary punctuation and syntax are heuristics; no human readability certification was run"
+  },
+  "near_miss": {
+    "first_mismatches": [
+      {
+        "index": 0,
+        "left": "a",
+        "right": "n"
+      },
+      {
+        "index": 1,
+        "left": "t",
+        "right": "e"
+      },
+      {
+        "index": 2,
+        "left": "f",
+        "right": "r"
+      },
+      {
+        "index": 3,
+        "left": "i",
+        "right": "d"
+      },
+      {
+        "index": 4,
+        "left": "r",
+        "right": "l"
+      },
+      {
+        "index": 5,
+        "left": "s",
+        "right": "i"
+      },
+      {
+        "index": 6,
+        "left": "t",
+        "right": "h"
+      },
+      {
+        "index": 7,
+        "left": "l",
+        "right": "c"
+      },
+      {
+        "index": 8,
+        "left": "i",
+        "right": "g"
+      },
+      {
+        "index": 9,
+        "left": "g",
+        "right": "n"
+      },
+      {
+        "index": 10,
+        "left": "h",
+        "right": "i"
+      },
+      {
+        "index": 11,
+        "left": "t",
+        "right": "n"
+      }
+    ],
+    "mirror_residual_letters": 12
+  },
+  "next_repair_operator": "retain the first failing mirror index and run a constrained clause-boundary rewrite (subject/adjunct alternatives) while preserving the 3-sentence scene; then replay the full tape audit.",
+  "reader_eligible": false
+}

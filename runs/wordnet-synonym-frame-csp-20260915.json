@@ -1,0 +1,43 @@
+{
+  "experiment_id": "wordnet-synonym-frame-csp-20260915",
+  "signature": "wordnet-synonym-frame-csp|dependency-slot-paraphrase-lattice|semantic-preserving-lexical-choice|character-equation-constraint|independent-reader-audit",
+  "method": "WordNet synonym alternatives are attached to semantic dependency slots; each left frame yield is matched against an independently lexicalized right frame under an exact character equation.",
+  "novelty_preflight": {
+    "registry_entries_before_run": 84,
+    "excluded_routes_before_run": 6,
+    "status": "formal_preflight_before_execution",
+    "signature_overlap": [],
+    "manual_review_required": false
+  },
+  "config": {
+    "frame_count": 6,
+    "frame_pairs": 36,
+    "per_pair_left_assignment_limit": 400,
+    "reverse_match_limit": 8,
+    "wordnet_synsets": "nltk.corpus.wordnet",
+    "wordnet_downloaded": true,
+    "catalogue_text_imported": false,
+    "known_palindromes_imported": false
+  },
+  "stats": {
+    "left_assignments": 14400,
+    "reverse_frame_calls": 6834,
+    "rendered_candidates": 0,
+    "reader_eligible": 0
+  },
+  "rendered_candidates_and_probes": [],
+  "probes": [],
+  "provenance": {
+    "generator_sha256": "7140d1bf7e8d42c8500a059bbdd6021933412c4f7b7051f8500b860b608e8aa7",
+    "source": "WordNet lemma inventories plus wordfreq frequency floor",
+    "source_sentences_copied": false,
+    "independent_exact_audits": [
+      "normalized-tape-reversal",
+      "ASCII-tape-reversal",
+      "two-pointer"
+    ],
+    "readability_certificate": false
+  },
+  "next_repair": "Carry agreement and subcategorization features through the same synonym lattice, then add an inflectional realization layer; this is a new repair to semantic-slot closure, not a reservoir or reverse-segmentation replay.",
+  "reader_gate": "No row is reader evidence. Any mechanically admitted row must be manually screened for intact prose and frozen with randomized intact/shuffled controls before readers see it."
+}

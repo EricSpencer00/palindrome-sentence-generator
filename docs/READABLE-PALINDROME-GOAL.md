@@ -1293,3 +1293,14 @@ item-aware analysis plan.
   probes (for example `An china.` and `A camera.`) are retained with their
   residuals, but are fragments rather than prose. Artifact:
   `runs/homograph-sense-lattice-20260915.json`.
+
+- **WordNet synonym-frame CSP, 2026-09-15:** preflighted a distinct
+  semantic-preserving lexicalization route. Six complete dependency-frame
+  shapes drew independent WordNet lemma alternatives on the left and right;
+  each left yield was matched against a right frame under an exact character
+  equation. The run made 6,834 reverse-frame calls with zero reverse hits,
+  zero exact closures, and zero reader rows. No source sentences or catalogue
+  text were imported. The artifact and independent audits are in
+  `runs/wordnet-synonym-frame-csp-20260915.json`; the next repair is an
+  agreement/subcategorization feature layer, not another reservoir or template
+  replay.

@@ -92,6 +92,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `asymmetric-template-reservoir-centerout-20260915` | four distinct left/right semantic templates carry an agreement state through bilateral character debt | asymmetric paired-template state product | 552 states; 0 exact terminals; 0 reader-eligible outputs |
 | `attested-phrase-pair-wrapper-20260915` | Brown phrase spans are indexed as left chunks and their exact reverse tapes are segmented independently from a held-out lexical trie | phrase-level span lattice and reverse segmentation | 753 spans, 0 reverse segmentations, 0 exact closures; 0 reader-eligible outputs |
 | `homograph-sense-lattice-20260915` | one orthographic tape is required to support two independent homograph sense/POS parses with boundary choices made in the exact search | dual-sense semantic parse state | 25 frame pairs, 1,912 explored states, 0 exact terminals; 0 reader-eligible outputs |
+| `wordnet-synonym-frame-csp-20260915` | WordNet lemma alternatives are attached to semantic dependency slots; independently lexicalized complete frames are joined by a character equation | semantic-preserving synonym lattice | 6 frames, 6,834 reverse-frame calls, 0 reverse hits, 0 exact/admitted/reader rows |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

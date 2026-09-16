@@ -1,0 +1,96 @@
+{
+  "experiment": "entailment-rewrite-lattice-20260916",
+  "signature": "entailment-preserving-information-structure-rewrite|independent-active-passive-authoring|live-character-equation-lexical-choice|event-role-entailment|independent-pointer-sha-audit",
+  "novelty_preflight": {
+    "entries_inspected": 282,
+    "related_families": [
+      "topicalization-scope-constructor-20260916",
+      "dependency-completion-csp-20260916",
+      "information-structure-focus-scope",
+      "voice-alternation-residual-20260916"
+    ],
+    "passed": false,
+    "reason": "related family exists"
+  },
+  "candidate": {
+    "event": {
+      "agent": "the archivist",
+      "action": "sealed",
+      "theme": "the cedar ledger",
+      "place": "in the reading room"
+    },
+    "left": {
+      "information_structure": "active",
+      "text": "the archivist sealed the cedar ledger in the reading room.",
+      "entails": {
+        "agent": "the archivist",
+        "action": "sealed",
+        "theme": "the cedar ledger",
+        "place": "in the reading room"
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_normalized_sha256",
+        "letters": 48,
+        "exact": false,
+        "mismatch_count": 23,
+        "first_mismatch": {
+          "left": 0,
+          "right": 47,
+          "a": "t",
+          "b": "m"
+        },
+        "sha256_forward": "54f7e8271ed6adfcaa8b094fad21c8ac4147b7d40f7e7cfb0f405730c389a554",
+        "sha256_reverse": "77bfc812c123d65013e34ba3bce782f5d37ceea2e01ca32e1466edcbd66e9a2a",
+        "sha_equal": false
+      }
+    },
+    "right": {
+      "information_structure": "passive_theme_topic",
+      "text": "the cedar ledger was sealed by the archivist in the reading room.",
+      "entails": {
+        "agent": "the archivist",
+        "action": "sealed",
+        "theme": "the cedar ledger",
+        "place": "in the reading room"
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_normalized_sha256",
+        "letters": 53,
+        "exact": false,
+        "mismatch_count": 24,
+        "first_mismatch": {
+          "left": 0,
+          "right": 52,
+          "a": "t",
+          "b": "m"
+        },
+        "sha256_forward": "e546d69f24390c5d3e2bbd4842aa045a2476ed0d94a8f749fadfed893593a9dd",
+        "sha256_reverse": "6386f9801dfa32c21f2f3a902cdf6707e1ad0e663d88c103e7987a0b1a079a52",
+        "sha_equal": false
+      }
+    },
+    "live_equation": {
+      "status": "solved_during_lexical_choice",
+      "constraints": [
+        "same agent/action/theme/place roles",
+        "next emitted character compared to reflected independent clause character"
+      ],
+      "chosen": {
+        "agent": "the archivist",
+        "theme": "the cedar ledger",
+        "place": "in the reading room"
+      },
+      "alternatives_pruned": 2
+    },
+    "provenance": {
+      "source": "two independently authored event realizations",
+      "catalogue_text_used": false,
+      "seed_or_reversal_shortcut": false,
+      "word_order_mirrored": false,
+      "repeated_unit": false
+    },
+    "mechanically_admitted": false
+  },
+  "closure_count": 0,
+  "next_repair": "Author a second passive placement with a shorter locative and solve the first residual character obligation while preserving the same event roles; do not enumerate lexical cross-products."
+}

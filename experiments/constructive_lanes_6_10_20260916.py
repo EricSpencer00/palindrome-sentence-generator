@@ -6,6 +6,7 @@ interfaces and to reject any lane whose registry signature already exists.
 """
 from __future__ import annotations
 import hashlib, json, re
+import itertools
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -23,6 +24,11 @@ SCENES=[
  "By noon, the careful nurse labels the sealed vial for the quiet ward.",
  "After rain, the young keeper opens the old gate beside the garden.",
 ]
+SCENE_OPTIONS=[
+ [SCENES[0],"At dusk, the calm porter brings a blue chart to the young scout.","At sunrise, the alert guide carries a red map toward the waiting child."],
+ [SCENES[1],"By noon, the kind doctor marks the small parcel for the silent ward.","At noon, the careful nurse labels the sealed vial beside the quiet ward."],
+ [SCENES[2],"After rain, the old keeper unbars the garden gate beside the west wall.","After frost, the young warden opens the iron gate near the green garden."],
+]
 REPAIRS=[(SCENES[0],SCENES[0].replace("red map","blue chart")),(SCENES[1],SCENES[1].replace("sealed vial","small parcel"))]
 def tape(s): return re.sub("[^a-z]","",s.lower())
 def audits(s):
@@ -33,11 +39,20 @@ def run():
  reg=json.loads((ROOT/"docs/experiment-novelty-registry.json").read_text())["entries"]
  overlap=[e.get("id") for e in reg if e.get("signature")==SIGNATURE]
  rows=[]
+ search_rows=[]
+ for choices in itertools.product(*SCENE_OPTIONS):
+  text=" ".join(choices)
+  a=audits(text)
+  words=[tape(x) for x in text.split()]
+  repeated=len(words)!=len(set(words))
+  proper_span=any((j-i)>=2 and (q:= ''.join(words[i:j]))==q[::-1] for i in range(len(words)) for j in range(i+2,len(words)+1))
+  search_rows.append({"rendered":text,"audit":a,"repeated_nontrivial_unit":repeated,"proper_palindromic_span":proper_span,"admissible":not repeated and not proper_span})
+ search_rows.sort(key=lambda r:(not r["admissible"],r["audit"]["first_mismatch"] if r["audit"]["first_mismatch"] is not None else -1))
  for idx,s in enumerate(SCENES):
   a=audits(s); rows.append({"lane":list(LANES)[idx%5],"rendered":s,"semantic_roles":["time","agent","action","object","goal/location"],"live_equation":"x[i] = x[N-1-i] over normalized letters","audit":a,"provenance":"fresh human-authored ordinary scene; no catalogue or palindrome unit","next_repair":{"operator":"replace one complete sense-compatible slot and recompute tape","slot":"object"}})
  repairs=[]
  for before,after in REPAIRS: repairs.append({"before":before,"after":after,"changed_slot":"object","audit_before":audits(before),"audit_after":audits(after),"semantic_preservation":"same clause valency and determiner frame"})
- return {"experiment_id":ID,"signature":SIGNATURE,"status":"complete_cross_lane_constructive_audit","novelty_preflight":{"registry_entries_checked":len(reg),"exact_signature_collisions":overlap,"passed":not overlap,"related_lane_signatures":sorted({e.get('signature') for e in reg if any(k in e.get('signature','') for k in ('scene','valency','clitic','grammar','repair'))})[-20:]},"lanes":LANES,"candidate_prose":rows,"heldout_repairs":repairs,"exact_count":sum(r['audit']['exact'] for r in rows),"independent_exact_agreement":all(r['audit']['exact']==r['audit']['two_pointer'] for r in rows),"reader_eligible_count":0,"next_repair":"use first mismatch as a global character obligation; search only slot substitutions preserving valency, agreement, and clitic attachment","generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
+ return {"experiment_id":ID,"signature":SIGNATURE,"status":"complete_scene_lattice_search","novelty_preflight":{"registry_entries_checked":len(reg),"exact_signature_collisions":overlap,"passed":not overlap,"related_lane_signatures":sorted({e.get('signature') for e in reg if any(k in e.get('signature','') for k in ('scene','valency','clitic','grammar','repair'))})[-20:]},"lanes":LANES,"candidate_prose":rows,"scene_lattice":{"slot_alternatives":list(map(len,SCENE_OPTIONS)),"states_examined":len(search_rows),"best_candidates":search_rows[:12],"exact_count":sum(r['audit']['exact'] for r in search_rows),"anti_unit_gate":"repeated words and proper palindromic spans rejected"},"heldout_repairs":repairs,"exact_count":sum(r['audit']['exact'] for r in rows),"independent_exact_agreement":all(r['audit']['exact']==r['audit']['two_pointer'] for r in rows),"reader_eligible_count":0,"next_repair":"use first mismatch as a global character obligation; search only slot substitutions preserving valency, agreement, and clitic attachment","generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 if __name__=='__main__':
  import argparse
  ap=argparse.ArgumentParser(); ap.add_argument('--out',type=Path,required=True); a=ap.parse_args(); a.out.parent.mkdir(parents=True,exist_ok=True); d=run(); a.out.write_text(json.dumps(d,indent=2)+'\n'); print(json.dumps({'exact_count':d['exact_count'],'registry_passed':d['novelty_preflight']['passed']}))

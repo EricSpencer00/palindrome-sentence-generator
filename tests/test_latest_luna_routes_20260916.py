@@ -60,13 +60,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 1528
+    assert report["candidate_count"] == 1641
     assert report["exact_count"] == 0
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 34
+    assert len(report["route_summary"]) == 37
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
 
 
@@ -211,3 +211,16 @@ def test_microgrammar_lexical_debt_keeps_recursive_prose_and_repairs_unadmitted(
     assert run["exact_count"] == 0
     assert all(row["audit"]["letters"] >= 70 and not row["audit"]["exact"]
                for row in run["candidates"] + run["repair"])
+
+
+def test_prosodic_and_induced_grammar_routes_keep_complete_prose_unadmitted():
+    prosodic = load("prosodic-foot-scene-constructor-20260916.json")
+    assert len(prosodic["base"]["candidates"]) == 54
+    assert len(prosodic["repair"]["candidates"]) == 54
+    assert all(row["complete_sentences"] and not row["audit"]["exact"]
+               for phase in ("base", "repair") for row in prosodic[phase]["candidates"])
+    induced = load("induced-grammar-reverse-decoder-20260916.json")
+    assert len(induced["candidates"]) == 4
+    assert len(induced["repair"]) == 4
+    assert induced["exact_count"] == 0
+    assert all(not row["audit"]["exact"] for row in induced["candidates"] + induced["repair"])

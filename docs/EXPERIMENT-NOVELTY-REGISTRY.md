@@ -16,6 +16,8 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `direct-constrained-authoring-20260916` | a local model is instructed to author one complete single-scene palindrome, then receives mismatch-directed repair feedback | live whole-sentence authoring | 3 generation attempts + 1 repair timed out at 20 seconds; 0 exact and 0 reader-eligible |
 | `direct-constrained-authoring-20260916` (RhythmAI repair) | bounded alternate local-model whole-sentence call captured under the direct-authoring contract | alternate-model authoring repair | 1 captured 30-letter line; non-exact and below length gate; 0 reader-eligible |
 | `microgrammar-lexical-debt-20260916` | deterministic ordinary-English microgrammar grows recursive adjuncts while solving mirrored lexical debt online, then applies frontier substitution repair | recursive microgrammar and lexical-debt repair | 24 base + 24 repair probes, 70–152 letters; 0 exact and 0 reader-eligible |
+| `prosodic-foot-scene-constructor-20260916` | semantic scene roles are realized through stress-foot templates while the mirrored character ledger is active, with held-out timing repairs | prosodic realization state | 54 base + 54 repair probes, up to 170 letters; 0 exact and 0 reader-eligible |
+| `induced-grammar-reverse-decoder-20260916` | corpus grammar shapes induce a decoder, but all lexical spans are freshly chosen from held-out semantic frames before reverse-debt repair | grammar induction plus fresh lexical realization | 4 base + 4 repair probes, 66–78 letters; 0 exact and 0 reader-eligible |
 | `lexical-chain-palindrome-20260916` | typed lexical-chain permutations select independent complete clauses with a synonym repair frontier and reflected-character audit | lexical-chain permutation and repair | 24 base + 12 repair probes; 0 exact and 0 reader-eligible |
 | `morphology-semantic-template-csp-20260916` | derivational and inflectional template choices are selected jointly with semantic frames under live character equations | morphology-aware semantic template CSP | 216 base + 216 affix-frontier repairs; 0 exact and 0 reader-eligible |
 | `pivot-paragraph-beam-20260916` | pivot-centered paragraph plans choose semantic slots jointly while a mirrored letter ledger remains active, then apply near-synonym repairs | paragraph-level semantic planning | 18 base + 18 repair probes; 0 exact and 0 reader-eligible |
@@ -167,7 +169,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 135 retained families and 8 explicit
+family. The current audit covers all 137 retained families and 9 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

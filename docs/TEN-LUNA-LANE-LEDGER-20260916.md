@@ -22,7 +22,21 @@ package.
 
 Every lane was dispatched only after checking the novelty registry. A larger
 beam, vocabulary, or seed sweep is recorded as non-progress rather than
-counted as a lane. The ten-lane aggregate is 3484 rendered rows across 81
-route phases, with 73 exact-but-rejected tapes and 0 mechanically admitted
-rows. The reader gate remains closed until an exact, mechanically admitted,
-genuinely readable candidate exists.
+counted as a lane. Before the post-ledger repairs, the ten-lane aggregate was
+3484 rendered rows across 81 route phases, with 73 exact-but-rejected tapes and
+0 mechanically admitted rows. The reader gate remains closed until an exact,
+mechanically admitted, genuinely readable candidate exists.
+
+## Post-ledger constructive repairs
+
+Two follow-up lanes were accepted only after a new state representation was
+shown. The assumption-core solver now searches complete 61--74-letter
+multi-clause scenes and records minimal conflict cores plus held-out repairs
+(`808cff6`). The masked-character lane now resamples genuine held-out semantic
+alternatives rather than repeating the input (`a3c4e26`, `49ef011`). They add
+240 and 3 complete probes respectively; both have 0 exact and 0 admitted
+outputs. The phrase-lattice automata proposal is explicitly preflight-excluded
+because it duplicates retained phrase-FST families.
+
+The refreshed aggregate is 3727 rendered rows across 83 route phases, with 73
+exact-but-rejected tapes and 0 mechanically admitted rows.

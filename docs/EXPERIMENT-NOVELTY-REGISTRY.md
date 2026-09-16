@@ -33,6 +33,8 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `inflectional-clitic-boundary-csp-20260916` | productive tense/agreement and possessive-clitic/of boundaries are selected jointly in a complete harbor scene, with held-out boundary repair | inflectional and clitic boundary search | 24 complete 120–131-letter probes; 0 exact and 0 reader-eligible |
 | `scalable-compositional-clause-grammar-20260916` | ordinary action increments compose at indexed target lengths while mirrored obligations stay live and proper spans/repeated units are explicitly excluded | scalable compositional grammar without nested palindrome spans | 36 complete 92–137-letter probes across three bands; 0 exact and 0 reader-eligible |
 | `exact-tape-semantic-slot-repair-20260916` | typed subject/verb/object/adjunct substitutions attempt to preserve a repository exact tape while requiring changed semantic slots and held-out one-slot repairs | exact-candidate repair using semantic slot substitutions | 24 retained near-miss renderings (39–44 letters); 0 tape-preserving exact and 0 reader-eligible |
+| `assumption-core-scene-solver-20260916` | ordinary-order multi-clause lexical slots carry grammar, tense/agreement, exact character equality, and all-different assumptions together; minimal conflict cores drive held-out repairs | assumption-literal conflict-core scene search | 240 complete 61–74-letter scenes; 0 exact and 0 reader-eligible |
+| `masked-character-scene-gibbs-20260916` | complete semantic scenes expose held-out lexical alternatives and resample mirrored character pairs while local scores rank only complete assignments | masked character-pair resampling with semantic-slot locks | 3 scenes × 3 complete alternatives, 50–52 letters; 0 exact and 0 reader-eligible |
 | `cumulative-boundary-profile-fixedpoint-20260916` (preflight-excluded) | reflected cumulative word-boundary positions are fixed during POS/role lexical emission with a cross-boundary match ledger | cumulative boundary profile | 1,350 generated rows (647 unique); 0 exact; excluded after overlap review with existing boundary families |
 | `quantified-comparison-preflight-20260916` | quantified measurement/comparison clauses with independently authored evidence and scalar predicates | preflight-only quantified measurement | blocked before rendering: comparative/modal and semantic arithmetic families already cover this state |
 | `minimal-edit-fresh-center-20260916` | genuinely authored free prose centers receive a bounded one-word lexical repair while punctuation, order, and clause structure remain intact | template-free minimal-edit authoring | 3 fresh centers + 6 lexical repairs, 58–72 letters; 0 exact and 0 reader-eligible |
@@ -221,6 +223,7 @@ the next frontier was chosen:
 | `experiments/pivot_growth_preflight_20260916.py` | pivoted sentence growth overlaps pivot-paragraph, scene-growth, and recursive-obligation families; the explicit registry entry records the block |
 | `experiments/grammar_product_sat_preflight_20260916.py` | solver substitution does not add a linguistic construction dimension beyond retained grammar products; the explicit registry entry records the block |
 | `experiments/reversible_relation_coherence_preflight_20260916.py` | center-out reversible relation planning overlaps rhetorical, discourse-graph, anaphora, and dependency families; the explicit registry entry records the block |
+| `experiments/semantic_phrase_lattice_automata_20260916.py` | independent semantic phrase lattices plus weighted phrase-token FST intersection duplicate retained phrase-lattice families; its 64 complete 100-letter probes remain failure evidence only |
 
 Their run records remain available for failure analysis (`runs/seed-symmetric-
 mutation-20260915.json` and `runs/seed-boundary-shift-typed-resegmentation-
@@ -234,7 +237,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 187 retained families and 22 explicit
+family. The current audit covers all 189 retained families and 23 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

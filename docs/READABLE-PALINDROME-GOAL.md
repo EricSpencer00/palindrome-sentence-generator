@@ -1821,3 +1821,18 @@ item-aware analysis plan.
   generated prose. This is the current constructive frontier: the paper and
   API remain gated, and the next repair must change lexical material or a
   recorded semantic frontier rather than replaying any of these ten lanes.
+
+  Two post-ledger repairs then changed the search state rather than widening a
+  beam. The assumption-core solver searched 240 complete multi-clause scenes
+  at 61--74 letters, retaining a minimal conflicting assumption core and a
+  held-out one-slot replay for every miss. The corrected masked-character lane
+  explored three genuine semantic alternatives per complete scene under
+  pairwise character masking and local complete-tape scoring. Both lanes have
+  intact English probes, independent exact/hash audits, provenance, and zero
+  exact or mechanically admitted closures. The phrase-lattice automata route
+  was preflight-excluded because it duplicates retained phrase-FST state.
+
+  The current aggregate is 3727 rendered rows across 83 route phases, with 73
+  exact-but-rejected tapes and 0 mechanically admitted candidates. These
+  follow-ups provide new repair frontiers, not a readable palindrome; the
+  blinded reader study, paper promotion, and API release remain gated.

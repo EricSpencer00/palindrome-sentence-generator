@@ -20,9 +20,36 @@ labelled as such and is not promoted.
 | 9 | “At first light, the gardener unlocks the old shed, labels the seed trays, writes a note for the neighbor, mends the loose gate.” | 100 | independent slice/two-pointer/hash and mechanical checks agree; exact count `0` across 36 probes | `runs/scalable-compositional-clause-grammar-20260916.json`; fresh ordinary increments, proper spans and repeated units excluded; preflight passed | Append one held-out ordinary increment at the first obligation mismatch and recompute the complete tape |
 | 10 | “An aide rips nine memos; Two aides inspire Diana.” *(39-letter near miss; not an exact candidate)* | 39 | source-tape preservation `False`; independent exact agreement `4134/4134` for failures; admission `0` | `runs/exact-tape-semantic-slot-repair-20260916.json`; source tape independently checked, no wrapper/catalogue/symmetry; preflight passed | Try one held-out typed subject/verb/object/adjunct substitution at the first mismatch, accepting only unchanged source tape |
 
-The refreshed aggregate is `runs/parallel-luna-readability-diagnostics-20260916.json`:
-3484 rendered rows across 81 route phases, 73 exact-but-rejected tapes, and
-zero mechanically admitted rows. No row is reader-eligible. The required next
+Before the follow-up repairs, the ten-lane aggregate contained 3484 rendered
+rows across 81 route phases, 73 exact-but-rejected tapes, and zero mechanically
+admitted rows. No row was reader-eligible. The required next
 reader-facing test remains an intact-prose versus shuffled-control study with
 randomized blinded order, but it cannot be run honestly until a candidate
 passes the exact and mechanical gates.
+
+## Follow-up construction repairs
+
+The assumption-core solver (`runs/assumption-core-scene-solver-20260916.json`)
+searched 240 complete multi-clause scenes. A representative 69-letter probe
+was:
+
+> the careful courier delivered the letter and the patient watchman waited the gate
+
+Its grammar audit passed, but exact tape equality and the independent audit both
+failed; the minimal conflict core was `all_different`, and a held-out one-slot
+repair was recorded. The run spans 61--74 letters and has no exact closures.
+
+The repaired masked-character search explored three genuine semantic
+alternatives per scene (`runs/masked-character-scene-gibbs-20260916.json`). Its
+best intact probe was:
+
+> After rain, the station porter carries a wet parcel to the bench.
+
+It is 52 letters, with forward/reverse SHA-256 mismatch and independent
+two-pointer mismatch; the held-out alternatives, complete-assignment scores,
+and reject-and-remask repair are preserved. No exact or reader-eligible output
+was promoted. The phrase-lattice automata run is retained separately as an
+explicit preflight exclusion because it duplicates existing phrase-FST state.
+
+After these repairs the aggregate is 3727 rendered rows across 83 route phases,
+73 exact-but-rejected tapes, and 0 mechanically admitted rows.

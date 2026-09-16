@@ -1326,6 +1326,15 @@
       "run_artifacts": ["runs/typed-cfg-exact-tape-resegmentation-20260916.json"],
       "distinction": "A fresh exact tape is constructed from lexical chunks, then globally resegmented with typed CFG and finite-verb valency enforced on every dictionary-boundary DP edge; deterministic LM scores only break ties. The fixed tape is never changed.",
       "reader_evidence": false
+    },
+    {
+      "id": "masked-character-scene-gibbs-20260916",
+      "signature": "heldout-scene-alternative-gibbs|character-pair-mask-resampling|semantic-slot-substitution|complete-tape-ranking|independent-pointer-hash-audit",
+      "artifact": "experiments/masked_character_scene_gibbs_20260916.py",
+      "run_artifacts": ["runs/masked-character-scene-gibbs-20260916.json"],
+      "distinction": "Complete semantic scenes are initialized as ordinary prose and iteratively resample mirrored character pairs under semantic-slot locks; local model scores rank complete tapes only after assignment. It is not next-character decoding, fixed-tape resegmentation, or reverse emission.",
+      "reader_evidence": false,
+      "status": "run; zero exact closures"
     }
   ],
   "excluded": [
@@ -1497,6 +1506,14 @@
       "artifact": "experiments/cumulative_boundary_profile_fixedpoint_20260916.py",
       "overlaps": ["variable-boundary-tape-ilp", "grammar-boundary-resegmentation-repair", "lexicalized-tag-yield-equation"],
       "reason": "The route is distinct because reflected cumulative word-boundary positions are fixed during POS/role lexical emission. The tape is audited independently, with cross-boundary matches and proper palindrome spans recorded; no completed tape is reverse-segmented."
+    },
+    {
+      "id": "semantic-phrase-lattice-automata-20260916-excluded",
+      "signature": "independent-semantic-phrase-lattices|weighted-fst-phrase-transitions|online-character-yield-intersection|ordinary-word-order|complete-prose|independent-exact-audit",
+      "artifact": "experiments/semantic_phrase_lattice_automata_20260916.py",
+      "run_artifacts": ["runs/semantic-phrase-lattice-automata-20260916.json"],
+      "overlaps": ["corpus-sentence-gram-fst", "wordnet-synonym-frame-csp-20260915", "conditional-embedding-solver-20260916", "scalar-evaluation-evidence-20260916"],
+      "reason": "Preflight blocked before retention: independent semantic phrase lattices plus weighted phrase-token FST intersection are already represented. The 64 complete 100-letter probes and zero-closure audit remain preserved as failure evidence, not a new family."
     }
   ]
 }

@@ -1,0 +1,2379 @@
+{
+  "experiment_id": "dialogue-speech-act-residual-repair-20260916",
+  "parent_experiment": "dialogue-speech-act-residual-20260916",
+  "status": "complete_repair_run",
+  "repair_operator": "speech-act-preserving-lexical-substitution-from-first-residual",
+  "held_out_same_act_alternatives": {
+    "request": {
+      "send": [
+        "share",
+        "deliver"
+      ],
+      "bring": [
+        "carry",
+        "fetch"
+      ]
+    },
+    "greeting": {
+      "hello": [
+        "goodbye",
+        "welcome"
+      ]
+    },
+    "report": {
+      "sent": [
+        "shared",
+        "filed"
+      ],
+      "found": [
+        "located",
+        "saved"
+      ]
+    },
+    "answer": {
+      "send": [
+        "share",
+        "deliver"
+      ],
+      "bring": [
+        "carry",
+        "fetch"
+      ]
+    },
+    "acknowledgment": {
+      "hello": [
+        "welcome",
+        "greetings"
+      ]
+    },
+    "response": {
+      "arrived": [
+        "came",
+        "reached"
+      ],
+      "found": [
+        "located",
+        "saved"
+      ]
+    }
+  },
+  "stats": {
+    "base_pairs": 9,
+    "repair_trials": 36,
+    "complete_trials": 36,
+    "exact_over_38": 0,
+    "max_letters": 53
+  },
+  "rows": [
+    {
+      "rendered": "Please share the morning report. Yes i will share the report.",
+      "letters": 49,
+      "normalized_tape": "pleasesharethemorningreportyesiwillsharethereport",
+      "independent_ascii_tape": "pleasesharethemorningreportyesiwillsharethereport",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "t",
+          "residual_after": "pleasesharethemorningreport",
+          "matched": false
+        }
+      ],
+      "residual_debt": "pleasesharethemorningreport",
+      "mechanically_admitted": false,
+      "sha256": "d91b0a6365a569723b869984ec3bcc9a9cb7049fd2eed5934cd3dbeb4b5fe1c0",
+      "changed_left": {
+        "slot": 1,
+        "from": "send",
+        "to": "share"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "send",
+        "to": "share"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "t",
+          "residual_after": "pleasesharethemorningreport",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "pleasesharethemorningreport",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Please share the morning report. Yes i will deliver the report.",
+      "letters": 51,
+      "normalized_tape": "pleasesharethemorningreportyesiwilldeliverthereport",
+      "independent_ascii_tape": "pleasesharethemorningreportyesiwilldeliverthereport",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "t",
+          "residual_after": "pleasesharethemorningreport",
+          "matched": false
+        }
+      ],
+      "residual_debt": "pleasesharethemorningreport",
+      "mechanically_admitted": false,
+      "sha256": "edcd90eb308e6532e0644039b86440e7f5b6c060f042506d2ae1a2e294c8f706",
+      "changed_left": {
+        "slot": 1,
+        "from": "send",
+        "to": "share"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "send",
+        "to": "deliver"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "t",
+          "residual_after": "pleasesharethemorningreport",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "pleasesharethemorningreport",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Please deliver the morning report. Yes i will share the report.",
+      "letters": 51,
+      "normalized_tape": "pleasedeliverthemorningreportyesiwillsharethereport",
+      "independent_ascii_tape": "pleasedeliverthemorningreportyesiwillsharethereport",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "t",
+          "residual_after": "pleasedeliverthemorningreport",
+          "matched": false
+        }
+      ],
+      "residual_debt": "pleasedeliverthemorningreport",
+      "mechanically_admitted": false,
+      "sha256": "5e828249cb7f6833ad119a0e0d8b6a2d83cda83dc5232688b3bd228663ae9ae5",
+      "changed_left": {
+        "slot": 1,
+        "from": "send",
+        "to": "deliver"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "send",
+        "to": "share"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "t",
+          "residual_after": "pleasedeliverthemorningreport",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "pleasedeliverthemorningreport",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Please deliver the morning report. Yes i will deliver the report.",
+      "letters": 53,
+      "normalized_tape": "pleasedeliverthemorningreportyesiwilldeliverthereport",
+      "independent_ascii_tape": "pleasedeliverthemorningreportyesiwilldeliverthereport",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "t",
+          "residual_after": "pleasedeliverthemorningreport",
+          "matched": false
+        }
+      ],
+      "residual_debt": "pleasedeliverthemorningreport",
+      "mechanically_admitted": false,
+      "sha256": "7d7bf168d7940b2abf759ce2ffe26563df87f879878a2ab0c73f37c787644a26",
+      "changed_left": {
+        "slot": 1,
+        "from": "send",
+        "to": "deliver"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "send",
+        "to": "deliver"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "t",
+          "residual_after": "pleasedeliverthemorningreport",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "pleasedeliverthemorningreport",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Please share the morning report. I can carry the letter.",
+      "letters": 45,
+      "normalized_tape": "pleasesharethemorningreporticancarrytheletter",
+      "independent_ascii_tape": "pleasesharethemorningreporticancarrytheletter",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "r",
+          "residual_after": "pleasesharethemorningreport",
+          "matched": false
+        }
+      ],
+      "residual_debt": "pleasesharethemorningreport",
+      "mechanically_admitted": false,
+      "sha256": "73864cf9d30e40bceda4a1437331f1701997e0eeed03b83b1582d92343fd265c",
+      "changed_left": {
+        "slot": 1,
+        "from": "send",
+        "to": "share"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "bring",
+        "to": "carry"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "r",
+          "residual_after": "pleasesharethemorningreport",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "pleasesharethemorningreport",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Please share the morning report. I can fetch the letter.",
+      "letters": 45,
+      "normalized_tape": "pleasesharethemorningreporticanfetchtheletter",
+      "independent_ascii_tape": "pleasesharethemorningreporticanfetchtheletter",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "r",
+          "residual_after": "pleasesharethemorningreport",
+          "matched": false
+        }
+      ],
+      "residual_debt": "pleasesharethemorningreport",
+      "mechanically_admitted": false,
+      "sha256": "4d08c2c4daae27d9d3cb0a902666bbc67912c2562aa4bbb17ce23d80bf96d50a",
+      "changed_left": {
+        "slot": 1,
+        "from": "send",
+        "to": "share"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "bring",
+        "to": "fetch"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "r",
+          "residual_after": "pleasesharethemorningreport",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "pleasesharethemorningreport",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Please deliver the morning report. I can carry the letter.",
+      "letters": 47,
+      "normalized_tape": "pleasedeliverthemorningreporticancarrytheletter",
+      "independent_ascii_tape": "pleasedeliverthemorningreporticancarrytheletter",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "r",
+          "residual_after": "pleasedeliverthemorningreport",
+          "matched": false
+        }
+      ],
+      "residual_debt": "pleasedeliverthemorningreport",
+      "mechanically_admitted": false,
+      "sha256": "996598a34b34f26a8f47e2711c022b05ea121711ea93bdcef8ee513ed7ca3651",
+      "changed_left": {
+        "slot": 1,
+        "from": "send",
+        "to": "deliver"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "bring",
+        "to": "carry"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "r",
+          "residual_after": "pleasedeliverthemorningreport",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "pleasedeliverthemorningreport",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Please deliver the morning report. I can fetch the letter.",
+      "letters": 47,
+      "normalized_tape": "pleasedeliverthemorningreporticanfetchtheletter",
+      "independent_ascii_tape": "pleasedeliverthemorningreporticanfetchtheletter",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "r",
+          "residual_after": "pleasedeliverthemorningreport",
+          "matched": false
+        }
+      ],
+      "residual_debt": "pleasedeliverthemorningreport",
+      "mechanically_admitted": false,
+      "sha256": "7d9fcb2f5413bc7d49f260ae4f5e00b9e2aa55da18ea64761934905f0921f600",
+      "changed_left": {
+        "slot": 1,
+        "from": "send",
+        "to": "deliver"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "bring",
+        "to": "fetch"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "p",
+          "right_reversed": "r",
+          "residual_after": "pleasedeliverthemorningreport",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "pleasedeliverthemorningreport",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Could you carry the signed letter. Yes i will share the report.",
+      "letters": 50,
+      "normalized_tape": "couldyoucarrythesignedletteryesiwillsharethereport",
+      "independent_ascii_tape": "couldyoucarrythesignedletteryesiwillsharethereport",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "t",
+          "residual_after": "couldyoucarrythesignedletter",
+          "matched": false
+        }
+      ],
+      "residual_debt": "couldyoucarrythesignedletter",
+      "mechanically_admitted": false,
+      "sha256": "4b5754ed4389775c11245544d7c1f42163ebf9d5c4be56639dda27c2c71c7664",
+      "changed_left": {
+        "slot": 2,
+        "from": "bring",
+        "to": "carry"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "send",
+        "to": "share"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "t",
+          "residual_after": "couldyoucarrythesignedletter",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "couldyoucarrythesignedletter",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Could you carry the signed letter. Yes i will deliver the report.",
+      "letters": 52,
+      "normalized_tape": "couldyoucarrythesignedletteryesiwilldeliverthereport",
+      "independent_ascii_tape": "couldyoucarrythesignedletteryesiwilldeliverthereport",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "t",
+          "residual_after": "couldyoucarrythesignedletter",
+          "matched": false
+        }
+      ],
+      "residual_debt": "couldyoucarrythesignedletter",
+      "mechanically_admitted": false,
+      "sha256": "7cf777b24a49c5628eaa693d13408caf0627292668819ca8c07f4fc3949d86a1",
+      "changed_left": {
+        "slot": 2,
+        "from": "bring",
+        "to": "carry"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "send",
+        "to": "deliver"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "t",
+          "residual_after": "couldyoucarrythesignedletter",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "couldyoucarrythesignedletter",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Could you fetch the signed letter. Yes i will share the report.",
+      "letters": 50,
+      "normalized_tape": "couldyoufetchthesignedletteryesiwillsharethereport",
+      "independent_ascii_tape": "couldyoufetchthesignedletteryesiwillsharethereport",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "t",
+          "residual_after": "couldyoufetchthesignedletter",
+          "matched": false
+        }
+      ],
+      "residual_debt": "couldyoufetchthesignedletter",
+      "mechanically_admitted": false,
+      "sha256": "cbb7004fd95bc461445a2c34ff81e6ece8f31d301e4e72f24d7478e44d835871",
+      "changed_left": {
+        "slot": 2,
+        "from": "bring",
+        "to": "fetch"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "send",
+        "to": "share"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "t",
+          "residual_after": "couldyoufetchthesignedletter",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "couldyoufetchthesignedletter",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Could you fetch the signed letter. Yes i will deliver the report.",
+      "letters": 52,
+      "normalized_tape": "couldyoufetchthesignedletteryesiwilldeliverthereport",
+      "independent_ascii_tape": "couldyoufetchthesignedletteryesiwilldeliverthereport",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "t",
+          "residual_after": "couldyoufetchthesignedletter",
+          "matched": false
+        }
+      ],
+      "residual_debt": "couldyoufetchthesignedletter",
+      "mechanically_admitted": false,
+      "sha256": "d3c4bc5c39597ff48f3fa7cd6a99f5946b8a5c4e4cadcd657d59c9c426805af8",
+      "changed_left": {
+        "slot": 2,
+        "from": "bring",
+        "to": "fetch"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "send",
+        "to": "deliver"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "t",
+          "residual_after": "couldyoufetchthesignedletter",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "couldyoufetchthesignedletter",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Could you carry the signed letter. I can carry the letter.",
+      "letters": 46,
+      "normalized_tape": "couldyoucarrythesignedlettericancarrytheletter",
+      "independent_ascii_tape": "couldyoucarrythesignedlettericancarrytheletter",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "r",
+          "residual_after": "couldyoucarrythesignedletter",
+          "matched": false
+        }
+      ],
+      "residual_debt": "couldyoucarrythesignedletter",
+      "mechanically_admitted": false,
+      "sha256": "3f67d4d9f8d6d14104e9aa97ffedeb7b11e19086657114f69a69a8b40053838a",
+      "changed_left": {
+        "slot": 2,
+        "from": "bring",
+        "to": "carry"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "bring",
+        "to": "carry"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "r",
+          "residual_after": "couldyoucarrythesignedletter",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "couldyoucarrythesignedletter",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Could you carry the signed letter. I can fetch the letter.",
+      "letters": 46,
+      "normalized_tape": "couldyoucarrythesignedlettericanfetchtheletter",
+      "independent_ascii_tape": "couldyoucarrythesignedlettericanfetchtheletter",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "r",
+          "residual_after": "couldyoucarrythesignedletter",
+          "matched": false
+        }
+      ],
+      "residual_debt": "couldyoucarrythesignedletter",
+      "mechanically_admitted": false,
+      "sha256": "31f045832b865829261da295188d73b3e8c259d65f6b768acb56094ff3bdef48",
+      "changed_left": {
+        "slot": 2,
+        "from": "bring",
+        "to": "carry"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "bring",
+        "to": "fetch"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "r",
+          "residual_after": "couldyoucarrythesignedletter",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "couldyoucarrythesignedletter",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Could you fetch the signed letter. I can carry the letter.",
+      "letters": 46,
+      "normalized_tape": "couldyoufetchthesignedlettericancarrytheletter",
+      "independent_ascii_tape": "couldyoufetchthesignedlettericancarrytheletter",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "r",
+          "residual_after": "couldyoufetchthesignedletter",
+          "matched": false
+        }
+      ],
+      "residual_debt": "couldyoufetchthesignedletter",
+      "mechanically_admitted": false,
+      "sha256": "13eec776559908ad57f77fdf707aab1b704238e762e880507298b5faf6597e87",
+      "changed_left": {
+        "slot": 2,
+        "from": "bring",
+        "to": "fetch"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "bring",
+        "to": "carry"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "r",
+          "residual_after": "couldyoufetchthesignedletter",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "couldyoufetchthesignedletter",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Could you fetch the signed letter. I can fetch the letter.",
+      "letters": 46,
+      "normalized_tape": "couldyoufetchthesignedlettericanfetchtheletter",
+      "independent_ascii_tape": "couldyoufetchthesignedlettericanfetchtheletter",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "r",
+          "residual_after": "couldyoufetchthesignedletter",
+          "matched": false
+        }
+      ],
+      "residual_debt": "couldyoufetchthesignedletter",
+      "mechanically_admitted": false,
+      "sha256": "5ec0576e699684cb228199830d9e4e5e41b684551d6e266449b002e92abeebb6",
+      "changed_left": {
+        "slot": 2,
+        "from": "bring",
+        "to": "fetch"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "bring",
+        "to": "fetch"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "c",
+          "right_reversed": "r",
+          "residual_after": "couldyoufetchthesignedletter",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "couldyoufetchthesignedletter",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Goodbye there my friend. Welcome there my friend.",
+      "letters": 40,
+      "normalized_tape": "goodbyetheremyfriendwelcometheremyfriend",
+      "independent_ascii_tape": "goodbyetheremyfriendwelcometheremyfriend",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "g",
+          "right_reversed": "d",
+          "residual_after": "goodbyetheremyfriend",
+          "matched": false
+        }
+      ],
+      "residual_debt": "goodbyetheremyfriend",
+      "mechanically_admitted": false,
+      "sha256": "89b84694c18fa77c62751ae028b723774cacfea2de172e748d2185394b06a208",
+      "changed_left": {
+        "slot": 0,
+        "from": "hello",
+        "to": "goodbye"
+      },
+      "changed_right": {
+        "slot": 0,
+        "from": "hello",
+        "to": "welcome"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "g",
+          "right_reversed": "d",
+          "residual_after": "goodbyetheremyfriend",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "goodbyetheremyfriend",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Goodbye there my friend. Greetings there my friend.",
+      "letters": 42,
+      "normalized_tape": "goodbyetheremyfriendgreetingstheremyfriend",
+      "independent_ascii_tape": "goodbyetheremyfriendgreetingstheremyfriend",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "g",
+          "right_reversed": "d",
+          "residual_after": "goodbyetheremyfriend",
+          "matched": false
+        }
+      ],
+      "residual_debt": "goodbyetheremyfriend",
+      "mechanically_admitted": false,
+      "sha256": "e98207ffb9137a8d973e93c73e619263ae6ee07e1262f45d0485bfa3c57044a1",
+      "changed_left": {
+        "slot": 0,
+        "from": "hello",
+        "to": "goodbye"
+      },
+      "changed_right": {
+        "slot": 0,
+        "from": "hello",
+        "to": "greetings"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "g",
+          "right_reversed": "d",
+          "residual_after": "goodbyetheremyfriend",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "goodbyetheremyfriend",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Welcome there my friend. Welcome there my friend.",
+      "letters": 40,
+      "normalized_tape": "welcometheremyfriendwelcometheremyfriend",
+      "independent_ascii_tape": "welcometheremyfriendwelcometheremyfriend",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "d",
+          "residual_after": "welcometheremyfriend",
+          "matched": false
+        }
+      ],
+      "residual_debt": "welcometheremyfriend",
+      "mechanically_admitted": false,
+      "sha256": "7f612e372e01a796ded2fc0b1576ed8e7c2167bb833f1ffaf97ef8f626acbed6",
+      "changed_left": {
+        "slot": 0,
+        "from": "hello",
+        "to": "welcome"
+      },
+      "changed_right": {
+        "slot": 0,
+        "from": "hello",
+        "to": "welcome"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "d",
+          "residual_after": "welcometheremyfriend",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "welcometheremyfriend",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "Welcome there my friend. Greetings there my friend.",
+      "letters": 42,
+      "normalized_tape": "welcometheremyfriendgreetingstheremyfriend",
+      "independent_ascii_tape": "welcometheremyfriendgreetingstheremyfriend",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "d",
+          "residual_after": "welcometheremyfriend",
+          "matched": false
+        }
+      ],
+      "residual_debt": "welcometheremyfriend",
+      "mechanically_admitted": false,
+      "sha256": "b246f72d35c2056a4a9a6155602635f5f5cdf28779e8848cf3462903b91000af",
+      "changed_left": {
+        "slot": 0,
+        "from": "hello",
+        "to": "welcome"
+      },
+      "changed_right": {
+        "slot": 0,
+        "from": "hello",
+        "to": "greetings"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "d",
+          "residual_after": "welcometheremyfriend",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "welcometheremyfriend",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "I shared the final message. The message came this morning.",
+      "letters": 47,
+      "normalized_tape": "isharedthefinalmessagethemessagecamethismorning",
+      "independent_ascii_tape": "isharedthefinalmessagethemessagecamethismorning",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "g",
+          "residual_after": "isharedthefinalmessage",
+          "matched": false
+        }
+      ],
+      "residual_debt": "isharedthefinalmessage",
+      "mechanically_admitted": false,
+      "sha256": "3408377d6f5f123ff812240f521b58a9f48b3f4e95962e276b692b612ee61868",
+      "changed_left": {
+        "slot": 1,
+        "from": "sent",
+        "to": "shared"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "arrived",
+        "to": "came"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "g",
+          "residual_after": "isharedthefinalmessage",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "isharedthefinalmessage",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "I shared the final message. The message reached this morning.",
+      "letters": 50,
+      "normalized_tape": "isharedthefinalmessagethemessagereachedthismorning",
+      "independent_ascii_tape": "isharedthefinalmessagethemessagereachedthismorning",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "g",
+          "residual_after": "isharedthefinalmessage",
+          "matched": false
+        }
+      ],
+      "residual_debt": "isharedthefinalmessage",
+      "mechanically_admitted": false,
+      "sha256": "e0ff4c2d5b9726fb60178d5444a7b904cc83832cb244994ab42c2eeae1d560e3",
+      "changed_left": {
+        "slot": 1,
+        "from": "sent",
+        "to": "shared"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "arrived",
+        "to": "reached"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "g",
+          "residual_after": "isharedthefinalmessage",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "isharedthefinalmessage",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "I filed the final message. The message came this morning.",
+      "letters": 46,
+      "normalized_tape": "ifiledthefinalmessagethemessagecamethismorning",
+      "independent_ascii_tape": "ifiledthefinalmessagethemessagecamethismorning",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "g",
+          "residual_after": "ifiledthefinalmessage",
+          "matched": false
+        }
+      ],
+      "residual_debt": "ifiledthefinalmessage",
+      "mechanically_admitted": false,
+      "sha256": "4ef2c4431718a9b0f9319d8fff58740fba50c8d4c21e0dbe5edd04ba49b9c10b",
+      "changed_left": {
+        "slot": 1,
+        "from": "sent",
+        "to": "filed"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "arrived",
+        "to": "came"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "g",
+          "residual_after": "ifiledthefinalmessage",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "ifiledthefinalmessage",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "I filed the final message. The message reached this morning.",
+      "letters": 49,
+      "normalized_tape": "ifiledthefinalmessagethemessagereachedthismorning",
+      "independent_ascii_tape": "ifiledthefinalmessagethemessagereachedthismorning",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "g",
+          "residual_after": "ifiledthefinalmessage",
+          "matched": false
+        }
+      ],
+      "residual_debt": "ifiledthefinalmessage",
+      "mechanically_admitted": false,
+      "sha256": "90c34c79edfb3fcd7f31ff67651c52db9af8b6dcb0cedcc3a267e26d15d34b56",
+      "changed_left": {
+        "slot": 1,
+        "from": "sent",
+        "to": "filed"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "arrived",
+        "to": "reached"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "g",
+          "residual_after": "ifiledthefinalmessage",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "ifiledthefinalmessage",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "I shared the final message. The key was located safely.",
+      "letters": 44,
+      "normalized_tape": "isharedthefinalmessagethekeywaslocatedsafely",
+      "independent_ascii_tape": "isharedthefinalmessagethekeywaslocatedsafely",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "y",
+          "residual_after": "isharedthefinalmessage",
+          "matched": false
+        }
+      ],
+      "residual_debt": "isharedthefinalmessage",
+      "mechanically_admitted": false,
+      "sha256": "a607dced25f8805d4903fd69ed7ff22639fba2153fa88be7121c891ab4216013",
+      "changed_left": {
+        "slot": 1,
+        "from": "sent",
+        "to": "shared"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "found",
+        "to": "located"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "y",
+          "residual_after": "isharedthefinalmessage",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "isharedthefinalmessage",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "I shared the final message. The key was saved safely.",
+      "letters": 42,
+      "normalized_tape": "isharedthefinalmessagethekeywassavedsafely",
+      "independent_ascii_tape": "isharedthefinalmessagethekeywassavedsafely",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "y",
+          "residual_after": "isharedthefinalmessage",
+          "matched": false
+        }
+      ],
+      "residual_debt": "isharedthefinalmessage",
+      "mechanically_admitted": false,
+      "sha256": "ca1ea06e6f23377ed300b506b488933285dacc8bb46bf882773fbc4abe9645b4",
+      "changed_left": {
+        "slot": 1,
+        "from": "sent",
+        "to": "shared"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "found",
+        "to": "saved"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "y",
+          "residual_after": "isharedthefinalmessage",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "isharedthefinalmessage",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "I filed the final message. The key was located safely.",
+      "letters": 43,
+      "normalized_tape": "ifiledthefinalmessagethekeywaslocatedsafely",
+      "independent_ascii_tape": "ifiledthefinalmessagethekeywaslocatedsafely",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "y",
+          "residual_after": "ifiledthefinalmessage",
+          "matched": false
+        }
+      ],
+      "residual_debt": "ifiledthefinalmessage",
+      "mechanically_admitted": false,
+      "sha256": "f352003b6432bb1c6e10d62bf46b53727f0086c2198e68e458b7c60c97930006",
+      "changed_left": {
+        "slot": 1,
+        "from": "sent",
+        "to": "filed"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "found",
+        "to": "located"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "y",
+          "residual_after": "ifiledthefinalmessage",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "ifiledthefinalmessage",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "I filed the final message. The key was saved safely.",
+      "letters": 41,
+      "normalized_tape": "ifiledthefinalmessagethekeywassavedsafely",
+      "independent_ascii_tape": "ifiledthefinalmessagethekeywassavedsafely",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "y",
+          "residual_after": "ifiledthefinalmessage",
+          "matched": false
+        }
+      ],
+      "residual_debt": "ifiledthefinalmessage",
+      "mechanically_admitted": false,
+      "sha256": "4b0884a2d9ca82aa479ea449b3585ecb9b90150b521bb340e3760d9782fd5b79",
+      "changed_left": {
+        "slot": 1,
+        "from": "sent",
+        "to": "filed"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "found",
+        "to": "saved"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "i",
+          "right_reversed": "y",
+          "residual_after": "ifiledthefinalmessage",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "ifiledthefinalmessage",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "We located the missing key. The message came this morning.",
+      "letters": 47,
+      "normalized_tape": "welocatedthemissingkeythemessagecamethismorning",
+      "independent_ascii_tape": "welocatedthemissingkeythemessagecamethismorning",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "g",
+          "residual_after": "welocatedthemissingkey",
+          "matched": false
+        }
+      ],
+      "residual_debt": "welocatedthemissingkey",
+      "mechanically_admitted": false,
+      "sha256": "5b09a6cf7af4144b7c9eafa7334fe241a9c80ce69d0fbcfa9bbcc0a2660d0cfc",
+      "changed_left": {
+        "slot": 1,
+        "from": "found",
+        "to": "located"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "arrived",
+        "to": "came"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "g",
+          "residual_after": "welocatedthemissingkey",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "welocatedthemissingkey",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "We located the missing key. The message reached this morning.",
+      "letters": 50,
+      "normalized_tape": "welocatedthemissingkeythemessagereachedthismorning",
+      "independent_ascii_tape": "welocatedthemissingkeythemessagereachedthismorning",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "g",
+          "residual_after": "welocatedthemissingkey",
+          "matched": false
+        }
+      ],
+      "residual_debt": "welocatedthemissingkey",
+      "mechanically_admitted": false,
+      "sha256": "27a4e99a94dfe269f74855dcb2e1062f42c16b3c887e76932410d994df42e583",
+      "changed_left": {
+        "slot": 1,
+        "from": "found",
+        "to": "located"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "arrived",
+        "to": "reached"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "g",
+          "residual_after": "welocatedthemissingkey",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "welocatedthemissingkey",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "We saved the missing key. The message came this morning.",
+      "letters": 45,
+      "normalized_tape": "wesavedthemissingkeythemessagecamethismorning",
+      "independent_ascii_tape": "wesavedthemissingkeythemessagecamethismorning",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "g",
+          "residual_after": "wesavedthemissingkey",
+          "matched": false
+        }
+      ],
+      "residual_debt": "wesavedthemissingkey",
+      "mechanically_admitted": false,
+      "sha256": "761afa6dc6710dacbabc5aab8ebc783bd4e5589b70cf408d18d721432e4a191b",
+      "changed_left": {
+        "slot": 1,
+        "from": "found",
+        "to": "saved"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "arrived",
+        "to": "came"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "g",
+          "residual_after": "wesavedthemissingkey",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "wesavedthemissingkey",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "We saved the missing key. The message reached this morning.",
+      "letters": 48,
+      "normalized_tape": "wesavedthemissingkeythemessagereachedthismorning",
+      "independent_ascii_tape": "wesavedthemissingkeythemessagereachedthismorning",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "g",
+          "residual_after": "wesavedthemissingkey",
+          "matched": false
+        }
+      ],
+      "residual_debt": "wesavedthemissingkey",
+      "mechanically_admitted": false,
+      "sha256": "c02b65559faca9e1686073796df5892bed92429f549d8153e56a26762196e50d",
+      "changed_left": {
+        "slot": 1,
+        "from": "found",
+        "to": "saved"
+      },
+      "changed_right": {
+        "slot": 2,
+        "from": "arrived",
+        "to": "reached"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "g",
+          "residual_after": "wesavedthemissingkey",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "wesavedthemissingkey",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "We located the missing key. The key was located safely.",
+      "letters": 44,
+      "normalized_tape": "welocatedthemissingkeythekeywaslocatedsafely",
+      "independent_ascii_tape": "welocatedthemissingkeythekeywaslocatedsafely",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "y",
+          "residual_after": "welocatedthemissingkey",
+          "matched": false
+        }
+      ],
+      "residual_debt": "welocatedthemissingkey",
+      "mechanically_admitted": false,
+      "sha256": "51e160891cf1b64e11782debdd91ac4964c929a768e73f4c24b5995d9330a5a2",
+      "changed_left": {
+        "slot": 1,
+        "from": "found",
+        "to": "located"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "found",
+        "to": "located"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "y",
+          "residual_after": "welocatedthemissingkey",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "welocatedthemissingkey",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "We located the missing key. The key was saved safely.",
+      "letters": 42,
+      "normalized_tape": "welocatedthemissingkeythekeywassavedsafely",
+      "independent_ascii_tape": "welocatedthemissingkeythekeywassavedsafely",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "y",
+          "residual_after": "welocatedthemissingkey",
+          "matched": false
+        }
+      ],
+      "residual_debt": "welocatedthemissingkey",
+      "mechanically_admitted": false,
+      "sha256": "0ecb2fa7ecdc94ef3e0e495b186da71ac62af706da714c49d8c6c77fe3a79eee",
+      "changed_left": {
+        "slot": 1,
+        "from": "found",
+        "to": "located"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "found",
+        "to": "saved"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "y",
+          "residual_after": "welocatedthemissingkey",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "welocatedthemissingkey",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "We saved the missing key. The key was located safely.",
+      "letters": 42,
+      "normalized_tape": "wesavedthemissingkeythekeywaslocatedsafely",
+      "independent_ascii_tape": "wesavedthemissingkeythekeywaslocatedsafely",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "y",
+          "residual_after": "wesavedthemissingkey",
+          "matched": false
+        }
+      ],
+      "residual_debt": "wesavedthemissingkey",
+      "mechanically_admitted": false,
+      "sha256": "c8a7e7908ffbc1b08ac954c7a5a35c16d957ebde1b3e4ccf1e7b970ba36fe306",
+      "changed_left": {
+        "slot": 1,
+        "from": "found",
+        "to": "saved"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "found",
+        "to": "located"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "y",
+          "residual_after": "wesavedthemissingkey",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "wesavedthemissingkey",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    },
+    {
+      "rendered": "We saved the missing key. The key was saved safely.",
+      "letters": 40,
+      "normalized_tape": "wesavedthemissingkeythekeywassavedsafely",
+      "independent_ascii_tape": "wesavedthemissingkeythekeywassavedsafely",
+      "exact": false,
+      "independent_exact": false,
+      "two_pointer_exact": false,
+      "complete_left": true,
+      "complete_right": true,
+      "speech_act_compatible": true,
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "residual_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "y",
+          "residual_after": "wesavedthemissingkey",
+          "matched": false
+        }
+      ],
+      "residual_debt": "wesavedthemissingkey",
+      "mechanically_admitted": false,
+      "sha256": "07642052d5f19753124fc3eb69023f01ab2b3c29235e6ec592b40913648d324b",
+      "changed_left": {
+        "slot": 1,
+        "from": "found",
+        "to": "saved"
+      },
+      "changed_right": {
+        "slot": 3,
+        "from": "found",
+        "to": "saved"
+      },
+      "replayed_trace": [
+        {
+          "step": 0,
+          "left": "w",
+          "right_reversed": "y",
+          "residual_after": "wesavedthemissingkey",
+          "matched": false
+        }
+      ],
+      "first_residual_debt": "wesavedthemissingkey",
+      "parent_experiment": "dialogue-speech-act-residual-20260916"
+    }
+  ],
+  "provenance": {
+    "generator_sha256": "223f99bbc4999db621f970492c82e9f9e9fd82659bd563eeb0d40b4304b88f37",
+    "catalogue_text_imported": false,
+    "complete_utterances_only": true,
+    "new_family": false
+  }
+}

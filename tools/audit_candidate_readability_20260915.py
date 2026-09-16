@@ -33,14 +33,29 @@ def normalize(text: str) -> str:
 def iter_rows(payload: object, source: str) -> Iterable[dict]:
     """Yield rendered rows from the repository's append-only run formats."""
     if isinstance(payload, dict):
-        for key in ("rendered_probes", "rendered_candidates_and_probes", "rows", "closed_leads", "mechanically_admitted_leads", "admitted"):
+        context_provenance = payload.get("method") or payload.get("provenance")
+        for key in ("rendered_probes", "rendered_candidates_and_probes", "rows", "candidates", "probes", "closed_leads", "mechanically_admitted_leads", "admitted"):
             values = payload.get(key)
             if isinstance(values, list):
                 for row in values:
                     if isinstance(row, dict):
                         text = row.get("rendered") or row.get("text")
+                        if not text and isinstance(row.get("audit"), dict):
+                            text = row["audit"].get("rendered")
+                        if not text and isinstance(row.get("left"), str) and isinstance(row.get("right"), str):
+                            text = f"{row['left']}. {row['right']}."
                         if isinstance(text, str) and text.strip():
-                            yield {"source_run": source, **row, "rendered": text}
+                            item = {"source_run": source, **row, "rendered": text}
+                            if context_provenance and "provenance" not in item:
+                                item["provenance"] = context_provenance
+                            yield item
+        # Some append-only experiments keep base and repair phases as nested
+        # objects.  Walk those phases so the diagnostic report cannot silently
+        # omit their rendered probes.
+        for phase in ("base", "repair"):
+            nested = payload.get(phase)
+            if isinstance(nested, dict):
+                yield from iter_rows(nested, f"{source}#{phase}")
         # A few older artifacts store one candidate at the top level.
         text = payload.get("rendered") or payload.get("text")
         if isinstance(text, str) and text.strip():

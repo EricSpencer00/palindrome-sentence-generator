@@ -24,6 +24,10 @@ def validate(path: Path = REGISTRY) -> dict:
     missing = [row["artifact"] for row in entries if not (ROOT / row["artifact"]).exists()]
     if missing:
         raise AssertionError(f"missing artifacts: {missing}")
+    missing_repairs = [repair for row in entries for repair in row.get("repair_artifacts", [])
+                       if not (ROOT / repair).exists()]
+    if missing_repairs:
+        raise AssertionError(f"missing repair artifacts: {missing_repairs}")
     missing_runs = [run for row in entries for run in row.get("run_artifacts", []) if not (ROOT / run).exists()]
     if missing_runs:
         raise AssertionError(f"missing run artifacts: {missing_runs}")
@@ -41,7 +45,7 @@ def validate(path: Path = REGISTRY) -> dict:
     missing_excluded = [row["artifact"] for row in excluded if not (ROOT / row["artifact"]).exists()]
     if missing_excluded:
         raise AssertionError(f"missing excluded artifacts: {missing_excluded}")
-    return {"entries": len(entries), "unique_signatures": len(set(signatures)), "unique_artifacts": len(set(artifacts)), "excluded": len(excluded), "run_artifacts": sum(len(row.get("run_artifacts", [])) for row in entries), "missing": missing + missing_excluded + missing_runs}
+    return {"entries": len(entries), "unique_signatures": len(set(signatures)), "unique_artifacts": len(set(artifacts)), "excluded": len(excluded), "run_artifacts": sum(len(row.get("run_artifacts", [])) for row in entries), "repair_artifacts": sum(len(row.get("repair_artifacts", [])) for row in entries), "missing": missing + missing_repairs + missing_excluded + missing_runs}
 
 
 if __name__ == "__main__":

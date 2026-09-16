@@ -12,8 +12,15 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
-| `recursive-template-composition-20260916` | center-out composition of distinct complete sentence templates with seam-debt repair | recursive template pairing | 3 complete renderings; 0 exact and 0 reader-eligible |
-| `reversible-constituent-clause-repair-20260916` | typed NP/PP/VP pairs with bilateral word-boundary and complete-clause enforcement | constituent type and clause completeness | 4 probes; 0 exact, 0 complete, 0 reader-eligible |
+| `seedless-semantic-cfg-bilateral-20260916` | seedless recursive CFG with agent/action/patient/locative roles and memoized bilateral character equation | unseeded recursive semantic clause growth | 10 complete candidates up to 91 letters; 0 exact and 0 reader-eligible |
+| `whole-sentence-semordnilap-clauses-20260916` | independently grammatical clauses with role-changing reversible lexical boundaries and joint residual search | whole-sentence semordnilap grammar | base 16 + repair 36 probes; 0 exact and 0 reader-eligible |
+| `recursive-grammar-residual-dp-20260916` | independently authored complete-clause frontier with recursive residual character DP | scalable clause growth and fresh-clause repair | 40 complete probes, up to 1,922 letters; 0 exact and 0 reader-eligible |
+| `dialogue-speech-act-residual-20260916` | request/answer, greeting/acknowledgment, and report/response utterance grammar with online residual tracing | speech-act-compatible independent utterances | 25 pairs (9 compatible), up to 49 letters; 0 exact and 0 reader-eligible |
+| `brown-attested-residual-lattice-20260916` | Brown-attested complete-sentence spans with independent reverse segmentation and POS filtering | corpus span lattice with held-out span repair | 57,340 sentences; 0 exact closures over 38 letters and 0 reader-eligible |
+| `dialogue-speech-act-residual-repair-20260916` | same dialogue grammar with held-out same-act lexical substitution from the first residual | speech-act-preserving lexical repair | 36 complete trials, up to 53 letters; 0 exact and 0 reader-eligible |
+| `reverse-transition-svo-authored-search-20260916` | authored DET–SVO–adjunct clauses joined by an exact bilateral boundary walker | final authored role-bank boundary search | 17 states, 3 complete probes (69–73 letters); 0 exact and 0 reader-eligible |
+| `recursive-template-composition-20260916` | center-out composition of distinct complete sentence templates with seam-debt repair | recursive template pairing | 2 complete renderings; 0 exact and 0 reader-eligible |
+| `reversible-constituent-clause-repair-20260916` | typed NP/PP/VP pairs with bilateral word-boundary checks and post-hoc complete-clause rejection | constituent type and clause completeness | 4 probes; 3 exact fragments rejected, 0 complete, 0 reader-eligible |
 | `recursive-clause-pair-20260916` | recursive stack of distinct authored clauses around a grammatical seed | clause-pair recursion and obligation stack | 3 rendered probes; 0 exact and 0 reader-eligible |
 | `manual-endpoint-engineering-20260916` | authored POS-constrained clause shells with endpoint lemma substitutions | manual lexical endpoint budgeting | 18 grammatical near misses; 0 exact and 0 reader-eligible |
 | `corpus-span-boundary-dp-20260916` | independently grammatical corpus spans indexed by reflected character boundaries and composed in clause frames | span-boundary composition with alternate-span repair | 0 base closures; alternate-span repair probes retained; 0 reader-eligible |
@@ -145,7 +152,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 102 retained families and 6 explicit
+family. The current audit covers all 118 retained families and 6 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

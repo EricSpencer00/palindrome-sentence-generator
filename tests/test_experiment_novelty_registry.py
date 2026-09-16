@@ -11,8 +11,11 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 6
-    assert result["entries"] == 98
-    assert result["run_artifacts"] == 67
+    # The ledger is append-only: parallel construction routes may add entries
+    # without making this invariant stale.  The validator still requires every
+    # registered artifact to resolve and every signature to be unique.
+    assert result["entries"] >= 113
+    assert result["run_artifacts"] >= 80
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -50,7 +53,9 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 98
+    assert result["registered_families_checked"] == len(
+        json.loads((Path(__file__).parents[1] / "docs/experiment-novelty-registry.json").read_text())["entries"]
+    )
     assert result["excluded_routes_checked"] == 6
     assert result["manual_review_required"] is False
     assert result["conceptual_near_pairs"] == []
@@ -135,6 +140,15 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "interrogative-quantifier-fsm-20260915" in ids
     assert "terminal-aware-grammar-intersection-20260916" in ids
     assert "semantic-mcts-derivation-20260916" in ids
+    assert "paired-obligation-astar-20260916" in ids
+    assert "paired-obligation-astar-debt-repair-20260916" in ids
+    assert "recursive-obligation-clause-growth-20260916" in ids
+    assert "corpus-span-boundary-dp-20260916" in ids
+    assert "recursive-grammar-residual-dp-20260916" in ids
+    assert "dialogue-speech-act-residual-20260916" in ids
+    assert "brown-attested-residual-lattice-20260916" in ids
+    assert "seedless-semantic-cfg-bilateral-20260916" in ids
+    assert "whole-sentence-semordnilap-clauses-20260916" in ids
 
 
 def test_new_centerout_repairs_keep_failure_evidence_and_reader_gate_closed():

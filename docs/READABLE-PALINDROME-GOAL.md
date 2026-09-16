@@ -1444,3 +1444,51 @@ item-aware analysis plan.
   retained 40 ordinary probes, with zero exact, admitted, or reader-eligible
   rows. No neural model or catalogue text was used; the frozen evidence is in
   `runs/corpus-neural-frame-realizer-20260916.json`.
+
+- **Parallel Luna construction queue, 2026-09-16:** three fresh routes were
+  run in parallel and kept separate in the novelty ledger. The recursive
+  complete-clause residual DP rendered 40 intact probes up to 1,922 letters;
+  all failed exact closure. The dialogue speech-act grammar tested 25
+  request/answer, greeting/acknowledgment, and report/response pairs; its
+  same-act lexical repair ran 36 complete trials up to 53 letters; both found
+  zero exact closures. The Brown-attested residual lattice analyzed 57,340
+  sentences and adjacent-span repairs but produced no reverse segmentation, so
+  it rendered no generated text. The authored boundary repair retained three
+  complete 69–73-letter probes and zero exact closures. Every route has a
+  concrete next operator recorded in its run artifact; none is reader-eligible.
+
+  Representative rendered probes (shown to keep the work reader-facing) are:
+
+  ```text
+  the baker repairs a gate. a quiet aide keeps notes. the cook serves the supper.
+  Please share the morning report. I can bring the letter.
+  a farmer calls the calm note. near the market. a sailor replies the fine signal. in the opera.
+  ```
+
+  Their normalized tapes and independent audits are in
+  `runs/recursive-grammar-residual-dp-20260916.json`,
+  `runs/dialogue-speech-act-residual-repair-20260916.json`, and
+  `runs/reverse-transition-svo-authored-search-20260916.json`. They are
+  complete English controls, not palindrome claims: each exact audit is false,
+  provenance is authored or held-out lexical data, and the next reader-facing
+  test remains blocked until a novel exact candidate clears the mechanical
+  gate. The Brown route's empty `displayed` list is intentional because it
+  found no text safe to show as generated.
+
+  A reproducible programmatic diagnostic over 166 rendered rows is frozen in
+  `runs/parallel-luna-readability-diagnostics-20260916.json`: 0 exact and 0
+  mechanically admitted rows. The report breaks out Brown word-order gain,
+  mean word frequency, repetition, punctuation segmentation, and length by
+  route. These values are explicitly diagnostic; they do not certify
+  readability or authorize a reader study.
+
+- **Second parallel Luna reset, 2026-09-16:** after the first queue stayed at
+  zero exact closures, three different hypotheses were run rather than tuning
+  the same beams. A reversible-word whole-sentence grammar produced 16 base and
+  36 repair probes with zero exact closures. A seedless semantic recursive CFG
+  produced 10 complete candidates up to 91 letters with zero closures. A
+  semantics-preserving mutation search is recorded separately in the ledger;
+  its exact and reader counts remain zero pending its final artifact audit.
+  These routes change the construction state (reversible lexical roles,
+  unseeded recursion, and online semantic mutation) and are not filename or
+  beam-width replays.

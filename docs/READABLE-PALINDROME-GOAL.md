@@ -1475,7 +1475,7 @@ item-aware analysis plan.
   gate. The Brown route's empty `displayed` list is intentional because it
   found no text safe to show as generated.
 
-  A reproducible programmatic diagnostic over 423 rendered rows is frozen in
+  A reproducible programmatic diagnostic over 664 rendered rows is frozen in
   `runs/parallel-luna-readability-diagnostics-20260916.json`: 0 exact and 0
   mechanically admitted rows. The report breaks out Brown word-order gain,
   mean word frequency, repetition, punctuation segmentation, and length by
@@ -1502,6 +1502,14 @@ item-aware analysis plan.
   repairs, longest 68 letters, with no exact closure. Their rendered probes,
   hashes, provenance, and independent audits remain in the corresponding run
   artifacts; none is reader-eligible.
+
+  A fourth parallel Luna reset added graph-to-prose, active/passive voice, and
+  CCG/type-logical routes. The typed graph constructor produced 9 base and 16
+  alternate-topology repairs (max 110 letters); voice alternation produced 64
+  base and 144 held-out repairs (max 78); CCG produced 4 base and 4 category
+  repairs (max 82). All were complete prose with independent audits but zero
+  exact closures and zero reader-eligible rows. Their rendered text and
+  provenance remain frozen in the route artifacts and the 664-row diagnostic.
   These routes change the construction state (reversible lexical roles,
   unseeded recursion, and online semantic mutation) and are not filename or
   beam-width replays.

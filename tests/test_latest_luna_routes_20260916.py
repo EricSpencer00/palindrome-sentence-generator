@@ -60,12 +60,14 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 423
+    assert report["candidate_count"] == 664
     assert report["exact_count"] == 0
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
+    assert len(report["route_summary"]) == 20
+    assert max(row["max_letters"] for row in report["route_summary"]) == 1922
 
 
 def test_seedless_and_reversible_clause_routes_keep_repairs_outside_reader_gate():
@@ -122,3 +124,33 @@ def test_induced_pcfg_records_derivation_search_without_fabricating_candidates()
     assert run["base"]["exact_count"] == 0
     assert run["repair"]["exact_count"] == 0
     assert run["reader_eligible"] == []
+
+
+def test_graph_to_prose_route_keeps_alternate_topologies_complete_and_unadmitted():
+    run = load("graph-to-prose-path-20260916.json")
+    assert len(run["base"]["candidates"]) == 9
+    assert len(run["repair"]["candidates"]) == 16
+    assert run["base"]["exact_count"] == 0
+    assert run["repair"]["exact_count"] == 0
+    assert all(row["complete_sentences"] and not row["reader_eligible"]
+               for phase in ("base", "repair") for row in run[phase]["candidates"])
+
+
+def test_voice_alternation_route_records_held_out_repair_without_exact_output():
+    run = load("voice-alternation-residual-20260916.json")
+    assert len(run["base"]["candidates"]) == 64
+    assert len(run["repair"]["candidates"]) == 144
+    assert run["base"]["exact_count"] == 0
+    assert run["repair"]["exact_count"] == 0
+    assert all(row["complete_clauses"] and not row["reader_eligible"]
+               for phase in ("base", "repair") for row in run[phase]["candidates"])
+
+
+def test_ccg_route_records_typed_derivations_and_reader_gate():
+    run = load("ccg-semantic-solver-20260916.json")
+    assert len(run["base"]["candidates"]) == 4
+    assert len(run["repair"]["candidates"]) == 4
+    assert run["base"]["exact_count"] == 0
+    assert run["repair"]["exact_count"] == 0
+    assert all(row["complete_clauses"] == 2 and not row["reader_eligible"]
+               for phase in ("base", "repair") for row in run[phase]["candidates"])

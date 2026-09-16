@@ -15,6 +15,7 @@ import hashlib
 import json
 import random
 import re
+from collections import defaultdict
 from functools import lru_cache
 from pathlib import Path
 from typing import Iterable
@@ -158,6 +159,35 @@ def audit(paths: Iterable[Path], *, seed: int = 20260915, shuffles: int = 16) ->
                 continue
             seen.add(key)
             rows.append(audit_row(row, seed=seed, shuffles=shuffles))
+    route_rows: dict[str, list[dict]] = defaultdict(list)
+    for row in rows:
+        route_rows[row["source_run"]].append(row)
+    route_summary = []
+    for route, route_items in sorted(route_rows.items()):
+        zipf_values = [
+            item["diagnostics_not_readability"]["mean_zipf_frequency"]
+            for item in route_items
+            if item["diagnostics_not_readability"]["mean_zipf_frequency"] is not None
+        ]
+        brown_values = [
+            item["diagnostics_not_readability"]["brown_order_gain_vs_shuffle"]
+            for item in route_items
+            if item["diagnostics_not_readability"]["brown_order_gain_vs_shuffle"] is not None
+        ]
+        route_summary.append({
+            "source_run": route,
+            "rows": len(route_items),
+            "exact_count": sum(item["exact_letter_palindrome"] for item in route_items),
+            "mechanically_admitted_count": sum(
+                all(item["mechanical_checks"].values()) for item in route_items
+            ),
+            "min_letters": min(item["letters"] for item in route_items),
+            "max_letters": max(item["letters"] for item in route_items),
+            "mean_zipf_frequency": sum(zipf_values) / len(zipf_values) if zipf_values else None,
+            "mean_brown_order_gain_vs_shuffle": (
+                sum(brown_values) / len(brown_values) if brown_values else None
+            ),
+        })
     return {
         "status": "diagnostic_not_human_readability_result",
         "method": {
@@ -175,6 +205,7 @@ def audit(paths: Iterable[Path], *, seed: int = 20260915, shuffles: int = 16) ->
         "candidate_count": len(rows),
         "exact_count": sum(row["exact_letter_palindrome"] for row in rows),
         "mechanically_admitted_count": sum(all(row["mechanical_checks"].values()) for row in rows),
+        "route_summary": route_summary,
         "rows": rows,
     }
 

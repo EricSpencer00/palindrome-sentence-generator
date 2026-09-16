@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from tools.audit_candidate_readability_20260915 import audit_row, iter_rows
+from tools.audit_candidate_readability_20260915 import audit, audit_row, iter_rows
 
 
 def test_iter_rows_preserves_rendered_text_and_source() -> None:
@@ -26,3 +26,12 @@ def test_audit_row_reports_exactness_and_gate_failures() -> None:
 def test_iter_rows_normalizes_authored_sentence_boundaries() -> None:
     rows = list(iter_rows({"probes": [{"left": "A calm nurse.", "right": "writes notes!"}]}, "run.json"))
     assert rows[0]["rendered"] == "A calm nurse. writes notes."
+
+
+def test_audit_exposes_route_summary_as_diagnostic_only(tmp_path) -> None:
+    run = tmp_path / "run.json"
+    run.write_text('{"method":"test route","rendered_probes":[{"rendered":"A man."}]}')
+    report = audit([run], seed=3, shuffles=2)
+    assert report["route_summary"][0]["source_run"] == str(run)
+    assert report["route_summary"][0]["rows"] == 1
+    assert report["status"] == "diagnostic_not_human_readability_result"

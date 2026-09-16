@@ -153,6 +153,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "rhetorical-plan-lattice-20260916" in ids
     assert "inflectional-fst-clitic-tape-20260916" in ids
     assert "induced-pcfg-character-equation-20260916" in ids
+    assert "graph-to-prose-path-20260916" in ids
+    assert "voice-alternation-residual-20260916" in ids
+    assert "ccg-semantic-solver-20260916" in ids
 
 
 def test_new_centerout_repairs_keep_failure_evidence_and_reader_gate_closed():

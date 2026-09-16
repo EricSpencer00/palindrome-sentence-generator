@@ -204,3 +204,9 @@ letters, a paired subject/adjunct boundary-CSP scene at 72 letters, and a
 fresh SAT subject/object pair at 101 letters. All fail independent exact/hash
 and mechanical gates. The aggregate is now 4356 normalized rows across 126
 route phases, with 0 mechanically admitted rows.
+
+The following bounded repairs retained an adjacent-PP reverse-lexicon scene at
+106 letters, a fresh verb-frame center-out scene at 57 letters, and a
+recipient-role SAT scene at 99 letters. All fail independent exact/hash and
+mechanical gates. The aggregate is now 4359 normalized rows across 129 route
+phases, with 0 mechanically admitted rows.

@@ -138,6 +138,13 @@ independent exact/hash checks but remains unadmitted. The aggregate is now
 4356 normalized rows across 126 route phases, with 0 mechanically admitted
 candidates.
 
+The following bounded repairs retained an adjacent-PP reverse-lexicon scene at
+106 letters, a fresh verb-frame center-out scene at 57 letters, and a
+recipient-role SAT scene at 99 letters. Each preserves complete prose,
+provenance, and independent exact/hash checks but remains unadmitted. The
+aggregate is now 4359 normalized rows across 129 route phases, with 0
+mechanically admitted candidates.
+
 The next targeted repairs retained a typed-complement reverse-lexicon scene at
 93 letters, a residual center-out adjunct at 75 letters, and a same-valency SAT
 guide-verb repair at 102 letters. Each preserves provenance and independent

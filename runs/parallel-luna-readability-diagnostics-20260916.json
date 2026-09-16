@@ -123,9 +123,12 @@
     "runs/authored-clause-template-sat-repair5-20260916.json",
     "runs/reverse-lexicon-role-noun-boundary-20260916.json",
     "runs/centerout-paired-boundary-csp-20260916.json",
-    "runs/authored-clause-template-sat-repair6-20260916.json"
+    "runs/authored-clause-template-sat-repair6-20260916.json",
+    "runs/reverse-lexicon-adjacent-pp-boundary-20260916.json",
+    "runs/centerout-paired-boundary-csp-verbframe-20260916.json",
+    "runs/authored-clause-template-sat-repair7-20260916.json"
   ],
-  "candidate_count": 4356,
+  "candidate_count": 4359,
   "exact_count": 73,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -208,6 +211,16 @@
       "max_letters": 101,
       "mean_zipf_frequency": 5.295500000000001,
       "mean_brown_order_gain_vs_shuffle": 0.7750006108155887
+    },
+    {
+      "source_run": "runs/authored-clause-template-sat-repair7-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 99,
+      "max_letters": 99,
+      "mean_zipf_frequency": 5.360000000000001,
+      "mean_brown_order_gain_vs_shuffle": 0.7111238939738893
     },
     {
       "source_run": "runs/bilateral-semantic-cfg-20260916.json",
@@ -328,6 +341,16 @@
       "max_letters": 72,
       "mean_zipf_frequency": 5.192000000000001,
       "mean_brown_order_gain_vs_shuffle": 1.3691718883861022
+    },
+    {
+      "source_run": "runs/centerout-paired-boundary-csp-verbframe-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 57,
+      "max_letters": 57,
+      "mean_zipf_frequency": 5.148333333333333,
+      "mean_brown_order_gain_vs_shuffle": 1.195033937059451
     },
     {
       "source_run": "runs/clause-growth-frame-repair-20260916.json",
@@ -1038,6 +1061,16 @@
       "max_letters": 54,
       "mean_zipf_frequency": 5.021481481481481,
       "mean_brown_order_gain_vs_shuffle": 0.7205480975006863
+    },
+    {
+      "source_run": "runs/reverse-lexicon-adjacent-pp-boundary-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 106,
+      "max_letters": 106,
+      "mean_zipf_frequency": 5.400434782608696,
+      "mean_brown_order_gain_vs_shuffle": 1.0104146663283196
     },
     {
       "source_run": "runs/reverse-lexicon-boundary-seam-repair-20260916.json",
@@ -210601,6 +210634,147 @@
         "mean_zipf_frequency": 5.295500000000001,
         "word_count": 20,
         "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient courier knows that the careful clerk seals the marked parcel beside the quiet dock before dusk and waits by the gate.",
+      "source_run": "runs/reverse-lexicon-adjacent-pp-boundary-20260916.json",
+      "provenance": {
+        "heldout_scene": true,
+        "source_sentences_copied": false,
+        "posthoc_spelling_edit": false,
+        "reversed_finished_sentence": false,
+        "two_boundary_residual_tested": true
+      },
+      "repair": null,
+      "letters": 106,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0104146663283196,
+        "mean_zipf_frequency": 5.400434782608696,
+        "word_count": 23,
+        "repeated_word_rate": 0.17391304347826086,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the steady mason seals the parcel. beside the riverside depot at noon.",
+      "source_run": "runs/centerout-paired-boundary-csp-verbframe-20260916.json",
+      "provenance": {
+        "authored_event_preserved": true,
+        "ordinary_svo_order": true,
+        "fresh_lexical_domains": true,
+        "catalogue_text_copied": false,
+        "finished_sentence_reversed": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false
+      },
+      "repair": null,
+      "letters": 57,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.195033937059451,
+        "mean_zipf_frequency": 5.148333333333333,
+        "word_count": 12,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the thoughtful usher guides a young visitor. the patient guide leads a curious child toward the quiet gallery at sunset.",
+      "source_run": "runs/authored-clause-template-sat-repair7-20260916.json",
+      "provenance": {
+        "fresh_scene_authored": true,
+        "different_recipient_role": true,
+        "preserved_valency": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repair_parent": "the thoughtful usher guides a young visitor. the patient guide leads a curious visitor toward the quiet gallery at sunset."
+      },
+      "repair": null,
+      "letters": 99,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7111238939738893,
+        "mean_zipf_frequency": 5.360000000000001,
+        "word_count": 20,
+        "repeated_word_rate": 0.15000000000000002,
         "punctuation_segments": 2
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

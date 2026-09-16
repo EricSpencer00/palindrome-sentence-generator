@@ -1,0 +1,743 @@
+{
+  "experiment_id": "centerout-grammar-boundary-dp-20260916",
+  "signature": "center-out-grammar-state|lexical-boundary-dynamic-programming|bilateral-character-frontier|agreement-valency-state|whole-prose-rendering|independent-exact-hash-audit",
+  "status": "completed",
+  "method": "center-out dynamic program over ordinary English word boundaries with grammar, agreement, and valency state; frontier matching is a diagnostic, never a readability certificate",
+  "novelty_preflight": {
+    "passed": true,
+    "exact_signature_collision": false,
+    "registry_entries": 211,
+    "nearest": [
+      {
+        "id": "online-grammar-state-char-decoder-20260916",
+        "shared_atoms": [
+          "audit",
+          "boundary",
+          "character",
+          "frontier",
+          "grammar",
+          "hash",
+          "independent",
+          "state"
+        ]
+      },
+      {
+        "id": "inflectional-clitic-boundary-csp-20260916",
+        "shared_atoms": [
+          "agreement",
+          "audit",
+          "boundary",
+          "exact",
+          "grammar",
+          "independent",
+          "prose",
+          "rendering"
+        ]
+      },
+      {
+        "id": "live-gpt2-character-decoder-preflight-20260916",
+        "shared_atoms": [
+          "bilateral",
+          "boundary",
+          "character",
+          "grammar",
+          "hash",
+          "independent",
+          "state",
+          "valency"
+        ]
+      },
+      {
+        "id": "semantic-center-sat-20260916",
+        "shared_atoms": [
+          "audit",
+          "bilateral",
+          "center",
+          "character",
+          "exact",
+          "hash",
+          "independent",
+          "valency"
+        ]
+      },
+      {
+        "id": "live-slot-equation-cfg-resegmentation-20260916",
+        "shared_atoms": [
+          "agreement",
+          "audit",
+          "boundary",
+          "character",
+          "exact",
+          "independent",
+          "state",
+          "valency"
+        ]
+      }
+    ],
+    "rule": "reject exact signature collision; lexical-boundary DP must remain distinct from reversible reservoirs and fixed-tape segmentation"
+  },
+  "candidates": [
+    {
+      "label": "dp-state-0",
+      "rendered": "the quiet porter carries the sealed parcel. beside the lantern for the waiting child.",
+      "letters": 70,
+      "exact_audit": {
+        "algorithm": "independent_two_pointer_and_sha256",
+        "letters": 70,
+        "two_pointer_exact": false,
+        "sha256_forward": "d3448204087fe3bd9955b6417783848cdb9a5a804f3cc4bd0878c3b3a4d4620e",
+        "sha256_reverse": "c1f013158376a84c0c5c3c928809d2fbb2dcdaca99f6a058719f090df5129065",
+        "sha_equal": false,
+        "normalized": "thequietportercarriesthesealedparcelbesidethelanternforthewaitingchild"
+      },
+      "frontier": {
+        "paired_positions": 34,
+        "matching_frontier": 5,
+        "character_debt": 31,
+        "word_boundaries_left": [
+          "the",
+          "quiet",
+          "porter",
+          "carries",
+          "the",
+          "sealed",
+          "parcel"
+        ],
+        "word_boundaries_right": [
+          "beside",
+          "the",
+          "lantern",
+          "for",
+          "the",
+          "waiting",
+          "child"
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "grammar": "hand-authored ordinary SVO + adjunct frames",
+        "center_out_state": "(left_word_index,right_word_index,number,tense,valency,frontier_debt)",
+        "catalogue_text_copied": false,
+        "finished_sentence_reversed": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false
+      }
+    },
+    {
+      "label": "dp-state-1",
+      "rendered": "the quiet porter carries the sealed parcel. near the window before the morning bell.",
+      "letters": 69,
+      "exact_audit": {
+        "algorithm": "independent_two_pointer_and_sha256",
+        "letters": 69,
+        "two_pointer_exact": false,
+        "sha256_forward": "c6d8c7035710f565dcd0ecfc4deb022c7ca71716383294435a5f4b51248e3049",
+        "sha256_reverse": "0a143b562cd4634dc319933890ec4134ad57fb224c9792539210f3abe3372bcf",
+        "sha_equal": false,
+        "normalized": "thequietportercarriesthesealedparcelnearthewindowbeforethemorningbell"
+      },
+      "frontier": {
+        "paired_positions": 33,
+        "matching_frontier": 2,
+        "character_debt": 34,
+        "word_boundaries_left": [
+          "the",
+          "quiet",
+          "porter",
+          "carries",
+          "the",
+          "sealed",
+          "parcel"
+        ],
+        "word_boundaries_right": [
+          "near",
+          "the",
+          "window",
+          "before",
+          "the",
+          "morning",
+          "bell"
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "grammar": "hand-authored ordinary SVO + adjunct frames",
+        "center_out_state": "(left_word_index,right_word_index,number,tense,valency,frontier_debt)",
+        "catalogue_text_copied": false,
+        "finished_sentence_reversed": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false
+      }
+    },
+    {
+      "label": "dp-state-2",
+      "rendered": "the quiet porter carries the sealed parcel. under the quiet roof for the village.",
+      "letters": 66,
+      "exact_audit": {
+        "algorithm": "independent_two_pointer_and_sha256",
+        "letters": 66,
+        "two_pointer_exact": false,
+        "sha256_forward": "1393fbddc413a6ade742cbd06f39c8eb91b3ffc1580882157e74f944404f4058",
+        "sha256_reverse": "aaaf590646803e29a263a14ca24bc84f6f4c46d18d86e903220039f6eff5dac6",
+        "sha_equal": false,
+        "normalized": "thequietportercarriesthesealedparcelunderthequietroofforthevillage"
+      },
+      "frontier": {
+        "paired_positions": 30,
+        "matching_frontier": 3,
+        "character_debt": 33,
+        "word_boundaries_left": [
+          "the",
+          "quiet",
+          "porter",
+          "carries",
+          "the",
+          "sealed",
+          "parcel"
+        ],
+        "word_boundaries_right": [
+          "under",
+          "the",
+          "quiet",
+          "roof",
+          "for",
+          "the",
+          "village"
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "grammar": "hand-authored ordinary SVO + adjunct frames",
+        "center_out_state": "(left_word_index,right_word_index,number,tense,valency,frontier_debt)",
+        "catalogue_text_copied": false,
+        "finished_sentence_reversed": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false
+      }
+    },
+    {
+      "label": "dp-state-3",
+      "rendered": "the patient nurse opens a warm letter. beside the lantern for the waiting child.",
+      "letters": 65,
+      "exact_audit": {
+        "algorithm": "independent_two_pointer_and_sha256",
+        "letters": 65,
+        "two_pointer_exact": false,
+        "sha256_forward": "5bfa4ef851217d5158ae6aca34c99c7b6461a9a8575e758cafc95da8475ffbb5",
+        "sha256_reverse": "eef63a375b53d5f0dff518a43db0d66ed4c797f8119f75bc74132a239f201864",
+        "sha_equal": false,
+        "normalized": "thepatientnurseopensawarmletterbesidethelanternforthewaitingchild"
+      },
+      "frontier": {
+        "paired_positions": 31,
+        "matching_frontier": 2,
+        "character_debt": 32,
+        "word_boundaries_left": [
+          "the",
+          "patient",
+          "nurse",
+          "opens",
+          "a",
+          "warm",
+          "letter"
+        ],
+        "word_boundaries_right": [
+          "beside",
+          "the",
+          "lantern",
+          "for",
+          "the",
+          "waiting",
+          "child"
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "grammar": "hand-authored ordinary SVO + adjunct frames",
+        "center_out_state": "(left_word_index,right_word_index,number,tense,valency,frontier_debt)",
+        "catalogue_text_copied": false,
+        "finished_sentence_reversed": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false
+      }
+    },
+    {
+      "label": "dp-state-4",
+      "rendered": "the patient nurse opens a warm letter. near the window before the morning bell.",
+      "letters": 64,
+      "exact_audit": {
+        "algorithm": "independent_two_pointer_and_sha256",
+        "letters": 64,
+        "two_pointer_exact": false,
+        "sha256_forward": "9b569187eabcd935e5b03e8c8b31a2fe04047e2e3d856977872c867cd2e84495",
+        "sha256_reverse": "29a054aede08981c521f476f9475b1683d265abb1d6ce8edb39d8553e3d1a556",
+        "sha_equal": false,
+        "normalized": "thepatientnurseopensawarmletternearthewindowbeforethemorningbell"
+      },
+      "frontier": {
+        "paired_positions": 31,
+        "matching_frontier": 5,
+        "character_debt": 28,
+        "word_boundaries_left": [
+          "the",
+          "patient",
+          "nurse",
+          "opens",
+          "a",
+          "warm",
+          "letter"
+        ],
+        "word_boundaries_right": [
+          "near",
+          "the",
+          "window",
+          "before",
+          "the",
+          "morning",
+          "bell"
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "grammar": "hand-authored ordinary SVO + adjunct frames",
+        "center_out_state": "(left_word_index,right_word_index,number,tense,valency,frontier_debt)",
+        "catalogue_text_copied": false,
+        "finished_sentence_reversed": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false
+      }
+    },
+    {
+      "label": "dp-state-5",
+      "rendered": "the patient nurse opens a warm letter. under the quiet roof for the village.",
+      "letters": 61,
+      "exact_audit": {
+        "algorithm": "independent_two_pointer_and_sha256",
+        "letters": 61,
+        "two_pointer_exact": false,
+        "sha256_forward": "5051511197ee5a42c025e1f422a4afa2193e137224b51a19126801b49eaaa224",
+        "sha256_reverse": "3e3adfad65a0ae6900addbf14c1f462ffaee5cc77bf42fd40175523f2ecd59f2",
+        "sha_equal": false,
+        "normalized": "thepatientnurseopensawarmletterunderthequietroofforthevillage"
+      },
+      "frontier": {
+        "paired_positions": 30,
+        "matching_frontier": 4,
+        "character_debt": 27,
+        "word_boundaries_left": [
+          "the",
+          "patient",
+          "nurse",
+          "opens",
+          "a",
+          "warm",
+          "letter"
+        ],
+        "word_boundaries_right": [
+          "under",
+          "the",
+          "quiet",
+          "roof",
+          "for",
+          "the",
+          "village"
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "grammar": "hand-authored ordinary SVO + adjunct frames",
+        "center_out_state": "(left_word_index,right_word_index,number,tense,valency,frontier_debt)",
+        "catalogue_text_copied": false,
+        "finished_sentence_reversed": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false
+      }
+    },
+    {
+      "label": "dp-state-6",
+      "rendered": "the young pilot marks the harbor chart. beside the lantern for the waiting child.",
+      "letters": 66,
+      "exact_audit": {
+        "algorithm": "independent_two_pointer_and_sha256",
+        "letters": 66,
+        "two_pointer_exact": false,
+        "sha256_forward": "c4fb49e07f4b4bc1f185dbfe4fa93e2fe38c79475f3a0b5e26e1bd66bd0cc139",
+        "sha256_reverse": "2bbacd346c4322dd3bfa8da19e05111c9b7b975dbbc849e3c2f87bbd99c7d281",
+        "sha_equal": false,
+        "normalized": "theyoungpilotmarkstheharborchartbesidethelanternforthewaitingchild"
+      },
+      "frontier": {
+        "paired_positions": 32,
+        "matching_frontier": 4,
+        "character_debt": 30,
+        "word_boundaries_left": [
+          "the",
+          "young",
+          "pilot",
+          "marks",
+          "the",
+          "harbor",
+          "chart"
+        ],
+        "word_boundaries_right": [
+          "beside",
+          "the",
+          "lantern",
+          "for",
+          "the",
+          "waiting",
+          "child"
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "grammar": "hand-authored ordinary SVO + adjunct frames",
+        "center_out_state": "(left_word_index,right_word_index,number,tense,valency,frontier_debt)",
+        "catalogue_text_copied": false,
+        "finished_sentence_reversed": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false
+      }
+    },
+    {
+      "label": "dp-state-7",
+      "rendered": "the young pilot marks the harbor chart. near the window before the morning bell.",
+      "letters": 65,
+      "exact_audit": {
+        "algorithm": "independent_two_pointer_and_sha256",
+        "letters": 65,
+        "two_pointer_exact": false,
+        "sha256_forward": "f8b7cf6c755d4af28bc95d9434b383aca9c2d37f23d8b2ba52d57146a08389bc",
+        "sha256_reverse": "7ab8c47ab637b88b398f12cb95a6c6d90c8d85a179ace9f0af5d46d3a0c8d862",
+        "sha_equal": false,
+        "normalized": "theyoungpilotmarkstheharborchartnearthewindowbeforethemorningbell"
+      },
+      "frontier": {
+        "paired_positions": 32,
+        "matching_frontier": 2,
+        "character_debt": 31,
+        "word_boundaries_left": [
+          "the",
+          "young",
+          "pilot",
+          "marks",
+          "the",
+          "harbor",
+          "chart"
+        ],
+        "word_boundaries_right": [
+          "near",
+          "the",
+          "window",
+          "before",
+          "the",
+          "morning",
+          "bell"
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "grammar": "hand-authored ordinary SVO + adjunct frames",
+        "center_out_state": "(left_word_index,right_word_index,number,tense,valency,frontier_debt)",
+        "catalogue_text_copied": false,
+        "finished_sentence_reversed": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false
+      }
+    },
+    {
+      "label": "dp-state-8",
+      "rendered": "the young pilot marks the harbor chart. under the quiet roof for the village.",
+      "letters": 62,
+      "exact_audit": {
+        "algorithm": "independent_two_pointer_and_sha256",
+        "letters": 62,
+        "two_pointer_exact": false,
+        "sha256_forward": "dfef86b16ed7bd29571020f4dabab75faa553ec46602f293db2054c41263aeb0",
+        "sha256_reverse": "9a46142e6c68692093372e139addda6c35fd7cd0df85f2f255bb7e36733224dd",
+        "sha_equal": false,
+        "normalized": "theyoungpilotmarkstheharborchartunderthequietroofforthevillage"
+      },
+      "frontier": {
+        "paired_positions": 30,
+        "matching_frontier": 1,
+        "character_debt": 31,
+        "word_boundaries_left": [
+          "the",
+          "young",
+          "pilot",
+          "marks",
+          "the",
+          "harbor",
+          "chart"
+        ],
+        "word_boundaries_right": [
+          "under",
+          "the",
+          "quiet",
+          "roof",
+          "for",
+          "the",
+          "village"
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "grammar": "hand-authored ordinary SVO + adjunct frames",
+        "center_out_state": "(left_word_index,right_word_index,number,tense,valency,frontier_debt)",
+        "catalogue_text_copied": false,
+        "finished_sentence_reversed": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false
+      }
+    },
+    {
+      "label": "heldout-boundary-repair",
+      "rendered": "the careful porter delivers the sealed parcel. beside the lamplit school for a waiting child.",
+      "letters": 77,
+      "exact_audit": {
+        "algorithm": "independent_two_pointer_and_sha256",
+        "letters": 77,
+        "two_pointer_exact": false,
+        "sha256_forward": "62a7a75135f8c9e2e920bc30389366e921b2d74b6877041af5aba0b33d8b491f",
+        "sha256_reverse": "4742268ee093c30ef4f8aaf64f6a0bac364f0da5eeb16204295a68e53378433c",
+        "sha_equal": false,
+        "normalized": "thecarefulporterdeliversthesealedparcelbesidethelamplitschoolforawaitingchild"
+      },
+      "frontier": {
+        "paired_positions": 38,
+        "matching_frontier": 0,
+        "character_debt": 39,
+        "word_boundaries_left": [
+          "the",
+          "careful",
+          "porter",
+          "delivers",
+          "the",
+          "sealed",
+          "parcel"
+        ],
+        "word_boundaries_right": [
+          "beside",
+          "the",
+          "lamplit",
+          "school",
+          "for",
+          "a",
+          "waiting",
+          "child"
+        ]
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "grammar": "hand-authored ordinary SVO + adjunct frames",
+        "center_out_state": "(left_word_index,right_word_index,number,tense,valency,frontier_debt)",
+        "catalogue_text_copied": false,
+        "finished_sentence_reversed": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false
+      }
+    }
+  ],
+  "stats": {
+    "candidates": 10,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "next_repair": "replace the first mismatching lexical boundary with a held-out agreement-compatible adjunct while preserving the authored event; then run blinded intact-prose reader screening only after exact closure",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "fee952c96f6f898409a932ae66145846c28499c471174320d6f9547c707635bb",
+    "generated_not_catalogue": true
+  }
+}

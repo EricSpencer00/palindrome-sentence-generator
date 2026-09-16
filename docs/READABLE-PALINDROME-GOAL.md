@@ -1343,3 +1343,15 @@ item-aware analysis plan.
   samples generated 3,354 center trials but no complete right-frame hit, exact
   closure, or reader row. This closes the fragment-resegmentation repair with
   evidence in `runs/gpt2-center-fsm-bridge-20260915.json`.
+
+- **Interrogative–quantifier dependency automaton, 2026-09-16:** preflighted a
+  genuinely different construction state: auxiliary inversion and question
+  polarity on the left are joined to an independently ordered quantified
+  answer frame on the right, with an odd center letter carried in the exact
+  character equation. The run checked 420,000 left assignments, 7,165,600
+  center equations, and 52,197,516 right-frame yields; it found no reverse
+  hit, exact closure, or reader row. The artifact is
+  `runs/interrogative-quantifier-fsm-20260915.json`. Its concrete repair is to
+  replace full right-frame materialization with target-tape indexed joins while
+  preserving the inversion/dependency state; no larger undifferentiated bank
+  is being counted as a new experiment.

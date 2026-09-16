@@ -97,6 +97,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `gpt2-topic-half-decoder-20260915` | GPT-2 samples topic-conditioned ordinary half-clauses; an independent lexical DP decodes each required reverse tape | model-conditioned proposal plus reverse lexical decoding | 288 samples, 104 reverse decodes, 73 exact but fragmentary surfaces, 0 mechanically admitted/reader rows |
 | `gpt2-center-letter-bridge-20260915` | GPT-2 half clauses are joined through an explicit odd-length center-letter insertion before independent right-tape decoding | odd-center bridge state | 384 samples, 3,848 center decodes, 4 exact 39-letter surfaces, 0 mechanically admitted/reader rows; orientation repair also yielded 0 exact rows |
 | `gpt2-center-fsm-bridge-20260915` | Brown-backed POS/constituency states are carried into the odd-center reverse decode; fragments are rejected before scoring | right-side clause automaton | 384 samples, 3,354 center trials, 0 complete POS-frame hits, 0 exact/admitted/reader rows |
+| `interrogative-quantifier-fsm-20260915` | explicit auxiliary-inversion question states are joined to quantified-answer dependency states under an odd-center character equation | question–answer discourse automaton | 420,000 left assignments and 52,197,516 right-frame yields; 7,165,600 center equations; 0 reverse hits, exact closures, or reader rows |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

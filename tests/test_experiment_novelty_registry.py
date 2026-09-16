@@ -11,8 +11,8 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
     assert result["excluded"] == 6
-    assert result["entries"] == 89
-    assert result["run_artifacts"] == 53
+    assert result["entries"] == 90
+    assert result["run_artifacts"] == 54
 
 
 def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
@@ -50,7 +50,7 @@ def test_preflight_checks_registered_and_excluded_routes():
         "runs/test-only-route.json",
     )
     assert result["status"] == "novel"
-    assert result["registered_families_checked"] == 89
+    assert result["registered_families_checked"] == 90
     assert result["excluded_routes_checked"] == 6
     assert result["manual_review_required"] is False
     assert result["conceptual_near_pairs"] == []
@@ -127,6 +127,7 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "asymmetric-template-reservoir-centerout-20260915" in ids
     assert "attested-phrase-pair-wrapper-20260915" in ids
     assert "homograph-sense-lattice-20260915" in ids
+    assert "interrogative-quantifier-fsm-20260915" in ids
 
 
 def test_new_centerout_repairs_keep_failure_evidence_and_reader_gate_closed():

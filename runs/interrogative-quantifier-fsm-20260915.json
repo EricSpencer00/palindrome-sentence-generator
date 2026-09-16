@@ -1,0 +1,929 @@
+{
+  "experiment_id": "interrogative-quantifier-fsm-20260915",
+  "signature": "interrogative-quantifier-fsm|auxiliary-inversion-state|question-answer-dependency|center-letter-character-equation|independent-audit",
+  "method": "An explicit auxiliary-inversion/question-to-answer automaton emits complete interrogative and quantified-answer frames; the right frame is independently indexed under center + reverse(left) character equations.",
+  "novelty_preflight": {
+    "registry_entries_before_run": 89,
+    "excluded_routes_before_run": 6,
+    "status": "formal_preflight_before_execution",
+    "signature_overlap": [],
+    "manual_review_required": false
+  },
+  "config": {
+    "frame_count": 3,
+    "frames": {
+      "question_negated": {
+        "left": [
+          "aux",
+          "pron",
+          "neg",
+          "verb_past",
+          "adv",
+          "pron"
+        ],
+        "right": [
+          "quant",
+          "verb_past",
+          "adv",
+          "prep",
+          "adj",
+          "noun"
+        ],
+        "state": "inverted-question-to-quantified-answer"
+      },
+      "question_object": {
+        "left": [
+          "aux",
+          "det",
+          "noun",
+          "verb_base",
+          "prep",
+          "det",
+          "noun"
+        ],
+        "right": [
+          "pron",
+          "verb_past",
+          "det",
+          "noun",
+          "prep",
+          "noun"
+        ],
+        "state": "inverted-object-question-to-answer"
+      },
+      "question_copular": {
+        "left": [
+          "wh",
+          "aux",
+          "det",
+          "noun",
+          "adj"
+        ],
+        "right": [
+          "det",
+          "noun",
+          "cop",
+          "adj",
+          "quant"
+        ],
+        "state": "wh-copular-question-to-quantified-description"
+      }
+    },
+    "max_left_yields_per_frame": 140000,
+    "center_letters": 26,
+    "catalogue_text_imported": false,
+    "known_palindromes_imported": true,
+    "known_palindrome_role": "exclusion-only"
+  },
+  "stats": {
+    "question_negated_right_yields": 22267476,
+    "left_yields_checked": 420000,
+    "center_equations": 7165600,
+    "known_or_duplicate_reject": 1,
+    "question_object_right_yields": 29743560,
+    "question_copular_right_yields": 186480,
+    "rendered_candidates": 0,
+    "reader_eligible": 0,
+    "mechanically_admitted": 0
+  },
+  "rendered_candidates_and_probes": [],
+  "probes": [
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "onward",
+        "i"
+      ],
+      "left_tape": "areinotdrawnonwardi",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "onward",
+        "we"
+      ],
+      "left_tape": "areinotdrawnonwardwe",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "onward",
+        "you"
+      ],
+      "left_tape": "areinotdrawnonwardyou",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "onward",
+        "he"
+      ],
+      "left_tape": "areinotdrawnonwardhe",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "onward",
+        "she"
+      ],
+      "left_tape": "areinotdrawnonwardshe",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "onward",
+        "they"
+      ],
+      "left_tape": "areinotdrawnonwardthey",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "onward",
+        "it"
+      ],
+      "left_tape": "areinotdrawnonwardit",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "ahead",
+        "i"
+      ],
+      "left_tape": "areinotdrawnaheadi",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "ahead",
+        "we"
+      ],
+      "left_tape": "areinotdrawnaheadwe",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "ahead",
+        "you"
+      ],
+      "left_tape": "areinotdrawnaheadyou",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "ahead",
+        "he"
+      ],
+      "left_tape": "areinotdrawnaheadhe",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "ahead",
+        "she"
+      ],
+      "left_tape": "areinotdrawnaheadshe",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "ahead",
+        "they"
+      ],
+      "left_tape": "areinotdrawnaheadthey",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "ahead",
+        "it"
+      ],
+      "left_tape": "areinotdrawnaheadit",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "aside",
+        "i"
+      ],
+      "left_tape": "areinotdrawnasidei",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "aside",
+        "we"
+      ],
+      "left_tape": "areinotdrawnasidewe",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "aside",
+        "you"
+      ],
+      "left_tape": "areinotdrawnasideyou",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "aside",
+        "he"
+      ],
+      "left_tape": "areinotdrawnasidehe",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "aside",
+        "she"
+      ],
+      "left_tape": "areinotdrawnasideshe",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_negated",
+      "left_words": [
+        "are",
+        "i",
+        "not",
+        "drawn",
+        "aside",
+        "they"
+      ],
+      "left_tape": "areinotdrawnasidethey",
+      "state": "inverted-question-to-quantified-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "road"
+      ],
+      "left_tape": "areaeradrawtoaroad",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "home"
+      ],
+      "left_tape": "areaeradrawtoahome",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "town"
+      ],
+      "left_tape": "areaeradrawtoatown",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "room"
+      ],
+      "left_tape": "areaeradrawtoaroom",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "book"
+      ],
+      "left_tape": "areaeradrawtoabook",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "note"
+      ],
+      "left_tape": "areaeradrawtoanote",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "plan"
+      ],
+      "left_tape": "areaeradrawtoaplan",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "word"
+      ],
+      "left_tape": "areaeradrawtoaword",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "day"
+      ],
+      "left_tape": "areaeradrawtoaday",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "way"
+      ],
+      "left_tape": "areaeradrawtoaway",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "time"
+      ],
+      "left_tape": "areaeradrawtoatime",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "man"
+      ],
+      "left_tape": "areaeradrawtoaman",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "woman"
+      ],
+      "left_tape": "areaeradrawtoawoman",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "child"
+      ],
+      "left_tape": "areaeradrawtoachild",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "letter"
+      ],
+      "left_tape": "areaeradrawtoaletter",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "story"
+      ],
+      "left_tape": "areaeradrawtoastory",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "song"
+      ],
+      "left_tape": "areaeradrawtoasong",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "map"
+      ],
+      "left_tape": "areaeradrawtoamap",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_object",
+      "left_words": [
+        "are",
+        "a",
+        "era",
+        "draw",
+        "to",
+        "a",
+        "car"
+      ],
+      "left_tape": "areaeradrawtoacar",
+      "state": "inverted-object-question-to-answer",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "new"
+      ],
+      "left_tape": "whatareaeranew",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "old"
+      ],
+      "left_tape": "whatareaeraold",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "good"
+      ],
+      "left_tape": "whatareaeragood",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "kind"
+      ],
+      "left_tape": "whatareaerakind",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "fair"
+      ],
+      "left_tape": "whatareaerafair",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "safe"
+      ],
+      "left_tape": "whatareaerasafe",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "calm"
+      ],
+      "left_tape": "whatareaeracalm",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "clear"
+      ],
+      "left_tape": "whatareaeraclear",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "red"
+      ],
+      "left_tape": "whatareaerared",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "small"
+      ],
+      "left_tape": "whatareaerasmall",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "great"
+      ],
+      "left_tape": "whatareaeragreat",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "true"
+      ],
+      "left_tape": "whatareaeratrue",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "vast"
+      ],
+      "left_tape": "whatareaeravast",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "high"
+      ],
+      "left_tape": "whatareaerahigh",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "low"
+      ],
+      "left_tape": "whatareaeralow",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "quiet"
+      ],
+      "left_tape": "whatareaeraquiet",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "bright"
+      ],
+      "left_tape": "whatareaerabright",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "era",
+        "young"
+      ],
+      "left_tape": "whatareaerayoung",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "road",
+        "new"
+      ],
+      "left_tape": "whatarearoadnew",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    },
+    {
+      "frame": "question_copular",
+      "left_words": [
+        "what",
+        "are",
+        "a",
+        "road",
+        "old"
+      ],
+      "left_tape": "whatarearoadold",
+      "state": "wh-copular-question-to-quantified-description",
+      "status": "complete-question-probe"
+    }
+  ],
+  "provenance": {
+    "generator_sha256": "2a16b0ca64cacde7a6cbf6e1f43015ddbc826193c294253d78ed0f9cb0ef7b59",
+    "source": "hand-authored interrogative and quantified lexical alternatives",
+    "source_sentences_copied": false,
+    "independent_audits": [
+      "normalized-tape-reversal",
+      "ASCII-two-pointer"
+    ],
+    "readability_certificate": false
+  },
+  "next_repair": "Carry explicit semantic roles and polarity through a two-question discourse graph; preserve the inversion automaton and do not add a larger undifferentiated word bank.",
+  "reader_gate": "No row is reader evidence. Any mechanically admitted row must be manually screened and frozen with randomized intact/shuffled controls before readability claims."
+}

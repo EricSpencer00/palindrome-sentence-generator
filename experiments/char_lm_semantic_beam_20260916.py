@@ -10,7 +10,8 @@ def audit(s):
  t=norm(s); i=0
  while i<len(t)//2 and t[i]==t[-1-i]: i+=1
  words=re.findall(r"[a-z]+",s.lower())
- return {'length':len(t),'exact':i==len(t)//2,'first_mismatch':None if i==len(t)//2 else {'index':i,'forward':t[i],'reverse':t[-1-i]},'sha256_forward':h(s),'sha256_reverse':hashlib.sha256(t[::-1].encode()).hexdigest(),'self_palindromic_words':[w for w in words if len(w)>1 and w==w[::-1]],'repeated_word_count':len(words)-len(set(words))}
+ rev=hashlib.sha256(t[::-1].encode()).hexdigest(); f=h(s); pointer_exact=(i==len(t)//2)
+ return {'length':len(t),'exact':pointer_exact,'independent_two_pointer_exact':pointer_exact,'first_mismatch':None if pointer_exact else {'index':i,'forward':t[i],'reverse':t[-1-i]},'sha256_forward':f,'sha256_reverse':rev,'sha256_equal':f==rev,'self_palindromic_words':[w for w in words if len(w)>1 and w==w[::-1]],'repeated_word_count':len(words)-len(set(words))}
 def main():
  rows=[]
  for i,(subj,verb,obj,adv) in enumerate(FRAMES):

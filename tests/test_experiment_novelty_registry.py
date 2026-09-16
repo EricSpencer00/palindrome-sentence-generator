@@ -238,6 +238,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "astar-typed-word-boundary-20260916" in ids
     assert "human-two-sentence-slot-search-20260916" in ids
     assert "graph-to-prose-path-20260916" in ids
+    assert "paired-lexical-grammar-20260916" in ids
+    assert "free-center-semantic-bridge-20260916-luna" in ids
+    assert "grammar-pair-composition-20260916" in ids
     assert "voice-alternation-residual-20260916" in ids
     assert "ccg-semantic-solver-20260916" in ids
     assert "dependency-completion-csp-20260916" in ids

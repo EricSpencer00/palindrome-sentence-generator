@@ -384,9 +384,10 @@ novelty preflight, independent audits, and concrete repairs.
 
 ## Fresh ten-lane audit (2026-09-16)
 
-The ten requested dimensions were rerun as separate state representations. The
-aggregate now contains **4,605 rendered rows across 177 route phases, 79 exact
-but rejected tapes, and 0 mechanically admitted outputs**. The novelty registry
+The ten requested dimensions were rerun as separate state representations. At
+that ten-lane checkpoint, the aggregate contained **4,605 rendered rows across
+177 route phases, 79 exact but rejected tapes, and 0 mechanically admitted
+outputs**. The novelty registry
 has **279 unique retained artifacts, 30 explicit exclusions, and 257 run
 artifacts**. Every retained lane below has an intact rendering, an independent
 pointer/hash audit, provenance, novelty preflight, and a concrete next repair.
@@ -431,9 +432,9 @@ phrase-level reverse parser retained nine independently parsed 116--118-letter
 clause pairs; and a finite-domain clause-equation SAT probe retained a
 116-letter two-clause scene. All are fresh intact prose with independent
 pointer/hash rejection, provenance, novelty preflight, and concrete repairs.
-They add **11 rows and 3 route phases** to the aggregate; the common report now
-contains **4,605 rows, 177 route phases, 79 exact rejected tapes, and 0
-mechanically admitted**. None
+They add **11 rows and 3 route phases** to the aggregate; at that intermediate
+checkpoint the common report contained **4,605 rows, 177 route phases, 79 exact
+but rejected tapes, and 0 mechanically admitted outputs**. None
 is promoted as reader evidence.
 
 The next constructive probes add three distinct states: a 130-letter dialogue
@@ -448,3 +449,15 @@ scene, and a human two-sentence single-slot repair adds seven deduplicated
 92--97-letter scene variants. Both remain non-exact with independent audits and
 named repairs. An attested phrase-bridge preflight found zero complete-clause
 bridges and is excluded rather than counted as a fabricated candidate.
+
+Three further Luna continuations are now retained as distinct constructive
+states. The paired lexical grammar renders six fresh 75--82-letter SVO clause
+pairs and the free-center semantic bridge renders a 109-letter scene; each has
+independent two-pointer/SHA rejection, provenance, novelty preflight, and a
+first-residual repair. A productive grammar-pair composition then grows four
+complete paired-production states from 55 to 223 letters (base and targeted
+right-arm repair), again with zero exact closures. These are bounded growth
+states, not larger duplicate sweeps. The common audit is now **4,620 rows
+across 181 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; none is eligible for readers until an exact anti-shortcut survivor
+exists.

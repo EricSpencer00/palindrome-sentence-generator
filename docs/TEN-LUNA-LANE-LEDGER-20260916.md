@@ -315,7 +315,7 @@ Lane 8's distinct repair is recorded separately as
 harbor scene with plural, past-tense, and possessive-clitic obligations. It is
 non-exact under both independent audits and passes the no-repeated-unit gate.
 
-The common audit is **4,605 rows, 177 route phases, 79 exact rejected tapes,
+The common audit is **4,620 rows, 181 route phases, 79 exact rejected tapes,
 and 0 mechanically admitted outputs**. The exact lane-8 hash is retained only
 as a quarantined duplicate-control failure; it cannot enter a reader packet.
 
@@ -323,9 +323,9 @@ Post-audit continuations add a free-center semantic state machine (138
 letters), an independently reverse-parsed phrase lane (nine 116--118-letter
 probes), and a finite-domain clause-equation SAT lane (116 letters). They are
 new state representations, not larger duplicate sweeps; all remain non-exact
-and reader-ineligible with named repairs. The aggregate is now **4,605 rows
-across 177 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**.
+and reader-ineligible with named repairs. At that intermediate checkpoint the
+aggregate was **4,605 rows across 177 route phases, 79 exact rejected tapes,
+and 0 mechanically admitted outputs**.
 
 The subsequent dialogue Q/A grammar, typed morpheme-compound boundary, and
 first-token equation grammar add 130-, 68-, and 91-letter prose probes. They
@@ -336,7 +336,7 @@ lexicon gate.
 The A* typed word-boundary probe adds a 140-letter garden/schoolhouse scene;
 the human single-slot search adds seven deduplicated 92--97-letter scenes. An
 attested phrase-bridge preflight emitted no complete clause and is explicitly
-    excluded.
+excluded.
 
 ## Paired lexical grammar continuation (2026-09-16)
 
@@ -347,3 +347,16 @@ independent two-pointer and SHA-256 audits found zero exact closures. Novelty
 preflight checked 261 registry entries with no collision. The next repair
 replaces only the first failing boundary pair with held-out lexical
 alternatives while preserving frame roles and agreement.
+
+The free-center semantic bridge adds a 109-letter authored scene: one
+sense-compatible bridge is inserted at a grammatical attachment point and
+the first residual is replayed under independent pointer/hash checks. The
+productive grammar-pair composition adds base and right-arm-repair growth
+states at 55, 114, 168, and 223 letters. Both continuations have fresh
+provenance and novelty fingerprints, and neither produced an exact closure;
+they are retained as construction evidence rather than duplicate sweeps.
+
+The authoritative aggregate is therefore **4,620 rows across 181 route
+phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**. The
+next reader-facing test remains the randomized blinded intact-versus-shuffled
+packet, gated on a genuinely exact, anti-shortcut-clean candidate.

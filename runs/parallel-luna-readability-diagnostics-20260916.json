@@ -173,9 +173,12 @@
     "runs/typed-morpheme-compound-20260916.json",
     "runs/typed-equation-grammar-20260916.json",
     "runs/astar-typed-word-boundary-20260916.json",
-    "runs/human-two-sentence-slot-search-20260916.json"
+    "runs/human-two-sentence-slot-search-20260916.json",
+    "runs/paired-lexical-grammar-20260916.json",
+    "runs/grammar-pair-composition-20260916.json",
+    "runs/free-center-semantic-bridge-20260916-luna.json"
   ],
-  "candidate_count": 4605,
+  "candidate_count": 4620,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -880,6 +883,16 @@
       "mean_brown_order_gain_vs_shuffle": 1.0384721533988195
     },
     {
+      "source_run": "runs/free-center-semantic-bridge-20260916-luna.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 109,
+      "max_letters": 109,
+      "mean_zipf_frequency": 5.5828,
+      "mean_brown_order_gain_vs_shuffle": 0.5214746898642755
+    },
+    {
       "source_run": "runs/free-center-semantic-state-machine-20260916/run.json",
       "rows": 1,
       "exact_count": 0,
@@ -908,6 +921,26 @@
       "max_letters": 53,
       "mean_zipf_frequency": 5.413772727272728,
       "mean_brown_order_gain_vs_shuffle": 1.270498620241334
+    },
+    {
+      "source_run": "runs/grammar-pair-composition-20260916.json#base",
+      "rows": 4,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 55,
+      "max_letters": 223,
+      "mean_zipf_frequency": 5.760357142857144,
+      "mean_brown_order_gain_vs_shuffle": 1.1069116631825304
+    },
+    {
+      "source_run": "runs/grammar-pair-composition-20260916.json#repair",
+      "rows": 4,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 55,
+      "max_letters": 223,
+      "mean_zipf_frequency": 5.760357142857144,
+      "mean_brown_order_gain_vs_shuffle": 1.0817567989163788
     },
     {
       "source_run": "runs/graph-to-prose-path-20260916.json#base",
@@ -1268,6 +1301,16 @@
       "max_letters": 124,
       "mean_zipf_frequency": 5.038736937039568,
       "mean_brown_order_gain_vs_shuffle": 0.6588587277465242
+    },
+    {
+      "source_run": "runs/paired-lexical-grammar-20260916.json",
+      "rows": 6,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 75,
+      "max_letters": 82,
+      "mean_zipf_frequency": 5.452458433665864,
+      "mean_brown_order_gain_vs_shuffle": 1.0165417445854155
     },
     {
       "source_run": "runs/paired-semantic-mutation-20260916.json",
@@ -221370,6 +221413,644 @@
         "word_count": 18,
         "repeated_word_rate": 0.16666666666666663,
         "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The curator labels a fossil beside the museum; A sailor repairs the lantern under a gray sky",
+      "source_run": "runs/paired-lexical-grammar-20260916.json",
+      "provenance": {
+        "fresh_semantic_frames": true,
+        "catalogue_imported": false,
+        "posthoc_reversal": false,
+        "word_order_mirror": false
+      },
+      "repair": null,
+      "letters": 75,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9168081199333749,
+        "mean_zipf_frequency": 5.421176470588236,
+        "word_count": 17,
+        "repeated_word_rate": 0.23529411764705888,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The curator labels a fossil beside the museum; The gardener waters a young cedar near the stone wall",
+      "source_run": "runs/paired-lexical-grammar-20260916.json",
+      "provenance": {
+        "fresh_semantic_frames": true,
+        "catalogue_imported": false,
+        "posthoc_reversal": false,
+        "word_order_mirror": false
+      },
+      "repair": null,
+      "letters": 82,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9290526233888539,
+        "mean_zipf_frequency": 5.46777777777778,
+        "word_count": 18,
+        "repeated_word_rate": 0.2222222222222222,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A sailor repairs the lantern under a gray sky; The curator labels a fossil beside the museum",
+      "source_run": "runs/paired-lexical-grammar-20260916.json",
+      "provenance": {
+        "fresh_semantic_frames": true,
+        "catalogue_imported": false,
+        "posthoc_reversal": false,
+        "word_order_mirror": false
+      },
+      "repair": null,
+      "letters": 75,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7857906339548304,
+        "mean_zipf_frequency": 5.421176470588235,
+        "word_count": 17,
+        "repeated_word_rate": 0.23529411764705888,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A sailor repairs the lantern under a gray sky; The gardener waters a young cedar near the stone wall",
+      "source_run": "runs/paired-lexical-grammar-20260916.json",
+      "provenance": {
+        "fresh_semantic_frames": true,
+        "catalogue_imported": false,
+        "posthoc_reversal": false,
+        "word_order_mirror": false
+      },
+      "repair": null,
+      "letters": 81,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2125322499787146,
+        "mean_zipf_frequency": 5.46842105263158,
+        "word_count": 19,
+        "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The gardener waters a young cedar near the stone wall; The curator labels a fossil beside the museum",
+      "source_run": "runs/paired-lexical-grammar-20260916.json",
+      "provenance": {
+        "fresh_semantic_frames": true,
+        "catalogue_imported": false,
+        "posthoc_reversal": false,
+        "word_order_mirror": false
+      },
+      "repair": null,
+      "letters": 82,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.144283646622645,
+        "mean_zipf_frequency": 5.467777777777776,
+        "word_count": 18,
+        "repeated_word_rate": 0.2222222222222222,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The gardener waters a young cedar near the stone wall; A sailor repairs the lantern under a gray sky",
+      "source_run": "runs/paired-lexical-grammar-20260916.json",
+      "provenance": {
+        "fresh_semantic_frames": true,
+        "catalogue_imported": false,
+        "posthoc_reversal": false,
+        "word_order_mirror": false
+      },
+      "repair": null,
+      "letters": 81,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1107831936340737,
+        "mean_zipf_frequency": 5.468421052631578,
+        "word_count": 19,
+        "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet medic records a case. a case is recorded by the quiet medic.",
+      "source_run": "runs/grammar-pair-composition-20260916.json#base",
+      "provenance": "finite paired productions with character-ledger closure",
+      "repair": null,
+      "letters": 55,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.175280263382163,
+        "mean_zipf_frequency": 5.765000000000001,
+        "word_count": 14,
+        "repeated_word_rate": 0.3571428571428571,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet medic records a case; a careful pilot checks the route. the route is checked by a careful pilot; a case is recorded by the quiet medic.",
+      "source_run": "runs/grammar-pair-composition-20260916.json#base",
+      "provenance": "finite paired productions with character-ledger closure",
+      "repair": null,
+      "letters": 114,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1009940454327563,
+        "mean_zipf_frequency": 5.751071428571429,
+        "word_count": 28,
+        "repeated_word_rate": 0.5,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet medic records a case; a careful pilot checks the route; the young poet studies a river. a river is studied by the young poet; the route is checked by a careful pilot; a case is recorded by the quiet medic.",
+      "source_run": "runs/grammar-pair-composition-20260916.json#base",
+      "provenance": "finite paired productions with character-ledger closure",
+      "repair": null,
+      "letters": 168,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1298438759323144,
+        "mean_zipf_frequency": 5.803571428571429,
+        "word_count": 42,
+        "repeated_word_rate": 0.5476190476190477,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet medic records a case; a careful pilot checks the route; the young poet studies a river; a patient baker warms the oven. the oven is warmed by a patient baker; a river is studied by the young poet; the route is checked by a careful pilot; a case is recorded by the quiet medic.",
+      "source_run": "runs/grammar-pair-composition-20260916.json#base",
+      "provenance": "finite paired productions with character-ledger closure",
+      "repair": null,
+      "letters": 223,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.021528467982888,
+        "mean_zipf_frequency": 5.721785714285716,
+        "word_count": 56,
+        "repeated_word_rate": 0.5714285714285714,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet medic records a case. a case is recorded by the quiet medic.",
+      "source_run": "runs/grammar-pair-composition-20260916.json#repair",
+      "provenance": "finite paired productions with character-ledger closure",
+      "repair": null,
+      "letters": 55,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.175280263382163,
+        "mean_zipf_frequency": 5.765000000000001,
+        "word_count": 14,
+        "repeated_word_rate": 0.3571428571428571,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet medic records a case; a careful pilot checks the route. a case is recorded by the quiet medic; the route is checked by a careful pilot.",
+      "source_run": "runs/grammar-pair-composition-20260916.json#repair",
+      "provenance": "finite paired productions with character-ledger closure",
+      "repair": null,
+      "letters": 114,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0806285923374261,
+        "mean_zipf_frequency": 5.7510714285714295,
+        "word_count": 28,
+        "repeated_word_rate": 0.5,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet medic records a case; a careful pilot checks the route; the young poet studies a river. a case is recorded by the quiet medic; the route is checked by a careful pilot; a river is studied by the young poet.",
+      "source_run": "runs/grammar-pair-composition-20260916.json#repair",
+      "provenance": "finite paired productions with character-ledger closure",
+      "repair": null,
+      "letters": 168,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1300098716524243,
+        "mean_zipf_frequency": 5.803571428571429,
+        "word_count": 42,
+        "repeated_word_rate": 0.5476190476190477,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the quiet medic records a case; a careful pilot checks the route; the young poet studies a river; a patient baker warms the oven. a case is recorded by the quiet medic; the route is checked by a careful pilot; a river is studied by the young poet; the oven is warmed by a patient baker.",
+      "source_run": "runs/grammar-pair-composition-20260916.json#repair",
+      "provenance": "finite paired productions with character-ledger closure",
+      "repair": null,
+      "letters": 223,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9411084682935016,
+        "mean_zipf_frequency": 5.7217857142857165,
+        "word_count": 56,
+        "repeated_word_rate": 0.5714285714285714,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dusk, the field archivist labels a rain-dark map, with care, sets it beside the lantern, and explains the route to the waiting courier.",
+      "source_run": "runs/free-center-semantic-bridge-20260916-luna.json",
+      "provenance": {
+        "source": "fresh authored scene and held-out semantic bridge",
+        "catalogue_text_used": false,
+        "copied_clause": false,
+        "wrapper_or_word_order_symmetry": false,
+        "authoring_method": "scene-first; bridge solved from first residual",
+        "generator": "experiments.free_center_semantic_bridge_20260916"
+      },
+      "repair": null,
+      "letters": 109,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5214746898642755,
+        "mean_zipf_frequency": 5.5828,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

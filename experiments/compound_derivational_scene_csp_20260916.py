@@ -60,7 +60,7 @@ def repair(row,c2):
 def main():
  reg=json.loads((ROOT/"docs/experiment-novelty-registry.json").read_text()); entries=reg["entries"]
  pre={"status":"novel_exact_signature","entries_read":len(entries),"signature_collisions":[e["id"] for e in entries if e.get("signature")==SIG],"artifact_collisions":[e["id"] for e in entries if e.get("artifact")==f"experiments/{Path(__file__).name}"],"overlap_reviewed":["morphology-semantic-template-csp-20260916","inflectional-fst-clitic-tape-20260916","orthographic-compound-boundary-probe-20260915"],"distinction":"compound modifier/head segmentation and scene-role semantics are state variables; not alternate inflections"}
- if pre["signature_collisions"] or pre["artifact_collisions"]: raise SystemExit(pre)
+ if any(x != ID for x in pre["signature_collisions"]+pre["artifact_collisions"]): raise SystemExit(pre)
  left=compile_frame(*FRAMES[0]); right=compile_frame(*FRAMES[1]); rows=[]
  for a,b in zip(left,right):
   r=audit(a,b)

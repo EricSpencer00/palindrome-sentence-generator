@@ -344,7 +344,8 @@ excluded.
 semantic SVO frames and synthesizes both clauses under a live ledger of
 word-boundary character equations. Six fresh intact-prose pairs were rendered;
 independent two-pointer and SHA-256 audits found zero exact closures. Novelty
-preflight checked 261 registry entries with no collision. The next repair
+preflight checked 261 registry entries with no collision before this
+continuation. The current registry records the continuation separately. The next repair
 replaces only the first failing boundary pair with held-out lexical
 alternatives while preserving frame roles and agreement.
 

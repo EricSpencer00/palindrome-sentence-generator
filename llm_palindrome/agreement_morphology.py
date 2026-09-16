@@ -63,8 +63,14 @@ def audit(text: str) -> dict:
         if letters[left] != letters[right]:
             mismatches.append({"left": left, "right": right, "a": letters[left], "b": letters[right]})
         left, right = left + 1, right - 1
-    digest = hashlib.sha256(text.encode("utf-8")).hexdigest()
-    return {"letters": len(letters), "exact": not mismatches, "two_pointer_mismatches": mismatches[:12], "sha256": digest,
+    forward_digest = hashlib.sha256(letters.encode("ascii")).hexdigest()
+    reverse_digest = hashlib.sha256(letters[::-1].encode("ascii")).hexdigest()
+    return {"letters": len(letters), "exact": not mismatches,
+            "two_pointer_mismatches": mismatches[:12],
+            "sha256": forward_digest,
+            "sha256_forward_normalized": forward_digest,
+            "sha256_reverse_normalized": reverse_digest,
+            "sha256_exact": forward_digest == reverse_digest,
             "supported_ascii_letters": bool(letters) and letters.isascii(), "word_form": bool(re.fullmatch(r"[A-Za-z ,.'-]+", text))}
 
 
@@ -79,10 +85,11 @@ def build_run(root: Path) -> dict:
             "transducer": {"states": transducer.states, "registers": asdict(transducer.agreement),
                            "transition_policy": "unify subject features before finite-verb emission; reject incompatible inflection",
                            "lexemes": ["cartographer/N", "unfold/V", "map/N", "marks/V"]},
-            "rendered_scene": text, "audit": audit(text),
+            "rendered": text, "rendered_scene": text, "audit": audit(text),
             "readability_diagnostics": {"certifying": False, "sentence_count": 1, "word_count": len(text.split()),
                                          "diagnostics": ["intact prose scene", "concrete setting and temporal arc"]},
             "provenance": {"generator": "llm_palindrome.agreement_morphology.MorphologyTransducer",
+                            "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                             "lexical_source": "fresh hand-authored scene", "audits": ["normalized two-pointer", "SHA-256"]},
             "next_repair": {"operator": "replace finite-state verb lemma with an agreement-compatible irregular paradigm",
                             "reason": "preserve scene readability while reducing boundary residuals in a future exact search",

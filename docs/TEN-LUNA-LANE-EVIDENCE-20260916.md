@@ -387,8 +387,8 @@ novelty preflight, independent audits, and concrete repairs.
 The ten requested dimensions were rerun as separate state representations. At
 that ten-lane checkpoint, the aggregate contained **4,605 rendered rows across
 177 route phases, 79 exact but rejected tapes, and 0 mechanically admitted
-outputs**. The novelty registry
-has **279 unique retained artifacts, 30 explicit exclusions, and 257 run
+outputs**. At that checkpoint, the novelty registry had **279 unique retained
+artifacts, 30 explicit exclusions, and 257 run
 artifacts**. Every retained lane below has an intact rendering, an independent
 pointer/hash audit, provenance, novelty preflight, and a concrete next repair.
 The lane-8 exact result is intentionally excluded because it repeats a
@@ -459,5 +459,7 @@ complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
 states, not larger duplicate sweeps. The common audit is now **4,620 rows
 across 181 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; none is eligible for readers until an exact anti-shortcut survivor
-exists.
+outputs**; the novelty registry now records **282 retained artifacts, 30
+explicit exclusions, and 260 retained run artifacts**, with the aggregate
+report itself listed as an audit report rather than a construction lane. None
+is eligible for readers until an exact anti-shortcut survivor exists.

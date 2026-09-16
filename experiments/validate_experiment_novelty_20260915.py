@@ -12,6 +12,7 @@ def validate(path: Path = REGISTRY) -> dict:
     data = json.loads(path.read_text())
     entries = data["entries"]
     excluded = data.get("excluded", [])
+    audit_reports = data.get("audit_reports", [])
     ids = [row["id"] for row in entries]
     signatures = [row["signature"] for row in entries]
     artifacts = [row["artifact"] for row in entries]
@@ -45,7 +46,10 @@ def validate(path: Path = REGISTRY) -> dict:
     missing_excluded = [row["artifact"] for row in excluded if not (ROOT / row["artifact"]).exists()]
     if missing_excluded:
         raise AssertionError(f"missing excluded artifacts: {missing_excluded}")
-    return {"entries": len(entries), "unique_signatures": len(set(signatures)), "unique_artifacts": len(set(artifacts)), "excluded": len(excluded), "run_artifacts": sum(len(row.get("run_artifacts", [])) for row in entries), "repair_artifacts": sum(len(row.get("repair_artifacts", [])) for row in entries), "missing": missing + missing_repairs + missing_excluded + missing_runs}
+    missing_reports = [row["path"] for row in audit_reports if not (ROOT / row["path"]).exists()]
+    if missing_reports:
+        raise AssertionError(f"missing audit reports: {missing_reports}")
+    return {"entries": len(entries), "unique_signatures": len(set(signatures)), "unique_artifacts": len(set(artifacts)), "excluded": len(excluded), "run_artifacts": sum(len(row.get("run_artifacts", [])) for row in entries), "repair_artifacts": sum(len(row.get("repair_artifacts", [])) for row in entries), "audit_reports": len(audit_reports), "missing": missing + missing_repairs + missing_excluded + missing_runs + missing_reports}
 
 
 if __name__ == "__main__":

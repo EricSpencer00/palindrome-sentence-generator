@@ -69,3 +69,12 @@ def test_exact_boundary_lane_is_rejected_for_repeated_catalogue_unit():
     assert normalized == unit * 6
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert "runs/inflection-clitic-boundary-search-20260916-luna.json" not in report["runs"]
+
+
+def test_agreement_lane_hashes_normalized_forward_and_reverse_tapes():
+    run = load("agreement-morphology-transducer-20260916-luna.json")
+    value = norm(run["rendered"])
+    audit = run["audit"]
+    assert audit["sha256_forward_normalized"] == hashlib.sha256(value.encode()).hexdigest()
+    assert audit["sha256_reverse_normalized"] == hashlib.sha256(value[::-1].encode()).hexdigest()
+    assert audit["sha256_exact"] is False

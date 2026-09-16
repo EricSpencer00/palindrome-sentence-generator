@@ -20,6 +20,8 @@ from llm_palindrome.admission import mechanical_admission_checks
 
 WORD_RE = re.compile(r"[A-Za-z]+(?:'[A-Za-z]+)?")
 CONDITIONS = ("candidate", "candidate_shuffle", "intact_prose", "intact_shuffle")
+MAX_CONTROL_LENGTH_DELTA = 5
+_HASH_RE = re.compile(r"^[0-9a-f]{64}$")
 
 
 def letters(text: str) -> str:
@@ -34,11 +36,59 @@ def shuffled(text: str, seed: int) -> str:
     tokens = words(text)
     if len(tokens) < 3:
         raise ValueError("reader controls need at least three words")
-    order = list(range(len(tokens)))
-    random.Random(seed).shuffle(order)
-    if order == list(range(len(tokens))):
-        order[0], order[1] = order[1], order[0]
-    return " ".join(tokens[i] for i in order) + "."
+    source = letters(text)
+    identity = list(range(len(tokens)))
+    for attempt in range(256):
+        order = identity[:]
+        random.Random(seed + attempt).shuffle(order)
+        if order == identity:
+            order[0], order[1] = order[1], order[0]
+        control = " ".join(tokens[i] for i in order) + "."
+        control_tape = letters(control)
+        # A control must preserve the word multiset while visibly changing
+        # order, and it must not accidentally remain a letter palindrome.
+        if control == text or control_tape == source:
+            continue
+        if control_tape == control_tape[::-1]:
+            continue
+        return control
+    raise ValueError("could not construct a changed, non-palindromic shuffle")
+
+
+def _validated_provenance(row: dict) -> dict:
+    provenance = row.get("provenance")
+    if not isinstance(provenance, dict):
+        raise ValueError("candidate provenance must be a structured record")
+    required_false = (
+        "source_sentences_copied",
+        "catalogue_imported",
+        "borrowed_text",
+        "reversed_finished_sentence",
+        "word_order_symmetry",
+        "repeated_self_palindromic_unit",
+    )
+    missing = [key for key in required_false if key not in provenance]
+    if missing:
+        raise ValueError(f"candidate provenance is missing explicit flags: {', '.join(missing)}")
+    if any(provenance[key] is not False for key in required_false):
+        raise ValueError("candidate provenance contains a disallowed source or shortcut flag")
+    for key in ("generator_sha256", "source_sha256"):
+        value = provenance.get(key)
+        if not isinstance(value, str) or not _HASH_RE.fullmatch(value.lower()):
+            raise ValueError(f"candidate provenance requires a 64-hex {key}")
+    return provenance
+
+
+def _require_length_match(candidate: str, control: str, index: int,
+                          max_delta: int = MAX_CONTROL_LENGTH_DELTA) -> None:
+    candidate_letters = len(letters(candidate))
+    control_letters = len(letters(control))
+    if abs(candidate_letters - control_letters) > max_delta:
+        raise ValueError(
+            f"intact control {index} is not length-matched: "
+            f"candidate={candidate_letters}, control={control_letters}, "
+            f"max_delta={max_delta}"
+        )
 
 
 def candidate_text(row: dict) -> str:
@@ -52,9 +102,7 @@ def candidate_text(row: dict) -> str:
     if not all(checks.values()):
         failed = ", ".join(sorted(k for k, value in checks.items() if not value))
         raise ValueError(f"candidate failed mechanical admission: {failed}")
-    provenance = row.get("provenance") or row.get("source")
-    if not provenance or "catalogue" in str(provenance).casefold():
-        raise ValueError("candidate provenance must be independent and non-catalogue")
+    _validated_provenance(row)
     return text
 
 
@@ -83,6 +131,7 @@ def build(candidate_file: Path, prose_file: Path, out_dir: Path,
         ptext = control.get("rendered") or control.get("text")
         if not isinstance(ptext, str) or len(letters(ptext)) < 20:
             raise ValueError(f"intact control {index} is too short or missing")
+        _require_length_match(ctext, ptext, index)
         event = f"E{index:03d}"
         texts = {
             "candidate": ctext,
@@ -133,6 +182,7 @@ def build(candidate_file: Path, prose_file: Path, out_dir: Path,
     )
     (internal / "analysis-plan.md").write_text(
         "Primary endpoints are grammaticality, meaning, and free-text paraphrase. "
+        "Controls are matched to each candidate within five normalized letters. "
         "Report every response by opaque item and condition after the key is opened. "
         "Automated scores are not used as readability evidence.\n"
     )

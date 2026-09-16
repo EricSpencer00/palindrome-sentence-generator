@@ -1,0 +1,57 @@
+{
+  "experiment_id": "reverse-lexicon-centered-complement-20260916",
+  "signature": "reverse-lexicon-shared-agreement-seams|centered-complement-clause|inherited-subject-number|three-live-obligations|heldout-scene|independent-pointer-sha-audit",
+  "status": "completed",
+  "method": "insert one centered complement clause whose singular subject agreement is inherited by the two outer seams and its own predicate; all three obligations are audited on the complete prose surface",
+  "novelty_preflight": {
+    "exact_signature_collision": false,
+    "preflight_rule": "reject clause concatenation without inherited agreement, completed-tape reversal, and broad sweeps",
+    "registry_entries_at_run": 220
+  },
+  "candidates": [
+    {
+      "label": "centered-complement-heldout",
+      "rendered": "The patient courier knows that the careful clerk seals the letter before dusk and waits by the quiet gate.",
+      "letters": 87,
+      "centered_complement": "that the careful clerk seals the letter",
+      "inherited_agreement_state": "singular subject courier/clerk carried through outer clauses",
+      "three_obligations": [
+        "outer subject-verb seam",
+        "complement subject-verb seam",
+        "final prepositional seam"
+      ],
+      "exact_audit": {
+        "letters": 87,
+        "forward": "thepatientcourierknowsthatthecarefulclerksealstheletterbeforeduskandwaitsbythequietgate",
+        "reverse": "etagteiuqehtybstiawdnaksuderofebrettelehtslaeskrelcluferacehttahtswonkreiruoctneitapeht",
+        "exact": false,
+        "hash_forward": "60414d7f248871e078461d1d7589be5814fafe52cdc8fd1c1f3ae39f0a10c2f1",
+        "hash_reverse": "83b93eb59479223ab923459f6f53b10cf45897dd3670551457077bd67f9a3b2b",
+        "hash_equal": false,
+        "independent_pointer_audit": false
+      },
+      "checks": {
+        "min_letters": true,
+        "complete_prose": true,
+        "mechanical_gate": false
+      },
+      "admitted": false,
+      "provenance": {
+        "heldout_scene": true,
+        "source_sentences_copied": false,
+        "posthoc_spelling_edit": false,
+        "reversed_finished_sentence": false,
+        "three_obligations_jointly_solved": true
+      }
+    }
+  ],
+  "stats": {
+    "candidates": 1,
+    "exact": 0,
+    "admitted": 0
+  },
+  "next_repair": "replace the fixed complement predicate with a typed argument frame selected from the live reverse chart, preserving the inherited agreement state",
+  "provenance": {
+    "generator_sha256": "f0c67f9350a748d3dfae2af17f3045ed867bc9da78975e177a9ccfcfdb0fc0f8"
+  }
+}

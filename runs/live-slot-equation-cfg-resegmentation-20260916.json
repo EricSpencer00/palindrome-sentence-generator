@@ -1,0 +1,150 @@
+{
+  "experiment_id": "live-slot-equation-cfg-resegmentation-20260916",
+  "signature": "authored-event-slot-equations|paired-character-obligation-solver|bidirectional-cfg-boundary-chart|agreement-valency-state|immutable-tape|independent-exact-admission-audit",
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_before_run": 208,
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "conceptual_near_pairs": [
+      {
+        "id": "typed-cfg-exact-tape-resegmentation-20260916",
+        "reason": "that route freezes lexical chunks before parsing; this route solves authored event-slot character equations before boundary charting"
+      }
+    ],
+    "manual_review_required": false
+  },
+  "source": {
+    "left_rendered": "the careful courier carries sealed letter before dawn.",
+    "right_rendered": "the quiet teacher opens marked parcel beside the gate.",
+    "rendered": "the careful courier carries sealed letter before dawn. the quiet teacher opens marked parcel beside the gate.",
+    "tape": "thecarefulcouriercarriessealedletterbeforedawnthequietteacheropensmarkedparcelbesidethegate",
+    "letters": 91,
+    "obligations": [
+      {
+        "left_slot": "agent",
+        "right_slot": "agent",
+        "left": "careful courier",
+        "right": "quiet teacher",
+        "letters_equal": false
+      },
+      {
+        "left_slot": "verb",
+        "right_slot": "verb",
+        "left": "carries",
+        "right": "opens",
+        "letters_equal": false
+      },
+      {
+        "left_slot": "object",
+        "right_slot": "object",
+        "left": "sealed letter",
+        "right": "marked parcel",
+        "letters_equal": false
+      },
+      {
+        "left_slot": "adjunct",
+        "right_slot": "adjunct",
+        "left": "before dawn",
+        "right": "beside the gate",
+        "letters_equal": false
+      }
+    ],
+    "exact": false,
+    "provenance": "two independently authored event frames; no corpus import"
+  },
+  "boundary_chart": {
+    "edges": 2,
+    "complete_paths": [],
+    "states": 3
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "the careful courier carries sealed letter before dawn.",
+      "letters": 46,
+      "normalized_tape": "thecarefulcouriercarriessealedletterbeforedawn",
+      "independent_exact": false,
+      "independent_sha256": "1f5d06756da8a07975335a97b864e4680c8b3eaed6a67f1be6df2d6a69d0eb0e",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false
+    },
+    {
+      "rendered": "the quiet teacher opens marked parcel beside the gate.",
+      "letters": 45,
+      "normalized_tape": "thequietteacheropensmarkedparcelbesidethegate",
+      "independent_exact": false,
+      "independent_sha256": "9fc18b5b1a6d12fa37da80f576c0b3a934202cc73fc20c85754aeff7a7a44806",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false
+    },
+    {
+      "rendered": "the careful courier carries sealed letter before dawn. the quiet teacher opens marked parcel beside the gate.",
+      "letters": 91,
+      "normalized_tape": "thecarefulcouriercarriessealedletterbeforedawnthequietteacheropensmarkedparcelbesidethegate",
+      "independent_exact": false,
+      "independent_sha256": "644e95b5c885125ea608a9a25306a89fbcc8b146a1ec48a565774db49431fff9",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false
+    }
+  ],
+  "next_repair": {
+    "status": "required",
+    "operator": "replace exactly one agent/verb slot pair with held-out agreement-compatible alternatives, re-solve obligations before charting",
+    "target": "obligation with lowest shared character overlap",
+    "reader_test": "blind intact-prose versus shuffled controls only after mechanically admitted exact candidate"
+  }
+}

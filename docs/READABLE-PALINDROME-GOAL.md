@@ -1703,3 +1703,24 @@ item-aware analysis plan.
   mechanically admitted rows. The next reader-facing test remains the
   randomized blinded intact-versus-shuffled study, which cannot start until an
   exact candidate clears every mechanical gate.
+
+  A sixth three-Luna wave deliberately opened three different branches rather
+  than enlarging an existing beam. A comparative/modal scene search rendered
+  81 measurement scenes and 81 held-out modal repairs (31--41 letters). A
+  scalar-evaluation route independently lexicalized an event, a judgment
+  predicate, and its evidence proposition (4 base + 4 held-out repairs,
+  78--85 letters). A template-free authoring route began from three fresh,
+  intact prose centers and made six bounded one-word repairs (58--72 letters),
+  preserving punctuation, order, and clause structure. All three routes have
+  independent exact/hash audits, complete-prose checks, and provenance; none
+  produced an exact closure or a reader-eligible row. Reverse-trie and
+  open-vocabulary evidence variants were preflighted and blocked as state-space
+  replays, with their concrete pivots retained.
+
+  The aggregate now contains exactly 2194 rendered rows across 61 route phases.
+  Independent tape recomputation reports zero mismatches, 72 exact-but-
+  rejected tapes, and 0 mechanically admitted rows. These counts are diagnostic
+  evidence only: no candidate has reached the randomized blinded
+  intact-versus-shuffled reader test, so the paper release and API remain
+  closed while the constructive search continues toward a genuinely readable
+  long palindrome.

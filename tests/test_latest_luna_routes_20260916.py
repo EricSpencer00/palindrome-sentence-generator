@@ -62,13 +62,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 2015
+    assert report["candidate_count"] == 2194
     assert report["exact_count"] == 72
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 57
+    assert len(report["route_summary"]) == 61
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
 
 
@@ -390,3 +390,36 @@ def test_reversible_semantic_wrappers_keep_fresh_centers_and_repairs_unadmitted(
     assert max(row["audit"]["letters"] for row in run["candidates"] + run["repair"]) == 62
     assert all(row["audit"]["complete_sentence"] and not row["audit"]["reader_eligible"]
                for row in run["candidates"] + run["repair"])
+
+
+def test_comparative_modal_scene_route_keeps_measurement_prose_unadmitted():
+    run = load("comparative-modal-scene-20260916.json")
+    assert len(run["candidates"]) == 81
+    assert len(run["repair"]) == 81
+    assert run["exact_count"] == 0
+    assert run["reader_eligible_count"] == 0
+    assert all(row["audit"]["complete_sentence"] and not row["audit"]["reader_eligible"]
+               for row in run["candidates"] + run["repair"])
+
+
+def test_minimal_edit_fresh_centers_preserve_intact_prose_and_fail_exact_gate():
+    run = load("minimal-edit-fresh-center-20260916.json")
+    assert len(run["candidates"]) == 3
+    assert len(run["repair"]) == 6
+    assert run["exact_count"] == 0
+    assert run["reader_eligible_count"] == 0
+    assert all(row["audit"]["complete_sentence"] and not row["audit"]["reader_eligible"]
+               for row in run["candidates"] + run["repair"])
+    assert all("minimal-edit" in row.get("provenance", "") or row.get("operator") == "none"
+               for row in run["candidates"] + run["repair"])
+
+
+def test_scalar_evaluation_evidence_route_keeps_independent_semantics_unadmitted():
+    run = load("scalar-evaluation-evidence-20260916.json")
+    assert len(run["base"]["candidates"]) == 4
+    assert len(run["repair"]["candidates"]) == 4
+    assert run["base"]["exact_count"] == 0
+    assert run["repair"]["exact_count"] == 0
+    assert all(row["complete_clauses"] == 2 and not row["reader_eligible"]
+               and row["semantic_topology"].startswith("event -> scalar evaluation")
+               for phase in ("base", "repair") for row in run[phase]["candidates"])

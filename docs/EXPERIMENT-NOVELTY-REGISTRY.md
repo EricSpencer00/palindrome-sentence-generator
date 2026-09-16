@@ -12,6 +12,12 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 
 | id | state-space signature | changed dimension | result |
 |---|---|---|---|
+| `scalar-evaluation-evidence-20260916` | event scenes are independently lexicalized through a scalar evaluation predicate and a separate evidence proposition, with held-out evaluator/evidence repair under a live character obligation | scalar judgment plus evidence-clause composition | 4 base + 4 repair complete-prose probes, 78–85 letters; 0 exact and 0 reader-eligible |
+| `quantified-comparison-preflight-20260916` | quantified measurement/comparison clauses with independently authored evidence and scalar predicates | preflight-only quantified measurement | blocked before rendering: comparative/modal and semantic arithmetic families already cover this state |
+| `minimal-edit-fresh-center-20260916` | genuinely authored free prose centers receive a bounded one-word lexical repair while punctuation, order, and clause structure remain intact | template-free minimal-edit authoring | 3 fresh centers + 6 lexical repairs, 58–72 letters; 0 exact and 0 reader-eligible |
+| `comparative-modal-scene-search-20260916` | measurement/comparison scenes jointly vary comparative adjectives and modal commitment, then apply a held-out modal repair with independent exact auditing | comparative state and modal commitment | 81 base + 81 repair complete-sentence probes, 31–41 letters; 0 exact and 0 reader-eligible |
+| `grammar-reverse-trie-preflight-20260916-excluded` | reverse grammar-trie segmentation changes search mechanics but not the linguistic state space | preflight-only reverse-trie mechanics | blocked before rendering: reverse grammar trie, character-synchronous trie, and fixed-tape decoder families already cover the state |
+| `open-vocabulary-semantic-evidence-preflight-20260916-excluded` | open-vocabulary lexicalization with independent semantic evidence and character-synchronous solving | preflight-only open-vocabulary evidence grammar | blocked before rendering: held-out vocabulary, selectional evidence, and character-synchronous boundary families already cover the state |
 | `reversible-semantic-wrappers-20260916` | fresh semantic centers are surrounded by character-pair wrapper primitives, then mutated through connective choices with distinct-content and independent-audit gates | semantic-wrapper composition | 9 base + 9 repair scenes, 57–62 letters; 0 exact and 0 reader-eligible (15 unique renderings after deduplication) |
 | `rhythmai-open-bank-reverse-decoder-preflight-20260916-excluded` | a local model authors an open sentence bank which a reverse decoder realizes under grammar constraints | preflight-only model-bank/reverse-decoder coupling | blocked before rendering: model-authored banks and fixed-tape decoders are already retained |
 | `coupled-syntax-lexical-authoring-20260916` | intact event scenes jointly vary syntax and lexical choices, with a deterministic fallback repair and independent tape audit | joint syntax/lexical authoring | 9 base + 9 repair scenes, 45–50 letters; 0 exact and 0 reader-eligible (14 unique renderings after deduplication) |
@@ -203,7 +209,7 @@ The exact-collision preflight is now paired with a deterministic lexical-overlap
 screen in `tools/audit_experiment_novelty_20260915.py`. It reports prior
 families sharing distinctive signature atoms and marks those pairs for human
 review; changing a seed, beam width, lexical bank, or filename is not a new
-family. The current audit covers all 160 retained families and 16 explicit
+family. The current audit covers all 165 retained families and 17 explicit
 exclusions, finds no exact signature collision, and flags historical near
 pairs for review. The latest routes are below the review threshold:
 

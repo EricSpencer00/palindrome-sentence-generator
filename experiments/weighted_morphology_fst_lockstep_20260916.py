@@ -284,7 +284,10 @@ def _transition(state: State, left: Grammar, right: Grammar, stats: Counter) -> 
                 continue
             previous_l = state.left_words[-1] if state.left_words else None
             previous_r = state.right_words_reversed[-1] if state.right_words_reversed else None
-            score = state.score + BIGRAM_BONUS.get((previous_l, li.text), 0.0) + BIGRAM_BONUS.get((previous_r, ri.text), 0.0)
+            # The reverse parser selects normal right-side words from the end,
+            # so invert that local lookup to score the eventual ordinary-order
+            # clause rather than its construction order.
+            score = state.score + BIGRAM_BONUS.get((previous_l, li.text), 0.0) + BIGRAM_BONUS.get((ri.text, previous_r), 0.0)
             stats["character_pairs_emitted"] += 1
             out.append(State(state.left_grammar, state.right_grammar, state.left_slot, state.right_slot,
                              li.text, ri.text, state.left_pos + 1, state.right_pos + 1,

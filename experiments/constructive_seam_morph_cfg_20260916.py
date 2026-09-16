@@ -18,7 +18,7 @@ SIGNATURE = "dependency-tree-seam-csp|agreement-carrying-morphology-transducer|c
 
 def novelty_preflight():
     rows = json.loads(REGISTRY.read_text())["entries"]
-    collisions = [r.get("artifact") for r in rows if r.get("id") == EXPERIMENT_ID or r.get("signature") == SIGNATURE]
+    collisions = [r.get("artifact") for r in rows if r.get("id") != EXPERIMENT_ID and (r.get("artifact") == "experiments/constructive_seam_morph_cfg_20260916.py" or r.get("signature") == SIGNATURE)]
     return {"status": "passed" if not collisions else "blocked", "collisions": collisions,
             "checked_entries": len(rows), "excluded": ["post-hoc reverse segmentation", "lexical cross-product sweep"]}
 

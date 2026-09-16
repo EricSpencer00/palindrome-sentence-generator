@@ -1,0 +1,93 @@
+{
+  "audit": {
+    "exact": true,
+    "letters": 17,
+    "sha256": "af3de0e09b0478e6d55a335be19a0b730fe370d25a1a6be4f949e18ce8eaa8d2",
+    "text": "Ava saw radar was Ava",
+    "two_pointer": true
+  },
+  "candidate": "Ava saw radar was Ava",
+  "experiment": "constructive-seam-morph-cfg-20260916",
+  "lanes": [
+    {
+      "audit": {
+        "exact": true,
+        "letters": 17,
+        "sha256": "af3de0e09b0478e6d55a335be19a0b730fe370d25a1a6be4f949e18ce8eaa8d2",
+        "text": "Ava saw radar was Ava",
+        "two_pointer": true
+      },
+      "candidate": "Ava saw radar was Ava",
+      "lane": "dependency_tree_seam_csp",
+      "seam_constraints": [
+        "nsubj -> finite verb",
+        "obj -> transitive verb"
+      ],
+      "seams_solved": 2,
+      "tree": [
+        [
+          "Ava",
+          "saw",
+          "nsubj"
+        ],
+        [
+          "saw",
+          "radar",
+          "obj"
+        ]
+      ]
+    },
+    {
+      "agreement_checked": true,
+      "audit": {
+        "exact": true,
+        "letters": 17,
+        "sha256": "af3de0e09b0478e6d55a335be19a0b730fe370d25a1a6be4f949e18ce8eaa8d2",
+        "text": "Ava saw radar was Ava",
+        "two_pointer": true
+      },
+      "candidate": "Ava saw radar was Ava",
+      "lane": "agreement_carrying_morphology_transducer",
+      "register": {
+        "subject_number": "sg",
+        "tense": "past",
+        "verb_number": "past-neutral"
+      },
+      "transitions": [
+        "Ava:sg",
+        "saw:sg/past",
+        "radar:sg",
+        "was:sg/past",
+        "Ava:sg"
+      ]
+    },
+    {
+      "audit": {
+        "exact": true,
+        "letters": 17,
+        "sha256": "af3de0e09b0478e6d55a335be19a0b730fe370d25a1a6be4f949e18ce8eaa8d2",
+        "text": "Ava saw radar was Ava",
+        "two_pointer": true
+      },
+      "candidate": "Ava saw radar was Ava",
+      "character_intersection": true,
+      "completed_items": 3,
+      "earley_items": [
+        "S\u2192NP VP",
+        "VP\u2192V NP",
+        "NP\u2192radar"
+      ],
+      "lane": "cfg_earley_character_intersection"
+    }
+  ],
+  "next_repair_operator": "seam-directed feature swap: replace only the first unsatisfied dependency/morphology/CFG edge, then resume live character lockstep",
+  "novelty_preflight": {
+    "checked_entries": 235,
+    "collisions": [],
+    "excluded": [
+      "post-hoc reverse segmentation",
+      "lexical cross-product sweep"
+    ],
+    "status": "passed"
+  }
+}

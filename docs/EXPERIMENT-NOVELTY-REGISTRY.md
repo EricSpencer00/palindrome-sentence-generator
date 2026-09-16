@@ -95,6 +95,7 @@ evidence unless its own exact and blinded-reader gates are satisfied.
 | `wordnet-synonym-frame-csp-20260915` | WordNet lemma alternatives are attached to semantic dependency slots; independently lexicalized complete frames are joined by a character equation | semantic-preserving synonym lattice | 6 frames, 6,834 reverse-frame calls, 0 reverse hits, 0 exact/admitted/reader rows |
 | `wordnet-featured-frame-repair-20260915` | subject number, determiner agreement, transitivity, inflection, and optional adjunct attachment are carried through a finite WordNet frame automaton | agreement/subcategorization state | 90,000 left assignments, 60,012 reverse-frame calls, 0 hits, 0 exact/admitted/reader rows |
 | `gpt2-topic-half-decoder-20260915` | GPT-2 samples topic-conditioned ordinary half-clauses; an independent lexical DP decodes each required reverse tape | model-conditioned proposal plus reverse lexical decoding | 288 samples, 104 reverse decodes, 73 exact but fragmentary surfaces, 0 mechanically admitted/reader rows |
+| `gpt2-center-letter-bridge-20260915` | GPT-2 half clauses are joined through an explicit odd-length center-letter insertion before independent right-tape decoding | odd-center bridge state | 384 samples, 3,848 center decodes, 4 exact 39-letter surfaces, 0 mechanically admitted/reader rows |
 
 The abandoned local `brown-attached-two-clause-residual` probe is deliberately
 absent: it duplicated the adjacent-clause space and was invalidated by an

@@ -1320,3 +1320,12 @@ item-aware analysis plan.
   admission; no row is reader evidence. The full provenance and probes are in
   `runs/gpt2-topic-half-decoder-20260915.json`. The next repair is an online
   GPT-2 constrained decoder at the reverse seam, not another post-hoc rerank.
+
+- **GPT-2 odd-center bridge, 2026-09-15:** added the missing one-letter seam
+  state by decoding `center + reverse(left)` independently for all 26 letters.
+  Of 384 topic-conditioned samples, 3,848 center decodes yielded four exact
+  39-letter surfaces. They all contained fragmentary/non-prose right sides and
+  failed the self-palindromic-span gate, so none is reader evidence. The
+  rendered rows, lengths, audits, and model prompts are preserved in
+  `runs/gpt2-center-letter-bridge-20260915.json`; the next repair must carry a
+  syntactic state into online reverse decoding rather than relax this gate.

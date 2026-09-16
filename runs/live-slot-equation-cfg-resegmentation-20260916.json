@@ -141,10 +141,54 @@
       "mechanically_admitted": false
     }
   ],
+  "bounded_repair": {
+    "operator": "single-heldout-agent-verb-pair-replacement",
+    "replacement": {
+      "agent": "patient courier",
+      "verb": "delivers"
+    },
+    "rendered": "the patient courier delivers sealed letter before dawn. the quiet teacher opens marked parcel beside the gate.",
+    "letters": 92,
+    "tape": "thepatientcourierdeliverssealedletterbeforedawnthequietteacheropensmarkedparcelbesidethegate",
+    "exact": false,
+    "provenance": "held-out agreement-compatible patient courier / delivers replacement; original frames otherwise frozen",
+    "audit": {
+      "rendered": "the patient courier delivers sealed letter before dawn. the quiet teacher opens marked parcel beside the gate.",
+      "letters": 92,
+      "normalized_tape": "thepatientcourierdeliverssealedletterbeforedawnthequietteacheropensmarkedparcelbesidethegate",
+      "independent_exact": false,
+      "independent_sha256": "d38f6985b0a3f04fcc0c5cccedec0725109dc00b863d38767a4fce663cc14f24",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false
+    },
+    "chart": {
+      "edges": 1,
+      "complete_paths": [],
+      "states": 2
+    }
+  },
   "next_repair": {
     "status": "required",
-    "operator": "replace exactly one agent/verb slot pair with held-out agreement-compatible alternatives, re-solve obligations before charting",
-    "target": "obligation with lowest shared character overlap",
+    "operator": "replace exactly one object/adjunct slot pair with a fresh authored agreement-compatible alternative, re-solve obligations before charting",
+    "target": "lowest-overlap object slot after the held-out repair",
     "reader_test": "blind intact-prose versus shuffled controls only after mechanically admitted exact candidate"
   }
 }

@@ -20,6 +20,7 @@ FRAMES=(
  {"det":"the","agent":"careful courier","verb":"carries","object":"sealed letter","adjunct":"before dawn"},
  {"det":"the","agent":"quiet teacher","verb":"opens","object":"marked parcel","adjunct":"beside the gate"},
 )
+HELDOUT_REPAIR={"agent":"patient courier","verb":"delivers"}
 LEX=("the","a","careful","quiet","courier","teacher","carries","opens","sealed","marked","letter","parcel","before","beside","dawn","gate")
 
 def novelty_preflight():
@@ -39,6 +40,18 @@ def construct_slot_equation():
  tape=normalize_letters(left+right)
  obligations=[{"left_slot":k,"right_slot":k,"left":FRAMES[0][k],"right":FRAMES[1][k],"letters_equal":False} for k in ("agent","verb","object","adjunct")]
  return {"left_rendered":left,"right_rendered":right,"rendered":left+" "+right,"tape":tape,"letters":len(tape),"obligations":obligations,"exact":tape==tape[::-1],"provenance":"two independently authored event frames; no corpus import"}
+
+def heldout_repair():
+    """One bounded semantic repair, then a fresh equation/chart (no sweep)."""
+    repaired=[dict(x) for x in FRAMES]
+    repaired[0]["agent"]=HELDOUT_REPAIR["agent"]
+    repaired[0]["verb"]=HELDOUT_REPAIR["verb"]
+    left,right=frame_text(repaired[0]),frame_text(repaired[1])
+    rendered=left+" "+right; tape=normalize_letters(rendered)
+    return {"operator":"single-heldout-agent-verb-pair-replacement","replacement":HELDOUT_REPAIR,
+      "rendered":rendered,"letters":len(tape),"tape":tape,"exact":tape==tape[::-1],
+      "provenance":"held-out agreement-compatible patient courier / delivers replacement; original frames otherwise frozen",
+      "audit":audit(rendered),"chart":boundary_chart(tape)}
 
 def boundary_chart(tape):
  # Independent chart: tokenize only at dictionary boundaries and retain CFG
@@ -75,7 +88,7 @@ def run():
  if pre["status"]!="passed": raise RuntimeError(pre)
  source=construct_slot_equation(); chart=boundary_chart(source["tape"])
  candidates=[audit(source["left_rendered"]),audit(source["right_rendered"]),audit(source["rendered"])]
- out={"experiment_id":EXPERIMENT_ID,"signature":SIGNATURE,"novelty_preflight":pre,"source":source,"boundary_chart":chart,"rendered_candidates":candidates,"next_repair":{"status":"required","operator":"replace exactly one agent/verb slot pair with held-out agreement-compatible alternatives, re-solve obligations before charting","target":"obligation with lowest shared character overlap","reader_test":"blind intact-prose versus shuffled controls only after mechanically admitted exact candidate"}}
+ out={"experiment_id":EXPERIMENT_ID,"signature":SIGNATURE,"novelty_preflight":pre,"source":source,"boundary_chart":chart,"rendered_candidates":candidates,"bounded_repair":heldout_repair(),"next_repair":{"status":"required","operator":"replace exactly one object/adjunct slot pair with a fresh authored agreement-compatible alternative, re-solve obligations before charting","target":"lowest-overlap object slot after the held-out repair","reader_test":"blind intact-prose versus shuffled controls only after mechanically admitted exact candidate"}}
  OUT.write_text(json.dumps(out,indent=2)+"\n"); return out
 
 if __name__=="__main__": print(json.dumps(run(),indent=2))

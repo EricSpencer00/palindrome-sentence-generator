@@ -11,6 +11,11 @@ def test_novelty_preflight_and_run():
     assert result["rendered_candidates"]
     assert all("independent_sha256" in x for x in result["rendered_candidates"])
     assert result["next_repair"]["status"]=="required"
+    repair=result["bounded_repair"]
+    assert repair["operator"].startswith("single-heldout")
+    assert repair["audit"]["independent_sha256"]
+    assert repair["audit"]["mechanically_admitted"] is False
+    assert repair["provenance"].startswith("held-out")
 
 def test_slot_equation_is_not_word_order_symmetry():
     source=mod.construct_slot_equation()

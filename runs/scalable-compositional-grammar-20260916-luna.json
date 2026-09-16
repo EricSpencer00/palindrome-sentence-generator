@@ -1,0 +1,644 @@
+{
+  "experiment": "scalable-compositional-grammar-20260916-luna",
+  "signature": "unbounded-flat-clause-growth|typed-action-records|nonpalindromic-span-exclusion|independent-pointer-sha",
+  "status": "complete",
+  "novelty_preflight": {
+    "registry_entries_read": 266,
+    "exact_signature_collisions": [],
+    "passed": true,
+    "duplicate_sweep_rejected": true
+  },
+  "grammar": {
+    "production": "Scene := Base (ActionIncrement)*",
+    "maximum_depth": 12,
+    "growth": "append a fresh typed action record; no nesting or mirroring"
+  },
+  "states_examined": 10,
+  "candidates": [
+    {
+      "rendered": "At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path.",
+      "letters": 95,
+      "depth": 3,
+      "grammar_state": {
+        "unbounded": true,
+        "state": "flat_action_sequence",
+        "increments_consumed": 3,
+        "nested_palindrome_units": false
+      },
+      "independent_checks": {
+        "pointer": {
+          "algorithm": "two_pointer_on_normalized_tape",
+          "letters": 95,
+          "exact": false,
+          "mismatch_count": 41,
+          "first_mismatch": [
+            0,
+            94,
+            "a",
+            "h"
+          ]
+        },
+        "sha": {
+          "algorithm": "sha256_forward_reverse",
+          "forward": "8d708c1084646f79424eff4f5f12d51c36aa029e34eca1ee9324409e0abb3d08",
+          "reverse": "f4f4ec4c6e7e3bb6cadac78886fb77a41ad21f1f95314a3ac24f3b9b69851508",
+          "exact": false
+        },
+        "agreement": true
+      },
+      "novelty_admission": {
+        "ascii": true,
+        "terminal_period": true,
+        "complete_words": true,
+        "no_proper_span": true,
+        "no_repeated_unit": true,
+        "ordinary_word_order": true
+      },
+      "span_scan": {
+        "proper_multiword_palindromic_spans": [],
+        "repeated_nontrivial_units": []
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 21,
+        "reader_study": false
+      },
+      "provenance": {
+        "seed": "fresh human-authored garden event frame",
+        "catalogue_text_used": false,
+        "copied_sentence": false,
+        "word_order_mirror": false,
+        "generator_sha256": "d23b0bb7b6269ed92eb5d53c0b5a81012ecf232acc362005a5eb3011f57c550f"
+      }
+    },
+    {
+      "rendered": "At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path, labels the seed trays.",
+      "letters": 113,
+      "depth": 4,
+      "grammar_state": {
+        "unbounded": true,
+        "state": "flat_action_sequence",
+        "increments_consumed": 4,
+        "nested_palindrome_units": false
+      },
+      "independent_checks": {
+        "pointer": {
+          "algorithm": "two_pointer_on_normalized_tape",
+          "letters": 113,
+          "exact": false,
+          "mismatch_count": 51,
+          "first_mismatch": [
+            0,
+            112,
+            "a",
+            "s"
+          ]
+        },
+        "sha": {
+          "algorithm": "sha256_forward_reverse",
+          "forward": "62dce0179f414879fc509c1d9fe80dd8fa440325468e7cc831a22a93e3895360",
+          "reverse": "d6e803dde7eacbb74c72a6872b46b87f7ef0f6859226cd765350f1cf903d33e5",
+          "exact": false
+        },
+        "agreement": true
+      },
+      "novelty_admission": {
+        "ascii": true,
+        "terminal_period": true,
+        "complete_words": true,
+        "no_proper_span": true,
+        "no_repeated_unit": true,
+        "ordinary_word_order": true
+      },
+      "span_scan": {
+        "proper_multiword_palindromic_spans": [],
+        "repeated_nontrivial_units": []
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 25,
+        "reader_study": false
+      },
+      "provenance": {
+        "seed": "fresh human-authored garden event frame",
+        "catalogue_text_used": false,
+        "copied_sentence": false,
+        "word_order_mirror": false,
+        "generator_sha256": "d23b0bb7b6269ed92eb5d53c0b5a81012ecf232acc362005a5eb3011f57c550f"
+      }
+    },
+    {
+      "rendered": "At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path, labels the seed trays, carries the spare hose.",
+      "letters": 132,
+      "depth": 5,
+      "grammar_state": {
+        "unbounded": true,
+        "state": "flat_action_sequence",
+        "increments_consumed": 5,
+        "nested_palindrome_units": false
+      },
+      "independent_checks": {
+        "pointer": {
+          "algorithm": "two_pointer_on_normalized_tape",
+          "letters": 132,
+          "exact": false,
+          "mismatch_count": 57,
+          "first_mismatch": [
+            0,
+            131,
+            "a",
+            "e"
+          ]
+        },
+        "sha": {
+          "algorithm": "sha256_forward_reverse",
+          "forward": "fa6621c4499f394e71c8df94acca321e4184af067c7f440564515af1ac6cc7f4",
+          "reverse": "412262c312b21144d1b626e583c23aaa3b9618d367635b0c81a3b149d4c90235",
+          "exact": false
+        },
+        "agreement": true
+      },
+      "novelty_admission": {
+        "ascii": true,
+        "terminal_period": true,
+        "complete_words": true,
+        "no_proper_span": true,
+        "no_repeated_unit": true,
+        "ordinary_word_order": true
+      },
+      "span_scan": {
+        "proper_multiword_palindromic_spans": [],
+        "repeated_nontrivial_units": []
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 29,
+        "reader_study": false
+      },
+      "provenance": {
+        "seed": "fresh human-authored garden event frame",
+        "catalogue_text_used": false,
+        "copied_sentence": false,
+        "word_order_mirror": false,
+        "generator_sha256": "d23b0bb7b6269ed92eb5d53c0b5a81012ecf232acc362005a5eb3011f57c550f"
+      }
+    },
+    {
+      "rendered": "At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path, labels the seed trays, carries the spare hose, mends the loose gate.",
+      "letters": 149,
+      "depth": 6,
+      "grammar_state": {
+        "unbounded": true,
+        "state": "flat_action_sequence",
+        "increments_consumed": 6,
+        "nested_palindrome_units": false
+      },
+      "independent_checks": {
+        "pointer": {
+          "algorithm": "two_pointer_on_normalized_tape",
+          "letters": 149,
+          "exact": false,
+          "mismatch_count": 62,
+          "first_mismatch": [
+            0,
+            148,
+            "a",
+            "e"
+          ]
+        },
+        "sha": {
+          "algorithm": "sha256_forward_reverse",
+          "forward": "49b4ae95abbb9c5250b2cd9a5c5c502a37739a7be1f3e4a8fd2ba87849c0aa63",
+          "reverse": "a5969d2ffe785f3fa175a4db5dc5015c56e966cc3c1120925f4a69b5b6595d42",
+          "exact": false
+        },
+        "agreement": true
+      },
+      "novelty_admission": {
+        "ascii": true,
+        "terminal_period": true,
+        "complete_words": true,
+        "no_proper_span": true,
+        "no_repeated_unit": true,
+        "ordinary_word_order": true
+      },
+      "span_scan": {
+        "proper_multiword_palindromic_spans": [],
+        "repeated_nontrivial_units": []
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 33,
+        "reader_study": false
+      },
+      "provenance": {
+        "seed": "fresh human-authored garden event frame",
+        "catalogue_text_used": false,
+        "copied_sentence": false,
+        "word_order_mirror": false,
+        "generator_sha256": "d23b0bb7b6269ed92eb5d53c0b5a81012ecf232acc362005a5eb3011f57c550f"
+      }
+    },
+    {
+      "rendered": "At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path, labels the seed trays, carries the spare hose, mends the loose gate, folds the canvas tarp.",
+      "letters": 167,
+      "depth": 7,
+      "grammar_state": {
+        "unbounded": true,
+        "state": "flat_action_sequence",
+        "increments_consumed": 7,
+        "nested_palindrome_units": false
+      },
+      "independent_checks": {
+        "pointer": {
+          "algorithm": "two_pointer_on_normalized_tape",
+          "letters": 167,
+          "exact": false,
+          "mismatch_count": 74,
+          "first_mismatch": [
+            0,
+            166,
+            "a",
+            "p"
+          ]
+        },
+        "sha": {
+          "algorithm": "sha256_forward_reverse",
+          "forward": "cc59fac79db26b6820b62909767822d30cb9d0cbf795c162c431e54a392026de",
+          "reverse": "f26f4143a4be114669b2ec777a40922d3f55b6680d1b5525170dde19a3de3338",
+          "exact": false
+        },
+        "agreement": true
+      },
+      "novelty_admission": {
+        "ascii": true,
+        "terminal_period": true,
+        "complete_words": true,
+        "no_proper_span": true,
+        "no_repeated_unit": true,
+        "ordinary_word_order": true
+      },
+      "span_scan": {
+        "proper_multiword_palindromic_spans": [],
+        "repeated_nontrivial_units": []
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 37,
+        "reader_study": false
+      },
+      "provenance": {
+        "seed": "fresh human-authored garden event frame",
+        "catalogue_text_used": false,
+        "copied_sentence": false,
+        "word_order_mirror": false,
+        "generator_sha256": "d23b0bb7b6269ed92eb5d53c0b5a81012ecf232acc362005a5eb3011f57c550f"
+      }
+    },
+    {
+      "rendered": "At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path, labels the seed trays, carries the spare hose, mends the loose gate, folds the canvas tarp, writes a note for the neighbor.",
+      "letters": 192,
+      "depth": 8,
+      "grammar_state": {
+        "unbounded": true,
+        "state": "flat_action_sequence",
+        "increments_consumed": 8,
+        "nested_palindrome_units": false
+      },
+      "independent_checks": {
+        "pointer": {
+          "algorithm": "two_pointer_on_normalized_tape",
+          "letters": 192,
+          "exact": false,
+          "mismatch_count": 89,
+          "first_mismatch": [
+            0,
+            191,
+            "a",
+            "r"
+          ]
+        },
+        "sha": {
+          "algorithm": "sha256_forward_reverse",
+          "forward": "393d2bd13812c288a49531848cbca9dd53f449ccf269b9c4c635e852bb560c6b",
+          "reverse": "20df288c645d054268333e0f280a232d61ca8a9da3b6805189b94f20da3cf488",
+          "exact": false
+        },
+        "agreement": true
+      },
+      "novelty_admission": {
+        "ascii": true,
+        "terminal_period": true,
+        "complete_words": true,
+        "no_proper_span": true,
+        "no_repeated_unit": true,
+        "ordinary_word_order": true
+      },
+      "span_scan": {
+        "proper_multiword_palindromic_spans": [],
+        "repeated_nontrivial_units": []
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 43,
+        "reader_study": false
+      },
+      "provenance": {
+        "seed": "fresh human-authored garden event frame",
+        "catalogue_text_used": false,
+        "copied_sentence": false,
+        "word_order_mirror": false,
+        "generator_sha256": "d23b0bb7b6269ed92eb5d53c0b5a81012ecf232acc362005a5eb3011f57c550f"
+      }
+    },
+    {
+      "rendered": "At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path, labels the seed trays, carries the spare hose, mends the loose gate, folds the canvas tarp, writes a note for the neighbor, waters the herb bed.",
+      "letters": 208,
+      "depth": 9,
+      "grammar_state": {
+        "unbounded": true,
+        "state": "flat_action_sequence",
+        "increments_consumed": 9,
+        "nested_palindrome_units": false
+      },
+      "independent_checks": {
+        "pointer": {
+          "algorithm": "two_pointer_on_normalized_tape",
+          "letters": 208,
+          "exact": false,
+          "mismatch_count": 95,
+          "first_mismatch": [
+            0,
+            207,
+            "a",
+            "d"
+          ]
+        },
+        "sha": {
+          "algorithm": "sha256_forward_reverse",
+          "forward": "5b64275df52d13eda35386542fad22d48913f97a2da27c88250fda5ab468f040",
+          "reverse": "456ebbbbf26761e022f8e9e912d62e58e8a5d64ab63dd0f43075c8d06fb2d1b4",
+          "exact": false
+        },
+        "agreement": true
+      },
+      "novelty_admission": {
+        "ascii": true,
+        "terminal_period": true,
+        "complete_words": true,
+        "no_proper_span": true,
+        "no_repeated_unit": true,
+        "ordinary_word_order": true
+      },
+      "span_scan": {
+        "proper_multiword_palindromic_spans": [],
+        "repeated_nontrivial_units": []
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 47,
+        "reader_study": false
+      },
+      "provenance": {
+        "seed": "fresh human-authored garden event frame",
+        "catalogue_text_used": false,
+        "copied_sentence": false,
+        "word_order_mirror": false,
+        "generator_sha256": "d23b0bb7b6269ed92eb5d53c0b5a81012ecf232acc362005a5eb3011f57c550f"
+      }
+    },
+    {
+      "rendered": "At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path, labels the seed trays, carries the spare hose, mends the loose gate, folds the canvas tarp, writes a note for the neighbor, waters the herb bed, stacks the wooden crates.",
+      "letters": 229,
+      "depth": 10,
+      "grammar_state": {
+        "unbounded": true,
+        "state": "flat_action_sequence",
+        "increments_consumed": 10,
+        "nested_palindrome_units": false
+      },
+      "independent_checks": {
+        "pointer": {
+          "algorithm": "two_pointer_on_normalized_tape",
+          "letters": 229,
+          "exact": false,
+          "mismatch_count": 105,
+          "first_mismatch": [
+            0,
+            228,
+            "a",
+            "s"
+          ]
+        },
+        "sha": {
+          "algorithm": "sha256_forward_reverse",
+          "forward": "4dffcfba08819c1040a67c3bd635a66673d61478279ca8b67ce579a480d101a1",
+          "reverse": "8733d03a3f1788b9672522cef31276def65848af49fdabcb7574f65e796e8cfa",
+          "exact": false
+        },
+        "agreement": true
+      },
+      "novelty_admission": {
+        "ascii": true,
+        "terminal_period": true,
+        "complete_words": true,
+        "no_proper_span": true,
+        "no_repeated_unit": true,
+        "ordinary_word_order": true
+      },
+      "span_scan": {
+        "proper_multiword_palindromic_spans": [],
+        "repeated_nontrivial_units": []
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 51,
+        "reader_study": false
+      },
+      "provenance": {
+        "seed": "fresh human-authored garden event frame",
+        "catalogue_text_used": false,
+        "copied_sentence": false,
+        "word_order_mirror": false,
+        "generator_sha256": "d23b0bb7b6269ed92eb5d53c0b5a81012ecf232acc362005a5eb3011f57c550f"
+      }
+    },
+    {
+      "rendered": "At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path, labels the seed trays, carries the spare hose, mends the loose gate, folds the canvas tarp, writes a note for the neighbor, waters the herb bed, stacks the wooden crates, opens the greenhouse windows.",
+      "letters": 254,
+      "depth": 11,
+      "grammar_state": {
+        "unbounded": true,
+        "state": "flat_action_sequence",
+        "increments_consumed": 11,
+        "nested_palindrome_units": false
+      },
+      "independent_checks": {
+        "pointer": {
+          "algorithm": "two_pointer_on_normalized_tape",
+          "letters": 254,
+          "exact": false,
+          "mismatch_count": 115,
+          "first_mismatch": [
+            0,
+            253,
+            "a",
+            "s"
+          ]
+        },
+        "sha": {
+          "algorithm": "sha256_forward_reverse",
+          "forward": "c7fa42f0b12f1f3365b4cc81d245d1e787d6671ff234571cbc089400ac90d6df",
+          "reverse": "7b4cf4c2324963b622f4e0d275165703c757ddbe86947f9f3ae64446d2c91412",
+          "exact": false
+        },
+        "agreement": true
+      },
+      "novelty_admission": {
+        "ascii": true,
+        "terminal_period": true,
+        "complete_words": true,
+        "no_proper_span": true,
+        "no_repeated_unit": true,
+        "ordinary_word_order": true
+      },
+      "span_scan": {
+        "proper_multiword_palindromic_spans": [],
+        "repeated_nontrivial_units": []
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 55,
+        "reader_study": false
+      },
+      "provenance": {
+        "seed": "fresh human-authored garden event frame",
+        "catalogue_text_used": false,
+        "copied_sentence": false,
+        "word_order_mirror": false,
+        "generator_sha256": "d23b0bb7b6269ed92eb5d53c0b5a81012ecf232acc362005a5eb3011f57c550f"
+      }
+    },
+    {
+      "rendered": "At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path, labels the seed trays, carries the spare hose, mends the loose gate, folds the canvas tarp, writes a note for the neighbor, waters the herb bed, stacks the wooden crates, opens the greenhouse windows, records the morning weather.",
+      "letters": 278,
+      "depth": 12,
+      "grammar_state": {
+        "unbounded": true,
+        "state": "flat_action_sequence",
+        "increments_consumed": 12,
+        "nested_palindrome_units": false
+      },
+      "independent_checks": {
+        "pointer": {
+          "algorithm": "two_pointer_on_normalized_tape",
+          "letters": 278,
+          "exact": false,
+          "mismatch_count": 125,
+          "first_mismatch": [
+            0,
+            277,
+            "a",
+            "r"
+          ]
+        },
+        "sha": {
+          "algorithm": "sha256_forward_reverse",
+          "forward": "eef02f49a84a992ee7344cd367070ac4c90b0442fb2d096e85569276d6d2fde5",
+          "reverse": "18fdda56a43e50911b24223e48adafab67d486a1919688a3a0f9d7c6772d5f85",
+          "exact": false
+        },
+        "agreement": true
+      },
+      "novelty_admission": {
+        "ascii": true,
+        "terminal_period": true,
+        "complete_words": true,
+        "no_proper_span": true,
+        "no_repeated_unit": true,
+        "ordinary_word_order": true
+      },
+      "span_scan": {
+        "proper_multiword_palindromic_spans": [],
+        "repeated_nontrivial_units": []
+      },
+      "readability_diagnostic": {
+        "status": "diagnostic_only",
+        "word_count": 59,
+        "reader_study": false
+      },
+      "provenance": {
+        "seed": "fresh human-authored garden event frame",
+        "catalogue_text_used": false,
+        "copied_sentence": false,
+        "word_order_mirror": false,
+        "generator_sha256": "d23b0bb7b6269ed92eb5d53c0b5a81012ecf232acc362005a5eb3011f57c550f"
+      }
+    }
+  ],
+  "intact_english_prose_candidate": {
+    "rendered": "At first light, the gardener unlocks the old shed, checks the water barrel, trims the apple tree, sweeps the stone path, labels the seed trays, carries the spare hose, mends the loose gate, folds the canvas tarp, writes a note for the neighbor, waters the herb bed.",
+    "letters": 208,
+    "depth": 9,
+    "grammar_state": {
+      "unbounded": true,
+      "state": "flat_action_sequence",
+      "increments_consumed": 9,
+      "nested_palindrome_units": false
+    },
+    "independent_checks": {
+      "pointer": {
+        "algorithm": "two_pointer_on_normalized_tape",
+        "letters": 208,
+        "exact": false,
+        "mismatch_count": 95,
+        "first_mismatch": [
+          0,
+          207,
+          "a",
+          "d"
+        ]
+      },
+      "sha": {
+        "algorithm": "sha256_forward_reverse",
+        "forward": "5b64275df52d13eda35386542fad22d48913f97a2da27c88250fda5ab468f040",
+        "reverse": "456ebbbbf26761e022f8e9e912d62e58e8a5d64ab63dd0f43075c8d06fb2d1b4",
+        "exact": false
+      },
+      "agreement": true
+    },
+    "novelty_admission": {
+      "ascii": true,
+      "terminal_period": true,
+      "complete_words": true,
+      "no_proper_span": true,
+      "no_repeated_unit": true,
+      "ordinary_word_order": true
+    },
+    "span_scan": {
+      "proper_multiword_palindromic_spans": [],
+      "repeated_nontrivial_units": []
+    },
+    "readability_diagnostic": {
+      "status": "diagnostic_only",
+      "word_count": 47,
+      "reader_study": false
+    },
+    "provenance": {
+      "seed": "fresh human-authored garden event frame",
+      "catalogue_text_used": false,
+      "copied_sentence": false,
+      "word_order_mirror": false,
+      "generator_sha256": "d23b0bb7b6269ed92eb5d53c0b5a81012ecf232acc362005a5eb3011f57c550f"
+    }
+  },
+  "exact_count": 0,
+  "next_extension_repair": {
+    "operator": "append a held-out typed action increment and recompute the full tape",
+    "reason": "first pointer mismatch remains open; extension preserves flat grammar state"
+  },
+  "provenance": {
+    "registry_sha256": "738fca07f222ee0a0c2bd584ecb9e3c3f36e73fade03984a24428d132d176945",
+    "catalogue_imported": false
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "experiment_id": "dynamic-dp-clinic-repair-20260916",
+  "novelty_preflight": {
+    "catalogue_imported": false,
+    "known_palindromes_imported": false,
+    "collision": false
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "At first light Mara opens the clinic, checks the quiet generators, greets the two nurses, and records the medicine count. She carries clean water to the waiting room, labels each parcel, phones the mountain driver, updates the weather board, thanks the volunteers, and closes the ledger before dusk. After supper she inventories the blankets, answers the radio, repairs a torn notice, and leaves clear instructions for the morning shift.",
+      "letters": 355,
+      "exact": false,
+      "two_pointer_exact": false,
+      "mismatches": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "forward_hash": "870f95af90d6c32453a5d82c37c14160e25df52fe8f51ad730b1c26ac312f592",
+      "reverse_hash": "0813e9783dc6ebd6d94e262bed102acf7b13edbc24a8630e03d70fc5d0d00e6a",
+      "mechanical": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    }
+  ],
+  "stats": {
+    "letters": 355,
+    "exact": false
+  },
+  "dynamic_program": {
+    "frontier": "first mirrored character debt",
+    "held_out_lexicalizations": {
+      "verbs": [
+        "mends",
+        "sorts",
+        "seals"
+      ],
+      "objects": [
+        "register",
+        "parcel",
+        "notice"
+      ],
+      "adjuncts": [
+        "before noon",
+        "after rain"
+      ]
+    },
+    "state": "agreement=third-singular-present; valency=transitive; content_words=all-different",
+    "operator": "joint DP over left/right slots, minimizing residual debt while retaining complete clauses"
+  },
+  "next_repair": "expand held-out verb/object pairs at the first debt frontier; retain longest readable if no zero-debt path",
+  "provenance": {
+    "generator_sha256": "1334187fee16879b09ad2cb718acda4ecc455067187baa58490cd341eebbe8f8",
+    "source": "fresh clinic scene plus held-out hand-authored lexicalizations",
+    "audits": [
+      "two-pointer",
+      "forward/reverse hash",
+      "mechanical gate"
+    ]
+  }
+}

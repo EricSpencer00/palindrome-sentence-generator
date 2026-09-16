@@ -431,6 +431,14 @@ phrase-level reverse parser retained nine independently parsed 116--118-letter
 clause pairs; and a finite-domain clause-equation SAT probe retained a
 116-letter two-clause scene. All are fresh intact prose with independent
 pointer/hash rejection, provenance, novelty preflight, and concrete repairs.
-They add **11 rows and 3 route phases** to the aggregate (now **4,594 rows,
-172 route phases, 79 exact rejected tapes, and 0 mechanically admitted**). None
+They add **11 rows and 3 route phases** to the aggregate; the common report now
+contains **4,597 rows, 175 route phases, 79 exact rejected tapes, and 0
+mechanically admitted**. None
 is promoted as reader evidence.
+
+The next constructive probes add three distinct states: a 130-letter dialogue
+question/answer grammar, a 68-letter typed morpheme-compound realization, and
+a 91-letter first-token equation grammar. Their ordinary prose, independent
+audits, provenance, novelty records, and concrete repairs are retained; the
+morpheme probe is below the long-prose floor and fails its lexicon gate, so no
+shortcut is promoted.

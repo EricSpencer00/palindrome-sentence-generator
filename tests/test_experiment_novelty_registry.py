@@ -231,6 +231,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "exact-tape-grammatical-resegmentation-20260916-luna" in ids
     assert "semantic-slot-substitution-repair-20260916-luna" in ids
     assert "inflection-clitic-distinct-repair-20260916-luna" in ids
+    assert "dialogue-speech-act-grammar-20260916-qaser" in ids
+    assert "typed-morpheme-compound-boundary-20260916" in ids
+    assert "typed-equation-grammar-20260916" in ids
     assert "graph-to-prose-path-20260916" in ids
     assert "voice-alternation-residual-20260916" in ids
     assert "ccg-semantic-solver-20260916" in ids

@@ -1,0 +1,132 @@
+{
+  "experiment": "semantic-slot-substitution-repair-20260916-luna",
+  "signature": "fresh-intact-scene|typed-heldout-slot-substitution|ordinary-order|independent-pointer-sha256|diagnostic-readability",
+  "status": "complete_diagnostic_lane",
+  "novelty_preflight": {
+    "entries_inspected": 269,
+    "signature_collisions": [],
+    "passed": true,
+    "state_space_distinction": "fresh authored intact prose; one held-out typed object substitution; no catalogue or clause copying"
+  },
+  "candidate": {
+    "rendered": "After rain, the patient gardener carries a wrapped bundle beside the quiet greenhouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart toward the dry storehouse.",
+    "letters": 170,
+    "exact": false,
+    "two_pointer": {
+      "algorithm": "independent_two_pointer",
+      "exact": false,
+      "mismatch_count": 160,
+      "first_mismatch": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "e"
+        }
+      ]
+    },
+    "sha256": {
+      "algorithm": "forward_vs_reversed_normalized_tape",
+      "forward": "183875f39da8da74faea6a6aa9e1577029fd3eab327d0961d3a2d7f74971822c",
+      "reverse": "1d0f8f5fd6cffcf404f6570f225289e6d3221b903a025a2d2e409f58f06a2f6c",
+      "exact": false
+    },
+    "admission": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "prose_shape": {
+      "word_count": 34,
+      "terminal_period": true,
+      "ordinary_word_order": true
+    },
+    "readability": {
+      "diagnostic_only": true,
+      "status": "not human readability evidence",
+      "repetition_rate": 0.1470588235294118
+    }
+  },
+  "near_miss": {
+    "rendered": "After rain, the patient gardener carries a sealed parcel beside the quiet greenhouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart toward the dry storehouse.",
+    "letters": 169,
+    "exact": false,
+    "two_pointer": {
+      "algorithm": "independent_two_pointer",
+      "exact": false,
+      "mismatch_count": 160,
+      "first_mismatch": [
+        {
+          "offset": 0,
+          "left": "a",
+          "right": "e"
+        }
+      ]
+    },
+    "sha256": {
+      "algorithm": "forward_vs_reversed_normalized_tape",
+      "forward": "12195d91ab1aa4a1f5f4fc5a6a44105dd0d8beec1bba0ad8c0ee6d43af83987f",
+      "reverse": "27e1d54e609f5dc97af09d51f7c8d5350b0716ee5a274a9d2eefac299c007e4f",
+      "exact": false
+    },
+    "admission": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "prose_shape": {
+      "word_count": 34,
+      "terminal_period": true,
+      "ordinary_word_order": true
+    },
+    "readability": {
+      "diagnostic_only": true,
+      "status": "not human readability evidence",
+      "repetition_rate": 0.1470588235294118
+    }
+  },
+  "repair": {
+    "slot": "object",
+    "before": "a sealed parcel",
+    "after": "a wrapped bundle",
+    "changed_slot_count": 1,
+    "scene_preserved": true,
+    "operator": "substitute one held-out object at first mismatch and rerun exact audits"
+  },
+  "provenance": {
+    "generator_sha256": "d02b360746e98356b116a7f7ff8fba359a0bf2852fafb2e5e147337761e62ea2",
+    "registry_sha256": "789ed68547a0bfef64886f2b5c265a8023db89a57884e5d13ab41fc91e9c7077",
+    "catalogue_text_used": false,
+    "copied_clause": false,
+    "wrapper_or_word_order_symmetry": false,
+    "source": "fresh authored scene"
+  },
+  "next_repair": "If still non-exact, target the first mismatch's typed adjunct (locative or purpose) with one held-out sense-compatible phrase; do not change two slots."
+}

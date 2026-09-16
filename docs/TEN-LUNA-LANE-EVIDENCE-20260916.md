@@ -387,7 +387,7 @@ novelty preflight, independent audits, and concrete repairs.
 The ten requested dimensions were rerun as separate state representations. The
 aggregate now contains **4,583 rendered rows across 169 route phases, 79 exact
 but rejected tapes, and 0 mechanically admitted outputs**. The novelty registry
-has **271 unique retained artifacts, 28 explicit exclusions, and 249 run
+has **271 unique retained artifacts, 29 explicit exclusions, and 249 run
 artifacts**. Every retained lane below has an intact rendering, an independent
 pointer/hash audit, provenance, novelty preflight, and a concrete next repair.
 The lane-8 exact result is intentionally excluded because it repeats a

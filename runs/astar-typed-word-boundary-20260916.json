@@ -1,0 +1,80 @@
+{
+  "experiment_id": "astar-typed-word-boundary-20260916",
+  "signature": "astar|typed-lexical-chunk|joint-opposite-word-boundary|hard-grammar-valency",
+  "novelty_preflight": {
+    "registry_inspected": true,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "known_palindrome_imported": false
+  },
+  "method": {
+    "search": "A*",
+    "state": "(left lexical index,right lexical index,settled boundary obligations)",
+    "expansion": "typed lexical chunks and opposite-side boundaries jointly",
+    "forbidden": [
+      "fixed catalogue tape",
+      "repeated spans",
+      "mirrored word order",
+      "seed wrapper"
+    ]
+  },
+  "candidate": {
+    "rendered": "The patient gardener waters the cedar seedlings beside the schoolhouse before sunrise. the teacher labels every seedling and stores the tools beneath the quiet porch.",
+    "letters": 140,
+    "audit": {
+      "exact_letter_palindrome": false,
+      "two_pointer": false,
+      "reverse_sha256": "be7f5bd805dd955005b593d51758dc0da92bf2dababb7a93830a4c72ec656184",
+      "reverse_sha256_expected": "380dc57d46c9c0de2849e099b352d004eecf5d0fb769fec8b5d1d68b3357ca27",
+      "mismatch_positions": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        25,
+        26
+      ]
+    },
+    "grammar_valid": true,
+    "semantic_valency_valid": true
+  },
+  "stats": {
+    "states_expanded": 9,
+    "exact": 0,
+    "over_100": 1
+  },
+  "next_repair": {
+    "operator": "replace only the first mismatching typed chunk pair while preserving valency, then reopen both boundary frontiers",
+    "reason": "ordinary prose and hard grammar closed, but character obligations diverged at the outer edge",
+    "concrete": "try held-out inflected agent/action pairs with matching edge letters; reject any edit that changes argument structure"
+  },
+  "provenance": {
+    "generator": "experiments/astar_typed_boundary_20260916.py",
+    "generator_sha256": "0dd60e63b9a37f2fb2e03b5de0ff1085bb810a9207c6faa372225205fe9078cc",
+    "lexical_source": "hand-authored typed chunks",
+    "independent_audits": [
+      "two-pointer",
+      "direct normalized tape",
+      "SHA-256 forward/reverse"
+    ],
+    "reproducible_command": "python3 experiments/astar_typed_boundary_20260916.py"
+  }
+}

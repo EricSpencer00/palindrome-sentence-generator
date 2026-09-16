@@ -1,0 +1,62 @@
+{
+  "experiment_id": "semantic-relation-alignment-20260916",
+  "signature": "semantic-relation-alignment|directed-event-edge-pairing|independent-role-lexicalization|boundary-synchronous-character-ledger|deterministic-exhaustive",
+  "status": "completed_no_repo_mutation",
+  "novelty_preflight": {
+    "registry_entries": 94,
+    "prototype_registry_entries": 93,
+    "excluded_routes": 6,
+    "exact_signature_collision": false,
+    "nearest_prior": {
+      "id": "relation-graph-event-pair",
+      "jaccard": 0.192308,
+      "shared_atoms": ["edge", "event", "lexicalization", "relation", "semantic"]
+    },
+    "next_nearest_prior": {
+      "id": "two-edge-event-micrograph",
+      "jaccard": 0.148148,
+      "shared_atoms": ["edge", "event", "lexicalization", "semantic"]
+    },
+    "disposition": "distinct edge-conditioned lexicalization state; no promotion to reader evidence"
+  },
+  "method": "Each frame is a directed semantic edge between two events. Left and right role slots use independent authored lexical pools. An exhaustive boundary-synchronous ledger chooses whole lexical words from opposite edges and emits one matching character pair per transition; no static palindrome text is imported.",
+  "config": {
+    "frames": {
+      "preserve_then_recover": ["preserves", "enables"],
+      "signal_then_respond": ["signals", "elicits"],
+      "plant_then_grow": ["plants", "causes"],
+      "measure_then_adjust": ["measures", "guides"]
+    },
+    "min_letters": 39,
+    "max_solutions_per_frame": 300,
+    "search_control": "deterministic exhaustive recursion; no beam, MCTS, chart, CSP, ILP, or catalogue input"
+  },
+  "stats": {
+    "frames": 4,
+    "rows": 0,
+    "exact": 0,
+    "admitted": 0,
+    "max_letters": 0,
+    "total_states": 36662,
+    "total_char_pairs": 1916,
+    "total_dead_char": 34594,
+    "per_frame": {
+      "preserve_then_recover": {"states": 9194, "char_pairs": 479, "dead_char": 8677, "lexical_assignments": 8699, "max_matched": 6, "deepest_probe": "left no it see... versus reverse right terminal question"},
+      "signal_then_respond": {"states": 9163, "char_pairs": 481, "dead_char": 8644, "lexical_assignments": 8666, "max_matched": 6, "deepest_probe": "left no it sends... versus reverse right terminal question"},
+      "plant_then_grow": {"states": 9146, "char_pairs": 479, "dead_char": 8629, "lexical_assignments": 8651, "max_matched": 6, "deepest_probe": "left no it see... versus reverse right terminal question"},
+      "measure_then_adjust": {"states": 9159, "char_pairs": 477, "dead_char": 8644, "lexical_assignments": 8666, "max_matched": 6, "deepest_probe": "left no it see... versus reverse right terminal question"}
+    }
+  },
+  "repair": {
+    "status": "not_run",
+    "proposal": "Replace the single terminal place token with a terminal-compatible phrase inventory, precompute semantic-role terminal suffixes satisfying at least three opening characters, and allow a bounded odd center.",
+    "family": "same route; not a new registry family"
+  },
+  "provenance": {
+    "lexical_pools": "hand-authored semantic pools widened deterministically with frequent standalone dictionary words",
+    "catalogue_imported": false,
+    "source_sentences_copied": false,
+    "reader_evidence": false,
+    "prototype_artifacts": ["/tmp/semantic_relation_alignment.py", "/tmp/semantic-relation-alignment-result.json"]
+  }
+}

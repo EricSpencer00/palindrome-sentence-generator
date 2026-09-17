@@ -1,0 +1,313 @@
+{
+  "experiment": "compositional-slot-boundary-dp-20260916",
+  "novelty_preflight": {
+    "passed": true,
+    "signature": "complete-clause-slot-boundary-dp|live-global-tape-equation|nested-free-composition|typed-terminal-coupling",
+    "overlaps_checked": [
+      "paired-grammar-terminal-closure-20260916",
+      "grammar-pair-composition-20260916"
+    ],
+    "reason": "DP state is clause-slot boundary position and global equation, not a beam or reverse tape generator."
+  },
+  "rows": [
+    {
+      "id": "dp-1-2",
+      "rendered": "A patient gardener tends the young cedar trees after the rain; the careful pilot marks the distant runway lights through the mist.",
+      "dp_trace": {
+        "states": [
+          "left_clause",
+          "center_separator",
+          "right_clause"
+        ],
+        "slot_boundaries": [
+          51,
+          51
+        ],
+        "equation": "left terminal + center + right terminal = mirrored debt",
+        "nested_spans": false
+      },
+      "audit": {
+        "length": 107,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "t"
+        },
+        "sha256_forward": "bba7bdcf529aec716632442f3c583b3cb9450ec051e29ea91b0a0e68c87097f4",
+        "sha256_reverse": "91cc7c8cc53025b5e9b1b8a0461169e77dd434c4f731a1ac4ce32eb9121428c7",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "dynamic programming over complete clause slot boundaries with live tape equation",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b71b952f1158bafd9386393ad507507dbf24d3020c803a675c461458df79827e",
+        "source_sha256": "bba7bdcf529aec716632442f3c583b3cb9450ec051e29ea91b0a0e68c87097f4"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "nested_palindrome_spans": false,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Coupled slot repair: retain the DP boundary state and substitute one typed adjunct terminal on the opposing clause to satisfy the first residual character, then re-run the same DP."
+    },
+    {
+      "id": "dp-2-1",
+      "rendered": "The careful pilot marks the distant runway lights through the mist; a patient gardener tends the young cedar trees after the rain.",
+      "dp_trace": {
+        "states": [
+          "left_clause",
+          "center_separator",
+          "right_clause"
+        ],
+        "slot_boundaries": [
+          56,
+          56
+        ],
+        "equation": "left terminal + center + right terminal = mirrored debt",
+        "nested_spans": false
+      },
+      "audit": {
+        "length": 107,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "366a6ade04ae1f576359dd11622aeff57b27880d5ac7dc3c02aa7914a5042ecf",
+        "sha256_reverse": "42db7fae5ff3bca6ed1f687283135fecf054ecf97259924aa89300f2fa5d1dc2",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "dynamic programming over complete clause slot boundaries with live tape equation",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b71b952f1158bafd9386393ad507507dbf24d3020c803a675c461458df79827e",
+        "source_sha256": "366a6ade04ae1f576359dd11622aeff57b27880d5ac7dc3c02aa7914a5042ecf"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "nested_palindrome_spans": false,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Coupled slot repair: retain the DP boundary state and substitute one typed adjunct terminal on the opposing clause to satisfy the first residual character, then re-run the same DP."
+    },
+    {
+      "id": "dp-0-2",
+      "rendered": "The archivist sorts the faded letters beside the window; the careful pilot marks the distant runway lights through the mist.",
+      "dp_trace": {
+        "states": [
+          "left_clause",
+          "center_separator",
+          "right_clause"
+        ],
+        "slot_boundaries": [
+          47,
+          47
+        ],
+        "equation": "left terminal + center + right terminal = mirrored debt",
+        "nested_spans": false
+      },
+      "audit": {
+        "length": 103,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 1,
+          "forward": "h",
+          "reverse": "s"
+        },
+        "sha256_forward": "db0c4dc35ab8d671c37085ea32801025c6205771a80f869bc19a94be48e2fe4d",
+        "sha256_reverse": "52c57ca9a7c1f845158de0244c9fb8734d1800bd1936a9098edc3d4bab9ce5bf",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "dynamic programming over complete clause slot boundaries with live tape equation",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b71b952f1158bafd9386393ad507507dbf24d3020c803a675c461458df79827e",
+        "source_sha256": "db0c4dc35ab8d671c37085ea32801025c6205771a80f869bc19a94be48e2fe4d"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "nested_palindrome_spans": false,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Coupled slot repair: retain the DP boundary state and substitute one typed adjunct terminal on the opposing clause to satisfy the first residual character, then re-run the same DP."
+    },
+    {
+      "id": "dp-2-0",
+      "rendered": "The careful pilot marks the distant runway lights through the mist; the archivist sorts the faded letters beside the window.",
+      "dp_trace": {
+        "states": [
+          "left_clause",
+          "center_separator",
+          "right_clause"
+        ],
+        "slot_boundaries": [
+          56,
+          56
+        ],
+        "equation": "left terminal + center + right terminal = mirrored debt",
+        "nested_spans": false
+      },
+      "audit": {
+        "length": 103,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "w"
+        },
+        "sha256_forward": "74b50e65fcced68ef017b80105f102146d604ab6581b208bc609047026d604d3",
+        "sha256_reverse": "d2b15624cc55e2baac4f55d67453f61389f90fb83ff4170e5577a7ea7dd53289",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "dynamic programming over complete clause slot boundaries with live tape equation",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b71b952f1158bafd9386393ad507507dbf24d3020c803a675c461458df79827e",
+        "source_sha256": "74b50e65fcced68ef017b80105f102146d604ab6581b208bc609047026d604d3"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "nested_palindrome_spans": false,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Coupled slot repair: retain the DP boundary state and substitute one typed adjunct terminal on the opposing clause to satisfy the first residual character, then re-run the same DP."
+    },
+    {
+      "id": "dp-0-1",
+      "rendered": "The archivist sorts the faded letters beside the window; a patient gardener tends the young cedar trees after the rain.",
+      "dp_trace": {
+        "states": [
+          "left_clause",
+          "center_separator",
+          "right_clause"
+        ],
+        "slot_boundaries": [
+          47,
+          47
+        ],
+        "equation": "left terminal + center + right terminal = mirrored debt",
+        "nested_spans": false
+      },
+      "audit": {
+        "length": 98,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "a90ace6375a48ba6baa6d8cb38ff38b55c8062cefc6924c231dfd35d6fc8e3cb",
+        "sha256_reverse": "cea99070c44470fe71f5563c7f4e217aa77a240f00b1a6ff346f8f62373b96d0",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "dynamic programming over complete clause slot boundaries with live tape equation",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b71b952f1158bafd9386393ad507507dbf24d3020c803a675c461458df79827e",
+        "source_sha256": "a90ace6375a48ba6baa6d8cb38ff38b55c8062cefc6924c231dfd35d6fc8e3cb"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "nested_palindrome_spans": false,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Coupled slot repair: retain the DP boundary state and substitute one typed adjunct terminal on the opposing clause to satisfy the first residual character, then re-run the same DP."
+    },
+    {
+      "id": "dp-1-0",
+      "rendered": "A patient gardener tends the young cedar trees after the rain; the archivist sorts the faded letters beside the window.",
+      "dp_trace": {
+        "states": [
+          "left_clause",
+          "center_separator",
+          "right_clause"
+        ],
+        "slot_boundaries": [
+          51,
+          51
+        ],
+        "equation": "left terminal + center + right terminal = mirrored debt",
+        "nested_spans": false
+      },
+      "audit": {
+        "length": 98,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "w"
+        },
+        "sha256_forward": "c59c69841e6508680339d177c806ee8cbb524e6d76350178a3e4bf48a17babe3",
+        "sha256_reverse": "394e71be87768e35619261570724a8aa7c38ba19cb60fbd7093422326de310d3",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "dynamic programming over complete clause slot boundaries with live tape equation",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b71b952f1158bafd9386393ad507507dbf24d3020c803a675c461458df79827e",
+        "source_sha256": "c59c69841e6508680339d177c806ee8cbb524e6d76350178a3e4bf48a17babe3"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "nested_palindrome_spans": false,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false
+      },
+      "next_repair": "Coupled slot repair: retain the DP boundary state and substitute one typed adjunct terminal on the opposing clause to satisfy the first residual character, then re-run the same DP."
+    }
+  ],
+  "summary": {
+    "candidate_count": 6,
+    "exact_count": 0,
+    "max_length": 107
+  }
+}

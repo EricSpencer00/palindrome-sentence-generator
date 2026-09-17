@@ -50,6 +50,9 @@ EXPLICIT_HISTORY = (
     "runs/luna-semantic-slot-obligation-repair-20260917.json",
     "runs/attachment-valency-repair-20260917.json",
     "runs/earley-seam-lexical-20260917.json",
+    "runs/coordinated-seam-chart-20260917.json",
+    "runs/phrase-pair-bidirectional-cfg-20260917.json",
+    "runs/attachment-equation-expansion-20260917.json",
     "runs/joint-boundary-first-mismatch-repair-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

@@ -3554,3 +3554,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   held-out controller is still `fixed_mismatch_first` (0.794 mismatch rate),
   with zero admissible exact closures. We continue with a coordinated,
   seam-carrying grammar, keeping the exact/readability gates unchanged.
+
+  Round ten evaluates three new constructive branches. Coordinated seam-chart
+  composition produced 48 fresh candidates; its best intact scene is “At
+  sunrise, the orchard keeper marks the pear trees and carries baskets home,
+  and while the patient beekeeper checks the cedar hive frames before evening.”
+  (123 letters, 51 mismatches). The bidirectional phrase-pair CFG retained 12
+  intact 100–180-letter surfaces, best “At dawn the archivist labels a map for
+  the museum, and records the names; In winter the careful teacher reads
+  letters from a quiet village, as the harbor darkens.” (130 letters, 57
+  mismatches). Live attachment equations explored 729 typed expansions; its
+  best was “After rain, a gentle mason folds linen cloth beneath the garden
+  wall; later, the calm farmer stores clean supplies beside the back room.”
+  (110 letters, 46 mismatches). All three are independently non-exact,
+  provenance-clean, and free of catalogue/fixed-tape/mirrored-unit shortcuts;
+  their recorded next repairs are seam-compatible lexical/inflectional
+  alternatives and coordinated-clause growth. Dream-RSI round ten reaches
+  16,510 nodes across 434 worlds; the held-out policy remains
+  `fixed_mismatch_first` (0.794 mismatch rate), with zero admissible exact
+  closures. The construction goal and reader gate are unchanged.

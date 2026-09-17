@@ -12,13 +12,13 @@ ID = "boundary-resegmentation-scene-20260917"
 OUT = ROOT / "runs" / f"{ID}.json"
 
 FRAMES = [
-    ("garden", "At dawn, the patient gardener {v} {obj}, and labels the fresh seed trays before dusk.",
+    ("garden", "At dawn, the patient gardener {v} {obj}, and labels the fresh seed trays, notes the weather, and carries a basket of tools before dusk.",
      [("opens", "the quiet greenhouse"), ("opens", "the old greenhouse"), ("opened", "the quiet greenhouse"), ("unlocks", "the old greenhouse")]),
-    ("harbor", "At first light, the harbor pilot {v} {obj}, and signals the waiting boat toward shore.",
+    ("harbor", "At first light, the harbor pilot {v} {obj}, and signals the waiting boat, checks the tide ledger, and carries a lantern toward shore.",
      [("checks", "the weathered chart"), ("checks", "the folded chart"), ("studies", "the weathered chart"), ("studied", "the folded chart")]),
-    ("archive", "In the quiet archive, the patient clerk {v} {obj}, and records the missing names before closing.",
+    ("archive", "In the quiet archive, the patient clerk {v} {obj}, and records the missing names, repairs a loose label, and stacks the returned folders before closing.",
      [("repairs", "a torn map"), ("repairs", "the torn map"), ("files", "the marked folder"), ("filed", "a marked map")]),
-    ("school", "After rain, the young teacher {v} {obj}, and dries the classroom windows at noon.",
+    ("school", "After rain, the young teacher {v} {obj}, and dries the classroom windows, gathers the paper models, and writes a calm note for the families in the afternoon.",
      [("carries", "the bright models"), ("carries", "the paper models"), ("greets", "the waiting children"), ("greeted", "the quiet children")]),
 ]
 

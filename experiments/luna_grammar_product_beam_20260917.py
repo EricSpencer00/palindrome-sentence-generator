@@ -39,6 +39,7 @@ RIGHT = (
     Choice("setting", "beside the garden", "garden"),
     Choice("setting", "by the kitchen", "kitchen"),
 )
+OBJECTS = (("a warm loaf", "theme"), ("the old bell", "theme"), ("a blue lantern", "theme"))
 VERBS = (("watches", "event"), ("carries", "event"), ("marks", "event"))
 
 def _anti_shortcut(words: list[str]) -> dict:
@@ -49,13 +50,16 @@ def _anti_shortcut(words: list[str]) -> dict:
         "repeated_clause_unit": len(words) != len(set(words)),
     }
 
-def _row(left: str, right: str, scene: str, choices: list[str], debt: str) -> dict:
+def _row(left: str, right: str, scene: str, choices: list[str], debt: str, slots: list[str] | None = None) -> dict:
     rendered = f"{left} {right}."
     audit = independent_audit(rendered)
+    consumed = min(len(debt), len(tape(right)))
     return {"rendered": rendered, "letters": audit["length"], "scene": scene,
             "choices": choices, "provenance": {"choices_before_rendering": True},
+            "semantic_role_states": slots or ["agent", "event", "setting"],
             "independent_audit": audit, "anti_shortcut": _anti_shortcut(rendered.split()),
-            "obligation_ledger": [{"step": 0, "remaining_pair_debt": len(debt), "operator": "reverse_character_product"}],
+            "obligation_ledger": [{"step": 0, "remaining_pair_debt": len(debt), "operator": "reverse_character_product"},
+                                   {"step": 1, "consumed_characters": consumed, "remaining_pair_debt": max(0, len(debt)-consumed), "operator": "typed_slot_extension"}],
             "complete": False}
 
 def run(beam_width: int = 8) -> dict:
@@ -71,6 +75,13 @@ def run(beam_width: int = 8) -> dict:
                 # is retained rather than silently forcing a closure.
                 debt = tape(left)[::-1]
                 beam.append(_row(left, right, agent.scene, [agent.text, verb, setting.text], debt))
+                for obj, obj_role in OBJECTS:
+                    extended_left = f"{left} {obj}"
+                    extended_right = f"{setting.text}"
+                    extended_debt = tape(extended_left)[::-1]
+                    beam.append(_row(extended_left, extended_right, agent.scene,
+                                     [agent.text, verb, obj, setting.text], extended_debt,
+                                     ["agent", "event", obj_role, "setting"]))
     beam.sort(key=lambda r: (-r["letters"], r["rendered"]))
     rows = beam[:beam_width]
     for row in rows:
@@ -80,7 +91,7 @@ def run(beam_width: int = 8) -> dict:
         "method": "two_sided_grammar_product_beam",
         "reader_eligible": False,
         "candidates": rows,
-        "search": {"beam_width": beam_width, "simultaneous_sides": True, "rlaif_per_candidate": False, "semantic_slots": ["agent", "event", "setting"]},
+        "search": {"beam_width": beam_width, "simultaneous_sides": True, "rlaif_per_candidate": False, "semantic_slots": ["agent", "event", "theme", "setting"], "typed_extensions": 3},
         "novelty_preflight": {"status": "passed", "catalogue_lookup": "none", "reason": "fresh template renderings"},
         "next_repair": {"operator": "extend_bilateral_clause", "target": "consume_live_character_obligation"},
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "seed_used_in_output": False},

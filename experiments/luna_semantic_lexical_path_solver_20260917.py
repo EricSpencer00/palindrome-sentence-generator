@@ -47,6 +47,13 @@ PATH = (
     Edge("locative", "consequence", "enables", "locative's terminal character must meet the reverse consequence edge"),
 )
 
+CAUSAL_PATH = (
+    Edge("agent", "event", "initiates-cause", "agent's terminal character must meet the reverse causal event edge"),
+    Edge("event", "theme", "transforms", "event's terminal character must meet the reverse causal theme edge"),
+    Edge("theme", "locative", "situated-within", "theme's terminal character must meet the reverse causal locative edge"),
+    Edge("locative", "consequence", "causes", "locative's terminal character must meet the reverse causal consequence edge"),
+)
+
 # These are typed, hand-authored lexical choices, not borrowed sentence text.
 LEXICON = {
     "agent": ("the patient cartographer", "the young botanist"),
@@ -105,10 +112,10 @@ WITNESS_RESEGMENTATIONS = (
 )
 
 
-def edge_obligations(nodes: dict[str, Node]) -> list[dict[str, object]]:
+def edge_obligations(nodes: dict[str, Node], path: tuple[Edge, ...] = PATH) -> list[dict[str, object]]:
     """Consume opposing edge characters before accepting a rendered clause."""
     out = []
-    for edge in PATH:
+    for edge in path:
         left = normalize_letters(nodes[edge.source].surface)
         right = normalize_letters(nodes[edge.target].surface)
         out.append({
@@ -227,19 +234,19 @@ def joint_theme_locative(row: dict[str, object], theme: str, locative: str) -> d
     }
 
 
-def joint_event_theme(row: dict[str, object], event: str, theme: str) -> dict[str, object]:
+def joint_event_theme(row: dict[str, object], event: str, theme: str, path: tuple[Edge, ...] = PATH, operator: str = "joint_event_theme_relexicalization") -> dict[str, object]:
     """Relexicalize event and theme together under the existing path."""
     nodes = {role: Node(role, value["surface"]) for role, value in row["nodes"].items()}
     nodes["event"] = Node("event", event)
     nodes["theme"] = Node("theme", theme)
     text = render(nodes)
     return {
-        "operator": "joint_event_theme_relexicalization",
+        "operator": operator,
         "event_surface": event,
         "theme_surface": theme,
-        "path": [asdict(e) for e in PATH],
+        "path": [asdict(e) for e in path],
         "nodes": {k: asdict(v) for k, v in nodes.items()},
-        "edge_obligations": edge_obligations(nodes),
+        "edge_obligations": edge_obligations(nodes, path),
         "audit": audit(text),
     }
 
@@ -296,6 +303,16 @@ def main() -> None:
     event_theme = [joint_event_theme(theme_locative_best, event, theme) for event, theme in JOINT_EVENT_THEMES]
     event_theme.sort(key=lambda row: (row["audit"]["independent_two_pointer"]["mismatch_count"], -row["audit"]["letters"]))
     event_theme_best = event_theme[0]
+    causal_base = {
+        "nodes": dict(event_theme_best["nodes"]),
+    }
+    causal_base["nodes"]["consequence"] = asdict(Node("consequence", "and causes a quiet shift at sunset"))
+    causal_event_theme = [
+        joint_event_theme(causal_base, event, theme, path=CAUSAL_PATH, operator="causal_path_joint_event_theme")
+        for event, theme in (("maps out", "a narrow port"), ("lays out", "the old outpost"), ("points out", "a small fort"))
+    ]
+    causal_event_theme.sort(key=lambda row: (row["audit"]["independent_two_pointer"]["mismatch_count"], -row["audit"]["letters"]))
+    causal_best = causal_event_theme[0]
     witness_lane = witness_repair_lane(event_theme_best)
     out = {
         "experiment_id": ID,
@@ -303,7 +320,7 @@ def main() -> None:
         "status": "completed_exact_candidate" if exact else "completed_no_exact_closure",
         "reader_eligible": bool(exact),
         "method": "choose typed semantic path first; consume opposing character obligations online during lexical realization",
-        "candidate_scene": event_theme_best["audit"]["rendered"],
+        "candidate_scene": causal_best["audit"]["rendered"],
         "candidates": rows[:3],
         "repaired_candidate": event_repair,
         # Expose the held-out repair through the common aggregate schema so
@@ -315,11 +332,13 @@ def main() -> None:
         "joint_agent_consequence_candidates": joint,
         "joint_theme_locative_candidates": theme_locative,
         "joint_event_theme_candidates": event_theme,
+        "causal_path_joint_event_theme_candidates": causal_event_theme,
+        "causal_path": [asdict(e) for e in CAUSAL_PATH],
         "exact_witness_repair_lane": witness_lane,
-        "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38), "expanded_consequence_realizations": len(expanded), "expanded_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in expanded), "joint_realizations": len(joint), "joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in joint), "joint_theme_locative_realizations": len(theme_locative), "joint_theme_locative_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in theme_locative), "joint_event_theme_realizations": len(event_theme), "joint_event_theme_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in event_theme)},
+        "stats": {"semantic_paths": 2, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38), "expanded_consequence_realizations": len(expanded), "expanded_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in expanded), "joint_realizations": len(joint), "joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in joint), "joint_theme_locative_realizations": len(theme_locative), "joint_theme_locative_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in theme_locative), "joint_event_theme_realizations": len(event_theme), "joint_event_theme_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in event_theme), "causal_path_joint_realizations": len(causal_event_theme), "causal_path_joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in causal_event_theme)},
         "novelty_preflight": {"registry_entries_read": len(entries), "exact_signature_collision": collision, "catalogue_text_imported": False, "fixed_tape_used": False, "pos_sweep": False, "scene_lattice": False},
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "lexical_source": "hand-authored typed event lexicon", "path": [e.label for e in PATH], "audits": ["independent two-pointer", "forward/reverse SHA-256", "mechanical admission", "anti-shortcut preflight"]},
-        "next_repair": {"operator": "switch to a fresh causal consequence path and jointly relexicalize its event/theme pair, then require full character-level closure", "reason": "the aggregate witness could not be repaired without either losing exactness or retaining a rejected mirror shortcut; the intact fallback remains non-exact and needs a new construction state"},
+        "next_repair": {"operator": "jointly relexicalize the causal consequence and locative while retaining the causal event/theme pair, then require full character-level closure", "reason": "the causal path changes the semantic relation and preserves all four local obligations, but its coupled event/theme candidates remain non-palindromic under independent whole-tape comparison"},
     }
     (ROOT / "runs" / f"{ID}.json").write_text(json.dumps(out, indent=2) + "\n")
     print(json.dumps(out["stats"], sort_keys=True))

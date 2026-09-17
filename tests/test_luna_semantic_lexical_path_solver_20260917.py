@@ -12,7 +12,7 @@ def test_semantic_path_run_is_reproducible_and_audited():
     subprocess.run([sys.executable, str(SCRIPT)], cwd=ROOT, check=True)
     data = json.loads(RUN.read_text())
     assert data["signature"].startswith("semantic-lexical-path")
-    assert data["stats"]["semantic_paths"] == 1
+    assert data["stats"]["semantic_paths"] == 2
     assert data["stats"]["lexical_realizations"] == 32
     assert data["novelty_preflight"]["pos_sweep"] is False
     assert data["novelty_preflight"]["scene_lattice"] is False
@@ -60,6 +60,13 @@ def test_semantic_path_run_is_reproducible_and_audited():
     assert lane["repair_result"] == "rejected_no_admitted_repair"
     assert len(lane["controls"]) == 3
     assert lane["controls"][-1]["audit"]["exact"] is False
+    causal = data["causal_path_joint_event_theme_candidates"]
+    assert data["stats"]["semantic_paths"] == 2
+    assert len(causal) == 3
+    assert all(row["operator"] == "causal_path_joint_event_theme" for row in causal)
+    assert all(all(item["satisfied"] for item in row["edge_obligations"]) for row in causal)
+    assert all(not row["audit"]["exact"] for row in causal)
+    assert all(row["audit"]["mechanical_checks"]["lexicon_words"] for row in causal)
     for row in data["candidates"]:
         assert row["audit"]["normalized_sha256"] != row["audit"]["reverse_sha256"] or row["audit"]["exact"]
         assert len(row["edge_obligations"]) == 4

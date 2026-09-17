@@ -13,6 +13,7 @@ class E:
 # Fresh ordinary alternatives, not copied from the control.
 LEFT=[ [E('At dusk','setting'),E('the ferryman','agent'),E('opens','action'),E('the harbor gate','theme')], [E('By sunrise','setting'),E('a patient gardener','agent'),E('tends','action'),E('the orchard','theme')], [E('After rain','setting'),E('the careful archivist','agent'),E('seals','action'),E('a ledger','theme')] ]
 RIGHT=[ [E('near the quay','setting'),E('while lanterns glow','event')], [E('before the storm','setting'),E('as tall reeds bend','event')], [E('in the courtyard','setting'),E('when swallows return','event')] ]
+RELATIVE={'a':E('as autumn settles','relative_attachment'),'t':E('that travelers remember','relative_attachment'),'s':E('since spring began','relative_attachment')}
 def norm(s): return ''.join(c.lower() for c in s if c.isascii() and c.isalpha())
 def render(path): return ', '.join(e.text for e in path)+'.'
 def compile_paths(paths,rev=False):
@@ -43,7 +44,15 @@ def run():
    p=product([l],[r]); txt=render(l)+' Meanwhile '+render(r); a=audit(txt)
    rows.append({'text':txt,'letters':a['letters'],'product':p,'independent_audit':a,'roles':{'left':[e.role for e in l],'right':[e.role for e in r]},'provenance':'fresh held-out authored phrase edges; residual template supplied topology only','mechanically_admitted':p['closed'] and a['exact']})
  exact=[x for x in rows if x['mechanically_admitted']]
- payload={'experiment_id':ID,'signature':SIG,'status':'completed_no_exact_closure' if not exact else 'completed_exact','candidates':exact,'diagnostic_frontiers':rows[:4],'exact_candidates':len(exact),'reader_eligible':False,'novelty_preflight':{'status':'passed','control_text_rendered':False,'control_words_imported':False,'catalogue_edges':False,'basis':'only role/state topology from the quarantined control was retained; every terminal edge is newly authored'},'repair_after_failure':{'operator':'replace only the first dead edge with a held-out role-compatible alternative','first_dead_frontier':rows[0]['product']['dead_frontier'][0] if rows[0]['product']['dead_frontier'] else None},'provenance':{'generator':str(Path(__file__).relative_to(ROOT)),'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'audit':'independent pointer and SHA-256 checks'}}
+ # One, and only one, attachment repair selected from the first residual.
+ attachment=[]
+ if rows[0]['product']['dead_frontier']:
+  residual=rows[0]['product']['dead_frontier'][0]['obligation']; att=RELATIVE.get(residual)
+  if att:
+   l=LEFT[0]+[att]; r=RIGHT[0]+[att]; txt=render(l)+' Meanwhile '+render(r); a=audit(txt); pr=product([l],[r])
+   attachment=[{'text':txt,'letters':a['letters'],'product':pr,'independent_audit':a,'mechanically_admitted':pr['closed'] and a['exact'],'attachment_operator':{'type':'typed_relative_clause','conditioned_on_first_residual':residual,'edge':att.text},'provenance':'single held-out relative attachment selected by live first residual; no broad resweep'}]
+ exact += [x for x in attachment if x['mechanically_admitted']]
+ payload={'experiment_id':ID,'signature':SIG,'status':'completed_no_exact_closure' if not exact else 'completed_exact','candidates':exact,'diagnostic_frontiers':rows[:4]+attachment,'exact_candidates':len(exact),'reader_eligible':False,'novelty_preflight':{'status':'passed','control_text_rendered':False,'control_words_imported':False,'catalogue_edges':False,'basis':'only role/state topology from the quarantined control was retained; every terminal edge is newly authored'},'repair_after_failure':{'operator':'one typed relative-clause attachment conditioned on first dead character','first_dead_frontier':rows[0]['product']['dead_frontier'][0] if rows[0]['product']['dead_frontier'] else None,'tested':bool(attachment),'next':'replace only the attachment terminal at the recorded residual'},'provenance':{'generator':str(Path(__file__).relative_to(ROOT)),'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'audit':'independent pointer and SHA-256 checks'}}
  OUT.write_text(json.dumps(payload,indent=2)+'\n'); return payload
 if __name__=='__main__':
  p=run();print(json.dumps({'exact':p['exact_candidates'],'frontiers':len(p['diagnostic_frontiers']),'longest':max(x['letters'] for x in p['diagnostic_frontiers'])}))

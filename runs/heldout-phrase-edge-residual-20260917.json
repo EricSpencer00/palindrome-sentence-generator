@@ -355,6 +355,87 @@
       },
       "provenance": "fresh held-out authored phrase edges; residual template supplied topology only",
       "mechanically_admitted": false
+    },
+    {
+      "text": "At dusk, the ferryman, opens, the harbor gate, as autumn settles. Meanwhile near the quay, while lanterns glow, as autumn settles.",
+      "letters": 102,
+      "product": {
+        "closed": false,
+        "matched": 0,
+        "states": 1,
+        "dead_frontier": [
+          {
+            "left_node": 0,
+            "right_node": 0,
+            "obligation": "a",
+            "right_options": [
+              "s"
+            ]
+          }
+        ]
+      },
+      "independent_audit": {
+        "letters": 102,
+        "exact": false,
+        "mismatches": [
+          [
+            0,
+            101,
+            "a",
+            "s"
+          ],
+          [
+            1,
+            100,
+            "t",
+            "e"
+          ],
+          [
+            2,
+            99,
+            "d",
+            "l"
+          ],
+          [
+            3,
+            98,
+            "u",
+            "t"
+          ],
+          [
+            4,
+            97,
+            "s",
+            "t"
+          ],
+          [
+            5,
+            96,
+            "k",
+            "e"
+          ],
+          [
+            6,
+            95,
+            "t",
+            "s"
+          ],
+          [
+            7,
+            94,
+            "h",
+            "n"
+          ]
+        ],
+        "sha256": "0db5d2cf2079288c06f87bbb54095f238fbf9c8c5d38655cde939d4fe15ea42a"
+      },
+      "mechanically_admitted": false,
+      "attachment_operator": {
+        "type": "typed_relative_clause",
+        "conditioned_on_first_residual": "a",
+        "edge": "as autumn settles"
+      },
+      "provenance": "single held-out relative attachment selected by live first residual; no broad resweep"
     }
   ],
   "exact_candidates": 0,
@@ -367,7 +448,7 @@
     "basis": "only role/state topology from the quarantined control was retained; every terminal edge is newly authored"
   },
   "repair_after_failure": {
-    "operator": "replace only the first dead edge with a held-out role-compatible alternative",
+    "operator": "one typed relative-clause attachment conditioned on first dead character",
     "first_dead_frontier": {
       "left_node": 0,
       "right_node": 0,
@@ -375,11 +456,13 @@
       "right_options": [
         "w"
       ]
-    }
+    },
+    "tested": true,
+    "next": "replace only the attachment terminal at the recorded residual"
   },
   "provenance": {
     "generator": "experiments/heldout_phrase_edge_residual_20260917.py",
-    "generator_sha256": "678f2c82d7ad44a89fc19ea343ed17fda1f2a53f3675f9473950a5b8d052de50",
+    "generator_sha256": "fcdd755eaf6b7631addacecc35a41e52f359f863dcafb0ad0bfdd0da81a3c965",
     "audit": "independent pointer and SHA-256 checks"
   }
 }

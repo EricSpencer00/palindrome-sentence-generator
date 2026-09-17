@@ -1,15 +1,17 @@
-"""Open-vocabulary semantic-frame word-equation search.
+"""Quarantined fixed-clause comparison diagnostic, not a trie search.
 
-Both clauses are authored independently from typed causal/reporting frames.  A
-character trie grows each side; the only coupling is the next opposite
-character obligation, never a copied/reversed word tape.
+The historical name overstates the implementation: every supplied frame is
+fully rendered before comparison, and the tries do not choose any characters
+or boundaries. Zero closures here are evidence only about that finite bank.
 """
 from dataclasses import dataclass
 from typing import Iterable
+import hashlib
+from pathlib import Path
 import re
 
 EXPERIMENT_ID = "semantic-frame-trie-equation-20260917"
-SIGNATURE = "independent-semantic-frames|character-trie|joint-boundaries|exact-audit"
+SIGNATURE = "fixed-frame-cross-product|comparison-only|no-generative-search|exact-audit"
 
 @dataclass(frozen=True)
 class Frame:
@@ -58,26 +60,22 @@ def _word_paths(node, required: str, offset: int = 0):
             yield word
 
 def search(frames: Iterable[Frame] = FRAMES, limit: int = 12):
-    """Grow independently selected left/right words with opposite obligations.
-
-    A state contains independently selected word boundaries.  `obligations` is
-    the unmatched reversed character prefix, not a precomputed reversed tape.
-    """
+    """Compare fixed complete clauses; retained name is compatibility only."""
     frames = tuple(frames)
     out, frontiers = [], []
     for left in frames:
         for right in frames:
             ls, rs = left.clause(), right.clause()
             ln, rn = normalize(ls), normalize(rs)
-            # Grow words from both independent clauses, discovering boundaries.
-            lw, rw = ln.split(), rn.split()
+            # Observed boundaries only: neither tokenization nor tries search.
+            lw, rw = re.findall(r"[a-z]+", ls.lower()), re.findall(r"[a-z]+", rs.lower())
             ltrie, rtrie = CharTrie(lw), CharTrie(rw)
             obligations = ""
             matched = 0
             for i, ch in enumerate(ln):
                 obligations = ch + obligations
                 matched = i + 1
-                # right-side prefixes can discharge only if independently lexical
+                # Historical heuristic only; not a valid mirrored residual.
                 if i < len(rn) and rn[i] == obligations[-1]: obligations = obligations[:-1]
             exact = ln == rn[::-1]
             row = {"left_frame": left.__dict__, "right_frame": right.__dict__,
@@ -85,6 +83,7 @@ def search(frames: Iterable[Frame] = FRAMES, limit: int = 12):
                    "normalized_right": rn, "exact": exact,
                    "boundary_choices": {"left_words": lw, "right_words": rw},
                    "opposite_character_obligations": obligations,
+                   "obligations_are_search_invariant": False,
                    "trie_nodes_left": sum(1 for _ in ltrie.walk()),
                    "trie_nodes_right": sum(1 for _ in rtrie.walk())}
             if exact and left != right:
@@ -92,9 +91,16 @@ def search(frames: Iterable[Frame] = FRAMES, limit: int = 12):
             elif len(frontiers) < limit:
                 frontiers.append(row)
     return {"experiment_id": EXPERIMENT_ID, "signature": SIGNATURE,
+            "status": "quarantined_no_search_diagnostic",
+            "evidence_scope": "Only the supplied fixed frame cross-product was compared; this does not test trie/grammar-product feasibility.",
             "candidates": out[:limit], "frontiers": frontiers,
             "provenance": {"frame_count": len(frames), "vocabulary_size": len(WORD_BANK),
-                           "catalogue_read": False, "fixed_tape": False,
+                           "catalogue_read": False, "fixed_tape": True,
+                           "fixed_frame_pairs_compared": len(frames) ** 2,
+                           "generative_search": False,
+                           "trie_constrained_transitions": 0,
+                           "boundary_choices_searched": 0,
+                           "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                            "known_reversible_phrases": False}}
 
 def audit(row):

@@ -1,0 +1,176 @@
+{
+  "experiment": "character-labeled-prefix-trie-gate-20260917",
+  "method": "supported characters emit exact opposing prefix requirements propagated into both attachment and role lexical tries",
+  "candidate_count": 3,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "At dawn, the archivist keeps the records inside the harbor; meanwhile, a courier delivers the parcels near the archive.",
+      "slots": {
+        "agent": "archivist",
+        "action": "keeps",
+        "theme": "records",
+        "prep": "inside",
+        "agent2": "courier",
+        "action2": "delivers",
+        "theme2": "parcels"
+      },
+      "character_requirements": [
+        {
+          "position": 10,
+          "left_char": "r",
+          "right_required": "r"
+        }
+      ],
+      "left_trie_prefixes": [
+        "ar",
+        "ke",
+        "re",
+        "in"
+      ],
+      "right_trie_prefixes": [
+        "co",
+        "de",
+        "pa"
+      ],
+      "provenance": "character_labeled_prefix_trie_gate",
+      "novelty_preflight": {
+        "signature": "character_labeled_prefix_trie_gate_v1",
+        "distinct_from": "bidirectional boolean gate; each supported character emits a required opposing prefix label into both tries"
+      },
+      "audit": {
+        "letters": 97,
+        "exact": false,
+        "mismatch_count": 45,
+        "first_mismatch": [
+          0,
+          96
+        ],
+        "sha256": "4cbc7c4e4c29c19137c5b715196a571474c13a52ba6f3c78fba46e7772dcc64f",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "At dawn, the gardener carries the letters through the harbor; meanwhile, a messenger records the charts near the archive.",
+      "slots": {
+        "agent": "gardener",
+        "action": "carries",
+        "theme": "letters",
+        "prep": "through",
+        "agent2": "messenger",
+        "action2": "records",
+        "theme2": "charts"
+      },
+      "character_requirements": [],
+      "left_trie_prefixes": [
+        "ga",
+        "ca",
+        "le",
+        "th"
+      ],
+      "right_trie_prefixes": [
+        "me",
+        "re",
+        "ch"
+      ],
+      "provenance": "character_labeled_prefix_trie_gate",
+      "novelty_preflight": {
+        "signature": "character_labeled_prefix_trie_gate_v1",
+        "distinct_from": "bidirectional boolean gate; each supported character emits a required opposing prefix label into both tries"
+      },
+      "audit": {
+        "letters": 99,
+        "exact": false,
+        "mismatch_count": 45,
+        "first_mismatch": [
+          0,
+          98
+        ],
+        "sha256": "ce846cb6d2e048a362ba3c4ffd015baad6bea6e2168cf1b10159dc588c3a19d6",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 2,
+      "rendered": "At dawn, the teacher writes the notes along the harbor; meanwhile, a cartographer marks the maps near the archive.",
+      "slots": {
+        "agent": "teacher",
+        "action": "writes",
+        "theme": "notes",
+        "prep": "along",
+        "agent2": "cartographer",
+        "action2": "marks",
+        "theme2": "maps"
+      },
+      "character_requirements": [
+        {
+          "position": 9,
+          "left_char": "t",
+          "right_required": "t"
+        },
+        {
+          "position": 11,
+          "left_char": "a",
+          "right_required": "a"
+        }
+      ],
+      "left_trie_prefixes": [
+        "te",
+        "wr",
+        "no",
+        "al"
+      ],
+      "right_trie_prefixes": [
+        "ca",
+        "ma",
+        "ma"
+      ],
+      "provenance": "character_labeled_prefix_trie_gate",
+      "novelty_preflight": {
+        "signature": "character_labeled_prefix_trie_gate_v1",
+        "distinct_from": "bidirectional boolean gate; each supported character emits a required opposing prefix label into both tries"
+      },
+      "audit": {
+        "letters": 92,
+        "exact": false,
+        "mismatch_count": 42,
+        "first_mismatch": [
+          0,
+          91
+        ],
+        "sha256": "78f21a8bf42eaf4d6f6d13ee053d403110ec60a44db94740cd590a0601219482",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 99,
+    "next_repair": "enforce character requirements during trie traversal and reject a prefix immediately on mismatch"
+  }
+}

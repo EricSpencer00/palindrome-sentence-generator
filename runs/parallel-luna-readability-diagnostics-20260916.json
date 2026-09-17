@@ -189,9 +189,12 @@
     "runs/cfg-earley-character-intersection-fresh-20260916.json",
     "runs/paired-grammar-terminal-closure-20260916.json",
     "runs/word-boundary-semantic-inflection-dp-20260916.json",
-    "runs/online-clause-order-slot-lattice-20260916.json"
+    "runs/online-clause-order-slot-lattice-20260916.json",
+    "runs/endpoint-aware-bilateral-seam-20260916.json",
+    "runs/fresh-scene-tape-cfg-resegmentation-20260916.json",
+    "runs/exact-candidate-slot-repair-neighborhood-20260916.json"
   ],
-  "candidate_count": 4711,
+  "candidate_count": 4725,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -886,6 +889,16 @@
       "mean_brown_order_gain_vs_shuffle": 1.478498358793458
     },
     {
+      "source_run": "runs/endpoint-aware-bilateral-seam-20260916.json",
+      "rows": 6,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 100,
+      "max_letters": 105,
+      "mean_zipf_frequency": 5.554265246449458,
+      "mean_brown_order_gain_vs_shuffle": 1.0140503867406576
+    },
+    {
       "source_run": "runs/equal-length-clause-collision-20260916.json",
       "rows": 8,
       "exact_count": 0,
@@ -924,6 +937,16 @@
       "max_letters": 66,
       "mean_zipf_frequency": 5.579821428571429,
       "mean_brown_order_gain_vs_shuffle": 0.6357914185970617
+    },
+    {
+      "source_run": "runs/exact-candidate-slot-repair-neighborhood-20260916.json",
+      "rows": 6,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 109,
+      "max_letters": 160,
+      "mean_zipf_frequency": 5.562824731182796,
+      "mean_brown_order_gain_vs_shuffle": 0.8513286698083332
     },
     {
       "source_run": "runs/exact-tape-grammatical-resegmentation-20260916-luna.json",
@@ -974,6 +997,16 @@
       "max_letters": 138,
       "mean_zipf_frequency": 5.1636000000000015,
       "mean_brown_order_gain_vs_shuffle": 0.8759739045687329
+    },
+    {
+      "source_run": "runs/fresh-scene-tape-cfg-resegmentation-20260916.json",
+      "rows": 2,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 123,
+      "max_letters": 126,
+      "mean_zipf_frequency": 5.485624999999999,
+      "mean_brown_order_gain_vs_shuffle": 0.6812078827690033
     },
     {
       "source_run": "runs/fresh-typed-frame-live-seam-20260916.json",
@@ -226384,6 +226417,666 @@
         "mean_zipf_frequency": 5.256333333333332,
         "word_count": 30,
         "repeated_word_rate": 0.1333333333333333,
+        "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist keeps the weathered journals near the fire; a calm teacher guides the curious children through the garden.",
+      "source_run": "runs/endpoint-aware-bilateral-seam-20260916.json",
+      "provenance": {
+        "method": "endpoint-aware character decoding reserves bilateral lexical seam terminals before interior LM expansion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "15b885dad78690bf0178af220075b989bf56f1a9764006fd6b8b44fe4f34cbd6",
+        "source_sha256": "32c40ecc84e1f0caebedb30988d52b09fa83bee50cfbe325fc8c718badfa4ef7"
+      },
+      "repair": null,
+      "letters": 100,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0595054459806512,
+        "mean_zipf_frequency": 5.532105263157895,
+        "word_count": 19,
+        "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist keeps the weathered journals near the fire; the field nurse carries the clean water bottles along the trail.",
+      "source_run": "runs/endpoint-aware-bilateral-seam-20260916.json",
+      "provenance": {
+        "method": "endpoint-aware character decoding reserves bilateral lexical seam terminals before interior LM expansion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "15b885dad78690bf0178af220075b989bf56f1a9764006fd6b8b44fe4f34cbd6",
+        "source_sha256": "9a8a2e75de1b507b99abdfa15459abad984cbe0fd91f6d23c18ce585a5094756"
+      },
+      "repair": null,
+      "letters": 101,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8315559266586874,
+        "mean_zipf_frequency": 5.4945,
+        "word_count": 20,
+        "repeated_word_rate": 0.25,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A calm teacher guides the curious children through the garden; the archivist keeps the weathered journals near the fire.",
+      "source_run": "runs/endpoint-aware-bilateral-seam-20260916.json",
+      "provenance": {
+        "method": "endpoint-aware character decoding reserves bilateral lexical seam terminals before interior LM expansion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "15b885dad78690bf0178af220075b989bf56f1a9764006fd6b8b44fe4f34cbd6",
+        "source_sha256": "a6c9cdcb45a45432d102ac9520ad5146dbecc4fefb5807fa7f6e6eb882e1a1aa"
+      },
+      "repair": null,
+      "letters": 100,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9624331379747968,
+        "mean_zipf_frequency": 5.532105263157895,
+        "word_count": 19,
+        "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A calm teacher guides the curious children through the garden; the field nurse carries the clean water bottles along the trail.",
+      "source_run": "runs/endpoint-aware-bilateral-seam-20260916.json",
+      "provenance": {
+        "method": "endpoint-aware character decoding reserves bilateral lexical seam terminals before interior LM expansion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "15b885dad78690bf0178af220075b989bf56f1a9764006fd6b8b44fe4f34cbd6",
+        "source_sha256": "844fc45e40f9a2206220653ae3bc0dd6e1f20a94c532851bc78e0bba501c6a8d"
+      },
+      "repair": null,
+      "letters": 105,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1554411883645663,
+        "mean_zipf_frequency": 5.636190476190476,
+        "word_count": 21,
+        "repeated_word_rate": 0.19047619047619047,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The field nurse carries the clean water bottles along the trail; the archivist keeps the weathered journals near the fire.",
+      "source_run": "runs/endpoint-aware-bilateral-seam-20260916.json",
+      "provenance": {
+        "method": "endpoint-aware character decoding reserves bilateral lexical seam terminals before interior LM expansion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "15b885dad78690bf0178af220075b989bf56f1a9764006fd6b8b44fe4f34cbd6",
+        "source_sha256": "2bb0d6e8df15e47572b893ca18c58f91ae3dcb08de5d722bd31cc96efa607df0"
+      },
+      "repair": null,
+      "letters": 101,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9866550483331853,
+        "mean_zipf_frequency": 5.494500000000001,
+        "word_count": 20,
+        "repeated_word_rate": 0.25,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The field nurse carries the clean water bottles along the trail; a calm teacher guides the curious children through the garden.",
+      "source_run": "runs/endpoint-aware-bilateral-seam-20260916.json",
+      "provenance": {
+        "method": "endpoint-aware character decoding reserves bilateral lexical seam terminals before interior LM expansion",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "15b885dad78690bf0178af220075b989bf56f1a9764006fd6b8b44fe4f34cbd6",
+        "source_sha256": "d8249b9f55e62f4d9820e2ecc488c5e976e7384cd1e249165c628260532fd613"
+      },
+      "repair": null,
+      "letters": 105,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0887115731320591,
+        "mean_zipf_frequency": 5.636190476190476,
+        "word_count": 21,
+        "repeated_word_rate": 0.19047619047619047,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist carries a sealed chart from the quiet harbor to the village library, where patient readers compare old routes and record every change.",
+      "source_run": "runs/fresh-scene-tape-cfg-resegmentation-20260916.json",
+      "provenance": "author a fresh semantic scene, emit a complete CFG parse, then resegment typed word boundaries and inflections while intersecting its emitted tape with the reverse obligation",
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6820752012737668,
+        "mean_zipf_frequency": 5.509583333333333,
+        "word_count": 24,
+        "repeated_word_rate": 0.08333333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist carries a weathered chart from the quiet harbor to the village library, where careful readers compare old routes and record every change.",
+      "source_run": "runs/fresh-scene-tape-cfg-resegmentation-20260916.json",
+      "provenance": "author a fresh semantic scene, emit a complete CFG parse, then resegment typed word boundaries and inflections while intersecting its emitted tape with the reverse obligation",
+      "repair": null,
+      "letters": 126,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6803405642642399,
+        "mean_zipf_frequency": 5.461666666666666,
+        "word_count": 24,
+        "repeated_word_rate": 0.08333333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the recital, the musician places a blue case beside the steps, shows it to her teacher, and waits until the last listeners go home.",
+      "source_run": "runs/exact-candidate-slot-repair-neighborhood-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "fresh_semantic_slot": true,
+        "generator_sha256": "4ea06a98f22dd8c8b9e23f47ebbbe58240b58782c9b4263711498186fd01594a"
+      },
+      "repair": null,
+      "letters": 109,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1882057064182128,
+        "mean_zipf_frequency": 5.808400000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the recital, the musician places a small case beside the steps, shows it to her teacher, and waits until the last listeners go home.",
+      "source_run": "runs/exact-candidate-slot-repair-neighborhood-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "fresh_semantic_slot": true,
+        "generator_sha256": "4ea06a98f22dd8c8b9e23f47ebbbe58240b58782c9b4263711498186fd01594a"
+      },
+      "repair": null,
+      "letters": 110,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2631965517619719,
+        "mean_zipf_frequency": 5.8236,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the recital, the musician places a wooden case beside the steps, shows it to her teacher, and waits until the last listeners go home.",
+      "source_run": "runs/exact-candidate-slot-repair-neighborhood-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "fresh_semantic_slot": true,
+        "generator_sha256": "4ea06a98f22dd8c8b9e23f47ebbbe58240b58782c9b4263711498186fd01594a"
+      },
+      "repair": null,
+      "letters": 111,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.218876049467541,
+        "mean_zipf_frequency": 5.776400000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At before sunrise, the archivist opened the cedar cabinet. The patient apprentice copied each date into a clean ledger. The curator sorted four journals for the river school. Evening bells faded.",
+      "source_run": "runs/exact-candidate-slot-repair-neighborhood-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "fresh_semantic_slot": true,
+        "generator_sha256": "4ea06a98f22dd8c8b9e23f47ebbbe58240b58782c9b4263711498186fd01594a"
+      },
+      "repair": null,
+      "letters": 160,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.43553806687008745,
+        "mean_zipf_frequency": 5.263548387096774,
+        "word_count": 31,
+        "repeated_word_rate": 0.12903225806451613,
+        "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At after the rain, the archivist opened the cedar cabinet. The patient apprentice copied each date into a clean ledger. The curator sorted four journals for the river school. Evening bells faded.",
+      "source_run": "runs/exact-candidate-slot-repair-neighborhood-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "fresh_semantic_slot": true,
+        "generator_sha256": "4ea06a98f22dd8c8b9e23f47ebbbe58240b58782c9b4263711498186fd01594a"
+      },
+      "repair": null,
+      "letters": 159,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5316525903219187,
+        "mean_zipf_frequency": 5.374062499999999,
+        "word_count": 32,
+        "repeated_word_rate": 0.15625,
+        "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At near the harbor, the archivist opened the cedar cabinet. The patient apprentice copied each date into a clean ledger. The curator sorted four journals for the river school. Evening bells faded.",
+      "source_run": "runs/exact-candidate-slot-repair-neighborhood-20260916.json",
+      "provenance": {
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "fresh_semantic_slot": true,
+        "generator_sha256": "4ea06a98f22dd8c8b9e23f47ebbbe58240b58782c9b4263711498186fd01594a"
+      },
+      "repair": null,
+      "letters": 160,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.47050305401026726,
+        "mean_zipf_frequency": 5.330937499999999,
+        "word_count": 32,
+        "repeated_word_rate": 0.15625,
         "punctuation_segments": 4
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

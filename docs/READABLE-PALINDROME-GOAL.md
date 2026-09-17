@@ -2086,7 +2086,7 @@ item-aware analysis plan.
   **Fresh ten-lane closure audit (2026-09-16):** ten orthogonal Luna state
   representations now have append-only run artifacts with rendered prose,
   independent pointer/hash validation, provenance, novelty preflight, and a
-  named next repair. The aggregate is 4,711 rows across 194 route phases (79
+  named next repair. The aggregate is 4,725 rows across 197 route phases (79
   exact but rejected tapes; 0 mechanically admitted). The lane-8 exact
   126-letter surface is quarantined because it is six repetitions of the
   catalogue clause “A man, a plan, a canal, Panama.” The longest fresh intact
@@ -2104,6 +2104,13 @@ item-aware analysis plan.
   anti-shortcut-clean candidate. The repaired inflection/clitic lane adds a
   distinct 128-letter harbor near miss after the repeated-unit exact control
   was quarantined.
+
+  The newest continuation wave adds endpoint-aware seam decoding (six
+  100--105-letter scenes), mutable fresh-scene tape/CFG resegmentation (a
+  126-letter lexical repair), and a typed semantic-slot neighborhood (six
+  109--160-letter repairs). Each has independent pointer/SHA validation,
+  provenance, novelty preflight, and a concrete next repair; none is exact or
+  reader-eligible.
 
   The latest repair wave adds a typed semantic center-out solver (12 complete
   95--109-letter scenes), a lexical word-equation intersection (four complete

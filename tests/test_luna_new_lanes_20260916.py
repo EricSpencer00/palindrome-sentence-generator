@@ -62,12 +62,15 @@ def test_append_algebra_emits_only_complete_clauses_and_records_invariant_failur
 
 def test_aggregate_surfaces_all_three_new_lane_routes():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4682
+    assert report["candidate_count"] == 4725
     assert report["exact_count"] == 79
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/constrained-edit-program-constructor-20260916.json"]["rows"] == 4
     assert by_source["runs/arbitrary-clause-macro-algebra-20260916.json"]["rows"] == 4
     assert by_source["runs/discourse-relation-involution-20260916.json"]["rows"] == 12
+    assert by_source["runs/endpoint-aware-bilateral-seam-20260916.json"]["rows"] == 6
+    assert by_source["runs/fresh-scene-tape-cfg-resegmentation-20260916.json"]["rows"] == 2
+    assert by_source["runs/exact-candidate-slot-repair-neighborhood-20260916.json"]["rows"] == 6
 
 
 def test_registry_retains_new_lanes_and_keeps_shortcut_exclusions_separate():

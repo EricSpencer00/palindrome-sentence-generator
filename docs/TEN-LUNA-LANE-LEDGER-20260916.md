@@ -315,7 +315,7 @@ Lane 8's distinct repair is recorded separately as
 harbor scene with plural, past-tense, and possessive-clitic obligations. It is
 non-exact under both independent audits and passes the no-repeated-unit gate.
 
-The common audit is **4,620 rows, 181 route phases, 79 exact rejected tapes,
+The common audit is **4,725 rows, 197 route phases, 79 exact rejected tapes,
 and 0 mechanically admitted outputs**. The exact lane-8 hash is retained only
 as a quarantined duplicate-control failure; it cannot enter a reader packet.
 
@@ -338,6 +338,17 @@ the human single-slot search adds seven deduplicated 92--97-letter scenes. An
 attested phrase-bridge preflight emitted no complete clause and is explicitly
 excluded.
 
+## Endpoint, mutable-tape, and semantic-slot continuations (2026-09-16)
+
+Three additional Luna lanes were accepted after novelty preflight because each
+changes the search state rather than widening an existing sweep. Endpoint-aware
+bilateral seam decoding renders six 100--105-letter scenes; fresh-scene tape/
+CFG resegmentation renders an initial 123-letter scene and a 126-letter
+boundary/inflection repair; and the exact-candidate slot neighborhood renders
+six role-preserving 109--160-letter scenes. Every row carries intact prose,
+independent pointer/SHA audits, provenance, novelty status, and a concrete next
+repair. All three have zero exact closures and remain outside the reader gate.
+
 ## Paired lexical grammar continuation (2026-09-16)
 
 `experiments/paired_lexical_grammar_20260916.py` jointly selects two distinct
@@ -357,7 +368,7 @@ states at 55, 114, 168, and 223 letters. Both continuations have fresh
 provenance and novelty fingerprints, and neither produced an exact closure;
 they are retained as construction evidence rather than duplicate sweeps.
 
-The authoritative aggregate is therefore **4,711 rows across 194 route
+The authoritative aggregate is therefore **4,725 rows across 197 route
 phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**. The
 next reader-facing test remains the randomized blinded intact-versus-shuffled
 packet, gated on a genuinely exact, anti-shortcut-clean candidate.
@@ -368,8 +379,8 @@ function/inflection editor (five 96--104-letter scenes). Both are registered
 as distinct retained families with independent audits and concrete repairs.
 An entailment-preserving active/passive rewrite is explicitly excluded after
 novelty preflight found overlap with existing voice/information-structure
-families. The registry now contains 295 retained artifacts, 31 exclusions,
-and 273 retained run artifacts.
+families. The registry now contains 298 retained artifacts, 31 exclusions,
+and 276 retained run artifacts.
 
 Representative renderings are preserved verbatim: “The baker repairs the
 gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA

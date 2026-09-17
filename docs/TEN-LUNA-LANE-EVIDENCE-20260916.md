@@ -457,12 +457,23 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,711 rows
-across 194 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **295 retained artifacts, 31
-explicit exclusions, and 273 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,725 rows
+across 197 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **298 retained artifacts, 31
+explicit exclusions, and 276 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
+
+The latest three Luna continuations are retained as genuinely new state
+representations, not larger duplicate sweeps. Endpoint-aware bilateral seam
+decoding reserves the outer lexical terminals before interior character
+decoding and renders six 100--105-letter scenes. Fresh-scene tape/CFG
+resegmentation keeps word boundaries and inflections mutable and records a
+126-letter complete-prose repair. A typed semantic-slot neighborhood changes
+one role-compatible slot at the first residual in six 109--160-letter scenes.
+Each row includes the rendered text, independent two-pointer and
+forward/reverse SHA checks, provenance, novelty preflight, and a concrete next
+repair; none is exact or mechanically admitted.
 
 The next bounded wave adds a typed onset/rime grapheme constructor with 12
 37--47-letter complete clauses and a reader-first function/inflection editor

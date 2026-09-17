@@ -201,6 +201,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "paired-grammar-terminal-closure-20260916" in ids
     assert "word-boundary-semantic-inflection-dp-20260916" in ids
     assert "online-clause-order-slot-lattice-20260916" in ids
+    assert "endpoint-aware-bilateral-seam-20260916" in ids
+    assert "fresh-scene-tape-cfg-resegmentation-20260916" in ids
+    assert "exact-candidate-slot-repair-neighborhood-20260916" in ids
     assert "model-authored-clause-bank-index" in ids
     assert "semantic-scene-seam-growth" in ids
     assert "live-seam-intent-continuation" in ids

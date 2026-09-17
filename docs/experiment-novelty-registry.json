@@ -2467,6 +2467,36 @@
       "overlaps": [],
       "reader_evidence": false,
       "status": "diagnostic run; 6 complete 151-letter scene-order states, 0 exact closures; relative-clause boundary repair recorded"
+    },
+    {
+      "id": "endpoint-aware-bilateral-seam-20260916",
+      "signature": "endpoint-aware-character-decoding|bilateral-lexical-seam|reserve-terminals-before-interior|typed-scene-beam",
+      "artifact": "experiments/endpoint_aware_bilateral_seam_20260916.py",
+      "run_artifacts": ["runs/endpoint-aware-bilateral-seam-20260916.json"],
+      "distinction": "A bilateral lexical seam reserves the outer terminals before interior character decoding, introducing an endpoint state absent from the prior character beam; no completed tape is reversed.",
+      "overlaps": [],
+      "reader_evidence": false,
+      "status": "diagnostic run; 6 complete 100--105-letter prose candidates, 0 exact closures; first seam terminal repair recorded"
+    },
+    {
+      "id": "fresh-scene-tape-cfg-resegmentation-20260916",
+      "signature": "fresh-scene-authorship|mutable-boundary-segmentation|typed-inflection-realization|exact-tape-cfg-intersection|no-catalogue",
+      "artifact": "experiments/fresh_scene_tape_cfg_resegmentation_20260916.py",
+      "run_artifacts": ["runs/fresh-scene-tape-cfg-resegmentation-20260916.json"],
+      "distinction": "A newly authored harbor-library scene is intersected with its reverse tape while word boundaries and inflections remain mutable; it does not import a catalogue tape or borrow a sentence span.",
+      "overlaps": [],
+      "reader_evidence": false,
+      "status": "diagnostic run; initial and lexical-repair surfaces are complete 123--126-letter prose, 0 exact closures; PP-boundary repair recorded"
+    },
+    {
+      "id": "exact-candidate-slot-repair-neighborhood-20260916",
+      "signature": "exact-candidate-first-mismatch|typed-semantic-slot-substitution|role-preserving-neighborhood|independent-pointer-sha",
+      "artifact": "experiments/exact_candidate_slot_repair_neighborhood_20260916.py",
+      "run_artifacts": ["runs/exact-candidate-slot-repair-neighborhood-20260916.json"],
+      "distinction": "A bounded neighborhood changes one typed semantic slot at the first residual of two long authored scenes; role, agreement, and complete prose are preserved and duplicate fingerprints are rejected before search.",
+      "overlaps": [],
+      "reader_evidence": false,
+      "status": "diagnostic run; 6 complete 109--160-letter semantic-slot repairs, 0 exact closures; held-out role-compatible substitution recorded"
     }
   ],
   "excluded": [

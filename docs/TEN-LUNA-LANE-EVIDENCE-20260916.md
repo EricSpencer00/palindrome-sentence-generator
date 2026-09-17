@@ -469,8 +469,8 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,763 rows
-across 207 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+states, not larger duplicate sweeps. The common audit is now **4,770 rows
+across 210 route phases, 79 exact rejected tapes, and 0 mechanically admitted
 outputs**; the novelty registry now records **308 retained artifacts, 31
 explicit exclusions, and 286 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
@@ -597,6 +597,14 @@ the young pilot had seen the chart I filed beside the harbor ledger?” (87
 letters). Each row carries independent pointer/SHA checks, provenance,
 novelty preflight, anti-shortcut flags, and a named next repair; neither closes
 exactly or enters the reader packet.
+
+The following queue pass adds three boundary-aware states: an independently
+resegmented reflected-tape grammar (two 103--107-letter scenes), a semantic
+scene equation lattice with asymmetric token counts (two 111--112-letter
+scenes), and a finite-state semantic boundary-macro grammar (three growth
+states up to 74 letters). Each row has independent pointer/SHA replay,
+provenance, novelty preflight, anti-shortcut checks, and a concrete residual
+repair; none closes exactly or enters the reader packet.
 
 The newest queue pass adds three genuinely distinct constructive states: a live
 mirrored-tape terminal decoder (six 88--103-letter scenes), a fresh

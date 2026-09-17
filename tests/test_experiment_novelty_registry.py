@@ -214,6 +214,9 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "live-tape-clause-terminal-decoder-20260916" in ids
     assert "bilateral-semantic-growth-grammar-20260916" in ids
     assert "scene-lattice-attachment-csp-20260916" in ids
+    assert "boundary-shift-semordnilap-grammar-20260916" in ids
+    assert "boundary-shift-scene-equation-lattice-20260916" in ids
+    assert "semantic-boundary-macro-fsm-20260916" in ids
     assert "model-authored-clause-bank-index" in ids
     assert "semantic-scene-seam-growth" in ids
     assert "live-seam-intent-continuation" in ids

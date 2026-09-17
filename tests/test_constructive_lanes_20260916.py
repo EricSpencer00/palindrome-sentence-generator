@@ -61,7 +61,7 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4763
+    assert report["candidate_count"] == 4770
     assert report["exact_count"] == 79
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
@@ -108,6 +108,9 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/live-tape-clause-terminal-decoder-20260916.json"]["rows"] == 6
     assert by_source["runs/bilateral-semantic-growth-grammar-20260916.json"]["rows"] == 3
     assert by_source["runs/scene-lattice-attachment-csp-20260916.json"]["rows"] == 2
+    assert by_source["runs/boundary-shift-semordnilap-grammar-20260916.json"]["rows"] == 2
+    assert by_source["runs/boundary-shift-scene-equation-lattice-20260916.json"]["rows"] == 2
+    assert by_source["runs/semantic-boundary-macro-fsm-20260916.json"]["rows"] == 3
 
 
 def test_fresh_typed_frame_preserves_prose_and_live_obligation_evidence():

@@ -606,6 +606,6 @@ fresh semantic phrase-chunk frontier; the next repair replaces the first
 held-out chunk at the live residual and then re-audits before any reader test.
 The same update retains three 101-letter exact near-survivors, but their
 surface is not readable and they fail the central anti-shortcut/readability
-gate. The aggregate is now **5,501 rows across 332 routes, 84 exact rejected
+gate. The aggregate is now **5,517 rows across 332 routes, 84 exact rejected
 tapes, and 0 mechanically admitted outputs**; the registry is **431 retained,
 35 excluded, and 409 retained run artifacts**.

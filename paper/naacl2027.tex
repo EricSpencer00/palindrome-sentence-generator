@@ -26,8 +26,8 @@ builds ordinary scenes: typed grammar and semantic slots propose the next
 words, and targeted repairs are selected from the current mirrored-letter
 debt.  Ten deliberately orthogonal construction lanes share an independent
 two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 5,195 candidates from 309 route
-summaries; 79 are exact, but none passes the mechanical admission gate and no row has
+The current development snapshot contains 5,257 candidates from 316 route
+summaries; 83 are exact, but none passes the mechanical admission gate and no row has
 yet been promoted by readers.  We report the rendered candidates and the
 failed gates explicitly, then use each failure to define the next repair
 operator.  The contribution is therefore a reproducible construction and
@@ -443,12 +443,29 @@ generator's booleans.  The mechanical admission vector records ASCII support,
 lexical form, distinctness, catalogue-family exclusion, repeated-unit and
 self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
 one signature to each run and rejects duplicate families before aggregation.
-On the authoritative snapshot the registry contains 410 unique artifacts (32
-preflight exclusions); the aggregate contains 5,195 rows, 79 exact rows, and
-zero mechanically admitted rows across 309 route summaries.  Every exact row
+On the authoritative snapshot the registry contains 416 unique artifacts (32
+preflight exclusions); the aggregate contains 5,257 rows, 83 exact rows, and
+zero mechanically admitted rows across 316 route summaries.  Every exact row
 therefore has a visible reason for rejection or promotion status rather than
 being silently discarded.  The aggregate report is registered separately as
 an audit artifact, never as a construction family.
+
+The latest bounded wave adds six non-duplicate constructive operators.  A
+finite-state boundary beam renders 12 intact 102--107-letter scenes; an
+agreement-carrying morphology transducer generates 24 retained 85--88-letter
+clause pairs from 144 complete clauses; a human-authored scene lattice emits
+three 73--83-letter scenes; a memoized POS/valency intersection emits 12
+50--63-letter scenes; a semantic phrase-chunk decoder emits 15 intact
+106--114-letter two-clause scenes; and a held-out paired-slot repair emits
+three independently exact 101-letter tapes.  The longest readable rendering
+is ``The careful archivist stores weathered maps beside the north window. A
+quiet teacher reviews marked field notes near the harbor office.''  Its
+independent pointer and forward/reverse SHA checks agree on emph{not exact}.
+The exact 101-letter tapes are also visible in the run artifact, but their
+surface is not readable and they are rejected before any reader claim.  Each
+failure names a next operation (held-out adjunct, inflectional, role-clause,
+chunk, or semantic-slot repair); none is counted as progress from a duplicate
+sweep.
 
 \section{Reader-facing evaluation}
 No candidate is called readable by the automatic diagnostics.  The release

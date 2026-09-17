@@ -596,3 +596,16 @@ repeated content, so the family is retained. Three focused repair artifacts
 (117, 59, and 214 letters) are retained alongside it. The ledger now stands at
 5,195 rows across 309 routes; the registry is 410 retained, 32 excluded, and
 388 retained run artifacts.
+
+The 2026-09-17 ledger update records six new operators without replaying a
+prior sweep. The best complete prose is “The careful archivist stores weathered
+maps beside the north window. A quiet teacher reviews marked field notes near
+the harbor office.” (113 letters; independent two-pointer and
+forward/reverse-SHA checks both report `exact=false`). Its provenance is a
+fresh semantic phrase-chunk frontier; the next repair replaces the first
+held-out chunk at the live residual and then re-audits before any reader test.
+The same update retains three 101-letter exact near-survivors, but their
+surface is not readable and they fail the central anti-shortcut/readability
+gate. The aggregate is now **5,257 rows across 316 routes, 83 exact rejected
+tapes, and 0 mechanically admitted outputs**; the registry is **416 retained,
+32 excluded, and 394 retained run artifacts**.

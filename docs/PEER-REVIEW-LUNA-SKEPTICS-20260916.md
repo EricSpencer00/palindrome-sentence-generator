@@ -145,3 +145,18 @@ backed, and paired with next repairs. The follow-up exact-closure queue adds
 nine bounded terminal states, six clause-equation states, and one 59,049-pair
 whole-word state; their best intact witnesses are 81, 159, and 106 letters,
 respectively, all independently non-exact and paired with a concrete repair.
+
+The 2026-09-17 constructive wave adds six non-duplicate Luna lanes rather than
+another broad sweep. The phrase-chunk decoder's best intact rendering is
+“The careful archivist stores weathered maps beside the north window. A quiet
+teacher reviews marked field notes near the harbor office.” (113 letters;
+two-pointer exact `false`, with the independent forward/reverse SHA check also
+reporting non-palindrome). Its provenance is fresh hand-authored semantic
+chunks, with no catalogue import, mirror, repeated chunk, or fragment; the
+next reader-facing test is held until exact admission, then freezes this intact
+rendering against a matched shuffled control. The same wave records three
+101-letter exact tapes from paired-slot repair, but their “Levels calm tales
+...” surfaces are visibly unreadable and are rejected before reader use. The
+current aggregate is 5,257 rows across 316 routes, with 83 exact rows and zero
+mechanically admitted outputs; the registry has 416 retained artifacts, 32
+exclusions, and 394 retained run artifacts.

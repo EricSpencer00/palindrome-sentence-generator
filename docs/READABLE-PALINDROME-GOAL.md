@@ -2177,8 +2177,24 @@ named next repair. The aggregate is 4,898 rows across 247 route phases (79
   human-authored attachment CSP (two 105--107-letter museum scenes), and an
   unbounded bilateral semantic-growth grammar (three non-repeating growth
   states up to 140 letters). Every row has independent pointer/SHA replay,
-  provenance, novelty preflight, anti-shortcut checks, and a concrete
+provenance, novelty preflight, anti-shortcut checks, and a concrete
   first-residual repair; none closes exactly or enters the reader packet.
+
+  The newest six-lane Luna wave is constructive and non-duplicative: finite
+  boundary decoding, agreement morphology, a human-authored scene lattice,
+  memoized POS/valency intersection, semantic phrase chunks, and paired-slot
+  exact-survivor repair. Its best reader-facing prose candidate is “The careful
+  archivist stores weathered maps beside the north window. A quiet teacher
+  reviews marked field notes near the harbor office.” (113 letters; exact
+  `false` under independent pointer and forward/reverse-SHA checks). The
+  phrase-chunk provenance is fresh and passes the anti-shortcut checks; the
+  concrete next operation is a held-out chunk replacement at the first live
+  residual, followed by exact re-audit. Three 101-letter exact tapes are also
+  preserved, but their “Levels calm tales ...” surface is not readable and is
+  excluded from the reader packet. The authoritative snapshot is **5,257 rows
+  across 316 routes, 83 exact rejected tapes, and 0 mechanically admitted
+  outputs**; the registry is **416 retained, 32 excluded, and 394 retained
+  run artifacts**.
 
   The final exact-focused cycle used three distinct states. A 104-letter
   miller/chemist DP rendering was rejected as a byte-for-byte duplicate of the

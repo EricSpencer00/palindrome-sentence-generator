@@ -142,3 +142,16 @@ remain `false`, and each run records provenance, novelty, anti-shortcut flags,
 and its next repair. The aggregate is now 5,195 rows across 309 routes; the
 registry is 410 retained artifacts, 32 exclusions, and 388 retained run
 artifacts.
+
+The latest orthogonal-wave checkpoint adds finite-state boundary decoding,
+agreement-carrying morphology, a human-authored scene lattice, memoized
+POS/valency intersection, semantic phrase-chunk synchronization, and a
+held-out exact-survivor repair. The representative intact rendering is “The
+careful archivist stores weathered maps beside the north window. A quiet
+teacher reviews marked field notes near the harbor office.” (113 letters;
+independent exact checks both false). Every row carries provenance, novelty
+preflight, anti-shortcut flags, and a concrete next repair; the exact
+101-letter near-survivors are visibly unreadable and not reader-eligible. The
+authoritative aggregate is now **5,257 rows across 316 routes** with **83
+exact and 0 mechanically admitted**, and the registry is **416 retained, 32
+excluded, 394 retained run artifacts**.

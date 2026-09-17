@@ -928,3 +928,20 @@ porter carries sealed parcels toward records offices.” (160 letters; exact
 validation still rejects exactness; the artifact records provenance, novelty
 preflight, anti-shortcut checks, and a concrete next repair at the second-clause
 attachment seam.
+
+The next bounded wave is six orthogonal construction operators. It includes a
+finite-state boundary beam (12 intact 102--107-letter scenes), an
+agreement-carrying morphology CSP (24 85--88-letter clause pairs), a
+human-authored scene lattice (three 73--83-letter scenes), a memoized
+POS/valency intersection (12 50--63-letter scenes), a semantic phrase-chunk
+decoder (15 106--114-letter scenes), and a held-out paired-slot repair (three
+101-letter exact tapes). The strongest readable rendering is “The careful
+archivist stores weathered maps beside the north window. A quiet teacher
+reviews marked field notes near the harbor office.” Its independent pointer
+and forward/reverse SHA checks agree that it is not exact; provenance and
+anti-shortcut flags are clean, and its next reader-facing test remains the
+intact-versus-shuffled packet after exact admission. The paired-slot exact
+tapes are retained as provenance-backed failure evidence, not readability
+claims. The aggregate is now **5,257 rows across 316 routes, 83 exact rows,
+and 0 mechanically admitted outputs**; the registry is **416 retained, 32
+excluded, and 394 retained run artifacts**.

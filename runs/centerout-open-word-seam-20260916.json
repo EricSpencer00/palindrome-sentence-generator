@@ -1,0 +1,105 @@
+{
+  "experiment": "centerout-open-word-seam-20260916",
+  "novelty_preflight": {
+    "passed": true,
+    "signature": "centerout-open-word-seam|dangling-edge-obligation|middle-clause-anchor|typed-pos-extension",
+    "overlaps_checked": [
+      "centerout-typed-semantic-debt-20260916",
+      "live-tape-clause-terminal-decoder-20260916"
+    ],
+    "reason": "Partial words remain open at both edges while POS/scene slots extend outward; no finished word or sentence is reversed."
+  },
+  "rows": [
+    {
+      "id": "open-0",
+      "rendered": "The archivist records the winter letters beside the quiet lamp; a patient gardener waters the young cedar trees after heavy rain.",
+      "seam_trace": {
+        "middle_clause": "the quiet lamp; a patient gardener",
+        "left_open_word": "archivist",
+        "right_open_word": "gardener",
+        "extension_order": "middle to outer POS slots",
+        "live_boundary_obligation": "one character at each open word edge"
+      },
+      "audit": {
+        "length": 107,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "793d462438c045dc27e040b96f7a7fb461f42361e9b398eacd2d8c33de6d81c2",
+        "sha256_reverse": "a3fab1add345fbc64f6464ece55d48b66e1125ef7a39c7f98c485e3d9650df53",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "center-out open-word seam decoding over fresh scene vocabulary and typed POS slots",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "19ba1a7750925add79dec7d41eca8af0741305d4fa3d04d78fcbf193251a09c9",
+        "source_sha256": "793d462438c045dc27e040b96f7a7fb461f42361e9b398eacd2d8c33de6d81c2"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false,
+        "dangling_word_reversal": false
+      },
+      "next_repair": "Open-word repair at residual index 0: keep the middle clause fixed, substitute a same-POS scene word at the opposing open edge, and continue outward only after the edge character matches."
+    },
+    {
+      "id": "open-1",
+      "rendered": "A careful teacher guides the curious children through the shaded garden; the field nurse carries clean water along the narrow trail.",
+      "seam_trace": {
+        "middle_clause": "the quiet lamp; a patient gardener",
+        "left_open_word": "archivist",
+        "right_open_word": "gardener",
+        "extension_order": "middle to outer POS slots",
+        "live_boundary_obligation": "one character at each open word edge"
+      },
+      "audit": {
+        "length": 110,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "l"
+        },
+        "sha256_forward": "06c134b37b9ff0ac7b4f87016f652db41252dcc7b237a338656b1ff715971d50",
+        "sha256_reverse": "fc63f4f0ea7496dfea5e3afb7de3d2b92fb3fd129befd79c488ec0a476ba8b03",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "center-out open-word seam decoding over fresh scene vocabulary and typed POS slots",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "19ba1a7750925add79dec7d41eca8af0741305d4fa3d04d78fcbf193251a09c9",
+        "source_sha256": "06c134b37b9ff0ac7b4f87016f652db41252dcc7b237a338656b1ff715971d50"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false,
+        "dangling_word_reversal": false
+      },
+      "next_repair": "Open-word repair at residual index 0: keep the middle clause fixed, substitute a same-POS scene word at the opposing open edge, and continue outward only after the edge character matches."
+    }
+  ],
+  "summary": {
+    "candidate_count": 2,
+    "exact_count": 0,
+    "max_length": 110
+  }
+}

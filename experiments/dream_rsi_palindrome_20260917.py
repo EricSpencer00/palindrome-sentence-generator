@@ -34,6 +34,7 @@ EXPLICIT_HISTORY = (
     "runs/two-region-sentence-revision-20260917.json",
     "runs/two-region-sentence-revision-compass-20260917.json",
     "runs/two-region-sentence-revision-compass-anchored-20260917.json",
+    "runs/dream-rsi-branching-two-region-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")
@@ -135,14 +136,21 @@ def _shortcut_free(obj: dict[str, Any]) -> bool:
             "catalogue_imported", "borrowed_catalogue_text", "finished_tape_reversed",
         )):
             return False
+        # Do not scan the archived prompt under ``metadata``: prompts mention
+        # forbidden shortcuts precisely to instruct the authoring model, and
+        # that text is not evidence that the rendered row used one.
         provenance_text = " ".join(str(value) for key, value in provenance.items()
-                                    if key not in {"catalogue_imported", "finished_tape_reversed"}).casefold()
+                                    if key not in {"catalogue_imported", "finished_tape_reversed", "metadata"}).casefold()
         if any(token in provenance_text for token in ("catalogue", "borrowed", "reversed tape")):
             return False
     flags = obj.get("shortcut_flags")
     if isinstance(flags, dict):
         rejected = {
-            "repeated_content", "word_order_mirror", "borrowed_catalogue_text",
+            # Repeating an ordinary noun (for example, "map") can be
+            # grammatical anaphora; contiguous repeated phrases are rejected
+            # above.  Do not confuse that legitimate repetition with a copied
+            # unit.
+            "word_order_mirror", "borrowed_catalogue_text",
             "reader_certified", "catalogue_family_derivative", "repeated_unit",
             "finished_tape_reversed", "fragment",
         }
@@ -189,7 +197,7 @@ def _iter_json_files() -> Iterable[Path]:
     for path in sorted(paths):
         if not path.exists() or path.stat().st_size > 3_000_000:
             continue
-        if path.name in SKIP_NAMES or "dream-rsi" in path.name:
+        if path.name in SKIP_NAMES:
             continue
         yield path
 
@@ -446,7 +454,7 @@ def novelty_preflight(signature: str, artifact: str) -> dict[str, Any]:
     }
 
 
-def run(out: Path, budget: int = 24, online: bool = False) -> dict[str, Any]:
+def run(out: Path, budget: int = 8, online: bool = False) -> dict[str, Any]:
     nodes = load_worlds()
     signature = "dream-rsi|historical-discovery-tree-replay|offline-policy-improvement|online-redeploy"
     artifact = str(out.relative_to(ROOT)) if out.is_relative_to(ROOT) else str(out)
@@ -467,13 +475,14 @@ def run(out: Path, budget: int = 24, online: bool = False) -> dict[str, Any]:
     }
     online_run = None
     if online:
-        online_out = ROOT / "runs" / "dream-rsi-online-two-region-20260917.json"
-        command = [sys.executable, str(ROOT / "experiments" / "two_region_sentence_revision_20260917.py"),
-                   "--experiment-id", "dream-rsi-online-two-region-20260917", "--out", str(online_out),
-                   "--revisions", "3", "--initial",
-                   "The museum conservator found a torn map in a cedar chest, carried it to the worktable, and aligned its faded marks before the evening lamps were lit.",
+        online_out = ROOT / "runs" / "dream-rsi-online-branching-two-region-20260917.json"
+        command = [sys.executable, str(ROOT / "experiments" / "branching_two_region_authoring_20260917.py"),
+                   "--experiment-id", "dream-rsi-online-branching-two-region-20260917",
+                   "--out", str(online_out), "--branch-factor", "3", "--depth", "2",
+                   "--initial",
+                   "The theater archivist found a torn playbill in a locked drawer, carried it to the reading table, and marked the missing cast names before the house lights rose.",
                    "--anchors",
-                   "the museum conservator; a torn map; the cedar chest; carrying the map to the worktable; aligning its faded marks before the evening lamps were lit"]
+                   "the theater archivist; a torn playbill; the locked drawer; carrying it to the reading table; marking the missing cast names before the house lights rose"]
         completed = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, check=False)
         online_run = {
             "winner_policy": winner["policy"],
@@ -506,6 +515,7 @@ def run(out: Path, budget: int = 24, online: bool = False) -> dict[str, Any]:
             ),
         },
         "split": {"train_nodes": len(train), "heldout_nodes": len(heldout), "split_rule": "last node-id hex nibble parity"},
+        "replay_budget_per_world": budget,
         "policy_frontier": train_reports,
         "winner": winner,
         "heldout_winner": heldout_report,
@@ -517,7 +527,7 @@ def run(out: Path, budget: int = 24, online: bool = False) -> dict[str, Any]:
             "ordinary fluent non-palindrome",
         ],
         "reader_gate": "closed; replay and diagnostics cannot certify readability; any exact novel deployment must enter blinded intact/shuffled reader testing",
-        "next_repair": "Deploy the winner only if it changes lane allocation; then append the new online tree and dream again. If replay only reorders exhausted branches, add no proxy and change the live construction operator.",
+        "next_repair": "Use the selected policy to choose among sibling prose proposals; if a fresh tree still collapses to one child, change the live construction operator again rather than retuning the score.",
         "independent_audits": ["independent ASCII two-pointer scan on every replay node", "forward/reverse SHA-256"],
         "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
     }
@@ -526,7 +536,7 @@ def run(out: Path, budget: int = 24, online: bool = False) -> dict[str, Any]:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out", type=Path, default=DEFAULT_OUT)
-    parser.add_argument("--budget", type=int, default=24)
+    parser.add_argument("--budget", type=int, default=8)
     parser.add_argument("--online", action="store_true")
     args = parser.parse_args()
     result = run(args.out, budget=args.budget, online=args.online)

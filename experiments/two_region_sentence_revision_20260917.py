@@ -9,6 +9,7 @@ reader candidates.
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import json
 import re
@@ -23,6 +24,7 @@ MODEL = "imetaexabeam/RhythmAI:27b"
 HOST = "http://127.0.0.1:11434"
 MIN_LETTERS, MAX_LETTERS = 100, 140
 REVISION_COUNT = 8
+ANCHOR_INSTRUCTION = ""
 
 INITIAL = (
     "At dawn, the patient archivist carried a sealed letter through autumn rain, "
@@ -107,9 +109,13 @@ def row(text: str, revision: int, parent: str | None, metadata: dict) -> dict:
     }
 
 
-def request_revision(current: str, revision: int) -> tuple[str, dict]:
+def request_revision(current: str, revision: int, seed_offset: int = 0) -> tuple[str, dict]:
     current_audit = audit(current)
     mismatches = current_audit["first_mismatches"]
+    anchor_clause = (f"\nImmutable event anchors for this lineage: {ANCHOR_INSTRUCTION}\n"
+                     "You may alter modifiers and surrounding syntax, but do not "
+                     "replace the anchored people, objects, or event.\n"
+                     if ANCHOR_INSTRUCTION else "")
     prompt = f"""Write one complete, original English event passage.
 
 Make a coordinated revision to TWO non-adjacent regions at once: (1) the
@@ -121,6 +127,7 @@ syntax, tense, and total length, but do not emit a list, fragment, quotation,
 repeated phrase, mirrored halves, known wordplay, or catalogue text. Preserve
 the middle event when possible so this is a genuine two-region repair, not an
 unrelated sentence. Return only the passage and no explanation.
+{anchor_clause}
 
 Current passage:
 {current}
@@ -140,7 +147,7 @@ errors are allowed, but keep the prose length band and ordinary English."""
         "options": {
             "temperature": 0.78,
             "num_predict": 700,
-            "seed": 2026091800 + revision,
+            "seed": 2026091800 + revision + seed_offset,
         },
     }
     request = urllib.request.Request(
@@ -156,15 +163,15 @@ errors are allowed, but keep the prose length band and ordinary English."""
         "revision": revision,
         "prompt": prompt,
         "model": MODEL,
-        "seed": 2026091800 + revision,
+        "seed": 2026091800 + revision + seed_offset,
         "elapsed_seconds": round(time.time() - started, 3),
         "response_done_reason": payload.get("done_reason"),
     }
 
 
-def run() -> dict:
-    revisions = [row(INITIAL, 0, None, {"authoring": "hand-authored fresh event"})]
-    current = INITIAL
+def run(initial: str = INITIAL) -> dict:
+    revisions = [row(initial, 0, None, {"authoring": "hand-authored fresh event"})]
+    current = initial
     errors: list[dict] = []
     rejected: list[dict] = []
     for revision in range(1, REVISION_COUNT + 1):
@@ -197,9 +204,11 @@ def run() -> dict:
     best = min(revisions, key=lambda item: (
         item["audit"]["mismatch_count"], -item["audit"]["letters"]
     ))
+    signature = ("two-region-global-rewrite|live-mismatch-diagnostic|intact-event|"
+                 + ("anchored-event" if ANCHOR_INSTRUCTION else "free-event"))
     return {
         "experiment_id": EXPERIMENT_ID,
-        "signature": "two-region-global-rewrite|live-mismatch-diagnostic|intact-event",
+        "signature": signature,
         "status": "completed_exact" if exact else "completed_no_exact_closure",
         "model": MODEL,
         "novelty_preflight": {
@@ -217,6 +226,7 @@ def run() -> dict:
             "revisions_completed": len(revisions) - 1,
             "letter_band": [MIN_LETTERS, MAX_LETTERS],
             "temporary_violations_allowed": True,
+            "anchor_instruction": ANCHOR_INSTRUCTION or None,
             "invalid_length_rows_rejected": len(rejected),
         },
         "initial": revisions[0],
@@ -233,7 +243,21 @@ def run() -> dict:
 
 
 if __name__ == "__main__":
-    OUT.write_text(json.dumps(run(), indent=2) + "\n")
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--initial", default=INITIAL,
+                        help="fresh authored event to start this lineage")
+    parser.add_argument("--out", type=Path, default=OUT)
+    parser.add_argument("--experiment-id", default=EXPERIMENT_ID)
+    parser.add_argument("--anchors", default="",
+                        help="immutable people, objects, and event anchors")
+    parser.add_argument("--revisions", type=int, default=REVISION_COUNT)
+    args = parser.parse_args()
+    OUT = args.out
+    EXPERIMENT_ID = args.experiment_id
+    ANCHOR_INSTRUCTION = args.anchors
+    REVISION_COUNT = args.revisions
+    OUT.parent.mkdir(parents=True, exist_ok=True)
+    OUT.write_text(json.dumps(run(args.initial), indent=2) + "\n")
     result = json.loads(OUT.read_text())
     print(json.dumps({
         "status": result["status"],

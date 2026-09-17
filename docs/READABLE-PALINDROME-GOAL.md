@@ -3385,10 +3385,10 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   new proxy score. The adapter independently rescans every curated historical
   rendering, rebuilds parent links from forward tape hashes, quarantines exact
   controls and repeated-phrase scaffolds, and compares six deterministic replay
-  policies on a train/held-out split. Across 15,475 nodes from 417 worlds, the
-  data contain only 19 parent edges, zero branching parents, and identical
-  train/held-out metrics for all six policies; the selected policy is therefore
-  `whole_passage_focus` by a declared tie-break, not by fabricated improvement.
+  policies on a train/held-out split. The initial 15,475-node history from 417
+  worlds contained only 19 parent edges and zero branching parents, so all six
+  policies had identical metrics; `whole_passage_focus` was selected only by a
+  declared tie-break, not by fabricated improvement.
   The best surviving train rendering is intact authored prose — “At first light,
   the gardener unlocks the old shed, trims the apple tree, carries the spare hose,
   writes a note for the neighbor, sweeps the stone path.” — at 119 letters with
@@ -3398,7 +3398,7 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   at 137 letters with 54 mismatches. Their independent forward/reverse SHA
   audits pass, but neither is exact or reader certified.
 
-  The selected controller was redeployed on a fresh anchored museum event. The
+  The first selected-controller deployment was run on a fresh anchored museum event. The
   three retained revisions are original, intact 120–123-letter passages (for
   example, “The museum conservator took a torn map from a cedar chest, carried it
   to the worktable, and aligned its faded marks before the evening lamps were
@@ -3410,3 +3410,20 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   two-region authoring operator that records multiple sibling prose proposals per
   preserved state, followed by a fresh Dream-RSI replay and then the intact-versus
   shuffled blinded reader package for any exact survivor.
+
+  That branching repair is now live. A fresh harbor-cartographer event generated
+  12 retained nodes (11 parent edges, 4 branching parents) and one rejected
+  147-letter proposal; all retained renderings are intact 120–140-letter prose,
+  with 55–66 opposing-end mismatches and zero exact closures. Replaying the
+  augmented 15,488-node history with an 8-node/world budget finally separates the
+  policies: `fixed_mismatch_first` wins on train (119 letters, 46 mismatches),
+  while held-out best is 137 letters with 54 mismatches. The winner was then
+  redeployed on a fresh anchored theater event, yielding 11 retained sibling-tree
+  nodes (10 parent edges, 4 branching parents), two length rejects, and no exact
+  closure. Its best rendered passage is “The archivist drew a torn playbill from
+  the locked drawer, then set it on the reading table and traced the missing cast
+  names before the house lights rose.” (126 letters, 55 mismatches); its
+  independent forward/reverse SHA audit passes. This is useful controller
+  evidence, not reader evidence: the next test is to replay this new tree again,
+  preserve the winning branch, and run the blinded intact-versus-shuffled reader
+  package only if an exact, novel survivor appears.

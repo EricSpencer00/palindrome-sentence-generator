@@ -192,6 +192,20 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
                 "provenance": context_provenance,
                 "lane": payload.get("experiment") or payload.get("family"),
             }
+        # Agreement/clitic transducer lanes keep their single complete scene
+        # under ``semantic_scene.text`` while storing lexical obligations and
+        # the independent audit alongside it.  Surface that authored prose in
+        # the common report instead of silently dropping the lane.
+        semantic_scene = payload.get("semantic_scene")
+        if isinstance(semantic_scene, dict):
+            scene_text = semantic_scene.get("text")
+            if isinstance(scene_text, str) and scene_text.strip():
+                yield {
+                    "source_run": source,
+                    "rendered": scene_text,
+                    "provenance": context_provenance,
+                    "lane": payload.get("experiment") or payload.get("signature"),
+                }
         # A few older artifacts store one candidate at the top level.
         text = payload.get("rendered") or payload.get("text")
         if isinstance(text, str) and text.strip():

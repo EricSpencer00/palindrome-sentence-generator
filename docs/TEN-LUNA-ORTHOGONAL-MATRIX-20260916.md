@@ -115,6 +115,20 @@ Three orthogonal targeted repairs are also retained: a 117-letter internal-seam
 repair changing only two morphemes, a 59-letter atomic-center repair changing
 one right verb/object pair, and a 214-letter complete-constituent repair. Each
 has independent exact validation, provenance, novelty preflight, and a concrete
-next repair. The authoritative aggregate is 5,010 rows across 294 routes (79
-exact tapes, 0 mechanically admitted); the registry is 395 retained artifacts,
+next repair. The authoritative aggregate before this continuation was 5,010
+rows across 294 routes (79 exact tapes, 0 mechanically admitted); the registry
+was 395 retained artifacts,
 32 exclusions, and 373 retained run artifacts.
+
+The next orthogonal continuation adds three bounded states: a 72-letter
+agreement/clitic transducer scene (“The patient pilot checks the engine, notes
+its gauge, and tells the crew it starts at dawn.”), a 108-letter whole-word
+semantic-slot expansion (“The careful archivist stores weathered maps beside
+the north window. A patient gardener waters young cedars near the school gate.”),
+and a 154-letter semantic-valency lattice witness (“The quiet gardener waters
+young seedlings after steady rain. The watchful sailor repairs loose rigging
+near the harbor. The young porter carries sealed parcels toward records
+offices.”). Each is exact `false` under independent pointer/SHA checks, has
+fresh provenance and novelty preflight, and names a concrete clause/terminal
+repair. The aggregate is now 5,018 rows across 297 routes; the registry is 398
+retained artifacts, 32 exclusions, and 376 retained run artifacts.

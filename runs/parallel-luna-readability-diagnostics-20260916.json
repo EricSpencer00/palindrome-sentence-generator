@@ -289,9 +289,12 @@
     "runs/semantic-relation-plan-solver-20260916.json",
     "runs/word-internal-seam-first-mismatch-repair-20260916.json",
     "runs/minimal-residual-grammar-repair-20260916.json",
-    "runs/joint-constituent-equation-scene-repair-20260916.json"
+    "runs/joint-constituent-equation-scene-repair-20260916.json",
+    "runs/agreement-clitic-character-transducer-20260916.json",
+    "runs/seed-benchmark-live-semantic-slot-expansion-20260916.json",
+    "runs/semantic-valency-attachment-scene-lattice-20260916.json"
   ],
-  "candidate_count": 5010,
+  "candidate_count": 5018,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -3234,6 +3237,36 @@
       "max_letters": 117,
       "mean_zipf_frequency": 5.3545,
       "mean_brown_order_gain_vs_shuffle": 0.9563715300023201
+    },
+    {
+      "source_run": "runs/agreement-clitic-character-transducer-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 72,
+      "max_letters": 72,
+      "mean_zipf_frequency": 5.662941176470588,
+      "mean_brown_order_gain_vs_shuffle": 0.8970014142920846
+    },
+    {
+      "source_run": "runs/seed-benchmark-live-semantic-slot-expansion-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 108,
+      "max_letters": 108,
+      "mean_zipf_frequency": 5.0455,
+      "mean_brown_order_gain_vs_shuffle": 1.0971267203983555
+    },
+    {
+      "source_run": "runs/semantic-valency-attachment-scene-lattice-20260916.json",
+      "rows": 6,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 153,
+      "max_letters": 163,
+      "mean_zipf_frequency": 4.8402469135802475,
+      "mean_brown_order_gain_vs_shuffle": 0.42049131002273893
     }
   ],
   "rows": [
@@ -241756,6 +241789,385 @@
         "word_count": 36,
         "repeated_word_rate": 0.13888888888888884,
         "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient pilot checks the engine, notes its gauge, and tells the crew it starts at dawn.",
+      "source_run": "runs/agreement-clitic-character-transducer-20260916.json",
+      "provenance": "agreement-carrying inflection/clitic transducer with character-pair obligations solved during lexicalization",
+      "repair": null,
+      "letters": 72,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8970014142920846,
+        "mean_zipf_frequency": 5.662941176470588,
+        "word_count": 17,
+        "repeated_word_rate": 0.11764705882352944,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist stores weathered maps beside the north window. A patient gardener waters young cedars near the school gate.",
+      "source_run": "runs/seed-benchmark-live-semantic-slot-expansion-20260916.json",
+      "provenance": {
+        "source": "fresh hand-authored field-and-school scene",
+        "seed_role": "38-letter benchmark only",
+        "lexical_selection": "whole-word typed semantic slots selected before rendering",
+        "generator": "experiments/seed_benchmark_live_semantic_slot_expansion_20260916.py"
+      },
+      "repair": null,
+      "letters": 108,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0971267203983555,
+        "mean_zipf_frequency": 5.0455,
+        "word_count": 20,
+        "repeated_word_rate": 0.09999999999999998,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The watchful sailor repairs loose rigging near the harbor. The young porter carries sealed parcels toward records offices.",
+      "source_run": "runs/semantic-valency-attachment-scene-lattice-20260916.json",
+      "provenance": {
+        "generator_sha256": "e7f670b0704e0909e591cc60ed61f8761fd55fc716eef044f1ddeabf7710a417",
+        "registry_sha256": "321f92b7ff8bec06d4247ecf6e703efefbef7a29dd2888f3d25adbd7de208e5a",
+        "lattice_shape": [
+          3,
+          3,
+          3
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 154,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4751818766809155,
+        "mean_zipf_frequency": 4.840000000000002,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The patient teacher reviews marked notes inside the classroom. The waiting curator locks glass cabinets after evening lectures.",
+      "source_run": "runs/semantic-valency-attachment-scene-lattice-20260916.json",
+      "provenance": {
+        "generator_sha256": "e7f670b0704e0909e591cc60ed61f8761fd55fc716eef044f1ddeabf7710a417",
+        "registry_sha256": "321f92b7ff8bec06d4247ecf6e703efefbef7a29dd2888f3d25adbd7de208e5a",
+        "lattice_shape": [
+          3,
+          3,
+          3
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 159,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4152124927886689,
+        "mean_zipf_frequency": 5.032962962962963,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The watchful sailor repairs loose rigging near the harbor. The watchful pilot secures fishing vessels beside stone piers.",
+      "source_run": "runs/semantic-valency-attachment-scene-lattice-20260916.json",
+      "provenance": {
+        "generator_sha256": "e7f670b0704e0909e591cc60ed61f8761fd55fc716eef044f1ddeabf7710a417",
+        "registry_sha256": "321f92b7ff8bec06d4247ecf6e703efefbef7a29dd2888f3d25adbd7de208e5a",
+        "lattice_shape": [
+          3,
+          3,
+          3
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 153,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.22890371697245016,
+        "mean_zipf_frequency": 4.717037037037038,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient archivist catalogs sealed journals beneath winter rafters. The watchful sailor repairs loose rigging near the harbor. The watchful pilot secures fishing vessels beside stone piers.",
+      "source_run": "runs/semantic-valency-attachment-scene-lattice-20260916.json",
+      "provenance": {
+        "generator_sha256": "e7f670b0704e0909e591cc60ed61f8761fd55fc716eef044f1ddeabf7710a417",
+        "registry_sha256": "321f92b7ff8bec06d4247ecf6e703efefbef7a29dd2888f3d25adbd7de208e5a",
+        "lattice_shape": [
+          3,
+          3,
+          3
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 163,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.33701800473493115,
+        "mean_zipf_frequency": 4.515555555555557,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The station keeper checks the morning ledger beside platforms. The young porter carries sealed parcels toward records offices.",
+      "source_run": "runs/semantic-valency-attachment-scene-lattice-20260916.json",
+      "provenance": {
+        "generator_sha256": "e7f670b0704e0909e591cc60ed61f8761fd55fc716eef044f1ddeabf7710a417",
+        "registry_sha256": "321f92b7ff8bec06d4247ecf6e703efefbef7a29dd2888f3d25adbd7de208e5a",
+        "lattice_shape": [
+          3,
+          3,
+          3
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 158,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6060790331449528,
+        "mean_zipf_frequency": 4.924074074074074,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The patient teacher reviews marked notes inside the classroom. The young porter carries sealed parcels toward records offices.",
+      "source_run": "runs/semantic-valency-attachment-scene-lattice-20260916.json",
+      "provenance": {
+        "generator_sha256": "e7f670b0704e0909e591cc60ed61f8761fd55fc716eef044f1ddeabf7710a417",
+        "registry_sha256": "321f92b7ff8bec06d4247ecf6e703efefbef7a29dd2888f3d25adbd7de208e5a",
+        "lattice_shape": [
+          3,
+          3,
+          3
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 158,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.46055273581451495,
+        "mean_zipf_frequency": 5.011851851851852,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

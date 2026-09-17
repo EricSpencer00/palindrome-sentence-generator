@@ -836,3 +836,19 @@ boats at twilight.” (214 letters; one paired constituent replacement; exact
 preflight, and a concrete next repair. The authoritative retained aggregate is
 now 5,010 rows across 294 routes, with 79 exact controls and 0 mechanically
 admitted outputs.
+
+Three additional non-sweep Luna lanes now extend the constructive frontier. An
+agreement/clitic transducer renders “The patient pilot checks the engine, notes
+its gauge, and tells the crew it starts at dawn.” (72 letters; exact `false`;
+singular-present agreement and possessive `its` obligations close locally). A
+seed-benchmark semantic-slot expansion, which does not copy or wrap the 38-
+letter seed, renders “The careful archivist stores weathered maps beside the
+north window. A patient gardener waters young cedars near the school gate.”
+(108 letters; exact `false`). A semantic-valency/attachment lattice examines 27
+joint clause states and retains “The quiet gardener waters young seedlings after
+steady rain. The watchful sailor repairs loose rigging near the harbor. The
+young porter carries sealed parcels toward records offices.” (154 letters;
+exact `false`). All three have independent pointer/SHA validation, provenance,
+novelty preflight, anti-shortcut flags, and named next repairs; none is
+reader-eligible. The authoritative retained aggregate is now 5,018 rows across
+297 routes, with 79 exact controls and 0 mechanically admitted outputs.

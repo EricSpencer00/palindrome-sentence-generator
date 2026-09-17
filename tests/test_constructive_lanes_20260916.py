@@ -61,7 +61,7 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 5010
+    assert report["candidate_count"] == 5018
     assert report["exact_count"] == 79
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
@@ -74,6 +74,9 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/word-internal-seam-first-mismatch-repair-20260916.json"]["rows"] == 1
     assert by_source["runs/minimal-residual-grammar-repair-20260916.json"]["rows"] == 1
     assert by_source["runs/joint-constituent-equation-scene-repair-20260916.json"]["rows"] == 1
+    assert by_source["runs/agreement-clitic-character-transducer-20260916.json"]["rows"] == 1
+    assert by_source["runs/seed-benchmark-live-semantic-slot-expansion-20260916.json"]["rows"] == 1
+    assert by_source["runs/semantic-valency-attachment-scene-lattice-20260916.json"]["rows"] == 6
     assert by_source["runs/char-lm-tape-resegment-20260916.json"]["rows"] == 5
     assert by_source["runs/char-lm-multiclause-heldout-20260916.json"]["rows"] == 20
     assert by_source["runs/constructive-seam-morph-cfg-20260916.json"]["rows"] == 2

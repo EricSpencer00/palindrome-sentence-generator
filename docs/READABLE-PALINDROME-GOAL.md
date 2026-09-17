@@ -2207,8 +2207,11 @@ named next repair. The aggregate is 4,898 rows across 247 route phases (79
   anti-shortcut fields certify no word-order mirror, no repeated content, and no
   catalogue scaffold. Three focused repairs (117, 59, and 214 letters) are also
   retained with independent exact checks and named next operators. The
-  authoritative retained snapshot is now 5,010 rows across 294 routes, with 79
-  exact rejected tapes and 0 mechanically admitted outputs.
+  authoritative retained snapshot is now 5,018 rows across 297 routes, with 79
+  exact rejected tapes and 0 mechanically admitted outputs. The latest
+  agreement/clitic, seed-free semantic-slot, and semantic-valency lattice lanes
+  add 72-, 108-, and 154-letter intact witnesses with independent rejection and
+  concrete next repairs.
 
   The newest committed wave is measured at **4,967 rows across 283 route phases**
   with **79 exact but rejected tapes and 0 mechanically admitted outputs**. Its

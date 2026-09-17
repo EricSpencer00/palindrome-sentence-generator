@@ -5,6 +5,8 @@ import json
 import re
 from pathlib import Path
 
+from tools.audit_candidate_readability_20260915 import audit as aggregate_audit
+
 ROOT = Path(__file__).parents[1]
 
 
@@ -33,3 +35,11 @@ def test_agreement_clitic_transducer_emits_one_scene_and_closes_local_obligation
     assert all(value is False for value in run["anti_shortcut_flags"].values())
     assert run["provenance"]["catalogue_lookup"] is False
     assert run["next_repair"]["operator"]
+
+
+def test_shared_audit_surfaces_semantic_scene_text():
+    report = aggregate_audit([ROOT / "runs/agreement-clitic-character-transducer-20260916.json"])
+    assert report["candidate_count"] == 1
+    assert report["exact_count"] == 0
+    expected = "The patient pilot checks the engine, notes its gauge, and tells the crew it starts at dawn."
+    assert report["rows"][0]["rendered"] == expected

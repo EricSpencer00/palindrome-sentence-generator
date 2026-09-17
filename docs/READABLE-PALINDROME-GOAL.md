@@ -3598,3 +3598,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   inflectional choices. The exact/readability gate and the blinded
   intact-versus-shuffled reader package remain closed until an original exact
   passage is actually rendered.
+
+  Two more Luna lanes were then added as separate replay worlds. The
+  homophone seam-weaver generated 120 135+ letter surfaces with a live
+  opposite-character ledger; its best row began “At dawn, the patient gardener
+  watered the shaded orchard...” and ended with a residual `a/e` mismatch, so
+  it was rejected (0 exact closures). The center-out function/verb/noun CSP
+  produced nine simultaneous lexical combinations; its best intact passage was
+  “Before the market wakes, a careful keeper beside the quay checks the brass
+  ledger, while a young apprentice from the harbor counts the numbered boxes.”
+  (123 letters, 52 mismatches). Both runs include independent two-pointer and
+  forward/reverse SHA audits, fresh provenance, and concrete held-out lexical
+  repairs; neither is reader-eligible.

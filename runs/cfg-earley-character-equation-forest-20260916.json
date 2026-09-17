@@ -1,0 +1,693 @@
+{
+  "experiment_id": "cfg-earley-character-equation-forest-20260916",
+  "signature": "cfg-earley-item-forest|joint-outer-character-equations|typed-scene-productions|fresh-prose-repair",
+  "method": "joint CFG/Earley character-equation forest",
+  "novelty_preflight": {
+    "entries_inspected": 402,
+    "exact_signature_collisions": [],
+    "passed": true,
+    "state_space_distinction": "typed complete S-NP-VP-PP productions are generated jointly while live outer equations filter derivation pairs; no fixed tape or reverse segmentation"
+  },
+  "grammar": {
+    "nonterminals": [
+      "S",
+      "NP",
+      "VP",
+      "PP"
+    ],
+    "productions": "typed agent/event/patient/setting productions; complete clauses only",
+    "chart_state": "(nonterminal, dot, origin, emitted-character-obligation)"
+  },
+  "rows": [
+    {
+      "rank": 1,
+      "rendered": "The quiet botanist studies a folded survey beside the river station The careful cartographer records a weathered notebook before the evening bell",
+      "letters": 124,
+      "left_derivation": "The quiet botanist studies a folded survey beside the river station",
+      "right_derivation": "The careful cartographer records a weathered notebook before the evening bell",
+      "earley_chart_left": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "quiet",
+          "botanist",
+          "studies",
+          "a",
+          "folded",
+          "survey",
+          "beside",
+          "the",
+          "river",
+          "station"
+        ],
+        "complete_items": [
+          {
+            "lhs": "S",
+            "dot": 3,
+            "origin": 0,
+            "completed": true,
+            "productions": [
+              "agent",
+              "event",
+              "setting"
+            ]
+          }
+        ],
+        "accepted": true
+      },
+      "earley_chart_right": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "careful",
+          "cartographer",
+          "records",
+          "a",
+          "weathered",
+          "notebook",
+          "before",
+          "the",
+          "evening",
+          "bell"
+        ],
+        "complete_items": [
+          {
+            "lhs": "S",
+            "dot": 3,
+            "origin": 0,
+            "completed": true,
+            "productions": [
+              "agent",
+              "event",
+              "setting"
+            ]
+          }
+        ],
+        "accepted": true
+      },
+      "character_intersection": {
+        "construction": "left-and-right-complete-derivations",
+        "known_outer_pairs": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "l",
+            "equal": false
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "l",
+            "equal": false
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "e",
+            "equal": true
+          },
+          {
+            "offset": 3,
+            "left": "q",
+            "right": "b",
+            "equal": false
+          },
+          {
+            "offset": 4,
+            "left": "u",
+            "right": "g",
+            "equal": false
+          },
+          {
+            "offset": 5,
+            "left": "i",
+            "right": "n",
+            "equal": false
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "i",
+            "equal": false
+          },
+          {
+            "offset": 7,
+            "left": "t",
+            "right": "n",
+            "equal": false
+          },
+          {
+            "offset": 8,
+            "left": "b",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "offset": 9,
+            "left": "o",
+            "right": "v",
+            "equal": false
+          },
+          {
+            "offset": 10,
+            "left": "t",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "offset": 11,
+            "left": "a",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "offset": 12,
+            "left": "n",
+            "right": "h",
+            "equal": false
+          },
+          {
+            "offset": 13,
+            "left": "i",
+            "right": "t",
+            "equal": false
+          },
+          {
+            "offset": 14,
+            "left": "s",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "offset": 15,
+            "left": "t",
+            "right": "r",
+            "equal": false
+          },
+          {
+            "offset": 16,
+            "left": "s",
+            "right": "o",
+            "equal": false
+          },
+          {
+            "offset": 17,
+            "left": "t",
+            "right": "f",
+            "equal": false
+          },
+          {
+            "offset": 18,
+            "left": "u",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "offset": 19,
+            "left": "d",
+            "right": "b",
+            "equal": false
+          },
+          {
+            "offset": 20,
+            "left": "i",
+            "right": "k",
+            "equal": false
+          },
+          {
+            "offset": 21,
+            "left": "e",
+            "right": "o",
+            "equal": false
+          },
+          {
+            "offset": 22,
+            "left": "s",
+            "right": "o",
+            "equal": false
+          },
+          {
+            "offset": 23,
+            "left": "a",
+            "right": "b",
+            "equal": false
+          }
+        ],
+        "matching_pairs": 4,
+        "pairs_checked": 57,
+        "first_mismatch": 0
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 124,
+        "mismatch_count": 58,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "l"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "l"
+          },
+          {
+            "offset": 3,
+            "left": "q",
+            "right": "b"
+          },
+          {
+            "offset": 4,
+            "left": "u",
+            "right": "g"
+          },
+          {
+            "offset": 5,
+            "left": "i",
+            "right": "n"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "offset": 7,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "offset": 8,
+            "left": "b",
+            "right": "e"
+          },
+          {
+            "offset": 9,
+            "left": "o",
+            "right": "v"
+          },
+          {
+            "offset": 10,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 11,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 12,
+            "left": "n",
+            "right": "h"
+          },
+          {
+            "offset": 13,
+            "left": "i",
+            "right": "t"
+          },
+          {
+            "offset": 14,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 15,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "offset": 16,
+            "left": "s",
+            "right": "o"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "c6409b37a977d24762c81689a91bcb573a3a8b4df8a28402e2ca47c7163c8394",
+        "reverse": "67f177c766a8eae2b86d75d191a4f84e7b2893babcb44a47372109cd89ef6dc2"
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_import": false,
+        "punctuation_changes_letters": false,
+        "complete_constituents": true,
+        "fresh_authored_scene": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "At the first live equation mismatch, replace the setting PP production with a held-out agreement-compatible PP and regrow both complete charts; retain the same scene roles and rerun independent audits."
+    },
+    {
+      "rank": 2,
+      "rendered": "The patient locksmith repairs a brass compass inside the old observatory The patient locksmith repairs a brass compass beside the river station",
+      "letters": 122,
+      "left_derivation": "The patient locksmith repairs a brass compass inside the old observatory",
+      "right_derivation": "The patient locksmith repairs a brass compass beside the river station",
+      "earley_chart_left": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "patient",
+          "locksmith",
+          "repairs",
+          "a",
+          "brass",
+          "compass",
+          "inside",
+          "the",
+          "old",
+          "observatory"
+        ],
+        "complete_items": [
+          {
+            "lhs": "S",
+            "dot": 3,
+            "origin": 0,
+            "completed": true,
+            "productions": [
+              "agent",
+              "event",
+              "setting"
+            ]
+          }
+        ],
+        "accepted": true
+      },
+      "earley_chart_right": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "patient",
+          "locksmith",
+          "repairs",
+          "a",
+          "brass",
+          "compass",
+          "beside",
+          "the",
+          "river",
+          "station"
+        ],
+        "complete_items": [
+          {
+            "lhs": "S",
+            "dot": 3,
+            "origin": 0,
+            "completed": true,
+            "productions": [
+              "agent",
+              "event",
+              "setting"
+            ]
+          }
+        ],
+        "accepted": true
+      },
+      "character_intersection": {
+        "construction": "left-and-right-complete-derivations",
+        "known_outer_pairs": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "n",
+            "equal": false
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "o",
+            "equal": false
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "i",
+            "equal": false
+          },
+          {
+            "offset": 3,
+            "left": "p",
+            "right": "t",
+            "equal": false
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "a",
+            "equal": true
+          },
+          {
+            "offset": 5,
+            "left": "t",
+            "right": "t",
+            "equal": true
+          },
+          {
+            "offset": 6,
+            "left": "i",
+            "right": "s",
+            "equal": false
+          },
+          {
+            "offset": 7,
+            "left": "e",
+            "right": "r",
+            "equal": false
+          },
+          {
+            "offset": 8,
+            "left": "n",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "offset": 9,
+            "left": "t",
+            "right": "v",
+            "equal": false
+          },
+          {
+            "offset": 10,
+            "left": "l",
+            "right": "i",
+            "equal": false
+          },
+          {
+            "offset": 11,
+            "left": "o",
+            "right": "r",
+            "equal": false
+          },
+          {
+            "offset": 12,
+            "left": "c",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "offset": 13,
+            "left": "k",
+            "right": "h",
+            "equal": false
+          },
+          {
+            "offset": 14,
+            "left": "s",
+            "right": "t",
+            "equal": false
+          },
+          {
+            "offset": 15,
+            "left": "m",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "offset": 16,
+            "left": "i",
+            "right": "d",
+            "equal": false
+          },
+          {
+            "offset": 17,
+            "left": "t",
+            "right": "i",
+            "equal": false
+          },
+          {
+            "offset": 18,
+            "left": "h",
+            "right": "s",
+            "equal": false
+          },
+          {
+            "offset": 19,
+            "left": "r",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "offset": 20,
+            "left": "e",
+            "right": "b",
+            "equal": false
+          },
+          {
+            "offset": 21,
+            "left": "p",
+            "right": "s",
+            "equal": false
+          },
+          {
+            "offset": 22,
+            "left": "a",
+            "right": "s",
+            "equal": false
+          },
+          {
+            "offset": 23,
+            "left": "i",
+            "right": "a",
+            "equal": false
+          }
+        ],
+        "matching_pairs": 4,
+        "pairs_checked": 60,
+        "first_mismatch": 0
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 122,
+        "mismatch_count": 57,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "offset": 3,
+            "left": "p",
+            "right": "t"
+          },
+          {
+            "offset": 6,
+            "left": "i",
+            "right": "s"
+          },
+          {
+            "offset": 7,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 8,
+            "left": "n",
+            "right": "e"
+          },
+          {
+            "offset": 9,
+            "left": "t",
+            "right": "v"
+          },
+          {
+            "offset": 10,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 11,
+            "left": "o",
+            "right": "r"
+          },
+          {
+            "offset": 12,
+            "left": "c",
+            "right": "e"
+          },
+          {
+            "offset": 13,
+            "left": "k",
+            "right": "h"
+          },
+          {
+            "offset": 14,
+            "left": "s",
+            "right": "t"
+          },
+          {
+            "offset": 15,
+            "left": "m",
+            "right": "e"
+          },
+          {
+            "offset": 16,
+            "left": "i",
+            "right": "d"
+          },
+          {
+            "offset": 17,
+            "left": "t",
+            "right": "i"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "10140a1692b0217826029126ee768702973bf346bd7141349672a020d1cb81f2",
+        "reverse": "f19de30dcc2021a97e21a73e751937210f2d4f8ca3237203b10856ce6ecd43b9"
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_import": false,
+        "punctuation_changes_letters": false,
+        "complete_constituents": true,
+        "fresh_authored_scene": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "At the first live equation mismatch, replace the setting PP production with a held-out agreement-compatible PP and regrow both complete charts; retain the same scene roles and rerun independent audits."
+    }
+  ],
+  "stats": {
+    "states_examined": 2,
+    "over_100": 2,
+    "exact": 0,
+    "earley_accepted": 2
+  },
+  "provenance": {
+    "generator_sha256": "e0291963be83856fb22f391478f0b3e5e1228d86881933b0bc463039d1ceff06",
+    "lexical_source": "fresh hand-authored scene productions",
+    "candidate_provenance": "each row names both complete derivation surfaces and chart items",
+    "independent_audits": [
+      "two-pointer mismatch scan",
+      "forward/reverse SHA-256",
+      "Earley complete-item chart"
+    ]
+  },
+  "anti_shortcut_policy": "No fixed tape, reverse decoding, mirrored word units, repeated units, catalogue text, or punctuation-based equality.",
+  "next_repair": "Held-out PP-production substitution at the first equation mismatch, followed by full chart regeneration and independent validation."
+}

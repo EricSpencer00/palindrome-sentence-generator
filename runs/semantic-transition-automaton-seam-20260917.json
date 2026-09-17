@@ -1,0 +1,272 @@
+{
+  "experiment": "semantic-transition-automaton-seam-20260917",
+  "method": "role-state automaton selects valid semantic transitions and scores seam character constraints before clause completion",
+  "template": "The {a} {v} the {o} near the {s0}{bridge}{a2} {v2} the {o2} near the {s1}.",
+  "states": [
+    "agentive",
+    "pedagogic",
+    "reporting"
+  ],
+  "transitions": {
+    "agentive": [
+      "cooperative",
+      "contrastive"
+    ],
+    "pedagogic": [
+      "cooperative",
+      "contrastive"
+    ],
+    "reporting": [
+      "contrastive",
+      "cooperative"
+    ]
+  },
+  "candidate_count": 6,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "The gardener carries the letters near the harbor, and the teacher writes the notes near the garden.",
+      "source_role": "agentive",
+      "transition": "cooperative",
+      "target_role": "pedagogic",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "letters",
+        "s0": "harbor",
+        "bridge": ", and the ",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "garden"
+      },
+      "precompletion_seam_matches": 1,
+      "provenance": "semantic_transition_automaton_seam_conditioned",
+      "novelty_preflight": {
+        "signature": "semantic_transition_automaton_v1",
+        "distinct_from": "semantic bridge CSP; relation transitions form a role automaton with seam-conditioned edge scoring"
+      },
+      "audit": {
+        "letters": 81,
+        "exact": false,
+        "mismatch_count": 34,
+        "first_mismatch": 0,
+        "sha256": "a770fe5d70ee85119e36a021bd7c8283abfb1c2a0a333b8665b5ec3d74f53b53",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "The gardener carries the letters near the garden, while the messenger records the charts near the station.",
+      "source_role": "agentive",
+      "transition": "contrastive",
+      "target_role": "reporting",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "letters",
+        "s0": "garden",
+        "bridge": ", while the ",
+        "a2": "messenger",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station"
+      },
+      "precompletion_seam_matches": 2,
+      "provenance": "semantic_transition_automaton_seam_conditioned",
+      "novelty_preflight": {
+        "signature": "semantic_transition_automaton_v1",
+        "distinct_from": "semantic bridge CSP; relation transitions form a role automaton with seam-conditioned edge scoring"
+      },
+      "audit": {
+        "letters": 88,
+        "exact": false,
+        "mismatch_count": 38,
+        "first_mismatch": 0,
+        "sha256": "f19fb5de50cae7fbf9e44bd319d6119f22137aca359a5133698667471845754b",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 2,
+      "rendered": "The teacher writes the notes near the station, and the teacher writes the notes near the harbor.",
+      "source_role": "pedagogic",
+      "transition": "cooperative",
+      "target_role": "pedagogic",
+      "slots": {
+        "a": "teacher",
+        "v": "writes",
+        "o": "notes",
+        "s0": "station",
+        "bridge": ", and the ",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "harbor"
+      },
+      "precompletion_seam_matches": 2,
+      "provenance": "semantic_transition_automaton_seam_conditioned",
+      "novelty_preflight": {
+        "signature": "semantic_transition_automaton_v1",
+        "distinct_from": "semantic bridge CSP; relation transitions form a role automaton with seam-conditioned edge scoring"
+      },
+      "audit": {
+        "letters": 78,
+        "exact": false,
+        "mismatch_count": 32,
+        "first_mismatch": 0,
+        "sha256": "6e34941552bdeebdfdd9ec020cbd30e16628bfd166bcd103be210987a633ad13",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 3,
+      "rendered": "The teacher writes the notes near the harbor, while the messenger records the charts near the garden.",
+      "source_role": "pedagogic",
+      "transition": "contrastive",
+      "target_role": "reporting",
+      "slots": {
+        "a": "teacher",
+        "v": "writes",
+        "o": "notes",
+        "s0": "harbor",
+        "bridge": ", while the ",
+        "a2": "messenger",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "garden"
+      },
+      "precompletion_seam_matches": 2,
+      "provenance": "semantic_transition_automaton_seam_conditioned",
+      "novelty_preflight": {
+        "signature": "semantic_transition_automaton_v1",
+        "distinct_from": "semantic bridge CSP; relation transitions form a role automaton with seam-conditioned edge scoring"
+      },
+      "audit": {
+        "letters": 83,
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0,
+        "sha256": "f23313f7a46a603995f83cb2739038ca8f29ae9a0f958f2afce7e25d6f2ee597",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 4,
+      "rendered": "The messenger records the charts near the garden, while the messenger records the charts near the station.",
+      "source_role": "reporting",
+      "transition": "contrastive",
+      "target_role": "reporting",
+      "slots": {
+        "a": "messenger",
+        "v": "records",
+        "o": "charts",
+        "s0": "garden",
+        "bridge": ", while the ",
+        "a2": "messenger",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station"
+      },
+      "precompletion_seam_matches": 2,
+      "provenance": "semantic_transition_automaton_seam_conditioned",
+      "novelty_preflight": {
+        "signature": "semantic_transition_automaton_v1",
+        "distinct_from": "semantic bridge CSP; relation transitions form a role automaton with seam-conditioned edge scoring"
+      },
+      "audit": {
+        "letters": 88,
+        "exact": false,
+        "mismatch_count": 38,
+        "first_mismatch": 0,
+        "sha256": "42d8b2941d2e4c1af5a7aa2f244e89b3105c74462f5e67d4b7fa8ed1877e5ef3",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 5,
+      "rendered": "The messenger records the charts near the station, and the teacher writes the notes near the harbor.",
+      "source_role": "reporting",
+      "transition": "cooperative",
+      "target_role": "pedagogic",
+      "slots": {
+        "a": "messenger",
+        "v": "records",
+        "o": "charts",
+        "s0": "station",
+        "bridge": ", and the ",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "harbor"
+      },
+      "precompletion_seam_matches": 0,
+      "provenance": "semantic_transition_automaton_seam_conditioned",
+      "novelty_preflight": {
+        "signature": "semantic_transition_automaton_v1",
+        "distinct_from": "semantic bridge CSP; relation transitions form a role automaton with seam-conditioned edge scoring"
+      },
+      "audit": {
+        "letters": 82,
+        "exact": false,
+        "mismatch_count": 38,
+        "first_mismatch": 0,
+        "sha256": "ae59ab03f2701c081c28745a065a513c264841e7831e7959dde52ce73f5f7b30",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 88,
+    "next_repair": "add character-labeled automaton edges and propagate exact seam requirements during transition traversal"
+  }
+}

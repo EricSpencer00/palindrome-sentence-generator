@@ -69,7 +69,13 @@ class Balanced:
 
     def render(self) -> str:
         middle = f" {self.inner.render()}" if self.inner else ""
-        return f"{self.left.render()}{middle} {self.center} {self.right.render()}"
+        right = self.right.render()
+        # A temporal/discourse center is an adjunct, not a sentence boundary:
+        # keep the following subject lowercase after its comma so every
+        # displayed state remains ordinary prose.
+        if self.center.endswith(",") and right:
+            right = right[0].lower() + right[1:]
+        return f"{self.left.render()}{middle} {self.center} {right}"
 
     def clauses(self) -> tuple[Clause, ...]:
         return (self.left,) + (self.inner.clauses() if self.inner else ()) + (self.right,)
@@ -85,7 +91,7 @@ CLAUSES = (
     Clause("doctor", "The village doctor", "examines", "a careful sketch", "inside the quiet clinic", "inspect a diagram"),
     Clause("keeper", "A gentle keeper", "mends", "the garden gate", "after the winter storm", "restore a boundary"),
 )
-CENTERS = ("Meanwhile", "At noon", "By evening")
+CENTERS = ("Meanwhile,", "At noon,", "By evening,")
 
 
 def anti_shortcut(text: str, clauses: tuple[Clause, ...]) -> dict[str, object]:
@@ -134,9 +140,9 @@ def run() -> dict[str, object]:
     # the right boundary is independently sampled, never reverse-rendered.
     states = [Balanced(CLAUSES[0], CENTERS[0], CLAUSES[1], 1),
               Balanced(CLAUSES[2], CENTERS[1], CLAUSES[3], 1),
-              Balanced(CLAUSES[4], "At dusk", CLAUSES[5], 1),
+              Balanced(CLAUSES[4], "At dusk,", CLAUSES[5], 1),
               Balanced(CLAUSES[6], CENTERS[2], CLAUSES[7], 1)]
-    states.append(Balanced(CLAUSES[6], "At dusk", CLAUSES[7], 2, inner=states[0]))
+    states.append(Balanced(CLAUSES[6], "At dusk,", CLAUSES[7], 2, inner=states[0]))
     # A second expansion is represented by a fresh complete middle sentence,
     # which tests arbitrary-size composition without reusing a clause unit.
     rows = [row(s, f"independent_clause_pair_{i}") for i, s in enumerate(states)]

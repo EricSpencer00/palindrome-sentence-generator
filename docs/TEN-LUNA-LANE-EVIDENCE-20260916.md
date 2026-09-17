@@ -950,9 +950,9 @@ and forward/reverse SHA checks agree that it is not exact; provenance and
 anti-shortcut flags are clean, and its next reader-facing test remains the
 intact-versus-shuffled packet after exact admission. The paired-slot exact
 tapes are retained as provenance-backed failure evidence, not readability
-claims. The aggregate is now **5,303 rows across 326 routes, 84 exact rows,
-and 0 mechanically admitted outputs**; the registry is **425 retained, 35
-excluded, and 403 retained run artifacts**.
+claims. The aggregate is now **5,335 rows across 329 routes, 84 exact rows,
+and 0 mechanically admitted outputs**; the registry is **428 retained, 35
+excluded, and 406 retained run artifacts**.
 
 The following frontier changes the obligation mechanism rather than widening a
 sweep: a cross-word character trie retains eight 79-letter scenes, a fresh
@@ -986,3 +986,22 @@ substitution as the next repair. A reverse-automaton phrase lattice emits a
 51-letter exact tape (“Doc, note: I dissent. A fast never prevents a fatness. I
 diet on cod.”), but the independent gate rejects it for catalogue collision
 and a self-palindromic span; it is failure evidence, not a readable output.
+
+The next three Luna lanes remain constructive rather than duplicate sweeps. A
+lexicalized reverse-trie grammar retains three 111--123-letter clause pairs;
+the representative is “The careful archivist studies weathered maps beside
+the quiet harbor. The thoughtful teacher records clear field notes inside the
+village school.” (123 letters; exact `false`), with a held-out locative edge
+repair. A scene-first agreement/tense/clitic transducer retains 24 displayed
+variants from 72 jointly realized states; its longest grammatical rendering
+is “The careful gardeners watered the red roses behind the stone wall; the
+notes of the careful gardeners remain ready.” (95 letters; exact `false`).
+Its next repair is a held-out possessive/clitic seam substitution that keeps
+the agreement register. Finally, recursive balanced grammar emits five
+complete states through depth two, including the 240-letter scene “The village
+doctor examines a careful sketch inside the quiet clinic. The careful
+archivist stores weathered maps beside the harbor window. Meanwhile, a patient
+teacher reviews marked field notes near the village school. At dusk, a gentle
+keeper mends the garden gate after the winter storm.” (exact `false`); its
+first-residual repair replaces the outer seam with a role-compatible clause
+pair. None is reader-eligible until exact admission.

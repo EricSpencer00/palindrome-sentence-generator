@@ -157,9 +157,9 @@ next reader-facing test is held until exact admission, then freezes this intact
 rendering against a matched shuffled control. The same wave records three
 101-letter exact tapes from paired-slot repair, but their “Levels calm tales
 ...” surfaces are visibly unreadable and are rejected before reader use. The
-current aggregate is 5,303 rows across 326 routes, with 84 exact rows and zero
-mechanically admitted outputs; the registry has 425 retained artifacts, 35
-exclusions, and 403 retained run artifacts.
+current aggregate is 5,335 rows across 329 routes, with 84 exact rows and zero
+mechanically admitted outputs; the registry has 428 retained artifacts, 35
+exclusions, and 406 retained run artifacts.
 
 A follow-up typed scene realizer adds three complete SVO/PP surfaces, including
 “The harbor guides the vessel near the breakwater.” (41 letters; exact

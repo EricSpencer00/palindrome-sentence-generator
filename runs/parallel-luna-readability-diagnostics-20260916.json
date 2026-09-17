@@ -320,9 +320,12 @@
     "runs/luna-lm-obligation-clause-search-20260917.json",
     "runs/luna-closed-form-grammar-family-20260917.json",
     "runs/luna-semantic-lexical-path-solver-20260917.json",
-    "runs/luna-reverse-automaton-phrase-lattice-20260917.json"
+    "runs/luna-reverse-automaton-phrase-lattice-20260917.json",
+    "runs/luna-lexicalized-reverse-trie-grammar-20260917.json",
+    "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+    "runs/luna-recursive-balanced-grammar-20260917.json"
   ],
-  "candidate_count": 5303,
+  "candidate_count": 5335,
   "exact_count": 84,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -2217,6 +2220,26 @@
       "mean_brown_order_gain_vs_shuffle": 1.3257556388466558
     },
     {
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "rows": 24,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 87,
+      "max_letters": 95,
+      "mean_zipf_frequency": 5.4889254385964925,
+      "mean_brown_order_gain_vs_shuffle": 1.3768214400545062
+    },
+    {
+      "source_run": "runs/luna-lexicalized-reverse-trie-grammar-20260917.json",
+      "rows": 3,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 111,
+      "max_letters": 123,
+      "mean_zipf_frequency": 5.214603174603174,
+      "mean_brown_order_gain_vs_shuffle": 0.876936889880391
+    },
+    {
       "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
       "rows": 12,
       "exact_count": 0,
@@ -2265,6 +2288,16 @@
       "max_letters": 71,
       "mean_zipf_frequency": 4.9471428571428575,
       "mean_brown_order_gain_vs_shuffle": 0.9754616120840058
+    },
+    {
+      "source_run": "runs/luna-recursive-balanced-grammar-20260917.json",
+      "rows": 5,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 114,
+      "max_letters": 240,
+      "mean_zipf_frequency": 5.204079446640316,
+      "mean_brown_order_gain_vs_shuffle": 0.9611288789183579
     },
     {
       "source_run": "runs/luna-reverse-automaton-phrase-lattice-20260917.json",
@@ -255109,7 +255142,7 @@
         "seed_used_in_output": false,
         "selection": "typed complete clauses selected before rendering",
         "generator": "experiments/luna_closed_form_grammar_family_20260917.py",
-        "generator_sha256": "d75ea2cd51b3fef857bc510373162b86027ba1959f53b303ddf1fa162a70c721",
+        "generator_sha256": "779fa773dfdfed117772e7aaf6125526de7ab2925774ac7f36f4ff26211a2a0e",
         "audits": [
           "independent two-pointer",
           "forward/reverse SHA-256",
@@ -255163,7 +255196,7 @@
         "seed_used_in_output": false,
         "selection": "typed complete clauses selected before rendering",
         "generator": "experiments/luna_closed_form_grammar_family_20260917.py",
-        "generator_sha256": "d75ea2cd51b3fef857bc510373162b86027ba1959f53b303ddf1fa162a70c721",
+        "generator_sha256": "779fa773dfdfed117772e7aaf6125526de7ab2925774ac7f36f4ff26211a2a0e",
         "audits": [
           "independent two-pointer",
           "forward/reverse SHA-256",
@@ -255371,6 +255404,1416 @@
         "word_count": 14,
         "repeated_word_rate": 0.1428571428571429,
         "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies weathered maps beside the quiet harbor. The thoughtful teacher records clear field notes inside the village school.",
+      "source_run": "runs/luna-lexicalized-reverse-trie-grammar-20260917.json",
+      "provenance": "lexicalized reverse-trie grammar: complete hand-authored clauses are expanded as phrase edges while terminal character obligations are consumed live across the clause seam",
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6994437596059999,
+        "mean_zipf_frequency": 5.167142857142857,
+        "word_count": 21,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardener carries fresh seeds toward the eastern orchard. The observant pilot checks a narrow route above the coastal inlet.",
+      "source_run": "runs/luna-lexicalized-reverse-trie-grammar-20260917.json",
+      "provenance": "lexicalized reverse-trie grammar: complete hand-authored clauses are expanded as phrase edges while terminal character obligations are consumed live across the clause seam",
+      "repair": null,
+      "letters": 113,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8028842443304054,
+        "mean_zipf_frequency": 5.082380952380952,
+        "word_count": 21,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young musician repairs a wooden bridge before the evening concert. The local baker delivers warm bread beside the covered market.",
+      "source_run": "runs/luna-lexicalized-reverse-trie-grammar-20260917.json",
+      "provenance": "lexicalized reverse-trie grammar: complete hand-authored clauses are expanded as phrase edges while terminal character obligations are consumed live across the clause seam",
+      "repair": null,
+      "letters": 111,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1284826657047677,
+        "mean_zipf_frequency": 5.394285714285714,
+        "word_count": 21,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful gardeners watered the red roses behind the stone wall; the notes of the careful gardeners remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 95,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3452159977792046,
+        "mean_zipf_frequency": 5.498947368421053,
+        "word_count": 19,
+        "repeated_word_rate": 0.3157894736842105,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful gardeners watered the red roses behind the stone wall; the tools of the careful gardeners remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 95,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3470989794653914,
+        "mean_zipf_frequency": 5.4857894736842105,
+        "word_count": 19,
+        "repeated_word_rate": 0.3157894736842105,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful gardeners watered the red roses behind the stone wall; the maps of the careful gardeners remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 94,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3228504607806997,
+        "mean_zipf_frequency": 5.476842105263158,
+        "word_count": 19,
+        "repeated_word_rate": 0.3157894736842105,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful gardeners water the red roses behind the stone wall; the notes of the careful gardeners remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 93,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3789251606218595,
+        "mean_zipf_frequency": 5.6136842105263165,
+        "word_count": 19,
+        "repeated_word_rate": 0.3157894736842105,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful gardeners water the red roses behind the stone wall; the tools of the careful gardeners remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 93,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3808081423080463,
+        "mean_zipf_frequency": 5.600526315789474,
+        "word_count": 19,
+        "repeated_word_rate": 0.3157894736842105,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful gardener watered the red roses behind the stone wall; the notes of the careful gardener remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 93,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2702817705042548,
+        "mean_zipf_frequency": 5.52421052631579,
+        "word_count": 19,
+        "repeated_word_rate": 0.3157894736842105,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful gardener watered the red roses behind the stone wall; the tools of the careful gardener remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 93,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2721647521904416,
+        "mean_zipf_frequency": 5.511052631578948,
+        "word_count": 19,
+        "repeated_word_rate": 0.3157894736842105,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful gardener waters the red roses behind the stone wall; the notes of the careful gardener remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 92,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2090930703211473,
+        "mean_zipf_frequency": 5.582631578947368,
+        "word_count": 19,
+        "repeated_word_rate": 0.3157894736842105,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful gardener waters the red roses behind the stone wall; the tools of the careful gardener remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 92,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2109760520073323,
+        "mean_zipf_frequency": 5.569473684210527,
+        "word_count": 19,
+        "repeated_word_rate": 0.3157894736842105,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful gardeners water the red roses behind the stone wall; the maps of the careful gardeners remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 92,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3565596236233564,
+        "mean_zipf_frequency": 5.591578947368421,
+        "word_count": 19,
+        "repeated_word_rate": 0.3157894736842105,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful gardener watered the red roses behind the stone wall; the maps of the careful gardener remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 92,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2479162335057516,
+        "mean_zipf_frequency": 5.502105263157895,
+        "word_count": 19,
+        "repeated_word_rate": 0.3157894736842105,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful gardener waters the red roses behind the stone wall; the maps of the careful gardener remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 91,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.186727533322646,
+        "mean_zipf_frequency": 5.560526315789474,
+        "word_count": 19,
+        "repeated_word_rate": 0.3157894736842105,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young sailors charted a narrow inlet beside the quiet harbor; the notes of the young sailors remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 90,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4241817099487708,
+        "mean_zipf_frequency": 5.4094736842105275,
+        "word_count": 19,
+        "repeated_word_rate": 0.26315789473684215,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young sailors charted a narrow inlet beside the quiet harbor; the tools of the young sailors remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 90,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4260646916349558,
+        "mean_zipf_frequency": 5.396315789473685,
+        "word_count": 19,
+        "repeated_word_rate": 0.26315789473684215,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young sailors charted a narrow inlet beside the quiet harbor; the maps of the young sailors remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 89,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.399795463059876,
+        "mean_zipf_frequency": 5.387368421052631,
+        "word_count": 19,
+        "repeated_word_rate": 0.26315789473684215,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young sailors chart a narrow inlet beside the quiet harbor; the notes of the young sailors remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 88,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4760977721074386,
+        "mean_zipf_frequency": 5.488947368421053,
+        "word_count": 19,
+        "repeated_word_rate": 0.26315789473684215,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young sailors chart a narrow inlet beside the quiet harbor; the tools of the young sailors remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 88,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4779807537936271,
+        "mean_zipf_frequency": 5.475789473684211,
+        "word_count": 19,
+        "repeated_word_rate": 0.26315789473684215,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young sailor charted a narrow inlet beside the quiet harbor; the notes of the young sailor remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 88,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4227504168924447,
+        "mean_zipf_frequency": 5.412631578947369,
+        "word_count": 19,
+        "repeated_word_rate": 0.26315789473684215,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young sailor charted a narrow inlet beside the quiet harbor; the tools of the young sailor remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 88,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.424633398578635,
+        "mean_zipf_frequency": 5.399473684210527,
+        "word_count": 19,
+        "repeated_word_rate": 0.26315789473684215,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient bakers kneaded a warm loaf by the eastern window; the notes of the patient bakers remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 87,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.605513397899072,
+        "mean_zipf_frequency": 5.427368421052632,
+        "word_count": 19,
+        "repeated_word_rate": 0.26315789473684215,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient bakers kneaded a warm loaf by the eastern window; the tools of the patient bakers remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 87,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.614889802312753,
+        "mean_zipf_frequency": 5.414210526315791,
+        "word_count": 19,
+        "repeated_word_rate": 0.26315789473684215,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young sailor charts a narrow inlet beside the quiet harbor; the notes of the young sailor remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 87,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.39479743587286,
+        "mean_zipf_frequency": 5.475789473684211,
+        "word_count": 19,
+        "repeated_word_rate": 0.26315789473684215,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young sailor charts a narrow inlet beside the quiet harbor; the tools of the young sailor remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 87,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3966804175590433,
+        "mean_zipf_frequency": 5.462631578947369,
+        "word_count": 19,
+        "repeated_word_rate": 0.26315789473684215,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young sailors chart a narrow inlet beside the quiet harbor; the maps of the young sailors remain ready.",
+      "source_run": "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
+      "provenance": {
+        "lexical_source": "fresh hand-authored scene frames",
+        "catalogue_text_imported": false,
+        "known_palindrome_imported": false
+      },
+      "repair": null,
+      "letters": 87,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4517115252185455,
+        "mean_zipf_frequency": 5.466842105263159,
+        "word_count": 19,
+        "repeated_word_rate": 0.26315789473684215,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist stores weathered maps beside the harbor window. Meanwhile, a patient teacher reviews marked field notes near the village school.",
+      "source_run": "runs/luna-recursive-balanced-grammar-20260917.json",
+      "provenance": {
+        "source": "fresh typed clause frame and center lexicon",
+        "reversal_used": false
+      },
+      "repair": null,
+      "letters": 126,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8103963467284281,
+        "mean_zipf_frequency": 5.108636363636363,
+        "word_count": 22,
+        "repeated_word_rate": 0.09090909090909094,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet gardener waters young seedlings behind the stone wall. At noon, a swift courier carries sealed letters across the market square.",
+      "source_run": "runs/luna-recursive-balanced-grammar-20260917.json",
+      "provenance": {
+        "source": "fresh typed clause frame and center lexicon",
+        "reversal_used": false
+      },
+      "repair": null,
+      "letters": 114,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4549675480226298,
+        "mean_zipf_frequency": 5.175000000000002,
+        "word_count": 22,
+        "repeated_word_rate": 0.09090909090909094,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The skilled carpenter repairs a narrow footbridge before the evening rain. At dusk, a watchful sailor charts the coastal inlet under a clear morning sky.",
+      "source_run": "runs/luna-recursive-balanced-grammar-20260917.json",
+      "provenance": {
+        "source": "fresh typed clause frame and center lexicon",
+        "reversal_used": false
+      },
+      "repair": null,
+      "letters": 126,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8270542557386662,
+        "mean_zipf_frequency": 5.186,
+        "word_count": 25,
+        "repeated_word_rate": 0.16000000000000003,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The village doctor examines a careful sketch inside the quiet clinic. By evening, a gentle keeper mends the garden gate after the winter storm.",
+      "source_run": "runs/luna-recursive-balanced-grammar-20260917.json",
+      "provenance": {
+        "source": "fresh typed clause frame and center lexicon",
+        "reversal_used": false
+      },
+      "repair": null,
+      "letters": 117,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9259573907261416,
+        "mean_zipf_frequency": 5.3475,
+        "word_count": 24,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The village doctor examines a careful sketch inside the quiet clinic. The careful archivist stores weathered maps beside the harbor window. Meanwhile, a patient teacher reviews marked field notes near the village school. At dusk, a gentle keeper mends the garden gate after the winter storm.",
+      "source_run": "runs/luna-recursive-balanced-grammar-20260917.json",
+      "provenance": {
+        "source": "fresh typed clause frame and center lexicon",
+        "reversal_used": false
+      },
+      "repair": null,
+      "letters": 240,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7872688533759238,
+        "mean_zipf_frequency": 5.203260869565217,
+        "word_count": 46,
+        "repeated_word_rate": 0.21739130434782605,
+        "punctuation_segments": 4
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

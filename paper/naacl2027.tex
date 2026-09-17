@@ -26,7 +26,7 @@ builds ordinary scenes: typed grammar and semantic slots propose the next
 words, and targeted repairs are selected from the current mirrored-letter
 debt.  Ten deliberately orthogonal construction lanes share an independent
 two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 5,303 candidates from 326 route
+The current development snapshot contains 5,335 candidates from 329 route
 summaries; 84 are exact, but none passes the mechanical admission gate and no row has
 yet been promoted by readers.  We report the rendered candidates and the
 failed gates explicitly, then use each failure to define the next repair
@@ -443,8 +443,8 @@ generator's booleans.  The mechanical admission vector records ASCII support,
 lexical form, distinctness, catalogue-family exclusion, repeated-unit and
 self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
 one signature to each run and rejects duplicate families before aggregation.
-On the authoritative snapshot the registry contains 425 unique artifacts (35
-preflight exclusions); the aggregate contains 5,303 rows, 84 exact rows, and
+On the authoritative snapshot the registry contains 428 unique artifacts (35
+preflight exclusions); the aggregate contains 5,335 rows, 84 exact rows, and
 zero mechanically admitted rows across 326 route summaries.  Every exact row
 therefore has a visible reason for rejection or promotion status rather than
 being silently discarded.  The aggregate report is registered separately as
@@ -513,6 +513,25 @@ produces a 51-letter exact tape, ``Doc, note: I dissent. A fast never prevents
 a fatness. I diet on cod.'', but the independent gate rejects it for local
 catalogue collision and a self-palindromic span.  This exact control is kept
 as rejection evidence, not counted as a readable output.
+
+The subsequent frontier adds three non-duplicate constructive operators.  A
+lexicalized reverse-trie grammar retains three 111--123-letter clause pairs;
+the representative is ``The careful archivist studies weathered maps beside
+the quiet harbor. The thoughtful teacher records clear field notes inside the
+village school.'' (123 letters, exact \emph{false}), with a held-out locative
+edge repair.  A scene-first agreement/tense/clitic transducer retains 24
+displayed variants from 72 jointly realized states; its longest grammatical
+rendering is ``The careful gardeners watered the red roses behind the stone
+wall; the notes of the careful gardeners remain ready.'' (95 letters, exact
+\emph{false}).  Its next operation is a held-out possessive/clitic seam
+substitution that preserves agreement.  Finally, recursive balanced grammar
+emits five complete states through depth two, including the 240-letter scene
+``The village doctor examines a careful sketch inside the quiet clinic. The
+careful archivist stores weathered maps beside the harbor window. Meanwhile, a
+patient teacher reviews marked field notes near the village school. At dusk, a
+gentle keeper mends the garden gate after the winter storm.'' (exact
+\emph{false}); its first-residual repair replaces the outer seam with a
+role-compatible clause pair.  None is reader-eligible until exact admission.
 
 \section{Reader-facing evaluation}
 No candidate is called readable by the automatic diagnostics.  The release

@@ -24,9 +24,9 @@ from llm_palindrome.admission import mechanical_admission_checks, normalize_lett
 
 
 SCENES = (
-    {"subject": "the patient baker", "verb": ("kneads", "kneaded"), "object": "a warm loaf", "place": "by the eastern window", "possessor": "the baker's"},
-    {"subject": "the young sailor", "verb": ("charts", "charted"), "object": "a narrow inlet", "place": "beside the quiet harbor", "possessor": "the sailor's"},
-    {"subject": "the careful gardener", "verb": ("waters", "watered"), "object": "the red roses", "place": "behind the stone wall", "possessor": "the gardener's"},
+    {"subject": "the patient baker", "plural_subject": "the patient bakers", "verb": ("kneads", "kneaded"), "object": "a warm loaf", "place": "by the eastern window", "possessor": "the baker's", "plural_possessor": "the bakers'"},
+    {"subject": "the young sailor", "plural_subject": "the young sailors", "verb": ("charts", "charted"), "object": "a narrow inlet", "place": "beside the quiet harbor", "possessor": "the sailor's", "plural_possessor": "the sailors'"},
+    {"subject": "the careful gardener", "plural_subject": "the careful gardeners", "verb": ("waters", "watered"), "object": "the red roses", "place": "behind the stone wall", "possessor": "the gardener's", "plural_possessor": "the gardeners'"},
 )
 TAILS = ("notes", "tools", "maps")
 
@@ -64,11 +64,18 @@ def audit(text: str) -> dict[str, object]:
 
 
 def realize(scene: dict[str, str], tense: str, possessive: str, tail: str, plural: bool) -> dict[str, object]:
-    subject = scene["subject"] + ("s" if plural else "")
+    subject = scene["plural_subject"] if plural else scene["subject"]
     verb = scene["verb"][1] if tense == "past" else (scene["verb"][0] if not plural else scene["verb"][0][:-1])
     # The clitic is selected with the scene, not inserted after a tape exists.
-    owner = scene["possessor"] if possessive == "clitic" else scene["subject"] + " of"
-    sentence = f"{scene['subject'].capitalize()} {verb} {scene['object']} {scene['place']}; {owner} {tail}."
+    # Both seam realizations must remain ordinary English: the clitic places
+    # the possessive before the noun, while the analytic alternative uses a
+    # full ``the X of the Y`` noun phrase.  The earlier ``the Y of notes``
+    # fallback was morphologically legal but not a readable clause.
+    possessor = scene["plural_possessor"] if plural else scene["possessor"]
+    owner = (f"{possessor} {tail} remain ready"
+             if possessive == "clitic"
+             else f"the {tail} of {subject} remain ready")
+    sentence = f"{subject.capitalize()} {verb} {scene['object']} {scene['place']}; {owner}."
     a = audit(sentence)
     return {"rendered": sentence, "scene_id": scene["subject"], "choices": {"tense": tense, "plural": plural, "possessive": possessive, "tail": tail},
             "live_equations": [{"name": "subject_verb_agreement", "matched": (not plural and verb.endswith("s")) or (plural and not verb.endswith("s")) or tense == "past"},

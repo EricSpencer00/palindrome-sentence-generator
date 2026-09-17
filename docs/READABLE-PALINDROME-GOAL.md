@@ -2198,9 +2198,9 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   concrete next operation is a held-out chunk replacement at the first live
   residual, followed by exact re-audit. Three 101-letter exact tapes are also
   preserved, but their “Levels calm tales ...” surface is not readable and is
-  excluded from the reader packet. The authoritative snapshot is **5,303 rows
-  across 326 routes, 84 exact rejected tapes, and 0 mechanically admitted
-  outputs**; the registry is **425 retained, 35 excluded, and 403 retained
+  excluded from the reader packet. The authoritative snapshot is **5,335 rows
+  across 329 routes, 84 exact rejected tapes, and 0 mechanically admitted
+  outputs**; the registry is **428 retained, 35 excluded, and 406 retained
   run artifacts**.
 
   A follow-up typed scene realizer adds three complete 39--42-letter clauses;

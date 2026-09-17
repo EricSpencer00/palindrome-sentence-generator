@@ -2447,3 +2447,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   are grammar-aware optional-relative boundary transitions, relative-clause
   object substitution by attachment state, and one held-out
   agreement-compatible clause complement in the center state.
+
+  The next wave completed those operators. Grammar-aware optional-relative
+  boundary transitions rendered 3 intact candidates up to 91 letters;
+  attachment-state relative-object substitution rendered 4,096 candidates up
+  to 61 letters; and the center-crossing held-out clause-complement repair
+  rendered 54 intact candidates up to 157 letters, with midpoint-inside-token
+  crossing in every candidate. All produced 0 exact closures. Independent
+  pointer/SHA-256 replay, provenance, novelty preflight, and anti-shortcut
+  checks are retained for every row. The reader gate remains closed. The next
+  concrete operators are relative-clause lexical valency bundles,
+  valency-gated relative determiner alternation, and a new syntactic
+  attachment family for the center-crossing state.

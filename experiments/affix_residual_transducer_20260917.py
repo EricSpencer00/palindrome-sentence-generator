@@ -11,9 +11,11 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; sys.path.insert(0,str(ROOT))
 from llm_palindrome.admission import normalize_letters
 
-LEX={"det":{"a","the"},"subj":{"quiet baker","young poet","kind nurse"},
-     "verb":{"bakes","writes","helps"},"obj":{"warm bread","a note","the child"}}
-FRAMES=(("det","subj","verb","obj"),("subj","verb","det","obj"))
+LEX={"det":{"a","the"},"subj":{"quiet baker","young poet","kind nurse","quiet bakers","young poets","kind nurses"},
+     "verb":{"bakes","writes","helps","bake","write","help"},"verbbare":{"bake","write","help"},
+     "aux":{"does","do"},"obj":{"warm bread","a note","the child"}}
+FRAMES=(("det","subj","verb","obj"),("subj","verb","det","obj"),
+        ("subj","aux","verbbare","det","obj"))
 AFFIX={"a":("",),"the":("",),"bakes":("",),"writes":("",),"helps":("",),
        "quiet":("",),"baker":("",),"young":("",),"poet":("",),"kind":("",),
        "nurse":("",),"warm":("",),"bread":("",),"note":("",),"child":("",)}
@@ -24,7 +26,14 @@ def paths():
       pools=[LEX[k] for k in frame]
       def rec(i, words):
         if i==len(pools):
-          # agreement/valency checks are construction-time, not admission-time
+          # Agreement and auxiliary selection are construction-time constraints.
+          plural=words[0].endswith("s") if frame[0] == "subj" else words[1].endswith("s")
+          if "verb" in frame:
+            verb=words[frame.index("verb")];
+            if (plural and verb.endswith("s")) or ((not plural) and not verb.endswith("s")): return
+          if "aux" in frame:
+            aux=words[frame.index("aux")];
+            if (plural and aux != "do") or ((not plural) and aux != "does"): return
           out.append((tuple(words), frame)); return
         for phrase in pools[i]: rec(i+1, words+phrase.split())
       rec(0,[])
@@ -88,7 +97,7 @@ def run(limit=180000):
           witnesses.append({"text":text,"length_letters":a["letters"],"residual":{"automaton_state":list(residual),"states_explored":used},"provenance":{"left_path":list(lp),"right_path":list(rp),"frames":[list(lf),list(rf)],"source":"live bidirectional affix transducer"},"independent_exact_audit":a,"mechanically_admitted":False})
       if states>=limit: break
     longest=max((x["length_letters"] for x in witnesses+closures),default=0)
-    return {"status":"truncated" if states>=limit else "exhausted","stats":{"states":states,"dead_states":dead,"closures":len(closures),"rendered":len(witnesses)+len(closures),"longest_letters":longest},"paths":len(ps),"closures":closures,"diagnostic_witnesses":witnesses,"config":{"independent_affix_transducers":True,"live_residual_obligations":True,"pos_agreement_valency":True,"fixed_tape":False,"posthoc_reverse":False},"novelty_preflight":{"distinction":"word-internal stem/affix character transducers with POS paths and live opposite residuals; no completed-tape reversal or word mirror","excluded":{"center_out_astar":True,"scene_graph":True,"reverse_segmentation":True,"rlaif":True}},"reader_gate":{"status":"not_triggered" if not closures else "human_blind_review_required","programmatic_metrics_are_diagnostic":True,"next_repair":"add held-out agreement-carrying inflection variants and retain the same live residual product"}}
+    return {"status":"truncated" if states>=limit else "exhausted","stats":{"states":states,"dead_states":dead,"closures":len(closures),"rendered":len(witnesses)+len(closures),"longest_letters":longest},"paths":len(ps),"closures":closures,"diagnostic_witnesses":witnesses,"config":{"independent_affix_transducers":True,"live_residual_obligations":True,"pos_agreement_valency":True,"productive_tense_and_number":True,"auxiliary_frames":True,"state_level_no_repeat":True,"fixed_tape":False,"posthoc_reverse":False},"novelty_preflight":{"distinction":"word-internal stem/affix character transducers with productive agreement and auxiliary features, live opposite residuals, and state-level no-repeat; no completed-tape reversal or word mirror","excluded":{"center_out_astar":True,"scene_graph":True,"reverse_segmentation":True,"rlaif":True}},"reader_gate":{"status":"not_triggered" if not closures else "human_blind_review_required","programmatic_metrics_are_diagnostic":True,"next_repair":"add clitic-bearing frames while retaining agreement and the same live residual product"}}
 
 if __name__=="__main__":
  p=argparse.ArgumentParser(); p.add_argument("--out",type=Path,required=True); a=p.parse_args(); a.out.write_text(json.dumps(run(),indent=2)+"\n")

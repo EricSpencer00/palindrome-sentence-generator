@@ -61,6 +61,15 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   until intact prose survives the no-shortcut gate and a randomized blinded
   reader package is run.
 
+- **Seam-local morphology repair (2026-09-17).** The first implementation of
+  that operator carried inflection-family choices inside the live relation
+  state and tested 19 states with 15 immediate mismatch edges. It produced no
+  exact closure; its fresh 47-letter control, `The teacher reads a letter
+  often; the writer reads a story.`, remains intact prose but is not a
+  palindrome. The failure is now narrowed to subject/object agreement at the
+  seam, which is the next repair in commit `c06ee8d` (source and artifact
+  retained separately from the parent solver).
+
 - **Midpoint representation audit.** Astra differential testing found that the
   earlier live products silently required each complete clause to occupy one
   whole palindrome half.  That excludes valid unequal partitions and centers

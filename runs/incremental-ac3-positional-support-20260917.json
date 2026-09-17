@@ -1,0 +1,266 @@
+{
+  "experiment": "incremental-ac3-positional-support-20260917",
+  "method": "AC-3 support counters update incrementally in both directions as neighboring positional domains change",
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "The gardener carries the letters near the harbor, and the teacher writes the notes near the garden.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "letters",
+        "s0": "harbor",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "garden"
+      },
+      "domain_sizes": {
+        "a": 2,
+        "v": 2,
+        "o": 2,
+        "s0": 2,
+        "a2": 2,
+        "v2": 2,
+        "o2": 2,
+        "s1": 2
+      },
+      "ac3_support_events": [
+        {
+          "arc": [
+            "a",
+            "s1"
+          ],
+          "support_counts": {
+            "gardener": 0,
+            "teacher": 0
+          }
+        },
+        {
+          "arc": [
+            "s1",
+            "a"
+          ],
+          "support_counts": {
+            "garden": 0,
+            "station": 0
+          }
+        },
+        {
+          "arc": [
+            "v",
+            "o2"
+          ],
+          "support_counts": {
+            "carries": 0,
+            "writes": 0
+          }
+        },
+        {
+          "arc": [
+            "o2",
+            "v"
+          ],
+          "support_counts": {
+            "notes": 0,
+            "charts": 0
+          }
+        },
+        {
+          "arc": [
+            "o",
+            "v2"
+          ],
+          "support_counts": {
+            "letters": 0,
+            "notes": 0
+          }
+        },
+        {
+          "arc": [
+            "v2",
+            "o"
+          ],
+          "support_counts": {
+            "writes": 0,
+            "records": 0
+          }
+        },
+        {
+          "arc": [
+            "s0",
+            "a2"
+          ],
+          "support_counts": {
+            "harbor": 0,
+            "garden": 0
+          }
+        },
+        {
+          "arc": [
+            "a2",
+            "s0"
+          ],
+          "support_counts": {
+            "teacher": 0,
+            "messenger": 0
+          }
+        }
+      ],
+      "provenance": "incremental_ac3_positional_support_counters",
+      "novelty_preflight": {
+        "signature": "incremental_ac3_positional_support_v1",
+        "distinct_from": "one-pass support pruning; counters update after each neighboring-domain revision in both arc directions"
+      },
+      "audit": {
+        "letters": 81,
+        "exact": false,
+        "mismatch_count": 34,
+        "first_mismatch": 0,
+        "sha256": "a770fe5d70ee85119e36a021bd7c8283abfb1c2a0a333b8665b5ec3d74f53b53",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "The teacher writes the notes near the garden, and the messenger records the charts near the station.",
+      "slots": {
+        "a": "teacher",
+        "v": "writes",
+        "o": "notes",
+        "s0": "garden",
+        "a2": "messenger",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station"
+      },
+      "domain_sizes": {
+        "a": 2,
+        "v": 2,
+        "o": 2,
+        "s0": 2,
+        "a2": 2,
+        "v2": 2,
+        "o2": 2,
+        "s1": 2
+      },
+      "ac3_support_events": [
+        {
+          "arc": [
+            "a",
+            "s1"
+          ],
+          "support_counts": {
+            "gardener": 0,
+            "teacher": 0
+          }
+        },
+        {
+          "arc": [
+            "s1",
+            "a"
+          ],
+          "support_counts": {
+            "garden": 0,
+            "station": 0
+          }
+        },
+        {
+          "arc": [
+            "v",
+            "o2"
+          ],
+          "support_counts": {
+            "carries": 0,
+            "writes": 0
+          }
+        },
+        {
+          "arc": [
+            "o2",
+            "v"
+          ],
+          "support_counts": {
+            "notes": 0,
+            "charts": 0
+          }
+        },
+        {
+          "arc": [
+            "o",
+            "v2"
+          ],
+          "support_counts": {
+            "letters": 0,
+            "notes": 0
+          }
+        },
+        {
+          "arc": [
+            "v2",
+            "o"
+          ],
+          "support_counts": {
+            "writes": 0,
+            "records": 0
+          }
+        },
+        {
+          "arc": [
+            "s0",
+            "a2"
+          ],
+          "support_counts": {
+            "harbor": 0,
+            "garden": 0
+          }
+        },
+        {
+          "arc": [
+            "a2",
+            "s0"
+          ],
+          "support_counts": {
+            "teacher": 0,
+            "messenger": 0
+          }
+        }
+      ],
+      "provenance": "incremental_ac3_positional_support_counters",
+      "novelty_preflight": {
+        "signature": "incremental_ac3_positional_support_v1",
+        "distinct_from": "one-pass support pruning; counters update after each neighboring-domain revision in both arc directions"
+      },
+      "audit": {
+        "letters": 82,
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0,
+        "sha256": "f97150ad56083939da09ef0557b769a4da9123d7bb116d078868162f792ecd52",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 82,
+    "next_repair": "lift AC-3 support from boundary characters to every rendered positional interval pair"
+  }
+}

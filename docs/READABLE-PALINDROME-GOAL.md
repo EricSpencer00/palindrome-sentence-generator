@@ -3610,3 +3610,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   (123 letters, 52 mismatches). Both runs include independent two-pointer and
   forward/reverse SHA audits, fresh provenance, and concrete held-out lexical
   repairs; neither is reader-eligible.
+
+  The exact CFG×reverse-tape DP then added a memoized live chart whose state is
+  `(nonterminal, left, right, tape-state, depth)`. It explored 1,096,303
+  states and 62 complete parses; the 107-letter frontier,
+  “the traveler remembers and the traveler remembers and the traveler remembers
+  carefully and the traveler remembers carefully,” repeats a frame and is
+  quarantined rather than promoted. Exact closures were zero, with independent
+  two-pointer and forward/reverse SHA-256 audits. Dream-RSI round fourteen
+  replays this world at 16,607 nodes across 440 worlds; the held-out result is
+  still zero admissible exact closures, so the next repair is typed complement
+  terminals inside the live chart, not a larger score sweep.

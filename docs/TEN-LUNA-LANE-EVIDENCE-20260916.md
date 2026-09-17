@@ -469,10 +469,10 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,860 rows
-across 235 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **336 retained artifacts, 31
-explicit exclusions, and 314 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,884 rows
+across 238 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **339 retained artifacts, 31
+explicit exclusions, and 317 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
 
@@ -682,3 +682,15 @@ scene search (two 89--97-letter valency scenes). Each retains rendered prose,
 independent pointer/SHA validation, provenance, novelty preflight,
 anti-shortcut flags, and a concrete repair; none closes exactly or enters the
 reader packet.
+
+The reset wave then changed the state representation in three orthogonal ways.
+A live CFG/Earley character chart rendered six fresh complete scenes up to 102
+letters, admitting terminals only with a live mirrored-character obligation. A
+fresh cross-word seam CSP rendered sixteen 62--75-letter role-typed scenes from
+a held-out lexicon without a fixed tape. Corpus-derived POS seams were used
+only to propose lexical junctions before fresh authoring of two connected
+100--101-letter valency scenes. Every row has actual rendered prose,
+independent two-pointer and forward/reverse SHA checks, structured provenance,
+novelty preflight, anti-shortcut flags, and a concrete next repair. All three
+lanes have zero exact closures and remain outside the reader packet; their 24
+rows are included in the 4,884-row audit.

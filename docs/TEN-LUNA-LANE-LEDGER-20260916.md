@@ -315,7 +315,7 @@ Lane 8's distinct repair is recorded separately as
 harbor scene with plural, past-tense, and possessive-clitic obligations. It is
 non-exact under both independent audits and passes the no-repeated-unit gate.
 
-The common audit is **4,860 rows, 235 route phases, 79 exact rejected tapes,
+The common audit is **4,884 rows, 238 route phases, 79 exact rejected tapes,
 and 0 mechanically admitted outputs**. The exact lane-8 hash is retained only
 as a quarantined duplicate-control failure; it cannot enter a reader packet.
 
@@ -368,7 +368,7 @@ states at 55, 114, 168, and 223 letters. Both continuations have fresh
 provenance and novelty fingerprints, and neither produced an exact closure;
 they are retained as construction evidence rather than duplicate sweeps.
 
-The authoritative aggregate is therefore **4,860 rows across 235 route
+The authoritative aggregate is therefore **4,884 rows across 238 route
 phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**. The
 next reader-facing test remains the randomized blinded intact-versus-shuffled
 packet, gated on a genuinely exact, anti-shortcut-clean candidate.
@@ -379,8 +379,8 @@ function/inflection editor (five 96--104-letter scenes). Both are registered
 as distinct retained families with independent audits and concrete repairs.
 An entailment-preserving active/passive rewrite is explicitly excluded after
 novelty preflight found overlap with existing voice/information-structure
-families. The registry now contains 336 retained artifacts, 31 exclusions,
-and 314 retained run artifacts.
+families. The registry now contains 339 retained artifacts, 31 exclusions,
+and 317 retained run artifacts.
 
 Representative renderings are preserved verbatim: “The baker repairs the
 gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA
@@ -473,6 +473,16 @@ phrase-pair scene search (two 89--97-letter valency scenes). They are separate
 state representations with rendered text, independent pointer/SHA audits,
 provenance, novelty preflight, anti-shortcut checks, and concrete repairs;
 none closes exactly or enters the reader packet.
+
+The reset wave adds three genuinely orthogonal state representations. The live
+CFG/Earley character chart renders six fresh complete scenes up to 102 letters;
+the cross-word seam CSP renders sixteen 62--75-letter role-typed scenes from a
+held-out lexicon without a fixed tape; and the corpus-seam lane uses POS-shaped
+mining only to propose junctions before freshly authoring two connected
+100--101-letter scenes. Every row preserves actual prose, independent
+two-pointer/SHA validation, provenance, novelty preflight, anti-shortcut
+checks, and a concrete next repair. None closes exactly or enters the reader
+packet; the aggregate is now 4,884 rows across 238 route phases.
 
 The next child states are a connector-only harbor repair (79 letters), a
 single opposing-edge outside-in repair (127 letters), and a determiner-only

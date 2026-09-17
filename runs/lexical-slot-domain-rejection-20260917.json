@@ -1,0 +1,170 @@
+{
+  "experiment": "lexical-slot-domain-rejection-20260917",
+  "method": "propagated character domains reject unsupported lexical values before full tape materialization",
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "The gardener carries the letters near the harbor, and the teacher writes the notes near the garden.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "letters",
+        "s0": "harbor",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "garden"
+      },
+      "slot_domains": {
+        "a": [
+          "gardener",
+          "teacher"
+        ],
+        "v": [
+          "carries",
+          "writes"
+        ],
+        "o": [
+          "letters",
+          "notes"
+        ],
+        "s0": [
+          "harbor",
+          "garden"
+        ],
+        "a2": [
+          "teacher",
+          "messenger"
+        ],
+        "v2": [
+          "writes",
+          "records"
+        ],
+        "o2": [
+          "notes",
+          "charts"
+        ],
+        "s1": [
+          "garden",
+          "station"
+        ]
+      },
+      "rejected_before_materialization": {
+        "a": 0,
+        "v": 0,
+        "o": 0,
+        "s0": 0,
+        "a2": 0,
+        "v2": 0,
+        "o2": 0,
+        "s1": 0
+      },
+      "provenance": "lexical_slot_domain_rejection_before_materialization",
+      "novelty_preflight": {
+        "signature": "lexical_slot_domain_rejection_v1",
+        "distinct_from": "domain support reporting; unsupported lexical words are removed before any full tape is created"
+      },
+      "audit": {
+        "letters": 81,
+        "exact": false,
+        "mismatch_count": 34,
+        "first_mismatch": 0,
+        "sha256": "a770fe5d70ee85119e36a021bd7c8283abfb1c2a0a333b8665b5ec3d74f53b53",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "The teacher writes the notes near the garden, and the messenger records the charts near the station.",
+      "slots": {
+        "a": "teacher",
+        "v": "writes",
+        "o": "notes",
+        "s0": "garden",
+        "a2": "messenger",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station"
+      },
+      "slot_domains": {
+        "a": [
+          "gardener",
+          "teacher"
+        ],
+        "v": [
+          "carries",
+          "writes"
+        ],
+        "o": [
+          "letters",
+          "notes"
+        ],
+        "s0": [
+          "harbor",
+          "garden"
+        ],
+        "a2": [
+          "teacher",
+          "messenger"
+        ],
+        "v2": [
+          "writes",
+          "records"
+        ],
+        "o2": [
+          "notes",
+          "charts"
+        ],
+        "s1": [
+          "garden",
+          "station"
+        ]
+      },
+      "rejected_before_materialization": {
+        "a": 0,
+        "v": 0,
+        "o": 0,
+        "s0": 0,
+        "a2": 0,
+        "v2": 0,
+        "o2": 0,
+        "s1": 0
+      },
+      "provenance": "lexical_slot_domain_rejection_before_materialization",
+      "novelty_preflight": {
+        "signature": "lexical_slot_domain_rejection_v1",
+        "distinct_from": "domain support reporting; unsupported lexical words are removed before any full tape is created"
+      },
+      "audit": {
+        "letters": 82,
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0,
+        "sha256": "f97150ad56083939da09ef0557b769a4da9123d7bb116d078868162f792ecd52",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 82,
+    "next_repair": "propagate opposing-position domains into each slot iteratively until lexical domains reach a fixed point"
+  }
+}

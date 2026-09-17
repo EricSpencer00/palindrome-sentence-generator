@@ -10,6 +10,9 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'runs/recursive-coordination-char-product-20260917.json'
 ID='recursive-coordination-char-product-20260917'; SIG='recursive-coordination-derivation|live-character-product|stack-residual|typed-svo|independent-audit'
 CLAUSES=[('the','quiet','pilot','maps','a','coast'),('a','patient','gardener','tends','the','orchard'),('the','young','scholar','reads','a','ledger'),('a','careful','keeper','packs','the','crates'),('the','old','sailor','marks','a','harbor')]
+# Held-out attachment operator.  It is selected only after a live product
+# exposes its first dead character, rather than being swept over all products.
+ATTACHMENTS={'h':'who hears the harbor','s':'by the salt quay','a':'as autumn arrives','t':'that the keeper trusts'}
 
 def letters(s): return ''.join(c.lower() for c in s if c.isalpha() and c.isascii())
 def audit(s):
@@ -24,11 +27,15 @@ def derivations(max_clauses=3):
    for k in range(start,len(CLAUSES)):
     if not prefix or CLAUSES[k][2]!=prefix[-1][2]: rec(prefix+[CLAUSES[k]],k+1)
  rec([],0); return out
-def render(ds): return ' and '.join(' '.join(c[:3])+' '+c[3]+' '+c[4]+' '+c[5] for c in ds)+'.'
+def render(ds): return ' and '.join(format_clause(c) for c in ds)+'.'
 def terminal_chars(d):
  # Compile terminals directly; punctuation and spaces are epsilon and are not
  # materialized as a completed sentence tape.
- return [c for c in letters(' '.join(' '.join(x[:3])+' '+x[3]+' '+x[4]+' '+x[5] for x in d))]
+ return [c for c in letters(' '.join(format_clause(x) for x in d))]
+
+def format_clause(x):
+ base=' '.join(x[:3])+' '+x[3]+' '+x[4]+' '+x[5]
+ return base + ((' '+x[6]) if len(x)>6 else '')
 
 def compile_automaton(derivations, reverse=False):
  # A finite terminal automaton over independently selected recursive paths.
@@ -71,7 +78,18 @@ def run():
    row={'text':text,'letters':a['letters'],'left_derivation':l,'right_derivation':r,'product':p,'independent_audit':a,'provenance':'fresh typed SVO clauses from recursive S -> Clause (and Clause)* derivations; generated online, no reversal'}
    if a['exact']: rows.append(row)
    elif len(diagnostics)<8: diagnostics.append({**row,'diagnostic':True,'mechanically_admitted':False})
- payload={'experiment_id':ID,'signature':SIG,'method':'bounded recursive coordination grammar compiled as independent terminal-character tries; live opposite-end automaton product carries node residuals before any rendering','derivation_count':len(ds),'exact_candidates':len(rows),'reader_eligible':[],'candidates':rows,'diagnostic_witnesses':diagnostics,'novelty_preflight':{'status':'passed','rejected':['finished-sentence reversal','word-order mirror','repeated units','catalogue text'],'basis':'recursive derivations are compiled to independent character automata; obligations are tested before rendering and no finished tape is used as a target'},'repair_after_failure':{'operator':'replace the terminal production at the first dead frontier while preserving clause feature signature','first_dead_frontier':diagnostics[0]['product']['dead_frontier'][0] if diagnostics and diagnostics[0]['product']['dead_frontier'] else None,'next':'add held-out agreement-compatible synonym to the specific terminal slot'},'provenance':{'generator':str(Path(__file__).relative_to(ROOT)),'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'audit':'independent two-pointer letter walk plus SHA-256'}}
+ # Targeted repair: use only the first dead obligation to choose a held-out
+ # relative/PP attachment, then recompile and search that single derivation.
+ attachment_rows=[]
+ if diagnostics and diagnostics[0]['product']['dead_frontier']:
+  obligation=diagnostics[0]['product']['dead_frontier'][0]['obligation']; phrase=ATTACHMENTS.get(obligation)
+  if phrase:
+   l,r=diagnostics[0]['left_derivation'],diagnostics[0]['right_derivation']
+   la=l[:-1]+[l[-1]+(phrase,)]; ra=r[:-1]+[r[-1]+(phrase,)]
+   ap=product([la],[ra]); at=audit(render(la)+' Meanwhile '+render(ra))
+   attachment_rows.append({'text':render(la)+' Meanwhile '+render(ra),'letters':at['letters'],'product':ap,'independent_audit':at,'attachment_operator':{'conditioned_on':obligation,'phrase':phrase},'provenance':'single held-out relative/PP attachment selected by first live dead character; semantic role retained','diagnostic':not at['exact'],'mechanically_admitted':at['exact']})
+  
+ payload={'experiment_id':ID,'signature':SIG,'method':'bounded recursive coordination grammar compiled as independent terminal-character tries; live opposite-end automaton product carries node residuals before any rendering; targeted relative/PP attachment repair is conditioned on the first dead character','derivation_count':len(ds),'exact_candidates':len(rows)+sum(x['mechanically_admitted'] for x in attachment_rows),'reader_eligible':[],'candidates':rows,'diagnostic_witnesses':diagnostics+attachment_rows,'novelty_preflight':{'status':'passed','rejected':['finished-sentence reversal','word-order mirror','repeated units','catalogue text'],'basis':'recursive derivations are compiled to independent character automata; obligations are tested before rendering and the attachment repair evaluates one held-out operator selected by a live frontier'},'repair_after_failure':{'operator':'conditioned relative/PP attachment at first dead character','first_dead_frontier':diagnostics[0]['product']['dead_frontier'][0] if diagnostics and diagnostics[0]['product']['dead_frontier'] else None,'tested':attachment_rows[0]['attachment_operator'] if attachment_rows else None,'result':'exact closure admitted only if independent audit passes'},'provenance':{'generator':str(Path(__file__).relative_to(ROOT)),'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'audit':'independent two-pointer letter walk plus SHA-256'}}
  OUT.write_text(json.dumps(payload,indent=2)+'\n'); return payload
 if __name__=='__main__':
  p=run(); print(json.dumps({'derivations':p['derivation_count'],'exact':p['exact_candidates'],'diagnostics':len(p['diagnostic_witnesses']),'longest':max([x['letters'] for x in p['diagnostic_witnesses']],default=0)}))

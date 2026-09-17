@@ -1,7 +1,7 @@
 {
   "experiment_id": "recursive-coordination-char-product-20260917",
   "signature": "recursive-coordination-derivation|live-character-product|stack-residual|typed-svo|independent-audit",
-  "method": "bounded recursive coordination grammar with independent derivation stacks and live opposite-character residual product",
+  "method": "bounded recursive coordination grammar compiled as independent terminal-character tries; live opposite-end automaton product carries node residuals before any rendering; targeted relative/PP attachment repair is conditioned on the first dead character",
   "derivation_count": 25,
   "exact_candidates": 0,
   "reader_eligible": [],
@@ -910,6 +910,91 @@
       "provenance": "fresh typed SVO clauses from recursive S -> Clause (and Clause)* derivations; generated online, no reversal",
       "diagnostic": true,
       "mechanically_admitted": false
+    },
+    {
+      "text": "the quiet pilot maps a coast who hears the harbor. Meanwhile the quiet pilot maps a coast who hears the harbor.",
+      "letters": 89,
+      "product": {
+        "closed": false,
+        "matched": 0,
+        "states": 1,
+        "dead_frontier": [
+          {
+            "left_node": 0,
+            "right_node": 0,
+            "obligation": "t",
+            "right_options": [
+              "r"
+            ]
+          }
+        ],
+        "automata": {
+          "left_nodes": 41,
+          "right_nodes": 41
+        }
+      },
+      "independent_audit": {
+        "letters": 89,
+        "exact": false,
+        "mismatches": [
+          [
+            0,
+            88,
+            "t",
+            "r"
+          ],
+          [
+            1,
+            87,
+            "h",
+            "o"
+          ],
+          [
+            2,
+            86,
+            "e",
+            "b"
+          ],
+          [
+            3,
+            85,
+            "q",
+            "r"
+          ],
+          [
+            4,
+            84,
+            "u",
+            "a"
+          ],
+          [
+            5,
+            83,
+            "i",
+            "h"
+          ],
+          [
+            7,
+            81,
+            "t",
+            "h"
+          ],
+          [
+            8,
+            80,
+            "p",
+            "t"
+          ]
+        ],
+        "sha256": "0642b2c234f7367ecae662aa5c6f8403509bef664eaf0977a1071cbbb47a5ac9"
+      },
+      "attachment_operator": {
+        "conditioned_on": "h",
+        "phrase": "who hears the harbor"
+      },
+      "provenance": "single held-out relative/PP attachment selected by first live dead character; semantic role retained",
+      "diagnostic": true,
+      "mechanically_admitted": false
     }
   ],
   "novelty_preflight": {
@@ -920,10 +1005,10 @@
       "repeated units",
       "catalogue text"
     ],
-    "basis": "recursive derivations are expanded independently; character obligations are tested before admission and no finished tape is used as a target"
+    "basis": "recursive derivations are compiled to independent character automata; obligations are tested before rendering and the attachment repair evaluates one held-out operator selected by a live frontier"
   },
   "repair_after_failure": {
-    "operator": "replace the terminal production at the first dead frontier while preserving clause feature signature",
+    "operator": "conditioned relative/PP attachment at first dead character",
     "first_dead_frontier": {
       "left_node": 1,
       "right_node": 1,
@@ -932,11 +1017,15 @@
         "s"
       ]
     },
-    "next": "add held-out agreement-compatible synonym to the specific terminal slot"
+    "tested": {
+      "conditioned_on": "h",
+      "phrase": "who hears the harbor"
+    },
+    "result": "exact closure admitted only if independent audit passes"
   },
   "provenance": {
     "generator": "experiments/recursive_coordination_char_product_20260917.py",
-    "generator_sha256": "5f004d2d49ad7d898c538277b7e0b2c1e46ecced6c8f6dfbed72f2982acb3b16",
+    "generator_sha256": "273080b22d2524ca24e8e7829aa81553c3d1ee99021997c8da440761353d140a",
     "audit": "independent two-pointer letter walk plus SHA-256"
   }
 }

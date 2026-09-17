@@ -469,10 +469,10 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,824 rows
-across 223 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **324 retained artifacts, 31
-explicit exclusions, and 302 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,845 rows
+across 226 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **327 retained artifacts, 31
+explicit exclusions, and 305 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
 
@@ -650,3 +650,12 @@ lexicalizer renders two 78--89-letter transfer scenes with live inflectional
 equations. Each row carries actual prose, independent pointer/SHA validation,
 provenance, novelty preflight, anti-shortcut flags, and a concrete next repair.
 All three lanes have zero exact closures and remain outside the reader packet.
+
+The next constructive wave adds three more distinct states: a scalable
+outside-in phrase-pair grammar (three 118--122-letter scenes with productive
+frame growth), a seed-benchmark-only cross-word seam constructor (sixteen
+62--68-letter fresh harbor scenes), and a reversible multiword phrase-pair
+scene search (two 89--97-letter valency scenes). Each retains rendered prose,
+independent pointer/SHA validation, provenance, novelty preflight,
+anti-shortcut flags, and a concrete repair; none closes exactly or enters the
+reader packet.

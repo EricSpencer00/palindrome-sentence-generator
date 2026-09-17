@@ -2413,3 +2413,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   concrete operators are interval-valued function-word boundaries,
   semantic-preserving subject substitution within attachment state, and one
   held-out tense realization against the live midpoint debt.
+
+  The next repair wave completed those operators. Interval-valued boundary
+  DP rendered 8 intact candidates up to 82 letters; attachment-state subject
+  substitution rendered 1,024 candidates up to 61 letters while preserving
+  valency; and the center-crossing held-out-tense repair rendered 6 intact
+  candidates up to 131 letters, with midpoint-inside-token crossing in all
+  cases. All produced 0 exact closures. Every row retains independent
+  pointer/SHA-256 replay, provenance, novelty preflight, and anti-shortcut
+  checks. The reader packet remains closed. The next concrete operators are
+  boundary-aware incremental offsets, held-out matrix-object substitution,
+  and a typed indirect-object attachment against the live midpoint debt.

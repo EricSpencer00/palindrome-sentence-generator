@@ -1,0 +1,955 @@
+{
+  "experiment": "semantic-valency-clause-equation-solver-20260916",
+  "signature": "semantic-valency-attachment-lattice|outer-clause-equation-pruning|joint-complete-clauses|ordinary-order|independent-pointer-sha-reader-gate",
+  "status": "complete; no exact closure",
+  "novelty_preflight": {
+    "entries_inspected": 398,
+    "exact_signature_collisions_before_render": [],
+    "passed": true,
+    "state_space_distinction": "outer complete valency clauses are obligation-scored before middle-clause expansion; no reverse text is generated"
+  },
+  "lineage_lattice_experiment": "semantic-valency-attachment-scene-lattice-20260916",
+  "lineage_preflight": {
+    "entries_inspected": 398,
+    "exact_signature_collisions_before_render": [],
+    "passed": true,
+    "state_space_distinction": "three semantic SVO clauses each select an attachment-compatible complete realization jointly; emitted events retain ordinary order and expose live prefix/reverse equations"
+  },
+  "outer_states_examined": 9,
+  "states_expanded": 27,
+  "exact_count": 0,
+  "best_rendered_candidates": [
+    {
+      "rank": 1,
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The station keeper checks the morning ledger beside platforms. The waiting curator locks glass cabinets after evening lectures.",
+      "normalized_tape": "thequietgardenerwatersyoungseedlingsaftersteadyrainthestationkeeperchecksthemorningledgerbesideplatformsthewaitingcuratorlocksglasscabinetsaftereveninglectures",
+      "letters": 159,
+      "clause_provenance": [
+        {
+          "id": "gardener-seedlings-rain",
+          "meaning": "gardener waters seedlings; temporal attachment after rain",
+          "position": 1
+        },
+        {
+          "id": "keeper-ledger-platform",
+          "meaning": "keeper checks ledger; locative attachment beside platforms",
+          "position": 2
+        },
+        {
+          "id": "curator-cabinets-lectures",
+          "meaning": "curator locks cabinets; temporal attachment after lectures",
+          "position": 3
+        }
+      ],
+      "outer_equation": {
+        "left_clause": "gardener-seedlings-rain",
+        "right_clause": "curator-cabinets-lectures",
+        "positions_checked": 51,
+        "matching_pairs": 7,
+        "mismatch_pairs": 44,
+        "first_mismatch_offset": 0,
+        "left_prefix": "thequietgardenerwatersyo",
+        "right_reverse_obligation": "serutcelgnineveretfasten",
+        "equation": "left_clause[i] = reverse(right_clause)[i] before middle expansion"
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 159,
+        "mismatch_count": 72,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "q",
+            "right": "u"
+          },
+          {
+            "offset": 4,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "offset": 5,
+            "left": "i",
+            "right": "c"
+          },
+          {
+            "offset": 7,
+            "left": "t",
+            "right": "l"
+          },
+          {
+            "offset": 9,
+            "left": "a",
+            "right": "n"
+          },
+          {
+            "offset": 10,
+            "left": "r",
+            "right": "i"
+          },
+          {
+            "offset": 11,
+            "left": "d",
+            "right": "n"
+          },
+          {
+            "offset": 13,
+            "left": "n",
+            "right": "v"
+          },
+          {
+            "offset": 16,
+            "left": "w",
+            "right": "e"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "aab9c95d4726e0672d7f0d811f58a661b53f3b83aedf0f18b7c3aa628d184983",
+        "reverse": "585410097304201df718ec495e8be36850448730f76619aeb51c9f54d6c61d76"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "reader_gate": {
+        "eligible": false,
+        "exact_closure_required": true,
+        "reason": "exact closure and all anti-shortcut admission checks are required"
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "isolated_character_edit": false,
+        "complete_constituents_only": true,
+        "semantic_valency_checked": true,
+        "outer_equation_pruned": true,
+        "ordinary_order_events": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "Replace the first terminal clause pair that mismatches at the outer frontier with fresh valency-compatible clauses whose exposed characters satisfy the first obligation, then rerun this solver."
+    },
+    {
+      "rank": 2,
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The patient teacher reviews marked notes inside the classroom. The waiting curator locks glass cabinets after evening lectures.",
+      "normalized_tape": "thequietgardenerwatersyoungseedlingsaftersteadyrainthepatientteacherreviewsmarkednotesinsidetheclassroomthewaitingcuratorlocksglasscabinetsaftereveninglectures",
+      "letters": 159,
+      "clause_provenance": [
+        {
+          "id": "gardener-seedlings-rain",
+          "meaning": "gardener waters seedlings; temporal attachment after rain",
+          "position": 1
+        },
+        {
+          "id": "teacher-notes-classroom",
+          "meaning": "teacher reviews notes; locative attachment inside classroom",
+          "position": 2
+        },
+        {
+          "id": "curator-cabinets-lectures",
+          "meaning": "curator locks cabinets; temporal attachment after lectures",
+          "position": 3
+        }
+      ],
+      "outer_equation": {
+        "left_clause": "gardener-seedlings-rain",
+        "right_clause": "curator-cabinets-lectures",
+        "positions_checked": 51,
+        "matching_pairs": 7,
+        "mismatch_pairs": 44,
+        "first_mismatch_offset": 0,
+        "left_prefix": "thequietgardenerwatersyo",
+        "right_reverse_obligation": "serutcelgnineveretfasten",
+        "equation": "left_clause[i] = reverse(right_clause)[i] before middle expansion"
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 159,
+        "mismatch_count": 71,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "q",
+            "right": "u"
+          },
+          {
+            "offset": 4,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "offset": 5,
+            "left": "i",
+            "right": "c"
+          },
+          {
+            "offset": 7,
+            "left": "t",
+            "right": "l"
+          },
+          {
+            "offset": 9,
+            "left": "a",
+            "right": "n"
+          },
+          {
+            "offset": 10,
+            "left": "r",
+            "right": "i"
+          },
+          {
+            "offset": 11,
+            "left": "d",
+            "right": "n"
+          },
+          {
+            "offset": 13,
+            "left": "n",
+            "right": "v"
+          },
+          {
+            "offset": 16,
+            "left": "w",
+            "right": "e"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "15a7fd435d384dadf4d4731deb78f2722aa18790adbf7ea05ecc24209145ec61",
+        "reverse": "655f55997278823b6958d63f5e1e45e6c9f00cb839c73432bd1cf903363b9c39"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "reader_gate": {
+        "eligible": false,
+        "exact_closure_required": true,
+        "reason": "exact closure and all anti-shortcut admission checks are required"
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "isolated_character_edit": false,
+        "complete_constituents_only": true,
+        "semantic_valency_checked": true,
+        "outer_equation_pruned": true,
+        "ordinary_order_events": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "Replace the first terminal clause pair that mismatches at the outer frontier with fresh valency-compatible clauses whose exposed characters satisfy the first obligation, then rerun this solver."
+    },
+    {
+      "rank": 3,
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The watchful sailor repairs loose rigging near the harbor. The waiting curator locks glass cabinets after evening lectures.",
+      "normalized_tape": "thequietgardenerwatersyoungseedlingsaftersteadyrainthewatchfulsailorrepairslooseriggingneartheharborthewaitingcuratorlocksglasscabinetsaftereveninglectures",
+      "letters": 155,
+      "clause_provenance": [
+        {
+          "id": "gardener-seedlings-rain",
+          "meaning": "gardener waters seedlings; temporal attachment after rain",
+          "position": 1
+        },
+        {
+          "id": "sailor-rigging-harbor",
+          "meaning": "sailor repairs rigging; locative attachment near harbor",
+          "position": 2
+        },
+        {
+          "id": "curator-cabinets-lectures",
+          "meaning": "curator locks cabinets; temporal attachment after lectures",
+          "position": 3
+        }
+      ],
+      "outer_equation": {
+        "left_clause": "gardener-seedlings-rain",
+        "right_clause": "curator-cabinets-lectures",
+        "positions_checked": 51,
+        "matching_pairs": 7,
+        "mismatch_pairs": 44,
+        "first_mismatch_offset": 0,
+        "left_prefix": "thequietgardenerwatersyo",
+        "right_reverse_obligation": "serutcelgnineveretfasten",
+        "equation": "left_clause[i] = reverse(right_clause)[i] before middle expansion"
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 155,
+        "mismatch_count": 70,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "q",
+            "right": "u"
+          },
+          {
+            "offset": 4,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "offset": 5,
+            "left": "i",
+            "right": "c"
+          },
+          {
+            "offset": 7,
+            "left": "t",
+            "right": "l"
+          },
+          {
+            "offset": 9,
+            "left": "a",
+            "right": "n"
+          },
+          {
+            "offset": 10,
+            "left": "r",
+            "right": "i"
+          },
+          {
+            "offset": 11,
+            "left": "d",
+            "right": "n"
+          },
+          {
+            "offset": 13,
+            "left": "n",
+            "right": "v"
+          },
+          {
+            "offset": 16,
+            "left": "w",
+            "right": "e"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "134d83289d9a00168819e72b54abe78c64886949c9266be5ab85d1c51b979443",
+        "reverse": "6c1a3e6de151cdd8f421324840b2a42ce05df4fcdf7a74d3e902982cd87e3857"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "reader_gate": {
+        "eligible": false,
+        "exact_closure_required": true,
+        "reason": "exact closure and all anti-shortcut admission checks are required"
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "isolated_character_edit": false,
+        "complete_constituents_only": true,
+        "semantic_valency_checked": true,
+        "outer_equation_pruned": true,
+        "ordinary_order_events": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "Replace the first terminal clause pair that mismatches at the outer frontier with fresh valency-compatible clauses whose exposed characters satisfy the first obligation, then rerun this solver."
+    },
+    {
+      "rank": 4,
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The station keeper checks the morning ledger beside platforms. The young porter carries sealed parcels toward records offices.",
+      "normalized_tape": "thequietgardenerwatersyoungseedlingsaftersteadyrainthestationkeeperchecksthemorningledgerbesideplatformstheyoungportercarriessealedparcelstowardrecordsoffices",
+      "letters": 158,
+      "clause_provenance": [
+        {
+          "id": "gardener-seedlings-rain",
+          "meaning": "gardener waters seedlings; temporal attachment after rain",
+          "position": 1
+        },
+        {
+          "id": "keeper-ledger-platform",
+          "meaning": "keeper checks ledger; locative attachment beside platforms",
+          "position": 2
+        },
+        {
+          "id": "porter-parcels-offices",
+          "meaning": "porter carries parcels; directional attachment toward offices",
+          "position": 3
+        }
+      ],
+      "outer_equation": {
+        "left_clause": "gardener-seedlings-rain",
+        "right_clause": "porter-parcels-offices",
+        "positions_checked": 51,
+        "matching_pairs": 5,
+        "mismatch_pairs": 46,
+        "first_mismatch_offset": 0,
+        "left_prefix": "thequietgardenerwatersyo",
+        "right_reverse_obligation": "seciffosdrocerdrawotslec",
+        "equation": "left_clause[i] = reverse(right_clause)[i] before middle expansion"
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 158,
+        "mismatch_count": 71,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "c"
+          },
+          {
+            "offset": 3,
+            "left": "q",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "u",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "i",
+            "right": "f"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "o"
+          },
+          {
+            "offset": 7,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 8,
+            "left": "g",
+            "right": "d"
+          },
+          {
+            "offset": 9,
+            "left": "a",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "offset": 11,
+            "left": "d",
+            "right": "c"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "549111770524687aacc7d778dfa7cefd1d41fad399747d1b2faa940db94b47e1",
+        "reverse": "9c1bc3368fb5029fde9510267bbdf3292dee8c1da37f35cdfc58f63b2af14bc4"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": false,
+        "not_word_order_mirror": true
+      },
+      "reader_gate": {
+        "eligible": false,
+        "exact_closure_required": true,
+        "reason": "exact closure and all anti-shortcut admission checks are required"
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "isolated_character_edit": false,
+        "complete_constituents_only": true,
+        "semantic_valency_checked": true,
+        "outer_equation_pruned": true,
+        "ordinary_order_events": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "Replace the first terminal clause pair that mismatches at the outer frontier with fresh valency-compatible clauses whose exposed characters satisfy the first obligation, then rerun this solver."
+    },
+    {
+      "rank": 5,
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The patient teacher reviews marked notes inside the classroom. The young porter carries sealed parcels toward records offices.",
+      "normalized_tape": "thequietgardenerwatersyoungseedlingsaftersteadyrainthepatientteacherreviewsmarkednotesinsidetheclassroomtheyoungportercarriessealedparcelstowardrecordsoffices",
+      "letters": 158,
+      "clause_provenance": [
+        {
+          "id": "gardener-seedlings-rain",
+          "meaning": "gardener waters seedlings; temporal attachment after rain",
+          "position": 1
+        },
+        {
+          "id": "teacher-notes-classroom",
+          "meaning": "teacher reviews notes; locative attachment inside classroom",
+          "position": 2
+        },
+        {
+          "id": "porter-parcels-offices",
+          "meaning": "porter carries parcels; directional attachment toward offices",
+          "position": 3
+        }
+      ],
+      "outer_equation": {
+        "left_clause": "gardener-seedlings-rain",
+        "right_clause": "porter-parcels-offices",
+        "positions_checked": 51,
+        "matching_pairs": 5,
+        "mismatch_pairs": 46,
+        "first_mismatch_offset": 0,
+        "left_prefix": "thequietgardenerwatersyo",
+        "right_reverse_obligation": "seciffosdrocerdrawotslec",
+        "equation": "left_clause[i] = reverse(right_clause)[i] before middle expansion"
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 158,
+        "mismatch_count": 71,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "c"
+          },
+          {
+            "offset": 3,
+            "left": "q",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "u",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "i",
+            "right": "f"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "o"
+          },
+          {
+            "offset": 7,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 8,
+            "left": "g",
+            "right": "d"
+          },
+          {
+            "offset": 9,
+            "left": "a",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "offset": 11,
+            "left": "d",
+            "right": "c"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "4bbbdae4dc878cb3308e5051b3d4d7ea886b3f65008cd18a91d6d053fb1f8c00",
+        "reverse": "d6cae24eac16429f95f9abeff2d36004fcc67eea2e7a22e417e87a35d0c50a2d"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": false,
+        "not_word_order_mirror": true
+      },
+      "reader_gate": {
+        "eligible": false,
+        "exact_closure_required": true,
+        "reason": "exact closure and all anti-shortcut admission checks are required"
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "isolated_character_edit": false,
+        "complete_constituents_only": true,
+        "semantic_valency_checked": true,
+        "outer_equation_pruned": true,
+        "ordinary_order_events": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "Replace the first terminal clause pair that mismatches at the outer frontier with fresh valency-compatible clauses whose exposed characters satisfy the first obligation, then rerun this solver."
+    },
+    {
+      "rank": 7,
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The station keeper checks the morning ledger beside platforms. The watchful pilot secures fishing vessels beside stone piers.",
+      "normalized_tape": "thequietgardenerwatersyoungseedlingsaftersteadyrainthestationkeeperchecksthemorningledgerbesideplatformsthewatchfulpilotsecuresfishingvesselsbesidestonepiers",
+      "letters": 157,
+      "clause_provenance": [
+        {
+          "id": "gardener-seedlings-rain",
+          "meaning": "gardener waters seedlings; temporal attachment after rain",
+          "position": 1
+        },
+        {
+          "id": "keeper-ledger-platform",
+          "meaning": "keeper checks ledger; locative attachment beside platforms",
+          "position": 2
+        },
+        {
+          "id": "pilot-vessels-piers",
+          "meaning": "pilot secures vessels; locative attachment beside piers",
+          "position": 3
+        }
+      ],
+      "outer_equation": {
+        "left_clause": "gardener-seedlings-rain",
+        "right_clause": "pilot-vessels-piers",
+        "positions_checked": 51,
+        "matching_pairs": 5,
+        "mismatch_pairs": 46,
+        "first_mismatch_offset": 0,
+        "left_prefix": "thequietgardenerwatersyo",
+        "right_reverse_obligation": "sreipenotsedisebslessevg",
+        "equation": "left_clause[i] = reverse(right_clause)[i] before middle expansion"
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 157,
+        "mismatch_count": 71,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "q",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "u",
+            "right": "p"
+          },
+          {
+            "offset": 5,
+            "left": "i",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "n"
+          },
+          {
+            "offset": 7,
+            "left": "t",
+            "right": "o"
+          },
+          {
+            "offset": 8,
+            "left": "g",
+            "right": "t"
+          },
+          {
+            "offset": 9,
+            "left": "a",
+            "right": "s"
+          },
+          {
+            "offset": 10,
+            "left": "r",
+            "right": "e"
+          },
+          {
+            "offset": 12,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "offset": 13,
+            "left": "n",
+            "right": "s"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "c321665c5084799d6498c75ca109dba0de8ffbb74a398723c9b45fd7e239be88",
+        "reverse": "b067f37ffa18e4bfc1f4d0987ecae32960e1538b16d77b98e9ce951e28a317a1"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "reader_gate": {
+        "eligible": false,
+        "exact_closure_required": true,
+        "reason": "exact closure and all anti-shortcut admission checks are required"
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "isolated_character_edit": false,
+        "complete_constituents_only": true,
+        "semantic_valency_checked": true,
+        "outer_equation_pruned": true,
+        "ordinary_order_events": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "Replace the first terminal clause pair that mismatches at the outer frontier with fresh valency-compatible clauses whose exposed characters satisfy the first obligation, then rerun this solver."
+    }
+  ],
+  "provenance": {
+    "generator_sha256": "8d4cef06a04681b4eb0b74d085d6ab38c13b79b56fe77e7d8bfa4bf9b0d942f9",
+    "registry_sha256": "f6e7993edf4a1ff315398a8f9c63b98ce732bcb4b3c20c1c3c3e66c41392e94a",
+    "operator": "outer complete-clause equation scoring followed by middle-clause expansion",
+    "ordinary_order_rendering": true
+  },
+  "anti_shortcut_policy": "No fixed tape, reverse decoder, mirrored word order, repeated units, catalogue text, or isolated edits; only complete semantic clauses are jointly selected.",
+  "next_repair": "Author a new terminal clause pair to repair the first outer character obligation, then rerun novelty preflight and this bounded solver."
+}

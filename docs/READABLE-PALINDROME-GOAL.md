@@ -3011,3 +3011,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   concrete operators are per-value domain updates before complete scene
   assignment, conditioning the next locative character against the eighth
   residual, and an alternating object frame with role-consistent transitions.
+
+  The following wave completed those repairs. Per-value support updated both
+  role domains before assignment and rendered 1 intact 92-letter candidate;
+  the alternating-object temporal CFG rendered 2,304 candidates up to 71
+  letters while pruning 1,792 same-subject/same-object states; and the
+  eighth-residual locative continuation rendered 4 intact candidates up to 64
+  letters but found no grammatical continuation at the required character.
+  All produced 0 exact closures. Independent pointer/SHA-256 replay,
+  provenance, novelty preflight, and anti-shortcut checks are retained for
+  every row. The reader gate remains closed. The next concrete operators are
+  fixed-point cross-side domain updates, locative-noun morphology that can
+  satisfy the eighth residual, and an object-number agreement state for the
+  alternating frame.

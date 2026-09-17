@@ -1,0 +1,317 @@
+{
+  "experiment_id": "luna-cfg-frame-repair-20260917",
+  "family": "luna-cfg-frame-repair",
+  "novelty_preflight": {
+    "status": "passed",
+    "performed_before_search": true,
+    "registry_entries_before_run": 417,
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "ignored_self_registry_collision": true,
+    "rejected_routes": [
+      "fixed tape",
+      "reverse segmentation",
+      "word-order mirror",
+      "catalogue text",
+      "gibberish"
+    ]
+  },
+  "grammar": {
+    "nonterminals": [
+      "S",
+      "Frame"
+    ],
+    "production_count": 2,
+    "chart_key": [
+      "grammar_state",
+      "left_position",
+      "right_position"
+    ],
+    "two_ended": true
+  },
+  "candidate_count": 0,
+  "rendered_candidates": [
+    {
+      "rendered": "A careful mason repairs the gate; at dawn a quiet botanist labels seedlings. The patient curator checks a map; nearby a young porter stacks clean crates.",
+      "chart_states": [
+        {
+          "frame_index": 0,
+          "frame": {
+            "left": "A careful mason repairs the gate",
+            "right": "At dawn a quiet botanist labels seedlings",
+            "role": "craftsperson-repairs-access|botanist-labels-specimens"
+          },
+          "states": [
+            {
+              "grammar_state": 0,
+              "left_position": 0,
+              "right_position": 34,
+              "terminal_pair": [
+                "a",
+                "s"
+              ],
+              "matched": false
+            },
+            {
+              "grammar_state": 0,
+              "left_position": 0,
+              "right_position": 34,
+              "closed": false
+            }
+          ],
+          "matched_characters": 0,
+          "closed": false,
+          "first_residual": {
+            "grammar_state": 0,
+            "left_position": 0,
+            "right_position": 34,
+            "terminal_pair": [
+              "a",
+              "s"
+            ],
+            "matched": false
+          }
+        },
+        {
+          "frame_index": 1,
+          "frame": {
+            "left": "The patient curator checks a map",
+            "right": "Nearby a young porter stacks clean crates",
+            "role": "curator-checks-record|porter-stacks-cargo"
+          },
+          "states": [
+            {
+              "grammar_state": 1,
+              "left_position": 0,
+              "right_position": 34,
+              "terminal_pair": [
+                "t",
+                "s"
+              ],
+              "matched": false
+            },
+            {
+              "grammar_state": 1,
+              "left_position": 0,
+              "right_position": 34,
+              "closed": false
+            }
+          ],
+          "matched_characters": 0,
+          "closed": false,
+          "first_residual": {
+            "grammar_state": 1,
+            "left_position": 0,
+            "right_position": 34,
+            "terminal_pair": [
+              "t",
+              "s"
+            ],
+            "matched": false
+          }
+        }
+      ],
+      "audit": {
+        "letters": 124,
+        "normalized_tape": "acarefulmasonrepairsthegateatdawnaquietbotanistlabelsseedlingsthepatientcuratorchecksamapnearbyayoungporterstackscleancrates",
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 59,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 123,
+          "left": "a",
+          "right": "s"
+        },
+        "sha256_forward": "15d35489939671455e60c0bce5e173cf68b72232c5e82e484fa224c55b4c6564",
+        "sha256_reverse": "a451b9389068790899710f992aac8f1376fabdb96d0a1e75cba037e7f6a66b56",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "semantic_frames": [
+        "craftsperson-repairs-access|botanist-labels-specimens",
+        "curator-checks-record|porter-stacks-cargo"
+      ],
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_segmentation": false,
+        "catalogue_text": false,
+        "gibberish": false,
+        "word_order_mirror": false,
+        "self_palindromic_span": false
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "inventory": "fresh hand-authored typed role/event terminals",
+        "source_sentences_copied": false,
+        "finished_surface_reversed": false,
+        "posthoc_resegmentation": false,
+        "parent_exact_terminals_reused": false,
+        "generator_sha256": "e2e8b8a3e10663eca6f7ec5535932ace90960c7f77869a2487fcb966997000e1"
+      }
+    }
+  ],
+  "best": {
+    "rendered": "A careful mason repairs the gate; at dawn a quiet botanist labels seedlings. The patient curator checks a map; nearby a young porter stacks clean crates.",
+    "chart_states": [
+      {
+        "frame_index": 0,
+        "frame": {
+          "left": "A careful mason repairs the gate",
+          "right": "At dawn a quiet botanist labels seedlings",
+          "role": "craftsperson-repairs-access|botanist-labels-specimens"
+        },
+        "states": [
+          {
+            "grammar_state": 0,
+            "left_position": 0,
+            "right_position": 34,
+            "terminal_pair": [
+              "a",
+              "s"
+            ],
+            "matched": false
+          },
+          {
+            "grammar_state": 0,
+            "left_position": 0,
+            "right_position": 34,
+            "closed": false
+          }
+        ],
+        "matched_characters": 0,
+        "closed": false,
+        "first_residual": {
+          "grammar_state": 0,
+          "left_position": 0,
+          "right_position": 34,
+          "terminal_pair": [
+            "a",
+            "s"
+          ],
+          "matched": false
+        }
+      },
+      {
+        "frame_index": 1,
+        "frame": {
+          "left": "The patient curator checks a map",
+          "right": "Nearby a young porter stacks clean crates",
+          "role": "curator-checks-record|porter-stacks-cargo"
+        },
+        "states": [
+          {
+            "grammar_state": 1,
+            "left_position": 0,
+            "right_position": 34,
+            "terminal_pair": [
+              "t",
+              "s"
+            ],
+            "matched": false
+          },
+          {
+            "grammar_state": 1,
+            "left_position": 0,
+            "right_position": 34,
+            "closed": false
+          }
+        ],
+        "matched_characters": 0,
+        "closed": false,
+        "first_residual": {
+          "grammar_state": 1,
+          "left_position": 0,
+          "right_position": 34,
+          "terminal_pair": [
+            "t",
+            "s"
+          ],
+          "matched": false
+        }
+      }
+    ],
+    "audit": {
+      "letters": 124,
+      "normalized_tape": "acarefulmasonrepairsthegateatdawnaquietbotanistlabelsseedlingsthepatientcuratorchecksamapnearbyayoungporterstackscleancrates",
+      "exact": false,
+      "independent_two_pointer_exact": false,
+      "mismatch_count": 59,
+      "first_mismatch": {
+        "left_index": 0,
+        "right_index": 123,
+        "left": "a",
+        "right": "s"
+      },
+      "sha256_forward": "15d35489939671455e60c0bce5e173cf68b72232c5e82e484fa224c55b4c6564",
+      "sha256_reverse": "a451b9389068790899710f992aac8f1376fabdb96d0a1e75cba037e7f6a66b56",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    },
+    "semantic_frames": [
+      "craftsperson-repairs-access|botanist-labels-specimens",
+      "curator-checks-record|porter-stacks-cargo"
+    ],
+    "anti_shortcut_flags": {
+      "fixed_tape": false,
+      "reverse_segmentation": false,
+      "catalogue_text": false,
+      "gibberish": false,
+      "word_order_mirror": false,
+      "self_palindromic_span": false
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "inventory": "fresh hand-authored typed role/event terminals",
+      "source_sentences_copied": false,
+      "finished_surface_reversed": false,
+      "posthoc_resegmentation": false,
+      "parent_exact_terminals_reused": false,
+      "generator_sha256": "e2e8b8a3e10663eca6f7ec5535932ace90960c7f77869a2487fcb966997000e1"
+    }
+  },
+  "reader_eligible": false,
+  "next_repair": "Replace the first residual pair (mason/gate versus botanist/seedlings boundary) with a held-out role-compatible lexical choice, then replay the two-ended chart; retain the self-span hard reject.",
+  "provenance": {
+    "inventory": "fresh hand-authored typed role/event terminals",
+    "source_sentences_copied": false,
+    "finished_surface_reversed": false,
+    "posthoc_resegmentation": false,
+    "parent_exact_terminals_reused": false,
+    "generator_sha256": "e2e8b8a3e10663eca6f7ec5535932ace90960c7f77869a2487fcb966997000e1"
+  }
+}

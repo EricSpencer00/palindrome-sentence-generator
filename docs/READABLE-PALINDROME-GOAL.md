@@ -70,6 +70,13 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   seam, which is the next repair in commit `c06ee8d` (source and artifact
   retained separately from the parent solver).
 
+- **Agreement-pair repair (2026-09-17).** Singular/plural subject--verb
+  packages were then carried in the same live relation state. The run reached
+  31 states and 24 mismatch edges, with no exact closure. Its fresh control,
+  `The teachers read a letter often; the writer writes a story.`, is intact
+  prose but not a palindrome. The recorded successor is a seam-conditioned
+  object/subject substitution, not a larger lexical sweep (`d9501e3`).
+
 - **Midpoint representation audit.** Astra differential testing found that the
   earlier live products silently required each complete clause to occupy one
   whole palindrome half.  That excludes valid unequal partitions and centers

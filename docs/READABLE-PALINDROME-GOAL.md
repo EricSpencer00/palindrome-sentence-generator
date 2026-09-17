@@ -34,6 +34,33 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
 
 ## Current frontier (2026-09-17 solver-correction reset)
 
+- **Seam-correction result (2026-09-17).** The full-sequence product had two
+  correctness defects: it rejected a multi-letter palindromic residual at the
+  center, and it banned ordinary words merely because they occurred in the
+  catalogue fixture. Both are fixed in commit `c41c115`; focused regression
+  tests pass. The corrected product independently found two 51-letter exact
+  closures, `doc note i dissent a fast never prevents a fatness i diet on cod`
+  and `cod note i dissent a fast never prevents a fatness i diet on doc`.
+  The first is the known catalogue tape; the second is a two-token endpoint
+  derivative. Both are preserved with forward/reverse hashes and rejected
+  before any reader claim.
+
+- **Relation-search reset (2026-09-17).** Three orthogonal constructions were
+  run after the correction: typed grammar-state relation search (128 states,
+  no closure), authored-clause tape resegmentation (2,000 clauses, no right
+  parse), and variable-length compositional clause relation search (37,448
+  semantic states before its bounded queue exhausted). None produced a
+  reader-worthy output. Their common failure is a seam-level grammar
+  incompatibility, not a lack of queue volume; their artifacts and next
+  operators are committed as `d3d3baa`, `ba76cba`, and `317ecb9`.
+
+- **Active construction branch.** The next method must change lexical and
+  syntactic material at the first residual while retaining typed agreement and
+  semantic valency: a finite-state grammar relation solver with seam-local
+  morphology, not another bank sweep. Exact closures remain closed to readers
+  until intact prose survives the no-shortcut gate and a randomized blinded
+  reader package is run.
+
 - **Midpoint representation audit.** Astra differential testing found that the
   earlier live products silently required each complete clause to occupy one
   whole palindrome half.  That excludes valid unequal partitions and centers

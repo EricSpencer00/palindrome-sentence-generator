@@ -1,0 +1,1735 @@
+{
+  "experiment": "joint-constituent-equation-scene-solver-20260916",
+  "signature": "bilateral-complete-constituent-scene|paired-svo-adjunct-selection|ordinary-right-scene-order|constituent-frontier-equation|independent-pointer-sha-audit",
+  "status": "complete; no exact closure",
+  "novelty_preflight": {
+    "entries_inspected": 386,
+    "exact_signature_collisions_before_render": [],
+    "related_families_for_review": [],
+    "passed": true,
+    "state_space_distinction": "independently authored complete SVO-adjunct constituents are selected jointly while a reversible prefix/suffix character equation is carried at constituent boundaries; both sides remain normal-order prose"
+  },
+  "states_examined": 36,
+  "exact_count": 0,
+  "best_rendered_candidates": [
+    {
+      "rank": 1,
+      "rendered": "The harbor clerk records cargo manifests before sunrise. The museum guide opens the west gallery after visitors arrive. The waiting curator locks glass cabinets after evening lectures. The watchful pilot secures fishing vessels beside stone piers.",
+      "normalized_tape": "theharborclerkrecordscargomanifestsbeforesunrisethemuseumguideopensthewestgalleryaftervisitorsarrivethewaitingcuratorlocksglasscabinetsaftereveninglecturesthewatchfulpilotsecuresfishingvesselsbesidestonepiers",
+      "letters": 208,
+      "left_indices": [
+        0,
+        2
+      ],
+      "right_indices": [
+        1,
+        0
+      ],
+      "constituent_provenance": [
+        {
+          "side": "left",
+          "id": "clerk-manifest",
+          "meaning": "clerk records cargo manifests before sunrise"
+        },
+        {
+          "side": "left",
+          "id": "guide-gallery",
+          "meaning": "guide opens west gallery after visitors arrive"
+        },
+        {
+          "side": "right",
+          "id": "curator-cabinet",
+          "meaning": "curator locks glass cabinets after evening lectures"
+        },
+        {
+          "side": "right",
+          "id": "pilot-vessel",
+          "meaning": "pilot secures fishing vessels beside stone piers"
+        }
+      ],
+      "equation_frontier": [
+        {
+          "depth": 1,
+          "left_constituent": "clerk-manifest",
+          "right_constituent": "pilot-vessel",
+          "left_meaning": "clerk records cargo manifests before sunrise",
+          "right_meaning": "pilot secures fishing vessels beside stone piers",
+          "frontier": {
+            "left_letters": 48,
+            "right_letters": 0,
+            "positions_checked": 0,
+            "matching_pairs": 0,
+            "mismatch_pairs": 0,
+            "first_mismatch_offset": null,
+            "left_prefix": "gomanifestsbeforesunrise",
+            "right_reverse_obligation": "",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        },
+        {
+          "depth": 2,
+          "left_constituent": "guide-gallery",
+          "right_constituent": "curator-cabinet",
+          "left_meaning": "guide opens west gallery after visitors arrive",
+          "right_meaning": "curator locks glass cabinets after evening lectures",
+          "frontier": {
+            "left_letters": 100,
+            "right_letters": 53,
+            "positions_checked": 53,
+            "matching_pairs": 6,
+            "mismatch_pairs": 47,
+            "first_mismatch_offset": 0,
+            "left_prefix": "lleryaftervisitorsarrive",
+            "right_reverse_obligation": "sreipenotsedisebslessevg",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        }
+      ],
+      "exact_check_direct": {
+        "algorithm": "normalized_tape_reverse_slice",
+        "exact": false
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 208,
+        "mismatch_count": 93,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "h",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "p"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "b",
+            "right": "n"
+          },
+          {
+            "offset": 8,
+            "left": "r",
+            "right": "t"
+          },
+          {
+            "offset": 9,
+            "left": "c",
+            "right": "s"
+          },
+          {
+            "offset": 10,
+            "left": "l",
+            "right": "e"
+          },
+          {
+            "offset": 11,
+            "left": "e",
+            "right": "d"
+          },
+          {
+            "offset": 12,
+            "left": "r",
+            "right": "i"
+          },
+          {
+            "offset": 13,
+            "left": "k",
+            "right": "s"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "a3229f323691f43dca8ad64f7c38f775cdf0d40492e75cec21bac887e09c698c",
+        "reverse": "186df083e42db8132ed39d75ed3102b9f92cbfe78bdff25716c9e67371c512ac"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "complete_constituents_only": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "At the first mirrored mismatch, replace the paired complete constituent on both sides with a new role-compatible realization, then recompute all later frontiers; do not edit an isolated character."
+    },
+    {
+      "rank": 2,
+      "rendered": "The station keeper checks the morning ledger beside platforms. The museum guide opens the west gallery after visitors arrive. The waiting curator locks glass cabinets after evening lectures. The young porter carries sealed parcels toward records offices.",
+      "normalized_tape": "thestationkeeperchecksthemorningledgerbesideplatformsthemuseumguideopensthewestgalleryaftervisitorsarrivethewaitingcuratorlocksglasscabinetsaftereveninglecturestheyoungportercarriessealedparcelstowardrecordsoffices",
+      "letters": 214,
+      "left_indices": [
+        1,
+        2
+      ],
+      "right_indices": [
+        1,
+        2
+      ],
+      "constituent_provenance": [
+        {
+          "side": "left",
+          "id": "keeper-ledger",
+          "meaning": "keeper checks morning ledger beside platforms"
+        },
+        {
+          "side": "left",
+          "id": "guide-gallery",
+          "meaning": "guide opens west gallery after visitors arrive"
+        },
+        {
+          "side": "right",
+          "id": "curator-cabinet",
+          "meaning": "curator locks glass cabinets after evening lectures"
+        },
+        {
+          "side": "right",
+          "id": "porter-parcel",
+          "meaning": "porter carries sealed parcels toward records offices"
+        }
+      ],
+      "equation_frontier": [
+        {
+          "depth": 1,
+          "left_constituent": "keeper-ledger",
+          "right_constituent": "porter-parcel",
+          "left_meaning": "keeper checks morning ledger beside platforms",
+          "right_meaning": "porter carries sealed parcels toward records offices",
+          "frontier": {
+            "left_letters": 53,
+            "right_letters": 0,
+            "positions_checked": 0,
+            "matching_pairs": 0,
+            "mismatch_pairs": 0,
+            "first_mismatch_offset": null,
+            "left_prefix": "ingledgerbesideplatforms",
+            "right_reverse_obligation": "",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        },
+        {
+          "depth": 2,
+          "left_constituent": "guide-gallery",
+          "right_constituent": "curator-cabinet",
+          "left_meaning": "guide opens west gallery after visitors arrive",
+          "right_meaning": "curator locks glass cabinets after evening lectures",
+          "frontier": {
+            "left_letters": 105,
+            "right_letters": 54,
+            "positions_checked": 54,
+            "matching_pairs": 5,
+            "mismatch_pairs": 49,
+            "first_mismatch_offset": 0,
+            "left_prefix": "lleryaftervisitorsarrive",
+            "right_reverse_obligation": "seciffosdrocerdrawotslec",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        }
+      ],
+      "exact_check_direct": {
+        "algorithm": "normalized_tape_reverse_slice",
+        "exact": false
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 214,
+        "mismatch_count": 95,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "c"
+          },
+          {
+            "offset": 3,
+            "left": "s",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "t",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "a",
+            "right": "f"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "o"
+          },
+          {
+            "offset": 7,
+            "left": "i",
+            "right": "s"
+          },
+          {
+            "offset": 8,
+            "left": "o",
+            "right": "d"
+          },
+          {
+            "offset": 9,
+            "left": "n",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "k",
+            "right": "o"
+          },
+          {
+            "offset": 11,
+            "left": "e",
+            "right": "c"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "d86235d71d83ee71488a75f0ec1d6ebd8153a4c46524da2d021fc2f0a3a93ece",
+        "reverse": "223923c0a803f46eb1744fd817b3a9791e90e8a5af46c510bf3f082bb3c07207"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "complete_constituents_only": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "At the first mirrored mismatch, replace the paired complete constituent on both sides with a new role-compatible realization, then recompute all later frontiers; do not edit an isolated character."
+    },
+    {
+      "rank": 3,
+      "rendered": "The station keeper checks the morning ledger beside platforms. The museum guide opens the west gallery after visitors arrive. The young porter carries sealed parcels toward records offices. The waiting curator locks glass cabinets after evening lectures.",
+      "normalized_tape": "thestationkeeperchecksthemorningledgerbesideplatformsthemuseumguideopensthewestgalleryaftervisitorsarrivetheyoungportercarriessealedparcelstowardrecordsofficesthewaitingcuratorlocksglasscabinetsaftereveninglectures",
+      "letters": 214,
+      "left_indices": [
+        1,
+        2
+      ],
+      "right_indices": [
+        2,
+        1
+      ],
+      "constituent_provenance": [
+        {
+          "side": "left",
+          "id": "keeper-ledger",
+          "meaning": "keeper checks morning ledger beside platforms"
+        },
+        {
+          "side": "left",
+          "id": "guide-gallery",
+          "meaning": "guide opens west gallery after visitors arrive"
+        },
+        {
+          "side": "right",
+          "id": "porter-parcel",
+          "meaning": "porter carries sealed parcels toward records offices"
+        },
+        {
+          "side": "right",
+          "id": "curator-cabinet",
+          "meaning": "curator locks glass cabinets after evening lectures"
+        }
+      ],
+      "equation_frontier": [
+        {
+          "depth": 1,
+          "left_constituent": "keeper-ledger",
+          "right_constituent": "curator-cabinet",
+          "left_meaning": "keeper checks morning ledger beside platforms",
+          "right_meaning": "curator locks glass cabinets after evening lectures",
+          "frontier": {
+            "left_letters": 53,
+            "right_letters": 0,
+            "positions_checked": 0,
+            "matching_pairs": 0,
+            "mismatch_pairs": 0,
+            "first_mismatch_offset": null,
+            "left_prefix": "ingledgerbesideplatforms",
+            "right_reverse_obligation": "",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        },
+        {
+          "depth": 2,
+          "left_constituent": "guide-gallery",
+          "right_constituent": "porter-parcel",
+          "left_meaning": "guide opens west gallery after visitors arrive",
+          "right_meaning": "porter carries sealed parcels toward records offices",
+          "frontier": {
+            "left_letters": 105,
+            "right_letters": 55,
+            "positions_checked": 55,
+            "matching_pairs": 5,
+            "mismatch_pairs": 50,
+            "first_mismatch_offset": 0,
+            "left_prefix": "lleryaftervisitorsarrive",
+            "right_reverse_obligation": "serutcelgnineveretfasten",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        }
+      ],
+      "exact_check_direct": {
+        "algorithm": "normalized_tape_reverse_slice",
+        "exact": false
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 214,
+        "mismatch_count": 99,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "s",
+            "right": "u"
+          },
+          {
+            "offset": 5,
+            "left": "a",
+            "right": "c"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 7,
+            "left": "i",
+            "right": "l"
+          },
+          {
+            "offset": 8,
+            "left": "o",
+            "right": "g"
+          },
+          {
+            "offset": 10,
+            "left": "k",
+            "right": "i"
+          },
+          {
+            "offset": 11,
+            "left": "e",
+            "right": "n"
+          },
+          {
+            "offset": 13,
+            "left": "p",
+            "right": "v"
+          },
+          {
+            "offset": 16,
+            "left": "c",
+            "right": "e"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "c31ec3f6b3aa4f08699dd51a0bbbf4600026fece92db1e078e37255396fc20a7",
+        "reverse": "345484f58742c37f7f14aa0918fef2cff7947f58810fdd92bdf444d18719d1a7"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "complete_constituents_only": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "At the first mirrored mismatch, replace the paired complete constituent on both sides with a new role-compatible realization, then recompute all later frontiers; do not edit an isolated character."
+    },
+    {
+      "rank": 4,
+      "rendered": "The museum guide opens the west gallery after visitors arrive. The station keeper checks the morning ledger beside platforms. The waiting curator locks glass cabinets after evening lectures. The young porter carries sealed parcels toward records offices.",
+      "normalized_tape": "themuseumguideopensthewestgalleryaftervisitorsarrivethestationkeeperchecksthemorningledgerbesideplatformsthewaitingcuratorlocksglasscabinetsaftereveninglecturestheyoungportercarriessealedparcelstowardrecordsoffices",
+      "letters": 214,
+      "left_indices": [
+        2,
+        1
+      ],
+      "right_indices": [
+        1,
+        2
+      ],
+      "constituent_provenance": [
+        {
+          "side": "left",
+          "id": "guide-gallery",
+          "meaning": "guide opens west gallery after visitors arrive"
+        },
+        {
+          "side": "left",
+          "id": "keeper-ledger",
+          "meaning": "keeper checks morning ledger beside platforms"
+        },
+        {
+          "side": "right",
+          "id": "curator-cabinet",
+          "meaning": "curator locks glass cabinets after evening lectures"
+        },
+        {
+          "side": "right",
+          "id": "porter-parcel",
+          "meaning": "porter carries sealed parcels toward records offices"
+        }
+      ],
+      "equation_frontier": [
+        {
+          "depth": 1,
+          "left_constituent": "guide-gallery",
+          "right_constituent": "porter-parcel",
+          "left_meaning": "guide opens west gallery after visitors arrive",
+          "right_meaning": "porter carries sealed parcels toward records offices",
+          "frontier": {
+            "left_letters": 52,
+            "right_letters": 0,
+            "positions_checked": 0,
+            "matching_pairs": 0,
+            "mismatch_pairs": 0,
+            "first_mismatch_offset": null,
+            "left_prefix": "lleryaftervisitorsarrive",
+            "right_reverse_obligation": "",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        },
+        {
+          "depth": 2,
+          "left_constituent": "keeper-ledger",
+          "right_constituent": "curator-cabinet",
+          "left_meaning": "keeper checks morning ledger beside platforms",
+          "right_meaning": "curator locks glass cabinets after evening lectures",
+          "frontier": {
+            "left_letters": 105,
+            "right_letters": 54,
+            "positions_checked": 54,
+            "matching_pairs": 5,
+            "mismatch_pairs": 49,
+            "first_mismatch_offset": 0,
+            "left_prefix": "ingledgerbesideplatforms",
+            "right_reverse_obligation": "seciffosdrocerdrawotslec",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        }
+      ],
+      "exact_check_direct": {
+        "algorithm": "normalized_tape_reverse_slice",
+        "exact": false
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 214,
+        "mismatch_count": 98,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "c"
+          },
+          {
+            "offset": 3,
+            "left": "m",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "u",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "f"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "o"
+          },
+          {
+            "offset": 7,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "offset": 8,
+            "left": "m",
+            "right": "d"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "u",
+            "right": "o"
+          },
+          {
+            "offset": 11,
+            "left": "i",
+            "right": "c"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "fe7ceaf8167e1e6df83b33149e5ff1f30043db9fece1f79b9a62b860395c9481",
+        "reverse": "0cbb96a75fc9e262dc2ccd306dddb091d69c2285e1f2844dc2d0963f26c8f2fc"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "complete_constituents_only": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "At the first mirrored mismatch, replace the paired complete constituent on both sides with a new role-compatible realization, then recompute all later frontiers; do not edit an isolated character."
+    },
+    {
+      "rank": 5,
+      "rendered": "The museum guide opens the west gallery after visitors arrive. The station keeper checks the morning ledger beside platforms. The young porter carries sealed parcels toward records offices. The waiting curator locks glass cabinets after evening lectures.",
+      "normalized_tape": "themuseumguideopensthewestgalleryaftervisitorsarrivethestationkeeperchecksthemorningledgerbesideplatformstheyoungportercarriessealedparcelstowardrecordsofficesthewaitingcuratorlocksglasscabinetsaftereveninglectures",
+      "letters": 214,
+      "left_indices": [
+        2,
+        1
+      ],
+      "right_indices": [
+        2,
+        1
+      ],
+      "constituent_provenance": [
+        {
+          "side": "left",
+          "id": "guide-gallery",
+          "meaning": "guide opens west gallery after visitors arrive"
+        },
+        {
+          "side": "left",
+          "id": "keeper-ledger",
+          "meaning": "keeper checks morning ledger beside platforms"
+        },
+        {
+          "side": "right",
+          "id": "porter-parcel",
+          "meaning": "porter carries sealed parcels toward records offices"
+        },
+        {
+          "side": "right",
+          "id": "curator-cabinet",
+          "meaning": "curator locks glass cabinets after evening lectures"
+        }
+      ],
+      "equation_frontier": [
+        {
+          "depth": 1,
+          "left_constituent": "guide-gallery",
+          "right_constituent": "curator-cabinet",
+          "left_meaning": "guide opens west gallery after visitors arrive",
+          "right_meaning": "curator locks glass cabinets after evening lectures",
+          "frontier": {
+            "left_letters": 52,
+            "right_letters": 0,
+            "positions_checked": 0,
+            "matching_pairs": 0,
+            "mismatch_pairs": 0,
+            "first_mismatch_offset": null,
+            "left_prefix": "lleryaftervisitorsarrive",
+            "right_reverse_obligation": "",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        },
+        {
+          "depth": 2,
+          "left_constituent": "keeper-ledger",
+          "right_constituent": "porter-parcel",
+          "left_meaning": "keeper checks morning ledger beside platforms",
+          "right_meaning": "porter carries sealed parcels toward records offices",
+          "frontier": {
+            "left_letters": 105,
+            "right_letters": 55,
+            "positions_checked": 55,
+            "matching_pairs": 4,
+            "mismatch_pairs": 51,
+            "first_mismatch_offset": 0,
+            "left_prefix": "ingledgerbesideplatforms",
+            "right_reverse_obligation": "serutcelgnineveretfasten",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        }
+      ],
+      "exact_check_direct": {
+        "algorithm": "normalized_tape_reverse_slice",
+        "exact": false
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 214,
+        "mismatch_count": 99,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "m",
+            "right": "u"
+          },
+          {
+            "offset": 4,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "c"
+          },
+          {
+            "offset": 7,
+            "left": "u",
+            "right": "l"
+          },
+          {
+            "offset": 8,
+            "left": "m",
+            "right": "g"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "n"
+          },
+          {
+            "offset": 10,
+            "left": "u",
+            "right": "i"
+          },
+          {
+            "offset": 11,
+            "left": "i",
+            "right": "n"
+          },
+          {
+            "offset": 12,
+            "left": "d",
+            "right": "e"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "93568b87bde24f45f62a9928b1872e7267b67a732e7a1e4113d99a3e802797ef",
+        "reverse": "1c9ef3c233ab4b570c82a51bab37e7d2dea2ed019e8764ddd5f762ead7030154"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "complete_constituents_only": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "At the first mirrored mismatch, replace the paired complete constituent on both sides with a new role-compatible realization, then recompute all later frontiers; do not edit an isolated character."
+    },
+    {
+      "rank": 6,
+      "rendered": "The museum guide opens the west gallery after visitors arrive. The harbor clerk records cargo manifests before sunrise. The watchful pilot secures fishing vessels beside stone piers. The waiting curator locks glass cabinets after evening lectures.",
+      "normalized_tape": "themuseumguideopensthewestgalleryaftervisitorsarrivetheharborclerkrecordscargomanifestsbeforesunrisethewatchfulpilotsecuresfishingvesselsbesidestonepiersthewaitingcuratorlocksglasscabinetsaftereveninglectures",
+      "letters": 208,
+      "left_indices": [
+        2,
+        0
+      ],
+      "right_indices": [
+        0,
+        1
+      ],
+      "constituent_provenance": [
+        {
+          "side": "left",
+          "id": "guide-gallery",
+          "meaning": "guide opens west gallery after visitors arrive"
+        },
+        {
+          "side": "left",
+          "id": "clerk-manifest",
+          "meaning": "clerk records cargo manifests before sunrise"
+        },
+        {
+          "side": "right",
+          "id": "pilot-vessel",
+          "meaning": "pilot secures fishing vessels beside stone piers"
+        },
+        {
+          "side": "right",
+          "id": "curator-cabinet",
+          "meaning": "curator locks glass cabinets after evening lectures"
+        }
+      ],
+      "equation_frontier": [
+        {
+          "depth": 1,
+          "left_constituent": "guide-gallery",
+          "right_constituent": "curator-cabinet",
+          "left_meaning": "guide opens west gallery after visitors arrive",
+          "right_meaning": "curator locks glass cabinets after evening lectures",
+          "frontier": {
+            "left_letters": 52,
+            "right_letters": 0,
+            "positions_checked": 0,
+            "matching_pairs": 0,
+            "mismatch_pairs": 0,
+            "first_mismatch_offset": null,
+            "left_prefix": "lleryaftervisitorsarrive",
+            "right_reverse_obligation": "",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        },
+        {
+          "depth": 2,
+          "left_constituent": "clerk-manifest",
+          "right_constituent": "pilot-vessel",
+          "left_meaning": "clerk records cargo manifests before sunrise",
+          "right_meaning": "pilot secures fishing vessels beside stone piers",
+          "frontier": {
+            "left_letters": 100,
+            "right_letters": 55,
+            "positions_checked": 55,
+            "matching_pairs": 4,
+            "mismatch_pairs": 51,
+            "first_mismatch_offset": 0,
+            "left_prefix": "gomanifestsbeforesunrise",
+            "right_reverse_obligation": "serutcelgnineveretfasten",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        }
+      ],
+      "exact_check_direct": {
+        "algorithm": "normalized_tape_reverse_slice",
+        "exact": false
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 208,
+        "mismatch_count": 100,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "m",
+            "right": "u"
+          },
+          {
+            "offset": 4,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "c"
+          },
+          {
+            "offset": 7,
+            "left": "u",
+            "right": "l"
+          },
+          {
+            "offset": 8,
+            "left": "m",
+            "right": "g"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "n"
+          },
+          {
+            "offset": 10,
+            "left": "u",
+            "right": "i"
+          },
+          {
+            "offset": 11,
+            "left": "i",
+            "right": "n"
+          },
+          {
+            "offset": 12,
+            "left": "d",
+            "right": "e"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "d9056e94396edf71ade632a721749a964cbcfd5fc18f2828746e8dfe983b099e",
+        "reverse": "65405fd42a7164861ce759f9fd8bb0cb50af328259b43d3c987a4f63485f0862"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "complete_constituents_only": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "At the first mirrored mismatch, replace the paired complete constituent on both sides with a new role-compatible realization, then recompute all later frontiers; do not edit an isolated character."
+    },
+    {
+      "rank": 7,
+      "rendered": "The museum guide opens the west gallery after visitors arrive. The harbor clerk records cargo manifests before sunrise. The waiting curator locks glass cabinets after evening lectures. The watchful pilot secures fishing vessels beside stone piers.",
+      "normalized_tape": "themuseumguideopensthewestgalleryaftervisitorsarrivetheharborclerkrecordscargomanifestsbeforesunrisethewaitingcuratorlocksglasscabinetsaftereveninglecturesthewatchfulpilotsecuresfishingvesselsbesidestonepiers",
+      "letters": 208,
+      "left_indices": [
+        2,
+        0
+      ],
+      "right_indices": [
+        1,
+        0
+      ],
+      "constituent_provenance": [
+        {
+          "side": "left",
+          "id": "guide-gallery",
+          "meaning": "guide opens west gallery after visitors arrive"
+        },
+        {
+          "side": "left",
+          "id": "clerk-manifest",
+          "meaning": "clerk records cargo manifests before sunrise"
+        },
+        {
+          "side": "right",
+          "id": "curator-cabinet",
+          "meaning": "curator locks glass cabinets after evening lectures"
+        },
+        {
+          "side": "right",
+          "id": "pilot-vessel",
+          "meaning": "pilot secures fishing vessels beside stone piers"
+        }
+      ],
+      "equation_frontier": [
+        {
+          "depth": 1,
+          "left_constituent": "guide-gallery",
+          "right_constituent": "pilot-vessel",
+          "left_meaning": "guide opens west gallery after visitors arrive",
+          "right_meaning": "pilot secures fishing vessels beside stone piers",
+          "frontier": {
+            "left_letters": 52,
+            "right_letters": 0,
+            "positions_checked": 0,
+            "matching_pairs": 0,
+            "mismatch_pairs": 0,
+            "first_mismatch_offset": null,
+            "left_prefix": "lleryaftervisitorsarrive",
+            "right_reverse_obligation": "",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        },
+        {
+          "depth": 2,
+          "left_constituent": "clerk-manifest",
+          "right_constituent": "curator-cabinet",
+          "left_meaning": "clerk records cargo manifests before sunrise",
+          "right_meaning": "curator locks glass cabinets after evening lectures",
+          "frontier": {
+            "left_letters": 100,
+            "right_letters": 53,
+            "positions_checked": 53,
+            "matching_pairs": 3,
+            "mismatch_pairs": 50,
+            "first_mismatch_offset": 0,
+            "left_prefix": "gomanifestsbeforesunrise",
+            "right_reverse_obligation": "sreipenotsedisebslessevg",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        }
+      ],
+      "exact_check_direct": {
+        "algorithm": "normalized_tape_reverse_slice",
+        "exact": false
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 208,
+        "mismatch_count": 96,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "m",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "u",
+            "right": "p"
+          },
+          {
+            "offset": 5,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "n"
+          },
+          {
+            "offset": 7,
+            "left": "u",
+            "right": "o"
+          },
+          {
+            "offset": 8,
+            "left": "m",
+            "right": "t"
+          },
+          {
+            "offset": 9,
+            "left": "g",
+            "right": "s"
+          },
+          {
+            "offset": 10,
+            "left": "u",
+            "right": "e"
+          },
+          {
+            "offset": 11,
+            "left": "i",
+            "right": "d"
+          },
+          {
+            "offset": 12,
+            "left": "d",
+            "right": "i"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "8520186a7b74345032416ffd2373de423ac17a59fad288c17917ddf238b52f90",
+        "reverse": "ecf1ffc8a0845fdbdfcdffd841c686a11e311e3e6868153efe38dade41368384"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "complete_constituents_only": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "At the first mirrored mismatch, replace the paired complete constituent on both sides with a new role-compatible realization, then recompute all later frontiers; do not edit an isolated character."
+    },
+    {
+      "rank": 8,
+      "rendered": "The harbor clerk records cargo manifests before sunrise. The museum guide opens the west gallery after visitors arrive. The watchful pilot secures fishing vessels beside stone piers. The waiting curator locks glass cabinets after evening lectures.",
+      "normalized_tape": "theharborclerkrecordscargomanifestsbeforesunrisethemuseumguideopensthewestgalleryaftervisitorsarrivethewatchfulpilotsecuresfishingvesselsbesidestonepiersthewaitingcuratorlocksglasscabinetsaftereveninglectures",
+      "letters": 208,
+      "left_indices": [
+        0,
+        2
+      ],
+      "right_indices": [
+        0,
+        1
+      ],
+      "constituent_provenance": [
+        {
+          "side": "left",
+          "id": "clerk-manifest",
+          "meaning": "clerk records cargo manifests before sunrise"
+        },
+        {
+          "side": "left",
+          "id": "guide-gallery",
+          "meaning": "guide opens west gallery after visitors arrive"
+        },
+        {
+          "side": "right",
+          "id": "pilot-vessel",
+          "meaning": "pilot secures fishing vessels beside stone piers"
+        },
+        {
+          "side": "right",
+          "id": "curator-cabinet",
+          "meaning": "curator locks glass cabinets after evening lectures"
+        }
+      ],
+      "equation_frontier": [
+        {
+          "depth": 1,
+          "left_constituent": "clerk-manifest",
+          "right_constituent": "curator-cabinet",
+          "left_meaning": "clerk records cargo manifests before sunrise",
+          "right_meaning": "curator locks glass cabinets after evening lectures",
+          "frontier": {
+            "left_letters": 48,
+            "right_letters": 0,
+            "positions_checked": 0,
+            "matching_pairs": 0,
+            "mismatch_pairs": 0,
+            "first_mismatch_offset": null,
+            "left_prefix": "gomanifestsbeforesunrise",
+            "right_reverse_obligation": "",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        },
+        {
+          "depth": 2,
+          "left_constituent": "guide-gallery",
+          "right_constituent": "pilot-vessel",
+          "left_meaning": "guide opens west gallery after visitors arrive",
+          "right_meaning": "pilot secures fishing vessels beside stone piers",
+          "frontier": {
+            "left_letters": 100,
+            "right_letters": 55,
+            "positions_checked": 55,
+            "matching_pairs": 2,
+            "mismatch_pairs": 53,
+            "first_mismatch_offset": 0,
+            "left_prefix": "lleryaftervisitorsarrive",
+            "right_reverse_obligation": "serutcelgnineveretfasten",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        }
+      ],
+      "exact_check_direct": {
+        "algorithm": "normalized_tape_reverse_slice",
+        "exact": false
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 208,
+        "mismatch_count": 100,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "h",
+            "right": "u"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "t"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "c"
+          },
+          {
+            "offset": 6,
+            "left": "b",
+            "right": "e"
+          },
+          {
+            "offset": 7,
+            "left": "o",
+            "right": "l"
+          },
+          {
+            "offset": 8,
+            "left": "r",
+            "right": "g"
+          },
+          {
+            "offset": 9,
+            "left": "c",
+            "right": "n"
+          },
+          {
+            "offset": 10,
+            "left": "l",
+            "right": "i"
+          },
+          {
+            "offset": 11,
+            "left": "e",
+            "right": "n"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "8ec44f587222c1620eb91c800b6f7c0029596a62451c1e634186ff9408df217e",
+        "reverse": "1a3d160d349418df5eb7befe487bdbcdb646602595eda3dd602687f52b23811e"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "complete_constituents_only": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "At the first mirrored mismatch, replace the paired complete constituent on both sides with a new role-compatible realization, then recompute all later frontiers; do not edit an isolated character."
+    },
+    {
+      "rank": 9,
+      "rendered": "The harbor clerk records cargo manifests before sunrise. The station keeper checks the morning ledger beside platforms. The waiting curator locks glass cabinets after evening lectures. The watchful pilot secures fishing vessels beside stone piers.",
+      "normalized_tape": "theharborclerkrecordscargomanifestsbeforesunrisethestationkeeperchecksthemorningledgerbesideplatformsthewaitingcuratorlocksglasscabinetsaftereveninglecturesthewatchfulpilotsecuresfishingvesselsbesidestonepiers",
+      "letters": 209,
+      "left_indices": [
+        0,
+        1
+      ],
+      "right_indices": [
+        1,
+        0
+      ],
+      "constituent_provenance": [
+        {
+          "side": "left",
+          "id": "clerk-manifest",
+          "meaning": "clerk records cargo manifests before sunrise"
+        },
+        {
+          "side": "left",
+          "id": "keeper-ledger",
+          "meaning": "keeper checks morning ledger beside platforms"
+        },
+        {
+          "side": "right",
+          "id": "curator-cabinet",
+          "meaning": "curator locks glass cabinets after evening lectures"
+        },
+        {
+          "side": "right",
+          "id": "pilot-vessel",
+          "meaning": "pilot secures fishing vessels beside stone piers"
+        }
+      ],
+      "equation_frontier": [
+        {
+          "depth": 1,
+          "left_constituent": "clerk-manifest",
+          "right_constituent": "pilot-vessel",
+          "left_meaning": "clerk records cargo manifests before sunrise",
+          "right_meaning": "pilot secures fishing vessels beside stone piers",
+          "frontier": {
+            "left_letters": 48,
+            "right_letters": 0,
+            "positions_checked": 0,
+            "matching_pairs": 0,
+            "mismatch_pairs": 0,
+            "first_mismatch_offset": null,
+            "left_prefix": "gomanifestsbeforesunrise",
+            "right_reverse_obligation": "",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        },
+        {
+          "depth": 2,
+          "left_constituent": "keeper-ledger",
+          "right_constituent": "curator-cabinet",
+          "left_meaning": "keeper checks morning ledger beside platforms",
+          "right_meaning": "curator locks glass cabinets after evening lectures",
+          "frontier": {
+            "left_letters": 101,
+            "right_letters": 53,
+            "positions_checked": 53,
+            "matching_pairs": 7,
+            "mismatch_pairs": 46,
+            "first_mismatch_offset": 0,
+            "left_prefix": "ingledgerbesideplatforms",
+            "right_reverse_obligation": "sreipenotsedisebslessevg",
+            "equation": "x[i] = x[N-1-i] across complete constituent yields"
+          }
+        }
+      ],
+      "exact_check_direct": {
+        "algorithm": "normalized_tape_reverse_slice",
+        "exact": false
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 209,
+        "mismatch_count": 91,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "h",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "p"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "e"
+          },
+          {
+            "offset": 6,
+            "left": "b",
+            "right": "n"
+          },
+          {
+            "offset": 8,
+            "left": "r",
+            "right": "t"
+          },
+          {
+            "offset": 9,
+            "left": "c",
+            "right": "s"
+          },
+          {
+            "offset": 10,
+            "left": "l",
+            "right": "e"
+          },
+          {
+            "offset": 11,
+            "left": "e",
+            "right": "d"
+          },
+          {
+            "offset": 12,
+            "left": "r",
+            "right": "i"
+          },
+          {
+            "offset": 13,
+            "left": "k",
+            "right": "s"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "ec41a4ac9ccfe90a1af756c38a83fd14cc3010591d9d6a0c1402f5cea60e3b62",
+        "reverse": "4d78084fe77debc9416aaa90c0cd2427d4d8b1d13d41f8d497dd343cebfc96dc"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "complete_constituents_only": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "At the first mirrored mismatch, replace the paired complete constituent on both sides with a new role-compatible realization, then recompute all later frontiers; do not edit an isolated character."
+    }
+  ],
+  "failed_attempts": 36,
+  "provenance": {
+    "generator_sha256": "b2103339fdfff72d74770b993c3b0c93b1f8111c2b33bdaf8463368e805359a6",
+    "registry_sha256": "e8d5fb69f020cf5df1f05db1ac5b07ef246df628c9bb448a6d65d58e9e56f27b",
+    "left_bank": [
+      "clerk-manifest",
+      "keeper-ledger",
+      "guide-gallery"
+    ],
+    "right_bank": [
+      "pilot-vessel",
+      "curator-cabinet",
+      "porter-parcel"
+    ],
+    "ordinary_order_rendering": true
+  },
+  "anti_shortcut_policy": "No fixed tape, reverse decoding, mirrored units, catalogue import, or isolated-character edits; every state is a joint choice of complete grammatical constituents.",
+  "next_repair": "Use the best scene's first mismatch to author one held-out role-compatible constituent pair, preserving ordinary word order and recomputing the complete equation ledger."
+}

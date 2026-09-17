@@ -1,0 +1,351 @@
+{
+  "experiment_id": "minimal-residual-grammar-20260916",
+  "signature": "atomic-center-bridge-first|feature-agreement-svo-growth|live-left-right-residual|independent-pointer-sha-audit",
+  "novelty_preflight": {
+    "status": "passed",
+    "conceptual_near_overlap_rejected": [
+      "finished-tape reversal",
+      "word-order symmetry",
+      "catalogue sentence embedding",
+      "repeated/self-palindromic units",
+      "prior center-insertion lanes"
+    ],
+    "basis": "center is an atomic character state; clause expansion owns both ordinary-order grammars and live residuals"
+  },
+  "method": "minimal residual grammar with center-first commitment and bilateral SVO growth",
+  "center": {
+    "value": "e",
+    "kind": "atomic_character_bridge",
+    "committed_before_growth": true
+  },
+  "candidates": [
+    {
+      "depth": 1,
+      "text": "The pilot checks the engine. Meanwhile, The sailor marks the distant buoy.",
+      "letters": 60,
+      "center_bridge": "e",
+      "left_clauses": 1,
+      "right_clauses": 1,
+      "feature_agreement": true,
+      "residual": {
+        "center": "e",
+        "matched_outer_pairs": 0,
+        "left_residual": "thepilotcheckstheengine",
+        "right_residual": "thesailormarksthedistantbuoy",
+        "closed": false
+      },
+      "independent_audit": {
+        "letters": 60,
+        "exact": false,
+        "mismatches": [
+          [
+            0,
+            59,
+            "t",
+            "y"
+          ],
+          [
+            1,
+            58,
+            "h",
+            "o"
+          ],
+          [
+            2,
+            57,
+            "e",
+            "u"
+          ],
+          [
+            3,
+            56,
+            "p",
+            "b"
+          ],
+          [
+            4,
+            55,
+            "i",
+            "t"
+          ],
+          [
+            5,
+            54,
+            "l",
+            "n"
+          ],
+          [
+            6,
+            53,
+            "o",
+            "a"
+          ],
+          [
+            8,
+            51,
+            "c",
+            "s"
+          ]
+        ],
+        "sha256_forward": "f54833f7cb70598df73d7dd3dd010f4bbaa2dd2b3bef1ed2a37211139e6fd37d",
+        "sha256_reverse": "7a8a109bb5b6e7c0295ea9cb8ed74a8d1aa1eb04a6fcd561736ffe181e89e89a"
+      },
+      "repeated_unit_rejected": false,
+      "self_palindromic_unit_rejected": false,
+      "word_order_symmetry_rejected": false,
+      "borrowed_text_rejected": false,
+      "finished_tape_reversal_rejected": true,
+      "provenance": "fresh hand-authored SVO lexemes; atomic center committed before clause growth"
+    },
+    {
+      "depth": 2,
+      "text": "The pilot checks the engine. A quiet gardener waters the roses. Meanwhile, The sailor marks the distant buoy. A careful nurse carries fresh water.",
+      "letters": 118,
+      "center_bridge": "e",
+      "left_clauses": 2,
+      "right_clauses": 2,
+      "feature_agreement": true,
+      "residual": {
+        "center": "e",
+        "matched_outer_pairs": 0,
+        "left_residual": "thepilotcheckstheengineaquietgardenerwaterstheroses",
+        "right_residual": "thesailormarksthedistantbuoyacarefulnursecarriesfreshwater",
+        "closed": false
+      },
+      "independent_audit": {
+        "letters": 118,
+        "exact": false,
+        "mismatches": [
+          [
+            0,
+            117,
+            "t",
+            "r"
+          ],
+          [
+            1,
+            116,
+            "h",
+            "e"
+          ],
+          [
+            2,
+            115,
+            "e",
+            "t"
+          ],
+          [
+            3,
+            114,
+            "p",
+            "a"
+          ],
+          [
+            4,
+            113,
+            "i",
+            "w"
+          ],
+          [
+            5,
+            112,
+            "l",
+            "h"
+          ],
+          [
+            6,
+            111,
+            "o",
+            "s"
+          ],
+          [
+            7,
+            110,
+            "t",
+            "e"
+          ]
+        ],
+        "sha256_forward": "4af056a7376fc889207e0accc2ecbb192e66bd4ccf358608f8add8e893662797",
+        "sha256_reverse": "cd24289673122a7814fa7807252ae3119d6ab0cbb904d6794d0ffa6577d93844"
+      },
+      "repeated_unit_rejected": false,
+      "self_palindromic_unit_rejected": false,
+      "word_order_symmetry_rejected": false,
+      "borrowed_text_rejected": false,
+      "finished_tape_reversal_rejected": true,
+      "provenance": "fresh hand-authored SVO lexemes; atomic center committed before clause growth"
+    },
+    {
+      "depth": 3,
+      "text": "The pilot checks the engine. A quiet gardener waters the roses. The mason measures the arched window. Meanwhile, The sailor marks the distant buoy. A careful nurse carries fresh water. The curator labels the painted vessel.",
+      "letters": 181,
+      "center_bridge": "e",
+      "left_clauses": 3,
+      "right_clauses": 3,
+      "feature_agreement": true,
+      "residual": {
+        "center": "e",
+        "matched_outer_pairs": 0,
+        "left_residual": "thepilotcheckstheengineaquietgardenerwaterstherosesthemasonmeasuresthearchedwindow",
+        "right_residual": "thesailormarksthedistantbuoyacarefulnursecarriesfreshwaterthecuratorlabelsthepaintedvessel",
+        "closed": false
+      },
+      "independent_audit": {
+        "letters": 181,
+        "exact": false,
+        "mismatches": [
+          [
+            0,
+            180,
+            "t",
+            "l"
+          ],
+          [
+            1,
+            179,
+            "h",
+            "e"
+          ],
+          [
+            2,
+            178,
+            "e",
+            "s"
+          ],
+          [
+            3,
+            177,
+            "p",
+            "s"
+          ],
+          [
+            4,
+            176,
+            "i",
+            "e"
+          ],
+          [
+            5,
+            175,
+            "l",
+            "v"
+          ],
+          [
+            6,
+            174,
+            "o",
+            "d"
+          ],
+          [
+            7,
+            173,
+            "t",
+            "e"
+          ]
+        ],
+        "sha256_forward": "02f310dea539a1325eb68e88b25bc0e540f030dd5f67e72ab94c64d4f33de56b",
+        "sha256_reverse": "63776604625f9245ad4fb352aa3c3b80a8172f4c629c440b29ab33d5c164670f"
+      },
+      "repeated_unit_rejected": false,
+      "self_palindromic_unit_rejected": false,
+      "word_order_symmetry_rejected": false,
+      "borrowed_text_rejected": false,
+      "finished_tape_reversal_rejected": true,
+      "provenance": "fresh hand-authored SVO lexemes; atomic center committed before clause growth"
+    },
+    {
+      "depth": 4,
+      "text": "The pilot checks the engine. A quiet gardener waters the roses. The mason measures the arched window. A patient teacher guides the new reader. Meanwhile, The sailor marks the distant buoy. A careful nurse carries fresh water. The curator labels the painted vessel. A young driver parks beside the mill.",
+      "letters": 244,
+      "center_bridge": "e",
+      "left_clauses": 4,
+      "right_clauses": 4,
+      "feature_agreement": true,
+      "residual": {
+        "center": "e",
+        "matched_outer_pairs": 0,
+        "left_residual": "thepilotcheckstheengineaquietgardenerwaterstherosesthemasonmeasuresthearchedwindowapatientteacherguidesthenewreader",
+        "right_residual": "thesailormarksthedistantbuoyacarefulnursecarriesfreshwaterthecuratorlabelsthepaintedvesselayoungdriverparksbesidethemill",
+        "closed": false
+      },
+      "independent_audit": {
+        "letters": 244,
+        "exact": false,
+        "mismatches": [
+          [
+            0,
+            243,
+            "t",
+            "l"
+          ],
+          [
+            1,
+            242,
+            "h",
+            "l"
+          ],
+          [
+            2,
+            241,
+            "e",
+            "i"
+          ],
+          [
+            3,
+            240,
+            "p",
+            "m"
+          ],
+          [
+            4,
+            239,
+            "i",
+            "e"
+          ],
+          [
+            5,
+            238,
+            "l",
+            "h"
+          ],
+          [
+            6,
+            237,
+            "o",
+            "t"
+          ],
+          [
+            7,
+            236,
+            "t",
+            "e"
+          ]
+        ],
+        "sha256_forward": "bd39e24349b571e8478a2e3122f7da27ad441ea473913d1edb5cba11d8288f0b",
+        "sha256_reverse": "384a8928c92db57fd8e3f827aebda59b6f05cb1079b984ad0e130ac231d2608d"
+      },
+      "repeated_unit_rejected": false,
+      "self_palindromic_unit_rejected": false,
+      "word_order_symmetry_rejected": false,
+      "borrowed_text_rejected": false,
+      "finished_tape_reversal_rejected": true,
+      "provenance": "fresh hand-authored SVO lexemes; atomic center committed before clause growth"
+    }
+  ],
+  "exact_candidates": 0,
+  "reader_eligible": [],
+  "provenance": {
+    "generator": "experiments/minimal_residual_grammar_20260916.py",
+    "generator_sha256": "3c5d895629c97a9cda7271603e835086e3dae5aade9ce9721b3171ab13b4f5e6",
+    "lexical_source": "fresh hand-authored lexeme tuples",
+    "audits": [
+      "independent two-pointer mismatch audit",
+      "forward/reverse SHA-256"
+    ]
+  },
+  "next_repair": {
+    "operator": "feature-preserving lexical substitution at the first residual pair",
+    "reason": "all four complete-clause growth depths remain readable near-misses without exact closure",
+    "concrete": "replace one right-side finite verb/object pair while retaining subject number and tense, then re-run the residual ledger"
+  }
+}

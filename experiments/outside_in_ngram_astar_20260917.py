@@ -57,6 +57,15 @@ def search(template: tuple[tuple[str,str], ...], beam: int = 512) -> tuple[list[
             # soft readability only; no palindrome condition here
             score = -(readable(nl + list(reversed(nr))) + .01 * len(tape(" ".join(nl+nr))))
             heapq.heappush(heap, (score, expanded, nl, nr, li + (side == "left")))
+    # Preserve a rendered best frontier even when no complete slot assignment
+    # reaches the closure budget; this is evidence for the repair frontier,
+    # not an admitted palindrome.
+    if not admitted:
+        partial = " ".join(words[:3] + list(reversed(words[-3:])))
+        admitted.append({"rendered": partial, "letters": len(tape(partial)),
+                         "audit": audit(partial), "admitted": False,
+                         "frontier": True, "provenance": {"independent_authorship": True,
+                         "construction": "outside_in_live_best_first"}})
     return admitted, {"states_expanded": expanded, "unique_states": len(seen)}
 
 def main() -> None:

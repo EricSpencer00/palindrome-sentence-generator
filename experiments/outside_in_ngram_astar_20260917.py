@@ -30,7 +30,7 @@ def readable(words: list[str]) -> float:
     common = {"the", "a", "an", "and", "of", "to", "in", "we", "through"}
     return sum(1.0 for w in words if w in common) + sum(a[-1:] == b[:1] for a,b in zip(words, words[1:])) * .1
 
-def search(template: tuple[tuple[str,str], ...], beam: int = 48) -> tuple[list[dict], dict]:
+def search(template: tuple[tuple[str,str], ...], beam: int = 512) -> tuple[list[dict], dict]:
     # Two independently authored slots grow from opposite ends. State stores
     # actual words, never a mirrored/repeated unit or a completed product.
     words = [w for _,w in template]

@@ -102,6 +102,12 @@ JOINT_EVENT_THEMES = (
     ("points out", "a small fort"),
 )
 
+CAUSAL_LOCATIVE_CONSEQUENCES = (
+    ("by the coast", "and causes a quiet shift at sunset"),
+    ("near the market", "and triggers a calm adjustment at twilight"),
+    ("under a lamppost", "and creates a modest effect"),
+)
+
 # Non-catalogue exact witness selected from the aggregate for a repair attempt.
 # Its tape is exact, but the independent admission gate must still reject the
 # word-order mirror/proper-span shortcut.
@@ -251,6 +257,23 @@ def joint_event_theme(row: dict[str, object], event: str, theme: str, path: tupl
     }
 
 
+def causal_locative_consequence(row: dict[str, object], locative: str, consequence: str) -> dict[str, object]:
+    """Couple causal location and consequence while preserving causal edges."""
+    nodes = {role: Node(role, value["surface"]) for role, value in row["nodes"].items()}
+    nodes["locative"] = Node("locative", locative)
+    nodes["consequence"] = Node("consequence", consequence)
+    text = render(nodes)
+    return {
+        "operator": "causal_path_joint_locative_consequence",
+        "locative_surface": locative,
+        "consequence_surface": consequence,
+        "path": [asdict(e) for e in CAUSAL_PATH],
+        "nodes": {k: asdict(v) for k, v in nodes.items()},
+        "edge_obligations": edge_obligations(nodes, CAUSAL_PATH),
+        "audit": audit(text),
+    }
+
+
 def witness_repair_lane(fallback: dict[str, object]) -> dict[str, object]:
     """Audit an exact aggregate witness, then try segmentation/substitution controls."""
     controls = [{"operator": "boundary_resegmentation", "rendered": text, "audit": audit(text)} for text in WITNESS_RESEGMENTATIONS]
@@ -313,6 +336,12 @@ def main() -> None:
     ]
     causal_event_theme.sort(key=lambda row: (row["audit"]["independent_two_pointer"]["mismatch_count"], -row["audit"]["letters"]))
     causal_best = causal_event_theme[0]
+    causal_locative_consequence_rows = [
+        causal_locative_consequence(causal_best, locative, consequence)
+        for locative, consequence in CAUSAL_LOCATIVE_CONSEQUENCES
+    ]
+    causal_locative_consequence_rows.sort(key=lambda row: (row["audit"]["independent_two_pointer"]["mismatch_count"], -row["audit"]["letters"]))
+    causal_locative_best = causal_locative_consequence_rows[0]
     witness_lane = witness_repair_lane(event_theme_best)
     out = {
         "experiment_id": ID,
@@ -320,7 +349,7 @@ def main() -> None:
         "status": "completed_exact_candidate" if exact else "completed_no_exact_closure",
         "reader_eligible": bool(exact),
         "method": "choose typed semantic path first; consume opposing character obligations online during lexical realization",
-        "candidate_scene": causal_best["audit"]["rendered"],
+        "candidate_scene": causal_locative_best["audit"]["rendered"],
         "candidates": rows[:3],
         "repaired_candidate": event_repair,
         # Expose the held-out repair through the common aggregate schema so
@@ -333,12 +362,13 @@ def main() -> None:
         "joint_theme_locative_candidates": theme_locative,
         "joint_event_theme_candidates": event_theme,
         "causal_path_joint_event_theme_candidates": causal_event_theme,
+        "causal_path_joint_locative_consequence_candidates": causal_locative_consequence_rows,
         "causal_path": [asdict(e) for e in CAUSAL_PATH],
         "exact_witness_repair_lane": witness_lane,
-        "stats": {"semantic_paths": 2, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38), "expanded_consequence_realizations": len(expanded), "expanded_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in expanded), "joint_realizations": len(joint), "joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in joint), "joint_theme_locative_realizations": len(theme_locative), "joint_theme_locative_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in theme_locative), "joint_event_theme_realizations": len(event_theme), "joint_event_theme_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in event_theme), "causal_path_joint_realizations": len(causal_event_theme), "causal_path_joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in causal_event_theme)},
+        "stats": {"semantic_paths": 2, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38), "expanded_consequence_realizations": len(expanded), "expanded_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in expanded), "joint_realizations": len(joint), "joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in joint), "joint_theme_locative_realizations": len(theme_locative), "joint_theme_locative_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in theme_locative), "joint_event_theme_realizations": len(event_theme), "joint_event_theme_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in event_theme), "causal_path_joint_realizations": len(causal_event_theme), "causal_path_joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in causal_event_theme), "causal_path_joint_locative_consequence_realizations": len(causal_locative_consequence_rows), "causal_path_joint_locative_consequence_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in causal_locative_consequence_rows)},
         "novelty_preflight": {"registry_entries_read": len(entries), "exact_signature_collision": collision, "catalogue_text_imported": False, "fixed_tape_used": False, "pos_sweep": False, "scene_lattice": False},
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "lexical_source": "hand-authored typed event lexicon", "path": [e.label for e in PATH], "audits": ["independent two-pointer", "forward/reverse SHA-256", "mechanical admission", "anti-shortcut preflight"]},
-        "next_repair": {"operator": "jointly relexicalize the causal consequence and locative while retaining the causal event/theme pair, then require full character-level closure", "reason": "the causal path changes the semantic relation and preserves all four local obligations, but its coupled event/theme candidates remain non-palindromic under independent whole-tape comparison"},
+        "next_repair": {"operator": "switch to a fresh causal consequence frame and jointly relexicalize its agent/theme boundary, then require full character-level closure", "reason": "the causal locative/consequence pairs preserve all four edge obligations but remain non-palindromic under independent whole-tape comparison"},
     }
     (ROOT / "runs" / f"{ID}.json").write_text(json.dumps(out, indent=2) + "\n")
     print(json.dumps(out["stats"], sort_keys=True))

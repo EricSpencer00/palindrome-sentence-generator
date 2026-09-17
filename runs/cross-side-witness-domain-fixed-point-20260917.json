@@ -1,0 +1,91 @@
+{
+  "experiment": "cross-side-witness-domain-fixed-point-20260917",
+  "method": "repeat cross-side witness support updates until semantic role domains reach a fixed point",
+  "candidate_count": 1,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "At dawn, the teacher writes the notes along the harbor; meanwhile, a cartographer marks the maps near the archive.",
+      "domains": {
+        "agent": [
+          "teacher"
+        ],
+        "action": [
+          "writes",
+          "carries"
+        ],
+        "theme": [
+          "notes",
+          "letters"
+        ],
+        "agent2": [
+          "cartographer",
+          "messenger"
+        ],
+        "action2": [
+          "marks",
+          "records"
+        ],
+        "theme2": [
+          "maps",
+          "charts"
+        ]
+      },
+      "fixed_point_history": [
+        {
+          "step": 0,
+          "changed": true,
+          "domain_sizes": {
+            "agent": 1,
+            "action": 2,
+            "theme": 2,
+            "agent2": 2,
+            "action2": 2,
+            "theme2": 2
+          }
+        },
+        {
+          "step": 1,
+          "changed": false,
+          "domain_sizes": {
+            "agent": 1,
+            "action": 2,
+            "theme": 2,
+            "agent2": 2,
+            "action2": 2,
+            "theme2": 2
+          }
+        }
+      ],
+      "provenance": "cross_side_witness_domain_fixed_point",
+      "novelty_preflight": {
+        "signature": "cross_side_witness_domain_fixed_point_v1",
+        "distinct_from": "one-pass domain update; repeats cross-side support updates until no domain changes"
+      },
+      "audit": {
+        "letters": 92,
+        "exact": false,
+        "mismatch_count": 42,
+        "first_mismatch": [
+          0,
+          91
+        ],
+        "sha256": "78f21a8bf42eaf4d6f6d13ee053d403110ec60a44db94740cd590a0601219482",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 92,
+    "next_repair": "use pair-specific support maps in the fixed-point loop to avoid default-context artifacts"
+  }
+}

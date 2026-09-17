@@ -1,0 +1,452 @@
+{
+  "experiment": "function-word-seam-dp-pruned-20260917",
+  "method": "layered DP over function-word choices, retaining states by partial outer-character compatibility at every slot",
+  "template": "{d0} {a0} {v0} {d1} {o0} {p0} {d2} {s0}, {c} {d3} {a1} {v1} {d4} {o1} {p1} {d5} {s1}.",
+  "layers": [
+    {
+      "slot": "d0",
+      "raw_states": 2,
+      "retained_states": 2
+    },
+    {
+      "slot": "a0",
+      "raw_states": 4,
+      "retained_states": 4
+    },
+    {
+      "slot": "v0",
+      "raw_states": 8,
+      "retained_states": 8
+    },
+    {
+      "slot": "d1",
+      "raw_states": 16,
+      "retained_states": 16
+    },
+    {
+      "slot": "o0",
+      "raw_states": 32,
+      "retained_states": 16
+    },
+    {
+      "slot": "p0",
+      "raw_states": 32,
+      "retained_states": 16
+    },
+    {
+      "slot": "d2",
+      "raw_states": 32,
+      "retained_states": 16
+    },
+    {
+      "slot": "s0",
+      "raw_states": 32,
+      "retained_states": 16
+    },
+    {
+      "slot": "c",
+      "raw_states": 32,
+      "retained_states": 16
+    },
+    {
+      "slot": "d3",
+      "raw_states": 32,
+      "retained_states": 16
+    },
+    {
+      "slot": "a1",
+      "raw_states": 32,
+      "retained_states": 16
+    },
+    {
+      "slot": "v1",
+      "raw_states": 32,
+      "retained_states": 16
+    },
+    {
+      "slot": "d4",
+      "raw_states": 32,
+      "retained_states": 16
+    },
+    {
+      "slot": "o1",
+      "raw_states": 32,
+      "retained_states": 16
+    },
+    {
+      "slot": "p1",
+      "raw_states": 32,
+      "retained_states": 16
+    },
+    {
+      "slot": "d5",
+      "raw_states": 32,
+      "retained_states": 16
+    },
+    {
+      "slot": "s1",
+      "raw_states": 32,
+      "retained_states": 16
+    }
+  ],
+  "candidate_count": 8,
+  "candidates": [
+    {
+      "rank": 0,
+      "rendered": "a teacher carries a letters near a garden, and a messenger records a charts near a garden.",
+      "slots": {
+        "d0": "a",
+        "a0": "teacher",
+        "v0": "carries",
+        "d1": "a",
+        "o0": "letters",
+        "p0": "near",
+        "d2": "a",
+        "s0": "garden",
+        "c": "and",
+        "d3": "a",
+        "a1": "messenger",
+        "v1": "records",
+        "d4": "a",
+        "o1": "charts",
+        "p1": "near",
+        "d5": "a",
+        "s1": "garden"
+      },
+      "provenance": "function_word_seam_dynamic_program_pruned_states",
+      "novelty_preflight": {
+        "signature": "function_word_seam_dp_v1",
+        "distinct_from": "character expansion; retains bounded DP states after each function-word layer"
+      },
+      "audit": {
+        "letters": 72,
+        "exact": false,
+        "mismatch_count": 33,
+        "first_mismatch": 0,
+        "sha256": "6137d44493f4563a67feb58bb3e9c326d7f7bf2608ac6158ca2fe21f1894f2a2",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 1,
+      "rendered": "a teacher carries a letters near a garden, and a messenger records a charts near a station.",
+      "slots": {
+        "d0": "a",
+        "a0": "teacher",
+        "v0": "carries",
+        "d1": "a",
+        "o0": "letters",
+        "p0": "near",
+        "d2": "a",
+        "s0": "garden",
+        "c": "and",
+        "d3": "a",
+        "a1": "messenger",
+        "v1": "records",
+        "d4": "a",
+        "o1": "charts",
+        "p1": "near",
+        "d5": "a",
+        "s1": "station"
+      },
+      "provenance": "function_word_seam_dynamic_program_pruned_states",
+      "novelty_preflight": {
+        "signature": "function_word_seam_dp_v1",
+        "distinct_from": "character expansion; retains bounded DP states after each function-word layer"
+      },
+      "audit": {
+        "letters": 73,
+        "exact": false,
+        "mismatch_count": 30,
+        "first_mismatch": 0,
+        "sha256": "cd2cac4522a9459dd0c4a8261f0aceb038025c3a31dc98ba02a311091368b5d2",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 2,
+      "rendered": "a teacher carries a letters near a garden, and a teacher records a charts near a garden.",
+      "slots": {
+        "d0": "a",
+        "a0": "teacher",
+        "v0": "carries",
+        "d1": "a",
+        "o0": "letters",
+        "p0": "near",
+        "d2": "a",
+        "s0": "garden",
+        "c": "and",
+        "d3": "a",
+        "a1": "teacher",
+        "v1": "records",
+        "d4": "a",
+        "o1": "charts",
+        "p1": "near",
+        "d5": "a",
+        "s1": "garden"
+      },
+      "provenance": "function_word_seam_dynamic_program_pruned_states",
+      "novelty_preflight": {
+        "signature": "function_word_seam_dp_v1",
+        "distinct_from": "character expansion; retains bounded DP states after each function-word layer"
+      },
+      "audit": {
+        "letters": 70,
+        "exact": false,
+        "mismatch_count": 33,
+        "first_mismatch": 0,
+        "sha256": "b717a37d75c47a15e49a2d874c010bdeeb867444fa3261ce9cdc20a4ed789163",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 3,
+      "rendered": "a teacher carries a letters near a garden, and a teacher records a charts near a station.",
+      "slots": {
+        "d0": "a",
+        "a0": "teacher",
+        "v0": "carries",
+        "d1": "a",
+        "o0": "letters",
+        "p0": "near",
+        "d2": "a",
+        "s0": "garden",
+        "c": "and",
+        "d3": "a",
+        "a1": "teacher",
+        "v1": "records",
+        "d4": "a",
+        "o1": "charts",
+        "p1": "near",
+        "d5": "a",
+        "s1": "station"
+      },
+      "provenance": "function_word_seam_dynamic_program_pruned_states",
+      "novelty_preflight": {
+        "signature": "function_word_seam_dp_v1",
+        "distinct_from": "character expansion; retains bounded DP states after each function-word layer"
+      },
+      "audit": {
+        "letters": 71,
+        "exact": false,
+        "mismatch_count": 30,
+        "first_mismatch": 0,
+        "sha256": "fc8600421ceec1bcde14268bc61a5e4a04e3a03677e7e1054dc0eea32042adad",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 4,
+      "rendered": "a teacher carries a letters near a garden, while a messenger records a charts near a garden.",
+      "slots": {
+        "d0": "a",
+        "a0": "teacher",
+        "v0": "carries",
+        "d1": "a",
+        "o0": "letters",
+        "p0": "near",
+        "d2": "a",
+        "s0": "garden",
+        "c": "while",
+        "d3": "a",
+        "a1": "messenger",
+        "v1": "records",
+        "d4": "a",
+        "o1": "charts",
+        "p1": "near",
+        "d5": "a",
+        "s1": "garden"
+      },
+      "provenance": "function_word_seam_dynamic_program_pruned_states",
+      "novelty_preflight": {
+        "signature": "function_word_seam_dp_v1",
+        "distinct_from": "character expansion; retains bounded DP states after each function-word layer"
+      },
+      "audit": {
+        "letters": 74,
+        "exact": false,
+        "mismatch_count": 35,
+        "first_mismatch": 0,
+        "sha256": "2c06acee14ee93142cac5adc0817f5048fdba291d2d890d4e4563140ae34098e",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 5,
+      "rendered": "a teacher carries a letters near a garden, while a messenger records a charts near a station.",
+      "slots": {
+        "d0": "a",
+        "a0": "teacher",
+        "v0": "carries",
+        "d1": "a",
+        "o0": "letters",
+        "p0": "near",
+        "d2": "a",
+        "s0": "garden",
+        "c": "while",
+        "d3": "a",
+        "a1": "messenger",
+        "v1": "records",
+        "d4": "a",
+        "o1": "charts",
+        "p1": "near",
+        "d5": "a",
+        "s1": "station"
+      },
+      "provenance": "function_word_seam_dynamic_program_pruned_states",
+      "novelty_preflight": {
+        "signature": "function_word_seam_dp_v1",
+        "distinct_from": "character expansion; retains bounded DP states after each function-word layer"
+      },
+      "audit": {
+        "letters": 75,
+        "exact": false,
+        "mismatch_count": 31,
+        "first_mismatch": 0,
+        "sha256": "30f8e5f04b95ed680665cf31fe1e20c1e22b4dece6b13b544a4fdedea23090e7",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 6,
+      "rendered": "a teacher carries a letters near a garden, while a teacher records a charts near a garden.",
+      "slots": {
+        "d0": "a",
+        "a0": "teacher",
+        "v0": "carries",
+        "d1": "a",
+        "o0": "letters",
+        "p0": "near",
+        "d2": "a",
+        "s0": "garden",
+        "c": "while",
+        "d3": "a",
+        "a1": "teacher",
+        "v1": "records",
+        "d4": "a",
+        "o1": "charts",
+        "p1": "near",
+        "d5": "a",
+        "s1": "garden"
+      },
+      "provenance": "function_word_seam_dynamic_program_pruned_states",
+      "novelty_preflight": {
+        "signature": "function_word_seam_dp_v1",
+        "distinct_from": "character expansion; retains bounded DP states after each function-word layer"
+      },
+      "audit": {
+        "letters": 72,
+        "exact": false,
+        "mismatch_count": 34,
+        "first_mismatch": 0,
+        "sha256": "42be802d74060ffeeaf36e8fa9d93944598067299d7fcf5386bda9d01e7000fe",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 7,
+      "rendered": "a teacher carries a letters near a garden, while a teacher records a charts near a station.",
+      "slots": {
+        "d0": "a",
+        "a0": "teacher",
+        "v0": "carries",
+        "d1": "a",
+        "o0": "letters",
+        "p0": "near",
+        "d2": "a",
+        "s0": "garden",
+        "c": "while",
+        "d3": "a",
+        "a1": "teacher",
+        "v1": "records",
+        "d4": "a",
+        "o1": "charts",
+        "p1": "near",
+        "d5": "a",
+        "s1": "station"
+      },
+      "provenance": "function_word_seam_dynamic_program_pruned_states",
+      "novelty_preflight": {
+        "signature": "function_word_seam_dp_v1",
+        "distinct_from": "character expansion; retains bounded DP states after each function-word layer"
+      },
+      "audit": {
+        "letters": 73,
+        "exact": false,
+        "mismatch_count": 31,
+        "first_mismatch": 0,
+        "sha256": "44505bc6cc6ea23b4fcfce917c9e75f760eda074bbf986e11d4caceebbc21258",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 75,
+    "next_repair": "carry exact resolved-position masks in each DP state and permit grammar-slot expansion only when its boundary character is compatible"
+  }
+}

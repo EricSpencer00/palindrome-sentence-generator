@@ -1,5 +1,6 @@
 {
   "method": "bounded_grammar_character_product_outside_in",
+  "status": "completed_no_admitted_exact",
   "grammar_templates": [
     [
       "we",
@@ -22,34 +23,9 @@
   ],
   "word_boundary_states_retained": true,
   "max_letters": 12,
-  "reachable_states": 69,
-  "coaccessible_states": 69,
-  "shortest_witnesses": [
-    {
-      "rendered": "",
-      "letters": 0,
-      "exact": true,
-      "word_boundary_states": true
-    },
-    {
-      "rendered": "a",
-      "letters": 1,
-      "exact": true,
-      "word_boundary_states": true
-    },
-    {
-      "rendered": "b",
-      "letters": 1,
-      "exact": true,
-      "word_boundary_states": true
-    },
-    {
-      "rendered": "c",
-      "letters": 1,
-      "exact": true,
-      "word_boundary_states": true
-    }
-  ],
+  "reachable_states": 12,
+  "coaccessible_states": 20,
+  "shortest_witnesses": [],
   "productive_scc_certificate": {
     "productive": false,
     "cycles": [],
@@ -58,13 +34,15 @@
   "bruteforce_crosscheck": {
     "bound": 12,
     "exact": true,
-    "matched": 4,
-    "method": "enumerate accepted paths then compare each character with its reverse"
+    "matched": 0,
+    "method": "enumerate complete accepted grammar paths then compare normalized letters with their reverse"
   },
   "reader_success": false,
+  "accepted_derivations_checked": 3,
+  "exact_count": 0,
   "next_lexical_expansion": "add held-out transitive verb and place-name branches, then rerun the same product",
   "provenance": {
-    "generator_sha256": "111dc3dd580a599927d872f92c27736fc371a538643b83c1c6ec7cba0a9159db",
+    "generator_sha256": "ff49b1bc3155594de87cc35c31394b976d8e46bd9164a25faeb1f32e7660be36",
     "catalogue_imported": false,
     "posthoc_reverse": false
   }

@@ -86,12 +86,14 @@ def complete_clauses() -> tuple[ClausePlan, ...]:
 def novelty_preflight() -> dict[str, object]:
     rows = json.loads(REGISTRY.read_text()).get("entries", [])
     artifact = str(Path(__file__).relative_to(ROOT))
-    overlaps = [r.get("signature") for r in rows if r.get("signature") == SIGNATURE]
-    collisions = [r.get("artifact") for r in rows if r.get("artifact") == artifact]
+    prior_rows = [r for r in rows if r.get("id") != EXPERIMENT_ID]
+    overlaps = [r.get("signature") for r in prior_rows if r.get("signature") == SIGNATURE]
+    collisions = [r.get("artifact") for r in prior_rows if r.get("artifact") == artifact]
     result = {
         "status": "passed" if not overlaps and not collisions else "blocked",
         "registry_entries_read": len(rows), "signature_overlaps": overlaps,
         "artifact_collisions": collisions, "bounded_product": True,
+        "self_registered": any(r.get("id") == EXPERIMENT_ID for r in rows),
         "rejected_shortcuts": ["fixed-tape resegmentation", "word-order mirror",
                                 "catalogue lookup", "repeated unit", "gibberish"],
     }

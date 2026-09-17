@@ -1,0 +1,1552 @@
+{
+  "experiment_id": "cfg-earley-residual-owner-intersection-20260917",
+  "signature": "earley-complete-coordination|online-residual-owner|opposing-index-audit|fresh-clause-repair",
+  "method": "online CFG/Earley residual-owner character intersection",
+  "novelty_preflight": {
+    "entries_inspected": 443,
+    "exact_signature_collisions": [],
+    "passed": true,
+    "distinction": "complete coordinated Clause derivations stream from opposing ends with explicit residual ownership; no fixed tape, repeated product, or borrowed prose"
+  },
+  "rows": [
+    {
+      "rank": 1,
+      "rendered": "The quiet botanist studies a folded survey beside the river station, and The careful cartographer records a weathered notebook before the evening bell.",
+      "letters": 127,
+      "provenance": {
+        "left_clause_id": "botanist-survey-station",
+        "right_clause_id": "cartographer-notebook-bell",
+        "left_roles": [
+          "agent",
+          "event",
+          "patient",
+          "setting"
+        ],
+        "right_roles": [
+          "agent",
+          "event",
+          "patient",
+          "setting"
+        ],
+        "source": "fresh hand-authored clause grammar"
+      },
+      "left_chart": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "quiet",
+          "botanist",
+          "studies",
+          "a",
+          "folded",
+          "survey",
+          "beside",
+          "the",
+          "river",
+          "station"
+        ],
+        "complete_items": [
+          {
+            "lhs": "Clause",
+            "dot": 4,
+            "origin": 0,
+            "completed": true,
+            "production_ids": [
+              "botanist-survey-station"
+            ],
+            "roles": [
+              "agent",
+              "event",
+              "patient",
+              "setting"
+            ]
+          }
+        ],
+        "accepted": true,
+        "grammar": "S -> Clause (and Clause)*; Clause -> NP VP PP"
+      },
+      "right_chart": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "careful",
+          "cartographer",
+          "records",
+          "a",
+          "weathered",
+          "notebook",
+          "before",
+          "the",
+          "evening",
+          "bell"
+        ],
+        "complete_items": [
+          {
+            "lhs": "Clause",
+            "dot": 4,
+            "origin": 0,
+            "completed": true,
+            "production_ids": [
+              "cartographer-notebook-bell"
+            ],
+            "roles": [
+              "agent",
+              "event",
+              "patient",
+              "setting"
+            ]
+          }
+        ],
+        "accepted": true,
+        "grammar": "S -> Clause (and Clause)*; Clause -> NP VP PP"
+      },
+      "coordination_chart": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "quiet",
+          "botanist",
+          "studies",
+          "a",
+          "folded",
+          "survey",
+          "beside",
+          "the",
+          "river",
+          "station",
+          "and",
+          "the",
+          "careful",
+          "cartographer",
+          "records",
+          "a",
+          "weathered",
+          "notebook",
+          "before",
+          "the",
+          "evening",
+          "bell"
+        ],
+        "complete_items": [
+          {
+            "lhs": "S",
+            "dot": 3,
+            "origin": 0,
+            "completed": true,
+            "production_ids": [
+              "botanist-survey-station",
+              "cartographer-notebook-bell"
+            ]
+          }
+        ],
+        "accepted": true,
+        "grammar": "S -> Clause (and Clause)*; Clause -> NP VP PP"
+      },
+      "online_intersection": {
+        "algorithm": "online_terminal_yield_intersection",
+        "residual_owner_invariant": "every unmatched terminal is owned by left_derivation or right_derivation; no guessed/fixed-tape character",
+        "left_letters": 57,
+        "right_letters": 67,
+        "pairs_checked": 57,
+        "matching_pairs": 4,
+        "first_mismatch": 0,
+        "ledger": [
+          {
+            "step": 0,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 0,
+            "right_index": 66,
+            "left": "t",
+            "right": "l",
+            "equal": false
+          },
+          {
+            "step": 1,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 1,
+            "right_index": 65,
+            "left": "h",
+            "right": "l",
+            "equal": false
+          },
+          {
+            "step": 2,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 2,
+            "right_index": 64,
+            "left": "e",
+            "right": "e",
+            "equal": true
+          },
+          {
+            "step": 3,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 3,
+            "right_index": 63,
+            "left": "q",
+            "right": "b",
+            "equal": false
+          },
+          {
+            "step": 4,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 4,
+            "right_index": 62,
+            "left": "u",
+            "right": "g",
+            "equal": false
+          },
+          {
+            "step": 5,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 5,
+            "right_index": 61,
+            "left": "i",
+            "right": "n",
+            "equal": false
+          },
+          {
+            "step": 6,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 6,
+            "right_index": 60,
+            "left": "e",
+            "right": "i",
+            "equal": false
+          },
+          {
+            "step": 7,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 7,
+            "right_index": 59,
+            "left": "t",
+            "right": "n",
+            "equal": false
+          },
+          {
+            "step": 8,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 8,
+            "right_index": 58,
+            "left": "b",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "step": 9,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 9,
+            "right_index": 57,
+            "left": "o",
+            "right": "v",
+            "equal": false
+          },
+          {
+            "step": 10,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 10,
+            "right_index": 56,
+            "left": "t",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "step": 11,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 11,
+            "right_index": 55,
+            "left": "a",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "step": 12,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 12,
+            "right_index": 54,
+            "left": "n",
+            "right": "h",
+            "equal": false
+          },
+          {
+            "step": 13,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 13,
+            "right_index": 53,
+            "left": "i",
+            "right": "t",
+            "equal": false
+          },
+          {
+            "step": 14,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 14,
+            "right_index": 52,
+            "left": "s",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "step": 15,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 15,
+            "right_index": 51,
+            "left": "t",
+            "right": "r",
+            "equal": false
+          },
+          {
+            "step": 16,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 16,
+            "right_index": 50,
+            "left": "s",
+            "right": "o",
+            "equal": false
+          },
+          {
+            "step": 17,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 17,
+            "right_index": 49,
+            "left": "t",
+            "right": "f",
+            "equal": false
+          },
+          {
+            "step": 18,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 18,
+            "right_index": 48,
+            "left": "u",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "step": 19,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 19,
+            "right_index": 47,
+            "left": "d",
+            "right": "b",
+            "equal": false
+          },
+          {
+            "step": 20,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 20,
+            "right_index": 46,
+            "left": "i",
+            "right": "k",
+            "equal": false
+          },
+          {
+            "step": 21,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 21,
+            "right_index": 45,
+            "left": "e",
+            "right": "o",
+            "equal": false
+          },
+          {
+            "step": 22,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 22,
+            "right_index": 44,
+            "left": "s",
+            "right": "o",
+            "equal": false
+          },
+          {
+            "step": 23,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 23,
+            "right_index": 43,
+            "left": "a",
+            "right": "b",
+            "equal": false
+          }
+        ]
+      },
+      "exact_check_direct_reverse": {
+        "algorithm": "independent_direct_reverse",
+        "exact": false,
+        "letters": 127
+      },
+      "exact_check_opposing_index": {
+        "algorithm": "independent_opposing_index_scan",
+        "exact": false,
+        "letters": 127,
+        "mismatch_count": 59,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 126,
+            "left": "t",
+            "right": "l"
+          },
+          {
+            "left_index": 1,
+            "right_index": 125,
+            "left": "h",
+            "right": "l"
+          },
+          {
+            "left_index": 3,
+            "right_index": 123,
+            "left": "q",
+            "right": "b"
+          },
+          {
+            "left_index": 4,
+            "right_index": 122,
+            "left": "u",
+            "right": "g"
+          },
+          {
+            "left_index": 5,
+            "right_index": 121,
+            "left": "i",
+            "right": "n"
+          },
+          {
+            "left_index": 6,
+            "right_index": 120,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "left_index": 7,
+            "right_index": 119,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "left_index": 8,
+            "right_index": 118,
+            "left": "b",
+            "right": "e"
+          },
+          {
+            "left_index": 9,
+            "right_index": 117,
+            "left": "o",
+            "right": "v"
+          },
+          {
+            "left_index": 10,
+            "right_index": 116,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "left_index": 11,
+            "right_index": 115,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "left_index": 12,
+            "right_index": 114,
+            "left": "n",
+            "right": "h"
+          },
+          {
+            "left_index": 13,
+            "right_index": 113,
+            "left": "i",
+            "right": "t"
+          },
+          {
+            "left_index": 14,
+            "right_index": 112,
+            "left": "s",
+            "right": "e"
+          },
+          {
+            "left_index": 15,
+            "right_index": 111,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 16,
+            "right_index": 110,
+            "left": "s",
+            "right": "o"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text": false,
+        "borrowed_sentence": false,
+        "punctuation_changes_letters": false,
+        "complete_constituents": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "Replace the first mismatching setting terminal with a held-out PP production, preserve both complete Clause chart items, then rerun the online residual-owner ledger and both independent audits."
+    },
+    {
+      "rank": 2,
+      "rendered": "The patient locksmith repairs a brass compass inside the old observatory, and The steady gardener waters the young seedlings near the school porch.",
+      "letters": 123,
+      "provenance": {
+        "left_clause_id": "locksmith-compass-observatory",
+        "right_clause_id": "gardener-seedlings-porch",
+        "left_roles": [
+          "agent",
+          "event",
+          "patient",
+          "setting"
+        ],
+        "right_roles": [
+          "agent",
+          "event",
+          "patient",
+          "setting"
+        ],
+        "source": "fresh hand-authored clause grammar"
+      },
+      "left_chart": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "patient",
+          "locksmith",
+          "repairs",
+          "a",
+          "brass",
+          "compass",
+          "inside",
+          "the",
+          "old",
+          "observatory"
+        ],
+        "complete_items": [
+          {
+            "lhs": "Clause",
+            "dot": 4,
+            "origin": 0,
+            "completed": true,
+            "production_ids": [
+              "locksmith-compass-observatory"
+            ],
+            "roles": [
+              "agent",
+              "event",
+              "patient",
+              "setting"
+            ]
+          }
+        ],
+        "accepted": true,
+        "grammar": "S -> Clause (and Clause)*; Clause -> NP VP PP"
+      },
+      "right_chart": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "steady",
+          "gardener",
+          "waters",
+          "the",
+          "young",
+          "seedlings",
+          "near",
+          "the",
+          "school",
+          "porch"
+        ],
+        "complete_items": [
+          {
+            "lhs": "Clause",
+            "dot": 4,
+            "origin": 0,
+            "completed": true,
+            "production_ids": [
+              "gardener-seedlings-porch"
+            ],
+            "roles": [
+              "agent",
+              "event",
+              "patient",
+              "setting"
+            ]
+          }
+        ],
+        "accepted": true,
+        "grammar": "S -> Clause (and Clause)*; Clause -> NP VP PP"
+      },
+      "coordination_chart": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "patient",
+          "locksmith",
+          "repairs",
+          "a",
+          "brass",
+          "compass",
+          "inside",
+          "the",
+          "old",
+          "observatory",
+          "and",
+          "the",
+          "steady",
+          "gardener",
+          "waters",
+          "the",
+          "young",
+          "seedlings",
+          "near",
+          "the",
+          "school",
+          "porch"
+        ],
+        "complete_items": [
+          {
+            "lhs": "S",
+            "dot": 3,
+            "origin": 0,
+            "completed": true,
+            "production_ids": [
+              "locksmith-compass-observatory",
+              "gardener-seedlings-porch"
+            ]
+          }
+        ],
+        "accepted": true,
+        "grammar": "S -> Clause (and Clause)*; Clause -> NP VP PP"
+      },
+      "online_intersection": {
+        "algorithm": "online_terminal_yield_intersection",
+        "residual_owner_invariant": "every unmatched terminal is owned by left_derivation or right_derivation; no guessed/fixed-tape character",
+        "left_letters": 62,
+        "right_letters": 58,
+        "pairs_checked": 58,
+        "matching_pairs": 2,
+        "first_mismatch": 0,
+        "ledger": [
+          {
+            "step": 0,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 0,
+            "right_index": 57,
+            "left": "t",
+            "right": "h",
+            "equal": false
+          },
+          {
+            "step": 1,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 1,
+            "right_index": 56,
+            "left": "h",
+            "right": "c",
+            "equal": false
+          },
+          {
+            "step": 2,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 2,
+            "right_index": 55,
+            "left": "e",
+            "right": "r",
+            "equal": false
+          },
+          {
+            "step": 3,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 3,
+            "right_index": 54,
+            "left": "p",
+            "right": "o",
+            "equal": false
+          },
+          {
+            "step": 4,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 4,
+            "right_index": 53,
+            "left": "a",
+            "right": "p",
+            "equal": false
+          },
+          {
+            "step": 5,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 5,
+            "right_index": 52,
+            "left": "t",
+            "right": "l",
+            "equal": false
+          },
+          {
+            "step": 6,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 6,
+            "right_index": 51,
+            "left": "i",
+            "right": "o",
+            "equal": false
+          },
+          {
+            "step": 7,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 7,
+            "right_index": 50,
+            "left": "e",
+            "right": "o",
+            "equal": false
+          },
+          {
+            "step": 8,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 8,
+            "right_index": 49,
+            "left": "n",
+            "right": "h",
+            "equal": false
+          },
+          {
+            "step": 9,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 9,
+            "right_index": 48,
+            "left": "t",
+            "right": "c",
+            "equal": false
+          },
+          {
+            "step": 10,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 10,
+            "right_index": 47,
+            "left": "l",
+            "right": "s",
+            "equal": false
+          },
+          {
+            "step": 11,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 11,
+            "right_index": 46,
+            "left": "o",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "step": 12,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 12,
+            "right_index": 45,
+            "left": "c",
+            "right": "h",
+            "equal": false
+          },
+          {
+            "step": 13,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 13,
+            "right_index": 44,
+            "left": "k",
+            "right": "t",
+            "equal": false
+          },
+          {
+            "step": 14,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 14,
+            "right_index": 43,
+            "left": "s",
+            "right": "r",
+            "equal": false
+          },
+          {
+            "step": 15,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 15,
+            "right_index": 42,
+            "left": "m",
+            "right": "a",
+            "equal": false
+          },
+          {
+            "step": 16,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 16,
+            "right_index": 41,
+            "left": "i",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "step": 17,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 17,
+            "right_index": 40,
+            "left": "t",
+            "right": "n",
+            "equal": false
+          },
+          {
+            "step": 18,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 18,
+            "right_index": 39,
+            "left": "h",
+            "right": "s",
+            "equal": false
+          },
+          {
+            "step": 19,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 19,
+            "right_index": 38,
+            "left": "r",
+            "right": "g",
+            "equal": false
+          },
+          {
+            "step": 20,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 20,
+            "right_index": 37,
+            "left": "e",
+            "right": "n",
+            "equal": false
+          },
+          {
+            "step": 21,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 21,
+            "right_index": 36,
+            "left": "p",
+            "right": "i",
+            "equal": false
+          },
+          {
+            "step": 22,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 22,
+            "right_index": 35,
+            "left": "a",
+            "right": "l",
+            "equal": false
+          },
+          {
+            "step": 23,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 23,
+            "right_index": 34,
+            "left": "i",
+            "right": "d",
+            "equal": false
+          }
+        ]
+      },
+      "exact_check_direct_reverse": {
+        "algorithm": "independent_direct_reverse",
+        "exact": false,
+        "letters": 123
+      },
+      "exact_check_opposing_index": {
+        "algorithm": "independent_opposing_index_scan",
+        "exact": false,
+        "letters": 123,
+        "mismatch_count": 59,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 122,
+            "left": "t",
+            "right": "h"
+          },
+          {
+            "left_index": 1,
+            "right_index": 121,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "left_index": 2,
+            "right_index": 120,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "left_index": 3,
+            "right_index": 119,
+            "left": "p",
+            "right": "o"
+          },
+          {
+            "left_index": 4,
+            "right_index": 118,
+            "left": "a",
+            "right": "p"
+          },
+          {
+            "left_index": 5,
+            "right_index": 117,
+            "left": "t",
+            "right": "l"
+          },
+          {
+            "left_index": 6,
+            "right_index": 116,
+            "left": "i",
+            "right": "o"
+          },
+          {
+            "left_index": 7,
+            "right_index": 115,
+            "left": "e",
+            "right": "o"
+          },
+          {
+            "left_index": 8,
+            "right_index": 114,
+            "left": "n",
+            "right": "h"
+          },
+          {
+            "left_index": 9,
+            "right_index": 113,
+            "left": "t",
+            "right": "c"
+          },
+          {
+            "left_index": 10,
+            "right_index": 112,
+            "left": "l",
+            "right": "s"
+          },
+          {
+            "left_index": 11,
+            "right_index": 111,
+            "left": "o",
+            "right": "e"
+          },
+          {
+            "left_index": 12,
+            "right_index": 110,
+            "left": "c",
+            "right": "h"
+          },
+          {
+            "left_index": 13,
+            "right_index": 109,
+            "left": "k",
+            "right": "t"
+          },
+          {
+            "left_index": 14,
+            "right_index": 108,
+            "left": "s",
+            "right": "r"
+          },
+          {
+            "left_index": 15,
+            "right_index": 107,
+            "left": "m",
+            "right": "a"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text": false,
+        "borrowed_sentence": false,
+        "punctuation_changes_letters": false,
+        "complete_constituents": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "Replace the first mismatching setting terminal with a held-out PP production, preserve both complete Clause chart items, then rerun the online residual-owner ledger and both independent audits."
+    },
+    {
+      "rank": 3,
+      "rendered": "The careful cartographer records a weathered notebook before the evening bell, and The quiet botanist studies a folded survey beside the river station.",
+      "letters": 127,
+      "provenance": {
+        "left_clause_id": "cartographer-notebook-bell",
+        "right_clause_id": "botanist-survey-station",
+        "left_roles": [
+          "agent",
+          "event",
+          "patient",
+          "setting"
+        ],
+        "right_roles": [
+          "agent",
+          "event",
+          "patient",
+          "setting"
+        ],
+        "source": "fresh hand-authored clause grammar"
+      },
+      "left_chart": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "careful",
+          "cartographer",
+          "records",
+          "a",
+          "weathered",
+          "notebook",
+          "before",
+          "the",
+          "evening",
+          "bell"
+        ],
+        "complete_items": [
+          {
+            "lhs": "Clause",
+            "dot": 4,
+            "origin": 0,
+            "completed": true,
+            "production_ids": [
+              "cartographer-notebook-bell"
+            ],
+            "roles": [
+              "agent",
+              "event",
+              "patient",
+              "setting"
+            ]
+          }
+        ],
+        "accepted": true,
+        "grammar": "S -> Clause (and Clause)*; Clause -> NP VP PP"
+      },
+      "right_chart": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "quiet",
+          "botanist",
+          "studies",
+          "a",
+          "folded",
+          "survey",
+          "beside",
+          "the",
+          "river",
+          "station"
+        ],
+        "complete_items": [
+          {
+            "lhs": "Clause",
+            "dot": 4,
+            "origin": 0,
+            "completed": true,
+            "production_ids": [
+              "botanist-survey-station"
+            ],
+            "roles": [
+              "agent",
+              "event",
+              "patient",
+              "setting"
+            ]
+          }
+        ],
+        "accepted": true,
+        "grammar": "S -> Clause (and Clause)*; Clause -> NP VP PP"
+      },
+      "coordination_chart": {
+        "algorithm": "earley_complete_item_chart",
+        "tokens": [
+          "the",
+          "careful",
+          "cartographer",
+          "records",
+          "a",
+          "weathered",
+          "notebook",
+          "before",
+          "the",
+          "evening",
+          "bell",
+          "and",
+          "the",
+          "quiet",
+          "botanist",
+          "studies",
+          "a",
+          "folded",
+          "survey",
+          "beside",
+          "the",
+          "river",
+          "station"
+        ],
+        "complete_items": [
+          {
+            "lhs": "S",
+            "dot": 3,
+            "origin": 0,
+            "completed": true,
+            "production_ids": [
+              "cartographer-notebook-bell",
+              "botanist-survey-station"
+            ]
+          }
+        ],
+        "accepted": true,
+        "grammar": "S -> Clause (and Clause)*; Clause -> NP VP PP"
+      },
+      "online_intersection": {
+        "algorithm": "online_terminal_yield_intersection",
+        "residual_owner_invariant": "every unmatched terminal is owned by left_derivation or right_derivation; no guessed/fixed-tape character",
+        "left_letters": 67,
+        "right_letters": 57,
+        "pairs_checked": 57,
+        "matching_pairs": 4,
+        "first_mismatch": 0,
+        "ledger": [
+          {
+            "step": 0,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 0,
+            "right_index": 56,
+            "left": "t",
+            "right": "n",
+            "equal": false
+          },
+          {
+            "step": 1,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 1,
+            "right_index": 55,
+            "left": "h",
+            "right": "o",
+            "equal": false
+          },
+          {
+            "step": 2,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 2,
+            "right_index": 54,
+            "left": "e",
+            "right": "i",
+            "equal": false
+          },
+          {
+            "step": 3,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 3,
+            "right_index": 53,
+            "left": "c",
+            "right": "t",
+            "equal": false
+          },
+          {
+            "step": 4,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 4,
+            "right_index": 52,
+            "left": "a",
+            "right": "a",
+            "equal": true
+          },
+          {
+            "step": 5,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 5,
+            "right_index": 51,
+            "left": "r",
+            "right": "t",
+            "equal": false
+          },
+          {
+            "step": 6,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 6,
+            "right_index": 50,
+            "left": "e",
+            "right": "s",
+            "equal": false
+          },
+          {
+            "step": 7,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 7,
+            "right_index": 49,
+            "left": "f",
+            "right": "r",
+            "equal": false
+          },
+          {
+            "step": 8,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 8,
+            "right_index": 48,
+            "left": "u",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "step": 9,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 9,
+            "right_index": 47,
+            "left": "l",
+            "right": "v",
+            "equal": false
+          },
+          {
+            "step": 10,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 10,
+            "right_index": 46,
+            "left": "c",
+            "right": "i",
+            "equal": false
+          },
+          {
+            "step": 11,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 11,
+            "right_index": 45,
+            "left": "a",
+            "right": "r",
+            "equal": false
+          },
+          {
+            "step": 12,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 12,
+            "right_index": 44,
+            "left": "r",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "step": 13,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 13,
+            "right_index": 43,
+            "left": "t",
+            "right": "h",
+            "equal": false
+          },
+          {
+            "step": 14,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 14,
+            "right_index": 42,
+            "left": "o",
+            "right": "t",
+            "equal": false
+          },
+          {
+            "step": 15,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 15,
+            "right_index": 41,
+            "left": "g",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "step": 16,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 16,
+            "right_index": 40,
+            "left": "r",
+            "right": "d",
+            "equal": false
+          },
+          {
+            "step": 17,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 17,
+            "right_index": 39,
+            "left": "a",
+            "right": "i",
+            "equal": false
+          },
+          {
+            "step": 18,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 18,
+            "right_index": 38,
+            "left": "p",
+            "right": "s",
+            "equal": false
+          },
+          {
+            "step": 19,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 19,
+            "right_index": 37,
+            "left": "h",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "step": 20,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 20,
+            "right_index": 36,
+            "left": "e",
+            "right": "b",
+            "equal": false
+          },
+          {
+            "step": 21,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 21,
+            "right_index": 35,
+            "left": "r",
+            "right": "y",
+            "equal": false
+          },
+          {
+            "step": 22,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 22,
+            "right_index": 34,
+            "left": "r",
+            "right": "e",
+            "equal": false
+          },
+          {
+            "step": 23,
+            "owner_left": "left_derivation",
+            "owner_right": "right_derivation",
+            "left_index": 23,
+            "right_index": 33,
+            "left": "e",
+            "right": "v",
+            "equal": false
+          }
+        ]
+      },
+      "exact_check_direct_reverse": {
+        "algorithm": "independent_direct_reverse",
+        "exact": false,
+        "letters": 127
+      },
+      "exact_check_opposing_index": {
+        "algorithm": "independent_opposing_index_scan",
+        "exact": false,
+        "letters": 127,
+        "mismatch_count": 59,
+        "mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 126,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "left_index": 1,
+            "right_index": 125,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 124,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "left_index": 3,
+            "right_index": 123,
+            "left": "c",
+            "right": "t"
+          },
+          {
+            "left_index": 5,
+            "right_index": 121,
+            "left": "r",
+            "right": "t"
+          },
+          {
+            "left_index": 6,
+            "right_index": 120,
+            "left": "e",
+            "right": "s"
+          },
+          {
+            "left_index": 7,
+            "right_index": 119,
+            "left": "f",
+            "right": "r"
+          },
+          {
+            "left_index": 8,
+            "right_index": 118,
+            "left": "u",
+            "right": "e"
+          },
+          {
+            "left_index": 9,
+            "right_index": 117,
+            "left": "l",
+            "right": "v"
+          },
+          {
+            "left_index": 10,
+            "right_index": 116,
+            "left": "c",
+            "right": "i"
+          },
+          {
+            "left_index": 11,
+            "right_index": 115,
+            "left": "a",
+            "right": "r"
+          },
+          {
+            "left_index": 12,
+            "right_index": 114,
+            "left": "r",
+            "right": "e"
+          },
+          {
+            "left_index": 13,
+            "right_index": 113,
+            "left": "t",
+            "right": "h"
+          },
+          {
+            "left_index": 14,
+            "right_index": 112,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 15,
+            "right_index": 111,
+            "left": "g",
+            "right": "e"
+          },
+          {
+            "left_index": 16,
+            "right_index": 110,
+            "left": "r",
+            "right": "d"
+          }
+        ]
+      },
+      "independent_exact_agreement": true,
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text": false,
+        "borrowed_sentence": false,
+        "punctuation_changes_letters": false,
+        "complete_constituents": true
+      },
+      "mechanically_admitted": false,
+      "next_repair": "Replace the first mismatching setting terminal with a held-out PP production, preserve both complete Clause chart items, then rerun the online residual-owner ledger and both independent audits."
+    }
+  ],
+  "stats": {
+    "states_examined": 3,
+    "complete_grammar_pairs": 3,
+    "over_100": 3,
+    "exact": 0,
+    "earley_coordination_accepted": 3
+  },
+  "provenance": {
+    "generator_sha256": "8c579d6df0d5a43916290574db22b688b69bc7f5b79d719ab2d9fbee787c8f52",
+    "independent_audits": [
+      "direct normalized reversal",
+      "opposing-index scan",
+      "online terminal-yield ledger"
+    ],
+    "brown_usage": "none; no sentence text or catalogue material was imported"
+  },
+  "anti_shortcut_policy": "No fixed tape, reverse segmentation, word-order symmetry, repeated unit, borrowed catalogue prose, or punctuation-dependent equality.",
+  "next_repair": "Held-out PP terminal substitution at the first residual mismatch, with complete-clause chart preservation and fresh audit."
+}

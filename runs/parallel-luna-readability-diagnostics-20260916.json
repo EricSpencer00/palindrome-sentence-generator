@@ -266,9 +266,12 @@
     "runs/finite-semantic-csp-object-verb-repair-20260916.json",
     "runs/cfg-earley-fresh-typed-adjunct-repair-20260916.json",
     "runs/semantic-slot-adjunct-followup-20260916.json",
-    "runs/inflection-clitic-distinct-suffix-repair-20260916.json"
+    "runs/inflection-clitic-distinct-suffix-repair-20260916.json",
+    "runs/cfg-earley-fresh-opposing-adjunct-repair-20260916.json",
+    "runs/inflection-clitic-distinct-possessive-repair-20260916.json",
+    "runs/semantic-slot-final-locative-followup-20260916.json"
   ],
-  "candidate_count": 4952,
+  "candidate_count": 4955,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -2981,6 +2984,36 @@
       "max_letters": 163,
       "mean_zipf_frequency": 5.422727272727272,
       "mean_brown_order_gain_vs_shuffle": 0.7460842792779729
+    },
+    {
+      "source_run": "runs/cfg-earley-fresh-opposing-adjunct-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 109,
+      "max_letters": 109,
+      "mean_zipf_frequency": 5.598333333333333,
+      "mean_brown_order_gain_vs_shuffle": 0.8854659359474759
+    },
+    {
+      "source_run": "runs/inflection-clitic-distinct-possessive-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 128,
+      "max_letters": 128,
+      "mean_zipf_frequency": 5.311785714285714,
+      "mean_brown_order_gain_vs_shuffle": 0.3198916653319195
+    },
+    {
+      "source_run": "runs/semantic-slot-final-locative-followup-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 161,
+      "max_letters": 161,
+      "mean_zipf_frequency": 5.464848484848485,
+      "mean_brown_order_gain_vs_shuffle": 0.7502488624992463
     }
   ],
   "rows": [
@@ -238744,6 +238777,143 @@
         "mean_zipf_frequency": 5.261481481481481,
         "word_count": 27,
         "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At first light, the surveyor records the river current near the dock while the baker warms bread for the waiting crew beside the quay.",
+      "source_run": "runs/cfg-earley-fresh-opposing-adjunct-repair-20260916.json",
+      "provenance": {
+        "method": "single opposing adjunct lexical terminal repair in Earley chart",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "af67176c5faec6295d40cf7a43296df1039ceaf9f47fe275d7fd9652dfdc2338",
+        "source_sha256": "fc30a1afd35e49f287e7b406f2275d61adc05a76998f7fcfe8f14e8ba6eb70d6"
+      },
+      "repair": null,
+      "letters": 109,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8854659359474759,
+        "mean_zipf_frequency": 5.598333333333333,
+        "word_count": 24,
+        "repeated_word_rate": 0.20833333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dusk, the harbor pilots checked the mooring lights, logged the tide in the crew's ledger, and warned each waiting sailor that boats would leave before dusk.",
+      "source_run": "runs/inflection-clitic-distinct-possessive-repair-20260916.json",
+      "provenance": "single possessive clitic boundary substitution with harbor scene, tense, and attachment frozen",
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.3198916653319195,
+        "mean_zipf_frequency": 5.311785714285714,
+        "word_count": 28,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the patient gardener carries a wrapped bundle near the glasshouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart into the dry storehouse.",
+      "source_run": "runs/semantic-slot-final-locative-followup-20260916.json",
+      "provenance": {
+        "fresh_authored_scene": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "9f558207ce348193239df878d74053298f7b224a7c9689ff1801c49f905e20b4"
+      },
+      "repair": null,
+      "letters": 161,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7502488624992463,
+        "mean_zipf_frequency": 5.464848484848485,
+        "word_count": 33,
+        "repeated_word_rate": 0.1515151515151515,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

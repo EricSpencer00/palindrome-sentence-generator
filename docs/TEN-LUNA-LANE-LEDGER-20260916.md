@@ -553,4 +553,4 @@ CFG/Earley near-dock adjunct, a 163-letter semantic-slot glasshouse adjunct,
 and a 128-letter inflection/clitic before-dusk suffix. Each is independently
 rejected by pointer and SHA checks, carries fresh provenance and novelty
 preflight, and names the next local repair. The authoritative total is now
-4,952 rows across 271 routes, with 79 exact controls and 0 admitted outputs.
+4,955 rows across 274 routes, with 79 exact controls and 0 admitted outputs.

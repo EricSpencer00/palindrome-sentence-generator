@@ -767,4 +767,4 @@ semantic slot repair produced a 163-letter gardener/glasshouse scene, and the
 inflection/clitic suffix repair produced a 128-letter harbor scene ending
 ``before dusk.'' All three have independent pointer/SHA rejection, no-copy
 provenance, novelty preflight, and a further local repair; they raise the
-authoritative audit to 4,952 rows across 271 routes without reopening a sweep.
+authoritative audit to 4,955 rows across 274 routes without reopening a sweep.

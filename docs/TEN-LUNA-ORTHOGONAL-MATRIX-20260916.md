@@ -30,3 +30,11 @@ The first repair pass was deliberately one state per lane, not a resweep:
 - Inflection/clitic suffix repair: “At dusk, the harbor pilots checked the mooring lights, logged the tide in the crews' ledger, and warned each waiting sailor that boats would leave before dusk.” (128 letters; exact `false`; next repair changes only `crews'` to `crew's`.)
 
 Each has its own JSON provenance, novelty preflight, independent pointer/SHA audit, and anti-shortcut decision. The aggregate now contains 4,952 rows across 271 routes; none is mechanically admitted or reader-certified.
+
+A second one-state repair pass then produced three more intact candidates:
+
+- CFG/Earley opposing adjunct: “At first light, the surveyor records the river current near the dock while the baker warms bread for the waiting crew beside the quay.” (109 letters; exact `false`; next repair changes one lexical terminal.)
+- Inflection/clitic possessive boundary: “At dusk, the harbor pilots checked the mooring lights, logged the tide in the crew’s ledger, and warned each waiting sailor that boats would leave before dusk.” (127 letters; exact `false`; next repair changes only the complementizer boundary.)
+- Semantic-slot final locative: “After rain, the patient gardener carries a wrapped bundle near the glasshouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart into the dry storehouse.” (161 letters; exact `false`; next repair changes only the temporal adjunct.)
+
+These are single-state repairs with fresh provenance, novelty preflight, independent exact audits, and no catalogue or repetition shortcut. The aggregate is now 4,955 rows across 274 routes.

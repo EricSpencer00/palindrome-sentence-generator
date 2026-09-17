@@ -3380,3 +3380,33 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   replacement of the first mismatching semantic role by a new valency-compatible
   role bank, followed by inward resumption; enlarging these banks is not the next
   experiment.
+
+  Dream-RSI replay is now implemented as a controller experiment rather than a
+  new proxy score. The adapter independently rescans every curated historical
+  rendering, rebuilds parent links from forward tape hashes, quarantines exact
+  controls and repeated-phrase scaffolds, and compares six deterministic replay
+  policies on a train/held-out split. Across 15,475 nodes from 417 worlds, the
+  data contain only 19 parent edges, zero branching parents, and identical
+  train/held-out metrics for all six policies; the selected policy is therefore
+  `whole_passage_focus` by a declared tie-break, not by fabricated improvement.
+  The best surviving train rendering is intact authored prose — “At first light,
+  the gardener unlocks the old shed, trims the apple tree, carries the spare hose,
+  writes a note for the neighbor, sweeps the stone path.” — at 119 letters with
+  46 opposing-end mismatches. On held-out worlds the best is “At first light,
+  the gardener unlocks the old shed, trims the apple tree, labels the seed trays,
+  carries the spare hose, writes a note for the neighbor, sweeps the stone path.”
+  at 137 letters with 54 mismatches. Their independent forward/reverse SHA
+  audits pass, but neither is exact or reader certified.
+
+  The selected controller was redeployed on a fresh anchored museum event. The
+  three retained revisions are original, intact 120–123-letter passages (for
+  example, “The museum conservator took a torn map from a cedar chest, carried it
+  to the worktable, and aligned its faded marks before the evening lamps were
+  lit.”); independent audits report 56–58 mismatches and zero exact closures.
+  Provenance, anchor constraints, and no-shortcut flags are recorded in
+  `runs/dream-rsi-online-two-region-20260917.json`; the reader gate remains
+  closed. This is a constructive failure: replay cannot choose among alternatives
+  when generators emit single-child chains. The next repair is a branching
+  two-region authoring operator that records multiple sibling prose proposals per
+  preserved state, followed by a fresh Dream-RSI replay and then the intact-versus
+  shuffled blinded reader package for any exact survivor.

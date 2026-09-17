@@ -2758,3 +2758,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   reader gate remains closed. The next concrete operators are mask-guided
   next-character choice, joint locative-predicate alternation, and an
   adjective-boundary seam within the same frames.
+
+  The next wave completed those operators. Mask-guided next-character choice
+  retained 2 intact candidates up to 82 letters; joint locative-predicate
+  alternation produced 256 candidates up to 99 letters; and the two-frame
+  adjective-boundary seam rendered 4 intact candidates up to 133 letters, with
+  midpoint-inside-token crossing in every candidate. All produced 0 exact
+  closures. Independent pointer/SHA-256 replay, provenance, novelty
+  preflight, and anti-shortcut checks are retained for every row. The reader
+  gate remains closed. The next concrete operators are lexical-trie equality
+  expansion, joint locative-subject lexical alternation, and a fixed
+  prepositional-boundary center seam in the same frames.

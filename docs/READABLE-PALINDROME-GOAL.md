@@ -2621,3 +2621,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   reader gate remains closed. The next concrete operators are domain-valued
   interval-pair propagation, shared-preposition locative complement reduction,
   and one agreement-conditioned object adjective in the short grammar.
+
+  The next wave completed those operators. Domain-valued interval-pair
+  propagation retained 2 intact candidates up to 82 letters; shared-
+  preposition locative reduction produced 684 deduplicated candidates up to 93
+  letters; and the short object-adjective agreement repair rendered 432 intact
+  candidates up to 111 letters, with midpoint-inside-token crossing in every
+  candidate. All produced 0 exact closures. Independent pointer/SHA-256
+  replay, provenance, novelty preflight, and anti-shortcut checks are retained
+  for every row. The reader gate remains closed. The next concrete operators
+  are lexical slot-domain rejection before materialization, `in which` to
+  `where` complementizer reduction, and one agreement-conditioned adverb in
+  the short grammar.

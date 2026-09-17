@@ -469,10 +469,10 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,851 rows
-across 229 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **330 retained artifacts, 31
-explicit exclusions, and 308 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,857 rows
+across 232 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **333 retained artifacts, 31
+explicit exclusions, and 311 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
 
@@ -613,6 +613,13 @@ unbounded bilateral semantic-growth grammar (three non-repeating growth states
 up to 140 letters). Every row has independent pointer/SHA replay, provenance,
 novelty preflight, anti-shortcut checks, and a concrete first-residual repair;
 none closes exactly or enters the reader packet.
+
+The next child-repair pass remains targeted: a second opposing-terminal repair
+renders three 115--126-letter scenes, a held-out final-attachment repair renders
+one 80-letter harbor scene, and a directional-adjunct repair renders two
+91--97-letter valency scenes. These child states preserve parent provenance,
+carry independent pointer/SHA validation and anti-shortcut checks, and name the
+next residual operator; none closes exactly or enters the reader packet.
 
 The immediate repair pass then executes the named operators rather than
 resweeping: paired same-role terminal replacement produces three 120--132-

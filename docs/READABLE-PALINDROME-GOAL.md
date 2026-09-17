@@ -2086,7 +2086,7 @@ item-aware analysis plan.
   **Fresh ten-lane closure audit (2026-09-16):** ten orthogonal Luna state
   representations now have append-only run artifacts with rendered prose,
   independent pointer/hash validation, provenance, novelty preflight, and a
-  named next repair. The aggregate is 4,851 rows across 229 route phases (79
+  named next repair. The aggregate is 4,857 rows across 232 route phases (79
   exact but rejected tapes; 0 mechanically admitted). The lane-8 exact
   126-letter surface is quarantined because it is six repetitions of the
   catalogue clause “A man, a plan, a canal, Panama.” The longest fresh intact

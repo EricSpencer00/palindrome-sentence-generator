@@ -157,7 +157,7 @@ next reader-facing test is held until exact admission, then freezes this intact
 rendering against a matched shuffled control. The same wave records three
 101-letter exact tapes from paired-slot repair, but their “Levels calm tales
 ...” surfaces are visibly unreadable and are rejected before reader use. The
-current aggregate is 5,442 rows across 332 routes, with 84 exact rows and zero
+current aggregate is 5,453 rows across 332 routes, with 84 exact rows and zero
 mechanically admitted outputs; the registry has 431 retained artifacts, 35
 exclusions, and 409 retained run artifacts.
 

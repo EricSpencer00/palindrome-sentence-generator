@@ -1,0 +1,159 @@
+{
+  "experiment_id": "reversible-phrase-directional-adjunct-repair-20260916",
+  "signature": "phrase-directional-adjunct-repair|heldout-preposition-location-np|role-preserved|fresh-state",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "replace only a directional preposition plus location noun phrase under a live boundary equation",
+  "candidates": [
+    {
+      "repair_state": "directional adjunct replacement",
+      "parent_state": "reversible-phrase-pair-role-repair-20260916",
+      "replacement": {
+        "old_role": "directional location adjunct",
+        "new_preposition": "beside",
+        "new_location_np": "the old quay"
+      },
+      "valency_preserved": true,
+      "live_boundary_equation": {
+        "outer": [
+          "t",
+          "y"
+        ],
+        "satisfied": false
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The harbor keeper preserves a quiet journal while the night crew carries bright lanterns beside the old quay.",
+        "letters": 91,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "y"
+        ],
+        "normalized_sha256": "db7927ef875dbebdd30433ef5e8b5ca4cdd9907fa708fd66a61eb7cdfbf18f75",
+        "reverse_sha256": "246e86a780236d93ab268624b30e4d27858178b371300c7a69b03d466efcc7b0",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "replace only the adjunct determiner with a held-out determiner matching the residual while retaining location role",
+        "reason": "single adjunct repair remains grammatical but outer character obligation is open"
+      }
+    },
+    {
+      "repair_state": "directional adjunct replacement",
+      "parent_state": "reversible-phrase-pair-role-repair-20260916",
+      "replacement": {
+        "old_role": "directional location adjunct",
+        "new_preposition": "near",
+        "new_location_np": "the eastern greenhouse"
+      },
+      "valency_preserved": true,
+      "live_boundary_equation": {
+        "outer": [
+          "t",
+          "e"
+        ],
+        "satisfied": false
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The garden steward stores a careful record while the morning team brings clean baskets near the eastern greenhouse.",
+        "letters": 97,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "normalized_sha256": "685b3b87c35b80e45fada9883d5266bbc3f3805c5fef19238aeff0f5cbc2d5ce",
+        "reverse_sha256": "bae97dec63db4fe64ff0abc71579aaca11d3f01f97eb57a04f0ae1c8f28c5db4",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "replace only the adjunct determiner with a held-out determiner matching the residual while retaining location role",
+        "reason": "single adjunct repair remains grammatical but outer character obligation is open"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "replace only the adjunct determiner with a held-out determiner matching the residual",
+    "reason": "no exact closure after role-preserving directional repair"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 361,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "word_order_mirror": false,
+    "repeated_units": false
+  },
+  "provenance": {
+    "generator_sha256": "a8da5931c3ed525e979aa36b52697ec58284fd2da7f45337cc4e91e891446e81",
+    "lexical_source": "held-out location adjunct bank",
+    "parent_state": "reversible-phrase-pair-role-repair-20260916",
+    "repair": "replaced directional adjunct only; agent/theme and scene roles unchanged",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "valency replay",
+      "anti-shortcut"
+    ]
+  }
+}

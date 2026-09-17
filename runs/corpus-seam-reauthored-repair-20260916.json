@@ -1,0 +1,108 @@
+{
+  "experiment_id": "corpus-seam-reauthored-repair-20260916",
+  "signature": "heldout-pos-seam-repair|full-scene-reauthoring|valency-preserved|single-state|fresh",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "select one held-out POS-compatible seam and reauthor a complete connected valency scene around it",
+  "candidates": [
+    {
+      "construction_state": "held-out seam + full reauthoring",
+      "seam": {
+        "old_residual": "records the",
+        "heldout": "logs a",
+        "pos": "V+DET",
+        "role": "agent records artifact"
+      },
+      "fresh_authoring": true,
+      "valency": [
+        "captain logs channel",
+        "mechanic checks lamps",
+        "temporal adjunct"
+      ],
+      "live_equation": {
+        "outer_pair": [
+          "a",
+          "g"
+        ],
+        "first_residual": [
+          0,
+          "a",
+          "g"
+        ]
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "At sunrise, the ferry captain logs a narrow channel beside the eastern pier, while the patient mechanic checks each lamp before the first crossing.",
+        "letters": 121,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "g"
+        ],
+        "normalized_sha256": "7ea9401b69436928c00581cf500aabe295bc759e2a452b90e30e37f01e937f81",
+        "reverse_sha256": "1f69f06342aa75b4d764b413948c83c5ac9c2dec3f833a9f6d474a875fc8d514",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "select held-out temporal adjunct with residual-matching onset and reauthor both clauses",
+        "reason": "seam repair yields readable prose but leaves open outer character obligation"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "select held-out temporal adjunct with residual-matching onset and reauthor both clauses",
+    "reason": "seam repair yields readable prose but leaves open outer character obligation"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 370,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "replayed_prior_scene": false,
+    "copied_spans": false,
+    "word_order_mirror": false
+  },
+  "provenance": {
+    "generator_sha256": "5b520660f3e55dea4a7a2c6e0dff6e09578e96aa513617a1ec2551bb3e5df90b",
+    "lexical_source": "held-out POS seam plus fresh ferry scene",
+    "parent_state": "corpus-seam-fresh-scene-grammar-20260916",
+    "repair": "logs a replaces prior seam role, followed by full scene reauthoring",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "valency replay",
+      "anti-shortcut"
+    ]
+  }
+}

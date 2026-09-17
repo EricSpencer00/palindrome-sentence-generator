@@ -1,7 +1,7 @@
 import hashlib,json,re
 from pathlib import Path
 R=Path(__file__).resolve().parents[1];O=R/'runs/bespoke-scene-lattice-free-center-20260916.json'
-T=[('the baker','kneads','the rye dough','before noon'),('a violinist','tunes','the wooden strings','in the quiet hall'),('the ferryman','guides','the evening boat','across the inlet'),('a cartographer','draws','the coastal road','under gray clouds'),('the beekeeper','checks','the honey frames','near the cedar shed'),('a mechanic','tests','the copper engine','at first light'),('the sailor','mends','the canvas sail','beside the pier'),('a librarian','shel guards','the rare folios','during the long storm')]
+T=[('the baker','kneads','the rye dough','before noon'),('a violinist','tunes','the wooden strings','in the quiet hall'),('the ferryman','guides','the evening boat','across the inlet'),('a cartographer','draws','the coastal road','under gray clouds'),('the beekeeper','checks','the honey frames','near the cedar shed'),('a mechanic','tests','the copper engine','at first light'),('the sailor','mends','the canvas sail','beside the pier'),('a librarian','shelters','the rare folios','during the long storm')]
 def n(s):return re.sub('[^a-z]','',s.lower())
 def main():
  rows=[]

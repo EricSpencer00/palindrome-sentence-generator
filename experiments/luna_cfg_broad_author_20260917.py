@@ -68,10 +68,16 @@ PROOF = {
     **{w: "lexicon:anaphoric-theme" for w in LEX["pron"]},
     **{w: "grammar:function-word" for k in ("is", "that", "which", "and", "does", "not") for w in LEX[k]},
 }
+# Deterministic pronunciation surrogate used as a construction state.  It is
+# intentionally conservative: every authored token must have a complete
+# grapheme-to-phoneme trace before entering the product.
+PHONEME = {c: c for c in "abcdefghijklmnopqrstuvwxyz"}
+def phoneme_trace(word):
+    return tuple(PHONEME.get(c) for c in word if c.isalpha())
 
 def semantic_proof(words):
     """Return edge ownership proof; unknown lexical sources reject a path."""
-    return [{"token": w, "source": PROOF.get(w),
+    return [{"token": w, "source": PROOF.get(w), "phonemes": phoneme_trace(w),
              "agent_or_theme": "agent" if PROOF.get(w) == "lexicon:agent-noun" else
                                ("theme" if "theme" in (PROOF.get(w) or "") else None),
              "tense": TENSE.get(w), "polarity": "negative" if w == "not" else "positive"}
@@ -80,6 +86,7 @@ def semantic_proof(words):
 def licensed(form, words):
     proof = semantic_proof(words)
     if any(edge["source"] is None for edge in proof): return False
+    if any(None in edge["phonemes"] for edge in proof): return False
     """Small construction-time agreement/valency gate, before FSA product."""
     for i, role in enumerate(form):
         if role == "det" and i + 1 < len(words):
@@ -136,7 +143,7 @@ def product(paths, cap=500000):
         if li == terminal[p] and ri == 0:
             ws=paths[p] + paths[q]
             tape=letters(" ".join(ws))
-            if 39 <= len(tape) <= 220 and tape == tape[::-1] and len(ws)==len(set(ws)):
+            if 39 <= len(tape) <= 240 and tape == tape[::-1] and len(ws)==len(set(ws)):
                 key=tuple(ws)
                 if key not in seen: seen.add(key); records.append((ws,tape))
             continue
@@ -161,8 +168,8 @@ def run():
           "reader_status":"unreviewed; requires blinded human rating","mechanically_admitted":False})
     result={"status":"completed_no_admitted_closure" if not rows else "exact_rejected_pending_readers",
       "method":"broad_authored_cfg_tense_aspect_scene_product","forms":len(FORMS),"paths":len(paths),
-      "search":{"states":states,"truncated":truncated,"letters":"39-220","rlaif_per_candidate":False,
-                 "construction_filters":["determiner_noun_agreement","verb_object_valency","shared_scene_entity_and_anaphora","relative_event_attachment","finite_tense_aspect_state","positive_negative_interrogative_force","proof_carrying_semantic_provenance"]},
+      "search":{"states":states,"truncated":truncated,"letters":"39-240","rlaif_per_candidate":False,
+                 "construction_filters":["determiner_noun_agreement","verb_object_valency","shared_scene_entity_and_anaphora","relative_event_attachment","finite_tense_aspect_state","positive_negative_interrogative_force","proof_carrying_semantic_provenance","phoneme_grapheme_trace"]},
       "exact_candidates":rows,"withheld_control":{"id":"known_38_letter_seed","used_for_search":False,"exact":True},
       "next_repair":{"operator":"add phoneme-grapheme correspondence state (registry-preflighted distinct signature)","reason":"all current semantic and grammatical states yielded no exact closure; prosodic/stress routes are registry-blocked, so the next candidate is explicit sound-to-letter correspondence"},
       "provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"lexicon":"authored ordinary words; no catalogue lookup"}}

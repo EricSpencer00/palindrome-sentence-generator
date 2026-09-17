@@ -295,6 +295,82 @@ def seam_repair_menu(frontier: dict, *, forbidden_words: frozenset[str] = frozen
     }
 
 
+def resume_seam_repair(slots: tuple[str, ...], frontier: dict, *, side: str,
+                       replacement: str, state_budget: int = 50_000,
+                       forbidden_words: frozenset[str] = frozenset()) -> list[dict]:
+    """Continue inward from one mismatch after one role-word substitution."""
+    assignment = list(frontier["assignment"])
+    slot = frontier["left_slot"] if side == "left" else frontier["right_slot"]
+    old = assignment[slot]
+    assignment[slot] = replacement
+    used = {word for word in assignment if word and word not in FUNCTION_WORDS}
+    if old and old not in FUNCTION_WORDS:
+        used.discard(old)
+    used.add(replacement) if replacement not in FUNCTION_WORDS else None
+    stack = [(frontier["left_slot"], frontier["right_slot"],
+              replacement if side == "left" else frontier["left_word"],
+              frontier["left_position"],
+              replacement if side == "right" else frontier["right_word"],
+              frontier["right_position_from_end"], tuple(assignment), frozenset(used))]
+    seen: set[tuple] = set()
+    paths: list[dict] = []
+    states = 0
+    while stack and states < state_budget:
+        li, ri, left_word, left_pos, right_word, right_pos, assign, used_state = stack.pop()
+        states += 1
+        if left_word is not None and left_pos == len(left_word):
+            stack.append((li + 1, ri, None, 0, right_word, right_pos, assign, used_state)); continue
+        if right_word is not None and right_pos == len(right_word):
+            stack.append((li, ri - 1, left_word, left_pos, None, 0, assign, used_state)); continue
+        key = (li, ri, left_word, left_pos, right_word, right_pos, assign, used_state)
+        if key in seen: continue
+        seen.add(key)
+        if li == ri and left_word is None and right_word is not None:
+            if len(right_word) - right_pos <= 1:
+                words = tuple(word for word in assign if word is not None)
+                audit = exact_audit(" ".join(words)); shortcut = anti_shortcut(words)
+                if audit["exact"] and not any(shortcut.values()):
+                    paths.append({"rendered": " ".join(words), "words": words,
+                                  "audit": audit, "anti_shortcut": shortcut,
+                                  "provenance": {"resumed_from_frontier": True,
+                                                 "repaired_side": side,
+                                                 "replacement": replacement}})
+            continue
+        if li == ri and right_word is None and left_word is not None:
+            if len(left_word) - left_pos <= 1:
+                words = tuple(word for word in assign if word is not None)
+                audit = exact_audit(" ".join(words)); shortcut = anti_shortcut(words)
+                if audit["exact"] and not any(shortcut.values()):
+                    paths.append({"rendered": " ".join(words), "words": words,
+                                  "audit": audit, "anti_shortcut": shortcut,
+                                  "provenance": {"resumed_from_frontier": True,
+                                                 "repaired_side": side,
+                                                 "replacement": replacement}})
+            continue
+        if li > ri:
+            continue
+        if left_word is None:
+            for word in BANKS[slots[li]]:
+                if word in forbidden_words or not _eligible(word, used_state): continue
+                updated = list(assign); updated[li] = word
+                stack.append((li, ri, word, 0, right_word, right_pos, tuple(updated),
+                              used_state | ({word} if word not in FUNCTION_WORDS else set())))
+            continue
+        if right_word is None:
+            for word in BANKS[slots[ri]]:
+                if word in forbidden_words or not _eligible(word, used_state): continue
+                updated = list(assign); updated[ri] = word
+                stack.append((li, ri, left_word, left_pos, word, 0, tuple(updated),
+                              used_state | ({word} if word not in FUNCTION_WORDS else set())))
+            continue
+        left_tape, right_tape = letters(left_word), letters(right_word)
+        if left_pos >= len(left_tape) or right_pos >= len(right_tape): continue
+        if left_tape[left_pos] != right_tape[-1 - right_pos]: continue
+        stack.append((li, ri, left_word, left_pos + 1, right_word, right_pos + 1,
+                      assign, used_state))
+    return paths
+
+
 def render_fixture() -> dict:
     text = "Doc, note: I dissent. A fast never prevents a fatness. I diet on cod."
     audit = exact_audit(text)
@@ -307,16 +383,27 @@ def run() -> dict:
     fixture = render_fixture()
     searches: dict[str, dict] = {}
     novel: list[dict] = []
+    seam_repairs: list[dict] = []
     for name, slots in PATTERNS.items():
         result = search_pattern(slots, forbidden_words=frozenset(CATALOGUE_FIXTURE))
+        menus = [seam_repair_menu(frontier,
+                    forbidden_words=frozenset(CATALOGUE_FIXTURE))
+                 for frontier in result.mismatch_frontiers[:3]]
+        for menu, frontier in zip(menus, result.mismatch_frontiers[:3]):
+            for replacement in menu["left_alternatives"][:2]:
+                seam_repairs.extend(resume_seam_repair(
+                    slots, frontier, side="left", replacement=replacement,
+                    forbidden_words=frozenset(CATALOGUE_FIXTURE)))
+            for replacement in menu["right_alternatives"][:2]:
+                seam_repairs.extend(resume_seam_repair(
+                    slots, frontier, side="right", replacement=replacement,
+                    forbidden_words=frozenset(CATALOGUE_FIXTURE)))
         searches[name] = {"states": result.states, "mismatch_edges": result.mismatch_edges,
                           "budget_exhausted": result.budget_exhausted,
                           "exact_paths": len(result.paths),
                           "longest_partial": result.longest_partial,
                           "mismatch_frontiers": result.mismatch_frontiers,
-                          "seam_repair_menus": [seam_repair_menu(frontier,
-                              forbidden_words=frozenset(CATALOGUE_FIXTURE))
-                              for frontier in result.mismatch_frontiers[:3]],
+                          "seam_repair_menus": menus,
                           "paths": result.paths[:20]}
         novel.extend(result.paths)
     return {
@@ -327,6 +414,8 @@ def run() -> dict:
         "fixture": fixture,
         "searches": searches,
         "novel_exact_candidates": novel[:50],
+        "seam_repair_exact_candidates": seam_repairs[:50],
+        "seam_repair_count": len(seam_repairs),
         "reader_gate": "closed; no novel exact survivor means no human study yet",
         "next_repair": "typed seam repair at the first mismatching edge, changing one role bank while preserving all earlier matched edges",
         "independent_audits": ["two-pointer letter comparison", "forward/reverse SHA-256"],

@@ -3268,3 +3268,6 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   a typed substitution at a preserved mismatch frontier. The run now records
   held-out role menus (for example, the outer `world`/`word` mismatch offers
   `day`, `dog`, `door`, or `crow`) without restarting from a finished tape.
+  Resuming from those preserved states with one held-out substitution produced
+  0 exact repairs, so the next branch must change the typed slot schema rather
+  than expand the same lexical menus.

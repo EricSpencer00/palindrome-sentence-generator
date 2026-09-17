@@ -1,0 +1,1378 @@
+{
+  "experiment_id": "finite-state-boundary-beam-20260917",
+  "signature": "finite-state-boundary-beam|semantic-clause-template|lexical-transition-score|boundary-class-grammar|independent-pointer-sha",
+  "status": "completed_no_exact_closure",
+  "method": "finite-state grammar beam over semantic clause templates; lexical boundary classes constrain legal phrase transitions and a transparent character trigram score ranks the bounded beam",
+  "novelty_preflight": {
+    "status": "passed",
+    "performed_before_search": true,
+    "registry_entries_read": 446,
+    "signature_collision": false,
+    "collisions": [],
+    "prior_obligation_routes_flagged": [
+      "fresh-typed-frame-live-seam-20260916",
+      "paired-semantic-mutation-20260916",
+      "centerout-paired-boundary-csp-verbframe-20260916",
+      "centerout-paired-boundary-csp-20260916",
+      "centerout-grammar-boundary-repair4-20260916",
+      "reverse-lexicon-centered-complement-20260916",
+      "centerout-grammar-boundary-repair3-20260916",
+      "reverse-lexicon-boundary-seam-repair-20260916",
+      "reverse-lexicon-inflection-repair-20260916",
+      "reverse-lexicon-synthesis-20260916",
+      "online-grammar-state-char-decoder-20260916",
+      "scalable-compositional-clause-grammar-20260916",
+      "grammar-reverse-trie-preflight-20260916-excluded",
+      "topicalization-scope-constructor-20260916",
+      "conditional-role-pair-preflight-20260916-excluded",
+      "reported-speech-topology-20260916",
+      "paragraph-paraphrase-obligation-20260916",
+      "dependency-completion-csp-20260916",
+      "reversible-constituent-clause-repair-20260916",
+      "recursive-clause-pair-20260916",
+      "recursive-obligation-clause-growth-20260916",
+      "paired-obligation-astar-debt-repair-20260916",
+      "paired-obligation-astar-20260916",
+      "adaptive-crossword-span-cover",
+      "centerout-dependency-realizer-20260916",
+      "conditional-embedding-solver-20260916",
+      "scalar-evaluation-evidence-20260916",
+      "live-gpt2-character-decoder-preflight-20260916",
+      "encoder-semantic-scene-pseudolikelihood-20260916",
+      "compound-derivational-scene-csp-20260916",
+      "parse-tree-exact-cover-20260916",
+      "live-slot-equation-cfg-resegmentation-20260916",
+      "semantic-scene-repair-lane6-20260916",
+      "dependency-seam-csp-20260916-luna",
+      "inflection-clitic-distinct-repair-20260916-luna",
+      "interrogative-relative-template-solver-20260916",
+      "live-tape-clause-terminal-decoder-20260916",
+      "centerout-open-word-seam-20260916",
+      "scalable-outsidein-phrase-pair-20260916",
+      "scalable-outsidein-paired-terminal-repair-20260916",
+      "live-cfg-character-chart-20260916",
+      "fresh-crossword-seam-csp-20260916",
+      "fresh-crossword-seam-csp-followup-20260916",
+      "bidirectional-phrase-pair-growth-20260916",
+      "bidirectional-phrase-pair-adjunct-repair-20260916",
+      "finite-reverse-phrase-composition-bank-20260916",
+      "finite-semantic-palindrome-csp-20260916",
+      "semantic-slot-attachment-repair-20260916-luna",
+      "agreement-clitic-outer-terminal-search-20260916",
+      "outside-in-role-phrase-equation-20260916",
+      "char-lm-obligation-beam-20260916",
+      "dependency-seam-attachment-csp-20260916",
+      "center-insertion-outer-tape-preflight-20260916",
+      "modal-scope-preflight-20260916",
+      "coordination-ellipsis-preflight-20260916",
+      "orthographic-derivation-preflight-20260916",
+      "semantic-scene-stack-machine-20260916-excluded"
+    ],
+    "fixed_tape_used": false,
+    "finished_surface_reversed": false,
+    "catalogue_text_imported": false
+  },
+  "search": {
+    "frame_frontiers": {
+      "craft": 6,
+      "field": 6
+    },
+    "paired_candidates": 12,
+    "beam_width": 6
+  },
+  "candidates": [
+    {
+      "rank": 1,
+      "rendered": "The careful baker warms a copper kettle before the evening rain. The watchful ranger records a weather map beside the garden gate.",
+      "char_lm_score": 236.23552,
+      "semantic_frames": [
+        "subject",
+        "subject"
+      ],
+      "boundary_traces": {
+        "left": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the careful baker"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "warms"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a copper kettle"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "before the evening rain"
+          }
+        ],
+        "right": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the watchful ranger"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "records"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a weather map"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the garden gate"
+          }
+        ]
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_forward_reverse_sha256",
+        "letters": 107,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 106,
+          "left": "t",
+          "right": "e"
+        },
+        "sha256_forward": "7bd80a63f0ea7153bb719586aa837ee0d5b30ad4d20848f5bf667a8095249490",
+        "sha256_reverse": "ce8c2b734c3d313c22cfc656a8a11286a6486ce66efaadd5ec0a71e6792c6697",
+        "sha_equal": false
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "accepted_intact_prose_control": true,
+      "failure_reason": null,
+      "next_repair": null,
+      "anti_shortcut": {
+        "finished_surface_reversed": false,
+        "word_order_mirror": false,
+        "repeated_or_self_palindromic_unit": false,
+        "catalogue_text_or_gibberish": false
+      },
+      "provenance": {
+        "lexical_source": "inline typed semantic clause templates",
+        "character_model": "transparent corpus trigram counts used only for ranking",
+        "grammar_state": "START -> subject NP -> verb VP -> object NP -> adjunct -> END",
+        "generator": "experiments/finite_state_boundary_beam_20260917.py"
+      }
+    },
+    {
+      "rank": 2,
+      "rendered": "The careful baker warms a copper kettle before the evening rain. The watchful ranger checks a weather map beside the garden gate.",
+      "char_lm_score": 233.34515,
+      "semantic_frames": [
+        "subject",
+        "subject"
+      ],
+      "boundary_traces": {
+        "left": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the careful baker"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "warms"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a copper kettle"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "before the evening rain"
+          }
+        ],
+        "right": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the watchful ranger"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "checks"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a weather map"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the garden gate"
+          }
+        ]
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_forward_reverse_sha256",
+        "letters": 106,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 105,
+          "left": "t",
+          "right": "e"
+        },
+        "sha256_forward": "cf9bebb35dc3794ac66b8588516773e1a86b5bd9958e7f664e3404e39addae0b",
+        "sha256_reverse": "a8bdff9c1b0e64fa857eba98403ea286f8177b33a4f9cd3c87df89cade02c93f",
+        "sha_equal": false
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "accepted_intact_prose_control": true,
+      "failure_reason": null,
+      "next_repair": null,
+      "anti_shortcut": {
+        "finished_surface_reversed": false,
+        "word_order_mirror": false,
+        "repeated_or_self_palindromic_unit": false,
+        "catalogue_text_or_gibberish": false
+      },
+      "provenance": {
+        "lexical_source": "inline typed semantic clause templates",
+        "character_model": "transparent corpus trigram counts used only for ranking",
+        "grammar_state": "START -> subject NP -> verb VP -> object NP -> adjunct -> END",
+        "generator": "experiments/finite_state_boundary_beam_20260917.py"
+      }
+    },
+    {
+      "rank": 3,
+      "rendered": "The careful baker warms a copper kettle before the evening rain. The watchful ranger records a weather map under the cedar roof.",
+      "char_lm_score": 230.28488,
+      "semantic_frames": [
+        "subject",
+        "subject"
+      ],
+      "boundary_traces": {
+        "left": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the careful baker"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "warms"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a copper kettle"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "before the evening rain"
+          }
+        ],
+        "right": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the watchful ranger"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "records"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a weather map"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "under the cedar roof"
+          }
+        ]
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_forward_reverse_sha256",
+        "letters": 105,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 104,
+          "left": "t",
+          "right": "f"
+        },
+        "sha256_forward": "1eb6190e86d301c012e125dfc640c5fb85f6a047fd2f3f59db090928de20c175",
+        "sha256_reverse": "e0cf47cccf4921eae39e4bcd9665988767b8f76318a1f0fa45a3be444ae5809a",
+        "sha_equal": false
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "accepted_intact_prose_control": true,
+      "failure_reason": null,
+      "next_repair": null,
+      "anti_shortcut": {
+        "finished_surface_reversed": false,
+        "word_order_mirror": false,
+        "repeated_or_self_palindromic_unit": false,
+        "catalogue_text_or_gibberish": false
+      },
+      "provenance": {
+        "lexical_source": "inline typed semantic clause templates",
+        "character_model": "transparent corpus trigram counts used only for ranking",
+        "grammar_state": "START -> subject NP -> verb VP -> object NP -> adjunct -> END",
+        "generator": "experiments/finite_state_boundary_beam_20260917.py"
+      }
+    },
+    {
+      "rank": 4,
+      "rendered": "The careful baker warms a copper kettle before the evening rain. A quiet gardener records a weather map beside the garden gate.",
+      "char_lm_score": 229.38963,
+      "semantic_frames": [
+        "subject",
+        "subject"
+      ],
+      "boundary_traces": {
+        "left": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the careful baker"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "warms"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a copper kettle"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "before the evening rain"
+          }
+        ],
+        "right": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "a quiet gardener"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "records"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a weather map"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the garden gate"
+          }
+        ]
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_forward_reverse_sha256",
+        "letters": 104,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 103,
+          "left": "t",
+          "right": "e"
+        },
+        "sha256_forward": "07162574578e7a10ca5e4da2aab9356c5e78c882c7e14da9d3f5d184e4697659",
+        "sha256_reverse": "dd84de21757edfa6441a1560b57d9936c74026d87462a380ac8f5589ed73d832",
+        "sha_equal": false
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "accepted_intact_prose_control": true,
+      "failure_reason": null,
+      "next_repair": null,
+      "anti_shortcut": {
+        "finished_surface_reversed": false,
+        "word_order_mirror": false,
+        "repeated_or_self_palindromic_unit": false,
+        "catalogue_text_or_gibberish": false
+      },
+      "provenance": {
+        "lexical_source": "inline typed semantic clause templates",
+        "character_model": "transparent corpus trigram counts used only for ranking",
+        "grammar_state": "START -> subject NP -> verb VP -> object NP -> adjunct -> END",
+        "generator": "experiments/finite_state_boundary_beam_20260917.py"
+      }
+    },
+    {
+      "rank": 5,
+      "rendered": "The careful baker warms a copper kettle before the evening rain. The watchful ranger checks a weather map under the cedar roof.",
+      "char_lm_score": 227.39451,
+      "semantic_frames": [
+        "subject",
+        "subject"
+      ],
+      "boundary_traces": {
+        "left": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the careful baker"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "warms"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a copper kettle"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "before the evening rain"
+          }
+        ],
+        "right": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the watchful ranger"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "checks"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a weather map"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "under the cedar roof"
+          }
+        ]
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_forward_reverse_sha256",
+        "letters": 104,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 103,
+          "left": "t",
+          "right": "f"
+        },
+        "sha256_forward": "a4344638068d379221142a0dbbb3dab1eddb8c54d695c540b3055ea8ca1231dd",
+        "sha256_reverse": "10eab87ffec1a8c91107c843e387df196776e1aa2da85f9eb63b2086f00e15a2",
+        "sha_equal": false
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "accepted_intact_prose_control": true,
+      "failure_reason": null,
+      "next_repair": null,
+      "anti_shortcut": {
+        "finished_surface_reversed": false,
+        "word_order_mirror": false,
+        "repeated_or_self_palindromic_unit": false,
+        "catalogue_text_or_gibberish": false
+      },
+      "provenance": {
+        "lexical_source": "inline typed semantic clause templates",
+        "character_model": "transparent corpus trigram counts used only for ranking",
+        "grammar_state": "START -> subject NP -> verb VP -> object NP -> adjunct -> END",
+        "generator": "experiments/finite_state_boundary_beam_20260917.py"
+      }
+    },
+    {
+      "rank": 6,
+      "rendered": "The careful baker warms a copper kettle before the evening rain. The watchful ranger records fresh seeds beside the garden gate.",
+      "char_lm_score": 226.96842,
+      "semantic_frames": [
+        "subject",
+        "subject"
+      ],
+      "boundary_traces": {
+        "left": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the careful baker"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "warms"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a copper kettle"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "before the evening rain"
+          }
+        ],
+        "right": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the watchful ranger"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "records"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "fresh seeds"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the garden gate"
+          }
+        ]
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_forward_reverse_sha256",
+        "letters": 106,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 105,
+          "left": "t",
+          "right": "e"
+        },
+        "sha256_forward": "a279cef52b8ddce7f262def38f6a9653dbe68f9dbe64b8eb6ef25cafd00edadf",
+        "sha256_reverse": "139d35c813d291550aec1e095c89af2423e4ed49141e38a2095e237fb5e3e440",
+        "sha_equal": false
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "accepted_intact_prose_control": true,
+      "failure_reason": null,
+      "next_repair": null,
+      "anti_shortcut": {
+        "finished_surface_reversed": false,
+        "word_order_mirror": false,
+        "repeated_or_self_palindromic_unit": false,
+        "catalogue_text_or_gibberish": false
+      },
+      "provenance": {
+        "lexical_source": "inline typed semantic clause templates",
+        "character_model": "transparent corpus trigram counts used only for ranking",
+        "grammar_state": "START -> subject NP -> verb VP -> object NP -> adjunct -> END",
+        "generator": "experiments/finite_state_boundary_beam_20260917.py"
+      }
+    },
+    {
+      "rank": 7,
+      "rendered": "The careful baker warms a copper kettle beside the stone wall. The watchful ranger records a weather map beside the garden gate.",
+      "char_lm_score": 235.25469,
+      "semantic_frames": [
+        "subject",
+        "subject"
+      ],
+      "boundary_traces": {
+        "left": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the careful baker"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "warms"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a copper kettle"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the stone wall"
+          }
+        ],
+        "right": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the watchful ranger"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "records"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a weather map"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the garden gate"
+          }
+        ]
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_forward_reverse_sha256",
+        "letters": 105,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 104,
+          "left": "t",
+          "right": "e"
+        },
+        "sha256_forward": "f357382ef8e998ba511f37e07c035414bcd22b41cc9399a33a81b3fbd36dcc10",
+        "sha256_reverse": "665b076d77b4cc5a2f74b6f15c2345729ff54bdbafd1fa1c84665c95bf221948",
+        "sha_equal": false
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "accepted_intact_prose_control": false,
+      "failure_reason": "exact_letter_palindrome",
+      "next_repair": "replace the first mismatching boundary phrase with a held-out role-compatible phrase, then rerun the finite-state beam",
+      "anti_shortcut": {
+        "finished_surface_reversed": false,
+        "word_order_mirror": false,
+        "repeated_or_self_palindromic_unit": false,
+        "catalogue_text_or_gibberish": false
+      },
+      "provenance": {
+        "lexical_source": "inline typed semantic clause templates",
+        "character_model": "transparent corpus trigram counts used only for ranking",
+        "grammar_state": "START -> subject NP -> verb VP -> object NP -> adjunct -> END",
+        "generator": "experiments/finite_state_boundary_beam_20260917.py"
+      }
+    },
+    {
+      "rank": 8,
+      "rendered": "The careful baker warms a copper kettle beside the stone wall. The watchful ranger checks a weather map beside the garden gate.",
+      "char_lm_score": 232.36432,
+      "semantic_frames": [
+        "subject",
+        "subject"
+      ],
+      "boundary_traces": {
+        "left": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the careful baker"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "warms"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a copper kettle"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the stone wall"
+          }
+        ],
+        "right": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the watchful ranger"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "checks"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a weather map"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the garden gate"
+          }
+        ]
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_forward_reverse_sha256",
+        "letters": 104,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 103,
+          "left": "t",
+          "right": "e"
+        },
+        "sha256_forward": "50a749dc8370ff19563ddceaf4360fe11d1e04ca7bd3ada5cb6c19da89ba0825",
+        "sha256_reverse": "234f7c5cfb80a281321fbe829c2bdcc9c7b6d886bde6a10560903fe73f12fb12",
+        "sha_equal": false
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "accepted_intact_prose_control": false,
+      "failure_reason": "exact_letter_palindrome",
+      "next_repair": "replace the first mismatching boundary phrase with a held-out role-compatible phrase, then rerun the finite-state beam",
+      "anti_shortcut": {
+        "finished_surface_reversed": false,
+        "word_order_mirror": false,
+        "repeated_or_self_palindromic_unit": false,
+        "catalogue_text_or_gibberish": false
+      },
+      "provenance": {
+        "lexical_source": "inline typed semantic clause templates",
+        "character_model": "transparent corpus trigram counts used only for ranking",
+        "grammar_state": "START -> subject NP -> verb VP -> object NP -> adjunct -> END",
+        "generator": "experiments/finite_state_boundary_beam_20260917.py"
+      }
+    },
+    {
+      "rank": 9,
+      "rendered": "The careful baker warms a copper kettle beside the stone wall. The watchful ranger records a weather map under the cedar roof.",
+      "char_lm_score": 229.30405,
+      "semantic_frames": [
+        "subject",
+        "subject"
+      ],
+      "boundary_traces": {
+        "left": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the careful baker"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "warms"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a copper kettle"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the stone wall"
+          }
+        ],
+        "right": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the watchful ranger"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "records"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a weather map"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "under the cedar roof"
+          }
+        ]
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_forward_reverse_sha256",
+        "letters": 103,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 102,
+          "left": "t",
+          "right": "f"
+        },
+        "sha256_forward": "0ca32442925465ff956f88471376f5d0164dc6b223ea3ec834fa1907e392d0bc",
+        "sha256_reverse": "0e5f5b67131d45cb4180343dee3558bfe050614e5310819d861e24b7a248d4c7",
+        "sha_equal": false
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "accepted_intact_prose_control": true,
+      "failure_reason": null,
+      "next_repair": null,
+      "anti_shortcut": {
+        "finished_surface_reversed": false,
+        "word_order_mirror": false,
+        "repeated_or_self_palindromic_unit": false,
+        "catalogue_text_or_gibberish": false
+      },
+      "provenance": {
+        "lexical_source": "inline typed semantic clause templates",
+        "character_model": "transparent corpus trigram counts used only for ranking",
+        "grammar_state": "START -> subject NP -> verb VP -> object NP -> adjunct -> END",
+        "generator": "experiments/finite_state_boundary_beam_20260917.py"
+      }
+    },
+    {
+      "rank": 10,
+      "rendered": "The careful baker warms a copper kettle beside the stone wall. A quiet gardener records a weather map beside the garden gate.",
+      "char_lm_score": 228.4088,
+      "semantic_frames": [
+        "subject",
+        "subject"
+      ],
+      "boundary_traces": {
+        "left": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the careful baker"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "warms"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a copper kettle"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the stone wall"
+          }
+        ],
+        "right": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "a quiet gardener"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "records"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a weather map"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the garden gate"
+          }
+        ]
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_forward_reverse_sha256",
+        "letters": 102,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 101,
+          "left": "t",
+          "right": "e"
+        },
+        "sha256_forward": "c17e1839e305c995f021f1d3cb44a9de8f9c27d6e1160f2307f8c8613ffba424",
+        "sha256_reverse": "b120528b3cbcf3c6b8841a679d21246344abe57501c4aeed723f659c67833cd3",
+        "sha_equal": false
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "accepted_intact_prose_control": false,
+      "failure_reason": "exact_letter_palindrome",
+      "next_repair": "replace the first mismatching boundary phrase with a held-out role-compatible phrase, then rerun the finite-state beam",
+      "anti_shortcut": {
+        "finished_surface_reversed": false,
+        "word_order_mirror": false,
+        "repeated_or_self_palindromic_unit": false,
+        "catalogue_text_or_gibberish": false
+      },
+      "provenance": {
+        "lexical_source": "inline typed semantic clause templates",
+        "character_model": "transparent corpus trigram counts used only for ranking",
+        "grammar_state": "START -> subject NP -> verb VP -> object NP -> adjunct -> END",
+        "generator": "experiments/finite_state_boundary_beam_20260917.py"
+      }
+    },
+    {
+      "rank": 11,
+      "rendered": "The careful baker warms a copper kettle beside the stone wall. The watchful ranger checks a weather map under the cedar roof.",
+      "char_lm_score": 226.41368,
+      "semantic_frames": [
+        "subject",
+        "subject"
+      ],
+      "boundary_traces": {
+        "left": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the careful baker"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "warms"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a copper kettle"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the stone wall"
+          }
+        ],
+        "right": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the watchful ranger"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "checks"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a weather map"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "under the cedar roof"
+          }
+        ]
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_forward_reverse_sha256",
+        "letters": 102,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 101,
+          "left": "t",
+          "right": "f"
+        },
+        "sha256_forward": "8509c339c0f704a4a07bebf50ed8b61efc2557f50cc7f6abd0ac8bf564c8dc8f",
+        "sha256_reverse": "3550a59f556b63867032cd280a790ce931a32b69f8e9e5111a798959667f472e",
+        "sha_equal": false
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "accepted_intact_prose_control": true,
+      "failure_reason": null,
+      "next_repair": null,
+      "anti_shortcut": {
+        "finished_surface_reversed": false,
+        "word_order_mirror": false,
+        "repeated_or_self_palindromic_unit": false,
+        "catalogue_text_or_gibberish": false
+      },
+      "provenance": {
+        "lexical_source": "inline typed semantic clause templates",
+        "character_model": "transparent corpus trigram counts used only for ranking",
+        "grammar_state": "START -> subject NP -> verb VP -> object NP -> adjunct -> END",
+        "generator": "experiments/finite_state_boundary_beam_20260917.py"
+      }
+    },
+    {
+      "rank": 12,
+      "rendered": "The careful baker warms a copper kettle beside the stone wall. The watchful ranger records fresh seeds beside the garden gate.",
+      "char_lm_score": 225.98759,
+      "semantic_frames": [
+        "subject",
+        "subject"
+      ],
+      "boundary_traces": {
+        "left": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the careful baker"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "warms"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "a copper kettle"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the stone wall"
+          }
+        ],
+        "right": [
+          {
+            "phase": "subject",
+            "boundary": "np_end",
+            "phrase": "the watchful ranger"
+          },
+          {
+            "phase": "verb",
+            "boundary": "vp_end",
+            "phrase": "records"
+          },
+          {
+            "phase": "object",
+            "boundary": "np_end",
+            "phrase": "fresh seeds"
+          },
+          {
+            "phase": "adjunct",
+            "boundary": "sentence_end",
+            "phrase": "beside the garden gate"
+          }
+        ]
+      },
+      "audit": {
+        "algorithm": "independent_two_pointer_plus_forward_reverse_sha256",
+        "letters": 104,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 103,
+          "left": "t",
+          "right": "e"
+        },
+        "sha256_forward": "955ff0534d21710c0f2dd5efb8529bc5b89b783f66f55f338e7d95c1debac5c5",
+        "sha256_reverse": "2557d6b4b76a5d64c97891c11f258ee7de4a599dc740e3adf6001d2369b16807",
+        "sha_equal": false
+      },
+      "mechanical_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "accepted_intact_prose_control": false,
+      "failure_reason": "exact_letter_palindrome",
+      "next_repair": "replace the first mismatching boundary phrase with a held-out role-compatible phrase, then rerun the finite-state beam",
+      "anti_shortcut": {
+        "finished_surface_reversed": false,
+        "word_order_mirror": false,
+        "repeated_or_self_palindromic_unit": false,
+        "catalogue_text_or_gibberish": false
+      },
+      "provenance": {
+        "lexical_source": "inline typed semantic clause templates",
+        "character_model": "transparent corpus trigram counts used only for ranking",
+        "grammar_state": "START -> subject NP -> verb VP -> object NP -> adjunct -> END",
+        "generator": "experiments/finite_state_boundary_beam_20260917.py"
+      }
+    }
+  ],
+  "rejection_controls": {
+    "mirror_rejection": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": true,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": false,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "fragment_rejection": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": false,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    }
+  },
+  "stats": {
+    "intact_prose_controls": 8,
+    "exact": 0,
+    "sha_equal": 0
+  },
+  "next_repair": "At each recorded first mismatch, add one held-out adjunct phrase for the same semantic role and boundary class; rerank locally, then re-run both independent exact audits before any reader claim.",
+  "reader_status": "not eligible: this bounded lane produced intact prose controls but no exact closure",
+  "provenance": {
+    "generator_sha256": "bd507a1c06911e218e67051f429aa311f6740ba48e54b3d897579edd2b1c9d01",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "mechanical admission",
+      "novelty preflight",
+      "anti-shortcut controls"
+    ]
+  }
+}

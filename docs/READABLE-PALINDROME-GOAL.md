@@ -3024,3 +3024,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   fixed-point cross-side domain updates, locative-noun morphology that can
   satisfy the eighth residual, and an object-number agreement state for the
   alternating frame.
+
+  The following wave completed those repairs. Cross-side witness-domain
+  propagation to a fixed point rendered 1 intact 92-letter candidate; the
+  alternating-object number-state CFG rendered 6,144 candidates up to 72
+  letters while pruning 10,240 same-number or invalid-role states; and the
+  locative morphology probe reached all four eighth-character `a` matches in
+  4 intact candidates up to 57 letters, while explicitly losing the seventh
+  `l` match. All produced 0 exact closures. Independent pointer/SHA-256
+  replay, provenance, novelty preflight, and anti-shortcut checks are retained
+  for every row. The reader gate remains closed. The next concrete operators
+  are pair-specific fixed-point support maps, jointly conditioned seventh and
+  eighth locative morphology, and determiner-number realization for the
+  alternating objects.

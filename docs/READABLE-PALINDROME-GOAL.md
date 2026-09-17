@@ -2553,3 +2553,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   every row. The reader gate remains closed. The next concrete operators are
   multi-slot opposing label propagation, coordinated-subject realization, and
   a compact semantic complement while retaining one coordination choice.
+
+  The next wave completed those operators. Multi-slot opposing-label trie
+  propagation rendered 2 intact candidates up to 82 letters; coordinated
+  locative-subject realization tested 49,152 candidates up to 77 letters; and
+  the compact semantic-complement family rendered 2,916 intact candidates up
+  to 262 letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are full
+  bidirectional arc consistency over character-prefix domains, coordinated
+  locative subjects with plural agreement, and a conjunction-free semantic
+  attachment retaining the compact complement.

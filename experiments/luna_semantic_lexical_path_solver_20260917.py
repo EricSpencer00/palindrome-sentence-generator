@@ -88,6 +88,13 @@ JOINT_THEME_LOCATIVES = (
     ("a small fort", "by the coast"),
 )
 
+# Family switch: event and theme are coupled in one realization state.
+JOINT_EVENT_THEMES = (
+    ("maps out", "a narrow port"),
+    ("lays out", "the old outpost"),
+    ("points out", "a small fort"),
+)
+
 
 def edge_obligations(nodes: dict[str, Node]) -> list[dict[str, object]]:
     """Consume opposing edge characters before accepting a rendered clause."""
@@ -211,6 +218,23 @@ def joint_theme_locative(row: dict[str, object], theme: str, locative: str) -> d
     }
 
 
+def joint_event_theme(row: dict[str, object], event: str, theme: str) -> dict[str, object]:
+    """Relexicalize event and theme together under the existing path."""
+    nodes = {role: Node(role, value["surface"]) for role, value in row["nodes"].items()}
+    nodes["event"] = Node("event", event)
+    nodes["theme"] = Node("theme", theme)
+    text = render(nodes)
+    return {
+        "operator": "joint_event_theme_relexicalization",
+        "event_surface": event,
+        "theme_surface": theme,
+        "path": [asdict(e) for e in PATH],
+        "nodes": {k: asdict(v) for k, v in nodes.items()},
+        "edge_obligations": edge_obligations(nodes),
+        "audit": audit(text),
+    }
+
+
 def main() -> None:
     registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
     entries = registry.get("entries", []) + registry.get("excluded", [])
@@ -243,13 +267,16 @@ def main() -> None:
     theme_locative = [joint_theme_locative(joint_best, theme, locative) for theme, locative in JOINT_THEME_LOCATIVES]
     theme_locative.sort(key=lambda row: (row["audit"]["independent_two_pointer"]["mismatch_count"], -row["audit"]["letters"]))
     theme_locative_best = theme_locative[0]
+    event_theme = [joint_event_theme(theme_locative_best, event, theme) for event, theme in JOINT_EVENT_THEMES]
+    event_theme.sort(key=lambda row: (row["audit"]["independent_two_pointer"]["mismatch_count"], -row["audit"]["letters"]))
+    event_theme_best = event_theme[0]
     out = {
         "experiment_id": ID,
         "signature": SIGNATURE,
         "status": "completed_exact_candidate" if exact else "completed_no_exact_closure",
         "reader_eligible": bool(exact),
         "method": "choose typed semantic path first; consume opposing character obligations online during lexical realization",
-        "candidate_scene": theme_locative_best["audit"]["rendered"],
+        "candidate_scene": event_theme_best["audit"]["rendered"],
         "candidates": rows[:3],
         "repaired_candidate": event_repair,
         # Expose the held-out repair through the common aggregate schema so
@@ -260,10 +287,11 @@ def main() -> None:
         "expanded_consequence_candidates": expanded,
         "joint_agent_consequence_candidates": joint,
         "joint_theme_locative_candidates": theme_locative,
-        "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38), "expanded_consequence_realizations": len(expanded), "expanded_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in expanded), "joint_realizations": len(joint), "joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in joint), "joint_theme_locative_realizations": len(theme_locative), "joint_theme_locative_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in theme_locative)},
+        "joint_event_theme_candidates": event_theme,
+        "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38), "expanded_consequence_realizations": len(expanded), "expanded_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in expanded), "joint_realizations": len(joint), "joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in joint), "joint_theme_locative_realizations": len(theme_locative), "joint_theme_locative_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in theme_locative), "joint_event_theme_realizations": len(event_theme), "joint_event_theme_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in event_theme)},
         "novelty_preflight": {"registry_entries_read": len(entries), "exact_signature_collision": collision, "catalogue_text_imported": False, "fixed_tape_used": False, "pos_sweep": False, "scene_lattice": False},
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "lexical_source": "hand-authored typed event lexicon", "path": [e.label for e in PATH], "audits": ["independent two-pointer", "forward/reverse SHA-256", "mechanical admission", "anti-shortcut preflight"]},
-        "next_repair": {"operator": "jointly relexicalize event and theme while retaining the coupled endpoint and locative choices, then require full character-level closure", "reason": "the coupled theme/locative states preserve all four local obligations but remain non-palindromic under independent whole-tape comparison"},
+        "next_repair": {"operator": "switch to a fresh causal consequence path and jointly relexicalize its event/theme pair, then require full character-level closure", "reason": "the event/theme family preserves all four local obligations but remains non-palindromic under independent whole-tape comparison"},
     }
     (ROOT / "runs" / f"{ID}.json").write_text(json.dumps(out, indent=2) + "\n")
     print(json.dumps(out["stats"], sort_keys=True))

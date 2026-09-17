@@ -48,6 +48,11 @@ def test_semantic_path_run_is_reproducible_and_audited():
     assert all(all(item["satisfied"] for item in row["edge_obligations"]) for row in paired)
     assert all(not row["audit"]["exact"] for row in paired)
     assert all(row["audit"]["mechanical_checks"]["distinct_words"] for row in paired)
+    event_theme = data["joint_event_theme_candidates"]
+    assert len(event_theme) == 3
+    assert all(all(item["satisfied"] for item in row["edge_obligations"]) for row in event_theme)
+    assert all(not row["audit"]["exact"] for row in event_theme)
+    assert all(row["audit"]["mechanical_checks"]["lexicon_words"] for row in event_theme)
     for row in data["candidates"]:
         assert row["audit"]["normalized_sha256"] != row["audit"]["reverse_sha256"] or row["audit"]["exact"]
         assert len(row["edge_obligations"]) == 4

@@ -1,0 +1,48 @@
+{
+  "experiment": "semantic-valency-nfa-product-20260917",
+  "graph": {
+    "START": [
+      [
+        "agent",
+        "sg"
+      ]
+    ],
+    "agent:sg": [
+      [
+        "action",
+        "sg"
+      ]
+    ],
+    "action:sg": [
+      [
+        "patient",
+        "pl"
+      ]
+    ],
+    "patient:pl": [
+      [
+        "location",
+        "prep"
+      ]
+    ],
+    "location:prep": [
+      [
+        "END",
+        ""
+      ]
+    ]
+  },
+  "lexicon_sizes": {
+    "agent:sg": 3,
+    "action:sg": 3,
+    "patient:pl": 3,
+    "location:prep": 3
+  },
+  "budget": 128,
+  "expanded_states": 1,
+  "pruned_transitions": 1,
+  "exact_paired_paths": 0,
+  "paths": [],
+  "method": "NFA-compatible role graph product with agreement states and exact mirrored character pruning before completion",
+  "next_repair": "replace representative lexical edge choices with trie nodes so each role edge can branch on characters without committing a whole word"
+}

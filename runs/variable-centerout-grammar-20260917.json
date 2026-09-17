@@ -1,0 +1,80 @@
+{
+  "experiment": "variable-centerout-grammar-20260917",
+  "config": {
+    "forms": 4,
+    "state_limit": 250000,
+    "grammar_carried_in_state": true,
+    "live_character_matching": true,
+    "posthoc_filtering": false,
+    "catalogue": false
+  },
+  "stats": {
+    "states": 250000,
+    "mismatch_prunes": 689728,
+    "unique_states": 226004
+  },
+  "exact_candidates": [],
+  "rendered_controls": [
+    {
+      "text": "The careful artist reads a note.",
+      "audit": {
+        "rendered": "The careful artist reads a note.",
+        "letters": 26,
+        "exact": false,
+        "mismatches": [
+          [
+            0,
+            25
+          ],
+          [
+            1,
+            24
+          ],
+          [
+            2,
+            23
+          ],
+          [
+            3,
+            22
+          ],
+          [
+            5,
+            20
+          ],
+          [
+            6,
+            19
+          ],
+          [
+            7,
+            18
+          ],
+          [
+            8,
+            17
+          ]
+        ],
+        "sha256": "abdd8e512e588190538ff39ae29f695c1def2d32d130d72ea84873b5b917a676",
+        "complete_sentence": true
+      },
+      "provenance": "authored control; not generated"
+    }
+  ],
+  "provenance": {
+    "generator_sha256": "d90a5d144d1eb06d72202237acf99bbb20bb5feeb34e1dcddd350688347fd50d",
+    "lexicon": "task-authored semantic-neutral words"
+  },
+  "novelty_preflight": {
+    "family": "variable-length-grammar-frontier-character-product",
+    "prior_fixed_slot_products_excluded": true,
+    "borrowed_text": false
+  },
+  "next_repair": [
+    {
+      "operator": "replace first mismatch token with same-type authored synonym",
+      "next_test": "retain grammar state and re-open residual at token boundary; test kind/quiet, reads/writes, note/report substitutions",
+      "reason": "all explored branches contradict before both variable forms close"
+    }
+  ]
+}

@@ -3427,3 +3427,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   evidence, not reader evidence: the next test is to replay this new tree again,
   preserve the winning branch, and run the blinded intact-versus-shuffled reader
   package only if an exact, novel survivor appears.
+
+  The next Dream-RSI replay round adds three genuinely different online
+  transitions to the history: whole-passage reconstruction (20 logged
+  100–140-letter revisions, best 112 letters/52 mismatches), a corrected
+  cross-word grammar intersection (known-seed regression passes, 0 novel exact
+  pairs), and a Brown-derived POS-FSA outer product (60,000 fresh lexical
+  combinations, 0 novel exact closures). A derivational imperative expansion
+  likewise found no exact closure. The replay tree now has 15,542 nodes,
+  35 parent edges, and four branching parents; the six policies separate on
+  the held-out split, with `fixed_mismatch_first` still selected and a held-out
+  best mismatch rate of 0.794. No exact novel candidate exists yet. These
+  failures change the live construction operators rather than the acceptance
+  gate; the next repair is agreement-carrying coordinated clauses with the
+  same independent exact audit.

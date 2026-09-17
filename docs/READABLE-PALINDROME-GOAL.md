@@ -2542,3 +2542,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   are edge-labeled lexical trie transitions, joint matrix/locative subject
   substitution, and a semantic coordination attachment that stops extending
   the sentence.
+
+  The next wave completed those operators. Edge-labeled lexical trie
+  transitions rendered 2 intact candidates up to 84 letters; joint
+  matrix/locative subject substitution tested 12,288 candidates up to 65
+  letters; and bounded semantic coordination rendered 2,916 intact candidates
+  up to 251 letters, with midpoint-inside-token crossing in every candidate.
+  All produced 0 exact closures. Independent pointer/SHA-256 replay,
+  provenance, novelty preflight, and anti-shortcut checks are retained for
+  every row. The reader gate remains closed. The next concrete operators are
+  multi-slot opposing label propagation, coordinated-subject realization, and
+  a compact semantic complement while retaining one coordination choice.

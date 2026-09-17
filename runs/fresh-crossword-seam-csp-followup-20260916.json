@@ -1,0 +1,93 @@
+{
+  "experiment_id": "fresh-crossword-seam-csp-followup-20260916",
+  "signature": "fresh-two-clause-grammar|joint-object-place-target|heldout-seam-state|live-obligation|independent-pointer-sha",
+  "status": "completed",
+  "method": "single fresh two-clause grammar jointly targeting object/place seam residual",
+  "candidate": {
+    "rendered": "At sunrise, the courier carries the sealed bundle across the quay; the bell calls the morning crew to work.",
+    "letters": 86,
+    "grammar_state": {
+      "agent": "the courier",
+      "verb": "carries",
+      "object": "the sealed bundle",
+      "place": "across the quay",
+      "second_clause": "bell calls crew"
+    },
+    "live_csp": {
+      "target": "object/place seam",
+      "first_residual": {
+        "left": 0,
+        "right": 85,
+        "a": "a",
+        "b": "k"
+      },
+      "joint_choice_committed": true
+    },
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_normalized_sha256",
+      "letters": 86,
+      "two_pointer_exact": false,
+      "mismatch_count": 42,
+      "first_mismatch": {
+        "left": 0,
+        "right": 85,
+        "a": "a",
+        "b": "k"
+      },
+      "sha256_forward": "93939309f4aee50765d03a5b698a9db4231dcbbccdc5d939bc7268ddbe1d313f",
+      "sha256_reverse": "78749818ec58953cc2ca1c83ce36076ecb159440d2478e4b4aaa0c204f5e7e3c",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "fresh_two_clause_grammar": true,
+      "heldout_role_lexicon": true,
+      "prior_16_assignments_replayed": false,
+      "source_sentences_copied": false,
+      "catalogue_imported": false,
+      "borrowed_text": false,
+      "reversed_finished_sentence": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false,
+      "generator_sha256": "a8311db6a2f05764a9837dc1520c0254cb6265645a04d9cb47e87b54186d0a92"
+    }
+  },
+  "stats": {
+    "new_states": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "novelty_preflight": {
+    "performed_before_search": true,
+    "registry_entries_inspected": 339,
+    "exact_id_collision": false,
+    "exact_signature_collision": false,
+    "status": "passed",
+    "prior_assignments_replayed": false
+  },
+  "next_repair": "Use a new attachment clause with the same courier event to target the next residual pair; preserve this object/place choice and do not reopen the earlier product.",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "a8311db6a2f05764a9837dc1520c0254cb6265645a04d9cb47e87b54186d0a92",
+    "generated_not_catalogue": true
+  }
+}

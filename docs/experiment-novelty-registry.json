@@ -6082,6 +6082,39 @@
       "distinction": "Adds a typed discourse-marker attachment at sentence level while retaining roles, tense, complements, prior adverbial attachment, and midpoint-inside-token crossing.",
       "reader_evidence": false,
       "status": "constructive family change; 162 intact candidates, longest 182 letters, midpoint-inside-token in all, 0 exact closures; sentence-level contrast attachment is next"
+    },
+    {
+      "id": "semantic-transition-automaton-seam-20260917",
+      "signature": "semantic-role-transition-automaton|precompletion-seam-scoring|source-target-role-state|ordinary-prose|independent-pointer-sha",
+      "artifact": "experiments/semantic_transition_automaton_seam_20260917.py",
+      "run_artifacts": [
+        "runs/semantic-transition-automaton-seam-20260917.json"
+      ],
+      "distinction": "Selects semantic role transitions in an automaton and scores partial seam character matches before clause completion, retaining source/target role state rather than mirroring finished text.",
+      "reader_evidence": false,
+      "status": "targeted constructive repair; 6 intact ordinary-English candidates, longest 88 letters, 0 exact closures; character-labeled automaton edges are next"
+    },
+    {
+      "id": "cfg-inwhich-locative-predicate-20260917",
+      "signature": "inwhich-locative-predicate-substitution|place-role-preservation|preposition-fixed|live-character-intersection|independent-pointer-sha",
+      "artifact": "experiments/cfg_inwhich_locative_predicate_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-inwhich-locative-predicate-20260917.json"
+      ],
+      "distinction": "Substitutes locative predicates while preserving the `in which` attachment, preposition, and place role, with live character obligations and direct-object exclusion.",
+      "reader_evidence": false,
+      "status": "targeted constructive repair; 2,304 controls plus 768 predicate substitutions, 3,072 candidates, longest 63 letters, 0 exact closures; locative subject substitution is next"
+    },
+    {
+      "id": "center-crossing-contrast-attachment-20260917",
+      "signature": "typed-center-crossing-grammar|sentence-level-contrast-attachment|subordinate-clause|midpoint-inside-token|independent-pointer-sha",
+      "artifact": "experiments/center_crossing_contrast_attachment_20260917.py",
+      "run_artifacts": [
+        "runs/center-crossing-contrast-attachment-20260917.json"
+      ],
+      "distinction": "Adds a typed sentence-level contrast attachment and subordinate clause to the center-crossing grammar while retaining roles, tense, complement, adverbial, discourse-marker, and midpoint-inside-token state.",
+      "reader_evidence": false,
+      "status": "constructive family change; 324 intact candidates, longest 205 letters, midpoint-inside-token in all, 0 exact closures; typed temporal subordinate attachment is next"
     }
   ]
 }

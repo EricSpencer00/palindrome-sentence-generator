@@ -2519,3 +2519,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   are a seam-conditioned semantic transition automaton, locative predicate
   substitution, and a typed sentence-level contrast attachment in the
   center-crossing grammar.
+
+  The next wave completed those operators. The seam-conditioned semantic
+  transition automaton rendered 6 intact candidates up to 88 letters;
+  locative-predicate substitution tested 3,072 candidates up to 63 letters;
+  and the typed sentence-level contrast center-attachment family rendered 324
+  intact candidates up to 205 letters, with midpoint-inside-token crossing in
+  every candidate. All produced 0 exact closures. Independent pointer/SHA-256
+  replay, provenance, novelty preflight, and anti-shortcut checks are retained
+  for every row. The reader gate remains closed. The next concrete operators
+  are character-labeled automaton edges, locative subject substitution, and a
+  typed temporal subordinate attachment in the center-crossing grammar.

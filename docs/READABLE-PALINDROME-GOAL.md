@@ -2321,3 +2321,19 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   provenance, novelty preflight, and a concrete repair; 0 are exact and 0 are
   mechanically admitted. These runs are distinct state representations, not
   larger duplicate sweeps.
+
+  **2026-09-17 constructive repair wave:** three fresh Luna lanes and their
+  named repairs were completed with disjoint artifacts. The CFG/Earley lane
+  rendered “The patient gardener who carries the garden carries beside the
+  gardener.” (61 letters in the recursive repair; 0 exact). The morphology
+  lane rendered “The patient gardeners tended a shaded orchard after the
+  morning rain although the patient gardeners tended the notes for the local
+  archive.” (117 letters; 0 exact). The semantic bundle lane rendered 16
+  ordinary-order candidates of 39--44 letters; 0 exact. Every row has a
+  fresh generator hash, provenance, anti-shortcut flags, and independent
+  two-pointer plus forward/reverse SHA replay. The follow-up suffix repair
+  retained 72 agreement/tense realizations (117-letter maximum) and also
+  closed 0 tapes. These are not reader candidates. The next constructive
+  operators are object-relative attachment, a joint two-clause seam equation,
+  and a held-out suffix substitution; each must produce a new rendered
+  candidate before any reader packet is opened.

@@ -5521,6 +5521,72 @@
       "distinction": "Starts from hand-authored transitive scenes, chooses sense-compatible reverse lexical edges per role, and consumes reverse character debt across right-side word boundaries; it does not reverse a finished tape or mirror word order.",
       "reader_evidence": false,
       "status": "constructive diagnostic; 3 complete scene witnesses, live nonempty debts, 0 exact closures"
+    },
+    {
+      "id": "cfg-earley-character-intersection-20260917",
+      "signature": "typed-cfg-earley|live-character-intersection|single-tree-derivation|independent-pointer-sha",
+      "artifact": "experiments/cfg_earley_character_intersection_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-earley-character-intersection-20260917.json"
+      ],
+      "distinction": "A seedless typed CFG chart emits ordinary sentence trees while matching terminal characters incrementally; the recursive repair is recorded separately and never substitutes a finished reversed tape.",
+      "reader_evidence": false,
+      "status": "constructive diagnostic; 3,060 typed derivations, longest 36 letters, 0 exact closures; recursive relative-clause repair followed"
+    },
+    {
+      "id": "agreement-morphology-transducer-20260917",
+      "signature": "feature-carrying-morphology-transducer|internal-morpheme-center|live-character-frontier|typed-svo-realization|independent-two-pointer-audit",
+      "artifact": "experiments/agreement_morphology_transducer_20260917.py",
+      "run_artifacts": [
+        "runs/agreement-morphology-transducer-20260917.json"
+      ],
+      "distinction": "Subject number, tense, and semantic roles are carried in a morphology register while lexical chunks emit opposite characters; productive inflection is chosen before terminal admission.",
+      "reader_evidence": false,
+      "status": "constructive diagnostic; 216 typed realizations, longest 134 letters, 0 exact closures; held-out suffix-frontier repair followed"
+    },
+    {
+      "id": "semantic-live-residual-role-repair-20260917",
+      "signature": "typed-valency-residual-repair|same-role-live-substitution|fixed-boundary-crossing|independent-pointer-sha",
+      "artifact": "experiments/semantic_live_residual_role_repair_20260917.py",
+      "run_artifacts": [
+        "runs/semantic-live-residual-role-repair-20260917.json"
+      ],
+      "distinction": "The first live character mismatch is mapped to an agent, event, theme, or setting role and repaired with a same-role lexical substitution before re-rendering; no post-hoc tape segmentation is used.",
+      "reader_evidence": false,
+      "status": "constructive diagnostic; 12 intact prose rows, longest 47 letters, 0 exact closures; coordinated agreement-bundle repair followed"
+    },
+    {
+      "id": "cfg-relative-clause-inflection-repair-20260917",
+      "signature": "typed-recursive-relative-clause|heldout-agreement-repair|live-terminal-chart|single-tree-provenance|independent-audit",
+      "artifact": "experiments/cfg_relative_clause_inflection_repair_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-relative-clause-inflection-repair-20260917.json"
+      ],
+      "distinction": "A recursive relative-clause grammar retains a single typed derivation tree and applies held-out agreement/inflection repairs at live terminal obligations, including explicit attachment provenance.",
+      "reader_evidence": false,
+      "status": "targeted constructive repair; 184,320 controls plus 46,080 held-out repairs, longest 61 letters, 0 exact closures; object-relative attachment is next"
+    },
+    {
+      "id": "agreement-bundle-coordinated-residual-repair-20260917",
+      "signature": "agreement-bundle-coordination|coupled-role-residual-repair|ordinary-clause-order|independent-pointer-sha",
+      "artifact": "experiments/agreement_bundle_coordinated_residual_repair_20260917.py",
+      "run_artifacts": [
+        "runs/agreement-bundle-coordinated-residual-repair-20260917.json"
+      ],
+      "distinction": "Verb/object bundles preserve agreement while a residual crossing a fixed boundary selects coordinated same-role alternatives jointly, rather than greedily patching one word.",
+      "reader_evidence": false,
+      "status": "targeted constructive repair; 16 intact candidates, longest 44 letters, 0 exact closures; two-clause seam equation is next"
+    },
+    {
+      "id": "heldout-agreement-suffix-frontier-20260917",
+      "signature": "heldout-agreement-subject-object|suffix-crossing-character-frontier|joint-number-tense-transducer|ordinary-svo|independent-exact-audit",
+      "artifact": "experiments/heldout_agreement_suffix_frontier_20260917.py",
+      "run_artifacts": [
+        "runs/heldout-agreement-suffix-frontier-20260917.json"
+      ],
+      "distinction": "A held-out number/tense transducer permits the live character frontier to cross an inflectional suffix while retaining ordinary SVO order and feature compatibility.",
+      "reader_evidence": false,
+      "status": "targeted constructive repair; 72 suffix-crossing realizations, longest 117 letters, 0 exact closures; one held-out suffix substitution is next"
     }
   ]
 }

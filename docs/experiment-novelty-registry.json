@@ -4949,6 +4949,15 @@
       "distinction": "A finite prefix/suffix syntax automaton rejects children during expansion while the exact bilateral overhang constraint is enforced by the same transition; no post-hoc syntax reranking or finished-tape reversal.",
       "reader_evidence": false,
       "status": "diagnostic exclusion; 4 exact closures (35-43 letters), none reader-eligible; 38,371 live grammar rejections; next repair is a typed hand-authored clause automaton"
+    },
+    {
+      "id": "morphology-clitic-boundary-lockstep-20260917",
+      "signature": "agreement-morphology|clitic-boundary-fst|online-opposite-character-propagation|independent-pointer-audit",
+      "artifact": "experiments/morphology_clitic_boundary_lockstep_20260917.py",
+      "run_artifacts": ["runs/morphology-clitic-boundary-lockstep-20260917.json"],
+      "distinction": "Inflectional suffixes and clitic boundary choices are finite-state transitions carrying subject agreement while opposite exposed characters are compared before complete rendering; clauses remain ordinary-order and independently lexicalized.",
+      "reader_evidence": false,
+      "status": "diagnostic exclusion; 2,700 agreement/boundary states, no exact closure; next repair adds auxiliary/clitic frames and propagates suffix-to-prefix obligations before subject expansion"
     }
   ]
 }

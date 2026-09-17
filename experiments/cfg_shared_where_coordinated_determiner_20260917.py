@@ -11,7 +11,8 @@ def f(s):
  for i in range(len(t)//2):
   if t[i]!=t[-i-1]:return {'matched_outer_pairs':i,'first_mismatch':[i,len(t)-1-i],'frontier':t[i:len(t)-i]}
  return {'matched_outer_pairs':len(t)//2,'first_mismatch':None,'frontier':''}
-def make(det,a1,a2,v,n,rs,lv,p,x,y):return f'{det}{a1} and {det}{a2} {v} the {n} where the {rs} {lv} {p} the {x} and the {y}.'
+def make(det,a1,a2,v,n,rs,lv,p,x,y):
+ return (f'both the {a1} and the {a2} {v} the {n} where the {rs} {lv} {p} the {x} and the {y}.' if det=='both the ' else f'the {a1} and the {a2} {v} the {n} where the {rs} {lv} {p} the {x} and the {y}.')
 def row(t,det,rep,pr):return {'rendered':t,'attachment_state':'locative-where-shared-preposition','matrix_determiner':det,'repaired':rep,'provenance':pr,'novelty_preflight':{'signature':SIG,'plural_agreement':True,'place_pair_fixed':True,'not_catalogue_replay':True},'audit':a(t),'live_frontier':f(t),'anti_shortcut':{'single_tree':True,'coordinated_determiner_only':True,'word_order_only':False,'repeated_unit':False,'catalogue_source':False,'fragment':False}}
 def main():
  rows=[];seen=set();controls=repairs=0

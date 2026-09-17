@@ -1,0 +1,91 @@
+{
+  "experiment_id": "function-word-boundary-single-repair-20260916",
+  "signature": "function-word-single-repair|determiner-change|agreement-propagated|coordinated-scene-fixed|fresh",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "single determiner variable change at first residual with tense/agreement and coordinated scene frozen",
+  "candidates": [
+    {
+      "repair_state": "single determiner variable",
+      "parent_state": "function-word-boundary-dp-20260916",
+      "change": {
+        "old": "A careful archivist",
+        "new": "The careful archivist"
+      },
+      "agreement_propagated": true,
+      "scene_fixed": true,
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The careful archivist will carry the ledger, and a patient porter has stored it beside the northern shelves.",
+        "letters": 89,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "normalized_sha256": "1b9f6e7281d2f8ce433addc6deb1e33308d79e46988553a5672f8a01b8e84e1f",
+        "reverse_sha256": "e98706558d2fb421a262321f35f373560980dda0710dcd516cf6c0d0fe17ea0d",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "change only second-clause auxiliary while preserving past participle agreement",
+        "reason": "determiner repair remains intact prose but leaves nonzero character residual"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "change only second-clause auxiliary while preserving past participle agreement",
+    "reason": "determiner repair remains intact prose but leaves nonzero character residual"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 382,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "sweep": false,
+    "prior_state_replayed": false
+  },
+  "provenance": {
+    "generator_sha256": "44c1d4e219ce9c40bf260e34ce169fa99c852892bc2dab9511ee91b1dff38731",
+    "lexical_source": "held-out determiner choice",
+    "parent_state": "function-word-boundary-dp-20260916",
+    "repair": "A -> The; agreement and tense carried unchanged",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "scene replay",
+      "anti-shortcut"
+    ]
+  }
+}

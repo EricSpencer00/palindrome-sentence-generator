@@ -1,0 +1,237 @@
+{
+  "experiment_id": "semantic-role-clause-debt-20260917-luna",
+  "signature": "human-discourse|semantic-roles|incremental-character-debt|lane5",
+  "status": "no_closure",
+  "search": {
+    "status": "no_closure",
+    "candidate": null,
+    "near_miss": {
+      "text": "Rain silvered the station windows. Mara folded the timetable. A late train carried the evening home. She kept the quiet promise.",
+      "roles": [
+        "scene",
+        "agent",
+        "evidence",
+        "reflection"
+      ],
+      "audit": {
+        "letters": 104,
+        "exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 103,
+            "a": "r",
+            "b": "e"
+          },
+          {
+            "left": 1,
+            "right": 102,
+            "a": "a",
+            "b": "s"
+          },
+          {
+            "left": 3,
+            "right": 100,
+            "a": "n",
+            "b": "m"
+          },
+          {
+            "left": 4,
+            "right": 99,
+            "a": "s",
+            "b": "o"
+          },
+          {
+            "left": 5,
+            "right": 98,
+            "a": "i",
+            "b": "r"
+          },
+          {
+            "left": 6,
+            "right": 97,
+            "a": "l",
+            "b": "p"
+          },
+          {
+            "left": 7,
+            "right": 96,
+            "a": "v",
+            "b": "t"
+          },
+          {
+            "left": 9,
+            "right": 94,
+            "a": "r",
+            "b": "i"
+          },
+          {
+            "left": 10,
+            "right": 93,
+            "a": "e",
+            "b": "u"
+          },
+          {
+            "left": 11,
+            "right": 92,
+            "a": "d",
+            "b": "q"
+          },
+          {
+            "left": 12,
+            "right": 91,
+            "a": "t",
+            "b": "e"
+          },
+          {
+            "left": 14,
+            "right": 89,
+            "a": "e",
+            "b": "t"
+          }
+        ],
+        "sha256": "f8871caca40b3578d474271480e336d8c18170699facb9e6e9354de42b348fc7",
+        "sha256_reverse": "13e3e3f00f1dee0758f7e82c91356a60c45ea093b2af689a94b2908070847df7"
+      }
+    },
+    "bounds": {
+      "clauses": 4,
+      "max_clauses": 4
+    }
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 793,
+    "exact_signature_collision": false,
+    "catalogue_phrases_used": false,
+    "mirrored_word_order": false
+  },
+  "clauses": [
+    {
+      "role": "scene",
+      "text": "Rain silvered the station windows.",
+      "first": "r",
+      "last": "s"
+    },
+    {
+      "role": "agent",
+      "text": "Mara folded the timetable.",
+      "first": "m",
+      "last": "e"
+    },
+    {
+      "role": "evidence",
+      "text": "A late train carried the evening home.",
+      "first": "a",
+      "last": "e"
+    },
+    {
+      "role": "reflection",
+      "text": "She kept the quiet promise.",
+      "first": "s",
+      "last": "e"
+    }
+  ],
+  "repair": {
+    "operator": "add a boundary-compatible complete clause",
+    "before": {
+      "text": "Rain silvered the station windows. Mara folded the timetable. A late train carried the evening home. She kept the quiet promise.",
+      "roles": [
+        "scene",
+        "agent",
+        "evidence",
+        "reflection"
+      ],
+      "audit": {
+        "letters": 104,
+        "exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 103,
+            "a": "r",
+            "b": "e"
+          },
+          {
+            "left": 1,
+            "right": 102,
+            "a": "a",
+            "b": "s"
+          },
+          {
+            "left": 3,
+            "right": 100,
+            "a": "n",
+            "b": "m"
+          },
+          {
+            "left": 4,
+            "right": 99,
+            "a": "s",
+            "b": "o"
+          },
+          {
+            "left": 5,
+            "right": 98,
+            "a": "i",
+            "b": "r"
+          },
+          {
+            "left": 6,
+            "right": 97,
+            "a": "l",
+            "b": "p"
+          },
+          {
+            "left": 7,
+            "right": 96,
+            "a": "v",
+            "b": "t"
+          },
+          {
+            "left": 9,
+            "right": 94,
+            "a": "r",
+            "b": "i"
+          },
+          {
+            "left": 10,
+            "right": 93,
+            "a": "e",
+            "b": "u"
+          },
+          {
+            "left": 11,
+            "right": 92,
+            "a": "d",
+            "b": "q"
+          },
+          {
+            "left": 12,
+            "right": 91,
+            "a": "t",
+            "b": "e"
+          },
+          {
+            "left": 14,
+            "right": 89,
+            "a": "e",
+            "b": "t"
+          }
+        ],
+        "sha256": "f8871caca40b3578d474271480e336d8c18170699facb9e6e9354de42b348fc7",
+        "sha256_reverse": "13e3e3f00f1dee0758f7e82c91356a60c45ea093b2af689a94b2908070847df7"
+      }
+    },
+    "after": "re-run with a fresh clause inventory; do not pad or reverse words",
+    "outcome": "not admitted until two-pointer and SHA audits both close"
+  },
+  "provenance": {
+    "generator": "llm_palindrome.semantic_roles.search",
+    "generator_sha256": "2ce1abe58360d5d687895808d76c5861ba8eee2e98baa55a7f6b837e8e559b4d",
+    "lexical_source": "fresh hand-authored clause inventory",
+    "audits": [
+      "independent normalized two-pointer",
+      "SHA-256 forward/reverse"
+    ]
+  }
+}

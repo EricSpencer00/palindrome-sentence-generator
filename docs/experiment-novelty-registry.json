@@ -5037,6 +5037,39 @@
       "distinction": "Selects lexical aspect realization and adverb jointly with agreement, object number, tense, and aspect before rendering phrase roles.",
       "reader_evidence": false,
       "status": "new hard-reset repair; 2 intact candidates up to 63 letters, 0 exact closures; complement and valency frames are next"
+    },
+    {
+      "id": "exact-palindrome-graph-product-20260917",
+      "signature": "exact-palindrome-graph-product|character-nfa|boundary-epsilon|live-edge-product|paired-path-audit",
+      "artifact": "experiments/exact_palindrome_graph_product_20260917.py",
+      "run_artifacts": [
+        "runs/exact-palindrome-graph-product-20260917.json"
+      ],
+      "distinction": "Compiles phrase paths into character-labelled graphs with explicit word-boundary epsilon edges and synchronizes equal character edges before rendering paired full tapes.",
+      "reader_evidence": false,
+      "status": "architectural reset; quarantined asymmetric-boundary oracle passes; audited 500-word two-word graph exhausted its 2,500-state budget with 0 non-shortcut exact completions"
+    },
+    {
+      "id": "semantic-valency-nfa-product-20260917",
+      "signature": "semantic-role-valency-nfa|live-lexical-trie-nodes|agreement-state|character-product|independent-pointer-sha",
+      "artifact": "experiments/semantic_valency_nfa_product_20260917.py",
+      "run_artifacts": [
+        "runs/semantic-valency-nfa-product-20260917.json"
+      ],
+      "distinction": "Branches semantic-role lexical alternatives as live trie nodes while retaining agreement/valency state during exact character product traversal.",
+      "reader_evidence": false,
+      "status": "new architectural lane; 4 live states, 6 transitions pruned, 0 exact paired paths; multi-character prefix propagation is next"
+    },
+    {
+      "id": "typed-grammar-character-nfa-20260917",
+      "signature": "typed-grammar-character-nfa|free-word-boundaries|paired-lexical-alternatives|character-product|independent-pointer-sha",
+      "artifact": "experiments/typed_grammar_character_nfa_20260917.py",
+      "run_artifacts": [
+        "runs/typed-grammar-character-nfa-20260917.json"
+      ],
+      "distinction": "Compiles typed grammar states with lexical alternatives and performs paired character transitions before rendering, with a one-character fake oracle rejection.",
+      "reader_evidence": false,
+      "status": "new architectural lane; 2 live states, 0 exact paired paths under current budget; full token-character granularity is next"
     }
   ],
   "excluded": [

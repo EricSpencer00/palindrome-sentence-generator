@@ -3086,3 +3086,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   concrete operators are a `c`-tail eleventh-residual condition, plural-object
   coordinated `the/the` gating, and—only after exact closure—blinded human
   screening of the held-out prose.
+
+  The following wave completed those repairs. Typed attachment alternatives and
+  held-out semantic bundles rendered 3 intact candidates up to 101 letters;
+  the proper-locative `via del Laco, locally` rendered 4 intact candidates up
+  to 66 letters with all four eleventh-character matches; and plural
+  coordinated `the/the` articles rendered 2,304 candidates up to 73 letters
+  while pruning 14,080 singular or mixed-number states. All produced 0 exact
+  closures. Independent pointer/SHA-256 replay, provenance, novelty
+  preflight, and anti-shortcut checks are retained for every row. The reader
+  gate remains closed. The next concrete operators are equation-coupled
+  attachment expansion, twelfth-residual conditioning after `locally`, and
+  one-position plural-object lexical substitution under the coordinated gate.

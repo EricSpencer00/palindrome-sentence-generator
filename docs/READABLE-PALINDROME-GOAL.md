@@ -2363,3 +2363,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   inflectional word tries with character-by-character seam equations, a
   residual-conditioned tail preposition, and a fresh number-gated
   determiner/verb contrast, respectively.
+
+  The next repair wave completed those operators rather than repeating their
+  parent sweeps. Inflectional character-by-character seam expansion rendered
+  6 ordinary-English candidates up to 90 letters; a residual-conditioned tail
+  preposition repair rendered 32 agreement-preserving realizations up to 120
+  letters; and a number-gated determiner/verb object-relative contrast tested
+  36,864 controls plus 36,864 held-out repairs up to 61 letters. All three
+  produced 0 exact closures. Each candidate carries independent two-pointer
+  and forward/reverse SHA-256 audits, provenance, novelty preflight, and
+  anti-shortcut flags. They remain outside the reader packet. Their next
+  concrete operators are function-word tries across variable boundaries, one
+  held-out clause-link realization, and a direct-object versus locative
+  attachment feature state, respectively.

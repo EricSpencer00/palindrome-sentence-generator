@@ -55,6 +55,7 @@ HELDOUT_RIGHT_AGREEMENT_SUBJECTS = (
 )
 HELDOUT_RIGHT_OBJECT_DETERMINERS = ("the", "a", "one")
 HELDOUT_RIGHT_OBJECT_ADJECTIVES = ("weathered", "folded", "marked")
+HELDOUT_RIGHT_OBJECT_NOUNS = ("journal", "parcel", "compass")
 CENTERS = (
     {"id": "lantern_event", "text": "the lantern flares", "meaning": "a sudden warning light"},
     {"id": "bell_event", "text": "the harbor bell sounds", "meaning": "a scheduled audible signal"},
@@ -237,17 +238,33 @@ def run() -> dict:
         adjective_repair_rows.append(audit(left, center, punct, repaired, rank + 84,
                                            repair_stage="held_out_right_object_adjective",
                                            held_out_slot="right_object_adjective"))
+    # Preserve the entire repaired object frame except its head noun.
+    noun_repair_rows = []
+    for rank, (left, center, punct, right, replacement_subject, replacement_object,
+               replacement_place, replacement_verb, object_adj, object_noun) in enumerate(
+        itertools.islice(itertools.product(LEFT, CENTERS, PUNCTUATION, RIGHT,
+                                            HELDOUT_RIGHT_AGREEMENT_SUBJECTS, HELDOUT_RIGHT_OBJECTS[:2],
+                                            HELDOUT_RIGHT_LOCATIVES, HELDOUT_RIGHT_VERBS,
+                                            HELDOUT_RIGHT_OBJECT_ADJECTIVES, HELDOUT_RIGHT_OBJECT_NOUNS), 12), 1):
+        object_words = replacement_object.split()
+        determiner = object_words[0]
+        repaired = (replacement_subject[0], replacement_subject[1], replacement_verb,
+                    f"{determiner} {object_adj} {object_noun}", replacement_place)
+        noun_repair_rows.append(audit(left, center, punct, repaired, rank + 96,
+                                      repair_stage="held_out_right_object_head_noun",
+                                      held_out_slot="right_object_head_noun"))
     rows = (baseline_rows + repair_rows + object_repair_rows + locative_repair_rows +
-            verb_repair_rows + agreement_repair_rows + object_det_repair_rows + adjective_repair_rows)
+            verb_repair_rows + agreement_repair_rows + object_det_repair_rows + adjective_repair_rows +
+            noun_repair_rows)
     rows.sort(key=lambda r: (-r["independent_pointer"]["letters"], r["rank"]))
     exact = [r for r in rows if r["mechanically_admitted"]]
     return {"experiment": EXPERIMENT, "signature": SIGNATURE,
             "status": "exact closure found" if exact else "complete prose plus punctuation-center repair",
-            "novelty_preflight": pre, "states_considered": 96, "candidate_count": len(rows),
+            "novelty_preflight": pre, "states_considered": 108, "candidate_count": len(rows),
             "exact_count": len(exact), "rendered_candidates": rows, "exact_survivors": exact,
-            "repair_summary": {"method": "sequential_subject_object_locative_verb_agreement_determiner_then_adjective_holdout",
+            "repair_summary": {"method": "sequential_subject_object_locative_verb_agreement_determiner_adjective_then_noun_holdout",
                                "preserved_center_event": True, "preserved_punctuation": True,
-                               "held_out_slots": ["right_subject_np", "right_object_np", "right_locative", "right_verb_inflection", "right_determiner_agreement_subject", "right_object_determiner", "right_object_adjective"],
+                               "held_out_slots": ["right_subject_np", "right_object_np", "right_locative", "right_verb_inflection", "right_determiner_agreement_subject", "right_object_determiner", "right_object_adjective", "right_object_head_noun"],
                                "baseline_count": len(baseline_rows), "repaired_count": len(repair_rows),
                                "object_repair_count": len(object_repair_rows),
                                "locative_repair_count": len(locative_repair_rows),
@@ -255,19 +272,21 @@ def run() -> dict:
                                "agreement_repair_count": len(agreement_repair_rows),
                                "object_determiner_repair_count": len(object_det_repair_rows),
                                "object_adjective_repair_count": len(adjective_repair_rows),
+                               "object_head_noun_repair_count": len(noun_repair_rows),
                                "new_subjects": [f"{d} {n}" for d, n in HELDOUT_RIGHT_SUBJECTS],
                                "new_objects": list(HELDOUT_RIGHT_OBJECTS),
                                "new_locatives": list(HELDOUT_RIGHT_LOCATIVES),
                                "new_verbs": list(HELDOUT_RIGHT_VERBS),
                                "new_agreement_subjects": [f"{d} {n}" for d, n in HELDOUT_RIGHT_AGREEMENT_SUBJECTS],
                                "new_object_determiners": list(HELDOUT_RIGHT_OBJECT_DETERMINERS),
-                               "new_object_adjectives": list(HELDOUT_RIGHT_OBJECT_ADJECTIVES)},
+                               "new_object_adjectives": list(HELDOUT_RIGHT_OBJECT_ADJECTIVES),
+                               "new_object_head_nouns": list(HELDOUT_RIGHT_OBJECT_NOUNS)},
             "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                            "registry_sha256": hashlib.sha256(REGISTRY.read_bytes()).hexdigest(),
                            "punctuation_choices_live": True, "nonpalindromic_center_live": True,
                            "catalogue_imported": False},
             "anti_shortcut_policy": "Reject fixed tapes, reverse decoding, word-order mirrors, repeated/self-palindromic spans, fragments, catalogue text, and punctuation that changes letters.",
-            "next_repair": "Use the adjective-repair residual to hold out the right object head noun while preserving event, punctuation, subject, determiner, adjective, verb, and place.",
+            "next_repair": "Use the head-noun residual to hold out the right clause's locative head noun while preserving event, punctuation, subject, object frame, and verb.",
             "reader_facing_test": {"required": "blind intact-prose rating plus shuffled-clause control", "status": "pending"}}
 
 

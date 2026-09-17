@@ -553,9 +553,16 @@ CFG/Earley near-dock adjunct, a 163-letter semantic-slot glasshouse adjunct,
 and a 128-letter inflection/clitic before-dusk suffix. Each is independently
 rejected by pointer and SHA checks, carries fresh provenance and novelty
 preflight, and names the next local repair. The authoritative total is now
-4,958 rows across 277 routes, with 79 exact controls and 0 admitted outputs.
+4,964 rows across 280 routes, with 79 exact controls and 0 admitted outputs.
 The second continuation pass contributes a 109-letter opposing-adjunct scene,
 a 127-letter possessive-boundary harbor scene, and a 161-letter final-locative
 scene; all remain independently rejected with concrete next repairs. The third
 continuation adds a 110-letter CFG terminal, a 127-letter complementizer, and
 a 162-letter temporal-adjunct variant, also non-exact.
+a 162-letter temporal-adjunct variant, also non-exact.
+
+The pivot pass then changed the state space instead of widening a seam sweep:
+joint phrase-pair selection produced a 109-letter orchard/engineering scene,
+a center-out observatory lattice produced four 83--93-letter scenes, and an
+immutable authored tape produced a 113-letter archive scene with no grammatical
+reverse path. All remain independently audited, novel, and reader-ineligible.

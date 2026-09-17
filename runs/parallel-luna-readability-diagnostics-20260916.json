@@ -272,9 +272,12 @@
     "runs/semantic-slot-final-locative-followup-20260916.json",
     "runs/cfg-earley-fresh-single-terminal-repair3-20260916.json",
     "runs/semantic-slot-temporal-followup-20260916.json",
-    "runs/inflection-clitic-distinct-complementizer-repair-20260916.json"
+    "runs/inflection-clitic-distinct-complementizer-repair-20260916.json",
+    "runs/simultaneous-phrase-pair-constructor-20260916.json",
+    "runs/centerout-observatory-scene-lattice-20260916.json",
+    "runs/immutable-scene-exact-tape-resegment-20260916.json"
   ],
-  "candidate_count": 4958,
+  "candidate_count": 4964,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -3047,6 +3050,36 @@
       "max_letters": 162,
       "mean_zipf_frequency": 5.420909090909092,
       "mean_brown_order_gain_vs_shuffle": 0.7256530650918727
+    },
+    {
+      "source_run": "runs/centerout-observatory-scene-lattice-20260916.json",
+      "rows": 4,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 81,
+      "max_letters": 93,
+      "mean_zipf_frequency": 5.311333333333334,
+      "mean_brown_order_gain_vs_shuffle": 0.6574181657061491
+    },
+    {
+      "source_run": "runs/immutable-scene-exact-tape-resegment-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 113,
+      "max_letters": 113,
+      "mean_zipf_frequency": 5.290869565217391,
+      "mean_brown_order_gain_vs_shuffle": 0.7425512179339187
+    },
+    {
+      "source_run": "runs/simultaneous-phrase-pair-constructor-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 109,
+      "max_letters": 109,
+      "mean_zipf_frequency": 5.1827272727272735,
+      "mean_brown_order_gain_vs_shuffle": 1.0184602461449312
     }
   ],
   "rows": [
@@ -239084,6 +239117,294 @@
         "mean_zipf_frequency": 5.288928571428571,
         "word_count": 28,
         "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The orchard keeper gathers ripe apples beside the stone wall, while a patient engineer tests the quiet turbine under the glass roof.",
+      "source_run": "runs/simultaneous-phrase-pair-constructor-20260916.json",
+      "provenance": {
+        "method": "simultaneous typed phrase-pair constructor with free phrase lengths",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "8193651b748535f9b22fdef15d7ac96567bd962614b82b9e588dd39db42d6b79",
+        "source_sha256": "181064426ad9fff20a784885e45b30dc6b61d9c3b721c41e752b208e4785b5ae"
+      },
+      "repair": null,
+      "letters": 109,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0184602461449312,
+        "mean_zipf_frequency": 5.1827272727272735,
+        "word_count": 22,
+        "repeated_word_rate": 0.13636363636363635,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The astronomer calibrates the telescope; the observatory clock chimed, and the assistant records the readings.",
+      "source_run": "runs/centerout-observatory-scene-lattice-20260916.json",
+      "provenance": {
+        "human_authored_scene": true,
+        "complete_clauses": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "nested_palindrome_span": false,
+        "generator_sha256": "2654c69c7014bb28b80c4a805be1c89c980ead8be9ce84516a29aab1ad89c2c8"
+      },
+      "repair": null,
+      "letters": 93,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.37650718787408977,
+        "mean_zipf_frequency": 5.25,
+        "word_count": 15,
+        "repeated_word_rate": 0.2666666666666667,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The astronomer calibrates the telescope; the observatory clock chimed, and the technician checks the signal.",
+      "source_run": "runs/centerout-observatory-scene-lattice-20260916.json",
+      "provenance": {
+        "human_authored_scene": true,
+        "complete_clauses": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "nested_palindrome_span": false,
+        "generator_sha256": "2654c69c7014bb28b80c4a805be1c89c980ead8be9ce84516a29aab1ad89c2c8"
+      },
+      "repair": null,
+      "letters": 91,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6677535300670012,
+        "mean_zipf_frequency": 5.194000000000001,
+        "word_count": 15,
+        "repeated_word_rate": 0.2666666666666667,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The observer adjusts the lens; the observatory clock chimed, and the assistant records the readings.",
+      "source_run": "runs/centerout-observatory-scene-lattice-20260916.json",
+      "provenance": {
+        "human_authored_scene": true,
+        "complete_clauses": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "nested_palindrome_span": false,
+        "generator_sha256": "2654c69c7014bb28b80c4a805be1c89c980ead8be9ce84516a29aab1ad89c2c8"
+      },
+      "repair": null,
+      "letters": 83,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6470828013452987,
+        "mean_zipf_frequency": 5.428666666666667,
+        "word_count": 15,
+        "repeated_word_rate": 0.2666666666666667,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The observer adjusts the lens; the observatory clock chimed, and the technician checks the signal.",
+      "source_run": "runs/centerout-observatory-scene-lattice-20260916.json",
+      "provenance": {
+        "human_authored_scene": true,
+        "complete_clauses": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "nested_palindrome_span": false,
+        "generator_sha256": "2654c69c7014bb28b80c4a805be1c89c980ead8be9ce84516a29aab1ad89c2c8"
+      },
+      "repair": null,
+      "letters": 81,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9383291435382066,
+        "mean_zipf_frequency": 5.372666666666668,
+        "word_count": 15,
+        "repeated_word_rate": 0.2666666666666667,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, the archivist opens the west gallery, and the curator labels each recovered map while visitors wait quietly beside the old stair.",
+      "source_run": "runs/immutable-scene-exact-tape-resegment-20260916.json",
+      "provenance": "author one fresh multi-clause sentence first; freeze normalized tape; attempt one grammar-aware reverse resegmentation diagnostic",
+      "repair": null,
+      "letters": 113,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7425512179339187,
+        "mean_zipf_frequency": 5.290869565217391,
+        "word_count": 23,
+        "repeated_word_rate": 0.13043478260869568,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

@@ -46,3 +46,13 @@ A third one-state continuation kept the same discipline:
 - Semantic-slot temporal adjunct: “Before dusk, the patient gardener carries a wrapped bundle near the glasshouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart into the dry storehouse.” (162 letters; exact `false`; next repair changes only the porter action verb.)
 
 The aggregate is now 4,958 rows across 277 routes; no candidate in these repair queues is mechanically admitted or reader-certified.
+
+## State-space pivots after the repair plateau
+
+Rather than resampling the same local seams, three bounded pivots were run:
+
+- Simultaneous phrase-pair construction: “The orchard keeper gathers ripe apples beside the stone wall, while a patient engineer tests the quiet turbine under the glass roof.” (109 letters; exact `false`; next pivot changes the typed role pair.)
+- Center-out observatory scene lattice: “The astronomer calibrates the telescope; the observatory clock chimed, and the assistant records the readings.” (93 letters; exact `false`; next operator authors a held-out telescope-side verb/object pair.)
+- Immutable-scene exact-tape diagnostic: “At dawn, the archivist opens the west gallery, and the curator labels each recovered map while visitors wait quietly beside the old stair.” (113 letters; exact `false`; reverse grammar found no complete path; next operator chooses seam terminals before tape freeze.)
+
+These pivots keep complete prose, independent exact checks, provenance, novelty preflight, and anti-shortcut decisions. They add six rows and move the aggregate to 4,964 rows across 280 routes; none is mechanically admitted or reader-certified.

@@ -2974,3 +2974,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   propagation through both role sides, a seventh-character-compatible authored
   phrase on the matched survey branch, and a formerly/later ordering-compatible
   tense-state pair.
+
+  The following wave completed those repairs. Simultaneous left/right role
+  domain contraction rendered 2 intact candidates up to 93 letters; the
+  seventh-character probe retained 4 intact survey candidates up to 64
+  letters but found no grammatical phrase matching the required residual; and
+  the distinct formerly<later temporal-order CFG rendered 256 candidates up
+  to 62 letters while pruning 1,792 reverse-order or shared-subject states.
+  All produced 0 exact closures. Independent pointer/SHA-256 replay,
+  provenance, novelty preflight, and anti-shortcut checks are retained for
+  every row. The reader gate remains closed. The next concrete operators are
+  support-driven simultaneous contraction, a legal locative seventh onset on
+  the matched survey branch, and a tense-compatible `while` variant for the
+  formerly/later state.

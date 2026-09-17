@@ -75,11 +75,23 @@ def live_edge_search(scene: dict) -> tuple[list[dict], list[dict]]:
 
 
 def run() -> dict:
-    rows, diagnostics = [], []
+    rows, diagnostics, diagnostic_witnesses = [], [], []
     for scene in SCENES:
         closures, dead = live_edge_search(scene); diagnostics.extend({"scene": scene["id"], **d} for d in dead)
+        if not closures:
+            witness_words = [EDGE_ALTERNATIVES[role][0] for role in scene["roles"] if role in EDGE_ALTERNATIVES]
+            witness = scene["left"] + " " + " ".join(witness_words) + "."
+            diagnostic_witnesses.append({"scene": scene["id"], "rendered": witness,
+                                        "audit": audit(witness), "admitted": False,
+                                        "reason": "live edge frontier exhausted before exact closure",
+                                        "provenance": {"hand_authored_scene": True,
+                                                       "fixed_tape_used": False,
+                                                       "catalogue_phrase": False}})
         for closure in closures:
             rendered = scene["left"] + " " + " ".join(w for _, w in closure["choices"]) + "."
+            edge_trace = [{"role": role, "left": role,
+                           "reverse_edge": dict(closure["choices"]).get(role)}
+                          for role in scene["roles"] if role in REVERSE_EDGES]
             rows.append({"scene": scene["id"], "rendered": rendered,
                      "semantic_graph": {"roles": scene["roles"], "edge_trace": edge_trace,
                                         "valency": "transitive+PP"},
@@ -94,7 +106,9 @@ def run() -> dict:
     exact = [r for r in rows if r["audit"]["exact"]]
     payload = {"experiment_id": ID, "signature": SIGNATURE, "status": "completed_live_search",
                "method": "typed transitive scene -> role-compatible reverse lexical edges -> live reverse debt -> right-side word-boundary resegmentation",
-               "candidates": rows, "exact_candidates": exact, "diagnostic_frontiers": diagnostics,
+               "candidates": rows, "exact_candidates": exact,
+               "diagnostic_frontiers": diagnostics,
+               "diagnostic_witnesses": diagnostic_witnesses,
                "stats": {"scenes": len(rows), "rendered": len(rows), "exact": len(exact),
                          "cross_boundary_attempts": len(rows), "nonempty_debts": sum(bool(r["live_obligation"]["remaining_debt"]) for r in rows)},
                "novelty_preflight": {"registry_checked": True, "fixed_tape_used": False,

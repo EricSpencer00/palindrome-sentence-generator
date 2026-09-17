@@ -4,8 +4,8 @@ from pathlib import Path
 from llm_palindrome.admission import normalize_letters,mechanical_admission_checks
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'runs/seed-extension-frame-insertion-20260916.json'
 ID='seed-extension-frame-insertion-20260916'; SIG='authored-frame-insertion|paired-prefix-suffix-tape-equation|fresh-center-scene|seed-wrapper-rejection|independent-pointer-sha'
-CENTERS=['The archivist opens the cedar cabinet and records the harbor map.','The patient keeper carries the lantern across the quiet courtyard.']
-FRAMES=[('At dawn, ',' Before dusk.'),('In spring, ',' By evening.'),('After rain, ',' Before the lamps fade.')]
+CENTERS=['the archivist opens the cedar cabinet and records the harbor map','the patient keeper carries the lantern across the quiet courtyard']
+FRAMES=[('At dawn, ',', before dusk.'),('In spring, ',', by evening.'),('After rain, ',', before the lamps fade.')]
 def audit(s):
  t=normalize_letters(s);m=[];i=0;j=len(t)-1
  while i<j:
@@ -17,7 +17,7 @@ def run():
  rows=[]
  for ci,center in enumerate(CENTERS):
   for fi,(pre,suf) in enumerate(FRAMES):
-   text=pre+center[:-1]+suf;a=audit(text);c=mechanical_admission_checks(text,min_letters=39,max_letters=220)
+   text=pre+center+suf;a=audit(text);c=mechanical_admission_checks(text,min_letters=39,max_letters=220)
    rows.append({'rendered':text,'letters':a['letters'],'center_id':ci,'frame_id':fi,'exact_audit':a,'checks':c,'mechanically_admitted':False,'provenance':{'fresh_authored_center':True,'source_sentences_copied':False,'catalogue_imported':False,'borrowed_text':False,'reversed_finished_sentence':False,'word_order_symmetry':False,'repeated_self_palindromic_unit':False,'historical_seed_used_as_output':False}})
  h=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
  for r in rows:r['provenance']['generator_sha256']=h

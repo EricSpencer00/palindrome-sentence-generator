@@ -1,0 +1,32 @@
+{
+  "status": "exhausted",
+  "states": 2844,
+  "dead_states": 0,
+  "closures": [],
+  "admitted": [],
+  "config": {
+    "simultaneous_lexical_generation": true,
+    "boundary_fsa": true,
+    "fixed_tape": false,
+    "posthoc_reverse": false,
+    "exact_closure_gate": true,
+    "held_out_ordinary_lexicon": true
+  },
+  "novelty_preflight": {
+    "excluded": {
+      "cfg_earley": true,
+      "character_lm": true,
+      "scene_lattice": true,
+      "semantic_valency": true,
+      "morphology_clitic": true,
+      "bilateral_slot": true,
+      "brown_reverse_segmentation": true
+    },
+    "distinction": "paired lexical word iterators plus boundary-edit FSA"
+  },
+  "reader_gate": {
+    "status": "not_triggered",
+    "provenance": "data/lexicon.txt intersected with hand-written POS templates",
+    "concrete_repair": "expand held-out POS lexicon only; never relax exact closure"
+  }
+}

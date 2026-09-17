@@ -21,6 +21,16 @@ FRAMES = (
  ('The young musician repairs a wooden bridge before the evening concert.', 'The local baker delivers warm bread beside the covered market.')
 )
 
+# Held-out repair frame: this locative was not present in the first run.  It is
+# inserted as an ordinary phrase edge, then paired with a fresh clause rather
+# than by reversing or copying an existing tape.
+REPAIR_FRAMES = (
+ ('The patient gardener carries fresh seeds across the stone courtyard.',
+  'The observant pilot checks a narrow route above the coastal inlet.'),
+ ('The patient gardener carries fresh seeds across the stone courtyard.',
+  'The local baker delivers warm bread beside the covered market.'),
+)
+
 # A lexicalized grammar: each edge is a complete phrase, not a character/tape
 # imported from a catalogue. Reverse-trie nodes store words in reverse spelling.
 class ReverseTrie:
@@ -78,17 +88,17 @@ def candidate(left,right, trie):
 
 def run():
     pre=novelty_preflight()
-    phrases=tuple(p for pair in FRAMES for p in pair)
+    phrases=tuple(p for pair in FRAMES + REPAIR_FRAMES for p in pair)
     trie=ReverseTrie(phrases)
-    rows=[candidate(l,r,trie) for l,r in FRAMES]
+    rows=[candidate(l,r,trie) for l,r in FRAMES + REPAIR_FRAMES]
     rows.sort(key=lambda x:x['audit']['letters'], reverse=True)
     best=rows[0]; first=best['audit']['two_pointer_mismatches'][0]
     return {'experiment_id':EXPERIMENT_ID,'signature':SIGNATURE,'status':'completed_no_exact_closure',
-      'method':'lexicalized reverse-trie grammar: complete hand-authored clauses are expanded as phrase edges while terminal character obligations are consumed live across the clause seam',
+      'method':'lexicalized reverse-trie grammar with a held-out locative repair: complete hand-authored clauses are expanded as phrase edges while terminal character obligations are consumed live across the clause seam',
       'novelty_preflight':pre,'candidate_count':len(rows),'candidates':rows,
       'actual_prose':best['rendered'],'stats':{'complete_clauses':len(phrases),'grammar_pairs':len(rows),'exact':0,'longest_letters':best['audit']['letters'],'max_trie_obligation_prefix':max(r['trie_obligation']['matched_prefix_letters'] for r in rows)},
-      'failure_and_repair':{'first_residual':first,'next_operator':'replace the first unsatisfied lexical edge with a held-out role-compatible phrase selected by reverse-trie prefix length, then re-realize both complete clauses','concrete_next_repair':'add held-out locative phrase “across the stone courtyard” to the grammar and test its edge against the first residual character'},
-      'provenance':{'lexical_source':'fresh hand-authored clause inventory','catalogue_text_imported':False,'seed_embedding':False,'fixed_tape':False,'word_order_mirror':False,'repeated_self_palindromic_span':False,'independent_audits':['independent two-pointer','forward/reverse SHA-256','mechanical admission'],'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}}
+      'failure_and_repair':{'first_residual':first,'next_operator':'condition the next lexical edge on the residual character pair while preserving independent subject, event, theme, and locative choices','concrete_next_repair':'replace the first clause subject with held-out “the quiet surveyor” and test the resulting subject edge against the residual pair before expanding the object slot'},
+      'provenance':{'lexical_source':'fresh hand-authored clause inventory plus held-out locative repair','held_out_repair_phrase':'across the stone courtyard','catalogue_text_imported':False,'seed_embedding':False,'fixed_tape':False,'word_order_mirror':False,'repeated_self_palindromic_span':False,'independent_audits':['independent two-pointer','forward/reverse SHA-256','mechanical admission'],'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}}
 
 if __name__=='__main__':
     result=run(); OUT.write_text(json.dumps(result,indent=2)+'\n'); print(json.dumps(result['stats'],sort_keys=True))

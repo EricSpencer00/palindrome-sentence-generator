@@ -90,6 +90,7 @@ CLAUSES = (
     Clause("sailor", "A watchful sailor", "charts", "the coastal inlet", "under a clear morning sky", "chart safe waters"),
     Clause("doctor", "The village doctor", "examines", "a careful sketch", "inside the quiet clinic", "inspect a diagram"),
     Clause("keeper", "A gentle keeper", "mends", "the garden gate", "after the winter storm", "restore a boundary"),
+    Clause("steward", "A careful steward", "records", "the garden inventory", "at sunset", "record supplies before night"),
 )
 CENTERS = ("Meanwhile,", "At noon,", "By evening,")
 
@@ -143,10 +144,15 @@ def run() -> dict[str, object]:
               Balanced(CLAUSES[4], "At dusk,", CLAUSES[5], 1),
               Balanced(CLAUSES[6], CENTERS[2], CLAUSES[7], 1)]
     states.append(Balanced(CLAUSES[6], "At dusk,", CLAUSES[7], 2, inner=states[0]))
-    # A second expansion is represented by a fresh complete middle sentence,
-    # which tests arbitrary-size composition without reusing a clause unit.
+    # First-residual repair from the previous run: the outer tape began with
+    # ``t`` and ended with ``m``. This fresh role-compatible clause ends in
+    # ``t`` (``at sunset``), satisfying that outer equation before the full
+    # independent audit is recomputed.
+    states.append(Balanced(CLAUSES[6], "At dusk,", CLAUSES[8], 2, inner=states[0]))
     rows = [row(s, f"independent_clause_pair_{i}") for i, s in enumerate(states)]
-    best = max(rows, key=lambda x: x["letters"])
+    # Prefer the repaired frontier when it satisfies an additional outer
+    # equation; length is only a tie-breaker, never a readability certificate.
+    best = max(rows, key=lambda x: (x["seam_equations"]["checked_outer_pairs"][0]["satisfied"], x["letters"]))
     residual = best["seam_equations"]["first_residual"]
     payload = {"experiment_id": EXPERIMENT_ID, "signature": SIGNATURE,
                "status": "completed_no_exact_closure" if not any(x["pointer_audit"]["exact"] for x in rows) else "exact_found",

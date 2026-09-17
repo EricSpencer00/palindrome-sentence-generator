@@ -9,6 +9,7 @@ def test_run_has_actual_long_prose_and_independent_audits():
     result=lane.run(); assert result['novelty_preflight']['status']=='passed'
     assert result['stats']['longest_letters']>80
     assert result['candidates']
+    assert any('across the stone courtyard' in row['rendered'] for row in result['candidates'])
     for row in result['candidates']:
         assert row['rendered'] and row['audit']['letters']>80
         assert row['audit']['independent_two_pointer_exact']==row['audit']['exact']
@@ -21,3 +22,4 @@ def test_provenance_and_repair_are_present():
     assert result['provenance']['catalogue_text_imported'] is False
     assert len(result['provenance']['generator_sha256'])==64
     assert result['failure_and_repair']['concrete_next_repair']
+    assert result['provenance']['held_out_repair_phrase']=='across the stone courtyard'

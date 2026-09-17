@@ -12,8 +12,11 @@ def test_recursive_balanced_grammar_emits_complete_prose_and_independent_audits(
     data = json.loads(RUN.read_text())
     assert data["novelty_preflight"]["status"] == "passed"
     assert data["family"]["arbitrary_size"]
-    assert len(data["rendered_candidates"]) == 5
+    assert len(data["rendered_candidates"]) == 6
     assert max(row["depth"] for row in data["rendered_candidates"]) == 2
+    repaired = data["rendered_candidates"][-1]
+    assert repaired["label"] == "independent_clause_pair_5"
+    assert repaired["seam_equations"]["checked_outer_pairs"][0]["satisfied"]
     assert all(row["complete_prose"] for row in data["rendered_candidates"])
     assert all(row["pointer_audit"]["algorithm"] == "independent_two_pointer" for row in data["rendered_candidates"])
     assert all(row["hash_audit"]["algorithm"] == "independent_forward_reverse_sha256" for row in data["rendered_candidates"])

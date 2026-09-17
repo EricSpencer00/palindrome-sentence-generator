@@ -26,7 +26,7 @@ builds ordinary scenes: typed grammar and semantic slots propose the next
 words, and targeted repairs are selected from the current mirrored-letter
 debt.  Ten deliberately orthogonal construction lanes share an independent
 two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 5,355 candidates from 332 route
+The current development snapshot contains 5,361 candidates from 332 route
 summaries; 84 are exact, but none passes the mechanical admission gate and no row has
 yet been promoted by readers.  We report the rendered candidates and the
 failed gates explicitly, then use each failure to define the next repair
@@ -444,7 +444,7 @@ lexical form, distinctness, catalogue-family exclusion, repeated-unit and
 self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
 one signature to each run and rejects duplicate families before aggregation.
 On the authoritative snapshot the registry contains 431 unique artifacts (35
-preflight exclusions); the aggregate contains 5,355 rows, 84 exact rows, and
+preflight exclusions); the aggregate contains 5,361 rows, 84 exact rows, and
 zero mechanically admitted rows across 326 route summaries.  Every exact row
 therefore has a visible reason for rejection or promotion status rather than
 being silently discarded.  The aggregate report is registered separately as
@@ -515,7 +515,8 @@ catalogue collision and a self-palindromic span.  This exact control is kept
 as rejection evidence, not counted as a readable output.
 
 The subsequent frontier adds three non-duplicate constructive operators.  A
-lexicalized reverse-trie grammar retains three 111--123-letter clause pairs;
+lexicalized reverse-trie grammar retains five 110--123-letter clause pairs
+after a held-out locative repair;
 the representative is ``The careful archivist studies weathered maps beside
 the quiet harbor. The thoughtful teacher records clear field notes inside the
 village school.'' (123 letters, exact \emph{false}), with a held-out locative
@@ -525,7 +526,7 @@ rendering is ``The careful gardeners watered the red roses behind the stone
 wall; the notes of the careful gardeners remain ready.'' (95 letters, exact
 \emph{false}).  Its next operation is a held-out possessive/clitic seam
 substitution that preserves agreement.  Finally, recursive balanced grammar
-emits five complete states through depth two, including the 240-letter scene
+emits six complete states through depth two, including the 240-letter scene
 ``The village doctor examines a careful sketch inside the quiet clinic. The
 careful archivist stores weathered maps beside the harbor window. Meanwhile, a
 patient teacher reviews marked field notes near the village school. At dusk, a
@@ -547,8 +548,8 @@ Both lanes independently audit the full normalized tape and preserve
 provenance; neither is reader-eligible until exact admission.
 
 The dependency-semantic seam CSP v2 then searches argument attachment and
-lexical domains jointly across 186{,}624 pair states.  Its three retained
-probes are complete 114-letter clauses; the clearest is ``The archivist
+lexical domains jointly across 186{,}624 pair states.  Its three base and six
+held-out repaired probes are complete ordinary clauses; the clearest is ``The archivist
 studies the weathered maps within the quiet station. The messenger delivers
 the marked journals within the quiet station.'' (exact \emph{false}).  The
 first-residual repair holds that seam fixed and substitutes a held-out

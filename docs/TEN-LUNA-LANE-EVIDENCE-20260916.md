@@ -950,7 +950,7 @@ and forward/reverse SHA checks agree that it is not exact; provenance and
 anti-shortcut flags are clean, and its next reader-facing test remains the
 intact-versus-shuffled packet after exact admission. The paired-slot exact
 tapes are retained as provenance-backed failure evidence, not readability
-claims. The aggregate is now **5,355 rows across 332 routes, 84 exact rows,
+claims. The aggregate is now **5,361 rows across 332 routes, 84 exact rows,
 and 0 mechanically admitted outputs**; the registry is **431 retained, 35
 excluded, and 409 retained run artifacts**.
 
@@ -988,7 +988,8 @@ diet on cod.”), but the independent gate rejects it for catalogue collision
 and a self-palindromic span; it is failure evidence, not a readable output.
 
 The next three Luna lanes remain constructive rather than duplicate sweeps. A
-lexicalized reverse-trie grammar retains three 111--123-letter clause pairs;
+lexicalized reverse-trie grammar retains five 110--123-letter clause pairs
+after a held-out locative repair;
 the representative is “The careful archivist studies weathered maps beside
 the quiet harbor. The thoughtful teacher records clear field notes inside the
 village school.” (123 letters; exact `false`), with a held-out locative edge
@@ -997,7 +998,7 @@ variants from 72 jointly realized states; its longest grammatical rendering
 is “The careful gardeners watered the red roses behind the stone wall; the
 notes of the careful gardeners remain ready.” (95 letters; exact `false`).
 Its next repair is a held-out possessive/clitic seam substitution that keeps
-the agreement register. Finally, recursive balanced grammar emits five
+the agreement register. Finally, recursive balanced grammar emits six
 complete states through depth two, including the 240-letter scene “The village
 doctor examines a careful sketch inside the quiet clinic. The careful
 archivist stores weathered maps beside the harbor window. Meanwhile, a patient
@@ -1020,8 +1021,8 @@ lanes independently audit the full normalized tape and preserve provenance;
 neither is a reader candidate until exact admission.
 
 The dependency-semantic seam CSP v2 then searches argument attachment and
-lexical domains jointly across 186,624 pair states. Its three retained probes
-are complete 114-letter clauses; the clearest is “The archivist studies the
+lexical domains jointly across 186,624 pair states. Its three base probes and
+six held-out repaired probes are complete ordinary clauses; the clearest is “The archivist studies the
 weathered maps within the quiet station. The messenger delivers the marked
 journals within the quiet station.” (exact `false`). The first-residual repair
 holds that seam fixed and substitutes a held-out role-compatible object/place

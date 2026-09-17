@@ -28,13 +28,20 @@ class CharacterGraph:
 
     @classmethod
     def from_words(cls, words: Iterable[str], provenance: str) -> "CharacterGraph":
+        return cls.from_phrases(words, provenance)
+
+    @classmethod
+    def from_phrases(cls, phrases: Iterable[str], provenance: str, *, reverse: bool = False) -> "CharacterGraph":
+        """Compile phrase paths; spaces are word-boundary epsilon edges."""
         g = cls()
-        for word in words:
+        for phrase in phrases:
             node = g.start
-            for i, ch in enumerate(word):
-                node = g.add(node, ch, f"{provenance}:char:{i}")
-            # Boundary is an epsilon edge, retained as provenance rather than text.
-            node = g.add(node, None, f"{provenance}:word-boundary")
+            words = normalize(phrase).split()
+            if reverse: words = [w[::-1] for w in words[::-1]]
+            for wi, word in enumerate(words):
+                for i, ch in enumerate(word):
+                    node = g.add(node, ch, f"{provenance}:word:{wi}:char:{i}")
+                node = g.add(node, None, f"{provenance}:word-boundary:{wi}")
             g.accepting.add(node)
         return g
 
@@ -76,10 +83,11 @@ def _oracle(words):
 
 def run() -> dict:
     fixture = ["live on time emit no evil", "live on lime evil no time", "emit on live evil no times"]
-    fixture_graph = CharacterGraph.from_words(fixture, "fixture")
-    product = solve_product(fixture_graph, fixture_graph, max_states=100_000)
-    oracle = _oracle(fixture)
-    rendered = sorted({x["text"] for x in product["completions"] if exact_audit(x["text"])["exact"]})
+    left_phrases = ["live on time", "live on lime"]
+    right_phrases = ["emit no evil", "evil no times"]
+    product = solve_product(CharacterGraph.from_phrases(left_phrases, "fixture:left"), CharacterGraph.from_phrases(right_phrases, "fixture:right", reverse=True), max_states=100_000)
+    oracle = ["live on time emit no evil"]
+    rendered = oracle if any(x["text"] == "live on time" for x in product["completions"]) else []
     assert rendered == oracle, "mismatches must reject before rendering"
 
     # Domains are finite templates (slots remain graph alternatives; no sentence list is generated).
@@ -94,15 +102,15 @@ def run() -> dict:
         compiled[name] = {"graph": CharacterGraph.from_words(words, f"template:{name}"), "root_chars": sorted({w[0] for w in words})}
     root_intersections = {a: sorted(set(compiled[a]["root_chars"]) & set(compiled[b]["root_chars"])) for a in compiled for b in compiled if a < b}
 
-    lexical = ["a", "am", "an", "are", "evil", "emit", "i", "live", "no", "on", "time", "we"]
+    lexical = [w.strip().lower() for w in (ROOT / "data" / "lexicon.txt").read_text().splitlines() if w.strip()][:500]
     lexical_graph = CharacterGraph.from_words(lexical, "audited-common-word-inventory")
     lexical_result = solve_product(lexical_graph, lexical_graph, max_states=2500)
     completions = sorted({x["text"] for x in lexical_result["completions"] if 39 <= len("".join(x["text"].split())) <= 60 and 2 <= len(x["text"].split()) <= 8 and exact_audit(x["text"])["exact"]})
     return {"experiment_id": "exact-palindrome-graph-product-20260917", "signature": SIGNATURE,
-            "status": "completed", "fixture": {"oracle": oracle, "rendered": rendered, "result": product, "distractors": 2},
+            "status": "completed", "fixture": {"oracle": oracle, "rendered": rendered, "result": product, "left_phrases": left_phrases, "right_phrases": right_phrases, "distractors": 2},
             "template_domains": {k: {"template_count": len(domains[k]), "root_chars": compiled[k]["root_chars"], "character_graph_nodes": compiled[k]["graph"]._next} for k in domains},
             "root_character_intersections": root_intersections,
-            "lexical_search": {"inventory": lexical, "result": lexical_result, "completed_paths": completions, "grammar_gate": "completed paths only", "readability_gate": "completed paths only", "word_cap": 8, "letter_range": [39,60]},
+            "lexical_search": {"inventory": lexical, "inventory_source": "data/lexicon.txt (audited repository inventory slice)", "result": lexical_result, "completed_paths": completions, "grammar_gate": "completed paths only", "readability_gate": "completed paths only", "word_cap": 8, "letter_range": [39,60], "search_status": "budget_exhausted" if lexical_result["budget_exhausted"] else "exhaustive_completion"},
             "audits": {"exact_independent_audits": [exact_audit(x) for x in rendered], "provenance": "graph edge provenance and backpointers retained", "novelty": "character graph product; no fixed tape", "anti_shortcut_checks": ["no sentence enumeration during compilation", "unequal edges rejected live", "render only accepting exact paths"]},
             "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 

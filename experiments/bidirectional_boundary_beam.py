@@ -19,6 +19,8 @@ WORDS = set(x.strip() for x in (ROOT / "data/lexicon.txt").read_text().splitline
 NOUN = set("man woman dog cat rain room door map note town time money wind storm plan trap step light river".split())
 VERB = set("is are was were ran sat saw saws lost held set put left made told came fell had have can tell".split())
 DET = {"a", "the", "no", "one", "she", "he", "i", "we", "it", "they"}
+PREP = set("at on in to of from with".split())
+MIN_ZIPF = 3.0
 
 def norm(s): return re.sub("[^a-z]", "", s.lower())
 
@@ -40,14 +42,13 @@ def pos(w):
     if w in DET: return "D"
     if w in NOUN: return "N"
     if w in VERB: return "V"
+    if w in PREP: return "P"
     return "X"
 
 def shape_ok(ws):
     # independent clauses: subject (D/N), verb, optional determiner+noun.
     p = "".join(pos(w) for w in ws)
-    # A permissive second pass is intentional: the seed lexicon is only a
-    # cheap lexical cost, not a parser.  It still rejects one-word fragments.
-    return p in {"DV", "DNV", "DVN", "DDNV", "DDV"} or len(ws) >= 2
+    return p in {"DV", "DNV", "DVN", "DDNV", "DDV", "DVP", "DNVP", "DNPV"}
 
 def segment(tape, trie, beam=80):
     states = [(0, [], 0.0)]
@@ -57,9 +58,15 @@ def segment(tape, trie, beam=80):
             if i == len(tape):
                 yield ws, cost; continue
             for w in trie.matches(tape, i):
-                if len(w) < 2 or w not in WORDS: continue
+                if len(w) < 2 or w not in WORDS or zipf_frequency(w, "en") < MIN_ZIPF: continue
+                if pos(w) == "X": continue
                 # Zipf cost favours ordinary words; penalise tiny fragments and repetition.
-                c = cost - zipf_frequency(w, "en") + (1.5 if len(w) == 2 else 0)
+                # Boundary-aware phrase score: reward frequent adjacent word
+                # transitions without importing an LM.
+                boundary = zipf_frequency((ws[-1] + " " + w) if ws else w, "en")
+                c = cost - zipf_frequency(w, "en") - 0.35 * boundary
+                if pos(w) in {"D", "P"}: c += 0.8
+                if sum(pos(x) in {"D", "P"} for x in ws) >= 2: c += 1.5
                 if ws and w == ws[-1]: c += 4
                 nxt.append((i + len(w), ws + [w], c))
         states = sorted(nxt, key=lambda x: x[2])[:beam]
@@ -102,9 +109,10 @@ def main():
     out.sort(key=lambda x: (x["cost"], -x["letters"]))
     result = {
         "experiment_id": "bidirectional-boundary-beam-20260917",
-        "method": "trie-beam-resegmentation",
+        "method": "typed-boundary-beam-v2",
         "status": "completed_no_reader_candidate",
-        "search": {"seeds": len(lefts), "beam": 80, "max_word_letters": 12,
+        "search": {"seeds": len(lefts), "authored_seeds": 148, "fixture_seeds": 28,
+                    "beam": 80, "max_word_letters": 12, "min_zipf": MIN_ZIPF,
                     "language_model": False},
         "candidates": out[:20],
         "reader_eligible": False,
@@ -113,9 +121,9 @@ def main():
                                "catalogue_used_for_generation": False},
         "provenance": {"seed_files": ["data/authored_sentences.txt", "data/novel_pairs.json"],
                         "fixtures_labelled": True},
-        "next_repair": {"operator": "tagged_pos_trie_and_phrase_score",
-                         "target": "replace_permissive_shape_fallback",
-                         "reason": "short lexical fragments satisfy the current clause-shape fallback"},
+        "next_repair": {"operator": "reader_oracle",
+                         "target": "rank typed clauses by human readability",
+                         "reason": "typed lexical search remains intentionally conservative and may return no candidate"},
     }
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(result, indent=2) + "\n")

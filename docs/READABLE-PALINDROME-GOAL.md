@@ -77,6 +77,14 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   prose but not a palindrome. The recorded successor is a seam-conditioned
   object/subject substitution, not a larger lexical sweep (`d9501e3`).
 
+- **Semantic substitution repair (2026-09-17).** A fresh caretaker/object
+  package then conditioned substitutions on semantic valency while retaining
+  agreement and residual state. It explored 25 states, reached one matched
+  character at best (`the child finds ... the paint`), and produced no exact
+  closure. The near miss and independent hashes are retained in `d1d0924`; a
+  fourth seam-local variant would repeat the same first-edge failure signature,
+  so this branch is paused pending an architectural reset.
+
 - **Midpoint representation audit.** Astra differential testing found that the
   earlier live products silently required each complete clause to occupy one
   whole palindrome half.  That excludes valid unequal partitions and centers

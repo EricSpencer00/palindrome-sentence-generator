@@ -34,23 +34,50 @@ def audit(text):
     n=normalize_letters(text); two=all(n[i]==n[-1-i] for i in range(len(n)//2))
     return {"exact":two and n==n[::-1],"letters":len(n),"sha256":sha256(n.encode()).hexdigest(),"two_pointer_pairs":len(n)//2}
 
+def step(words, wi, ci, direction):
+    """One automaton transition: epsilon at a word boundary, otherwise char."""
+    if direction == "left":
+        if wi == len(words): return ("final", None, wi, ci)
+        word=words[wi]
+        if ci == len(word): return ("epsilon", " ", wi+1, 0)
+        return ("char", word[ci], wi, ci+1)
+    if wi < 0: return ("final", None, wi, ci)
+    word=words[wi]
+    if ci < 0:
+        if wi == 0: return ("final", None, -1, -1)
+        return ("epsilon", " ", wi-1, len(words[wi-1])-1)
+    return ("char", word[ci], wi, ci-1)
+
+def transduce_pair(left, right, limit):
+    """Product of two independently compiled word/character automata.
+
+    Boundary transitions are epsilon and never become palindrome obligations.
+    The right automaton starts at its final word/character position.
+    """
+    stack=[(0,0,len(right)-1,len(right[-1])-1,[])]; seen=set(); dead=0
+    while stack and len(seen)<limit:
+        lw,lc,rw,rc,prefix=stack.pop(); key=(lw,lc,rw,rc)
+        if key in seen: continue
+        seen.add(key)
+        lt,lo,nlw,nlc=step(left,lw,lc,"left"); rt,ro,nrw,nrc=step(right,rw,rc,"right")
+        if lt=="final" and rt=="final": return True, len(seen), dead, (lw,lc,rw,rc)
+        if lt=="epsilon": stack.append((nlw,nlc,rw,rc,prefix)); continue
+        if rt=="epsilon": stack.append((lw,lc,nrw,nrc,prefix)); continue
+        if lt=="final" or rt=="final" or lo.lower()!=ro.lower(): dead+=1; continue
+        stack.append((nlw,nlc,nrw,nrc,prefix+[lo.lower()]))
+    return False, len(seen), dead, (stack[-1][0:4] if stack else (0,0,0,0))
+
 def run(limit=180000):
     ps=paths(); closures=[]; witnesses=[]; dead=0; states=0
-    # Character transducer state: path IDs, word/character offsets, and residual.
+    # Product states are offsets in two independent lexical automata; complete
+    # strings are never built for matching. Rendering happens only after a
+    # residual frontier is selected, so diagnostics cannot masquerade as hits.
     for li,(lp,lf) in enumerate(ps):
       for ri,(rp,rf) in enumerate(ps):
         if states>=limit: break
-        # independent word streams are traversed from opposite ends
+        ok,used,dead_pair,residual=transduce_pair(lp,rp,max(1,limit-states)); states+=used; dead+=dead_pair
         L=" ".join(lp); R=" ".join(rp)
-        i=j=0; matched=[]
-        while i<len(L) and j<len(R) and states<limit:
-          states+=1
-          # spaces are epsilon boundary transitions; characters are obligations
-          if L[i].isspace(): i+=1; continue
-          if R[-1-j].isspace(): j+=1; continue
-          if L[i].lower()!=R[-1-j].lower(): dead+=1; break
-          matched.append(L[i].lower()); i+=1; j+=1
-        if i==len(L) and j==len(R):
+        if ok:
           text=L+" "+R; a=audit(text)
           row={"text":text,"length_letters":a["letters"],"provenance":{"left_path":list(lp),"right_path":list(rp),"frames":[list(lf),list(rf)],"source":"hand-authored typed lexicon; independent path transducers","agreement_checked_before_admission":True},"independent_exact_audit":a,"mechanically_admitted":False}
           if a["exact"]: row["mechanically_admitted"]=True; closures.append(row)
@@ -58,7 +85,7 @@ def run(limit=180000):
         elif len(witnesses)<12:
           # Render intact grammatical prose even when a residual fails.
           text=L+" "+R; a=audit(text)
-          witnesses.append({"text":text,"length_letters":a["letters"],"residual":{"left_offset":i,"right_offset":j,"left_next":L[i:i+8],"right_next":R[max(0,len(R)-j-8):len(R)-j]},"provenance":{"left_path":list(lp),"right_path":list(rp),"frames":[list(lf),list(rf)],"source":"live bidirectional affix transducer"},"independent_exact_audit":a,"mechanically_admitted":False})
+          witnesses.append({"text":text,"length_letters":a["letters"],"residual":{"automaton_state":list(residual),"states_explored":used},"provenance":{"left_path":list(lp),"right_path":list(rp),"frames":[list(lf),list(rf)],"source":"live bidirectional affix transducer"},"independent_exact_audit":a,"mechanically_admitted":False})
       if states>=limit: break
     longest=max((x["length_letters"] for x in witnesses+closures),default=0)
     return {"status":"truncated" if states>=limit else "exhausted","stats":{"states":states,"dead_states":dead,"closures":len(closures),"rendered":len(witnesses)+len(closures),"longest_letters":longest},"paths":len(ps),"closures":closures,"diagnostic_witnesses":witnesses,"config":{"independent_affix_transducers":True,"live_residual_obligations":True,"pos_agreement_valency":True,"fixed_tape":False,"posthoc_reverse":False},"novelty_preflight":{"distinction":"word-internal stem/affix character transducers with POS paths and live opposite residuals; no completed-tape reversal or word mirror","excluded":{"center_out_astar":True,"scene_graph":True,"reverse_segmentation":True,"rlaif":True}},"reader_gate":{"status":"not_triggered" if not closures else "human_blind_review_required","programmatic_metrics_are_diagnostic":True,"next_repair":"add held-out agreement-carrying inflection variants and retain the same live residual product"}}

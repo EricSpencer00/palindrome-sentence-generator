@@ -1,0 +1,164 @@
+{
+  "experiment_id": "luna-palindromic-scene-realizer-20260917",
+  "signature": "typed-scene-realizer|open-obligation-skeleton|svo-pp-valency|agreement",
+  "status": "completed_exact_attempt",
+  "reader_eligible": false,
+  "method": "choose typed SVO/PP scene, open local character obligation, then realize agreement and valency",
+  "candidates": [
+    {
+      "scene": "harbor",
+      "typed_roles": {
+        "subject": "NOUN",
+        "verb": "VERB-3SG",
+        "object": "NOUN",
+        "attachment": "PP"
+      },
+      "complete_svo_pp": true,
+      "skeleton_before_realization": true,
+      "audit": {
+        "rendered": "The harbor guides the vessel near the breakwater.",
+        "letters": 41,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "independent_pointer_exact": false,
+        "normalized_sha256": "824e8c6415a27a0e3a4c115db309be4f275cd898fbd4db5751ae24c0381a3140",
+        "reverse_sha256": "fecd8bf5f90e5ea8a21f968c1bf6eacb7213db1b144a4405c6efe3342dccab73",
+        "mechanical_checks": {
+          "min_letters": true,
+          "nonempty": true,
+          "complete_sentence": true
+        },
+        "repair": "reselect the harbor object at the first residual boundary; preserve guides valency and 3SG agreement",
+        "anti_shortcut": {
+          "fixed_tape_used": false,
+          "mirrored_word_order": false,
+          "repeated_unit": false,
+          "catalogue_or_gibberish": false
+        },
+        "skeleton": {
+          "kind": "open_boundary_obligation",
+          "seed": "hebreakwater",
+          "palindromic_obligation": "hebreakwaterretawkaerbeh",
+          "width": 12,
+          "word_order": "semantic_clause_order"
+        }
+      }
+    },
+    {
+      "scene": "garden",
+      "typed_roles": {
+        "subject": "NOUN",
+        "verb": "VERB-3SG",
+        "object": "NOUN",
+        "attachment": "PP"
+      },
+      "complete_svo_pp": true,
+      "skeleton_before_realization": true,
+      "audit": {
+        "rendered": "The gardener waters the seedling after the rain.",
+        "letters": 40,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "independent_pointer_exact": false,
+        "normalized_sha256": "a1ef3601802ea9863fdfc0fd5b526bbccb1e77dbd55816770348a5d420271bab",
+        "reverse_sha256": "63f9aab6fa52f2d5ac71d37216cd3304295ce7dff85dc0046ee64f4f34a697bf",
+        "mechanical_checks": {
+          "min_letters": true,
+          "nonempty": true,
+          "complete_sentence": true
+        },
+        "repair": "reselect the garden object at the first residual boundary; preserve waters valency and 3SG agreement",
+        "anti_shortcut": {
+          "fixed_tape_used": false,
+          "mirrored_word_order": false,
+          "repeated_unit": false,
+          "catalogue_or_gibberish": false
+        },
+        "skeleton": {
+          "kind": "open_boundary_obligation",
+          "seed": "aftertherain",
+          "palindromic_obligation": "aftertherainniarehtretfa",
+          "width": 12,
+          "word_order": "semantic_clause_order"
+        }
+      }
+    },
+    {
+      "scene": "archive",
+      "typed_roles": {
+        "subject": "NOUN",
+        "verb": "VERB-3SG",
+        "object": "NOUN",
+        "attachment": "PP"
+      },
+      "complete_svo_pp": true,
+      "skeleton_before_realization": true,
+      "audit": {
+        "rendered": "The curator shelves the volume inside the library.",
+        "letters": 42,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "y"
+        ],
+        "independent_pointer_exact": false,
+        "normalized_sha256": "cd11035cbad2bf9aaae4c75186ae1fbbbc8ee1d91ef7edc21ad8d36cf50800f4",
+        "reverse_sha256": "51a97a851c00d61842f34b69f2bcc6e146033582a43abbfa9b13598ecb5397c8",
+        "mechanical_checks": {
+          "min_letters": true,
+          "nonempty": true,
+          "complete_sentence": true
+        },
+        "repair": "reselect the archive object at the first residual boundary; preserve shelves valency and 3SG agreement",
+        "anti_shortcut": {
+          "fixed_tape_used": false,
+          "mirrored_word_order": false,
+          "repeated_unit": false,
+          "catalogue_or_gibberish": false
+        },
+        "skeleton": {
+          "kind": "open_boundary_obligation",
+          "seed": "dethelibrary",
+          "palindromic_obligation": "dethelibraryyrarbilehted",
+          "width": 12,
+          "word_order": "semantic_clause_order"
+        }
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "stats": {
+    "scenes": 3,
+    "rendered": 3,
+    "exact_over_38": 0,
+    "min_letters": 39
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "catalogue_files_scanned": 14,
+    "candidate_collisions": [],
+    "self_collision_ignored": true,
+    "output_excluded": "/Users/eric/GitHub/palindrome-sentence-generator/runs/luna-palindromic-scene-realizer-20260917.json",
+    "fixed_tape_used": false
+  },
+  "provenance": {
+    "generator_sha256": "100566a98fdaf5e23a982b755dcaa3fed7ef2afcc7a4cc411a57d2efd3f34979",
+    "lexical_source": "small authored typed scene inventory",
+    "catalogue_or_corpus_import": false,
+    "independent_audits": [
+      "character pointer",
+      "forward/reverse SHA-256",
+      "typed valency/agreement"
+    ]
+  },
+  "next_repair": "At each failed boundary, replace one role-compatible object or PP attachment and reopen only that residual obligation; do not mirror the clause."
+}

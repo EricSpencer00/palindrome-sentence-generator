@@ -14,9 +14,9 @@ def audit(s):
 def grammar_nfa():
  roles=('DET_SUBJ','ADJ_SUBJ','NOUN_SUBJ','VERB','DET_OBJ','ADJ_OBJ','NOUN_OBJ'); return [(r,LEXICON[r]) for r in roles]
 def paired_search():
- left=grammar_nfa();right=grammar_nfa(); stack=[(0,0,'','',[])];closed=[];expanded=0
+ left=grammar_nfa();right=grammar_nfa(); stack=[(0,0,0,0,'','',[])];closed=[];expanded=0
  while stack and expanded<500:
-  i,j,a,b,states=stack.pop();expanded+=1
+  i,j,li,rj,a,b,states=stack.pop();expanded+=1
   if i==len(left) and j==len(right):
    if a==b[::-1]:closed.append({'left':a,'right':b,'states':states})
    continue
@@ -24,7 +24,10 @@ def paired_search():
    role,xs=left[i]; rrole,ys=right[j]
    for x in xs:
     for y in ys:
-     if letters(x)[0]==letters(y)[-1]: stack.append((i+1,j+1,a+x,b+y,states+[role+'|'+rrole]))
+     lx,ry=letters(x),letters(y)
+     if li<len(lx) and rj<len(ry) and lx[li]==ry[-1-rj]:
+      ni,nj=li+1,rj+1; stack.append((i,j,ni,nj,a+lx[li],b+ry[-1-rj],states+[role+'|'+rrole+f'[{ni},{nj}]']))
+      if ni==len(lx) and nj==len(ry): stack.append((i+1,j+1,0,0,a,b,states+[role+'|'+rrole+'|WORD_BOUNDARY']))
  return expanded,closed
 def oracle_rejects_one_character_fake():
  return letters('ab') != letters('a')[::-1]

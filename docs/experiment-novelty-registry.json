@@ -5686,6 +5686,39 @@
       "distinction": "Expands inflectional lexical tries one character at a time and checks partial seam equations before opening the next lexical slot, allowing variable word boundaries without completed-tape reversal.",
       "reader_evidence": false,
       "status": "targeted constructive repair; 6 ordinary-English candidates, longest 90 letters, 0 exact closures; function-word tries across variable boundaries are next"
+    },
+    {
+      "id": "function-word-trie-boundary-seam-20260917",
+      "signature": "function-word-trie|variable-word-boundary|character-by-character-seam-equation|ordinary-prose|independent-pointer-sha",
+      "artifact": "experiments/function_word_trie_boundary_seam_20260917.py",
+      "run_artifacts": [
+        "runs/function-word-trie-boundary-seam-20260917.json"
+      ],
+      "distinction": "Treats determiners, prepositions, and conjunctions as character-level trie slots and checks partial seam equations before advancing to the next slot, rather than completing a tape and reversing it.",
+      "reader_evidence": false,
+      "status": "targeted constructive repair; 2 ordinary-English candidates, longest 84 letters, 0 exact closures; seam-aware dynamic programming over function-word trie states is next"
+    },
+    {
+      "id": "heldout-clause-link-residual-repair-20260917",
+      "signature": "residual-conditioned-clause-link|agreement-tense-state|ordinary-svo|independent-pointer-sha",
+      "artifact": "experiments/heldout_clause_link_residual_repair_20260917.py",
+      "run_artifacts": [
+        "runs/heldout-clause-link-residual-repair-20260917.json"
+      ],
+      "distinction": "Selects one held-out clause-link realization from the recorded outer residual while retaining agreement/tense state and ordinary SVO order; it does not broaden the lexical sweep or mirror completed clauses.",
+      "reader_evidence": false,
+      "status": "targeted constructive repair; 16 clause-link realizations, longest 120 letters, 0 exact closures; center-crossing grammar state is next"
+    },
+    {
+      "id": "cfg-relative-attachment-feature-20260917",
+      "signature": "object-relative-attachment-feature|direct-object-vs-locative|live-character-intersection|independent-pointer-sha",
+      "artifact": "experiments/cfg_relative_attachment_feature_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-relative-attachment-feature-20260917.json"
+      ],
+      "distinction": "Separates direct-object `that` and locative `where` relative productions with disjoint lexical domains and carries the attachment feature through the live character-obligation state.",
+      "reader_evidence": false,
+      "status": "targeted constructive repair; 3,072 controls plus 1,024 attachment-preserving repairs, longest 61 letters, 0 exact closures; one controlled attachment alternation is next"
     }
   ]
 }

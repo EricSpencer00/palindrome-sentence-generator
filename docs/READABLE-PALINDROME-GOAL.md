@@ -2376,3 +2376,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   concrete operators are function-word tries across variable boundaries, one
   held-out clause-link realization, and a direct-object versus locative
   attachment feature state, respectively.
+
+  The following repair wave completed those named operators. Function-word
+  trie boundary expansion rendered 2 ordinary-English candidates up to 84
+  letters; the clause-link residual repair rendered 16
+  agreement-preserving realizations up to 120 letters; and the
+  direct-object/locative attachment CFG tested 3,072 controls plus 1,024
+  attachment-preserving repairs up to 61 letters. All three produced 0 exact
+  closures. Independent pointer and forward/reverse SHA-256 audits,
+  provenance, novelty preflight, and anti-shortcut checks are present for
+  every row. They remain outside the reader packet. The next operators are
+  seam-aware dynamic programming over function-word trie states, a
+  center-crossing grammar state, and one controlled attachment alternation
+  carried through the character-obligation state.

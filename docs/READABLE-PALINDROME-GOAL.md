@@ -3221,3 +3221,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   novelty, and anti-shortcut checks pass. The next operators are exact
   boundary-node requirements, lexical aspect/adverb coupling, and a typed
   relative-object slot with semantic-class agreement.
+
+  The feature follow-ups still produced no exact closure: boundary-label
+  opposing-role requirements retained 8 intact candidates up to 101 letters,
+  and lexical aspect/adverb coupling retained 2 intact candidates up to 63
+  letters. These rows are preserved, but an architectural audit found that
+  several earlier “coupled” lanes rendered Cartesian products before attaching
+  trie traces. I am therefore treating them as diagnostics, not evidence of
+  genuine joint decoding. The decisive next run is a character-labeled graph
+  product with word-boundary states and an exhaustive tiny oracle.

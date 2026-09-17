@@ -1,0 +1,131 @@
+{
+  "family": "word-internal-seam-first-mismatch-repair",
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_before_run": 391,
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "duplicate_sweep": false,
+    "route": "first-global-mismatch repair; two seam-adjacent morphemes only",
+    "rejected_routes": [
+      "duplicate sweep",
+      "fixed tape",
+      "posthoc reversal",
+      "broad morphology"
+    ]
+  },
+  "source": {
+    "text": "a teacher guided the patient apprentice through the winter archive; the recorder preserved a precise account beside the weathered map.",
+    "audit": {
+      "letters": 113,
+      "normalized_tape": "ateacherguidedthepatientapprenticethroughthewinterarchivetherecorderpreservedapreciseaccountbesidetheweatheredmap",
+      "independent_ascii_tape": "ateacherguidedthepatientapprenticethroughthewinterarchivetherecorderpreservedapreciseaccountbesidetheweatheredmap",
+      "exact": false,
+      "independent_two_pointer_exact": false,
+      "first_mismatch": {
+        "left_index": 0,
+        "right_index": 112,
+        "left": "a",
+        "right": "p"
+      },
+      "sha256_forward": "738796a3eb3cfa6d5f72e5ce723a14d791086bd583d5964ae2fcfc11bd91bb81",
+      "sha256_reverse": "95c6a152ae3a9fbedb16662934e18fbb4ecdb3b4e834f2be5934948aab531d74",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    }
+  },
+  "rendered_intact_scene": "the teacher guided the patient apprentice through the winter archive; the recorder preserved a precise account beside the weathered chart.",
+  "repair": {
+    "operator": "replace only two seam-adjacent morphemes at first global mismatch",
+    "changed_morphemes": [
+      {
+        "side": "left",
+        "role": "determiner",
+        "before": "a",
+        "after": "the"
+      },
+      {
+        "side": "right",
+        "role": "patient",
+        "before": "map",
+        "after": "chart"
+      }
+    ],
+    "preserved_roles": [
+      "agent",
+      "event",
+      "patient",
+      "setting"
+    ],
+    "preserved_internal_seam": "teacher/recorder: e == e",
+    "changed_word_count": 2
+  },
+  "audit": {
+    "letters": 117,
+    "normalized_tape": "theteacherguidedthepatientapprenticethroughthewinterarchivetherecorderpreservedapreciseaccountbesidetheweatheredchart",
+    "independent_ascii_tape": "theteacherguidedthepatientapprenticethroughthewinterarchivetherecorderpreservedapreciseaccountbesidetheweatheredchart",
+    "exact": false,
+    "independent_two_pointer_exact": false,
+    "first_mismatch": {
+      "left_index": 1,
+      "right_index": 115,
+      "left": "h",
+      "right": "r"
+    },
+    "sha256_forward": "405bb1a157e45148c94ecfb651e6f4c4867290324832095e4c7fc82dbfb0a682",
+    "sha256_reverse": "776b900e56911004cd152ad7dd041e4772e24330d15ee4f6cb7a44a8c1ca58b0",
+    "mechanical_checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    }
+  },
+  "anti_shortcut_flags": {
+    "fixed_tape": false,
+    "reverse_segmentation": false,
+    "word_order_mirror": false,
+    "repeated_unit": false,
+    "catalogue_lookup": false,
+    "posthoc_reversal": false,
+    "duplicate_sweep": false
+  },
+  "provenance": {
+    "authored_repair": true,
+    "catalogue_lookup": false,
+    "known_seeds": false,
+    "independent_clause_authoring": true,
+    "source_run": "runs/word-internal-seam-equation-20260916.json"
+  },
+  "next_repair": "replace only the next first-residual character-bearing morphemes while preserving both clauses' four semantic roles"
+}

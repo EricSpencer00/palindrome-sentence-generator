@@ -1,0 +1,34 @@
+{
+  "experiment": "boundary-subword-residual-synonyms-20260917",
+  "signature": "boundary-aware-subword-residual|authored-synonym-slots|paired-typed-scenes|online-csp|independent-two-pointer",
+  "generator_sha256": "f32e9854994ebadb87326086838b4e865a3195c33a30279aa36884b76ba3a068",
+  "method": "Filter each synonym domain while paired ordinary-order scene derivations carry unmatched character residuals across independent word boundaries.",
+  "withheld_control": {
+    "left": "ab",
+    "right": "ba",
+    "compatible": true,
+    "residual": "|"
+  },
+  "rounds": [
+    {
+      "step": 0,
+      "states": 0,
+      "online_conflicts": 8,
+      "left_domain": [
+        "a",
+        "the"
+      ],
+      "right_domain": [
+        "at",
+        "by",
+        "in",
+        "near"
+      ]
+    }
+  ],
+  "candidate_count": 0,
+  "exact_candidates": [],
+  "reader_eligible_count": 0,
+  "repair_after_failure": "The six-slot chart exhausted because complete-prefix matching was too eager; next repair retains bounded residuals across asynchronous slot advancement and conditions synonym domains on residual length before selecting the next grammatical role.",
+  "scope": "Diagnostic construction; no readability claim without blinded human ratings."
+}

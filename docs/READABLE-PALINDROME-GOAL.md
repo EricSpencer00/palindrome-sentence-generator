@@ -3073,3 +3073,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   closed. The next concrete operators are full-scene human-readable checks for
   held-out replacements, tenth-residual conditioning after the `c` tail, and a
   coordinated article state for both alternating objects.
+
+  The following wave completed those repairs. Held-out semantic replacements
+  rendered 2 intact candidates up to 95 letters through the full scene grammar
+  (human screening remains deferred until an exact survivor); the proper-
+  locative `via del Laco` rendered 4 intact candidates up to 59 letters with
+  all four tenth-character matches; and the coordinated article CFG rendered
+  4,608 candidates up to 71 letters while pruning 14,080 mixed or invalid
+  article-number states. All produced 0 exact closures. Independent
+  pointer/SHA-256 replay, provenance, novelty preflight, and anti-shortcut
+  checks are retained for every row. The reader gate remains closed. The next
+  concrete operators are a `c`-tail eleventh-residual condition, plural-object
+  coordinated `the/the` gating, and—only after exact closure—blinded human
+  screening of the held-out prose.

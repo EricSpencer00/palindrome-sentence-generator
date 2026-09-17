@@ -164,7 +164,7 @@ def run():
       "search":{"states":states,"truncated":truncated,"letters":"39-220","rlaif_per_candidate":False,
                  "construction_filters":["determiner_noun_agreement","verb_object_valency","shared_scene_entity_and_anaphora","relative_event_attachment","finite_tense_aspect_state","positive_negative_interrogative_force","proof_carrying_semantic_provenance"]},
       "exact_candidates":rows,"withheld_control":{"id":"known_38_letter_seed","used_for_search":False,"exact":True},
-      "next_repair":{"operator":"add polarity and question-force state edges","reason":"finite tense/aspect synchronization yielded no exact closure; next add clause-force compatibility without relaxing exact matching"},
+      "next_repair":{"operator":"add phoneme-grapheme correspondence state (registry-preflighted distinct signature)","reason":"all current semantic and grammatical states yielded no exact closure; prosodic/stress routes are registry-blocked, so the next candidate is explicit sound-to-letter correspondence"},
       "provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"lexicon":"authored ordinary words; no catalogue lookup"}}
     OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(result,indent=2)+"\n"); return result
 if __name__ == "__main__": print(json.dumps(run(),indent=2))

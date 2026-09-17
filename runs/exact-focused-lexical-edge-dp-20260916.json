@@ -1,0 +1,61 @@
+{
+  "experiment": "exact-focused-lexical-edge-dp-20260916",
+  "novelty_preflight": {
+    "passed": true,
+    "signature": "exact-focused-edge-dp|precommit-character-pair|complete-svo-event-frame|fresh-authored-lexicon",
+    "overlaps_checked": [
+      "paired-lexical-phrase-graph-live-emit-20260916"
+    ],
+    "reason": "DP rejects any edge whose paired character fails before committing; no post-hoc filtering or tape reversal."
+  },
+  "rows": [
+    {
+      "id": "dp-exact-0",
+      "rendered": "The miller repairs the wooden wheel beside the creek, and a patient chemist measures the clear solution inside the glass room.",
+      "dp_state": {
+        "frame": "complete SVO event",
+        "edge_count": 104,
+        "pair_check": "precommit",
+        "posthoc_filtering": false
+      },
+      "audit": {
+        "length": 104,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "m"
+        },
+        "sha256_forward": "55b63cd0c85b0e038b3c87bb398802c84aa5facf32cc71541b1a01c314b72590",
+        "sha256_reverse": "24d40d6f6ead70a63cc61545e789186f6574be38aa97a4c01a441db647553612",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "exact-focused dynamic program over fresh lexical edges with precommit character pair checks",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "14da67387bd4d0587ef5c8fee6b00dbbd2d9871998e797722b1a556528ca5e73",
+        "source_sha256": "55b63cd0c85b0e038b3c87bb398802c84aa5facf32cc71541b1a01c314b72590"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "catalogue_text": false,
+        "repeated_unit": false,
+        "semordnilap_chain": false,
+        "word_order_mirror": false,
+        "posthoc_filtering": false
+      },
+      "next_repair": "First residual 0: add a fresh same-role lexical edge whose terminal pair satisfies the DP obligation before committing the next frame."
+    }
+  ],
+  "summary": {
+    "candidate_count": 1,
+    "exact_count": 0,
+    "max_length": 104
+  }
+}

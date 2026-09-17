@@ -118,4 +118,7 @@ def run():
 
 if __name__ == "__main__":
     import json
-    print(json.dumps(run(), indent=2))
+    result = run()
+    out = Path(__file__).resolve().parents[1] / "runs" / "semantic-frame-trie-equation-20260917.json"
+    out.write_text(json.dumps(result, indent=2) + "\n")
+    print(json.dumps({"status": result["status"], "comparisons": result["provenance"]["fixed_frame_pairs_compared"]}, indent=2))

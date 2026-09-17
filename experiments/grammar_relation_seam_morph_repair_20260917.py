@@ -63,6 +63,7 @@ def solve(slots=PATTERN,budget=150000):
 
 def main():
  r=solve();r['pattern_name']='morph_scene';r['next_repair']='add seam-conditioned subject/object agreement pairs while retaining relation state'
+ r['near_miss_probes']=[{'rendered':'The teacher reads a letter often; the writer reads a story.', 'audit':audit('The teacher reads a letter often; the writer reads a story.'), 'provenance':'fresh authored grammatical control, not a generated palindrome'}]
  OUT.write_text(json.dumps({'experiment_id':ID,'status':'completed','independent_validator':'audit','novelty_preflight':{'catalogue_family_imported':False,'construction_signature':ID},'patterns':[r]},indent=2)+'\n')
  print(json.dumps({'states':r['states'],'mismatches':r['mismatch_edges'],'candidates':len(r['candidates']),'best':r['best_partial']},indent=2))
 if __name__=='__main__': main()

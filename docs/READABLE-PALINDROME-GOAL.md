@@ -2836,3 +2836,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   equation pruning, live reverse-obligation filtering at the object-setting
   boundary, and a typed causal-connective frame with subject sharing and tense
   agreement.
+
+  The next wave completed those new-family repairs. Single-scene attachment
+  pruning rendered 4 intact candidates up to 101 letters; the independent
+  scene lattice retained 10 boundary-filtered candidates up to 73 letters; and
+  the typed causal shared-subject CFG rendered 768 candidates while pruning
+  2,304 partial states, with a 50-letter maximum. All produced 0 exact
+  closures. Independent pointer/SHA-256 replay, provenance, novelty
+  preflight, and anti-shortcut checks are retained for every row. The reader
+  gate remains closed. The next concrete operators are typed attachment
+  valency with character-by-character role expansion, a second independent
+  role bank at the same object-setting frontier, and a held-out past-tense
+  agreement state in the causal frame.

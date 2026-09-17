@@ -1,0 +1,95 @@
+{
+  "experiment_id": "semantic-slot-single-object-repair-20260916",
+  "signature": "semantic-slot-object-repair|single-state|role-compatible|scene-attachment-fixed|fresh",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "single held-out object substitution with clause relexicalization and all attachment roles frozen",
+  "candidates": [
+    {
+      "repair_state": "single object substitution",
+      "parent_state": "semantic-slot-cross-boundary-dp-20260916",
+      "change": {
+        "old": "damaged compass",
+        "new": "weathered sextant"
+      },
+      "role_fixed": "ranger studies navigational object",
+      "attachments_fixed": [
+        "beside rescue shed",
+        "while volunteers prepare water"
+      ],
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "At noon, the coastal ranger studies a weathered sextant beside the rescue shed, while volunteers prepare fresh water for the arriving hikers.",
+        "letters": 117,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "s"
+        ],
+        "normalized_sha256": "f5ef0a7e9d699707888c58aac529e4c8b341545324d114a9bf156b52060afa79",
+        "reverse_sha256": "c032b9f7bfcbde7913cc5888a8bbe276a116406d37f238bfae0f61c44c39cab8",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": false,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "change only location adjunct noun while preserving object role and attachment",
+        "reason": "object repair remains readable but leaves nonzero character residual"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "change only location adjunct noun while preserving object role and attachment",
+    "reason": "object repair remains readable but leaves nonzero character residual"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 391,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "sweep": false,
+    "prior_scene_replayed": false,
+    "word_order_mirror": false
+  },
+  "provenance": {
+    "generator_sha256": "25ea28a925234e0eba9021b7664ecfbd866c6d8f1e18e986cf454e3eb8238809",
+    "lexical_source": "held-out navigational object slot",
+    "parent_state": "semantic-slot-cross-boundary-dp-20260916",
+    "repair": "damaged compass -> weathered sextant; attachment and participant roles unchanged",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "role replay",
+      "anti-shortcut"
+    ]
+  }
+}

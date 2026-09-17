@@ -17,8 +17,8 @@ WORDS = set(x.strip() for x in (ROOT / "data/lexicon.txt").read_text().splitline
            if x.strip().isalpha())
 # Small POS seed lexicons keep the experiment interpretable and reproducible.
 NOUN = set("man woman dog cat rain room door map note town time money wind storm plan trap step light river".split())
-VERB = set("is are was were ran sat saw saws lost held set put left made told came fell had have can tell".split())
-DET = {"a", "the", "no", "one", "she", "he", "i", "we", "it", "they"}
+VERB = set("is are was were ran sat saw saws lost held set put left made told came fell had have can tell live spit dump labor".split())
+DET = {"a", "the", "no", "one", "she", "he", "i", "we", "it", "they", "not"}
 PREP = set("at on in to of from with".split())
 MIN_ZIPF = 3.0
 
@@ -121,9 +121,9 @@ def main():
                                "catalogue_used_for_generation": False},
         "provenance": {"seed_files": ["data/authored_sentences.txt", "data/novel_pairs.json"],
                         "fixtures_labelled": True},
-        "next_repair": {"operator": "reader_oracle",
-                         "target": "rank typed clauses by human readability",
-                         "reason": "typed lexical search remains intentionally conservative and may return no candidate"},
+        "next_repair": {"operator": "lexical_expansion",
+                         "target": "add attested verb senses without lowering the frequency floor",
+                         "reason": "the typed clause lattice now emits complete surfaces but remains sparse"},
     }
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(result, indent=2) + "\n")

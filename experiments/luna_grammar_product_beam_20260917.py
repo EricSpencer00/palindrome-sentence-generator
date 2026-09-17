@@ -100,7 +100,7 @@ def run(beam_width: int = 8) -> dict:
                     beam.append(_row(f"{extended_left} {follow_left}",
                                      f"{setting.text} {follow_right}", agent.scene,
                                      [agent.text, verb, obj, follow_left, setting.text, follow_right],
-                                     tape(f"{extended_left} {follow}")[::-1],
+                                         tape(f"{extended_left} {follow_left}")[::-1],
                                      ["agent", "event", obj_role, "followup", "setting"]))
     beam.sort(key=lambda r: (-r["letters"], r["rendered"]))
     rows = beam[:beam_width]

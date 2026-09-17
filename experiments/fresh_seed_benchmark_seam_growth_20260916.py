@@ -16,7 +16,7 @@ def audit(s):
 def run():
  rows=[]
  for ai,ac,ob,seam in itertools.product(range(2),range(2),range(2),range(2)):
-  text=f'At dawn, {AGENTS[ai]} {ACTIONS[ac]} {OBJECTS[ob]} {seam}; then the crew secures the boat.';a=audit(text);c=mechanical_admission_checks(text,min_letters=39,max_letters=220)
+  text=f'At dawn, {AGENTS[ai]} {ACTIONS[ac]} {OBJECTS[ob]} {SEAMS[seam]}; then the crew secures the boat.';a=audit(text);c=mechanical_admission_checks(text,min_letters=39,max_letters=220)
   rows.append({'rendered':text,'letters':a['letters'],'heldout_assignment':{'agent':AGENTS[ai],'action':ACTIONS[ac],'object':OBJECTS[ob],'seam':seam},'connected_scene':'one harbor survey event','live_seam_equation':{'first_mismatch':a['first_mismatch'],'operator':'substitute held-out role words at cross-word seam'},'exact_audit':a,'checks':c,'mechanically_admitted':False,'provenance':{'seed_used_as_output':False,'seed_wrapped':False,'fresh_scene':True,'source_sentences_copied':False,'catalogue_imported':False,'borrowed_text':False,'reversed_finished_sentence':False,'word_order_symmetry':False,'repeated_self_palindromic_unit':False}})
  h=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()
  for r in rows:r['provenance']['generator_sha256']=h

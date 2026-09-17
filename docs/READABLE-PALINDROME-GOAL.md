@@ -2599,3 +2599,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   reader gate remains closed. The next concrete operators are incremental AC-3
   support counters, conjunction alternation inside the locative complement,
   and one tense-conditioned verb pair in the short grammar.
+
+  The next wave completed those operators. Incremental AC-3 positional support
+  counters retained 2 intact candidates up to 82 letters; locative-conjunction
+  alternation tested 1,024 candidates up to 98 letters; and the short
+  tense-conditioned verb pair rendered 72 intact candidates up to 99 letters,
+  with midpoint-inside-token crossing in every candidate. All produced 0 exact
+  closures. Independent pointer/SHA-256 replay, provenance, novelty
+  preflight, and anti-shortcut checks are retained for every row. The reader
+  gate remains closed. The next concrete operators are full positional
+  interval-pair support, locative complement order swap, and one
+  agreement-conditioned object determiner in the short grammar.

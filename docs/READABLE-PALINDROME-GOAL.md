@@ -3540,3 +3540,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   eight replays the same 15,658-node/429-world tree because this artifact was
   already present in the registered history; no policy or exactness result is
   changed. The reader gate remains closed pending a genuine exact survivor.
+
+  Round nine applies the next repairs rather than retuning Dream-RSI. The
+  attachment lane made 720 fresh inflectional/lexical substitutions while
+  preserving valency and attachment; its best intact candidate is “A careful
+  gardener carried the blue lantern beside the stone wall; the patient curator
+  labelled the old chart in the quiet archive.” (108 letters, 86 mismatches),
+  independently non-exact. The seam-carrying lexical chart then explored 48
+  authored branches, but none reached the 100-letter gate; its failure is
+  recorded as a construction-length issue, with coordinated-clause composition
+  as the next operator. Both artifacts have fresh provenance and no shortcut
+  flags. Dream-RSI round nine grows to 16,426 nodes across 431 worlds; the
+  held-out controller is still `fixed_mismatch_first` (0.794 mismatch rate),
+  with zero admissible exact closures. We continue with a coordinated,
+  seam-carrying grammar, keeping the exact/readability gates unchanged.

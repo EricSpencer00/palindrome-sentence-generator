@@ -3133,3 +3133,29 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   traversal-time character rejection, an `h`-initial grammatical continuation
   after the matched proper-locative prefix, and relation alternation for one
   object pair while retaining the other relation.
+
+  The following wave completed those repairs. Traversal-time character
+  rejection rendered 3 intact candidates up to 97 letters; the `h`-initial
+  continuation probe rendered 4 intact candidates up to 63 letters but broke
+  the earlier `le` state and admitted no thirteenth match; and one-pair
+  relation alternation rendered 1,152 candidates up to 73 letters while
+  pruning 192 shared-subject states. All produced 0 exact closures.
+  Independent pointer/SHA-256 replay, provenance, novelty preflight, and
+  anti-shortcut checks are retained for every row. The reader gate remains
+  closed. The next concrete operators are multi-slot requirement propagation,
+  an `h` placement that preserves the full `le` continuation, and
+  relation-compatible subject alternation.
+
+  The micro-variant family is now explicitly reset. Its latest wave still
+  produced 0 exact closures: traversal-time character rejection reached 3
+  intact candidates up to 97 letters, the `h` probe broke the full `le` state,
+  and one-pair relation alternation reached 1,152 candidates up to 73 letters.
+  I am preserving those diagnostics but no longer extending that residual
+  ladder. Three whole-tape families now run in parallel: simultaneous typed
+  left/right semantic bundles (8 intact candidates up to 99 letters), a
+  bidirectional complete-phrase transducer (4 intact SVO candidates up to 56
+  letters), and a CFG×palindrome-automaton midpoint intersection (256 product
+  candidates, longest diagnostic control 34 letters). All remain exact-zero;
+  the next operators are character-level coupled expansion, first-residual
+  trie branching within complete phrase roles, and lexical-state expansion in
+  the midpoint product. The reader gate remains closed.

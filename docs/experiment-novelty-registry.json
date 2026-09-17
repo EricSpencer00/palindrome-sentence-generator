@@ -2701,7 +2701,7 @@
       "run_artifacts": [
         "runs/grapheme-chunk-finite-state-constructor-20260916.json"
       ],
-      "distinction": "Fresh clauses are emitted by a finite-state START\u2192det\u2192subj\u2192verb\u2192obj machine whose lexical terminals are typed multi-character onset/rime chunks; mirror debt crosses chunk and word boundaries and is independently replayed. Distinct from character-LM tape resegmentation, CFG/Earley intersection, morphology, and paired grammar lanes.",
+      "distinction": "Fresh clauses are emitted by a finite-state START→det→subj→verb→obj machine whose lexical terminals are typed multi-character onset/rime chunks; mirror debt crosses chunk and word boundaries and is independently replayed. Distinct from character-LM tape resegmentation, CFG/Earley intersection, morphology, and paired grammar lanes.",
       "reader_evidence": false,
       "status": "bounded diagnostic; exact closure unresolved; first-rime residual repair recorded"
     },
@@ -4275,7 +4275,7 @@
       "run_artifacts": [
         "runs/luna-semantic-lexical-path-solver-20260917.json"
       ],
-      "distinction": "The solver selects an agent\u2192event\u2192theme\u2192locative\u2192consequence valency path before lexical realization, then tracks terminal character obligations online across typed edges; it retains intact scenes and a held-out role substitution repair rather than a POS sweep.",
+      "distinction": "The solver selects an agent→event→theme→locative→consequence valency path before lexical realization, then tracks terminal character obligations online across typed edges; it retains intact scenes and a held-out role substitution repair rather than a POS sweep.",
       "reader_evidence": false,
       "status": "two semantic paths with nine causal-path joint/result-frame repairs, fourteen role/predicate/endpoint repairs, and one exact-witness repair lane; the 50-letter witness remains rejected for mirror symmetry/self-palindromic span, and all intact candidates are non-exact; next repair couples result-clause agent and consequence"
     },
@@ -4624,7 +4624,9 @@
       "id": "residual-slot-repair-20260917",
       "signature": "residual-character-obligation|heldout-inflection-slot|ordinary-attachment|independent-exact-audit",
       "artifact": "experiments/residual_slot_repair_20260917.py",
-      "run_artifacts": ["runs/residual-slot-repair-20260917.json"],
+      "run_artifacts": [
+        "runs/residual-slot-repair-20260917.json"
+      ],
       "distinction": "Uses the first residual character obligation from one retained grammatical clause pair to choose a held-out inflection slot; no duplicate sweep, mirrored unit, or reversed finished sentence is admitted.",
       "reader_evidence": false,
       "status": "constructive diagnostic; two ordinary inflection repairs rendered and independently audited, no exact closure"
@@ -4639,6 +4641,204 @@
       "distinction": "Fresh role/verb/theme/adjective/setting lattice jointly searches grammatical scenes while consuming live character obligations around internal word centres; no mirrored phrase halves or catalogue text.",
       "reader_evidence": false,
       "status": "constructive diagnostic; 32 rendered scenes, 0 exact closures"
+    },
+    {
+      "id": "attachment-valency-generator-refinement-20260917",
+      "signature": "single-scene-center-grammar|typed-attachment-alternatives|heldout-semantic-role-bundles|full-scene-prose|independent-pointer-sha",
+      "artifact": "experiments/attachment_valency_generator_refinement_20260917.py",
+      "run_artifacts": [
+        "runs/attachment-valency-generator-refinement-20260917.json"
+      ],
+      "distinction": "Adds typed attachment alternatives and held-out semantic role bundles as a generator refinement before any reader-study work, distinct from post-hoc attachment checks.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 3 intact ordinary-English candidates, longest 101 letters, 0 exact closures; couple attachment-lexicon expansion to exact character equations before full-scene admission"
+    },
+    {
+      "id": "scene-lattice-survey-joint-locative-eleventh-20260917",
+      "signature": "independent-scene-lattice|survey-branch-joint-laco-match|locative-continuation|eleventh-residual-l|independent-pointer-sha",
+      "artifact": "experiments/scene_lattice_survey_joint_locative_eleventh_20260917.py",
+      "run_artifacts": [
+        "runs/scene-lattice-survey-joint-locative-eleventh-20260917.json"
+      ],
+      "distinction": "Extends the matched `la…co` proper-locative tail with `locally` to satisfy the eleventh residual `l` on the retained branch.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 4 intact candidates, longest 66 letters, all four eleventh-character `l` matches, 0 exact closures; condition the next character against the twelfth residual"
+    },
+    {
+      "id": "cfg-while-plural-coordinated-articles-20260917",
+      "signature": "typed-temporal-cfg|while-connective|formerly-later-order|alternating-subjects|plural-objects|coordinated-the-the|independent-pointer-sha",
+      "artifact": "experiments/cfg_while_plural_coordinated_articles_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-while-plural-coordinated-articles-20260917.json"
+      ],
+      "distinction": "Forces both alternating plural objects to use coordinated `the/the` articles while preserving subject alternation, temporal order, and tense.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 2,304 candidates, 14,080 singular/mixed-number states pruned, longest 73 letters, 0 exact closures; plural-object lexical substitution in one position is next"
+    },
+    {
+      "id": "gated-attachment-lexicon-equations-20260917",
+      "signature": "single-scene-center-grammar|attachment-lexicon|exact-partial-character-equation-gate|pre-render-admission|independent-pointer-sha",
+      "artifact": "experiments/gated_attachment_lexicon_equations_20260917.py",
+      "run_artifacts": [
+        "runs/gated-attachment-lexicon-equations-20260917.json"
+      ],
+      "distinction": "Admits attachment candidates only after exact partial character-equation support and records unsupported candidates as rejected, distinct from ungated lexical expansion.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 1 intact 92-letter candidate, 0 exact closures; bidirectional gating over attachment and opposing-role prefixes is next"
+    },
+    {
+      "id": "scene-lattice-survey-joint-locative-twelfth-20260917",
+      "signature": "independent-scene-lattice|survey-branch-joint-laco-match|locative-continuation|twelfth-residual-e|independent-pointer-sha",
+      "artifact": "experiments/scene_lattice_survey_joint_locative_twelfth_20260917.py",
+      "run_artifacts": [
+        "runs/scene-lattice-survey-joint-locative-twelfth-20260917.json"
+      ],
+      "distinction": "Extends the matched `la…co` proper-locative tail and probes the twelfth residual, recording the `o`/`e` mismatch before changing the continuation.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 4 intact candidates, longest 66 letters, 0 twelfth-character matches, 0 exact closures; replace `locally` with a grammatical `le`-initial continuation"
+    },
+    {
+      "id": "cfg-while-plural-object-lexical-substitution-20260917",
+      "signature": "typed-temporal-cfg|while-connective|formerly-later-order|plural-objects|coordinated-the-the|single-first-plural-substitution|independent-pointer-sha",
+      "artifact": "experiments/cfg_while_plural_object_lexical_substitution_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-while-plural-object-lexical-substitution-20260917.json"
+      ],
+      "distinction": "Substitutes one plural object while retaining the other under coordinated `the/the` gating and preserving role, subject, temporal-order, and tense constraints.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 4,608 candidates, 1,792 same-object/invalid states pruned, longest 73 letters, 0 exact closures; analogous second-plural-object substitution is next"
+    },
+    {
+      "id": "bidirectional-attachment-equation-gate-20260917",
+      "signature": "single-scene-center-grammar|bidirectional-attachment-equation-gate|opposing-role-prefix-support|mutual-partial-equations|independent-pointer-sha",
+      "artifact": "experiments/bidirectional_attachment_equation_gate_20260917.py",
+      "run_artifacts": [
+        "runs/bidirectional-attachment-equation-gate-20260917.json"
+      ],
+      "distinction": "Admits attachment and opposing-role prefixes only when both carry partial equation support, distinct from one-sided equation gating.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 2 intact ordinary-English candidates, longest 97 letters, 0 exact closures; character-labeled prefix requirements in both lexical tries are next"
+    },
+    {
+      "id": "scene-lattice-survey-leeward-twelfth-20260917",
+      "signature": "independent-scene-lattice|survey-branch-joint-laco-match|le-initial-leeward-continuation|twelfth-residual-e|independent-pointer-sha",
+      "artifact": "experiments/scene_lattice_survey_leeward_twelfth_20260917.py",
+      "run_artifacts": [
+        "runs/scene-lattice-survey-leeward-twelfth-20260917.json"
+      ],
+      "distinction": "Replaces `locally` with a grammatical `leeward` continuation after the matched proper-locative prefix and satisfies the twelfth residual `e`.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 4 intact candidates, longest 66 letters, all four twelfth-character `e` matches, 0 exact closures; condition the next character against the thirteenth residual"
+    },
+    {
+      "id": "cfg-while-second-plural-object-substitution-20260917",
+      "signature": "typed-temporal-cfg|while-connective|formerly-later-order|plural-objects|coordinated-the-the|single-second-plural-substitution|independent-pointer-sha",
+      "artifact": "experiments/cfg_while_second_plural_object_substitution_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-while-second-plural-object-substitution-20260917.json"
+      ],
+      "distinction": "Substitutes only the second plural object while retaining the first under coordinated `the/the` gating and preserving temporal/role constraints.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 4,608 candidates, 1,792 same-object/invalid states pruned, longest 73 letters, 0 exact closures; paired plural-object substitution under a semantic relation gate is next"
+    },
+    {
+      "id": "character-labeled-prefix-trie-gate-20260917",
+      "signature": "single-scene-center-grammar|character-labeled-prefix-requirements|attachment-and-role-tries|opposing-prefix-propagation|independent-pointer-sha",
+      "artifact": "experiments/character_labeled_prefix_trie_gate_20260917.py",
+      "run_artifacts": [
+        "runs/character-labeled-prefix-trie-gate-20260917.json"
+      ],
+      "distinction": "Propagates exact character requirements into both attachment and semantic-role trie prefixes, distinct from boolean bidirectional gating.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 3 intact ordinary-English candidates, longest 99 letters, 0 exact closures; enforce character requirements during trie traversal"
+    },
+    {
+      "id": "scene-lattice-survey-leeward-thirteenth-20260917",
+      "signature": "independent-scene-lattice|survey-branch-joint-laco-match|leeward-continuation|thirteenth-residual-h|independent-pointer-sha",
+      "artifact": "experiments/scene_lattice_survey_leeward_thirteenth_20260917.py",
+      "run_artifacts": [
+        "runs/scene-lattice-survey-leeward-thirteenth-20260917.json"
+      ],
+      "distinction": "Probes the thirteenth residual after the matched proper-locative prefix and records the `e`/`h` mismatch before changing the continuation.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 4 intact candidates, longest 66 letters, 0 thirteenth-character matches, 0 exact closures; replace `leeward` with an `h`-initial grammatical continuation"
+    },
+    {
+      "id": "cfg-while-paired-plural-object-relation-20260917",
+      "signature": "typed-temporal-cfg|while-connective|formerly-later-order|paired-plural-objects|semantic-relation-gate|coordinated-the-the|independent-pointer-sha",
+      "artifact": "experiments/cfg_while_paired_plural_object_relation_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-while-paired-plural-object-relation-20260917.json"
+      ],
+      "distinction": "Changes both plural objects under an explicit semantic relation gate while preserving coordinated articles, alternating subjects, temporal order, and tense.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 576 paired-object candidates, 192 invalid shared-subject states pruned, longest 73 letters, 0 exact closures; semantic relation alternation for one object pair is next"
+    },
+    {
+      "id": "trie-traversal-character-requirements-20260917",
+      "signature": "single-scene-center-grammar|character-requirement-trie-traversal|immediate-prefix-rejection|attachment-and-role-tries|independent-pointer-sha",
+      "artifact": "experiments/trie_traversal_character_requirements_20260917.py",
+      "run_artifacts": [
+        "runs/trie-traversal-character-requirements-20260917.json"
+      ],
+      "distinction": "Rejects lexical trie prefixes immediately when the next character violates a propagated requirement, distinct from filtering after word completion.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 3 intact ordinary-English candidates, longest 97 letters, 0 exact closures; propagate requirements across multiple lexical slots"
+    },
+    {
+      "id": "scene-lattice-survey-high-thirteenth-20260917",
+      "signature": "independent-scene-lattice|survey-branch-joint-laco-match|h-initial-probe|thirteenth-residual|le-state-breakpoint|independent-pointer-sha",
+      "artifact": "experiments/scene_lattice_survey_high_thirteenth_20260917.py",
+      "run_artifacts": [
+        "runs/scene-lattice-survey-high-thirteenth-20260917.json"
+      ],
+      "distinction": "Tests an `h`-initial continuation after the matched proper-locative prefix and records that it breaks the earlier `le` state instead of claiming a match.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 4 intact candidates, longest 63 letters, 0 thirteenth matches, 0 exact closures; preserve full `le` state while placing `h` at thirteenth character"
+    },
+    {
+      "id": "cfg-while-one-pair-relation-alternation-20260917",
+      "signature": "typed-temporal-cfg|while-connective|formerly-later-order|plural-objects|coordinated-the-the|one-pair-relation-alternation|independent-pointer-sha",
+      "artifact": "experiments/cfg_while_one_pair_relation_alternation_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-while-one-pair-relation-alternation-20260917.json"
+      ],
+      "distinction": "Alternates one semantic object relation while retaining the other relation and both coordinated plural objects under the temporal frame.",
+      "reader_evidence": false,
+      "status": "new constructive repair; 1,152 candidates, 192 shared-subject states pruned, longest 73 letters, 0 exact closures; relation-compatible subject alternation is next"
+    },
+    {
+      "id": "whole-tape-coupled-semantic-scene-generator-20260917",
+      "signature": "whole-tape-coupled-semantic-scene|simultaneous-left-right-role-bundles|complete-character-obligations|no-residual-repair|independent-pointer-sha",
+      "artifact": "experiments/whole_tape_coupled_semantic_scene_generator_20260917.py",
+      "run_artifacts": [
+        "runs/whole-tape-coupled-semantic-scene-generator-20260917.json"
+      ],
+      "distinction": "Simultaneously assigns typed left/right role bundles under one whole-tape character obligation before rendering, with no residual ladder or post-hoc patching.",
+      "reader_evidence": false,
+      "status": "new hard-reset family; 8 intact ordinary-English candidates up to 99 letters, 0 exact closures; character-level coupled expansion with immediate mirrored-obligation pruning is next"
+    },
+    {
+      "id": "bidirectional-lexical-phrase-transducer-20260917",
+      "signature": "bidirectional-lexical-phrase-transducer|complete-grammatical-phrase-pairs|outside-in-obligations|no-finished-tape-reversal|independent-pointer-sha",
+      "artifact": "experiments/bidirectional_lexical_phrase_transducer_20260917.py",
+      "run_artifacts": [
+        "runs/bidirectional-lexical-phrase-transducer-20260917.json"
+      ],
+      "distinction": "Selects complete grammatical phrase pairs before rendering while tracking whole-tape outside-in obligations; no proper-name tail patching, reversal, repeated units, or fragments.",
+      "reader_evidence": false,
+      "status": "new hard-reset family; 4 intact SVO candidates up to 56 letters, 0 exact closures; trie branching at the first live residual while retaining complete phrase roles is next"
+    },
+    {
+      "id": "cfg-midpoint-role-automaton-intersection-20260917",
+      "signature": "cfg-midpoint-role-automaton|palindrome-automaton-intersection|bilateral-grammar-decoding|midpoint-aware-obligations|independent-pointer-sha",
+      "artifact": "experiments/cfg_midpoint_role_automaton_intersection_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-midpoint-role-automaton-intersection-20260917.json"
+      ],
+      "distinction": "Intersects a semantic-role CFG with a palindrome automaton during bilateral midpoint-aware decoding and admits only complete tape obligations; no near miss is labeled exact.",
+      "reader_evidence": false,
+      "status": "new hard-reset family; 256 product candidates, longest diagnostic control 34 letters, 0 exact closures; expand character-level lexical states while preserving midpoint obligations"
     }
   ],
   "excluded": [
@@ -4927,7 +5127,7 @@
         "char-lm-tape-resegment-20260916",
         "char-lm-grammar-2026-09-16"
       ],
-      "reason": "The exact-tape-first route preserves two exact controls: the known 16-letter catalogue sentence \u201cAble was I; I saw Elba\u201d and a 72-letter tape whose reflected half is gibberish. Both are below the reader-worthy target or fail intact-prose quality, so neither is counted in the retained aggregate or presented as generated readable evidence."
+      "reason": "The exact-tape-first route preserves two exact controls: the known 16-letter catalogue sentence “Able was I; I saw Elba” and a 72-letter tape whose reflected half is gibberish. Both are below the reader-worthy target or fail intact-prose quality, so neither is counted in the retained aggregate or presented as generated readable evidence."
     },
     {
       "id": "inflection-clitic-boundary-search-20260916-luna-excluded",
@@ -4940,7 +5140,7 @@
         "known-palindrome-catalogue",
         "word-order-symmetry-controls"
       ],
-      "reason": "The reported 126-letter exact surface is the same canonical clause \u201cA man, a plan, a canal, Panama.\u201d repeated six times. It fails the no-repeated-nontrivial-unit and borrowed-catalogue constraints; the exact hash is preserved as a rejected control, not a generated readable palindrome. The next repair must replace every repeated unit with held-out inflected/clitic clauses before promotion."
+      "reason": "The reported 126-letter exact surface is the same canonical clause “A man, a plan, a canal, Panama.” repeated six times. It fails the no-repeated-nontrivial-unit and borrowed-catalogue constraints; the exact hash is preserved as a rejected control, not a generated readable palindrome. The next repair must replace every repeated unit with held-out inflected/clitic clauses before promotion."
     },
     {
       "id": "reversible-lexical-shell-20260916-excluded",
@@ -7666,138 +7866,6 @@
       "distinction": "Coordinates determiners across both alternating objects and rejects mixed article-number states while preserving temporal order, subject/object alternation, and tense.",
       "reader_evidence": false,
       "status": "new constructive repair; 4,608 candidates, 14,080 mixed/invalid article-number states pruned, longest 71 letters, 0 exact closures; plural-object coordinated `the/the` gating is next"
-    },
-    {
-      "id": "attachment-valency-generator-refinement-20260917",
-      "signature": "single-scene-center-grammar|typed-attachment-alternatives|heldout-semantic-role-bundles|full-scene-prose|independent-pointer-sha",
-      "artifact": "experiments/attachment_valency_generator_refinement_20260917.py",
-      "run_artifacts": [
-        "runs/attachment-valency-generator-refinement-20260917.json"
-      ],
-      "distinction": "Adds typed attachment alternatives and held-out semantic role bundles as a generator refinement before any reader-study work, distinct from post-hoc attachment checks.",
-      "reader_evidence": false,
-      "status": "new constructive repair; 3 intact ordinary-English candidates, longest 101 letters, 0 exact closures; couple attachment-lexicon expansion to exact character equations before full-scene admission"
-    },
-    {
-      "id": "scene-lattice-survey-joint-locative-eleventh-20260917",
-      "signature": "independent-scene-lattice|survey-branch-joint-laco-match|locative-continuation|eleventh-residual-l|independent-pointer-sha",
-      "artifact": "experiments/scene_lattice_survey_joint_locative_eleventh_20260917.py",
-      "run_artifacts": [
-        "runs/scene-lattice-survey-joint-locative-eleventh-20260917.json"
-      ],
-      "distinction": "Extends the matched `la…co` proper-locative tail with `locally` to satisfy the eleventh residual `l` on the retained branch.",
-      "reader_evidence": false,
-      "status": "new constructive repair; 4 intact candidates, longest 66 letters, all four eleventh-character `l` matches, 0 exact closures; condition the next character against the twelfth residual"
-    },
-    {
-      "id": "cfg-while-plural-coordinated-articles-20260917",
-      "signature": "typed-temporal-cfg|while-connective|formerly-later-order|alternating-subjects|plural-objects|coordinated-the-the|independent-pointer-sha",
-      "artifact": "experiments/cfg_while_plural_coordinated_articles_20260917.py",
-      "run_artifacts": [
-        "runs/cfg-while-plural-coordinated-articles-20260917.json"
-      ],
-      "distinction": "Forces both alternating plural objects to use coordinated `the/the` articles while preserving subject alternation, temporal order, and tense.",
-      "reader_evidence": false,
-      "status": "new constructive repair; 2,304 candidates, 14,080 singular/mixed-number states pruned, longest 73 letters, 0 exact closures; plural-object lexical substitution in one position is next"
-    },
-    {
-      "id": "gated-attachment-lexicon-equations-20260917",
-      "signature": "single-scene-center-grammar|attachment-lexicon|exact-partial-character-equation-gate|pre-render-admission|independent-pointer-sha",
-      "artifact": "experiments/gated_attachment_lexicon_equations_20260917.py",
-      "run_artifacts": [
-        "runs/gated-attachment-lexicon-equations-20260917.json"
-      ],
-      "distinction": "Admits attachment candidates only after exact partial character-equation support and records unsupported candidates as rejected, distinct from ungated lexical expansion.",
-      "reader_evidence": false,
-      "status": "new constructive repair; 1 intact 92-letter candidate, 0 exact closures; bidirectional gating over attachment and opposing-role prefixes is next"
-    },
-    {
-      "id": "scene-lattice-survey-joint-locative-twelfth-20260917",
-      "signature": "independent-scene-lattice|survey-branch-joint-laco-match|locative-continuation|twelfth-residual-e|independent-pointer-sha",
-      "artifact": "experiments/scene_lattice_survey_joint_locative_twelfth_20260917.py",
-      "run_artifacts": [
-        "runs/scene-lattice-survey-joint-locative-twelfth-20260917.json"
-      ],
-      "distinction": "Extends the matched `la…co` proper-locative tail and probes the twelfth residual, recording the `o`/`e` mismatch before changing the continuation.",
-      "reader_evidence": false,
-      "status": "new constructive repair; 4 intact candidates, longest 66 letters, 0 twelfth-character matches, 0 exact closures; replace `locally` with a grammatical `le`-initial continuation"
-    },
-    {
-      "id": "cfg-while-plural-object-lexical-substitution-20260917",
-      "signature": "typed-temporal-cfg|while-connective|formerly-later-order|plural-objects|coordinated-the-the|single-first-plural-substitution|independent-pointer-sha",
-      "artifact": "experiments/cfg_while_plural_object_lexical_substitution_20260917.py",
-      "run_artifacts": [
-        "runs/cfg-while-plural-object-lexical-substitution-20260917.json"
-      ],
-      "distinction": "Substitutes one plural object while retaining the other under coordinated `the/the` gating and preserving role, subject, temporal-order, and tense constraints.",
-      "reader_evidence": false,
-      "status": "new constructive repair; 4,608 candidates, 1,792 same-object/invalid states pruned, longest 73 letters, 0 exact closures; analogous second-plural-object substitution is next"
-    },
-    {
-      "id": "bidirectional-attachment-equation-gate-20260917",
-      "signature": "single-scene-center-grammar|bidirectional-attachment-equation-gate|opposing-role-prefix-support|mutual-partial-equations|independent-pointer-sha",
-      "artifact": "experiments/bidirectional_attachment_equation_gate_20260917.py",
-      "run_artifacts": [
-        "runs/bidirectional-attachment-equation-gate-20260917.json"
-      ],
-      "distinction": "Admits attachment and opposing-role prefixes only when both carry partial equation support, distinct from one-sided equation gating.",
-      "reader_evidence": false,
-      "status": "new constructive repair; 2 intact ordinary-English candidates, longest 97 letters, 0 exact closures; character-labeled prefix requirements in both lexical tries are next"
-    },
-    {
-      "id": "scene-lattice-survey-leeward-twelfth-20260917",
-      "signature": "independent-scene-lattice|survey-branch-joint-laco-match|le-initial-leeward-continuation|twelfth-residual-e|independent-pointer-sha",
-      "artifact": "experiments/scene_lattice_survey_leeward_twelfth_20260917.py",
-      "run_artifacts": [
-        "runs/scene-lattice-survey-leeward-twelfth-20260917.json"
-      ],
-      "distinction": "Replaces `locally` with a grammatical `leeward` continuation after the matched proper-locative prefix and satisfies the twelfth residual `e`.",
-      "reader_evidence": false,
-      "status": "new constructive repair; 4 intact candidates, longest 66 letters, all four twelfth-character `e` matches, 0 exact closures; condition the next character against the thirteenth residual"
-    },
-    {
-      "id": "cfg-while-second-plural-object-substitution-20260917",
-      "signature": "typed-temporal-cfg|while-connective|formerly-later-order|plural-objects|coordinated-the-the|single-second-plural-substitution|independent-pointer-sha",
-      "artifact": "experiments/cfg_while_second_plural_object_substitution_20260917.py",
-      "run_artifacts": [
-        "runs/cfg-while-second-plural-object-substitution-20260917.json"
-      ],
-      "distinction": "Substitutes only the second plural object while retaining the first under coordinated `the/the` gating and preserving temporal/role constraints.",
-      "reader_evidence": false,
-      "status": "new constructive repair; 4,608 candidates, 1,792 same-object/invalid states pruned, longest 73 letters, 0 exact closures; paired plural-object substitution under a semantic relation gate is next"
-    },
-    {
-      "id": "character-labeled-prefix-trie-gate-20260917",
-      "signature": "single-scene-center-grammar|character-labeled-prefix-requirements|attachment-and-role-tries|opposing-prefix-propagation|independent-pointer-sha",
-      "artifact": "experiments/character_labeled_prefix_trie_gate_20260917.py",
-      "run_artifacts": [
-        "runs/character-labeled-prefix-trie-gate-20260917.json"
-      ],
-      "distinction": "Propagates exact character requirements into both attachment and semantic-role trie prefixes, distinct from boolean bidirectional gating.",
-      "reader_evidence": false,
-      "status": "new constructive repair; 3 intact ordinary-English candidates, longest 99 letters, 0 exact closures; enforce character requirements during trie traversal"
-    },
-    {
-      "id": "scene-lattice-survey-leeward-thirteenth-20260917",
-      "signature": "independent-scene-lattice|survey-branch-joint-laco-match|leeward-continuation|thirteenth-residual-h|independent-pointer-sha",
-      "artifact": "experiments/scene_lattice_survey_leeward_thirteenth_20260917.py",
-      "run_artifacts": [
-        "runs/scene-lattice-survey-leeward-thirteenth-20260917.json"
-      ],
-      "distinction": "Probes the thirteenth residual after the matched proper-locative prefix and records the `e`/`h` mismatch before changing the continuation.",
-      "reader_evidence": false,
-      "status": "new constructive repair; 4 intact candidates, longest 66 letters, 0 thirteenth-character matches, 0 exact closures; replace `leeward` with an `h`-initial grammatical continuation"
-    },
-    {
-      "id": "cfg-while-paired-plural-object-relation-20260917",
-      "signature": "typed-temporal-cfg|while-connective|formerly-later-order|paired-plural-objects|semantic-relation-gate|coordinated-the-the|independent-pointer-sha",
-      "artifact": "experiments/cfg_while_paired_plural_object_relation_20260917.py",
-      "run_artifacts": [
-        "runs/cfg-while-paired-plural-object-relation-20260917.json"
-      ],
-      "distinction": "Changes both plural objects under an explicit semantic relation gate while preserving coordinated articles, alternating subjects, temporal order, and tense.",
-      "reader_evidence": false,
-      "status": "new constructive repair; 576 paired-object candidates, 192 invalid shared-subject states pruned, longest 73 letters, 0 exact closures; semantic relation alternation for one object pair is next"
     }
   ]
 }

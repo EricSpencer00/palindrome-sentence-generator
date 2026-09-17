@@ -3265,4 +3265,6 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   center-inside-slot transition, while four seedless patterns produce 0 novel
   exact paths after 23,407 live states and 21,967 mismatch-edge prunes. The
   catalogue fixture is never admitted as generated output; the next repair is
-  a typed substitution at the first mismatching edge.
+  a typed substitution at a preserved mismatch frontier. The run now records
+  held-out role menus (for example, the outer `world`/`word` mismatch offers
+  `day`, `dog`, `door`, or `crow`) without restarting from a finished tape.

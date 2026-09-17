@@ -25,6 +25,10 @@ def test_outer_slot_product_has_live_mismatch_pruning_and_no_novel_output():
     assert result["novel_exact_candidates"] == []
     assert all(row["mismatch_edges"] > 0 for row in result["searches"].values())
     assert all(row["exact_paths"] == 0 for row in result["searches"].values())
+    assert all(row["mismatch_frontiers"] for row in result["searches"].values())
+    assert all("resume_required" in menu
+               for row in result["searches"].values()
+               for menu in row["seam_repair_menus"])
 
 
 def test_engine_replays_fixture_geometry_when_catalogue_is_explicitly_enabled():

@@ -140,6 +140,7 @@ class SearchResult:
     mismatch_edges: int
     budget_exhausted: bool
     longest_partial: dict | None
+    mismatch_frontiers: list[dict]
 
 
 def search_pattern(slots: tuple[str, ...], *, state_budget: int = 250_000,
@@ -156,6 +157,7 @@ def search_pattern(slots: tuple[str, ...], *, state_budget: int = 250_000,
     seen: set[tuple] = set()
     paths: list[dict] = []
     mismatch_edges = 0
+    mismatch_frontiers: list[dict] = []
     states = 0
     longest_partial: dict | None = None
     while stack and states < state_budget:
@@ -246,9 +248,51 @@ def search_pattern(slots: tuple[str, ...], *, state_budget: int = 250_000,
         left_tape, right_tape = letters(left_word), letters(right_word)
         if left_tape[left_pos] != right_tape[-1 - right_pos]:
             mismatch_edges += 1
+            if len(mismatch_frontiers) < 24:
+                mismatch_frontiers.append({
+                    "left_slot": li, "left_role": slots[li], "left_word": left_word,
+                    "left_position": left_pos, "left_char": left_tape[left_pos],
+                    "right_slot": ri, "right_role": slots[ri], "right_word": right_word,
+                    "right_position_from_end": right_pos, "right_char": right_tape[-1 - right_pos],
+                    "assignment": assign,
+                })
             continue
         stack.append((li, ri, left_word, left_pos + 1, right_word, right_pos + 1, assign, used))
-    return SearchResult(paths, states, mismatch_edges, bool(stack), longest_partial)
+    return SearchResult(paths, states, mismatch_edges, bool(stack), longest_partial, mismatch_frontiers)
+
+
+def seam_repair_menu(frontier: dict, *, forbidden_words: frozenset[str] = frozenset()) -> dict:
+    """Propose one-slot alternatives that preserve the matched edge prefix.
+
+    This is deliberately a menu, not an admission gate: the resumed product
+    must still close the entire tape before anything can be rendered.  Keeping
+    the already-matched prefix/suffix fixed prevents the repair from becoming a
+    fresh Cartesian sweep from the root.
+    """
+    left_prefix = letters(frontier["left_word"])[:frontier["left_position"]]
+    right_suffix = letters(frontier["right_word"])[::-1][:frontier["right_position_from_end"]]
+    left_char = frontier["right_char"]
+    right_char = frontier["left_char"]
+    left_alternatives = []
+    for word in BANKS[frontier["left_role"]]:
+        tape = letters(word)
+        if word in forbidden_words or not tape.startswith(left_prefix):
+            continue
+        if len(tape) > frontier["left_position"] and tape[frontier["left_position"]] == left_char:
+            left_alternatives.append(word)
+    right_alternatives = []
+    for word in BANKS[frontier["right_role"]]:
+        tape = letters(word)[::-1]
+        if word in forbidden_words or not tape.startswith(right_suffix):
+            continue
+        if len(tape) > frontier["right_position_from_end"] and tape[frontier["right_position_from_end"]] == right_char:
+            right_alternatives.append(word)
+    return {
+        "left_slot": frontier["left_slot"], "right_slot": frontier["right_slot"],
+        "preserved_left_prefix": left_prefix, "preserved_right_suffix": right_suffix,
+        "left_alternatives": left_alternatives[:50], "right_alternatives": right_alternatives[:50],
+        "resume_required": True,
+    }
 
 
 def render_fixture() -> dict:
@@ -269,6 +313,10 @@ def run() -> dict:
                           "budget_exhausted": result.budget_exhausted,
                           "exact_paths": len(result.paths),
                           "longest_partial": result.longest_partial,
+                          "mismatch_frontiers": result.mismatch_frontiers,
+                          "seam_repair_menus": [seam_repair_menu(frontier,
+                              forbidden_words=frozenset(CATALOGUE_FIXTURE))
+                              for frontier in result.mismatch_frontiers[:3]],
                           "paths": result.paths[:20]}
         novel.extend(result.paths)
     return {

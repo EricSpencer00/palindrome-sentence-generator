@@ -3573,3 +3573,28 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   16,510 nodes across 434 worlds; the held-out policy remains
   `fixed_mismatch_first` (0.794 mismatch rate), with zero admissible exact
   closures. The construction goal and reader gate are unchanged.
+
+  Three fresh Luna construction lanes then tested distinct repairs. The
+  center-out common-grammar lane authored 30 SVO/PP clause pairs; its best
+  intact surface is “The patient baker repaired a broken cart before the rain.
+  The bright clerk opened a sealed parcel near the station.” (94 letters, 36
+  mismatches). The typed boundary-trie lane performed 75 paired boundary
+  checks and produced a 130-letter surface, “At first light, the harbor pilot
+  checked the weathered chart and signaled the waiting boat, while the coast
+  keeper guided the small fishing boat toward shore.” (59 mismatches). The
+  semantic phrase-chain lane produced 16 complete 115–119-letter chains; its
+  best remained a 115-letter, 49-mismatch scene with a duplicated event frame.
+  Each lane independently audited its tape with two-pointer comparison and
+  forward/reverse SHA-256, and each recorded a concrete next repair; none is
+  reader-eligible or exact.
+
+  Dream-RSI round eleven replays these three artifacts, reaching 16,557 nodes
+  across 437 worlds. `whole_passage_focus` is selected on the training split,
+  but the held-out result remains 0.794 mismatch rate with zero admissible
+  exact closures (117 exact rows are rejected by provenance/shortcut gates).
+  The replay therefore changes routing but does not certify or create a
+  candidate; the next construction step is a genuinely live character-level
+  grammar/scene solver that carries opposing obligations into lexical and
+  inflectional choices. The exact/readability gate and the blinded
+  intact-versus-shuffled reader package remain closed until an original exact
+  passage is actually rendered.

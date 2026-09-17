@@ -1,0 +1,155 @@
+{
+  "experiment_id": "exact-tape-grammatical-resegmentation-20260917",
+  "signature": "exact-tape-resegmentation|two-sided-boundary-dp|independent-clause-grammar|fresh-lexicon",
+  "status": "complete",
+  "method": "two-sided boundary DP: planned left prose, reverse character tape independently segmented by bounded typed grammar",
+  "config": {
+    "max_states": 5000,
+    "pattern": [
+      "det",
+      "noun",
+      "verb",
+      "det",
+      "noun"
+    ],
+    "right_word_boundaries": "variable DP",
+    "closure_requires_full_tape": true
+  },
+  "candidates": [
+    {
+      "audit": {
+        "rendered": "The quiet mason carries a lantern. the mason carries a lantern.",
+        "left_clause": "The quiet mason carries a lantern.",
+        "right_clause_words": [
+          "the",
+          "mason",
+          "carries",
+          "a",
+          "lantern"
+        ],
+        "letters": 51,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 0,
+          "left": "t",
+          "right": "n"
+        },
+        "normalized_sha256": "4b7315cad20beddf002d75a97d6cf7bacfcd7f34098b9687980991aa774bb41c",
+        "reverse_sha256": "5315da42f609edf03a804c04f8561a58bfe02f451d24160374cbd36eba8bc8b6",
+        "right_resegmentation_grammar": true,
+        "dp": {
+          "explored": 1,
+          "status": "complete",
+          "solutions": 0,
+          "reverse_tape_length": 28
+        }
+      },
+      "provenance": {
+        "left_material": "fresh authored clause",
+        "right_material": "fresh independent lexical grammar",
+        "fixed_tape": false,
+        "reversed_finished_sentence": false,
+        "repeated_units": false
+      }
+    },
+    {
+      "audit": {
+        "rendered": "A patient sailor marks the channel. the mason carries a lantern.",
+        "left_clause": "A patient sailor marks the channel.",
+        "right_clause_words": [
+          "the",
+          "mason",
+          "carries",
+          "a",
+          "lantern"
+        ],
+        "letters": 52,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 0,
+          "left": "a",
+          "right": "n"
+        },
+        "normalized_sha256": "6064734f824e497b84c1612ce314407b601c368c5905898daff782d09833749d",
+        "reverse_sha256": "4912d12f6bd6cfb08f7883e4c3d80bc02f4c409a12016343a320511481389653",
+        "right_resegmentation_grammar": true,
+        "dp": {
+          "explored": 1,
+          "status": "complete",
+          "solutions": 0,
+          "reverse_tape_length": 29
+        }
+      },
+      "provenance": {
+        "left_material": "fresh authored clause",
+        "right_material": "fresh independent lexical grammar",
+        "fixed_tape": false,
+        "reversed_finished_sentence": false,
+        "repeated_units": false
+      }
+    },
+    {
+      "audit": {
+        "rendered": "The young poet sketches a garden. the mason carries a lantern.",
+        "left_clause": "The young poet sketches a garden.",
+        "right_clause_words": [
+          "the",
+          "mason",
+          "carries",
+          "a",
+          "lantern"
+        ],
+        "letters": 50,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 0,
+          "left": "t",
+          "right": "n"
+        },
+        "normalized_sha256": "79ce8fa8b0abf436049dbb6248b1bc2101e20d616925930246de3673b329a37d",
+        "reverse_sha256": "68693347a57bdf3ad45e258aa181cc017f94bc3db0f7f171bab8670cee30c937",
+        "right_resegmentation_grammar": true,
+        "dp": {
+          "explored": 1,
+          "status": "complete",
+          "solutions": 0,
+          "reverse_tape_length": 27
+        }
+      },
+      "provenance": {
+        "left_material": "fresh authored clause",
+        "right_material": "fresh independent lexical grammar",
+        "fixed_tape": false,
+        "reversed_finished_sentence": false,
+        "repeated_units": false
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "stats": {
+    "rendered": 3,
+    "exact_count": 0,
+    "dp_states": 3
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "candidate_collisions": [],
+    "fixed_tape_used": false,
+    "word_order_mirror": false,
+    "known_bank_imported": false,
+    "output_excluded": "/Users/eric/GitHub/palindrome-sentence-generator/runs/exact-tape-grammatical-resegmentation-20260917.json"
+  },
+  "provenance": {
+    "generator_sha256": "3810e5528af2d7271b1c54ec3b0a3089b06efd747b78313932c3ac20c03dda72",
+    "known_palindrome_bank": false,
+    "fixed_tape_import": false,
+    "independent_sha_audit": true
+  },
+  "next_repair": "At the first two-pointer mismatch, replace only the right grammar slot whose boundary owns that character pair; preserve the independent clause pattern and rerun the bounded DP. Current run has 0 exact closures."
+}

@@ -1,0 +1,148 @@
+{
+  "experiment_id": "typed-reversible-clause-composer-20260916",
+  "signature": "typed-reversible-pairs|role-changing-frame-composition|arbitrary-length-growth|pos-filtered-lexicon|complete-semantics",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "compose complete semantic clauses with POS/role-typed reversible lexical alternatives and an appendable frame growth operator",
+  "candidates": [
+    {
+      "frame": "harbor",
+      "depth": 0,
+      "typed_reversible_pairs": [
+        [
+          "checks",
+          "records",
+          "VERB"
+        ],
+        [
+          "lanterns",
+          "log",
+          "NOUN"
+        ]
+      ],
+      "complete_clause_parse": true,
+      "audit": {
+        "rendered": "The harbor keeper checks the lanterns before dawn, and the night watch records each change in the log for careful readers.",
+        "letters": 100,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "normalized_sha256": "d650306c7af253d366802b42894e64c0f181bcc801fec21a69ea173c670af157",
+        "reverse_sha256": "2a3719218c7f5d4a72e8f86723aaa41927d3f646f04e26aaa600d53ae25a5231",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      }
+    },
+    {
+      "frame": "garden",
+      "depth": 0,
+      "typed_reversible_pairs": [
+        [
+          "checks",
+          "records",
+          "VERB"
+        ],
+        [
+          "lanterns",
+          "log",
+          "NOUN"
+        ]
+      ],
+      "complete_clause_parse": true,
+      "audit": {
+        "rendered": "The patient gardener waters the eastern beds after rain, and the young helper carries fresh tools to the shed for the morning crew.",
+        "letters": 107,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "w"
+        ],
+        "normalized_sha256": "64f0ea9859ced789064ad2201a096b79a9607ddcfa5b06c66b784468b324aaac",
+        "reverse_sha256": "8d4eef71e289e80b7cc72c1f74084bbd97f8fd181ee3219de372f07c29610321",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0,
+    "growth_depths": 1
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 329,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "wordnet_pos_filter": "role-typed lexical bank",
+    "wordfreq_filter": "frequency eligibility recorded"
+  },
+  "next_repair": {
+    "operator": "replace one role-compatible verb/object pair at the highest residual boundary, then append a fresh agreement-preserving frame",
+    "reason": "complete prose survives but typed pairs do not close the full character debt"
+  },
+  "provenance": {
+    "generator_sha256": "bcf04f449959b2e44e4658dfd4bf0e66c063e8a85a550f953cd427443e37c2c2",
+    "lexical_source": "fresh authored semantic frames",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "complete-clause gate",
+      "anti-shortcut"
+    ]
+  }
+}

@@ -2780,3 +2780,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   gate remains closed. The next concrete operators are complete compatible
   word-boundary pair formation, joint place-pair lexical alternation, and a
   fixed complement-boundary seam within the same frames.
+
+  The next wave completed those operators. Complete compatible boundary-pair
+  trie formation retained 2 intact candidates up to 82 letters; joint
+  place-pair lexical alternation produced 256 candidates up to 99 letters; and
+  the two-frame complement-boundary seam rendered 4 intact candidates up to
+  142 letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are whole-tape seam
+  equations coupled to completed pairs, joint preposition lexical alternation,
+  and a fixed adverbial-boundary seam in the same frames.

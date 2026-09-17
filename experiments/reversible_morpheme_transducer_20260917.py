@@ -88,11 +88,12 @@ def run():
                     "operator":"first residual: suffix/clitic-compatible function-word substitution"},
           "provenance":{"authored_scene":True,"typed_roles":["subject","verb","object","adjunct"],"catalogue_lookup":False,"copied_seed":False}})
     exact=sum(x["repair"]["audit"]["two_pointer_exact"] for x in candidates)
-    out={"experiment_id":EXPERIMENT_ID,"signature":SIGNATURE,"status":"completed_no_exact_closure",
-      "reader_eligible":False,"method":"finite morpheme-boundary transducer over live character residual",
+    out={"experiment_id":EXPERIMENT_ID,"signature":SIGNATURE,"status":"completed_diagnostic_unsound_for_palindrome_admission",
+      "reader_eligible":False,"method":"single-string morpheme-boundary residual diagnostic (not a bilateral palindrome solver)",
       "candidates":candidates,"stats":{"scenes":len(candidates),"exact_closures":exact},"novelty_preflight":pre,
       "anti_shortcut_flags":{"fixed_tape":False,"word_order_mirror":False,"repeated_unit":False,"catalogue_lookup":False,"posthoc_reversal":False},
       "provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"independent_validator":"two-pointer plus forward/reverse SHA-256","ordinary_authored_scenes":True},
-      "next_repair":{"operator":"pair held-out plural/possessive clitic with the first unmatched boundary and rerun typed frame DP","reason":"suffix and function-word repair preserves readability but leaves an outer residual"}}
+      "soundness_audit":{"bilateral_outer_frontier_matching":False,"single_scene_residual_only":True,"admission_safe":False,"reason":"morphemes are removed from one scene string but are not matched against an opposing generated frontier; this evidence cannot support a palindrome claim"},
+      "next_repair":{"operator":"replace the single-string residual with two independently authored clause frontiers and explicit opposing-character matching before any morphology transition","reason":"suffix and function-word repair preserves readability but leaves an outer residual and the current state is not a sound palindrome invariant"}}
     OUT.write_text(json.dumps(out,indent=2)+"\n"); return out
 if __name__ == "__main__": print(json.dumps(run(), indent=2))

@@ -1,0 +1,180 @@
+{
+  "experiment_id": "cross-pos-semordnilap-scene-cfg-20260916",
+  "signature": "cross-pos-semordnilap|verb-noun-pairs|function-boundary-shift|connected-scene-cfg|no-chain",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "enumerate cross-POS reversible lexical alternatives inside connected scene CFGs with function-word boundary shifts",
+  "candidates": [
+    {
+      "scene": 0,
+      "cross_pos_pairs": [
+        [
+          "stressed",
+          "desserts",
+          "verb-noun"
+        ],
+        [
+          "drawer",
+          "reward",
+          "noun-verb"
+        ],
+        [
+          "diaper",
+          "repaid",
+          "noun-verb"
+        ]
+      ],
+      "function_boundary_choices": [
+        "then",
+        "toward",
+        "while",
+        "the"
+      ],
+      "clause_cfg": "S -> NP VP; VP -> V NP CONJ S",
+      "semantic_consistency": true,
+      "pair_role_usage": "one optional lexical candidate, never a chain",
+      "audit": {
+        "rendered": "The guide records a calm harbor scene, then pilots turn the boats toward the lantern before dusk.",
+        "letters": 79,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "k"
+        ],
+        "normalized_sha256": "17f9f80534ce56fe08951616d9e64a84ab2845771266400e2ce34fffc0b99844",
+        "reverse_sha256": "c21212a50e044a2b12f7fb44b6e4d8e32f66466f0d47096f376f40b4a35785f6",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "replace the scene verb with a held-out cross-POS pair while preserving agent/patient roles",
+        "reason": "connected scene remains readable but outer residual is nonzero"
+      }
+    },
+    {
+      "scene": 1,
+      "cross_pos_pairs": [
+        [
+          "stressed",
+          "desserts",
+          "verb-noun"
+        ],
+        [
+          "drawer",
+          "reward",
+          "noun-verb"
+        ],
+        [
+          "diaper",
+          "repaid",
+          "noun-verb"
+        ]
+      ],
+      "function_boundary_choices": [
+        "then",
+        "toward",
+        "while",
+        "the"
+      ],
+      "clause_cfg": "S -> NP VP; VP -> V NP CONJ S",
+      "semantic_consistency": true,
+      "pair_role_usage": "one optional lexical candidate, never a chain",
+      "audit": {
+        "rendered": "Please permit the young artist to present the painted map while the careful clerk notes each change.",
+        "letters": 83,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "p",
+          "e"
+        ],
+        "normalized_sha256": "c9e675b8a6172a494eed74a2356cb64171d9c9aa270668ec4d0a8a09537a44a3",
+        "reverse_sha256": "450c05d0f14576fc0db0f01f15867cd252418d3c5bf43363ba7ff2913fb8145d",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "replace the scene verb with a held-out cross-POS pair while preserving agent/patient roles",
+        "reason": "connected scene remains readable but outer residual is nonzero"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 351,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "word_order_mirror": false,
+    "semordnilap_chain": false,
+    "repeated_unit": false
+  },
+  "next_repair": {
+    "operator": "swap one role-preserving cross-POS pair at the highest residual boundary and retest function-word attachment",
+    "reason": "no exact closure without disconnected pair chaining"
+  },
+  "provenance": {
+    "generator_sha256": "4ea8033685b094624e0f5605f1731a4f356e0d8597cf7fad3ce96aa1ac8523ed",
+    "lexical_source": "cross-POS semordnilap bank plus fresh scene frames",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "scene CFG",
+      "anti-shortcut"
+    ]
+  }
+}

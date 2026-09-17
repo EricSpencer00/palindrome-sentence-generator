@@ -2483,3 +2483,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   positions as CSP variables, state-valid role-preserving complementizer
   alternation, and a typed parenthetical attachment in the center-crossing
   grammar.
+
+  The next wave completed those operators. Word-boundary-position CSP
+  rendered 10 intact candidates up to 88 letters; role-preserving
+  complementizer alternation tested 512 candidates up to 58 letters; and the
+  typed parenthetical center-attachment family rendered 54 intact candidates
+  up to 172 letters, with midpoint-inside-token crossing in every candidate.
+  All produced 0 exact closures. Independent pointer/SHA-256 replay,
+  provenance, novelty preflight, and anti-shortcut checks are retained for
+  every row. The reader gate remains closed. The next concrete operators are
+  grammar boundary transitions as CSP variables, locative `where`/`in which`
+  alternation, and a typed adverbial attachment in the center-crossing
+  grammar.

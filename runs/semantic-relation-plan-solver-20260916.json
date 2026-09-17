@@ -1,0 +1,1664 @@
+{
+  "experiment_id": "semantic-relation-plan-solver-20260916",
+  "novelty_preflight": {
+    "registry": "/Users/eric/GitHub/palindrome-sentence-generator/docs/EXPERIMENT-NOVELTY-REGISTRY.md",
+    "signature": "typed-event-pair|joint-causal-temporal-contrast-relation-selection|relation-specific-clause-order|ordinary-order-character-debt",
+    "collisions": [],
+    "passed": true
+  },
+  "state_signature": "typed-event-pair|joint-causal-temporal-contrast-relation-selection|relation-specific-clause-order|ordinary-order-character-debt",
+  "relation_inventory": [
+    {
+      "id": "cause",
+      "connective": "because",
+      "order": "result-because-cause",
+      "left_kind": "changed",
+      "right_kind": "prepared"
+    },
+    {
+      "id": "effect",
+      "connective": "so",
+      "order": "cause-so-result",
+      "left_kind": "prepared",
+      "right_kind": "changed"
+    },
+    {
+      "id": "temporal",
+      "connective": "before",
+      "order": "earlier-before-later",
+      "left_kind": "observed",
+      "right_kind": "changed"
+    },
+    {
+      "id": "contrast",
+      "connective": "although",
+      "order": "concession-main",
+      "left_kind": "observed",
+      "right_kind": "prepared"
+    }
+  ],
+  "event_inventory": [
+    {
+      "id": "storm",
+      "subject": "the harbor crew",
+      "verb": "secured",
+      "object": "the boat",
+      "time": "before dusk",
+      "kind": "prepared"
+    },
+    {
+      "id": "lantern",
+      "subject": "the harbor crew",
+      "verb": "lit",
+      "object": "the lantern",
+      "time": "after dusk",
+      "kind": "prepared"
+    },
+    {
+      "id": "map",
+      "subject": "the coastal pilot",
+      "verb": "studied",
+      "object": "the map",
+      "time": "at dawn",
+      "kind": "observed"
+    },
+    {
+      "id": "signal",
+      "subject": "the coastal pilot",
+      "verb": "reported",
+      "object": "the signal",
+      "time": "at noon",
+      "kind": "observed"
+    },
+    {
+      "id": "gate",
+      "subject": "the patient keeper",
+      "verb": "opened",
+      "object": "the garden gate",
+      "time": "in the morning",
+      "kind": "changed"
+    },
+    {
+      "id": "path",
+      "subject": "the patient keeper",
+      "verb": "blocked",
+      "object": "the narrow path",
+      "time": "by evening",
+      "kind": "changed"
+    }
+  ],
+  "rendered_candidates": [
+    {
+      "rendered": "the patient keeper opened the garden gate in the morning because the harbor crew secured the boat before dusk.",
+      "relation": "cause",
+      "left_event": "gate",
+      "right_event": "storm",
+      "event_equation": {
+        "left_kind": "changed",
+        "right_kind": "prepared",
+        "relation_order": "result-because-cause"
+      },
+      "independent_reparse": true,
+      "character_debt": {
+        "matched_prefix": 0,
+        "first_mismatch": {
+          "left": 0,
+          "right": 90,
+          "left_char": "t",
+          "right_char": "k"
+        }
+      },
+      "audit": {
+        "letters": 91,
+        "two_pointer_exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 90,
+            "left_char": "t",
+            "right_char": "k"
+          },
+          {
+            "left": 1,
+            "right": 89,
+            "left_char": "h",
+            "right_char": "s"
+          },
+          {
+            "left": 2,
+            "right": 88,
+            "left_char": "e",
+            "right_char": "u"
+          },
+          {
+            "left": 3,
+            "right": 87,
+            "left_char": "p",
+            "right_char": "d"
+          },
+          {
+            "left": 4,
+            "right": 86,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 5,
+            "right": 85,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 6,
+            "right": 84,
+            "left_char": "i",
+            "right_char": "o"
+          },
+          {
+            "left": 7,
+            "right": 83,
+            "left_char": "e",
+            "right_char": "f"
+          },
+          {
+            "left": 8,
+            "right": 82,
+            "left_char": "n",
+            "right_char": "e"
+          },
+          {
+            "left": 9,
+            "right": 81,
+            "left_char": "t",
+            "right_char": "b"
+          },
+          {
+            "left": 10,
+            "right": 80,
+            "left_char": "k",
+            "right_char": "t"
+          },
+          {
+            "left": 11,
+            "right": 79,
+            "left_char": "e",
+            "right_char": "a"
+          }
+        ],
+        "forward_sha256": "68d5b1e69622bea90840c989279db024e74242824ef2bcf9bc996ffdcdb6e83a",
+        "reverse_sha256": "1f94016241b4a2c5f41a373f814a5ed8e81b897ffcd06b1d40c5e12c749f1c40",
+        "sha_exact": false,
+        "central_admission": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "word_order_mirror": true,
+          "repeated_content": true,
+          "proper_palindrome_span_absent": true,
+          "catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    },
+    {
+      "rendered": "the patient keeper opened the garden gate in the morning because the harbor crew lit the lantern after dusk.",
+      "relation": "cause",
+      "left_event": "gate",
+      "right_event": "lantern",
+      "event_equation": {
+        "left_kind": "changed",
+        "right_kind": "prepared",
+        "relation_order": "result-because-cause"
+      },
+      "independent_reparse": true,
+      "character_debt": {
+        "matched_prefix": 0,
+        "first_mismatch": {
+          "left": 0,
+          "right": 88,
+          "left_char": "t",
+          "right_char": "k"
+        }
+      },
+      "audit": {
+        "letters": 89,
+        "two_pointer_exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 88,
+            "left_char": "t",
+            "right_char": "k"
+          },
+          {
+            "left": 1,
+            "right": 87,
+            "left_char": "h",
+            "right_char": "s"
+          },
+          {
+            "left": 2,
+            "right": 86,
+            "left_char": "e",
+            "right_char": "u"
+          },
+          {
+            "left": 3,
+            "right": 85,
+            "left_char": "p",
+            "right_char": "d"
+          },
+          {
+            "left": 4,
+            "right": 84,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 5,
+            "right": 83,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 6,
+            "right": 82,
+            "left_char": "i",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 81,
+            "left_char": "e",
+            "right_char": "f"
+          },
+          {
+            "left": 8,
+            "right": 80,
+            "left_char": "n",
+            "right_char": "a"
+          },
+          {
+            "left": 9,
+            "right": 79,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "left": 10,
+            "right": 78,
+            "left_char": "k",
+            "right_char": "r"
+          },
+          {
+            "left": 12,
+            "right": 76,
+            "left_char": "e",
+            "right_char": "t"
+          }
+        ],
+        "forward_sha256": "528a81b203c0509e05627d3710c441b9f133ed48f15db344fb17cccdb1b3f4fa",
+        "reverse_sha256": "94620c97602ff23ed38c6f2c2460c5ec476852813bca7b30a3b024c8b559a275",
+        "sha_exact": false,
+        "central_admission": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "word_order_mirror": true,
+          "repeated_content": true,
+          "proper_palindrome_span_absent": true,
+          "catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    },
+    {
+      "rendered": "the patient keeper blocked the narrow path by evening because the harbor crew secured the boat before dusk.",
+      "relation": "cause",
+      "left_event": "path",
+      "right_event": "storm",
+      "event_equation": {
+        "left_kind": "changed",
+        "right_kind": "prepared",
+        "relation_order": "result-because-cause"
+      },
+      "independent_reparse": true,
+      "character_debt": {
+        "matched_prefix": 0,
+        "first_mismatch": {
+          "left": 0,
+          "right": 88,
+          "left_char": "t",
+          "right_char": "k"
+        }
+      },
+      "audit": {
+        "letters": 89,
+        "two_pointer_exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 88,
+            "left_char": "t",
+            "right_char": "k"
+          },
+          {
+            "left": 1,
+            "right": 87,
+            "left_char": "h",
+            "right_char": "s"
+          },
+          {
+            "left": 2,
+            "right": 86,
+            "left_char": "e",
+            "right_char": "u"
+          },
+          {
+            "left": 3,
+            "right": 85,
+            "left_char": "p",
+            "right_char": "d"
+          },
+          {
+            "left": 4,
+            "right": 84,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 5,
+            "right": 83,
+            "left_char": "t",
+            "right_char": "r"
+          },
+          {
+            "left": 6,
+            "right": 82,
+            "left_char": "i",
+            "right_char": "o"
+          },
+          {
+            "left": 7,
+            "right": 81,
+            "left_char": "e",
+            "right_char": "f"
+          },
+          {
+            "left": 8,
+            "right": 80,
+            "left_char": "n",
+            "right_char": "e"
+          },
+          {
+            "left": 9,
+            "right": 79,
+            "left_char": "t",
+            "right_char": "b"
+          },
+          {
+            "left": 10,
+            "right": 78,
+            "left_char": "k",
+            "right_char": "t"
+          },
+          {
+            "left": 11,
+            "right": 77,
+            "left_char": "e",
+            "right_char": "a"
+          }
+        ],
+        "forward_sha256": "b1a81cf4f82deb162359b76cece7673655012478e467ef4370ad7adc405f696c",
+        "reverse_sha256": "e1e9f12b96d6da3cf61704f387fcfff108090bd4af0028db2640c7376db7d800",
+        "sha_exact": false,
+        "central_admission": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "word_order_mirror": true,
+          "repeated_content": true,
+          "proper_palindrome_span_absent": true,
+          "catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    },
+    {
+      "rendered": "the patient keeper blocked the narrow path by evening because the harbor crew lit the lantern after dusk.",
+      "relation": "cause",
+      "left_event": "path",
+      "right_event": "lantern",
+      "event_equation": {
+        "left_kind": "changed",
+        "right_kind": "prepared",
+        "relation_order": "result-because-cause"
+      },
+      "independent_reparse": true,
+      "character_debt": {
+        "matched_prefix": 0,
+        "first_mismatch": {
+          "left": 0,
+          "right": 86,
+          "left_char": "t",
+          "right_char": "k"
+        }
+      },
+      "audit": {
+        "letters": 87,
+        "two_pointer_exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "k"
+          },
+          {
+            "left": 1,
+            "right": 85,
+            "left_char": "h",
+            "right_char": "s"
+          },
+          {
+            "left": 2,
+            "right": 84,
+            "left_char": "e",
+            "right_char": "u"
+          },
+          {
+            "left": 3,
+            "right": 83,
+            "left_char": "p",
+            "right_char": "d"
+          },
+          {
+            "left": 4,
+            "right": 82,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 5,
+            "right": 81,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 6,
+            "right": 80,
+            "left_char": "i",
+            "right_char": "t"
+          },
+          {
+            "left": 7,
+            "right": 79,
+            "left_char": "e",
+            "right_char": "f"
+          },
+          {
+            "left": 8,
+            "right": 78,
+            "left_char": "n",
+            "right_char": "a"
+          },
+          {
+            "left": 9,
+            "right": 77,
+            "left_char": "t",
+            "right_char": "n"
+          },
+          {
+            "left": 10,
+            "right": 76,
+            "left_char": "k",
+            "right_char": "r"
+          },
+          {
+            "left": 12,
+            "right": 74,
+            "left_char": "e",
+            "right_char": "t"
+          }
+        ],
+        "forward_sha256": "43275f9f919b5de2ef3bb01e644b46703ab54c2a001770f0882cf1cf1dee6198",
+        "reverse_sha256": "ccc49d32389d0733ed7793b556c3baf92f48dbfc5330fbe02d5297880b1ea7c0",
+        "sha_exact": false,
+        "central_admission": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "word_order_mirror": true,
+          "repeated_content": true,
+          "proper_palindrome_span_absent": true,
+          "catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    },
+    {
+      "rendered": "the harbor crew secured the boat before dusk, so the patient keeper opened the garden gate in the morning.",
+      "relation": "effect",
+      "left_event": "storm",
+      "right_event": "gate",
+      "event_equation": {
+        "left_kind": "prepared",
+        "right_kind": "changed",
+        "relation_order": "cause-so-result"
+      },
+      "independent_reparse": true,
+      "character_debt": {
+        "matched_prefix": 0,
+        "first_mismatch": {
+          "left": 0,
+          "right": 85,
+          "left_char": "t",
+          "right_char": "g"
+        }
+      },
+      "audit": {
+        "letters": 86,
+        "two_pointer_exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 85,
+            "left_char": "t",
+            "right_char": "g"
+          },
+          {
+            "left": 1,
+            "right": 84,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 83,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 82,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 81,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 5,
+            "right": 80,
+            "left_char": "r",
+            "right_char": "o"
+          },
+          {
+            "left": 6,
+            "right": 79,
+            "left_char": "b",
+            "right_char": "m"
+          },
+          {
+            "left": 7,
+            "right": 78,
+            "left_char": "o",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 77,
+            "left_char": "r",
+            "right_char": "h"
+          },
+          {
+            "left": 9,
+            "right": 76,
+            "left_char": "c",
+            "right_char": "t"
+          },
+          {
+            "left": 10,
+            "right": 75,
+            "left_char": "r",
+            "right_char": "n"
+          },
+          {
+            "left": 11,
+            "right": 74,
+            "left_char": "e",
+            "right_char": "i"
+          }
+        ],
+        "forward_sha256": "e8dbfdef9b22acf540069b20a1d480468e41d608775731caef0acedbbe8ac41e",
+        "reverse_sha256": "81da3ce805ea1d47cb77e10e45690dc17c6b042a18635b4da6157b36bc1010d9",
+        "sha_exact": false,
+        "central_admission": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "word_order_mirror": true,
+          "repeated_content": true,
+          "proper_palindrome_span_absent": true,
+          "catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    },
+    {
+      "rendered": "the harbor crew secured the boat before dusk, so the patient keeper blocked the narrow path by evening.",
+      "relation": "effect",
+      "left_event": "storm",
+      "right_event": "path",
+      "event_equation": {
+        "left_kind": "prepared",
+        "right_kind": "changed",
+        "relation_order": "cause-so-result"
+      },
+      "independent_reparse": true,
+      "character_debt": {
+        "matched_prefix": 0,
+        "first_mismatch": {
+          "left": 0,
+          "right": 83,
+          "left_char": "t",
+          "right_char": "g"
+        }
+      },
+      "audit": {
+        "letters": 84,
+        "two_pointer_exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 83,
+            "left_char": "t",
+            "right_char": "g"
+          },
+          {
+            "left": 1,
+            "right": 82,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 81,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 80,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 79,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 5,
+            "right": 78,
+            "left_char": "r",
+            "right_char": "v"
+          },
+          {
+            "left": 6,
+            "right": 77,
+            "left_char": "b",
+            "right_char": "e"
+          },
+          {
+            "left": 7,
+            "right": 76,
+            "left_char": "o",
+            "right_char": "y"
+          },
+          {
+            "left": 8,
+            "right": 75,
+            "left_char": "r",
+            "right_char": "b"
+          },
+          {
+            "left": 9,
+            "right": 74,
+            "left_char": "c",
+            "right_char": "h"
+          },
+          {
+            "left": 10,
+            "right": 73,
+            "left_char": "r",
+            "right_char": "t"
+          },
+          {
+            "left": 11,
+            "right": 72,
+            "left_char": "e",
+            "right_char": "a"
+          }
+        ],
+        "forward_sha256": "7a95a376c4f67f425f922dd4dab2fefc800a14a2c3e3df9321cf587e05a0a7fb",
+        "reverse_sha256": "06b00574e28d86fa2699faf85c7912f43ef466b1230311b93f0c5274261675fb",
+        "sha_exact": false,
+        "central_admission": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "word_order_mirror": true,
+          "repeated_content": true,
+          "proper_palindrome_span_absent": true,
+          "catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    },
+    {
+      "rendered": "the harbor crew lit the lantern after dusk, so the patient keeper opened the garden gate in the morning.",
+      "relation": "effect",
+      "left_event": "lantern",
+      "right_event": "gate",
+      "event_equation": {
+        "left_kind": "prepared",
+        "right_kind": "changed",
+        "relation_order": "cause-so-result"
+      },
+      "independent_reparse": true,
+      "character_debt": {
+        "matched_prefix": 0,
+        "first_mismatch": {
+          "left": 0,
+          "right": 83,
+          "left_char": "t",
+          "right_char": "g"
+        }
+      },
+      "audit": {
+        "letters": 84,
+        "two_pointer_exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 83,
+            "left_char": "t",
+            "right_char": "g"
+          },
+          {
+            "left": 1,
+            "right": 82,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 81,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 80,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 79,
+            "left_char": "a",
+            "right_char": "r"
+          },
+          {
+            "left": 5,
+            "right": 78,
+            "left_char": "r",
+            "right_char": "o"
+          },
+          {
+            "left": 6,
+            "right": 77,
+            "left_char": "b",
+            "right_char": "m"
+          },
+          {
+            "left": 7,
+            "right": 76,
+            "left_char": "o",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 75,
+            "left_char": "r",
+            "right_char": "h"
+          },
+          {
+            "left": 9,
+            "right": 74,
+            "left_char": "c",
+            "right_char": "t"
+          },
+          {
+            "left": 10,
+            "right": 73,
+            "left_char": "r",
+            "right_char": "n"
+          },
+          {
+            "left": 11,
+            "right": 72,
+            "left_char": "e",
+            "right_char": "i"
+          }
+        ],
+        "forward_sha256": "a5d4e3e738acfe2c1342e5dcd27492c99c0c9f17dc80b8bd74007278d2da1d7e",
+        "reverse_sha256": "cb6afd3198e33083d2548c41b37fed323c509ba81749073e7ecaaa013b7456ef",
+        "sha_exact": false,
+        "central_admission": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "word_order_mirror": true,
+          "repeated_content": true,
+          "proper_palindrome_span_absent": true,
+          "catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    },
+    {
+      "rendered": "the harbor crew lit the lantern after dusk, so the patient keeper blocked the narrow path by evening.",
+      "relation": "effect",
+      "left_event": "lantern",
+      "right_event": "path",
+      "event_equation": {
+        "left_kind": "prepared",
+        "right_kind": "changed",
+        "relation_order": "cause-so-result"
+      },
+      "independent_reparse": true,
+      "character_debt": {
+        "matched_prefix": 0,
+        "first_mismatch": {
+          "left": 0,
+          "right": 81,
+          "left_char": "t",
+          "right_char": "g"
+        }
+      },
+      "audit": {
+        "letters": 82,
+        "two_pointer_exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 81,
+            "left_char": "t",
+            "right_char": "g"
+          },
+          {
+            "left": 1,
+            "right": 80,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 79,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 78,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 77,
+            "left_char": "a",
+            "right_char": "e"
+          },
+          {
+            "left": 5,
+            "right": 76,
+            "left_char": "r",
+            "right_char": "v"
+          },
+          {
+            "left": 6,
+            "right": 75,
+            "left_char": "b",
+            "right_char": "e"
+          },
+          {
+            "left": 7,
+            "right": 74,
+            "left_char": "o",
+            "right_char": "y"
+          },
+          {
+            "left": 8,
+            "right": 73,
+            "left_char": "r",
+            "right_char": "b"
+          },
+          {
+            "left": 9,
+            "right": 72,
+            "left_char": "c",
+            "right_char": "h"
+          },
+          {
+            "left": 10,
+            "right": 71,
+            "left_char": "r",
+            "right_char": "t"
+          },
+          {
+            "left": 11,
+            "right": 70,
+            "left_char": "e",
+            "right_char": "a"
+          }
+        ],
+        "forward_sha256": "1e3536cc86585e4c47a3bf6f6388133daf651482da70830711f107bcf94a75bc",
+        "reverse_sha256": "024728d64461dab7ce580ee0006a8d52cdb6df0672fbb98dee358b65188b4a84",
+        "sha_exact": false,
+        "central_admission": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "word_order_mirror": true,
+          "repeated_content": true,
+          "proper_palindrome_span_absent": true,
+          "catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    },
+    {
+      "rendered": "the coastal pilot studied the map at dawn before the patient keeper opened the garden gate in the morning.",
+      "relation": "temporal",
+      "left_event": "map",
+      "right_event": "gate",
+      "event_equation": {
+        "left_kind": "observed",
+        "right_kind": "changed",
+        "relation_order": "earlier-before-later"
+      },
+      "independent_reparse": true,
+      "character_debt": {
+        "matched_prefix": 0,
+        "first_mismatch": {
+          "left": 0,
+          "right": 86,
+          "left_char": "t",
+          "right_char": "g"
+        }
+      },
+      "audit": {
+        "letters": 87,
+        "two_pointer_exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 86,
+            "left_char": "t",
+            "right_char": "g"
+          },
+          {
+            "left": 1,
+            "right": 85,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 84,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 83,
+            "left_char": "c",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 82,
+            "left_char": "o",
+            "right_char": "r"
+          },
+          {
+            "left": 5,
+            "right": 81,
+            "left_char": "a",
+            "right_char": "o"
+          },
+          {
+            "left": 6,
+            "right": 80,
+            "left_char": "s",
+            "right_char": "m"
+          },
+          {
+            "left": 7,
+            "right": 79,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 78,
+            "left_char": "a",
+            "right_char": "h"
+          },
+          {
+            "left": 9,
+            "right": 77,
+            "left_char": "l",
+            "right_char": "t"
+          },
+          {
+            "left": 10,
+            "right": 76,
+            "left_char": "p",
+            "right_char": "n"
+          },
+          {
+            "left": 12,
+            "right": 74,
+            "left_char": "l",
+            "right_char": "e"
+          }
+        ],
+        "forward_sha256": "e5f3cbc1fb5e53b47e1e219606baf7eed491b29f81372bd3066adf25d89e3de4",
+        "reverse_sha256": "bdd667cba5853ace9b978386e4ecdb7d4bf61ebdc2a5943f2136b4c70dfa9329",
+        "sha_exact": false,
+        "central_admission": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "word_order_mirror": true,
+          "repeated_content": true,
+          "proper_palindrome_span_absent": true,
+          "catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    },
+    {
+      "rendered": "the coastal pilot studied the map at dawn before the patient keeper blocked the narrow path by evening.",
+      "relation": "temporal",
+      "left_event": "map",
+      "right_event": "path",
+      "event_equation": {
+        "left_kind": "observed",
+        "right_kind": "changed",
+        "relation_order": "earlier-before-later"
+      },
+      "independent_reparse": true,
+      "character_debt": {
+        "matched_prefix": 0,
+        "first_mismatch": {
+          "left": 0,
+          "right": 84,
+          "left_char": "t",
+          "right_char": "g"
+        }
+      },
+      "audit": {
+        "letters": 85,
+        "two_pointer_exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 84,
+            "left_char": "t",
+            "right_char": "g"
+          },
+          {
+            "left": 1,
+            "right": 83,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 82,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 81,
+            "left_char": "c",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 80,
+            "left_char": "o",
+            "right_char": "e"
+          },
+          {
+            "left": 5,
+            "right": 79,
+            "left_char": "a",
+            "right_char": "v"
+          },
+          {
+            "left": 6,
+            "right": 78,
+            "left_char": "s",
+            "right_char": "e"
+          },
+          {
+            "left": 7,
+            "right": 77,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "left": 8,
+            "right": 76,
+            "left_char": "a",
+            "right_char": "b"
+          },
+          {
+            "left": 9,
+            "right": 75,
+            "left_char": "l",
+            "right_char": "h"
+          },
+          {
+            "left": 10,
+            "right": 74,
+            "left_char": "p",
+            "right_char": "t"
+          },
+          {
+            "left": 11,
+            "right": 73,
+            "left_char": "i",
+            "right_char": "a"
+          }
+        ],
+        "forward_sha256": "309056b0505218e29e8b5f485f97f2cb63608bc216a6639644f9cf42d2bf00a5",
+        "reverse_sha256": "9d28e46d4b53f04bb8926dd0f4e35b4276f4fe37e71fa37fdee9a73563853c96",
+        "sha_exact": false,
+        "central_admission": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "word_order_mirror": true,
+          "repeated_content": true,
+          "proper_palindrome_span_absent": true,
+          "catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    },
+    {
+      "rendered": "the coastal pilot reported the signal at noon before the patient keeper opened the garden gate in the morning.",
+      "relation": "temporal",
+      "left_event": "signal",
+      "right_event": "gate",
+      "event_equation": {
+        "left_kind": "observed",
+        "right_kind": "changed",
+        "relation_order": "earlier-before-later"
+      },
+      "independent_reparse": true,
+      "character_debt": {
+        "matched_prefix": 0,
+        "first_mismatch": {
+          "left": 0,
+          "right": 90,
+          "left_char": "t",
+          "right_char": "g"
+        }
+      },
+      "audit": {
+        "letters": 91,
+        "two_pointer_exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 90,
+            "left_char": "t",
+            "right_char": "g"
+          },
+          {
+            "left": 1,
+            "right": 89,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 88,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 87,
+            "left_char": "c",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 86,
+            "left_char": "o",
+            "right_char": "r"
+          },
+          {
+            "left": 5,
+            "right": 85,
+            "left_char": "a",
+            "right_char": "o"
+          },
+          {
+            "left": 6,
+            "right": 84,
+            "left_char": "s",
+            "right_char": "m"
+          },
+          {
+            "left": 7,
+            "right": 83,
+            "left_char": "t",
+            "right_char": "e"
+          },
+          {
+            "left": 8,
+            "right": 82,
+            "left_char": "a",
+            "right_char": "h"
+          },
+          {
+            "left": 9,
+            "right": 81,
+            "left_char": "l",
+            "right_char": "t"
+          },
+          {
+            "left": 10,
+            "right": 80,
+            "left_char": "p",
+            "right_char": "n"
+          },
+          {
+            "left": 12,
+            "right": 78,
+            "left_char": "l",
+            "right_char": "e"
+          }
+        ],
+        "forward_sha256": "02f3015a2d237d1b047b4e40a36611b938e8f8631dd2a47eac9400f8d25d0463",
+        "reverse_sha256": "57c4e62f61e87d7702e6ada45a7086505fa88114edd3a705104aa4b4546c897e",
+        "sha_exact": false,
+        "central_admission": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": false,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "word_order_mirror": true,
+          "repeated_content": true,
+          "proper_palindrome_span_absent": true,
+          "catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    },
+    {
+      "rendered": "the coastal pilot reported the signal at noon before the patient keeper blocked the narrow path by evening.",
+      "relation": "temporal",
+      "left_event": "signal",
+      "right_event": "path",
+      "event_equation": {
+        "left_kind": "observed",
+        "right_kind": "changed",
+        "relation_order": "earlier-before-later"
+      },
+      "independent_reparse": true,
+      "character_debt": {
+        "matched_prefix": 0,
+        "first_mismatch": {
+          "left": 0,
+          "right": 88,
+          "left_char": "t",
+          "right_char": "g"
+        }
+      },
+      "audit": {
+        "letters": 89,
+        "two_pointer_exact": false,
+        "mismatches": [
+          {
+            "left": 0,
+            "right": 88,
+            "left_char": "t",
+            "right_char": "g"
+          },
+          {
+            "left": 1,
+            "right": 87,
+            "left_char": "h",
+            "right_char": "n"
+          },
+          {
+            "left": 2,
+            "right": 86,
+            "left_char": "e",
+            "right_char": "i"
+          },
+          {
+            "left": 3,
+            "right": 85,
+            "left_char": "c",
+            "right_char": "n"
+          },
+          {
+            "left": 4,
+            "right": 84,
+            "left_char": "o",
+            "right_char": "e"
+          },
+          {
+            "left": 5,
+            "right": 83,
+            "left_char": "a",
+            "right_char": "v"
+          },
+          {
+            "left": 6,
+            "right": 82,
+            "left_char": "s",
+            "right_char": "e"
+          },
+          {
+            "left": 7,
+            "right": 81,
+            "left_char": "t",
+            "right_char": "y"
+          },
+          {
+            "left": 8,
+            "right": 80,
+            "left_char": "a",
+            "right_char": "b"
+          },
+          {
+            "left": 9,
+            "right": 79,
+            "left_char": "l",
+            "right_char": "h"
+          },
+          {
+            "left": 10,
+            "right": 78,
+            "left_char": "p",
+            "right_char": "t"
+          },
+          {
+            "left": 11,
+            "right": 77,
+            "left_char": "i",
+            "right_char": "a"
+          }
+        ],
+        "forward_sha256": "ee48307bb5ff6d10a800e6d5c56217d0effcd669a291be706c31537ee60bf261",
+        "reverse_sha256": "1ef0233e73c950e00b32909258f41c4ba8bcf394b46d9e69f1234bbcb7246b5f",
+        "sha_exact": false,
+        "central_admission": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": false,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "word_order_mirror": true,
+          "repeated_content": true,
+          "proper_palindrome_span_absent": true,
+          "catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    }
+  ],
+  "exact_survivors": [],
+  "mechanically_admitted": [],
+  "stats": {
+    "states": 16,
+    "rendered": 12,
+    "rejected_before_reparse": 4,
+    "exact": 0,
+    "admitted": 0
+  },
+  "provenance": {
+    "generator_sha256": "3f62ef491840e3d44cd281f95fd89e519e09bc14540af5942537126d9c9d7701",
+    "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+    "audits": [
+      "independent normalized two-pointer",
+      "forward/reverse SHA-256",
+      "mechanical admission",
+      "independent relation/event reparse"
+    ]
+  },
+  "anti_shortcut_policy": "normal clause order only; distinct event ids; no copied tape, word-order mirror, or catalogue scaffold",
+  "next_repair": "at the first residual character debt, replace the active event slot with the next relation-compatible held-out proposition and re-solve relation order jointly",
+  "reader_facing_test": {
+    "status": "not triggered unless exact admitted survivor exists"
+  }
+}

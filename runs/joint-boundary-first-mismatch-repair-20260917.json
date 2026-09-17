@@ -1,0 +1,36 @@
+{
+  "experiment_id": "joint-boundary-first-mismatch-repair-20260917",
+  "signature": "joint-grammar|first-mismatch|heldout-inflected-transitive-frame-v1",
+  "method": {
+    "search": "repair-only lexical branching",
+    "constraint": "reopen exactly one slot at first outer mismatch",
+    "forbidden": [
+      "fixed tape",
+      "mirrored word order",
+      "catalogue text",
+      "repeated units"
+    ]
+  },
+  "parent": "runs/joint-boundary-grammar-beam-20260917.json",
+  "candidate_count": 0,
+  "rendered_candidates": [],
+  "stats": {
+    "exact_count": 0,
+    "longest_letters": 0
+  },
+  "next_repair": {
+    "operator": "couple the two opposed first-mismatch slots and admit only inflections whose edge characters agree",
+    "reason": "single-slot held-out repair preserved prose but did not close the opposite obligation",
+    "concrete": "jointly enumerate the two slot alternatives at the mismatch pair, retaining valency and tense"
+  },
+  "provenance": {
+    "generator": "experiments/joint_boundary_first_mismatch_repair_20260917.py",
+    "generator_sha256": "2d05812fc54e5f650b0ef2301982fbf9ca600dede7ad7b88460b17b1f1265e0a",
+    "independent_audits": [
+      "direct normalized tape",
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "reproducible_command": "python3 experiments/joint_boundary_first_mismatch_repair_20260917.py"
+  }
+}

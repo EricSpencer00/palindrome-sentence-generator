@@ -1,0 +1,85 @@
+{
+  "experiment_id": "immutable-scene-exact-tape-resegment-20260916",
+  "signature": "fresh-multiclause-authoring|immutable-tape-diagnostic|grammar-resegment|no-catalogue|no-sweep",
+  "status": "diagnostic_no_grammatical_exact_resegmentation",
+  "reader_eligible": false,
+  "method": "author one fresh multi-clause sentence first; freeze normalized tape; attempt one grammar-aware reverse resegmentation diagnostic",
+  "immutable_tape": {
+    "letters": 113,
+    "normalized_sha256": "2a1ef476bdcb5631198b71cddf942d6048492bbb41f63791336c8c0d94843b53",
+    "frozen": true
+  },
+  "candidate": {
+    "rendered": "At dawn, the archivist opens the west gallery, and the curator labels each recovered map while visitors wait quietly beside the old stair.",
+    "fresh_authoring": true,
+    "complete_prose": true,
+    "audit": {
+      "rendered": "At dawn, the archivist opens the west gallery, and the curator labels each recovered map while visitors wait quietly beside the old stair.",
+      "letters": 113,
+      "exact": false,
+      "two_pointer_exact": false,
+      "first_mismatch": [
+        0,
+        "a",
+        "r"
+      ],
+      "normalized_sha256": "2a1ef476bdcb5631198b71cddf942d6048492bbb41f63791336c8c0d94843b53",
+      "reverse_sha256": "10a031d41a5514e27603e4d29504a799653d856a824295e23810885693b3371d",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut": {
+        "catalogue_family_derivative": false,
+        "seed_wrapped_or_repeated": false,
+        "word_order_mirror": false,
+        "semordnilap_chain": false,
+        "repeated_self_palindromic_unit": false
+      }
+    }
+  },
+  "resegmentation": {
+    "grammar": "S -> clause conjunction clause adjunct",
+    "paths_tested": 1,
+    "exact_grammar_paths": 0,
+    "used_catalogue_text": false,
+    "sweep": false,
+    "failure": "reverse tape has no complete ordinary-English parse under this grammar"
+  },
+  "next_repair": {
+    "operator": "author a new center-bearing clause family whose seam terminals are chosen before tape freeze, then rerun one exact-tape intersection",
+    "reason": "immutable authored tape is grammatical forward but cannot be resegmented into a grammatical reverse path"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 409,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_as_input": false,
+    "word_order_mirror": false
+  },
+  "provenance": {
+    "generator_sha256": "c737cec72100f115284ce36bc0d92baa02b73de0ea37f46773cb65be2d4fe102",
+    "lexical_source": "fresh authored archive-gallery scene",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "immutable tape replay",
+      "anti-shortcut"
+    ]
+  }
+}

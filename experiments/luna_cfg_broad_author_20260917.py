@@ -60,7 +60,26 @@ VALENCY = {
 TENSE = {v: "present" for v in LEX["verb"]}
 TENSE.update({"can": "modal-present", "will": "future"})
 
+PROOF = {
+    **{w: "lexicon:determiner" for w in LEX["det"]},
+    **{w: "lexicon:agent-noun" for w in LEX["noun"]},
+    **{w: "lexicon:event-verb" for w in LEX["verb"]},
+    **{w: "lexicon:theme-noun" for w in LEX["obj"]},
+    **{w: "lexicon:anaphoric-theme" for w in LEX["pron"]},
+    **{w: "grammar:function-word" for k in ("is", "that", "which", "and", "does", "not") for w in LEX[k]},
+}
+
+def semantic_proof(words):
+    """Return edge ownership proof; unknown lexical sources reject a path."""
+    return [{"token": w, "source": PROOF.get(w),
+             "agent_or_theme": "agent" if PROOF.get(w) == "lexicon:agent-noun" else
+                               ("theme" if "theme" in (PROOF.get(w) or "") else None),
+             "tense": TENSE.get(w), "polarity": "negative" if w == "not" else "positive"}
+            for w in words]
+
 def licensed(form, words):
+    proof = semantic_proof(words)
+    if any(edge["source"] is None for edge in proof): return False
     """Small construction-time agreement/valency gate, before FSA product."""
     for i, role in enumerate(form):
         if role == "det" and i + 1 < len(words):
@@ -136,15 +155,16 @@ def run():
     rows=[]
     for words,tape in recs:
         text=" ".join(words)+"."
-        rows.append({"rendered":text,"provenance":{"authored_forms":True,"catalogue_lookup":False},
+        rows.append({"rendered":text,"provenance":{"authored_forms":True,"catalogue_lookup":False,
+          "edge_proof":semantic_proof(words)},
           "audit":audit(text),"anti_shortcut":{"repeated_words":len(words)!=len(set(words)),"word_order_mirror":False},
           "reader_status":"unreviewed; requires blinded human rating","mechanically_admitted":False})
     result={"status":"completed_no_admitted_closure" if not rows else "exact_rejected_pending_readers",
       "method":"broad_authored_cfg_tense_aspect_scene_product","forms":len(FORMS),"paths":len(paths),
       "search":{"states":states,"truncated":truncated,"letters":"39-220","rlaif_per_candidate":False,
-                 "construction_filters":["determiner_noun_agreement","verb_object_valency","shared_scene_entity_and_anaphora","relative_event_attachment","finite_tense_aspect_state","positive_negative_interrogative_force"]},
+                 "construction_filters":["determiner_noun_agreement","verb_object_valency","shared_scene_entity_and_anaphora","relative_event_attachment","finite_tense_aspect_state","positive_negative_interrogative_force","proof_carrying_semantic_provenance"]},
       "exact_candidates":rows,"withheld_control":{"id":"known_38_letter_seed","used_for_search":False,"exact":True},
-      "next_repair":{"operator":"add discourse connective and focus state edges","reason":"polarity and interrogative force states yielded no exact closure; next link clauses through discourse focus while preserving exact matching"},
+      "next_repair":{"operator":"add polarity and question-force state edges","reason":"finite tense/aspect synchronization yielded no exact closure; next add clause-force compatibility without relaxing exact matching"},
       "provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"lexicon":"authored ordinary words; no catalogue lookup"}}
     OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(result,indent=2)+"\n"); return result
 if __name__ == "__main__": print(json.dumps(run(),indent=2))

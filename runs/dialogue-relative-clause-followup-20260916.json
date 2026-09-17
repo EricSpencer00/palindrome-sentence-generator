@@ -1,0 +1,84 @@
+{
+  "experiment_id": "dialogue-relative-clause-followup-20260916",
+  "signature": "heldout-relative-predicate-repair|preserved-dialogue-act-object|agreement-compatible|independent-pointer-sha",
+  "status": "completed",
+  "method": "one held-out agreement-compatible relative predicate replacement",
+  "candidate": {
+    "rendered": "Jon said, \u201cI found a small key, which the night guard had stored.\u201d The guard replied, \u201cKeep it safe.\u201d",
+    "letters": 74,
+    "repair_operator": {
+      "changed_slot": "relative_predicate",
+      "from": "marked",
+      "to": "stored",
+      "preserved": [
+        "Jon dialogue act",
+        "small key object",
+        "singular relative syntax"
+      ],
+      "held_out": true
+    },
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_normalized_sha256",
+      "letters": 74,
+      "two_pointer_exact": false,
+      "mismatch_count": 33,
+      "first_mismatch": {
+        "left": 0,
+        "right": 73,
+        "a": "j",
+        "b": "e"
+      },
+      "sha256_forward": "d2c97ba8ee8a914efb5f11adbd2a50c7aa630fe0388cd9319045b551ee1f1b8d",
+      "sha256_reverse": "fbe1551b97033d7c1dabf1796ee54d8d4bb47f70e12866375d86e1d6000f3701",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": false,
+      "lexicon_words": false,
+      "ordinary_short_words": true,
+      "distinct_words": false,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "fresh_dialogue": true,
+      "source_sentences_copied": false,
+      "catalogue_imported": false,
+      "borrowed_text": false,
+      "reversed_finished_sentence": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false,
+      "generator_sha256": "f372a4dcc905ad0f1c9130fad170b0a28e7868edb25dfa545e320c86e68f42e4"
+    }
+  },
+  "stats": {
+    "targeted_states": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "novelty_preflight": {
+    "performed_before_search": true,
+    "exact_id_collision": false,
+    "exact_signature_collision": false,
+    "status": "passed",
+    "sweep": false
+  },
+  "next_repair": "Change only the speaker name at the next residual while preserving dialogue act, object, and relative clause; do not reopen predicate state.",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "f372a4dcc905ad0f1c9130fad170b0a28e7868edb25dfa545e320c86e68f42e4",
+    "generated_not_catalogue": true
+  }
+}

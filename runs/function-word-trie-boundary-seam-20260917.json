@@ -1,0 +1,105 @@
+{
+  "experiment": "function-word-trie-boundary-seam-20260917",
+  "method": "function-word tries over variable determiners, prepositions, conjunctions; partial equations checked at every character before next slot",
+  "template": "{d0} {a0} {v0} {d1} {o0} {p0} {d2} {s0}, {c} {d3} {a1} {v1} {d4} {o1} {p1} {d5} {s1}.",
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "the gardener carries the letters beside the harbor, and the teacher writes the notes near the garden.",
+      "slots": {
+        "d0": "the",
+        "a0": "gardener",
+        "v0": "carries",
+        "d1": "the",
+        "o0": "letters",
+        "p0": "beside",
+        "d2": "the",
+        "s0": "harbor",
+        "c": "and",
+        "d3": "the",
+        "a1": "teacher",
+        "v1": "writes",
+        "d4": "the",
+        "o1": "notes",
+        "p1": "near",
+        "d5": "the",
+        "s1": "garden"
+      },
+      "character_checks": 83,
+      "max_partial_mismatch": 4,
+      "provenance": "function_word_trie_variable_boundary_live_expansion",
+      "novelty_preflight": {
+        "signature": "function_word_trie_boundary_v1",
+        "distinct_from": "inflectional lexical-only expansion; determiners, conjunction, and prepositions are trie slots"
+      },
+      "audit": {
+        "letters": 83,
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0,
+        "sha256": "d22971f6626fef8bf73000b4a27fb648f0dc39f596897934e989cd7370a0d3f1",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "a teacher writes the notes near the station, while the messenger records the charts beside the harbor.",
+      "slots": {
+        "d0": "a",
+        "a0": "teacher",
+        "v0": "writes",
+        "d1": "the",
+        "o0": "notes",
+        "p0": "near",
+        "d2": "the",
+        "s0": "station",
+        "c": "while",
+        "d3": "the",
+        "a1": "messenger",
+        "v1": "records",
+        "d4": "the",
+        "o1": "charts",
+        "p1": "beside",
+        "d5": "the",
+        "s1": "harbor"
+      },
+      "character_checks": 84,
+      "max_partial_mismatch": 4,
+      "provenance": "function_word_trie_variable_boundary_live_expansion",
+      "novelty_preflight": {
+        "signature": "function_word_trie_boundary_v1",
+        "distinct_from": "inflectional lexical-only expansion; determiners, conjunction, and prepositions are trie slots"
+      },
+      "audit": {
+        "letters": 84,
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0,
+        "sha256": "9b428ee37cfd68719c4c41ccb7e544999dda1cf50adbc6d327a8fb554aa46ed0",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 84,
+    "next_repair": "use a seam-aware dynamic program over function-word trie states and retain only character-compatible partial boundaries"
+  }
+}

@@ -1,0 +1,117 @@
+{
+  "experiment_id": "grammar-first-matching-boundary-run-20260916",
+  "signature": "grammar-first|matching-boundary-filter|finite-intersection|fresh-multiclause-scene|bounded",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "finite grammar intersection admits only phrase boundaries passing local character equations before commitment, then completes one fresh multi-clause scene",
+  "phrase_lexicon": [
+    "The quiet curator",
+    "records a coastal chart",
+    "while the patient guide",
+    "describes an old harbor",
+    "at evening."
+  ],
+  "candidate": {
+    "rendered": "The quiet curator records a coastal chart while the patient guide describes an old harbor at evening.",
+    "complete_prose": true,
+    "committed_boundaries": [
+      {
+        "phrase": "The quiet curator",
+        "left_boundary": "r",
+        "required_right_boundary": "r",
+        "equation_satisfied_before_commit": true
+      },
+      {
+        "phrase": "records a coastal chart",
+        "left_boundary": "t",
+        "required_right_boundary": "t",
+        "equation_satisfied_before_commit": true
+      },
+      {
+        "phrase": "while the patient guide",
+        "left_boundary": "e",
+        "required_right_boundary": "e",
+        "equation_satisfied_before_commit": true
+      },
+      {
+        "phrase": "describes an old harbor",
+        "left_boundary": "r",
+        "required_right_boundary": "r",
+        "equation_satisfied_before_commit": true
+      },
+      {
+        "phrase": "at evening.",
+        "left_boundary": "g",
+        "required_right_boundary": "g",
+        "equation_satisfied_before_commit": true
+      }
+    ],
+    "audit": {
+      "rendered": "The quiet curator records a coastal chart while the patient guide describes an old harbor at evening.",
+      "letters": 84,
+      "exact": false,
+      "two_pointer_exact": false,
+      "first_mismatch": [
+        0,
+        "t",
+        "g"
+      ],
+      "normalized_sha256": "0492153b67701c380606bab1214c94f60ca1bdc95831eadf3c6114e72a240dec",
+      "reverse_sha256": "5308a332d18ed62d21999c51deee2c5484104aa9fef02b05dff66bda3ec6bdf3",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut": {
+        "catalogue_family_derivative": false,
+        "seed_wrapped_or_repeated": false,
+        "word_order_mirror": false,
+        "semordnilap_chain": false,
+        "repeated_self_palindromic_unit": false
+      }
+    }
+  },
+  "stats": {
+    "rendered": 1,
+    "exact": 0,
+    "local_boundary_admitted": 5
+  },
+  "next_repair": {
+    "operator": "add typed center production whose first and last terminals match remaining global residual, then rerun precommit filter",
+    "reason": "all committed local boundaries pass but complete sentence retains global residual"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 415,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "finished_tape_input": false,
+    "reverse_emission": false,
+    "word_order_mirror": false,
+    "repeated_units": false
+  },
+  "provenance": {
+    "generator_sha256": "9623f88c8239f1ac9c640f618ff7c3bdcd728bdbfd7d6823e1cf0d031b690098",
+    "lexical_source": "fresh finite phrase grammar",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "precommit local equations",
+      "anti-shortcut"
+    ]
+  }
+}

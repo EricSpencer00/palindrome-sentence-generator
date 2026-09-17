@@ -950,7 +950,7 @@ and forward/reverse SHA checks agree that it is not exact; provenance and
 anti-shortcut flags are clean, and its next reader-facing test remains the
 intact-versus-shuffled packet after exact admission. The paired-slot exact
 tapes are retained as provenance-backed failure evidence, not readability
-claims. The aggregate is now **5,469 rows across 332 routes, 84 exact rows,
+claims. The aggregate is now **5,485 rows across 332 routes, 84 exact rows,
 and 0 mechanically admitted outputs**; the registry is **431 retained, 35
 excluded, and 409 retained run artifacts**.
 
@@ -988,6 +988,12 @@ whole-tape closure still open. A reverse-automaton phrase lattice emits a
 diet on cod.”), but the independent gate rejects it for catalogue collision
 and a self-palindromic span; it is failure evidence, not a readable output.
 
+The exact-candidate repair lane also tested the 50-letter witness “A dog was
+stressed; live on time; emit no evil; desserts saw God a.” Its tape and
+hashes agree exactly, but the independent gate rejects it for mirrored
+word-order and a proper self-palindromic span; a semantic substitution loses
+exactness. This is preserved as a repair boundary, not a readability claim.
+
 The next three Luna lanes remain constructive rather than duplicate sweeps. A
 lexicalized reverse-trie grammar retains five 110--123-letter clause pairs
 after a held-out locative repair;
@@ -1009,15 +1015,15 @@ first-residual repair replaces the outer seam with a role-compatible clause
 pair. None is reader-eligible until exact admission.
 
 Two further lanes keep the construction state joint at a different seam. The
-punctuation-center bridge retains 96 baseline/subject/object/locative/verb/agreement/determiner/adjective-repaired 112--136-letter scenes, including
+punctuation-center bridge retains 108 baseline/subject/object/locative/verb/agreement/determiner/adjective/noun-repaired 112--136-letter scenes, including
 “The patient cartographer marks a coastal inlet beside the old pier; the
 harbor bell sounds, while the young archivist files weathered maps near the
 harbor office.” (exact `false`); its next repair holds out the repaired
 right-side object noun or determiner; its next repair holds out a locative.
-The affix/clitic crossword retains 33 complete 117--132-letter baseline/repaired clause pairs, including “The seasoned harbor pilot
+The affix/clitic crossword retains 37 complete 117--134-letter baseline/repaired clause pairs, including “The seasoned harbor pilot
 guides the weathered ferry through the morning fog. The kind librarian returns
 the borrowed novels to the neighborhood shelves.” (129 letters; exact
-`false`), with held-out baker object-number and verb-agreement substitutions next. Both
+`false`), with held-out clitic-boundary substitutions next. Both
 lanes independently audit the full normalized tape and preserve provenance;
 neither is a reader candidate until exact admission.
 

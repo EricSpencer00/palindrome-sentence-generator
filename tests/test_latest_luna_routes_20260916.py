@@ -62,7 +62,7 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 5469
+    assert report["candidate_count"] == 5485
     assert report["exact_count"] == 84
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
@@ -100,8 +100,8 @@ def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     assert by_source["runs/luna-lexicalized-reverse-trie-grammar-20260917.json"]["rows"] == 5
     assert by_source["runs/luna-inflection-clitic-seam-scene-solver-20260917.json"]["rows"] == 24
     assert by_source["runs/luna-recursive-balanced-grammar-20260917.json"]["rows"] == 6
-    assert by_source["runs/luna-punctuation-center-bridge-20260917.json"]["rows"] == 92
-    assert by_source["runs/luna-affix-crossword-prose-20260917.json"]["rows"] == 30
+    assert by_source["runs/luna-punctuation-center-bridge-20260917.json"]["rows"] == 104
+    assert by_source["runs/luna-affix-crossword-prose-20260917.json"]["rows"] == 34
     assert by_source["runs/dependency-semantic-seam-csp-v2-20260917.json"]["rows"] == 6
     assert by_source["runs/agreement-carrying-morphology-boundary-csp-20260917.json"]["rows"] == 24
     assert by_source["runs/finite-state-boundary-beam-20260917.json"]["rows"] == 12

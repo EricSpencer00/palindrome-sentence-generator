@@ -26,7 +26,7 @@ builds ordinary scenes: typed grammar and semantic slots propose the next
 words, and targeted repairs are selected from the current mirrored-letter
 debt.  Ten deliberately orthogonal construction lanes share an independent
 two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 5,469 candidates from 332 route
+The current development snapshot contains 5,485 candidates from 332 route
 summaries; 84 are exact, but none passes the mechanical admission gate and no row has
 yet been promoted by readers.  We report the rendered candidates and the
 failed gates explicitly, then use each failure to define the next repair
@@ -444,7 +444,7 @@ lexical form, distinctness, catalogue-family exclusion, repeated-unit and
 self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
 one signature to each run and rejects duplicate families before aggregation.
 On the authoritative snapshot the registry contains 431 unique artifacts (35
-preflight exclusions); the aggregate contains 5,469 rows, 84 exact rows, and
+preflight exclusions); the aggregate contains 5,485 rows, 84 exact rows, and
 zero mechanically admitted rows across 332 route summaries.  Every exact row
 therefore has a visible reason for rejection or promotion status rather than
 being silently discarded.  The aggregate report is registered separately as
@@ -516,6 +516,13 @@ a fatness. I diet on cod.'', but the independent gate rejects it for local
 catalogue collision and a self-palindromic span.  This exact control is kept
 as rejection evidence, not counted as a readable output.
 
+The exact-candidate repair lane also tested the 50-letter witness ``A dog was
+stressed; live on time; emit no evil; desserts saw God a.''  Its tape and
+hashes agree exactly, but the independent gate rejects it for mirrored
+word-order and a proper self-palindromic span; a semantic substitution loses
+exactness.  We retain that failed repair as a concrete boundary, not as a
+readability claim.
+
 The subsequent frontier adds three non-duplicate constructive operators.  A
 lexicalized reverse-trie grammar retains five 110--123-letter clause pairs
 after a held-out locative repair;
@@ -537,15 +544,15 @@ gentle keeper mends the garden gate after the winter storm.'' (exact
 role-compatible clause pair.  None is reader-eligible until exact admission.
 
 Two additional seams are kept joint rather than repaired post hoc.  A
-punctuation-center bridge retains 96 baseline/subject/object/locative/verb/agreement/determiner/adjective-repaired 112--136-letter scenes,
+punctuation-center bridge retains 108 baseline/subject/object/locative/verb/agreement/determiner/adjective/noun-repaired 112--136-letter scenes,
 including ``The patient cartographer marks a coastal inlet beside the old
 pier; the harbor bell sounds, while the young archivist files weathered maps
 near the harbor office.'' (exact \emph{false}); its next repair holds out a
 locative while preserving the repaired object seam.
-An affix/clitic crossword retains 33 complete 117--132-letter baseline/repaired clause pairs, including ``The seasoned harbor
+An affix/clitic crossword retains 37 complete 117--134-letter baseline/repaired clause pairs, including ``The seasoned harbor
 pilot guides the weathered ferry through the morning fog. The kind librarian
 returns the borrowed novels to the neighborhood shelves.'' (129 letters, exact
-\emph{false}), with held-out baker object-number and verb-agreement substitutions next.
+\emph{false}), with held-out clitic-boundary substitutions next.
 Both lanes independently audit the full normalized tape and preserve
 provenance; neither is reader-eligible until exact admission.
 

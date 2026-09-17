@@ -520,6 +520,30 @@ before dawn.” (45 letters; first mismatch 0; SHA prefixes `032e4c56...` and
 independent pointer/SHA validation, novelty preflight, and concrete repairs;
 none is exact or reader-eligible.
 
+## Current mirror-hypergraph, dialogue-CSP, and function-word-DP wave
+
+The current append-only wave changes the construction state in three ways. The
+mirror-pair hypergraph emits the intact 140-letter scene “The archivist records
+the rescued archive notes while a patient gardener waters the young seedlings,
+and the careful pilot marks the distant lights for the field nurse.” The fresh
+dialogue/relative-clause CSP emits “Jon said, ‘I found a small key, which the
+night guard had marked.’ The guard replied, ‘Keep it safe.’” (74 letters), and
+the function-word boundary DP emits “The quiet engineer can measure a channel,
+and the watchful sailor is marking it near the western buoy.” (83 letters).
+Each is independently checked by a two-pointer comparison and forward/reverse
+SHA-256; all three are non-exact (first mismatches are respectively `t/e`,
+`j/e`, and `t/y`). Their provenance records fresh generation, no copied or
+catalogue text, no finished-string reversal, no word-order mirror, and no
+repeated unit. The concrete next repairs are, respectively, a held-out
+hyperedge terminal replacement, a held-out agreement-compatible relative
+predicate, and one auxiliary/determiner change with agreement propagation.
+They are not reader eligible; the next reader-facing test remains the
+randomized blinded intact-versus-shuffled packet, gated on an exact
+anti-shortcut survivor. The authoritative audit is now **4,909 rows across 250
+route phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**;
+the novelty registry has **351 retained artifacts, 31 exclusions, and 329
+retained run artifacts**.
+
 Two additional Luna lanes are retained as distinct constructive states. A
 character-level beam over typed semantic frames emits “The young botanist
 studies the silver seed cases beside the greenhouse; a careful pilot marks the

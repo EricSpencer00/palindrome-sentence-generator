@@ -474,6 +474,22 @@ state representations with rendered text, independent pointer/SHA audits,
 provenance, novelty preflight, anti-shortcut checks, and concrete repairs;
 none closes exactly or enters the reader packet.
 
+The current authoritative snapshot adds three non-duplicate Luna states. The
+lexical mirror hypergraph renders “The archivist records the rescued archive
+notes while a patient gardener waters the young seedlings, and the careful
+pilot marks the distant lights for the field nurse.” (140 letters); the fresh
+dialogue/relative CSP renders “Jon said, ‘I found a small key, which the night
+guard had marked.’ The guard replied, ‘Keep it safe.’” (74 letters); and the
+function-word boundary DP renders “The quiet engineer can measure a channel,
+and the watchful sailor is marking it near the western buoy.” (83 letters).
+All three fail independent two-pointer and forward/reverse SHA checks, carry
+fresh no-copy/no-catalogue provenance and novelty preflight, and record a
+concrete repair. The next reader-facing test is still the blinded
+intact-versus-shuffled packet, gated on an exact anti-shortcut survivor. The
+aggregate is **4,909 rows across 250 route phases, 79 exact rejected tapes,
+and 0 mechanically admitted outputs**; the registry is **351 retained, 31
+excluded, and 329 run artifacts**.
+
 The reset wave adds three genuinely orthogonal state representations. The live
 CFG/Earley character chart renders six fresh complete scenes up to 102 letters;
 the cross-word seam CSP renders sixteen 62--75-letter role-typed scenes from a

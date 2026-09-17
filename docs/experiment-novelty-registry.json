@@ -3430,6 +3430,39 @@
       "distinction": "A single held-out clitic/determiner seam changes while dependency and agreement features remain frozen; the transducer parent is not replayed.",
       "reader_evidence": false,
       "status": "repair run; 1 intact 88-letter scene, 0 exact closures"
+    },
+    {
+      "id": "lexical-mirror-hypergraph-clause-20260916",
+      "signature": "lexical-mirror-edge-hypergraph|typed-semantic-clause-composition|connected-role-graph|nonrepeated-clause-units",
+      "artifact": "experiments/lexical_mirror_hypergraph_clause_20260916.py",
+      "run_artifacts": [
+        "runs/lexical-mirror-hypergraph-clause-20260916.json"
+      ],
+      "distinction": "Mirror pairs are graph edges only; a connected hypergraph composes complete semantic clauses and emits ordinary prose without reversing a finished string or repeating clause units.",
+      "reader_evidence": false,
+      "status": "diagnostic run; 1 intact 140-letter scene, 0 exact closures; next repair replaces one held-out hyperedge terminal while preserving connectivity and valency"
+    },
+    {
+      "id": "dialogue-relative-clause-csp-20260916",
+      "signature": "dialogue-relative-clause-csp|variable-length-slots|semantic-agreement-before-render|live-character-equation|independent-pointer-sha",
+      "artifact": "experiments/dialogue_relative_clause_csp_20260916.py",
+      "run_artifacts": [
+        "runs/dialogue-relative-clause-csp-20260916.json"
+      ],
+      "distinction": "A fresh dialogue grammar with complete relative clauses solves variable-length speaker, predicate, and object slots with agreement fixed before character emission; no fixed tape or old scene template is reused.",
+      "reader_evidence": false,
+      "status": "diagnostic run; 8 intact 73--81-letter dialogue candidates, 0 exact closures; next repair swaps only the relative predicate with a held-out agreement-compatible verb"
+    },
+    {
+      "id": "function-word-boundary-dp-20260916",
+      "signature": "function-word-variable-dp|determiner-aux-clitic-tense|fresh-scene-family|live-character-equation|new-state",
+      "artifact": "experiments/function_word_boundary_dp_20260916.py",
+      "run_artifacts": [
+        "runs/function-word-boundary-dp-20260916.json"
+      ],
+      "distinction": "A dynamic program treats determiners, auxiliaries, clitic attachment, and tense endings as explicit character-equation variables over fresh coordinated scenes, rather than as a post-hoc repair.",
+      "reader_evidence": false,
+      "status": "diagnostic run; 2 intact 83--87-letter scenes, 0 exact closures; next repair changes one auxiliary/determiner variable and propagates agreement"
     }
   ],
   "excluded": [

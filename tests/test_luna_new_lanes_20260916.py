@@ -62,7 +62,7 @@ def test_append_algebra_emits_only_complete_clauses_and_records_invariant_failur
 
 def test_aggregate_surfaces_all_three_new_lane_routes():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4898
+    assert report["candidate_count"] == 4909
     assert report["exact_count"] == 79
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/constrained-edit-program-constructor-20260916.json"]["rows"] == 4
@@ -121,6 +121,17 @@ def test_aggregate_surfaces_all_three_new_lane_routes():
     assert by_source["runs/bidirectional-phrase-pair-adjunct-repair-20260916.json"]["rows"] == 1
     assert by_source["runs/centerout-museum-heldout-repair-20260916.json"]["rows"] == 1
     assert by_source["runs/morphology-crossword-single-repair-20260916.json"]["rows"] == 1
+    assert by_source["runs/lexical-mirror-hypergraph-clause-20260916.json"]["rows"] == 1
+    assert by_source["runs/dialogue-relative-clause-csp-20260916.json"]["rows"] == 8
+    assert by_source["runs/function-word-boundary-dp-20260916.json"]["rows"] == 2
+
+    registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
+    retained = {row["id"] for row in registry["entries"]}
+    assert {
+        "lexical-mirror-hypergraph-clause-20260916",
+        "dialogue-relative-clause-csp-20260916",
+        "function-word-boundary-dp-20260916",
+    } <= retained
 
 
 def test_registry_retains_new_lanes_and_keeps_shortcut_exclusions_separate():

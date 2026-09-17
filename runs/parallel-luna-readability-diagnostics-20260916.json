@@ -242,9 +242,12 @@
     "runs/morphology-crossword-transducer-20260916.json",
     "runs/bidirectional-phrase-pair-adjunct-repair-20260916.json",
     "runs/centerout-museum-heldout-repair-20260916.json",
-    "runs/morphology-crossword-single-repair-20260916.json"
+    "runs/morphology-crossword-single-repair-20260916.json",
+    "runs/lexical-mirror-hypergraph-clause-20260916.json",
+    "runs/dialogue-relative-clause-csp-20260916.json",
+    "runs/function-word-boundary-dp-20260916.json"
   ],
-  "candidate_count": 4898,
+  "candidate_count": 4909,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -2717,6 +2720,36 @@
       "max_letters": 88,
       "mean_zipf_frequency": 5.539999999999999,
       "mean_brown_order_gain_vs_shuffle": 0.8362795988585656
+    },
+    {
+      "source_run": "runs/dialogue-relative-clause-csp-20260916.json",
+      "rows": 8,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 73,
+      "max_letters": 81,
+      "mean_zipf_frequency": 5.744473684210527,
+      "mean_brown_order_gain_vs_shuffle": 1.0576863534498642
+    },
+    {
+      "source_run": "runs/function-word-boundary-dp-20260916.json",
+      "rows": 2,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 83,
+      "max_letters": 87,
+      "mean_zipf_frequency": 5.557500000000001,
+      "mean_brown_order_gain_vs_shuffle": 0.5789230997571542
+    },
+    {
+      "source_run": "runs/lexical-mirror-hypergraph-clause-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 140,
+      "max_letters": 140,
+      "mean_zipf_frequency": 5.474444444444445,
+      "mean_brown_order_gain_vs_shuffle": 0.8152241255112003
     }
   ],
   "rows": [
@@ -235873,6 +235906,558 @@
         "mean_zipf_frequency": 5.539999999999999,
         "word_count": 17,
         "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist records the rescued archive notes while a patient gardener waters the young seedlings, and the careful pilot marks the distant lights for the field nurse.",
+      "source_run": "runs/lexical-mirror-hypergraph-clause-20260916.json",
+      "provenance": {
+        "method": "lexical mirror-pair edges feeding typed hypergraph of complete semantic clauses",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "737633fdb5f106fdb2d555e1bbc022baece5779343948c9ff0e2f863c9ead516",
+        "source_sha256": "ab7ca052c8e8c91cc4c1490f9cac859b94eb5ec62f7bdc20ccc7b7c18ab54bcc"
+      },
+      "repair": null,
+      "letters": 140,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8152241255112003,
+        "mean_zipf_frequency": 5.474444444444445,
+        "word_count": 27,
+        "repeated_word_rate": 0.18518518518518523,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "\u201cMira said, \u201cI found a small key, which the night guard had marked.\u201d\u201d The guard replied, \u201cKeep it safe.\u201d",
+      "source_run": "runs/dialogue-relative-clause-csp-20260916.json",
+      "provenance": {
+        "fresh_dialogue_grammar": true,
+        "relative_clause_complete": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "museum_courier_harbor_templates_reused": false,
+        "generator_sha256": "bdc08e90c80059c27b39661c6eeea547a5e0e91209af354bc635d51705c39a37"
+      },
+      "repair": null,
+      "letters": 75,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1868638447240727,
+        "mean_zipf_frequency": 5.771578947368421,
+        "word_count": 19,
+        "repeated_word_rate": 0.10526315789473684,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "\u201cMira said, \u201cI found the blue notebook, which the night guard had marked.\u201d\u201d The guard replied, \u201cKeep it safe.\u201d",
+      "source_run": "runs/dialogue-relative-clause-csp-20260916.json",
+      "provenance": {
+        "fresh_dialogue_grammar": true,
+        "relative_clause_complete": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "museum_courier_harbor_templates_reused": false,
+        "generator_sha256": "bdc08e90c80059c27b39661c6eeea547a5e0e91209af354bc635d51705c39a37"
+      },
+      "repair": null,
+      "letters": 81,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0449683831253544,
+        "mean_zipf_frequency": 5.69842105263158,
+        "word_count": 19,
+        "repeated_word_rate": 0.1578947368421053,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "\u201cMira said, \u201cI kept a small key, which the night guard had marked.\u201d\u201d The guard replied, \u201cKeep it safe.\u201d",
+      "source_run": "runs/dialogue-relative-clause-csp-20260916.json",
+      "provenance": {
+        "fresh_dialogue_grammar": true,
+        "relative_clause_complete": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "museum_courier_harbor_templates_reused": false,
+        "generator_sha256": "bdc08e90c80059c27b39661c6eeea547a5e0e91209af354bc635d51705c39a37"
+      },
+      "repair": null,
+      "letters": 74,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.034851364680442,
+        "mean_zipf_frequency": 5.73578947368421,
+        "word_count": 19,
+        "repeated_word_rate": 0.10526315789473684,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "\u201cMira said, \u201cI kept the blue notebook, which the night guard had marked.\u201d\u201d The guard replied, \u201cKeep it safe.\u201d",
+      "source_run": "runs/dialogue-relative-clause-csp-20260916.json",
+      "provenance": {
+        "fresh_dialogue_grammar": true,
+        "relative_clause_complete": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "museum_courier_harbor_templates_reused": false,
+        "generator_sha256": "bdc08e90c80059c27b39661c6eeea547a5e0e91209af354bc635d51705c39a37"
+      },
+      "repair": null,
+      "letters": 80,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9640618212695884,
+        "mean_zipf_frequency": 5.6626315789473685,
+        "word_count": 19,
+        "repeated_word_rate": 0.1578947368421053,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "\u201cJon said, \u201cI found a small key, which the night guard had marked.\u201d\u201d The guard replied, \u201cKeep it safe.\u201d",
+      "source_run": "runs/dialogue-relative-clause-csp-20260916.json",
+      "provenance": {
+        "fresh_dialogue_grammar": true,
+        "relative_clause_complete": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "museum_courier_harbor_templates_reused": false,
+        "generator_sha256": "bdc08e90c80059c27b39661c6eeea547a5e0e91209af354bc635d51705c39a37"
+      },
+      "repair": null,
+      "letters": 74,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1868638447240727,
+        "mean_zipf_frequency": 5.826315789473685,
+        "word_count": 19,
+        "repeated_word_rate": 0.10526315789473684,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "\u201cJon said, \u201cI found the blue notebook, which the night guard had marked.\u201d\u201d The guard replied, \u201cKeep it safe.\u201d",
+      "source_run": "runs/dialogue-relative-clause-csp-20260916.json",
+      "provenance": {
+        "fresh_dialogue_grammar": true,
+        "relative_clause_complete": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "museum_courier_harbor_templates_reused": false,
+        "generator_sha256": "bdc08e90c80059c27b39661c6eeea547a5e0e91209af354bc635d51705c39a37"
+      },
+      "repair": null,
+      "letters": 80,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0449683831253527,
+        "mean_zipf_frequency": 5.753157894736842,
+        "word_count": 19,
+        "repeated_word_rate": 0.1578947368421053,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "\u201cJon said, \u201cI kept a small key, which the night guard had marked.\u201d\u201d The guard replied, \u201cKeep it safe.\u201d",
+      "source_run": "runs/dialogue-relative-clause-csp-20260916.json",
+      "provenance": {
+        "fresh_dialogue_grammar": true,
+        "relative_clause_complete": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "museum_courier_harbor_templates_reused": false,
+        "generator_sha256": "bdc08e90c80059c27b39661c6eeea547a5e0e91209af354bc635d51705c39a37"
+      },
+      "repair": null,
+      "letters": 73,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0348513646804403,
+        "mean_zipf_frequency": 5.790526315789474,
+        "word_count": 19,
+        "repeated_word_rate": 0.10526315789473684,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "\u201cJon said, \u201cI kept the blue notebook, which the night guard had marked.\u201d\u201d The guard replied, \u201cKeep it safe.\u201d",
+      "source_run": "runs/dialogue-relative-clause-csp-20260916.json",
+      "provenance": {
+        "fresh_dialogue_grammar": true,
+        "relative_clause_complete": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "museum_courier_harbor_templates_reused": false,
+        "generator_sha256": "bdc08e90c80059c27b39661c6eeea547a5e0e91209af354bc635d51705c39a37"
+      },
+      "repair": null,
+      "letters": 79,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9640618212695902,
+        "mean_zipf_frequency": 5.717368421052633,
+        "word_count": 19,
+        "repeated_word_rate": 0.1578947368421053,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A careful archivist will carry the ledger, and a patient porter has stored it beside the northern shelves.",
+      "source_run": "runs/function-word-boundary-dp-20260916.json",
+      "provenance": "dynamic program treats determiners, auxiliaries, clitic, and tense endings as character-equation variables over fresh coordinated scenes",
+      "repair": null,
+      "letters": 87,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.704406605424234,
+        "mean_zipf_frequency": 5.492222222222222,
+        "word_count": 18,
+        "repeated_word_rate": 0.11111111111111116,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet engineer can measure a channel, and the watchful sailor is marking it near the western buoy.",
+      "source_run": "runs/function-word-boundary-dp-20260916.json",
+      "provenance": "dynamic program treats determiners, auxiliaries, clitic, and tense endings as character-equation variables over fresh coordinated scenes",
+      "repair": null,
+      "letters": 83,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4534395940900744,
+        "mean_zipf_frequency": 5.622777777777779,
+        "word_count": 18,
+        "repeated_word_rate": 0.11111111111111116,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

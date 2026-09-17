@@ -4,7 +4,7 @@ import sys
 sys.path.insert(0,str(Path(__file__).parents[1]))
 from llm_palindrome.admission import normalize_letters,tokenize,mechanical_admission_checks,is_catalogue_family_derivative
 ROOT=Path(__file__).resolve().parents[1];ID='reverse-tape-relative-resegment-20260916';SIGNATURE='reverse-tape-resegment|interrogative-relative-cfg|function-boundary-choice|valency-agreement|fresh'
-TEXTS=['Which archivist said that the pilot had found the quiet chart I stored beside the river museum?','Was the gardener certain that the mason had repaired the old gate I marked near the western orchard?']
+TEXTS=['Which archivist said that the pilot had found the quiet chart I stored beside the river museum before the winter exhibition opened?','Was the gardener certain that the mason had repaired the old gate I marked near the western orchard before the spring visitors arrived?']
 def audit(s):
  t=normalize_letters(s);r=t[::-1];mm=next(((i,t[i],r[i]) for i in range(len(t)) if t[i]!=r[i]),None)
  return {'rendered':s,'letters':len(t),'exact':bool(t) and t==r,'two_pointer_exact':bool(t) and mm is None,'first_mismatch':mm,'normalized_sha256':hashlib.sha256(t.encode()).hexdigest(),'reverse_sha256':hashlib.sha256(r.encode()).hexdigest(),'mechanical_checks':mechanical_admission_checks(s,min_letters=39,max_letters=240),'anti_shortcut':{'catalogue_family_derivative':is_catalogue_family_derivative(tokenize(s)),'seed_wrapped_or_repeated':False,'word_order_mirror':False,'semordnilap_chain':False,'repeated_self_palindromic_unit':False}}

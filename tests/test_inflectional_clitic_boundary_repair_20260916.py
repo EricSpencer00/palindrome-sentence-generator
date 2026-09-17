@@ -17,7 +17,9 @@ def test_fresh_boundary_dp_has_prose_repair_and_independent_exact_audit():
     run = json.loads(RUN.read_text())
     assert run["novelty_preflight"]["status"] == "passed"
     assert run["novelty_preflight"]["duplicate_sweep"] is False
-    assert run["stats"] == {"base_rendered": 5, "repair_rendered": 5, "exact_repairs": 0}
+    assert run["stats"] == {"base_rendered": 5, "repair_rendered": 5, "flat_rendered": 10, "exact_repairs": 0}
+    assert len(run["rendered_rows"]) == 10
+    assert all(row["rendered"].endswith(".") for row in run["rendered_rows"])
     for row in run["candidates"]:
         base = row["base"]["rendered"]
         repaired = row["repair"]["rendered"]
@@ -47,4 +49,3 @@ def test_boundary_dp_carries_agreement_and_clitic_state():
         assert dp["features"]["clitic"] == "the"
         assert dp["states_explored"] >= 8
         assert len(dp["seams"]) == dp["states_explored"]
-

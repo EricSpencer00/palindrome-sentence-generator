@@ -118,6 +118,7 @@ def novelty_preflight() -> dict[str, object]:
 def run() -> dict[str, object]:
     preflight = novelty_preflight()
     rows = []
+    rendered_rows = []
     for subject, verb, obj, pp in LEXICON["frames"]:
         base = f"{subject} {verb} {obj} {pp}."
         dp = boundary_dp(subject, verb, obj, pp)
@@ -140,12 +141,23 @@ def run() -> dict[str, object]:
             "reader_gate": {"intact_prose": True, "fragment": False, "gibberish": False,
                              "human_readability_certified": False, "requires_blinded_reader_test": True},
         })
+        # Keep both surfaces flat for the shared candidate-first readability
+        # audit; the nested record above preserves the repair relationship.
+        rendered_rows.extend([
+            {"rendered": base, "stage": "authored_base", "provenance": "fresh authored SVO/PP frame",
+             "repair": "none", "exact_audit": base_audit},
+            {"rendered": repaired, "stage": "heldout_first_residual_repair",
+             "provenance": "fresh authored SVO/PP frame + one held-out verb/object substitution",
+             "repair": "held-out verb/object suffix-clitic substitution at first residual",
+             "exact_audit": repaired_audit},
+        ])
     exact_rows = [row for row in rows if row["repair"]["audit"]["exact"]]
     out = {
         "experiment_id": EXPERIMENT_ID, "signature": SIGNATURE,
         "status": "completed_no_exact_closure" if not exact_rows else "exact_candidates_require_reader_gate",
         "reader_eligible": False, "method": "agreement-carrying inflectional/clitic boundary DP with held-out first-residual repair",
-        "candidates": rows, "stats": {"base_rendered": len(rows), "repair_rendered": len(rows), "exact_repairs": len(exact_rows)},
+        "candidates": rows, "rendered_rows": rendered_rows,
+        "stats": {"base_rendered": len(rows), "repair_rendered": len(rows), "flat_rendered": len(rendered_rows), "exact_repairs": len(exact_rows)},
         "novelty_preflight": preflight,
         "anti_shortcut_flags": {"fixed_tape_resegmentation": False, "word_order_mirror": False,
                                  "repeated_self_palindromic_unit": False, "catalogue_lookup": False,

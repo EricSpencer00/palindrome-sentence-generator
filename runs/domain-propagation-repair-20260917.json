@@ -1,0 +1,527 @@
+{
+  "experiment": "domain-propagation-repair-20260917",
+  "status": "implementation_repair_diagnostic",
+  "signature": "offset-aware-character-support|conservative-domain-pruning|independent-exhaustive-soundness-check",
+  "novelty": {
+    "classification": "repair",
+    "parent": "assumption-core-scene-solver-20260916",
+    "new_family": false
+  },
+  "report": {
+    "scenes": [
+      {
+        "id": "courier_past",
+        "complete_assignments_before": 139968,
+        "domain_sizes_before": [
+          2,
+          3,
+          3,
+          3,
+          2,
+          3,
+          2,
+          2,
+          2,
+          3,
+          3,
+          2,
+          3
+        ],
+        "domain_sizes_after": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "empty_domain": true,
+        "propagation": {
+          "rounds": [
+            {
+              "round": 1,
+              "removed": {
+                "0": [
+                  "the",
+                  "a"
+                ],
+                "1": [
+                  "careful",
+                  "quiet",
+                  "young"
+                ],
+                "2": [
+                  "courier",
+                  "teacher",
+                  "sailor"
+                ],
+                "3": [
+                  "delivered",
+                  "carried",
+                  "returned"
+                ],
+                "4": [
+                  "the",
+                  "a"
+                ],
+                "5": [
+                  "letter",
+                  "parcel",
+                  "map"
+                ],
+                "6": [
+                  "and",
+                  "while"
+                ],
+                "7": [
+                  "the",
+                  "a"
+                ],
+                "8": [
+                  "patient",
+                  "quiet"
+                ],
+                "9": [
+                  "watchman",
+                  "driver",
+                  "teacher"
+                ],
+                "10": [
+                  "waited",
+                  "rested",
+                  "watched"
+                ],
+                "11": [
+                  "the",
+                  "a"
+                ],
+                "12": [
+                  "gate",
+                  "harbor",
+                  "garden"
+                ]
+              },
+              "lengths": [
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69,
+                70,
+                71,
+                72,
+                73,
+                74
+              ]
+            }
+          ],
+          "fixed_point": false
+        },
+        "first_chars": [
+          "a",
+          "t"
+        ],
+        "last_chars": [
+          "e",
+          "n",
+          "r"
+        ]
+      },
+      {
+        "id": "garden_present",
+        "complete_assignments_before": 139968,
+        "domain_sizes_before": [
+          2,
+          3,
+          3,
+          3,
+          2,
+          3,
+          2,
+          2,
+          2,
+          3,
+          3,
+          2,
+          3
+        ],
+        "domain_sizes_after": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "empty_domain": true,
+        "propagation": {
+          "rounds": [
+            {
+              "round": 1,
+              "removed": {
+                "0": [
+                  "the",
+                  "a"
+                ],
+                "1": [
+                  "patient",
+                  "busy",
+                  "kind"
+                ],
+                "2": [
+                  "gardeners",
+                  "workers",
+                  "children"
+                ],
+                "3": [
+                  "water",
+                  "carry",
+                  "sort"
+                ],
+                "4": [
+                  "the",
+                  "a"
+                ],
+                "5": [
+                  "plants",
+                  "baskets",
+                  "seeds"
+                ],
+                "6": [
+                  "and",
+                  "while"
+                ],
+                "7": [
+                  "the",
+                  "a"
+                ],
+                "8": [
+                  "patient",
+                  "busy"
+                ],
+                "9": [
+                  "gardeners",
+                  "workers",
+                  "children"
+                ],
+                "10": [
+                  "wait",
+                  "rest",
+                  "sort"
+                ],
+                "11": [
+                  "the",
+                  "a"
+                ],
+                "12": [
+                  "tools",
+                  "seeds",
+                  "baskets"
+                ]
+              },
+              "lengths": [
+                47,
+                48,
+                49,
+                50,
+                51,
+                52,
+                53,
+                54,
+                55,
+                56,
+                57,
+                58,
+                59,
+                60,
+                61,
+                62,
+                63,
+                64,
+                65,
+                66,
+                67,
+                68,
+                69,
+                70,
+                71,
+                72
+              ]
+            }
+          ],
+          "fixed_point": false
+        },
+        "first_chars": [
+          "a",
+          "t"
+        ],
+        "last_chars": [
+          "s"
+        ]
+      }
+    ],
+    "soundness": {
+      "cases": [
+        {
+          "domains": [
+            [
+              "a",
+              "ab"
+            ],
+            [
+              "a",
+              "ba"
+            ]
+          ],
+          "solutions": [
+            [
+              "a",
+              "a"
+            ],
+            [
+              "a",
+              "ba"
+            ],
+            [
+              "ab",
+              "a"
+            ],
+            [
+              "ab",
+              "ba"
+            ]
+          ],
+          "reduced": [
+            [
+              "a",
+              "ab"
+            ],
+            [
+              "a",
+              "ba"
+            ]
+          ],
+          "sound": true,
+          "solution_survives": true,
+          "rounds": [
+            {
+              "round": 1,
+              "removed": {},
+              "lengths": [
+                2,
+                3,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "domains": [
+            [
+              "ab",
+              "a"
+            ],
+            [
+              "ba",
+              "a"
+            ]
+          ],
+          "solutions": [
+            [
+              "ab",
+              "ba"
+            ],
+            [
+              "ab",
+              "a"
+            ],
+            [
+              "a",
+              "ba"
+            ],
+            [
+              "a",
+              "a"
+            ]
+          ],
+          "reduced": [
+            [
+              "ab",
+              "a"
+            ],
+            [
+              "ba",
+              "a"
+            ]
+          ],
+          "sound": true,
+          "solution_survives": true,
+          "rounds": [
+            {
+              "round": 1,
+              "removed": {},
+              "lengths": [
+                2,
+                3,
+                4
+              ]
+            }
+          ]
+        },
+        {
+          "domains": [
+            [
+              "a",
+              "b"
+            ],
+            [
+              "",
+              "a"
+            ],
+            [
+              "a",
+              "b"
+            ]
+          ],
+          "solutions": [
+            [
+              "a",
+              "",
+              "a"
+            ],
+            [
+              "a",
+              "a",
+              "a"
+            ],
+            [
+              "b",
+              "",
+              "b"
+            ],
+            [
+              "b",
+              "a",
+              "b"
+            ]
+          ],
+          "reduced": [
+            [
+              "a",
+              "b"
+            ],
+            [
+              "",
+              "a"
+            ],
+            [
+              "a",
+              "b"
+            ]
+          ],
+          "sound": true,
+          "solution_survives": true,
+          "rounds": [
+            {
+              "round": 1,
+              "removed": {},
+              "lengths": [
+                2,
+                3
+              ]
+            }
+          ]
+        },
+        {
+          "domains": [
+            [
+              "ab",
+              "c",
+              "ba"
+            ],
+            [
+              "ba",
+              "c",
+              "ab"
+            ]
+          ],
+          "solutions": [
+            [
+              "ab",
+              "ba"
+            ],
+            [
+              "c",
+              "c"
+            ],
+            [
+              "ba",
+              "ab"
+            ]
+          ],
+          "reduced": [
+            [
+              "ab",
+              "c",
+              "ba"
+            ],
+            [
+              "ba",
+              "c",
+              "ab"
+            ]
+          ],
+          "sound": true,
+          "solution_survives": true,
+          "rounds": [
+            {
+              "round": 1,
+              "removed": {},
+              "lengths": [
+                2,
+                3,
+                4
+              ]
+            }
+          ]
+        }
+      ],
+      "all_solution_sets_survive": true
+    }
+  },
+  "generator_sha256": "3d8cce20c348c2ff3a42725446111728d9adaafe18f332f2707ac6d90daba31c",
+  "candidate_count": 0,
+  "mechanically_admitted": 0,
+  "reader_eligible": 0,
+  "next_repair": "Use the same propagator on fresh optional-constituent domains; retain exhaustive closure and reader review as separate gates."
+}

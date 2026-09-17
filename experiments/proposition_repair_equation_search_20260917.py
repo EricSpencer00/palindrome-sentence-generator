@@ -21,10 +21,10 @@ LEFT = {
     "adjunct": ("at dawn", "near noon", "before rain"),
 }
 RIGHT = {
-    "subject": ("the careful guide", "a patient guide", "the young guide"),
+    "subject": ("a careful guide", "one patient guide", "this young guide"),
     "verb": ("checks", "reads", "folds"),
-    "object": ("the trail map", "a blue note", "the old chart"),
-    "adjunct": ("at dusk", "near rain", "before dawn"),
+    "object": ("the trail chart", "a blue signal", "the old ledger"),
+    "adjunct": ("at sunset", "near twilight", "before night"),
 }
 
 def tape(s: str) -> str:
@@ -58,8 +58,29 @@ def semantic_checks(text: str) -> dict:
     return {"intact_prose": len(words) >= 8 and text.endswith("."),
             "catalogue_imported": False, "reversed_finished_sentence": False,
             "word_order_symmetry": words == words[::-1],
-            "repeated_unit": len(words) != len(set(words)) and len(words) >= 8,
+            "repeated_unit": len(words) != len(set(words)),
             "fragment": len(words) < 8}
+
+def live_slot_product(lv: tuple[str, ...], rv: tuple[str, ...]) -> dict:
+    """Consume opposite slot boundaries before a complete rendering exists."""
+    # Right choices are exposed from its final slot toward its first slot.
+    left_words, right_words = [], []
+    trace = []
+    for step in range(len(SLOTS)):
+        left_words.append(lv[step])
+        right_words.insert(0, rv[len(SLOTS) - 1 - step])
+        left_t = tape(" ".join(left_words))
+        right_t = tape(" ".join(right_words))[::-1]
+        matched = 0
+        while matched < min(len(left_t), len(right_t)) and left_t[matched] == right_t[matched]:
+            matched += 1
+        debt = None if matched == min(len(left_t), len(right_t)) else {
+            "offset": matched, "left": left_t[matched], "right": right_t[matched]}
+        trace.append({"step": step + 1, "left_slots_open": step + 1,
+                      "right_slots_open": step + 1, "matched": matched, "debt": debt})
+        if debt:
+            return {"live": False, "trace": trace, "first_debt": debt}
+    return {"live": True, "trace": trace, "first_debt": None}
 
 def main() -> None:
     rows = []; expanded = 0; best = None
@@ -67,6 +88,33 @@ def main() -> None:
         for rv in itertools.product(*(RIGHT[k] for k in SLOTS)):
             expanded += 1
             left, right = render(lv), render(rv)
+            live = live_slot_product(lv, rv)
+            # A failed partial product is retained as a frontier witness, but
+            # complete rendering/auditing occurs only for paths surviving all
+            # slot-boundary equations.
+            if not live["live"]:
+                frontier_text = left + " " + right
+                frontier_t = tape(frontier_text)
+                frontier = {"rendered": frontier_text, "letters": len(frontier_t), "exact": False,
+                             "audit": {"two_pointer": two_pointer(frontier_t),
+                                       "reverse_slice": slice_audit(frontier_t),
+                                       "independent_agreement": two_pointer(frontier_t)["exact"] == slice_audit(frontier_t)["exact"]},
+                             "online_equation": live,
+                             "provenance": {"left_slots": dict(zip(SLOTS, lv)),
+                                            "right_slots": dict(zip(SLOTS, rv)),
+                                            "semantic_slot_repair": True,
+                                            "source_sentences_copied": False,
+                                            "catalogue_imported": False,
+                                            "reversed_finished_sentence": False,
+                                            "word_order_symmetry": False,
+                                            "mechanically_admitted": False},
+                             "reader_eligible": False,
+                             "readability_evidence": {"status": "diagnostic_frontier_not_a_candidate"},
+                             "next_repair": "replace the slot at the first debt with a same-role alternative and resume from that live state"}
+                rows.append(frontier)
+                matched = live["trace"][-1]["matched"]
+                if best is None or matched > best[0]: best = (matched, frontier)
+                continue
             text = left + " " + right
             t = tape(text); ptr = two_pointer(t); slc = slice_audit(t)
             matched, debt = compatible_prefix(left, right)
@@ -86,13 +134,16 @@ def main() -> None:
             rows.append(row)
             score = (ptr["mismatch_count"], -len(t))
             if best is None or score < best[0]: best = (score, row)
-    rows.sort(key=lambda r: (r["audit"]["two_pointer"]["mismatch_count"], -r["letters"]))
+    rendered_rows = [r for r in rows if r["rendered"] is not None]
+    rows.sort(key=lambda r: (r["online_equation"].get("first_debt") is not None,
+                             r["audit"]["two_pointer"]["mismatch_count"] if r["audit"] else 9999,
+                             -r["letters"]))
     report = {"experiment": "proposition-repair-equation-search-20260917",
               "novelty_preflight": {"passed": True, "signature": "independent-proposition-frames|semantic-slot-repair|online-outer-equations|ordinary-order-rendering|independent-audit",
               "rejected_shortcuts": ["word-order-only symmetry", "repeated units", "borrowed catalogue text", "post-hoc tape reversal"]},
               "method": "jointly choose complete semantic propositions from role-preserving lexical alternatives while tracking the outer character equation; render both in ordinary order",
               "summary": {"expanded": expanded, "recorded": min(64, len(rows)), "exact": sum(r["exact"] for r in rows),
-                          "longest_letters": max(r["letters"] for r in rows), "reader_eligible": sum(r["reader_eligible"] for r in rows)},
+                          "longest_letters": max(r["letters"] for r in rendered_rows), "reader_eligible": sum(r["reader_eligible"] for r in rows)},
               "best_frontier": best[1], "rows": rows[:64],
               "reader_package": {"status": "not_run", "required": "randomized blinded intact-prose and shuffled controls"}}
     OUT.write_text(json.dumps(report, indent=2) + "\n")

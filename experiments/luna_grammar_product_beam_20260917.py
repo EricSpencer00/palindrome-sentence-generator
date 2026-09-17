@@ -40,6 +40,11 @@ RIGHT = (
     Choice("setting", "by the kitchen", "kitchen"),
 )
 OBJECTS = (("a warm loaf", "theme"), ("the old bell", "theme"), ("a blue lantern", "theme"))
+FOLLOWUPS = {
+    "kitchen": "and shares it near the kitchen",
+    "harbor": "and waits beside the harbor",
+    "garden": "and rests beside the garden",
+}
 VERBS = (("watches", "event"), ("carries", "event"), ("marks", "event"))
 
 def _anti_shortcut(words: list[str]) -> dict:
@@ -53,7 +58,14 @@ def _anti_shortcut(words: list[str]) -> dict:
 def _row(left: str, right: str, scene: str, choices: list[str], debt: str, slots: list[str] | None = None) -> dict:
     rendered = f"{left} {right}."
     audit = independent_audit(rendered)
-    consumed = min(len(debt), len(tape(right)))
+    # Count only the contiguous live match at the seam; this is deliberately
+    # weaker than claiming closure and makes the next repair measurable.
+    right_tape = tape(right)
+    consumed = 0
+    for expected, actual in zip(debt, right_tape):
+        if expected != actual:
+            break
+        consumed += 1
     return {"rendered": rendered, "letters": audit["length"], "scene": scene,
             "choices": choices, "provenance": {"choices_before_rendering": True},
             "semantic_role_states": slots or ["agent", "event", "setting"],
@@ -82,6 +94,14 @@ def run(beam_width: int = 8) -> dict:
                     beam.append(_row(extended_left, extended_right, agent.scene,
                                      [agent.text, verb, obj, setting.text], extended_debt,
                                      ["agent", "event", obj_role, "setting"]))
+                    # Bilateral clause growth: both clauses remain intact
+                    # prose, while the right clause advances its own seam.
+                    follow = FOLLOWUPS[agent.scene]
+                    beam.append(_row(f"{extended_left} {follow}",
+                                     f"{setting.text} {follow}", agent.scene,
+                                     [agent.text, verb, obj, follow, setting.text],
+                                     tape(f"{extended_left} {follow}")[::-1],
+                                     ["agent", "event", obj_role, "followup", "setting"]))
     beam.sort(key=lambda r: (-r["letters"], r["rendered"]))
     rows = beam[:beam_width]
     for row in rows:
@@ -93,7 +113,7 @@ def run(beam_width: int = 8) -> dict:
         "candidates": rows,
         "search": {"beam_width": beam_width, "simultaneous_sides": True, "rlaif_per_candidate": False, "semantic_slots": ["agent", "event", "theme", "setting"], "typed_extensions": 3},
         "novelty_preflight": {"status": "passed", "catalogue_lookup": "none", "reason": "fresh template renderings"},
-        "next_repair": {"operator": "extend_bilateral_clause", "target": "consume_live_character_obligation"},
+        "next_repair": {"operator": "seam_relexicalize_followup", "target": "consume_live_character_obligation", "reason": "the typed follow-up advances both sides but still leaves a residual seam"},
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "seed_used_in_output": False},
     }
     OUT.parent.mkdir(exist_ok=True)

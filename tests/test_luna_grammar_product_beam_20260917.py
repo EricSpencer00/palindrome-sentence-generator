@@ -23,6 +23,8 @@ def test_two_sided_product_renders_scene_grounded_prose_and_live_debt():
     assert "theme" in result["search"]["semantic_slots"]
     assert any("theme" in row["semantic_role_states"] for row in result["candidates"])
     assert max(row["letters"] for row in result["candidates"]) > 35
+    assert any("followup" in row["semantic_role_states"] for row in result["candidates"])
+    assert all(len(row["obligation_ledger"]) == 2 for row in result["candidates"])
 
 def test_independent_audit_and_repair_are_recorded():
     result = json.loads(MODULE.OUT.read_text())

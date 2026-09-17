@@ -1,0 +1,223 @@
+{
+  "experiment_id": "reversible-phrase-pair-scene-search-20260916",
+  "signature": "reversible-multiword-phrase-pairs|common-word-recombine|live-semantic-valency|scene-join|no-chain",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "recombine reversible multiword phrase edges from a common-word bank inside a connected valency scene while keeping mirrored letters live",
+  "candidates": [
+    {
+      "scene": 0,
+      "phrase_edges": [
+        [
+          "quiet record",
+          "tide marker"
+        ],
+        [
+          "night crew",
+          "morning team"
+        ],
+        [
+          "fresh lanterns",
+          "clean baskets"
+        ]
+      ],
+      "valency": [
+        "keeper keeps record",
+        "crew carries lanterns",
+        "directional adjunct"
+      ],
+      "live_boundary_equations": [
+        {
+          "left": "t",
+          "right": "r",
+          "satisfied": false
+        },
+        {
+          "left": "h",
+          "right": "e",
+          "satisfied": false
+        },
+        {
+          "left": "e",
+          "right": "i",
+          "satisfied": false
+        },
+        {
+          "left": "h",
+          "right": "p",
+          "satisfied": false
+        },
+        {
+          "left": "a",
+          "right": "n",
+          "satisfied": false
+        }
+      ],
+      "connected_scene": true,
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The harbor keeper keeps a quiet record while the night crew carries fresh lanterns toward the western pier.",
+        "letters": 89,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "normalized_sha256": "bfac686334a03310c51caf7fc276ec4608ed979ba78a8c54b0e9d7e844eed0de",
+        "reverse_sha256": "e17d19c7396dddedce50f75546f1c39cef3d5e6646b6c00a51849f1de01b7b6a",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "replace one phrase edge with a role-preserving common-word realization matching the first residual",
+        "reason": "connected prose remains readable but no exact closure appears"
+      }
+    },
+    {
+      "scene": 1,
+      "phrase_edges": [
+        [
+          "quiet record",
+          "tide marker"
+        ],
+        [
+          "night crew",
+          "morning team"
+        ],
+        [
+          "fresh lanterns",
+          "clean baskets"
+        ]
+      ],
+      "valency": [
+        "keeper keeps record",
+        "crew carries lanterns",
+        "directional adjunct"
+      ],
+      "live_boundary_equations": [
+        {
+          "left": "t",
+          "right": "e",
+          "satisfied": false
+        },
+        {
+          "left": "h",
+          "right": "s",
+          "satisfied": false
+        },
+        {
+          "left": "e",
+          "right": "u",
+          "satisfied": false
+        },
+        {
+          "left": "g",
+          "right": "o",
+          "satisfied": false
+        },
+        {
+          "left": "a",
+          "right": "h",
+          "satisfied": false
+        }
+      ],
+      "connected_scene": true,
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The garden steward stores a careful note while the morning team brings clean baskets beside the eastern greenhouse.",
+        "letters": 97,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "normalized_sha256": "081265cb96ea861aeffe7fff9e0f473035ec2ef0ae44d6ac315642ffb1f74a60",
+        "reverse_sha256": "e3bc23c4d277e7b37c1aa51e5f026b1bd163bc637fe5ca0fc9d8a5ac925e84db",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "replace one phrase edge with a role-preserving common-word realization matching the first residual",
+        "reason": "connected prose remains readable but no exact closure appears"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 355,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "disconnected_chain": false,
+    "repeated_unit": false
+  },
+  "next_repair": {
+    "operator": "alter highest-residual phrase edge using a held-out common-word synonym while preserving semantic role",
+    "reason": "no exact anti-shortcut scene survived the live phrase equation"
+  },
+  "provenance": {
+    "generator_sha256": "ae7af923b4fd1235cb76fc07b829cbb61604d609425dbc3d9c6159946e8ef732",
+    "lexical_source": "common-word reversible phrase bank plus fresh authored scenes",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "valency scene replay",
+      "anti-shortcut"
+    ]
+  }
+}

@@ -54,6 +54,13 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   HTTP 200 in the approved compact-state call.  Its output is advisory routing
   evidence only; it cannot certify exactness or readability.
 
+- **Single-sentence semantic slots.** A shared `Scene -> Agent Verb Theme
+  Setting` derivation was searched directly with settled outside-in character
+  obligations (40 typed products, 8 intact witnesses, longest 41 letters,
+  zero exact closures).  This route does not form two complete halves; its next
+  action is one held-out same-role setting substitution conditioned on the
+  first residual, preserving the original controls.
+
 - **Acceptance gate remains unchanged.** A result must be an original,
   exact letter-level palindrome, rendered as intact English prose, mechanically
   verified independently, and later supported by blinded human reading.  No

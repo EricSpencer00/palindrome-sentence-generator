@@ -1,0 +1,117 @@
+{
+  "experiment": "luna-lexical-closure-solver-20260917",
+  "method": {
+    "name": "memoized lexical closure",
+    "description": "Select role-bearing inflections while matching the two outer residual characters; memoize residual obligations.",
+    "fresh_lexical_entries": [
+      [
+        "Eve",
+        "subject",
+        "name",
+        "sg"
+      ],
+      [
+        "saw",
+        "predicate",
+        "past",
+        "sg"
+      ],
+      [
+        "kayak",
+        "object",
+        "noun",
+        "sg"
+      ],
+      [
+        "level",
+        "modifier",
+        "noun",
+        "sg"
+      ],
+      [
+        "civic",
+        "object",
+        "noun",
+        "sg"
+      ],
+      [
+        "was",
+        "predicate",
+        "past",
+        "sg"
+      ]
+    ]
+  },
+  "novelty_preflight": {
+    "passed": false,
+    "self_collision_handled": true,
+    "collision": true,
+    "reason": "The witness tape is compared against prior exact witnesses before admission."
+  },
+  "rows": [
+    {
+      "rendered": "Eve saw kayak level civic; civic level kayak was Eve",
+      "provenance": {
+        "source_sentences_copied": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "generator_sha256": "76505d60cc4ea2813fdda7669c486830851717a3eb9d985ee8aa4c362b17a559"
+      },
+      "closure_search": {
+        "solved": true,
+        "memo_states": 32,
+        "states_explored": 32,
+        "initial_obligations": [
+          "subject",
+          "predicate",
+          "object",
+          "modifier",
+          "conjunction"
+        ]
+      },
+      "audit": {
+        "letters": 42,
+        "exact": true,
+        "independent_two_pointer": {
+          "exact": true,
+          "pairs_checked": 21,
+          "mismatches": []
+        },
+        "sha256_forward": "4df3d7a8b9667e1aa0dea3cf1b67b03d94c5f3fc76021ae085b1e26fdddc921c",
+        "sha256_reverse": "4df3d7a8b9667e1aa0dea3cf1b67b03d94c5f3fc76021ae085b1e26fdddc921c",
+        "sha256_equal": true,
+        "word_count": 10,
+        "words": [
+          "eve",
+          "saw",
+          "kayak",
+          "level",
+          "civic",
+          "civic",
+          "level",
+          "kayak",
+          "was",
+          "eve"
+        ]
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "multi_clause": true,
+        "word_order_symmetry": true,
+        "repeated_nontrivial_unit": false,
+        "finished_sentence_reversal": false,
+        "semordnilap_list": false,
+        "catalogue_text": false,
+        "self_collision": true
+      },
+      "admitted": false,
+      "next_repair": "Replace the mirrored civic/kayak object seam with two fresh role-bearing inflections; retain the outer-lock state and rerun memoized residual closure."
+    }
+  ],
+  "summary": {
+    "candidate_count": 1,
+    "exact_count": 1,
+    "admitted_count": 0,
+    "max_length": 42
+  }
+}

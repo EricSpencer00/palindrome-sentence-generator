@@ -2401,3 +2401,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   They are not reader candidates. The next concrete repairs are resolved
   position masks, a state-local relative-clause verb alternation, and a typed
   object complement selected against live midpoint debt, respectively.
+
+  The following repair wave retained that state and added three orthogonal
+  operators. Resolved-position-mask grammar DP rendered 8 intact candidates
+  up to 70 letters; state-local relative-clause verb alternation rendered 256
+  repairs up to 61 letters; and the center-crossing typed-complement repair
+  rendered 24 intact candidates up to 131 letters, with midpoint-inside-token
+  crossing in every candidate. All produced 0 exact closures. Independent
+  pointer/SHA-256 replay, provenance, novelty preflight, and anti-shortcut
+  checks are retained for every row. The reader gate remains closed. The next
+  concrete operators are interval-valued function-word boundaries,
+  semantic-preserving subject substitution within attachment state, and one
+  held-out tense realization against the live midpoint debt.

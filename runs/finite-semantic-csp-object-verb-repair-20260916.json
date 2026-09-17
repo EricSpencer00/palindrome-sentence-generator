@@ -1,0 +1,95 @@
+{
+  "experiment_id": "finite-semantic-csp-object-verb-repair-20260916",
+  "signature": "finite-csp-object-verb-repair|joint-valency-pair|single-state|fresh-scene|no-sweep",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "single joint object+verb substitution at highest residual with valency and all other semantic slots frozen",
+  "candidates": [
+    {
+      "repair_state": "joint object+verb substitution",
+      "parent_state": "finite-semantic-palindrome-csp-20260916",
+      "change": {
+        "old": "studies a damaged compass",
+        "new": "surveys a weathered sextant"
+      },
+      "valency_preserved": true,
+      "fixed_slots": [
+        "observant ranger",
+        "beside rescue shed"
+      ],
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The observant ranger surveys a weathered sextant beside the rescue shed.",
+        "letters": 61,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "normalized_sha256": "b7707245649a1ef49d72353e35df1d96b2128afa4243ee540f5c6e44b9996f8f",
+        "reverse_sha256": "ec1416188059acb3670272dc7171d8ba030b054b5b21c92ab35e99d13cd0b3f5",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "change only adjunct preposition while preserving repaired event frame",
+        "reason": "joint object/verb repair yields intact prose but no exact closure"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "change only adjunct preposition while preserving repaired event frame",
+    "reason": "joint object/verb repair yields intact prose but no exact closure"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 397,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "sweep": false,
+    "word_order_mirror": false,
+    "replayed_prior_scene": false
+  },
+  "provenance": {
+    "generator_sha256": "42e32ff58009918504d64e6c21877e3d80773a54bd50991862c625e456b8ec5e",
+    "lexical_source": "held-out ranger event/object pair",
+    "parent_state": "finite-semantic-palindrome-csp-20260916",
+    "repair": "studies a damaged compass -> surveys a weathered sextant; valency preserved",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "semantic replay",
+      "anti-shortcut"
+    ]
+  }
+}

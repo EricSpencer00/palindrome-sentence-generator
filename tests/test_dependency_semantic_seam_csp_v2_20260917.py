@@ -18,6 +18,9 @@ def test_joint_seam_csp_exposes_complete_prose_and_independent_audit():
         assert row["audit"]["exact"] == (tape == tape[::-1])
         assert row["audit"]["pointer_sha256"]
         assert row["repair"]["operator"] if "repair" in row else True
+    assert report["repair"]["candidate_count"] == 6
+    assert all(row["right_tree"]["readability"]["complete_clause"] for row in report["repair_candidates"])
+    assert all(row["provenance"]["heldout_place_domain"] for row in report["repair_candidates"])
 
 
 def test_run_artifact_has_novelty_and_concrete_repair():

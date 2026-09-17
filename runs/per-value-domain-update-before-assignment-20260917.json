@@ -1,0 +1,168 @@
+{
+  "experiment": "per-value-domain-update-before-assignment-20260917",
+  "method": "per-value witness supports rewrite both left/right role domains before selecting a complete scene assignment",
+  "candidate_count": 1,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "At dawn, the teacher writes the notes along the harbor; meanwhile, a cartographer marks the maps near the archive.",
+      "updated_domains": {
+        "agent": [
+          "teacher"
+        ],
+        "action": [
+          "writes",
+          "carries"
+        ],
+        "theme": [
+          "notes",
+          "letters"
+        ],
+        "agent2": [
+          "cartographer",
+          "messenger"
+        ],
+        "action2": [
+          "marks",
+          "records"
+        ],
+        "theme2": [
+          "maps",
+          "charts"
+        ]
+      },
+      "support_by_value": {
+        "agent:teacher": [
+          9
+        ],
+        "agent:gardener": [],
+        "action:writes": [
+          9
+        ],
+        "action:carries": [
+          9
+        ],
+        "theme:notes": [
+          9
+        ],
+        "theme:letters": [
+          9
+        ],
+        "agent2:cartographer": [
+          9
+        ],
+        "agent2:messenger": [
+          9
+        ],
+        "action2:marks": [
+          9
+        ],
+        "action2:records": [
+          9
+        ],
+        "theme2:maps": [
+          9
+        ],
+        "theme2:charts": [
+          9
+        ]
+      },
+      "domain_updates": [
+        {
+          "role": "agent",
+          "before": [
+            "teacher",
+            "gardener"
+          ],
+          "after": [
+            "teacher"
+          ]
+        },
+        {
+          "role": "action",
+          "before": [
+            "writes",
+            "carries"
+          ],
+          "after": [
+            "writes",
+            "carries"
+          ]
+        },
+        {
+          "role": "theme",
+          "before": [
+            "notes",
+            "letters"
+          ],
+          "after": [
+            "notes",
+            "letters"
+          ]
+        },
+        {
+          "role": "agent2",
+          "before": [
+            "cartographer",
+            "messenger"
+          ],
+          "after": [
+            "cartographer",
+            "messenger"
+          ]
+        },
+        {
+          "role": "action2",
+          "before": [
+            "marks",
+            "records"
+          ],
+          "after": [
+            "marks",
+            "records"
+          ]
+        },
+        {
+          "role": "theme2",
+          "before": [
+            "maps",
+            "charts"
+          ],
+          "after": [
+            "maps",
+            "charts"
+          ]
+        }
+      ],
+      "provenance": "per_value_domain_update_before_assignment",
+      "novelty_preflight": {
+        "signature": "per_value_domain_update_v1",
+        "distinct_from": "per-value observation; both role domains are rewritten from support before any complete scene assignment"
+      },
+      "audit": {
+        "letters": 92,
+        "exact": false,
+        "mismatch_count": 42,
+        "first_mismatch": [
+          0,
+          91
+        ],
+        "sha256": "78f21a8bf42eaf4d6f6d13ee053d403110ec60a44db94740cd590a0601219482",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 92,
+    "next_repair": "iterate domain updates to a fixed point with cross-side support rather than a single pass"
+  }
+}

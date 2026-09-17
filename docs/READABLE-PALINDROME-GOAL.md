@@ -2713,3 +2713,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   reader gate remains closed. The next concrete operators are opposing-offset
   lexical choice before tape assembly, joint locative-subject substitution,
   and a two-frame center seam without another lexical sweep.
+
+  The next wave completed those operators. Opposing-offset lexical choice
+  retained 8 intact candidates up to 81 letters; joint shared-`where`
+  locative-subject substitution produced 448 candidates up to 97 letters; and
+  the two-frame structural center seam rendered 8 intact candidates up to 142
+  letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are joint lexical
+  propagation across chosen slots, joint place-pair substitution, and an
+  internal word-boundary seam shift within the same two frames.

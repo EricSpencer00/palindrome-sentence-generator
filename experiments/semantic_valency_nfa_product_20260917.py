@@ -39,13 +39,19 @@ def product_paths(budget=128):
                 if lrole=='END' or rrole=='END':
                     nl,nr=left,right
                 else:
-                    nl=left+LEX[('agent:sg' if lrole=='agent' else 'action:sg' if lrole=='action' else 'patient:pl' if lrole=='patient' else 'location:prep')][0]
-                    nr=right+LEX[('agent:sg' if rrole=='agent' else 'action:sg' if rrole=='action' else 'patient:pl' if rrole=='patient' else 'location:prep')][-1]
-                tape=chars(nl+nr); ok=True
-                for i in range(min(len(nl),len(nr))):
-                    if nl[i]!=nr[-1-i]: ok=False; break
-                if ok: frontier.append((lrole,rrole,nl,nr,lpath+[lrole],rpath+[rrole]))
-                else: pruned+=1
+                    lkey=('agent:sg' if lrole=='agent' else 'action:sg' if lrole=='action' else 'patient:pl' if lrole=='patient' else 'location:prep')
+                    rkey=('agent:sg' if rrole=='agent' else 'action:sg' if rrole=='action' else 'patient:pl' if rrole=='patient' else 'location:prep')
+                    # Branch over lexical trie nodes. A node is represented by
+                    # its next character and retains the full lexical edge for
+                    # the eventual word completion; no single representative
+                    # word is silently selected.
+                    left_choices=LEX[lkey]; right_choices=LEX[rkey]
+                    for lw in left_choices:
+                        for rw in right_choices:
+                            nl=left+chars(lw)[:1]; nr=right+chars(rw)[:1]
+                            ok=(nl[-1]==nr[-1]) if nl and nr else True
+                            if ok: frontier.append((lrole,rrole,nl,nr,lpath+[lrole+':'+lw[0]],rpath+[rrole+':'+rw[0]]))
+                            else: pruned+=1
     return accepted,expanded,pruned
 
 def main():

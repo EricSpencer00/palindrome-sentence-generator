@@ -7,7 +7,7 @@ from experiments.luna_punctuation_center_bridge_20260917 import run, OUT
 def test_punctuation_center_bridge_has_prose_and_independent_audits():
     result = run()
     assert result["novelty_preflight"]["passed"]
-    assert result["candidate_count"] == 60
+    assert result["candidate_count"] == 72
     assert result["exact_count"] == 0
     for row in result["rendered_candidates"]:
         assert row["complete_grammar"]
@@ -16,22 +16,25 @@ def test_punctuation_center_bridge_has_prose_and_independent_audits():
         assert row["center_event"]["text"] in row["rendered"]
         assert row["residual_repair"] is not None
     repaired = [r for r in result["rendered_candidates"] if r["repair_stage"] != "baseline"]
-    assert len(repaired) == 48
+    assert len(repaired) == 60
     subject_repaired = [r for r in repaired if r["repair_stage"] == "held_out_center_adjacent_subject"]
     object_repaired = [r for r in repaired if r["repair_stage"] == "held_out_right_object_np"]
     locative_repaired = [r for r in repaired if r["repair_stage"] == "held_out_right_locative"]
     verb_repaired = [r for r in repaired if r["repair_stage"] == "held_out_right_verb_inflection"]
+    agreement_repaired = [r for r in repaired if r["repair_stage"] == "held_out_right_agreement_subject"]
     assert len(subject_repaired) == 12
     assert len(object_repaired) == 12
     assert len(locative_repaired) == 12
     assert len(verb_repaired) == 12
+    assert len(agreement_repaired) == 12
     assert all(r["held_out_slot"] == "right_subject_np" for r in subject_repaired)
     assert all(r["held_out_slot"] == "right_object_np" for r in object_repaired)
     assert all(r["held_out_slot"] == "right_locative" for r in locative_repaired)
     assert all(r["held_out_slot"] == "right_verb_inflection" for r in verb_repaired)
+    assert all(r["held_out_slot"] == "right_determiner_agreement_subject" for r in agreement_repaired)
     assert result["repair_summary"]["preserved_center_event"]
     assert result["repair_summary"]["preserved_punctuation"]
-    assert result["repair_summary"]["held_out_slots"] == ["right_subject_np", "right_object_np", "right_locative", "right_verb_inflection"]
+    assert result["repair_summary"]["held_out_slots"] == ["right_subject_np", "right_object_np", "right_locative", "right_verb_inflection", "right_determiner_agreement_subject"]
 
 
 def test_run_artifact_is_reproducible_after_write():

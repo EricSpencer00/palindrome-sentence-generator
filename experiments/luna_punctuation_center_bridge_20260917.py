@@ -48,6 +48,11 @@ HELDOUT_RIGHT_LOCATIVES = (
     "within the public garden",
 )
 HELDOUT_RIGHT_VERBS = ("stores", "carries", "checks")
+HELDOUT_RIGHT_AGREEMENT_SUBJECTS = (
+    ("the", "retired keeper"),
+    ("a", "careful steward"),
+    ("the", "young registrar"),
+)
 CENTERS = (
     {"id": "lantern_event", "text": "the lantern flares", "meaning": "a sudden warning light"},
     {"id": "bell_event", "text": "the harbor bell sounds", "meaning": "a scheduled audible signal"},
@@ -181,30 +186,47 @@ def run() -> dict:
         verb_repair_rows.append(audit(left, center, punct, repaired, rank + 48,
                                       repair_stage="held_out_right_verb_inflection",
                                       held_out_slot="right_verb_inflection"))
-    rows = baseline_rows + repair_rows + object_repair_rows + locative_repair_rows + verb_repair_rows
+    # Preserve the repaired verb/object/place and hold out only the right
+    # determiner plus agreement-bearing subject phrase.
+    agreement_repair_rows = []
+    for rank, (left, center, punct, right, replacement_subject, replacement_object,
+               replacement_place, replacement_verb, agreement_subject) in enumerate(
+        itertools.islice(itertools.product(LEFT, CENTERS, PUNCTUATION, RIGHT,
+                                            HELDOUT_RIGHT_SUBJECTS, HELDOUT_RIGHT_OBJECTS,
+                                            HELDOUT_RIGHT_LOCATIVES, HELDOUT_RIGHT_VERBS,
+                                            HELDOUT_RIGHT_AGREEMENT_SUBJECTS), 12), 1):
+        repaired = (agreement_subject[0], agreement_subject[1], replacement_verb,
+                    replacement_object, replacement_place)
+        agreement_repair_rows.append(audit(left, center, punct, repaired, rank + 60,
+                                           repair_stage="held_out_right_agreement_subject",
+                                           held_out_slot="right_determiner_agreement_subject"))
+    rows = (baseline_rows + repair_rows + object_repair_rows + locative_repair_rows +
+            verb_repair_rows + agreement_repair_rows)
     rows.sort(key=lambda r: (-r["independent_pointer"]["letters"], r["rank"]))
     exact = [r for r in rows if r["mechanically_admitted"]]
     return {"experiment": EXPERIMENT, "signature": SIGNATURE,
             "status": "exact closure found" if exact else "complete prose plus punctuation-center repair",
-            "novelty_preflight": pre, "states_considered": 60, "candidate_count": len(rows),
+            "novelty_preflight": pre, "states_considered": 72, "candidate_count": len(rows),
             "exact_count": len(exact), "rendered_candidates": rows, "exact_survivors": exact,
-            "repair_summary": {"method": "sequential_subject_object_locative_then_verb_holdout",
+            "repair_summary": {"method": "sequential_subject_object_locative_verb_then_agreement_holdout",
                                "preserved_center_event": True, "preserved_punctuation": True,
-                               "held_out_slots": ["right_subject_np", "right_object_np", "right_locative", "right_verb_inflection"],
+                               "held_out_slots": ["right_subject_np", "right_object_np", "right_locative", "right_verb_inflection", "right_determiner_agreement_subject"],
                                "baseline_count": len(baseline_rows), "repaired_count": len(repair_rows),
                                "object_repair_count": len(object_repair_rows),
                                "locative_repair_count": len(locative_repair_rows),
                                "verb_repair_count": len(verb_repair_rows),
+                               "agreement_repair_count": len(agreement_repair_rows),
                                "new_subjects": [f"{d} {n}" for d, n in HELDOUT_RIGHT_SUBJECTS],
                                "new_objects": list(HELDOUT_RIGHT_OBJECTS),
                                "new_locatives": list(HELDOUT_RIGHT_LOCATIVES),
-                               "new_verbs": list(HELDOUT_RIGHT_VERBS)},
+                               "new_verbs": list(HELDOUT_RIGHT_VERBS),
+                               "new_agreement_subjects": [f"{d} {n}" for d, n in HELDOUT_RIGHT_AGREEMENT_SUBJECTS]},
             "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                            "registry_sha256": hashlib.sha256(REGISTRY.read_bytes()).hexdigest(),
                            "punctuation_choices_live": True, "nonpalindromic_center_live": True,
                            "catalogue_imported": False},
             "anti_shortcut_policy": "Reject fixed tapes, reverse decoding, word-order mirrors, repeated/self-palindromic spans, fragments, catalogue text, and punctuation that changes letters.",
-            "next_repair": "Use the verb-repair residual to hold out the right determiner or agreement-bearing subject variant while preserving the event, punctuation, object, place, and verb.",
+            "next_repair": "Use the agreement-repair residual to hold out the right clause's object determiner while preserving event, punctuation, subject, verb, and place.",
             "reader_facing_test": {"required": "blind intact-prose rating plus shuffled-clause control", "status": "pending"}}
 
 

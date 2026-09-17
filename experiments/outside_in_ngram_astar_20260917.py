@@ -34,6 +34,11 @@ def readable(words: list[str]) -> float:
     common = {"the", "a", "an", "and", "of", "to", "in", "we", "through"}
     return sum(1.0 for w in words if w in common) + sum(a[-1:] == b[:1] for a,b in zip(words, words[1:])) * .1
 
+def compatible(left: list[str], right: list[str]) -> bool:
+    """Check every settled character, allowing an unequal overhang."""
+    a, b = tape("".join(left)), tape("".join(right))[::-1]
+    return a[:min(len(a), len(b))] == b[:min(len(a), len(b))]
+
 def search(template: tuple[tuple[str,str], ...], beam: int = 512) -> tuple[list[dict], dict]:
     # Two independently authored slots grow from opposite ends. State stores
     # actual words, never a mirrored/repeated unit or a completed product.
@@ -45,7 +50,7 @@ def search(template: tuple[tuple[str,str], ...], beam: int = 512) -> tuple[list[
         state = (tuple(left), tuple(right), li, ri)
         if state in seen: continue
         seen.add(state)
-        if li > ri:
+        if li > ri and tape("".join(left)) == tape("".join(right))[::-1]:
             rendered = " ".join(left + list(reversed(right)))
             row = {"rendered": rendered, "letters": len(tape(rendered)), "audit": audit(rendered),
                    "admitted": True, "heuristic": "brown_ngram_readability_only",
@@ -56,10 +61,9 @@ def search(template: tuple[tuple[str,str], ...], beam: int = 512) -> tuple[list[
             lt, rt = template[li], template[ri]
             for lw in ALTERNATIVES.get(lt[0], (lt[1],)):
                 for rw in ALTERNATIVES.get(rt[0], (rt[1],)):
-                    # Exposed outer characters must agree immediately. This
-                    # is the live palindrome obligation, not post-hoc audit.
-                    if tape(lw)[0] != tape(rw)[-1]: continue
                     nl, nr = left + [lw], right + [rw]
+                    # Consume the entire newly exposed overhang before queueing.
+                    if not compatible(nl, nr): continue
                     score = -(readable(nl + list(reversed(nr))))
                     heapq.heappush(heap, (score, expanded, nl, nr, li + 1, ri - 1))
     # Preserve a rendered best frontier even when no complete slot assignment

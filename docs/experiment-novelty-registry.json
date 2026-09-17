@@ -5047,7 +5047,7 @@
       ],
       "distinction": "Compiles phrase paths into character-labelled graphs with explicit word-boundary epsilon edges and synchronizes equal character edges before rendering paired full tapes.",
       "reader_evidence": false,
-      "status": "architectural reset; quarantined asymmetric-boundary oracle passes; bounded 2–8-word graph over a 40-word audited menu exhausted its 2,500-state budget with 0 non-shortcut exact completions"
+      "status": "architectural reset; quarantined asymmetric-boundary oracle passes; reusable bounded 2–8-word graph over 500 common audited words exhausted its 2,500-state budget with 0 non-shortcut exact completions"
     },
     {
       "id": "semantic-valency-nfa-product-20260917",
@@ -5061,6 +5061,17 @@
       "status": "new architectural lane; 4 live states, 6 transitions pruned, 0 exact paired paths; multi-character prefix propagation is next"
     },
     {
+      "id": "semantic-valency-trie-nfa-multichar-20260917",
+      "signature": "semantic-role-valency-nfa|multi-character-trie-prefixes|opposing-character-pruning|agreement-state|independent-pointer-sha",
+      "artifact": "experiments/semantic_valency_trie_nfa_multichar_20260917.py",
+      "run_artifacts": [
+        "runs/semantic-valency-trie-nfa-multichar-20260917.json"
+      ],
+      "distinction": "Propagates multi-character lexical trie prefixes under opposing-character constraints while retaining semantic agreement and valency states.",
+      "reader_evidence": false,
+      "status": "new architectural repair; 256 states, 710 transitions pruned, 2 ordinary-prose diagnostics, 0 exact paths; function-word grammar states are next"
+    },
+    {
       "id": "typed-grammar-character-nfa-20260917",
       "signature": "typed-grammar-character-nfa|free-word-boundaries|paired-lexical-alternatives|character-product|independent-pointer-sha",
       "artifact": "experiments/typed_grammar_character_nfa_20260917.py",
@@ -5069,7 +5080,7 @@
       ],
       "distinction": "Compiles typed grammar states with lexical alternatives and performs paired character transitions before rendering, with a one-character fake oracle rejection.",
       "reader_evidence": false,
-      "status": "new architectural lane; 2 live states, 0 exact paired paths under current budget; full token-character granularity is next"
+      "status": "new architectural lane; 4 live states, 0 exact paired paths under current budget; independent reversed-token trie nodes are next"
     }
   ],
   "excluded": [

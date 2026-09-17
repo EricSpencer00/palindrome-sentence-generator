@@ -3233,9 +3233,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
 
   The first true character-graph product now passes its asymmetric-boundary
   oracle (`live on time` + `emit no evil`) without rendering mismatching paths.
-  On a 40-word audited menu with reusable 2–8-word graph layers it expanded
-  2,500 states, exhausted the explicit budget, and found 0 non-shortcut exact
+  On a 500-word common audited menu with reusable 2–8-word graph layers it
+  expanded 2,500 states, exhausted the explicit budget, and found 0 non-shortcut exact
   completions. A semantic valency NFA branches lexical alternatives as live
   trie nodes (4 states, 6 pruned transitions, 0 exact paths), while the typed
   grammar NFA has 2 live states and 0 exact paths. These are the first honest
   topology tests; they do not yet supply a reader candidate.
+
+  The graph follow-up now reports 500 common words rather than an alphabetical
+  slice, and its bounded product correctly reconstructs separate reversed
+  paths without fabricated doubling. The multi-character semantic trie lane
+  expands 256 states and prunes 710 incompatible transitions, yielding 2
+  ordinary-prose diagnostics but 0 exact paths. The typed grammar NFA reaches 4
+  live character states and 0 exact paths. These are honest search-space
+  measurements; the next repair is to carry function-word grammar states and
+  independent reversed-token tries through the same product.

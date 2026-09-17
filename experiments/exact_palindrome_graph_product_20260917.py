@@ -4,6 +4,10 @@ import hashlib, json
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Iterable
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from experiments.bidirectional_attested_span_mining import common_lexicon
+from wordfreq import zipf_frequency
 
 SIGNATURE = "exact-palindrome-graph-product|character-nfa|boundary-epsilon|live-edge-product"
 ROOT = Path(__file__).resolve().parents[1]
@@ -160,7 +164,11 @@ def run() -> dict:
         compiled[name] = {"graph": CharacterGraph.from_words(words, f"template:{name}"), "root_chars": sorted({w[0] for w in words})}
     root_intersections = {a: sorted(set(compiled[a]["root_chars"]) & set(compiled[b]["root_chars"])) for a in compiled for b in compiled if a < b}
 
-    lexical = [w.strip().lower() for w in (ROOT / "data" / "lexicon.txt").read_text().splitlines() if w.strip()][:500]
+    lexical = sorted(
+        (word for word in common_lexicon(3.5)
+         if word.isascii() and word.isalpha() and len(word) > 1),
+        key=lambda word: (-zipf_frequency(word, "en"), word),
+    )[:500]
     # Feed bounded paths lazily; do not materialise a phrase Cartesian product.
     def bounded_paths():
         # Bounded menu, deliberately generated without phrase Cartesian products.
@@ -190,7 +198,7 @@ def run() -> dict:
             "status": "completed", "fixture": {"oracle": {"pair": ["live on time", "emit no evil"], "full_tape": oracle[0]}, "rendered": rendered, "pairs": pairs, "result": product, "left_phrases": left_phrases, "right_phrases": right_phrases, "distractors": 2},
             "template_domains": {k: {"template_count": len(domains[k]), "root_chars": compiled[k]["root_chars"], "character_graph_nodes": compiled[k]["graph"]._next} for k in domains},
             "root_character_intersections": root_intersections,
-            "lexical_search": {"inventory": lexical, "inventory_source": "data/lexicon.txt (audited repository inventory slice)", "result": lexical_result, "completed_paths": completions, "grammar_gate": "completed paths only", "readability_gate": "completed paths only", "word_cap": 8, "letter_range": [39,60], "search_status": "budget_exhausted" if lexical_result["budget_exhausted"] else "exhaustive_completion"},
+            "lexical_search": {"inventory": lexical, "inventory_source": "common_lexicon(zipf>=3.5), audited repository vocabulary", "result": lexical_result, "completed_paths": completions, "grammar_gate": "completed paths only", "readability_gate": "completed paths only", "word_cap": 8, "letter_range": [39,60], "search_status": "budget_exhausted" if lexical_result["budget_exhausted"] else "exhaustive_completion"},
             "audits": {"exact_independent_audits": [exact_audit(x) for x in rendered], "provenance": "graph edge provenance and backpointers retained", "novelty": "character graph product; no fixed tape", "anti_shortcut_checks": ["no sentence enumeration during compilation", "unequal edges rejected live", "render only accepting exact paths"]},
             "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 

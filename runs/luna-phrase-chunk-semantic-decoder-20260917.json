@@ -1,0 +1,2661 @@
+{
+  "experiment": "luna-phrase-chunk-semantic-decoder-20260917",
+  "signature": "semantic-phrase-chunk-frontier|left-right-chunk-character-synchronization|complete-prose|heldout-chunk-repair|independent-pointer-sha",
+  "status": "complete; no exact closure",
+  "novelty_preflight": {
+    "registry_entries": 412,
+    "self_registered": true,
+    "collisions": [],
+    "passed": true
+  },
+  "candidate_count": 15,
+  "states_considered": 24,
+  "exact_count": 0,
+  "rendered_candidates": [
+    {
+      "rank": 2,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet teacher reviews marked field notes near the harbor office.",
+      "letters": 113,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "teacher",
+            "meaning": "agent reviews"
+          },
+          {
+            "id": "notes",
+            "meaning": "document theme"
+          },
+          {
+            "id": "harbor",
+            "meaning": "locative attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 2,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 3,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 113,
+        "exact": false,
+        "mismatch_count": 49,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "f"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "o"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "b"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "r"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "5a9e0ebd362a68420f3fb87ab414a0c8a87aa5a254a83fc0c8348ca3bb054982",
+        "reverse": "0449a417af0725caa3822a7e204508833cf79bc786dbf7b95be8e590f021cca7"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 10,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet teacher reviews young seedlings near the harbor office.",
+      "letters": 111,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "teacher",
+            "meaning": "agent reviews"
+          },
+          {
+            "id": "seedlings",
+            "meaning": "living theme"
+          },
+          {
+            "id": "harbor",
+            "meaning": "locative attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 2,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 3,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 111,
+        "exact": false,
+        "mismatch_count": 51,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "f"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "o"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "b"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "r"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "95e60048688bfc1440d3bc5abd79776849b941795d7b9beea3f9655d1739a722",
+        "reverse": "cca31c0117be0a816da9e79540117c7a3cb19e0532a98607981a4cf30419b8ea"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 18,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet pilot repairs marked field notes near the harbor office.",
+      "letters": 111,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "pilot",
+            "meaning": "agent repairs"
+          },
+          {
+            "id": "notes",
+            "meaning": "document theme"
+          },
+          {
+            "id": "harbor",
+            "meaning": "locative attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 2,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 3,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 111,
+        "exact": false,
+        "mismatch_count": 49,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "f"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "o"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "b"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "r"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "7b5898aef2611a75a26a8d7893b1bb3325458cba3d38cb2d11fd2b2fccd9aded",
+        "reverse": "b4d3c6c855bc1c8d51540b65a9fa23e8ba6c139dc9ba5d8be8447b7b7f8614d2"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 6,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet teacher reviews the brass lantern near the harbor office.",
+      "letters": 112,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "teacher",
+            "meaning": "agent reviews"
+          },
+          {
+            "id": "lantern",
+            "meaning": "instrument theme"
+          },
+          {
+            "id": "harbor",
+            "meaning": "locative attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 2,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 2,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 112,
+        "exact": false,
+        "mismatch_count": 52,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "f"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "o"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "b"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "r"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "607002d25d01681992069d47dd39a1458025cc263b1c1f3aad677f1acb99e71f",
+        "reverse": "c93be61c9c4d9bb0bff61c950cf7938741b93dcf79d037de16e085348a61460a"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 22,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet pilot repairs the brass lantern near the harbor office.",
+      "letters": 110,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "pilot",
+            "meaning": "agent repairs"
+          },
+          {
+            "id": "lantern",
+            "meaning": "instrument theme"
+          },
+          {
+            "id": "harbor",
+            "meaning": "locative attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 2,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 2,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 110,
+        "exact": false,
+        "mismatch_count": 51,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "f"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "o"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "b"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "r"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "d6d22b2bd65511253a2b5cd8a19852df5ff572dbe0bb9e958ee833e1eb93dd58",
+        "reverse": "8ea0ae9114190c0914f17872eef0e9391cef119b9311e5e9cc4f41e177662e65"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 1,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet teacher reviews marked field notes toward the garden porch.",
+      "letters": 114,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "teacher",
+            "meaning": "agent reviews"
+          },
+          {
+            "id": "notes",
+            "meaning": "document theme"
+          },
+          {
+            "id": "porch",
+            "meaning": "directional attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 114,
+        "exact": false,
+        "mismatch_count": 54,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "h"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "o"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "p"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "n"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "d"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "a"
+          },
+          {
+            "offset": 10,
+            "left": "a",
+            "right": "g"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "298d46c028ab27bb45cdfd00153bda1ee7b47b140a13b5e1b67f043f635308b9",
+        "reverse": "a9138a8c4e17a0d2b5e223ad75b36ba76d2b2bb0c935181a78ac56d6b240b66e"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 5,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet teacher reviews the brass lantern toward the garden porch.",
+      "letters": 113,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "teacher",
+            "meaning": "agent reviews"
+          },
+          {
+            "id": "lantern",
+            "meaning": "instrument theme"
+          },
+          {
+            "id": "porch",
+            "meaning": "directional attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 113,
+        "exact": false,
+        "mismatch_count": 53,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "h"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "o"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "p"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "n"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "d"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "a"
+          },
+          {
+            "offset": 10,
+            "left": "a",
+            "right": "g"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "a03ac785834957b614042080f175f571b9434201a50673edd67891cf157c8bfc",
+        "reverse": "7040fe1d3136e0496e892804521ca8f0ab0b4845f6ae2265fe366f8226606cd7"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 9,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet teacher reviews young seedlings toward the garden porch.",
+      "letters": 112,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "teacher",
+            "meaning": "agent reviews"
+          },
+          {
+            "id": "seedlings",
+            "meaning": "living theme"
+          },
+          {
+            "id": "porch",
+            "meaning": "directional attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 112,
+        "exact": false,
+        "mismatch_count": 52,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "h"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "o"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "p"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "n"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "d"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "a"
+          },
+          {
+            "offset": 10,
+            "left": "a",
+            "right": "g"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "7cee7f547470074c83e285951709942a8fe71afb9dfdb4c25798362b41d2772a",
+        "reverse": "d1f2b9fc082e05836a731a28abaa329b6eaccec5ab6cf97d029997f44952070a"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 17,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet pilot repairs marked field notes toward the garden porch.",
+      "letters": 112,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "pilot",
+            "meaning": "agent repairs"
+          },
+          {
+            "id": "notes",
+            "meaning": "document theme"
+          },
+          {
+            "id": "porch",
+            "meaning": "directional attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 112,
+        "exact": false,
+        "mismatch_count": 55,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "h"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "o"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "p"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "n"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "d"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "a"
+          },
+          {
+            "offset": 10,
+            "left": "a",
+            "right": "g"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "c4a507af0c9adba5b78fd9e0747d692f635922ff8012e46d1e087520f7348b6f",
+        "reverse": "25a35380a41c469fd98d0114e0d2981dfb01a2a04cc51a2d5863e22d2d93a04d"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 21,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet pilot repairs the brass lantern toward the garden porch.",
+      "letters": 111,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "pilot",
+            "meaning": "agent repairs"
+          },
+          {
+            "id": "lantern",
+            "meaning": "instrument theme"
+          },
+          {
+            "id": "porch",
+            "meaning": "directional attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 111,
+        "exact": false,
+        "mismatch_count": 53,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "h"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "c"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "o"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "p"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "n"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "d"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "r"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "a"
+          },
+          {
+            "offset": 10,
+            "left": "a",
+            "right": "g"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "7fd264d302e0db9f628718c39621a3ac94684500376c7d809ac9670fff9c7380",
+        "reverse": "2fd1522dd003c918568ac8699b8945a0f6a98c8cae3630bfcf20942447db0ad2"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 7,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet teacher reviews the brass lantern after steady rain.",
+      "letters": 108,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "teacher",
+            "meaning": "agent reviews"
+          },
+          {
+            "id": "lantern",
+            "meaning": "instrument theme"
+          },
+          {
+            "id": "rain",
+            "meaning": "temporal attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 108,
+        "exact": false,
+        "mismatch_count": 51,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "i"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "y"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "e"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "s"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "c94305c092d55075ae269e18069922a34756712711647c3bfa67eabece26243d",
+        "reverse": "d13e113247c5d0869d10ac28eae4c239dc525b1d1924f0a7bde42af48cf03f62"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 23,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet pilot repairs the brass lantern after steady rain.",
+      "letters": 106,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "pilot",
+            "meaning": "agent repairs"
+          },
+          {
+            "id": "lantern",
+            "meaning": "instrument theme"
+          },
+          {
+            "id": "rain",
+            "meaning": "temporal attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 1,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 106,
+        "exact": false,
+        "mismatch_count": 50,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "i"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "y"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "e"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "s"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "8e04ce4831ffe6b0c7eae5b9f3ca7a753ac96546f3803f327b12d8ead7f03885",
+        "reverse": "c60fb8a9c7ae856250c720a642c3d04c6fb9bf9f96554dc5b16b9fce0cd7d003"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 3,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet teacher reviews marked field notes after steady rain.",
+      "letters": 109,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "teacher",
+            "meaning": "agent reviews"
+          },
+          {
+            "id": "notes",
+            "meaning": "document theme"
+          },
+          {
+            "id": "rain",
+            "meaning": "temporal attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 109,
+        "exact": false,
+        "mismatch_count": 49,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "i"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "y"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "e"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "s"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "d26a489387748fda721937e09582a7b6fe68070cf01df6168d6e782a33feb8a1",
+        "reverse": "f96231f990081546a2357010092d912502f515a3de2c6196d22500b6d724f9ce"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 11,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet teacher reviews young seedlings after steady rain.",
+      "letters": 107,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "teacher",
+            "meaning": "agent reviews"
+          },
+          {
+            "id": "seedlings",
+            "meaning": "living theme"
+          },
+          {
+            "id": "rain",
+            "meaning": "temporal attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 107,
+        "exact": false,
+        "mismatch_count": 53,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "i"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "y"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "e"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "s"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "c99fb4630017a11975edda8a4c22c44d5ed127a22a58b540f27142280fb79855",
+        "reverse": "f8563839e946b77564f26e114083590101ef6c1928eb255724d3ebe0977b2a7c"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    },
+    {
+      "rank": 19,
+      "rendered": "The careful archivist stores weathered maps beside the north window. A quiet pilot repairs marked field notes after steady rain.",
+      "letters": 107,
+      "chunk_provenance": {
+        "left": [
+          {
+            "id": "the",
+            "meaning": "definite agent"
+          },
+          {
+            "id": "careful",
+            "meaning": "deliberate"
+          },
+          {
+            "id": "archivist",
+            "meaning": "agent stores"
+          },
+          {
+            "id": "maps",
+            "meaning": "theme maps"
+          },
+          {
+            "id": "window",
+            "meaning": "locative attachment"
+          }
+        ],
+        "right": [
+          {
+            "id": "a",
+            "meaning": "indefinite agent"
+          },
+          {
+            "id": "quiet",
+            "meaning": "calm"
+          },
+          {
+            "id": "pilot",
+            "meaning": "agent repairs"
+          },
+          {
+            "id": "notes",
+            "meaning": "document theme"
+          },
+          {
+            "id": "rain",
+            "meaning": "temporal attachment"
+          }
+        ]
+      },
+      "independent_reparse": true,
+      "frontier": [
+        {
+          "width": 4,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 8,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 16,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        },
+        {
+          "width": 24,
+          "matched_pairs": 0,
+          "first_mismatch": 0,
+          "equation": "left_chunk_char[i] = right_chunk_char[-1-i]"
+        }
+      ],
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 107,
+        "exact": false,
+        "mismatch_count": 51,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "i"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "y"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "e"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "s"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "9e4c2bbfd89cbdf614beb130894e9a19c78f8a00a0e00fe312608d0f40c0d285",
+        "reverse": "dfa16137b5fee3a35bdcb9d886c3b2800d5de9205fedf055d710c23dccf7d9b2"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_span": false,
+        "repeated_chunk": false,
+        "catalogue_text_used": false,
+        "fragment": false,
+        "complete_chunks": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "Replace the held-out locative chunk at the first open character obligation, preserve both complete dependency frames, and rerun this narrow frontier."
+    }
+  ],
+  "exact_survivors": [],
+  "mechanically_admitted": [],
+  "provenance": {
+    "generator_sha256": "e60c1a5b8b055f0a8af218bd3ba9cc65579f07bf3f6558321cd33323de7700b1",
+    "registry_sha256": "229c9ccf10d5fa5aba3b5de13087ea2a9412f51cfb1a052080e3c77ce8fbfc3a",
+    "chunk_inventory": {
+      "determiners": 2,
+      "adjectives": 3,
+      "subject_verbs": 4,
+      "verb_objects": 4,
+      "locatives": 4
+    },
+    "heldout_frontier": true
+  },
+  "anti_shortcut_policy": "Hard reject fixed tapes, reverse decoding, word mirrors, repeated/self-palindromic spans, repeated chunks, catalogue text, and fragments.",
+  "next_repair": "Use one held-out locative replacement at the first seam mismatch; do not widen into a duplicate sweep.",
+  "reader_facing_test": {
+    "status": "not triggered unless an exact mechanically admitted survivor exists",
+    "required": "blind intact-prose and shuffled-control rating"
+  }
+}

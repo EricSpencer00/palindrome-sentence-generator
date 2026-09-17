@@ -867,7 +867,7 @@ ranger repairs broken lanterns inside the stone workshop. A patient baker guides
 warm loaves beside the garden porch.” (106 letters; exact `false`). Each attempt
 has independent pointer/SHA validation, provenance, novelty preflight, and a
 concrete first-residual repair; none is reader-eligible. The authoritative
-aggregate is now 5,182 rows across 307 routes, with 79 exact controls and 0
+aggregate is now 5,195 rows across 309 routes, with 79 exact controls and 0
 mechanically admitted outputs.
 
 The next constructive continuation is an outside-in role-phrase equation
@@ -918,3 +918,13 @@ long afternoon.” (145 letters; exact `false`). The dependency reparse,
 two-pointer audit, and forward/reverse SHA check agree; lexical distinctness,
 provenance, novelty, anti-shortcut checks, and a held-out attachment repair
 are recorded. It remains construction evidence rather than reader material.
+
+A held-out dependency-role repair then changes one complete scene by replacing
+the first residual role pair rather than replaying the 64-state CSP. Its best
+rendering is “The careful courier delivers folded maps beside the weathered
+shed. The watchful sailor repairs loose rigging near the harbor. The young
+porter carries sealed parcels toward records offices.” (160 letters; exact
+`false`). The lexicon and distinctness gates pass, while independent pointer/SHA
+validation still rejects exactness; the artifact records provenance, novelty
+preflight, anti-shortcut checks, and a concrete next repair at the second-clause
+attachment seam.

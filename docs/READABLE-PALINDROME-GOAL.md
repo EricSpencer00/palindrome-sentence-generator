@@ -2207,7 +2207,7 @@ named next repair. The aggregate is 4,898 rows across 247 route phases (79
   anti-shortcut fields certify no word-order mirror, no repeated content, and no
   catalogue scaffold. Three focused repairs (117, 59, and 214 letters) are also
   retained with independent exact checks and named next operators. The
-  authoritative retained snapshot is now 5,182 rows across 307 routes, with 79
+  authoritative retained snapshot is now 5,195 rows across 309 routes, with 79
   exact rejected tapes and 0 mechanically admitted outputs. The latest
   agreement/clitic, seed-free semantic-slot, and semantic-valency lattice lanes
   add 72-, 108-, and 154-letter intact witnesses with independent rejection and

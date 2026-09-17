@@ -594,5 +594,5 @@ with independent pointer/SHA rejection and concrete repairs. A re-audit of the
 positive anti-shortcut fields certify absence of word-order mirroring and
 repeated content, so the family is retained. Three focused repair artifacts
 (117, 59, and 214 letters) are retained alongside it. The ledger now stands at
-5,182 rows across 307 routes; the registry is 408 retained, 32 excluded, and
-386 retained run artifacts.
+5,195 rows across 309 routes; the registry is 410 retained, 32 excluded, and
+388 retained run artifacts.

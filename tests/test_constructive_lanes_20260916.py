@@ -61,7 +61,7 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 5182
+    assert report["candidate_count"] == 5195
     assert report["exact_count"] == 79
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
@@ -87,6 +87,8 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/center-free-clause-equation-ledger-20260916.json"]["rows"] == 1
     assert by_source["runs/inflectional-clitic-boundary-repair-20260916.json"]["rows"] == 10
     assert by_source["runs/dependency-seam-attachment-csp-20260916.json"]["rows"] == 64
+    assert by_source["runs/center-residual-targeted-repair-20260917.json"]["rows"] == 8
+    assert by_source["runs/dependency-role-first-residual-repair-20260917.json"]["rows"] == 5
     assert by_source["runs/char-lm-tape-resegment-20260916.json"]["rows"] == 5
     assert by_source["runs/char-lm-multiclause-heldout-20260916.json"]["rows"] == 20
     assert by_source["runs/constructive-seam-morph-cfg-20260916.json"]["rows"] == 2

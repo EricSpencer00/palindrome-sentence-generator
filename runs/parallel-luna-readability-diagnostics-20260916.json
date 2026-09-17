@@ -302,9 +302,11 @@
     "runs/char-lm-obligation-beam-20260916.json",
     "runs/center-free-clause-equation-ledger-20260916.json",
     "runs/inflectional-clitic-boundary-repair-20260916.json",
-    "runs/dependency-seam-attachment-csp-20260916.json"
+    "runs/dependency-seam-attachment-csp-20260916.json",
+    "runs/center-residual-targeted-repair-20260917.json",
+    "runs/dependency-role-first-residual-repair-20260917.json"
   ],
-  "candidate_count": 5182,
+  "candidate_count": 5195,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -3377,6 +3379,26 @@
       "max_letters": 146,
       "mean_zipf_frequency": 5.242827403846153,
       "mean_brown_order_gain_vs_shuffle": 1.1902029376054248
+    },
+    {
+      "source_run": "runs/center-residual-targeted-repair-20260917.json",
+      "rows": 8,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 166,
+      "max_letters": 175,
+      "mean_zipf_frequency": 5.288771306818182,
+      "mean_brown_order_gain_vs_shuffle": 0.9162299259645512
+    },
+    {
+      "source_run": "runs/dependency-role-first-residual-repair-20260917.json",
+      "rows": 5,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 156,
+      "max_letters": 164,
+      "mean_zipf_frequency": 4.84438888888889,
+      "mean_brown_order_gain_vs_shuffle": 0.7124215491270043
     }
   ],
   "rows": [
@@ -249742,6 +249764,609 @@
         "word_count": 24,
         "repeated_word_rate": 0.04166666666666663,
         "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet engineer tests a repaired valve beneath the river bridge. Before dusk a steady sailor ties loose canvas beside the eastern pier. A diligent teacher prepares clear lessons for the village school.",
+      "source_run": "runs/center-residual-targeted-repair-20260917.json",
+      "provenance": {
+        "source": "fresh authored held-out semantic center clause",
+        "parent_run": "runs/center-free-clause-equation-ledger-20260916.json",
+        "outer_clauses_preserved": true,
+        "all_clauses_intact": true,
+        "attachment_frame": "agent-ties-theme-locative"
+      },
+      "repair": null,
+      "letters": 169,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8562937525735546,
+        "mean_zipf_frequency": 5.173333333333332,
+        "word_count": 33,
+        "repeated_word_rate": 0.1515151515151515,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet engineer tests a repaired valve beneath the river bridge. Nearby an alert keeper checks the old lanterns under the station roof. A diligent teacher prepares clear lessons for the village school.",
+      "source_run": "runs/center-residual-targeted-repair-20260917.json",
+      "provenance": {
+        "source": "fresh authored held-out semantic center clause",
+        "parent_run": "runs/center-free-clause-equation-ledger-20260916.json",
+        "outer_clauses_preserved": true,
+        "all_clauses_intact": true,
+        "attachment_frame": "agent-checks-theme-locative"
+      },
+      "repair": null,
+      "letters": 169,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.081317152065882,
+        "mean_zipf_frequency": 5.334848484848484,
+        "word_count": 33,
+        "repeated_word_rate": 0.1515151515151515,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet engineer tests a repaired valve beneath the river bridge. Meanwhile a careful nurse records the evening dosage in the clinic. A diligent teacher prepares clear lessons for the village school.",
+      "source_run": "runs/center-residual-targeted-repair-20260917.json",
+      "provenance": {
+        "source": "fresh authored held-out semantic center clause",
+        "parent_run": "runs/center-free-clause-equation-ledger-20260916.json",
+        "outer_clauses_preserved": true,
+        "all_clauses_intact": true,
+        "attachment_frame": "agent-records-theme-locative"
+      },
+      "repair": null,
+      "letters": 167,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9221378646560048,
+        "mean_zipf_frequency": 5.426875,
+        "word_count": 32,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet engineer tests a repaired valve beneath the river bridge. At dawn a skilled baker arranges warm loaves across the wooden counter. A diligent teacher prepares clear lessons for the village school.",
+      "source_run": "runs/center-residual-targeted-repair-20260917.json",
+      "provenance": {
+        "source": "fresh authored held-out semantic center clause",
+        "parent_run": "runs/center-free-clause-equation-ledger-20260916.json",
+        "outer_clauses_preserved": true,
+        "all_clauses_intact": true,
+        "attachment_frame": "agent-arranges-theme-locative"
+      },
+      "repair": null,
+      "letters": 170,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.005296136847674,
+        "mean_zipf_frequency": 5.203030303030303,
+        "word_count": 33,
+        "repeated_word_rate": 0.1515151515151515,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet engineer tests a repaired valve beneath the river bridge. Meanwhile a thoughtful archivist files old letters within the reading room. A diligent teacher prepares clear lessons for the village school.",
+      "source_run": "runs/center-residual-targeted-repair-20260917.json",
+      "provenance": {
+        "source": "fresh authored held-out semantic center clause",
+        "parent_run": "runs/center-free-clause-equation-ledger-20260916.json",
+        "outer_clauses_preserved": true,
+        "all_clauses_intact": true,
+        "attachment_frame": "agent-files-theme-locative"
+      },
+      "repair": null,
+      "letters": 175,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8864237259313246,
+        "mean_zipf_frequency": 5.301562499999999,
+        "word_count": 32,
+        "repeated_word_rate": 0.15625,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet engineer tests a repaired valve beneath the river bridge. By evening a young teacher reads clear stories inside the village hall. A diligent teacher prepares clear lessons for the village school.",
+      "source_run": "runs/center-residual-targeted-repair-20260917.json",
+      "provenance": {
+        "source": "fresh authored held-out semantic center clause",
+        "parent_run": "runs/center-free-clause-equation-ledger-20260916.json",
+        "outer_clauses_preserved": true,
+        "all_clauses_intact": true,
+        "attachment_frame": "agent-reads-theme-locative"
+      },
+      "repair": null,
+      "letters": 170,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9245908112072652,
+        "mean_zipf_frequency": 5.42,
+        "word_count": 33,
+        "repeated_word_rate": 0.24242424242424243,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet engineer tests a repaired valve beneath the river bridge. At noon a patient mason stacks clean bricks beside the garden wall. A diligent teacher prepares clear lessons for the village school.",
+      "source_run": "runs/center-residual-targeted-repair-20260917.json",
+      "provenance": {
+        "source": "fresh authored held-out semantic center clause",
+        "parent_run": "runs/center-free-clause-equation-ledger-20260916.json",
+        "outer_clauses_preserved": true,
+        "all_clauses_intact": true,
+        "attachment_frame": "agent-stacks-theme-locative"
+      },
+      "repair": null,
+      "letters": 166,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9693511766018261,
+        "mean_zipf_frequency": 5.263333333333333,
+        "word_count": 33,
+        "repeated_word_rate": 0.1515151515151515,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet engineer tests a repaired valve beneath the river bridge. After rain a quiet gardener carries fresh seedlings toward the glasshouse. A diligent teacher prepares clear lessons for the village school.",
+      "source_run": "runs/center-residual-targeted-repair-20260917.json",
+      "provenance": {
+        "source": "fresh authored held-out semantic center clause",
+        "parent_run": "runs/center-free-clause-equation-ledger-20260916.json",
+        "outer_clauses_preserved": true,
+        "all_clauses_intact": true,
+        "attachment_frame": "agent-carries-theme-goal"
+      },
+      "repair": null,
+      "letters": 174,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6844287878328785,
+        "mean_zipf_frequency": 5.1871875,
+        "word_count": 32,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful courier delivers folded maps beside the weathered shed. The watchful sailor repairs loose rigging near the harbor. The young porter carries sealed parcels toward records offices.",
+      "source_run": "runs/dependency-role-first-residual-repair-20260917.json",
+      "provenance": {
+        "base_scene_source": "semantic-valency-attachment-scene-lattice-20260916",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "posthoc_reversal": false,
+        "word_order_symmetry": false,
+        "generator_method": "held-out complete role/attachment clause substitution at first live residual"
+      },
+      "repair": null,
+      "letters": 160,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6974137842213199,
+        "mean_zipf_frequency": 4.787142857142858,
+        "word_count": 28,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The station keeper checks the morning ledger beside platforms. The watchful sailor repairs loose rigging near the harbor. The young porter carries sealed parcels toward records offices.",
+      "source_run": "runs/dependency-role-first-residual-repair-20260917.json",
+      "provenance": {
+        "base_scene_source": "semantic-valency-attachment-scene-lattice-20260916",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "posthoc_reversal": false,
+        "word_order_symmetry": false,
+        "generator_method": "held-out complete role/attachment clause substitution at first live residual"
+      },
+      "repair": null,
+      "letters": 156,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.90054532743609,
+        "mean_zipf_frequency": 4.914074074074074,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient teacher reviews marked notes inside the classroom. The watchful sailor repairs loose rigging near the harbor. The young porter carries sealed parcels toward records offices.",
+      "source_run": "runs/dependency-role-first-residual-repair-20260917.json",
+      "provenance": {
+        "base_scene_source": "semantic-valency-attachment-scene-lattice-20260916",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "posthoc_reversal": false,
+        "word_order_symmetry": false,
+        "generator_method": "held-out complete role/attachment clause substitution at first live residual"
+      },
+      "repair": null,
+      "letters": 156,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6009644860294987,
+        "mean_zipf_frequency": 5.001851851851852,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient archivist catalogs sealed journals beneath winter rafters. The watchful sailor repairs loose rigging near the harbor. The young porter carries sealed parcels toward records offices.",
+      "source_run": "runs/dependency-role-first-residual-repair-20260917.json",
+      "provenance": {
+        "base_scene_source": "semantic-valency-attachment-scene-lattice-20260916",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "posthoc_reversal": false,
+        "word_order_symmetry": false,
+        "generator_method": "held-out complete role/attachment clause substitution at first live residual"
+      },
+      "repair": null,
+      "letters": 164,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.577943719638041,
+        "mean_zipf_frequency": 4.63851851851852,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The alert ranger repairs broken lanterns inside the stone workshop. The watchful sailor repairs loose rigging near the harbor. The young porter carries sealed parcels toward records offices.",
+      "source_run": "runs/dependency-role-first-residual-repair-20260917.json",
+      "provenance": {
+        "base_scene_source": "semantic-valency-attachment-scene-lattice-20260916",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "posthoc_reversal": false,
+        "word_order_symmetry": false,
+        "generator_method": "held-out complete role/attachment clause substitution at first live residual"
+      },
+      "repair": null,
+      "letters": 160,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7852404283100718,
+        "mean_zipf_frequency": 4.880357142857143,
+        "word_count": 28,
+        "repeated_word_rate": 0.1785714285714286,
+        "punctuation_segments": 3
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

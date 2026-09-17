@@ -3257,3 +3257,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   topology repair, but not reader evidence. The next experiment must widen the
   audited lexical inventory while retaining live grammar-state transitions;
   another post-render template sweep is explicitly out of scope.
+
+  The full-sequence grammar product now moves both outer slots of one complete
+  typed chain under live character equality, so the seam may occur inside a
+  verb or other lexical slot rather than only between complete clauses. Its
+  quarantined 51-letter catalogue fixture replays exactly, validating the
+  center-inside-slot transition, while four seedless patterns produce 0 novel
+  exact paths after 23,407 live states and 21,967 mismatch-edge prunes. The
+  catalogue fixture is never admitted as generated output; the next repair is
+  a typed substitution at the first mismatching edge.

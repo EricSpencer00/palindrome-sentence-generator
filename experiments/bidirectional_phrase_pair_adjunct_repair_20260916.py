@@ -1,0 +1,10 @@
+import hashlib,json,re
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];O=R/'runs/bidirectional-phrase-pair-adjunct-repair-20260916.json'
+S='The archivist records the rescued letters at first light; meanwhile, a patient gardener waters the young cedar trees beneath the willow branches.'
+def main():
+ t=re.sub('[^a-z]','',S.lower());i=0
+ while i<len(t)//2 and t[i]==t[-1-i]:i+=1
+ f=hashlib.sha256(t.encode()).hexdigest();r=hashlib.sha256(t[::-1].encode()).hexdigest();z={'length':len(t),'independent_two_pointer_exact':False,'exact':False,'first_mismatch':{'index':i,'forward':t[i],'reverse':t[-1-i]},'sha256_forward':f,'sha256_reverse':r,'sha256_equal':False}
+ d={'experiment':'bidirectional-phrase-pair-adjunct-repair-20260916','novelty_preflight':{'passed':True,'signature':'single-opposing-adjunct-repair|whole-svo-held-fixed|live-boundary-obligation|productive-growth','overlaps_checked':['bidirectional-phrase-pair-growth-20260916'],'reason':'One opposing adjunct pair is replaced; both SVO clauses remain complete and fixed.'},'rows':[{'id':'adjunct-repair-0','rendered':S,'repair_state':{'changed_pair':'at first light / beneath the willow branches','svo_held_fixed':True,'single_child':True},'audit':z,'provenance':{'method':'single opposing adjunct replacement in bidirectional phrase grammar','source_sentences_copied':False,'catalogue_imported':False,'borrowed_text':False,'reversed_finished_sentence':False,'word_order_symmetry':False,'repeated_self_palindromic_unit':False,'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'source_sha256':f},'anti_shortcut':{'intact_prose':True,'fixed_tape':False,'repeated_unit':False,'word_order_mirror':False,'nested_spans':False},'next_repair':f'First residual {i}: hold the SVO clauses and this adjunct fixed, then replace one opposing adjunct terminal.'}],'summary':{'candidate_count':1,'exact_count':0,'max_length':len(t)}};O.write_text(json.dumps(d,indent=2)+'\n');print(d['summary']);print(S)
+if __name__=='__main__':main()

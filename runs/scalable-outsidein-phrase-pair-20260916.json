@@ -1,0 +1,181 @@
+{
+  "experiment": "scalable-outsidein-phrase-pair-20260916",
+  "novelty_preflight": {
+    "passed": true,
+    "signature": "scalable-outsidein-phrase-pair|joint-terminal-lexicalization|cross-word-obligation|connected-scene-growth",
+    "overlaps_checked": [
+      "outside-in-heldout-scene-20260916",
+      "brown-phrase-pair-seam-20260916"
+    ],
+    "reason": "Both outer phrase terminals are lexicalized simultaneously and the grammar has a productive scene-frame growth rule; it does not wrap a seed or mirror word order."
+  },
+  "rows": [
+    {
+      "id": "scale-0",
+      "rendered": "At dawn, the archivist opens the town archive near the quiet bridge, while a patient gardener covers the young seedlings beside the old lantern.",
+      "outsidein_state": {
+        "left_semantic_slot": [
+          "At dawn",
+          "the archivist",
+          "opens",
+          "the town archive"
+        ],
+        "right_semantic_slot": [
+          "By evening",
+          "a patient gardener",
+          "covers",
+          "the young seedlings"
+        ],
+        "left_phrase": "near the quiet bridge",
+        "right_phrase": "beside the old lantern",
+        "joint_terminal_rule": "emit outer terminals as a pair, crossing word boundaries",
+        "growth_rule": "append another full scene frame without nested palindrome spans"
+      },
+      "audit": {
+        "length": 118,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "n"
+        },
+        "sha256_forward_normalized": "384fdc929d8413a08a63c9d154b75a111ff6d38b06d2aee4e545d9e7c499cede",
+        "sha256_reverse_normalized": "57b7089ed00b4ec1e0c2885c70bb40bf05624bfa85aaf7079904c8cde762afb7",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "scalable outside-in phrase-pair grammar lexicalizing both ends simultaneously",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "33b1a7f3b759a03ed2d33fd67dc257216f4e6e38d5f37db00ad58301bafd4b69",
+        "source_sha256": "384fdc929d8413a08a63c9d154b75a111ff6d38b06d2aee4e545d9e7c499cede"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "nested_palindrome_spans": false,
+        "self_palindromic_span": false,
+        "seed_wrapping": false,
+        "word_order_mirror": false
+      },
+      "next_repair": "First residual 0: replace the paired outer phrase terminals jointly with same-role alternatives, preserving the connected scene and grammar state."
+    },
+    {
+      "id": "scale-1",
+      "rendered": "By evening, a patient gardener covers the young seedlings under the cedar roof, while the careful nurse carries the clean water along the stone path.",
+      "outsidein_state": {
+        "left_semantic_slot": [
+          "By evening",
+          "a patient gardener",
+          "covers",
+          "the young seedlings"
+        ],
+        "right_semantic_slot": [
+          "After rain",
+          "the careful nurse",
+          "carries",
+          "the clean water"
+        ],
+        "left_phrase": "under the cedar roof",
+        "right_phrase": "along the stone path",
+        "joint_terminal_rule": "emit outer terminals as a pair, crossing word boundaries",
+        "growth_rule": "append another full scene frame without nested palindrome spans"
+      },
+      "audit": {
+        "length": 122,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "b",
+          "reverse": "h"
+        },
+        "sha256_forward_normalized": "2b600a67904d81c56406352e3de6dfeca5edfedafdd663297855d909b2e660f3",
+        "sha256_reverse_normalized": "ec922068b170367d8728150828d83c1746d3e535482bd85fee9bfc7c0d729d1a",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "scalable outside-in phrase-pair grammar lexicalizing both ends simultaneously",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "33b1a7f3b759a03ed2d33fd67dc257216f4e6e38d5f37db00ad58301bafd4b69",
+        "source_sha256": "2b600a67904d81c56406352e3de6dfeca5edfedafdd663297855d909b2e660f3"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "nested_palindrome_spans": false,
+        "self_palindromic_span": false,
+        "seed_wrapping": false,
+        "word_order_mirror": false
+      },
+      "next_repair": "First residual 0: replace the paired outer phrase terminals jointly with same-role alternatives, preserving the connected scene and grammar state."
+    },
+    {
+      "id": "scale-2",
+      "rendered": "After rain, the careful nurse carries the clean water beside the harbor wall, while the archivist opens the town archive through the narrow gate.",
+      "outsidein_state": {
+        "left_semantic_slot": [
+          "After rain",
+          "the careful nurse",
+          "carries",
+          "the clean water"
+        ],
+        "right_semantic_slot": [
+          "At dawn",
+          "the archivist",
+          "opens",
+          "the town archive"
+        ],
+        "left_phrase": "beside the harbor wall",
+        "right_phrase": "through the narrow gate",
+        "joint_terminal_rule": "emit outer terminals as a pair, crossing word boundaries",
+        "growth_rule": "append another full scene frame without nested palindrome spans"
+      },
+      "audit": {
+        "length": 119,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "e"
+        },
+        "sha256_forward_normalized": "1c00918f572b19501ca0c3e41820ae210b534b751ce1eee13614da33bb52e711",
+        "sha256_reverse_normalized": "b4065120b287c0b88fb899fe07a198634bce32eab6ae85773f4af12049287419",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "scalable outside-in phrase-pair grammar lexicalizing both ends simultaneously",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "33b1a7f3b759a03ed2d33fd67dc257216f4e6e38d5f37db00ad58301bafd4b69",
+        "source_sha256": "1c00918f572b19501ca0c3e41820ae210b534b751ce1eee13614da33bb52e711"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "nested_palindrome_spans": false,
+        "self_palindromic_span": false,
+        "seed_wrapping": false,
+        "word_order_mirror": false
+      },
+      "next_repair": "First residual 0: replace the paired outer phrase terminals jointly with same-role alternatives, preserving the connected scene and grammar state."
+    }
+  ],
+  "summary": {
+    "candidate_count": 3,
+    "exact_count": 0,
+    "max_length": 122
+  }
+}

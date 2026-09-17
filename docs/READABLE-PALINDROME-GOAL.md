@@ -3121,3 +3121,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   concrete operators are character-labeled requirements in both lexical tries,
   thirteenth-residual conditioning after `leeward`, and paired plural-object
   substitution under a semantic relation gate.
+
+  The following wave completed those repairs. Character-labeled trie gating
+  rendered 3 intact candidates up to 99 letters; the thirteenth-residual probe
+  retained 4 intact proper-locative candidates up to 66 letters but found `e`
+  where `h` was required; and relation-gated paired plural-object substitution
+  rendered 576 candidates up to 73 letters while pruning 192 invalid states.
+  All produced 0 exact closures. Independent pointer/SHA-256 replay,
+  provenance, novelty preflight, and anti-shortcut checks are retained for
+  every row. The reader gate remains closed. The next concrete operators are
+  traversal-time character rejection, an `h`-initial grammatical continuation
+  after the matched proper-locative prefix, and relation alternation for one
+  object pair while retaining the other relation.

@@ -3441,3 +3441,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   failures change the live construction operators rather than the acceptance
   gate; the next repair is agreement-carrying coordinated clauses with the
   same independent exact audit.
+
+  That agreement-carrying lane has now run: 240 typed combinations with
+  subject-number, tense, valency, object, and setting registers, retaining
+  actual prose diagnostics but 0 exact novel closures (best residual: 33
+  opposing mismatches). A third replay over 15,555 nodes and 422 worlds keeps
+  `fixed_mismatch_first` as the held-out winner (0.794 mismatch rate), so the
+  controller is selecting among genuinely different histories but has not yet
+  produced a reader candidate. The next construction change is seam-aware
+  joint word selection inside the coordinated grammar, with length-band
+  enforcement before selection.

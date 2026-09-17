@@ -258,6 +258,29 @@ def run() -> dict[str, object]:
     )
     candidates.extend(make_candidate(left, right, repair=label)
                       for left, right, label in object_agreement_pairs)
+    # Ninth recorded repair: move the character seam through a benefactive
+    # pronoun tile while retaining number/agreement.  A new adjunct keeps all
+    # four rows distinct from the earlier object-agreement wave.
+    clitic_boundary_pairs = (
+        (replace(pilot, adjunct="across the quiet harbor"),
+         replace(baker, subject_article="A", verb="delivers", object_article="a",
+                 object="warm loaf", clitic=" for us", adjunct="beside the market shelter"),
+         "singular + us clitic"),
+        (replace(pilot, adjunct="across the quiet harbor"),
+         replace(baker, subject_article="One", verb="delivers", object_article="a",
+                 object="fresh loaf", clitic=" for her", adjunct="beside the market shelter"),
+         "singular + her clitic"),
+        (replace(pilot, adjunct="across the quiet harbor"),
+         replace(baker, subject_article="Some", subject="village bakers", verb="deliver",
+                 object_article="some", object="warm loaves", clitic=" for him", adjunct="beside the market shelter"),
+         "plural + him clitic"),
+        (replace(pilot, adjunct="across the quiet harbor"),
+         replace(baker, subject_article="Several", subject="village bakers", verb="deliver",
+                 object_article="some", object="fresh loaves", clitic=" for them", adjunct="beside the market shelter"),
+         "plural + them clitic"),
+    )
+    candidates.extend(make_candidate(left, right, repair=label)
+                      for left, right, label in clitic_boundary_pairs)
     candidates.sort(key=lambda row: row["audit"]["letters"], reverse=True)
     best = candidates[0]
     first = best["audit"]["two_pointer_mismatches"][0] if best["audit"]["two_pointer_mismatches"] else None
@@ -266,7 +289,7 @@ def run() -> dict[str, object]:
             "method": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
             "novelty_preflight": preflight, "candidate_count": len(candidates),
             "candidates": candidates, "actual_prose": best["rendered"],
-            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 32,
+            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 36,
                       "adjunct_object_variants": 4,
                       "subject_theme_variants": 4,
                       "verb_clitic_variants": 4,
@@ -274,6 +297,7 @@ def run() -> dict[str, object]:
                       "determiner_adjective_variants": 4,
                       "subject_agreement_variants": 4,
                       "object_agreement_variants": 4,
+                      "clitic_boundary_variants": 4,
                       "exact": sum(r["audit"]["exact"] for r in candidates),
                       "longest_letters": best["audit"]["letters"]},
             "failure_and_repair": {"first_residual": first,
@@ -286,9 +310,10 @@ def run() -> dict[str, object]:
                     "the/a × weathered/sturdy ferry on pilot–baker pair",
                     "A/One + guides and Some/Several pilots + guide on pilot–baker pair",
                     "A/One baker + delivers a loaf and Some/Several bakers + deliver some loaves",
+                    "A/One/Some/Several baker agreement frames × us/her/him/them benefactive clitic tiles",
                 ],
                 "next_operator": "move the first residual to a role-compatible subject adjunct or noun-number tile, preserving valency and recomputing obligations before punctuation",
-                "concrete_next_repair": "hold out clitic boundary variants 'for them'/'for us' after singular and plural baker objects, then recompute the same cross-clause obligations"},
+                "concrete_next_repair": "hold out possessive clitic tiles in role-compatible noun phrases (the baker's ledger/the pilot's chart) while preserving the same agreement frames and recomputing obligations"},
             "provenance": {"lexical_source": "fresh hand-authored clause plans and productive English morphology",
                            "catalogue_text_imported": False, "seed_embedding": False, "fixed_tape": False,
                            "word_order_mirror": False, "repeated_self_palindromic_span": False,

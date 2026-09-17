@@ -9,7 +9,7 @@ def test_affix_crossword_run_has_complete_prose_and_independent_audits():
     assert result["status"] == "completed_no_exact_closure"
     assert result["novelty_preflight"]["status"] == "passed"
     assert result["stats"]["longest_letters"] > 80
-    assert result["stats"]["repaired_variants"] == 32
+    assert result["stats"]["repaired_variants"] == 36
     assert result["stats"]["adjunct_object_variants"] == 4
     assert result["stats"]["subject_theme_variants"] == 4
     assert result["stats"]["verb_clitic_variants"] == 4
@@ -17,6 +17,7 @@ def test_affix_crossword_run_has_complete_prose_and_independent_audits():
     assert result["stats"]["determiner_adjective_variants"] == 4
     assert result["stats"]["subject_agreement_variants"] == 4
     assert result["stats"]["object_agreement_variants"] == 4
+    assert result["stats"]["clitic_boundary_variants"] == 4
     assert {row["repair"] for row in result["candidates"]} >= {
         "past-tense + object-clitic", "present-tense + speaker-clitic"
     }

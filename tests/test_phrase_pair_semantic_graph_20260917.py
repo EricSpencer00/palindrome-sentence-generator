@@ -13,6 +13,11 @@ def test_graph_edges_close_and_phrases_are_not_self_palindromes():
 def test_run_requires_independent_exact_audits():
     out=M["run"]()
     assert out["novelty_preflight"]["passed"]
-    assert out["mechanically_admitted"]
+    # The exact phrase is a known catalogue/word-order control.  Exactness
+    # alone must not admit it as a generated readable candidate.
+    assert out["status"] == "completed_exact_rejected_shortcut"
+    assert out["mechanically_admitted"] is False
+    assert out["mechanical_checks"]["not_word_order_symmetry"] is False
+    assert out["mechanical_checks"]["absent_from_local_catalogue"] is False
     assert out["exact_audit"]["independent_agreement"]
     assert out["rendered"].endswith("no pets.")

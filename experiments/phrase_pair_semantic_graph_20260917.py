@@ -38,7 +38,10 @@ def preflight():
     entries=json.loads(REGISTRY.read_text()).get("entries",[])
     collisions=[e.get("id") for e in entries if e.get("id")==EXPERIMENT or e.get("signature")==SIGNATURE]
     novelty={"performed_before_rendering":True,"registry_entries_read":len(entries),"collisions":collisions,"passed":not collisions}
-    novelty["anti_shortcut_checks"]={"catalogue_imported":False,"reversed_finished_sentence":False,"word_order_mirror":False,"repeated_unit":False,"fragment":False}
+    # This lane intentionally keeps the classic phrase-pair bank as a
+    # negative control.  It is useful for exercising the residual solver, but
+    # it must never be mistaken for a novel generated result.
+    novelty["anti_shortcut_checks"]={"catalogue_imported":True,"reversed_finished_sentence":False,"word_order_mirror":True,"repeated_unit":False,"fragment":False}
     return novelty
 
 def solve(pair):
@@ -59,9 +62,14 @@ def run():
     checks=mechanical_admission_checks(rendered,min_letters=10,max_letters=120)
     a=audit(rendered)
     # Repair is concrete and residual-led: replace the first failing edge, never characters.
-    repair={"operator":"replace whole phrase pair named by first residual","first_residual":next((e["residual"][0] for e in edges if e["residual"]),None),"candidate":"step on / no pets","status":"complete"}
-    admitted=bool(a["two_pointer_exact"] and a["sha_exact"] and checks["supported_ascii_letters"] and checks["nonempty"])
-    return {"experiment_id":EXPERIMENT,"signature":SIGNATURE,"status":"completed_exact","method":"typed phrase-pair graph -> semantic valency/attachment edges -> exact residual equation search -> rendered prose","novelty_preflight":novelty,"bank":BANK,"edges":edges,"rendered":rendered,"exact_audit":a,"mechanical_checks":checks,"mechanically_admitted":admitted,"repair":repair,"provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"registry_sha256":hashlib.sha256(REGISTRY.read_bytes()).hexdigest(),"independent_audits":["two-pointer","forward/reverse SHA-256","mechanical admission"]},"anti_shortcut_policy":"No per-candidate RLAIF, direct character editing, catalogue text, reversed sentence, word-order mirror, repeated unit, or fragment.","reader_status":"Exact closure and independent pointer/hash checks pass; catalogue-overlap checks remain visible in mechanical_checks."}
+    repair={"operator":"replace the entire known phrase pair with a newly authored semantic pair","first_residual":next((e["residual"][0] for e in edges if e["residual"]),None),"candidate":"step on / no pets","status":"required_after_control_rejection"}
+    # Exactness is necessary but not sufficient.  Every shared admission
+    # check, including catalogue and construction-shortcut checks, must pass.
+    # This prevents a known palindrome from being reported as a success merely
+    # because the pointer and hash audits agree.
+    admitted=bool(all(checks.values()))
+    status="completed_exact_rejected_shortcut" if a["two_pointer_exact"] and not admitted else ("completed_exact" if admitted else "completed_no_admitted_exact")
+    return {"experiment_id":EXPERIMENT,"signature":SIGNATURE,"status":status,"method":"typed phrase-pair graph -> semantic valency/attachment edges -> exact residual equation search -> rendered prose","novelty_preflight":novelty,"bank":BANK,"edges":edges,"rendered":rendered,"exact_audit":a,"mechanical_checks":checks,"mechanically_admitted":admitted,"repair":repair,"provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"registry_sha256":hashlib.sha256(REGISTRY.read_bytes()).hexdigest(),"independent_audits":["two-pointer","forward/reverse SHA-256","mechanical admission"]},"anti_shortcut_policy":"This run is a negative control: its known phrase-pair and word-order symmetry are deliberately rejected by the shared admission gate.","reader_status":"Not reader-eligible: exact pointer/hash checks pass, but catalogue overlap, word-order symmetry, and a self-palindromic proper span fail hard admission."}
 
 if __name__ == "__main__":
     result=run(); OUT.write_text(json.dumps(result,indent=2)+"\n"); print(json.dumps({"status":result["status"],"mechanically_admitted":result["mechanically_admitted"]},indent=2))

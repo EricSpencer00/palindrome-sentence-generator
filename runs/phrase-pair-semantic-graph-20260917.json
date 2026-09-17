@@ -1,7 +1,7 @@
 {
   "experiment_id": "phrase-pair-semantic-graph-20260917",
   "signature": "independent-phrase-pair-graph|semantic-valency-attachment|exact-residual-equations|rendered-prose|pointer-sha",
-  "status": "completed_exact",
+  "status": "completed_exact_rejected_shortcut",
   "method": "typed phrase-pair graph -> semantic valency/attachment edges -> exact residual equation search -> rendered prose",
   "novelty_preflight": {
     "performed_before_rendering": true,
@@ -9,9 +9,9 @@
     "collisions": [],
     "passed": true,
     "anti_shortcut_checks": {
-      "catalogue_imported": false,
+      "catalogue_imported": true,
       "reversed_finished_sentence": false,
-      "word_order_mirror": false,
+      "word_order_mirror": true,
       "repeated_unit": false,
       "fragment": false
     }
@@ -119,15 +119,15 @@
     "absent_from_local_catalogue": false,
     "local_catalogue_absent": false
   },
-  "mechanically_admitted": true,
+  "mechanically_admitted": false,
   "repair": {
-    "operator": "replace whole phrase pair named by first residual",
+    "operator": "replace the entire known phrase pair with a newly authored semantic pair",
     "first_residual": null,
     "candidate": "step on / no pets",
-    "status": "complete"
+    "status": "required_after_control_rejection"
   },
   "provenance": {
-    "generator_sha256": "cfa22127ea941a65fd36ef91d2e671f4bc80f5004643fc66e25442019c567ffe",
+    "generator_sha256": "2870fbb6c45d4d7b29baa58f5c1672eef86623721abe19177c9d7de0281d69c1",
     "registry_sha256": "80598311c5626bb7eff645cd057cb6003b72e76cab073da5952133e070758de0",
     "independent_audits": [
       "two-pointer",
@@ -135,6 +135,6 @@
       "mechanical admission"
     ]
   },
-  "anti_shortcut_policy": "No per-candidate RLAIF, direct character editing, catalogue text, reversed sentence, word-order mirror, repeated unit, or fragment.",
-  "reader_status": "Exact closure and independent pointer/hash checks pass; catalogue-overlap checks remain visible in mechanical_checks."
+  "anti_shortcut_policy": "This run is a negative control: its known phrase-pair and word-order symmetry are deliberately rejected by the shared admission gate.",
+  "reader_status": "Not reader-eligible: exact pointer/hash checks pass, but catalogue overlap, word-order symmetry, and a self-palindromic proper span fail hard admission."
 }

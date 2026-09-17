@@ -3233,8 +3233,8 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
 
   The first true character-graph product now passes its asymmetric-boundary
   oracle (`live on time` + `emit no evil`) without rendering mismatching paths.
-  On a 500-word audited inventory and two-word phrase graph it expanded 2,500
-  states, exhausted the explicit budget, and found 0 non-shortcut exact
+  On a 40-word audited menu with reusable 2–8-word graph layers it expanded
+  2,500 states, exhausted the explicit budget, and found 0 non-shortcut exact
   completions. A semantic valency NFA branches lexical alternatives as live
   trie nodes (4 states, 6 pruned transitions, 0 exact paths), while the typed
   grammar NFA has 2 live states and 0 exact paths. These are the first honest

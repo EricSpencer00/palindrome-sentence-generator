@@ -1,0 +1,262 @@
+{
+  "experiment": "optional-relative-boundary-offset-20260917",
+  "method": "grammar-aware optional subject-relative clause insertion/deletion with direct offset preservation",
+  "template": "{d} {a}{rel} {v} {o} beside the {s}, and the {a2} {v2} the {o2} near the {s2}.",
+  "candidate_count": 3,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "the gardener, who writes carries letters beside the harbor, and the teacher writes the notes near the garden.",
+      "slots": {
+        "d": "the",
+        "a": "gardener",
+        "rel": ", who writes",
+        "v": "carries",
+        "o": "letters",
+        "s": "harbor",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s2": "garden"
+      },
+      "offsets": {
+        "d": [
+          0,
+          2
+        ],
+        "a": [
+          3,
+          10
+        ],
+        "rel": [
+          11,
+          19
+        ],
+        "v": [
+          20,
+          26
+        ],
+        "o": [
+          27,
+          33
+        ],
+        "s": [
+          43,
+          48
+        ],
+        "a2": [
+          55,
+          61
+        ],
+        "v2": [
+          62,
+          67
+        ],
+        "o2": [
+          71,
+          75
+        ],
+        "s2": [
+          83,
+          88
+        ]
+      },
+      "transition": {
+        "relative_clause": "inserted",
+        "grammar_rule": "subject-relative optional, comma-preserving"
+      },
+      "provenance": "grammar_aware_optional_relative_direct_offset",
+      "novelty_preflight": {
+        "signature": "optional_relative_offset_v1",
+        "distinct_from": "conjunction boundary transitions; relative clause insertion changes subject span while retaining grammar"
+      },
+      "audit": {
+        "letters": 89,
+        "exact": false,
+        "mismatch_count": 40,
+        "first_mismatch": 0,
+        "sha256": "d97c773353111346836182eb877ef77262158948b6608c969d6b45b07632e268",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "the teacher who records writes notes beside the garden, and the messenger records the charts near the station.",
+      "slots": {
+        "d": "the",
+        "a": "teacher",
+        "rel": " who records",
+        "v": "writes",
+        "o": "notes",
+        "s": "garden",
+        "a2": "messenger",
+        "v2": "records",
+        "o2": "charts",
+        "s2": "station"
+      },
+      "offsets": {
+        "d": [
+          0,
+          2
+        ],
+        "a": [
+          3,
+          9
+        ],
+        "rel": [
+          10,
+          19
+        ],
+        "v": [
+          20,
+          25
+        ],
+        "o": [
+          26,
+          30
+        ],
+        "s": [
+          40,
+          45
+        ],
+        "a2": [
+          52,
+          60
+        ],
+        "v2": [
+          61,
+          67
+        ],
+        "o2": [
+          71,
+          76
+        ],
+        "s2": [
+          84,
+          90
+        ]
+      },
+      "transition": {
+        "relative_clause": "inserted",
+        "grammar_rule": "subject-relative optional, comma-preserving"
+      },
+      "provenance": "grammar_aware_optional_relative_direct_offset",
+      "novelty_preflight": {
+        "signature": "optional_relative_offset_v1",
+        "distinct_from": "conjunction boundary transitions; relative clause insertion changes subject span while retaining grammar"
+      },
+      "audit": {
+        "letters": 91,
+        "exact": false,
+        "mismatch_count": 43,
+        "first_mismatch": 0,
+        "sha256": "d8f9c64dad8183d353065720a57f3ffbb832b56c03272404e091b855f34d0ffa",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 2,
+      "rendered": "the messenger records charts beside the station, and the gardener carries the letters near the harbor.",
+      "slots": {
+        "d": "the",
+        "a": "messenger",
+        "rel": "",
+        "v": "records",
+        "o": "charts",
+        "s": "station",
+        "a2": "gardener",
+        "v2": "carries",
+        "o2": "letters",
+        "s2": "harbor"
+      },
+      "offsets": {
+        "d": [
+          0,
+          2
+        ],
+        "a": [
+          3,
+          11
+        ],
+        "rel": [
+          12,
+          11
+        ],
+        "v": [
+          12,
+          18
+        ],
+        "o": [
+          19,
+          24
+        ],
+        "s": [
+          34,
+          40
+        ],
+        "a2": [
+          47,
+          54
+        ],
+        "v2": [
+          55,
+          61
+        ],
+        "o2": [
+          65,
+          71
+        ],
+        "s2": [
+          79,
+          84
+        ]
+      },
+      "transition": {
+        "relative_clause": "deleted",
+        "grammar_rule": "subject-relative optional, comma-preserving"
+      },
+      "provenance": "grammar_aware_optional_relative_direct_offset",
+      "novelty_preflight": {
+        "signature": "optional_relative_offset_v1",
+        "distinct_from": "conjunction boundary transitions; relative clause insertion changes subject span while retaining grammar"
+      },
+      "audit": {
+        "letters": 85,
+        "exact": false,
+        "mismatch_count": 40,
+        "first_mismatch": 0,
+        "sha256": "a9e39dab2e2cf9ecc43eafe9cfbafe3b1d738a90e09830679f7e736b2a243ed2",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 91,
+    "next_repair": "add relative-clause lexical valency bundles and use their character intervals to constrain the opposing clause seam"
+  }
+}

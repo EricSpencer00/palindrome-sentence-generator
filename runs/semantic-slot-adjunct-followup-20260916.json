@@ -1,0 +1,86 @@
+{
+  "experiment_id": "semantic-slot-adjunct-followup-20260916",
+  "signature": "heldout-adjunct-sense-repair|preserved-gardener-scene|single-state|independent-pointer-sha",
+  "status": "completed",
+  "method": "single held-out sense-compatible adjunct replacement preserving all other scene slots",
+  "candidate": {
+    "rendered": "After rain, the patient gardener carries a wrapped bundle near the glasshouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart toward the dry storehouse.",
+    "letters": 163,
+    "repair_operator": {
+      "changed_slot": "typed_adjunct",
+      "from": "beside the quiet greenhouse",
+      "to": "near the glasshouse",
+      "sense_compatible": true,
+      "held_out": true,
+      "preserved_slots": [
+        "gardener",
+        "bundle",
+        "ledger",
+        "porter"
+      ]
+    },
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_normalized_sha256",
+      "letters": 163,
+      "two_pointer_exact": false,
+      "mismatch_count": 77,
+      "first_mismatch": {
+        "left": 0,
+        "right": 162,
+        "a": "a",
+        "b": "e"
+      },
+      "sha256_forward": "8c6f59f2659e1c4f4f0c0d53f93b2ccd71524266a6d4c332bc66fefe1278b300",
+      "sha256_reverse": "3f5d11f8eb09a7e1eb88d13458eb49404e55f3dea646ff6ad8e6a9f2ad1392be",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "fresh_authored_scene": true,
+      "source_sentences_copied": false,
+      "catalogue_imported": false,
+      "borrowed_text": false,
+      "reversed_finished_sentence": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false,
+      "generator_sha256": "ab0e280a77a97ebf77c676818251a5a29d9c95525fcea61ec23c35a9b75fe2e4"
+    }
+  },
+  "stats": {
+    "targeted_states": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "novelty_preflight": {
+    "performed_before_search": true,
+    "exact_id_collision": false,
+    "exact_signature_collision": false,
+    "status": "passed",
+    "sweep": false
+  },
+  "next_repair": "Change only the final locative attachment at the next residual while preserving the gardener event and adjunct; do not reopen this state.",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "ab0e280a77a97ebf77c676818251a5a29d9c95525fcea61ec23c35a9b75fe2e4",
+    "generated_not_catalogue": true
+  }
+}

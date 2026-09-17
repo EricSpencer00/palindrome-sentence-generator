@@ -47,6 +47,7 @@ EXPLICIT_HISTORY = (
     "runs/boundary-resegmentation-scene-20260917.json",
     "runs/cfg-character-intersection-20260917.json",
     "runs/attachment-valency-seam-csp-20260917.json",
+    "runs/luna-semantic-slot-obligation-repair-20260917.json",
     "runs/joint-boundary-first-mismatch-repair-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

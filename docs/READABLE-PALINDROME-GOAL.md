@@ -3527,3 +3527,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   `fixed_mismatch_first` remains the held-out winner (0.794 mismatch rate),
   with zero admissible exact closures. The next run applies those recorded
   repair operators; no output has reached the reader gate yet.
+
+  The semantic-slot obligation repair then searched 64 role-, agreement-, and
+  attachment-preserving substitutions over two intact near-miss scenes (66
+  independently audited renderings including controls). Its longest surface
+  was 131 letters; the best rendered row is “The patient archivist stores
+  weathered charts beside the north window. A steady teacher reviews the brass
+  ledger before dusk.” (105 letters, 44 mismatches). It is fresh prose with no
+  catalogue, fixed tape, mirrored word order, repeated unit, or fragment, but
+  no exact closure. The recorded next repair carries a held-out multiword slot
+  alternative through the full boundary-obligation vector. Dream-RSI round
+  eight replays the same 15,658-node/429-world tree because this artifact was
+  already present in the registered history; no policy or exactness result is
+  changed. The reader gate remains closed pending a genuine exact survivor.

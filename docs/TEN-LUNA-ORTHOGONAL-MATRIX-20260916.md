@@ -130,5 +130,15 @@ young seedlings after steady rain. The watchful sailor repairs loose rigging
 near the harbor. The young porter carries sealed parcels toward records
 offices.”). Each is exact `false` under independent pointer/SHA checks, has
 fresh provenance and novelty preflight, and names a concrete clause/terminal
-repair. The aggregate is now 5,018 rows across 297 routes; the registry is 398
-retained artifacts, 32 exclusions, and 376 retained run artifacts.
+repair. The aggregate before the next exact-closure attempts was 5,018 rows
+across 297 routes; the registry was 398 retained artifacts, 32 exclusions, and
+376 retained run artifacts.
+
+The exact-closure attempts add three nonduplicate routes: nine 70--81-letter
+agreement/clitic terminal states, six 155--159-letter clause-equation states,
+and one 106-letter 59,049-pair semantic-slot frontier witness. Their best
+rendered texts are shown in the evidence ledger; all independent exact checks
+remain `false`, and each run records provenance, novelty, anti-shortcut flags,
+and its next repair. The aggregate is now 5,034 rows across 300 routes; the
+registry is 401 retained artifacts, 32 exclusions, and 379 retained run
+artifacts.

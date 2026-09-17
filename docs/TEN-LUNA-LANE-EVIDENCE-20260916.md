@@ -850,5 +850,22 @@ steady rain. The watchful sailor repairs loose rigging near the harbor. The
 young porter carries sealed parcels toward records offices.” (154 letters;
 exact `false`). All three have independent pointer/SHA validation, provenance,
 novelty preflight, anti-shortcut flags, and named next repairs; none is
-reader-eligible. The authoritative retained aggregate is now 5,018 rows across
-297 routes, with 79 exact controls and 0 mechanically admitted outputs.
+reader-eligible. Before the next exact-closure queue, the retained aggregate
+was 5,018 rows across 297 routes, with 79 exact controls and 0 mechanically
+admitted outputs.
+
+The next exact-closure attempts stay bounded and constructive. A 3x3
+agreement/clitic terminal product emits “At dawn, a patient pilot checks the
+engine, notes its gauge, and tells the crew it works at sea.” (81 letters in
+the best state; one outer pair matched, full exact `false`). A clause-level
+semantic-valency solver expands 27 complete states and retains “The quiet
+gardener waters young seedlings after steady rain. The watchful sailor repairs
+loose rigging near the harbor. The waiting curator locks glass cabinets after
+evening lectures.” (159 letters; exact `false`; seven outer pairs matched).
+An exhaustive 59,049-pair whole-word semantic-slot frontier retains “The alert
+ranger repairs broken lanterns inside the stone workshop. A patient baker guides
+warm loaves beside the garden porch.” (106 letters; exact `false`). Each attempt
+has independent pointer/SHA validation, provenance, novelty preflight, and a
+concrete first-residual repair; none is reader-eligible. The authoritative
+aggregate is now 5,034 rows across 300 routes, with 79 exact controls and 0
+mechanically admitted outputs.

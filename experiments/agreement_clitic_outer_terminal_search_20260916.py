@@ -40,9 +40,17 @@ CLOSINGS = (
 def novelty_preflight() -> dict[str, object]:
     registry = json.loads(REGISTRY.read_text())
     rows = registry.get("entries", []) + registry.get("excluded", [])
-    overlap = [row.get("signature") for row in rows if row.get("signature") == SIGNATURE]
+    overlap = [
+        row.get("signature")
+        for row in rows
+        if row.get("id") != EXPERIMENT_ID and row.get("signature") == SIGNATURE
+    ]
     artifact = str(Path(__file__).relative_to(ROOT))
-    collisions = [row.get("artifact") for row in rows if row.get("artifact") == artifact]
+    collisions = [
+        row.get("artifact")
+        for row in rows
+        if row.get("id") != EXPERIMENT_ID and row.get("artifact") == artifact
+    ]
     result = {
         "status": "passed" if not overlap and not collisions else "blocked",
         "registry_entries_before_run": len(rows),

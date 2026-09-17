@@ -292,9 +292,12 @@
     "runs/joint-constituent-equation-scene-repair-20260916.json",
     "runs/agreement-clitic-character-transducer-20260916.json",
     "runs/seed-benchmark-live-semantic-slot-expansion-20260916.json",
-    "runs/semantic-valency-attachment-scene-lattice-20260916.json"
+    "runs/semantic-valency-attachment-scene-lattice-20260916.json",
+    "runs/agreement-clitic-outer-terminal-search-20260916.json",
+    "runs/semantic-valency-clause-equation-solver-20260916.json",
+    "runs/semantic-slot-exact-closure-frontier-20260916.json"
   ],
-  "candidate_count": 5018,
+  "candidate_count": 5034,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -3267,6 +3270,36 @@
       "max_letters": 163,
       "mean_zipf_frequency": 4.8402469135802475,
       "mean_brown_order_gain_vs_shuffle": 0.42049131002273893
+    },
+    {
+      "source_run": "runs/agreement-clitic-outer-terminal-search-20260916.json",
+      "rows": 9,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 70,
+      "max_letters": 81,
+      "mean_zipf_frequency": 5.721529220655125,
+      "mean_brown_order_gain_vs_shuffle": 0.6797125885318276
+    },
+    {
+      "source_run": "runs/semantic-slot-exact-closure-frontier-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 106,
+      "max_letters": 106,
+      "mean_zipf_frequency": 4.924499999999999,
+      "mean_brown_order_gain_vs_shuffle": 0.9357912286805643
+    },
+    {
+      "source_run": "runs/semantic-valency-clause-equation-solver-20260916.json",
+      "rows": 6,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 155,
+      "max_letters": 159,
+      "mean_zipf_frequency": 4.929382716049383,
+      "mean_brown_order_gain_vs_shuffle": 0.46972156673593296
     }
   ],
   "rows": [
@@ -242168,6 +242201,669 @@
         "word_count": 27,
         "repeated_word_rate": 0.14814814814814814,
         "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, a patient pilot checks the engine, notes its gauge, and tells the crew it works at sea.",
+      "source_run": "runs/agreement-clitic-outer-terminal-search-20260916.json",
+      "provenance": "bounded joint lexicalization of held-out opening/closing terminals against a live outer character equation",
+      "repair": null,
+      "letters": 74,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5040280850798151,
+        "mean_zipf_frequency": 5.690526315789475,
+        "word_count": 19,
+        "repeated_word_rate": 0.10526315789473684,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient pilot checks the engine, notes its gauge, and tells the crew it works at sea.",
+      "source_run": "runs/agreement-clitic-outer-terminal-search-20260916.json",
+      "provenance": "bounded joint lexicalization of held-out opening/closing terminals against a live outer character equation",
+      "repair": null,
+      "letters": 70,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0323538336247875,
+        "mean_zipf_frequency": 5.736470588235295,
+        "word_count": 17,
+        "repeated_word_rate": 0.11764705882352944,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient pilot checks the engine, notes its gauge, and tells the crew it works by the quay.",
+      "source_run": "runs/agreement-clitic-outer-terminal-search-20260916.json",
+      "provenance": "bounded joint lexicalization of held-out opening/closing terminals against a live outer character equation",
+      "repair": null,
+      "letters": 74,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8528494938406315,
+        "mean_zipf_frequency": 5.745000000000001,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient pilot checks the engine, notes its gauge, and tells the crew it works near the bay.",
+      "source_run": "runs/agreement-clitic-outer-terminal-search-20260916.json",
+      "provenance": "bounded joint lexicalization of held-out opening/closing terminals against a live outer character equation",
+      "repair": null,
+      "letters": 75,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0899303260845201,
+        "mean_zipf_frequency": 5.7505555555555565,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "In harbor, a patient pilot checks the engine, notes its gauge, and tells the crew it works at sea.",
+      "source_run": "runs/agreement-clitic-outer-terminal-search-20260916.json",
+      "provenance": "bounded joint lexicalization of held-out opening/closing terminals against a live outer character equation",
+      "repair": null,
+      "letters": 76,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.2654344614199733,
+        "mean_zipf_frequency": 5.7142105263157905,
+        "word_count": 19,
+        "repeated_word_rate": 0.052631578947368474,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, a patient pilot checks the engine, notes its gauge, and tells the crew it works by the quay.",
+      "source_run": "runs/agreement-clitic-outer-terminal-search-20260916.json",
+      "provenance": "bounded joint lexicalization of held-out opening/closing terminals against a live outer character equation",
+      "repair": null,
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5572127452226106,
+        "mean_zipf_frequency": 5.700500000000001,
+        "word_count": 20,
+        "repeated_word_rate": 0.09999999999999998,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, a patient pilot checks the engine, notes its gauge, and tells the crew it works near the bay.",
+      "source_run": "runs/agreement-clitic-outer-terminal-search-20260916.json",
+      "provenance": "bounded joint lexicalization of held-out opening/closing terminals against a live outer character equation",
+      "repair": null,
+      "letters": 79,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8127986021076712,
+        "mean_zipf_frequency": 5.705500000000002,
+        "word_count": 20,
+        "repeated_word_rate": 0.09999999999999998,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "In harbor, a patient pilot checks the engine, notes its gauge, and tells the crew it works by the quay.",
+      "source_run": "runs/agreement-clitic-outer-terminal-search-20260916.json",
+      "provenance": "bounded joint lexicalization of held-out opening/closing terminals against a live outer character equation",
+      "repair": null,
+      "letters": 80,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.3752734092472636,
+        "mean_zipf_frequency": 5.723000000000001,
+        "word_count": 20,
+        "repeated_word_rate": 0.09999999999999998,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "In harbor, a patient pilot checks the engine, notes its gauge, and tells the crew it works near the bay.",
+      "source_run": "runs/agreement-clitic-outer-terminal-search-20260916.json",
+      "provenance": "bounded joint lexicalization of held-out opening/closing terminals against a live outer character equation",
+      "repair": null,
+      "letters": 81,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6275323401591759,
+        "mean_zipf_frequency": 5.7280000000000015,
+        "word_count": 20,
+        "repeated_word_rate": 0.09999999999999998,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The station keeper checks the morning ledger beside platforms. The waiting curator locks glass cabinets after evening lectures.",
+      "source_run": "runs/semantic-valency-clause-equation-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "8d4cef06a04681b4eb0b74d085d6ab38c13b79b56fe77e7d8bfa4bf9b0d942f9",
+        "registry_sha256": "5d3195c1a95fc461d42bcb2e89dd6f639843ad416a1d7eb90782fcdf73502210",
+        "operator": "outer complete-clause equation scoring followed by middle-clause expansion",
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 159,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5598412177394891,
+        "mean_zipf_frequency": 4.945185185185186,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The patient teacher reviews marked notes inside the classroom. The waiting curator locks glass cabinets after evening lectures.",
+      "source_run": "runs/semantic-valency-clause-equation-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "8d4cef06a04681b4eb0b74d085d6ab38c13b79b56fe77e7d8bfa4bf9b0d942f9",
+        "registry_sha256": "5d3195c1a95fc461d42bcb2e89dd6f639843ad416a1d7eb90782fcdf73502210",
+        "operator": "outer complete-clause equation scoring followed by middle-clause expansion",
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 159,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4152124927886689,
+        "mean_zipf_frequency": 5.032962962962963,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The watchful sailor repairs loose rigging near the harbor. The waiting curator locks glass cabinets after evening lectures.",
+      "source_run": "runs/semantic-valency-clause-equation-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "8d4cef06a04681b4eb0b74d085d6ab38c13b79b56fe77e7d8bfa4bf9b0d942f9",
+        "registry_sha256": "5d3195c1a95fc461d42bcb2e89dd6f639843ad416a1d7eb90782fcdf73502210",
+        "operator": "outer complete-clause equation scoring followed by middle-clause expansion",
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 155,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.41913674404436385,
+        "mean_zipf_frequency": 4.861111111111111,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The station keeper checks the morning ledger beside platforms. The young porter carries sealed parcels toward records offices.",
+      "source_run": "runs/semantic-valency-clause-equation-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "8d4cef06a04681b4eb0b74d085d6ab38c13b79b56fe77e7d8bfa4bf9b0d942f9",
+        "registry_sha256": "5d3195c1a95fc461d42bcb2e89dd6f639843ad416a1d7eb90782fcdf73502210",
+        "operator": "outer complete-clause equation scoring followed by middle-clause expansion",
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 158,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6060790331449528,
+        "mean_zipf_frequency": 4.924074074074074,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The patient teacher reviews marked notes inside the classroom. The young porter carries sealed parcels toward records offices.",
+      "source_run": "runs/semantic-valency-clause-equation-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "8d4cef06a04681b4eb0b74d085d6ab38c13b79b56fe77e7d8bfa4bf9b0d942f9",
+        "registry_sha256": "5d3195c1a95fc461d42bcb2e89dd6f639843ad416a1d7eb90782fcdf73502210",
+        "operator": "outer complete-clause equation scoring followed by middle-clause expansion",
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 158,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.46055273581451495,
+        "mean_zipf_frequency": 5.011851851851852,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet gardener waters young seedlings after steady rain. The station keeper checks the morning ledger beside platforms. The watchful pilot secures fishing vessels beside stone piers.",
+      "source_run": "runs/semantic-valency-clause-equation-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "8d4cef06a04681b4eb0b74d085d6ab38c13b79b56fe77e7d8bfa4bf9b0d942f9",
+        "registry_sha256": "5d3195c1a95fc461d42bcb2e89dd6f639843ad416a1d7eb90782fcdf73502210",
+        "operator": "outer complete-clause equation scoring followed by middle-clause expansion",
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 157,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.3575071768836082,
+        "mean_zipf_frequency": 4.801111111111111,
+        "word_count": 27,
+        "repeated_word_rate": 0.14814814814814814,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The alert ranger repairs broken lanterns inside the stone workshop. A patient baker guides warm loaves beside the garden porch.",
+      "source_run": "runs/semantic-slot-exact-closure-frontier-20260916.json",
+      "provenance": {
+        "parent_frontier": "seed-benchmark-live-semantic-slot-expansion-20260916",
+        "source": "fresh authored role-compatible lexical banks",
+        "selection": "complete whole-word slots jointly selected before rendering",
+        "generator": "experiments/semantic_slot_exact_closure_frontier_20260916.py"
+      },
+      "repair": null,
+      "letters": 106,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9357912286805643,
+        "mean_zipf_frequency": 4.924499999999999,
+        "word_count": 20,
+        "repeated_word_rate": 0.09999999999999998,
+        "punctuation_segments": 2
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

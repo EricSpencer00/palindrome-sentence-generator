@@ -137,8 +137,11 @@ no-shortcut checks, and all 12 states pass them. Its 91-letter clause remains
 non-exact, with a relation-compatible event substitution named as the next
 repair. Three targeted repairs (117, 59, and 214 letters) are likewise retained
 with independent pointer/SHA audits and provenance. The retained snapshot is
-5,018 rows across 297 routes (79 exact rejected tapes; 0 mechanically admitted
+5,034 rows across 300 routes (79 exact rejected tapes; 0 mechanically admitted
 outputs). The latest three lanes add a 72-letter agreement/clitic scene, a
 108-letter seed-free whole-word slot expansion, and a 154-letter semantic-
 valency lattice witness; all are intact, independently rejected, provenance-
-backed, and paired with next repairs.
+backed, and paired with next repairs. The follow-up exact-closure queue adds
+nine bounded terminal states, six clause-equation states, and one 59,049-pair
+whole-word state; their best intact witnesses are 81, 159, and 106 letters,
+respectively, all independently non-exact and paired with a concrete repair.

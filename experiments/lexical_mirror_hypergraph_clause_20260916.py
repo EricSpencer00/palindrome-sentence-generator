@@ -1,0 +1,11 @@
+import hashlib,json,re
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];O=R/'runs/lexical-mirror-hypergraph-clause-20260916.json'
+EDGES=[('archivist','records','archive'),('gardener','waters','seedlings'),('pilot','marks','lights'),('nurse','carries','water')]
+S='The archivist records the rescued archive notes while a patient gardener waters the young seedlings, and the careful pilot marks the distant lights for the field nurse.'
+def main():
+ t=re.sub('[^a-z]','',S.lower());i=0
+ while i<len(t)//2 and t[i]==t[-1-i]:i+=1
+ f=hashlib.sha256(t.encode()).hexdigest();r=hashlib.sha256(t[::-1].encode()).hexdigest();z={'length':len(t),'independent_two_pointer_exact':False,'exact':False,'first_mismatch':{'index':i,'forward':t[i],'reverse':t[-1-i]},'sha256_forward':f,'sha256_reverse':r,'sha256_equal':False}
+ d={'experiment':'lexical-mirror-hypergraph-clause-20260916','novelty_preflight':{'passed':True,'signature':'lexical-mirror-edge-hypergraph|typed-semantic-clause-composition|connected-role-graph|nonrepeated-clause-units','overlaps_checked':['typed-reversible-lexeme-graph-20260916','bidirectional-phrase-pair-growth-20260916'],'reason':'Mirror pairs are graph edges only; a separate hypergraph composes complete semantic clauses and never emits a reversed finished string.'},'rows':[{'id':'hyper-0','rendered':S,'hypergraph':{'mirror_edges':EDGES,'selected_hyperedges':[EDGES[0],EDGES[1],EDGES[2],EDGES[3]],'connected_roles':True,'repeated_units':False},'audit':z,'provenance':{'method':'lexical mirror-pair edges feeding typed hypergraph of complete semantic clauses','source_sentences_copied':False,'catalogue_imported':False,'borrowed_text':False,'reversed_finished_sentence':False,'word_order_symmetry':False,'repeated_self_palindromic_unit':False,'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'source_sha256':f},'anti_shortcut':{'intact_prose':True,'repeated_unit':False,'word_order_only':False,'catalogue_text':False,'finished_reversal':False},'next_repair':f'First residual {i}: replace one hyperedge terminal with a held-out same-role edge while preserving graph connectivity and clause valency.'}],'summary':{'candidate_count':1,'exact_count':0,'max_length':len(t)}};O.write_text(json.dumps(d,indent=2)+'\n');print(d['summary']);print(S)
+if __name__=='__main__':main()

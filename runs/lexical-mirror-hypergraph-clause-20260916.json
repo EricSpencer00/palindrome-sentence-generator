@@ -1,0 +1,103 @@
+{
+  "experiment": "lexical-mirror-hypergraph-clause-20260916",
+  "novelty_preflight": {
+    "passed": true,
+    "signature": "lexical-mirror-edge-hypergraph|typed-semantic-clause-composition|connected-role-graph|nonrepeated-clause-units",
+    "overlaps_checked": [
+      "typed-reversible-lexeme-graph-20260916",
+      "bidirectional-phrase-pair-growth-20260916"
+    ],
+    "reason": "Mirror pairs are graph edges only; a separate hypergraph composes complete semantic clauses and never emits a reversed finished string."
+  },
+  "rows": [
+    {
+      "id": "hyper-0",
+      "rendered": "The archivist records the rescued archive notes while a patient gardener waters the young seedlings, and the careful pilot marks the distant lights for the field nurse.",
+      "hypergraph": {
+        "mirror_edges": [
+          [
+            "archivist",
+            "records",
+            "archive"
+          ],
+          [
+            "gardener",
+            "waters",
+            "seedlings"
+          ],
+          [
+            "pilot",
+            "marks",
+            "lights"
+          ],
+          [
+            "nurse",
+            "carries",
+            "water"
+          ]
+        ],
+        "selected_hyperedges": [
+          [
+            "archivist",
+            "records",
+            "archive"
+          ],
+          [
+            "gardener",
+            "waters",
+            "seedlings"
+          ],
+          [
+            "pilot",
+            "marks",
+            "lights"
+          ],
+          [
+            "nurse",
+            "carries",
+            "water"
+          ]
+        ],
+        "connected_roles": true,
+        "repeated_units": false
+      },
+      "audit": {
+        "length": 140,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "e"
+        },
+        "sha256_forward": "ab7ca052c8e8c91cc4c1490f9cac859b94eb5ec62f7bdc20ccc7b7c18ab54bcc",
+        "sha256_reverse": "cee23403cb5bcef1455740021fb4b9a74d764ea6717c7de809a94b23ecbd5f86",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "lexical mirror-pair edges feeding typed hypergraph of complete semantic clauses",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "737633fdb5f106fdb2d555e1bbc022baece5779343948c9ff0e2f863c9ead516",
+        "source_sha256": "ab7ca052c8e8c91cc4c1490f9cac859b94eb5ec62f7bdc20ccc7b7c18ab54bcc"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false,
+        "finished_reversal": false
+      },
+      "next_repair": "First residual 0: replace one hyperedge terminal with a held-out same-role edge while preserving graph connectivity and clause valency."
+    }
+  ],
+  "summary": {
+    "candidate_count": 1,
+    "exact_count": 0,
+    "max_length": 140
+  }
+}

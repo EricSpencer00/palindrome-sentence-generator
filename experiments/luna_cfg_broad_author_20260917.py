@@ -21,7 +21,7 @@ LEX = {
  "verb": ("carries", "draws", "finds", "marks", "opens", "plants", "records", "visits", "watches"),
  "obj": ("chart", "garden", "harbor", "lantern", "letter", "map", "parcel", "window"),
  "prep": ("by", "near", "under", "beside"), "place": ("archive", "arena", "earth", "harbor", "port", "station"),
- "pron": ("you", "we"), "aux": ("can", "will"), "adv": ("calmly", "often", "slowly"),
+ "pron": ("it", "you", "we"), "aux": ("can", "will"), "adv": ("calmly", "often", "slowly"),
 }
 
 # Each form is a complete, independently authored surface pattern.  No form
@@ -36,8 +36,11 @@ FORMS = (
  ("det", "noun", "that", "verb", "det", "obj"),
  ("verb", "det", "obj"), # imperative
  ("pron", "verb", "det", "obj"), # question-like short form
+ # Coordinated scene edge: one explicit event entity is carried into a
+ # second event through a shared subject and anaphoric object.
+ ("det", "noun", "verb", "det", "obj", "and", "verb", "pron"),
 )
-LEX.update({"is": ("is",), "that": ("that",)})
+LEX.update({"is": ("is",), "that": ("that",), "and": ("and",)})
 
 VALENCY = {
     "carries": {"chart", "garden", "lantern", "letter", "map", "parcel"},
@@ -59,6 +62,10 @@ def licensed(form, words):
     if "verb" in form and "obj" in form:
         verb, obj = words[form.index("verb")], words[form.index("obj")]
         if obj not in VALENCY.get(verb, set()): return False
+    if "and" in form:
+        # The coordinated form has one scene subject and an explicit object
+        # carried into the second event by the anaphor "it".
+        if words[form.index("pron")] != "it": return False
     return True
 
 def sentences(limit=1200):
@@ -94,7 +101,7 @@ def product(paths, cap=500000):
         if li == terminal[p] and ri == 0:
             ws=paths[p] + paths[q]
             tape=letters(" ".join(ws))
-            if 39 <= len(tape) <= 160 and tape == tape[::-1] and len(ws)==len(set(ws)):
+            if 39 <= len(tape) <= 180 and tape == tape[::-1] and len(ws)==len(set(ws)):
                 key=tuple(ws)
                 if key not in seen: seen.add(key); records.append((ws,tape))
             continue
@@ -117,11 +124,11 @@ def run():
           "audit":audit(text),"anti_shortcut":{"repeated_words":len(words)!=len(set(words)),"word_order_mirror":False},
           "reader_status":"unreviewed; requires blinded human rating","mechanically_admitted":False})
     result={"status":"completed_no_admitted_closure" if not rows else "exact_rejected_pending_readers",
-      "method":"broad_authored_cfg_character_product","forms":len(FORMS),"paths":len(paths),
+      "method":"broad_authored_cfg_scene_role_product","forms":len(FORMS),"paths":len(paths),
       "search":{"states":states,"truncated":truncated,"letters":"39-160","rlaif_per_candidate":False,
-                 "construction_filters":["determiner_noun_agreement","verb_object_valency"]},
+                 "construction_filters":["determiner_noun_agreement","verb_object_valency","shared_scene_entity_and_anaphora"]},
       "exact_candidates":rows,"withheld_control":{"id":"known_38_letter_seed","used_for_search":False,"exact":True},
-      "next_repair":{"operator":"add finite scene-role constraints and coordinated-clause edges","reason":"agreement and valency filtered the product but yielded no exact closure; the next structural repair is compositional scene linkage"},
+      "next_repair":{"operator":"add relative-event attachment edges with distinct anaphora","reason":"the shared-scene coordination product yielded no exact closure; next add event attachment without repeating lexical entities"},
       "provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"lexicon":"authored ordinary words; no catalogue lookup"}}
     OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(result,indent=2)+"\n"); return result
 if __name__ == "__main__": print(json.dumps(run(),indent=2))

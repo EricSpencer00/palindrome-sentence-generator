@@ -1,16 +1,17 @@
 {
   "status": "completed_no_admitted_closure",
-  "method": "broad_authored_cfg_character_product",
-  "forms": 9,
-  "paths": 1080,
+  "method": "broad_authored_cfg_scene_role_product",
+  "forms": 10,
+  "paths": 1118,
   "search": {
-    "states": 57564,
+    "states": 61640,
     "truncated": false,
     "letters": "39-160",
     "rlaif_per_candidate": false,
     "construction_filters": [
       "determiner_noun_agreement",
-      "verb_object_valency"
+      "verb_object_valency",
+      "shared_scene_entity_and_anaphora"
     ]
   },
   "exact_candidates": [],
@@ -20,11 +21,11 @@
     "exact": true
   },
   "next_repair": {
-    "operator": "add finite scene-role constraints and coordinated-clause edges",
-    "reason": "agreement and valency filtered the product but yielded no exact closure; the next structural repair is compositional scene linkage"
+    "operator": "add relative-event attachment edges with distinct anaphora",
+    "reason": "the shared-scene coordination product yielded no exact closure; next add event attachment without repeating lexical entities"
   },
   "provenance": {
-    "generator_sha256": "a1403bf79e3a014bdd5836e21ef66310c8de3bf6d86c3c72d30dde53a1e0fa03",
+    "generator_sha256": "407a8d5045072697c212d6bdda3de6ddc31f5546dd384cbf088566ff05c9ffa2",
     "lexicon": "authored ordinary words; no catalogue lookup"
   }
 }

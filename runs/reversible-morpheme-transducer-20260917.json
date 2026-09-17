@@ -1,0 +1,415 @@
+{
+  "experiment_id": "reversible-morpheme-transducer-20260917",
+  "signature": "live-morpheme-residual|affix-clitic-transducer|typed-svo|heldout-repair",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "finite morpheme-boundary transducer over live character residual",
+  "candidates": [
+    {
+      "base": {
+        "rendered": "The careful pilot guides the red canoe past the quiet reeds.",
+        "audit": {
+          "rendered": "The careful pilot guides the red canoe past the quiet reeds.",
+          "normalized_tape": "thecarefulpilotguidestheredcanoepastthequietreeds",
+          "letters": 49,
+          "two_pointer_exact": false,
+          "first_mismatch": [
+            0,
+            48,
+            "t",
+            "s"
+          ],
+          "sha256_forward": "cfcf69a10a44942e70b49eff2c5d38abf4716bf5c2a561b42d7716d1d3baebd8",
+          "sha256_reverse": "0f3323d53ea92f05096e63163be909bb51b0f4220bcd012ee101f5340d054685",
+          "sha_equal": false
+        },
+        "transducer": {
+          "boundary": 11,
+          "pending": "s",
+          "residual": "thecarefulpilotguidestheredcanoepastthequietreeds",
+          "pairs": [
+            {
+              "word": "the",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 0
+            },
+            {
+              "word": "careful",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 1
+            },
+            {
+              "word": "pilot",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 2
+            },
+            {
+              "word": "guides",
+              "prefix": "",
+              "suffix": "s",
+              "boundary": 3
+            },
+            {
+              "word": "the",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 4
+            },
+            {
+              "word": "red",
+              "prefix": "re",
+              "suffix": "ed",
+              "boundary": 5
+            },
+            {
+              "word": "canoe",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 6
+            },
+            {
+              "word": "past",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 7
+            },
+            {
+              "word": "the",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 8
+            },
+            {
+              "word": "quiet",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 9
+            },
+            {
+              "word": "reeds",
+              "prefix": "re",
+              "suffix": "s",
+              "boundary": 10
+            }
+          ],
+          "score": 3
+        }
+      },
+      "repair": {
+        "rendered": "The careful pilot guide the red canoe for past the quiet reeds.",
+        "audit": {
+          "rendered": "The careful pilot guide the red canoe for past the quiet reeds.",
+          "normalized_tape": "thecarefulpilotguidetheredcanoeforpastthequietreeds",
+          "letters": 51,
+          "two_pointer_exact": false,
+          "first_mismatch": [
+            0,
+            50,
+            "t",
+            "s"
+          ],
+          "sha256_forward": "9e9dbddd5088533632a1e1bade7d781f70abcb25a05299779dd90d9d4588629b",
+          "sha256_reverse": "06012d9618e24027720bb5f2bfe103f6d11de24c039903d64beb0d08d7c97f4f",
+          "sha_equal": false
+        },
+        "heldout": true,
+        "operator": "first residual: suffix/clitic-compatible function-word substitution"
+      },
+      "provenance": {
+        "authored_scene": true,
+        "typed_roles": [
+          "subject",
+          "verb",
+          "object",
+          "adjunct"
+        ],
+        "catalogue_lookup": false,
+        "copied_seed": false
+      }
+    },
+    {
+      "base": {
+        "rendered": "A patient gardener waters the young cedars beside the stone wall.",
+        "audit": {
+          "rendered": "A patient gardener waters the young cedars beside the stone wall.",
+          "normalized_tape": "apatientgardenerwaterstheyoungcedarsbesidethestonewall",
+          "letters": 54,
+          "two_pointer_exact": false,
+          "first_mismatch": [
+            0,
+            53,
+            "a",
+            "l"
+          ],
+          "sha256_forward": "6776fa99fac6400adaf02e611132c1644a4aac5cc09e8ce52cd1cbc7ca5024d9",
+          "sha256_reverse": "22e1d2b3bc288fcb246a82a69a91faca927b87697b3684af8ec40d8c3ac237ee",
+          "sha_equal": false
+        },
+        "transducer": {
+          "boundary": 11,
+          "pending": "",
+          "residual": "apatientgardenerwaterstheyoungcedarsbesidethestonewall",
+          "pairs": [
+            {
+              "word": "a",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 0
+            },
+            {
+              "word": "patient",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 1
+            },
+            {
+              "word": "gardener",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 2
+            },
+            {
+              "word": "waters",
+              "prefix": "",
+              "suffix": "s",
+              "boundary": 3
+            },
+            {
+              "word": "the",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 4
+            },
+            {
+              "word": "young",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 5
+            },
+            {
+              "word": "cedars",
+              "prefix": "",
+              "suffix": "s",
+              "boundary": 6
+            },
+            {
+              "word": "beside",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 7
+            },
+            {
+              "word": "the",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 8
+            },
+            {
+              "word": "stone",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 9
+            },
+            {
+              "word": "wall",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 10
+            }
+          ],
+          "score": 2
+        }
+      },
+      "repair": {
+        "rendered": "A patient gardener water the young cedars for beside the stone wall.",
+        "audit": {
+          "rendered": "A patient gardener water the young cedars for beside the stone wall.",
+          "normalized_tape": "apatientgardenerwatertheyoungcedarsforbesidethestonewall",
+          "letters": 56,
+          "two_pointer_exact": false,
+          "first_mismatch": [
+            0,
+            55,
+            "a",
+            "l"
+          ],
+          "sha256_forward": "c031add128a9d1a089d8f8a7b18e84460d8b1eaf15da1e0466b926e1075a22f1",
+          "sha256_reverse": "6fcf28955e99fae00e2c91cf36776a088964e95688007a734f27bd16ae509526",
+          "sha_equal": false
+        },
+        "heldout": true,
+        "operator": "first residual: suffix/clitic-compatible function-word substitution"
+      },
+      "provenance": {
+        "authored_scene": true,
+        "typed_roles": [
+          "subject",
+          "verb",
+          "object",
+          "adjunct"
+        ],
+        "catalogue_lookup": false,
+        "copied_seed": false
+      }
+    },
+    {
+      "base": {
+        "rendered": "The bright scholar copies the old map under the library lamp.",
+        "audit": {
+          "rendered": "The bright scholar copies the old map under the library lamp.",
+          "normalized_tape": "thebrightscholarcopiestheoldmapunderthelibrarylamp",
+          "letters": 50,
+          "two_pointer_exact": false,
+          "first_mismatch": [
+            0,
+            49,
+            "t",
+            "p"
+          ],
+          "sha256_forward": "9d2d1b9f3ad251d85b6ac6f6e915bb5155bffff5e8926bc0a5039cef4b0376c8",
+          "sha256_reverse": "45fea5f68e29a7d13df0b0ebba3cebc3d8b9afdd4194048f42b6de061feccbf0",
+          "sha_equal": false
+        },
+        "transducer": {
+          "boundary": 11,
+          "pending": "",
+          "residual": "thebrightscholarcopiestheoldmapunderthelibrarylamp",
+          "pairs": [
+            {
+              "word": "the",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 0
+            },
+            {
+              "word": "bright",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 1
+            },
+            {
+              "word": "scholar",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 2
+            },
+            {
+              "word": "copies",
+              "prefix": "",
+              "suffix": "s",
+              "boundary": 3
+            },
+            {
+              "word": "the",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 4
+            },
+            {
+              "word": "old",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 5
+            },
+            {
+              "word": "map",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 6
+            },
+            {
+              "word": "under",
+              "prefix": "un",
+              "suffix": "",
+              "boundary": 7
+            },
+            {
+              "word": "the",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 8
+            },
+            {
+              "word": "library",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 9
+            },
+            {
+              "word": "lamp",
+              "prefix": "",
+              "suffix": "",
+              "boundary": 10
+            }
+          ],
+          "score": 2
+        }
+      },
+      "repair": {
+        "rendered": "The bright scholar copie the old map for under the library lamp.",
+        "audit": {
+          "rendered": "The bright scholar copie the old map for under the library lamp.",
+          "normalized_tape": "thebrightscholarcopietheoldmapforunderthelibrarylamp",
+          "letters": 52,
+          "two_pointer_exact": false,
+          "first_mismatch": [
+            0,
+            51,
+            "t",
+            "p"
+          ],
+          "sha256_forward": "5c78ef2f438dd26457048498f4dbd360bb5f0b24b9d71c16e9c40fda5be73964",
+          "sha256_reverse": "2b5be5f58cb04266d94289a8eca6b7f55a05d9cacc2c0e334bbd1ce4cd83040e",
+          "sha_equal": false
+        },
+        "heldout": true,
+        "operator": "first residual: suffix/clitic-compatible function-word substitution"
+      },
+      "provenance": {
+        "authored_scene": true,
+        "typed_roles": [
+          "subject",
+          "verb",
+          "object",
+          "adjunct"
+        ],
+        "catalogue_lookup": false,
+        "copied_seed": false
+      }
+    }
+  ],
+  "stats": {
+    "scenes": 3,
+    "exact_closures": 0
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_read": 510,
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "fixed_tape_used": false,
+    "word_order_mirror": false,
+    "repeated_unit": false,
+    "catalogue_lookup": false,
+    "posthoc_reversal": false
+  },
+  "anti_shortcut_flags": {
+    "fixed_tape": false,
+    "word_order_mirror": false,
+    "repeated_unit": false,
+    "catalogue_lookup": false,
+    "posthoc_reversal": false
+  },
+  "provenance": {
+    "generator_sha256": "42ecc53a70b40cd354e28a0264098cbe68a3dd451fad80530f0ba31105c4efc7",
+    "independent_validator": "two-pointer plus forward/reverse SHA-256",
+    "ordinary_authored_scenes": true
+  },
+  "next_repair": {
+    "operator": "pair held-out plural/possessive clitic with the first unmatched boundary and rerun typed frame DP",
+    "reason": "suffix and function-word repair preserves readability but leaves an outer residual"
+  }
+}

@@ -3197,3 +3197,11 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   copies the journal.” at 38 letters, but none was an exact palindrome. The
   frame state, lexical tries, agreement, provenance, novelty, and independent
   audit all pass; a typed complementizer branch is the next distinct operator.
+
+  The next semantic and phrase repairs again improved the construction state
+  without yielding an exact palindrome. Variable function-word boundaries with
+  live role nodes rendered intact ordinary-English candidates to 101 letters;
+  joint subject/object/determiner agreement retained 4 intact candidates to
+  58 letters. Independent pointer/SHA audits, provenance, novelty, and
+  anti-shortcut checks pass. The next operators are trie-valued boundary
+  propagation and tense/aspect carried jointly with agreement.

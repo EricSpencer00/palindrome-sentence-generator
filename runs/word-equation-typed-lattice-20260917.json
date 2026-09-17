@@ -1,0 +1,69 @@
+{
+  "experiment": "word-equation-typed-lattice-20260917",
+  "method": "Enumerate natural typed phrase templates with variable lexical boundaries; propagate the complete left tape through reverse segmentation into independently typed right words, then audit full rendered text.",
+  "patterns": [
+    {
+      "pattern": "simple",
+      "phrase_assignments": 25000,
+      "reverse_segmentations": 0
+    },
+    {
+      "pattern": "coord",
+      "phrase_assignments": 25000,
+      "reverse_segmentations": 0
+    },
+    {
+      "pattern": "prep",
+      "phrase_assignments": 25000,
+      "reverse_segmentations": 0
+    }
+  ],
+  "candidate_count": 1,
+  "candidates": [
+    {
+      "rendered": "a safe aid is a aid aid a is aid safe a",
+      "left_types": [
+        "DET",
+        "ADJ",
+        "N",
+        "V",
+        "DET",
+        "N"
+      ],
+      "right_types": [
+        "N",
+        "DET",
+        "V",
+        "N",
+        "ADJ",
+        "DET"
+      ],
+      "variable_boundary_count": 12,
+      "provenance": "typed lattice first grammatical probe; reverse equation had no complete lexical parse",
+      "audit": {
+        "letters": 28,
+        "exact": false,
+        "first_mismatch": 1,
+        "sha256": "ef8017f20ae8488c615ac5771322468043f54c28c492005f96ace9dacb011d6b",
+        "independent_two_pointer": false
+      },
+      "novelty_preflight": {
+        "signature": "typed-variable-token-equation-v1",
+        "distinct_from": "fixed-slot product and seam substitution"
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "punctuation_carries_letters": false,
+        "fragment": false
+      },
+      "grammar_match": true
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 28,
+    "next_repair": "replace literal reverse segmentation with a finite-state morphology/lexical transducer that can choose inflectional forms while preserving grammar types at each variable boundary"
+  }
+}

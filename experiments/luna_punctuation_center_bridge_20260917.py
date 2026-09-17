@@ -37,6 +37,11 @@ HELDOUT_RIGHT_SUBJECTS = (
     ("a", "new assistant"),
     ("the", "winter custodian"),
 )
+HELDOUT_RIGHT_OBJECTS = (
+    "a sealed ledger",
+    "the brass compass",
+    "fresh route notes",
+)
 CENTERS = (
     {"id": "lantern_event", "text": "the lantern flares", "meaning": "a sudden warning light"},
     {"id": "bell_event", "text": "the harbor bell sounds", "meaning": "a scheduled audible signal"},
@@ -126,7 +131,7 @@ def run() -> dict:
     for rank, (left, center, punct, right) in enumerate(
         itertools.islice(itertools.product(LEFT, CENTERS, PUNCTUATION, RIGHT), 12), 1):
         baseline_rows.append(audit(left, center, punct, right, rank))
-    # Execute the promised repair: preserve center and punctuation, but hold
+    # Execute the first promised repair: preserve center and punctuation, but hold
     # out and replace the first noun phrase on the right side of the bridge.
     repair_rows = []
     for rank, (left, center, punct, right, replacement) in enumerate(
@@ -136,24 +141,36 @@ def run() -> dict:
         repair_rows.append(audit(left, center, punct, repaired, rank + 12,
                                  repair_stage="held_out_center_adjacent_subject",
                                  held_out_slot="right_subject_np"))
-    rows = baseline_rows + repair_rows
+    # Execute the next repair: preserve the repaired subject, event, and
+    # punctuation, while holding out the right-side object noun phrase.
+    object_repair_rows = []
+    for rank, (left, center, punct, right, replacement_subject, replacement_object) in enumerate(
+        itertools.islice(itertools.product(LEFT, CENTERS, PUNCTUATION, RIGHT,
+                                            HELDOUT_RIGHT_SUBJECTS, HELDOUT_RIGHT_OBJECTS), 12), 1):
+        repaired = (replacement_subject[0], replacement_subject[1], right[2], replacement_object, right[4])
+        object_repair_rows.append(audit(left, center, punct, repaired, rank + 24,
+                                        repair_stage="held_out_right_object_np",
+                                        held_out_slot="right_object_np"))
+    rows = baseline_rows + repair_rows + object_repair_rows
     rows.sort(key=lambda r: (-r["independent_pointer"]["letters"], r["rank"]))
     exact = [r for r in rows if r["mechanically_admitted"]]
     return {"experiment": EXPERIMENT, "signature": SIGNATURE,
             "status": "exact closure found" if exact else "complete prose plus punctuation-center repair",
-            "novelty_preflight": pre, "states_considered": 24, "candidate_count": len(rows),
+            "novelty_preflight": pre, "states_considered": 36, "candidate_count": len(rows),
             "exact_count": len(exact), "rendered_candidates": rows, "exact_survivors": exact,
-            "repair_summary": {"method": "held_out_center_adjacent_subject_np",
+            "repair_summary": {"method": "sequential_subject_then_object_holdout",
                                "preserved_center_event": True, "preserved_punctuation": True,
-                               "held_out_slot": "right_subject_np",
+                               "held_out_slots": ["right_subject_np", "right_object_np"],
                                "baseline_count": len(baseline_rows), "repaired_count": len(repair_rows),
-                               "new_subjects": [f"{d} {n}" for d, n in HELDOUT_RIGHT_SUBJECTS]},
+                               "object_repair_count": len(object_repair_rows),
+                               "new_subjects": [f"{d} {n}" for d, n in HELDOUT_RIGHT_SUBJECTS],
+                               "new_objects": list(HELDOUT_RIGHT_OBJECTS)},
             "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                            "registry_sha256": hashlib.sha256(REGISTRY.read_bytes()).hexdigest(),
                            "punctuation_choices_live": True, "nonpalindromic_center_live": True,
                            "catalogue_imported": False},
             "anti_shortcut_policy": "Reject fixed tapes, reverse decoding, word-order mirrors, repeated/self-palindromic spans, fragments, catalogue text, and punctuation that changes letters.",
-            "next_repair": "Use the repair residual to hold out the right object noun or its determiner while preserving the event, punctuation, and repaired subject.",
+            "next_repair": "Use the object-repair residual to hold out the right locative phrase while preserving the event, punctuation, repaired subject, and object.",
             "reader_facing_test": {"required": "blind intact-prose rating plus shuffled-clause control", "status": "pending"}}
 
 

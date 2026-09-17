@@ -1,0 +1,238 @@
+{
+  "experiment": "rendered-tape-offset-support-20260917",
+  "method": "map lexical slot characters to normalized tape offsets and intersect supports at true opposing palindrome positions",
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "The gardener carries the letters near the harbor, and the teacher writes the notes near the garden.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "letters",
+        "s0": "harbor",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "garden"
+      },
+      "rendered_slot_offsets": {
+        "a": [
+          3,
+          10
+        ],
+        "v": [
+          11,
+          17
+        ],
+        "o": [
+          21,
+          27
+        ],
+        "s0": [
+          35,
+          40
+        ],
+        "a2": [
+          47,
+          53
+        ],
+        "v2": [
+          54,
+          59
+        ],
+        "o2": [
+          63,
+          67
+        ],
+        "s1": [
+          75,
+          80
+        ]
+      },
+      "true_opposing_supports": [
+        {
+          "slot": "a",
+          "slot_offset": 1,
+          "tape_position": 4,
+          "opposing_position": 76,
+          "char": "a"
+        },
+        {
+          "slot": "o",
+          "slot_offset": 1,
+          "tape_position": 22,
+          "opposing_position": 58,
+          "char": "e"
+        },
+        {
+          "slot": "o",
+          "slot_offset": 2,
+          "tape_position": 23,
+          "opposing_position": 57,
+          "char": "t"
+        },
+        {
+          "slot": "s0",
+          "slot_offset": 0,
+          "tape_position": 35,
+          "opposing_position": 45,
+          "char": "h"
+        },
+        {
+          "slot": "s0",
+          "slot_offset": 5,
+          "tape_position": 40,
+          "opposing_position": 40,
+          "char": "r"
+        },
+        {
+          "slot": "v2",
+          "slot_offset": 3,
+          "tape_position": 57,
+          "opposing_position": 23,
+          "char": "t"
+        },
+        {
+          "slot": "v2",
+          "slot_offset": 4,
+          "tape_position": 58,
+          "opposing_position": 22,
+          "char": "e"
+        },
+        {
+          "slot": "s1",
+          "slot_offset": 1,
+          "tape_position": 76,
+          "opposing_position": 4,
+          "char": "a"
+        }
+      ],
+      "provenance": "rendered_tape_offset_true_opposing_support",
+      "novelty_preflight": {
+        "signature": "rendered_tape_offset_support_v1",
+        "distinct_from": "within-word indices; maps each slot character to its actual normalized tape position and opposing index"
+      },
+      "audit": {
+        "letters": 81,
+        "exact": false,
+        "mismatch_count": 34,
+        "first_mismatch": 0,
+        "sha256": "a770fe5d70ee85119e36a021bd7c8283abfb1c2a0a333b8665b5ec3d74f53b53",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "The teacher writes the notes near the garden, and the messenger records the charts near the station.",
+      "slots": {
+        "a": "teacher",
+        "v": "writes",
+        "o": "notes",
+        "s0": "garden",
+        "a2": "messenger",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station"
+      },
+      "rendered_slot_offsets": {
+        "a": [
+          3,
+          9
+        ],
+        "v": [
+          10,
+          15
+        ],
+        "o": [
+          19,
+          23
+        ],
+        "s0": [
+          31,
+          36
+        ],
+        "a2": [
+          43,
+          51
+        ],
+        "v2": [
+          52,
+          58
+        ],
+        "o2": [
+          62,
+          67
+        ],
+        "s1": [
+          75,
+          81
+        ]
+      },
+      "true_opposing_supports": [
+        {
+          "slot": "a",
+          "slot_offset": 0,
+          "tape_position": 3,
+          "opposing_position": 78,
+          "char": "t"
+        },
+        {
+          "slot": "o",
+          "slot_offset": 4,
+          "tape_position": 23,
+          "opposing_position": 58,
+          "char": "s"
+        },
+        {
+          "slot": "v2",
+          "slot_offset": 6,
+          "tape_position": 58,
+          "opposing_position": 23,
+          "char": "s"
+        },
+        {
+          "slot": "s1",
+          "slot_offset": 3,
+          "tape_position": 78,
+          "opposing_position": 3,
+          "char": "t"
+        }
+      ],
+      "provenance": "rendered_tape_offset_true_opposing_support",
+      "novelty_preflight": {
+        "signature": "rendered_tape_offset_support_v1",
+        "distinct_from": "within-word indices; maps each slot character to its actual normalized tape position and opposing index"
+      },
+      "audit": {
+        "letters": 82,
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0,
+        "sha256": "f97150ad56083939da09ef0557b769a4da9123d7bb116d078868162f792ecd52",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 82,
+    "next_repair": "use opposing-offset supports during lexical choice so unsupported slot values are rejected before full tape assembly"
+  }
+}

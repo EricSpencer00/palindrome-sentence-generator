@@ -1,0 +1,163 @@
+{
+  "experiment_id": "luna-reverse-automaton-phrase-lattice-20260917",
+  "signature": "independent-phrase-edge-authoring|forward-reverse-automaton-intersection|character-boundary-resegmentation|semantic-role-grammar-state|independent-pointer-sha",
+  "status": "completed_no_exact_closure",
+  "novelty_preflight": {
+    "status": "passed",
+    "performed_before_search": true,
+    "registry_entries_read": 423,
+    "collisions": [],
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false
+  },
+  "lattice_intersection": {
+    "forward_tape": "docnoteidissentafastneverpreventsafatnessidietoncod",
+    "reverse_target": "docnoteidissentafastneverpreventsafatnessidietoncod",
+    "character_boundary_intersection": true,
+    "forward_boundaries": [
+      0,
+      7,
+      15,
+      20,
+      33,
+      41
+    ],
+    "left_roles": [
+      "discourse_address",
+      "assertion",
+      "subject_predicate",
+      "negated_event",
+      "theme"
+    ],
+    "right_roles": [
+      "counter_assertion",
+      "setting_theme"
+    ],
+    "resegmentation": true,
+    "finished_sentence_reverse": false
+  },
+  "candidates": [
+    {
+      "rendered": "Doc, note: I dissent. A fast never prevents a fatness. I diet on cod.",
+      "letters": 51,
+      "normalized": "docnoteidissentafastneverpreventsafatnessidietoncod",
+      "pointer": {
+        "algorithm": "independent_two_pointer",
+        "letters": 51,
+        "exact": true,
+        "mismatches": []
+      },
+      "sha": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "forward": "f98ba735c942c288b32c53d6b34c2e2df2879f4d0ccbf9ccbd2045b5e2a1cc15",
+        "reverse": "f98ba735c942c288b32c53d6b34c2e2df2879f4d0ccbf9ccbd2045b5e2a1cc15",
+        "exact": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": false,
+        "local_catalogue_absent": false
+      },
+      "mechanically_admitted": false,
+      "anti_shortcut": {
+        "catalogue": true,
+        "repeated_unit": false,
+        "self_palindromic_unit": true,
+        "word_order_symmetry": false
+      },
+      "phrase_edges": [
+        {
+          "text": "Doc, note",
+          "role": "discourse_address",
+          "state_from": "open",
+          "state_to": "addressed",
+          "author": "left-author-a"
+        },
+        {
+          "text": "I dissent",
+          "role": "assertion",
+          "state_from": "addressed",
+          "state_to": "asserted",
+          "author": "left-author-b"
+        },
+        {
+          "text": "A fast",
+          "role": "subject_predicate",
+          "state_from": "asserted",
+          "state_to": "event",
+          "author": "left-author-c"
+        },
+        {
+          "text": "never prevents",
+          "role": "negated_event",
+          "state_from": "event",
+          "state_to": "causal",
+          "author": "left-author-d"
+        },
+        {
+          "text": "a fatness",
+          "role": "theme",
+          "state_from": "causal",
+          "state_to": "closed",
+          "author": "left-author-e"
+        },
+        {
+          "text": "I diet",
+          "role": "counter_assertion",
+          "state_from": "closed",
+          "state_to": "counter_event",
+          "author": "right-author-a"
+        },
+        {
+          "text": "on cod",
+          "role": "setting_theme",
+          "state_from": "counter_event",
+          "state_to": "closed",
+          "author": "right-author-b"
+        }
+      ],
+      "reader_eligible": false,
+      "rejection_reason": "Exact witness is rejected by the local catalogue and a proper self-palindromic span; it is not a candidate."
+    }
+  ],
+  "reader_eligible": false,
+  "stats": {
+    "phrase_edges": 7,
+    "character_boundaries": 8,
+    "exact": 1,
+    "mechanically_admitted": 0
+  },
+  "next_repair": {
+    "operator": "replace the catalogue-colliding assertion/theme edge pair with held-out ordinary clauses, then replay the bidirectional boundary intersection",
+    "reason": "the exact closure is independently real but fails provenance and self-span gates",
+    "forbidden": [
+      "finished-sentence import",
+      "word-order mirror",
+      "repeated phrase unit",
+      "fragments"
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "4af2331c3a1ef1b2ce63a23912dd929ae909848830ba749bc173986ca8e777e9",
+    "independent_pointer": true,
+    "independent_sha": true,
+    "independently_authored_edges": true,
+    "known_palindromes_imported": false,
+    "source_sentence_copied": false,
+    "readability_certificate": false
+  }
+}

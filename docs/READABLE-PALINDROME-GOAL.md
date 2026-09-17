@@ -2987,3 +2987,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   support-driven simultaneous contraction, a legal locative seventh onset on
   the matched survey branch, and a tense-compatible `while` variant for the
   formerly/later state.
+
+  The following wave completed those repairs. Support-driven simultaneous
+  contraction rendered 3 intact candidates up to 93 letters; the new locative
+  setting family rendered 4 intact candidates up to 62 letters but found no
+  seventh-character match; and the formerly<later `while` CFG rendered 256
+  candidates up to 61 letters while pruning 768 shared-subject-inconsistent
+  states. All produced 0 exact closures. Independent pointer/SHA-256 replay,
+  provenance, novelty preflight, and anti-shortcut checks are retained for
+  every row. The reader gate remains closed. The next concrete operators are
+  incremental witness support per role value, locative-noun onset conditioning
+  against the seventh residual, and while-state subject alternation with
+  connective/tense consistency filtering.

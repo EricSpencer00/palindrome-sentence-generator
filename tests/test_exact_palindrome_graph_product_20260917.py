@@ -21,6 +21,15 @@ def test_bounded_lexical_graph_can_represent_three_word_path():
     graph = CharacterGraph.from_phrases(["one two three"], "bounded")
     assert len(graph.accepting_paths) == 1
     assert graph.accepting_paths[next(iter(graph.accepting_paths))].count(" ") == 2
+
+def test_bounded_graph_reconstructs_distinct_reversed_paths():
+    words = ["live", "on", "time", "emit", "no", "evil"]
+    left = CharacterGraph.from_bounded_menu(words, "left", min_words=3, max_words=3)
+    right = CharacterGraph.from_bounded_menu(words, "right", min_words=3, max_words=3, reverse=True)
+    pairs = solve_product(left, right, max_states=20_000)["completions"]
+    assert any(row["left_path"] == "live on time" and row["right_path"] == "emit no evil"
+               for row in pairs)
+    assert left._next < len(words) * 3 * max(map(len, words)) * 3
     bounded = CharacterGraph.from_bounded_menu(["one", "two", "three"], "bounded")
     assert bounded._next < 3 ** 8
 

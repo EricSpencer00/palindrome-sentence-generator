@@ -13,18 +13,23 @@ class Edge:
     dst: int
     char: str | None
     provenance: str
+    # A boundary edge records the word that just completed.  Character edges
+    # leave this unset; the product uses the labels to reconstruct both
+    # independently segmented paths without enumerating phrase products.
+    word: str | None = None
 
 @dataclass
 class CharacterGraph:
     edges: dict[int, list[Edge]] = field(default_factory=dict)
     accepting: set[int] = field(default_factory=set)
     accepting_paths: dict[int, str] = field(default_factory=dict)
+    reverse_words: bool = False
     start: int = 0
     _next: int = 1
 
-    def add(self, src: int, char: str | None, provenance: str) -> int:
+    def add(self, src: int, char: str | None, provenance: str, word: str | None = None) -> int:
         dst = self._next; self._next += 1
-        self.edges.setdefault(src, []).append(Edge(dst, char, provenance))
+        self.edges.setdefault(src, []).append(Edge(dst, char, provenance, word))
         return dst
 
     @classmethod
@@ -34,31 +39,48 @@ class CharacterGraph:
     @classmethod
     def from_phrases(cls, phrases: Iterable[str], provenance: str, *, reverse: bool = False) -> "CharacterGraph":
         """Compile phrase paths; spaces are word-boundary epsilon edges."""
-        g = cls()
+        g = cls(reverse_words=reverse)
         for phrase in phrases:
             node = g.start
-            words = normalize(phrase).split()
-            if reverse: words = [w[::-1] for w in words[::-1]]
+            original_words = normalize(phrase).split()
+            words = original_words
+            if reverse: words = [w[::-1] for w in original_words[::-1]]
             for wi, word in enumerate(words):
                 for i, ch in enumerate(word):
                     node = g.add(node, ch, f"{provenance}:word:{wi}:char:{i}")
-                node = g.add(node, None, f"{provenance}:word-boundary:{wi}")
+                label = original_words[-1 - wi] if reverse else original_words[wi]
+                node = g.add(node, None, f"{provenance}:word-boundary:{wi}", word=label)
             g.accepting.add(node)
             g.accepting_paths[node] = phrase
         return g
 
     @classmethod
-    def from_bounded_menu(cls, words: Iterable[str], provenance: str, min_words=2, max_words=8):
+    def from_bounded_menu(cls, words: Iterable[str], provenance: str, min_words=2, max_words=8, *, reverse=False):
         """Build a bounded word-count NFA without enumerating phrase strings."""
-        g = cls(); menu = list(words); starts = {min_words: g.start}
-        for count in range(min_words, max_words + 1):
-            start = starts[count] if count in starts else g.add(g.start, None, f"{provenance}:count:{count}")
-            for word in menu:
+        # Each count layer reuses one start node and one accepting node.  The
+        # menu branches only while a word is being consumed; no phrase
+        # Cartesian product is materialized.  Boundary labels let the product
+        # reconstruct the word sequence from backpointers.
+        g = cls(reverse_words=reverse)
+        menu = [(normalize(w), normalize(w)[::-1] if reverse else normalize(w)) for w in words]
+        starts = {0: g.start}
+        for count in range(max_words):
+            start = starts[count]
+            for original, word in menu:
                 node = start
-                for i, ch in enumerate(word): node = g.add(node, ch, f"{provenance}:count:{count}:word:{i}")
-                end = g.add(node, None, f"{provenance}:count:{count}:boundary")
-                if count == max_words: g.accepting.add(end); g.accepting_paths[end] = word
-                else: starts[count + 1] = end
+                for i, ch in enumerate(word):
+                    node = g.add(node, ch, f"{provenance}:count:{count}:char:{i}")
+                next_count = count + 1
+                if next_count >= min_words:
+                    accept = g._next; g._next += 1; g.accepting.add(accept)
+                    g.edges.setdefault(node, []).append(Edge(accept, None,
+                        f"{provenance}:count:{count}:accept-boundary", word=original))
+                if next_count < max_words:
+                    next_start = starts.get(next_count)
+                    if next_start is None:
+                        next_start = g._next; g._next += 1; starts[next_count] = next_start
+                    g.edges.setdefault(node, []).append(Edge(next_start, None,
+                        f"{provenance}:count:{count}:word-boundary", word=original))
         return g
 
 def normalize(s: str) -> str:
@@ -70,22 +92,37 @@ def _char_paths(g: CharacterGraph, node: int, prefix: str = ""):
         yield from _char_paths(g, e.dst, prefix + (e.char or " "))
 
 def solve_product(left: CharacterGraph, right: CharacterGraph, *, max_states=100_000):
-    """Synchronously consume matching labelled edges, with explicit backpointers."""
-    stack = [(left.start, right.start, "", None)]
+    """Synchronously consume equal character edges, allowing independent boundaries."""
+    # ``text`` is the shared letter tape (spaces are epsilon).  Word labels
+    # are carried separately so the accepting product can reconstruct two
+    # independently segmented paths and their full concatenated tape.
+    stack = [(left.start, right.start, "", None, (), ())]
     seen = set(); completed = []; rejected = 0; expanded = 0
     while stack and expanded < max_states:
-        a, b, text, bp = stack.pop(); key = (a, b, text)
+        a, b, text, bp, left_words, right_words = stack.pop(); key = (a, b, text, left_words, right_words)
         if key in seen: continue
         seen.add(key); expanded += 1
         if a in left.accepting and b in right.accepting:
-            completed.append({"text": text.strip(), "left_path": left.accepting_paths.get(a), "right_path": right.accepting_paths.get(b), "backpointer": bp})
+            rp = tuple(reversed(right_words)) if right.reverse_words else right_words
+            completed.append({"text": text, "left_path": " ".join(left_words),
+                              "right_path": " ".join(rp), "backpointer": bp})
         for ea in left.edges.get(a, ()):
             for eb in right.edges.get(b, ()):
-                if ea.char != eb.char:
-                    if ea.char is not None and eb.char is not None: rejected += 1
-                    continue
-                nxt = text + (ea.char or " ")
-                stack.append((ea.dst, eb.dst, nxt, {"left": ea.provenance, "right": eb.provenance, "previous": bp}))
+                lb = left_words + ((ea.word,) if ea.word else ())
+                rb = right_words + ((eb.word,) if eb.word else ())
+                pair_bp = {"left": ea.provenance, "right": eb.provenance, "previous": bp}
+                if ea.char is not None and eb.char is not None:
+                    if ea.char != eb.char:
+                        rejected += 1; continue
+                    stack.append((ea.dst, eb.dst, text + ea.char, pair_bp, lb, rb)); continue
+                if ea.char is None and eb.char is None:
+                    stack.append((ea.dst, eb.dst, text, pair_bp, lb, rb)); continue
+                # Word boundaries carry no letters and may occur at different
+                # positions on the two readings; advance the epsilon side
+                # without consuming the other side's character.
+                if ea.char is None:
+                    stack.append((ea.dst, b, text, pair_bp, lb, right_words)); continue
+                stack.append((a, eb.dst, text, pair_bp, left_words, rb))
     return {"completions": completed, "expanded_states": expanded, "rejected_unequal_edge_pairs": rejected,
             "budget_exhausted": bool(stack), "states_seen": len(seen)}
 
@@ -131,7 +168,7 @@ def run() -> dict:
         for i in range(0, min(len(menu) - 2, 36), 3):
             yield " ".join(menu[i:i + 3])
     lexical_graph = CharacterGraph.from_bounded_menu(lexical[:40], "audited-common-word-inventory")
-    lexical_right = CharacterGraph.from_bounded_menu([w[::-1] for w in lexical[:40]], "audited-common-word-inventory:right")
+    lexical_right = CharacterGraph.from_bounded_menu(lexical[:40], "audited-common-word-inventory:right", reverse=True)
     lexical_result = solve_product(lexical_graph, lexical_right, max_states=2500)
     # No fabricated ``half + half`` tapes: only distinct, genuinely multiword
     # accepting paths may enter this lane.
@@ -142,7 +179,12 @@ def run() -> dict:
             continue
         full = f"{left} {right}"
         letters = len("".join(full.split()))
-        if 39 <= letters <= 60 and 2 <= len(full.split()) <= 8 and exact_audit(full)["exact"]:
+        # Do not admit one-side self-mirrors or repeated units.  The fixture's
+        # asymmetric-boundary oracle is quarantined; lexical results must use
+        # distinct multiword readings.
+        if left == right or any(word == word[::-1] for word in left.split() + right.split()):
+            continue
+        if 39 <= letters <= 60 and 2 <= len(left.split()) + len(right.split()) <= 8 and exact_audit(full)["exact"]:
             completions.append({"left_path": left, "right_path": right, "full_tape": full})
     return {"experiment_id": "exact-palindrome-graph-product-20260917", "signature": SIGNATURE,
             "status": "completed", "fixture": {"oracle": {"pair": ["live on time", "emit no evil"], "full_tape": oracle[0]}, "rendered": rendered, "pairs": pairs, "result": product, "left_phrases": left_phrases, "right_phrases": right_phrases, "distractors": 2},

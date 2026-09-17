@@ -85,6 +85,34 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   fourth seam-local variant would repeat the same first-edge failure signature,
   so this branch is paused pending an architectural reset.
 
+- **Bank-free whole-passage reconstruction (2026-09-17).** The architectural
+  reset was tested as a genuinely global operation: an authoring model rewrote
+  one complete event passage at a time, with temporary mirror violations and no
+  supplied word bank or reversed tape. The 27B prose model produced eight
+  intact, ordinary-English revisions and no exact closure. Its best row was
+  readable but only 94 letters (below the 100-letter promotion floor); later
+  rows cycled around 96 letters and stopped improving the mismatch count. The
+  earlier 20B run is retained separately: it emitted one malformed mirrored
+  list, then refusal strings. These are concrete interface/method failures, not
+  reader evidence. The independent two-pointer and forward/reverse SHA audits
+  pass on every stored row. Because the capable model shortened the passage and
+  converged to a fixed paraphrase, this operator is stopped rather than tuned
+  into another sweep. The next construction must preserve a 100+ letter event
+  while making coordinated changes in two non-adjacent semantic regions before
+  re-rendering; a single local paraphrase call is not enough.
+
+- **Wheel-spin diagnosis (2026-09-17).** The repeated unsuccessful lanes share
+  a representation error: they author ordinary clauses first, then ask a fixed
+  bilateral grammar or a one-region synonym repair to satisfy character
+  reflection. Increasing lexical banks, queue budgets, or seam variants only
+  revisits the same first-edge incompatibility. The corrected character product
+  is promising as infrastructure—it independently replays the 51-letter
+  catalogue control and catches center residuals—but its only exact outputs are
+  catalogue-family derivatives and therefore fail originality/readability
+  admission. The prose-model reset is promising only in the narrower sense that
+  it preserves intact English under global rewriting; it did not yet couple
+  that prose to exact equations. No candidate has crossed the reader gate.
+
 - **Midpoint representation audit.** Astra differential testing found that the
   earlier live products silently required each complete clause to occupy one
   whole palindrome half.  That excludes valid unequal partitions and centers

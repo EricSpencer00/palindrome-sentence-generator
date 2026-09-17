@@ -16,12 +16,12 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "runs" / "bank-free-sentence-revision-20260917.json"
-EXPERIMENT_ID = "bank-free-sentence-revision-20260917"
-MODEL = "gpt-oss:20b"
+OUT = ROOT / "runs" / "bank-free-sentence-revision-rhythm-20260917.json"
+EXPERIMENT_ID = "bank-free-sentence-revision-rhythm-20260917"
+MODEL = "imetaexabeam/RhythmAI:27b"
 HOST = "http://127.0.0.1:11434"
 MIN_LETTERS, MAX_LETTERS = 100, 140
-REVISION_COUNT = 20
+REVISION_COUNT = 8
 
 INITIAL = (
     "The patient archivist carried a sealed letter through the autumn rain and read "
@@ -87,7 +87,8 @@ def shortcut_flags(text: str) -> dict:
 
 def request_revision(current: str, revision: int) -> tuple[str, dict]:
     current_audit = audit(current)
-    prompt = f"""Rewrite one complete English passage toward an exact letter-level palindrome.
+    prompt = f"""Rewrite one complete English passage to improve agreement between
+letters at opposite ends of its normalized letter sequence.
 
 The passage must remain an original, coherent event report of 100--140 letters,
 with ordinary intact prose and a recoverable subject and action. Rewrite the
@@ -112,12 +113,10 @@ This is revision {revision} of {REVISION_COUNT}."""
         "model": MODEL,
         "messages": [{"role": "user", "content": prompt}],
         "stream": False,
-        "think": "low",
+        "think": False,
         "options": {
             "temperature": 0.72,
-            # gpt-oss may spend a substantial hidden-reasoning prefix even
-            # with ``think`` disabled; leave enough budget for visible prose.
-            "num_predict": 1200,
+            "num_predict": 700,
             "seed": 2026091700 + revision,
         },
     }

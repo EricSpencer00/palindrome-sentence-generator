@@ -25,6 +25,8 @@ def main():
    if pos+len(w)>p: idx=i; break
    pos+=len(w); idx=i
   old=words[idx]; choices=HELDOUT.get(old,[])
+  if not choices and old not in {'the','a','and','as','near','in','past','under','toward','beneath','beside'}:
+   choices=[old+'s',old+'ed']
   for new in choices:
    nw=words.copy(); nw[idx]=new
    left=nw[:9]; right=nw[9:]; rendered=' '.join(left)+', and '+' '.join(right)+'.'; aa=audit(rendered)

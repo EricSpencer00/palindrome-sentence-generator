@@ -1,0 +1,94 @@
+{
+  "experiment_id": "cfg-reverse-tape-dp-20260917",
+  "method": "memoized CFG intersection with live reverse character tape",
+  "grammar": "S -> C | C and S; C -> NP VP; NP -> Det N; VP -> V | V Adv",
+  "max_letters": 132,
+  "candidate_count": 62,
+  "exact_count": 0,
+  "rendered_candidates": [],
+  "longest_frontier": {
+    "text": "the traveler remembers and the traveler remembers and the traveler remembers carefully and the traveler remembers carefully",
+    "audit": {
+      "letters": 107,
+      "two_pointer_exact": false,
+      "first_mismatches": [
+        {
+          "left": 0,
+          "right": 106,
+          "a": "t",
+          "b": "y"
+        },
+        {
+          "left": 1,
+          "right": 105,
+          "a": "h",
+          "b": "l"
+        },
+        {
+          "left": 2,
+          "right": 104,
+          "a": "e",
+          "b": "l"
+        },
+        {
+          "left": 3,
+          "right": 103,
+          "a": "t",
+          "b": "u"
+        },
+        {
+          "left": 4,
+          "right": 102,
+          "a": "r",
+          "b": "f"
+        },
+        {
+          "left": 5,
+          "right": 101,
+          "a": "a",
+          "b": "e"
+        },
+        {
+          "left": 6,
+          "right": 100,
+          "a": "v",
+          "b": "r"
+        },
+        {
+          "left": 7,
+          "right": 99,
+          "a": "e",
+          "b": "a"
+        }
+      ],
+      "sha256_forward": "e0e97cb5a79488fade3c91b7f1f74286456459e7fe82aa17bc090134f18040a5",
+      "sha256_reverse": "207922501b518c31d1090b4f3870f91fa16b7ba7f70f290b0dd9b862bc05592f",
+      "sha_equal_under_reversal": false
+    }
+  },
+  "chart_states": 1096303,
+  "novelty_preflight": {
+    "catalogue_imported": false,
+    "known_palindromes_imported": false,
+    "near_miss_scoring": false,
+    "signature": "cfg-reverse-tape-dp-20260917"
+  },
+  "provenance": {
+    "generator_sha256": "c7dc65a2db9084330741df50a15e6fb25e9ede041c8c404f4b70254d926b2fdb",
+    "lexicon": "fresh small common-English terminals embedded in this experiment",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256"
+    ]
+  },
+  "failure_and_repair": {
+    "failure": "no exact closure",
+    "next_repair": "Add typed complement terminals to the CFG and retain the same live tape-state key; do not mirror completed clauses."
+  },
+  "anti_shortcut_flags": {
+    "posthoc_reversal": false,
+    "word_order_mirror": false,
+    "catalogue_text": false,
+    "fragment": false
+  }
+}

@@ -131,12 +131,21 @@ def anti_shortcut(words: tuple[str, ...], catalogue: set[str]) -> dict:
     content = [w for w in words if w not in {"a", "an", "the", "my", "our", "your", "his", "her", "one", "each", "this", "that", "no", "some"}]
     text = " ".join(words)
     t = tape(text)
+    # Only a word-aligned, proper multiword span is a disallowed nested unit.
+    # Scanning arbitrary character offsets would flag every palindrome because
+    # its interior (the tape with the first/last character removed) is itself
+    # palindromic.
     proper_spans = []
-    for i in range(1, len(t) - 1):
-        for j in range(i + 2, len(t)):
-            span = t[i:j]
-            if span == span[::-1] and len(span) >= 8:
-                proper_spans.append((i, j))
+    boundaries = [0]
+    for word in words:
+        boundaries.append(boundaries[-1] + len(tape(word)))
+    for i in range(len(words)):
+        for j in range(i + 2, len(words) + 1):
+            if i == 0 and j == len(words):
+                continue
+            span = tape(" ".join(words[i:j]))
+            if len(span) >= 8 and span == span[::-1]:
+                proper_spans.append((boundaries[i], boundaries[j]))
                 break
         if proper_spans:
             break
@@ -150,7 +159,8 @@ def anti_shortcut(words: tuple[str, ...], catalogue: set[str]) -> dict:
 
 
 def search(pattern: tuple[str, ...], role_banks: dict[str, tuple[str, ...]],
-           catalogue: set[str], state_budget: int = 2_000_000) -> dict:
+           catalogue: set[str], state_budget: int = 2_000_000,
+           min_letters: int = 40) -> dict:
     # A stack state carries active word offsets, so boundaries may cross at
     # arbitrary characters.  This is the same invariant as the finished path,
     # not a post-hoc reversal or Cartesian pairing of half sentences.
@@ -170,12 +180,46 @@ def search(pattern: tuple[str, ...], role_banks: dict[str, tuple[str, ...]],
         if key in seen:
             continue
         seen.add(key)
+        # The seam may land inside the one word currently owned by the
+        # opposite pointer. Its unconsumed center residual must itself be a
+        # palindrome; requiring a one-character center would lose valid
+        # cross-word closures such as ``satan ... sonatas``.
+        if li == ri and lw is None and rw is not None:
+            rt = tape(rw)
+            residual = rt[:len(rt) - rp]
+            if residual and residual == residual[::-1]:
+                words = tuple(x for x in assignment if x is not None)
+                text = " ".join(words) + "."
+                a = audit(text)
+                anti = anti_shortcut(words, catalogue)
+                if (a["exact"] and min_letters <= a["letters"] <= 220
+                        and not anti["catalogue_tape"]):
+                    candidates.append({"rendered": text, "words": words,
+                                       "audit": a, "anti_shortcut": anti,
+                                       "roles": pattern,
+                                       "center_residual": residual})
+            continue
+        if li == ri and rw is None and lw is not None:
+            lt = tape(lw)
+            residual = lt[lp:]
+            if residual and residual == residual[::-1]:
+                words = tuple(x for x in assignment if x is not None)
+                text = " ".join(words) + "."
+                a = audit(text)
+                anti = anti_shortcut(words, catalogue)
+                if (a["exact"] and min_letters <= a["letters"] <= 220
+                        and not anti["catalogue_tape"]):
+                    candidates.append({"rendered": text, "words": words,
+                                       "audit": a, "anti_shortcut": anti,
+                                       "roles": pattern,
+                                       "center_residual": residual})
+            continue
         if li > ri:
             words = tuple(x for x in assignment if x is not None)
             text = " ".join(words) + "."
             a = audit(text)
             anti = anti_shortcut(words, catalogue)
-            if (a["exact"] and 40 <= a["letters"] <= 220
+            if (a["exact"] and min_letters <= a["letters"] <= 220
                     and not anti["catalogue_tape"]):
                 candidates.append({"rendered": text, "words": words,
                                    "audit": a, "anti_shortcut": anti,

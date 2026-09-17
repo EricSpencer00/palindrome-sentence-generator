@@ -10,7 +10,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     assert result["missing"] == []
     assert result["entries"] == result["unique_signatures"]
     assert result["entries"] == result["unique_artifacts"]
-    assert result["excluded"] == 55
+    assert result["excluded"] == 57
     # The ledger is append-only: parallel construction routes may add entries
     # without making this invariant stale.  The validator still requires every
     # registered artifact to resolve and every signature to be unique.
@@ -80,6 +80,8 @@ def test_seed_probes_are_explicitly_excluded_as_overlapping_repairs():
         "async-residual-slot-search-20260917",
         "terminal-typed-scene-lattice-20260917",
         "right-boundary-first-grammar-fix-20260917",
+        "async-variable-template-intersection-20260917",
+        "typed-central-crossing-async-20260917",
     }
     assert excluded["semantic-involution-frame-excluded"]["overlaps"] == []
     assert excluded["bidirectional-phrase-pair-preflight-20260916"]["overlaps"] == [
@@ -110,7 +112,7 @@ def test_preflight_checks_registered_and_excluded_routes():
     assert result["registered_families_checked"] == len(
         json.loads((Path(__file__).parents[1] / "docs/experiment-novelty-registry.json").read_text())["entries"]
     )
-    assert result["excluded_routes_checked"] == 55
+    assert result["excluded_routes_checked"] == 57
     assert result["manual_review_required"] is False
     assert result["conceptual_near_pairs"] == []
 

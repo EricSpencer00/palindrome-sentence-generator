@@ -29,7 +29,7 @@ def flags(s):
     return {"word_order_mirror":ws==[w[::-1] for w in ws[::-1]],"self_palindromic_content_words":[w for w in content if len(w)>1 and w==w[::-1]],"borrowed_catalogue_text":False,"finished_tape_reversed":False}
 def render(l,r):
     (s1,v1,o1,p1),(s2,v2,o2,p2)=l,r
-    return f"{s1} {v1} {o1}, {p1}; and {s2} {v2} {o2}, {p2}."
+    return f"{s1} {v1[0]} {o1}, {p1}; and {s2} {v2[0]} {o2}, {p2}."
 def pair_cost(text):
     a=audit(text); return a['mismatch_count']+max(0,100-a['letters'])*2+max(0,a['letters']-140)*2
 def run():

@@ -55,6 +55,8 @@ VALENCY = {
     "visits": {"archive", "arena", "harbor", "port", "station"},
     "watches": {"garden", "harbor", "port", "station", "window"},
 }
+TENSE = {v: "present" for v in LEX["verb"]}
+TENSE.update({"can": "modal-present", "will": "future"})
 
 def licensed(form, words):
     """Small construction-time agreement/valency gate, before FSA product."""
@@ -69,6 +71,11 @@ def licensed(form, words):
         # The coordinated form has one scene subject and an explicit object
         # carried into the second event by the anaphor "it".
         if words[form.index("pron")] != "it": return False
+        # Linked events must carry a compatible finite tense/aspect state.
+        verb_positions = [i for i, role in enumerate(form) if role == "verb"]
+        if len(verb_positions) > 1:
+            states = [TENSE.get(words[i], "unknown") for i in verb_positions]
+            if len(set(states)) != 1: return False
     return True
 
 def sentences(limit=1200):
@@ -104,7 +111,7 @@ def product(paths, cap=500000):
         if li == terminal[p] and ri == 0:
             ws=paths[p] + paths[q]
             tape=letters(" ".join(ws))
-            if 39 <= len(tape) <= 200 and tape == tape[::-1] and len(ws)==len(set(ws)):
+            if 39 <= len(tape) <= 220 and tape == tape[::-1] and len(ws)==len(set(ws)):
                 key=tuple(ws)
                 if key not in seen: seen.add(key); records.append((ws,tape))
             continue
@@ -127,11 +134,11 @@ def run():
           "audit":audit(text),"anti_shortcut":{"repeated_words":len(words)!=len(set(words)),"word_order_mirror":False},
           "reader_status":"unreviewed; requires blinded human rating","mechanically_admitted":False})
     result={"status":"completed_no_admitted_closure" if not rows else "exact_rejected_pending_readers",
-      "method":"broad_authored_cfg_scene_role_product","forms":len(FORMS),"paths":len(paths),
-      "search":{"states":states,"truncated":truncated,"letters":"39-200","rlaif_per_candidate":False,
-                 "construction_filters":["determiner_noun_agreement","verb_object_valency","shared_scene_entity_and_anaphora","relative_event_attachment"]},
+      "method":"broad_authored_cfg_tense_aspect_scene_product","forms":len(FORMS),"paths":len(paths),
+      "search":{"states":states,"truncated":truncated,"letters":"39-220","rlaif_per_candidate":False,
+                 "construction_filters":["determiner_noun_agreement","verb_object_valency","shared_scene_entity_and_anaphora","relative_event_attachment","finite_tense_aspect_state"]},
       "exact_candidates":rows,"withheld_control":{"id":"known_38_letter_seed","used_for_search":False,"exact":True},
-      "next_repair":{"operator":"add finite tense/aspect agreement edges","reason":"relative-event attachment yielded no exact closure; next constrain event compatibility while preserving distinct anaphora"},
+      "next_repair":{"operator":"add polarity and question-force state edges","reason":"finite tense/aspect synchronization yielded no exact closure; next add clause-force compatibility without relaxing exact matching"},
       "provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"lexicon":"authored ordinary words; no catalogue lookup"}}
     OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(result,indent=2)+"\n"); return result
 if __name__ == "__main__": print(json.dumps(run(),indent=2))

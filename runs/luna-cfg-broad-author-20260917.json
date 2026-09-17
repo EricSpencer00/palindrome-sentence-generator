@@ -1,18 +1,19 @@
 {
   "status": "completed_no_admitted_closure",
-  "method": "broad_authored_cfg_scene_role_product",
+  "method": "broad_authored_cfg_tense_aspect_scene_product",
   "forms": 11,
   "paths": 1139,
   "search": {
     "states": 58232,
     "truncated": false,
-    "letters": "39-200",
+    "letters": "39-220",
     "rlaif_per_candidate": false,
     "construction_filters": [
       "determiner_noun_agreement",
       "verb_object_valency",
       "shared_scene_entity_and_anaphora",
-      "relative_event_attachment"
+      "relative_event_attachment",
+      "finite_tense_aspect_state"
     ]
   },
   "exact_candidates": [],
@@ -22,11 +23,11 @@
     "exact": true
   },
   "next_repair": {
-    "operator": "add finite tense/aspect agreement edges",
-    "reason": "relative-event attachment yielded no exact closure; next constrain event compatibility while preserving distinct anaphora"
+    "operator": "add polarity and question-force state edges",
+    "reason": "finite tense/aspect synchronization yielded no exact closure; next add clause-force compatibility without relaxing exact matching"
   },
   "provenance": {
-    "generator_sha256": "4d435cb4c594020003f426077714e1e063c8a4fc8b59a489939445807c419821",
+    "generator_sha256": "fa0ccab89f8ad4b1256b2790b7a7041848aaeb16ba00de62bfdaff4f6c76d09c",
     "lexicon": "authored ordinary words; no catalogue lookup"
   }
 }

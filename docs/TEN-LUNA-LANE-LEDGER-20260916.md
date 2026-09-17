@@ -553,7 +553,9 @@ CFG/Earley near-dock adjunct, a 163-letter semantic-slot glasshouse adjunct,
 and a 128-letter inflection/clitic before-dusk suffix. Each is independently
 rejected by pointer and SHA checks, carries fresh provenance and novelty
 preflight, and names the next local repair. The authoritative total is now
-4,955 rows across 274 routes, with 79 exact controls and 0 admitted outputs.
+4,958 rows across 277 routes, with 79 exact controls and 0 admitted outputs.
 The second continuation pass contributes a 109-letter opposing-adjunct scene,
 a 127-letter possessive-boundary harbor scene, and a 161-letter final-locative
-scene; all remain independently rejected with concrete next repairs.
+scene; all remain independently rejected with concrete next repairs. The third
+continuation adds a 110-letter CFG terminal, a 127-letter complementizer, and
+a 162-letter temporal-adjunct variant, also non-exact.

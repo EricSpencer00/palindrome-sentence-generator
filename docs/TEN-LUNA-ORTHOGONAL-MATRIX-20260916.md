@@ -38,3 +38,11 @@ A second one-state repair pass then produced three more intact candidates:
 - Semantic-slot final locative: “After rain, the patient gardener carries a wrapped bundle near the glasshouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart into the dry storehouse.” (161 letters; exact `false`; next repair changes only the temporal adjunct.)
 
 These are single-state repairs with fresh provenance, novelty preflight, independent exact audits, and no catalogue or repetition shortcut. The aggregate is now 4,955 rows across 274 routes.
+
+A third one-state continuation kept the same discipline:
+
+- CFG/Earley lexical terminal: “At first light, the navigator records the river current near the dock while the baker warms bread for the waiting crew beside the quay.” (110 letters; exact `false`; next repair changes one object terminal.)
+- Inflection/clitic complementizer: “At dusk, the harbor pilots checked the mooring lights, logged the tide in the crew’s ledger, and warned each waiting sailor when boats would leave before dusk.” (127 letters; exact `false`; next repair changes only the directional verb.)
+- Semantic-slot temporal adjunct: “Before dusk, the patient gardener carries a wrapped bundle near the glasshouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart into the dry storehouse.” (162 letters; exact `false`; next repair changes only the porter action verb.)
+
+The aggregate is now 4,958 rows across 277 routes; no candidate in these repair queues is mechanically admitted or reader-certified.

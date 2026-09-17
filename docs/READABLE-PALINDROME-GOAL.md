@@ -2180,7 +2180,7 @@ named next repair. The aggregate is 4,898 rows across 247 route phases (79
   provenance, novelty preflight, anti-shortcut checks, and a concrete
   first-residual repair; none closes exactly or enters the reader packet.
 
-  The newest committed wave is measured at **4,964 rows across 280 route phases**
+  The newest committed wave is measured at **4,967 rows across 283 route phases**
   with **79 exact but rejected tapes and 0 mechanically admitted outputs**. Its
   three actual fresh renderings are a 140-letter archivist/gardener/pilot scene,
   a 74-letter Jon dialogue with a complete relative clause, and an 83-letter

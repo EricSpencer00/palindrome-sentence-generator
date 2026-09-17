@@ -56,3 +56,14 @@ Rather than resampling the same local seams, three bounded pivots were run:
 - Immutable-scene exact-tape diagnostic: “At dawn, the archivist opens the west gallery, and the curator labels each recovered map while visitors wait quietly beside the old stair.” (113 letters; exact `false`; reverse grammar found no complete path; next operator chooses seam terminals before tape freeze.)
 
 These pivots keep complete prose, independent exact checks, provenance, novelty preflight, and anti-shortcut decisions. They add six rows and move the aggregate to 4,964 rows across 280 routes; none is mechanically admitted or reader-certified.
+
+## Character-equation structural lanes
+
+The next bounded trio enforced the mirrored-character invariant during lexical
+selection itself:
+
+- Live paired lexical graph: “The miller repairs the wooden wheel beside the creek, and a patient chemist measures the clear solution inside the glass room.” (104 letters; exact `false`; next repair changes the subject edge.)
+- Grammar-first phrase intersection: “The patient surveyor records the northern channel while the careful deckhand repairs a torn sail before the evening tide.” (113 letters; exact `false`; next repair replaces the first failing phrase.)
+- Semantic word-pair event graph: “The pilot carries a sealed parcel to the garden, where the keeper waters the basil before sunset.” (79 letters; exact `false`; next operator adds one delivery/care event edge.)
+
+All three enforce their character checks before word commitment, preserve intact prose, and retain independent audits, provenance, novelty, and anti-shortcut decisions. They add three rows, bringing the aggregate to 4,967 rows across 283 routes; none is mechanically admitted or reader-certified.

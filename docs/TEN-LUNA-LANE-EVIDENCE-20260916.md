@@ -767,7 +767,7 @@ semantic slot repair produced a 163-letter gardener/glasshouse scene, and the
 inflection/clitic suffix repair produced a 128-letter harbor scene ending
 ``before dusk.'' All three have independent pointer/SHA rejection, no-copy
 provenance, novelty preflight, and a further local repair; they raise the
-authoritative audit to 4,964 rows across 280 routes without reopening a sweep.
+authoritative audit to 4,967 rows across 283 routes without reopening a sweep.
 
 A second one-state continuation then changed only the opposing CFG adjunct
 (109 letters), the harbor possessive boundary (127 letters), and the final
@@ -785,4 +785,4 @@ sweep: simultaneous phrase-pair construction (109 letters), a center-out
 observatory scene lattice (83--93 letters), and immutable-scene exact-tape
 resegmentation (113 letters). Each emits actual intact prose with independent
 audits, provenance, novelty preflight, and a new construction operator; the
-aggregate is now 4,964 rows across 280 routes and still has 0 admitted outputs.
+aggregate is now 4,967 rows across 283 routes and still has 0 admitted outputs.

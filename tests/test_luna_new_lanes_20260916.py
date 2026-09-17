@@ -62,7 +62,7 @@ def test_append_algebra_emits_only_complete_clauses_and_records_invariant_failur
 
 def test_aggregate_surfaces_all_three_new_lane_routes():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4964
+    assert report["candidate_count"] == 4967
     assert report["exact_count"] == 79
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/constrained-edit-program-constructor-20260916.json"]["rows"] == 4
@@ -154,6 +154,9 @@ def test_aggregate_surfaces_all_three_new_lane_routes():
     assert by_source["runs/simultaneous-phrase-pair-constructor-20260916.json"]["rows"] == 1
     assert by_source["runs/centerout-observatory-scene-lattice-20260916.json"]["rows"] == 4
     assert by_source["runs/immutable-scene-exact-tape-resegment-20260916.json"]["rows"] == 1
+    assert by_source["runs/paired-lexical-phrase-graph-live-emit-20260916.json"]["rows"] == 1
+    assert by_source["runs/grammar-first-phrase-intersection-20260916.json"]["rows"] == 1
+    assert by_source["runs/semantic-wordpair-event-graph-20260916.json"]["rows"] == 1
 
     registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
     retained = {row["id"] for row in registry["entries"]}
@@ -191,6 +194,9 @@ def test_aggregate_surfaces_all_three_new_lane_routes():
         "simultaneous-phrase-pair-constructor-20260916",
         "centerout-observatory-scene-lattice-20260916",
         "immutable-scene-exact-tape-resegment-20260916",
+        "paired-lexical-phrase-graph-live-emit-20260916",
+        "grammar-first-phrase-intersection-20260916",
+        "semantic-wordpair-event-graph-20260916",
     } <= retained
 
 

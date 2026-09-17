@@ -1,0 +1,82 @@
+{
+  "experiment_id": "centerout-museum-heldout-repair-20260916",
+  "signature": "heldout-museum-role-repair|preserved-center-equation|single-state|independent-pointer-sha",
+  "status": "completed",
+  "method": "single held-out museum verb/object role repair against preserved center equation",
+  "candidate": {
+    "rendered": "The conservator studies the relic; the audience listens while the docent preserves the exhibit.",
+    "letters": 80,
+    "repair_operator": {
+      "changed_role": "right_predicate/object",
+      "from": "locks the exhibit",
+      "to": "preserves the exhibit",
+      "preserved_center": "the audience listens while",
+      "held_out": true
+    },
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_normalized_sha256",
+      "letters": 80,
+      "two_pointer_exact": false,
+      "mismatch_count": 36,
+      "first_mismatch": {
+        "left": 1,
+        "right": 78,
+        "a": "h",
+        "b": "i"
+      },
+      "sha256_forward": "f10d3f0576dfede1764e5b45bb32336895a0d0feea2ccb959ae1f7fcacb23ec3",
+      "sha256_reverse": "785332eea89d7f764854e281968f12c980fd2089c5350cc3660a525875527538",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "fresh_museum_scene": true,
+      "seed_used_as_output": false,
+      "fixed_tape_used": false,
+      "source_sentences_copied": false,
+      "catalogue_imported": false,
+      "borrowed_text": false,
+      "reversed_finished_sentence": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false,
+      "generator_sha256": "7202fd762d3845d5296b10f78a12fe970f7e89dc7f080265a383ca1b9c756e41"
+    }
+  },
+  "stats": {
+    "new_states": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "novelty_preflight": {
+    "performed_before_search": true,
+    "exact_id_collision": false,
+    "exact_signature_collision": false,
+    "status": "passed",
+    "replay_or_sweep": false
+  },
+  "next_repair": "Change only the left predicate at the next residual while preserving center and held-out museum object; do not reopen this state.",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "7202fd762d3845d5296b10f78a12fe970f7e89dc7f080265a383ca1b9c756e41",
+    "generated_not_catalogue": true
+  }
+}

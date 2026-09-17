@@ -2724,3 +2724,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   reader gate remains closed. The next concrete operators are joint lexical
   propagation across chosen slots, joint place-pair substitution, and an
   internal word-boundary seam shift within the same two frames.
+
+  The next wave completed those operators. Joint lexical opposing-offset
+  propagation retained audited candidates up to 83 letters; joint shared-
+  `where` place-pair substitution produced 256 candidates up to 97 letters;
+  and the two-frame internal boundary shift rendered 4 intact candidates up
+  to 133 letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are exact
+  partial-tape equations with bidirectional propagation, shared-preposition
+  substitution over the joint place pair, and an internal morpheme-boundary
+  shift within the same words.

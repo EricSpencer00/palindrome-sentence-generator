@@ -1,0 +1,95 @@
+{
+  "experiment_id": "morphology-crossword-single-repair-20260916",
+  "signature": "morphology-clitic-single-repair|dependency-fixed|heldout-determiner-seam|fresh-state",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "single held-out clitic/determiner seam change with dependency and agreement features frozen",
+  "candidates": [
+    {
+      "repair_state": "single clitic/determiner seam",
+      "parent_state": "morphology-crossword-transducer-20260916",
+      "change": {
+        "old": "its maps",
+        "new": "the maps"
+      },
+      "dependency_features_preserved": [
+        "agent curator",
+        "theme maps",
+        "third-person singular present",
+        "object clitic role"
+      ],
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The curator opens the sealed cabinet, and she carefully files the maps before the evening visitors arrive.",
+        "letters": 88,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "normalized_sha256": "57dcabb16ac5cc3f874334dec95a6c5ef4c77122d1b12c4e3cf5c4b052a02b54",
+        "reverse_sha256": "90bc7d342a9cc85d046ab7a1ad45300d566e99ee5bfb041d896bce3ac5694e3b",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "change only temporal inflection at first residual while retaining dependency features",
+        "reason": "single seam repair remains grammatical but does not close character debt"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "change only temporal inflection at first residual while retaining dependency features",
+    "reason": "single seam repair remains grammatical but does not close character debt"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 376,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "replayed_parent_sweep": false,
+    "word_order_mirror": false
+  },
+  "provenance": {
+    "generator_sha256": "101efbfab45166b034297557c1c71e793ce914aea8be579b14b73d8a02beaeee",
+    "lexical_source": "held-out determiner/clitic alternative",
+    "parent_state": "morphology-crossword-transducer-20260916",
+    "repair": "its maps -> the maps; dependency roles and agreement retained",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "dependency replay",
+      "anti-shortcut"
+    ]
+  }
+}

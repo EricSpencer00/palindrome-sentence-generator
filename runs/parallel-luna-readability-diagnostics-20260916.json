@@ -323,9 +323,12 @@
     "runs/luna-reverse-automaton-phrase-lattice-20260917.json",
     "runs/luna-lexicalized-reverse-trie-grammar-20260917.json",
     "runs/luna-inflection-clitic-seam-scene-solver-20260917.json",
-    "runs/luna-recursive-balanced-grammar-20260917.json"
+    "runs/luna-recursive-balanced-grammar-20260917.json",
+    "runs/luna-punctuation-center-bridge-20260917.json",
+    "runs/luna-affix-crossword-prose-20260917.json",
+    "runs/dependency-semantic-seam-csp-v2-20260917.json"
   ],
-  "candidate_count": 5335,
+  "candidate_count": 5355,
   "exact_count": 84,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -1290,6 +1293,16 @@
       "mean_brown_order_gain_vs_shuffle": 1.2922738206064608
     },
     {
+      "source_run": "runs/dependency-semantic-seam-csp-v2-20260917.json",
+      "rows": 3,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 114,
+      "max_letters": 114,
+      "mean_zipf_frequency": 5.407333333333334,
+      "mean_brown_order_gain_vs_shuffle": 0.9022626565310787
+    },
+    {
       "source_run": "runs/dependency-tree-seam-solver-20260916.json",
       "rows": 12,
       "exact_count": 0,
@@ -2150,6 +2163,16 @@
       "mean_brown_order_gain_vs_shuffle": 0.6158543336402879
     },
     {
+      "source_run": "runs/luna-affix-crossword-prose-20260917.json",
+      "rows": 5,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 122,
+      "max_letters": 129,
+      "mean_zipf_frequency": 5.304542160737813,
+      "mean_brown_order_gain_vs_shuffle": 0.7494541219211704
+    },
+    {
       "source_run": "runs/luna-boundary-semantic-repair-20260917.json",
       "rows": 3,
       "exact_count": 0,
@@ -2278,6 +2301,16 @@
       "max_letters": 114,
       "mean_zipf_frequency": 5.070125480367586,
       "mean_brown_order_gain_vs_shuffle": 0.9931570880958588
+    },
+    {
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "rows": 12,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 124,
+      "max_letters": 134,
+      "mean_zipf_frequency": 5.122557692307693,
+      "mean_brown_order_gain_vs_shuffle": 1.0145680368858414
     },
     {
       "source_run": "runs/luna-readable-palindrome-manual-search-20260917.json",
@@ -256814,6 +256847,892 @@
         "word_count": 46,
         "repeated_word_rate": 0.21739130434782605,
         "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient cartographer marks a coastal inlet beside the old pier; the harbor bell sounds, while the young archivist files weathered maps near the harbor office.",
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "provenance": {
+        "generator_sha256": "7b1316a1ec5864b7bd7a73e8bdefc494b84d4e8cecba569f72b154045f2d3a19",
+        "registry_sha256": "981ac61fdc7adb6114c884a5f5f3e225068268929bbbb07a73d2c57748c1b5f2",
+        "punctuation_choices_live": true,
+        "nonpalindromic_center_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 134,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1713895057515256,
+        "mean_zipf_frequency": 5.142692307692308,
+        "word_count": 26,
+        "repeated_word_rate": 0.1923076923076923,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient cartographer marks a coastal inlet beside the old pier; the harbor bell sounds, while the local guide records clear directions beside the museum gate.",
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "provenance": {
+        "generator_sha256": "7b1316a1ec5864b7bd7a73e8bdefc494b84d4e8cecba569f72b154045f2d3a19",
+        "registry_sha256": "981ac61fdc7adb6114c884a5f5f3e225068268929bbbb07a73d2c57748c1b5f2",
+        "punctuation_choices_live": true,
+        "nonpalindromic_center_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 134,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.949016630864163,
+        "mean_zipf_frequency": 5.251538461538463,
+        "word_count": 26,
+        "repeated_word_rate": 0.1923076923076923,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient cartographer marks a coastal inlet beside the old pier: the harbor bell sounds; then the young archivist files weathered maps near the harbor office.",
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "provenance": {
+        "generator_sha256": "7b1316a1ec5864b7bd7a73e8bdefc494b84d4e8cecba569f72b154045f2d3a19",
+        "registry_sha256": "981ac61fdc7adb6114c884a5f5f3e225068268929bbbb07a73d2c57748c1b5f2",
+        "punctuation_choices_live": true,
+        "nonpalindromic_center_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 133,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1668718580746393,
+        "mean_zipf_frequency": 5.150769230769232,
+        "word_count": 26,
+        "repeated_word_rate": 0.1923076923076923,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient cartographer marks a coastal inlet beside the old pier: the harbor bell sounds; then the local guide records clear directions beside the museum gate.",
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "provenance": {
+        "generator_sha256": "7b1316a1ec5864b7bd7a73e8bdefc494b84d4e8cecba569f72b154045f2d3a19",
+        "registry_sha256": "981ac61fdc7adb6114c884a5f5f3e225068268929bbbb07a73d2c57748c1b5f2",
+        "punctuation_choices_live": true,
+        "nonpalindromic_center_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 133,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9374514775443998,
+        "mean_zipf_frequency": 5.259615384615386,
+        "word_count": 26,
+        "repeated_word_rate": 0.1923076923076923,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient cartographer marks a coastal inlet beside the old pier; the lantern flares, while the young archivist files weathered maps near the harbor office.",
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "provenance": {
+        "generator_sha256": "7b1316a1ec5864b7bd7a73e8bdefc494b84d4e8cecba569f72b154045f2d3a19",
+        "registry_sha256": "981ac61fdc7adb6114c884a5f5f3e225068268929bbbb07a73d2c57748c1b5f2",
+        "punctuation_choices_live": true,
+        "nonpalindromic_center_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 131,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2671113915064627,
+        "mean_zipf_frequency": 5.0764000000000005,
+        "word_count": 25,
+        "repeated_word_rate": 0.16000000000000003,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient cartographer marks a coastal inlet beside the old pier; the lantern flares, while the local guide records clear directions beside the museum gate.",
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "provenance": {
+        "generator_sha256": "7b1316a1ec5864b7bd7a73e8bdefc494b84d4e8cecba569f72b154045f2d3a19",
+        "registry_sha256": "981ac61fdc7adb6114c884a5f5f3e225068268929bbbb07a73d2c57748c1b5f2",
+        "punctuation_choices_live": true,
+        "nonpalindromic_center_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 131,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9970760755092218,
+        "mean_zipf_frequency": 5.1896,
+        "word_count": 25,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient cartographer marks a coastal inlet beside the old pier: the lantern flares; then the young archivist files weathered maps near the harbor office.",
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "provenance": {
+        "generator_sha256": "7b1316a1ec5864b7bd7a73e8bdefc494b84d4e8cecba569f72b154045f2d3a19",
+        "registry_sha256": "981ac61fdc7adb6114c884a5f5f3e225068268929bbbb07a73d2c57748c1b5f2",
+        "punctuation_choices_live": true,
+        "nonpalindromic_center_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 130,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2424926603872706,
+        "mean_zipf_frequency": 5.0848,
+        "word_count": 25,
+        "repeated_word_rate": 0.16000000000000003,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient cartographer marks a coastal inlet beside the old pier: the lantern flares; then the local guide records clear directions beside the museum gate.",
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "provenance": {
+        "generator_sha256": "7b1316a1ec5864b7bd7a73e8bdefc494b84d4e8cecba569f72b154045f2d3a19",
+        "registry_sha256": "981ac61fdc7adb6114c884a5f5f3e225068268929bbbb07a73d2c57748c1b5f2",
+        "punctuation_choices_live": true,
+        "nonpalindromic_center_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 130,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9824312948243357,
+        "mean_zipf_frequency": 5.198,
+        "word_count": 25,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient cartographer marks a coastal inlet beside the old pier; the harbor bell sounds, while a steady porter moves clean crates under the cedar awning.",
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "provenance": {
+        "generator_sha256": "7b1316a1ec5864b7bd7a73e8bdefc494b84d4e8cecba569f72b154045f2d3a19",
+        "registry_sha256": "981ac61fdc7adb6114c884a5f5f3e225068268929bbbb07a73d2c57748c1b5f2",
+        "punctuation_choices_live": true,
+        "nonpalindromic_center_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8360566007143397,
+        "mean_zipf_frequency": 5.0600000000000005,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient cartographer marks a coastal inlet beside the old pier: the harbor bell sounds; then a steady porter moves clean crates under the cedar awning.",
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "provenance": {
+        "generator_sha256": "7b1316a1ec5864b7bd7a73e8bdefc494b84d4e8cecba569f72b154045f2d3a19",
+        "registry_sha256": "981ac61fdc7adb6114c884a5f5f3e225068268929bbbb07a73d2c57748c1b5f2",
+        "punctuation_choices_live": true,
+        "nonpalindromic_center_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8421450159903152,
+        "mean_zipf_frequency": 5.068076923076924,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient cartographer marks a coastal inlet beside the old pier; the lantern flares, while a steady porter moves clean crates under the cedar awning.",
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "provenance": {
+        "generator_sha256": "7b1316a1ec5864b7bd7a73e8bdefc494b84d4e8cecba569f72b154045f2d3a19",
+        "registry_sha256": "981ac61fdc7adb6114c884a5f5f3e225068268929bbbb07a73d2c57748c1b5f2",
+        "punctuation_choices_live": true,
+        "nonpalindromic_center_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 125,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.898054526660621,
+        "mean_zipf_frequency": 4.990400000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.16000000000000003,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient cartographer marks a coastal inlet beside the old pier: the lantern flares; then a steady porter moves clean crates under the cedar awning.",
+      "source_run": "runs/luna-punctuation-center-bridge-20260917.json",
+      "provenance": {
+        "generator_sha256": "7b1316a1ec5864b7bd7a73e8bdefc494b84d4e8cecba569f72b154045f2d3a19",
+        "registry_sha256": "981ac61fdc7adb6114c884a5f5f3e225068268929bbbb07a73d2c57748c1b5f2",
+        "punctuation_choices_live": true,
+        "nonpalindromic_center_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8847194048028033,
+        "mean_zipf_frequency": 4.998800000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.16000000000000003,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The seasoned harbor pilot guides the weathered ferry through the morning fog. The kind librarian returns the borrowed novels to the neighborhood shelves.",
+      "source_run": "runs/luna-affix-crossword-prose-20260917.json",
+      "provenance": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
+      "repair": null,
+      "letters": 129,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.30555820691268565,
+        "mean_zipf_frequency": 5.311304347826087,
+        "word_count": 23,
+        "repeated_word_rate": 0.21739130434782605,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful teacher records the seedling's growth for us in a notebook. The steady mechanic reassembles the repaired lantern under the workshop light.",
+      "source_run": "runs/luna-affix-crossword-prose-20260917.json",
+      "provenance": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
+      "repair": null,
+      "letters": 125,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5872820814866166,
+        "mean_zipf_frequency": 5.430833333333333,
+        "word_count": 24,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardener reopens the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for them at the waiting shelter.",
+      "source_run": "runs/luna-affix-crossword-prose-20260917.json",
+      "provenance": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.451687226868371,
+        "mean_zipf_frequency": 5.267391304347826,
+        "word_count": 23,
+        "repeated_word_rate": 0.17391304347826086,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet archivist relabels the provincial maps inside the old library. The methodical nurse checks the patient records before the evening round.",
+      "source_run": "runs/luna-affix-crossword-prose-20260917.json",
+      "provenance": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6197729562462371,
+        "mean_zipf_frequency": 5.248181818181819,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young carpenter measures the uneven window frame after the storm. The curious naturalist sketches the nesting swallows beside the river path.",
+      "source_run": "runs/luna-affix-crossword-prose-20260917.json",
+      "provenance": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
+      "repair": null,
+      "letters": 122,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.782970138091942,
+        "mean_zipf_frequency": 5.265,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist studies the weathered maps within the quiet station. The messenger delivers the marked journals within the quiet station.",
+      "source_run": "runs/dependency-semantic-seam-csp-v2-20260917.json",
+      "provenance": {
+        "authored_frame_templates": true,
+        "catalogue_used": false,
+        "reversed_finished_sentence": false,
+        "lexical_choices_searched_with_seam": true
+      },
+      "repair": null,
+      "letters": 114,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.836982756435404,
+        "mean_zipf_frequency": 5.408000000000001,
+        "word_count": 20,
+        "repeated_word_rate": 0.4,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist studies the weathered maps within the quiet station. The messenger delivers the distant signals within the quiet station.",
+      "source_run": "runs/dependency-semantic-seam-csp-v2-20260917.json",
+      "provenance": {
+        "authored_frame_templates": true,
+        "catalogue_used": false,
+        "reversed_finished_sentence": false,
+        "lexical_choices_searched_with_seam": true
+      },
+      "repair": null,
+      "letters": 114,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9329101536891624,
+        "mean_zipf_frequency": 5.410500000000001,
+        "word_count": 20,
+        "repeated_word_rate": 0.4,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist studies the sealed parcels within the quiet station. The messenger delivers the marked journals within the quiet station.",
+      "source_run": "runs/dependency-semantic-seam-csp-v2-20260917.json",
+      "provenance": {
+        "authored_frame_templates": true,
+        "catalogue_used": false,
+        "reversed_finished_sentence": false,
+        "lexical_choices_searched_with_seam": true
+      },
+      "repair": null,
+      "letters": 114,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9368950594686698,
+        "mean_zipf_frequency": 5.403500000000001,
+        "word_count": 20,
+        "repeated_word_rate": 0.4,
+        "punctuation_segments": 2
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

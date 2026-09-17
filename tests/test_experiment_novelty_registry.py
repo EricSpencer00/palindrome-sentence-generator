@@ -14,7 +14,7 @@ def test_registered_experiments_have_unique_signatures_and_artifacts():
     # The ledger is append-only: parallel construction routes may add entries
     # without making this invariant stale.  The validator still requires every
     # registered artifact to resolve and every signature to be unique.
-    assert result["entries"] >= 428
+    assert result["entries"] >= 431
     assert result["run_artifacts"] >= 80
     assert result["audit_reports"] == 1
     assert json.loads((Path(__file__).parents[1] / "docs/experiment-novelty-registry.json").read_text())["audit_reports"][0]["path"] == "runs/parallel-luna-readability-diagnostics-20260916.json"

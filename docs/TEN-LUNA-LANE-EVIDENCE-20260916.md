@@ -950,9 +950,9 @@ and forward/reverse SHA checks agree that it is not exact; provenance and
 anti-shortcut flags are clean, and its next reader-facing test remains the
 intact-versus-shuffled packet after exact admission. The paired-slot exact
 tapes are retained as provenance-backed failure evidence, not readability
-claims. The aggregate is now **5,335 rows across 329 routes, 84 exact rows,
-and 0 mechanically admitted outputs**; the registry is **428 retained, 35
-excluded, and 406 retained run artifacts**.
+claims. The aggregate is now **5,355 rows across 332 routes, 84 exact rows,
+and 0 mechanically admitted outputs**; the registry is **431 retained, 35
+excluded, and 409 retained run artifacts**.
 
 The following frontier changes the obligation mechanism rather than widening a
 sweep: a cross-word character trie retains eight 79-letter scenes, a fresh
@@ -1005,3 +1005,26 @@ teacher reviews marked field notes near the village school. At dusk, a gentle
 keeper mends the garden gate after the winter storm.” (exact `false`); its
 first-residual repair replaces the outer seam with a role-compatible clause
 pair. None is reader-eligible until exact admission.
+
+Two further lanes keep the construction state joint at a different seam. The
+punctuation-center bridge retains 12 distinct 112--134-letter scenes, including
+“The patient cartographer marks a coastal inlet beside the old pier; the
+harbor bell sounds, while the young archivist files weathered maps near the
+harbor office.” (exact `false`); its next repair holds out the first
+center-adjacent noun or inflection. The affix/clitic crossword retains five
+complete 111--129-letter clause pairs, including “The seasoned harbor pilot
+guides the weathered ferry through the morning fog. The kind librarian returns
+the borrowed novels to the neighborhood shelves.” (129 letters; exact
+`false`), with held-out role-compatible inflectional substitution next. Both
+lanes independently audit the full normalized tape and preserve provenance;
+neither is a reader candidate until exact admission.
+
+The dependency-semantic seam CSP v2 then searches argument attachment and
+lexical domains jointly across 186,624 pair states. Its three retained probes
+are complete 114-letter clauses; the clearest is “The archivist studies the
+weathered maps within the quiet station. The messenger delivers the marked
+journals within the quiet station.” (exact `false`). The first-residual repair
+holds that seam fixed and substitutes a held-out role-compatible object/place
+realization before recomputing attachment. Repeated station context is
+explicitly visible in its mechanical rejection fields; this is failure
+evidence, not a readability certificate.

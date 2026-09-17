@@ -1,0 +1,152 @@
+{
+  "experiment_id": "scene-lattice-attachment-csp-20260916",
+  "signature": "human-scene-lattice|attachment-csp|valency-equation-joint-solve|fresh-prose-bank|no-template-reuse",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "enumerate a bounded human-authored scene lattice while solving valency/attachment constraints jointly with outer character equations",
+  "candidates": [
+    {
+      "slots": {
+        "scene": 0,
+        "attachment": "event adjunct",
+        "tail": "coordinated proposition"
+      },
+      "csp_constraints": [
+        "transitive agent/event/patient",
+        "attachment scopes event",
+        "tail has independent subject"
+      ],
+      "boundary_equation": {
+        "outer_pair": [
+          "t",
+          "s"
+        ],
+        "satisfied": false
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The museum guide describes the carved doorway during the quiet morning tour, and visitors sketch the details in their notebooks.",
+        "letters": 107,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "normalized_sha256": "123838040c0d3391d01d3d2d566d07a7bca28cf396cd8a7a76b54945d4bc5351",
+        "reverse_sha256": "9eb901fd033f18f9cb3aafd1f73ec153ecde01f70c614a85421da84dbe862e80",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      }
+    },
+    {
+      "slots": {
+        "scene": 1,
+        "attachment": "event adjunct",
+        "tail": "coordinated proposition"
+      },
+      "csp_constraints": [
+        "transitive agent/event/patient",
+        "attachment scopes event",
+        "tail has independent subject"
+      ],
+      "boundary_equation": {
+        "outer_pair": [
+          "t",
+          "r"
+        ],
+        "satisfied": false
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The harbor engineer measures the western channel before the evening tide returns, while the crew secures ropes along the pier.",
+        "letters": 105,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "normalized_sha256": "f06989118c70d75abff4377df962495035d016cced6c647593f6afedce5faaab",
+        "reverse_sha256": "e61d0d19e1f7803114b84cd7e199d36446c1e5be5736cd4d327d79bd6e99dec9",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 336,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "prior_template_reused": false
+  },
+  "next_repair": {
+    "operator": "swap the attachment edge and preposition with a role-compatible held-out edge selected by the first residual character",
+    "reason": "complete prose assignments leave the outer equation unsatisfied"
+  },
+  "provenance": {
+    "generator_sha256": "f7b503cfebc10bbee8bd350b609835011444a00137aaf3d82adcabeecb0747e2",
+    "lexical_source": "fresh museum/harbor authored scene lattice",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "valency attachment constraints",
+      "anti-shortcut"
+    ]
+  }
+}

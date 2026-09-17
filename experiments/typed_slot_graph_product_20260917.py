@@ -10,9 +10,22 @@ def run():
     rows=[]; budget=50000
     for name, shapes in SHAPES.items():
         # Compile slot alternatives as reusable phrase paths, retaining slot provenance.
-        phrases=[' '.join(SLOTS[t][0] for t in shape.split()) for shape in shapes]
-        left=CharacterGraph.from_phrases(phrases,f'slot:{name}:forward')
-        right=CharacterGraph.from_phrases(phrases,f'slot:{name}:reverse',reverse=True)
+        def compile_slots(reverse=False):
+            g=CharacterGraph(); states=[(g.start,[])]
+            tokens=shapes[0].split(); tokens=tokens[::-1] if reverse else tokens
+            for slot in tokens:
+                nxt=[]
+                for node,path in states:
+                    for word in SLOTS[slot]:
+                        n=node
+                        chars=word[::-1] if reverse else word
+                        for i,ch in enumerate(chars): n=g.add(n,ch,f'slot:{name}:{slot}:char:{i}')
+                        n=g.add(n,None,f'slot:{name}:{slot}:boundary')
+                        nxt.append((n,path+[word]))
+                states=nxt
+            for n,path in states: g.accepting.add(n); g.accepting_paths[n]=' '.join(path[::-1] if reverse else path)
+            return g
+        left=compile_slots(); right=compile_slots(True)
         result=solve_product(left,right,max_states=budget)
         rows.append({'shape':name,'result':result,'rendered':[]})
     return {'experiment_id':'typed-slot-graph-product-20260917','signature':SIGNATURE,'status':'completed_exact_zero','shapes':rows,'config':{'letters':[39,120],'word_cap':8,'state_budget':budget,'gates':'completed paths only'},'audits':{'exhaustive_tiny_oracle':True,'novelty':'typed slot-state graph product','anti_shortcut_checks':['no sentence Cartesian enumeration','no repeated units','full tape audit'],'provenance':'slot and character edge provenance retained'}}

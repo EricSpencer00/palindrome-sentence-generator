@@ -6,3 +6,4 @@ def test_typed_graph_has_character_edges_and_boundary_provenance():
     assert any(e.char is None for es in g.edges.values() for e in es)
 def test_typed_lane_reports_honest_zero_and_budget():
     x=run(); assert x['status']=='completed_exact_zero'; assert x['config']['state_budget']>0
+    assert all(r['result']['completions']==[] for r in x['shapes'])

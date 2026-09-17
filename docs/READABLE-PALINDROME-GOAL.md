@@ -3473,3 +3473,20 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   inflectional variants, selected jointly before scoring, followed by the
   frozen intact-versus-shuffled reader package for the first exact novel
   survivor.
+
+  The fifth replay round adds the scene-lattice and semordnilap-pair branches.
+  The scene lattice produced 32 jointly selected inflection variants (24 in
+  the 100–160-letter band); its best intact surface is “In the quiet archive,
+  the patient clerk repaired a torn map and records its missing names, as the
+  careful clerk filed a marked folder before closing.” (121 letters, 53
+  mismatches). The semordnilap lane produced five mechanically exact
+  46–64-letter strings, but every one fails the human gate; for example, “A
+  gateman drawer diaper live star draw ward rats evil repaid reward nametag
+  a.” is exact yet visibly fragmentary. Independent two-pointer and SHA audits
+  agree in both lanes, and all provenance/novelty checks are recorded. Round
+  five now replays 15,606 nodes across 426 worlds; the controller still selects
+  `fixed_mismatch_first`, with zero admissible exact closures (the five exact
+  pair strings are correctly quarantined). The next construction is boundary-
+  aware lexical resegmentation inside the scene lattice, retaining live
+  inflection and attachment constraints; only its first exact, intact novel
+  output will open the blinded reader package.

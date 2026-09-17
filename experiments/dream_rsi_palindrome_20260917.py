@@ -42,6 +42,8 @@ EXPLICIT_HISTORY = (
     "runs/agreement-coordinated-clause-search-20260917.json",
     "runs/seam-aware-joint-selection-20260917.json",
     "runs/reversible-word-composition-20260917.json",
+    "runs/scene-inflection-lattice-20260917.json",
+    "runs/luna-pair-clause-search-20260917.json",
     "runs/joint-boundary-first-mismatch-repair-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

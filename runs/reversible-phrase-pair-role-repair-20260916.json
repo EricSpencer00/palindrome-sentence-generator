@@ -1,0 +1,159 @@
+{
+  "experiment_id": "reversible-phrase-pair-role-repair-20260916",
+  "signature": "phrase-edge-role-repair|heldout-common-word|valency-preserved|live-residual|fresh-state",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "apply one held-out phrase-edge replacement at highest residual while preserving valency and connected scene",
+  "candidates": [
+    {
+      "repair_state": "role-preserving phrase edge replacement",
+      "replacements": [
+        "keeps->preserves",
+        "record->journal",
+        "fresh->bright"
+      ],
+      "valency_preserved": true,
+      "live_boundary_equation": {
+        "outer": [
+          "t",
+          "r"
+        ],
+        "satisfied": false
+      },
+      "connected_scene": true,
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The harbor keeper preserves a quiet journal while the night crew carries bright lanterns toward the western pier.",
+        "letters": 95,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "normalized_sha256": "e519be0917b4e6836f2b10e2c4ae5c4f5e2624435c2166a047390f9727feb169",
+        "reverse_sha256": "2b269e3cdea4f901d1202c04c10da67fe134ac91af6df4600e4576c1f50aa230",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "replace directional adjunct edge with held-out preposition plus location NP preserving location role",
+        "reason": "edge replacement remains readable but does not close character obligation"
+      }
+    },
+    {
+      "repair_state": "role-preserving phrase edge replacement",
+      "replacements": [
+        "keeps->preserves",
+        "record->journal",
+        "fresh->bright"
+      ],
+      "valency_preserved": true,
+      "live_boundary_equation": {
+        "outer": [
+          "t",
+          "e"
+        ],
+        "satisfied": false
+      },
+      "connected_scene": true,
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The garden steward stores a careful record while the morning team brings clean baskets beside the eastern greenhouse.",
+        "letters": 99,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "normalized_sha256": "ad33c1050b20083a9231df1ab1c8066ec0771792b4b1b3a164e8a3e5c1981cb8",
+        "reverse_sha256": "73801fd15fe83744e310f0bb296e4d2d22dd96b68ea98b74097c86e2da2b6c0f",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "replace directional adjunct edge with held-out preposition plus location NP preserving location role",
+        "reason": "edge replacement remains readable but does not close character obligation"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "replace directional adjunct with held-out preposition plus location NP preserving scene roles",
+    "reason": "role repair leaves a nonzero outer residual"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 358,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "word_order_mirror": false,
+    "repeated_units": false
+  },
+  "provenance": {
+    "generator_sha256": "1d1f197bff4c5376d3e24505402a5ad679ded3f8ba1633e014889ff823686dcd",
+    "lexical_source": "held-out common-word role alternatives",
+    "parent_state": "reversible-phrase-pair-scene-search-20260916",
+    "repair": "preserves->journal and fresh->bright while retaining agent/theme/location roles",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "valency replay",
+      "anti-shortcut"
+    ]
+  }
+}

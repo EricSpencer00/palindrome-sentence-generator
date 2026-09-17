@@ -2736,3 +2736,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   partial-tape equations with bidirectional propagation, shared-preposition
   substitution over the joint place pair, and an internal morpheme-boundary
   shift within the same words.
+
+  The next wave completed those operators. Exact partial-tape bidirectional
+  equations retained audited candidates up to 81 letters; joint shared-`where`
+  preposition substitution produced 272 candidates up to 97 letters; and the
+  two-frame internal morpheme shift rendered 8 intact candidates up to 144
+  letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are unresolved-
+  position masks across variable boundaries, joint `where`/`in which`
+  alternation, and a determiner-boundary center seam in the same frames.

@@ -235,6 +235,29 @@ def run() -> dict[str, object]:
     )
     candidates.extend(make_candidate(left, right, repair=label)
                       for left, right, label in agreement_pairs)
+    # Eighth recorded repair: couple baker subject number, finite verb, and
+    # object number/article.  The resulting clauses are independently fresh
+    # and preserve the same adjunct/clitic seam structure.
+    object_agreement_pairs = (
+        (replace(pilot, adjunct="across the quiet harbor"),
+         replace(baker, subject_article="A", verb="delivers", object_article="a",
+                 object="warm loaf", adjunct="near the market shelter"),
+         "singular baker + a warm loaf"),
+        (replace(pilot, adjunct="across the quiet harbor"),
+         replace(baker, subject_article="One", verb="delivers", object_article="a",
+                 object="fresh loaf", adjunct="near the market shelter"),
+         "singular baker + a fresh loaf"),
+        (replace(pilot, adjunct="across the quiet harbor"),
+         replace(baker, subject_article="Some", subject="village bakers", verb="deliver",
+                 object_article="some", object="warm loaves", adjunct="near the market shelter"),
+         "plural bakers + some warm loaves"),
+        (replace(pilot, adjunct="across the quiet harbor"),
+         replace(baker, subject_article="Several", subject="village bakers", verb="deliver",
+                 object_article="some", object="fresh loaves", adjunct="near the market shelter"),
+         "plural bakers + some fresh loaves"),
+    )
+    candidates.extend(make_candidate(left, right, repair=label)
+                      for left, right, label in object_agreement_pairs)
     candidates.sort(key=lambda row: row["audit"]["letters"], reverse=True)
     best = candidates[0]
     first = best["audit"]["two_pointer_mismatches"][0] if best["audit"]["two_pointer_mismatches"] else None
@@ -243,13 +266,14 @@ def run() -> dict[str, object]:
             "method": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
             "novelty_preflight": preflight, "candidate_count": len(candidates),
             "candidates": candidates, "actual_prose": best["rendered"],
-            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 28,
+            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 32,
                       "adjunct_object_variants": 4,
                       "subject_theme_variants": 4,
                       "verb_clitic_variants": 4,
                       "preposition_locative_variants": 4,
                       "determiner_adjective_variants": 4,
                       "subject_agreement_variants": 4,
+                      "object_agreement_variants": 4,
                       "exact": sum(r["audit"]["exact"] for r in candidates),
                       "longest_letters": best["audit"]["letters"]},
             "failure_and_repair": {"first_residual": first,
@@ -261,9 +285,10 @@ def run() -> dict[str, object]:
                     "through morning fog/across quiet harbor × at waiting shelter/near market shelter on pilot–baker pair",
                     "the/a × weathered/sturdy ferry on pilot–baker pair",
                     "A/One + guides and Some/Several pilots + guide on pilot–baker pair",
+                    "A/One baker + delivers a loaf and Some/Several bakers + deliver some loaves",
                 ],
                 "next_operator": "move the first residual to a role-compatible subject adjunct or noun-number tile, preserving valency and recomputing obligations before punctuation",
-                "concrete_next_repair": "hold out 'the warm loaves'/'a warm loaf' and 'delivers/deliver' variants, enforcing object-number agreement on the baker frame"},
+                "concrete_next_repair": "hold out clitic boundary variants 'for them'/'for us' after singular and plural baker objects, then recompute the same cross-clause obligations"},
             "provenance": {"lexical_source": "fresh hand-authored clause plans and productive English morphology",
                            "catalogue_text_imported": False, "seed_embedding": False, "fixed_tape": False,
                            "word_order_mirror": False, "repeated_self_palindromic_span": False,

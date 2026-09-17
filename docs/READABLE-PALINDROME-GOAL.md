@@ -2471,3 +2471,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   are a joint relative/opposing-bundle seam CSP, a state-permitted
   `that`/`where` complementizer alternation, and a distinct appositive
   attachment family in the center-crossing grammar.
+
+  The next wave completed those operators. Joint relative/opposing-bundle
+  seam CSP rendered 12 intact candidates up to 99 letters; state-permitted
+  complementizer alternation tested 3,584 candidates up to 61 letters; and
+  the center-crossing appositive family rendered 54 intact candidates up to
+  172 letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are word-boundary
+  positions as CSP variables, state-valid role-preserving complementizer
+  alternation, and a typed parenthetical attachment in the center-crossing
+  grammar.

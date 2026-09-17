@@ -28,7 +28,11 @@ def product(left,right,cap=4000):
  L=list(left);R=list(right); states={(0,0,len(R)-1,len(R[-1])-1)}; frontier=[]
  while states and len(frontier)<cap:
   lw,lc,rw,rc=states.pop();
-  if lw==len(L) and rw==len(R):return True,frontier
+  # The left cursor moves upward from 0, while the right cursor moves
+  # downward from the final word.  A completed product therefore ends at
+  # ``lw == len(L)`` and ``rw < 0``; comparing the descending cursor with
+  # ``len(R)`` made the success state unreachable for every derivation.
+  if lw==len(L) and rw<0:return True,frontier
   if lw<len(L) and lc==len(L[lw]):states.add((lw+1,0,rw,rc));continue
   if rw<len(R) and rc<0:states.add((lw,lc,rw-1,len(R[rw-1])-1));continue
   if lw>=len(L) or rw<0:continue

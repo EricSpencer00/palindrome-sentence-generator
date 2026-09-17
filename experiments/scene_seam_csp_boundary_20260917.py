@@ -17,14 +17,22 @@ def audit(t):
   i+=1;j-=1
  return {"two_pointer_exact":not mm and bool(t),"mismatch_count":len(mm),"first_mismatch":mm[0] if mm else None,"reverse_slice_exact":bool(t) and t==t[::-1],"sha256_forward":hashlib.sha256(t.encode()).hexdigest(),"sha256_reverse":hashlib.sha256(t[::-1].encode()).hexdigest()}
 def seam(left,right):
- lw=re.findall(r"[a-z]+",left.casefold()); rw=re.findall(r"[a-z]+",right.casefold())[::-1]; trace=[]
- for n in range(1,max(len(lw),len(rw))+1):
-  a="".join(lw[:min(n,len(lw))]); b="".join(rw[:min(n,len(rw))])[::-1]; k=0
-  while k<min(len(a),len(b)) and a[k]==b[k]: k+=1
-  debt=None if k==min(len(a),len(b)) else {"offset":k,"left":a[k],"right":b[k]}
-  trace.append({"boundary":n,"matched":k,"debt":debt})
-  if debt:return {"closed":False,"trace":trace,"first_debt":debt}
- return {"closed":False,"trace":trace,"first_debt":{"offset":min(len(tape(left)),len(tape(right)))}}
+ # Compare the actual outside-in character cursors.  The previous version
+ # reversed the right word list and then reversed the concatenation again,
+ # scrambling the obligation stream; it also returned ``closed=False`` on
+ # the no-debt path.  Clause spans are retained so the trace records when a
+ # cursor crosses the seam while allowing an odd center or a center inside a
+ # word.
+ l=tape(left); r=tape(right); full=l+r; i=0; j=len(full)-1; trace=[]
+ while i<j:
+  crossing=(i < len(l)) != (j < len(l))
+  if full[i] != full[j]:
+   debt={"offset":i,"left":full[i],"right":full[j],"crossing_seam":crossing}
+   trace.append({"left_offset":i,"right_offset":j,"matched":False,"debt":debt})
+   return {"closed":False,"trace":trace,"first_debt":debt}
+  trace.append({"left_offset":i,"right_offset":j,"matched":True,"crossing_seam":crossing})
+  i+=1; j-=1
+ return {"closed":bool(full),"trace":trace,"first_debt":None}
 def main():
  rows=[]
  for l,r in itertools.chain(itertools.product(LEFT,RIGHT),REPAIRS):

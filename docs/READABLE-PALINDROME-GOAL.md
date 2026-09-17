@@ -2507,3 +2507,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   coupling for bridge transitions, location-preposition substitution within
   `in which`, and a typed discourse-marker attachment in the center-crossing
   grammar.
+
+  The next wave completed those operators. Semantic bridge-valency CSP
+  rendered 6 intact candidates up to 86 letters; `in which` location-
+  preposition substitution tested 3,072 candidates up to 63 letters; and the
+  typed discourse-marker center-attachment family rendered 162 intact
+  candidates up to 182 letters, with midpoint-inside-token crossing in every
+  candidate. All produced 0 exact closures. Independent pointer/SHA-256
+  replay, provenance, novelty preflight, and anti-shortcut checks are retained
+  for every row. The reader gate remains closed. The next concrete operators
+  are a seam-conditioned semantic transition automaton, locative predicate
+  substitution, and a typed sentence-level contrast attachment in the
+  center-crossing grammar.

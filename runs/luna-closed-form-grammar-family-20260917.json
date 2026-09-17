@@ -1,0 +1,227 @@
+{
+  "experiment_id": "luna-closed-form-grammar-family-20260917",
+  "signature": "typed-complete-clause-monoid|append-state-operator|live-character-obligations|fresh-nonmirror-prose|independent-pointer-sha",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "family": {
+    "nonterminal": "STATE",
+    "production": "STATE -> STATE COMPLETE_CLAUSE",
+    "operator": "extend(state, fresh_complete_clause)",
+    "arbitrary_size": true,
+    "base_clause_count": 2,
+    "extension_clause_count": 3
+  },
+  "proof_obligation_ledger": {
+    "closure_equation": "normalized_letters(text)[i] == normalized_letters(text)[N-1-i]",
+    "base": [
+      {
+        "clause": "dawn-catalog",
+        "emitted_letters": 58,
+        "outer_pairs": 61,
+        "resolved_prefix_pairs": 6,
+        "first_unresolved_offset": 0,
+        "remaining_pair_debt": 55
+      },
+      {
+        "clause": "noon-courier",
+        "emitted_letters": 122,
+        "outer_pairs": 61,
+        "resolved_prefix_pairs": 6,
+        "first_unresolved_offset": 0,
+        "remaining_pair_debt": 55
+      }
+    ],
+    "extension": [
+      {
+        "clause": "dawn-catalog",
+        "emitted_letters": 58,
+        "outer_pairs": 92,
+        "resolved_prefix_pairs": 4,
+        "first_unresolved_offset": 0,
+        "remaining_pair_debt": 88
+      },
+      {
+        "clause": "noon-courier",
+        "emitted_letters": 122,
+        "outer_pairs": 92,
+        "resolved_prefix_pairs": 8,
+        "first_unresolved_offset": 0,
+        "remaining_pair_debt": 84
+      },
+      {
+        "clause": "evening-garden",
+        "emitted_letters": 184,
+        "outer_pairs": 92,
+        "resolved_prefix_pairs": 8,
+        "first_unresolved_offset": 0,
+        "remaining_pair_debt": 84
+      }
+    ],
+    "all_clauses_complete": true,
+    "closed_form_proved": false
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "performed_before_rendering": true,
+    "registry_entries_read": 457,
+    "exact_signature_collision": false,
+    "duplicate_sweep_rejected": true,
+    "single_base_plus_one_extension": true
+  },
+  "candidates": {
+    "base": {
+      "label": "base",
+      "rendered": "At dawn, the archivist catalogs river maps beside the old observatory. Before noon, a patient courier delivers sealed parcels to the village clinic.",
+      "clauses": [
+        {
+          "key": "dawn-catalog",
+          "sense": "catalogue a place-bound collection",
+          "complete": true
+        },
+        {
+          "key": "noon-courier",
+          "sense": "deliver medical parcels",
+          "complete": true
+        }
+      ],
+      "letters": 122,
+      "pointer_audit": {
+        "algorithm": "independent_two_pointer",
+        "letters": 122,
+        "exact": false,
+        "mismatch_count": 55,
+        "first_mismatch": {
+          "left": 0,
+          "right": 121,
+          "left_char": "a",
+          "right_char": "c"
+        }
+      },
+      "hash_audit": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "forward": "4d6f08daae7a908f385d777fe6017c38d4c7e7d72d8704cdd2bbc10d21aeac93",
+        "reverse": "c500a9317d5e15e43f6c5fa44c3e6d4f571674d18356790ccbf3dafc2ff53d38",
+        "exact": false
+      },
+      "obligation_ledger": [
+        {
+          "clause": "dawn-catalog",
+          "emitted_letters": 58,
+          "outer_pairs": 61,
+          "resolved_prefix_pairs": 6,
+          "first_unresolved_offset": 0,
+          "remaining_pair_debt": 55
+        },
+        {
+          "clause": "noon-courier",
+          "emitted_letters": 122,
+          "outer_pairs": 61,
+          "resolved_prefix_pairs": 6,
+          "first_unresolved_offset": 0,
+          "remaining_pair_debt": 55
+        }
+      ],
+      "anti_shortcut": {
+        "seed_copied_or_wrapped": false,
+        "finished_tape_reversal": false,
+        "word_order_mirror": false,
+        "repeated_nonfunction_word": false,
+        "repeated_clause_unit": false,
+        "posthoc_character_edit": false
+      }
+    },
+    "one_extension": {
+      "label": "one_fresh_extension",
+      "rendered": "At dawn, the archivist catalogs river maps beside the old observatory. Before noon, a patient courier delivers sealed parcels to the village clinic. By evening, the groundskeeper labels young seedlings near the rain barrel.",
+      "clauses": [
+        {
+          "key": "dawn-catalog",
+          "sense": "catalogue a place-bound collection",
+          "complete": true
+        },
+        {
+          "key": "noon-courier",
+          "sense": "deliver medical parcels",
+          "complete": true
+        },
+        {
+          "key": "evening-garden",
+          "sense": "label living specimens for later care",
+          "complete": true
+        }
+      ],
+      "letters": 184,
+      "pointer_audit": {
+        "algorithm": "independent_two_pointer",
+        "letters": 184,
+        "exact": false,
+        "mismatch_count": 84,
+        "first_mismatch": {
+          "left": 0,
+          "right": 183,
+          "left_char": "a",
+          "right_char": "l"
+        }
+      },
+      "hash_audit": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "forward": "e6f236fc72f944ffa2ee5d12090a628f3a56ab81a9d1b9b257e35bb9ba14c53d",
+        "reverse": "a91c09d1f8cd8e6bcfc951f1ad0809443b9658f40f14f147bf0e9fe793df4367",
+        "exact": false
+      },
+      "obligation_ledger": [
+        {
+          "clause": "dawn-catalog",
+          "emitted_letters": 58,
+          "outer_pairs": 92,
+          "resolved_prefix_pairs": 4,
+          "first_unresolved_offset": 0,
+          "remaining_pair_debt": 88
+        },
+        {
+          "clause": "noon-courier",
+          "emitted_letters": 122,
+          "outer_pairs": 92,
+          "resolved_prefix_pairs": 8,
+          "first_unresolved_offset": 0,
+          "remaining_pair_debt": 84
+        },
+        {
+          "clause": "evening-garden",
+          "emitted_letters": 184,
+          "outer_pairs": 92,
+          "resolved_prefix_pairs": 8,
+          "first_unresolved_offset": 0,
+          "remaining_pair_debt": 84
+        }
+      ],
+      "anti_shortcut": {
+        "seed_copied_or_wrapped": false,
+        "finished_tape_reversal": false,
+        "word_order_mirror": false,
+        "repeated_nonfunction_word": false,
+        "repeated_clause_unit": false,
+        "posthoc_character_edit": false
+      }
+    }
+  },
+  "provenance": {
+    "source": "fresh hand-authored observatory, clinic, and garden scenes",
+    "seed_role": "38-letter benchmark metadata only",
+    "seed_used_in_output": false,
+    "selection": "typed complete clauses selected before rendering",
+    "generator": "experiments/luna_closed_form_grammar_family_20260917.py",
+    "generator_sha256": "22cdd0b3e621da9175a639e912317cd60608ab0b2d2ea0990cc8ea4655098834",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "live clause obligation ledger",
+      "novelty preflight"
+    ]
+  },
+  "next_test": {
+    "reader_facing": "Blindly rate the base and one-extension texts for ordinary meaning, then compare against shuffled-clause and intact-prose controls.",
+    "operator": "replace the first unresolved boundary with one fresh typed clause, recompute the entire ledger, and retain only a complete non-mirrored clause",
+    "state_change": "append or replace a semantic clause; never mutate characters after rendering"
+  }
+}

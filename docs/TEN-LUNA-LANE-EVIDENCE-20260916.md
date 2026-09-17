@@ -950,7 +950,7 @@ and forward/reverse SHA checks agree that it is not exact; provenance and
 anti-shortcut flags are clean, and its next reader-facing test remains the
 intact-versus-shuffled packet after exact admission. The paired-slot exact
 tapes are retained as provenance-backed failure evidence, not readability
-claims. The aggregate is now **5,377 rows across 332 routes, 84 exact rows,
+claims. The aggregate is now **5,394 rows across 332 routes, 84 exact rows,
 and 0 mechanically admitted outputs**; the registry is **431 retained, 35
 excluded, and 409 retained run artifacts**.
 
@@ -979,10 +979,11 @@ village clinic.”) and a 184-letter one-clause extension (“By evening, the
 groundskeeper labels young seedlings near the rain barrel.”). Both are
 complete authored prose with independent pointer/SHA audits and unresolved
 character debt; the next repair replaces the first unresolved boundary with a
-new typed clause. A semantic valency path solver retains 32 realizations; its
-best is “The young botanist marks a coastal inlet under the cedar shelter, and
-notes a safe return.” (73 letters; exact `false`), with held-out role
-substitution as the next repair. A reverse-automaton phrase lattice emits a
+new typed clause. A semantic valency path solver retains three base
+realizations plus two held-out role repairs; its repaired scene is “The young
+botanist points out a coastal inlet near the market, and notes a safe return.”
+(79 letters; exact `false`), with only the locative-to-consequence edge left
+open. A reverse-automaton phrase lattice emits a
 51-letter exact tape (“Doc, note: I dissent. A fast never prevents a fatness. I
 diet on cod.”), but the independent gate rejects it for catalogue collision
 and a self-palindromic span; it is failure evidence, not a readable output.
@@ -1008,15 +1009,15 @@ first-residual repair replaces the outer seam with a role-compatible clause
 pair. None is reader-eligible until exact admission.
 
 Two further lanes keep the construction state joint at a different seam. The
-punctuation-center bridge retains 24 baseline/repaired 112--136-letter scenes, including
+punctuation-center bridge retains 36 baseline/subject/object-repaired 112--136-letter scenes, including
 “The patient cartographer marks a coastal inlet beside the old pier; the
 harbor bell sounds, while the young archivist files weathered maps near the
 harbor office.” (exact `false`); its next repair holds out the repaired
-right-side object noun or determiner. The affix/clitic crossword retains nine
-complete 121--129-letter baseline/repaired clause pairs, including “The seasoned harbor pilot
+right-side object noun or determiner; its next repair holds out a locative.
+The affix/clitic crossword retains 13 complete 117--129-letter baseline/repaired clause pairs, including “The seasoned harbor pilot
 guides the weathered ferry through the morning fog. The kind librarian returns
 the borrowed novels to the neighborhood shelves.” (129 letters; exact
-`false`), with a held-out adjunct/object substitution next. Both
+`false`), with held-out subject/theme substitutions next. Both
 lanes independently audit the full normalized tape and preserve provenance;
 neither is a reader candidate until exact admission.
 

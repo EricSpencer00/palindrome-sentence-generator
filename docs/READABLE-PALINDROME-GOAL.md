@@ -3098,3 +3098,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   gate remains closed. The next concrete operators are equation-coupled
   attachment expansion, twelfth-residual conditioning after `locally`, and
   one-position plural-object lexical substitution under the coordinated gate.
+
+  The following wave completed those repairs. Equation-gated attachment
+  expansion rendered 1 intact 92-letter candidate; the twelfth-residual probe
+  retained 4 intact proper-locative candidates up to 66 letters but found `o`
+  where `e` was required; and one-position plural-object substitution rendered
+  4,608 candidates up to 73 letters while pruning 1,792 same-object or invalid
+  states. All produced 0 exact closures. Independent pointer/SHA-256 replay,
+  provenance, novelty preflight, and anti-shortcut checks are retained for
+  every row. The reader gate remains closed. The next concrete operators are
+  bidirectional equation gating, a grammatical `le`-initial continuation after
+  the matched proper-locative prefix, and second-plural-object substitution.

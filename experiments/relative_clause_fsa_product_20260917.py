@@ -16,7 +16,7 @@ LEX = {
     "live": "verb", "on": "prep", "drawer": "noun", "deliver": "verb",
     "diaper": "noun", "flow": "verb", "war": "noun", "was": "verb",
     "evil": "adj", "no": "det", "reviled": "adj", "reward": "noun",
-    "repaid": "verb",
+    "repaid": "verb", "flowwar": "compound-answer",
 }
 LEFT_PATH = ("i", "saw", "a", "raw", "wolf", "live", "on", "a", "drawer", "deliver", "diaper")
 
@@ -55,7 +55,7 @@ def grammar_path(left: tuple[str, ...], right: tuple[str, ...]) -> bool:
     # The withheld control is the short declarative state; long candidates
     # must traverse the relative-chain drawer state.
     if "drawer" not in left and len(left) != 5: return False
-    return right and right[0] in {"flow", "reviled", "reward", "repaid"} and all(w in LEX for w in left + right)
+    return right and right[0] in {"flow", "flowwar", "reviled", "reward", "repaid"} and all(w in LEX for w in left + right)
 
 def build(left: tuple[str, ...], right_vocab: tuple[str, ...]) -> dict | None:
     obligation = tape(" ".join(left))[::-1]
@@ -73,7 +73,7 @@ def build(left: tuple[str, ...], right_vocab: tuple[str, ...]) -> dict | None:
             "provenance": {"lexical_choices_before_rendering": True, "seed_used": False}}
 
 def run() -> dict:
-    right_vocab = ("flow", "war", "a", "was", "i", "evil", "no", "reward", "reviled", "repaid")
+    right_vocab = ("flowwar", "flow", "war", "a", "was", "i", "evil", "no", "reward", "reviled", "repaid")
     control = build(("i", "saw", "a", "raw", "wolf"), right_vocab)
     candidates = []
     for n in range(6, len(LEFT_PATH) + 1):

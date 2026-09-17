@@ -1,0 +1,150 @@
+{
+  "experiment_id": "reverse-tape-relative-resegment-20260916",
+  "signature": "reverse-tape-resegment|interrogative-relative-cfg|function-boundary-choice|valency-agreement|fresh",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "resegment reverse obligation into alternate interrogative/relative CFG path while selecting function words under agreement and valency",
+  "candidates": [
+    {
+      "cfg_path": "Q -> NP V CP; CP -> COMP S REL",
+      "reverse_resegmentation": {
+        "reverse_tape_letters": 78,
+        "alternate_function_words": [
+          "that",
+          "the",
+          "I"
+        ],
+        "different_cfg_path": true
+      },
+      "constraints": [
+        "question force",
+        "past perfect agreement",
+        "relative object gap",
+        "non-mirrored token order"
+      ],
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "Which archivist said that the pilot had found the quiet chart I stored beside the river museum?",
+        "letters": 78,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "w",
+          "m"
+        ],
+        "normalized_sha256": "fa3a9c2ac5b7b63c596e7f1f9af5d3bb57c03c59890ef78865c16ef4297050bf",
+        "reverse_sha256": "a39533d2287657d00e98e6256ebc1c172eb329eb9659cdf6ff7c5b538eed66ca",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      }
+    },
+    {
+      "cfg_path": "Q -> NP V CP; CP -> COMP S REL",
+      "reverse_resegmentation": {
+        "reverse_tape_letters": 82,
+        "alternate_function_words": [
+          "that",
+          "the",
+          "I"
+        ],
+        "different_cfg_path": true
+      },
+      "constraints": [
+        "question force",
+        "past perfect agreement",
+        "relative object gap",
+        "non-mirrored token order"
+      ],
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "Was the gardener certain that the mason had repaired the old gate I marked near the western orchard?",
+        "letters": 82,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "w",
+          "d"
+        ],
+        "normalized_sha256": "a2969dfd977e50b6649fb1477de1996f7afa77f73002353c325e7116851b6ddd",
+        "reverse_sha256": "9980d90216cba74f77f78cdedb55f1b3e746d2d987bd8faf5f7267520576d7d0",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 342,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "mirrored_token_clause": false
+  },
+  "next_repair": {
+    "operator": "replace complementizer or relative pronoun with a held-out function-word variant matching the first reverse residual while preserving agreement",
+    "reason": "complete questions parse cleanly but retain a nonzero character residual"
+  },
+  "provenance": {
+    "generator_sha256": "c4e0a77f764c2bf40c940070f76ceba8a0e5c56565fac846a8a4f3cfb09e4969",
+    "lexical_source": "fresh interrogative/relative authored frames",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "CFG path replay",
+      "anti-shortcut"
+    ]
+  }
+}

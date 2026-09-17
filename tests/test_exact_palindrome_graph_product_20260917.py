@@ -7,6 +7,10 @@ def test_fixture_oracle_and_live_rejection():
     assert result["fixture"]["rendered"] == ["live on time emit no evil"]
     assert result["fixture"]["result"]["rejected_unequal_edge_pairs"] > 0
     assert result["fixture"]["result"]["completions"]
+    assert result["fixture"]["pairs"] == [{"left_path": "live on time", "right_path": "emit no evil", "full_tape": "live on time emit no evil"}]
+
+def test_half_tape_is_not_exact_admission():
+    assert not exact_audit("live on time")["exact"]
 
 def test_root_intersections_are_reported_without_sentence_candidates():
     result = run()

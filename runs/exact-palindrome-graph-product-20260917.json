@@ -3,16 +3,29 @@
   "signature": "exact-palindrome-graph-product|character-nfa|boundary-epsilon|live-edge-product",
   "status": "completed",
   "fixture": {
-    "oracle": [
-      "live on time emit no evil"
-    ],
+    "oracle": {
+      "pair": [
+        "live on time",
+        "emit no evil"
+      ],
+      "full_tape": "live on time emit no evil"
+    },
     "rendered": [
       "live on time emit no evil"
+    ],
+    "pairs": [
+      {
+        "left_path": "live on time",
+        "right_path": "emit no evil",
+        "full_tape": "live on time emit no evil"
+      }
     ],
     "result": {
       "completions": [
         {
           "text": "live on time",
+          "left_path": "live on time",
+          "right_path": "emit no evil",
           "backpointer": {
             "left": "fixture:left:word-boundary:2",
             "right": "fixture:right:word-boundary:2",
@@ -628,6 +641,8 @@
       "completions": [
         {
           "text": "addendum",
+          "left_path": "addendum",
+          "right_path": "addendum",
           "backpointer": {
             "left": "audited-common-word-inventory:word-boundary:0",
             "right": "audited-common-word-inventory:word-boundary:0",
@@ -668,6 +683,8 @@
         },
         {
           "text": "addenda",
+          "left_path": "addenda",
+          "right_path": "addenda",
           "backpointer": {
             "left": "audited-common-word-inventory:word-boundary:0",
             "right": "audited-common-word-inventory:word-boundary:0",
@@ -704,6 +721,8 @@
         },
         {
           "text": "added",
+          "left_path": "added",
+          "right_path": "added",
           "backpointer": {
             "left": "audited-common-word-inventory:word-boundary:0",
             "right": "audited-common-word-inventory:word-boundary:0",
@@ -732,6 +751,8 @@
         },
         {
           "text": "adda",
+          "left_path": "adda",
+          "right_path": "adda",
           "backpointer": {
             "left": "audited-common-word-inventory:word-boundary:0",
             "right": "audited-common-word-inventory:word-boundary:0",
@@ -756,6 +777,8 @@
         },
         {
           "text": "add",
+          "left_path": "add",
+          "right_path": "add",
           "backpointer": {
             "left": "audited-common-word-inventory:word-boundary:0",
             "right": "audited-common-word-inventory:word-boundary:0",
@@ -780,7 +803,13 @@
       "budget_exhausted": true,
       "states_seen": 2500
     },
-    "completed_paths": [],
+    "completed_paths": [
+      {
+        "left_path": "adda",
+        "right_path": "adda",
+        "full_tape": "adda adda"
+      }
+    ],
     "grammar_gate": "completed paths only",
     "readability_gate": "completed paths only",
     "word_cap": 8,
@@ -807,5 +836,5 @@
       "render only accepting exact paths"
     ]
   },
-  "generator_sha256": "deeec4e03b80d262d96ccddfd06bb78aec6a7b0e1afa3deab32b56511bea930a"
+  "generator_sha256": "f2403c748a14881b11386eb38ad17142963dbb3fc3476bdb1c3364fc94cbb872"
 }

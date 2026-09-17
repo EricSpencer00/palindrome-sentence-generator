@@ -9,4 +9,7 @@ def test_live_morpheme_transducer_audits_and_repair():
     assert all(x["provenance"]["authored_scene"] for x in d["candidates"])
     assert all(x["repair"]["heldout"] for x in d["candidates"])
     assert all("sha256_forward" in x["repair"]["audit"] for x in d["candidates"])
+    states = [p for x in d["candidates"] for p in x["base"]["transducer"]["pairs"]]
+    assert any(p["consumed_from_residual"] for p in states)
+    assert all("residual_after" in p for p in states)
     assert Path("runs/reversible-morpheme-transducer-20260917.json").exists()

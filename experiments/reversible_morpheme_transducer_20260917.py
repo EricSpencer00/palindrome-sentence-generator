@@ -47,9 +47,22 @@ def transduce(scene):
         for st in states:
             suffix = next((x for x in MORPHEMES["suffix"] if word.endswith(x)), "")
             prefix = next((x for x in MORPHEMES["prefix"] if word.startswith(x)), "")
-            pair = {"word": word, "prefix": prefix, "suffix": suffix, "boundary": k}
-            nxt.append({**st, "boundary": k+1, "pending": suffix or prefix,
-                        "pairs": [*st["pairs"], pair], "score": st["score"] + int(bool(suffix or prefix))})
+            morpheme = suffix or prefix
+            # Consume the selected morpheme from the *current* residual.
+            # The index is searched afresh after every transition; no target
+            # tape or precomputed reverse is consulted.  Failed transitions
+            # remain visible as unmatched boundary states.
+            residual = st["residual"]
+            at = residual.find(morpheme) if morpheme else -1
+            consumed = at >= 0
+            if consumed:
+                residual = residual[:at] + residual[at + len(morpheme):]
+            pair = {"word": word, "prefix": prefix, "suffix": suffix, "boundary": k,
+                    "consumed_morpheme": morpheme, "consumed_from_residual": consumed,
+                    "residual_after": residual}
+            nxt.append({**st, "boundary": k+1, "pending": morpheme,
+                        "residual": residual, "pairs": [*st["pairs"], pair],
+                        "score": st["score"] + int(consumed)})
         states = nxt
     return max(states, key=lambda x: x["score"])
 

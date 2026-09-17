@@ -125,7 +125,7 @@ def run():
           "reader_status":"unreviewed; requires blinded human rating","mechanically_admitted":False})
     result={"status":"completed_no_admitted_closure" if not rows else "exact_rejected_pending_readers",
       "method":"broad_authored_cfg_scene_role_product","forms":len(FORMS),"paths":len(paths),
-      "search":{"states":states,"truncated":truncated,"letters":"39-160","rlaif_per_candidate":False,
+      "search":{"states":states,"truncated":truncated,"letters":"39-180","rlaif_per_candidate":False,
                  "construction_filters":["determiner_noun_agreement","verb_object_valency","shared_scene_entity_and_anaphora"]},
       "exact_candidates":rows,"withheld_control":{"id":"known_38_letter_seed","used_for_search":False,"exact":True},
       "next_repair":{"operator":"add relative-event attachment edges with distinct anaphora","reason":"the shared-scene coordination product yielded no exact closure; next add event attachment without repeating lexical entities"},

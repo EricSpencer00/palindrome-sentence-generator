@@ -140,7 +140,15 @@ def run() -> dict[str, object]:
         "proof_obligation_ledger": {"closure_equation": "normalized_letters(text)[i] == normalized_letters(text)[N-1-i]", "base": base_row["obligation_ledger"], "extension": extended_row["obligation_ledger"], "all_clauses_complete": all(row["complete"] for row in extended_row["clauses"]), "closed_form_proved": False},
         "novelty_preflight": preflight,
         "candidates": {"base": base_row, "one_extension": extended_row},
+        # Keep the two complete authored surfaces in the common candidate
+        # schema as well as the keyed proof ledger above.  This makes the
+        # aggregate audit show the actual prose rather than silently treating
+        # the construction family as metadata only.
+        "rendered_candidates": [base_row, extended_row],
         "provenance": {"source": "fresh hand-authored observatory, clinic, and garden scenes", "seed_role": "38-letter benchmark metadata only", "seed_used_in_output": False, "selection": "typed complete clauses selected before rendering", "generator": str(Path(__file__).relative_to(ROOT)), "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "audits": ["independent two-pointer", "forward/reverse SHA-256", "live clause obligation ledger", "novelty preflight"]},
+        "next_repair": {"reader_facing": "Blindly rate the base and one-extension texts for ordinary meaning, then compare against shuffled-clause and intact-prose controls.", "operator": "replace the first unresolved boundary with one fresh typed clause, recompute the entire ledger, and retain only a complete non-mirrored clause", "state_change": "append or replace a semantic clause; never mutate characters after rendering"},
+        # Preserve the historical key for old replay tests while making
+        # ``next_repair`` the canonical contract field.
         "next_test": {"reader_facing": "Blindly rate the base and one-extension texts for ordinary meaning, then compare against shuffled-clause and intact-prose controls.", "operator": "replace the first unresolved boundary with one fresh typed clause, recompute the entire ledger, and retain only a complete non-mirrored clause", "state_change": "append or replace a semantic clause; never mutate characters after rendering"},
     }
     OUT.write_text(json.dumps(payload, indent=2) + "\n")

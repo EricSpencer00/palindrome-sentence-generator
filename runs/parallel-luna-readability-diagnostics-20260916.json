@@ -317,10 +317,13 @@
     "runs/luna-cfg-frame-repair-20260917.json",
     "runs/luna-cross-boundary-clause-decoder-20260917.json",
     "runs/luna-fresh-center-composition-20260917.json",
-    "runs/luna-lm-obligation-clause-search-20260917.json"
+    "runs/luna-lm-obligation-clause-search-20260917.json",
+    "runs/luna-closed-form-grammar-family-20260917.json",
+    "runs/luna-semantic-lexical-path-solver-20260917.json",
+    "runs/luna-reverse-automaton-phrase-lattice-20260917.json"
   ],
-  "candidate_count": 5297,
-  "exact_count": 83,
+  "candidate_count": 5303,
+  "exact_count": 84,
   "mechanically_admitted_count": 0,
   "route_summary": [
     {
@@ -2164,6 +2167,16 @@
       "mean_brown_order_gain_vs_shuffle": 0.677226313512989
     },
     {
+      "source_run": "runs/luna-closed-form-grammar-family-20260917.json",
+      "rows": 2,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 122,
+      "max_letters": 184,
+      "mean_zipf_frequency": 5.080089514066496,
+      "mean_brown_order_gain_vs_shuffle": 1.006829949359993
+    },
+    {
       "source_run": "runs/luna-cross-boundary-clause-decoder-20260917.json",
       "rows": 8,
       "exact_count": 0,
@@ -2252,6 +2265,26 @@
       "max_letters": 71,
       "mean_zipf_frequency": 4.9471428571428575,
       "mean_brown_order_gain_vs_shuffle": 0.9754616120840058
+    },
+    {
+      "source_run": "runs/luna-reverse-automaton-phrase-lattice-20260917.json",
+      "rows": 1,
+      "exact_count": 1,
+      "mechanically_admitted_count": 0,
+      "min_letters": 51,
+      "max_letters": 51,
+      "mean_zipf_frequency": 5.319285714285715,
+      "mean_brown_order_gain_vs_shuffle": -0.5350386907226046
+    },
+    {
+      "source_run": "runs/luna-semantic-lexical-path-solver-20260917.json",
+      "rows": 3,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 73,
+      "max_letters": 79,
+      "mean_zipf_frequency": 5.413333333333333,
+      "mean_brown_order_gain_vs_shuffle": 0.9448540723618913
     },
     {
       "source_run": "runs/manual-bidirectional-scene-20260916.json",
@@ -255064,6 +255097,280 @@
         "word_count": 20,
         "repeated_word_rate": 0.050000000000000044,
         "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, the archivist catalogs river maps beside the old observatory. Before noon, a patient courier delivers sealed parcels to the village clinic.",
+      "source_run": "runs/luna-closed-form-grammar-family-20260917.json",
+      "provenance": {
+        "source": "fresh hand-authored observatory, clinic, and garden scenes",
+        "seed_role": "38-letter benchmark metadata only",
+        "seed_used_in_output": false,
+        "selection": "typed complete clauses selected before rendering",
+        "generator": "experiments/luna_closed_form_grammar_family_20260917.py",
+        "generator_sha256": "d75ea2cd51b3fef857bc510373162b86027ba1959f53b303ddf1fa162a70c721",
+        "audits": [
+          "independent two-pointer",
+          "forward/reverse SHA-256",
+          "live clause obligation ledger",
+          "novelty preflight"
+        ]
+      },
+      "repair": null,
+      "letters": 122,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0584330046017616,
+        "mean_zipf_frequency": 5.077826086956522,
+        "word_count": 23,
+        "repeated_word_rate": 0.08695652173913049,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, the archivist catalogs river maps beside the old observatory. Before noon, a patient courier delivers sealed parcels to the village clinic. By evening, the groundskeeper labels young seedlings near the rain barrel.",
+      "source_run": "runs/luna-closed-form-grammar-family-20260917.json",
+      "provenance": {
+        "source": "fresh hand-authored observatory, clinic, and garden scenes",
+        "seed_role": "38-letter benchmark metadata only",
+        "seed_used_in_output": false,
+        "selection": "typed complete clauses selected before rendering",
+        "generator": "experiments/luna_closed_form_grammar_family_20260917.py",
+        "generator_sha256": "d75ea2cd51b3fef857bc510373162b86027ba1959f53b303ddf1fa162a70c721",
+        "audits": [
+          "independent two-pointer",
+          "forward/reverse SHA-256",
+          "live clause obligation ledger",
+          "novelty preflight"
+        ]
+      },
+      "repair": null,
+      "letters": 184,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9552268941182245,
+        "mean_zipf_frequency": 5.08235294117647,
+        "word_count": 34,
+        "repeated_word_rate": 0.11764705882352944,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young botanist marks a coastal inlet under the cedar shelter, and notes a safe return.",
+      "source_run": "runs/luna-semantic-lexical-path-solver-20260917.json",
+      "provenance": "choose typed semantic path first; consume opposing character obligations online during lexical realization",
+      "repair": null,
+      "letters": 73,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9162089789136232,
+        "mean_zipf_frequency": 5.43,
+        "word_count": 16,
+        "repeated_word_rate": 0.125,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient cartographer marks a coastal inlet beside the quiet harbor, and notes a safe return.",
+      "source_run": "runs/luna-semantic-lexical-path-solver-20260917.json",
+      "provenance": "choose typed semantic path first; consume opposing character obligations online during lexical realization",
+      "repair": null,
+      "letters": 79,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9070538754113109,
+        "mean_zipf_frequency": 5.309374999999999,
+        "word_count": 16,
+        "repeated_word_rate": 0.125,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young botanist marks the winter garden beside the quiet harbor, and leaves a careful record.",
+      "source_run": "runs/luna-semantic-lexical-path-solver-20260917.json",
+      "provenance": "choose typed semantic path first; consume opposing character obligations online during lexical realization",
+      "repair": null,
+      "letters": 79,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0112993627607398,
+        "mean_zipf_frequency": 5.500624999999999,
+        "word_count": 16,
+        "repeated_word_rate": 0.125,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Doc, note: I dissent. A fast never prevents a fatness. I diet on cod.",
+      "source_run": "runs/luna-reverse-automaton-phrase-lattice-20260917.json",
+      "provenance": {
+        "generator_sha256": "4af2331c3a1ef1b2ce63a23912dd929ae909848830ba749bc173986ca8e777e9",
+        "independent_pointer": true,
+        "independent_sha": true,
+        "independently_authored_edges": true,
+        "known_palindromes_imported": false,
+        "source_sentence_copied": false,
+        "readability_certificate": false
+      },
+      "repair": null,
+      "letters": 51,
+      "exact_letter_palindrome": true,
+      "independent_sha256_exact": true,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": false,
+        "local_catalogue_absent": false
+      },
+      "failed_checks": [
+        "absent_from_local_catalogue",
+        "local_catalogue_absent",
+        "no_self_palindromic_proper_multiword_span"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": -0.5350386907226046,
+        "mean_zipf_frequency": 5.319285714285715,
+        "word_count": 14,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 3
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

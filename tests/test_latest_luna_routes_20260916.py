@@ -62,13 +62,13 @@ def test_authored_boundary_search_keeps_all_probes_complete_and_unadmitted():
 def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     report = load("parallel-luna-readability-diagnostics-20260916.json")
     assert report["status"] == "diagnostic_not_human_readability_result"
-    assert report["candidate_count"] == 5297
-    assert report["exact_count"] == 83
+    assert report["candidate_count"] == 5303
+    assert report["exact_count"] == 84
     assert report["mechanically_admitted_count"] == 0
     assert all(row["provenance"] != "unspecified" for row in report["rows"])
     assert all("brown_order_gain_vs_shuffle" in row["diagnostics_not_readability"]
                for row in report["rows"])
-    assert len(report["route_summary"]) == 323
+    assert len(report["route_summary"]) == 326
     assert max(row["max_letters"] for row in report["route_summary"]) == 1922
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/hand-authored-clause-breakthrough-2026-09-16.json"]["rows"] == 1
@@ -94,6 +94,9 @@ def test_parallel_readability_report_is_diagnostic_and_keeps_provenance():
     assert by_source["runs/luna-cross-boundary-clause-decoder-20260917.json"]["rows"] == 8
     assert by_source["runs/luna-fresh-center-composition-20260917.json"]["rows"] == 12
     assert by_source["runs/luna-lm-obligation-clause-search-20260917.json"]["rows"] == 12
+    assert by_source["runs/luna-closed-form-grammar-family-20260917.json"]["rows"] == 2
+    assert by_source["runs/luna-semantic-lexical-path-solver-20260917.json"]["rows"] == 3
+    assert by_source["runs/luna-reverse-automaton-phrase-lattice-20260917.json"]["rows"] == 1
     assert by_source["runs/agreement-carrying-morphology-boundary-csp-20260917.json"]["rows"] == 24
     assert by_source["runs/finite-state-boundary-beam-20260917.json"]["rows"] == 12
     assert by_source["runs/dependency-seam-csp-20260916-luna.json"]["rows"] == 1

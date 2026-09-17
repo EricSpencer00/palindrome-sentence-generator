@@ -26,8 +26,8 @@ builds ordinary scenes: typed grammar and semantic slots propose the next
 words, and targeted repairs are selected from the current mirrored-letter
 debt.  Ten deliberately orthogonal construction lanes share an independent
 two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 5,297 candidates from 323 route
-summaries; 83 are exact, but none passes the mechanical admission gate and no row has
+The current development snapshot contains 5,303 candidates from 326 route
+summaries; 84 are exact, but none passes the mechanical admission gate and no row has
 yet been promoted by readers.  We report the rendered candidates and the
 failed gates explicitly, then use each failure to define the next repair
 operator.  The contribution is therefore a reproducible construction and
@@ -443,9 +443,9 @@ generator's booleans.  The mechanical admission vector records ASCII support,
 lexical form, distinctness, catalogue-family exclusion, repeated-unit and
 self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
 one signature to each run and rejects duplicate families before aggregation.
-On the authoritative snapshot the registry contains 423 unique artifacts (34
-preflight exclusions); the aggregate contains 5,297 rows, 83 exact rows, and
-zero mechanically admitted rows across 323 route summaries.  Every exact row
+On the authoritative snapshot the registry contains 425 unique artifacts (35
+preflight exclusions); the aggregate contains 5,303 rows, 84 exact rows, and
+zero mechanically admitted rows across 326 route summaries.  Every exact row
 therefore has a visible reason for rejection or promotion status rather than
 being silently discarded.  The aggregate report is registered separately as
 an audit artifact, never as a construction family.
@@ -460,7 +460,7 @@ three 73--83-letter scenes; a memoized POS/valency intersection emits 12
 three independently exact 101-letter tapes.  The longest readable rendering
 is ``The careful archivist stores weathered maps beside the north window. A
 quiet teacher reviews marked field notes near the harbor office.''  Its
-independent pointer and forward/reverse SHA checks agree on emph{not exact}.
+independent pointer and forward/reverse SHA checks agree on \emph{not exact}.
 The exact 101-letter tapes are also visible in the run artifact, but their
 surface is not readable and they are rejected before any reader claim.  Each
 failure names a next operation (held-out adjunct, inflectional, role-clause,
@@ -495,6 +495,24 @@ representative is ``The gardener carries the bell beside the garden. The
 writer watches the seed within the station.'' (79 letters; exact
 \emph{false}); its held-out repair replaces the first right-clause place with
 ``orchard''. None embeds the known seed or uses a mirrored word-order unit.
+
+Three further orthogonal probes make the scalability claim concrete.  The
+closed-form grammar family appends a fresh typed clause to a complete state,
+rendering a 122-letter base, ``At dawn, the archivist catalogs river maps
+beside the old observatory. Before noon, a patient courier delivers sealed
+parcels to the village clinic.'', and a 184-letter one-clause extension that
+adds ``By evening, the groundskeeper labels young seedlings near the rain
+barrel.''  Both are ordinary, independently pointer/SHA-audited prose with
+unresolved character debt; the next repair replaces the first unresolved
+boundary with a fresh typed clause.  A semantic valency path solver realizes
+32 agent--event--theme--locative--consequence paths; its best 73-letter scene
+is ``The young botanist marks a coastal inlet under the cedar shelter, and
+notes a safe return.''  The next repair substitutes the first unsatisfied
+role while preserving valency.  Finally, a reverse-automaton phrase lattice
+produces a 51-letter exact tape, ``Doc, note: I dissent. A fast never prevents
+a fatness. I diet on cod.'', but the independent gate rejects it for local
+catalogue collision and a self-palindromic span.  This exact control is kept
+as rejection evidence, not counted as a readable output.
 
 \section{Reader-facing evaluation}
 No candidate is called readable by the automatic diagnostics.  The release

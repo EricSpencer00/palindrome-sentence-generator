@@ -950,9 +950,9 @@ and forward/reverse SHA checks agree that it is not exact; provenance and
 anti-shortcut flags are clean, and its next reader-facing test remains the
 intact-versus-shuffled packet after exact admission. The paired-slot exact
 tapes are retained as provenance-backed failure evidence, not readability
-claims. The aggregate is now **5,297 rows across 323 routes, 83 exact rows,
-and 0 mechanically admitted outputs**; the registry is **423 retained, 34
-excluded, and 401 retained run artifacts**.
+claims. The aggregate is now **5,303 rows across 326 routes, 84 exact rows,
+and 0 mechanically admitted outputs**; the registry is **425 retained, 35
+excluded, and 403 retained run artifacts**.
 
 The following frontier changes the obligation mechanism rather than widening a
 sweep: a cross-word character trie retains eight 79-letter scenes, a fresh
@@ -970,3 +970,19 @@ CFG exact control and a 42-letter lexical-closure exact control are preserved
 in separate excluded registry entries because their independent gates detect
 word-order/self-palindromic shortcuts or self-collision; neither enters the
 reader packet.
+
+Three final orthogonal probes make the scalable-construction claim explicit.
+The closed-form grammar family appends a fresh typed clause, showing a
+122-letter base (“At dawn, the archivist catalogs river maps beside the old
+observatory. Before noon, a patient courier delivers sealed parcels to the
+village clinic.”) and a 184-letter one-clause extension (“By evening, the
+groundskeeper labels young seedlings near the rain barrel.”). Both are
+complete authored prose with independent pointer/SHA audits and unresolved
+character debt; the next repair replaces the first unresolved boundary with a
+new typed clause. A semantic valency path solver retains 32 realizations; its
+best is “The young botanist marks a coastal inlet under the cedar shelter, and
+notes a safe return.” (73 letters; exact `false`), with held-out role
+substitution as the next repair. A reverse-automaton phrase lattice emits a
+51-letter exact tape (“Doc, note: I dissent. A fast never prevents a fatness. I
+diet on cod.”), but the independent gate rejects it for catalogue collision
+and a self-palindromic span; it is failure evidence, not a readable output.

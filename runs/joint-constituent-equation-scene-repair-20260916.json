@@ -1,0 +1,187 @@
+{
+  "experiment": "joint-constituent-equation-scene-repair-20260916",
+  "signature": "bilateral-complete-constituent-scene|paired-outer-frontier-repair|heldout-svo-adjunct|ordinary-right-scene-order|independent-pointer-sha-audit",
+  "status": "complete; one targeted frontier repair, no exact closure",
+  "novelty_preflight": {
+    "entries_inspected": 391,
+    "exact_signature_collisions_before_render": [],
+    "passed": true,
+    "repair_scope": "replace exactly the paired complete constituents at the first frontier mismatch",
+    "state_space_distinction": "one held-out SVO-adjunct pair replaces the outer baseline events; two interior events and normal scene order are fixed"
+  },
+  "baseline_novelty_preflight": {
+    "entries_inspected": 391,
+    "exact_signature_collisions_before_render": [],
+    "related_families_for_review": [],
+    "passed": true,
+    "state_space_distinction": "independently authored complete SVO-adjunct constituents are selected jointly while a reversible prefix/suffix character equation is carried at constituent boundaries; both sides remain normal-order prose"
+  },
+  "candidate_count": 1,
+  "candidate": {
+    "rendered": "The patient archivist catalogs sealed journals beneath winter rafters. The museum guide opens the west gallery after visitors arrive. The waiting curator locks glass cabinets after evening lectures. The coastal signaler guides lantern boats at twilight.",
+    "normalized_tape": "thepatientarchivistcatalogssealedjournalsbeneathwinterraftersthemuseumguideopensthewestgalleryaftervisitorsarrivethewaitingcuratorlocksglasscabinetsaftereveninglecturesthecoastalsignalerguideslanternboatsattwilight",
+    "letters": 214,
+    "replaced_pair": {
+      "left": {
+        "id": "archivist-journals",
+        "meaning": "archivist catalogs sealed journals beneath winter rafters",
+        "position": "first"
+      },
+      "right": {
+        "id": "signaler-boats",
+        "meaning": "signaler guides lantern boats at twilight",
+        "position": "last"
+      }
+    },
+    "preserved_constituents": [
+      "guide-gallery",
+      "curator-cabinet"
+    ],
+    "equation_frontier": {
+      "left_letters": 113,
+      "right_letters": 101,
+      "positions_checked": 101,
+      "matching_pairs": 10,
+      "mismatch_pairs": 91,
+      "first_mismatch_offset": 2,
+      "left_prefix": "lleryaftervisitorsarrive",
+      "right_reverse_obligation": "thgiliwttastaobnretnalse",
+      "equation": "x[i] = x[N-1-i] across complete constituent yields"
+    },
+    "exact_check_two_pointer": {
+      "algorithm": "independent_two_pointer",
+      "exact": false,
+      "letters": 214,
+      "mismatch_count": 96,
+      "mismatches": [
+        {
+          "offset": 2,
+          "left": "e",
+          "right": "g"
+        },
+        {
+          "offset": 3,
+          "left": "p",
+          "right": "i"
+        },
+        {
+          "offset": 4,
+          "left": "a",
+          "right": "l"
+        },
+        {
+          "offset": 5,
+          "left": "t",
+          "right": "i"
+        },
+        {
+          "offset": 6,
+          "left": "i",
+          "right": "w"
+        },
+        {
+          "offset": 7,
+          "left": "e",
+          "right": "t"
+        },
+        {
+          "offset": 8,
+          "left": "n",
+          "right": "t"
+        },
+        {
+          "offset": 9,
+          "left": "t",
+          "right": "a"
+        },
+        {
+          "offset": 10,
+          "left": "a",
+          "right": "s"
+        },
+        {
+          "offset": 11,
+          "left": "r",
+          "right": "t"
+        },
+        {
+          "offset": 12,
+          "left": "c",
+          "right": "a"
+        },
+        {
+          "offset": 13,
+          "left": "h",
+          "right": "o"
+        }
+      ]
+    },
+    "exact_check_sha256": {
+      "algorithm": "independent_forward_reverse_sha256",
+      "exact": false,
+      "forward": "3e147c79e90c16c284c70e516130b55fe6f6a48a6b9a409ec3db876118ff5a08",
+      "reverse": "4b301b25aafd2ef39d0da239e11fe4f719258b406369f9e2568d027027cc8ac2"
+    },
+    "independent_exact_agreement": true,
+    "central_admission": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": false,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "independent_admission": {
+      "ascii_letters_only": true,
+      "complete_sentence_marks": true,
+      "minimum_word_count": true,
+      "content_words_unique": true,
+      "not_word_order_mirror": true
+    },
+    "anti_shortcut_flags": {
+      "fixed_tape": false,
+      "reverse_decoder": false,
+      "mirrored_word_units": false,
+      "repeated_palindromic_unit": false,
+      "catalogue_text_used": false,
+      "isolated_character_edit": false,
+      "complete_constituents_only": true,
+      "normal_order_events": true
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "baseline_experiment": "joint-constituent-equation-scene-solver-20260916",
+      "baseline_selection": {
+        "left_indices": [
+          0,
+          2
+        ],
+        "right_indices": [
+          1,
+          0
+        ],
+        "rank": 1
+      },
+      "repair_operator": "paired complete constituent replacement at first mirrored mismatch",
+      "authoring": "fresh held-out role-compatible SVO-adjunct events"
+    },
+    "next_repair": "If the repaired outer pair remains open, replace only the next complete constituent pair at the first reported frontier mismatch and rerun novelty preflight before rendering."
+  },
+  "provenance": {
+    "generator_sha256": "223049b5de2a51a16a5d959eca806e28ac72dee430f9437df59f6eff90d3c139",
+    "registry_sha256": "c0cd18e2a997352d3084e831e728e3e2af2cbc77c9b3de5c2950828b81ea3f1f",
+    "ordinary_order_rendering": true
+  },
+  "anti_shortcut_policy": "No fixed tape, reverse decoding, mirrored units, catalogue import, repetition, or isolated-character edits; only one paired complete constituent replacement was attempted."
+}

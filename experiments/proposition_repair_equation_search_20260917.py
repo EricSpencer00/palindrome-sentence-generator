@@ -15,16 +15,16 @@ SLOTS = ("subject", "verb", "object", "adjunct")
 
 # Each alternative preserves the proposition's role and event meaning.
 LEFT = {
-    "subject": ("the quiet baker", "a patient baker", "the young baker"),
-    "verb": ("marks", "copies", "folds"),
-    "object": ("a blue map", "the old map", "a brief note"),
-    "adjunct": ("at dawn", "near noon", "before rain"),
+    "subject": ("the quiet baker", "a patient baker", "one young baker", "this calm cook", "the skilled pilot"),
+    "verb": ("marks", "copies", "folds", "draws", "keeps"),
+    "object": ("a blue map", "the old map", "a brief note", "one plain chart", "the small ledger"),
+    "adjunct": ("at dawn", "near noon", "before rain", "after lunch", "by dusk"),
 }
 RIGHT = {
-    "subject": ("a careful guide", "one patient guide", "this young guide"),
-    "verb": ("checks", "reads", "folds"),
-    "object": ("the trail chart", "a blue signal", "the old ledger"),
-    "adjunct": ("at sunset", "near twilight", "before night"),
+    "subject": ("a careful guide", "one patient scout", "this young ranger", "the calm sailor", "a skilled reader"),
+    "verb": ("checks", "reads", "folds", "finds", "keeps"),
+    "object": ("the trail chart", "a blue signal", "the old ledger", "one plain record", "a small parcel"),
+    "adjunct": ("at sunset", "near twilight", "before night", "after rest", "by moonlight"),
 }
 
 def tape(s: str) -> str:
@@ -61,6 +61,11 @@ def semantic_checks(text: str) -> dict:
             "repeated_unit": len(words) != len(set(words)),
             "fragment": len(words) < 8}
 
+def distinct_units(left: str, right: str) -> bool:
+    """Reject repeated lexical units across the two authored propositions."""
+    words = re.findall(r"[a-z]+", (left + " " + right).casefold())
+    return len(words) == len(set(words))
+
 def live_slot_product(lv: tuple[str, ...], rv: tuple[str, ...]) -> dict:
     """Consume opposite slot boundaries before a complete rendering exists."""
     # Right choices are exposed from its final slot toward its first slot.
@@ -88,6 +93,10 @@ def main() -> None:
         for rv in itertools.product(*(RIGHT[k] for k in SLOTS)):
             expanded += 1
             left, right = render(lv), render(rv)
+            # Distinct lexical units are a hard construction constraint, not a
+            # post-hoc score.  This also prevents repeated-unit pseudo prose.
+            if not distinct_units(left, right):
+                continue
             live = live_slot_product(lv, rv)
             # A failed partial product is retained as a frontier witness, but
             # complete rendering/auditing occurs only for paths surviving all
@@ -142,7 +151,7 @@ def main() -> None:
               "novelty_preflight": {"passed": True, "signature": "independent-proposition-frames|semantic-slot-repair|online-outer-equations|ordinary-order-rendering|independent-audit",
               "rejected_shortcuts": ["word-order-only symmetry", "repeated units", "borrowed catalogue text", "post-hoc tape reversal"]},
               "method": "jointly choose complete semantic propositions from role-preserving lexical alternatives while tracking the outer character equation; render both in ordinary order",
-              "summary": {"expanded": expanded, "recorded": min(64, len(rows)), "exact": sum(r["exact"] for r in rows),
+              "summary": {"expanded": expanded, "distinct_products": len(rows), "recorded": min(64, len(rows)), "exact": sum(r["exact"] for r in rows),
                           "longest_letters": max(r["letters"] for r in rendered_rows), "reader_eligible": sum(r["reader_eligible"] for r in rows)},
               "best_frontier": best[1], "rows": rows[:64],
               "reader_package": {"status": "not_run", "required": "randomized blinded intact-prose and shuffled controls"}}

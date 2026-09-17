@@ -1,0 +1,483 @@
+{
+  "experiment": "grammar-boundary-transition-csp-20260917",
+  "method": "bridge grammar transitions are variables; resolved character equalities propagate bidirectionally across inserted function words",
+  "template": "The {a} {v} the {o} near the {s0}{bridge}{a2} {v2} the {o2} near the {s1}.",
+  "layers": [
+    {
+      "variable": "a",
+      "retained_states": 2,
+      "bidirectional_conflict_counts": [
+        5,
+        6
+      ]
+    },
+    {
+      "variable": "v",
+      "retained_states": 4,
+      "bidirectional_conflict_counts": [
+        11,
+        12,
+        13
+      ]
+    },
+    {
+      "variable": "o",
+      "retained_states": 8,
+      "bidirectional_conflict_counts": [
+        15,
+        16,
+        17,
+        18,
+        20
+      ]
+    },
+    {
+      "variable": "s0",
+      "retained_states": 16,
+      "bidirectional_conflict_counts": [
+        22,
+        23,
+        24,
+        25
+      ]
+    },
+    {
+      "variable": "a2",
+      "retained_states": 16,
+      "bidirectional_conflict_counts": [
+        22,
+        23,
+        24,
+        25,
+        26
+      ]
+    },
+    {
+      "variable": "v2",
+      "retained_states": 16,
+      "bidirectional_conflict_counts": [
+        26,
+        27,
+        28,
+        29
+      ]
+    },
+    {
+      "variable": "o2",
+      "retained_states": 16,
+      "bidirectional_conflict_counts": [
+        29,
+        30,
+        31,
+        32
+      ]
+    },
+    {
+      "variable": "s1",
+      "retained_states": 16,
+      "bidirectional_conflict_counts": [
+        31,
+        32,
+        33,
+        34
+      ]
+    },
+    {
+      "variable": "bridge",
+      "retained_states": 16,
+      "bidirectional_conflict_counts": [
+        31,
+        32,
+        33
+      ]
+    }
+  ],
+  "candidate_count": 10,
+  "candidates": [
+    {
+      "rank": 0,
+      "rendered": "The gardener writes the notes near the garden and the teacher writes the notes near the station.",
+      "slots": {
+        "a": "gardener",
+        "v": "writes",
+        "o": "notes",
+        "s0": "garden",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "station",
+        "bridge": " and the "
+      },
+      "bidirectional_equalities": 8,
+      "bidirectional_conflicts": 31,
+      "provenance": "grammar_boundary_transition_bidirectional_csp",
+      "novelty_preflight": {
+        "signature": "grammar_boundary_transition_csp_v1",
+        "distinct_from": "word-boundary CSP; bridge insertion/deletion is a CSP variable and propagates from both tape ends"
+      },
+      "audit": {
+        "letters": 79,
+        "exact": false,
+        "mismatch_count": 31,
+        "first_mismatch": 0,
+        "sha256": "4ba6bb03146b712951506fc357f1dd746c2c0853b993a5f524af982f77aeb564",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 1,
+      "rendered": "The gardener writes the notes near the garden, and the teacher writes the notes near the station.",
+      "slots": {
+        "a": "gardener",
+        "v": "writes",
+        "o": "notes",
+        "s0": "garden",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "station",
+        "bridge": ", and the "
+      },
+      "bidirectional_equalities": 8,
+      "bidirectional_conflicts": 31,
+      "provenance": "grammar_boundary_transition_bidirectional_csp",
+      "novelty_preflight": {
+        "signature": "grammar_boundary_transition_csp_v1",
+        "distinct_from": "word-boundary CSP; bridge insertion/deletion is a CSP variable and propagates from both tape ends"
+      },
+      "audit": {
+        "letters": 79,
+        "exact": false,
+        "mismatch_count": 31,
+        "first_mismatch": 0,
+        "sha256": "4ba6bb03146b712951506fc357f1dd746c2c0853b993a5f524af982f77aeb564",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 2,
+      "rendered": "The gardener writes the notes near the harbor and the teacher writes the notes near the station.",
+      "slots": {
+        "a": "gardener",
+        "v": "writes",
+        "o": "notes",
+        "s0": "harbor",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "station",
+        "bridge": " and the "
+      },
+      "bidirectional_equalities": 8,
+      "bidirectional_conflicts": 31,
+      "provenance": "grammar_boundary_transition_bidirectional_csp",
+      "novelty_preflight": {
+        "signature": "grammar_boundary_transition_csp_v1",
+        "distinct_from": "word-boundary CSP; bridge insertion/deletion is a CSP variable and propagates from both tape ends"
+      },
+      "audit": {
+        "letters": 79,
+        "exact": false,
+        "mismatch_count": 31,
+        "first_mismatch": 0,
+        "sha256": "5e61fb66dc7070468ff94adb1229979231d29c1a88972888384d6adf62e09ec9",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 3,
+      "rendered": "The gardener writes the notes near the harbor, and the teacher writes the notes near the station.",
+      "slots": {
+        "a": "gardener",
+        "v": "writes",
+        "o": "notes",
+        "s0": "harbor",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "station",
+        "bridge": ", and the "
+      },
+      "bidirectional_equalities": 8,
+      "bidirectional_conflicts": 31,
+      "provenance": "grammar_boundary_transition_bidirectional_csp",
+      "novelty_preflight": {
+        "signature": "grammar_boundary_transition_csp_v1",
+        "distinct_from": "word-boundary CSP; bridge insertion/deletion is a CSP variable and propagates from both tape ends"
+      },
+      "audit": {
+        "letters": 79,
+        "exact": false,
+        "mismatch_count": 31,
+        "first_mismatch": 0,
+        "sha256": "5e61fb66dc7070468ff94adb1229979231d29c1a88972888384d6adf62e09ec9",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 4,
+      "rendered": "The gardener writes the letters near the garden and the teacher records the charts near the station.",
+      "slots": {
+        "a": "gardener",
+        "v": "writes",
+        "o": "letters",
+        "s0": "garden",
+        "a2": "teacher",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station",
+        "bridge": " and the "
+      },
+      "bidirectional_equalities": 9,
+      "bidirectional_conflicts": 32,
+      "provenance": "grammar_boundary_transition_bidirectional_csp",
+      "novelty_preflight": {
+        "signature": "grammar_boundary_transition_csp_v1",
+        "distinct_from": "word-boundary CSP; bridge insertion/deletion is a CSP variable and propagates from both tape ends"
+      },
+      "audit": {
+        "letters": 83,
+        "exact": false,
+        "mismatch_count": 32,
+        "first_mismatch": 0,
+        "sha256": "f231a062a017c2caf3e1b94e5e1c3e268b828eae07ecba39d4dac8eabdc41981",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 5,
+      "rendered": "The gardener writes the letters near the garden, and the teacher records the charts near the station.",
+      "slots": {
+        "a": "gardener",
+        "v": "writes",
+        "o": "letters",
+        "s0": "garden",
+        "a2": "teacher",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station",
+        "bridge": ", and the "
+      },
+      "bidirectional_equalities": 9,
+      "bidirectional_conflicts": 32,
+      "provenance": "grammar_boundary_transition_bidirectional_csp",
+      "novelty_preflight": {
+        "signature": "grammar_boundary_transition_csp_v1",
+        "distinct_from": "word-boundary CSP; bridge insertion/deletion is a CSP variable and propagates from both tape ends"
+      },
+      "audit": {
+        "letters": 83,
+        "exact": false,
+        "mismatch_count": 32,
+        "first_mismatch": 0,
+        "sha256": "f231a062a017c2caf3e1b94e5e1c3e268b828eae07ecba39d4dac8eabdc41981",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 6,
+      "rendered": "The gardener writes the letters near the harbor and the teacher records the charts near the station.",
+      "slots": {
+        "a": "gardener",
+        "v": "writes",
+        "o": "letters",
+        "s0": "harbor",
+        "a2": "teacher",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station",
+        "bridge": " and the "
+      },
+      "bidirectional_equalities": 9,
+      "bidirectional_conflicts": 32,
+      "provenance": "grammar_boundary_transition_bidirectional_csp",
+      "novelty_preflight": {
+        "signature": "grammar_boundary_transition_csp_v1",
+        "distinct_from": "word-boundary CSP; bridge insertion/deletion is a CSP variable and propagates from both tape ends"
+      },
+      "audit": {
+        "letters": 83,
+        "exact": false,
+        "mismatch_count": 32,
+        "first_mismatch": 0,
+        "sha256": "a294ce2346ee8fa97d55fdfec5206fbcb818c6c03947c1b1ff394335b2f28c65",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 7,
+      "rendered": "The gardener writes the letters near the harbor, and the teacher records the charts near the station.",
+      "slots": {
+        "a": "gardener",
+        "v": "writes",
+        "o": "letters",
+        "s0": "harbor",
+        "a2": "teacher",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station",
+        "bridge": ", and the "
+      },
+      "bidirectional_equalities": 9,
+      "bidirectional_conflicts": 32,
+      "provenance": "grammar_boundary_transition_bidirectional_csp",
+      "novelty_preflight": {
+        "signature": "grammar_boundary_transition_csp_v1",
+        "distinct_from": "word-boundary CSP; bridge insertion/deletion is a CSP variable and propagates from both tape ends"
+      },
+      "audit": {
+        "letters": 83,
+        "exact": false,
+        "mismatch_count": 32,
+        "first_mismatch": 0,
+        "sha256": "a294ce2346ee8fa97d55fdfec5206fbcb818c6c03947c1b1ff394335b2f28c65",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 8,
+      "rendered": "The gardener writes the notes near the garden and the teacher records the notes near the station.",
+      "slots": {
+        "a": "gardener",
+        "v": "writes",
+        "o": "notes",
+        "s0": "garden",
+        "a2": "teacher",
+        "v2": "records",
+        "o2": "notes",
+        "s1": "station",
+        "bridge": " and the "
+      },
+      "bidirectional_equalities": 8,
+      "bidirectional_conflicts": 32,
+      "provenance": "grammar_boundary_transition_bidirectional_csp",
+      "novelty_preflight": {
+        "signature": "grammar_boundary_transition_csp_v1",
+        "distinct_from": "word-boundary CSP; bridge insertion/deletion is a CSP variable and propagates from both tape ends"
+      },
+      "audit": {
+        "letters": 80,
+        "exact": false,
+        "mismatch_count": 32,
+        "first_mismatch": 0,
+        "sha256": "5e0434eb48090f1ba57e53cebc4784d4d03b4225a7c21d3aea0467ad7bc0afb1",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 9,
+      "rendered": "The gardener writes the notes near the garden while the teacher writes the notes near the station.",
+      "slots": {
+        "a": "gardener",
+        "v": "writes",
+        "o": "notes",
+        "s0": "garden",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "station",
+        "bridge": " while the "
+      },
+      "bidirectional_equalities": 8,
+      "bidirectional_conflicts": 32,
+      "provenance": "grammar_boundary_transition_bidirectional_csp",
+      "novelty_preflight": {
+        "signature": "grammar_boundary_transition_csp_v1",
+        "distinct_from": "word-boundary CSP; bridge insertion/deletion is a CSP variable and propagates from both tape ends"
+      },
+      "audit": {
+        "letters": 81,
+        "exact": false,
+        "mismatch_count": 32,
+        "first_mismatch": 0,
+        "sha256": "e5436f26b337569f43596d73481a3a4c81b6c206eaf09462738d5b989b76dc32",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 83,
+    "next_repair": "couple bridge transitions to semantic valency states and propagate equality constraints before either clause is complete"
+  }
+}

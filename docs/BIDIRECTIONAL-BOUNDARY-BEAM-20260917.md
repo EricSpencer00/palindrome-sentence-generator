@@ -19,6 +19,12 @@ Other top outputs (`a nation was on it | ti no saw no it ana`, 28 letters)
 show the same failure.  This is a useful negative result, not an accepted
 palindrome.
 
+The follow-up repair tightens the shape automaton to typed finite clauses,
+requires a minimum Zipf frequency, and budgets closed-class words.  It emits
+no complete candidate on the same 176 labelled seeds; this is fail-closed
+evidence, not a readability claim.  The next constructive repair expands the
+attested subject/verb/object inventory while retaining the frequency floor.
+
 Every reported candidate was independently checked with a two-pointer scan,
 and the normalized full tape's SHA-256 is emitted (for the first candidate:
 `f55f48f1da984c1298cf1c1c8658cc01a7288da22e93086074c33fee33db1b90`).  The

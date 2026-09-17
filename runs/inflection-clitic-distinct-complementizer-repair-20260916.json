@@ -1,0 +1,96 @@
+{
+  "experiment_id": "inflection-clitic-distinct-complementizer-repair-20260916",
+  "signature": "lane8|distinct-complementizer-boundary|possessive-fixed|harbor-scene-fixed|single-state",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "single complementizer boundary substitution with possessive and scene states frozen",
+  "candidates": [
+    {
+      "repair_state": "single complementizer boundary",
+      "parent_state": "inflection-clitic-distinct-possessive-repair-20260916",
+      "change": {
+        "old": "that boats",
+        "new": "when boats"
+      },
+      "fixed_features": [
+        "crew possessive boundary",
+        "plural harbor pilots",
+        "past event sequence",
+        "before dusk suffix"
+      ],
+      "agreement_preserved": true,
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "At dusk, the harbor pilots checked the mooring lights, logged the tide in the crew's ledger, and warned each waiting sailor when boats would leave before dusk.",
+        "letters": 128,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "k"
+        ],
+        "normalized_sha256": "8d8618de3e7f3e06d504c9118cc97d9566bcef2ccc8230edd101e71f88f6402b",
+        "reverse_sha256": "3650564936f16af671cb4eb7b800864f5d1611094342046349b10e7a19e624ce",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false,
+          "repeated_canonical_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "change only directional verb before dusk while preserving temporal attachment",
+        "reason": "complementizer repair remains readable distinct harbor prose but leaves residual"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "change only directional verb before dusk while preserving temporal attachment",
+    "reason": "complementizer repair remains readable distinct harbor prose but leaves residual"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 406,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "repeated_canonical_unit": false,
+    "sweep": false
+  },
+  "provenance": {
+    "generator_sha256": "3ef50df09081e3aaeb38a202b19a44749081ff64b2060274c738a85dee36a3ab",
+    "lexical_source": "held-out complementizer boundary",
+    "parent_state": "inflection-clitic-distinct-possessive-repair-20260916",
+    "repair": "that -> when only; possessive, agreement, and harbor roles fixed",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "anti-shortcut"
+    ]
+  }
+}

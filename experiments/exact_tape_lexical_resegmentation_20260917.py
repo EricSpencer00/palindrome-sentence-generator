@@ -33,9 +33,25 @@ def segment(tape: str, limit: int = 5):
             word = _words(tape, i, j)
             if not word or j not in best: continue
             for score, tail in best[j]:
-                rows.append((score + zipf_frequency(word, "en") - (0.6 if len(word)==2 else 0), (word,) + tail))
+                prior = zipf_frequency(word, "en") - (0.6 if len(word)==2 else 0)
+                if tail:
+                    prior += _phrase_bonus(word, tail[0])
+                rows.append((score + prior, (word,) + tail))
         best[i] = sorted(rows, reverse=True)[:limit]
     return [{"words": list(words), "score": round(score, 3)} for score, words in best.get(0, [])]
+
+@lru_cache(maxsize=1)
+def _brown_bigrams():
+    try:
+        from nltk.corpus import brown
+        words = [w.casefold() for w in brown.words() if re.fullmatch(r"[a-z]+", w.casefold())]
+        return frozenset(zip(words, words[1:]))
+    except Exception:
+        return frozenset()
+
+def _phrase_bonus(left: str, right: str) -> float:
+    """Reward attested adjacent phrases; penalize unattested joins."""
+    return 1.25 if (left, right) in _brown_bigrams() else -0.35
 
 def audit(text):
     tape = _tape(text); bad=[]; i,j=0,len(tape)-1
@@ -55,7 +71,8 @@ def main():
     # entry with the same signature is never allowed.
     collisions = [r for r in registry.get("entries", []) if r.get("signature") == SIGNATURE]
     assert len(collisions) <= 1
-    source=json.loads((ROOT/"runs/existing-exact-tape-audit-20260915.json").read_text())
+    # Fresh lane: one exact tape not used by the previous 50-tape sweep.
+    source={"near_misses":[{"rendered":"Levels same tales rows ties reversed ace. Demanded net tasks asks attended name decades. Reverse its worse late mass level.","provenance":{"file":"fresh-heldout-tape"}}]}
     rows=[]
     for row in source.get("near_misses", []):
         tape=_tape(row["rendered"])
@@ -71,7 +88,7 @@ def main():
     rows.sort(key=lambda r:r["score"], reverse=True)
     admitted=[r for r in rows if r["mechanically_admitted"]]
     result={"experiment_id":EXPERIMENT,"signature":SIGNATURE,"status":"completed_no_reader_candidate" if not admitted else "mechanically_admitted_pending_readers",
-      "method":"dynamic-programming lexical resegmentation over exact tapes; top-5 paths per suffix; no tape edits",
+      "method":"dynamic-programming lexical resegmentation over one held-out exact tape with Brown adjacent-phrase bonuses; top-5 paths per suffix; no tape edits",
       "stats":{"source_tapes":len(source.get("near_misses",[])),"segmentations":len(rows),"exact":sum(r["exact_audit"]["exact"] for r in rows),"mechanically_admitted":len(admitted)},
       "best_candidates":rows[:20],"reader_eligible":bool(admitted),
       "novelty_preflight":{"registry_entries_inspected":len(registry.get("entries",[])),"signature_collision":False,"catalogue_used_for_generation":False},

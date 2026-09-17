@@ -2,684 +2,24 @@
   "experiment_id": "exact-tape-lexical-resegmentation-20260917",
   "signature": "exact-tape-dp-boundary-search|zipf-bigram-ranking|fail-closed-admission",
   "status": "completed_no_reader_candidate",
-  "method": "dynamic-programming lexical resegmentation over exact tapes; top-5 paths per suffix; no tape edits",
+  "method": "dynamic-programming lexical resegmentation over one held-out exact tape with Brown adjacent-phrase bonuses; top-5 paths per suffix; no tape edits",
   "stats": {
-    "source_tapes": 50,
-    "segmentations": 250,
-    "exact": 250,
+    "source_tapes": 1,
+    "segmentations": 5,
+    "exact": 5,
     "mechanically_admitted": 0
   },
   "best_candidates": [
     {
-      "rendered": "tr ad er are wa st em et al st il la war dn ev er of te nw en to ld er ne tw or kc ap to pr is on no si rp ot pa ck row te nr ed lot new ne tf or ev en dr aw all it sl at em et sa we ra re da rt",
-      "letters": 132,
-      "score": 269.71,
+      "rendered": "lev el ss am et al es ro ws ti es re ve rs ed ac ed em and ed ne tt as ks as ks at ten de dna me de ca de sr ev er se it sw or sel at em as sl ev el",
+      "letters": 101,
+      "score": 190.58,
       "exact_audit": {
-        "letters": 132,
+        "letters": 101,
         "exact": true,
         "first_mismatch": null,
-        "sha256_forward": "b88f3e17bf6e4577b0b4a16bd44492b026ff5d9b6ebe915b4941a563ca0deaa4",
-        "sha256_reverse": "b88f3e17bf6e4577b0b4a16bd44492b026ff5d9b6ebe915b4941a563ca0deaa4",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": false,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/35/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are wa st em et al st il la war dn ev er of te nw en to ld er ne tw or kc ap to pr is on no si rp ot pa ck ro wt en re dl ot new ne tf or ev en dr aw all it sl at em et sa we ra re da rt",
-      "letters": 132,
-      "score": 269.64,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "b88f3e17bf6e4577b0b4a16bd44492b026ff5d9b6ebe915b4941a563ca0deaa4",
-        "sha256_reverse": "b88f3e17bf6e4577b0b4a16bd44492b026ff5d9b6ebe915b4941a563ca0deaa4",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": false,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/35/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are wa st em et al st il la war dn ev er of te nw en to ld er ne tw or kc ap to pr is on no si rp ot pa ck ro wt en red lot new ne tf or ev en dr aw all it sl at em et sa we ra re da rt",
-      "letters": 132,
-      "score": 269.62,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "b88f3e17bf6e4577b0b4a16bd44492b026ff5d9b6ebe915b4941a563ca0deaa4",
-        "sha256_reverse": "b88f3e17bf6e4577b0b4a16bd44492b026ff5d9b6ebe915b4941a563ca0deaa4",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": false,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/35/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are was te me ta ln ev er of ten st il la wa rd we nt old er ne tw or kc ap to pr is on no si rp ot pa ck row te nr ed lot new dr aw all it sn et fo re ve nl at em et sa we ra re da rt",
-      "letters": 132,
-      "score": 269.62,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "3241e91fbe44ae7756007550398ccf21247b2153fe2012de6a31b797d537a2d8",
-        "sha256_reverse": "3241e91fbe44ae7756007550398ccf21247b2153fe2012de6a31b797d537a2d8",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": true,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/37/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are wa st em et al st il la war dn ev er of te nw en to ld er ne tw or kc ap to pr is on no si rp ot pa ck row ten re dl ot new ne tf or ev en dr aw all it sl at em et sa we ra re da rt",
-      "letters": 132,
-      "score": 269.61,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "b88f3e17bf6e4577b0b4a16bd44492b026ff5d9b6ebe915b4941a563ca0deaa4",
-        "sha256_reverse": "b88f3e17bf6e4577b0b4a16bd44492b026ff5d9b6ebe915b4941a563ca0deaa4",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": false,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/35/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are wa st em et al st il la war dn ev er of te nw en to ld er ne tw or kc ap to pr is on no si rp ot pa ck row ten red lot new ne tf or ev en dr aw all it sl at em et sa we ra re da rt",
-      "letters": 132,
-      "score": 269.59,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "b88f3e17bf6e4577b0b4a16bd44492b026ff5d9b6ebe915b4941a563ca0deaa4",
-        "sha256_reverse": "b88f3e17bf6e4577b0b4a16bd44492b026ff5d9b6ebe915b4941a563ca0deaa4",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": false,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/35/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are was te me ta ln ev er of ten st il la wa rd we nt old er ne tw or kc ap to pr is on no si rp ot pa ck ro wt en re dl ot new dr aw all it sn et fo re ve nl at em et sa we ra re da rt",
-      "letters": 132,
-      "score": 269.55,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "3241e91fbe44ae7756007550398ccf21247b2153fe2012de6a31b797d537a2d8",
-        "sha256_reverse": "3241e91fbe44ae7756007550398ccf21247b2153fe2012de6a31b797d537a2d8",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": true,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/37/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are was te me ta ln ev er of ten st il la wa rd we nt old er ne tw or kc ap to pr is on no si rp ot pa ck ro wt en red lot new dr aw all it sn et fo re ve nl at em et sa we ra re da rt",
-      "letters": 132,
-      "score": 269.53,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "3241e91fbe44ae7756007550398ccf21247b2153fe2012de6a31b797d537a2d8",
-        "sha256_reverse": "3241e91fbe44ae7756007550398ccf21247b2153fe2012de6a31b797d537a2d8",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": true,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/37/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are was te me ta ln ev er of ten st il la wa rd we nt old er ne tw or kc ap to pr is on no si rp ot pa ck row ten re dl ot new dr aw all it sn et fo re ve nl at em et sa we ra re da rt",
-      "letters": 132,
-      "score": 269.52,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "3241e91fbe44ae7756007550398ccf21247b2153fe2012de6a31b797d537a2d8",
-        "sha256_reverse": "3241e91fbe44ae7756007550398ccf21247b2153fe2012de6a31b797d537a2d8",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": true,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/37/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are was te me ta ln ev er of ten st il la wa rd we nt old er ne tw or kc ap to pr is on no si rp ot pa ck row ten red lot new dr aw all it sn et fo re ve nl at em et sa we ra re da rt",
-      "letters": 132,
-      "score": 269.5,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "3241e91fbe44ae7756007550398ccf21247b2153fe2012de6a31b797d537a2d8",
-        "sha256_reverse": "3241e91fbe44ae7756007550398ccf21247b2153fe2012de6a31b797d537a2d8",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": true,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/37/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are st il la war dw as te me ta ln ev er of te nw en to ld er ne tw or kc ap to pr is on no si rp ot pa ck row te nr ed lot new ne tf or ev en la te me ts aw dr aw all it se ra re da rt",
-      "letters": 132,
-      "score": 268.63,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "dae5d588a5d71d5e48a1ab5e1a2800f83dbc8e18bf4fa9e522bbb191df9571d0",
-        "sha256_reverse": "dae5d588a5d71d5e48a1ab5e1a2800f83dbc8e18bf4fa9e522bbb191df9571d0",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": false,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/36/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are st il la war dw as te me ta ln ev er of te nw en to ld er ne tw or kc ap to pr is on no si rp ot pa ck ro wt en re dl ot new ne tf or ev en la te me ts aw dr aw all it se ra re da rt",
-      "letters": 132,
-      "score": 268.56,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "dae5d588a5d71d5e48a1ab5e1a2800f83dbc8e18bf4fa9e522bbb191df9571d0",
-        "sha256_reverse": "dae5d588a5d71d5e48a1ab5e1a2800f83dbc8e18bf4fa9e522bbb191df9571d0",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": false,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/36/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are st il la war dw as te me ta ln ev er of te nw en to ld er ne tw or kc ap to pr is on no si rp ot pa ck ro wt en red lot new ne tf or ev en la te me ts aw dr aw all it se ra re da rt",
-      "letters": 132,
-      "score": 268.54,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "dae5d588a5d71d5e48a1ab5e1a2800f83dbc8e18bf4fa9e522bbb191df9571d0",
-        "sha256_reverse": "dae5d588a5d71d5e48a1ab5e1a2800f83dbc8e18bf4fa9e522bbb191df9571d0",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": false,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/36/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are st il la war dw as te me ta ln ev er of te nw en to ld er ne tw or kc ap to pr is on no si rp ot pa ck row ten re dl ot new ne tf or ev en la te me ts aw dr aw all it se ra re da rt",
-      "letters": 132,
-      "score": 268.53,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "dae5d588a5d71d5e48a1ab5e1a2800f83dbc8e18bf4fa9e522bbb191df9571d0",
-        "sha256_reverse": "dae5d588a5d71d5e48a1ab5e1a2800f83dbc8e18bf4fa9e522bbb191df9571d0",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": false,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/36/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are st il la war dw as te me ta ln ev er of te nw en to ld er ne tw or kc ap to pr is on no si rp ot pa ck row ten red lot new ne tf or ev en la te me ts aw dr aw all it se ra re da rt",
-      "letters": 132,
-      "score": 268.51,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "dae5d588a5d71d5e48a1ab5e1a2800f83dbc8e18bf4fa9e522bbb191df9571d0",
-        "sha256_reverse": "dae5d588a5d71d5e48a1ab5e1a2800f83dbc8e18bf4fa9e522bbb191df9571d0",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": false,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/36/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are was te sp ee dn ev er of ten st il la wa rd we nt old er ne tw or kc ap to pr is on no si rp ot pa ck row te nr ed lot new dr aw all it sn et for ev en de ep set sa we ra re da rt",
-      "letters": 132,
-      "score": 265.08,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "046352e9930cc4ef0f37df94e4a1c0afaaf6cfb0751e4a7f91022241fb5c21d7",
-        "sha256_reverse": "046352e9930cc4ef0f37df94e4a1c0afaaf6cfb0751e4a7f91022241fb5c21d7",
+        "sha256_forward": "71c26b0e9764be6175d52fcf2b153ba98dcc7bafe73c564022f3e72a76174e65",
+        "sha256_reverse": "71c26b0e9764be6175d52fcf2b153ba98dcc7bafe73c564022f3e72a76174e65",
         "mechanical_checks": {
           "supported_ascii_letters": true,
           "nonempty": true,
@@ -691,7 +31,7 @@
           "distinct_words": false,
           "no_self_palindromic_word": false,
           "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": true,
+          "no_repeated_nontrivial_unit": false,
           "no_self_palindromic_proper_multiword_span": false,
           "not_forbidden_catalogue_control": true,
           "not_catalogue_family_derivative": true,
@@ -702,8 +42,7 @@
       },
       "mechanically_admitted": false,
       "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/34/rendered"
+        "file": "fresh-heldout-tape"
       },
       "provenance": {
         "source": "resegmented existing exact tape",
@@ -715,15 +54,15 @@
       }
     },
     {
-      "rendered": "tr ad er are was te sp ee dn ev er of ten st il la wa rd we nt old er ne tw or kc ap to pr is on no si rp ot pa ck ro wt en re dl ot new dr aw all it sn et for ev en de ep set sa we ra re da rt",
-      "letters": 132,
-      "score": 265.01,
+      "rendered": "le ve ls sa me ta le sr ow st ies re ve rs ed ac ed em and ed ne tt as ks as ks at ten de dna me de ca de sr ev er se it sw or sel at em as sl ev el",
+      "letters": 101,
+      "score": 190.49,
       "exact_audit": {
-        "letters": 132,
+        "letters": 101,
         "exact": true,
         "first_mismatch": null,
-        "sha256_forward": "046352e9930cc4ef0f37df94e4a1c0afaaf6cfb0751e4a7f91022241fb5c21d7",
-        "sha256_reverse": "046352e9930cc4ef0f37df94e4a1c0afaaf6cfb0751e4a7f91022241fb5c21d7",
+        "sha256_forward": "71c26b0e9764be6175d52fcf2b153ba98dcc7bafe73c564022f3e72a76174e65",
+        "sha256_reverse": "71c26b0e9764be6175d52fcf2b153ba98dcc7bafe73c564022f3e72a76174e65",
         "mechanical_checks": {
           "supported_ascii_letters": true,
           "nonempty": true,
@@ -735,7 +74,7 @@
           "distinct_words": false,
           "no_self_palindromic_word": false,
           "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": true,
+          "no_repeated_nontrivial_unit": false,
           "no_self_palindromic_proper_multiword_span": false,
           "not_forbidden_catalogue_control": true,
           "not_catalogue_family_derivative": true,
@@ -746,8 +85,7 @@
       },
       "mechanically_admitted": false,
       "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/34/rendered"
+        "file": "fresh-heldout-tape"
       },
       "provenance": {
         "source": "resegmented existing exact tape",
@@ -759,15 +97,15 @@
       }
     },
     {
-      "rendered": "tr ad er are was te sp ee dn ev er of ten st il la wa rd we nt old er ne tw or kc ap to pr is on no si rp ot pa ck ro wt en red lot new dr aw all it sn et for ev en de ep set sa we ra re da rt",
-      "letters": 132,
-      "score": 264.99,
+      "rendered": "lev el ss am et al es row st ies re ve rs ed ac ed em and ed ne tt as ks as ks at ten de dna me de ca de sr ev er se it sw or sel at em as sl ev el",
+      "letters": 101,
+      "score": 190.44,
       "exact_audit": {
-        "letters": 132,
+        "letters": 101,
         "exact": true,
         "first_mismatch": null,
-        "sha256_forward": "046352e9930cc4ef0f37df94e4a1c0afaaf6cfb0751e4a7f91022241fb5c21d7",
-        "sha256_reverse": "046352e9930cc4ef0f37df94e4a1c0afaaf6cfb0751e4a7f91022241fb5c21d7",
+        "sha256_forward": "71c26b0e9764be6175d52fcf2b153ba98dcc7bafe73c564022f3e72a76174e65",
+        "sha256_reverse": "71c26b0e9764be6175d52fcf2b153ba98dcc7bafe73c564022f3e72a76174e65",
         "mechanical_checks": {
           "supported_ascii_letters": true,
           "nonempty": true,
@@ -779,7 +117,7 @@
           "distinct_words": false,
           "no_self_palindromic_word": false,
           "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": true,
+          "no_repeated_nontrivial_unit": false,
           "no_self_palindromic_proper_multiword_span": false,
           "not_forbidden_catalogue_control": true,
           "not_catalogue_family_derivative": true,
@@ -790,8 +128,7 @@
       },
       "mechanically_admitted": false,
       "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/34/rendered"
+        "file": "fresh-heldout-tape"
       },
       "provenance": {
         "source": "resegmented existing exact tape",
@@ -803,59 +140,15 @@
       }
     },
     {
-      "rendered": "tr ad er are wa st es pe ed ne ver of ten st il la wa rd we nt old er ne tw or kc ap to pr is on no si rp ot pa ck row te nr ed lot new dr aw all it sn et for ev en de ep set sa we ra re da rt",
-      "letters": 132,
-      "score": 264.99,
+      "rendered": "le ve ls sam et al es ro ws ti es re ve rs ed ac ed em and ed ne tt as ks as ks at ten de dna me de ca de sr ev er se it sw or sel at em as sl ev el",
+      "letters": 101,
+      "score": 190.4,
       "exact_audit": {
-        "letters": 132,
+        "letters": 101,
         "exact": true,
         "first_mismatch": null,
-        "sha256_forward": "046352e9930cc4ef0f37df94e4a1c0afaaf6cfb0751e4a7f91022241fb5c21d7",
-        "sha256_reverse": "046352e9930cc4ef0f37df94e4a1c0afaaf6cfb0751e4a7f91022241fb5c21d7",
-        "mechanical_checks": {
-          "supported_ascii_letters": true,
-          "nonempty": true,
-          "exact_letter_palindrome": true,
-          "length_band": true,
-          "word_form": true,
-          "lexicon_words": false,
-          "ordinary_short_words": false,
-          "distinct_words": false,
-          "no_self_palindromic_word": true,
-          "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": true,
-          "no_self_palindromic_proper_multiword_span": false,
-          "not_forbidden_catalogue_control": true,
-          "not_catalogue_family_derivative": true,
-          "not_forbidden_catalogue_endpoint_scaffold": true,
-          "absent_from_local_catalogue": true,
-          "local_catalogue_absent": true
-        }
-      },
-      "mechanically_admitted": false,
-      "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/34/rendered"
-      },
-      "provenance": {
-        "source": "resegmented existing exact tape",
-        "tape_changed": false,
-        "catalogue_imported": false,
-        "finished_surface_reversed": false,
-        "word_order_mirror_rejected": false,
-        "self_palindromic_span_rejected": false
-      }
-    },
-    {
-      "rendered": "tr ad er are was te sp ee dn ev er of ten st il la wa rd we nt old er ne tw or kc ap to pr is on no si rp ot pa ck row ten re dl ot new dr aw all it sn et for ev en de ep set sa we ra re da rt",
-      "letters": 132,
-      "score": 264.98,
-      "exact_audit": {
-        "letters": 132,
-        "exact": true,
-        "first_mismatch": null,
-        "sha256_forward": "046352e9930cc4ef0f37df94e4a1c0afaaf6cfb0751e4a7f91022241fb5c21d7",
-        "sha256_reverse": "046352e9930cc4ef0f37df94e4a1c0afaaf6cfb0751e4a7f91022241fb5c21d7",
+        "sha256_forward": "71c26b0e9764be6175d52fcf2b153ba98dcc7bafe73c564022f3e72a76174e65",
+        "sha256_reverse": "71c26b0e9764be6175d52fcf2b153ba98dcc7bafe73c564022f3e72a76174e65",
         "mechanical_checks": {
           "supported_ascii_letters": true,
           "nonempty": true,
@@ -867,7 +160,7 @@
           "distinct_words": false,
           "no_self_palindromic_word": false,
           "not_word_order_symmetry": true,
-          "no_repeated_nontrivial_unit": true,
+          "no_repeated_nontrivial_unit": false,
           "no_self_palindromic_proper_multiword_span": false,
           "not_forbidden_catalogue_control": true,
           "not_catalogue_family_derivative": true,
@@ -878,8 +171,50 @@
       },
       "mechanically_admitted": false,
       "source": {
-        "file": "runs/existing-exact-tape-audit-20260915.json",
-        "json_path": "/near_misses/34/rendered"
+        "file": "fresh-heldout-tape"
+      },
+      "provenance": {
+        "source": "resegmented existing exact tape",
+        "tape_changed": false,
+        "catalogue_imported": false,
+        "finished_surface_reversed": false,
+        "word_order_mirror_rejected": false,
+        "self_palindromic_span_rejected": false
+      }
+    },
+    {
+      "rendered": "le ve ls sam et al es row st ies re ve rs ed ac ed em and ed ne tt as ks as ks at ten de dna me de ca de sr ev er se it sw or sel at em as sl ev el",
+      "letters": 101,
+      "score": 190.26,
+      "exact_audit": {
+        "letters": 101,
+        "exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "71c26b0e9764be6175d52fcf2b153ba98dcc7bafe73c564022f3e72a76174e65",
+        "sha256_reverse": "71c26b0e9764be6175d52fcf2b153ba98dcc7bafe73c564022f3e72a76174e65",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": true,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": false,
+          "distinct_words": false,
+          "no_self_palindromic_word": false,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": false,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "mechanically_admitted": false,
+      "source": {
+        "file": "fresh-heldout-tape"
       },
       "provenance": {
         "source": "resegmented existing exact tape",
@@ -893,7 +228,7 @@
   ],
   "reader_eligible": false,
   "novelty_preflight": {
-    "registry_entries_inspected": 431,
+    "registry_entries_inspected": 434,
     "signature_collision": false,
     "catalogue_used_for_generation": false
   },

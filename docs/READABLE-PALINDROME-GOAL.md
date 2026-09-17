@@ -2337,3 +2337,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   operators are object-relative attachment, a joint two-clause seam equation,
   and a held-out suffix substitution; each must produce a new rendered
   candidate before any reader packet is opened.
+
+  The follow-up repairs then added an object-relative agreement chart (55
+  letters maximum, 0 exact), a residual-conditioned suffix substitution (116
+  letters maximum, 0 exact), and a joint two-clause seam-bundle search (16
+  candidates at 82--91 letters, 0 exact). Representative rendered controls
+  are “The senior curators inspected a fragile map after the morning rain
+  although the senior curators inspected the notes for the local archive.”
+  and “The patient gardener who carries the garden carries beside the
+  gardener.” Their independent pointer/SHA audits reject them; repeated
+  clause units are explicitly excluded. The next seam-conditioned lexical
+  trie search must influence word-boundary choices before clause completion,
+  then expose a fresh rendered candidate and its reader-facing test.

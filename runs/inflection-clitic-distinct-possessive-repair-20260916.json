@@ -1,0 +1,95 @@
+{
+  "experiment_id": "inflection-clitic-distinct-possessive-repair-20260916",
+  "signature": "lane8|distinct-possessive-boundary|harbor-scene-fixed|single-state|no-catalogue",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "single possessive clitic boundary substitution with harbor scene, tense, and attachment frozen",
+  "candidates": [
+    {
+      "repair_state": "single possessive boundary",
+      "parent_state": "inflection-clitic-distinct-suffix-repair-20260916",
+      "change": {
+        "old": "crews'",
+        "new": "crew's"
+      },
+      "fixed_features": [
+        "harbor pilots",
+        "past event sequence",
+        "before dusk temporal suffix"
+      ],
+      "agreement_preserved": true,
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "At dusk, the harbor pilots checked the mooring lights, logged the tide in the crew's ledger, and warned each waiting sailor that boats would leave before dusk.",
+        "letters": 128,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "k"
+        ],
+        "normalized_sha256": "770858e871d0c7d1a03bb629b147376a515b5999fe6741cf85f886c732d1cc16",
+        "reverse_sha256": "f3161ab26103d7147408905564d3d3a86dc14f1e9da828ef3332c199a571d21d",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false,
+          "repeated_canonical_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "change only the complementizer boundary before boats while retaining possessive semantics",
+        "reason": "possessive repair remains readable and distinct but leaves nonzero residual"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "change only the complementizer boundary before boats while retaining possessive semantics",
+    "reason": "possessive repair remains readable and distinct but leaves nonzero residual"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 403,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "repeated_catalogue_unit": false,
+    "sweep": false
+  },
+  "provenance": {
+    "generator_sha256": "245b33154e592cd40647bd1cc904d6c134fd79dbeefa41be8bcbeca90c4488fd",
+    "lexical_source": "held-out possessive boundary",
+    "parent_state": "inflection-clitic-distinct-suffix-repair-20260916",
+    "repair": "crews' -> crew's only; event roles and agreement preserved",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "anti-shortcut"
+    ]
+  }
+}

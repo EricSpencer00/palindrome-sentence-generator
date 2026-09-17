@@ -131,7 +131,8 @@ def run() -> dict:
         for i in range(0, min(len(menu) - 2, 36), 3):
             yield " ".join(menu[i:i + 3])
     lexical_graph = CharacterGraph.from_bounded_menu(lexical[:40], "audited-common-word-inventory")
-    lexical_result = solve_product(lexical_graph, lexical_graph, max_states=2500)
+    lexical_right = CharacterGraph.from_bounded_menu([w[::-1] for w in lexical[:40]], "audited-common-word-inventory:right")
+    lexical_result = solve_product(lexical_graph, lexical_right, max_states=2500)
     # No fabricated ``half + half`` tapes: only distinct, genuinely multiword
     # accepting paths may enter this lane.
     completions = []

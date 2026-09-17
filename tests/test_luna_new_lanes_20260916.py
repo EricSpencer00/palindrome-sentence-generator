@@ -62,7 +62,7 @@ def test_append_algebra_emits_only_complete_clauses_and_records_invariant_failur
 
 def test_aggregate_surfaces_all_three_new_lane_routes():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4936
+    assert report["candidate_count"] == 4946
     assert report["exact_count"] == 79
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/constrained-edit-program-constructor-20260916.json"]["rows"] == 4
@@ -136,6 +136,9 @@ def test_aggregate_surfaces_all_three_new_lane_routes():
     assert by_source["runs/active-passive-attachment-followup-20260916.json"]["rows"] == 1
     assert by_source["runs/bespoke-scene-lattice-single-slot-repair-20260916.json"]["rows"] == 1
     assert by_source["runs/semantic-slot-single-object-repair-20260916.json"]["rows"] == 1
+    assert by_source["runs/finite-reverse-phrase-composition-bank-20260916.json"]["rows"] == 4
+    assert by_source["runs/centerfree-clause-pair-csp-20260916.json"]["rows"] == 4
+    assert by_source["runs/finite-semantic-palindrome-csp-20260916.json"]["rows"] == 2
 
     registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
     retained = {row["id"] for row in registry["entries"]}
@@ -155,6 +158,9 @@ def test_aggregate_surfaces_all_three_new_lane_routes():
         "active-passive-attachment-followup-20260916",
         "bespoke-scene-lattice-single-slot-repair-20260916",
         "semantic-slot-single-object-repair-20260916",
+        "finite-reverse-phrase-composition-bank-20260916",
+        "centerfree-clause-pair-csp-20260916",
+        "finite-semantic-palindrome-csp-20260916",
     } <= retained
 
 

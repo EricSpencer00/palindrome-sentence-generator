@@ -539,9 +539,9 @@ hyperedge terminal replacement, a held-out agreement-compatible relative
 predicate, and one auxiliary/determiner change with agreement propagation.
 They are not reader eligible; the next reader-facing test remains the
 randomized blinded intact-versus-shuffled packet, gated on an exact
-anti-shortcut survivor. The authoritative audit is now **4,936 rows across 262
+anti-shortcut survivor. The authoritative audit is now **4,946 rows across 265
 route phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**;
-the novelty registry has **363 retained artifacts, 31 exclusions, and 341
+the novelty registry has **366 retained artifacts, 31 exclusions, and 344
 retained run artifacts**. The immediate child-repair wave executes the named
 operators without a resweep: one held-out hypergraph object edge yields a new
 141-letter scene, one held-out relative predicate yields a fresh 74-letter Jon
@@ -557,7 +557,9 @@ eight bespoke free-center lattice scenes (76--97 letters); all are fresh,
 independently audited, and reader-ineligible with concrete repairs. Their
 single-state repairs add a 91-letter bivoice attachment, an 80-letter
 ferryman template, and a 117-letter sextant substitution; all remain
-non-exact.
+non-exact. The breakthrough-oriented finite reverse-phrase bank, center-free
+clause-pair CSP, and finite semantic CSP add 10 fresh intact rows (42--91
+letters), independently audited with no exact closure and concrete repairs.
 
 Two additional Luna lanes are retained as distinct constructive states. A
 character-level beam over typed semantic frames emits “The young botanist

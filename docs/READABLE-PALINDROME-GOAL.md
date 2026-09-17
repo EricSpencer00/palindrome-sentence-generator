@@ -2577,3 +2577,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   concrete operators are full positional character constraints over rendered
   intervals, coordinated place complements, and a shorter two-constituent
   center grammar rather than further sentence extension.
+
+  The next wave completed those operators. Full positional slot-interval CSP
+  rendered 2 intact candidates up to 82 letters; coordinated place
+  complements tested 196,608 candidates up to 90 letters; and the shorter
+  two-constituent center grammar rendered 18 intact candidates up to 95
+  letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are interval-domain
+  support pruning, locative-preposition coordination, and one
+  agreement-conditioned verb realization in the shorter grammar.

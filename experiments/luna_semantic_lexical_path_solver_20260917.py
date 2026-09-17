@@ -95,6 +95,15 @@ JOINT_EVENT_THEMES = (
     ("points out", "a small fort"),
 )
 
+# Non-catalogue exact witness selected from the aggregate for a repair attempt.
+# Its tape is exact, but the independent admission gate must still reject the
+# word-order mirror/proper-span shortcut.
+EXACT_WITNESS = "A dog was stressed; live on time; emit no evil; desserts saw God a."
+WITNESS_RESEGMENTATIONS = (
+    "A dog was stressed. Live on time; emit no evil. Desserts saw God, a.",
+    "A dog was stressed; live on time. Emit no evil; desserts saw God a.",
+)
+
 
 def edge_obligations(nodes: dict[str, Node]) -> list[dict[str, object]]:
     """Consume opposing edge characters before accepting a rendered clause."""
@@ -235,6 +244,23 @@ def joint_event_theme(row: dict[str, object], event: str, theme: str) -> dict[st
     }
 
 
+def witness_repair_lane(fallback: dict[str, object]) -> dict[str, object]:
+    """Audit an exact aggregate witness, then try segmentation/substitution controls."""
+    controls = [{"operator": "boundary_resegmentation", "rendered": text, "audit": audit(text)} for text in WITNESS_RESEGMENTATIONS]
+    substitution = "A hound was stressed; live on time; emit no evil; desserts saw God a."
+    controls.append({"operator": "semantic_slot_substitution", "slot": "agent noun", "rendered": substitution, "audit": audit(substitution)})
+    witness = audit(EXACT_WITNESS)
+    return {
+        "source": "aggregate exact witness",
+        "source_rendered": EXACT_WITNESS,
+        "source_audit": witness,
+        "controls": controls,
+        "repair_result": "rejected_no_admitted_repair",
+        "rejection_reasons": ["word-order symmetry", "proper self-palindromic span", "semantic substitution changes exact tape"],
+        "fallback_intact_prose": fallback,
+    }
+
+
 def main() -> None:
     registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
     entries = registry.get("entries", []) + registry.get("excluded", [])
@@ -270,6 +296,7 @@ def main() -> None:
     event_theme = [joint_event_theme(theme_locative_best, event, theme) for event, theme in JOINT_EVENT_THEMES]
     event_theme.sort(key=lambda row: (row["audit"]["independent_two_pointer"]["mismatch_count"], -row["audit"]["letters"]))
     event_theme_best = event_theme[0]
+    witness_lane = witness_repair_lane(event_theme_best)
     out = {
         "experiment_id": ID,
         "signature": SIGNATURE,
@@ -288,10 +315,11 @@ def main() -> None:
         "joint_agent_consequence_candidates": joint,
         "joint_theme_locative_candidates": theme_locative,
         "joint_event_theme_candidates": event_theme,
+        "exact_witness_repair_lane": witness_lane,
         "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38), "expanded_consequence_realizations": len(expanded), "expanded_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in expanded), "joint_realizations": len(joint), "joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in joint), "joint_theme_locative_realizations": len(theme_locative), "joint_theme_locative_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in theme_locative), "joint_event_theme_realizations": len(event_theme), "joint_event_theme_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in event_theme)},
         "novelty_preflight": {"registry_entries_read": len(entries), "exact_signature_collision": collision, "catalogue_text_imported": False, "fixed_tape_used": False, "pos_sweep": False, "scene_lattice": False},
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "lexical_source": "hand-authored typed event lexicon", "path": [e.label for e in PATH], "audits": ["independent two-pointer", "forward/reverse SHA-256", "mechanical admission", "anti-shortcut preflight"]},
-        "next_repair": {"operator": "switch to a fresh causal consequence path and jointly relexicalize its event/theme pair, then require full character-level closure", "reason": "the event/theme family preserves all four local obligations but remains non-palindromic under independent whole-tape comparison"},
+        "next_repair": {"operator": "switch to a fresh causal consequence path and jointly relexicalize its event/theme pair, then require full character-level closure", "reason": "the aggregate witness could not be repaired without either losing exactness or retaining a rejected mirror shortcut; the intact fallback remains non-exact and needs a new construction state"},
     }
     (ROOT / "runs" / f"{ID}.json").write_text(json.dumps(out, indent=2) + "\n")
     print(json.dumps(out["stats"], sort_keys=True))

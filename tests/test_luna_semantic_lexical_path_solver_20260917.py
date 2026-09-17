@@ -53,6 +53,13 @@ def test_semantic_path_run_is_reproducible_and_audited():
     assert all(all(item["satisfied"] for item in row["edge_obligations"]) for row in event_theme)
     assert all(not row["audit"]["exact"] for row in event_theme)
     assert all(row["audit"]["mechanical_checks"]["lexicon_words"] for row in event_theme)
+    lane = data["exact_witness_repair_lane"]
+    assert lane["source_audit"]["exact"] is True
+    assert lane["source_audit"]["mechanical_checks"]["not_word_order_symmetry"] is False
+    assert lane["source_audit"]["mechanical_checks"]["no_self_palindromic_proper_multiword_span"] is False
+    assert lane["repair_result"] == "rejected_no_admitted_repair"
+    assert len(lane["controls"]) == 3
+    assert lane["controls"][-1]["audit"]["exact"] is False
     for row in data["candidates"]:
         assert row["audit"]["normalized_sha256"] != row["audit"]["reverse_sha256"] or row["audit"]["exact"]
         assert len(row["edge_obligations"]) == 4

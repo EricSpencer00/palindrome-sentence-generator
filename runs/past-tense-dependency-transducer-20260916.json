@@ -1,0 +1,313 @@
+{
+  "experiment": "past-tense-dependency-transducer-20260916",
+  "novelty_preflight": {
+    "passed": true,
+    "signature": "past-tense-transducer-pairs|agreement-dependency-tree|full-character-closure|fresh-svo-scenes",
+    "overlaps_checked": [
+      "semordnilap-role-clause-product-20260916",
+      "agreement-morphology-transducer-20260916"
+    ],
+    "reason": "Transducer carries tense and dependency features while selecting verbs; it does not mirror word order or reverse a completed sentence."
+  },
+  "rows": [
+    {
+      "id": "past-0-1",
+      "rendered": "The archivist delivered the rescued letters at dawn; a patient gardener watered the young cedar trees after rain.",
+      "dependency_tree": {
+        "left": {
+          "subj": "the archivist",
+          "verb": "delivered",
+          "obj": "the rescued letters"
+        },
+        "right": {
+          "subj": "a patient gardener",
+          "verb": "watered",
+          "obj": "the young cedar trees"
+        },
+        "agreement": "singular subject + past finite verb"
+      },
+      "audit": {
+        "length": 94,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "6bebf2dd3fa3c11e55e879fb9907cbb87789d1a8ab5f732d1c105e88a555ba2b",
+        "sha256_reverse": "7c439e64069d19245bf239832d2eadb8a479c8ccd5e47b8162dc1e92caaa9363",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "finite past-tense transducer pairs embedded in independently authored dependency trees",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "78e647f2f53970759812ca7c96f8e38b07c80ae905834fa46cad647e9fe02a41",
+        "source_sha256": "6bebf2dd3fa3c11e55e879fb9907cbb87789d1a8ab5f732d1c105e88a555ba2b"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "no_word_order_symmetry": true,
+        "repeated_unit": false,
+        "catalogue_text": false,
+        "posthoc_reversal": false
+      },
+      "next_repair": "Transduce the verb at residual index 0 to a held-out past-tense synonym with matching dependency valency, then recheck agreement and closure."
+    },
+    {
+      "id": "past-0-2",
+      "rendered": "The archivist delivered the rescued letters at dawn; the careful pilot marked the distant runway lights through mist.",
+      "dependency_tree": {
+        "left": {
+          "subj": "the archivist",
+          "verb": "delivered",
+          "obj": "the rescued letters"
+        },
+        "right": {
+          "subj": "the careful pilot",
+          "verb": "marked",
+          "obj": "the distant runway lights"
+        },
+        "agreement": "singular subject + past finite verb"
+      },
+      "audit": {
+        "length": 98,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 1,
+          "forward": "h",
+          "reverse": "s"
+        },
+        "sha256_forward": "7a339516561fcae0e324d38fbed6904c51e0ca60d761f3892fbc5cabb8eb42a2",
+        "sha256_reverse": "b20345e44f3c0bb84446ea440d357cf70895dfc52ae307b2a0ee8c09b7e4c8cd",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "finite past-tense transducer pairs embedded in independently authored dependency trees",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "78e647f2f53970759812ca7c96f8e38b07c80ae905834fa46cad647e9fe02a41",
+        "source_sha256": "7a339516561fcae0e324d38fbed6904c51e0ca60d761f3892fbc5cabb8eb42a2"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "no_word_order_symmetry": true,
+        "repeated_unit": false,
+        "catalogue_text": false,
+        "posthoc_reversal": false
+      },
+      "next_repair": "Transduce the verb at residual index 1 to a held-out past-tense synonym with matching dependency valency, then recheck agreement and closure."
+    },
+    {
+      "id": "past-1-0",
+      "rendered": "A patient gardener watered the young cedar trees after rain; the archivist delivered the rescued letters at dawn.",
+      "dependency_tree": {
+        "left": {
+          "subj": "a patient gardener",
+          "verb": "watered",
+          "obj": "the young cedar trees"
+        },
+        "right": {
+          "subj": "the archivist",
+          "verb": "delivered",
+          "obj": "the rescued letters"
+        },
+        "agreement": "singular subject + past finite verb"
+      },
+      "audit": {
+        "length": 94,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "n"
+        },
+        "sha256_forward": "961cef27ee19fcf260b31f737aa176c22571f7336355926b59aa135d51a8fbff",
+        "sha256_reverse": "939037af7bd45992ab8d5461191b4a494637d425346ba34d467c40ea3f6cb91f",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "finite past-tense transducer pairs embedded in independently authored dependency trees",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "78e647f2f53970759812ca7c96f8e38b07c80ae905834fa46cad647e9fe02a41",
+        "source_sha256": "961cef27ee19fcf260b31f737aa176c22571f7336355926b59aa135d51a8fbff"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "no_word_order_symmetry": true,
+        "repeated_unit": false,
+        "catalogue_text": false,
+        "posthoc_reversal": false
+      },
+      "next_repair": "Transduce the verb at residual index 0 to a held-out past-tense synonym with matching dependency valency, then recheck agreement and closure."
+    },
+    {
+      "id": "past-1-2",
+      "rendered": "A patient gardener watered the young cedar trees after rain; the careful pilot marked the distant runway lights through mist.",
+      "dependency_tree": {
+        "left": {
+          "subj": "a patient gardener",
+          "verb": "watered",
+          "obj": "the young cedar trees"
+        },
+        "right": {
+          "subj": "the careful pilot",
+          "verb": "marked",
+          "obj": "the distant runway lights"
+        },
+        "agreement": "singular subject + past finite verb"
+      },
+      "audit": {
+        "length": 104,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "t"
+        },
+        "sha256_forward": "9663d49a004cba8b163263dfab934bc98ee7ff499834bde20c6d4839110941e6",
+        "sha256_reverse": "d8f126f78b9bba9056d071f603114c2a06088b876eca16e7be19430b678738e8",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "finite past-tense transducer pairs embedded in independently authored dependency trees",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "78e647f2f53970759812ca7c96f8e38b07c80ae905834fa46cad647e9fe02a41",
+        "source_sha256": "9663d49a004cba8b163263dfab934bc98ee7ff499834bde20c6d4839110941e6"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "no_word_order_symmetry": true,
+        "repeated_unit": false,
+        "catalogue_text": false,
+        "posthoc_reversal": false
+      },
+      "next_repair": "Transduce the verb at residual index 0 to a held-out past-tense synonym with matching dependency valency, then recheck agreement and closure."
+    },
+    {
+      "id": "past-2-0",
+      "rendered": "The careful pilot marked the distant runway lights through mist; the archivist delivered the rescued letters at dawn.",
+      "dependency_tree": {
+        "left": {
+          "subj": "the careful pilot",
+          "verb": "marked",
+          "obj": "the distant runway lights"
+        },
+        "right": {
+          "subj": "the archivist",
+          "verb": "delivered",
+          "obj": "the rescued letters"
+        },
+        "agreement": "singular subject + past finite verb"
+      },
+      "audit": {
+        "length": 98,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "bfb72c6ea9dd8a10a84781e412b138c7112455bf6a58766eac6b4f1f6bda4fed",
+        "sha256_reverse": "1f249516a1cc2e3b3b5f897a7bf6e343d0f79526ad644667f86912c56a5eb412",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "finite past-tense transducer pairs embedded in independently authored dependency trees",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "78e647f2f53970759812ca7c96f8e38b07c80ae905834fa46cad647e9fe02a41",
+        "source_sha256": "bfb72c6ea9dd8a10a84781e412b138c7112455bf6a58766eac6b4f1f6bda4fed"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "no_word_order_symmetry": true,
+        "repeated_unit": false,
+        "catalogue_text": false,
+        "posthoc_reversal": false
+      },
+      "next_repair": "Transduce the verb at residual index 0 to a held-out past-tense synonym with matching dependency valency, then recheck agreement and closure."
+    },
+    {
+      "id": "past-2-1",
+      "rendered": "The careful pilot marked the distant runway lights through mist; a patient gardener watered the young cedar trees after rain.",
+      "dependency_tree": {
+        "left": {
+          "subj": "the careful pilot",
+          "verb": "marked",
+          "obj": "the distant runway lights"
+        },
+        "right": {
+          "subj": "a patient gardener",
+          "verb": "watered",
+          "obj": "the young cedar trees"
+        },
+        "agreement": "singular subject + past finite verb"
+      },
+      "audit": {
+        "length": 104,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "f056bc7fbd4c70609951743bdd34bfc435cefdf918a443395df9b3d6870c93ce",
+        "sha256_reverse": "2ba8a85c0ee5f78e70967252edf86c9bff699a49bced710ddef3a9748b4c956a",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "finite past-tense transducer pairs embedded in independently authored dependency trees",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "78e647f2f53970759812ca7c96f8e38b07c80ae905834fa46cad647e9fe02a41",
+        "source_sha256": "f056bc7fbd4c70609951743bdd34bfc435cefdf918a443395df9b3d6870c93ce"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "no_word_order_symmetry": true,
+        "repeated_unit": false,
+        "catalogue_text": false,
+        "posthoc_reversal": false
+      },
+      "next_repair": "Transduce the verb at residual index 0 to a held-out past-tense synonym with matching dependency valency, then recheck agreement and closure."
+    }
+  ],
+  "summary": {
+    "candidate_count": 6,
+    "exact_count": 0,
+    "max_length": 104
+  }
+}

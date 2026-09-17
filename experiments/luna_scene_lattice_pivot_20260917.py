@@ -67,7 +67,7 @@ def realize(scene: dict[str, str], tense: str, auxiliary: str, adjunct: str) -> 
     # Pivot is lexicalized as an ordinary temporal clause, never as a center tape.
     verb = scene["action"] if tense == "present" else {"labels": "labelled", "packs": "packed", "measures": "measured"}[scene["action"]]
     sentence = (f"{scene['agent'].capitalize()} {verb} {scene['object']} {scene['place']} {adjunct}; "
-                f"{scene['pivot']}, {auxiliary} {scene['counter']} waits by the door.")
+                f"{scene['pivot']}, {auxiliary} {scene['counter']} near the door.")
     a = audit(sentence)
     pivot = normalize_letters(scene["pivot"])
     return {"rendered": sentence, "semantic_slots": {"agent": scene["agent"], "action": verb,

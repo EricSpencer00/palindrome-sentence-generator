@@ -4431,6 +4431,15 @@
       "distinction": "Implementation repair to the assumption-core slot solver: variable-length word offsets and mirrored character support prune lexical domains before complete rendering, with exhaustive tiny-domain soundness checks.",
       "reader_evidence": false,
       "status": "repair diagnostic; both inherited scenes reject all 139,968 assignments at propagation, no candidate generated"
+    },
+    {
+      "id": "partial-word-seam-search-20260917",
+      "signature": "whole-word-rendering|internal-centre-word-split|independent-lexical-contexts|two-pointer-audit",
+      "artifact": "experiments/partial_word_seam_search_20260917.py",
+      "run_artifacts": ["runs/partial-word-seam-search-20260917.json"],
+      "distinction": "The centre state permits a lexical word to cross the palindrome seam while the final output retains the intact word; contexts are independently lexicalized and never post-hoc reversed or resegmented.",
+      "reader_evidence": false,
+      "status": "diagnostic run; 5,904 seam states, no exact closure; next repair is pre-lexical mirrored-obligation propagation plus a fresh semantic template"
     }
   ],
   "excluded": [
@@ -4877,15 +4886,6 @@
       "run_artifacts": ["runs/luna-debruijn-window-path-20260917-excluded.json"],
       "overlaps": ["luna-semantic-lexical-path-solver-20260917", "luna-lexicalized-reverse-trie-grammar-20260917"],
       "reason": "Preflight found the proposed paragraph overlap path still uses the registered online character-obligation/semantic-path dimension. Three independently authored prose windows and their exact k-gram edge audit are retained as exclusion evidence; the finite residue path has no return edge or mirrored closure."
-    },
-    {
-      "id": "partial-word-seam-search-20260917",
-      "signature": "whole-word-rendering|internal-centre-word-split|independent-lexical-contexts|two-pointer-audit",
-      "artifact": "experiments/partial_word_seam_search_20260917.py",
-      "run_artifacts": ["runs/partial-word-seam-search-20260917.json"],
-      "distinction": "The centre state permits a lexical word to cross the palindrome seam while the final output retains the intact word; contexts are independently lexicalized and never post-hoc reversed or resegmented.",
-      "reader_evidence": false,
-      "status": "diagnostic run; 5,904 seam states, no exact closure; next repair is pre-lexical mirrored-obligation propagation plus a fresh semantic template"
     },
     {
       "id": "luna-causal-scene-graph-20260917",

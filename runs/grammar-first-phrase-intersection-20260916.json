@@ -1,0 +1,116 @@
+{
+  "experiment_id": "grammar-first-phrase-intersection-20260916",
+  "signature": "grammar-first|finite-phrase-lexicon|precommit-letter-equation|fresh-scene|bounded",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "grammar-first finite phrase lexicon; check each emitted phrase boundary against live mirrored character obligation before committing it",
+  "phrase_lexicon": [
+    "The patient surveyor",
+    "records the northern channel",
+    "while the careful deckhand",
+    "repairs a torn sail",
+    "before the evening tide."
+  ],
+  "candidate": {
+    "rendered": "The patient surveyor records the northern channel while the careful deckhand repairs a torn sail before the evening tide.",
+    "complete_prose": true,
+    "semantic_consistency": true,
+    "committed_phrase_boundaries": [
+      {
+        "phrase": "The patient surveyor",
+        "boundary_left": "r",
+        "boundary_right": "e",
+        "equation_checked_before_commit": true
+      },
+      {
+        "phrase": "records the northern channel",
+        "boundary_left": "l",
+        "boundary_right": "d",
+        "equation_checked_before_commit": true
+      },
+      {
+        "phrase": "while the careful deckhand",
+        "boundary_left": "d",
+        "boundary_right": "i",
+        "equation_checked_before_commit": true
+      },
+      {
+        "phrase": "repairs a torn sail",
+        "boundary_left": "l",
+        "boundary_right": "t",
+        "equation_checked_before_commit": true
+      },
+      {
+        "phrase": "before the evening tide.",
+        "boundary_left": "e",
+        "boundary_right": "g",
+        "equation_checked_before_commit": true
+      }
+    ],
+    "audit": {
+      "rendered": "The patient surveyor records the northern channel while the careful deckhand repairs a torn sail before the evening tide.",
+      "letters": 102,
+      "exact": false,
+      "two_pointer_exact": false,
+      "first_mismatch": [
+        0,
+        "t",
+        "e"
+      ],
+      "normalized_sha256": "b6d2b45383169871874d150ab3f40c142091343187b6957d5d087276d30bf629",
+      "reverse_sha256": "a1228b1e6338f7bc1b1c2ecb7c3b5d18c006755a76fde551b2be6634d10cc275",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "anti_shortcut": {
+        "catalogue_family_derivative": false,
+        "seed_wrapped_or_repeated": false,
+        "word_order_mirror": false,
+        "semordnilap_chain": false,
+        "repeated_self_palindromic_unit": false
+      }
+    }
+  },
+  "stats": {
+    "rendered": 1,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "replace first phrase whose precommit boundary fails with held-out same-role phrase and continue equation checks",
+    "reason": "fresh complete scene is grammatical but no full exact closure was found"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 412,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "completed_tape_input": false,
+    "word_order_mirror": false,
+    "sweep": false
+  },
+  "provenance": {
+    "generator_sha256": "e137e2a69666a4595e83c0496a6b68a6fb98e9e97e2f5308c6bd7c0e22faec9b",
+    "lexical_source": "fresh finite phrase lexicon",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "precommit boundary equations",
+      "anti-shortcut"
+    ]
+  }
+}

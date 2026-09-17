@@ -17,7 +17,7 @@
       "gibberish"
     ]
   },
-  "candidate_count": 5,
+  "candidate_count": 9,
   "candidates": [
     {
       "rendered": "The seasoned harbor pilot guides the weathered ferry through the morning fog. The kind librarian returns the borrowed novels to the neighborhood shelves.",
@@ -240,6 +240,7 @@
           "local_catalogue_absent": true
         }
       },
+      "repair": "baseline",
       "reader_eligible": false,
       "anti_shortcut_flags": {
         "seed_embedding": false,
@@ -478,6 +479,246 @@
           "local_catalogue_absent": true
         }
       },
+      "repair": "baseline",
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
+      "rendered": "The patient gardener reopened the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for them at the waiting shelter.",
+      "plan": {
+        "left_roles": "agent=patient gardener;event=reopened;theme=rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for them",
+        "obligations_checked_before_render": true,
+        "sample_obligations": [
+          {
+            "position": 0,
+            "left_char": "t",
+            "required_right_char": "r",
+            "boundary_crossing": false
+          },
+          {
+            "position": 1,
+            "left_char": "h",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 2,
+            "left_char": "e",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 3,
+            "left_char": "p",
+            "required_right_char": "l",
+            "boundary_crossing": false
+          },
+          {
+            "position": 4,
+            "left_char": "a",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 5,
+            "left_char": "t",
+            "required_right_char": "h",
+            "boundary_crossing": false
+          },
+          {
+            "position": 6,
+            "left_char": "i",
+            "required_right_char": "s",
+            "boundary_crossing": false
+          },
+          {
+            "position": 7,
+            "left_char": "e",
+            "required_right_char": "g",
+            "boundary_crossing": false
+          },
+          {
+            "position": 8,
+            "left_char": "n",
+            "required_right_char": "n",
+            "boundary_crossing": false
+          },
+          {
+            "position": 9,
+            "left_char": "t",
+            "required_right_char": "i",
+            "boundary_crossing": false
+          },
+          {
+            "position": 10,
+            "left_char": "g",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 11,
+            "left_char": "a",
+            "required_right_char": "i",
+            "boundary_crossing": false
+          }
+        ],
+        "inflectional_and_clitic_seams": [
+          {
+            "tile": "reopened",
+            "base": "reopen",
+            "affix_or_clitic": "ed",
+            "character_level": true
+          },
+          {
+            "tile": "delivers",
+            "base": "deliver",
+            "affix_or_clitic": "s",
+            "character_level": true
+          },
+          {
+            "tile": " for them",
+            "base": "",
+            "affix_or_clitic": " for them",
+            "character_level": true
+          }
+        ]
+      },
+      "audit": {
+        "rendered": "The patient gardener reopened the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for them at the waiting shelter.",
+        "normalized_tape": "thepatientgardenerreopenedtherainsoakedgreenhousebeforesunrisethevillagebakerdeliversthewarmloavesforthematthewaitingshelter",
+        "letters": 124,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 123,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 122,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 121,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 3,
+            "right_index": 120,
+            "left": "p",
+            "right": "l"
+          },
+          {
+            "left_index": 4,
+            "right_index": 119,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "left_index": 5,
+            "right_index": 118,
+            "left": "t",
+            "right": "h"
+          },
+          {
+            "left_index": 6,
+            "right_index": 117,
+            "left": "i",
+            "right": "s"
+          },
+          {
+            "left_index": 7,
+            "right_index": 116,
+            "left": "e",
+            "right": "g"
+          },
+          {
+            "left_index": 9,
+            "right_index": 114,
+            "left": "t",
+            "right": "i"
+          },
+          {
+            "left_index": 10,
+            "right_index": 113,
+            "left": "g",
+            "right": "t"
+          },
+          {
+            "left_index": 11,
+            "right_index": 112,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "left_index": 12,
+            "right_index": 111,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 13,
+            "right_index": 110,
+            "left": "d",
+            "right": "w"
+          },
+          {
+            "left_index": 15,
+            "right_index": 108,
+            "left": "n",
+            "right": "h"
+          },
+          {
+            "left_index": 16,
+            "right_index": 107,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 17,
+            "right_index": 106,
+            "left": "r",
+            "right": "t"
+          }
+        ],
+        "sha256_forward": "0f7bdde8b755cb8cf2033d6314c12ccbe6318a0836caf8eff35d630115ab68fa",
+        "sha256_reverse": "64b0d49718944db46f04e67127d60a283e138a3a92860857ca5e6c30e0b61689",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "repair": "past-tense + object-clitic",
       "reader_eligible": false,
       "anti_shortcut_flags": {
         "seed_embedding": false,
@@ -716,6 +957,7 @@
           "local_catalogue_absent": true
         }
       },
+      "repair": "baseline",
       "reader_eligible": false,
       "anti_shortcut_flags": {
         "seed_embedding": false,
@@ -948,6 +1190,246 @@
           "local_catalogue_absent": true
         }
       },
+      "repair": "baseline",
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
+      "rendered": "The patient gardener reopens the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for them at the waiting shelter.",
+      "plan": {
+        "left_roles": "agent=patient gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for them",
+        "obligations_checked_before_render": true,
+        "sample_obligations": [
+          {
+            "position": 0,
+            "left_char": "t",
+            "required_right_char": "r",
+            "boundary_crossing": false
+          },
+          {
+            "position": 1,
+            "left_char": "h",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 2,
+            "left_char": "e",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 3,
+            "left_char": "p",
+            "required_right_char": "l",
+            "boundary_crossing": false
+          },
+          {
+            "position": 4,
+            "left_char": "a",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 5,
+            "left_char": "t",
+            "required_right_char": "h",
+            "boundary_crossing": false
+          },
+          {
+            "position": 6,
+            "left_char": "i",
+            "required_right_char": "s",
+            "boundary_crossing": false
+          },
+          {
+            "position": 7,
+            "left_char": "e",
+            "required_right_char": "g",
+            "boundary_crossing": false
+          },
+          {
+            "position": 8,
+            "left_char": "n",
+            "required_right_char": "n",
+            "boundary_crossing": false
+          },
+          {
+            "position": 9,
+            "left_char": "t",
+            "required_right_char": "i",
+            "boundary_crossing": false
+          },
+          {
+            "position": 10,
+            "left_char": "g",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 11,
+            "left_char": "a",
+            "required_right_char": "i",
+            "boundary_crossing": false
+          }
+        ],
+        "inflectional_and_clitic_seams": [
+          {
+            "tile": "reopens",
+            "base": "reopen",
+            "affix_or_clitic": "s",
+            "character_level": true
+          },
+          {
+            "tile": "delivers",
+            "base": "deliver",
+            "affix_or_clitic": "s",
+            "character_level": true
+          },
+          {
+            "tile": " for them",
+            "base": "",
+            "affix_or_clitic": " for them",
+            "character_level": true
+          }
+        ]
+      },
+      "audit": {
+        "rendered": "The patient gardener reopens the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for them at the waiting shelter.",
+        "normalized_tape": "thepatientgardenerreopenstherainsoakedgreenhousebeforesunrisethevillagebakerdeliversthewarmloavesforthematthewaitingshelter",
+        "letters": 123,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 122,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 121,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 120,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 3,
+            "right_index": 119,
+            "left": "p",
+            "right": "l"
+          },
+          {
+            "left_index": 4,
+            "right_index": 118,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "left_index": 5,
+            "right_index": 117,
+            "left": "t",
+            "right": "h"
+          },
+          {
+            "left_index": 6,
+            "right_index": 116,
+            "left": "i",
+            "right": "s"
+          },
+          {
+            "left_index": 7,
+            "right_index": 115,
+            "left": "e",
+            "right": "g"
+          },
+          {
+            "left_index": 9,
+            "right_index": 113,
+            "left": "t",
+            "right": "i"
+          },
+          {
+            "left_index": 10,
+            "right_index": 112,
+            "left": "g",
+            "right": "t"
+          },
+          {
+            "left_index": 11,
+            "right_index": 111,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "left_index": 12,
+            "right_index": 110,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 13,
+            "right_index": 109,
+            "left": "d",
+            "right": "w"
+          },
+          {
+            "left_index": 15,
+            "right_index": 107,
+            "left": "n",
+            "right": "h"
+          },
+          {
+            "left_index": 16,
+            "right_index": 106,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 17,
+            "right_index": 105,
+            "left": "r",
+            "right": "t"
+          }
+        ],
+        "sha256_forward": "927d3f4f9d306df52426a18685d1faca6e5c00450ea390a9b984b41d12c5a4f0",
+        "sha256_reverse": "db74c331adc9e770c156950ef129d1a849acf4d6f7043621ee1becc95632cca1",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "repair": "present-tense + object-clitic",
       "reader_eligible": false,
       "anti_shortcut_flags": {
         "seed_embedding": false,
@@ -1180,6 +1662,485 @@
           "local_catalogue_absent": true
         }
       },
+      "repair": "baseline",
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
+      "rendered": "The patient gardener reopened the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for us at the waiting shelter.",
+      "plan": {
+        "left_roles": "agent=patient gardener;event=reopened;theme=rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for us",
+        "obligations_checked_before_render": true,
+        "sample_obligations": [
+          {
+            "position": 0,
+            "left_char": "t",
+            "required_right_char": "r",
+            "boundary_crossing": false
+          },
+          {
+            "position": 1,
+            "left_char": "h",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 2,
+            "left_char": "e",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 3,
+            "left_char": "p",
+            "required_right_char": "l",
+            "boundary_crossing": false
+          },
+          {
+            "position": 4,
+            "left_char": "a",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 5,
+            "left_char": "t",
+            "required_right_char": "h",
+            "boundary_crossing": false
+          },
+          {
+            "position": 6,
+            "left_char": "i",
+            "required_right_char": "s",
+            "boundary_crossing": false
+          },
+          {
+            "position": 7,
+            "left_char": "e",
+            "required_right_char": "g",
+            "boundary_crossing": false
+          },
+          {
+            "position": 8,
+            "left_char": "n",
+            "required_right_char": "n",
+            "boundary_crossing": false
+          },
+          {
+            "position": 9,
+            "left_char": "t",
+            "required_right_char": "i",
+            "boundary_crossing": false
+          },
+          {
+            "position": 10,
+            "left_char": "g",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 11,
+            "left_char": "a",
+            "required_right_char": "i",
+            "boundary_crossing": false
+          }
+        ],
+        "inflectional_and_clitic_seams": [
+          {
+            "tile": "reopened",
+            "base": "reopen",
+            "affix_or_clitic": "ed",
+            "character_level": true
+          },
+          {
+            "tile": "delivers",
+            "base": "deliver",
+            "affix_or_clitic": "s",
+            "character_level": true
+          },
+          {
+            "tile": " for us",
+            "base": "",
+            "affix_or_clitic": " for us",
+            "character_level": true
+          }
+        ]
+      },
+      "audit": {
+        "rendered": "The patient gardener reopened the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for us at the waiting shelter.",
+        "normalized_tape": "thepatientgardenerreopenedtherainsoakedgreenhousebeforesunrisethevillagebakerdeliversthewarmloavesforusatthewaitingshelter",
+        "letters": 122,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 121,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 120,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 119,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 3,
+            "right_index": 118,
+            "left": "p",
+            "right": "l"
+          },
+          {
+            "left_index": 4,
+            "right_index": 117,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "left_index": 5,
+            "right_index": 116,
+            "left": "t",
+            "right": "h"
+          },
+          {
+            "left_index": 6,
+            "right_index": 115,
+            "left": "i",
+            "right": "s"
+          },
+          {
+            "left_index": 7,
+            "right_index": 114,
+            "left": "e",
+            "right": "g"
+          },
+          {
+            "left_index": 9,
+            "right_index": 112,
+            "left": "t",
+            "right": "i"
+          },
+          {
+            "left_index": 10,
+            "right_index": 111,
+            "left": "g",
+            "right": "t"
+          },
+          {
+            "left_index": 11,
+            "right_index": 110,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "left_index": 12,
+            "right_index": 109,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 13,
+            "right_index": 108,
+            "left": "d",
+            "right": "w"
+          },
+          {
+            "left_index": 15,
+            "right_index": 106,
+            "left": "n",
+            "right": "h"
+          },
+          {
+            "left_index": 16,
+            "right_index": 105,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 17,
+            "right_index": 104,
+            "left": "r",
+            "right": "t"
+          }
+        ],
+        "sha256_forward": "4ad835f7e59ac62199633e7d893d7d48e255a17cd2e1fc9c356c0b9383bd2e3e",
+        "sha256_reverse": "de453d9883641a6d842b53f4bd56a9e3f716ee582ab494fddc6835d2112c5595",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "repair": "past-tense + speaker-clitic",
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
+      "rendered": "The patient gardener reopens the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for us at the waiting shelter.",
+      "plan": {
+        "left_roles": "agent=patient gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for us",
+        "obligations_checked_before_render": true,
+        "sample_obligations": [
+          {
+            "position": 0,
+            "left_char": "t",
+            "required_right_char": "r",
+            "boundary_crossing": false
+          },
+          {
+            "position": 1,
+            "left_char": "h",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 2,
+            "left_char": "e",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 3,
+            "left_char": "p",
+            "required_right_char": "l",
+            "boundary_crossing": false
+          },
+          {
+            "position": 4,
+            "left_char": "a",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 5,
+            "left_char": "t",
+            "required_right_char": "h",
+            "boundary_crossing": false
+          },
+          {
+            "position": 6,
+            "left_char": "i",
+            "required_right_char": "s",
+            "boundary_crossing": false
+          },
+          {
+            "position": 7,
+            "left_char": "e",
+            "required_right_char": "g",
+            "boundary_crossing": false
+          },
+          {
+            "position": 8,
+            "left_char": "n",
+            "required_right_char": "n",
+            "boundary_crossing": false
+          },
+          {
+            "position": 9,
+            "left_char": "t",
+            "required_right_char": "i",
+            "boundary_crossing": false
+          },
+          {
+            "position": 10,
+            "left_char": "g",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 11,
+            "left_char": "a",
+            "required_right_char": "i",
+            "boundary_crossing": false
+          }
+        ],
+        "inflectional_and_clitic_seams": [
+          {
+            "tile": "reopens",
+            "base": "reopen",
+            "affix_or_clitic": "s",
+            "character_level": true
+          },
+          {
+            "tile": "delivers",
+            "base": "deliver",
+            "affix_or_clitic": "s",
+            "character_level": true
+          },
+          {
+            "tile": " for us",
+            "base": "",
+            "affix_or_clitic": " for us",
+            "character_level": true
+          }
+        ]
+      },
+      "audit": {
+        "rendered": "The patient gardener reopens the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for us at the waiting shelter.",
+        "normalized_tape": "thepatientgardenerreopenstherainsoakedgreenhousebeforesunrisethevillagebakerdeliversthewarmloavesforusatthewaitingshelter",
+        "letters": 121,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 120,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 119,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 118,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 3,
+            "right_index": 117,
+            "left": "p",
+            "right": "l"
+          },
+          {
+            "left_index": 4,
+            "right_index": 116,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "left_index": 5,
+            "right_index": 115,
+            "left": "t",
+            "right": "h"
+          },
+          {
+            "left_index": 6,
+            "right_index": 114,
+            "left": "i",
+            "right": "s"
+          },
+          {
+            "left_index": 7,
+            "right_index": 113,
+            "left": "e",
+            "right": "g"
+          },
+          {
+            "left_index": 9,
+            "right_index": 111,
+            "left": "t",
+            "right": "i"
+          },
+          {
+            "left_index": 10,
+            "right_index": 110,
+            "left": "g",
+            "right": "t"
+          },
+          {
+            "left_index": 11,
+            "right_index": 109,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "left_index": 12,
+            "right_index": 108,
+            "left": "r",
+            "right": "a"
+          },
+          {
+            "left_index": 13,
+            "right_index": 107,
+            "left": "d",
+            "right": "w"
+          },
+          {
+            "left_index": 15,
+            "right_index": 105,
+            "left": "n",
+            "right": "h"
+          },
+          {
+            "left_index": 16,
+            "right_index": 104,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 17,
+            "right_index": 103,
+            "left": "r",
+            "right": "t"
+          }
+        ],
+        "sha256_forward": "df328cc931e4adf520ca36b6f98badf5f059a2062e0bab0a5c28e54d2ddcb58b",
+        "sha256_reverse": "6abb3f5ab4e2c7eb93035366aab8ce7388b75e222eaed0afa62b4dfa544adc09",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "repair": "present-tense + speaker-clitic",
       "reader_eligible": false,
       "anti_shortcut_flags": {
         "seed_embedding": false,
@@ -1194,7 +2155,8 @@
   ],
   "actual_prose": "The seasoned harbor pilot guides the weathered ferry through the morning fog. The kind librarian returns the borrowed novels to the neighborhood shelves.",
   "stats": {
-    "complete_clause_pairs": 5,
+    "complete_clause_pairs": 9,
+    "repaired_variants": 4,
     "exact": 0,
     "longest_letters": 129
   },
@@ -1205,8 +2167,9 @@
       "left": "t",
       "right": "s"
     },
-    "next_operator": "replace the held-out inflection or clitic tile at the first residual with a role-compatible lexical sibling, then recompute obligations before punctuation",
-    "concrete_next_repair": "test 'reopened'/'reopens' and 'for them'/'for us' variants on the gardener\u2013baker pair while preserving both complete clauses"
+    "repair_applied": "reopened/reopens \u00d7 for them/for us on gardener\u2013baker pair",
+    "next_operator": "move the first residual to the next role-compatible adjective or adjunct boundary, preserving both complete clauses and recomputing obligations before punctuation",
+    "concrete_next_repair": "hold out 'before sunrise'/'at dawn' and 'weathered ferry'/'morning ferry' substitutions, then test them only where the residual seam crosses a clause or affix boundary"
   },
   "provenance": {
     "lexical_source": "fresh hand-authored clause plans and productive English morphology",
@@ -1220,6 +2183,6 @@
       "forward/reverse SHA-256",
       "mechanical admission"
     ],
-    "generator_sha256": "1c87fde3729e84c649207225269cd361d440e629908e20dcd120c5500cf06f70"
+    "generator_sha256": "7b14a1fa93852f4cbcf43b0174419804e6bad83f0b0242004041cffab8bb5869"
   }
 }

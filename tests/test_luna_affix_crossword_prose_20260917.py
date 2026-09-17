@@ -9,6 +9,10 @@ def test_affix_crossword_run_has_complete_prose_and_independent_audits():
     assert result["status"] == "completed_no_exact_closure"
     assert result["novelty_preflight"]["status"] == "passed"
     assert result["stats"]["longest_letters"] > 80
+    assert result["stats"]["repaired_variants"] == 4
+    assert {row["repair"] for row in result["candidates"]} >= {
+        "past-tense + object-clitic", "present-tense + speaker-clitic"
+    }
     assert result["candidates"]
     for row in result["candidates"]:
         assert row["audit"]["independent_two_pointer_exact"] == row["audit"]["exact"]

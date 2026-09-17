@@ -9,7 +9,7 @@ is independent of that pass.
 """
 from __future__ import annotations
 
-from dataclasses import dataclass
+from dataclasses import dataclass, replace
 import hashlib
 import json
 from pathlib import Path
@@ -114,11 +114,11 @@ def obligation_plan(left: ClausePlan, right: ClausePlan) -> dict[str, object]:
             "inflectional_and_clitic_seams": seams}
 
 
-def make_candidate(left: ClausePlan, right: ClausePlan) -> dict[str, object]:
+def make_candidate(left: ClausePlan, right: ClausePlan, *, repair: str = "baseline") -> dict[str, object]:
     plan = obligation_plan(left, right)
     rendered = left.render() + " " + right.render()
     audit = independent_audit(rendered)
-    return {"rendered": rendered, "plan": plan, "audit": audit,
+    return {"rendered": rendered, "plan": plan, "audit": audit, "repair": repair,
             "reader_eligible": False,
             "anti_shortcut_flags": {"seed_embedding": False, "fixed_tape": False,
                                     "word_order_mirror": False, "repeated_span": False,
@@ -131,6 +131,18 @@ def run() -> dict[str, object]:
     pairs = [(PLANS[0], PLANS[5]), (PLANS[1], PLANS[8]), (PLANS[2], PLANS[9]),
              (PLANS[3], PLANS[6]), (PLANS[4], PLANS[7])]
     candidates = [make_candidate(*pair) for pair in pairs]
+    # Execute the recorded repair: vary only productive tiles while retaining
+    # the same two dependency frames and their ordinary semantic roles.
+    gardener = PLANS[0]
+    baker = PLANS[5]
+    repaired_pairs = (
+        (replace(gardener, verb="reopened"), replace(baker, clitic=" for them"), "past-tense + object-clitic"),
+        (replace(gardener, verb="reopened"), replace(baker, clitic=" for us"), "past-tense + speaker-clitic"),
+        (replace(gardener, verb="reopens"), replace(baker, clitic=" for them"), "present-tense + object-clitic"),
+        (replace(gardener, verb="reopens"), replace(baker, clitic=" for us"), "present-tense + speaker-clitic"),
+    )
+    candidates.extend(make_candidate(left, right, repair=label)
+                      for left, right, label in repaired_pairs)
     candidates.sort(key=lambda row: row["audit"]["letters"], reverse=True)
     best = candidates[0]
     first = best["audit"]["two_pointer_mismatches"][0] if best["audit"]["two_pointer_mismatches"] else None
@@ -139,11 +151,13 @@ def run() -> dict[str, object]:
             "method": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
             "novelty_preflight": preflight, "candidate_count": len(candidates),
             "candidates": candidates, "actual_prose": best["rendered"],
-            "stats": {"complete_clause_pairs": len(candidates), "exact": sum(r["audit"]["exact"] for r in candidates),
+            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 4,
+                      "exact": sum(r["audit"]["exact"] for r in candidates),
                       "longest_letters": best["audit"]["letters"]},
             "failure_and_repair": {"first_residual": first,
-                "next_operator": "replace the held-out inflection or clitic tile at the first residual with a role-compatible lexical sibling, then recompute obligations before punctuation",
-                "concrete_next_repair": "test 'reopened'/'reopens' and 'for them'/'for us' variants on the gardener–baker pair while preserving both complete clauses"},
+                "repair_applied": "reopened/reopens × for them/for us on gardener–baker pair",
+                "next_operator": "move the first residual to the next role-compatible adjective or adjunct boundary, preserving both complete clauses and recomputing obligations before punctuation",
+                "concrete_next_repair": "hold out 'before sunrise'/'at dawn' and 'weathered ferry'/'morning ferry' substitutions, then test them only where the residual seam crosses a clause or affix boundary"},
             "provenance": {"lexical_source": "fresh hand-authored clause plans and productive English morphology",
                            "catalogue_text_imported": False, "seed_embedding": False, "fixed_tape": False,
                            "word_order_mirror": False, "repeated_self_palindromic_span": False,

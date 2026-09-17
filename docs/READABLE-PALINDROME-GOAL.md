@@ -2180,6 +2180,18 @@ named next repair. The aggregate is 4,898 rows across 247 route phases (79
   provenance, novelty preflight, anti-shortcut checks, and a concrete
   first-residual repair; none closes exactly or enters the reader packet.
 
+  The final exact-focused cycle used three distinct states. A 104-letter
+  miller/chemist DP rendering was rejected as a byte-for-byte duplicate of the
+  retained paired lexical graph, while the center-terminal family produced
+  eight fresh 56--61-letter scenes (best: “The singer carries the melody at
+  noon; The quiet clerk files the record.”) and the grammar-first intersection
+  produced one fresh 84-letter curator/guide scene. All are intact prose with
+  independent two-pointer/SHA rejection, provenance, novelty preflight, and a
+  concrete next repair; the duplicate is excluded rather than counted. The
+  latest authoritative snapshot is 4,976 rows across 285 routes, with 79 exact
+  rejected tapes and 0 mechanically admitted outputs. The reader packet remains
+  gated on a genuinely exact anti-shortcut survivor.
+
   The newest committed wave is measured at **4,967 rows across 283 route phases**
   with **79 exact but rejected tapes and 0 mechanically admitted outputs**. Its
   three actual fresh renderings are a 140-letter archivist/gardener/pilot scene,

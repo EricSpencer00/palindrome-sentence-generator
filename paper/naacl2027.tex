@@ -26,7 +26,7 @@ builds ordinary scenes: typed grammar and semantic slots propose the next
 words, and targeted repairs are selected from the current mirrored-letter
 debt.  Ten deliberately orthogonal construction lanes share an independent
 two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 4,967 candidates from 283 route
+The current development snapshot contains 4,976 candidates from 285 route
 summaries; 79 are exact, but none passes the mechanical admission gate and no row has
 yet been promoted by readers.  We report the rendered candidates and the
 failed gates explicitly, then use each failure to define the next repair
@@ -99,8 +99,8 @@ surface cannot become a headline result.
 
 \begin{table*}[t]
 \centering
-\small
-\begin{tabular}{p{0.24\linewidth}p{0.49\linewidth}rrp{0.16\linewidth}}
+\scriptsize
+\begin{tabular}{@{}p{0.20\linewidth}p{0.34\linewidth}p{0.06\linewidth}p{0.05\linewidth}p{0.23\linewidth}@{}}
 \toprule
 Lane family & Rendered surface & Letters & Exact & Next repair \\
 \midrule
@@ -388,9 +388,9 @@ generator's booleans.  The mechanical admission vector records ASCII support,
 lexical form, distinctness, catalogue-family exclusion, repeated-unit and
 self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
 one signature to each run and rejects duplicate families before aggregation.
-On the authoritative snapshot the registry contains 384 unique artifacts (31
-preflight exclusions); the aggregate contains 4,967 rows, 79 exact rows, and
-zero mechanically admitted rows across 283 route summaries.  Every exact row
+On the authoritative snapshot the registry contains 386 unique artifacts (32
+preflight exclusions); the aggregate contains 4,976 rows, 79 exact rows, and
+zero mechanically admitted rows across 285 route summaries.  Every exact row
 therefore has a visible reason for rejection or promotion status rather than
 being silently discarded.  The aggregate report is registered separately as
 an audit artifact, never as a construction family.

@@ -565,3 +565,14 @@ joint phrase-pair selection produced a 109-letter orchard/engineering scene,
 a center-out observatory lattice produced four 83--93-letter scenes, and an
 immutable authored tape produced a 113-letter archive scene with no grammatical
 reverse path. All remain independently audited, novel, and reader-ineligible.
+
+The final exact-focused cycle rejects one duplicate explicitly: its 104-letter
+miller/chemist prose is byte-for-byte the prior paired-lexical-graph candidate,
+so the DP run is preserved as failure evidence but excluded from aggregation.
+The center-terminal family contributes eight fresh 56--61-letter states (best
+rendering: “The singer carries the melody at noon; The quiet clerk files the
+record.”), and the grammar-first matching-boundary run contributes one fresh
+84-letter curator/guide scene. Both have independent pointer/SHA rejection,
+provenance, novelty preflight, and concrete center repairs. The authoritative
+ledger is therefore 4,976 rows across 285 routes; the registry is 386 retained,
+32 excluded, and 364 retained run artifacts.

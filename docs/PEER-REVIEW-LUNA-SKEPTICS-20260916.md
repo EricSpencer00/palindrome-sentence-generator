@@ -15,7 +15,7 @@ was not itself represented in the novelty registry. The registry now has an
 `runs/parallel-luna-readability-diagnostics-20260916.json`, explicitly marking
 it as a report rather than a construction lane. Historical checkpoint counts
 in the evidence ledger are labeled as checkpoints; the closing snapshot is
-the current 287-artifact / 31-exclusion registry.
+the current 386-retained-artifact / 32-exclusion registry.
 
 ## Exactness and provenance
 
@@ -108,3 +108,15 @@ independently rejected and reader-ineligible. Their targeted follow-ups add
 91-, 80-, and 117-letter variants, also independently rejected. The
 reverse-phrase, center-free clause-pair, and semantic CSP lanes add 10 more
 fresh rows, also non-exact.
+
+The final exact-focused check caught the failure mode the reviewers required:
+the 104-letter lexical-edge DP output exactly duplicates an earlier retained
+candidate and is marked `excluded_duplicate`, not counted as progress. Two
+nonduplicate lanes remain as evidence: eight center-terminal states, best
+“The singer carries the melody at noon; The quiet clerk files the record.”
+(58 letters, exact `false`), and one 84-letter grammar-first scene, “The quiet
+curator records a coastal chart while the patient guide describes an old harbor
+at evening.” (exact `false`). Their provenance, independent checks, novelty
+preflight, and next repairs are recorded. The authoritative snapshot is now
+4,976 rows across 285 routes (79 exact rejected tapes; 0 mechanically admitted
+outputs); no row is reader-certified.

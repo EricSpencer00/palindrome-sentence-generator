@@ -67,3 +67,18 @@ selection itself:
 - Semantic word-pair event graph: “The pilot carries a sealed parcel to the garden, where the keeper waters the basil before sunset.” (79 letters; exact `false`; next operator adds one delivery/care event edge.)
 
 All three enforce their character checks before word commitment, preserve intact prose, and retain independent audits, provenance, novelty, and anti-shortcut decisions. They add three rows, bringing the aggregate to 4,967 rows across 283 routes; none is mechanically admitted or reader-certified.
+
+## Final exact-focused attempt and duplicate rejection
+
+The next bounded cycle used three different construction states and rejected a
+larger duplicate sweep explicitly:
+
+- Exact-focused lexical-edge DP emitted “The miller repairs the wooden wheel beside the creek, and a patient chemist measures the clear solution inside the glass room.” (104 letters; independent two-pointer `false`; forward/reverse SHA differ). Its precommit character-pair logic is preserved, but the rendered candidate is byte-for-byte the retained paired-lexical-graph output. Novelty status is `excluded_duplicate`, so it is not added to the aggregate. The next repair is a fresh same-role lexical edge at residual zero.
+- Center-terminal clause family emitted eight jointly selected complete states; the best is “The singer carries the melody at noon; The quiet clerk files the record.” (58 letters; independent two-pointer `false`; SHA digests differ). The run records human-authored semantic slots, a live center equation, no nested span or catalogue import, and a new center connective as the next repair.
+- Grammar-first matching-boundary intersection emitted “The quiet curator records a coastal chart while the patient guide describes an old harbor at evening.” (84 letters; independent two-pointer `false`; forward/reverse SHA differ). All five phrase boundaries passed their local equations before commitment; novelty preflight found no fixed tape, reversal, catalogue, or word-order mirror. The next repair adds a typed center production for the remaining global residual.
+
+The two nonduplicate lanes add nine rows, moving the authoritative aggregate to
+4,976 rows across 285 routes (79 exact tapes, 0 mechanically admitted). The
+registry now records 386 retained artifacts, 32 explicit exclusions, and 364
+retained run artifacts. None is reader-certified; the intact-versus-shuffled
+packet remains gated on an exact anti-shortcut survivor.

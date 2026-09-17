@@ -786,3 +786,19 @@ observatory scene lattice (83--93 letters), and immutable-scene exact-tape
 resegmentation (113 letters). Each emits actual intact prose with independent
 audits, provenance, novelty preflight, and a new construction operator; the
 aggregate is now 4,967 rows across 283 routes and still has 0 admitted outputs.
+
+The final exact-focused cycle records three new states. The lexical-edge DP
+rendered “The miller repairs the wooden wheel beside the creek, and a patient
+chemist measures the clear solution inside the glass room.” (104 letters;
+independent exact `false`) but its normalized prose duplicates the retained
+paired-lexical graph, so novelty status is `excluded_duplicate` and it is not
+aggregated. The center-terminal family emitted eight fresh complete states;
+its best is “The singer carries the melody at noon; The quiet clerk files the
+record.” (58 letters; independent exact `false`), with jointly selected slots,
+provenance, and a center-connective repair. The grammar-first lane emitted
+“The quiet curator records a coastal chart while the patient guide describes an
+old harbor at evening.” (84 letters; independent exact `false`); five local
+boundary equations passed before commitment, and the next repair adds a typed
+center production. The two nonduplicate lanes add nine rows: the authoritative
+aggregate is now 4,976 rows across 285 routes, with 79 exact controls and 0
+mechanically admitted outputs.

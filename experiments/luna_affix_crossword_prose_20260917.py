@@ -143,6 +143,22 @@ def run() -> dict[str, object]:
     )
     candidates.extend(make_candidate(left, right, repair=label)
                       for left, right, label in repaired_pairs)
+    # Second recorded repair: cross an adjunct tile on the gardener clause
+    # with an object tile on a distinct, valency-compatible pilot clause.
+    # These are fresh clause pairs, not reruns of the earlier baker pair.
+    pilot = PLANS[2]
+    heldout_pairs = (
+        (replace(gardener, adjunct="before sunrise"), replace(pilot, object="weathered ferry"),
+         "baseline adjunct + baseline object"),
+        (replace(gardener, adjunct="before sunrise"), replace(pilot, object="morning ferry"),
+         "held-out object tile"),
+        (replace(gardener, adjunct="at dawn"), replace(pilot, object="weathered ferry"),
+         "held-out adjunct tile"),
+        (replace(gardener, adjunct="at dawn"), replace(pilot, object="morning ferry"),
+         "held-out adjunct + object tiles"),
+    )
+    candidates.extend(make_candidate(left, right, repair=label)
+                      for left, right, label in heldout_pairs)
     candidates.sort(key=lambda row: row["audit"]["letters"], reverse=True)
     best = candidates[0]
     first = best["audit"]["two_pointer_mismatches"][0] if best["audit"]["two_pointer_mismatches"] else None
@@ -151,13 +167,14 @@ def run() -> dict[str, object]:
             "method": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
             "novelty_preflight": preflight, "candidate_count": len(candidates),
             "candidates": candidates, "actual_prose": best["rendered"],
-            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 4,
+            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 8,
+                      "adjunct_object_variants": 4,
                       "exact": sum(r["audit"]["exact"] for r in candidates),
                       "longest_letters": best["audit"]["letters"]},
             "failure_and_repair": {"first_residual": first,
                 "repair_applied": "reopened/reopens × for them/for us on gardener–baker pair",
-                "next_operator": "move the first residual to the next role-compatible adjective or adjunct boundary, preserving both complete clauses and recomputing obligations before punctuation",
-                "concrete_next_repair": "hold out 'before sunrise'/'at dawn' and 'weathered ferry'/'morning ferry' substitutions, then test them only where the residual seam crosses a clause or affix boundary"},
+                "next_operator": "move the first residual to the next role-compatible subject or theme tile, preserving both complete clauses and recomputing obligations before punctuation",
+                "concrete_next_repair": "hold out 'patient gardener'/'young gardener' and 'weathered ferry'/'morning vessel' substitutions, then test them at the same cross-clause seam"},
             "provenance": {"lexical_source": "fresh hand-authored clause plans and productive English morphology",
                            "catalogue_text_imported": False, "seed_embedding": False, "fixed_tape": False,
                            "word_order_mirror": False, "repeated_self_palindromic_span": False,

@@ -573,20 +573,133 @@
         "source": "fresh typed clause frame and center lexicon",
         "reversal_used": false
       }
+    },
+    {
+      "label": "independent_clause_pair_5",
+      "rendered": "The village doctor examines a careful sketch inside the quiet clinic. The careful archivist stores weathered maps beside the harbor window. Meanwhile, a patient teacher reviews marked field notes near the village school. At dusk, a careful steward records the garden inventory at sunset.",
+      "depth": 2,
+      "letters": 238,
+      "clauses": [
+        "doctor",
+        "archivist",
+        "teacher",
+        "steward"
+      ],
+      "center": "At dusk,",
+      "pointer_audit": {
+        "algorithm": "independent_two_pointer",
+        "letters": 238,
+        "exact": false,
+        "mismatch_count": 111,
+        "first_mismatch": {
+          "left": 1,
+          "right": 236,
+          "left_char": "h",
+          "right_char": "e"
+        }
+      },
+      "hash_audit": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "forward": "3bc7054e08039adc311a1d0d64e9bc339bf986347a69550a068b5f5ab0943269",
+        "reverse": "94a01897bc8e0ea6b09b31c8ccca50504bab840b5b9734cd3da5f34df88d7af5",
+        "exact": false
+      },
+      "seam_equations": {
+        "checked_outer_pairs": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "t",
+            "satisfied": true
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e",
+            "satisfied": false
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "s",
+            "satisfied": false
+          },
+          {
+            "offset": 3,
+            "left": "v",
+            "right": "n",
+            "satisfied": false
+          },
+          {
+            "offset": 4,
+            "left": "i",
+            "right": "u",
+            "satisfied": false
+          },
+          {
+            "offset": 5,
+            "left": "l",
+            "right": "s",
+            "satisfied": false
+          },
+          {
+            "offset": 6,
+            "left": "l",
+            "right": "t",
+            "satisfied": false
+          },
+          {
+            "offset": 7,
+            "left": "a",
+            "right": "a",
+            "satisfied": true
+          },
+          {
+            "offset": 8,
+            "left": "g",
+            "right": "y",
+            "satisfied": false
+          },
+          {
+            "offset": 9,
+            "left": "e",
+            "right": "r",
+            "satisfied": false
+          }
+        ],
+        "first_residual": {
+          "offset": 1,
+          "left": "h",
+          "right": "e",
+          "satisfied": false
+        }
+      },
+      "anti_shortcut": {
+        "finished_tape_reversal": false,
+        "word_order_mirror": false,
+        "repeated_nonfunction_word": true,
+        "repeated_clause_unit": false,
+        "posthoc_character_edit": false
+      },
+      "complete_prose": true,
+      "provenance": {
+        "source": "fresh typed clause frame and center lexicon",
+        "reversal_used": false
+      }
     }
   ],
   "provenance": {
     "generator": "experiments/luna_recursive_balanced_grammar_20260917.py",
-    "generator_sha256": "6ee109e10db3503f57a956a7d35845734dd34898f18d3d66fa6314ede40e99ff",
+    "generator_sha256": "bcc58558ded896f96030985b66e0bd9d1b9571a98c3daf8a6ac9437fa1246b54",
     "lexicon": "task-authored clause frames",
     "catalogue_text": false
   },
   "next_repair": {
     "operator": "replace the first residual outer seam with a role-compatible inflectional clause pair, then rerun both audits",
     "first_residual": {
-      "offset": 0,
-      "left": "t",
-      "right": "m",
+      "offset": 1,
+      "left": "h",
+      "right": "e",
       "satisfied": false
     },
     "reader_facing_test": "blindly rate the longest intact scene against a shuffled-clause control before any exact survivor is admitted"

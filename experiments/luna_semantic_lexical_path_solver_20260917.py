@@ -163,6 +163,9 @@ def main() -> None:
         "candidate_scene": repaired["audit"]["rendered"],
         "candidates": rows[:3],
         "repaired_candidate": repaired,
+        # Expose the held-out repair through the common aggregate schema so
+        # its actual prose and independent audit cannot disappear as metadata.
+        "repair_candidates": [repaired],
         "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(repaired["audit"]["exact"] and repaired["audit"]["letters"] > 38)},
         "novelty_preflight": {"registry_entries_read": len(entries), "exact_signature_collision": collision, "catalogue_text_imported": False, "fixed_tape_used": False, "pos_sweep": False, "scene_lattice": False},
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "lexical_source": "hand-authored typed event lexicon", "path": [e.label for e in PATH], "audits": ["independent two-pointer", "forward/reverse SHA-256", "mechanical admission", "anti-shortcut preflight"]},

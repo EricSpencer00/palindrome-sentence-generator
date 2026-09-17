@@ -950,7 +950,7 @@ and forward/reverse SHA checks agree that it is not exact; provenance and
 anti-shortcut flags are clean, and its next reader-facing test remains the
 intact-versus-shuffled packet after exact admission. The paired-slot exact
 tapes are retained as provenance-backed failure evidence, not readability
-claims. The aggregate is now **5,361 rows across 332 routes, 84 exact rows,
+claims. The aggregate is now **5,377 rows across 332 routes, 84 exact rows,
 and 0 mechanically admitted outputs**; the registry is **431 retained, 35
 excluded, and 409 retained run artifacts**.
 
@@ -1008,15 +1008,15 @@ first-residual repair replaces the outer seam with a role-compatible clause
 pair. None is reader-eligible until exact admission.
 
 Two further lanes keep the construction state joint at a different seam. The
-punctuation-center bridge retains 12 distinct 112--134-letter scenes, including
+punctuation-center bridge retains 24 baseline/repaired 112--136-letter scenes, including
 “The patient cartographer marks a coastal inlet beside the old pier; the
 harbor bell sounds, while the young archivist files weathered maps near the
-harbor office.” (exact `false`); its next repair holds out the first
-center-adjacent noun or inflection. The affix/clitic crossword retains five
-complete 111--129-letter clause pairs, including “The seasoned harbor pilot
+harbor office.” (exact `false`); its next repair holds out the repaired
+right-side object noun or determiner. The affix/clitic crossword retains nine
+complete 121--129-letter baseline/repaired clause pairs, including “The seasoned harbor pilot
 guides the weathered ferry through the morning fog. The kind librarian returns
 the borrowed novels to the neighborhood shelves.” (129 letters; exact
-`false`), with held-out role-compatible inflectional substitution next. Both
+`false`), with a held-out adjunct/object substitution next. Both
 lanes independently audit the full normalized tape and preserve provenance;
 neither is a reader candidate until exact admission.
 

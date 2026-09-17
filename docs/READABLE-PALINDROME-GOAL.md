@@ -2389,3 +2389,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   seam-aware dynamic programming over function-word trie states, a
   center-crossing grammar state, and one controlled attachment alternation
   carried through the character-obligation state.
+
+  The next wave completed those operators and changed construction family.
+  Seam-aware function-word dynamic programming rendered 8 ordinary-English
+  candidates up to 75 letters; one controlled direct-object/locative
+  alternation rendered 1,024 candidates up to 61 letters; and the new typed
+  center-crossing grammar state rendered 24 intact candidates up to 127
+  letters, with the midpoint inside a token in every case. All three produced
+  0 exact closures. Every row has independent pointer and forward/reverse
+  SHA-256 audits, provenance, novelty preflight, and anti-shortcut checks.
+  They are not reader candidates. The next concrete repairs are resolved
+  position masks, a state-local relative-clause verb alternation, and a typed
+  object complement selected against live midpoint debt, respectively.

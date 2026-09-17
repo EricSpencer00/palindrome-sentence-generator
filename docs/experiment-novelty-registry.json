@@ -5719,6 +5719,39 @@
       "distinction": "Separates direct-object `that` and locative `where` relative productions with disjoint lexical domains and carries the attachment feature through the live character-obligation state.",
       "reader_evidence": false,
       "status": "targeted constructive repair; 3,072 controls plus 1,024 attachment-preserving repairs, longest 61 letters, 0 exact closures; one controlled attachment alternation is next"
+    },
+    {
+      "id": "function-word-seam-dp-pruned-20260917",
+      "signature": "function-word-trie|layered-seam-dp|partial-outer-compatibility|ordinary-prose|independent-pointer-sha",
+      "artifact": "experiments/function_word_seam_dp_pruned_20260917.py",
+      "run_artifacts": [
+        "runs/function-word-seam-dp-pruned-20260917.json"
+      ],
+      "distinction": "Uses layered dynamic programming over function-word choices and prunes states after each slot by partial outer-character compatibility, without completing and reversing a tape.",
+      "reader_evidence": false,
+      "status": "targeted constructive repair; 8 ordinary-English candidates, longest 75 letters, 0 exact closures; resolved-position masks are next"
+    },
+    {
+      "id": "cfg-single-attachment-alternation-20260917",
+      "signature": "single-relative-attachment-alternation|direct-object-locative-feature|live-character-frontier|independent-pointer-sha",
+      "artifact": "experiments/cfg_single_attachment_alternation_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-single-attachment-alternation-20260917.json"
+      ],
+      "distinction": "Allows exactly one direct-object/locative attachment alternation over the same semantic noun and carries the feature through the live character-frontier state, rather than mirroring a completed clause.",
+      "reader_evidence": false,
+      "status": "targeted constructive repair; 256 controls plus 768 locative alternations, 1,024 candidates, longest 61 letters, 0 exact closures; state-local relative-clause verb alternation is next"
+    },
+    {
+      "id": "center-crossing-grammar-state-20260917",
+      "signature": "typed-center-crossing-grammar|midpoint-inside-token|live-character-debt|typed-object-complement|independent-pointer-sha",
+      "artifact": "experiments/center_crossing_grammar_state_20260917.py",
+      "run_artifacts": [
+        "runs/center-crossing-grammar-state-20260917.json"
+      ],
+      "distinction": "Introduces a typed grammar state for crossing the palindrome midpoint inside a token while carrying live character debt; no completed tape reversal, catalogue text, or mirrored unit is used.",
+      "reader_evidence": false,
+      "status": "constructive family change; 24 intact ordinary-prose candidates, midpoint-inside-token in all, longest 127 letters, 0 exact closures; typed object complement against midpoint debt is next"
     }
   ]
 }

@@ -1,0 +1,148 @@
+{
+  "experiment": "exhausted-role-conflict-history-20260917",
+  "method": "retain conflict history while revising implicated roles; stop when a role domain is exhausted",
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "The teacher carries the letters near the harbor, and the teacher writes the notes near the garden.",
+      "slots": {
+        "a": "teacher",
+        "v": "carries",
+        "o": "letters",
+        "s0": "harbor",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "garden"
+      },
+      "conflict_history": [
+        {
+          "step": 0,
+          "position": 0,
+          "role": "a",
+          "domain_before": [
+            "gardener",
+            "teacher"
+          ],
+          "action": "revised"
+        },
+        {
+          "step": 1,
+          "position": 0,
+          "role": "a",
+          "domain_before": [
+            "teacher"
+          ],
+          "action": "exhausted_stop"
+        },
+        {
+          "step": 2,
+          "position": 0,
+          "role": "a",
+          "domain_before": [
+            "teacher"
+          ],
+          "action": "exhausted_stop"
+        }
+      ],
+      "exhausted_roles": [
+        "a"
+      ],
+      "provenance": "exhausted_role_conflict_history",
+      "novelty_preflight": {
+        "signature": "exhausted_role_conflict_history_v1",
+        "distinct_from": "single role repair; preserves conflict history and halts domain revision at exhaustion"
+      },
+      "audit": {
+        "letters": 80,
+        "exact": false,
+        "mismatch_count": 35,
+        "first_mismatch": 0,
+        "sha256": "e4440323dd5576e46cec1db7fab3e3267977f0898bcc864c8fb067cb68856e42",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "The teacher writes the notes near the garden, and the messenger records the charts near the station.",
+      "slots": {
+        "a": "teacher",
+        "v": "writes",
+        "o": "notes",
+        "s0": "garden",
+        "a2": "messenger",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station"
+      },
+      "conflict_history": [
+        {
+          "step": 0,
+          "position": 0,
+          "role": "a",
+          "domain_before": [
+            "gardener",
+            "teacher"
+          ],
+          "action": "revised"
+        },
+        {
+          "step": 1,
+          "position": 0,
+          "role": "a",
+          "domain_before": [
+            "teacher"
+          ],
+          "action": "exhausted_stop"
+        },
+        {
+          "step": 2,
+          "position": 0,
+          "role": "a",
+          "domain_before": [
+            "teacher"
+          ],
+          "action": "exhausted_stop"
+        }
+      ],
+      "exhausted_roles": [
+        "a"
+      ],
+      "provenance": "exhausted_role_conflict_history",
+      "novelty_preflight": {
+        "signature": "exhausted_role_conflict_history_v1",
+        "distinct_from": "single role repair; preserves conflict history and halts domain revision at exhaustion"
+      },
+      "audit": {
+        "letters": 82,
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0,
+        "sha256": "f97150ad56083939da09ef0557b769a4da9123d7bb116d078868162f792ecd52",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 82,
+    "next_repair": "route exhausted-role conflicts to a new syntactic construction operator rather than revisiting the same domain"
+  }
+}

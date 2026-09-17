@@ -28,9 +28,13 @@ def paired_search():
      if li<len(lx) and rj<len(ry) and lx[li]==ry[-1-rj]:
       ni,nj=li+1,rj+1; stack.append((i,j,ni,nj,a+lx[li],b+ry[-1-rj],states+[role+'|'+rrole+f'[{ni},{nj}]:L{left_node[li]}|R{right_node[rj]}']))
       if ni==len(lx) and nj==len(ry): stack.append((i+1,j+1,0,0,a,b,states+[role+'|'+rrole+'|WORD_BOUNDARY']))
+      elif ni==len(lx): stack.append((i+1,j,0,nj,a,b,states+[role+'|EPS_LEFT_BOUNDARY']))
+      elif nj==len(ry): stack.append((i,j+1,ni,0,a,b,states+[rrole+'|EPS_RIGHT_BOUNDARY']))
  return expanded,closed
 def oracle_rejects_one_character_fake():
  return letters('ab') != letters('a')[::-1]
+def oracle_asymmetric_segmentation():
+ return ''.join(('a','bc')) == ''.join(('ab','c')) and ('a','bc') != ('ab','c')
 def run():
  expanded,paths=paired_search(); readable=[]
  for p in paths:

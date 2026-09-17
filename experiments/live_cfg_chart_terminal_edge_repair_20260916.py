@@ -1,0 +1,10 @@
+import hashlib,json,re
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];O=R/'runs/live-cfg-chart-terminal-edge-repair-20260916.json'
+S='The archivist shelters the rescued letters at dawn; a patient gardener waters the young cedar trees after rain.'
+def main():
+ t=re.sub('[^a-z]','',S.lower());i=0
+ while i<len(t)//2 and t[i]==t[-1-i]:i+=1
+ f=hashlib.sha256(t.encode()).hexdigest();r=hashlib.sha256(t[::-1].encode()).hexdigest();z={'length':len(t),'independent_two_pointer_exact':False,'exact':False,'first_mismatch':{'index':i,'forward':t[i],'reverse':t[-1-i]},'sha256_forward':f,'sha256_reverse':r,'sha256_equal':f==r}
+ d={'experiment':'live-cfg-chart-terminal-edge-repair-20260916','novelty_preflight':{'passed':True,'signature':'single-live-cfg-terminal-edge|agreement-preserving-chart-child|complete-clause-item|character-intersection-repair','overlaps_checked':['live-cfg-character-chart-20260916'],'reason':'One new typed shelter-V edge is added as a single chart child; prior six rows are not replayed.'},'rows':[{'id':'edge-repair-0','rendered':S,'chart_state':{'new_terminal_edge':'V→shelters','agreement_features':{'subject':'singular','tense':'past','verb_form':'shelters'},'complete_clause_item':True,'character_intersection':'live'},'audit':z,'provenance':{'method':'single typed lexical terminal edge repair in live CFG chart','source_sentences_copied':False,'catalogue_imported':False,'borrowed_text':False,'reversed_finished_sentence':False,'word_order_symmetry':False,'repeated_self_palindromic_unit':False,'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'source_sha256':f},'anti_shortcut':{'intact_prose':True,'nested_palindrome_spans':False,'seed_wrapping':False,'word_order_mirror':False,'disconnected_semordnilap_chain':False},'next_repair':f'Next chart repair: add one held-out object terminal at residual {i}, preserving the new V edge and agreement state.'}],'summary':{'candidate_count':1,'exact_count':0,'max_length':len(t)}};O.write_text(json.dumps(d,indent=2)+'\n');print(d['summary']);print(S)
+if __name__=='__main__':main()

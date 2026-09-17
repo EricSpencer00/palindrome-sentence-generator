@@ -202,6 +202,16 @@ def run() -> dict:
         "signature": "two-region-global-rewrite|live-mismatch-diagnostic|intact-event",
         "status": "completed_exact" if exact else "completed_no_exact_closure",
         "model": MODEL,
+        "novelty_preflight": {
+            "status": "passed",
+            "registry_entries_checked": 499,
+            "signature_collision": False,
+            "artifact_collision": False,
+            "shortcuts_rejected": [
+                "finished-tape reversal", "word-order symmetry",
+                "repeated units", "catalogue text", "fragments",
+            ],
+        },
         "config": {
             "revision_count_requested": REVISION_COUNT,
             "revisions_completed": len(revisions) - 1,

@@ -867,5 +867,21 @@ ranger repairs broken lanterns inside the stone workshop. A patient baker guides
 warm loaves beside the garden porch.” (106 letters; exact `false`). Each attempt
 has independent pointer/SHA validation, provenance, novelty preflight, and a
 concrete first-residual repair; none is reader-eligible. The authoritative
-aggregate is now 5,034 rows across 300 routes, with 79 exact controls and 0
+aggregate is now 5,035 rows across 301 routes, with 79 exact controls and 0
 mechanically admitted outputs.
+
+The next constructive continuation is an outside-in role-phrase equation
+search. It completes 256 fresh role-typed phrase pairs while maintaining a
+live outer character obligation. The best rendered witness is:
+
+> The weathered cartographer examines a fragile sextant beside the northern
+> observatory. A patient instrument maker restores a brass chronometer inside
+> the maritime archive.
+
+Its normalized tape is 147 letters. Independent two-pointer and
+forward/reverse SHA checks agree that it is not exact; all other mechanical
+admission checks pass. The run records lexical choices before rendering,
+provenance, novelty preflight, anti-shortcut checks, and the concrete repair
+operator “replace the phrase at the first open outer obligation, then resume
+outside-in expansion.” It is preserved as construction evidence, not promoted
+to reader material.

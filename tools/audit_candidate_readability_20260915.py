@@ -184,6 +184,28 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
                 "provenance": context_provenance,
                 "lane": payload.get("experiment") or payload.get("experiment_id"),
             }
+        # Outside-in role-phrase equation lanes retain their best complete
+        # authored realization as ``full_rendered_prose`` while keeping the
+        # detailed lexical choices and independent audit under
+        # ``best_candidate``.  Surface that prose in the common candidate
+        # report so a compact lane cannot disappear merely because it names
+        # its final rendering differently.
+        full_rendered_prose = payload.get("full_rendered_prose")
+        if isinstance(full_rendered_prose, str) and full_rendered_prose.strip():
+            best = payload.get("best_candidate")
+            item = {
+                "source_run": source,
+                "rendered": full_rendered_prose,
+                "provenance": context_provenance,
+                "lane": payload.get("experiment") or payload.get("experiment_id"),
+            }
+            if isinstance(best, dict):
+                # Keep the lane's lexical choices, role labels, and next
+                # repair attached to the independently recomputed row.
+                for key in ("slot_choices", "semantic_roles", "outside_in_obligation", "mechanical_admission", "anti_shortcut", "next_repair"):
+                    if key in best:
+                        item[key] = best[key]
+            yield item
         rendered_intact_scene = payload.get("rendered_intact_scene")
         if isinstance(rendered_intact_scene, str) and rendered_intact_scene.strip():
             yield {

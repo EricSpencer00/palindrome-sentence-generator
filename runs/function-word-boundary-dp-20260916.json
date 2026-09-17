@@ -1,0 +1,189 @@
+{
+  "experiment_id": "function-word-boundary-dp-20260916",
+  "signature": "function-word-variable-dp|determiner-aux-clitic-tense|fresh-scene-family|live-character-equation|new-state",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "dynamic program treats determiners, auxiliaries, clitic, and tense endings as character-equation variables over fresh coordinated scenes",
+  "candidates": [
+    {
+      "dp_variables": {
+        "determiners": [
+          "a",
+          "the"
+        ],
+        "auxiliaries": [
+          "will",
+          "has",
+          "can",
+          "is"
+        ],
+        "clitic": [
+          "it"
+        ],
+        "tense_endings": [
+          "carry",
+          "stored",
+          "measure",
+          "marking"
+        ]
+      },
+      "scene_constraints": [
+        "agent/event/theme",
+        "coordinated independent clause",
+        "locative adjunct"
+      ],
+      "live_equation": {
+        "variable_prefix": "acarefu",
+        "variable_suffix": "shelves",
+        "free_center": true
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "A careful archivist will carry the ledger, and a patient porter has stored it beside the northern shelves.",
+        "letters": 87,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "s"
+        ],
+        "normalized_sha256": "b99235e15af5e0221453587b09804dd77ad5a0b9aa16bf4422796ffcf39eb1f0",
+        "reverse_sha256": "a4e5cc76751968d5fab71e590d86f047678280aaceda13f6e4b554b8dec2cfbb",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "change one auxiliary/determiner variable at first residual, then propagate tense agreement",
+        "reason": "function-word DP state is grammatical but leaves open character obligation"
+      }
+    },
+    {
+      "dp_variables": {
+        "determiners": [
+          "a",
+          "the"
+        ],
+        "auxiliaries": [
+          "will",
+          "has",
+          "can",
+          "is"
+        ],
+        "clitic": [
+          "it"
+        ],
+        "tense_endings": [
+          "carry",
+          "stored",
+          "measure",
+          "marking"
+        ]
+      },
+      "scene_constraints": [
+        "agent/event/theme",
+        "coordinated independent clause",
+        "locative adjunct"
+      ],
+      "live_equation": {
+        "variable_prefix": "thequie",
+        "variable_suffix": "ernbuoy",
+        "free_center": true
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The quiet engineer can measure a channel, and the watchful sailor is marking it near the western buoy.",
+        "letters": 83,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "y"
+        ],
+        "normalized_sha256": "81c367fe7f1b146fa76d51ca207a1bf6d46f8eff299f7d9814b8e8e54019243a",
+        "reverse_sha256": "d28f71cc94b5277a13d1b9a0f1063d30c817a7d97ae2381a417721363017c260",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "change one auxiliary/determiner variable at first residual, then propagate tense agreement",
+        "reason": "function-word DP state is grammatical but leaves open character obligation"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "change one auxiliary or determiner variable at first residual and propagate agreement",
+    "reason": "no exact anti-shortcut closure in this new function-word state space"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 379,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "prior_transducer_reused": false,
+    "posthoc_repair": false
+  },
+  "provenance": {
+    "generator_sha256": "a1d8c5c1d9b371f2c44f206c22abe3ad2314834f6604ea73bed3b7104d568f11",
+    "lexical_source": "fresh archive/harbor function-word scene family",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "variable-state replay",
+      "anti-shortcut"
+    ]
+  }
+}

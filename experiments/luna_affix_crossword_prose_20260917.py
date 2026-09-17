@@ -33,14 +33,15 @@ class ClausePlan:
     adjunct: str
     clitic: str = ""
     object_article: str = "the"
+    subject_article: str = "The"
 
     def render(self) -> str:
         # Each plan is a complete SVO clause with an optional grammatical
         # clitic; punctuation is added only after the character obligations.
-        return f"The {self.subject} {self.verb} {self.object_article} {self.object}{self.clitic} {self.adjunct}."
+        return f"{self.subject_article} {self.subject} {self.verb} {self.object_article} {self.object}{self.clitic} {self.adjunct}."
 
     def roles(self) -> str:
-        return f"agent={self.subject};event={self.verb};theme={self.object_article} {self.object};adjunct={self.adjunct};clitic={self.clitic or 'none'}"
+        return f"agent={self.subject_article} {self.subject};event={self.verb};theme={self.object_article} {self.object};adjunct={self.adjunct};clitic={self.clitic or 'none'}"
 
 
 # These are hand-authored ordinary clauses, not a borrowed corpus or a tape.
@@ -219,6 +220,21 @@ def run() -> dict[str, object]:
     )
     candidates.extend(make_candidate(left, right, repair=label)
                       for left, right, label in determiner_theme_pairs)
+    # Seventh recorded repair: vary subject determiner and number together,
+    # selecting the matching finite form (guides for singular, guide for
+    # plural).  Every row remains a complete, ordinary English clause.
+    agreement_pairs = (
+        (replace(pilot, subject_article="A", verb="guides"),
+         replace(baker, adjunct="near the market shelter"), "singular a + guides"),
+        (replace(pilot, subject_article="One", verb="guides"),
+         replace(baker, adjunct="near the market shelter"), "singular one + guides"),
+        (replace(pilot, subject_article="Some", subject="seasoned harbor pilots", verb="guide"),
+         replace(baker, adjunct="near the market shelter"), "plural some + guide"),
+        (replace(pilot, subject_article="Several", subject="seasoned harbor pilots", verb="guide"),
+         replace(baker, adjunct="near the market shelter"), "plural several + guide"),
+    )
+    candidates.extend(make_candidate(left, right, repair=label)
+                      for left, right, label in agreement_pairs)
     candidates.sort(key=lambda row: row["audit"]["letters"], reverse=True)
     best = candidates[0]
     first = best["audit"]["two_pointer_mismatches"][0] if best["audit"]["two_pointer_mismatches"] else None
@@ -227,12 +243,13 @@ def run() -> dict[str, object]:
             "method": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
             "novelty_preflight": preflight, "candidate_count": len(candidates),
             "candidates": candidates, "actual_prose": best["rendered"],
-            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 24,
+            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 28,
                       "adjunct_object_variants": 4,
                       "subject_theme_variants": 4,
                       "verb_clitic_variants": 4,
                       "preposition_locative_variants": 4,
                       "determiner_adjective_variants": 4,
+                      "subject_agreement_variants": 4,
                       "exact": sum(r["audit"]["exact"] for r in candidates),
                       "longest_letters": best["audit"]["letters"]},
             "failure_and_repair": {"first_residual": first,
@@ -243,9 +260,10 @@ def run() -> dict[str, object]:
                     "guides/leads × for them/for us on pilot–baker pair",
                     "through morning fog/across quiet harbor × at waiting shelter/near market shelter on pilot–baker pair",
                     "the/a × weathered/sturdy ferry on pilot–baker pair",
+                    "A/One + guides and Some/Several pilots + guide on pilot–baker pair",
                 ],
                 "next_operator": "move the first residual to a role-compatible subject adjunct or noun-number tile, preserving valency and recomputing obligations before punctuation",
-                "concrete_next_repair": "hold out 'the seasoned harbor pilot'/'a seasoned harbor pilot' and 'warm loaves'/'fresh loaf' variants, enforcing article-number agreement on the pilot–baker frames"},
+                "concrete_next_repair": "hold out 'the warm loaves'/'a warm loaf' and 'delivers/deliver' variants, enforcing object-number agreement on the baker frame"},
             "provenance": {"lexical_source": "fresh hand-authored clause plans and productive English morphology",
                            "catalogue_text_imported": False, "seed_embedding": False, "fixed_tape": False,
                            "word_order_mirror": False, "repeated_self_palindromic_span": False,

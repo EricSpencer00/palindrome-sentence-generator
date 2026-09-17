@@ -1,0 +1,218 @@
+{
+  "experiment_id": "minimal-residual-grammar-repair-20260916",
+  "signature": "atomic-center-bridge-first|single-right-verb-object-repair|singular-present-agreement|first-residual-preflight",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "single targeted right-side finite verb/object repair at the first residual",
+  "novelty_preflight": {
+    "status": "passed",
+    "performed_before_search": true,
+    "registry_entries_read": 424,
+    "exact_signature_collision": false,
+    "single_targeted_state": true,
+    "resweep_rejected": true,
+    "parent_state_reused_only_for_first-residual-anchor": true
+  },
+  "candidates": [
+    {
+      "rendered": "The pilot checks the engine. Meanwhile, The sailor steers the small boat.",
+      "letters": 59,
+      "center_bridge": "e",
+      "parent_state": "minimal-residual-grammar-20260916",
+      "repair": {
+        "side": "right",
+        "old_verb_object": "marks the distant buoy",
+        "new_verb_object": "steers the small boat",
+        "selection": "first residual outer pair"
+      },
+      "preserved": [
+        "sailor subject number",
+        "singular present tense",
+        "atomic center",
+        "ordinary SVO order"
+      ],
+      "grammar_checks": {
+        "complete_svo_prose": true,
+        "subject_number_preserved": true,
+        "present_tense_preserved": true,
+        "atomic_center_committed_before_growth": true
+      },
+      "residual": {
+        "before": {
+          "matched_outer_pairs": 0,
+          "left_residual": "thepilotcheckstheengine",
+          "right_residual": "thesailormarksthedistantbuoy",
+          "closed": false
+        },
+        "after": {
+          "matched_outer_pairs": 1,
+          "left_residual": "hepilotcheckstheengine",
+          "right_residual": "thesailorsteersthesmallboa",
+          "closed": false
+        }
+      },
+      "independent_audit": {
+        "letters": 59,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          57,
+          "h",
+          "a"
+        ],
+        "mismatches": [
+          [
+            1,
+            57,
+            "h",
+            "a"
+          ],
+          [
+            2,
+            56,
+            "e",
+            "o"
+          ],
+          [
+            3,
+            55,
+            "p",
+            "b"
+          ],
+          [
+            4,
+            54,
+            "i",
+            "l"
+          ],
+          [
+            6,
+            52,
+            "o",
+            "a"
+          ],
+          [
+            7,
+            51,
+            "t",
+            "m"
+          ],
+          [
+            8,
+            50,
+            "c",
+            "s"
+          ],
+          [
+            9,
+            49,
+            "h",
+            "e"
+          ]
+        ],
+        "sha256_forward": "b03c6f2694e145df2f5015a2f749e126b459c4b0bb7a556b879eb8bc08b52de6",
+        "sha256_reverse": "45f355af2ded24f22d08b65b72b19c1edbf5b830c2180bf762fa3a5edfcd5c0e"
+      },
+      "parent_audit": {
+        "letters": 60,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          59,
+          "t",
+          "y"
+        ],
+        "mismatches": [
+          [
+            0,
+            59,
+            "t",
+            "y"
+          ],
+          [
+            1,
+            58,
+            "h",
+            "o"
+          ],
+          [
+            2,
+            57,
+            "e",
+            "u"
+          ],
+          [
+            3,
+            56,
+            "p",
+            "b"
+          ],
+          [
+            4,
+            55,
+            "i",
+            "t"
+          ],
+          [
+            5,
+            54,
+            "l",
+            "n"
+          ],
+          [
+            6,
+            53,
+            "o",
+            "a"
+          ],
+          [
+            8,
+            51,
+            "c",
+            "s"
+          ]
+        ],
+        "sha256_forward": "f54833f7cb70598df73d7dd3dd010f4bbaa2dd2b3bef1ed2a37211139e6fd37d",
+        "sha256_reverse": "7a8a109bb5b6e7c0295ea9cb8ed74a8d1aa1eb04a6fcd561736ffe181e89e89a"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "catalogue_imported": false,
+        "finished_tape_reversal": false,
+        "word_order_mirror": false,
+        "repeated_unit": false,
+        "self_palindromic_unit": false,
+        "posthoc_character_edit": false
+      },
+      "provenance": {
+        "source": "fresh right-side sailor event frame",
+        "parent_state": "minimal-residual-grammar-20260916",
+        "repair_scope": "one finite verb/object pair only",
+        "generator": "experiments/minimal_residual_grammar_repair_20260916.py"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "replace only the next exposed right-side object determiner/adjective",
+    "reason": "the verb/object repair remains complete prose but leaves a nonzero residual after the first matched pair",
+    "preserve": [
+      "sailor singular subject",
+      "present tense",
+      "atomic center",
+      "SVO order"
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "6e17a00d43c9390319646f95708384063c2cbc56f789e8f8b4460a2231726611",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "grammar feature replay",
+      "novelty preflight"
+    ]
+  }
+}

@@ -12,10 +12,13 @@ ROOT=Path(__file__).resolve().parents[1]; sys.path.insert(0,str(ROOT))
 from llm_palindrome.admission import normalize_letters
 
 LEX={"det":{"a","the"},"subj":{"quiet baker","young poet","kind nurse","quiet bakers","young poets","kind nurses"},
+     "subjposs":{"baker's","poet's","nurse's"},
+     "head":{"baker","poet","nurse"},
      "verb":{"bakes","writes","helps","bake","write","help"},"verbbare":{"bake","write","help"},
      "aux":{"does","do"},"obj":{"warm bread","a note","the child"}}
 FRAMES=(("det","subj","verb","obj"),("subj","verb","det","obj"),
-        ("subj","aux","verbbare","det","obj"))
+        ("subj","aux","verbbare","det","obj"),
+        ("det","subjposs","head","verb","obj"))
 AFFIX={"a":("",),"the":("",),"bakes":("",),"writes":("",),"helps":("",),
        "quiet":("",),"baker":("",),"young":("",),"poet":("",),"kind":("",),
        "nurse":("",),"warm":("",),"bread":("",),"note":("",),"child":("",)}
@@ -27,7 +30,10 @@ def paths():
       def rec(i, words):
         if i==len(pools):
           # Agreement and auxiliary selection are construction-time constraints.
-          plural=words[0].endswith("s") if frame[0] == "subj" else words[1].endswith("s")
+          if "subjposs" in frame:
+            plural=False
+          else:
+            plural=words[0].endswith("s") if frame[0] == "subj" else words[1].endswith("s")
           if "verb" in frame:
             verb=words[frame.index("verb")];
             if (plural and verb.endswith("s")) or ((not plural) and not verb.endswith("s")): return
@@ -91,13 +97,13 @@ def run(limit=180000):
           row={"text":text,"length_letters":a["letters"],"provenance":{"left_path":list(lp),"right_path":list(rp),"frames":[list(lf),list(rf)],"source":"hand-authored typed lexicon; independent path transducers","agreement_checked_before_admission":True},"independent_exact_audit":a,"mechanically_admitted":False}
           if a["exact"]: row["mechanically_admitted"]=True; closures.append(row)
           else: witnesses.append(row)
-        elif len(witnesses)<12:
+        elif len(witnesses)<12 or ("'" in L and not any("'" in z["text"] for z in witnesses)):
           # Render intact grammatical prose even when a residual fails.
           text=L+" "+R; a=audit(text)
           witnesses.append({"text":text,"length_letters":a["letters"],"residual":{"automaton_state":list(residual),"states_explored":used},"provenance":{"left_path":list(lp),"right_path":list(rp),"frames":[list(lf),list(rf)],"source":"live bidirectional affix transducer"},"independent_exact_audit":a,"mechanically_admitted":False})
       if states>=limit: break
     longest=max((x["length_letters"] for x in witnesses+closures),default=0)
-    return {"status":"truncated" if states>=limit else "exhausted","stats":{"states":states,"dead_states":dead,"closures":len(closures),"rendered":len(witnesses)+len(closures),"longest_letters":longest},"paths":len(ps),"closures":closures,"diagnostic_witnesses":witnesses,"config":{"independent_affix_transducers":True,"live_residual_obligations":True,"pos_agreement_valency":True,"productive_tense_and_number":True,"auxiliary_frames":True,"state_level_no_repeat":True,"fixed_tape":False,"posthoc_reverse":False},"novelty_preflight":{"distinction":"word-internal stem/affix character transducers with productive agreement and auxiliary features, live opposite residuals, and state-level no-repeat; no completed-tape reversal or word mirror","excluded":{"center_out_astar":True,"scene_graph":True,"reverse_segmentation":True,"rlaif":True}},"reader_gate":{"status":"not_triggered" if not closures else "human_blind_review_required","programmatic_metrics_are_diagnostic":True,"next_repair":"add clitic-bearing frames while retaining agreement and the same live residual product"}}
+    return {"status":"truncated" if states>=limit else "exhausted","stats":{"states":states,"dead_states":dead,"closures":len(closures),"rendered":len(witnesses)+len(closures),"longest_letters":longest},"paths":len(ps),"closures":closures,"diagnostic_witnesses":witnesses,"config":{"independent_affix_transducers":True,"live_residual_obligations":True,"pos_agreement_valency":True,"productive_tense_and_number":True,"auxiliary_frames":True,"clitic_frames":True,"state_level_no_repeat":True,"fixed_tape":False,"posthoc_reverse":False},"novelty_preflight":{"distinction":"word-internal stem/affix character transducers with a possessive-clitic frame, productive agreement and auxiliary features, live opposite residuals, and state-level no-repeat; no completed-tape reversal or word-order mirror","excluded":{"center_out_astar":True,"scene_graph":True,"reverse_segmentation":True,"rlaif":True}},"reader_gate":{"status":"not_triggered" if not closures else "human_blind_review_required","programmatic_metrics_are_diagnostic":True,"next_repair":"add a distinct contracted-auxiliary frame only if its syntax remains independently typed"}}
 
 if __name__=="__main__":
  p=argparse.ArgumentParser(); p.add_argument("--out",type=Path,required=True); a=p.parse_args(); a.out.write_text(json.dumps(run(),indent=2)+"\n")

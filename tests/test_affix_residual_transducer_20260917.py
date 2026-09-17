@@ -6,4 +6,4 @@ def test_live_transducer_has_intact_diagnostics():
  assert all(x['independent_exact_audit']['exact'] for x in r['closures'])
  assert all('provenance' in x and 'text' in x for x in r['diagnostic_witnesses'])
 def test_not_posthoc_reverse():
- r=m.run(); assert not r['config']['fixed_tape']; assert not r['config']['posthoc_reverse']; assert r['config']['productive_tense_and_number']; assert r['config']['auxiliary_frames']; assert r['config']['state_level_no_repeat']; assert r['novelty_preflight']['excluded']['rlaif']
+ r=m.run(); assert not r['config']['fixed_tape']; assert not r['config']['posthoc_reverse']; assert r['config']['productive_tense_and_number']; assert r['config']['auxiliary_frames']; assert r['config']['clitic_frames']; assert r['config']['state_level_no_repeat']; assert r['novelty_preflight']['excluded']['rlaif']

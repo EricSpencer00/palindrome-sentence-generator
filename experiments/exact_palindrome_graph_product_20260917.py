@@ -47,6 +47,20 @@ class CharacterGraph:
             g.accepting_paths[node] = phrase
         return g
 
+    @classmethod
+    def from_bounded_menu(cls, words: Iterable[str], provenance: str, min_words=2, max_words=8):
+        """Build a bounded word-count NFA without enumerating phrase strings."""
+        g = cls(); menu = list(words); starts = {min_words: g.start}
+        for count in range(min_words, max_words + 1):
+            start = starts[count] if count in starts else g.add(g.start, None, f"{provenance}:count:{count}")
+            for word in menu:
+                node = start
+                for i, ch in enumerate(word): node = g.add(node, ch, f"{provenance}:count:{count}:word:{i}")
+                end = g.add(node, None, f"{provenance}:count:{count}:boundary")
+                if count == max_words: g.accepting.add(end); g.accepting_paths[end] = word
+                else: starts[count + 1] = end
+        return g
+
 def normalize(s: str) -> str:
     return " ".join(s.lower().split())
 
@@ -116,7 +130,7 @@ def run() -> dict:
         menu = lexical[:40]
         for i in range(0, min(len(menu) - 2, 36), 3):
             yield " ".join(menu[i:i + 3])
-    lexical_graph = CharacterGraph.from_phrases(bounded_paths(), "audited-common-word-inventory")
+    lexical_graph = CharacterGraph.from_bounded_menu(lexical[:40], "audited-common-word-inventory")
     lexical_result = solve_product(lexical_graph, lexical_graph, max_states=2500)
     # No fabricated ``half + half`` tapes: only distinct, genuinely multiword
     # accepting paths may enter this lane.

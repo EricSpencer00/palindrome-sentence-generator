@@ -21,6 +21,8 @@ def test_bounded_lexical_graph_can_represent_three_word_path():
     graph = CharacterGraph.from_phrases(["one two three"], "bounded")
     assert len(graph.accepting_paths) == 1
     assert graph.accepting_paths[next(iter(graph.accepting_paths))].count(" ") == 2
+    bounded = CharacterGraph.from_bounded_menu(["one", "two", "three"], "bounded")
+    assert bounded._next < 3 ** 8
 
 def test_root_intersections_are_reported_without_sentence_candidates():
     result = run()

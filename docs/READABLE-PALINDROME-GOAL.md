@@ -2424,3 +2424,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   checks. The reader packet remains closed. The next concrete operators are
   boundary-aware incremental offsets, held-out matrix-object substitution,
   and a typed indirect-object attachment against the live midpoint debt.
+
+  The next wave completed those repairs. Direct boundary-offset seam DP
+  rendered 8 intact candidates up to 80 letters; attachment-state matrix
+  object substitution rendered 1,024 candidates up to 61 letters; and the
+  center-crossing typed-indirect-object repair rendered 18 intact candidates
+  up to 151 letters, with midpoint-inside-token crossing in every candidate.
+  All produced 0 exact closures. Independent pointer/SHA-256 replay,
+  provenance, novelty preflight, and anti-shortcut checks are retained for
+  every row. The reader gate remains closed. The next concrete operators are
+  variable-length clause-boundary states, attachment-state matrix-verb
+  substitution, and one typed subject-role alternation at the center state.

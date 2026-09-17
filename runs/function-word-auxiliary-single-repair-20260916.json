@@ -1,0 +1,92 @@
+{
+  "experiment_id": "function-word-auxiliary-single-repair-20260916",
+  "signature": "function-word-auxiliary-repair|past-participle-fixed|scene-fixed|single-state|fresh",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "single auxiliary substitution with past participle, agreement, and scene held fixed",
+  "candidates": [
+    {
+      "repair_state": "single second-clause auxiliary",
+      "parent_state": "function-word-boundary-single-repair-20260916",
+      "change": {
+        "old": "has stored",
+        "new": "had stored"
+      },
+      "past_participle_fixed": "stored",
+      "scene_fixed": true,
+      "agreement_preserved": true,
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The careful archivist will carry the ledger, and a patient porter had stored it beside the northern shelves.",
+        "letters": 89,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "normalized_sha256": "deab7baa69d816c63a1a7fd2a3326b475b34b4b1b20065732a7adb9a3a731356",
+        "reverse_sha256": "443bfee12cdf41b8440e8614d2451bba580012fc27f9d34867ec618d9bb08062",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "change only the first-clause modal while preserving infinitive and both event roles",
+        "reason": "auxiliary repair remains grammatical but leaves nonzero character residual"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "change only the first-clause modal while preserving infinitive and both event roles",
+    "reason": "auxiliary repair remains grammatical but leaves nonzero character residual"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 385,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "sweep": false,
+    "prior_state_replayed": false
+  },
+  "provenance": {
+    "generator_sha256": "5a82982078581dbb54a323c552506cb94874d4c9e6e1cd4c17573e463f808880",
+    "lexical_source": "held-out auxiliary choice",
+    "parent_state": "function-word-boundary-single-repair-20260916",
+    "repair": "has -> had; past participle stored and dependency roles unchanged",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "agreement replay",
+      "anti-shortcut"
+    ]
+  }
+}

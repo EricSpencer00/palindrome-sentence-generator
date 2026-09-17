@@ -8,7 +8,11 @@ inventory is promoted.
 import hashlib, json
 from pathlib import Path
 
-CANDIDATES = ["Are we not drawn onward, we few drawn onward to new era?"]
+CANDIDATES = [
+    "Are we not drawn onward, we few drawn onward to new era?",
+    "Are we not drawn onward, we few drawn inward to new era?",
+    "Are we not drawn onward, we less drawn onward to new era?",
+]
 KNOWN = {"arewenotdrawnonwardwefewdrawnonwardtonewera"}
 
 def norm(s): return "".join(c.lower() for c in s if c.isalpha())
@@ -22,7 +26,7 @@ def run():
                      "novel":n not in KNOWN,
                      "normalized_sha256":hashlib.sha256(n.encode()).hexdigest(),
                      "reverse_sha256":hashlib.sha256(n[::-1].encode()).hexdigest()})
-    out={"method":"cross_word_center_seam_repair","bounds":{"candidates":len(CANDIDATES)},"candidates":rows,
+    out={"method":"cross_word_center_seam_repair_heldout_variants","bounds":{"candidates":len(CANDIDATES)},"candidates":rows,
          "admitted":[r for r in rows if 40<=r["letters"]<=100 and r["exact"] and r["novel"]],
          "provenance":"fresh prose candidate; bounded one-item preflight"}
     Path("artifacts/cross_word_center_repair_20260917.json").write_text(json.dumps(out,indent=2)+"\n")

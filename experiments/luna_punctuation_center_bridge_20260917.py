@@ -29,6 +29,14 @@ RIGHT = (
     ("a", "steady porter", "moves", "clean crates", "under the cedar awning"),
     ("the", "local guide", "records", "clear directions", "beside the museum gate"),
 )
+# Held-out replacements for the first noun phrase after the center bridge.
+# These are not in RIGHT, so the repair tests a new lexical boundary rather
+# than replaying the original scene lattice.
+HELDOUT_RIGHT_SUBJECTS = (
+    ("the", "seasoned curator"),
+    ("a", "new assistant"),
+    ("the", "winter custodian"),
+)
 CENTERS = (
     {"id": "lantern_event", "text": "the lantern flares", "meaning": "a sudden warning light"},
     {"id": "bell_event", "text": "the harbor bell sounds", "meaning": "a scheduled audible signal"},
@@ -86,7 +94,8 @@ def render(left: tuple[str, ...], center: dict, punct: dict, right: tuple[str, .
     return f"{clause(left)}{punct['left']} {center['text']}{punct['bridge']}{clause(right)}{punct['right']}"
 
 
-def audit(left, center, punct, right, rank: int) -> dict:
+def audit(left, center, punct, right, rank: int, repair_stage: str = "baseline",
+          held_out_slot: str | None = None) -> dict:
     text = render(left, center, punct, right)
     p, s = pointer(text), sha_audit(text)
     complete = text[-1] == "." and text.count(" ") >= 14 and all(text.count(x) == 1 for x in (center["text"],))
@@ -96,7 +105,8 @@ def audit(left, center, punct, right, rank: int) -> dict:
              "self_palindromic_center": letters(center["text"]) == letters(center["text"])[::-1],
              "repeated_chunk": not distinct, "fragment": not complete, "catalogue_text": False,
              "punctuation_changes_letters": False}
-    return {"rank": rank, "rendered": text,
+    return {"rank": rank, "repair_stage": repair_stage, "held_out_slot": held_out_slot,
+            "rank": rank, "rendered": text,
             "left_clause": clause(left), "center_event": center, "right_clause": clause(right),
             "punctuation_choice": punct, "complete_grammar": complete,
             "independent_pointer": p, "independent_sha": s,
@@ -112,22 +122,38 @@ def run() -> dict:
     pre = novelty_preflight()
     if not pre["passed"]:
         raise RuntimeError(pre)
-    rows = []
+    baseline_rows = []
     for rank, (left, center, punct, right) in enumerate(
         itertools.islice(itertools.product(LEFT, CENTERS, PUNCTUATION, RIGHT), 12), 1):
-        rows.append(audit(left, center, punct, right, rank))
+        baseline_rows.append(audit(left, center, punct, right, rank))
+    # Execute the promised repair: preserve center and punctuation, but hold
+    # out and replace the first noun phrase on the right side of the bridge.
+    repair_rows = []
+    for rank, (left, center, punct, right, replacement) in enumerate(
+        itertools.islice(itertools.product(LEFT, CENTERS, PUNCTUATION, RIGHT,
+                                            HELDOUT_RIGHT_SUBJECTS), 12), 1):
+        repaired = (replacement[0], replacement[1], right[2], right[3], right[4])
+        repair_rows.append(audit(left, center, punct, repaired, rank + 12,
+                                 repair_stage="held_out_center_adjacent_subject",
+                                 held_out_slot="right_subject_np"))
+    rows = baseline_rows + repair_rows
     rows.sort(key=lambda r: (-r["independent_pointer"]["letters"], r["rank"]))
     exact = [r for r in rows if r["mechanically_admitted"]]
     return {"experiment": EXPERIMENT, "signature": SIGNATURE,
             "status": "exact closure found" if exact else "complete prose plus punctuation-center repair",
-            "novelty_preflight": pre, "states_considered": 12, "candidate_count": len(rows),
+            "novelty_preflight": pre, "states_considered": 24, "candidate_count": len(rows),
             "exact_count": len(exact), "rendered_candidates": rows, "exact_survivors": exact,
+            "repair_summary": {"method": "held_out_center_adjacent_subject_np",
+                               "preserved_center_event": True, "preserved_punctuation": True,
+                               "held_out_slot": "right_subject_np",
+                               "baseline_count": len(baseline_rows), "repaired_count": len(repair_rows),
+                               "new_subjects": [f"{d} {n}" for d, n in HELDOUT_RIGHT_SUBJECTS]},
             "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                            "registry_sha256": hashlib.sha256(REGISTRY.read_bytes()).hexdigest(),
                            "punctuation_choices_live": True, "nonpalindromic_center_live": True,
                            "catalogue_imported": False},
             "anti_shortcut_policy": "Reject fixed tapes, reverse decoding, word-order mirrors, repeated/self-palindromic spans, fragments, catalogue text, and punctuation that changes letters.",
-            "next_repair": "Hold out the first mismatched center-adjacent noun or inflection while preserving the event and punctuation, then rerun the scene-pair CSP.",
+            "next_repair": "Use the repair residual to hold out the right object noun or its determiner while preserving the event, punctuation, and repaired subject.",
             "reader_facing_test": {"required": "blind intact-prose rating plus shuffled-clause control", "status": "pending"}}
 
 

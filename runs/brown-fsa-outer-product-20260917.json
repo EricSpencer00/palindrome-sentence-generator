@@ -1,0 +1,40 @@
+{
+  "experiment": "brown-fsa-outer-product-20260917",
+  "signature": "brown-pos-bigram-fsa|fresh-path-products|exact-tape-join",
+  "status": "complete; no exact closure",
+  "fsa": {
+    "lexicon_sizes": {
+      "D": 39,
+      "N": 180,
+      "A": 180,
+      "P": 77,
+      "R": 180,
+      "V": 180
+    },
+    "pos_paths": 10712952,
+    "transitions": 36
+  },
+  "states_generated": 60000,
+  "exact_count": 0,
+  "best_candidate": {
+    "rendered": "every accelerometer accurate accelerometers.",
+    "pos_path": [
+      "D",
+      "N",
+      "A",
+      "N"
+    ],
+    "audit": {
+      "letters": 40,
+      "exact_two_pointer": false,
+      "mismatch_count": 24,
+      "sha_forward": "2eda300aa44a37038036fd7e2fc7d6ccd28d2538f7023e73811dd31e307abf0d",
+      "sha_reverse": "18212b15aeb26ec2ab89844164e0d038b51d2fa74e8d2082d6ac40aa6ec8d059",
+      "exact_sha": false
+    }
+  },
+  "exact_survivors": [],
+  "independent_outer_product": true,
+  "anti_shortcut_policy": "No copied sentences, word-order symmetry, repeated units, catalogue text, fragments, or gibberish; exact tape join only.",
+  "next_repair": "Add agreement-carrying determiner/noun and valency states, then rerun the same exact outer-product join; current Brown bigram FSA has no exact novel closure."
+}

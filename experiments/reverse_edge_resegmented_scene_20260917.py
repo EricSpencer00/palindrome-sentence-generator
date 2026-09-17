@@ -3,8 +3,7 @@
 Unlike a tape reversal, this lane starts with a typed event graph.  Each
 lexical edge has a role-compatible reverse spelling (a different word), and
 the right realization consumes the reverse character debt at word boundaries.
-The result is intentionally allowed to be partial: failed obligations are
-evidence for the next repair rather than a post-hoc mirrored sentence.
+Only complete exact closures are emitted; failed frontiers remain diagnostics.
 """
 from __future__ import annotations
 
@@ -33,6 +32,7 @@ SCENES = [
 REVERSE_EDGES = {"pilot": "keeper", "guides": "marks", "vessel": "chart",
                  "curator": "reader", "shelves": "opens", "volume": "ledger",
                  "gardener": "farmer", "waters": "plants", "seedling": "herb"}
+EDGE_ALTERNATIVES = {"pilot": ("keeper", "skipper"), "guides": ("marks", "leads"), "vessel": ("chart", "boat"), "curator": ("reader", "archivist"), "shelves": ("opens", "stores"), "volume": ("ledger", "book"), "gardener": ("farmer", "planter"), "waters": ("plants", "tends"), "seedling": ("herb", "sprout")}
 
 
 def letters(text: str) -> str:
@@ -60,21 +60,30 @@ def audit(text: str) -> dict:
             "mismatch_count": len(mismatches), "forward_sha256": forward,
             "reverse_sha256": reverse, "independent_pointer_exact": bool(tape) and not mismatches}
 
+def live_edge_search(scene: dict) -> tuple[list[dict], list[dict]]:
+    target = letters(scene["left"])[::-1]; states = [{"consumed": "", "choices": []}]; dead = []
+    for role in (r for r in scene["roles"] if r in EDGE_ALTERNATIVES):
+        nxt = []
+        for state in states:
+            for word in EDGE_ALTERNATIVES[role]:
+                consumed = state["consumed"] + letters(word)
+                if target.startswith(consumed): nxt.append({"consumed": consumed, "choices": state["choices"] + [(role, word)]})
+                else: dead.append({"role": role, "word": word, "consumed": consumed})
+        states = nxt
+        if not states: break
+    return [s for s in states if s["consumed"] == target], dead
+
 
 def run() -> dict:
-    rows = []
+    rows, diagnostics = [], []
     for scene in SCENES:
-        prefix = " ".join(scene["right_words"][:5])
-        remaining = debt(scene["left"], prefix)
-        right = " ".join(scene["right_words"]) + "."
-        rendered = scene["left"] + " " + right
-        edge_trace = [{"role": role, "left": role, "reverse_edge": REVERSE_EDGES.get(role)}
-                      for role in scene["roles"] if role in REVERSE_EDGES]
-        rows.append({"scene": scene["id"], "rendered": rendered,
+        closures, dead = live_edge_search(scene); diagnostics.extend({"scene": scene["id"], **d} for d in dead)
+        for closure in closures:
+            rendered = scene["left"] + " " + " ".join(w for _, w in closure["choices"]) + "."
+            rows.append({"scene": scene["id"], "rendered": rendered,
                      "semantic_graph": {"roles": scene["roles"], "edge_trace": edge_trace,
                                         "valency": "transitive+PP"},
-                     "live_obligation": {"target": letters(scene["left"])[::-1],
-                                          "right_prefix": prefix, "remaining_debt": remaining,
+                     "live_obligation": {"target": letters(scene["left"])[::-1], "consumed": closure["consumed"], "remaining_debt": "",
                                           "cross_boundary_resegmentation": True},
                      "audit": audit(rendered),
                      "provenance": {"hand_authored_scene": True, "borrowed_text": False,
@@ -83,9 +92,9 @@ def run() -> dict:
                                     "catalogue_phrase": False,
                                     "repair": "replace the first role-compatible reverse edge, then reopen debt at its boundary"}})
     exact = [r for r in rows if r["audit"]["exact"]]
-    payload = {"experiment_id": ID, "signature": SIGNATURE, "status": "completed_partial_witnesses",
+    payload = {"experiment_id": ID, "signature": SIGNATURE, "status": "completed_live_search",
                "method": "typed transitive scene -> role-compatible reverse lexical edges -> live reverse debt -> right-side word-boundary resegmentation",
-               "candidates": rows, "exact_candidates": exact,
+               "candidates": rows, "exact_candidates": exact, "diagnostic_frontiers": diagnostics,
                "stats": {"scenes": len(rows), "rendered": len(rows), "exact": len(exact),
                          "cross_boundary_attempts": len(rows), "nonempty_debts": sum(bool(r["live_obligation"]["remaining_debt"]) for r in rows)},
                "novelty_preflight": {"registry_checked": True, "fixed_tape_used": False,

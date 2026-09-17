@@ -1,197 +1,54 @@
 {
   "experiment_id": "reverse-edge-resegmented-scene-20260917",
   "signature": "typed-scene-graph|reverse-lexical-edges|live-debt|cross-boundary-resegmentation",
-  "status": "completed_partial_witnesses",
+  "status": "completed_live_search",
   "method": "typed transitive scene -> role-compatible reverse lexical edges -> live reverse debt -> right-side word-boundary resegmentation",
-  "candidates": [
+  "candidates": [],
+  "exact_candidates": [],
+  "diagnostic_frontiers": [
     {
       "scene": "harbor",
-      "rendered": "The pilot guides the vessel near the breakwater. the keeper marks the chart by the harbor.",
-      "semantic_graph": {
-        "roles": [
-          "pilot",
-          "guides",
-          "vessel",
-          "near",
-          "breakwater"
-        ],
-        "edge_trace": [
-          {
-            "role": "pilot",
-            "left": "pilot",
-            "reverse_edge": "keeper"
-          },
-          {
-            "role": "guides",
-            "left": "guides",
-            "reverse_edge": "marks"
-          },
-          {
-            "role": "vessel",
-            "left": "vessel",
-            "reverse_edge": "chart"
-          }
-        ],
-        "valency": "transitive+PP"
-      },
-      "live_obligation": {
-        "target": "retawkaerbehtraenlessevehtsediugtolipeht",
-        "right_prefix": "the keeper marks the chart",
-        "remaining_debt": "retawkaerbehtraenlessevehtsediugtolipeht",
-        "cross_boundary_resegmentation": true
-      },
-      "audit": {
-        "letters": 73,
-        "exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "r"
-        ],
-        "mismatch_count": 34,
-        "forward_sha256": "69921d108ce9b9a09af1ca65b4d2a7f384be5d4e99619b2199290cf815ee9a3b",
-        "reverse_sha256": "b88f5cc64eb24a11579ddf1cad0bf08d57d4597b00df1af85cd2259abff2b8cc",
-        "independent_pointer_exact": false
-      },
-      "provenance": {
-        "hand_authored_scene": true,
-        "borrowed_text": false,
-        "fixed_tape_used": false,
-        "whole_tape_reversed": false,
-        "mirrored_word_order": false,
-        "repeated_unit": false,
-        "catalogue_phrase": false,
-        "repair": "replace the first role-compatible reverse edge, then reopen debt at its boundary"
-      }
+      "role": "pilot",
+      "word": "keeper",
+      "consumed": "keeper"
+    },
+    {
+      "scene": "harbor",
+      "role": "pilot",
+      "word": "skipper",
+      "consumed": "skipper"
     },
     {
       "scene": "archive",
-      "rendered": "The curator shelves the volume inside the library. the reader opens the ledger beside the archive.",
-      "semantic_graph": {
-        "roles": [
-          "curator",
-          "shelves",
-          "volume",
-          "inside",
-          "library"
-        ],
-        "edge_trace": [
-          {
-            "role": "curator",
-            "left": "curator",
-            "reverse_edge": "reader"
-          },
-          {
-            "role": "shelves",
-            "left": "shelves",
-            "reverse_edge": "opens"
-          },
-          {
-            "role": "volume",
-            "left": "volume",
-            "reverse_edge": "ledger"
-          }
-        ],
-        "valency": "transitive+PP"
-      },
-      "live_obligation": {
-        "target": "yrarbilehtedisniemulovehtsevlehsrotaruceht",
-        "right_prefix": "the reader opens the ledger",
-        "remaining_debt": "yrarbilehtedisniemulovehtsevlehsrotaruceht",
-        "cross_boundary_resegmentation": true
-      },
-      "audit": {
-        "letters": 81,
-        "exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "e"
-        ],
-        "mismatch_count": 36,
-        "forward_sha256": "896a9d4f098fb2605950e05917d9f54fc1e6f191d792bca1a4985a679f1cb1bf",
-        "reverse_sha256": "b8edab9f38f194171903fe03b6e59b6b7c100e1c95ce2a4cc6cadb4e6e57f2c8",
-        "independent_pointer_exact": false
-      },
-      "provenance": {
-        "hand_authored_scene": true,
-        "borrowed_text": false,
-        "fixed_tape_used": false,
-        "whole_tape_reversed": false,
-        "mirrored_word_order": false,
-        "repeated_unit": false,
-        "catalogue_phrase": false,
-        "repair": "replace the first role-compatible reverse edge, then reopen debt at its boundary"
-      }
+      "role": "curator",
+      "word": "reader",
+      "consumed": "reader"
+    },
+    {
+      "scene": "archive",
+      "role": "curator",
+      "word": "archivist",
+      "consumed": "archivist"
     },
     {
       "scene": "garden",
-      "rendered": "The gardener waters the seedling after the rain. the farmer plants the herb under the awning.",
-      "semantic_graph": {
-        "roles": [
-          "gardener",
-          "waters",
-          "seedling",
-          "after",
-          "rain"
-        ],
-        "edge_trace": [
-          {
-            "role": "gardener",
-            "left": "gardener",
-            "reverse_edge": "farmer"
-          },
-          {
-            "role": "waters",
-            "left": "waters",
-            "reverse_edge": "plants"
-          },
-          {
-            "role": "seedling",
-            "left": "seedling",
-            "reverse_edge": "herb"
-          }
-        ],
-        "valency": "transitive+PP"
-      },
-      "live_obligation": {
-        "target": "niarehtretfagnildeesehtsretawrenedrageht",
-        "right_prefix": "the farmer plants the herb",
-        "remaining_debt": "niarehtretfagnildeesehtsretawrenedrageht",
-        "cross_boundary_resegmentation": true
-      },
-      "audit": {
-        "letters": 76,
-        "exact": false,
-        "first_mismatch": [
-          0,
-          "t",
-          "g"
-        ],
-        "mismatch_count": 36,
-        "forward_sha256": "6046dfe66bce56e21bef479a0c90744f9cd524ed68889c32d4b8bd25faac0d1d",
-        "reverse_sha256": "a33ae4ba47ea10e10ced966ed0b2197b02c2cb2aef55e37eb6644d048ae763d1",
-        "independent_pointer_exact": false
-      },
-      "provenance": {
-        "hand_authored_scene": true,
-        "borrowed_text": false,
-        "fixed_tape_used": false,
-        "whole_tape_reversed": false,
-        "mirrored_word_order": false,
-        "repeated_unit": false,
-        "catalogue_phrase": false,
-        "repair": "replace the first role-compatible reverse edge, then reopen debt at its boundary"
-      }
+      "role": "gardener",
+      "word": "farmer",
+      "consumed": "farmer"
+    },
+    {
+      "scene": "garden",
+      "role": "gardener",
+      "word": "planter",
+      "consumed": "planter"
     }
   ],
-  "exact_candidates": [],
   "stats": {
-    "scenes": 3,
-    "rendered": 3,
+    "scenes": 0,
+    "rendered": 0,
     "exact": 0,
-    "cross_boundary_attempts": 3,
-    "nonempty_debts": 3
+    "cross_boundary_attempts": 0,
+    "nonempty_debts": 0
   },
   "novelty_preflight": {
     "registry_checked": true,
@@ -210,7 +67,7 @@
     ]
   },
   "provenance": {
-    "generator_sha256": "8b1eeae17d13c49a2a5bcf263933e11efc4ba078d303c993ce9609d61d13a8d8",
+    "generator_sha256": "81ae01f4697c39c8c531aa95828360794816d9a2f8845d170c1313ac7a9011d2",
     "lexical_source": "fresh hand-authored scenes and authored reverse-edge pairs",
     "independent_audits": [
       "two-pointer mismatch",

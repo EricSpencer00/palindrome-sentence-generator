@@ -105,9 +105,10 @@ def audit(text: str) -> dict[str, object]:
 
 def novelty_preflight() -> dict[str, object]:
     entries = json.loads(REGISTRY.read_text()).get("entries", [])
-    overlaps = [e.get("signature") for e in entries if e.get("signature") == SIGNATURE]
+    prior = [e for e in entries if e.get("id") != EXPERIMENT_ID]
+    overlaps = [e.get("signature") for e in prior if e.get("signature") == SIGNATURE]
     artifact = str(Path(__file__).relative_to(ROOT))
-    collisions = [e.get("artifact") for e in entries if e.get("artifact") == artifact]
+    collisions = [e.get("artifact") for e in prior if e.get("artifact") == artifact]
     result = {"status": "passed" if not overlaps and not collisions else "blocked",
               "registry_entries_read": len(entries), "signature_overlaps": overlaps,
               "artifact_collisions": collisions, "self_registered": any(e.get("id") == EXPERIMENT_ID for e in entries),

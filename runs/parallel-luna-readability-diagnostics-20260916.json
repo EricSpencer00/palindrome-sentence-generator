@@ -314,9 +314,12 @@
     "runs/luna-palindromic-scene-realizer-20260917.json",
     "runs/luna-boundary-semantic-repair-20260917.json",
     "runs/luna-readable-palindrome-manual-search-20260917.json",
-    "runs/luna-cfg-frame-repair-20260917.json"
+    "runs/luna-cfg-frame-repair-20260917.json",
+    "runs/luna-cross-boundary-clause-decoder-20260917.json",
+    "runs/luna-fresh-center-composition-20260917.json",
+    "runs/luna-lm-obligation-clause-search-20260917.json"
   ],
-  "candidate_count": 5265,
+  "candidate_count": 5297,
   "exact_count": 83,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -2161,6 +2164,16 @@
       "mean_brown_order_gain_vs_shuffle": 0.677226313512989
     },
     {
+      "source_run": "runs/luna-cross-boundary-clause-decoder-20260917.json",
+      "rows": 8,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 78,
+      "max_letters": 79,
+      "mean_zipf_frequency": 5.714296875,
+      "mean_brown_order_gain_vs_shuffle": 1.506563842111556
+    },
+    {
       "source_run": "runs/luna-exact-near-survivor-repair-20260917.json",
       "rows": 3,
       "exact_count": 3,
@@ -2179,6 +2192,26 @@
       "max_letters": 101,
       "mean_zipf_frequency": 4.715,
       "mean_brown_order_gain_vs_shuffle": 0.102993195005606
+    },
+    {
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "rows": 12,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 121,
+      "max_letters": 128,
+      "mean_zipf_frequency": 5.293012820512821,
+      "mean_brown_order_gain_vs_shuffle": 1.3257556388466558
+    },
+    {
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "rows": 12,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 111,
+      "max_letters": 121,
+      "mean_zipf_frequency": 4.969166666666666,
+      "mean_brown_order_gain_vs_shuffle": 0.6083282848141621
     },
     {
       "source_run": "runs/luna-memoized-brown-intersection-20260917.json",
@@ -253594,6 +253627,1442 @@
         "mean_zipf_frequency": 5.037692307692307,
         "word_count": 26,
         "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the station.",
+      "source_run": "runs/luna-cross-boundary-clause-decoder-20260917.json",
+      "provenance": "complete typed SVO/PP clauses plus character-level reverse-obligation trie across lexical seams",
+      "repair": null,
+      "letters": 79,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4887341878071627,
+        "mean_zipf_frequency": 5.70375,
+        "word_count": 16,
+        "repeated_word_rate": 0.3125,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed under the station.",
+      "source_run": "runs/luna-cross-boundary-clause-decoder-20260917.json",
+      "provenance": "complete typed SVO/PP clauses plus character-level reverse-obligation trie across lexical seams",
+      "repair": null,
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4366417525246291,
+        "mean_zipf_frequency": 5.721875000000001,
+        "word_count": 16,
+        "repeated_word_rate": 0.3125,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the garden.",
+      "source_run": "runs/luna-cross-boundary-clause-decoder-20260917.json",
+      "provenance": "complete typed SVO/PP clauses plus character-level reverse-obligation trie across lexical seams",
+      "repair": null,
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.448268971370453,
+        "mean_zipf_frequency": 5.68875,
+        "word_count": 16,
+        "repeated_word_rate": 0.375,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the harbor.",
+      "source_run": "runs/luna-cross-boundary-clause-decoder-20260917.json",
+      "provenance": "complete typed SVO/PP clauses plus character-level reverse-obligation trie across lexical seams",
+      "repair": null,
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3957092167229828,
+        "mean_zipf_frequency": 5.65,
+        "word_count": 16,
+        "repeated_word_rate": 0.3125,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the market.",
+      "source_run": "runs/luna-cross-boundary-clause-decoder-20260917.json",
+      "provenance": "complete typed SVO/PP clauses plus character-level reverse-obligation trie across lexical seams",
+      "repair": null,
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5149296944303705,
+        "mean_zipf_frequency": 5.72125,
+        "word_count": 16,
+        "repeated_word_rate": 0.3125,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the school.",
+      "source_run": "runs/luna-cross-boundary-clause-decoder-20260917.json",
+      "provenance": "complete typed SVO/PP clauses plus character-level reverse-obligation trie across lexical seams",
+      "repair": null,
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5662054112170418,
+        "mean_zipf_frequency": 5.7475,
+        "word_count": 16,
+        "repeated_word_rate": 0.3125,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the window.",
+      "source_run": "runs/luna-cross-boundary-clause-decoder-20260917.json",
+      "provenance": "complete typed SVO/PP clauses plus character-level reverse-obligation trie across lexical seams",
+      "repair": null,
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5577006666045285,
+        "mean_zipf_frequency": 5.690625,
+        "word_count": 16,
+        "repeated_word_rate": 0.3125,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The teacher carries the bell beside the garden. The writer watches the seed within the station.",
+      "source_run": "runs/luna-cross-boundary-clause-decoder-20260917.json",
+      "provenance": "complete typed SVO/PP clauses plus character-level reverse-obligation trie across lexical seams",
+      "repair": null,
+      "letters": 78,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.6443208362152797,
+        "mean_zipf_frequency": 5.790625,
+        "word_count": 16,
+        "repeated_word_rate": 0.3125,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient surveyor marks a quiet inlet beside the eastern pier before the bell rings, while the young keeper records wet charts inside the harbor office.",
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "provenance": {
+        "generator_sha256": "3fb07a699ea6d6161e71e21652cd436ac60ea24bc8baa4139d24304aae4d3bfd",
+        "registry_sha256": "0b5e4391a3d467eaf2cda88a021f2a514da1a21dde9ec80a35f0f9776b49f2ab",
+        "fresh_authored_center": true,
+        "function_word_choices_live": true,
+        "inflection_choices_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2663202868466588,
+        "mean_zipf_frequency": 5.308461538461539,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient surveyor marks a quiet inlet near the stone archive before the bell rings, while the young keeper records wet charts inside the harbor office.",
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "provenance": {
+        "generator_sha256": "3fb07a699ea6d6161e71e21652cd436ac60ea24bc8baa4139d24304aae4d3bfd",
+        "registry_sha256": "0b5e4391a3d467eaf2cda88a021f2a514da1a21dde9ec80a35f0f9776b49f2ab",
+        "fresh_authored_center": true,
+        "function_word_choices_live": true,
+        "inflection_choices_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.240859787763526,
+        "mean_zipf_frequency": 5.357692307692308,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient surveyor marks a quiet inlet beside the eastern pier before the bell rings, while the young keeper marks wet charts inside the harbor office.",
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "provenance": {
+        "generator_sha256": "3fb07a699ea6d6161e71e21652cd436ac60ea24bc8baa4139d24304aae4d3bfd",
+        "registry_sha256": "0b5e4391a3d467eaf2cda88a021f2a514da1a21dde9ec80a35f0f9776b49f2ab",
+        "fresh_authored_center": true,
+        "function_word_choices_live": true,
+        "inflection_choices_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 126,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3113002447444906,
+        "mean_zipf_frequency": 5.292692307692308,
+        "word_count": 26,
+        "repeated_word_rate": 0.1923076923076923,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient surveyor marks a quiet inlet beside the eastern pier before the bell rings, while a young keeper records wet charts inside the harbor office.",
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "provenance": {
+        "generator_sha256": "3fb07a699ea6d6161e71e21652cd436ac60ea24bc8baa4139d24304aae4d3bfd",
+        "registry_sha256": "0b5e4391a3d467eaf2cda88a021f2a514da1a21dde9ec80a35f0f9776b49f2ab",
+        "fresh_authored_center": true,
+        "function_word_choices_live": true,
+        "inflection_choices_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 126,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2530277668252712,
+        "mean_zipf_frequency": 5.2942307692307695,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient surveyor marks a quiet inlet beside the eastern pier before the bell rings, while the young keeper records wet charts toward the river dock.",
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "provenance": {
+        "generator_sha256": "3fb07a699ea6d6161e71e21652cd436ac60ea24bc8baa4139d24304aae4d3bfd",
+        "registry_sha256": "0b5e4391a3d467eaf2cda88a021f2a514da1a21dde9ec80a35f0f9776b49f2ab",
+        "fresh_authored_center": true,
+        "function_word_choices_live": true,
+        "inflection_choices_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 125,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.378055597303586,
+        "mean_zipf_frequency": 5.2700000000000005,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient surveyor marks a quiet inlet near the stone archive before the bell rings, while the young keeper marks wet charts inside the harbor office.",
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "provenance": {
+        "generator_sha256": "3fb07a699ea6d6161e71e21652cd436ac60ea24bc8baa4139d24304aae4d3bfd",
+        "registry_sha256": "0b5e4391a3d467eaf2cda88a021f2a514da1a21dde9ec80a35f0f9776b49f2ab",
+        "fresh_authored_center": true,
+        "function_word_choices_live": true,
+        "inflection_choices_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 125,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.274738378657661,
+        "mean_zipf_frequency": 5.341923076923077,
+        "word_count": 26,
+        "repeated_word_rate": 0.1923076923076923,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient surveyor marks a quiet inlet beside the eastern pier before the bell rings, while a young keeper marks wet charts inside the harbor office.",
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "provenance": {
+        "generator_sha256": "3fb07a699ea6d6161e71e21652cd436ac60ea24bc8baa4139d24304aae4d3bfd",
+        "registry_sha256": "0b5e4391a3d467eaf2cda88a021f2a514da1a21dde9ec80a35f0f9776b49f2ab",
+        "fresh_authored_center": true,
+        "function_word_choices_live": true,
+        "inflection_choices_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.292457041221251,
+        "mean_zipf_frequency": 5.2784615384615385,
+        "word_count": 26,
+        "repeated_word_rate": 0.1923076923076923,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient surveyor marks a quiet inlet near the stone archive before the bell rings, while the young keeper records wet charts toward the river dock.",
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "provenance": {
+        "generator_sha256": "3fb07a699ea6d6161e71e21652cd436ac60ea24bc8baa4139d24304aae4d3bfd",
+        "registry_sha256": "0b5e4391a3d467eaf2cda88a021f2a514da1a21dde9ec80a35f0f9776b49f2ab",
+        "fresh_authored_center": true,
+        "function_word_choices_live": true,
+        "inflection_choices_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3581457817223015,
+        "mean_zipf_frequency": 5.31923076923077,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient surveyor marks a quiet inlet beside the eastern pier before the bell rings, while the young keeper marks wet charts toward the river dock.",
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "provenance": {
+        "generator_sha256": "3fb07a699ea6d6161e71e21652cd436ac60ea24bc8baa4139d24304aae4d3bfd",
+        "registry_sha256": "0b5e4391a3d467eaf2cda88a021f2a514da1a21dde9ec80a35f0f9776b49f2ab",
+        "fresh_authored_center": true,
+        "function_word_choices_live": true,
+        "inflection_choices_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4230355552014142,
+        "mean_zipf_frequency": 5.2542307692307695,
+        "word_count": 26,
+        "repeated_word_rate": 0.1923076923076923,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient surveyor marks a quiet inlet beside the eastern pier before the bell rings, while a young keeper records wet charts toward the river dock.",
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "provenance": {
+        "generator_sha256": "3fb07a699ea6d6161e71e21652cd436ac60ea24bc8baa4139d24304aae4d3bfd",
+        "registry_sha256": "0b5e4391a3d467eaf2cda88a021f2a514da1a21dde9ec80a35f0f9776b49f2ab",
+        "fresh_authored_center": true,
+        "function_word_choices_live": true,
+        "inflection_choices_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.339836789430647,
+        "mean_zipf_frequency": 5.255769230769231,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient surveyor marks a quiet inlet near the stone archive before the bell rings, while the young keeper marks wet charts toward the river dock.",
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "provenance": {
+        "generator_sha256": "3fb07a699ea6d6161e71e21652cd436ac60ea24bc8baa4139d24304aae4d3bfd",
+        "registry_sha256": "0b5e4391a3d467eaf2cda88a021f2a514da1a21dde9ec80a35f0f9776b49f2ab",
+        "fresh_authored_center": true,
+        "function_word_choices_live": true,
+        "inflection_choices_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 122,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.392024372616433,
+        "mean_zipf_frequency": 5.303461538461539,
+        "word_count": 26,
+        "repeated_word_rate": 0.1923076923076923,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient surveyor marks a quiet inlet beside the eastern pier before the bell rings, while a young keeper marks wet charts toward the river dock.",
+      "source_run": "runs/luna-fresh-center-composition-20260917.json",
+      "provenance": {
+        "generator_sha256": "3fb07a699ea6d6161e71e21652cd436ac60ea24bc8baa4139d24304aae4d3bfd",
+        "registry_sha256": "0b5e4391a3d467eaf2cda88a021f2a514da1a21dde9ec80a35f0f9776b49f2ab",
+        "fresh_authored_center": true,
+        "function_word_choices_live": true,
+        "inflection_choices_live": true,
+        "catalogue_imported": false
+      },
+      "repair": null,
+      "letters": 121,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3792660638266288,
+        "mean_zipf_frequency": 5.24,
+        "word_count": 26,
+        "repeated_word_rate": 0.1923076923076923,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies weathered maps beside the quiet harbor. a thoughtful teacher records clear field notes inside the village school.",
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "provenance": {
+        "frame_ids": {
+          "left": "archivist",
+          "right": "teacher"
+        },
+        "lexical_source": "fresh inline authored ordinary clause inventory",
+        "choices_before_rendering": true,
+        "lm_role": "ranking legal next characters only"
+      },
+      "repair": null,
+      "letters": 121,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6819390872851478,
+        "mean_zipf_frequency": 5.149523809523809,
+        "word_count": 21,
+        "repeated_word_rate": 0.09523809523809523,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A thoughtful teacher records clear field notes inside the village school. the careful archivist studies weathered maps beside the quiet harbor.",
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "provenance": {
+        "frame_ids": {
+          "left": "teacher",
+          "right": "archivist"
+        },
+        "lexical_source": "fresh inline authored ordinary clause inventory",
+        "choices_before_rendering": true,
+        "lm_role": "ranking legal next characters only"
+      },
+      "repair": null,
+      "letters": 121,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7171941573383691,
+        "mean_zipf_frequency": 5.149523809523811,
+        "word_count": 21,
+        "repeated_word_rate": 0.09523809523809523,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The watchful sailor repairs loose rigging near the northern pier. a thoughtful teacher records clear field notes inside the village school.",
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "provenance": {
+        "frame_ids": {
+          "left": "sailor",
+          "right": "teacher"
+        },
+        "lexical_source": "fresh inline authored ordinary clause inventory",
+        "choices_before_rendering": true,
+        "lm_role": "ranking legal next characters only"
+      },
+      "repair": null,
+      "letters": 117,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7143945732689012,
+        "mean_zipf_frequency": 5.142857142857142,
+        "word_count": 21,
+        "repeated_word_rate": 0.09523809523809523,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A thoughtful teacher records clear field notes inside the village school. the watchful sailor repairs loose rigging near the northern pier.",
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "provenance": {
+        "frame_ids": {
+          "left": "teacher",
+          "right": "sailor"
+        },
+        "lexical_source": "fresh inline authored ordinary clause inventory",
+        "choices_before_rendering": true,
+        "lm_role": "ranking legal next characters only"
+      },
+      "repair": null,
+      "letters": 117,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4812096425814971,
+        "mean_zipf_frequency": 5.142857142857143,
+        "word_count": 21,
+        "repeated_word_rate": 0.09523809523809523,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies weathered maps beside the quiet harbor. the watchful sailor repairs loose rigging near the northern pier.",
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "provenance": {
+        "frame_ids": {
+          "left": "archivist",
+          "right": "sailor"
+        },
+        "lexical_source": "fresh inline authored ordinary clause inventory",
+        "choices_before_rendering": true,
+        "lm_role": "ranking legal next characters only"
+      },
+      "repair": null,
+      "letters": 114,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7255123826422896,
+        "mean_zipf_frequency": 4.832,
+        "word_count": 20,
+        "repeated_word_rate": 0.15000000000000002,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The watchful sailor repairs loose rigging near the northern pier. the careful archivist studies weathered maps beside the quiet harbor.",
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "provenance": {
+        "frame_ids": {
+          "left": "sailor",
+          "right": "archivist"
+        },
+        "lexical_source": "fresh inline authored ordinary clause inventory",
+        "choices_before_rendering": true,
+        "lm_role": "ranking legal next characters only"
+      },
+      "repair": null,
+      "letters": 114,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8397719773618562,
+        "mean_zipf_frequency": 4.832000000000002,
+        "word_count": 20,
+        "repeated_word_rate": 0.15000000000000002,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A patient gardener waters young cedar seedlings after steady rain. a thoughtful teacher records clear field notes inside the village school.",
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "provenance": {
+        "frame_ids": {
+          "left": "gardener",
+          "right": "teacher"
+        },
+        "lexical_source": "fresh inline authored ordinary clause inventory",
+        "choices_before_rendering": true,
+        "lm_role": "ranking legal next characters only"
+      },
+      "repair": null,
+      "letters": 118,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5188212676062189,
+        "mean_zipf_frequency": 5.107619047619048,
+        "word_count": 21,
+        "repeated_word_rate": 0.04761904761904767,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A thoughtful teacher records clear field notes inside the village school. a patient gardener waters young cedar seedlings after steady rain.",
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "provenance": {
+        "frame_ids": {
+          "left": "teacher",
+          "right": "gardener"
+        },
+        "lexical_source": "fresh inline authored ordinary clause inventory",
+        "choices_before_rendering": true,
+        "lm_role": "ranking legal next characters only"
+      },
+      "repair": null,
+      "letters": 118,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6900855489601003,
+        "mean_zipf_frequency": 5.107619047619048,
+        "word_count": 21,
+        "repeated_word_rate": 0.04761904761904767,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies weathered maps beside the quiet harbor. a patient gardener waters young cedar seedlings after steady rain.",
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "provenance": {
+        "frame_ids": {
+          "left": "archivist",
+          "right": "gardener"
+        },
+        "lexical_source": "fresh inline authored ordinary clause inventory",
+        "choices_before_rendering": true,
+        "lm_role": "ranking legal next characters only"
+      },
+      "repair": null,
+      "letters": 115,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.557518391310527,
+        "mean_zipf_frequency": 4.795,
+        "word_count": 20,
+        "repeated_word_rate": 0.050000000000000044,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A patient gardener waters young cedar seedlings after steady rain. the careful archivist studies weathered maps beside the quiet harbor.",
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "provenance": {
+        "frame_ids": {
+          "left": "gardener",
+          "right": "archivist"
+        },
+        "lexical_source": "fresh inline authored ordinary clause inventory",
+        "choices_before_rendering": true,
+        "lm_role": "ranking legal next characters only"
+      },
+      "repair": null,
+      "letters": 115,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4564881493837074,
+        "mean_zipf_frequency": 4.795000000000001,
+        "word_count": 20,
+        "repeated_word_rate": 0.050000000000000044,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A patient gardener waters young cedar seedlings after steady rain. the watchful sailor repairs loose rigging near the northern pier.",
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "provenance": {
+        "frame_ids": {
+          "left": "gardener",
+          "right": "sailor"
+        },
+        "lexical_source": "fresh inline authored ordinary clause inventory",
+        "choices_before_rendering": true,
+        "lm_role": "ranking legal next characters only"
+      },
+      "repair": null,
+      "letters": 111,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.30941629492006584,
+        "mean_zipf_frequency": 4.787999999999999,
+        "word_count": 20,
+        "repeated_word_rate": 0.050000000000000044,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The watchful sailor repairs loose rigging near the northern pier. a patient gardener waters young cedar seedlings after steady rain.",
+      "source_run": "runs/luna-lm-obligation-clause-search-20260917.json",
+      "provenance": {
+        "frame_ids": {
+          "left": "sailor",
+          "right": "gardener"
+        },
+        "lexical_source": "fresh inline authored ordinary clause inventory",
+        "choices_before_rendering": true,
+        "lm_role": "ranking legal next characters only"
+      },
+      "repair": null,
+      "letters": 111,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6075879451112645,
+        "mean_zipf_frequency": 4.788,
+        "word_count": 20,
+        "repeated_word_rate": 0.050000000000000044,
         "punctuation_segments": 2
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

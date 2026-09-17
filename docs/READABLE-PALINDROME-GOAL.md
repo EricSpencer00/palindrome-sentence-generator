@@ -2198,9 +2198,9 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   concrete next operation is a held-out chunk replacement at the first live
   residual, followed by exact re-audit. Three 101-letter exact tapes are also
   preserved, but their “Levels calm tales ...” surface is not readable and is
-  excluded from the reader packet. The authoritative snapshot is **5,265 rows
-  across 320 routes, 83 exact rejected tapes, and 0 mechanically admitted
-  outputs**; the registry is **420 retained, 34 excluded, and 398 retained
+  excluded from the reader packet. The authoritative snapshot is **5,297 rows
+  across 323 routes, 83 exact rejected tapes, and 0 mechanically admitted
+  outputs**; the registry is **423 retained, 34 excluded, and 401 retained
   run artifacts**.
 
   A follow-up typed scene realizer adds three complete 39--42-letter clauses;
@@ -2210,6 +2210,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   and lexical-closure solver are explicitly excluded for word-order,
   self-palindromic-span, or self-collision shortcuts. They remain auditable
   failure evidence and do not change the reader gate.
+
+  The next frontier changes the obligation mechanism: a cross-word character
+  trie retains “The gardener carries the bell beside the garden. The writer
+  watches the seed within the station.” (79 letters; exact `false`), while a
+  fresh center composition and an LM-ranked legal decoder retain complete
+  prose controls. The trie lane's concrete next repair is a held-out `orchard`
+  place choice; none is reader-eligible.
 
   The final exact-focused cycle used three distinct states. A 104-letter
   miller/chemist DP rendering was rejected as a byte-for-byte duplicate of the

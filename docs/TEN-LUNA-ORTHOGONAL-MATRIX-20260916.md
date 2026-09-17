@@ -152,6 +152,6 @@ teacher reviews marked field notes near the harbor office.” (113 letters;
 independent exact checks both false). Every row carries provenance, novelty
 preflight, anti-shortcut flags, and a concrete next repair; the exact
 101-letter near-survivors are visibly unreadable and not reader-eligible. The
-authoritative aggregate is now **5,265 rows across 320 routes** with **83
-exact and 0 mechanically admitted**, and the registry is **420 retained, 34
-excluded, 398 retained run artifacts**.
+authoritative aggregate is now **5,297 rows across 323 routes** with **83
+exact and 0 mechanically admitted**, and the registry is **423 retained, 34
+excluded, 401 retained run artifacts**.

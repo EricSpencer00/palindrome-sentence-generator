@@ -950,9 +950,17 @@ and forward/reverse SHA checks agree that it is not exact; provenance and
 anti-shortcut flags are clean, and its next reader-facing test remains the
 intact-versus-shuffled packet after exact admission. The paired-slot exact
 tapes are retained as provenance-backed failure evidence, not readability
-claims. The aggregate is now **5,265 rows across 320 routes, 83 exact rows,
-and 0 mechanically admitted outputs**; the registry is **420 retained, 34
-excluded, and 398 retained run artifacts**.
+claims. The aggregate is now **5,297 rows across 323 routes, 83 exact rows,
+and 0 mechanically admitted outputs**; the registry is **423 retained, 34
+excluded, and 401 retained run artifacts**.
+
+The following frontier changes the obligation mechanism rather than widening a
+sweep: a cross-word character trie retains eight 79-letter scenes, a fresh
+center composition retains twelve complete scenes, and an LM-ranked legal
+decoder retains twelve more. The trie representative is “The gardener carries
+the bell beside the garden. The writer watches the seed within the station.”
+(exact `false` under independent pointer/SHA), with a concrete held-out
+`orchard` place repair. None is reader-eligible.
 
 The subsequent typed scene-realizer lane adds three fresh complete 39--42-letter
 SVO/PP clauses. Its representative text is “The harbor guides the vessel near

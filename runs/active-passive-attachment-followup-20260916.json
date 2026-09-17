@@ -1,0 +1,84 @@
+{
+  "experiment_id": "active-passive-attachment-followup-20260916",
+  "signature": "heldout-active-passive-attachment|preserved-agent-patient|single-state|independent-pointer-sha",
+  "status": "completed",
+  "method": "one held-out attachment compatible with active and passive realizations",
+  "candidate": {
+    "rendered": "The engineer inspected the bridge beside the river. The bridge was inspected by the engineer beside the river.",
+    "letters": 91,
+    "repair_operator": {
+      "changed_slot": "attachment",
+      "from": "after the storm",
+      "to": "beside the river",
+      "preserved": [
+        "engineer agent",
+        "bridge patient",
+        "active/passive voice agreement"
+      ],
+      "held_out": true
+    },
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_normalized_sha256",
+      "letters": 91,
+      "two_pointer_exact": false,
+      "mismatch_count": 41,
+      "first_mismatch": {
+        "left": 0,
+        "right": 90,
+        "a": "t",
+        "b": "r"
+      },
+      "sha256_forward": "26f010f79bfd2971f306e5126d454febd2bd917c6c7a14300de861bf18acc937",
+      "sha256_reverse": "c942297e1341be2fd12f8b786226c6e31f934105ed402baf60f0f967e07ae5c1",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": false,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": false,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "fresh_scene": true,
+      "source_sentences_copied": false,
+      "catalogue_imported": false,
+      "borrowed_text": false,
+      "reversed_finished_sentence": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false,
+      "generator_sha256": "77d2405ed26c1a9233c1f46a232851a67377d5548f23f207f58c07809325e841"
+    }
+  },
+  "stats": {
+    "new_states": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "novelty_preflight": {
+    "performed_before_search": true,
+    "exact_id_collision": false,
+    "exact_signature_collision": false,
+    "status": "passed",
+    "sweep": false
+  },
+  "next_repair": "Change only the passive auxiliary at the next residual while preserving agent, patient, and attachment; do not reopen this attachment state.",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "77d2405ed26c1a9233c1f46a232851a67377d5548f23f207f58c07809325e841",
+    "generated_not_catalogue": true
+  }
+}

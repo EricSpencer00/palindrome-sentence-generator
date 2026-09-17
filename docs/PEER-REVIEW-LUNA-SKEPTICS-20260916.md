@@ -96,7 +96,7 @@ boundary-DP scene. Independent two-pointer and forward/reverse SHA checks
 reject each; provenance and novelty preflight show no copied catalogue text,
 finished-string reversal, word-order mirror, or repeated unit. Each run names
 a different next repair, and none is eligible for the reader packet until an
-exact survivor exists. The authoritative snapshot is 4,933 rows across 259
+exact survivor exists. The authoritative snapshot is 4,936 rows across 262
 route phases (79 exact rejected tapes; 0 mechanically admitted outputs). The
 immediate repairs add a 141-letter hypergraph scene, a 74-letter dialogue
 predicate repair, and an 89-letter function-word determiner repair; all remain
@@ -104,4 +104,5 @@ non-exact. A second single-state pass adds a 144-letter verb-edge scene, a
 75-letter speaker-name dialogue, and an 89-letter auxiliary scene; all remain
 non-exact. The orthogonal attachment-CSP, semantic-slot DP, and bespoke
 free-center lattice add 18 fresh intact-prose rows (76--115 letters), all
-independently rejected and reader-ineligible.
+independently rejected and reader-ineligible. Their targeted follow-ups add
+91-, 80-, and 117-letter variants, also independently rejected.

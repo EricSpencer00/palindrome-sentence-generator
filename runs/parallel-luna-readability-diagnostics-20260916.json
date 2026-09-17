@@ -254,9 +254,12 @@
     "runs/function-word-auxiliary-single-repair-20260916.json",
     "runs/active-passive-attachment-csp-20260916.json",
     "runs/semantic-slot-cross-boundary-dp-20260916.json",
-    "runs/bespoke-scene-lattice-free-center-20260916.json"
+    "runs/bespoke-scene-lattice-free-center-20260916.json",
+    "runs/active-passive-attachment-followup-20260916.json",
+    "runs/bespoke-scene-lattice-single-slot-repair-20260916.json",
+    "runs/semantic-slot-single-object-repair-20260916.json"
   ],
-  "candidate_count": 4933,
+  "candidate_count": 4936,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -2849,6 +2852,36 @@
       "max_letters": 115,
       "mean_zipf_frequency": 5.360909090909091,
       "mean_brown_order_gain_vs_shuffle": 0.7037599579525242
+    },
+    {
+      "source_run": "runs/active-passive-attachment-followup-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 91,
+      "max_letters": 91,
+      "mean_zipf_frequency": 5.77,
+      "mean_brown_order_gain_vs_shuffle": 1.627971510386634
+    },
+    {
+      "source_run": "runs/bespoke-scene-lattice-single-slot-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 80,
+      "max_letters": 80,
+      "mean_zipf_frequency": 5.075294117647059,
+      "mean_brown_order_gain_vs_shuffle": 0.34576681550498556
+    },
+    {
+      "source_run": "runs/semantic-slot-single-object-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 117,
+      "max_letters": 117,
+      "mean_zipf_frequency": 5.09409090909091,
+      "mean_brown_order_gain_vs_shuffle": 0.9288803309326052
     }
   ],
   "rows": [
@@ -237727,6 +237760,146 @@
         "mean_zipf_frequency": 5.316842105263158,
         "word_count": 19,
         "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The engineer inspected the bridge beside the river. The bridge was inspected by the engineer beside the river.",
+      "source_run": "runs/active-passive-attachment-followup-20260916.json",
+      "provenance": {
+        "fresh_scene": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "77d2405ed26c1a9233c1f46a232851a67377d5548f23f207f58c07809325e841"
+      },
+      "repair": null,
+      "letters": 91,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.627971510386634,
+        "mean_zipf_frequency": 5.77,
+        "word_count": 18,
+        "repeated_word_rate": 0.5555555555555556,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The baker kneads the rye dough before noon; the ferryman guides the evening boat across the inlet.",
+      "source_run": "runs/bespoke-scene-lattice-single-slot-repair-20260916.json",
+      "provenance": {
+        "method": "single held-out template-slot repair in bespoke free-center scene lattice",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b9b37ac6fd0f64160b5f3782d1010acb9c8445d9275f658e221aef38ef838e3d",
+        "source_sha256": "92a64b9fdcc9d17080b426e29399e8a8e3a49408bb09c0c9be3691144aa6b881"
+      },
+      "repair": null,
+      "letters": 80,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.34576681550498556,
+        "mean_zipf_frequency": 5.075294117647059,
+        "word_count": 17,
+        "repeated_word_rate": 0.23529411764705888,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At noon, the coastal ranger studies a weathered sextant beside the rescue shed, while volunteers prepare fresh water for the arriving hikers.",
+      "source_run": "runs/semantic-slot-single-object-repair-20260916.json",
+      "provenance": "single held-out object substitution with clause relexicalization and all attachment roles frozen",
+      "repair": null,
+      "letters": 117,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9288803309326052,
+        "mean_zipf_frequency": 5.09409090909091,
+        "word_count": 22,
+        "repeated_word_rate": 0.09090909090909094,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

@@ -72,6 +72,14 @@ EXPANDED_CONSEQUENCES = (
     "and keeps a quiet secret in a cabinet",
 )
 
+# Coupled frontier: both ends are relexicalized together, rather than sweeping
+# one slot. Each choice is role-compatible and keeps the required terminal ``t``.
+JOINT_AGENT_CONSEQUENCES = (
+    ("the careful scientist", "and keeps a quiet secret in a cabinet"),
+    ("the marine expert", "and keeps a quiet secret at sunset"),
+    ("the patient analyst", "and keeps a quiet secret at sunset"),
+)
+
 
 def edge_obligations(nodes: dict[str, Node]) -> list[dict[str, object]]:
     """Consume opposing edge characters before accepting a rendered clause."""
@@ -161,6 +169,23 @@ def expand_consequence(row: dict[str, object], surface: str) -> dict[str, object
     }
 
 
+def joint_relexicalize(row: dict[str, object], agent: str, consequence: str) -> dict[str, object]:
+    """Relexicalize both semantic endpoints in one coupled state."""
+    nodes = {role: Node(role, value["surface"]) for role, value in row["nodes"].items()}
+    nodes["agent"] = Node("agent", agent)
+    nodes["consequence"] = Node("consequence", consequence)
+    text = render(nodes)
+    return {
+        "operator": "joint_agent_consequence_relexicalization",
+        "agent_surface": agent,
+        "consequence_surface": consequence,
+        "path": [asdict(e) for e in PATH],
+        "nodes": {k: asdict(v) for k, v in nodes.items()},
+        "edge_obligations": edge_obligations(nodes),
+        "audit": audit(text),
+    }
+
+
 def main() -> None:
     registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
     entries = registry.get("entries", []) + registry.get("excluded", [])
@@ -187,13 +212,16 @@ def main() -> None:
     expanded = [expand_consequence(consequence_repair, phrase) for phrase in EXPANDED_CONSEQUENCES]
     expanded.sort(key=lambda row: (row["audit"]["independent_two_pointer"]["mismatch_count"], -row["audit"]["letters"]))
     expanded_best = expanded[0]
+    joint = [joint_relexicalize(consequence_repair, agent, consequence) for agent, consequence in JOINT_AGENT_CONSEQUENCES]
+    joint.sort(key=lambda row: (row["audit"]["independent_two_pointer"]["mismatch_count"], -row["audit"]["letters"]))
+    joint_best = joint[0]
     out = {
         "experiment_id": ID,
         "signature": SIGNATURE,
         "status": "completed_exact_candidate" if exact else "completed_no_exact_closure",
         "reader_eligible": bool(exact),
         "method": "choose typed semantic path first; consume opposing character obligations online during lexical realization",
-        "candidate_scene": expanded_best["audit"]["rendered"],
+        "candidate_scene": joint_best["audit"]["rendered"],
         "candidates": rows[:3],
         "repaired_candidate": event_repair,
         # Expose the held-out repair through the common aggregate schema so
@@ -202,10 +230,11 @@ def main() -> None:
         "second_repair": locative_repair,
         "third_repair": consequence_repair,
         "expanded_consequence_candidates": expanded,
-        "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38), "expanded_consequence_realizations": len(expanded), "expanded_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in expanded)},
+        "joint_agent_consequence_candidates": joint,
+        "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38), "expanded_consequence_realizations": len(expanded), "expanded_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in expanded), "joint_realizations": len(joint), "joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in joint)},
         "novelty_preflight": {"registry_entries_read": len(entries), "exact_signature_collision": collision, "catalogue_text_imported": False, "fixed_tape_used": False, "pos_sweep": False, "scene_lattice": False},
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "lexical_source": "hand-authored typed event lexicon", "path": [e.label for e in PATH], "audits": ["independent two-pointer", "forward/reverse SHA-256", "mechanical admission", "anti-shortcut preflight"]},
-        "next_repair": {"operator": "jointly relexicalize agent and consequence while preserving the four edge obligations, then require full character-level closure", "reason": "predicate expansion changed the full tape and preserved local closure, but neither expanded realization is an exact palindrome"},
+        "next_repair": {"operator": "jointly relexicalize theme and locative while retaining the coupled endpoint choices, then require full character-level closure", "reason": "the coupled endpoint states preserve all four local obligations but remain non-palindromic under independent whole-tape comparison"},
     }
     (ROOT / "runs" / f"{ID}.json").write_text(json.dumps(out, indent=2) + "\n")
     print(json.dumps(out["stats"], sort_keys=True))

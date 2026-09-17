@@ -3271,3 +3271,10 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   Resuming from those preserved states with one held-out substitution produced
   0 exact repairs, so the next branch must change the typed slot schema rather
   than expand the same lexical menus.
+
+  A fresh coordinated POS seam pattern was then run as a separate geometry,
+  not as a larger bank sweep. It expanded 1,406 live states without exhausting
+  its budget and produced 0 exact paths above 38 letters. This confirms that
+  the current outer-slot schema, rather than the queue length, is the blocker;
+  the next construction must change the syntactic slot topology while keeping
+  character equations live from the first transition.

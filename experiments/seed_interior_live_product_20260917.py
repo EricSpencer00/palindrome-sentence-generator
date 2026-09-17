@@ -43,16 +43,34 @@ def normalize(text: str) -> str:
     return "".join(re.findall(r"[a-z]", text.lower()))
 
 
-def compile_paths(paths: Iterable[tuple[str, ...]]) -> Automaton:
+def path_roles(words: tuple[str, ...], side: str | None) -> tuple[str | None, ...]:
+    if side is None:
+        return (None,) * len(words)
+    if side == "left":
+        # an aide rips [nine (adj) noun]
+        tail = 2 if len(words) == 5 else 3
+        return ("subject_determiner", "subject", "verb",
+                "object_quantifier", *("object_adjective",) * (tail - 2),
+                "object_noun")
+    if side == "right":
+        # [some (adj) noun] inspire Diana
+        head = len(words) - 2
+        return (("subject_determiner",) + ("subject_adjective",) * (head - 2)
+                + ("subject_noun", "verb", "proper_name"))
+    raise ValueError(side)
+
+
+def compile_paths(paths: Iterable[tuple[str, ...]], side: str | None = None) -> Automaton:
     """Compile independent word paths into one acyclic character automaton."""
     paths = tuple(paths)
     edges: list[Edge] = []
     next_node = 1
     end = 0
     for words in paths:
+        roles = path_roles(words, side)
         source = next_node
         next_node += 1
-        for word in words:
+        for word_index, word in enumerate(words):
             token = normalize(word)
             if not token:
                 raise ValueError("empty lexical item")
@@ -62,7 +80,7 @@ def compile_paths(paths: Iterable[tuple[str, ...]]) -> Automaton:
                 final_char = i == len(token) - 1
                 edges.append(Edge(source, target, char,
                                   word if final_char else None,
-                                  "word" if final_char else None))
+                                  roles[word_index] if final_char else None))
                 source = target
             # Every path gets a fresh continuation node so alternatives never
             # merge without their lexical history.
@@ -222,7 +240,8 @@ def run() -> dict:
     all_novel: list[dict] = []
     for name in ("control", "lexical_change", "grammar_change", "combined"):
         left_paths, right_paths = fixture(name)
-        product = live_product(compile_paths(left_paths), compile_paths(right_paths))
+        product = live_product(compile_paths(left_paths, "left"),
+                               compile_paths(right_paths, "right"))
         rows = []
         for rec in product["records"]:
             words = rec["left_words"] + rec["right_words"]

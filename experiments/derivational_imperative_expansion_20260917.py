@@ -111,7 +111,7 @@ def banks() -> dict[str, tuple[str, ...]]:
     det = set("a an the my our your his her one each this that no some".split())
     adjs = set("calm careful clear cold dark fair fine fresh good kind late mild new patient quiet red safe small soft warm wise young metallic stressed civic vivid rural tidal".split())
     adjs |= {w for w in by_tag["ADJ"] if 3 <= len(w) <= 10}
-    nouns = set("artist baker bird child clerk cloud dog door dream friend garden girl hand horse house keeper lamp letter light map market moon nurse park path poet rain river road room sailor school seed signal sky song stone sun table teacher town train tree traveler watch water window sonata dessert record lantern archive harbor channel".split())
+    nouns = set("artist artists baker bird child clerk cloud dog door dream friend garden gardens girl hand horse house keeper lamp letter light map market memo memos moon nurse park path poet rain river road room sailor school seed signal sky song stone sun table teacher town train tree traveler watch water window sonata sonatas dessert desserts record records lantern archive harbor channel".split())
     nouns |= {w for w in by_tag["NOUN"] if 3 <= len(w) <= 12}
 
     # Keep high-frequency words but cap each role to make the search bounded;

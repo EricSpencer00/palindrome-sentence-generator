@@ -2999,3 +2999,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   incremental witness support per role value, locative-noun onset conditioning
   against the seventh residual, and while-state subject alternation with
   connective/tense consistency filtering.
+
+  The following wave completed those repairs. Incremental per-role-value
+  witness support rendered 12 intact candidates up to 94 letters; conditioning
+  the locative noun on the seventh residual rendered 4 intact candidates up to
+  57 letters with all four seventh-character matches; and the alternating-
+  subject `while` CFG rendered 768 candidates up to 60 letters while pruning
+  256 shared-subject states. All produced 0 exact closures. Independent
+  pointer/SHA-256 replay, provenance, novelty preflight, and anti-shortcut
+  checks are retained for every row. The reader gate remains closed. The next
+  concrete operators are per-value domain updates before complete scene
+  assignment, conditioning the next locative character against the eighth
+  residual, and an alternating object frame with role-consistent transitions.

@@ -1,0 +1,48 @@
+{
+  "experiment_id": "outside-in-ngram-astar-20260917",
+  "novelty_preflight": {
+    "registry_inspected": true,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "known_palindrome_imported": false
+  },
+  "method": {
+    "search": "live outside-in A*/best-first",
+    "slots": "independently authored English words",
+    "templates": 3,
+    "reverse_segmentation": true,
+    "heuristic": "Brown corpus n-gram/readability proxy only",
+    "acceptance": "exact letters + independent audits",
+    "forbidden": [
+      "Cartesian product audit",
+      "mirror/repeat units",
+      "finished-text auditing"
+    ]
+  },
+  "candidates": [],
+  "stats": {
+    "states_expanded": 144,
+    "unique_states": 144,
+    "candidate_count": 0,
+    "exact_count": 0
+  },
+  "repair_frontier": {
+    "status": "concrete lexical/grammar frontier recorded",
+    "operator": "replace the first outer lexical slot on each side with held-out words sharing the required edge letter; preserve POS/valency",
+    "reason": "best-first templates exhausted before opposite independently authored boundaries closed",
+    "next_constraints": [
+      "match first/last unsettled letters",
+      "retain determiner-noun and subject-verb agreement",
+      "reopen reverse segmentation"
+    ]
+  },
+  "provenance": {
+    "generator": "experiments/outside_in_ngram_astar_20260917.py",
+    "independent_audits": [
+      "two-pointer",
+      "SHA-256 forward/reverse"
+    ],
+    "rendered_every_admitted_candidate": true,
+    "reproducible_command": "python3 experiments/outside_in_ngram_astar_20260917.py"
+  }
+}

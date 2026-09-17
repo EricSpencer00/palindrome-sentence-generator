@@ -2435,3 +2435,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   every row. The reader gate remains closed. The next concrete operators are
   variable-length clause-boundary states, attachment-state matrix-verb
   substitution, and one typed subject-role alternation at the center state.
+
+  The next repair wave completed those operators. Variable clause-boundary
+  offset transitions rendered 4 intact candidates up to 91 letters;
+  attachment-state matrix-verb substitution rendered 1,024 candidates up to
+  61 letters; and the center-crossing subject-role alternation rendered 18
+  intact candidates up to 150 letters, with midpoint-inside-token crossing in
+  every candidate. All produced 0 exact closures. Independent pointer/SHA-256
+  replay, provenance, novelty preflight, and anti-shortcut checks are retained
+  for every row. The reader gate remains closed. The next concrete operators
+  are grammar-aware optional-relative boundary transitions, relative-clause
+  object substitution by attachment state, and one held-out
+  agreement-compatible clause complement in the center state.

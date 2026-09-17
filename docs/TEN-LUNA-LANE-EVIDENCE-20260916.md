@@ -98,6 +98,18 @@ common audit report retains 48, 82, and 6 normalized rows respectively; this
 normalization difference is recorded rather than hidden. None is reader
 eligible, so no intact-versus-shuffled human study is claimed yet.
 
+## Rater-package contract (all ten lanes)
+
+Every lane row above is eligible to become the source item for the same
+reproducible rater package once it passes the mechanical gate. The builder
+`experiments/build_blinded_reader_package_20260916.py` freezes the intact
+rendering and provenance, creates a length-matched shuffled control, rejects
+unchanged or palindromic controls, randomizes blinded order, and keeps the
+item key separate. Thus programmatic readability is diagnostic only; human
+ratings of Englishness, coherence, and grammaticality remain the criterion.
+At this checkpoint the package is intentionally not emitted because all ten
+lanes have zero mechanically admitted candidates.
+
 The subsequent repair wave adds three actual prose diagnostics:
 
 | route | rendered prose | letters | exact / admission | concrete repair |

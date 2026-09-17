@@ -3278,3 +3278,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the current outer-slot schema, rather than the queue length, is the blocker;
   the next construction must change the syntactic slot topology while keeping
   character equations live from the first transition.
+
+  The scene-lattice product changes the search object again: three human-authored
+  scenes (“letter desk,” “garden work,” and “quiet meal”) define agent, event,
+  object, and response valency before any lexical choice. Typed role banks are
+  expanded under live character equations, yielding 16, 24, and 22 states,
+  respectively, with zero exact closures and recorded first-mismatch frontiers.
+  No candidate reaches the reader gate. The concrete repair is a seam-local
+  replacement of the first mismatching semantic role by a new valency-compatible
+  role bank, followed by inward resumption; enlarging these banks is not the next
+  experiment.

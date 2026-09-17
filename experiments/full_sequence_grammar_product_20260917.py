@@ -145,7 +145,8 @@ class SearchResult:
 
 def search_pattern(slots: tuple[str, ...], *, state_budget: int = 250_000,
                    catalogue_fixture: bool = False,
-                   forbidden_words: frozenset[str] = frozenset()) -> SearchResult:
+                   forbidden_words: frozenset[str] = frozenset(),
+                   banks: dict[str, tuple[str, ...]] | None = None) -> SearchResult:
     """Search one full slot sequence from both outer ends.
 
     `assign` is carried in every state, so backpointers cannot silently turn
@@ -153,6 +154,7 @@ def search_pattern(slots: tuple[str, ...], *, state_budget: int = 250_000,
     before either side can advance to a new slot.
     """
     n = len(slots)
+    banks = BANKS if banks is None else banks
     stack = [(0, n - 1, None, 0, None, 0, (None,) * n, frozenset())]
     seen: set[tuple] = set()
     paths: list[dict] = []
@@ -220,7 +222,7 @@ def search_pattern(slots: tuple[str, ...], *, state_budget: int = 250_000,
                               "catalogue_fixture": catalogue_fixture}})
             continue
         if li == ri and left_word is None and right_word is None:
-            for word in BANKS[slots[li]]:
+            for word in banks[slots[li]]:
                 if word in forbidden_words or not _eligible(word, used):
                     continue
                 if len(letters(word)) > 1:
@@ -230,7 +232,7 @@ def search_pattern(slots: tuple[str, ...], *, state_budget: int = 250_000,
                               used | ({word} if word not in FUNCTION_WORDS else set())))
             continue
         if left_word is None:
-            for word in BANKS[slots[li]]:
+            for word in banks[slots[li]]:
                 if word in forbidden_words or not _eligible(word, used):
                     continue
                 updated = list(assign); updated[li] = word
@@ -238,7 +240,7 @@ def search_pattern(slots: tuple[str, ...], *, state_budget: int = 250_000,
                               used | ({word} if word not in FUNCTION_WORDS else set())))
             continue
         if right_word is None:
-            for word in BANKS[slots[ri]]:
+            for word in banks[slots[ri]]:
                 if word in forbidden_words or not _eligible(word, used):
                     continue
                 updated = list(assign); updated[ri] = word

@@ -35,6 +35,11 @@ EXPLICIT_HISTORY = (
     "runs/two-region-sentence-revision-compass-20260917.json",
     "runs/two-region-sentence-revision-compass-anchored-20260917.json",
     "runs/dream-rsi-branching-two-region-20260917.json",
+    "runs/dream-rsi-whole-reconstruction-20260917.json",
+    "runs/brown-fsa-outer-product-20260917.json",
+    "runs/luna-grammar-intersection-fix-20260917.json",
+    "runs/derivational-imperative-expansion-20260917.json",
+    "runs/joint-boundary-first-mismatch-repair-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")

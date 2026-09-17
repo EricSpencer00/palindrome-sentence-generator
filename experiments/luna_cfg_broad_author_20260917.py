@@ -39,11 +39,35 @@ FORMS = (
 )
 LEX.update({"is": ("is",), "that": ("that",)})
 
+VALENCY = {
+    "carries": {"chart", "garden", "lantern", "letter", "map", "parcel"},
+    "draws": {"chart", "map", "letter"},
+    "finds": {"chart", "garden", "harbor", "lantern", "map", "parcel"},
+    "marks": {"chart", "garden", "map", "letter"},
+    "opens": {"archive", "harbor", "letter", "parcel", "window"},
+    "plants": {"garden"}, "records": {"chart", "letter", "map"},
+    "visits": {"archive", "arena", "harbor", "port", "station"},
+    "watches": {"garden", "harbor", "port", "station", "window"},
+}
+
+def licensed(form, words):
+    """Small construction-time agreement/valency gate, before FSA product."""
+    for i, role in enumerate(form):
+        if role == "det" and i + 1 < len(words):
+            if words[i] == "a" and words[i + 1][0] in "aeiou": return False
+            if words[i] == "an" and words[i + 1][0] not in "aeiou": return False
+    if "verb" in form and "obj" in form:
+        verb, obj = words[form.index("verb")], words[form.index("obj")]
+        if obj not in VALENCY.get(verb, set()): return False
+    return True
+
 def sentences(limit=1200):
     out=[]
     def rec(form, i, words, quota):
         if len(out) >= limit or quota[0] <= 0: return
-        if i == len(form): out.append(tuple(words)); quota[0] -= 1; return
+        if i == len(form):
+            if licensed(form, words): out.append(tuple(words)); quota[0] -= 1
+            return
         for w in LEX[form[i]]: rec(form, i+1, words+[w], quota)
     for f in FORMS: rec(f, 0, [], [max(1, limit // len(FORMS))])
     return out
@@ -70,7 +94,7 @@ def product(paths, cap=500000):
         if li == terminal[p] and ri == 0:
             ws=paths[p] + paths[q]
             tape=letters(" ".join(ws))
-            if 39 <= len(tape) <= 120 and tape == tape[::-1] and len(ws)==len(set(ws)):
+            if 39 <= len(tape) <= 160 and tape == tape[::-1] and len(ws)==len(set(ws)):
                 key=tuple(ws)
                 if key not in seen: seen.add(key); records.append((ws,tape))
             continue
@@ -94,9 +118,10 @@ def run():
           "reader_status":"unreviewed; requires blinded human rating","mechanically_admitted":False})
     result={"status":"completed_no_admitted_closure" if not rows else "exact_rejected_pending_readers",
       "method":"broad_authored_cfg_character_product","forms":len(FORMS),"paths":len(paths),
-      "search":{"states":states,"truncated":truncated,"letters":"39-120","rlaif_per_candidate":False},
+      "search":{"states":states,"truncated":truncated,"letters":"39-160","rlaif_per_candidate":False,
+                 "construction_filters":["determiner_noun_agreement","verb_object_valency"]},
       "exact_candidates":rows,"withheld_control":{"id":"known_38_letter_seed","used_for_search":False,"exact":True},
-      "next_repair":{"operator":"add lexical agreement and semantic valency annotations to CFG edges","reason":"zero closure means broadened syntax still needs synchronized morphology and scene roles, not a larger duplicate sweep"},
+      "next_repair":{"operator":"add finite scene-role constraints and coordinated-clause edges","reason":"agreement and valency filtered the product but yielded no exact closure; the next structural repair is compositional scene linkage"},
       "provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"lexicon":"authored ordinary words; no catalogue lookup"}}
     OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(result,indent=2)+"\n"); return result
 if __name__ == "__main__": print(json.dumps(run(),indent=2))

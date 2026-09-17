@@ -2,12 +2,16 @@
   "status": "completed_no_admitted_closure",
   "method": "broad_authored_cfg_character_product",
   "forms": 9,
-  "paths": 1197,
+  "paths": 1080,
   "search": {
-    "states": 49320,
+    "states": 57564,
     "truncated": false,
-    "letters": "39-120",
-    "rlaif_per_candidate": false
+    "letters": "39-160",
+    "rlaif_per_candidate": false,
+    "construction_filters": [
+      "determiner_noun_agreement",
+      "verb_object_valency"
+    ]
   },
   "exact_candidates": [],
   "withheld_control": {
@@ -16,11 +20,11 @@
     "exact": true
   },
   "next_repair": {
-    "operator": "add lexical agreement and semantic valency annotations to CFG edges",
-    "reason": "zero closure means broadened syntax still needs synchronized morphology and scene roles, not a larger duplicate sweep"
+    "operator": "add finite scene-role constraints and coordinated-clause edges",
+    "reason": "agreement and valency filtered the product but yielded no exact closure; the next structural repair is compositional scene linkage"
   },
   "provenance": {
-    "generator_sha256": "2e751e275bd61785f85200b2e49421c5201c2ff4fe85a446a30f45db00788c05",
+    "generator_sha256": "a1403bf79e3a014bdd5836e21ef66310c8de3bf6d86c3c72d30dde53a1e0fa03",
     "lexicon": "authored ordinary words; no catalogue lookup"
   }
 }

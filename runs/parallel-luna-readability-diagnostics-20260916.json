@@ -239,9 +239,12 @@
     "runs/corpus-seam-reauthored-repair-20260916.json",
     "runs/bidirectional-phrase-pair-growth-20260916.json",
     "runs/centerout-museum-scene-lattice-20260916.json",
-    "runs/morphology-crossword-transducer-20260916.json"
+    "runs/morphology-crossword-transducer-20260916.json",
+    "runs/bidirectional-phrase-pair-adjunct-repair-20260916.json",
+    "runs/centerout-museum-heldout-repair-20260916.json",
+    "runs/morphology-crossword-single-repair-20260916.json"
   ],
-  "candidate_count": 4895,
+  "candidate_count": 4898,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -2684,6 +2687,36 @@
       "max_letters": 88,
       "mean_zipf_frequency": 5.3611764705882345,
       "mean_brown_order_gain_vs_shuffle": 0.8957826317941784
+    },
+    {
+      "source_run": "runs/bidirectional-phrase-pair-adjunct-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 121,
+      "max_letters": 121,
+      "mean_zipf_frequency": 5.2695454545454545,
+      "mean_brown_order_gain_vs_shuffle": 0.5825352992272848
+    },
+    {
+      "source_run": "runs/centerout-museum-heldout-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 80,
+      "max_letters": 80,
+      "mean_zipf_frequency": 5.258571428571429,
+      "mean_brown_order_gain_vs_shuffle": 0.5624511534333063
+    },
+    {
+      "source_run": "runs/morphology-crossword-single-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 88,
+      "max_letters": 88,
+      "mean_zipf_frequency": 5.539999999999999,
+      "mean_brown_order_gain_vs_shuffle": 0.8362795988585656
     }
   ],
   "rows": [
@@ -235702,6 +235735,144 @@
         "mean_zipf_frequency": 5.275882352941176,
         "word_count": 17,
         "repeated_word_rate": 0.05882352941176472,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist records the rescued letters at first light; meanwhile, a patient gardener waters the young cedar trees beneath the willow branches.",
+      "source_run": "runs/bidirectional-phrase-pair-adjunct-repair-20260916.json",
+      "provenance": {
+        "method": "single opposing adjunct replacement in bidirectional phrase grammar",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "55e1671447f87a74092154225deda8bfc229a644af7911d6148def36bb4d018e",
+        "source_sha256": "a28b3490604a69f48e87fa9902455a5c002bf0db4113db45885731340f9b4a26"
+      },
+      "repair": null,
+      "letters": 121,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5825352992272848,
+        "mean_zipf_frequency": 5.2695454545454545,
+        "word_count": 22,
+        "repeated_word_rate": 0.13636363636363635,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The conservator studies the relic; the audience listens while the docent preserves the exhibit.",
+      "source_run": "runs/centerout-museum-heldout-repair-20260916.json",
+      "provenance": {
+        "fresh_museum_scene": true,
+        "seed_used_as_output": false,
+        "fixed_tape_used": false,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "7202fd762d3845d5296b10f78a12fe970f7e89dc7f080265a383ca1b9c756e41"
+      },
+      "repair": null,
+      "letters": 80,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5624511534333063,
+        "mean_zipf_frequency": 5.258571428571429,
+        "word_count": 14,
+        "repeated_word_rate": 0.2857142857142857,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The curator opens the sealed cabinet, and she carefully files the maps before the evening visitors arrive.",
+      "source_run": "runs/morphology-crossword-single-repair-20260916.json",
+      "provenance": "single held-out clitic/determiner seam change with dependency and agreement features frozen",
+      "repair": null,
+      "letters": 88,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8362795988585656,
+        "mean_zipf_frequency": 5.539999999999999,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
         "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

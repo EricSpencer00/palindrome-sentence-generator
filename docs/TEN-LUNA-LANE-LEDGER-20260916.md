@@ -315,7 +315,7 @@ Lane 8's distinct repair is recorded separately as
 harbor scene with plural, past-tense, and possessive-clitic obligations. It is
 non-exact under both independent audits and passes the no-repeated-unit gate.
 
-The common audit is **4,895 rows, 244 route phases, 79 exact rejected tapes,
+The common audit is **4,898 rows, 247 route phases, 79 exact rejected tapes,
 and 0 mechanically admitted outputs**. The exact lane-8 hash is retained only
 as a quarantined duplicate-control failure; it cannot enter a reader packet.
 
@@ -368,7 +368,7 @@ states at 55, 114, 168, and 223 letters. Both continuations have fresh
 provenance and novelty fingerprints, and neither produced an exact closure;
 they are retained as construction evidence rather than duplicate sweeps.
 
-The authoritative aggregate is therefore **4,895 rows across 244 route
+The authoritative aggregate is therefore **4,898 rows across 247 route
 phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**. The
 next reader-facing test remains the randomized blinded intact-versus-shuffled
 packet, gated on a genuinely exact, anti-shortcut-clean candidate.
@@ -379,8 +379,8 @@ function/inflection editor (five 96--104-letter scenes). Both are registered
 as distinct retained families with independent audits and concrete repairs.
 An entailment-preserving active/passive rewrite is explicitly excluded after
 novelty preflight found overlap with existing voice/information-structure
-families. The registry now contains 345 retained artifacts, 31 exclusions,
-and 323 retained run artifacts.
+families. The registry now contains 348 retained artifacts, 31 exclusions,
+and 326 retained run artifacts.
 
 Representative renderings are preserved verbatim: “The baker repairs the
 gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA
@@ -482,7 +482,7 @@ mining only to propose junctions before freshly authoring two connected
 100--101-letter scenes. Every row preserves actual prose, independent
 two-pointer/SHA validation, provenance, novelty preflight, anti-shortcut
 checks, and a concrete next repair. None closes exactly or enters the reader
-packet; the aggregate is now 4,895 rows across 244 route phases.
+packet; the aggregate is now 4,898 rows across 247 route phases.
 
 The immediate child-repair pass adds three single-state constructions: one
 typed shelter-verb edge in the live character chart (92 letters), one fresh

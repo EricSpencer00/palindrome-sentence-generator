@@ -469,10 +469,10 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,895 rows
-across 244 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **345 retained artifacts, 31
-explicit exclusions, and 323 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,898 rows
+across 247 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **348 retained artifacts, 31
+explicit exclusions, and 326 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
 
@@ -693,7 +693,7 @@ only to propose lexical junctions before fresh authoring of two connected
 independent two-pointer and forward/reverse SHA checks, structured provenance,
 novelty preflight, anti-shortcut flags, and a concrete next repair. All three
 lanes have zero exact closures and remain outside the reader packet; their 24
-rows are included in the 4,895-row audit.
+rows are included in the 4,898-row audit.
 
 The three named child repairs then executed immediately rather than reopening
 their parent sweeps. A single typed shelter-verb edge in the live chart
@@ -702,7 +702,7 @@ produced a 92-letter scene; a fresh two-clause object/place grammar produced an
 reauthoring produced a 121-letter ferry scene. Each is actual prose with
 independent pointer/SHA validation, provenance, novelty preflight,
 anti-shortcut checks, and its own next repair. None is exact or reader-eligible;
-the three rows are included in the 4,895-row audit.
+the three rows are included in the 4,898-row audit.
 
 The next orthogonal wave changes the construction state again. Whole-clause
 bidirectional phrase growth renders two 112--120-letter scenes; a center-out
@@ -711,4 +711,11 @@ audience center; and a morphology-aware cross-word transducer renders two
 80--88-letter scenes with inflection and clitic states. Each row has actual
 prose, independent pointer/SHA validation, provenance, novelty preflight,
 anti-shortcut checks, and a named repair. None closes exactly or enters the
-reader packet; eight rows are added to the 4,895-row audit.
+reader packet; eight rows are added to the 4,898-row audit.
+
+The named child repairs then ran once each: an opposing adjunct replacement
+yielded a 121-letter scene, a held-out museum predicate/object change yielded an
+80-letter scene, and a single clitic/determiner seam change yielded an
+88-letter scene. Their prose remains grammatical and independently audited,
+with provenance, novelty, anti-shortcut checks, and a next repair recorded;
+none is exact or reader-eligible.

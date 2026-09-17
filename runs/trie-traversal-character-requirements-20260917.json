@@ -1,0 +1,108 @@
+{
+  "experiment": "trie-traversal-character-requirements-20260917",
+  "method": "lexical trie traversal rejects a prefix immediately when its next character violates the propagated requirement",
+  "candidate_count": 3,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "At dawn, the archivist keeps the records along the harbor; meanwhile, a courier delivers the parcels near the archive.",
+      "attachment": "inside",
+      "required_prefix": "in",
+      "trie_traversal_accepted": true,
+      "rejected_prefixes": [],
+      "provenance": "trie_traversal_character_requirements",
+      "novelty_preflight": {
+        "signature": "trie_traversal_character_requirements_v1",
+        "distinct_from": "post-prefix gate; each character is checked against requirement as trie traversal advances"
+      },
+      "audit": {
+        "letters": 96,
+        "exact": false,
+        "mismatch_count": 44,
+        "first_mismatch": [
+          0,
+          95
+        ],
+        "sha256": "9733134ca86cd2bb5b3b4b8b88cd654b8341cc42f0b463392915afa5911b86b4",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "At dawn, the gardener carries the letters along the harbor; meanwhile, a messenger records the charts near the archive.",
+      "attachment": "through",
+      "required_prefix": "th",
+      "trie_traversal_accepted": true,
+      "rejected_prefixes": [],
+      "provenance": "trie_traversal_character_requirements",
+      "novelty_preflight": {
+        "signature": "trie_traversal_character_requirements_v1",
+        "distinct_from": "post-prefix gate; each character is checked against requirement as trie traversal advances"
+      },
+      "audit": {
+        "letters": 97,
+        "exact": false,
+        "mismatch_count": 44,
+        "first_mismatch": [
+          0,
+          96
+        ],
+        "sha256": "c802c555c1663aef92b161e32d6d4a1df63748213f571333845240b595fe2cd0",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 2,
+      "rendered": "At dawn, the teacher writes the notes along the harbor; meanwhile, a cartographer marks the maps near the archive.",
+      "attachment": "along",
+      "required_prefix": "al",
+      "trie_traversal_accepted": true,
+      "rejected_prefixes": [],
+      "provenance": "trie_traversal_character_requirements",
+      "novelty_preflight": {
+        "signature": "trie_traversal_character_requirements_v1",
+        "distinct_from": "post-prefix gate; each character is checked against requirement as trie traversal advances"
+      },
+      "audit": {
+        "letters": 92,
+        "exact": false,
+        "mismatch_count": 42,
+        "first_mismatch": [
+          0,
+          91
+        ],
+        "sha256": "78f21a8bf42eaf4d6f6d13ee053d403110ec60a44db94740cd590a0601219482",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 97,
+    "next_repair": "propagate requirements across multiple lexical slots and reject transitions before word completion"
+  }
+}

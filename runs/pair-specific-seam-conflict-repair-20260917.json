@@ -1,0 +1,110 @@
+{
+  "experiment": "pair-specific-seam-conflict-repair-20260917",
+  "method": "first whole-tape seam conflict identifies one semantic lexical role; only that role domain is revised",
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "The teacher carries the letters near the harbor, and the teacher writes the notes near the garden.",
+      "repaired_role": "a",
+      "replaced": {
+        "old": "gardener",
+        "new": "teacher"
+      },
+      "slots": {
+        "a": "teacher",
+        "v": "carries",
+        "o": "letters",
+        "s0": "harbor",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "garden"
+      },
+      "preserved_roles": [
+        "v",
+        "o",
+        "s0",
+        "a2",
+        "v2",
+        "o2",
+        "s1"
+      ],
+      "provenance": "pair_specific_seam_conflict_role_repair",
+      "novelty_preflight": {
+        "signature": "pair_specific_seam_conflict_repair_v1",
+        "distinct_from": "whole-tape check; only the lexical semantic role named by the first seam conflict is revised"
+      },
+      "audit": {
+        "letters": 80,
+        "exact": false,
+        "mismatch_count": 35,
+        "first_mismatch": 0,
+        "sha256": "e4440323dd5576e46cec1db7fab3e3267977f0898bcc864c8fb067cb68856e42",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "The gardener writes the notes near the garden, and the messenger records the charts near the station.",
+      "repaired_role": "a",
+      "replaced": {
+        "old": "teacher",
+        "new": "gardener"
+      },
+      "slots": {
+        "a": "gardener",
+        "v": "writes",
+        "o": "notes",
+        "s0": "garden",
+        "a2": "messenger",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station"
+      },
+      "preserved_roles": [
+        "v",
+        "o",
+        "s0",
+        "a2",
+        "v2",
+        "o2",
+        "s1"
+      ],
+      "provenance": "pair_specific_seam_conflict_role_repair",
+      "novelty_preflight": {
+        "signature": "pair_specific_seam_conflict_repair_v1",
+        "distinct_from": "whole-tape check; only the lexical semantic role named by the first seam conflict is revised"
+      },
+      "audit": {
+        "letters": 83,
+        "exact": false,
+        "mismatch_count": 34,
+        "first_mismatch": 0,
+        "sha256": "fb357f5077228b935572419953e08355e2061328e3646ce28b8d693cb598d07e",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 83,
+    "next_repair": "retain conflict provenance across repair iterations and stop revising a role when its domain is exhausted"
+  }
+}

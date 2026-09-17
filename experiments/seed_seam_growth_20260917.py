@@ -1,10 +1,8 @@
-"""Joint clause growth around the seed seam.
+"""Quarantined post-hoc baseline for the seed seam.
 
-This lane does not mirror words.  It emits two independently typed clauses,
-then zips their *characters* from the outside inward while preserving each
-clause's subject/verb/object and agreement features.  A held-out seam repair
-inserts an optional PP on both clause grammars; it is deliberately bounded so
-that a zero result is useful evidence rather than a duplicate sweep.
+The artifact preserves a small finished-product comparison, but it is not a
+live character-product search: products are materialized first and audited
+afterward.  It remains useful as negative evidence only.
 """
 from __future__ import annotations
 
@@ -67,21 +65,25 @@ def run() -> dict:
         rows.append({"rendered": text, "left_frame": lf, "right_frame": rf,
                      "audit": audit(text), "shortcut_filters": shortcut_filters(text),
                      "provenance": {"left_clause_authored_forward": True, "right_clause_authored_forward": True,
-                                    "joint_character_zipper": True, "catalogue_imported": False,
+                                    "joint_character_zipper": False, "live_product_search": False,
+                                    "posthoc_cartesian_audit": True, "catalogue_imported": False,
                                     "grammar": "DET ADJ plural-N V plural-N; DET singular-N V singular-name"},
                      "repair": "held-out optional PP insertion at the first mismatch, preserving typed valency"})
     seed_a = audit(SEED)
     seed_words = shortcut_filters(SEED)
     exact = [r for r in rows if r["audit"]["exact"] and all(r["shortcut_filters"].values()) and r["audit"]["letters"] >= 39]
     return {"experiment_id": EXPERIMENT_ID, "signature": SIGNATURE,
-            "status": "completed_no_novel_exact_closure" if not exact else "completed_exact_candidates",
-            "method": "joint typed clause growth with character zipper and held-out seam PP repair",
+            "status": "quarantined_posthoc_comparison",
+            "method": "post-hoc typed clause Cartesian comparison; not a live character product",
             "rows": rows, "seed_control": {"rendered": SEED, "audit": seed_a, "shortcut_filters": seed_words},
             "stats": {"products": len(rows), "exact": sum(r["audit"]["exact"] for r in rows),
                       "novel_exact_reader_eligible": len(exact)}, "reader_eligible": bool(exact),
             "next_repair": {"operator": "typed_optional_pp_at_first_mismatch", "applied": False,
                             "reason": "all bounded products miss before a complete clause closure"},
-            "independent_validation": "two-pointer equality plus forward/reverse SHA-256"}
+            "independent_validation": "two-pointer equality plus forward/reverse SHA-256",
+            "search_integrity": {"live_product_search": False,
+                                 "posthoc_cartesian_audit": True,
+                                 "admission_safe": False}}
 
 if __name__ == "__main__":
     import argparse

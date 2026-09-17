@@ -14,7 +14,10 @@ def test_seed_control_is_exact_and_independently_audited():
 def test_frontier_has_rendered_provenance_and_no_shortcut_admission():
     r = m.run(); assert r["rows"]
     for row in r["rows"]:
-        assert row["rendered"] and row["provenance"]["joint_character_zipper"]
+        assert row["rendered"] and not row["provenance"]["joint_character_zipper"]
+        assert row["provenance"]["posthoc_cartesian_audit"]
         assert "first_mismatch" in row["audit"]
     assert not r["reader_eligible"]
     assert r["next_repair"]["operator"]
+    assert r["status"] == "quarantined_posthoc_comparison"
+    assert r["search_integrity"]["admission_safe"] is False

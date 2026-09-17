@@ -1,8 +1,7 @@
-"""Typed seam-lattice search for readable palindromes.
+"""Quarantined post-hoc seam comparison.
 
-Unlike a word mirror, the two clause banks are authored independently.  The
-solver matches characters outside-in while allowing the right clause's words
-to cross the seam (a word boundary is metadata, never a constraint).
+Products are enumerated before the variable-boundary diagnostic runs, so this
+artifact is preserved as a negative comparison rather than a live generator.
 """
 from __future__ import annotations
 import hashlib, itertools, json, re
@@ -80,18 +79,23 @@ def run() -> dict:
                    "seam_segmentation": seam, "shortcut_filters": fs,
                    "provenance": {"left_independently_authored": True, "right_independently_authored": True,
                                   "generated_not_catalogue": True, "seed_regression_control": is_seed,
+                                  "live_product_search": False, "posthoc_comparison": True,
                                   "semantic_roles": {"left": lf, "right": rf}},
                    "reader_eligible": bool(audit["exact"] and audit["letters"] >= 39 and all(fs.values())),
                    "next_repair": "At the first mismatch, replace only the offending semantic slot with a held-out synonym and rerun the seam DP."}
             rows.append(row)
             if row["reader_eligible"]: exact.append(row)
     return {"experiment_id": EXPERIMENT_ID, "signature": SIGNATURE,
-            "status": "completed_no_novel_exact_closure" if not exact else "completed_exact_candidates",
-            "method": "typed semantic seam lattice with variable word-boundary DP and outside-in character matching",
+            "status": "quarantined_posthoc_comparison",
+            "method": "post-hoc typed seam comparison with variable-boundary diagnostic; not a live product",
             "rows": rows, "exact_candidates": exact,
             "stats": {"products": len(rows), "exact": sum(r["audit"]["exact"] for r in rows),
                        "reader_eligible": len(exact), "seed_controls": sum(r["provenance"]["seed_regression_control"] for r in rows)},
-            "reader_evidence": "none: no novel exact candidate admitted", "independent_validation": True}
+            "reader_evidence": "none: quarantined comparison; no reader claim",
+            "independent_validation": True,
+            "search_integrity": {"live_product_search": False,
+                                 "posthoc_comparison": True,
+                                 "admission_safe": False}}
 
 if __name__ == "__main__":
     import argparse

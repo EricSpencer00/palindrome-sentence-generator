@@ -1,0 +1,70 @@
+{
+  "experiment": "paired-lexical-phrase-graph-live-emit-20260916",
+  "novelty_preflight": {
+    "passed": true,
+    "signature": "paired-lexical-graph-live-emission|typed-svo-role-edges|multi-clause-scene|per-character-lockstep",
+    "overlaps_checked": [
+      "simultaneous-phrase-pair-constructor-20260916",
+      "lexical-mirror-hypergraph-clause-20260916"
+    ],
+    "reason": "Graph edges enforce paired character choices during emission; fresh miller/chemist scene and no completed-string reversal."
+  },
+  "rows": [
+    {
+      "id": "graph-live-0",
+      "rendered": "The miller repairs the wooden wheel beside the creek, and a patient chemist measures the clear solution inside the glass room.",
+      "graph_state": {
+        "roles_left": [
+          "subject",
+          "verb",
+          "object"
+        ],
+        "roles_right": [
+          "subject",
+          "verb",
+          "object"
+        ],
+        "emission": "each edge emits one paired character before advancing",
+        "scene_connected": true
+      },
+      "audit": {
+        "length": 104,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "m"
+        },
+        "sha256_forward": "55b63cd0c85b0e038b3c87bb398802c84aa5facf32cc71541b1a01c314b72590",
+        "sha256_reverse": "24d40d6f6ead70a63cc61545e789186f6574be38aa97a4c01a441db647553612",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "paired lexical phrase graph with per-character lockstep emission",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "660fc34ce41ab771bef42bcc534045883611ee34d127031fa8fb2ed142318c26",
+        "source_sha256": "55b63cd0c85b0e038b3c87bb398802c84aa5facf32cc71541b1a01c314b72590"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "nonrepeated_ordinary_words": true,
+        "catalogue_text": false,
+        "reverse_emission": false,
+        "word_order_mirror": false,
+        "fixed_tape": false
+      },
+      "next_repair": "First residual 0: add one held-out subject-role graph edge whose terminal matches the live opposing character obligation."
+    }
+  ],
+  "summary": {
+    "candidate_count": 1,
+    "exact_count": 0,
+    "max_length": 104
+  }
+}

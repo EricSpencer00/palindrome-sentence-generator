@@ -1,17 +1,18 @@
 {
   "status": "completed_no_admitted_closure",
   "method": "broad_authored_cfg_scene_role_product",
-  "forms": 10,
-  "paths": 1118,
+  "forms": 11,
+  "paths": 1139,
   "search": {
-    "states": 61640,
+    "states": 58232,
     "truncated": false,
-    "letters": "39-180",
+    "letters": "39-200",
     "rlaif_per_candidate": false,
     "construction_filters": [
       "determiner_noun_agreement",
       "verb_object_valency",
-      "shared_scene_entity_and_anaphora"
+      "shared_scene_entity_and_anaphora",
+      "relative_event_attachment"
     ]
   },
   "exact_candidates": [],
@@ -21,11 +22,11 @@
     "exact": true
   },
   "next_repair": {
-    "operator": "add relative-event attachment edges with distinct anaphora",
-    "reason": "the shared-scene coordination product yielded no exact closure; next add event attachment without repeating lexical entities"
+    "operator": "add finite tense/aspect agreement edges",
+    "reason": "relative-event attachment yielded no exact closure; next constrain event compatibility while preserving distinct anaphora"
   },
   "provenance": {
-    "generator_sha256": "b3b253ea2bf70855c29632f69e10035f3c4b9627989a1f4a46e3c177301d1ef1",
+    "generator_sha256": "4d435cb4c594020003f426077714e1e063c8a4fc8b59a489939445807c419821",
     "lexicon": "authored ordinary words; no catalogue lookup"
   }
 }

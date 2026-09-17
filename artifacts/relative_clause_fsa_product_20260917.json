@@ -160,7 +160,7 @@
     "status": "passed"
   },
   "provenance": {
-    "generator_sha256": "338669c7f227a86ce5c52d6e7634e4929b522fbdbcd8b762676bf539be1b0ad2",
+    "generator_sha256": "472d7a2cda02231dcd6dada12da9dee02218fc08c2025873ddfcec571c127663",
     "seed_used": false
   },
   "search": {
@@ -192,5 +192,43 @@
     "word_boundaries": "independent_fsa_decoder"
   },
   "status": "completed_exact_closure",
-  "withheld_control": null
+  "withheld_control": {
+    "anti_shortcut": {
+      "finished_tape_reversal": false,
+      "repeated_units": false,
+      "word_order_mirror": true
+    },
+    "complete_grammar_path": true,
+    "construction_exact": true,
+    "grammar": "S>Declarative>RelativeChain>Answer",
+    "independent_audit": {
+      "algorithm": "independent_two_pointer",
+      "exact": true
+    },
+    "left_path": [
+      "i",
+      "saw",
+      "a",
+      "raw",
+      "wolf"
+    ],
+    "letters": 24,
+    "provenance": {
+      "lexical_choices_before_rendering": true,
+      "seed_used": false
+    },
+    "rendered": "i saw a raw wolf; flow war a was i.",
+    "right_path": [
+      "flow",
+      "war",
+      "a",
+      "was",
+      "i"
+    ],
+    "sha_audit": {
+      "equal": true,
+      "forward_sha256": "fe4d9a12bad65858155f91b0371ad7cd0c214d834a526552f108849366ba9a5a",
+      "reverse_sha256": "fe4d9a12bad65858155f91b0371ad7cd0c214d834a526552f108849366ba9a5a"
+    }
+  }
 }

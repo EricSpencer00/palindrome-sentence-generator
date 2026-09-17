@@ -1,0 +1,84 @@
+{
+  "experiment_id": "centerfree-clause-pair-followup-20260916",
+  "signature": "heldout-seam-final-opening-repair|preserved-complete-clauses|centerfree|independent-pointer-sha",
+  "status": "completed",
+  "method": "one joint held-out final/opening seam substitution in center-free clauses",
+  "candidate": {
+    "rendered": "The sailor mends the canvas. A nurse checks the patient.",
+    "letters": 45,
+    "repair_operator": {
+      "changed_slots": [
+        "left_final_word",
+        "right_opening_word"
+      ],
+      "from": "sail / The nurse",
+      "to": "canvas / A nurse",
+      "held_out": true,
+      "complete_clauses_preserved": true
+    },
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_normalized_sha256",
+      "letters": 45,
+      "two_pointer_exact": false,
+      "mismatch_count": 18,
+      "first_mismatch": {
+        "left": 1,
+        "right": 43,
+        "a": "h",
+        "b": "n"
+      },
+      "sha256_forward": "a2ffcca390f639d270d8838d4d7e9718f9d4e3311a3a2b26b59e273f554a85ba",
+      "sha256_reverse": "fc429a22f716eb2f16377636d1fc1ccca91e03bbcef1c68f569aa25b8b038561",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "fresh_complete_clauses": true,
+      "fixed_center_used": false,
+      "source_sentences_copied": false,
+      "catalogue_imported": false,
+      "borrowed_text": false,
+      "reversed_finished_sentence": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false,
+      "generator_sha256": "d6137d97671184c19760d89005c9782217659085d8cfa026a2b0a6a0d24fbbdf"
+    }
+  },
+  "stats": {
+    "new_states": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "novelty_preflight": {
+    "performed_before_search": true,
+    "exact_id_collision": false,
+    "exact_signature_collision": false,
+    "status": "passed",
+    "replay": false
+  },
+  "next_repair": "Change only the left predicate at the next seam residual while preserving both clause roles and the new opening word; do not reopen this joint state.",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "d6137d97671184c19760d89005c9782217659085d8cfa026a2b0a6a0d24fbbdf",
+    "generated_not_catalogue": true
+  }
+}

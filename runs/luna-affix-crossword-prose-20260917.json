@@ -17,13 +17,13 @@
       "gibberish"
     ]
   },
-  "candidate_count": 25,
+  "candidate_count": 29,
   "candidates": [
     {
       "rendered": "The seasoned harbor pilot guides the weathered ferry through the morning fog. The kind librarian returns the borrowed novels to the neighborhood shelves.",
       "plan": {
-        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=weathered ferry;adjunct=through the morning fog;clitic=none",
-        "right_roles": "agent=kind librarian;event=returns;theme=borrowed novels;adjunct=to the neighborhood shelves;clitic=none",
+        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=the weathered ferry;adjunct=through the morning fog;clitic=none",
+        "right_roles": "agent=kind librarian;event=returns;theme=the borrowed novels;adjunct=to the neighborhood shelves;clitic=none",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -255,8 +255,8 @@
     {
       "rendered": "The seasoned harbor pilot guides the weathered ferry through the morning fog. The village baker delivers the warm loaves for them near the market shelter.",
       "plan": {
-        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=weathered ferry;adjunct=through the morning fog;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=near the market shelter;clitic= for them",
+        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=the weathered ferry;adjunct=through the morning fog;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=near the market shelter;clitic= for them",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -494,8 +494,8 @@
     {
       "rendered": "The seasoned harbor pilot guides the weathered ferry across the quiet harbor. The village baker delivers the warm loaves for them near the market shelter.",
       "plan": {
-        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=weathered ferry;adjunct=across the quiet harbor;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=near the market shelter;clitic= for them",
+        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=the weathered ferry;adjunct=across the quiet harbor;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=near the market shelter;clitic= for them",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -731,10 +731,249 @@
       }
     },
     {
+      "rendered": "The seasoned harbor pilot guides the weathered ferry through the morning fog. The village baker delivers the warm loaves for them near the market shelter.",
+      "plan": {
+        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=the weathered ferry;adjunct=through the morning fog;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=near the market shelter;clitic= for them",
+        "obligations_checked_before_render": true,
+        "sample_obligations": [
+          {
+            "position": 0,
+            "left_char": "t",
+            "required_right_char": "r",
+            "boundary_crossing": false
+          },
+          {
+            "position": 1,
+            "left_char": "h",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 2,
+            "left_char": "e",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 3,
+            "left_char": "s",
+            "required_right_char": "l",
+            "boundary_crossing": false
+          },
+          {
+            "position": 4,
+            "left_char": "e",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 5,
+            "left_char": "a",
+            "required_right_char": "h",
+            "boundary_crossing": false
+          },
+          {
+            "position": 6,
+            "left_char": "s",
+            "required_right_char": "s",
+            "boundary_crossing": false
+          },
+          {
+            "position": 7,
+            "left_char": "o",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 8,
+            "left_char": "n",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 9,
+            "left_char": "e",
+            "required_right_char": "k",
+            "boundary_crossing": false
+          },
+          {
+            "position": 10,
+            "left_char": "d",
+            "required_right_char": "r",
+            "boundary_crossing": false
+          },
+          {
+            "position": 11,
+            "left_char": "h",
+            "required_right_char": "a",
+            "boundary_crossing": false
+          }
+        ],
+        "inflectional_and_clitic_seams": [
+          {
+            "tile": "guides",
+            "base": "guid",
+            "affix_or_clitic": "es",
+            "character_level": true
+          },
+          {
+            "tile": "delivers",
+            "base": "deliver",
+            "affix_or_clitic": "s",
+            "character_level": true
+          },
+          {
+            "tile": " for them",
+            "base": "",
+            "affix_or_clitic": " for them",
+            "character_level": true
+          }
+        ]
+      },
+      "audit": {
+        "rendered": "The seasoned harbor pilot guides the weathered ferry through the morning fog. The village baker delivers the warm loaves for them near the market shelter.",
+        "normalized_tape": "theseasonedharborpilotguidestheweatheredferrythroughthemorningfogthevillagebakerdeliversthewarmloavesforthemnearthemarketshelter",
+        "letters": 128,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 127,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 126,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 125,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 3,
+            "right_index": 124,
+            "left": "s",
+            "right": "l"
+          },
+          {
+            "left_index": 5,
+            "right_index": 122,
+            "left": "a",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 120,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 8,
+            "right_index": 119,
+            "left": "n",
+            "right": "e"
+          },
+          {
+            "left_index": 9,
+            "right_index": 118,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 10,
+            "right_index": 117,
+            "left": "d",
+            "right": "r"
+          },
+          {
+            "left_index": 11,
+            "right_index": 116,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "left_index": 12,
+            "right_index": 115,
+            "left": "a",
+            "right": "m"
+          },
+          {
+            "left_index": 13,
+            "right_index": 114,
+            "left": "r",
+            "right": "e"
+          },
+          {
+            "left_index": 14,
+            "right_index": 113,
+            "left": "b",
+            "right": "h"
+          },
+          {
+            "left_index": 15,
+            "right_index": 112,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 17,
+            "right_index": 110,
+            "left": "p",
+            "right": "a"
+          },
+          {
+            "left_index": 18,
+            "right_index": 109,
+            "left": "i",
+            "right": "e"
+          }
+        ],
+        "sha256_forward": "e012e154dd498259c67f744ebd2666797a8db4dc7377176ba3b0d3b021b58381",
+        "sha256_reverse": "2a4673f398580854accf2d2bdc90175ab1b37a6496ee681729816217d284474e",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "repair": "baseline determiner + baseline adjective",
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
       "rendered": "The seasoned harbor pilot guides the weathered ferry through the morning fog. The village baker delivers the warm loaves for them at the waiting shelter.",
       "plan": {
-        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=weathered ferry;adjunct=through the morning fog;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for them",
+        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=the weathered ferry;adjunct=through the morning fog;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=at the waiting shelter;clitic= for them",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -972,8 +1211,8 @@
     {
       "rendered": "The seasoned harbor pilot guides the weathered ferry through the morning fog. The village baker delivers the warm loaves for them at the waiting shelter.",
       "plan": {
-        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=weathered ferry;adjunct=through the morning fog;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for them",
+        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=the weathered ferry;adjunct=through the morning fog;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=at the waiting shelter;clitic= for them",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -1211,8 +1450,8 @@
     {
       "rendered": "The seasoned harbor pilot guides the weathered ferry across the quiet harbor. The village baker delivers the warm loaves for them at the waiting shelter.",
       "plan": {
-        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=weathered ferry;adjunct=across the quiet harbor;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for them",
+        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=the weathered ferry;adjunct=across the quiet harbor;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=at the waiting shelter;clitic= for them",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -1450,8 +1689,8 @@
     {
       "rendered": "The patient gardener reopens the rain-soaked greenhouse before sunrise. The seasoned harbor pilot guides the weathered ferry through the morning fog.",
       "plan": {
-        "left_roles": "agent=patient gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
-        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=weathered ferry;adjunct=through the morning fog;clitic=none",
+        "left_roles": "agent=patient gardener;event=reopens;theme=the rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
+        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=the weathered ferry;adjunct=through the morning fog;clitic=none",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -1683,8 +1922,8 @@
     {
       "rendered": "The seasoned harbor pilot leads the weathered ferry through the morning fog. The village baker delivers the warm loaves for them at the waiting shelter.",
       "plan": {
-        "left_roles": "agent=seasoned harbor pilot;event=leads;theme=weathered ferry;adjunct=through the morning fog;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for them",
+        "left_roles": "agent=seasoned harbor pilot;event=leads;theme=the weathered ferry;adjunct=through the morning fog;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=at the waiting shelter;clitic= for them",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -1920,10 +2159,249 @@
       }
     },
     {
+      "rendered": "The seasoned harbor pilot guides a weathered ferry through the morning fog. The village baker delivers the warm loaves for them near the market shelter.",
+      "plan": {
+        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=a weathered ferry;adjunct=through the morning fog;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=near the market shelter;clitic= for them",
+        "obligations_checked_before_render": true,
+        "sample_obligations": [
+          {
+            "position": 0,
+            "left_char": "t",
+            "required_right_char": "r",
+            "boundary_crossing": false
+          },
+          {
+            "position": 1,
+            "left_char": "h",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 2,
+            "left_char": "e",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 3,
+            "left_char": "s",
+            "required_right_char": "l",
+            "boundary_crossing": false
+          },
+          {
+            "position": 4,
+            "left_char": "e",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 5,
+            "left_char": "a",
+            "required_right_char": "h",
+            "boundary_crossing": false
+          },
+          {
+            "position": 6,
+            "left_char": "s",
+            "required_right_char": "s",
+            "boundary_crossing": false
+          },
+          {
+            "position": 7,
+            "left_char": "o",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 8,
+            "left_char": "n",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 9,
+            "left_char": "e",
+            "required_right_char": "k",
+            "boundary_crossing": false
+          },
+          {
+            "position": 10,
+            "left_char": "d",
+            "required_right_char": "r",
+            "boundary_crossing": false
+          },
+          {
+            "position": 11,
+            "left_char": "h",
+            "required_right_char": "a",
+            "boundary_crossing": false
+          }
+        ],
+        "inflectional_and_clitic_seams": [
+          {
+            "tile": "guides",
+            "base": "guid",
+            "affix_or_clitic": "es",
+            "character_level": true
+          },
+          {
+            "tile": "delivers",
+            "base": "deliver",
+            "affix_or_clitic": "s",
+            "character_level": true
+          },
+          {
+            "tile": " for them",
+            "base": "",
+            "affix_or_clitic": " for them",
+            "character_level": true
+          }
+        ]
+      },
+      "audit": {
+        "rendered": "The seasoned harbor pilot guides a weathered ferry through the morning fog. The village baker delivers the warm loaves for them near the market shelter.",
+        "normalized_tape": "theseasonedharborpilotguidesaweatheredferrythroughthemorningfogthevillagebakerdeliversthewarmloavesforthemnearthemarketshelter",
+        "letters": 126,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 125,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 124,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 123,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 3,
+            "right_index": 122,
+            "left": "s",
+            "right": "l"
+          },
+          {
+            "left_index": 5,
+            "right_index": 120,
+            "left": "a",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 118,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 8,
+            "right_index": 117,
+            "left": "n",
+            "right": "e"
+          },
+          {
+            "left_index": 9,
+            "right_index": 116,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 10,
+            "right_index": 115,
+            "left": "d",
+            "right": "r"
+          },
+          {
+            "left_index": 11,
+            "right_index": 114,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "left_index": 12,
+            "right_index": 113,
+            "left": "a",
+            "right": "m"
+          },
+          {
+            "left_index": 13,
+            "right_index": 112,
+            "left": "r",
+            "right": "e"
+          },
+          {
+            "left_index": 14,
+            "right_index": 111,
+            "left": "b",
+            "right": "h"
+          },
+          {
+            "left_index": 15,
+            "right_index": 110,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 17,
+            "right_index": 108,
+            "left": "p",
+            "right": "a"
+          },
+          {
+            "left_index": 18,
+            "right_index": 107,
+            "left": "i",
+            "right": "e"
+          }
+        ],
+        "sha256_forward": "876347ebeb2b4736e0f9a6df5d4fef34db606f649b480932c9ac972d6bba095f",
+        "sha256_reverse": "d50f9e86366c108b3cf0e8c2fd9c1b331c57f31eb151768d1ef1ffdc97b8fea8",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "repair": "held-out determiner tile",
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
       "rendered": "The careful teacher records the seedling's growth for us in a notebook. The steady mechanic reassembles the repaired lantern under the workshop light.",
       "plan": {
-        "left_roles": "agent=careful teacher;event=records;theme=seedling's growth;adjunct=in a notebook;clitic= for us",
-        "right_roles": "agent=steady mechanic;event=reassembles;theme=repaired lantern;adjunct=under the workshop light;clitic=none",
+        "left_roles": "agent=careful teacher;event=records;theme=the seedling's growth;adjunct=in a notebook;clitic= for us",
+        "right_roles": "agent=steady mechanic;event=reassembles;theme=the repaired lantern;adjunct=under the workshop light;clitic=none",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -2161,8 +2639,8 @@
     {
       "rendered": "The patient gardener reopens the rain-soaked greenhouse at first light. The seasoned harbor pilot guides the weathered ferry through the morning fog.",
       "plan": {
-        "left_roles": "agent=patient gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=at first light;clitic=none",
-        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=weathered ferry;adjunct=through the morning fog;clitic=none",
+        "left_roles": "agent=patient gardener;event=reopens;theme=the rain-soaked greenhouse;adjunct=at first light;clitic=none",
+        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=the weathered ferry;adjunct=through the morning fog;clitic=none",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -2394,8 +2872,8 @@
     {
       "rendered": "The seasoned harbor pilot guides the weathered ferry through the morning fog. The village baker delivers the warm loaves for us at the waiting shelter.",
       "plan": {
-        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=weathered ferry;adjunct=through the morning fog;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for us",
+        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=the weathered ferry;adjunct=through the morning fog;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=at the waiting shelter;clitic= for us",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -2631,10 +3109,249 @@
       }
     },
     {
+      "rendered": "The seasoned harbor pilot guides the sturdy ferry through the morning fog. The village baker delivers the warm loaves for them near the market shelter.",
+      "plan": {
+        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=the sturdy ferry;adjunct=through the morning fog;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=near the market shelter;clitic= for them",
+        "obligations_checked_before_render": true,
+        "sample_obligations": [
+          {
+            "position": 0,
+            "left_char": "t",
+            "required_right_char": "r",
+            "boundary_crossing": false
+          },
+          {
+            "position": 1,
+            "left_char": "h",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 2,
+            "left_char": "e",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 3,
+            "left_char": "s",
+            "required_right_char": "l",
+            "boundary_crossing": false
+          },
+          {
+            "position": 4,
+            "left_char": "e",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 5,
+            "left_char": "a",
+            "required_right_char": "h",
+            "boundary_crossing": false
+          },
+          {
+            "position": 6,
+            "left_char": "s",
+            "required_right_char": "s",
+            "boundary_crossing": false
+          },
+          {
+            "position": 7,
+            "left_char": "o",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 8,
+            "left_char": "n",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 9,
+            "left_char": "e",
+            "required_right_char": "k",
+            "boundary_crossing": false
+          },
+          {
+            "position": 10,
+            "left_char": "d",
+            "required_right_char": "r",
+            "boundary_crossing": false
+          },
+          {
+            "position": 11,
+            "left_char": "h",
+            "required_right_char": "a",
+            "boundary_crossing": false
+          }
+        ],
+        "inflectional_and_clitic_seams": [
+          {
+            "tile": "guides",
+            "base": "guid",
+            "affix_or_clitic": "es",
+            "character_level": true
+          },
+          {
+            "tile": "delivers",
+            "base": "deliver",
+            "affix_or_clitic": "s",
+            "character_level": true
+          },
+          {
+            "tile": " for them",
+            "base": "",
+            "affix_or_clitic": " for them",
+            "character_level": true
+          }
+        ]
+      },
+      "audit": {
+        "rendered": "The seasoned harbor pilot guides the sturdy ferry through the morning fog. The village baker delivers the warm loaves for them near the market shelter.",
+        "normalized_tape": "theseasonedharborpilotguidesthesturdyferrythroughthemorningfogthevillagebakerdeliversthewarmloavesforthemnearthemarketshelter",
+        "letters": 125,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 124,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 123,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 122,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 3,
+            "right_index": 121,
+            "left": "s",
+            "right": "l"
+          },
+          {
+            "left_index": 5,
+            "right_index": 119,
+            "left": "a",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 117,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 8,
+            "right_index": 116,
+            "left": "n",
+            "right": "e"
+          },
+          {
+            "left_index": 9,
+            "right_index": 115,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 10,
+            "right_index": 114,
+            "left": "d",
+            "right": "r"
+          },
+          {
+            "left_index": 11,
+            "right_index": 113,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "left_index": 12,
+            "right_index": 112,
+            "left": "a",
+            "right": "m"
+          },
+          {
+            "left_index": 13,
+            "right_index": 111,
+            "left": "r",
+            "right": "e"
+          },
+          {
+            "left_index": 14,
+            "right_index": 110,
+            "left": "b",
+            "right": "h"
+          },
+          {
+            "left_index": 15,
+            "right_index": 109,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 17,
+            "right_index": 107,
+            "left": "p",
+            "right": "a"
+          },
+          {
+            "left_index": 18,
+            "right_index": 106,
+            "left": "i",
+            "right": "e"
+          }
+        ],
+        "sha256_forward": "01933d9e2184151e678265fc6728d17933ece83fc7af4f58fefd23e1f9150539",
+        "sha256_reverse": "111f27a881ca560fd77681ba9f6058364eafc6c9d8b08f44752a0a052191f248",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "repair": "held-out adjective tile",
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
       "rendered": "The patient gardener reopened the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for them at the waiting shelter.",
       "plan": {
-        "left_roles": "agent=patient gardener;event=reopened;theme=rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for them",
+        "left_roles": "agent=patient gardener;event=reopened;theme=the rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=at the waiting shelter;clitic= for them",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -2872,8 +3589,8 @@
     {
       "rendered": "The patient gardener reopens the rain-soaked greenhouse before sunrise. The seasoned harbor pilot guides the morning ferry through the morning fog.",
       "plan": {
-        "left_roles": "agent=patient gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
-        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=morning ferry;adjunct=through the morning fog;clitic=none",
+        "left_roles": "agent=patient gardener;event=reopens;theme=the rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
+        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=the morning ferry;adjunct=through the morning fog;clitic=none",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -3105,8 +3822,8 @@
     {
       "rendered": "The patient gardener reopens the rain-soaked greenhouse at first light. The seasoned harbor pilot guides the morning vessel through the morning fog.",
       "plan": {
-        "left_roles": "agent=patient gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=at first light;clitic=none",
-        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=morning vessel;adjunct=through the morning fog;clitic=none",
+        "left_roles": "agent=patient gardener;event=reopens;theme=the rain-soaked greenhouse;adjunct=at first light;clitic=none",
+        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=the morning vessel;adjunct=through the morning fog;clitic=none",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -3338,8 +4055,8 @@
     {
       "rendered": "The seasoned harbor pilot leads the weathered ferry through the morning fog. The village baker delivers the warm loaves for us at the waiting shelter.",
       "plan": {
-        "left_roles": "agent=seasoned harbor pilot;event=leads;theme=weathered ferry;adjunct=through the morning fog;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for us",
+        "left_roles": "agent=seasoned harbor pilot;event=leads;theme=the weathered ferry;adjunct=through the morning fog;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=at the waiting shelter;clitic= for us",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -3577,8 +4294,8 @@
     {
       "rendered": "The patient gardener reopens the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for them at the waiting shelter.",
       "plan": {
-        "left_roles": "agent=patient gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for them",
+        "left_roles": "agent=patient gardener;event=reopens;theme=the rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=at the waiting shelter;clitic= for them",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -3816,8 +4533,8 @@
     {
       "rendered": "The quiet archivist relabels the provincial maps inside the old library. The methodical nurse checks the patient records before the evening round.",
       "plan": {
-        "left_roles": "agent=quiet archivist;event=relabels;theme=provincial maps;adjunct=inside the old library;clitic=none",
-        "right_roles": "agent=methodical nurse;event=checks;theme=patient records;adjunct=before the evening round;clitic=none",
+        "left_roles": "agent=quiet archivist;event=relabels;theme=the provincial maps;adjunct=inside the old library;clitic=none",
+        "right_roles": "agent=methodical nurse;event=checks;theme=the patient records;adjunct=before the evening round;clitic=none",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -4049,8 +4766,8 @@
     {
       "rendered": "The patient gardener reopens the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for them at the waiting shelter.",
       "plan": {
-        "left_roles": "agent=patient gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for them",
+        "left_roles": "agent=patient gardener;event=reopens;theme=the rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=at the waiting shelter;clitic= for them",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -4288,8 +5005,8 @@
     {
       "rendered": "The young gardener reopens the rain-soaked greenhouse at first light. The seasoned harbor pilot guides the weathered ferry through the morning fog.",
       "plan": {
-        "left_roles": "agent=young gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=at first light;clitic=none",
-        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=weathered ferry;adjunct=through the morning fog;clitic=none",
+        "left_roles": "agent=young gardener;event=reopens;theme=the rain-soaked greenhouse;adjunct=at first light;clitic=none",
+        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=the weathered ferry;adjunct=through the morning fog;clitic=none",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -4519,10 +5236,249 @@
       }
     },
     {
+      "rendered": "The seasoned harbor pilot guides a sturdy ferry through the morning fog. The village baker delivers the warm loaves for them near the market shelter.",
+      "plan": {
+        "left_roles": "agent=seasoned harbor pilot;event=guides;theme=a sturdy ferry;adjunct=through the morning fog;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=near the market shelter;clitic= for them",
+        "obligations_checked_before_render": true,
+        "sample_obligations": [
+          {
+            "position": 0,
+            "left_char": "t",
+            "required_right_char": "r",
+            "boundary_crossing": false
+          },
+          {
+            "position": 1,
+            "left_char": "h",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 2,
+            "left_char": "e",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 3,
+            "left_char": "s",
+            "required_right_char": "l",
+            "boundary_crossing": false
+          },
+          {
+            "position": 4,
+            "left_char": "e",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 5,
+            "left_char": "a",
+            "required_right_char": "h",
+            "boundary_crossing": false
+          },
+          {
+            "position": 6,
+            "left_char": "s",
+            "required_right_char": "s",
+            "boundary_crossing": false
+          },
+          {
+            "position": 7,
+            "left_char": "o",
+            "required_right_char": "t",
+            "boundary_crossing": false
+          },
+          {
+            "position": 8,
+            "left_char": "n",
+            "required_right_char": "e",
+            "boundary_crossing": false
+          },
+          {
+            "position": 9,
+            "left_char": "e",
+            "required_right_char": "k",
+            "boundary_crossing": false
+          },
+          {
+            "position": 10,
+            "left_char": "d",
+            "required_right_char": "r",
+            "boundary_crossing": false
+          },
+          {
+            "position": 11,
+            "left_char": "h",
+            "required_right_char": "a",
+            "boundary_crossing": false
+          }
+        ],
+        "inflectional_and_clitic_seams": [
+          {
+            "tile": "guides",
+            "base": "guid",
+            "affix_or_clitic": "es",
+            "character_level": true
+          },
+          {
+            "tile": "delivers",
+            "base": "deliver",
+            "affix_or_clitic": "s",
+            "character_level": true
+          },
+          {
+            "tile": " for them",
+            "base": "",
+            "affix_or_clitic": " for them",
+            "character_level": true
+          }
+        ]
+      },
+      "audit": {
+        "rendered": "The seasoned harbor pilot guides a sturdy ferry through the morning fog. The village baker delivers the warm loaves for them near the market shelter.",
+        "normalized_tape": "theseasonedharborpilotguidesasturdyferrythroughthemorningfogthevillagebakerdeliversthewarmloavesforthemnearthemarketshelter",
+        "letters": 123,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 122,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 121,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 120,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 3,
+            "right_index": 119,
+            "left": "s",
+            "right": "l"
+          },
+          {
+            "left_index": 5,
+            "right_index": 117,
+            "left": "a",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 115,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 8,
+            "right_index": 114,
+            "left": "n",
+            "right": "e"
+          },
+          {
+            "left_index": 9,
+            "right_index": 113,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 10,
+            "right_index": 112,
+            "left": "d",
+            "right": "r"
+          },
+          {
+            "left_index": 11,
+            "right_index": 111,
+            "left": "h",
+            "right": "a"
+          },
+          {
+            "left_index": 12,
+            "right_index": 110,
+            "left": "a",
+            "right": "m"
+          },
+          {
+            "left_index": 13,
+            "right_index": 109,
+            "left": "r",
+            "right": "e"
+          },
+          {
+            "left_index": 14,
+            "right_index": 108,
+            "left": "b",
+            "right": "h"
+          },
+          {
+            "left_index": 15,
+            "right_index": 107,
+            "left": "o",
+            "right": "t"
+          },
+          {
+            "left_index": 17,
+            "right_index": 105,
+            "left": "p",
+            "right": "a"
+          },
+          {
+            "left_index": 18,
+            "right_index": 104,
+            "left": "i",
+            "right": "e"
+          }
+        ],
+        "sha256_forward": "f6c765007a2bca6dfca76002a2b4c770722fd559053f2018a532b2474f77987a",
+        "sha256_reverse": "bc661e3c3b371908a7246f182a053214a8cb48cd745e557abd2104ebbc590fc5",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": false,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "repair": "held-out determiner + adjective tiles",
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
       "rendered": "The young carpenter measures the uneven window frame after the storm. The curious naturalist sketches the nesting swallows beside the river path.",
       "plan": {
-        "left_roles": "agent=young carpenter;event=measures;theme=uneven window frame;adjunct=after the storm;clitic=none",
-        "right_roles": "agent=curious naturalist;event=sketches;theme=nesting swallows;adjunct=beside the river path;clitic=none",
+        "left_roles": "agent=young carpenter;event=measures;theme=the uneven window frame;adjunct=after the storm;clitic=none",
+        "right_roles": "agent=curious naturalist;event=sketches;theme=the nesting swallows;adjunct=beside the river path;clitic=none",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -4754,8 +5710,8 @@
     {
       "rendered": "The patient gardener reopened the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for us at the waiting shelter.",
       "plan": {
-        "left_roles": "agent=patient gardener;event=reopened;theme=rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for us",
+        "left_roles": "agent=patient gardener;event=reopened;theme=the rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=at the waiting shelter;clitic= for us",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -4993,8 +5949,8 @@
     {
       "rendered": "The young gardener reopens the rain-soaked greenhouse at first light. The seasoned harbor pilot guides the morning vessel through the morning fog.",
       "plan": {
-        "left_roles": "agent=young gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=at first light;clitic=none",
-        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=morning vessel;adjunct=through the morning fog;clitic=none",
+        "left_roles": "agent=young gardener;event=reopens;theme=the rain-soaked greenhouse;adjunct=at first light;clitic=none",
+        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=the morning vessel;adjunct=through the morning fog;clitic=none",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -5226,8 +6182,8 @@
     {
       "rendered": "The patient gardener reopens the rain-soaked greenhouse before sunrise. The village baker delivers the warm loaves for us at the waiting shelter.",
       "plan": {
-        "left_roles": "agent=patient gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
-        "right_roles": "agent=village baker;event=delivers;theme=warm loaves;adjunct=at the waiting shelter;clitic= for us",
+        "left_roles": "agent=patient gardener;event=reopens;theme=the rain-soaked greenhouse;adjunct=before sunrise;clitic=none",
+        "right_roles": "agent=village baker;event=delivers;theme=the warm loaves;adjunct=at the waiting shelter;clitic= for us",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -5465,8 +6421,8 @@
     {
       "rendered": "The patient gardener reopens the rain-soaked greenhouse at dawn. The seasoned harbor pilot guides the weathered ferry through the morning fog.",
       "plan": {
-        "left_roles": "agent=patient gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=at dawn;clitic=none",
-        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=weathered ferry;adjunct=through the morning fog;clitic=none",
+        "left_roles": "agent=patient gardener;event=reopens;theme=the rain-soaked greenhouse;adjunct=at dawn;clitic=none",
+        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=the weathered ferry;adjunct=through the morning fog;clitic=none",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -5698,8 +6654,8 @@
     {
       "rendered": "The patient gardener reopens the rain-soaked greenhouse at dawn. The seasoned harbor pilot guides the morning ferry through the morning fog.",
       "plan": {
-        "left_roles": "agent=patient gardener;event=reopens;theme=rain-soaked greenhouse;adjunct=at dawn;clitic=none",
-        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=morning ferry;adjunct=through the morning fog;clitic=none",
+        "left_roles": "agent=patient gardener;event=reopens;theme=the rain-soaked greenhouse;adjunct=at dawn;clitic=none",
+        "right_roles": "agent=seasoned harbor pilot;event=guides;theme=the morning ferry;adjunct=through the morning fog;clitic=none",
         "obligations_checked_before_render": true,
         "sample_obligations": [
           {
@@ -5931,12 +6887,13 @@
   ],
   "actual_prose": "The seasoned harbor pilot guides the weathered ferry through the morning fog. The kind librarian returns the borrowed novels to the neighborhood shelves.",
   "stats": {
-    "complete_clause_pairs": 25,
-    "repaired_variants": 20,
+    "complete_clause_pairs": 29,
+    "repaired_variants": 24,
     "adjunct_object_variants": 4,
     "subject_theme_variants": 4,
     "verb_clitic_variants": 4,
     "preposition_locative_variants": 4,
+    "determiner_adjective_variants": 4,
     "exact": 0,
     "longest_letters": 129
   },
@@ -5952,10 +6909,11 @@
       "before sunrise/at dawn \u00d7 weathered ferry/morning ferry on gardener\u2013pilot pair",
       "patient gardener/young gardener \u00d7 weathered ferry/morning vessel on gardener\u2013pilot pair",
       "guides/leads \u00d7 for them/for us on pilot\u2013baker pair",
-      "through morning fog/across quiet harbor \u00d7 at waiting shelter/near market shelter on pilot\u2013baker pair"
+      "through morning fog/across quiet harbor \u00d7 at waiting shelter/near market shelter on pilot\u2013baker pair",
+      "the/a \u00d7 weathered/sturdy ferry on pilot\u2013baker pair"
     ],
-    "next_operator": "move the first residual to a role-compatible determiner or adjective tile, preserving valency and recomputing obligations before punctuation",
-    "concrete_next_repair": "hold out 'the weathered ferry'/'a weathered ferry' and 'the waiting shelter'/'the market shelter' determiner/theme variants on the pilot\u2013baker frames"
+    "next_operator": "move the first residual to a role-compatible subject adjunct or noun-number tile, preserving valency and recomputing obligations before punctuation",
+    "concrete_next_repair": "hold out 'the seasoned harbor pilot'/'a seasoned harbor pilot' and 'warm loaves'/'fresh loaf' variants, enforcing article-number agreement on the pilot\u2013baker frames"
   },
   "provenance": {
     "lexical_source": "fresh hand-authored clause plans and productive English morphology",
@@ -5969,6 +6927,6 @@
       "forward/reverse SHA-256",
       "mechanical admission"
     ],
-    "generator_sha256": "f8f176d5bc9b7876b77c500abbb93aa768d280662240e4b1569907caa0fd02e5"
+    "generator_sha256": "91930d5e2de492a83f07a60a1194e27e19f7c3fb80b0f5944569a5d5ad14c194"
   }
 }

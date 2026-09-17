@@ -32,14 +32,15 @@ class ClausePlan:
     object: str
     adjunct: str
     clitic: str = ""
+    object_article: str = "the"
 
     def render(self) -> str:
         # Each plan is a complete SVO clause with an optional grammatical
         # clitic; punctuation is added only after the character obligations.
-        return f"The {self.subject} {self.verb} the {self.object}{self.clitic} {self.adjunct}."
+        return f"The {self.subject} {self.verb} {self.object_article} {self.object}{self.clitic} {self.adjunct}."
 
     def roles(self) -> str:
-        return f"agent={self.subject};event={self.verb};theme={self.object};adjunct={self.adjunct};clitic={self.clitic or 'none'}"
+        return f"agent={self.subject};event={self.verb};theme={self.object_article} {self.object};adjunct={self.adjunct};clitic={self.clitic or 'none'}"
 
 
 # These are hand-authored ordinary clauses, not a borrowed corpus or a tape.
@@ -204,6 +205,20 @@ def run() -> dict[str, object]:
     )
     candidates.extend(make_candidate(left, right, repair=label)
                       for left, right, label in adjunct_pairs)
+    # Sixth recorded repair: expose determiner and adjective as separate
+    # grammatical tiles instead of baking them into an opaque noun phrase.
+    determiner_theme_pairs = (
+        (replace(pilot, object="weathered ferry", object_article="the"),
+         replace(baker, adjunct="near the market shelter"), "baseline determiner + baseline adjective"),
+        (replace(pilot, object="weathered ferry", object_article="a"),
+         replace(baker, adjunct="near the market shelter"), "held-out determiner tile"),
+        (replace(pilot, object="sturdy ferry", object_article="the"),
+         replace(baker, adjunct="near the market shelter"), "held-out adjective tile"),
+        (replace(pilot, object="sturdy ferry", object_article="a"),
+         replace(baker, adjunct="near the market shelter"), "held-out determiner + adjective tiles"),
+    )
+    candidates.extend(make_candidate(left, right, repair=label)
+                      for left, right, label in determiner_theme_pairs)
     candidates.sort(key=lambda row: row["audit"]["letters"], reverse=True)
     best = candidates[0]
     first = best["audit"]["two_pointer_mismatches"][0] if best["audit"]["two_pointer_mismatches"] else None
@@ -212,11 +227,12 @@ def run() -> dict[str, object]:
             "method": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
             "novelty_preflight": preflight, "candidate_count": len(candidates),
             "candidates": candidates, "actual_prose": best["rendered"],
-            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 20,
+            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 24,
                       "adjunct_object_variants": 4,
                       "subject_theme_variants": 4,
                       "verb_clitic_variants": 4,
                       "preposition_locative_variants": 4,
+                      "determiner_adjective_variants": 4,
                       "exact": sum(r["audit"]["exact"] for r in candidates),
                       "longest_letters": best["audit"]["letters"]},
             "failure_and_repair": {"first_residual": first,
@@ -226,9 +242,10 @@ def run() -> dict[str, object]:
                     "patient gardener/young gardener × weathered ferry/morning vessel on gardener–pilot pair",
                     "guides/leads × for them/for us on pilot–baker pair",
                     "through morning fog/across quiet harbor × at waiting shelter/near market shelter on pilot–baker pair",
+                    "the/a × weathered/sturdy ferry on pilot–baker pair",
                 ],
-                "next_operator": "move the first residual to a role-compatible determiner or adjective tile, preserving valency and recomputing obligations before punctuation",
-                "concrete_next_repair": "hold out 'the weathered ferry'/'a weathered ferry' and 'the waiting shelter'/'the market shelter' determiner/theme variants on the pilot–baker frames"},
+                "next_operator": "move the first residual to a role-compatible subject adjunct or noun-number tile, preserving valency and recomputing obligations before punctuation",
+                "concrete_next_repair": "hold out 'the seasoned harbor pilot'/'a seasoned harbor pilot' and 'warm loaves'/'fresh loaf' variants, enforcing article-number agreement on the pilot–baker frames"},
             "provenance": {"lexical_source": "fresh hand-authored clause plans and productive English morphology",
                            "catalogue_text_imported": False, "seed_embedding": False, "fixed_tape": False,
                            "word_order_mirror": False, "repeated_self_palindromic_span": False,

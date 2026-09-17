@@ -35,13 +35,18 @@ def audit(text):
             "sha256_forward":f, "sha256_reverse":r, "sha_equal":f==r}
 
 def consume_residual(left, right):
-    """Consume outside-in obligations online; boundaries are intentionally ignored."""
-    a, b = normalize_letters(left), normalize_letters(right)
-    i, j, trace = 0, len(b)-1, []
-    while i < len(a) and j >= 0 and a[i] == b[j]:
-        trace.append({"left_index":i,"right_index":j,"character":a[i]}); i += 1; j -= 1
-    return {"matched":len(trace), "left_residual":a[i:], "right_residual":b[:j+1], "trace":trace[:10],
-            "closed": i == len(a) and j < 0}
+    """The corrected li/ri/lr/rr recursion; word boundaries never enter state."""
+    left, right = normalize_letters(left), normalize_letters(right)
+    trace = []
+    def rec(li, ri, lr, rr):
+        if li >= lr or ri >= rr or left[li] != right[rr - 1 - ri]:
+            return li, ri
+        trace.append({"li":li,"ri":ri,"lr":lr,"rr":rr,"character":left[li]})
+        return rec(li + 1, ri + 1, lr, rr)
+    # ri/rr are residual cursors from the right edge; this explicit form makes
+    # the invariant auditable even though the compact strings are convenient.
+    li, ri = rec(0, 0, len(left), len(right)); lr, rr = len(left), len(right)
+    return {"matched":len(trace),"left_residual":left[li:],"right_residual":right[:rr-ri],"trace":trace[:10],"closed":li==lr and ri==rr}
 
 def run():
     pool = clauses(); lefts = pool[::len(pool)//8][:8]; rights = pool[-8:]
@@ -55,11 +60,12 @@ def run():
           "provenance":{"left_template":left,"right_template":right,"independently_selected":True,"ordinary_authored_lexicon":True,"catalogue_imported":False,"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}})
     rows.sort(key=lambda x:(x["audit"]["two_pointer_exact"],x["equation"]["matched"],x["letters"]), reverse=True)
     exact=[x for x in rows if x["audit"]["two_pointer_exact"] and 40<=x["letters"]<=100]
-    control = audit("The pilot checks the map near the harbor.")
+    control_text = "step on no pets"
+    control = audit(control_text)
     best=rows[0]
     return {"experiment_id":EXPERIMENT_ID,"signature":SIGNATURE,"status":"completed_exact" if exact else "completed_no_exact_closure",
       "method":"independent left/right complete-clause templates with online residual character consumption across word boundaries",
-      "withheld_short_control":{"rendered":"The pilot checks the map near the harbor.","exact":control["two_pointer_exact"],"letters":control["letters"]},
+      "withheld_short_control":{"rendered":control_text,"exact":control["two_pointer_exact"],"letters":control["letters"],"purpose":"true exact recursion control, withheld from long search"},
       "candidates":rows[:12],"exact_candidates":exact[:8],"stats":{"left_templates":len(lefts),"right_templates":len(rights),"pairs":len(rows),"exact":len(exact),"longest_letters":max(x["letters"] for x in rows)},
       "novelty_preflight":{"status":"passed","performed_before_search":True,"catalogue_controls_used":False,"repeated_unit_controls_used":False,"fixed_tape":False},
       "reader_status":"no exact candidate in 40-100 letters" if not exact else "exact candidates require human reading",

@@ -4,44 +4,93 @@
   "status": "completed_exact_zero",
   "shapes": [
     {
+      "shape": "seed_geometry",
+      "left_slots": [
+        "DET",
+        "PERSON",
+        "VT",
+        "NUM",
+        "NOUN"
+      ],
+      "right_slots": [
+        "DET",
+        "PERSON",
+        "VT",
+        "NAME"
+      ],
+      "graph_nodes": {
+        "left": 66,
+        "right": 58
+      },
+      "result": {
+        "completions": [],
+        "expanded_states": 7,
+        "rejected_unequal_edge_pairs": 15,
+        "budget_exhausted": false,
+        "states_seen": 7
+      },
+      "rendered": []
+    },
+    {
       "shape": "det_adj_person_vt_det_thing",
+      "left_slots": [
+        "DET",
+        "ADJ",
+        "PERSON",
+        "VT",
+        "DET",
+        "THING"
+      ],
+      "right_slots": [
+        "DET",
+        "PERSON",
+        "VT",
+        "DET",
+        "THING"
+      ],
+      "graph_nodes": {
+        "left": 78,
+        "right": 66
+      },
       "result": {
         "completions": [],
         "expanded_states": 2,
-        "rejected_unequal_edge_pairs": 4,
+        "rejected_unequal_edge_pairs": 8,
         "budget_exhausted": false,
         "states_seen": 2
       },
       "rendered": []
     },
     {
-      "shape": "det_noun_vt_det_noun",
-      "result": {
-        "completions": [],
-        "expanded_states": 1,
-        "rejected_unequal_edge_pairs": 4,
-        "budget_exhausted": false,
-        "states_seen": 1
-      },
-      "rendered": []
-    },
-    {
-      "shape": "name_vt_det_noun",
-      "result": {
-        "completions": [],
-        "expanded_states": 1,
-        "rejected_unequal_edge_pairs": 2,
-        "budget_exhausted": false,
-        "states_seen": 1
-      },
-      "rendered": []
-    },
-    {
       "shape": "relative",
+      "left_slots": [
+        "DET",
+        "NOUN",
+        "VT",
+        "DET",
+        "NOUN",
+        "REL",
+        "DET",
+        "NOUN"
+      ],
+      "right_slots": [
+        "DET",
+        "NOUN",
+        "REL",
+        "DET",
+        "NOUN",
+        "VT",
+        "DET",
+        "NOUN"
+      ],
+      "graph_nodes": {
+        "left": 86,
+        "right": 86
+      },
       "result": {
         "completions": [],
         "expanded_states": 1,
-        "rejected_unequal_edge_pairs": 4,
+        "rejected_unequal_edge_pairs": 8,
         "budget_exhausted": false,
         "states_seen": 1
       },
@@ -59,12 +108,13 @@
   },
   "audits": {
     "exhaustive_tiny_oracle": true,
-    "novelty": "typed slot-state graph product",
+    "novelty": "shared layered slot-character NFA product",
     "anti_shortcut_checks": [
       "no sentence Cartesian enumeration",
+      "live unequal-edge rejection",
       "no repeated units",
       "full tape audit"
     ],
-    "provenance": "slot and character edge provenance retained"
+    "provenance": "slot, option, character, and boundary edge provenance retained"
   }
 }

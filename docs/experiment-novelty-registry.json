@@ -5081,6 +5081,17 @@
       "distinction": "Compiles typed grammar states with lexical alternatives and performs paired character transitions before rendering, with a one-character fake oracle rejection.",
       "reader_evidence": false,
       "status": "new architectural lane; 4 live states, 0 exact paired paths under current budget; independent reversed-token trie nodes are next"
+    },
+    {
+      "id": "typed-slot-graph-product-20260917",
+      "signature": "typed-slot-graph-product|slot-state-provenance|reversed-independent-paths|shared-layer-nfa",
+      "artifact": "experiments/typed_slot_graph_product_20260917.py",
+      "run_artifacts": [
+        "runs/typed-slot-graph-product-20260917.json"
+      ],
+      "distinction": "Compiles paired typed slot sequences into shared layered character NFAs with live reversed-path product and boundary backpointers; complete phrase Cartesian products are not materialized.",
+      "reader_evidence": false,
+      "status": "architectural repair; 3 asymmetric slot-frame products, 0 exact paths, 0 rendered candidates; replaces the prior retrospective slot sweep; next repair is a larger audited lexical inventory with explicit grammar states"
     }
   ],
   "excluded": [

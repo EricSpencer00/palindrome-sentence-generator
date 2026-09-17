@@ -3248,3 +3248,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   live character states and 0 exact paths. These are honest search-space
   measurements; the next repair is to carry function-word grammar states and
   independent reversed-token tries through the same product.
+
+  The typed-slot follow-up now uses a shared layered character NFA rather than
+  enumerating complete slot sentences and attaching traces afterward. Three
+  asymmetric frame pairs were compiled with slot/option/character/boundary
+  provenance and searched against independent reversed graphs; all three
+  closed at zero exact paths and rendered zero candidates. This is a real
+  topology repair, but not reader evidence. The next experiment must widen the
+  audited lexical inventory while retaining live grammar-state transitions;
+  another post-render template sweep is explicitly out of scope.

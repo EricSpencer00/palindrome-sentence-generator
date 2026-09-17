@@ -539,9 +539,9 @@ hyperedge terminal replacement, a held-out agreement-compatible relative
 predicate, and one auxiliary/determiner change with agreement propagation.
 They are not reader eligible; the next reader-facing test remains the
 randomized blinded intact-versus-shuffled packet, gated on an exact
-anti-shortcut survivor. The authoritative audit is now **4,949 rows across 268
+anti-shortcut survivor. The authoritative audit is now **4,952 rows across 271
 route phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**;
-the novelty registry has **369 retained artifacts, 31 exclusions, and 347
+the novelty registry has **372 retained artifacts, 31 exclusions, and 350
 retained run artifacts**. The immediate child-repair wave executes the named
 operators without a resweep: one held-out hypergraph object edge yields a new
 141-letter scene, one held-out relative predicate yields a fresh 74-letter Jon
@@ -760,3 +760,11 @@ yielded a 121-letter scene, a held-out museum predicate/object change yielded an
 88-letter scene. Their prose remains grammatical and independently audited,
 with provenance, novelty, anti-shortcut checks, and a next repair recorded;
 none is exact or reader-eligible.
+
+The post-matrix held-out queue then executed one state in each of three lanes:
+the CFG/Earley adjunct repair produced a 96-letter surveyor-and-baker scene,
+semantic slot repair produced a 163-letter gardener/glasshouse scene, and the
+inflection/clitic suffix repair produced a 128-letter harbor scene ending
+``before dusk.'' All three have independent pointer/SHA rejection, no-copy
+provenance, novelty preflight, and a further local repair; they raise the
+authoritative audit to 4,952 rows across 271 routes without reopening a sweep.

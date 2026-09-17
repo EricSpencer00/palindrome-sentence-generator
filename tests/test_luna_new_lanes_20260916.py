@@ -62,7 +62,7 @@ def test_append_algebra_emits_only_complete_clauses_and_records_invariant_failur
 
 def test_aggregate_surfaces_all_three_new_lane_routes():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4949
+    assert report["candidate_count"] == 4952
     assert report["exact_count"] == 79
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/constrained-edit-program-constructor-20260916.json"]["rows"] == 4
@@ -142,6 +142,9 @@ def test_aggregate_surfaces_all_three_new_lane_routes():
     assert by_source["runs/finite-reverse-phrase-single-boundary-repair-20260916.json"]["rows"] == 1
     assert by_source["runs/centerfree-clause-pair-followup-20260916.json"]["rows"] == 1
     assert by_source["runs/finite-semantic-csp-object-verb-repair-20260916.json"]["rows"] == 1
+    assert by_source["runs/cfg-earley-fresh-typed-adjunct-repair-20260916.json"]["rows"] == 1
+    assert by_source["runs/semantic-slot-adjunct-followup-20260916.json"]["rows"] == 1
+    assert by_source["runs/inflection-clitic-distinct-suffix-repair-20260916.json"]["rows"] == 1
 
     registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
     retained = {row["id"] for row in registry["entries"]}
@@ -167,6 +170,9 @@ def test_aggregate_surfaces_all_three_new_lane_routes():
         "finite-reverse-phrase-single-boundary-repair-20260916",
         "centerfree-clause-pair-followup-20260916",
         "finite-semantic-csp-object-verb-repair-20260916",
+        "cfg-earley-fresh-typed-adjunct-repair-20260916",
+        "semantic-slot-adjunct-followup-20260916",
+        "inflection-clitic-distinct-suffix-repair-20260916",
     } <= retained
 
 

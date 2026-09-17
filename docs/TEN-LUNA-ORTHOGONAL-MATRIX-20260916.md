@@ -20,3 +20,13 @@ This matrix is a contract check, not a claim of readable-palindrome success. Eac
 The earlier lane-8 artifact also rendered a 126-letter exact surface by repeating “A man, a plan, a canal, Panama.” six times. The audit records that output as an exact control but rejects it for repeated canonical units and catalogue-control status; it is not a generated result and is not in this matrix.
 
 No row above is reader-certified. The next reader-facing test is a reproducible, randomized blinded packet containing only an exact anti-shortcut survivor plus intact-prose and shuffled controls, with a rater package that keeps method provenance hidden. Until an exact survivor exists, these rows remain construction evidence and repair targets, not claims of success.
+
+## Three held-out repairs executed after the matrix
+
+The first repair pass was deliberately one state per lane, not a resweep:
+
+- CFG/Earley adjunct repair: “At first light, the surveyor records the river current near the dock while the baker warms bread for the waiting crew.” (96 letters; exact `false`; next repair adds one opposing adjunct terminal.)
+- Semantic-slot adjunct repair: “After rain, the patient gardener carries a wrapped bundle near the glasshouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart toward the dry storehouse.” (163 letters; exact `false`; next repair changes only the final locative attachment.)
+- Inflection/clitic suffix repair: “At dusk, the harbor pilots checked the mooring lights, logged the tide in the crews' ledger, and warned each waiting sailor that boats would leave before dusk.” (128 letters; exact `false`; next repair changes only `crews'` to `crew's`.)
+
+Each has its own JSON provenance, novelty preflight, independent pointer/SHA audit, and anti-shortcut decision. The aggregate now contains 4,952 rows across 271 routes; none is mechanically admitted or reader-certified.

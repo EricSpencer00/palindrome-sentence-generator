@@ -486,9 +486,9 @@ All three fail independent two-pointer and forward/reverse SHA checks, carry
 fresh no-copy/no-catalogue provenance and novelty preflight, and record a
 concrete repair. The next reader-facing test is still the blinded
 intact-versus-shuffled packet, gated on an exact anti-shortcut survivor. The
-aggregate is **4,949 rows across 268 route phases, 79 exact rejected tapes,
-and 0 mechanically admitted outputs**; the registry is **369 retained, 31
-excluded, and 347 run artifacts**. Immediate child repairs add a 141-letter
+aggregate is **4,952 rows across 271 route phases, 79 exact rejected tapes,
+and 0 mechanically admitted outputs**; the registry is **372 retained, 31
+excluded, and 350 run artifacts**. Immediate child repairs add a 141-letter
 hypergraph object-edge scene, a 74-letter dialogue predicate repair, and an
 89-letter function-word determiner repair; each remains non-exact under both
 independent audits and names the next repair. The second child pass adds a
@@ -547,3 +547,10 @@ phrase-edge repair (two 95--99-letter scenes). These are targeted child
 states with parent linkage, rendered prose, independent pointer/SHA checks,
 provenance, novelty preflight, anti-shortcut gates, and concrete next repairs;
 none closes exactly or enters the reader packet.
+
+The post-matrix held-out queue executes three more single states: a 96-letter
+CFG/Earley near-dock adjunct, a 163-letter semantic-slot glasshouse adjunct,
+and a 128-letter inflection/clitic before-dusk suffix. Each is independently
+rejected by pointer and SHA checks, carries fresh provenance and novelty
+preflight, and names the next local repair. The authoritative total is now
+4,952 rows across 271 routes, with 79 exact controls and 0 admitted outputs.

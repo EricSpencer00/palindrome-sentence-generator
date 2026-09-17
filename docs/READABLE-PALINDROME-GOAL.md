@@ -3109,3 +3109,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   every row. The reader gate remains closed. The next concrete operators are
   bidirectional equation gating, a grammatical `le`-initial continuation after
   the matched proper-locative prefix, and second-plural-object substitution.
+
+  The following wave completed those repairs. Bidirectional equation gating
+  rendered 2 intact candidates up to 97 letters; the grammatical `leeward`
+  continuation rendered 4 intact proper-locative candidates up to 66 letters
+  with all four twelfth-character matches; and second-plural-object
+  substitution rendered 4,608 candidates up to 73 letters while pruning 1,792
+  same-object or invalid states. All produced 0 exact closures. Independent
+  pointer/SHA-256 replay, provenance, novelty preflight, and anti-shortcut
+  checks are retained for every row. The reader gate remains closed. The next
+  concrete operators are character-labeled requirements in both lexical tries,
+  thirteenth-residual conditioning after `leeward`, and paired plural-object
+  substitution under a semantic relation gate.

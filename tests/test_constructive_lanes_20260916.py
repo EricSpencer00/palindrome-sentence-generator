@@ -61,7 +61,7 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4770
+    assert report["candidate_count"] == 4794
     assert report["exact_count"] == 79
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
@@ -111,6 +111,13 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/boundary-shift-semordnilap-grammar-20260916.json"]["rows"] == 2
     assert by_source["runs/boundary-shift-scene-equation-lattice-20260916.json"]["rows"] == 2
     assert by_source["runs/semantic-boundary-macro-fsm-20260916.json"]["rows"] == 3
+    assert by_source["runs/past-tense-dependency-transducer-20260916.json"]["rows"] == 6
+    assert by_source["runs/reverse-tape-relative-resegment-20260916.json"]["rows"] == 2
+    assert by_source["runs/scene-semordnilap-graph-20260916.json"]["rows"] == 2
+    assert by_source["runs/centerout-open-word-seam-20260916.json"]["rows"] == 2
+    assert by_source["runs/brown-phrase-pair-seam-20260916.json"]["rows"] == 6
+    assert by_source["runs/bilateral-role-lattice-repair-20260916.json"]["rows"] == 4
+    assert by_source["runs/feature-carrying-center-cfg-20260916.json"]["rows"] == 2
 
 
 def test_fresh_typed_frame_preserves_prose_and_live_obligation_evidence():

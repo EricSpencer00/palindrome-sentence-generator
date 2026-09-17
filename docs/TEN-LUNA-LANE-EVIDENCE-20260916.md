@@ -469,10 +469,10 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,770 rows
-across 210 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **308 retained artifacts, 31
-explicit exclusions, and 286 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,794 rows
+across 217 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **318 retained artifacts, 31
+explicit exclusions, and 296 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
 
@@ -613,3 +613,21 @@ unbounded bilateral semantic-growth grammar (three non-repeating growth states
 up to 140 letters). Every row has independent pointer/SHA replay, provenance,
 novelty preflight, anti-shortcut checks, and a concrete first-residual repair;
 none closes exactly or enters the reader packet.
+
+The latest Luna audit adds four orthogonal states: a past-tense dependency
+transducer (six intact 94--104-letter scenes), an interrogative/relative
+reverse-tape resegmenter (two 109--112-letter questions), a causal
+scene-semordnilap graph (two 100--111-letter event scenes), and a center-out
+open-word seam decoder (two 107--110-letter scenes). Every row has rendered
+prose, independent two-pointer and forward/reverse SHA-256 checks, provenance,
+novelty preflight, and a first-residual repair. All four have zero exact
+closures and remain outside the reader packet.
+
+The next three Luna lanes are retained separately: a Brown-attested
+phrase-pair seam reconciler (six 91--96-letter scenes), a bilateral role
+lattice coupling first-residual substitutions (four 70--72-letter scenes),
+and a feature-carrying character CFG with tense and clitic states (two
+69--75-letter scenes). Every row includes intact rendered prose, independent
+two-pointer and forward/reverse SHA checks, provenance, novelty preflight,
+anti-shortcut flags, and a concrete repair. None closes exactly or enters the
+reader packet.

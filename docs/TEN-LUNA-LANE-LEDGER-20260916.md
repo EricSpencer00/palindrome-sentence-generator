@@ -315,7 +315,7 @@ Lane 8's distinct repair is recorded separately as
 harbor scene with plural, past-tense, and possessive-clitic obligations. It is
 non-exact under both independent audits and passes the no-repeated-unit gate.
 
-The common audit is **4,770 rows, 210 route phases, 79 exact rejected tapes,
+The common audit is **4,794 rows, 217 route phases, 79 exact rejected tapes,
 and 0 mechanically admitted outputs**. The exact lane-8 hash is retained only
 as a quarantined duplicate-control failure; it cannot enter a reader packet.
 
@@ -368,7 +368,7 @@ states at 55, 114, 168, and 223 letters. Both continuations have fresh
 provenance and novelty fingerprints, and neither produced an exact closure;
 they are retained as construction evidence rather than duplicate sweeps.
 
-The authoritative aggregate is therefore **4,770 rows across 210 route
+The authoritative aggregate is therefore **4,794 rows across 217 route
 phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**. The
 next reader-facing test remains the randomized blinded intact-versus-shuffled
 packet, gated on a genuinely exact, anti-shortcut-clean candidate.
@@ -379,8 +379,8 @@ function/inflection editor (five 96--104-letter scenes). Both are registered
 as distinct retained families with independent audits and concrete repairs.
 An entailment-preserving active/passive rewrite is explicitly excluded after
 novelty preflight found overlap with existing voice/information-structure
-families. The registry now contains 311 retained artifacts, 31 exclusions,
-and 289 retained run artifacts.
+families. The registry now contains 318 retained artifacts, 31 exclusions,
+and 296 retained run artifacts.
 
 Representative renderings are preserved verbatim: “The baker repairs the
 gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA
@@ -432,3 +432,20 @@ typed reversible-clause composer with appendable frame growth (two 107--111-
 letter scenes). Independent pointer/SHA replays, provenance, novelty
 preflights, and concrete next repairs are recorded for every row; all five
 remain non-exact and reader-ineligible.
+
+Four fresh Luna states follow: a past-tense dependency transducer (six
+94--104-letter scenes), an interrogative/relative reverse-tape resegmenter
+(two 109--112-letter questions), a causal scene graph with reversible lexical
+edges (two 100--111-letter scenes), and a center-out open-word seam decoder
+(two 107--110-letter scenes). Their rendered prose, independent two-pointer
+and forward/reverse SHA checks, provenance, novelty preflight, and concrete
+residual repairs are preserved in the run artifacts. None closes exactly or
+enters the reader packet.
+
+The next three Luna lanes are retained as distinct state representations: a
+Brown-attested phrase-pair seam reconciler (six 91--96-letter scenes), a
+bilateral role lattice coupling first-residual substitutions (four 70--72-
+letter scenes), and a feature-carrying character CFG with tense and clitic
+states (two 69--75-letter scenes). Every row preserves rendered prose,
+independent pointer/SHA validation, provenance, novelty preflight, and a
+concrete repair; none closes exactly or enters the reader packet.

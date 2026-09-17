@@ -62,7 +62,7 @@ def test_append_algebra_emits_only_complete_clauses_and_records_invariant_failur
 
 def test_aggregate_surfaces_all_three_new_lane_routes():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4770
+    assert report["candidate_count"] == 4794
     assert report["exact_count"] == 79
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/constrained-edit-program-constructor-20260916.json"]["rows"] == 4
@@ -84,6 +84,13 @@ def test_aggregate_surfaces_all_three_new_lane_routes():
     assert by_source["runs/boundary-shift-semordnilap-grammar-20260916.json"]["rows"] == 2
     assert by_source["runs/boundary-shift-scene-equation-lattice-20260916.json"]["rows"] == 2
     assert by_source["runs/semantic-boundary-macro-fsm-20260916.json"]["rows"] == 3
+    assert by_source["runs/past-tense-dependency-transducer-20260916.json"]["rows"] == 6
+    assert by_source["runs/reverse-tape-relative-resegment-20260916.json"]["rows"] == 2
+    assert by_source["runs/scene-semordnilap-graph-20260916.json"]["rows"] == 2
+    assert by_source["runs/centerout-open-word-seam-20260916.json"]["rows"] == 2
+    assert by_source["runs/brown-phrase-pair-seam-20260916.json"]["rows"] == 6
+    assert by_source["runs/bilateral-role-lattice-repair-20260916.json"]["rows"] == 4
+    assert by_source["runs/feature-carrying-center-cfg-20260916.json"]["rows"] == 2
 
 
 def test_registry_retains_new_lanes_and_keeps_shortcut_exclusions_separate():

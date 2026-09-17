@@ -17,6 +17,7 @@ def test_cfg_earley_character_equation_forest_is_fresh_and_audited():
     assert all(row["letters"] > 100 for row in result["rows"])
     assert all(row["earley_chart_left"]["accepted"] for row in result["rows"])
     assert all(row["earley_chart_right"]["accepted"] for row in result["rows"])
+    assert all(row["rendered"].endswith(".") and ". " in row["rendered"] for row in result["rows"])
     assert all(not row["exact_check_two_pointer"]["exact"] for row in result["rows"])
     assert all(row["exact_check_two_pointer"]["exact"] == row["exact_check_sha256"]["exact"] for row in result["rows"])
     assert all(not row["anti_shortcut_flags"]["fixed_tape"] for row in result["rows"])

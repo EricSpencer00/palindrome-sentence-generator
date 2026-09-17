@@ -101,7 +101,10 @@ def novelty() -> dict:
 
 
 def row(left: str, right: str, rank: int) -> dict:
-    rendered = left + " " + right
+    # Keep the two independently generated complete clauses as intact prose;
+    # punctuation is outside the normalized tape and never contributes to
+    # exactness.
+    rendered = left.rstrip(".!?") + ". " + right.rstrip(".!?") + "."
     p, h = pointer_check(rendered), hash_check(rendered)
     return {"rank": rank, "rendered": rendered, "letters": p["letters"], "left_derivation": left, "right_derivation": right, "earley_chart_left": earley_parse(left), "earley_chart_right": earley_parse(right), "character_intersection": live_intersection(left, right), "exact_check_two_pointer": p, "exact_check_sha256": h, "independent_exact_agreement": p["exact"] == h["exact"], "anti_shortcut_flags": {"fixed_tape": False, "reverse_decoder": False, "word_order_mirror": False, "repeated_palindromic_unit": False, "catalogue_import": False, "punctuation_changes_letters": False, "complete_constituents": True, "fresh_authored_scene": True}, "mechanically_admitted": False, "next_repair": "At the first live equation mismatch, replace the setting PP production with a held-out agreement-compatible PP and regrow both complete charts; retain the same scene roles and rerun independent audits."}
 

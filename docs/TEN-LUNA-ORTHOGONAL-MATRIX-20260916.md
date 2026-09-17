@@ -139,6 +139,6 @@ agreement/clitic terminal states, six 155--159-letter clause-equation states,
 and one 106-letter 59,049-pair semantic-slot frontier witness. Their best
 rendered texts are shown in the evidence ledger; all independent exact checks
 remain `false`, and each run records provenance, novelty, anti-shortcut flags,
-and its next repair. The aggregate is now 5,035 rows across 301 routes; the
-registry is 402 retained artifacts, 32 exclusions, and 380 retained run
+and its next repair. The aggregate is now 5,107 rows across 304 routes; the
+registry is 405 retained artifacts, 32 exclusions, and 383 retained run
 artifacts.

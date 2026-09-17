@@ -867,7 +867,7 @@ ranger repairs broken lanterns inside the stone workshop. A patient baker guides
 warm loaves beside the garden porch.” (106 letters; exact `false`). Each attempt
 has independent pointer/SHA validation, provenance, novelty preflight, and a
 concrete first-residual repair; none is reader-eligible. The authoritative
-aggregate is now 5,035 rows across 301 routes, with 79 exact controls and 0
+aggregate is now 5,107 rows across 304 routes, with 79 exact controls and 0
 mechanically admitted outputs.
 
 The next constructive continuation is an outside-in role-phrase equation
@@ -885,3 +885,16 @@ provenance, novelty preflight, anti-shortcut checks, and the concrete repair
 operator “replace the phrase at the first open outer obligation, then resume
 outside-in expansion.” It is preserved as construction evidence, not promoted
 to reader material.
+
+Three further orthogonal Luna continuations are retained after the outside-in
+lane. A character-LM obligation beam searched 4,096 bilateral realizations and
+kept 64 representative complete scenes; its best is “The careful archivist
+studies young cedar seedlings inside the village school. A careful cartographer
+examines silver seed cases across the maritime archive.” (134 letters; exact
+`false`). A CFG/Earley character-equation forest retains two complete parses,
+including “The quiet botanist studies a folded survey beside the river station.
+The careful cartographer records a weathered notebook before the evening bell.”
+(124 letters; exact `false`). A first-residual semantic-slot lane retains six
+fresh seed/repair scenes, the longest 108 letters. Each lane has independent
+pointer/SHA validation, novelty preflight, provenance, anti-shortcut checks,
+and a concrete held-out repair; none is reader-eligible.

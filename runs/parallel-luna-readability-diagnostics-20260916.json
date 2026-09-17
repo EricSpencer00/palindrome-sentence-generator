@@ -296,9 +296,12 @@
     "runs/agreement-clitic-outer-terminal-search-20260916.json",
     "runs/semantic-valency-clause-equation-solver-20260916.json",
     "runs/semantic-slot-exact-closure-frontier-20260916.json",
-    "runs/outside-in-role-phrase-equation-20260916.json"
+    "runs/outside-in-role-phrase-equation-20260916.json",
+    "runs/cfg-earley-character-equation-forest-20260916.json",
+    "runs/semantic-slot-first-residual-repair-20260916.json",
+    "runs/char-lm-obligation-beam-20260916.json"
   ],
-  "candidate_count": 5035,
+  "candidate_count": 5107,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -3311,6 +3314,36 @@
       "max_letters": 147,
       "mean_zipf_frequency": 4.742173913043478,
       "mean_brown_order_gain_vs_shuffle": 0.7147181896595836
+    },
+    {
+      "source_run": "runs/cfg-earley-character-equation-forest-20260916.json",
+      "rows": 2,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 122,
+      "max_letters": 124,
+      "mean_zipf_frequency": 5.191136363636364,
+      "mean_brown_order_gain_vs_shuffle": 0.9826453450614148
+    },
+    {
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "rows": 64,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 116,
+      "max_letters": 134,
+      "mean_zipf_frequency": 5.0532599431818195,
+      "mean_brown_order_gain_vs_shuffle": 0.6650544518658414
+    },
+    {
+      "source_run": "runs/semantic-slot-first-residual-repair-20260916.json",
+      "rows": 6,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 101,
+      "max_letters": 108,
+      "mean_zipf_frequency": 5.137438672438673,
+      "mean_brown_order_gain_vs_shuffle": 0.8805642399721479
     }
   ],
   "rows": [
@@ -242913,6 +242946,3258 @@
         "mean_zipf_frequency": 4.742173913043478,
         "word_count": 23,
         "repeated_word_rate": 0.17391304347826086,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet botanist studies a folded survey beside the river station. The careful cartographer records a weathered notebook before the evening bell.",
+      "source_run": "runs/cfg-earley-character-equation-forest-20260916.json",
+      "provenance": "joint CFG/Earley character-equation forest",
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0332554896184263,
+        "mean_zipf_frequency": 5.2268181818181825,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient locksmith repairs a brass compass inside the old observatory. The patient locksmith repairs a brass compass beside the river station.",
+      "source_run": "runs/cfg-earley-character-equation-forest-20260916.json",
+      "provenance": "joint CFG/Earley character-equation forest",
+      "repair": null,
+      "letters": 122,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9320352005044032,
+        "mean_zipf_frequency": 5.155454545454545,
+        "word_count": 22,
+        "repeated_word_rate": 0.40909090909090906,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient beekeeper checks a cedar hive beside the meadow fence. A careful ranger repairs a broken lantern inside the stone shed.",
+      "source_run": "runs/semantic-slot-first-residual-repair-20260916.json",
+      "provenance": {
+        "source": "fresh hand-authored complete prose",
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_unit": false,
+        "fragment_or_gibberish": false,
+        "generator_sha256": "fbe3497130eb6e55176bd3f9b9e44150d15b99adc0d1de06b4137a8f1d845e61"
+      },
+      "repair": null,
+      "letters": 108,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.746381571945971,
+        "mean_zipf_frequency": 5.0640909090909085,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet beekeeper checks a cedar hive beside the meadow fence. A careful ranger repairs a broken lantern inside the stone shed.",
+      "source_run": "runs/semantic-slot-first-residual-repair-20260916.json",
+      "provenance": {
+        "source": "fresh hand-authored complete prose",
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_unit": false,
+        "fragment_or_gibberish": false,
+        "generator_sha256": "fbe3497130eb6e55176bd3f9b9e44150d15b99adc0d1de06b4137a8f1d845e61"
+      },
+      "repair": null,
+      "letters": 106,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6759554665677463,
+        "mean_zipf_frequency": 5.058636363636364,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The alert archivist stores a faded map beside the north window. A gentle gardener waters young cedars near the school gate.",
+      "source_run": "runs/semantic-slot-first-residual-repair-20260916.json",
+      "provenance": {
+        "source": "fresh hand-authored complete prose",
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_unit": false,
+        "fragment_or_gibberish": false,
+        "generator_sha256": "fbe3497130eb6e55176bd3f9b9e44150d15b99adc0d1de06b4137a8f1d845e61"
+      },
+      "repair": null,
+      "letters": 101,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.056675472449891,
+        "mean_zipf_frequency": 5.1585714285714275,
+        "word_count": 21,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The alert archivist stores a weathered map beside the north window. A gentle gardener waters young cedars near the school gate.",
+      "source_run": "runs/semantic-slot-first-residual-repair-20260916.json",
+      "provenance": {
+        "source": "fresh hand-authored complete prose",
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_unit": false,
+        "fragment_or_gibberish": false,
+        "generator_sha256": "fbe3497130eb6e55176bd3f9b9e44150d15b99adc0d1de06b4137a8f1d845e61"
+      },
+      "repair": null,
+      "letters": 105,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0653246839206965,
+        "mean_zipf_frequency": 5.130952380952381,
+        "word_count": 21,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The calm pilot checks a brass engine before the harbor crossing. A patient baker carries warm loaves toward the market stall.",
+      "source_run": "runs/semantic-slot-first-residual-repair-20260916.json",
+      "provenance": {
+        "source": "fresh hand-authored complete prose",
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_unit": false,
+        "fragment_or_gibberish": false,
+        "generator_sha256": "fbe3497130eb6e55176bd3f9b9e44150d15b99adc0d1de06b4137a8f1d845e61"
+      },
+      "repair": null,
+      "letters": 103,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9236551659193353,
+        "mean_zipf_frequency": 5.201904761904762,
+        "word_count": 21,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The calm pilot checks a brass engine after the harbor crossing. A patient baker carries warm loaves toward the market stall.",
+      "source_run": "runs/semantic-slot-first-residual-repair-20260916.json",
+      "provenance": {
+        "source": "fresh hand-authored complete prose",
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_mirror": false,
+        "repeated_self_palindromic_unit": false,
+        "fragment_or_gibberish": false,
+        "generator_sha256": "fbe3497130eb6e55176bd3f9b9e44150d15b99adc0d1de06b4137a8f1d845e61"
+      },
+      "repair": null,
+      "letters": 102,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8153930790292474,
+        "mean_zipf_frequency": 5.210476190476191,
+        "word_count": 21,
+        "repeated_word_rate": 0.1428571428571429,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The patient botanist examines a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 126,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7842014708718246,
+        "mean_zipf_frequency": 5.126363636363637,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The quiet ranger examines a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 122,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7408817973830981,
+        "mean_zipf_frequency": 5.165909090909092,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. A careful cartographer examines a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8055823240783742,
+        "mean_zipf_frequency": 5.077727272727274,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The patient botanist checks a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7516213720566274,
+        "mean_zipf_frequency": 5.15909090909091,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The patient botanist builds a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7581373918196679,
+        "mean_zipf_frequency": 5.142727272727273,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The quiet ranger checks a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 120,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7083016985679027,
+        "mean_zipf_frequency": 5.198636363636364,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The quiet ranger builds a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 120,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7148177183309432,
+        "mean_zipf_frequency": 5.182272727272728,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. A careful cartographer checks a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 126,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7795182450262157,
+        "mean_zipf_frequency": 5.110454545454546,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. A careful cartographer builds a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 126,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7860342647892562,
+        "mean_zipf_frequency": 5.09409090909091,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The patient botanist examines a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7132026000554177,
+        "mean_zipf_frequency": 5.046363636363636,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The quiet ranger examines a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 119,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.669882926566693,
+        "mean_zipf_frequency": 5.085909090909091,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The patient botanist examines a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 130,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6629803230867246,
+        "mean_zipf_frequency": 5.051363636363637,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The quiet ranger examines a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 126,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6196606495979999,
+        "mean_zipf_frequency": 5.090909090909092,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. A careful cartographer examines a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 125,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7461790149552581,
+        "mean_zipf_frequency": 4.997727272727273,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. A careful cartographer examines a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 132,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6524753565483881,
+        "mean_zipf_frequency": 5.002727272727274,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The patient botanist draws a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7581373918196661,
+        "mean_zipf_frequency": 5.149545454545454,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The quiet ranger draws a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 119,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.714817718330945,
+        "mean_zipf_frequency": 5.189090909090909,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. A careful cartographer draws a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 125,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7860342647892509,
+        "mean_zipf_frequency": 5.1009090909090915,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The patient botanist checks a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 121,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6806225012402205,
+        "mean_zipf_frequency": 5.079090909090909,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The patient botanist builds a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 121,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.687138521003261,
+        "mean_zipf_frequency": 5.062727272727273,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The quiet ranger checks a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 117,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6373028277514976,
+        "mean_zipf_frequency": 5.118636363636363,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The quiet ranger builds a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 117,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6438188475145363,
+        "mean_zipf_frequency": 5.1022727272727275,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The patient botanist checks a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6369162440345679,
+        "mean_zipf_frequency": 5.08409090909091,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The patient botanist builds a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6369162440345697,
+        "mean_zipf_frequency": 5.067727272727273,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The quiet ranger checks a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5935965705458468,
+        "mean_zipf_frequency": 5.123636363636364,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The quiet ranger builds a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5935965705458415,
+        "mean_zipf_frequency": 5.107272727272728,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. A careful cartographer checks a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7201149359031014,
+        "mean_zipf_frequency": 5.030454545454545,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. A careful cartographer builds a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7266309556661401,
+        "mean_zipf_frequency": 5.01409090909091,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. A careful cartographer checks a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 130,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6329272972592683,
+        "mean_zipf_frequency": 5.035454545454546,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. A careful cartographer builds a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 130,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6329272972592683,
+        "mean_zipf_frequency": 5.0190909090909095,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The patient botanist examines a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.591981452270316,
+        "mean_zipf_frequency": 4.971363636363637,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The quiet ranger examines a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5486617787815895,
+        "mean_zipf_frequency": 5.010909090909092,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. A careful cartographer examines a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 129,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5930720474252755,
+        "mean_zipf_frequency": 4.922727272727273,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The patient botanist draws a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 120,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.687138521003261,
+        "mean_zipf_frequency": 5.069545454545454,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The quiet ranger draws a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 116,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6438188475145346,
+        "mean_zipf_frequency": 5.1090909090909085,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The patient botanist draws a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6369162440345679,
+        "mean_zipf_frequency": 5.074545454545454,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The quiet ranger draws a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.593596570545845,
+        "mean_zipf_frequency": 5.114090909090909,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. A careful cartographer draws a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 122,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7266309556661401,
+        "mean_zipf_frequency": 5.0209090909090905,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings beside the quiet harbor. The patient botanist examines a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7162906352423626,
+        "mean_zipf_frequency": 5.002272727272727,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings beside the quiet harbor. The quiet ranger examines a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 120,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6729709617536415,
+        "mean_zipf_frequency": 5.041818181818182,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. A careful cartographer draws a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 129,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6329272972592719,
+        "mean_zipf_frequency": 5.025909090909091,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The patient botanist checks a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 125,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5659173732181628,
+        "mean_zipf_frequency": 5.004090909090909,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The patient botanist builds a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 125,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5659173732181628,
+        "mean_zipf_frequency": 4.987727272727273,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The quiet ranger checks a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 121,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5225976997294381,
+        "mean_zipf_frequency": 5.043636363636364,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The quiet ranger builds a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 121,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5225976997294346,
+        "mean_zipf_frequency": 5.027272727272727,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings beside the quiet harbor. A careful cartographer examines a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 126,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6486790130557267,
+        "mean_zipf_frequency": 4.953636363636364,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. A careful cartographer checks a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5735239881361576,
+        "mean_zipf_frequency": 4.955454545454546,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. A careful cartographer builds a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5735239881361593,
+        "mean_zipf_frequency": 4.939090909090909,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings beside the quiet harbor. The patient botanist checks a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 122,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6837105364271725,
+        "mean_zipf_frequency": 5.035,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings beside the quiet harbor. The patient botanist builds a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 122,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6902265561902112,
+        "mean_zipf_frequency": 5.0186363636363645,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings beside the quiet harbor. The quiet ranger checks a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 118,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.640390862938446,
+        "mean_zipf_frequency": 5.074545454545454,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings beside the quiet harbor. The quiet ranger builds a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 118,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6469068827014866,
+        "mean_zipf_frequency": 5.058181818181819,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings beside the quiet harbor. A careful cartographer checks a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.62261493400357,
+        "mean_zipf_frequency": 4.986363636363636,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings beside the quiet harbor. A careful cartographer builds a cedar shelter before the evening tide.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.629130953766607,
+        "mean_zipf_frequency": 4.970000000000001,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The patient botanist draws a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5659173732181593,
+        "mean_zipf_frequency": 4.994545454545454,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. The quiet ranger draws a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 120,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5225976997294381,
+        "mean_zipf_frequency": 5.034090909090909,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings near the northern pier. A careful cartographer draws a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 126,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5735239881361576,
+        "mean_zipf_frequency": 4.945909090909091,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The patient botanist examines silver seed cases across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 132,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8009658128989603,
+        "mean_zipf_frequency": 4.99909090909091,
+        "word_count": 22,
+        "repeated_word_rate": 0.13636363636363635,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings beside the quiet harbor. The patient botanist examines a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5950694874572662,
+        "mean_zipf_frequency": 4.927272727272728,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The quiet ranger examines silver seed cases across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 128,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7511301196471951,
+        "mean_zipf_frequency": 5.038636363636365,
+        "word_count": 22,
+        "repeated_word_rate": 0.13636363636363635,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings beside the quiet harbor. The quiet ranger examines a cedar shelter across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": false,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "no_repeated_nontrivial_unit"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.5517498139685415,
+        "mean_zipf_frequency": 4.966818181818183,
+        "word_count": 22,
+        "repeated_word_rate": 0.2272727272727273,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The patient botanist examines a cedar shelter under the glass roof.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7729743088206504,
+        "mean_zipf_frequency": 5.139545454545455,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. The quiet ranger examines a cedar shelter under the glass roof.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 119,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7296546353319275,
+        "mean_zipf_frequency": 5.17909090909091,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist studies young cedar seedlings inside the village school. A careful cartographer examines silver seed cases across the maritime archive.",
+      "source_run": "runs/char-lm-obligation-beam-20260916.json",
+      "provenance": {
+        "lexical_source": "fresh authored role-typed phrase bank",
+        "choices_before_rendering": true,
+        "character_model": "inline transparent trigram counts",
+        "generator": "experiments/char_lm_obligation_beam_20260916.py"
+      },
+      "repair": null,
+      "letters": 134,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7951831660256321,
+        "mean_zipf_frequency": 4.950454545454547,
+        "word_count": 22,
+        "repeated_word_rate": 0.13636363636363635,
         "punctuation_segments": 2
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."

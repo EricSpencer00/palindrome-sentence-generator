@@ -2885,3 +2885,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   pre-target-role transition pruning, a tied-branch two-character beam, and a
   temporal adverbial insertion that preserves the present-to-past `before`
   order.
+
+  The following wave completed those repairs. Edge-local attachment support
+  pruning rendered 4 intact candidates up to 101 letters; the tied
+  two-character reverse-prefix beam retained 8 independent scene candidates up
+  to 72 letters; and the post-connective temporal-adverbial `before` CFG
+  rendered 768 candidates up to 58 letters while pruning 2,304
+  shared-subject-inconsistent states. All produced 0 exact closures.
+  Independent pointer/SHA-256 replay, provenance, novelty preflight, and
+  anti-shortcut checks are retained for every row. The reader gate remains
+  closed. The next concrete operators are character-position-aware opposing
+  witnesses for attachment edges, an independently authored two-character-
+  compatible setting phrase, and a pre-connective adverbial tense-state branch.

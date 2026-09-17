@@ -70,8 +70,10 @@ RIGHT_CLAUSES = (
 def novelty_preflight() -> dict:
     data = json.loads(REGISTRY.read_text())
     rows = list(data.get("entries", [])) + list(data.get("excluded", []))
-    exact_id = [r.get("id") for r in rows if r.get("id") == EXPERIMENT_ID]
-    exact_signature = [r.get("id") for r in rows if r.get("signature") == SIGNATURE]
+    own_artifact = str(Path(__file__).relative_to(ROOT))
+    rows_other = [r for r in rows if not (r.get("id") == EXPERIMENT_ID and r.get("artifact") == own_artifact)]
+    exact_id = [r.get("id") for r in rows_other if r.get("id") == EXPERIMENT_ID]
+    exact_signature = [r.get("id") for r in rows_other if r.get("signature") == SIGNATURE]
     # Token-level guard catches a renamed duplicate while deliberately ignoring
     # generic bookkeeping words shared by every palindrome experiment.
     common = {
@@ -84,7 +86,7 @@ def novelty_preflight() -> dict:
     atoms = lambda s: {x for x in re.split(r"[^a-z0-9]+", s.lower()) if x and x not in common}
     ours = atoms(SIGNATURE)
     near = []
-    for row in rows:
+    for row in rows_other:
         other = atoms(row.get("signature", ""))
         score = len(ours & other) / len(ours | other) if ours | other else 0.0
         if score >= 0.40:

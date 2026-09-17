@@ -61,10 +61,13 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4976
+    assert report["candidate_count"] == 4990
     assert report["exact_count"] == 79
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
+    assert by_source["runs/semantic-slot-attachment-repair-20260916-luna.json"]["rows"] == 2
+    assert by_source["runs/finite-feature-center-grammar-20260916.json"]["rows"] == 3
+    assert by_source["runs/joint-constituent-equation-scene-solver-20260916.json"]["rows"] == 9
     assert by_source["runs/char-lm-tape-resegment-20260916.json"]["rows"] == 5
     assert by_source["runs/char-lm-multiclause-heldout-20260916.json"]["rows"] == 20
     assert by_source["runs/constructive-seam-morph-cfg-20260916.json"]["rows"] == 2

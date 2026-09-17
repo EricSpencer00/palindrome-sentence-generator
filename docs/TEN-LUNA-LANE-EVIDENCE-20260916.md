@@ -802,3 +802,12 @@ boundary equations passed before commitment, and the next repair adds a typed
 center production. The two nonduplicate lanes add nine rows: the authoritative
 aggregate is now 4,976 rows across 285 routes, with 79 exact controls and 0
 mechanically admitted outputs.
+
+Three further Luna states are now retained. A semantic slot/attachment repair
+emits a 168-letter archivist scene after one role-compatible object and path-PP
+change; a finite feature-center grammar emits a 114-letter teacher/ranger
+scene; and a joint complete-constituent solver emits a 208-letter four-event
+harbor/museum scene. Each has intact prose, independent pointer/SHA rejection,
+provenance, novelty preflight, anti-shortcut checks, and a concrete next repair.
+They add fourteen rows, bringing the authoritative audit to 4,990 rows across
+288 routes with 79 exact controls and 0 mechanically admitted outputs.

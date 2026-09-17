@@ -2192,6 +2192,15 @@ named next repair. The aggregate is 4,898 rows across 247 route phases (79
   rejected tapes and 0 mechanically admitted outputs. The reader packet remains
   gated on a genuinely exact anti-shortcut survivor.
 
+  The next three Luna states remain constructive rather than defensive: one
+  semantic-slot plus dependency-attachment repair reaches a 168-letter
+  archivist scene, a finite feature-center grammar reaches 114 letters, and a
+  joint complete-constituent equation solver reaches 208 letters. Their actual
+  renderings, independent pointer/SHA rejection, provenance, novelty preflight,
+  anti-shortcut checks, and targeted repairs are retained; none is exact or
+  reader-eligible. The authoritative snapshot is now 4,990 rows across 288
+  routes, with 79 exact rejected tapes and 0 mechanically admitted outputs.
+
   The newest committed wave is measured at **4,967 rows across 283 route phases**
   with **79 exact but rejected tapes and 0 mechanically admitted outputs**. Its
   three actual fresh renderings are a 140-letter archivist/gardener/pilot scene,

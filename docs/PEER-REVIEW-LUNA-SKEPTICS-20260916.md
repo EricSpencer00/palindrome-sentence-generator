@@ -120,3 +120,11 @@ at evening.” (exact `false`). Their provenance, independent checks, novelty
 preflight, and next repairs are recorded. The authoritative snapshot is now
 4,976 rows across 285 routes (79 exact rejected tapes; 0 mechanically admitted
 outputs); no row is reader-certified.
+
+The next Luna review cycle supplied three genuinely different states. The
+168-letter archivist slot/attachment repair, the 114-letter feature-center
+grammar scene, and the 208-letter joint-constituent harbor scene all preserve
+ordinary prose and independent exact rejection, with novelty and provenance
+records plus named repairs. They add fourteen non-exact rows without reopening
+a duplicate sweep; the authoritative snapshot is 4,990 rows across 288 routes
+(79 exact rejected tapes; 0 mechanically admitted outputs).

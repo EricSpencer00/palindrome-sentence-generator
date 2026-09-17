@@ -118,6 +118,21 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
                     if context_provenance and "provenance" not in item:
                         item["provenance"] = context_provenance
                     yield item
+        # Semantic repair lanes may keep the base and repaired complete scenes
+        # under one explicit ``scene`` object.  Surface both authored states so
+        # a targeted edit is audited alongside its parent rather than silently
+        # disappearing from the shared report.
+        scene = payload.get("scene")
+        if isinstance(scene, dict):
+            for phase in ("before", "repaired"):
+                row = scene.get(phase)
+                if isinstance(row, dict):
+                    text = row.get("rendered") or row.get("text") or row.get("best_prose")
+                    if isinstance(text, str) and text.strip():
+                        item = {"source_run": source, **row, "rendered": text}
+                        if context_provenance and "provenance" not in item:
+                            item["provenance"] = context_provenance
+                        yield item
         # Some append-only experiments keep base and repair phases as nested
         # objects.  Walk those phases so the diagnostic report cannot silently
         # omit their rendered probes.

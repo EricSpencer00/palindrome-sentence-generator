@@ -82,3 +82,16 @@ The two nonduplicate lanes add nine rows, moving the authoritative aggregate to
 registry now records 386 retained artifacts, 32 explicit exclusions, and 364
 retained run artifacts. None is reader-certified; the intact-versus-shuffled
 packet remains gated on an exact anti-shortcut survivor.
+
+## Three further orthogonal Luna states
+
+The next frontier reopened three distinct construction representations:
+
+- Semantic slot/attachment repair: “At first light, the patient archivist carries a weathered register through the west room toward the reading table, checks its brittle clasp, and leaves the record beside a quiet lamp for the evening clerk.” (168 letters; independent two-pointer `false`; forward/reverse SHA differ). One carried-record substitution and one path-attachment rewrite were selected before realization; novelty passed, all anti-shortcut flags are clean, and the next repair changes one held-out verb-frame inflection.
+- Finite feature-center grammar: “the modest teacher packed blue notebooks after class for the reading group, and the alert ranger guided hikers toward camp beneath stars” (114 letters; independent two-pointer `false`; SHA digests differ). An explicit `CENTER` production and feature-unification stack kept the clauses ordinary; novelty passed with no fixed tape, reversal, catalogue, or word-order mirror. The next repair replaces one right-clause production at the first pending obligation.
+- Joint complete-constituent equation solver: “The harbor clerk records cargo manifests before sunrise. The museum guide opens the west gallery after visitors arrive. The waiting curator locks glass cabinets after evening lectures. The watchful pilot secures fishing vessels beside stone piers.” (208 letters; independent two-pointer `false`; forward/reverse SHA differ). Thirty-six jointly selected complete constituents were audited; no shortcut was used. The next repair replaces the paired complete constituent at the first frontier mismatch.
+
+These lanes add fourteen rows, moving the authoritative aggregate to 4,990
+rows across 288 routes (79 exact tapes, 0 mechanically admitted). The registry
+now records 389 retained artifacts, 32 explicit exclusions, and 367 retained
+run artifacts. None is reader-certified.

@@ -576,3 +576,13 @@ record.”), and the grammar-first matching-boundary run contributes one fresh
 provenance, novelty preflight, and concrete center repairs. The authoritative
 ledger is therefore 4,976 rows across 285 routes; the registry is 386 retained,
 32 excluded, and 364 retained run artifacts.
+
+The next three lanes are also distinct rather than larger sweeps: a single
+semantic-slot plus dependency-attachment repair (168 letters), a finite
+feature-unification grammar with an explicit center (three 109--114-letter
+scenes), and a joint complete-constituent equation solver (nine 208--214-letter
+scenes). Their rendered prose, independent pointer/SHA checks, provenance,
+novelty preflight, anti-shortcut flags, and targeted next repairs are recorded;
+none is exact or reader-eligible. The ledger now stands at 4,990 rows across
+288 routes; the registry is 389 retained, 32 excluded, and 367 retained run
+artifacts.

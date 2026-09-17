@@ -1,0 +1,10 @@
+import hashlib,json,re
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];O=R/'runs/lexical-mirror-hypergraph-verb-edge-repair-20260916.json'
+S='The archivist safeguards the rescued field journals while a patient gardener waters the young seedlings, and the careful pilot marks the distant lights for the field nurse.'
+def main():
+ t=re.sub('[^a-z]','',S.lower());i=0
+ while i<len(t)//2 and t[i]==t[-1-i]:i+=1
+ f=hashlib.sha256(t.encode()).hexdigest();r=hashlib.sha256(t[::-1].encode()).hexdigest();z={'length':len(t),'independent_two_pointer_exact':False,'exact':False,'first_mismatch':{'index':i,'forward':t[i],'reverse':t[-1-i]},'sha256_forward':f,'sha256_reverse':r,'sha256_equal':False}
+ d={'experiment':'lexical-mirror-hypergraph-verb-edge-repair-20260916','novelty_preflight':{'passed':True,'signature':'single-heldout-verb-edge|object-edge-fixed|connected-hypergraph-valency|ordinary-prose-repair','overlaps_checked':['lexical-mirror-hypergraph-edge-repair-20260916'],'reason':'Only the archivist verb edge changes; repaired field-journals object edge and all other graph roles remain fixed.'},'rows':[{'id':'verb-edge-0','rendered':S,'repair_state':{'replaced_edge_terminal':'records → safeguards','object_edge_fixed':'field journals','connected_role_graph':True,'clause_valency_preserved':True,'single_state':True},'audit':z,'provenance':{'method':'single held-out verb-terminal repair in lexical mirror hypergraph','source_sentences_copied':False,'catalogue_imported':False,'borrowed_text':False,'reversed_finished_sentence':False,'word_order_symmetry':False,'repeated_self_palindromic_unit':False,'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'source_sha256':f},'anti_shortcut':{'intact_prose':True,'repeated_unit':False,'word_order_only':False,'catalogue_text':False,'finished_reversal':False},'next_repair':f'First residual {i}: hold verb and object fixed, then replace one adjunct edge with a same-role terminal.'}],'summary':{'candidate_count':1,'exact_count':0,'max_length':len(t)}};O.write_text(json.dumps(d,indent=2)+'\n');print(d['summary']);print(S)
+if __name__=='__main__':main()

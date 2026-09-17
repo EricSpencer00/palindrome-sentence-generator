@@ -1,0 +1,151 @@
+{
+  "experiment_id": "seed-benchmark-live-semantic-slot-expansion-20260916",
+  "signature": "seed-benchmark-only|bounded-authored-scene|whole-word-semantic-slot-choice|live-bilateral-slot-equation|independent-pointer-sha",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "bounded authored scene with live bilateral semantic-slot equation",
+  "novelty_preflight": {
+    "status": "passed",
+    "performed_before_rendering": true,
+    "registry_entries_read": 427,
+    "exact_signature_collision": false,
+    "duplicate_sweep_rejected": true,
+    "single_bounded_authored_state": true
+  },
+  "candidates": [
+    {
+      "rendered": "The careful archivist stores weathered maps beside the north window. A patient gardener waters young cedars near the school gate.",
+      "letters": 108,
+      "seed_benchmark": {
+        "letters": 38,
+        "used_in_output": false,
+        "wrapped": false,
+        "reversed": false
+      },
+      "semantic_slots": [
+        {
+          "role": "agent",
+          "left": "careful archivist",
+          "right": "patient gardener"
+        },
+        {
+          "role": "action",
+          "left": "stores",
+          "right": "waters"
+        },
+        {
+          "role": "object",
+          "left": "weathered maps",
+          "right": "young cedars"
+        },
+        {
+          "role": "attachment",
+          "left": "beside the north window",
+          "right": "near the school gate"
+        }
+      ],
+      "choices_selected_before_rendering": true,
+      "live_bilateral_equation": [
+        {
+          "slot_prefix_length": 1,
+          "left_prefix": "the",
+          "right_suffix": "a",
+          "matched_outer_pairs": 0,
+          "left_residual": "the",
+          "right_residual": "a"
+        },
+        {
+          "slot_prefix_length": 3,
+          "left_prefix": "thecarefularchivist",
+          "right_suffix": "apatientgardener",
+          "matched_outer_pairs": 0,
+          "left_residual": "thecarefularchivist",
+          "right_residual": "apatientgardener"
+        },
+        {
+          "slot_prefix_length": 4,
+          "left_prefix": "thecarefularchiviststores",
+          "right_suffix": "apatientgardenerwaters",
+          "matched_outer_pairs": 0,
+          "left_residual": "thecarefularchiviststores",
+          "right_residual": "apatientgardenerwaters"
+        },
+        {
+          "slot_prefix_length": 6,
+          "left_prefix": "thecarefularchiviststoresweatheredmaps",
+          "right_suffix": "apatientgardenerwatersyoungcedars",
+          "matched_outer_pairs": 0,
+          "left_residual": "thecarefularchiviststoresweatheredmaps",
+          "right_residual": "apatientgardenerwatersyoungcedars"
+        },
+        {
+          "slot_prefix_length": 10,
+          "left_prefix": "thecarefularchiviststoresweatheredmapsbesidethenorthwindow",
+          "right_suffix": "apatientgardenerwatersyoungcedarsneartheschoolgate",
+          "matched_outer_pairs": 0,
+          "left_residual": "thecarefularchiviststoresweatheredmapsbesidethenorthwindow",
+          "right_residual": "apatientgardenerwatersyoungcedarsneartheschoolgate"
+        }
+      ],
+      "prose_checks": {
+        "complete_clauses": true,
+        "ordinary_svo_order": true,
+        "distinct_subjects": true,
+        "distinct_objects": true,
+        "whole_word_choices_pre_render": true
+      },
+      "independent_audit": {
+        "letters": 108,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          107,
+          "t",
+          "e"
+        ],
+        "mismatch_count": 52,
+        "sha256_forward": "9d15f304b70b846c2479966583040e656432435274d0e16073125792e618ee75",
+        "sha256_reverse": "43ac8570ea25e436a8acb57c6a7367124d0a523305d6bfe155dbee81f291f720"
+      },
+      "anti_shortcut": {
+        "seed_wrapped_or_repeated": false,
+        "catalogue_imported": false,
+        "finished_tape_reversal": false,
+        "word_order_mirror": false,
+        "repeated_unit": false,
+        "self_palindromic_unit": false,
+        "posthoc_character_edit": false
+      },
+      "provenance": {
+        "source": "fresh hand-authored field-and-school scene",
+        "seed_role": "38-letter benchmark only",
+        "lexical_selection": "whole-word typed semantic slots selected before rendering",
+        "generator": "experiments/seed_benchmark_live_semantic_slot_expansion_20260916.py"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "exact": 0,
+    "seed_letters": 38
+  },
+  "next_repair": {
+    "operator": "replace one complete held-out attachment slot at the first residual and re-solve its boundary",
+    "reason": "the fresh scene is grammatical but its bilateral character debt remains open",
+    "preserve": [
+      "semantic agent/action/object roles",
+      "whole-word realization",
+      "seed-free output",
+      "non-mirrored word order"
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "dda914e96df7f7658a988dfb0b06315c2844bdea3f2e7154d4056e8ec19a2fab",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "live semantic-slot equation",
+      "novelty preflight"
+    ]
+  }
+}

@@ -2923,3 +2923,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   witness-domain plus agent/action/theme valency intersection, a grammatical
   setting phrase beginning with the required third character, and held-out
   adverb substitution in one temporal slot at a time.
+
+  The following wave completed those repairs. Intersecting attachment witness
+  domains with agent/action/theme valency rendered 3 intact candidates up to
+  98 letters; the authored `v`-initial setting phrase made all 4 matched
+  survey branches satisfy three reverse-prefix characters, with candidates up
+  to 63 letters; and slot-local pre-event adverb substitution rendered 3,072
+  candidates up to 63 letters while pruning 7,680 invalid states. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are bidirectional
+  witness propagation under the intersected valency domain, a fourth-character
+  compatible setting phrase on the matched survey branch, and analogous
+  post-event adverb substitution with the pre-event slot fixed.

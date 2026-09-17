@@ -3490,3 +3490,40 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   aware lexical resegmentation inside the scene lattice, retaining live
   inflection and attachment constraints; only its first exact, intact novel
   output will open the blinded reader package.
+
+  Round six replays the boundary-aware resegmentation artifact. Its generator
+  jointly searched verb/object boundaries and inflectional choices while
+  pruning the live character seam, producing 16 branches (10 in the
+  100–160-letter band). The best rendered passage is “At first light, the
+  harbor pilot studied the folded chart, and signals the waiting boat, checks
+  the tide ledger, and carries a lantern toward shore.” (119 letters, 54
+  opposing-end mismatches); its independent two-pointer and forward/reverse
+  SHA-256 audits agree that it is not exact. Provenance records a local,
+  human-authored scene frame with no catalogue import, fixed tape, mirrored
+  word order, or repeated-unit shortcut. Replaying it expands the Dream-RSI
+  history to 15,622 nodes across 427 worlds (35 parent edges, four branching
+  parents); the six policies still separate, but `fixed_mismatch_first` remains
+  the held-out winner (0.794 mismatch rate), with zero admissible exact
+  closures and 97 exact-but-rejected rows. This is a construction failure that
+  triggers the next live operators—character-level CFG intersection and
+  semantic slot repair—not a relaxation of the readability goal. Any exact
+  survivor must still be rendered, independently audited, provenance-checked,
+  and then tested in the blinded intact-versus-shuffled reader package.
+
+  Round seven adds two orthogonal constructive lanes. The CFG/character
+  intersection authored 16 scene-clause branches (9 above 100 letters), but
+  its realized surfaces either repeated a whole scene or remained non-exact;
+  the longest rendered row was 190 letters with 86 mismatches and is
+  quarantined by the repeated-content rule. The dependency/valency seam CSP
+  retained 20 typed clause-pair branches (101–109 letters); its best intact
+  surface is “A careful gardener carries the blue lantern beside the stone
+  wall; a calm teacher records each small answer after the evening class.”
+  (109 letters, 94 mismatches), independently non-exact. Both lanes record
+  fresh human-authored provenance, no catalogue/fixed-tape/word-order
+  shortcut, and a concrete next repair (seam-carrying lexical edges for CFG;
+  inflectional and attachment-preserving substitutions for the CSP).
+  Dream-RSI round seven replays 15,658 nodes across 429 worlds (35 parent
+  edges, four branching parents). The six policies remain distinct and
+  `fixed_mismatch_first` remains the held-out winner (0.794 mismatch rate),
+  with zero admissible exact closures. The next run applies those recorded
+  repair operators; no output has reached the reader gate yet.

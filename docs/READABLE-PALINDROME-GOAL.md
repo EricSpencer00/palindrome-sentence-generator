@@ -2871,3 +2871,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   transition automaton over attachment/role states, a one-character
   reverse-prefix beam at the same frontier, and the reverse present-to-past
   `before` direction with explicit tense-order state.
+
+  The following wave completed those three repairs. The semantic role/attachment
+  transition automaton rendered 4 intact candidates up to 101 letters while
+  carrying live support counters; the one-character reverse-prefix beam
+  retained 8 independent scene candidates up to 72 letters but found no
+  matching frontier character; and the reverse present-to-past `before` CFG
+  rendered 256 candidates up to 49 letters while pruning 768
+  shared-subject-inconsistent states. All produced 0 exact closures.
+  Independent pointer/SHA-256 replay, provenance, novelty preflight, and
+  anti-shortcut checks are retained for every row. The reader gate remains
+  closed. The next concrete operators are edge-local support counters with
+  pre-target-role transition pruning, a tied-branch two-character beam, and a
+  temporal adverbial insertion that preserves the present-to-past `before`
+  order.

@@ -16,6 +16,7 @@ from pathlib import Path
 
 
 ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "runs/ten-luna-lane-contract-20260917.json"
 
 
 LANES = [
@@ -124,7 +125,7 @@ def main() -> dict:
             "novelty_preflight_present": True,
             "next_repair_present": True,
         })
-    return {
+    result = {
         "status": "contract_validated_diagnostic_only",
         "lane_count": len(rows),
         "exact_count": sum(row["independent_two_pointer_exact"] for row in rows),
@@ -132,6 +133,8 @@ def main() -> dict:
         "rows": rows,
         "note": "Programmatic checks diagnose exactness and construction provenance; they do not certify human readability.",
     }
+    OUT.write_text(json.dumps(result, indent=2, ensure_ascii=False) + "\n")
+    return result
 
 
 if __name__ == "__main__":

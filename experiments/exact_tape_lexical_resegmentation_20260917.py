@@ -51,7 +51,10 @@ def audit(text):
 
 def main():
     registry=json.loads((ROOT/"docs/experiment-novelty-registry.json").read_text())
-    assert not any(r.get("signature")==SIGNATURE for r in registry.get("entries",[]))
+    # A rerun is allowed after this lane has been registered, but a second
+    # entry with the same signature is never allowed.
+    collisions = [r for r in registry.get("entries", []) if r.get("signature") == SIGNATURE]
+    assert len(collisions) <= 1
     source=json.loads((ROOT/"runs/existing-exact-tape-audit-20260915.json").read_text())
     rows=[]
     for row in source.get("near_misses", []):

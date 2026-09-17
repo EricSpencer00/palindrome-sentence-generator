@@ -2276,3 +2276,19 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   states up to 140 letters). Every row has independent pointer/SHA replay,
   provenance, novelty preflight, anti-shortcut checks, and a concrete
   first-residual repair; none closes exactly or enters the reader packet.
+
+  **2026-09-17 orthogonal follow-up:** three new constructive states were
+  run once and registered separately. A simultaneous typed grammar-product
+  beam renders “The young keeper carries a blue lantern beside the garden.”
+  (48 letters), with live reverse-character debt and an extension repair. A
+  reverse-tape trie boundary beam independently verifies exact 28-letter
+  outputs such as “no one was at home | em oh ta sa we no on”; the fragments
+  fail the prose gate, so the next repair is a tagged POS trie plus phrase
+  scoring. Immutable-tape DP resegmentation yields exact 132-letter paths such
+  as “tr ad er are wa st em et ...”; its lexical admission is fail-closed and
+  the next test adds a clause-bigram model on a fresh tape. The contract replay
+  is saved at `runs/ten-luna-lane-contract-20260917.json`: all ten requested
+  lanes have rendered prose, independent two-pointer/SHA recomputation,
+  provenance, novelty preflight, and a concrete repair; 0 are exact and 0 are
+  mechanically admitted. These runs are distinct state representations, not
+  larger duplicate sweeps.

@@ -41,9 +41,9 @@ RIGHT = (
 )
 OBJECTS = (("a warm loaf", "theme"), ("the old bell", "theme"), ("a blue lantern", "theme"))
 FOLLOWUPS = {
-    "kitchen": "and shares it near the kitchen",
-    "harbor": "and waits beside the harbor",
-    "garden": "and rests beside the garden",
+    "kitchen": ("and shares it", "as supper begins"),
+    "harbor": ("and waits quietly", "as the tide turns"),
+    "garden": ("and rests quietly", "as evening falls"),
 }
 VERBS = (("watches", "event"), ("carries", "event"), ("marks", "event"))
 
@@ -96,10 +96,10 @@ def run(beam_width: int = 8) -> dict:
                                      ["agent", "event", obj_role, "setting"]))
                     # Bilateral clause growth: both clauses remain intact
                     # prose, while the right clause advances its own seam.
-                    follow = FOLLOWUPS[agent.scene]
-                    beam.append(_row(f"{extended_left} {follow}",
-                                     f"{setting.text} {follow}", agent.scene,
-                                     [agent.text, verb, obj, follow, setting.text],
+                    follow_left, follow_right = FOLLOWUPS[agent.scene]
+                    beam.append(_row(f"{extended_left} {follow_left}",
+                                     f"{setting.text} {follow_right}", agent.scene,
+                                     [agent.text, verb, obj, follow_left, setting.text, follow_right],
                                      tape(f"{extended_left} {follow}")[::-1],
                                      ["agent", "event", obj_role, "followup", "setting"]))
     beam.sort(key=lambda r: (-r["letters"], r["rendered"]))

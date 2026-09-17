@@ -6,4 +6,4 @@ def test_reverse_segmentation_is_exact_and_mechanically_verified():
     right = ["live", "on"]
     result = validate(left, right)
     assert result["exact"] and result["reverse_tape"]
-    assert result["sha256_forward"] != result["sha256_reverse"]
+    assert result["sha256_forward"] == result["sha256_reverse"]

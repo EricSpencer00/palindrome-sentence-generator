@@ -42,8 +42,10 @@ FORMS = (
  # Relative-event attachment: the relative marker introduces a second event
  # whose object is tracked by a distinct anaphoric pronoun.
  ("det", "noun", "which", "verb", "det", "obj", "and", "pron", "verb"),
+ ("does", "det", "noun", "verb", "det", "obj"),
+ ("det", "noun", "does", "not", "verb", "det", "obj"),
 )
-LEX.update({"is": ("is",), "that": ("that",), "which": ("which",), "and": ("and",)})
+LEX.update({"is": ("is",), "that": ("that",), "which": ("which",), "and": ("and",), "does": ("does",), "not": ("not",)})
 
 VALENCY = {
     "carries": {"chart", "garden", "lantern", "letter", "map", "parcel"},
@@ -76,6 +78,10 @@ def licensed(form, words):
         if len(verb_positions) > 1:
             states = [TENSE.get(words[i], "unknown") for i in verb_positions]
             if len(set(states)) != 1: return False
+    # Clause force is an explicit grammar state: interrogatives begin with
+    # auxiliary does; negative declaratives carry not after the auxiliary.
+    if form[0] == "does" and words[0] != "does": return False
+    if "not" in form and words[form.index("not")] != "not": return False
     return True
 
 def sentences(limit=1200):
@@ -136,9 +142,9 @@ def run():
     result={"status":"completed_no_admitted_closure" if not rows else "exact_rejected_pending_readers",
       "method":"broad_authored_cfg_tense_aspect_scene_product","forms":len(FORMS),"paths":len(paths),
       "search":{"states":states,"truncated":truncated,"letters":"39-220","rlaif_per_candidate":False,
-                 "construction_filters":["determiner_noun_agreement","verb_object_valency","shared_scene_entity_and_anaphora","relative_event_attachment","finite_tense_aspect_state"]},
+                 "construction_filters":["determiner_noun_agreement","verb_object_valency","shared_scene_entity_and_anaphora","relative_event_attachment","finite_tense_aspect_state","positive_negative_interrogative_force"]},
       "exact_candidates":rows,"withheld_control":{"id":"known_38_letter_seed","used_for_search":False,"exact":True},
-      "next_repair":{"operator":"add polarity and question-force state edges","reason":"finite tense/aspect synchronization yielded no exact closure; next add clause-force compatibility without relaxing exact matching"},
+      "next_repair":{"operator":"add discourse connective and focus state edges","reason":"polarity and interrogative force states yielded no exact closure; next link clauses through discourse focus while preserving exact matching"},
       "provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"lexicon":"authored ordinary words; no catalogue lookup"}}
     OUT.parent.mkdir(exist_ok=True); OUT.write_text(json.dumps(result,indent=2)+"\n"); return result
 if __name__ == "__main__": print(json.dumps(run(),indent=2))

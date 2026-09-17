@@ -469,10 +469,10 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,744 rows
-across 202 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **303 retained artifacts, 31
-explicit exclusions, and 281 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,763 rows
+across 207 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **308 retained artifacts, 31
+explicit exclusions, and 286 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
 
@@ -588,3 +588,20 @@ appendable growth (two 107--111-letter scenes). Every row is rendered intact,
 independently pointer/SHA audited, provenance-backed, novelty-preflighted, and
 paired with a concrete next repair. None closes exactly; all remain outside the
 reader packet.
+
+Two further fresh Luna states are retained in the common audit. Seed-free
+authored-frame insertion produces “At dawn, the archivist opens the cedar
+cabinet and records the harbor map, before dusk.” (83 letters), and an
+interrogative/relative-template solver produces “Was the quiet curator sure that
+the young pilot had seen the chart I filed beside the harbor ledger?” (87
+letters). Each row carries independent pointer/SHA checks, provenance,
+novelty preflight, anti-shortcut flags, and a named next repair; neither closes
+exactly or enters the reader packet.
+
+The newest queue pass adds three genuinely distinct constructive states: a live
+mirrored-tape terminal decoder (six 88--103-letter scenes), a fresh
+human-authored attachment CSP (two 105--107-letter museum scenes), and an
+unbounded bilateral semantic-growth grammar (three non-repeating growth states
+up to 140 letters). Every row has independent pointer/SHA replay, provenance,
+novelty preflight, anti-shortcut checks, and a concrete first-residual repair;
+none closes exactly or enters the reader packet.

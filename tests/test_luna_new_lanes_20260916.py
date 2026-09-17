@@ -62,7 +62,7 @@ def test_append_algebra_emits_only_complete_clauses_and_records_invariant_failur
 
 def test_aggregate_surfaces_all_three_new_lane_routes():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4744
+    assert report["candidate_count"] == 4763
     assert report["exact_count"] == 79
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/constrained-edit-program-constructor-20260916.json"]["rows"] == 4
@@ -76,6 +76,11 @@ def test_aggregate_surfaces_all_three_new_lane_routes():
     assert by_source["runs/coupled-object-attachment-repair-20260916.json"]["rows"] == 4
     assert by_source["runs/semordnilap-role-clause-product-20260916.json"]["rows"] == 4
     assert by_source["runs/typed-reversible-clause-composer-20260916.json"]["rows"] == 2
+    assert by_source["runs/seed-extension-frame-insertion-20260916.json"]["rows"] == 6
+    assert by_source["runs/interrogative-relative-template-solver-20260916.json"]["rows"] == 2
+    assert by_source["runs/live-tape-clause-terminal-decoder-20260916.json"]["rows"] == 6
+    assert by_source["runs/bilateral-semantic-growth-grammar-20260916.json"]["rows"] == 3
+    assert by_source["runs/scene-lattice-attachment-csp-20260916.json"]["rows"] == 2
 
 
 def test_registry_retains_new_lanes_and_keeps_shortcut_exclusions_separate():

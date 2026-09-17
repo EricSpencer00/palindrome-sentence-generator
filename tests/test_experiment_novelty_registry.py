@@ -209,6 +209,11 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "coupled-object-attachment-repair-20260916" in ids
     assert "semordnilap-role-clause-product-20260916" in ids
     assert "typed-reversible-clause-composer-20260916" in ids
+    assert "seed-extension-frame-insertion-20260916" in ids
+    assert "interrogative-relative-template-solver-20260916" in ids
+    assert "live-tape-clause-terminal-decoder-20260916" in ids
+    assert "bilateral-semantic-growth-grammar-20260916" in ids
+    assert "scene-lattice-attachment-csp-20260916" in ids
     assert "model-authored-clause-bank-index" in ids
     assert "semantic-scene-seam-growth" in ids
     assert "live-seam-intent-continuation" in ids

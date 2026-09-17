@@ -80,6 +80,10 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
             # under ``states``.  Include list-valued states so the aggregate
             # cannot silently omit their prose or independent tape audits.
             "states",
+            # Scalable bilateral grammar lanes name their appendable growth
+            # frontier ``growth_states``; treat each complete realization as a
+            # first-class row in the shared audit.
+            "growth_states",
         ):
             values = payload.get(key)
             if isinstance(values, list):

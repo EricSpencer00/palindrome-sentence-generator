@@ -2086,7 +2086,7 @@ item-aware analysis plan.
   **Fresh ten-lane closure audit (2026-09-16):** ten orthogonal Luna state
   representations now have append-only run artifacts with rendered prose,
   independent pointer/hash validation, provenance, novelty preflight, and a
-  named next repair. The aggregate is 4,744 rows across 202 route phases (79
+  named next repair. The aggregate is 4,763 rows across 207 route phases (79
   exact but rejected tapes; 0 mechanically admitted). The lane-8 exact
   126-letter surface is quarantined because it is six repetitions of the
   catalogue clause “A man, a plan, a canal, Panama.” The longest fresh intact
@@ -2162,3 +2162,28 @@ item-aware analysis plan.
   92--124-letter scenes; every row has independent pointer/SHA validation,
   provenance, novelty preflight, and a named next repair. None is exact, so the
   reader gate remains closed while the next constructive repair is queued.
+
+  Two further fresh states are now retained: seed-free authored-frame insertion
+  renders “At dawn, the archivist opens the cedar cabinet and records the harbor
+  map, before dusk.” (83 letters), while an interrogative/relative-template
+  solver renders “Was the quiet curator sure that the young pilot had seen the
+  chart I filed beside the harbor ledger?” (87 letters). Both are complete
+  prose with independent pointer/SHA validation, provenance, novelty preflight,
+  anti-shortcut checks, and concrete repairs; neither is exact or reader-
+  eligible.
+
+  The newest queue pass adds three genuinely distinct constructive states: a
+  live mirrored-tape terminal decoder (six 88--103-letter scenes), a fresh
+  human-authored attachment CSP (two 105--107-letter museum scenes), and an
+  unbounded bilateral semantic-growth grammar (three non-repeating growth
+  states up to 140 letters). Every row has independent pointer/SHA replay,
+  provenance, novelty preflight, anti-shortcut checks, and a concrete
+  first-residual repair; none closes exactly or enters the reader packet.
+
+  The newest queue pass adds three genuinely distinct constructive states: a
+  live mirrored-tape terminal decoder (six 88--103-letter scenes), a fresh
+  human-authored attachment CSP (two 105--107-letter museum scenes), and an
+  unbounded bilateral semantic-growth grammar (three non-repeating growth
+  states up to 140 letters). Every row has independent pointer/SHA replay,
+  provenance, novelty preflight, anti-shortcut checks, and a concrete
+  first-residual repair; none closes exactly or enters the reader packet.

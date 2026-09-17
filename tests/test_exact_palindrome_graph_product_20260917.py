@@ -12,6 +12,11 @@ def test_fixture_oracle_and_live_rejection():
 def test_half_tape_is_not_exact_admission():
     assert not exact_audit("live on time")["exact"]
 
+def test_lexical_lane_has_no_fabricated_duplicate_paths():
+    lexical = run()["lexical_search"]["completed_paths"]
+    assert all(row["left_path"] != row["right_path"] for row in lexical)
+    assert all(" " in row["left_path"] and " " in row["right_path"] for row in lexical)
+
 def test_root_intersections_are_reported_without_sentence_candidates():
     result = run()
     assert set(result["template_domains"]) == {"declarative", "question", "imperative"}

@@ -110,14 +110,25 @@ def run() -> dict:
     root_intersections = {a: sorted(set(compiled[a]["root_chars"]) & set(compiled[b]["root_chars"])) for a in compiled for b in compiled if a < b}
 
     lexical = [w.strip().lower() for w in (ROOT / "data" / "lexicon.txt").read_text().splitlines() if w.strip()][:500]
-    lexical_graph = CharacterGraph.from_words(lexical, "audited-common-word-inventory")
+    lexical_phrases = [f"{a} {b}" for a in lexical[:40] for b in lexical[:40] if a != b]
+    lexical_graph = CharacterGraph.from_phrases(lexical_phrases, "audited-common-word-inventory")
     lexical_result = solve_product(lexical_graph, lexical_graph, max_states=2500)
-    completions = sorted({x["text"] for x in lexical_result["completions"] if 39 <= len("".join(x["text"].split())) <= 60 and 2 <= len(x["text"].split()) <= 8 and exact_audit(x["text"])["exact"]})
+    # No fabricated ``half + half`` tapes: only distinct, genuinely multiword
+    # accepting paths may enter this lane.
+    completions = []
+    for x in lexical_result["completions"]:
+        left, right = x.get("left_path"), x.get("right_path")
+        if not left or not right or left == right or " " not in left or " " not in right:
+            continue
+        full = f"{left} {right}"
+        letters = len("".join(full.split()))
+        if 39 <= letters <= 60 and 2 <= len(full.split()) <= 8 and exact_audit(full)["exact"]:
+            completions.append({"left_path": left, "right_path": right, "full_tape": full})
     return {"experiment_id": "exact-palindrome-graph-product-20260917", "signature": SIGNATURE,
             "status": "completed", "fixture": {"oracle": {"pair": ["live on time", "emit no evil"], "full_tape": oracle[0]}, "rendered": rendered, "pairs": pairs, "result": product, "left_phrases": left_phrases, "right_phrases": right_phrases, "distractors": 2},
             "template_domains": {k: {"template_count": len(domains[k]), "root_chars": compiled[k]["root_chars"], "character_graph_nodes": compiled[k]["graph"]._next} for k in domains},
             "root_character_intersections": root_intersections,
-            "lexical_search": {"inventory": lexical, "inventory_source": "data/lexicon.txt (audited repository inventory slice)", "result": lexical_result, "completed_paths": [{"left_path": x["text"], "right_path": x["text"], "full_tape": x["text"] + " " + x["text"]} for x in lexical_result["completions"] if exact_audit(x["text"] + x["text"])["exact"]], "grammar_gate": "completed paths only", "readability_gate": "completed paths only", "word_cap": 8, "letter_range": [39,60], "search_status": "budget_exhausted" if lexical_result["budget_exhausted"] else "exhaustive_completion"},
+            "lexical_search": {"inventory": lexical, "inventory_source": "data/lexicon.txt (audited repository inventory slice)", "result": lexical_result, "completed_paths": completions, "grammar_gate": "completed paths only", "readability_gate": "completed paths only", "word_cap": 8, "letter_range": [39,60], "search_status": "budget_exhausted" if lexical_result["budget_exhausted"] else "exhaustive_completion"},
             "audits": {"exact_independent_audits": [exact_audit(x) for x in rendered], "provenance": "graph edge provenance and backpointers retained", "novelty": "character graph product; no fixed tape", "anti_shortcut_checks": ["no sentence enumeration during compilation", "unequal edges rejected live", "render only accepting exact paths"]},
             "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
 

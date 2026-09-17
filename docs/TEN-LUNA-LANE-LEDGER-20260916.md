@@ -554,3 +554,6 @@ and a 128-letter inflection/clitic before-dusk suffix. Each is independently
 rejected by pointer and SHA checks, carries fresh provenance and novelty
 preflight, and names the next local repair. The authoritative total is now
 4,955 rows across 274 routes, with 79 exact controls and 0 admitted outputs.
+The second continuation pass contributes a 109-letter opposing-adjunct scene,
+a 127-letter possessive-boundary harbor scene, and a 161-letter final-locative
+scene; all remain independently rejected with concrete next repairs.

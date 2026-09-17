@@ -768,3 +768,9 @@ inflection/clitic suffix repair produced a 128-letter harbor scene ending
 ``before dusk.'' All three have independent pointer/SHA rejection, no-copy
 provenance, novelty preflight, and a further local repair; they raise the
 authoritative audit to 4,955 rows across 274 routes without reopening a sweep.
+
+A second one-state continuation then changed only the opposing CFG adjunct
+(109 letters), the harbor possessive boundary (127 letters), and the final
+gardener locative (161 letters). Each remains intact prose with independent
+pointer/SHA rejection, fresh provenance, novelty preflight, and a named next
+repair; none is reader eligible.

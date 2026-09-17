@@ -1,0 +1,13 @@
+"""Targeted evidence repair for lanes 3, 4, and 8; no search."""
+import hashlib,json
+from pathlib import Path
+from llm_palindrome.admission import normalize_letters
+ROOT=Path(__file__).resolve().parents[1];ID='audit-lanes-3-4-8-evidence-repair-20260916';SIGNATURE='audit-only|lane3-reverse-sha|lane8-shortcut-flags|lane4-replay|no-search'
+def main():
+ reg=json.loads((ROOT/'docs/experiment-novelty-registry.json').read_text());allr=reg['entries']+reg.get('excluded',[])
+ if any(x.get('signature')==SIGNATURE for x in allr if x.get('id')!=ID):raise SystemExit('duplicate audit state rejected')
+ p3=json.loads((ROOT/'runs/dependency-seam-csp-20260916-luna.json').read_text());p4=json.loads((ROOT/'runs/morphology-crossword-transducer-20260916.json').read_text());p8=json.loads((ROOT/'runs/inflection-clitic-boundary-search-20260916-luna.json').read_text())
+ t3=normalize_letters(p3['rendered']);t8=normalize_letters(p8['candidate']['rendered'])
+ out={'experiment_id':ID,'signature':SIGNATURE,'status':'audit_complete_no_admission','method':'replay existing artifacts; add missing reverse digests and explicit shortcut decisions','lanes':{'3_dependency_seam':{'rendered':p3['rendered'],'letters':len(t3),'two_pointer_exact':p3['independent_exact_audit']['two_pointer_exact'],'normalized_sha256':hashlib.sha256(t3.encode()).hexdigest(),'reverse_sha256':hashlib.sha256(t3[::-1].encode()).hexdigest(),'provenance':p3['provenance'],'next_repair':p3['next_repair']},'4_morphology_transducer':{'candidate_count':len(p4['candidates']),'all_independently_audited':all('normalized_sha256' in c['audit'] and 'reverse_sha256' in c['audit'] for c in p4['candidates']),'provenance':p4['provenance'],'next_repair':p4['next_repair']},'8_inflection_clitic':{'rendered':p8['candidate']['rendered'],'letters':len(t8),'two_pointer_exact':True,'normalized_sha256':hashlib.sha256(t8.encode()).hexdigest(),'reverse_sha256':hashlib.sha256(t8[::-1].encode()).hexdigest(),'anti_shortcut':{'repeated_canonical_unit':True,'catalogue_control':True,'word_order_mirror':False,'reader_admission':False},'decision':'rejected control; exactness preserved as failure evidence','next_repair':p8['next_repair_operator']}},'novelty_preflight':{'registry_entries_read':len(allr),'exact_signature_collision':False,'search_performed':False,'audit_only':True},'provenance':{'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'source_artifacts':['runs/dependency-seam-csp-20260916-luna.json','runs/morphology-crossword-transducer-20260916.json','runs/inflection-clitic-boundary-search-20260916-luna.json'],'mutation':'audit fields only; no candidate generation'}}
+ (ROOT/'runs'/(ID+'.json')).write_text(json.dumps(out,indent=2)+'\n');print('audit complete')
+if __name__=='__main__':main()

@@ -1,0 +1,71 @@
+{
+  "experiment_id": "audit-lanes-3-4-8-evidence-repair-20260916",
+  "signature": "audit-only|lane3-reverse-sha|lane8-shortcut-flags|lane4-replay|no-search",
+  "status": "audit_complete_no_admission",
+  "method": "replay existing artifacts; add missing reverse digests and explicit shortcut decisions",
+  "lanes": {
+    "3_dependency_seam": {
+      "rendered": "The patient curator carries a brass compass through the quiet archive while the young cartographer records each turning near the northern window.",
+      "letters": 123,
+      "two_pointer_exact": false,
+      "normalized_sha256": "fb37f160792f125d7249909d9fb647e60237299001a444da92615e4c0cd7a534",
+      "reverse_sha256": "6ddccba7d970c35862d1881793f3acf34cf0c910569f23fcb3d6579de63296da",
+      "provenance": {
+        "generator_sha256": "aeb24a057ccd7e456968f608c2bf1c1f07720f65fd16b00973d16d10cd8a2a6f",
+        "scene_authored_in_run": true,
+        "catalogue_imported": false,
+        "fragments": false,
+        "dependency_slots_typed": true
+      },
+      "next_repair": "Replace the lexical item at the recorded first seam with a held-out same-role, same-feature candidate, then rerun the full dependency CSP and both independent audits."
+    },
+    "4_morphology_transducer": {
+      "candidate_count": 2,
+      "all_independently_audited": true,
+      "provenance": {
+        "generator_sha256": "f6a5536eb7b8f925729e4d98727cc243d0ae0cfdcfd06a5811b7e94df0b47c2c",
+        "lexical_source": "held-out verb/noun bank and fresh cabinet/inlet scenes",
+        "audits": [
+          "independent two-pointer",
+          "forward/reverse SHA-256",
+          "dependency feature replay",
+          "anti-shortcut"
+        ]
+      },
+      "next_repair": {
+        "operator": "change one held-out inflection or clitic seam preserving dependency features at first residual",
+        "reason": "no exact anti-shortcut candidate survived joint lexicalization"
+      }
+    },
+    "8_inflection_clitic": {
+      "rendered": "A man, a plan, a canal, Panama. A man, a plan, a canal, Panama. A man, a plan, a canal, Panama. A man, a plan, a canal, Panama. A man, a plan, a canal, Panama. A man, a plan, a canal, Panama.",
+      "letters": 126,
+      "two_pointer_exact": true,
+      "normalized_sha256": "3f41817fed9de4da48b3c8bb9e01e06f4bbf85ad72b908591db6f5858045dbb6",
+      "reverse_sha256": "3f41817fed9de4da48b3c8bb9e01e06f4bbf85ad72b908591db6f5858045dbb6",
+      "anti_shortcut": {
+        "repeated_canonical_unit": true,
+        "catalogue_control": true,
+        "word_order_mirror": false,
+        "reader_admission": false
+      },
+      "decision": "rejected control; exactness preserved as failure evidence",
+      "next_repair": "replace one repeated clause with a held-out inflected subject plus an enclitic boundary, then solve the mirrored pointer obligations jointly and rerun the blind readability gate"
+    }
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 400,
+    "exact_signature_collision": false,
+    "search_performed": false,
+    "audit_only": true
+  },
+  "provenance": {
+    "generator_sha256": "e53a7d306dca0cb986d01a43d5f0c377c8b42750cb9199a03cb289554455d713",
+    "source_artifacts": [
+      "runs/dependency-seam-csp-20260916-luna.json",
+      "runs/morphology-crossword-transducer-20260916.json",
+      "runs/inflection-clitic-boundary-search-20260916-luna.json"
+    ],
+    "mutation": "audit fields only; no candidate generation"
+  }
+}

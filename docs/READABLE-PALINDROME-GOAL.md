@@ -2668,3 +2668,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   reader gate remains closed. The next concrete operators are paired-slot
   full-support maps, shared-`where` matrix-verb agreement, and one determiner
   on the second object in the short grammar.
+
+  The next wave completed those operators. Paired-slot full support maps
+  retained 2 intact candidates up to 82 letters; shared-`where` matrix
+  agreement produced 512 candidates up to 81 letters; and the short
+  second-object determiner repair rendered 11,664 intact candidates up to 141
+  letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are paired
+  support-map intersection pruning, matrix determiner/subject-number
+  alternation, and one second-object-only adjective in the short grammar.

@@ -120,13 +120,54 @@ def exact_audit(text: str) -> dict:
 def anti_shortcut(words: tuple[str, ...]) -> dict:
     content = [word for word in words if word not in FUNCTION_WORDS]
     tape = "".join(words)
+    normalized_words = tuple(letters(word) for word in words)
+    fixture_words = tuple(letters(word) for word in CATALOGUE_FIXTURE)
+    positional_fixture_matches = (
+        sum(left == right for left, right in zip(normalized_words, fixture_words))
+        if len(normalized_words) == len(fixture_words) else 0
+    )
     return {
         "repeated_content": len(content) != len(set(content)),
         "self_palindromic_words": [word for word in words if len(word) > 1 and word == word[::-1]],
         "word_order_symmetry": list(words) == [word[::-1] for word in reversed(words)],
         "catalogue_tape": tape == CATALOGUE_TAPE,
+        # A generated candidate that changes only one or two tokens of the
+        # known fixture is still borrowed catalogue prose, even when its tape
+        # differs.  Keep this narrow, explicit family check separate from
+        # ordinary lexical overlap.
+        "catalogue_sequence_derivative": (
+            normalized_words != fixture_words
+            and len(normalized_words) == len(fixture_words)
+            and positional_fixture_matches >= len(fixture_words) - 2
+        ),
         "catalogue_word_overlap": sorted(set(content) & (set(CATALOGUE_FIXTURE) - FUNCTION_WORDS)),
     }
+
+
+def shortcut_violations(shortcut: dict) -> dict:
+    """Return only disqualifying shortcut flags.
+
+    Overlap with an ordinary word from the quarantined catalogue is useful
+    provenance evidence, but it is not itself a shortcut.  Rejecting it made
+    the generator silently ban words such as ``note`` and ``fast`` even when
+    they appeared in a newly authored sentence.
+    """
+    return {key: value for key, value in shortcut.items()
+            if key != "catalogue_word_overlap" and bool(value)}
+
+
+def _center_residual_is_palindromic(tape: str, position: int, *,
+                                    consumed_from_right: bool) -> bool:
+    """Check the unconsumed center of a word after a seam crossing.
+
+    The right pointer consumes characters from the end of its word, leaving a
+    *prefix* at the center; the left pointer consumes from the start, leaving a
+    suffix.  Either residual may contain several characters, provided that
+    residual is itself a palindrome.  Restricting it to one character was a
+    false-negative for valid constructions such as ``ab acaba``.
+    """
+    residual = tape[:len(tape) - position] if consumed_from_right else tape[position:]
+    return bool(residual) and residual == residual[::-1]
 
 
 def _eligible(word: str, used: frozenset[str]) -> bool:
@@ -136,6 +177,7 @@ def _eligible(word: str, used: frozenset[str]) -> bool:
 @dataclass
 class SearchResult:
     paths: list[dict]
+    rejected_exact_paths: list[dict]
     states: int
     mismatch_edges: int
     budget_exhausted: bool
@@ -158,10 +200,27 @@ def search_pattern(slots: tuple[str, ...], *, state_budget: int = 250_000,
     stack = [(0, n - 1, None, 0, None, 0, (None,) * n, frozenset())]
     seen: set[tuple] = set()
     paths: list[dict] = []
+    rejected_exact_paths: list[dict] = []
     mismatch_edges = 0
     mismatch_frontiers: list[dict] = []
     states = 0
     longest_partial: dict | None = None
+
+    def record_candidate(rendered: str, words: tuple[str, ...],
+                         provenance: dict) -> None:
+        audit = exact_audit(rendered)
+        if not audit["exact"]:
+            return
+        shortcut = anti_shortcut(words)
+        candidate = {"rendered": rendered, "words": words, "audit": audit,
+                     "anti_shortcut": shortcut, "provenance": provenance}
+        violations = shortcut_violations(shortcut)
+        if catalogue_fixture or not violations:
+            paths.append(candidate)
+        else:
+            candidate["rejection_reasons"] = violations
+            rejected_exact_paths.append(candidate)
+
     while stack and states < state_budget:
         li, ri, left_word, left_pos, right_word, right_pos, assign, used = stack.pop()
         states += 1
@@ -185,41 +244,28 @@ def search_pattern(slots: tuple[str, ...], *, state_budget: int = 250_000,
         # palindrome would incorrectly reject the known `... never prevents
         # ...` geometry, whose center is the single `p` in `prevents`.
         if li == ri and left_word is None and right_word is not None:
-            if len(right_word) - right_pos <= 1:
+            if _center_residual_is_palindromic(
+                    letters(right_word), right_pos, consumed_from_right=True):
                 words = tuple(word for word in assign if word is not None)
-                rendered = " ".join(words)
-                audit = exact_audit(rendered)
-                shortcut = anti_shortcut(words)
-                if audit["exact"] and (catalogue_fixture or not any(shortcut.values())):
-                    paths.append({"rendered": rendered, "words": words, "audit": audit,
-                                  "anti_shortcut": shortcut, "provenance": {"slots": slots,
-                                  "outer_slot_expansion": True, "live_character_edges": True,
-                                  "center_inside_slot": True,
-                                  "catalogue_fixture": catalogue_fixture}})
+                record_candidate(" ".join(words), words, {"slots": slots,
+                                 "outer_slot_expansion": True, "live_character_edges": True,
+                                 "center_inside_slot": True,
+                                 "catalogue_fixture": catalogue_fixture})
             continue
         if li == ri and right_word is None and left_word is not None:
-            if len(left_word) - left_pos <= 1:
+            if _center_residual_is_palindromic(
+                    letters(left_word), left_pos, consumed_from_right=False):
                 words = tuple(word for word in assign if word is not None)
-                rendered = " ".join(words)
-                audit = exact_audit(rendered)
-                shortcut = anti_shortcut(words)
-                if audit["exact"] and (catalogue_fixture or not any(shortcut.values())):
-                    paths.append({"rendered": rendered, "words": words, "audit": audit,
-                                  "anti_shortcut": shortcut, "provenance": {"slots": slots,
-                                  "outer_slot_expansion": True, "live_character_edges": True,
-                                  "center_inside_slot": True,
-                                  "catalogue_fixture": catalogue_fixture}})
+                record_candidate(" ".join(words), words, {"slots": slots,
+                                 "outer_slot_expansion": True, "live_character_edges": True,
+                                 "center_inside_slot": True,
+                                 "catalogue_fixture": catalogue_fixture})
             continue
         if li > ri:
             words = tuple(word for word in assign if word is not None)
-            rendered = " ".join(words)
-            audit = exact_audit(rendered)
-            shortcut = anti_shortcut(words)
-            if audit["exact"] and (catalogue_fixture or not any(shortcut.values())):
-                paths.append({"rendered": rendered, "words": words, "audit": audit,
-                              "anti_shortcut": shortcut, "provenance": {"slots": slots,
-                              "outer_slot_expansion": True, "live_character_edges": True,
-                              "catalogue_fixture": catalogue_fixture}})
+            record_candidate(" ".join(words), words, {"slots": slots,
+                             "outer_slot_expansion": True, "live_character_edges": True,
+                             "catalogue_fixture": catalogue_fixture})
             continue
         if li == ri and left_word is None and right_word is None:
             for word in banks[slots[li]]:
@@ -260,7 +306,7 @@ def search_pattern(slots: tuple[str, ...], *, state_budget: int = 250_000,
                 })
             continue
         stack.append((li, ri, left_word, left_pos + 1, right_word, right_pos + 1, assign, used))
-    return SearchResult(paths, states, mismatch_edges, bool(stack), longest_partial, mismatch_frontiers)
+    return SearchResult(paths, rejected_exact_paths, states, mismatch_edges, bool(stack), longest_partial, mismatch_frontiers)
 
 
 def seam_repair_menu(frontier: dict, *, forbidden_words: frozenset[str] = frozenset()) -> dict:
@@ -328,10 +374,11 @@ def resume_seam_repair(slots: tuple[str, ...], frontier: dict, *, side: str,
         if key in seen: continue
         seen.add(key)
         if li == ri and left_word is None and right_word is not None:
-            if len(right_word) - right_pos <= 1:
+            if _center_residual_is_palindromic(
+                    letters(right_word), right_pos, consumed_from_right=True):
                 words = tuple(word for word in assign if word is not None)
                 audit = exact_audit(" ".join(words)); shortcut = anti_shortcut(words)
-                if audit["exact"] and not any(shortcut.values()):
+                if audit["exact"] and not shortcut_violations(shortcut):
                     paths.append({"rendered": " ".join(words), "words": words,
                                   "audit": audit, "anti_shortcut": shortcut,
                                   "provenance": {"resumed_from_frontier": True,
@@ -339,10 +386,11 @@ def resume_seam_repair(slots: tuple[str, ...], frontier: dict, *, side: str,
                                                  "replacement": replacement}})
             continue
         if li == ri and right_word is None and left_word is not None:
-            if len(left_word) - left_pos <= 1:
+            if _center_residual_is_palindromic(
+                    letters(left_word), left_pos, consumed_from_right=False):
                 words = tuple(word for word in assign if word is not None)
                 audit = exact_audit(" ".join(words)); shortcut = anti_shortcut(words)
-                if audit["exact"] and not any(shortcut.values()):
+                if audit["exact"] and not shortcut_violations(shortcut):
                     paths.append({"rendered": " ".join(words), "words": words,
                                   "audit": audit, "anti_shortcut": shortcut,
                                   "provenance": {"resumed_from_frontier": True,
@@ -387,26 +435,30 @@ def run() -> dict:
     novel: list[dict] = []
     seam_repairs: list[dict] = []
     for name, slots in PATTERNS.items():
-        result = search_pattern(slots, forbidden_words=frozenset(CATALOGUE_FIXTURE))
+        # Common catalogue words are not borrowed text.  The full fixture tape
+        # remains blocked by ``catalogue_tape`` at admission time.
+        result = search_pattern(slots, forbidden_words=frozenset())
         menus = [seam_repair_menu(frontier,
-                    forbidden_words=frozenset(CATALOGUE_FIXTURE))
+                    forbidden_words=frozenset())
                  for frontier in result.mismatch_frontiers[:3]]
         for menu, frontier in zip(menus, result.mismatch_frontiers[:3]):
             for replacement in menu["left_alternatives"][:2]:
                 seam_repairs.extend(resume_seam_repair(
                     slots, frontier, side="left", replacement=replacement,
-                    forbidden_words=frozenset(CATALOGUE_FIXTURE)))
+                    forbidden_words=frozenset()))
             for replacement in menu["right_alternatives"][:2]:
                 seam_repairs.extend(resume_seam_repair(
                     slots, frontier, side="right", replacement=replacement,
-                    forbidden_words=frozenset(CATALOGUE_FIXTURE)))
+                    forbidden_words=frozenset()))
         searches[name] = {"states": result.states, "mismatch_edges": result.mismatch_edges,
                           "budget_exhausted": result.budget_exhausted,
                           "exact_paths": len(result.paths),
+                          "rejected_exact_paths": len(result.rejected_exact_paths),
                           "longest_partial": result.longest_partial,
                           "mismatch_frontiers": result.mismatch_frontiers,
                           "seam_repair_menus": menus,
-                          "paths": result.paths[:20]}
+                          "paths": result.paths[:20],
+                          "rejected_paths": result.rejected_exact_paths[:20]}
         novel.extend(result.paths)
     return {
         "experiment_id": EXPERIMENT_ID,
@@ -418,10 +470,10 @@ def run() -> dict:
         "novel_exact_candidates": novel[:50],
         "seam_repair_exact_candidates": seam_repairs[:50],
         "seam_repair_count": len(seam_repairs),
-        "reader_gate": "closed; no novel exact survivor means no human study yet",
-        "next_repair": "typed seam repair at the first mismatching edge, changing one role bank while preserving all earlier matched edges",
+        "reader_gate": "closed; exact paths were either catalogue-family derivatives or absent",
+        "next_repair": "finite-state grammar-relation repair: carry typed grammar state and residual character debt across the seam, then relexicalize at the first non-catalogue residual rather than replaying the fixture footprint",
         "independent_audits": ["two-pointer letter comparison", "forward/reverse SHA-256"],
-        "anti_shortcut_policy": ["no finished-tape reversal", "no nested palindrome core", "no repeated content word", "catalogue fixture never admitted"],
+        "anti_shortcut_policy": ["no finished-tape reversal", "no nested palindrome core", "no repeated content word", "catalogue fixture and near-duplicate token sequence never admitted"],
         "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
     }
 

@@ -25,6 +25,16 @@ def test_outer_slot_product_has_live_mismatch_pruning_and_no_novel_output():
     assert result["novel_exact_candidates"] == []
     assert result["seam_repair_count"] == 0
     assert result["seam_repair_exact_candidates"] == []
+    assert result["searches"]["chain"]["rejected_exact_paths"] == 2
+    rejected_rows = result["searches"]["chain"]["rejected_paths"]
+    rejected = next(row for row in rejected_rows
+                    if row["rendered"].startswith("cod note"))
+    assert rejected["rendered"] == (
+        "cod note i dissent a fast never prevents a fatness i diet on doc"
+    )
+    assert "catalogue_sequence_derivative" in rejected["rejection_reasons"]
+    assert any(row["anti_shortcut"]["catalogue_tape"]
+               for row in rejected_rows)
     assert all(row["mismatch_edges"] > 0 for row in result["searches"].values())
     assert all(row["exact_paths"] == 0 for row in result["searches"].values())
     assert all(row["mismatch_frontiers"] for row in result["searches"].values())

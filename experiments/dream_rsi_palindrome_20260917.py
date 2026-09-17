@@ -60,6 +60,7 @@ EXPLICIT_HISTORY = (
     "runs/human-centerout-function-verb-noun-csp-20260917.json",
     "runs/cfg-reverse-tape-dp-20260917.json",
     "runs/dream-rsi-online-branching-two-region-20260917.json",
+    "runs/lexicon-reverse-edge-chain-20260917.json",
     "runs/joint-boundary-first-mismatch-repair-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
@@ -151,6 +152,17 @@ def _shortcut_free(obj: dict[str, Any]) -> bool:
     text, _ = _text_and_audit(obj)
     if text:
         words = [word.casefold() for word in re.findall(r"[A-Za-z]+", text)]
+        # A chain of individually self-palindromic words is an exact tape but
+        # not the requested construction.  Reject it even when a legacy
+        # artifact omitted explicit anti-shortcut metadata.
+        content_words = [word for word in words if word not in {
+            "a", "an", "the", "i", "we", "you", "he", "she", "it",
+            "they", "and", "or", "but", "if", "as", "of", "to", "in",
+            "on", "at", "by", "for", "from", "with", "is", "are", "was",
+            "were", "be", "been", "not", "no",
+        }]
+        if any(len(word) > 2 and word == word[::-1] for word in content_words):
+            return False
         for width in (3, 4, 5):
             phrases = [tuple(words[index:index + width])
                        for index in range(len(words) - width + 1)]

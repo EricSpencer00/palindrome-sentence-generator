@@ -25,6 +25,10 @@ def test_repeated_phrase_scaffold_is_not_admissible_without_metadata_flags():
     assert dream._shortcut_free(ordinary) is True
 
 
+def test_self_palindromic_content_word_is_not_admissible_without_metadata_flags():
+    assert dream._shortcut_free({"rendered": "The level rises beside the quiet garden."}) is False
+
+
 def _node(text: str, parent: str | None = None) -> dream.Node:
     audit = dream.independent_audit(text)
     return dream.Node(

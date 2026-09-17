@@ -3634,3 +3634,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   `whole_passage_focus` with zero admissible exact closures. This is a real
   online Dream-RSI deployment trace, not a readability result; the next repair
   must change the live character construction kernel.
+
+  The lexicon reverse-edge lane supplied a useful negative control: its
+  by-construction chain was an exact 138-letter tape, but rendered as
+  “malayalam samas reviver seres rotator siris redder deed alula sis anana sus
+  civic — civic sus anana sis alula deed redder siris rotator seres reviver
+  samas malayalam.” Because it is a chain of self-palindromic words and repeats
+  the same units, it is explicitly quarantined and cannot enter reader testing.
+  The replay gate now rejects self-palindromic content words even when legacy
+  metadata is incomplete. Round sixteen replays this artifact at 16,618 nodes
+  across 442 worlds; held-out admissible exact closures remain zero.

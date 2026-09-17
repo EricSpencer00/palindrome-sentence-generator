@@ -12,7 +12,7 @@ def letters(s): return re.sub('[^a-z]','',s.lower())
 def audit(s):
  t=letters(s);return {'letters':len(t),'exact':bool(t) and t==t[::-1],'sha256_forward':hashlib.sha256(t.encode()).hexdigest(),'sha256_reverse':hashlib.sha256(t[::-1].encode()).hexdigest()}
 def grammar_nfa():
- roles=('DET_SUBJ','ADJ_SUBJ','NOUN_SUBJ','VERB','DET_OBJ','ADJ_OBJ','NOUN_OBJ'); return [(r,LEXICON[r]) for r in roles]
+ roles=('DET_SUBJ','ADJ_SUBJ','NOUN_SUBJ','VERB','DET_OBJ','ADJ_OBJ','NOUN_OBJ'); return [(r,LEXICON[r],tuple(w[::-1] for w in LEXICON[r])) for r in roles]
 def paired_search():
  left=grammar_nfa();right=grammar_nfa(); stack=[(0,0,0,0,'','',[])];closed=[];expanded=0
  while stack and expanded<500:
@@ -21,12 +21,12 @@ def paired_search():
    if a==b[::-1]:closed.append({'left':a,'right':b,'states':states})
    continue
   if i<len(left) and j<len(right):
-   role,xs=left[i]; rrole,ys=right[j]
+   role,xs,xrev=left[i]; rrole,ys,yrev=right[j]
    for x in xs:
     for y in ys:
-     lx,ry=letters(x),letters(y)
+     lx,ry=letters(x),letters(y); left_node=xrev[xs.index(x)]; right_node=yrev[ys.index(y)]
      if li<len(lx) and rj<len(ry) and lx[li]==ry[-1-rj]:
-      ni,nj=li+1,rj+1; stack.append((i,j,ni,nj,a+lx[li],b+ry[-1-rj],states+[role+'|'+rrole+f'[{ni},{nj}]']))
+      ni,nj=li+1,rj+1; stack.append((i,j,ni,nj,a+lx[li],b+ry[-1-rj],states+[role+'|'+rrole+f'[{ni},{nj}]:L{left_node[li]}|R{right_node[rj]}']))
       if ni==len(lx) and nj==len(ry): stack.append((i+1,j+1,0,0,a,b,states+[role+'|'+rrole+'|WORD_BOUNDARY']))
  return expanded,closed
 def oracle_rejects_one_character_fake():

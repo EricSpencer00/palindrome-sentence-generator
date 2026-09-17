@@ -3621,3 +3621,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   replays this world at 16,607 nodes across 440 worlds; the held-out result is
   still zero admissible exact closures, so the next repair is typed complement
   terminals inside the live chart, not a larger score sweep.
+
+  I also exercised the selected policy's online redeployment path on a fresh
+  two-region theater scene. The branching authoring world retained six
+  independently generated 100–140-letter prose successors; its best rendered
+  passage was “The theater archivist retrieved a torn playbill from a locked
+  drawer, carried it to the reading table, and marked missing cast names before
+  the house lights faded.” (134 letters, 59 mismatches). It produced zero exact
+  closures, while recording three rejected length-band proposals and six
+  parent-child edges. Replay round fifteen incorporates that online world at
+  16,617 nodes across 440 worlds; the selected and held-out policies remain
+  `whole_passage_focus` with zero admissible exact closures. This is a real
+  online Dream-RSI deployment trace, not a readability result; the next repair
+  must change the live character construction kernel.

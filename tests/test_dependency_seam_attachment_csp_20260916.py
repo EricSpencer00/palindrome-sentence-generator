@@ -11,6 +11,9 @@ def test_dependency_attachment_csp_is_new_and_independently_checked():
         assert row["rendered"]
         assert row["independent_reparse"]
         assert row["independent_exact_agreement"]
+        assert row["letters"] > 100
+        assert not row["anti_shortcut_flags"]["word_order_mirror"]
+        assert not row["anti_shortcut_flags"]["repeated_palindromic_unit"]
         assert row["anti_shortcut_flags"]["complete_dependency_constituent"]
         assert row["next_repair"]
 

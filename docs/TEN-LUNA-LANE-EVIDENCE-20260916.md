@@ -469,10 +469,10 @@ independent two-pointer/SHA rejection, provenance, novelty preflight, and a
 first-residual repair. A productive grammar-pair composition then grows four
 complete paired-production states from 55 to 223 letters (base and targeted
 right-arm repair), again with zero exact closures. These are bounded growth
-states, not larger duplicate sweeps. The common audit is now **4,725 rows
-across 197 route phases, 79 exact rejected tapes, and 0 mechanically admitted
-outputs**; the novelty registry now records **298 retained artifacts, 31
-explicit exclusions, and 276 retained run artifacts**, with the aggregate
+states, not larger duplicate sweeps. The common audit is now **4,744 rows
+across 202 route phases, 79 exact rejected tapes, and 0 mechanically admitted
+outputs**; the novelty registry now records **303 retained artifacts, 31
+explicit exclusions, and 281 retained run artifacts**, with the aggregate
 report itself listed as an audit report rather than a construction lane. None
 is eligible for readers until an exact anti-shortcut survivor exists.
 
@@ -576,3 +576,15 @@ anti-shortcut flags, novelty preflights with no signature collisions, and
 independent pointer/hash replays. All remain non-exact and reader-ineligible;
 the next reader-facing test is still the randomized intact-versus-shuffled
 packet, gated on a mechanically admitted exact survivor.
+
+## Five orthogonal Luna continuations (2026-09-16)
+
+The current continuation adds five distinct construction states: nested-free
+clause-boundary DP (six 98--107-letter scenes), semantic phrase-edge joining
+(three 114--124-letter scenes), coupled object/attachment repair (four
+108--109-letter scenes), role-typed semordnilap clause products (four
+grammatical 92--106-letter scenes), and a typed reversible-clause composer with
+appendable growth (two 107--111-letter scenes). Every row is rendered intact,
+independently pointer/SHA audited, provenance-backed, novelty-preflighted, and
+paired with a concrete next repair. None closes exactly; all remain outside the
+reader packet.

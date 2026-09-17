@@ -61,7 +61,7 @@ def test_scene_lattice_lanes_have_dual_audits_and_heldout_repairs():
 
 def test_common_audit_includes_the_new_wave_without_reader_promotion():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 4725
+    assert report["candidate_count"] == 4744
     assert report["exact_count"] == 79
     assert report["mechanically_admitted_count"] == 0
     by_source = {row["source_run"]: row for row in report["route_summary"]}
@@ -98,6 +98,11 @@ def test_common_audit_includes_the_new_wave_without_reader_promotion():
     assert by_source["runs/endpoint-aware-bilateral-seam-20260916.json"]["rows"] == 6
     assert by_source["runs/fresh-scene-tape-cfg-resegmentation-20260916.json"]["rows"] == 2
     assert by_source["runs/exact-candidate-slot-repair-neighborhood-20260916.json"]["rows"] == 6
+    assert by_source["runs/compositional-slot-boundary-dp-20260916.json"]["rows"] == 6
+    assert by_source["runs/semantic-phrase-edge-graph-joiner-20260916.json"]["rows"] == 3
+    assert by_source["runs/coupled-object-attachment-repair-20260916.json"]["rows"] == 4
+    assert by_source["runs/semordnilap-role-clause-product-20260916.json"]["rows"] == 4
+    assert by_source["runs/typed-reversible-clause-composer-20260916.json"]["rows"] == 2
 
 
 def test_fresh_typed_frame_preserves_prose_and_live_obligation_evidence():

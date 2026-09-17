@@ -192,9 +192,14 @@
     "runs/online-clause-order-slot-lattice-20260916.json",
     "runs/endpoint-aware-bilateral-seam-20260916.json",
     "runs/fresh-scene-tape-cfg-resegmentation-20260916.json",
-    "runs/exact-candidate-slot-repair-neighborhood-20260916.json"
+    "runs/exact-candidate-slot-repair-neighborhood-20260916.json",
+    "runs/compositional-slot-boundary-dp-20260916.json",
+    "runs/semantic-phrase-edge-graph-joiner-20260916.json",
+    "runs/coupled-object-attachment-repair-20260916.json",
+    "runs/semordnilap-role-clause-product-20260916.json",
+    "runs/typed-reversible-clause-composer-20260916.json"
   ],
-  "candidate_count": 4725,
+  "candidate_count": 4744,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -619,6 +624,16 @@
       "mean_brown_order_gain_vs_shuffle": 0.8467703315252935
     },
     {
+      "source_run": "runs/compositional-slot-boundary-dp-20260916.json",
+      "rows": 6,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 98,
+      "max_letters": 107,
+      "mean_zipf_frequency": 5.371727272727273,
+      "mean_brown_order_gain_vs_shuffle": 0.8637507082583132
+    },
+    {
       "source_run": "runs/compound-derivational-scene-csp-20260916.json",
       "rows": 48,
       "exact_count": 0,
@@ -707,6 +722,16 @@
       "max_letters": 104,
       "mean_zipf_frequency": 5.02361111111111,
       "mean_brown_order_gain_vs_shuffle": 1.0360252802933871
+    },
+    {
+      "source_run": "runs/coupled-object-attachment-repair-20260916.json",
+      "rows": 4,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 108,
+      "max_letters": 109,
+      "mean_zipf_frequency": 5.816800000000001,
+      "mean_brown_order_gain_vs_shuffle": 1.2013940651536825
     },
     {
       "source_run": "runs/coupled-syntax-lexical-authoring-20260916.json",
@@ -1909,6 +1934,16 @@
       "mean_brown_order_gain_vs_shuffle": 0.6633322512521269
     },
     {
+      "source_run": "runs/semantic-phrase-edge-graph-joiner-20260916.json",
+      "rows": 3,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 114,
+      "max_letters": 124,
+      "mean_zipf_frequency": 5.287638888888889,
+      "mean_brown_order_gain_vs_shuffle": 0.8592383223598196
+    },
+    {
       "source_run": "runs/semantic-residual-slot-lattice-20260916.json",
       "rows": 1,
       "exact_count": 0,
@@ -1967,6 +2002,16 @@
       "max_letters": 147,
       "mean_zipf_frequency": 5.547573731615375,
       "mean_brown_order_gain_vs_shuffle": 0.9693646207452367
+    },
+    {
+      "source_run": "runs/semordnilap-role-clause-product-20260916.json",
+      "rows": 4,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 90,
+      "max_letters": 106,
+      "mean_zipf_frequency": 5.1263749999999995,
+      "mean_brown_order_gain_vs_shuffle": 0.3993039679756434
     },
     {
       "source_run": "runs/semordnilap-typed-clause-2026-09-16.json",
@@ -2087,6 +2132,16 @@
       "max_letters": 68,
       "mean_zipf_frequency": 4.497272727272728,
       "mean_brown_order_gain_vs_shuffle": 0.02714443134529354
+    },
+    {
+      "source_run": "runs/typed-reversible-clause-composer-20260916.json",
+      "rows": 2,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 107,
+      "max_letters": 111,
+      "mean_zipf_frequency": 5.637300724637683,
+      "mean_brown_order_gain_vs_shuffle": 1.0093859854802707
     },
     {
       "source_run": "runs/voice-alternation-residual-20260916.json#base",
@@ -227078,6 +227133,892 @@
         "word_count": 32,
         "repeated_word_rate": 0.15625,
         "punctuation_segments": 4
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A patient gardener tends the young cedar trees after the rain; the careful pilot marks the distant runway lights through the mist.",
+      "source_run": "runs/compositional-slot-boundary-dp-20260916.json",
+      "provenance": {
+        "method": "dynamic programming over complete clause slot boundaries with live tape equation",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b71b952f1158bafd9386393ad507507dbf24d3020c803a675c461458df79827e",
+        "source_sha256": "bba7bdcf529aec716632442f3c583b3cb9450ec051e29ea91b0a0e68c87097f4"
+      },
+      "repair": null,
+      "letters": 107,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9171546454765487,
+        "mean_zipf_frequency": 5.408181818181818,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful pilot marks the distant runway lights through the mist; a patient gardener tends the young cedar trees after the rain.",
+      "source_run": "runs/compositional-slot-boundary-dp-20260916.json",
+      "provenance": {
+        "method": "dynamic programming over complete clause slot boundaries with live tape equation",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b71b952f1158bafd9386393ad507507dbf24d3020c803a675c461458df79827e",
+        "source_sha256": "366a6ade04ae1f576359dd11622aeff57b27880d5ac7dc3c02aa7914a5042ecf"
+      },
+      "repair": null,
+      "letters": 107,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.156502292487474,
+        "mean_zipf_frequency": 5.408181818181817,
+        "word_count": 22,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist sorts the faded letters beside the window; the careful pilot marks the distant runway lights through the mist.",
+      "source_run": "runs/compositional-slot-boundary-dp-20260916.json",
+      "provenance": {
+        "method": "dynamic programming over complete clause slot boundaries with live tape equation",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b71b952f1158bafd9386393ad507507dbf24d3020c803a675c461458df79827e",
+        "source_sha256": "db0c4dc35ab8d671c37085ea32801025c6205771a80f869bc19a94be48e2fe4d"
+      },
+      "repair": null,
+      "letters": 103,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6546973847898272,
+        "mean_zipf_frequency": 5.333,
+        "word_count": 20,
+        "repeated_word_rate": 0.25,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful pilot marks the distant runway lights through the mist; the archivist sorts the faded letters beside the window.",
+      "source_run": "runs/compositional-slot-boundary-dp-20260916.json",
+      "provenance": {
+        "method": "dynamic programming over complete clause slot boundaries with live tape equation",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b71b952f1158bafd9386393ad507507dbf24d3020c803a675c461458df79827e",
+        "source_sha256": "74b50e65fcced68ef017b80105f102146d604ab6581b208bc609047026d604d3"
+      },
+      "repair": null,
+      "letters": 103,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7399570924586047,
+        "mean_zipf_frequency": 5.333,
+        "word_count": 20,
+        "repeated_word_rate": 0.25,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist sorts the faded letters beside the window; a patient gardener tends the young cedar trees after the rain.",
+      "source_run": "runs/compositional-slot-boundary-dp-20260916.json",
+      "provenance": {
+        "method": "dynamic programming over complete clause slot boundaries with live tape equation",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b71b952f1158bafd9386393ad507507dbf24d3020c803a675c461458df79827e",
+        "source_sha256": "a90ace6375a48ba6baa6d8cb38ff38b55c8062cefc6924c231dfd35d6fc8e3cb"
+      },
+      "repair": null,
+      "letters": 98,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9438218876983573,
+        "mean_zipf_frequency": 5.374,
+        "word_count": 20,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A patient gardener tends the young cedar trees after the rain; the archivist sorts the faded letters beside the window.",
+      "source_run": "runs/compositional-slot-boundary-dp-20260916.json",
+      "provenance": {
+        "method": "dynamic programming over complete clause slot boundaries with live tape equation",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "b71b952f1158bafd9386393ad507507dbf24d3020c803a675c461458df79827e",
+        "source_sha256": "c59c69841e6508680339d177c806ee8cbb524e6d76350178a3e4bf48a17babe3"
+      },
+      "repair": null,
+      "letters": 98,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7703709466390674,
+        "mean_zipf_frequency": 5.374,
+        "word_count": 20,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The lighthouse keeper records the tide marks beside the storm-dark pier while the young deckhand mends a torn sail for the returning crew.",
+      "source_run": "runs/semantic-phrase-edge-graph-joiner-20260916.json",
+      "provenance": "compose held-out semantic phrase edges into complete SVO paths while evaluating character boundary equations online",
+      "repair": null,
+      "letters": 114,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9052984802221999,
+        "mean_zipf_frequency": 5.184583333333333,
+        "word_count": 24,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient botanist labels the winter seedlings in the glasshouse at dawn while the careful apprentice sorts the field notes for tomorrow\u2019s lesson.",
+      "source_run": "runs/semantic-phrase-edge-graph-joiner-20260916.json",
+      "provenance": "compose held-out semantic phrase edges into complete SVO paths while evaluating character boundary equations online",
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7943300951876644,
+        "mean_zipf_frequency": 5.41125,
+        "word_count": 24,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The lighthouse keeper records the tide marks beside the storm-dark pier while the young deckhand repairs a torn sail for the returning crew.",
+      "source_run": "runs/semantic-phrase-edge-graph-joiner-20260916.json",
+      "provenance": "compose held-out semantic phrase edges into complete SVO paths while evaluating character boundary equations online",
+      "repair": null,
+      "letters": 116,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8780863916695942,
+        "mean_zipf_frequency": 5.267083333333334,
+        "word_count": 24,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the recital, the musician places a blue case beside the steps, shows it to her teacher, and waits until the last listeners go home.",
+      "source_run": "runs/coupled-object-attachment-repair-20260916.json",
+      "provenance": {
+        "fresh_scene": false,
+        "derived_from_readable_near_miss": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "adf3e6d5228fd42458be8a97fac15408ef1c06e95a162aff915780154c1bb7ad"
+      },
+      "repair": null,
+      "letters": 109,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1882057064182128,
+        "mean_zipf_frequency": 5.808400000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the recital, the musician places a blue case near the stairs, shows it to her teacher, and waits until the last listeners go home.",
+      "source_run": "runs/coupled-object-attachment-repair-20260916.json",
+      "provenance": {
+        "fresh_scene": false,
+        "derived_from_readable_near_miss": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "adf3e6d5228fd42458be8a97fac15408ef1c06e95a162aff915780154c1bb7ad"
+      },
+      "repair": null,
+      "letters": 108,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2054986779762569,
+        "mean_zipf_frequency": 5.828800000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the recital, the musician places a dark case beside the steps, shows it to her teacher, and waits until the last listeners go home.",
+      "source_run": "runs/coupled-object-attachment-repair-20260916.json",
+      "provenance": {
+        "fresh_scene": false,
+        "derived_from_readable_near_miss": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "adf3e6d5228fd42458be8a97fac15408ef1c06e95a162aff915780154c1bb7ad"
+      },
+      "repair": null,
+      "letters": 109,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.197289452331109,
+        "mean_zipf_frequency": 5.8048,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After the recital, the musician places a dark case near the stairs, shows it to her teacher, and waits until the last listeners go home.",
+      "source_run": "runs/coupled-object-attachment-repair-20260916.json",
+      "provenance": {
+        "fresh_scene": false,
+        "derived_from_readable_near_miss": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "adf3e6d5228fd42458be8a97fac15408ef1c06e95a162aff915780154c1bb7ad"
+      },
+      "repair": null,
+      "letters": 108,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2145824238891514,
+        "mean_zipf_frequency": 5.825200000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist delivered the rescued letters at dawn; a patient gardener reviled the young cedar trees after rain.",
+      "source_run": "runs/semordnilap-role-clause-product-20260916.json",
+      "provenance": {
+        "method": "POS-role semordnilap pair product with complete SVO+PP clause realization",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "1a4230fac945152106cc1fa2e1eda6e71cb31a4fd11de07b4b6dd114324788d3",
+        "source_sha256": "079e1e722a10d91d4bdc4712339acb689676989e27cf30b9c0c97780f4440cce"
+      },
+      "repair": null,
+      "letters": 94,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4179049997415536,
+        "mean_zipf_frequency": 5.175,
+        "word_count": 18,
+        "repeated_word_rate": 0.11111111111111116,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A patient gardener stressed the young cedar trees after rain; the careful pilot deserts the distant runway lights through mist.",
+      "source_run": "runs/semordnilap-role-clause-product-20260916.json",
+      "provenance": {
+        "method": "POS-role semordnilap pair product with complete SVO+PP clause realization",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "1a4230fac945152106cc1fa2e1eda6e71cb31a4fd11de07b4b6dd114324788d3",
+        "source_sha256": "3dc28235036ad3e18f2d50c0d65e624a4bd3ade3c5eb914f564b5eb4c41053a6"
+      },
+      "repair": null,
+      "letters": 106,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6305029527776025,
+        "mean_zipf_frequency": 5.1205,
+        "word_count": 20,
+        "repeated_word_rate": 0.09999999999999998,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful pilot repaid the distant runway lights through mist; the archivist diapered the rescued letters at dawn.",
+      "source_run": "runs/semordnilap-role-clause-product-20260916.json",
+      "provenance": {
+        "method": "POS-role semordnilap pair product with complete SVO+PP clause realization",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "1a4230fac945152106cc1fa2e1eda6e71cb31a4fd11de07b4b6dd114324788d3",
+        "source_sha256": "e32d1095005c5e43b6bdeec4ec1c22e88b93246f3a2500aebf8be5e54de27092"
+      },
+      "repair": null,
+      "letters": 97,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.2516563150533102,
+        "mean_zipf_frequency": 4.9833333333333325,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist draws the rescued letters at dawn; a patient gardener rewards the young cedar trees after rain.",
+      "source_run": "runs/semordnilap-role-clause-product-20260916.json",
+      "provenance": {
+        "method": "POS-role semordnilap pair product with complete SVO+PP clause realization",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "1a4230fac945152106cc1fa2e1eda6e71cb31a4fd11de07b4b6dd114324788d3",
+        "source_sha256": "ff1a5afb51b9b55dc9831f7bfa08996aa5aad039870b0290cb024b0d61f017c7"
+      },
+      "repair": null,
+      "letters": 90,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.29715160433010723,
+        "mean_zipf_frequency": 5.226666666666667,
+        "word_count": 18,
+        "repeated_word_rate": 0.11111111111111116,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The harbor keeper checks the lanterns before dawn, and the night watch records each change in the log for careful readers near the quay.",
+      "source_run": "runs/typed-reversible-clause-composer-20260916.json",
+      "provenance": "compose complete semantic clauses with POS/role-typed reversible lexical alternatives and an appendable frame growth operator",
+      "repair": null,
+      "letters": 111,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7985650001143583,
+        "mean_zipf_frequency": 5.634166666666668,
+        "word_count": 24,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardener waters the eastern beds after rain, and the young helper carries fresh tools to the shed for the morning crew.",
+      "source_run": "runs/typed-reversible-clause-composer-20260916.json",
+      "provenance": "compose complete semantic clauses with POS/role-typed reversible lexical alternatives and an appendable frame growth operator",
+      "repair": null,
+      "letters": 107,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2202069708461831,
+        "mean_zipf_frequency": 5.640434782608698,
+        "word_count": 23,
+        "repeated_word_rate": 0.17391304347826086,
+        "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

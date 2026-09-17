@@ -204,6 +204,11 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "endpoint-aware-bilateral-seam-20260916" in ids
     assert "fresh-scene-tape-cfg-resegmentation-20260916" in ids
     assert "exact-candidate-slot-repair-neighborhood-20260916" in ids
+    assert "compositional-slot-boundary-dp-20260916" in ids
+    assert "semantic-phrase-edge-graph-joiner-20260916" in ids
+    assert "coupled-object-attachment-repair-20260916" in ids
+    assert "semordnilap-role-clause-product-20260916" in ids
+    assert "typed-reversible-clause-composer-20260916" in ids
     assert "model-authored-clause-bank-index" in ids
     assert "semantic-scene-seam-growth" in ids
     assert "live-seam-intent-continuation" in ids

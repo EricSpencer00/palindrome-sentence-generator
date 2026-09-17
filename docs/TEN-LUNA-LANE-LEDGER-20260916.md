@@ -315,7 +315,7 @@ Lane 8's distinct repair is recorded separately as
 harbor scene with plural, past-tense, and possessive-clitic obligations. It is
 non-exact under both independent audits and passes the no-repeated-unit gate.
 
-The common audit is **4,725 rows, 197 route phases, 79 exact rejected tapes,
+The common audit is **4,744 rows, 202 route phases, 79 exact rejected tapes,
 and 0 mechanically admitted outputs**. The exact lane-8 hash is retained only
 as a quarantined duplicate-control failure; it cannot enter a reader packet.
 
@@ -368,7 +368,7 @@ states at 55, 114, 168, and 223 letters. Both continuations have fresh
 provenance and novelty fingerprints, and neither produced an exact closure;
 they are retained as construction evidence rather than duplicate sweeps.
 
-The authoritative aggregate is therefore **4,725 rows across 197 route
+The authoritative aggregate is therefore **4,744 rows across 202 route
 phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**. The
 next reader-facing test remains the randomized blinded intact-versus-shuffled
 packet, gated on a genuinely exact, anti-shortcut-clean candidate.
@@ -379,8 +379,8 @@ function/inflection editor (five 96--104-letter scenes). Both are registered
 as distinct retained families with independent audits and concrete repairs.
 An entailment-preserving active/passive rewrite is explicitly excluded after
 novelty preflight found overlap with existing voice/information-structure
-families. The registry now contains 298 retained artifacts, 31 exclusions,
-and 276 retained run artifacts.
+families. The registry now contains 303 retained artifacts, 31 exclusions,
+and 281 retained run artifacts.
 
 Representative renderings are preserved verbatim: “The baker repairs the
 gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA
@@ -422,3 +422,13 @@ scene, a 109-letter joint semantic/inflection boundary-DP scene, and a
 independent first-mismatch/SHA digests, provenance, novelty checks, and next
 repairs are preserved in the corresponding run artifacts; none is exact or
 reader-eligible.
+
+The latest continuation retains five additional orthogonal states: a
+nested-free clause-boundary DP (six 98--107-letter scenes), a held-out semantic
+phrase-edge graph joiner (three 114--124-letter scenes), a coupled
+object/attachment repair (four 108--109-letter scenes), a role-typed
+semordnilap clause product (four grammatical 92--106-letter scenes), and a
+typed reversible-clause composer with appendable frame growth (two 107--111-
+letter scenes). Independent pointer/SHA replays, provenance, novelty
+preflights, and concrete next repairs are recorded for every row; all five
+remain non-exact and reader-ineligible.

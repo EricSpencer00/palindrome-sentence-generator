@@ -539,10 +539,16 @@ hyperedge terminal replacement, a held-out agreement-compatible relative
 predicate, and one auxiliary/determiner change with agreement propagation.
 They are not reader eligible; the next reader-facing test remains the
 randomized blinded intact-versus-shuffled packet, gated on an exact
-anti-shortcut survivor. The authoritative audit is now **4,909 rows across 250
+anti-shortcut survivor. The authoritative audit is now **4,912 rows across 253
 route phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**;
-the novelty registry has **351 retained artifacts, 31 exclusions, and 329
-retained run artifacts**.
+the novelty registry has **354 retained artifacts, 31 exclusions, and 332
+retained run artifacts**. The immediate child-repair wave executes the named
+operators without a resweep: one held-out hypergraph object edge yields a new
+141-letter scene, one held-out relative predicate yields a fresh 74-letter Jon
+dialogue, and one determiner change yields an 89-letter archivist/porter
+scene. Each has actual prose, independent pointer/SHA rejection, fresh
+no-copy provenance, novelty preflight, and a new concrete repair; none is
+reader eligible.
 
 Two additional Luna lanes are retained as distinct constructive states. A
 character-level beam over typed semantic frames emits “The young botanist

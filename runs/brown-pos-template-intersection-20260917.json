@@ -1,0 +1,322 @@
+{
+  "experiment_id": "brown-pos-template-intersection-20260917",
+  "signature": "brown-coarse-pos-shape-intersection|independent-slot-grammar|outside-in-residual-dp|fresh-lexicon",
+  "method": "intersection of two independently grammatical Brown coarse POS template families with exact outside-in character residual DP",
+  "novelty_preflight": {
+    "performed_before_search": true,
+    "registry_entries_read": 511,
+    "collisions": [],
+    "passed": true,
+    "duplicate_sweep": false
+  },
+  "rows": [
+    {
+      "kind": "candidate",
+      "rendered": "The patient harbor guides a lantern quietly. A curious warden maps by the northern quay.",
+      "letters": 72,
+      "left_slots": [
+        [
+          "The",
+          "ADJ"
+        ],
+        [
+          "patient",
+          "ADJ"
+        ],
+        [
+          "harbor",
+          "NOUN"
+        ],
+        [
+          "guides",
+          "VERB"
+        ],
+        [
+          "a",
+          "DET"
+        ],
+        [
+          "lantern",
+          "NOUN"
+        ],
+        [
+          "quietly",
+          "ADV"
+        ]
+      ],
+      "right_slots": [
+        [
+          "A",
+          "DET"
+        ],
+        [
+          "curious",
+          "ADJ"
+        ],
+        [
+          "warden",
+          "NOUN"
+        ],
+        [
+          "maps",
+          "VERB"
+        ],
+        [
+          "by",
+          "PREP"
+        ],
+        [
+          "the",
+          "DET"
+        ],
+        [
+          "northern",
+          "ADJ"
+        ],
+        [
+          "quay",
+          "NOUN"
+        ]
+      ],
+      "brown_template_constraint": [
+        [
+          "DET ADJ NOUN VERB DET NOUN ADV",
+          "declarative transitive"
+        ],
+        [
+          "DET NOUN VERB PREP DET ADJ NOUN",
+          "declarative locative"
+        ]
+      ],
+      "residual_dp": {
+        "closed": false,
+        "residual": "t",
+        "events": [
+          {
+            "side": "left",
+            "char": "t",
+            "before": "",
+            "after": "t"
+          }
+        ],
+        "first_failure": {
+          "side": "right",
+          "char": "y",
+          "expected": "t"
+        }
+      },
+      "pointer_audit": {
+        "algorithm": "independent_two_pointer",
+        "letters": 72,
+        "exact": false,
+        "mismatch_count": 36,
+        "mismatches": [
+          [
+            0,
+            "t",
+            "y"
+          ],
+          [
+            1,
+            "h",
+            "a"
+          ],
+          [
+            2,
+            "e",
+            "u"
+          ],
+          [
+            3,
+            "p",
+            "q"
+          ],
+          [
+            4,
+            "a",
+            "n"
+          ],
+          [
+            5,
+            "t",
+            "r"
+          ],
+          [
+            6,
+            "i",
+            "e"
+          ],
+          [
+            7,
+            "e",
+            "h"
+          ],
+          [
+            8,
+            "n",
+            "t"
+          ],
+          [
+            9,
+            "t",
+            "r"
+          ],
+          [
+            10,
+            "h",
+            "o"
+          ],
+          [
+            11,
+            "a",
+            "n"
+          ]
+        ]
+      },
+      "sha_audit": {
+        "algorithm": "forward_reverse_sha256",
+        "forward": "dcb3a6396ffd21401fc672ab39b4d3d38f8d2d203a10edf3f1514e6e5c5880c7",
+        "reverse": "66350a1b8632dedca01a48461258b72c31fff06b748bd74bb94c7a615de90010",
+        "exact": false
+      },
+      "independent_audit_agreement": true,
+      "fresh_lexical_choices": true,
+      "complete_prose": true,
+      "anti_shortcut": {
+        "borrowed_sentence_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_mirror": false,
+        "repeated_unit": false,
+        "fixed_tape": false
+      },
+      "repair_operator": "At first residual contradiction, replace only the slot owning that boundary character with a held-out same-POS lexical choice, then rerun both grammatical realizations and both audits."
+    },
+    {
+      "kind": "seed_recovery_control",
+      "rendered": "level level",
+      "letters": 10,
+      "left_slots": [],
+      "right_slots": [],
+      "brown_template_constraint": [
+        [
+          "DET ADJ NOUN VERB DET NOUN ADV",
+          "declarative transitive"
+        ],
+        [
+          "DET NOUN VERB PREP DET ADJ NOUN",
+          "declarative locative"
+        ]
+      ],
+      "residual_dp": {
+        "closed": true,
+        "residual": "",
+        "events": [
+          {
+            "side": "left",
+            "char": "l",
+            "before": "",
+            "after": "l"
+          },
+          {
+            "side": "right",
+            "char": "l",
+            "before": "l",
+            "after": ""
+          },
+          {
+            "side": "left",
+            "char": "e",
+            "before": "",
+            "after": "e"
+          },
+          {
+            "side": "right",
+            "char": "e",
+            "before": "e",
+            "after": ""
+          },
+          {
+            "side": "left",
+            "char": "v",
+            "before": "",
+            "after": "v"
+          },
+          {
+            "side": "right",
+            "char": "v",
+            "before": "v",
+            "after": ""
+          },
+          {
+            "side": "left",
+            "char": "e",
+            "before": "",
+            "after": "e"
+          },
+          {
+            "side": "right",
+            "char": "e",
+            "before": "e",
+            "after": ""
+          },
+          {
+            "side": "left",
+            "char": "l",
+            "before": "",
+            "after": "l"
+          },
+          {
+            "side": "right",
+            "char": "l",
+            "before": "l",
+            "after": ""
+          }
+        ],
+        "first_failure": null
+      },
+      "pointer_audit": {
+        "algorithm": "independent_two_pointer",
+        "letters": 10,
+        "exact": true,
+        "mismatch_count": 0,
+        "mismatches": []
+      },
+      "sha_audit": {
+        "algorithm": "forward_reverse_sha256",
+        "forward": "33c43848d348cc63f51a757b594aa136ff8d6df9144f2b5070e55032fcc0e1ed",
+        "reverse": "33c43848d348cc63f51a757b594aa136ff8d6df9144f2b5070e55032fcc0e1ed",
+        "exact": true
+      },
+      "independent_audit_agreement": true,
+      "fresh_lexical_choices": false,
+      "complete_prose": false,
+      "anti_shortcut": {
+        "borrowed_sentence_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_mirror": false,
+        "repeated_unit": false,
+        "fixed_tape": false
+      },
+      "repair_operator": "At first residual contradiction, replace only the slot owning that boundary character with a held-out same-POS lexical choice, then rerun both grammatical realizations and both audits."
+    }
+  ],
+  "stats": {
+    "attempts": 2,
+    "novel_attempts": 1,
+    "over_38": 1,
+    "exact": 1,
+    "seed_recovery": true
+  },
+  "provenance": {
+    "generator_sha256": "5f735311d652c952f56ee8e5c8cdca9691219eaa65a169e9fc34edad092fbc8d",
+    "corpus": "Brown universal/coarse POS shapes only",
+    "source_sentences_copied": false,
+    "lexical_words": "fresh authored slot inventory",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ]
+  },
+  "anti_shortcut_policy": "No borrowed sentence text, reverse decoding, fixed tape, mirrored word order, or repeated lexical unit.",
+  "next_repair": "Replace the first contradictory boundary slot with a held-out same-POS word and regenerate both complete clauses."
+}

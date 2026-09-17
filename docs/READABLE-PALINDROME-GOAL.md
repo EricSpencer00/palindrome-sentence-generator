@@ -117,15 +117,14 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   event was then revised by changing its opening subject/action and closing
   consequence/setting regions together, while preserving a 100--140-letter
   band. All eight stored rows remain intact ordinary prose; the best row is
-  114 letters with 52 mismatches versus 65 in the initial passage (a real
-  structural reduction, not deletion or a mirrored unit). No row is exact and
-  none is reader evidence yet. This is the first authoring lane to show a
-  multi-step mirror improvement without leaving the length floor. Its artifact
-  records every rendering, rejected-length count (zero), provenance, and
-  independent forward/reverse hashes. The next test is a new authored event
-  under the same two-region operator to check whether the reduction is
-  reproducible; do not keep paraphrasing this lineage or promote its diagnostic
-  score to readability.
+  114 letters with 52 mismatches versus 65 initially. The normalized mismatch
+  rate moved from .942 to .912 while the model shortened the passage but stayed
+  above the floor. This is a useful structural signal, not exact or reader
+  evidence, and it does not excuse the length loss. Its artifact records every
+  rendering, rejected-length count (zero), provenance, and independent
+  forward/reverse hashes. The next test is a new authored event under the same
+  two-region operator to check whether the reduction is reproducible; do not
+  keep paraphrasing this lineage or promote its diagnostic score to readability.
 
 - **Midpoint representation audit.** Astra differential testing found that the
   earlier live products silently required each complete clause to occupy one

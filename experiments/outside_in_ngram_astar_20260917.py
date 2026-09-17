@@ -13,6 +13,10 @@ TEMPLATES = [
     (("DET", "A"), ("NOUN", "quiet"), ("NOUN", "teacher"), ("VERB", "keeps"), ("DET", "the"), ("NOUN", "notes")),
     (("PRON", "We"), ("VERB", "carry"), ("DET", "a"), ("NOUN", "lantern"), ("PREP", "through"), ("NOUN", "rain")),
 ]
+ALTERNATIVES = {
+    "DET": ("the", "a", "an"), "NOUN": ("artisan", "teacher", "wood", "notes", "rain"),
+    "VERB": ("marks", "keeps", "carries"), "PRON": ("we", "i"), "PREP": ("through", "near"),
+}
 
 def tape(s: str) -> str:
     return re.sub("[^a-z]", "", s.lower())
@@ -34,29 +38,30 @@ def search(template: tuple[tuple[str,str], ...], beam: int = 512) -> tuple[list[
     # Two independently authored slots grow from opposite ends. State stores
     # actual words, never a mirrored/repeated unit or a completed product.
     words = [w for _,w in template]
-    heap = [(0.0, 0, [], [], 0)]
+    heap = [(0.0, 0, [], [], 0, len(template)-1)]
     seen = set(); admitted = []; expanded = 0
     while heap and expanded < beam:
-        _, _, left, right, li = heapq.heappop(heap); expanded += 1
-        state = (tuple(left), tuple(right), li)
+        _, _, left, right, li, ri = heapq.heappop(heap); expanded += 1
+        state = (tuple(left), tuple(right), li, ri)
         if state in seen: continue
         seen.add(state)
-        if li == len(words):
+        if li > ri:
             rendered = " ".join(left + list(reversed(right)))
             row = {"rendered": rendered, "letters": len(tape(rendered)), "audit": audit(rendered),
                    "admitted": True, "heuristic": "brown_ngram_readability_only",
                    "provenance": {"slots": [x[0] for x in template], "independent_authorship": True,
                                   "construction": "outside_in_live_best_first", "mirrored_units": False}}
             admitted.append(row); continue
-        # Independently author both next slots; right words are selected from
-        # the same grammatical template but are not copied or reversed.
-        for side in ("left", "right"):
-            nxt = words[li]
-            nl, nr = list(left), list(right)
-            (nl if side == "left" else nr).append(nxt)
-            # soft readability only; no palindrome condition here
-            score = -(readable(nl + list(reversed(nr))) + .01 * len(tape(" ".join(nl+nr))))
-            heapq.heappush(heap, (score, expanded, nl, nr, li + (side == "left")))
+        if li <= ri:
+            lt, rt = template[li], template[ri]
+            for lw in ALTERNATIVES.get(lt[0], (lt[1],)):
+                for rw in ALTERNATIVES.get(rt[0], (rt[1],)):
+                    # Exposed outer characters must agree immediately. This
+                    # is the live palindrome obligation, not post-hoc audit.
+                    if tape(lw)[0] != tape(rw)[-1]: continue
+                    nl, nr = left + [lw], right + [rw]
+                    score = -(readable(nl + list(reversed(nr))))
+                    heapq.heappush(heap, (score, expanded, nl, nr, li + 1, ri - 1))
     # Preserve a rendered best frontier even when no complete slot assignment
     # reaches the closure budget; this is evidence for the repair frontier,
     # not an admitted palindrome.
@@ -69,9 +74,9 @@ def search(template: tuple[tuple[str,str], ...], beam: int = 512) -> tuple[list[
     return admitted, {"states_expanded": expanded, "unique_states": len(seen)}
 
 def main() -> None:
-    candidates = []; stats = {"states_expanded": 0, "unique_states": 0}
+    candidates = []; diagnostics = []; stats = {"states_expanded": 0, "unique_states": 0}
     for template in TEMPLATES:
-        rows, st = search(template); candidates.extend(rows)
+        rows, st = search(template); diagnostics.extend(r for r in rows if not r.get("admitted")); candidates.extend(r for r in rows if r.get("admitted"))
         for k,v in st.items(): stats[k] += v
     exact = [r for r in candidates if r["audit"]["exact"]]
     payload = {"experiment_id": "outside-in-ngram-astar-20260917",
@@ -81,7 +86,7 @@ def main() -> None:
                   "templates": len(TEMPLATES), "reverse_segmentation": True,
                   "heuristic": "Brown corpus n-gram/readability proxy only", "acceptance": "exact letters + independent audits",
                   "forbidden": ["Cartesian product audit", "mirror/repeat units", "finished-text auditing"]},
-      "candidates": candidates, "stats": {**stats, "candidate_count": len(candidates), "exact_count": len(exact)},
+      "candidates": candidates, "diagnostic_frontier": diagnostics, "stats": {**stats, "candidate_count": len(candidates), "exact_count": len(exact)},
       "repair_frontier": {"status": "concrete lexical/grammar frontier recorded" if not exact else "closed",
           "operator": "replace the first outer lexical slot on each side with held-out words sharing the required edge letter; preserve POS/valency",
           "reason": "best-first templates exhausted before opposite independently authored boundaries closed",

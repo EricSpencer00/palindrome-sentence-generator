@@ -2633,3 +2633,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   are lexical slot-domain rejection before materialization, `in which` to
   `where` complementizer reduction, and one agreement-conditioned adverb in
   the short grammar.
+
+  The next wave completed those operators. Lexical slot-domain rejection
+  retained 2 intact candidates up to 82 letters; shared-state `in which` to
+  `where` reduction produced 1,024 candidates up to 87 letters; and the short
+  agreement-conditioned adverb repair rendered 1,296 intact candidates up to
+  126 letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are fixed-point
+  opposing-position propagation, shared-preposition lexical predicate
+  substitution, and one agreement-conditioned prepositional complement in the
+  short grammar.

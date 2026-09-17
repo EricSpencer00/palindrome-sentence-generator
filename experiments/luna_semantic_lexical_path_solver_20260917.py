@@ -80,6 +80,14 @@ JOINT_AGENT_CONSEQUENCES = (
     ("the patient analyst", "and keeps a quiet secret at sunset"),
 )
 
+# Next coupled state: theme and locative vary together, with matching terminal
+# characters required by their edge while the endpoint pair remains fixed.
+JOINT_THEME_LOCATIVES = (
+    ("a narrow port", "near the market"),
+    ("the old outpost", "under a streetlight"),
+    ("a small fort", "by the coast"),
+)
+
 
 def edge_obligations(nodes: dict[str, Node]) -> list[dict[str, object]]:
     """Consume opposing edge characters before accepting a rendered clause."""
@@ -186,6 +194,23 @@ def joint_relexicalize(row: dict[str, object], agent: str, consequence: str) -> 
     }
 
 
+def joint_theme_locative(row: dict[str, object], theme: str, locative: str) -> dict[str, object]:
+    """Relexicalize theme and locative together, retaining endpoint choices."""
+    nodes = {role: Node(role, value["surface"]) for role, value in row["nodes"].items()}
+    nodes["theme"] = Node("theme", theme)
+    nodes["locative"] = Node("locative", locative)
+    text = render(nodes)
+    return {
+        "operator": "joint_theme_locative_relexicalization",
+        "theme_surface": theme,
+        "locative_surface": locative,
+        "path": [asdict(e) for e in PATH],
+        "nodes": {k: asdict(v) for k, v in nodes.items()},
+        "edge_obligations": edge_obligations(nodes),
+        "audit": audit(text),
+    }
+
+
 def main() -> None:
     registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
     entries = registry.get("entries", []) + registry.get("excluded", [])
@@ -215,13 +240,16 @@ def main() -> None:
     joint = [joint_relexicalize(consequence_repair, agent, consequence) for agent, consequence in JOINT_AGENT_CONSEQUENCES]
     joint.sort(key=lambda row: (row["audit"]["independent_two_pointer"]["mismatch_count"], -row["audit"]["letters"]))
     joint_best = joint[0]
+    theme_locative = [joint_theme_locative(joint_best, theme, locative) for theme, locative in JOINT_THEME_LOCATIVES]
+    theme_locative.sort(key=lambda row: (row["audit"]["independent_two_pointer"]["mismatch_count"], -row["audit"]["letters"]))
+    theme_locative_best = theme_locative[0]
     out = {
         "experiment_id": ID,
         "signature": SIGNATURE,
         "status": "completed_exact_candidate" if exact else "completed_no_exact_closure",
         "reader_eligible": bool(exact),
         "method": "choose typed semantic path first; consume opposing character obligations online during lexical realization",
-        "candidate_scene": joint_best["audit"]["rendered"],
+        "candidate_scene": theme_locative_best["audit"]["rendered"],
         "candidates": rows[:3],
         "repaired_candidate": event_repair,
         # Expose the held-out repair through the common aggregate schema so
@@ -231,10 +259,11 @@ def main() -> None:
         "third_repair": consequence_repair,
         "expanded_consequence_candidates": expanded,
         "joint_agent_consequence_candidates": joint,
-        "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38), "expanded_consequence_realizations": len(expanded), "expanded_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in expanded), "joint_realizations": len(joint), "joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in joint)},
+        "joint_theme_locative_candidates": theme_locative,
+        "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38), "expanded_consequence_realizations": len(expanded), "expanded_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in expanded), "joint_realizations": len(joint), "joint_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in joint), "joint_theme_locative_realizations": len(theme_locative), "joint_theme_locative_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in theme_locative)},
         "novelty_preflight": {"registry_entries_read": len(entries), "exact_signature_collision": collision, "catalogue_text_imported": False, "fixed_tape_used": False, "pos_sweep": False, "scene_lattice": False},
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "lexical_source": "hand-authored typed event lexicon", "path": [e.label for e in PATH], "audits": ["independent two-pointer", "forward/reverse SHA-256", "mechanical admission", "anti-shortcut preflight"]},
-        "next_repair": {"operator": "jointly relexicalize theme and locative while retaining the coupled endpoint choices, then require full character-level closure", "reason": "the coupled endpoint states preserve all four local obligations but remain non-palindromic under independent whole-tape comparison"},
+        "next_repair": {"operator": "jointly relexicalize event and theme while retaining the coupled endpoint and locative choices, then require full character-level closure", "reason": "the coupled theme/locative states preserve all four local obligations but remain non-palindromic under independent whole-tape comparison"},
     }
     (ROOT / "runs" / f"{ID}.json").write_text(json.dumps(out, indent=2) + "\n")
     print(json.dumps(out["stats"], sort_keys=True))

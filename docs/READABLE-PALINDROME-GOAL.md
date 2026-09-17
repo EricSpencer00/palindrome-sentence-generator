@@ -2848,3 +2848,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   valency with character-by-character role expansion, a second independent
   role bank at the same object-setting frontier, and a held-out past-tense
   agreement state in the causal frame.
+
+  The next wave completed those new-family repairs. Typed attachment valency
+  with character expansion rendered 4 intact candidates up to 101 letters;
+  the second independent scene role bank retained 6 boundary-filtered
+  candidates up to 70 letters; and the held-out past-tense causal CFG rendered
+  768 candidates up to 51 letters while pruning 2,304 tense-inconsistent
+  states. All produced 0 exact closures. Independent pointer/SHA-256 replay,
+  provenance, novelty preflight, and anti-shortcut checks are retained for
+  every row. The reader gate remains closed. The next concrete operators are
+  live attachment grammar transitions, a character-trie continuation filter,
+  and a mixed-tense temporal connective with consistency filtering.

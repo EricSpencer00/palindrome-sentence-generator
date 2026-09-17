@@ -2191,10 +2191,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   concrete next operation is a held-out chunk replacement at the first live
   residual, followed by exact re-audit. Three 101-letter exact tapes are also
   preserved, but their “Levels calm tales ...” surface is not readable and is
-  excluded from the reader packet. The authoritative snapshot is **5,257 rows
-  across 316 routes, 83 exact rejected tapes, and 0 mechanically admitted
-  outputs**; the registry is **416 retained, 32 excluded, and 394 retained
+  excluded from the reader packet. The authoritative snapshot is **5,260 rows
+  across 317 routes, 83 exact rejected tapes, and 0 mechanically admitted
+  outputs**; the registry is **417 retained, 34 excluded, and 395 retained
   run artifacts**.
+
+  A follow-up typed scene realizer adds three complete 39--42-letter clauses;
+  the best is “The harbor guides the vessel near the breakwater.” (41 letters;
+  exact `false` under independent pointer/SHA checks), with an object-slot
+  replacement named at the first residual. Two exact controls from a CFG chart
+  and lexical-closure solver are explicitly excluded for word-order,
+  self-palindromic-span, or self-collision shortcuts. They remain auditable
+  failure evidence and do not change the reader gate.
 
   The final exact-focused cycle used three distinct states. A 104-letter
   miller/chemist DP rendering was rejected as a byte-for-byte duplicate of the

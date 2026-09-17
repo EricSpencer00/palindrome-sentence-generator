@@ -112,8 +112,12 @@ def run() -> dict[str, object]:
            "semantic_frames": [f.role for f in FRAMES],
            "anti_shortcut_flags": {"fixed_tape": False, "reverse_segmentation": False,
                                     "catalogue_text": False, "gibberish": False,
-                                    "word_order_mirror": False, "repeated_unit": False,
-                                    "self_palindromic_span": False},
+                                    # The exact witness is deliberately rejected:
+                                    # its terminal frames mirror word order and
+                                    # contain a self-palindromic proper span.
+                                    "word_order_mirror": True, "repeated_unit": False,
+                                    "self_palindromic_span": True},
+           "mechanically_admitted": False,
            "provenance": {"inventory": "hand-authored typed terminals", "source_sentences_copied": False,
                           "catalogue_lookup": False, "finished_surface_reversed": False,
                           "posthoc_resegmentation": False, "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}}
@@ -121,7 +125,7 @@ def run() -> dict[str, object]:
             "novelty_preflight": preflight, "grammar": {"nonterminals": ["S", "Frame"],
             "production_count": len(FRAMES), "center": CENTER, "chart_key": ["grammar_state", "left_position", "right_position"]},
             "candidate_count": 1, "rendered_candidates": [row], "best": row,
-            "provenance": row["provenance"],
+            "provenance": row["provenance"], "reader_eligible": False,
             "next_repair": "Replace the observer-and-food-event frame with one new typed frame, then replay the same two-ended chart and reject the first residual before rendering."}
 
 

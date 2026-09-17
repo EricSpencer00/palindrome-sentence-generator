@@ -4125,6 +4125,17 @@
       "status": "targeted exact survivor repair; 3 exact closures, 0 mechanically admitted; next repair replaces the first residual pair with a role-compatible multiword clause"
     },
     {
+      "id": "luna-palindromic-scene-realizer-20260917",
+      "signature": "typed-semantic-scene-realizer|open-boundary-skeleton|complete-svo-pp|agreement-preserved|independent-pointer-sha",
+      "artifact": "experiments/luna_palindromic_scene_realizer_20260917.py",
+      "run_artifacts": [
+        "runs/luna-palindromic-scene-realizer-20260917.json"
+      ],
+      "distinction": "A typed semantic scene realizer selects a character skeleton before lexical realization, then fills complete SVO/PP scenes under agreement and valency constraints; its open-boundary obligation is not a fixed tape or mirrored word-order construction.",
+      "reader_evidence": false,
+      "status": "three complete 39--42-letter scenes, 0 exact closures; next repair reselects the role-compatible object at the first residual"
+    },
+    {
       "id": "finite-state-boundary-beam-20260917",
       "signature": "finite-state-boundary-beam|character-trigram-ranking|semantic-clause-templates|boundary-obligation|independent-pointer-sha",
       "artifact": "experiments/finite_state_boundary_beam_20260917.py",
@@ -4545,6 +4556,32 @@
         "paired-lexical-phrase-graph-live-emit-20260916"
       ],
       "reason": "The only rendered 104-letter candidate is byte-for-byte duplicate prose from the retained paired lexical graph lane. The DP implementation and exact audit remain preserved as failure evidence, but the duplicate sweep is explicitly rejected as non-progress and omitted from the aggregate."
+    },
+    {
+      "id": "luna-cfg-exact-intersection-20260917-excluded",
+      "signature": "bounded-typed-cfg|two-ended-terminal-intersection|finite-chart|fresh-semantic-frames",
+      "artifact": "experiments/luna_cfg_exact_intersection_20260917.py",
+      "run_artifacts": [
+        "runs/luna-cfg-exact-intersection-20260917.json"
+      ],
+      "overlaps": [
+        "known-palindrome-catalogue",
+        "word-order-symmetry-controls"
+      ],
+      "reason": "The two-ended chart emits a 50-letter exact surface, but the independent mechanical gate flags boundary word-order mirroring and a self-palindromic proper span. It is preserved as an exact rejected control with the typed-frame replacement repair and omitted from retained construction counts."
+    },
+    {
+      "id": "luna-lexical-closure-solver-20260917-excluded",
+      "signature": "memoized-outer-character-lock|semantic-role-obligations|fresh-inflection-lexicon|independent-pointer-sha",
+      "artifact": "experiments/luna_lexical_closure_solver_20260917.py",
+      "run_artifacts": [
+        "runs/luna-lexical-closure-solver-20260917.json"
+      ],
+      "overlaps": [
+        "known-palindrome-catalogue",
+        "word-order-symmetry-controls"
+      ],
+      "reason": "The 42-letter exact witness is a mirrored civic/kayak word-order construction and self-collides with the lane's prior exact tape. Its independent audit and concrete role-inflection repair are retained as failure evidence, but novelty preflight is blocked and the route is excluded."
     }
   ]
 }

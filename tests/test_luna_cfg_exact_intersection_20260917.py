@@ -30,4 +30,7 @@ def test_exact_rendered_candidate_has_independent_audits_and_chart():
     assert row["chart_states"]
     assert result["grammar"]["chart_key"] == ["grammar_state", "left_position", "right_position"]
     assert row["anti_shortcut_flags"]["fixed_tape"] is False
+    assert row["anti_shortcut_flags"]["word_order_mirror"] is True
+    assert row["anti_shortcut_flags"]["self_palindromic_span"] is True
+    assert row["mechanically_admitted"] is False
     assert row["provenance"]["posthoc_resegmentation"] is False

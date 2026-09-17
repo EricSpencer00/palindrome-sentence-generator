@@ -942,6 +942,15 @@ and forward/reverse SHA checks agree that it is not exact; provenance and
 anti-shortcut flags are clean, and its next reader-facing test remains the
 intact-versus-shuffled packet after exact admission. The paired-slot exact
 tapes are retained as provenance-backed failure evidence, not readability
-claims. The aggregate is now **5,257 rows across 316 routes, 83 exact rows,
-and 0 mechanically admitted outputs**; the registry is **416 retained, 32
-excluded, and 394 retained run artifacts**.
+claims. The aggregate is now **5,260 rows across 317 routes, 83 exact rows,
+and 0 mechanically admitted outputs**; the registry is **417 retained, 34
+excluded, and 395 retained run artifacts**.
+
+The subsequent typed scene-realizer lane adds three fresh complete 39--42-letter
+SVO/PP clauses. Its representative text is “The harbor guides the vessel near
+the breakwater.” (41 letters; independent pointer/SHA exactness `false`), with
+the next operation reselecting the object at the first residual. A 50-letter
+CFG exact control and a 42-letter lexical-closure exact control are preserved
+in separate excluded registry entries because their independent gates detect
+word-order/self-palindromic shortcuts or self-collision; neither enters the
+reader packet.

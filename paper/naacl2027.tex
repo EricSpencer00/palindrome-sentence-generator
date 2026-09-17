@@ -26,7 +26,7 @@ builds ordinary scenes: typed grammar and semantic slots propose the next
 words, and targeted repairs are selected from the current mirrored-letter
 debt.  Ten deliberately orthogonal construction lanes share an independent
 two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 5,257 candidates from 316 route
+The current development snapshot contains 5,260 candidates from 317 route
 summaries; 83 are exact, but none passes the mechanical admission gate and no row has
 yet been promoted by readers.  We report the rendered candidates and the
 failed gates explicitly, then use each failure to define the next repair
@@ -443,9 +443,9 @@ generator's booleans.  The mechanical admission vector records ASCII support,
 lexical form, distinctness, catalogue-family exclusion, repeated-unit and
 self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
 one signature to each run and rejects duplicate families before aggregation.
-On the authoritative snapshot the registry contains 416 unique artifacts (32
-preflight exclusions); the aggregate contains 5,257 rows, 83 exact rows, and
-zero mechanically admitted rows across 316 route summaries.  Every exact row
+On the authoritative snapshot the registry contains 417 unique artifacts (34
+preflight exclusions); the aggregate contains 5,260 rows, 83 exact rows, and
+zero mechanically admitted rows across 317 route summaries.  Every exact row
 therefore has a visible reason for rejection or promotion status rather than
 being silently discarded.  The aggregate report is registered separately as
 an audit artifact, never as a construction family.
@@ -466,6 +466,16 @@ surface is not readable and they are rejected before any reader claim.  Each
 failure names a next operation (held-out adjunct, inflectional, role-clause,
 chunk, or semantic-slot repair); none is counted as progress from a duplicate
 sweep.
+
+A follow-up typed scene realizer adds three complete 39--42-letter SVO/PP
+scenes by choosing an open character skeleton before lexical realization; its
+best surface is ``The harbor guides the vessel near the breakwater.'' (41
+letters, exact emph{false}) and the recorded next repair reselects the object
+at the first residual while preserving valency and agreement. Two other exact
+controls are deliberately excluded: a 50-letter CFG chart witness is rejected
+for boundary word-order mirroring and a self-palindromic span, and a 42-letter
+lexical-closure witness is rejected for mirrored word order and self-collision.
+Their exact tapes remain auditable failure evidence, never readability claims.
 
 \section{Reader-facing evaluation}
 No candidate is called readable by the automatic diagnostics.  The release

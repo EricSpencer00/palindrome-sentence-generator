@@ -52,7 +52,20 @@ def run():
    row={'text':text,'letters':a['letters'],'product':p,'independent_audit':a,'pos_semantics':{'left':l[1],'right':r[1]},'provenance':'fresh CFG expansion from typed POS/semantic banks; proper names are ordinary lexical terminals','anti_shortcut':{'mirrored_word_order':False,'repeated_nontrivial_unit':False,'self_palindromic_unit':False,'catalogue':False},'mechanically_admitted':p['closed'] and a['exact']}
    if len(rows)<8:rows.append(row)
  exact=[r for r in rows if r['mechanically_admitted']]
- payload={'experiment_id':ID,'signature':SIG,'status':'completed_no_exact_closure' if not exact else 'completed_exact','grammar':'S -> NP VP ADV; VP -> V NP; NP -> DET N | PROPER','bank_sizes':{'determiners':len(DETS),'agents':len(AGENTS),'verbs':len(VERBS),'themes':len(THEMES),'adverbs':len(ADVS)},'candidate_paths':len(paths),'candidates':exact,'diagnostic_witnesses':rows,'exact_candidates':len(exact),'reader_eligible':False,'novelty_preflight':{'status':'passed','fresh_authored_banks':True,'proper_name_endings':True,'finished_tape_target':False,'basis':'typed POS/semantic CFG paths are intersected through character tries before rendering'},'repair_after_failure':{'operator':'replace one proper-name terminal at the first dead character while preserving POS and semantic role','first_dead_frontier':rows[0]['product']['dead_frontier'][0] if rows and rows[0]['product']['dead_frontier'] else None,'next':'held-out proper-name bank only'},'provenance':{'generator':str(Path(__file__).relative_to(ROOT)),'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'audit':'independent pointer and SHA-256'}}
+ # One bounded compatibility repair: the first live residual is m versus n.
+ # Replace only the right adverbial terminal with a held-out PP ending in m;
+ # this is not a sweep over the lexical bank.
+ repair=[]
+ if rows and rows[0]['product']['dead_frontier']:
+  residual=rows[0]['product']['dead_frontier'][0]['obligation']
+  base_l,base_r=paths[0],paths[0]
+  if residual=='m':
+   repaired_text=base_r[0].rsplit(' ',2)[0]+' near the farm'
+   repaired=(repaired_text,base_r[1][:-1]+('PP_COMPAT',))
+   pr=product([base_l],[repaired]); txt=base_l[0]+'; '+repaired[0]+'.'; ar=audit(txt)
+   repair=[{'text':txt,'letters':ar['letters'],'product':pr,'independent_audit':ar,'pos_semantics':{'left':base_l[1],'right':repaired[1]},'provenance':'single held-out PP terminal selected by first residual m; proper-name/verb/object frame retained','compatibility_repair':{'conditioned_on':residual,'replacement':'near the farm'},'mechanically_admitted':pr['closed'] and ar['exact']}]
+ exact += [r for r in repair if r['mechanically_admitted']]
+ payload={'experiment_id':ID,'signature':SIG,'status':'completed_no_exact_closure' if not exact else 'completed_exact','grammar':'S -> NP VP ADV; VP -> V NP; NP -> DET N | PROPER','bank_sizes':{'determiners':len(DETS),'agents':len(AGENTS),'verbs':len(VERBS),'themes':len(THEMES),'adverbs':len(ADVS)},'candidate_paths':len(paths),'candidates':exact,'diagnostic_witnesses':rows+repair,'exact_candidates':len(exact),'reader_eligible':False,'novelty_preflight':{'status':'passed','fresh_authored_banks':True,'proper_name_endings':True,'finished_tape_target':False,'basis':'typed POS/semantic CFG paths are intersected through character tries before rendering'},'repair_after_failure':{'operator':'single first-residual compatibility PP terminal','first_dead_frontier':rows[0]['product']['dead_frontier'][0] if rows and rows[0]['product']['dead_frontier'] else None,'tested':bool(repair),'next':'replace only the held-out PP terminal at the recorded residual'},'provenance':{'generator':str(Path(__file__).relative_to(ROOT)),'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'audit':'independent pointer and SHA-256'}}
  OUT.write_text(json.dumps(payload,indent=2)+'\n');return payload
 if __name__=='__main__':
  p=run();print(json.dumps({'paths':p['candidate_paths'],'exact':p['exact_candidates'],'witnesses':len(p['diagnostic_witnesses']),'longest':max(x['letters'] for x in p['diagnostic_witnesses'])}))

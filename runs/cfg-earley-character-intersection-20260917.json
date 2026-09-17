@@ -1,0 +1,1133 @@
+{
+  "experiment": "cfg-earley-character-intersection-20260917",
+  "method": "seedless bounded CFG chart + incremental mirrored character intersection",
+  "grammar_productions": {
+    "S": [
+      [
+        "NP",
+        "VP",
+        "."
+      ],
+      [
+        "NP",
+        "VP",
+        "and",
+        "NP",
+        "VP",
+        "."
+      ]
+    ],
+    "NP": [
+      [
+        "Det",
+        "Adj",
+        "N"
+      ],
+      [
+        "Det",
+        "N"
+      ],
+      [
+        "Name"
+      ]
+    ],
+    "VP": [
+      [
+        "V",
+        "NP"
+      ],
+      [
+        "V",
+        "NP",
+        "Prep",
+        "NP"
+      ]
+    ],
+    "Det": [
+      [
+        "the"
+      ],
+      [
+        "a"
+      ]
+    ],
+    "Adj": [
+      [
+        "quiet"
+      ],
+      [
+        "patient"
+      ],
+      [
+        "fresh"
+      ],
+      [
+        "old"
+      ]
+    ],
+    "N": [
+      [
+        "gardener"
+      ],
+      [
+        "reader"
+      ],
+      [
+        "sailor"
+      ],
+      [
+        "teacher"
+      ],
+      [
+        "letter"
+      ],
+      [
+        "map"
+      ]
+    ],
+    "V": [
+      [
+        "carries"
+      ],
+      [
+        "reviews"
+      ],
+      [
+        "marks"
+      ],
+      [
+        "opens"
+      ],
+      [
+        "studies"
+      ]
+    ],
+    "Prep": [
+      [
+        "near"
+      ],
+      [
+        "beside"
+      ],
+      [
+        "under"
+      ]
+    ],
+    "Name": [
+      [
+        "Mira"
+      ],
+      [
+        "Nora"
+      ],
+      [
+        "Diana"
+      ]
+    ]
+  },
+  "candidate_count": 3060,
+  "exact_count": 0,
+  "candidates": [
+    {
+      "rendered": "the patient gardener carries the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 36,
+        "two_pointer": false,
+        "sha256": "20501eae677163ec27b1f0278a1589f98d1d36b1674773e2a9980960582dc391",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          35
+        ],
+        "frontier": "thepatientgardenercarriesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener reviews the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 36,
+        "two_pointer": false,
+        "sha256": "c9e58e0aa8fdf6c71de83d50f2ef08b0b6e534af561a27dc6461b5f35c0b31ba",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          35
+        ],
+        "frontier": "thepatientgardenerreviewsthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener studies the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 36,
+        "two_pointer": false,
+        "sha256": "73d2e2a073059b580a6341b068af9791c1e5e3f3ea8f8276d1ff5150a4971d8e",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          35
+        ],
+        "frontier": "thepatientgardenerstudiesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener carries the teacher.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 35,
+        "two_pointer": false,
+        "sha256": "218b58143e63593bcdf793f9167aaed06cb09ccb6a05fb088ea77ed095f033c5",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          34
+        ],
+        "frontier": "thepatientgardenercarriestheteacher"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener reviews the teacher.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 35,
+        "two_pointer": false,
+        "sha256": "36f2d6e21a09e4685224facf6be80d868e53d38dd73989b3cc4fa2222579183d",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          34
+        ],
+        "frontier": "thepatientgardenerreviewstheteacher"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener studies the teacher.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 35,
+        "two_pointer": false,
+        "sha256": "97e22e3c614ce5a281e15bd3973d8210531b1c3b702a3a6fe6e67b58302c7030",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          34
+        ],
+        "frontier": "thepatientgardenerstudiestheteacher"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient teacher carries the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 35,
+        "two_pointer": false,
+        "sha256": "c9d46657b5ba5b987a02bb20c78e4973972bca3ac75226f632c8ca2508aa2ebf",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          34
+        ],
+        "frontier": "thepatientteachercarriesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient teacher reviews the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 35,
+        "two_pointer": false,
+        "sha256": "c10074fcbd07cb3fc4570a98899c7ee266ce0bc6810d2a80eb0ad411f44abecc",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          34
+        ],
+        "frontier": "thepatientteacherreviewsthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient teacher studies the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 35,
+        "two_pointer": false,
+        "sha256": "7f38c795541691b8f212c72aeb8a8bfbc24493a39a16f45737886609f78cd4eb",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          34
+        ],
+        "frontier": "thepatientteacherstudiesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "a patient gardener carries the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "c0a2ebdd211a150680c325e96f73875f7df06c8344a9d3cd4b4207105c1a82f3",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "apatientgardenercarriesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "a patient gardener reviews the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "500888283235b04ade13aa701997c9cff71ab68d2b54b513e20fb1d949d131cf",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "apatientgardenerreviewsthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "a patient gardener studies the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "5889fad083d911ea71028fe3eef4458398baf053a67ce5199c48848808e41c06",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "apatientgardenerstudiesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the fresh gardener carries the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "21785493fb67923b8390263352df9a75dd97ed0cb266e73501e1bf3f806df797",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thefreshgardenercarriesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the fresh gardener reviews the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "1c87628531050eac16e953c278b72da03ed63c3b95eea3e1ff430103b04ff9ab",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thefreshgardenerreviewsthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the fresh gardener studies the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "2f82c2f40cb1e79503ff0006defde4f64dc34a446121dca8fc933429fd85b2d7",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thefreshgardenerstudiesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener carries a gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "d7415173984b213b97a223c952dc8a0cffc0aab2e0abc66c909e9923805354cc",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenercarriesagardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener carries the letter.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "c508c920ccdbf7f06f4ecba8987da91ea1a2b08127d89eaa85697df4fd649762",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenercarriestheletter"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener carries the reader.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "5a680e391442b10b3b380f974fd7bef4c2b9e4d2f1922df069c95265e852c69e",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenercarriesthereader"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener carries the sailor.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "f3253dfdab1ee37443d5595d2c2258eee04471fd72e886fcf0eb88e2b1f151ff",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenercarriesthesailor"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener marks the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "1c316aa99d2fa418e4c884522ff3f3eb8de9e14800df249ffabd594f4d89cb48",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenermarksthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener opens the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "d893cda430d60a83a69702ec9ba3eef6ee4769a937a1379cbab1ed7d7a4c94f8",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardeneropensthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener reviews a gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "02c70eb5bca79cb5c2287bd99ca487fe89c98b46859cc5e60e6749b501223240",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenerreviewsagardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener reviews the letter.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "776e8b49e20689a8265db890c4262bcf81ba201f4afbee1e37fb96f59e71f1ae",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenerreviewstheletter"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener reviews the reader.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "23b8e1bf5ca23e9551c98721ef9d064ae39cf2901073ca181329ec2bc33f559e",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenerreviewsthereader"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener reviews the sailor.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "fda055a36dc2d7de7e47694ada00fd70b7da10bff9c46276e2ad9afb49fbf33d",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenerreviewsthesailor"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener studies a gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "46d5b318b098c7c9932eca31986cac38df8d1ab6f4053a0280b061384f029fc6",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenerstudiesagardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener studies the letter.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "cb557f45ad4211a490db9d8dbc9ec8b8c2eff83e40625b8a99d2afe467185cd0",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenerstudiestheletter"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener studies the reader.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "b4dae5aa8aeb8b5f6370e4647467f88f92dbc136ae56b13f8962148694ae6715",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenerstudiesthereader"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient gardener studies the sailor.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "2c13a59f63d83b22ee277913660051d98546afd44f6f082f0f15205a7b78a09b",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientgardenerstudiesthesailor"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient letter carries the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "ac5a1118096e83caae87a6fc06202a1493f24f32807c306996370f625fe19bf1",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientlettercarriesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient letter reviews the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "fce9e8364ecfa2fb999abe352ae670e5e4640d977c9e4e30f63b285a0b34497d",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientletterreviewsthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient letter studies the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "70571477cdea82335656f8d036299a4cff15fd03464a0d3e20458c78cccfd241",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientletterstudiesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient reader carries the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "548bffd459ba70255423313c7103ae882fd3a207d2e2c23f39a3fd6f403d9b81",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientreadercarriesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient reader reviews the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "4470932866cbe9575e0ed971934248cef8c25a3560daa243d07efce3a94d3039",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientreaderreviewsthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient reader studies the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "ad3c995a27935ea12d5c7fe5ced808c5d6652b7200b2274f70c1aa520c97b761",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientreaderstudiesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient sailor carries the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "e0fd44b796f47ad99631f9a180a7a2eb931ea47421aabcb9031f1819dabc5c39",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientsailorcarriesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient sailor reviews the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "2e75cdb2fcd3f4fd30bf4cdc7bcb95e1a7e24faeaf4ee3f0c0da32e0299338a9",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientsailorreviewsthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient sailor studies the gardener.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "d9e2bb291239478fc1d222e7872e406871f1edd9d40f219163eefff19cdf8749",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientsailorstudiesthegardener"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient teacher carries the teacher.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "ffdd11ed3de4d93a2cf238dce5c99cb0d49f1e9e2d8ed9f5c0c925633ca4673e",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientteachercarriestheteacher"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    },
+    {
+      "rendered": "the patient teacher reviews the teacher.",
+      "provenance": "seedless CFG terminal derivation; typed NP/VP productions",
+      "derivation": "S -> NP VP . (or Name VP NP .)",
+      "audit": {
+        "letters": 34,
+        "two_pointer": false,
+        "sha256": "0b91e98c9ec8c7a3ebcfbb4a672b1eccdf52160a3cc26634bfdd7927fa861a04",
+        "hash_reverse_equal": false
+      },
+      "live_frontier": {
+        "matched_outer_pairs": 0,
+        "first_mismatch": [
+          0,
+          33
+        ],
+        "frontier": "thepatientteacherreviewstheteacher"
+      },
+      "anti_shortcut": {
+        "word_order_only": false,
+        "repeated_unit": false,
+        "catalogue_source": false,
+        "fragment": false
+      }
+    }
+  ],
+  "next_repair": "Add a recursive relative-clause production with a typed subject/object agreement feature, and let the chart retain states whose first mismatch is repairable by one held-out inflection; preserve this run as the no-recursion control."
+}

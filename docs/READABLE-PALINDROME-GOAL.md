@@ -3159,3 +3159,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the next operators are character-level coupled expansion, first-residual
   trie branching within complete phrase roles, and lexical-state expansion in
   the midpoint product. The reader gate remains closed.
+
+  The first hard-reset follow-up completed. Character-level coupled semantic
+  expansion pruned mirrored obligations immediately but still rendered intact
+  prose only up to 99 letters; first-residual phrase-trie branching retained
+  2 branches and 8 intact SVO candidates up to 55 letters; and the lexical
+  CFG×palindrome-automaton product rendered 3,072 intact sentences, with a
+  39-letter maximum diagnostic control. All three remained exact-zero, with
+  independent pointer/SHA-256 audits and anti-shortcut checks. The reader gate
+  remains closed. The next operators are semantic role tries, two-character
+  residual branching within complete phrase roles, and character-level verb
+  trie expansion inside the midpoint product.

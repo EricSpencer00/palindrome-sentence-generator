@@ -630,6 +630,14 @@ independently pointer/SHA audited, provenance-backed, novelty-preflighted, and
 paired with a concrete next repair. None closes exactly; all remain outside the
 reader packet.
 
+Three targeted repairs then add a 72--75-letter semantic-boundary scene, a
+71-letter manual clause-plan candidate, and a 124-letter repaired CFG-frame
+candidate. The manual lane's best rendering is “The baker bakes fresh bread
+before dawn; The carpenter repairs blue sails after lunch.” (exact `false` by
+independent pointer/SHA checks). All three are complete prose with fresh
+provenance, novelty preflight, and concrete first-residual repairs; they remain
+reader-ineligible until an exact anti-shortcut survivor exists.
+
 Two further fresh Luna states are retained in the common audit. Seed-free
 authored-frame insertion produces “At dawn, the archivist opens the cedar
 cabinet and records the harbor map, before dusk.” (83 letters), and an
@@ -942,9 +950,9 @@ and forward/reverse SHA checks agree that it is not exact; provenance and
 anti-shortcut flags are clean, and its next reader-facing test remains the
 intact-versus-shuffled packet after exact admission. The paired-slot exact
 tapes are retained as provenance-backed failure evidence, not readability
-claims. The aggregate is now **5,260 rows across 317 routes, 83 exact rows,
-and 0 mechanically admitted outputs**; the registry is **417 retained, 34
-excluded, and 395 retained run artifacts**.
+claims. The aggregate is now **5,265 rows across 320 routes, 83 exact rows,
+and 0 mechanically admitted outputs**; the registry is **420 retained, 34
+excluded, and 398 retained run artifacts**.
 
 The subsequent typed scene-realizer lane adds three fresh complete 39--42-letter
 SVO/PP clauses. Its representative text is “The harbor guides the vessel near

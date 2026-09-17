@@ -140,7 +140,7 @@ def run() -> dict:
         "experiment": EXPERIMENT, "signature": SIGNATURE, "status": "exact closure found" if exact else "complete; no exact closure",
         "novelty_preflight": preflight, "inventory": {"subjects": len(SUBJECTS), "verbs": len(VERBS), "objects": len(OBJECTS), "adverbs": len(ADVERBS)},
         "states_considered": len(rows), "candidate_count": len(rows), "exact_count": len(exact),
-        "best_intact_prose": best, "exact_survivors": exact,
+        "best_intact_prose": best, "rendered_candidates": [best], "exact_survivors": exact,
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "source_sentences_copied": False, "borrowed_text": False, "independent_pointer_sha": True},
         "anti_shortcut_policy": "Reject semordnilap lists, word-order symmetry, repeated/self-palindromic units, catalogue or borrowed text, fragments, and gibberish.",
         "next_repair": best["next_repair"],

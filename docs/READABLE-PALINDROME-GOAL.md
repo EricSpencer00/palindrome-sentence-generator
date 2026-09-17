@@ -2180,6 +2180,13 @@ named next repair. The aggregate is 4,898 rows across 247 route phases (79
 provenance, novelty preflight, anti-shortcut checks, and a concrete
   first-residual repair; none closes exactly or enters the reader packet.
 
+  Three targeted repairs follow: a finite semantic-boundary lattice, a manual
+  clause-plan inventory, and a repaired CFG frame. Their best intact output is
+  “The baker bakes fresh bread before dawn; The carpenter repairs blue sails
+  after lunch.” (71 letters; exact `false` under independent pointer/SHA). Each
+  names a held-out first-residual lexical repair, and none is promoted to the
+  reader packet.
+
   The newest six-lane Luna wave is constructive and non-duplicative: finite
   boundary decoding, agreement morphology, a human-authored scene lattice,
   memoized POS/valency intersection, semantic phrase chunks, and paired-slot
@@ -2191,9 +2198,9 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   concrete next operation is a held-out chunk replacement at the first live
   residual, followed by exact re-audit. Three 101-letter exact tapes are also
   preserved, but their “Levels calm tales ...” surface is not readable and is
-  excluded from the reader packet. The authoritative snapshot is **5,260 rows
-  across 317 routes, 83 exact rejected tapes, and 0 mechanically admitted
-  outputs**; the registry is **417 retained, 34 excluded, and 395 retained
+  excluded from the reader packet. The authoritative snapshot is **5,265 rows
+  across 320 routes, 83 exact rejected tapes, and 0 mechanically admitted
+  outputs**; the registry is **420 retained, 34 excluded, and 398 retained
   run artifacts**.
 
   A follow-up typed scene realizer adds three complete 39--42-letter clauses;

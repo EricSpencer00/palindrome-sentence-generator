@@ -311,9 +311,12 @@
     "runs/scene-lattice-live-character-equations-20260917.json",
     "runs/agreement-carrying-morphology-boundary-csp-20260917.json",
     "runs/finite-state-boundary-beam-20260917.json",
-    "runs/luna-palindromic-scene-realizer-20260917.json"
+    "runs/luna-palindromic-scene-realizer-20260917.json",
+    "runs/luna-boundary-semantic-repair-20260917.json",
+    "runs/luna-readable-palindrome-manual-search-20260917.json",
+    "runs/luna-cfg-frame-repair-20260917.json"
   ],
-  "candidate_count": 5260,
+  "candidate_count": 5265,
   "exact_count": 83,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -2138,6 +2141,26 @@
       "mean_brown_order_gain_vs_shuffle": 0.6158543336402879
     },
     {
+      "source_run": "runs/luna-boundary-semantic-repair-20260917.json",
+      "rows": 3,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 72,
+      "max_letters": 75,
+      "mean_zipf_frequency": 5.451666666666667,
+      "mean_brown_order_gain_vs_shuffle": 0.8868398685276109
+    },
+    {
+      "source_run": "runs/luna-cfg-frame-repair-20260917.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 124,
+      "max_letters": 124,
+      "mean_zipf_frequency": 5.037692307692307,
+      "mean_brown_order_gain_vs_shuffle": 0.677226313512989
+    },
+    {
       "source_run": "runs/luna-exact-near-survivor-repair-20260917.json",
       "rows": 3,
       "exact_count": 3,
@@ -2186,6 +2209,16 @@
       "max_letters": 114,
       "mean_zipf_frequency": 5.070125480367586,
       "mean_brown_order_gain_vs_shuffle": 0.9931570880958588
+    },
+    {
+      "source_run": "runs/luna-readable-palindrome-manual-search-20260917.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 71,
+      "max_letters": 71,
+      "mean_zipf_frequency": 4.9471428571428575,
+      "mean_brown_order_gain_vs_shuffle": 0.9754616120840058
     },
     {
       "source_run": "runs/manual-bidirectional-scene-20260916.json",
@@ -253355,6 +253388,213 @@
         "word_count": 8,
         "repeated_word_rate": 0.25,
         "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The night porter checks the brass key under the cedar awning, and finds the waiting boat.",
+      "source_run": "runs/luna-boundary-semantic-repair-20260917.json",
+      "provenance": "finite semantic lattice with typed lexical choices, valency checks, and pre-render opposing-boundary obligations",
+      "repair": null,
+      "letters": 72,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9179136008836721,
+        "mean_zipf_frequency": 5.498125,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The night porter carries the brass key under the cedar awning, and finds the waiting boat.",
+      "source_run": "runs/luna-boundary-semantic-repair-20260917.json",
+      "provenance": "finite semantic lattice with typed lexical choices, valency checks, and pre-render opposing-boundary obligations",
+      "repair": null,
+      "letters": 73,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9780787803431039,
+        "mean_zipf_frequency": 5.493125,
+        "word_count": 16,
+        "repeated_word_rate": 0.1875,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The night porter checks a folded lantern under the cedar awning, and finds the waiting boat.",
+      "source_run": "runs/luna-boundary-semantic-repair-20260917.json",
+      "provenance": "finite semantic lattice with typed lexical choices, valency checks, and pre-render opposing-boundary obligations",
+      "repair": null,
+      "letters": 75,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7645272243560566,
+        "mean_zipf_frequency": 5.3637500000000005,
+        "word_count": 16,
+        "repeated_word_rate": 0.125,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The baker bakes fresh bread before dawn; The carpenter repairs blue sails after lunch.",
+      "source_run": "runs/luna-readable-palindrome-manual-search-20260917.json",
+      "provenance": {
+        "generator_sha256": "f6dfff8195c23c6e0d9ce73191a16b10d14f4b40e7ef42034d7fa6604e290804",
+        "source_sentences_copied": false,
+        "borrowed_text": false,
+        "independent_pointer_sha": true
+      },
+      "repair": null,
+      "letters": 71,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9754616120840058,
+        "mean_zipf_frequency": 4.9471428571428575,
+        "word_count": 14,
+        "repeated_word_rate": 0.0714285714285714,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A careful mason repairs the gate; at dawn a quiet botanist labels seedlings. The patient curator checks a map; nearby a young porter stacks clean crates.",
+      "source_run": "runs/luna-cfg-frame-repair-20260917.json",
+      "provenance": {
+        "inventory": "fresh hand-authored typed role/event terminals",
+        "source_sentences_copied": false,
+        "finished_surface_reversed": false,
+        "posthoc_resegmentation": false,
+        "parent_exact_terminals_reused": false,
+        "generator_sha256": "e2e8b8a3e10663eca6f7ec5535932ace90960c7f77869a2487fcb966997000e1"
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.677226313512989,
+        "mean_zipf_frequency": 5.037692307692307,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 2
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

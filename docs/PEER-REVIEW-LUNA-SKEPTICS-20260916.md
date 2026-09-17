@@ -157,9 +157,9 @@ next reader-facing test is held until exact admission, then freezes this intact
 rendering against a matched shuffled control. The same wave records three
 101-letter exact tapes from paired-slot repair, but their “Levels calm tales
 ...” surfaces are visibly unreadable and are rejected before reader use. The
-current aggregate is 5,260 rows across 317 routes, with 83 exact rows and zero
-mechanically admitted outputs; the registry has 417 retained artifacts, 34
-exclusions, and 395 retained run artifacts.
+current aggregate is 5,265 rows across 320 routes, with 83 exact rows and zero
+mechanically admitted outputs; the registry has 420 retained artifacts, 34
+exclusions, and 398 retained run artifacts.
 
 A follow-up typed scene realizer adds three complete SVO/PP surfaces, including
 “The harbor guides the vessel near the breakwater.” (41 letters; exact
@@ -168,3 +168,11 @@ controls are explicitly excluded rather than promoted: a 50-letter CFG chart
 surface fails the word-order-mirror and self-palindromic-span gates, and a
 42-letter lexical-closure surface fails mirrored word order and self-collision.
 Both remain independently audited failure evidence.
+
+Three targeted repairs follow: a finite semantic-boundary lattice (72--75
+letters), a fresh manual clause-plan search (best 71 letters), and a repaired
+CFG frame (124 letters). The strongest intact rendering is “The baker bakes
+fresh bread before dawn; The carpenter repairs blue sails after lunch.” Its
+independent pointer/SHA result is `exact=false`; provenance, novelty, and the
+first-residual lexical repair are recorded, so it remains a readable control,
+not a palindrome claim.

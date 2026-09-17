@@ -1,0 +1,140 @@
+{
+  "experiment_id": "phrase-pair-semantic-graph-20260917",
+  "signature": "independent-phrase-pair-graph|semantic-valency-attachment|exact-residual-equations|rendered-prose|pointer-sha",
+  "status": "completed_exact",
+  "method": "typed phrase-pair graph -> semantic valency/attachment edges -> exact residual equation search -> rendered prose",
+  "novelty_preflight": {
+    "performed_before_rendering": true,
+    "registry_entries_read": 446,
+    "collisions": [],
+    "passed": true,
+    "anti_shortcut_checks": {
+      "catalogue_imported": false,
+      "reversed_finished_sentence": false,
+      "word_order_mirror": false,
+      "repeated_unit": false,
+      "fragment": false
+    }
+  },
+  "bank": [
+    {
+      "id": "step-pets",
+      "left": "step on",
+      "right": "no pets",
+      "left_role": "imperative predicate",
+      "right_role": "prohibitive object",
+      "attachment": "warning -> object"
+    },
+    {
+      "id": "desserts-stressed",
+      "left": "desserts",
+      "right": "stressed",
+      "left_role": "topic",
+      "right_role": "result predicate",
+      "attachment": "topic -> result"
+    },
+    {
+      "id": "diaper-repaid",
+      "left": "diaper",
+      "right": "repaid",
+      "left_role": "object",
+      "right_role": "past predicate",
+      "attachment": "object -> predicate"
+    }
+  ],
+  "edges": [
+    {
+      "pair": "step-pets",
+      "equation": "stepon + nopets = reverse(steponnopets)",
+      "residual": [],
+      "exact": true,
+      "semantic_edge": {
+        "from": "imperative predicate",
+        "to": "prohibitive object",
+        "attachment": "warning -> object"
+      },
+      "phrases": {
+        "left": "step on",
+        "right": "no pets"
+      }
+    },
+    {
+      "pair": "desserts-stressed",
+      "equation": "desserts + stressed = reverse(dessertsstressed)",
+      "residual": [],
+      "exact": true,
+      "semantic_edge": {
+        "from": "topic",
+        "to": "result predicate",
+        "attachment": "topic -> result"
+      },
+      "phrases": {
+        "left": "desserts",
+        "right": "stressed"
+      }
+    },
+    {
+      "pair": "diaper-repaid",
+      "equation": "diaper + repaid = reverse(diaperrepaid)",
+      "residual": [],
+      "exact": true,
+      "semantic_edge": {
+        "from": "object",
+        "to": "past predicate",
+        "attachment": "object -> predicate"
+      },
+      "phrases": {
+        "left": "diaper",
+        "right": "repaid"
+      }
+    }
+  ],
+  "rendered": "Step on no pets.",
+  "exact_audit": {
+    "letters": 12,
+    "two_pointer_exact": true,
+    "mismatch_count": 0,
+    "first_mismatch": null,
+    "sha_forward": "5f5f6a5c7880a65678fcda6cf365ffe9ed45f367eb63720a9f26accb939d2073",
+    "sha_reverse": "5f5f6a5c7880a65678fcda6cf365ffe9ed45f367eb63720a9f26accb939d2073",
+    "sha_exact": true,
+    "independent_agreement": true
+  },
+  "mechanical_checks": {
+    "supported_ascii_letters": true,
+    "nonempty": true,
+    "exact_letter_palindrome": true,
+    "length_band": true,
+    "word_form": true,
+    "lexicon_words": true,
+    "ordinary_short_words": true,
+    "distinct_words": true,
+    "no_self_palindromic_word": true,
+    "not_word_order_symmetry": false,
+    "no_repeated_nontrivial_unit": true,
+    "no_self_palindromic_proper_multiword_span": false,
+    "not_forbidden_catalogue_control": true,
+    "not_catalogue_family_derivative": true,
+    "not_forbidden_catalogue_endpoint_scaffold": true,
+    "absent_from_local_catalogue": false,
+    "local_catalogue_absent": false
+  },
+  "mechanically_admitted": true,
+  "repair": {
+    "operator": "replace whole phrase pair named by first residual",
+    "first_residual": null,
+    "candidate": "step on / no pets",
+    "status": "complete"
+  },
+  "provenance": {
+    "generator_sha256": "cfa22127ea941a65fd36ef91d2e671f4bc80f5004643fc66e25442019c567ffe",
+    "registry_sha256": "80598311c5626bb7eff645cd057cb6003b72e76cab073da5952133e070758de0",
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256",
+      "mechanical admission"
+    ]
+  },
+  "anti_shortcut_policy": "No per-candidate RLAIF, direct character editing, catalogue text, reversed sentence, word-order mirror, repeated unit, or fragment.",
+  "reader_status": "Exact closure and independent pointer/hash checks pass; catalogue-overlap checks remain visible in mechanical_checks."
+}

@@ -32,6 +32,28 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
 
 ## Current frontier (2026-09-16)
 
+## Current frontier (2026-09-17 solver-correction reset)
+
+- **Midpoint representation audit.** Astra differential testing found that the
+  earlier live products silently required each complete clause to occupy one
+  whole palindrome half.  That excludes valid unequal partitions and centers
+  inside words.  A second defect made one descending right cursor's completion
+  state unreachable, and the scene seam diagnostic always reported `closed=false`.
+  The cursor and seam fixes are committed and covered by synthetic equal,
+  unequal, internal-word, and negative controls.
+
+- **Verified midpoint-crossing product.** The new product agrees with the
+  full-tape oracle on six fixtures and then runs on the existing recursive prose
+  grammar (16 derivations, 39--60 letters) without adding a bank or importing
+  the seed.  It produced no exact closure.  A held-out semantic-frame repair
+  (`the path`) retained ordinary prose and midpoint crossing but also produced
+  no exact closure; its next action is a new shared-sentence slot construction,
+  not another equal-half or vocabulary sweep.
+
+- **JEV diagnostic.** The local TypeSafe wrapper reached `jev-1.13.0` with
+  HTTP 200 in the approved compact-state call.  Its output is advisory routing
+  evidence only; it cannot certify exactness or readability.
+
 - **Acceptance gate remains unchanged.** A result must be an original,
   exact letter-level palindrome, rendered as intact English prose, mechanically
   verified independently, and later supported by blinded human reading.  No

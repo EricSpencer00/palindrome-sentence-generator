@@ -7,22 +7,27 @@ materialized.
 from pathlib import Path
 import hashlib,json,re
 ROOT=Path(__file__).resolve().parents[1]; OUT=ROOT/'runs/typed-grammar-character-nfa-20260917.json'
-FRAMES=(('the','careful','botanist','records','the','local','survey'),('the','patient','cartographer','maps','the','coastal','atlas'))
+LEXICON={'DET_SUBJ':('the','a'),'ADJ_SUBJ':('careful','patient'),'NOUN_SUBJ':('botanist','cartographer'),'VERB':('records','maps'),'DET_OBJ':('the','a'),'ADJ_OBJ':('local','coastal'),'NOUN_OBJ':('survey','atlas')}
 def letters(s): return re.sub('[^a-z]','',s.lower())
 def audit(s):
  t=letters(s);return {'letters':len(t),'exact':bool(t) and t==t[::-1],'sha256_forward':hashlib.sha256(t.encode()).hexdigest(),'sha256_reverse':hashlib.sha256(t[::-1].encode()).hexdigest()}
-def grammar_nfa(frame):
- roles=('DET_SUBJ','ADJ_SUBJ','NOUN_SUBJ','VERB','DET_OBJ','ADJ_OBJ','NOUN_OBJ'); return [{'state':roles[i],'token':tok,'next':roles[i+1] if i+1<len(roles) else 'ACCEPT'} for i,tok in enumerate(frame)]
+def grammar_nfa():
+ roles=('DET_SUBJ','ADJ_SUBJ','NOUN_SUBJ','VERB','DET_OBJ','ADJ_OBJ','NOUN_OBJ'); return [(r,LEXICON[r]) for r in roles]
 def paired_search():
- left=grammar_nfa(FRAMES[0]);right=grammar_nfa(FRAMES[1]); stack=[(0,0,'','',[])];closed=[];expanded=0
+ left=grammar_nfa();right=grammar_nfa(); stack=[(0,0,'','',[])];closed=[];expanded=0
  while stack and expanded<500:
   i,j,a,b,states=stack.pop();expanded+=1
   if i==len(left) and j==len(right):
-   if a==b[::-1]:closed.append({'left':a,'right':b,'states':states});continue
+   if a==b[::-1]:closed.append({'left':a,'right':b,'states':states})
+   continue
   if i<len(left) and j<len(right):
-   x,y=left[i]['token'],right[j]['token']; lx,ry=letters(x)[0],letters(y)[-1]
-   if lx==ry: stack.append((i+1,j+1,a+x,b+y,states+[left[i]['state']+'|'+right[j]['state']]))
+   role,xs=left[i]; rrole,ys=right[j]
+   for x in xs:
+    for y in ys:
+     if letters(x)[0]==letters(y)[-1]: stack.append((i+1,j+1,a+x,b+y,states+[role+'|'+rrole]))
  return expanded,closed
+def oracle_rejects_one_character_fake():
+ return letters('ab') != letters('a')[::-1]
 def run():
  expanded,paths=paired_search(); readable=[]
  for p in paths:

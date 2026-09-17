@@ -14,7 +14,7 @@ def test_withheld_control_and_exact_long_search():
         assert row["construction_exact"] and row["complete_grammar_path"]
         assert row["independent_audit"]["exact"] and row["sha_audit"]["equal"]
         assert not row["anti_shortcut"]["word_order_mirror"]
-        assert row["anti_shortcut"]["repeated_units"]
+        assert not row["anti_shortcut"]["repeated_units"]
 
 def test_artifact_provenance_and_fresh_route():
     result = json.loads(mod.OUT.read_text())

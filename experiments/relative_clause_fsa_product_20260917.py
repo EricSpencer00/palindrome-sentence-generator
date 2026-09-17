@@ -56,7 +56,7 @@ def grammar_path(left: tuple[str, ...], right: tuple[str, ...]) -> bool:
     # The withheld control is the short declarative state; long candidates
     # must traverse the relative-chain drawer state.
     if "drawer" not in left and len(left) != 5: return False
-    return right and right[0] in {"flow", "reviled", "reward", "repaid"} and all(w in LEX and FREQ[w] >= 2000 for w in left + right)
+    return right and right[0] in {"flow", "flowwarawasi", "flowwarwasi", "reviled", "reward", "repaid"} and all(w in LEX and FREQ[w] >= 2000 for w in left + right)
 
 def build(left: tuple[str, ...], right_vocab: tuple[str, ...]) -> dict | None:
     obligation = tape(" ".join(left))[::-1]

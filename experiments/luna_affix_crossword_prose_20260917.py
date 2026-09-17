@@ -189,6 +189,21 @@ def run() -> dict[str, object]:
     )
     candidates.extend(make_candidate(left, right, repair=label)
                       for left, right, label in verb_clitic_pairs)
+    # Fifth recorded repair: vary only the route and locative adjuncts on a
+    # fresh pilot–baker pair.  Each substitution is licensed by the same verb
+    # frame and leaves the clause's agreement untouched.
+    adjunct_pairs = (
+        (replace(pilot, adjunct="through the morning fog"),
+         replace(baker, adjunct="at the waiting shelter"), "baseline route + baseline location"),
+        (replace(pilot, adjunct="through the morning fog"),
+         replace(baker, adjunct="near the market shelter"), "held-out location tile"),
+        (replace(pilot, adjunct="across the quiet harbor"),
+         replace(baker, adjunct="at the waiting shelter"), "held-out route tile"),
+        (replace(pilot, adjunct="across the quiet harbor"),
+         replace(baker, adjunct="near the market shelter"), "held-out route + location tiles"),
+    )
+    candidates.extend(make_candidate(left, right, repair=label)
+                      for left, right, label in adjunct_pairs)
     candidates.sort(key=lambda row: row["audit"]["letters"], reverse=True)
     best = candidates[0]
     first = best["audit"]["two_pointer_mismatches"][0] if best["audit"]["two_pointer_mismatches"] else None
@@ -197,10 +212,11 @@ def run() -> dict[str, object]:
             "method": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
             "novelty_preflight": preflight, "candidate_count": len(candidates),
             "candidates": candidates, "actual_prose": best["rendered"],
-            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 16,
+            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 20,
                       "adjunct_object_variants": 4,
                       "subject_theme_variants": 4,
                       "verb_clitic_variants": 4,
+                      "preposition_locative_variants": 4,
                       "exact": sum(r["audit"]["exact"] for r in candidates),
                       "longest_letters": best["audit"]["letters"]},
             "failure_and_repair": {"first_residual": first,
@@ -209,9 +225,10 @@ def run() -> dict[str, object]:
                     "before sunrise/at dawn × weathered ferry/morning ferry on gardener–pilot pair",
                     "patient gardener/young gardener × weathered ferry/morning vessel on gardener–pilot pair",
                     "guides/leads × for them/for us on pilot–baker pair",
+                    "through morning fog/across quiet harbor × at waiting shelter/near market shelter on pilot–baker pair",
                 ],
-                "next_operator": "move the first residual to a role-compatible preposition or locative adjunct, preserving valency and recomputing obligations before punctuation",
-                "concrete_next_repair": "hold out 'through the morning fog'/'across the quiet harbor' and 'at the waiting shelter'/'near the market shelter' substitutions on the pilot–baker frames"},
+                "next_operator": "move the first residual to a role-compatible determiner or adjective tile, preserving valency and recomputing obligations before punctuation",
+                "concrete_next_repair": "hold out 'the weathered ferry'/'a weathered ferry' and 'the waiting shelter'/'the market shelter' determiner/theme variants on the pilot–baker frames"},
             "provenance": {"lexical_source": "fresh hand-authored clause plans and productive English morphology",
                            "catalogue_text_imported": False, "seed_embedding": False, "fixed_tape": False,
                            "word_order_mirror": False, "repeated_self_palindromic_span": False,

@@ -110,8 +110,13 @@ def run() -> dict:
     root_intersections = {a: sorted(set(compiled[a]["root_chars"]) & set(compiled[b]["root_chars"])) for a in compiled for b in compiled if a < b}
 
     lexical = [w.strip().lower() for w in (ROOT / "data" / "lexicon.txt").read_text().splitlines() if w.strip()][:500]
-    lexical_phrases = [f"{a} {b}" for a in lexical[:40] for b in lexical[:40] if a != b]
-    lexical_graph = CharacterGraph.from_phrases(lexical_phrases, "audited-common-word-inventory")
+    # Feed bounded paths lazily; do not materialise a phrase Cartesian product.
+    def bounded_paths():
+        # Bounded menu, deliberately generated without phrase Cartesian products.
+        menu = lexical[:40]
+        for i in range(0, min(len(menu) - 2, 36), 3):
+            yield " ".join(menu[i:i + 3])
+    lexical_graph = CharacterGraph.from_phrases(bounded_paths(), "audited-common-word-inventory")
     lexical_result = solve_product(lexical_graph, lexical_graph, max_states=2500)
     # No fabricated ``half + half`` tapes: only distinct, genuinely multiword
     # accepting paths may enter this lane.

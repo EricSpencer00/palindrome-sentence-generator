@@ -17,6 +17,11 @@ def test_lexical_lane_has_no_fabricated_duplicate_paths():
     assert all(row["left_path"] != row["right_path"] for row in lexical)
     assert all(" " in row["left_path"] and " " in row["right_path"] for row in lexical)
 
+def test_bounded_lexical_graph_can_represent_three_word_path():
+    graph = CharacterGraph.from_phrases(["one two three"], "bounded")
+    assert len(graph.accepting_paths) == 1
+    assert graph.accepting_paths[next(iter(graph.accepting_paths))].count(" ") == 2
+
 def test_root_intersections_are_reported_without_sentence_candidates():
     result = run()
     assert set(result["template_domains"]) == {"declarative", "question", "imperative"}

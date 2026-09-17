@@ -1,0 +1,177 @@
+{
+  "experiment_id": "scene-semordnilap-graph-20260916",
+  "signature": "scene-coherent-semordnilap-edges|causal-event-graph|discourse-connectors|nonrepeating-units|independent-pointer-sha",
+  "status": "completed",
+  "method": "global causal scene graph constraining semordnilap lexical edges and discourse connectors",
+  "candidates": [
+    {
+      "rendered": "Because the archivist found the drawer, the keeper recorded the reward and carried the map to the harbor. The record explains the event.",
+      "letters": 111,
+      "scene_id": 0,
+      "graph": {
+        "nodes": [
+          "archivist",
+          "keeper",
+          "artifact",
+          "harbor"
+        ],
+        "causal_edge": "discovery enables recording and transport",
+        "semordnilap_edges_considered": [
+          [
+            "drawer",
+            "reward"
+          ],
+          [
+            "diary",
+            "yraid"
+          ],
+          [
+            "stressed",
+            "desserts"
+          ]
+        ],
+        "shared_event": true
+      },
+      "exact_audit": {
+        "algorithm": "independent_two_pointer_plus_normalized_sha256",
+        "letters": 111,
+        "two_pointer_exact": false,
+        "mismatch_count": 45,
+        "first_mismatch": {
+          "left": 0,
+          "right": 110,
+          "a": "b",
+          "b": "t"
+        },
+        "sha256_forward": "ba32e53c8a340c5c3a0abcb1800f0e6dd28b459cf1ae66cbe013635a2109c48e",
+        "sha256_reverse": "1f6d4cb78501399ea420b1906dbf0e0a3efb6dbeebafaeb9c72c87158b4c5eb5",
+        "sha_equal": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "human_authored_scene": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "semordnilap_edge_is_not_presented_as_exact": true,
+        "generator_sha256": "8b8c5df1aff8d36a53b3834beb1b80b6931c6d33c3e8e4f2611eed3856e74898"
+      }
+    },
+    {
+      "rendered": "When the gardener opened the gate, the courier carried the letter and marked the garden path. The note preserves the event.",
+      "letters": 100,
+      "scene_id": 1,
+      "graph": {
+        "nodes": [
+          "archivist",
+          "keeper",
+          "artifact",
+          "harbor"
+        ],
+        "causal_edge": "discovery enables recording and transport",
+        "semordnilap_edges_considered": [
+          [
+            "drawer",
+            "reward"
+          ],
+          [
+            "diary",
+            "yraid"
+          ],
+          [
+            "stressed",
+            "desserts"
+          ]
+        ],
+        "shared_event": true
+      },
+      "exact_audit": {
+        "algorithm": "independent_two_pointer_plus_normalized_sha256",
+        "letters": 100,
+        "two_pointer_exact": false,
+        "mismatch_count": 44,
+        "first_mismatch": {
+          "left": 0,
+          "right": 99,
+          "a": "w",
+          "b": "t"
+        },
+        "sha256_forward": "af49e01ddfe7c55c21ff84e877f4b69166129df08a20f69b5f4f83f43083a010",
+        "sha256_reverse": "d03a7f197e47d78bc9e5011e5d1aa67e473e035e17e0eaa17808e3cc8fb71624",
+        "sha_equal": false
+      },
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "human_authored_scene": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "semordnilap_edge_is_not_presented_as_exact": true,
+        "generator_sha256": "8b8c5df1aff8d36a53b3834beb1b80b6931c6d33c3e8e4f2611eed3856e74898"
+      }
+    }
+  ],
+  "stats": {
+    "scenes": 2,
+    "edges_considered": 6,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "novelty_preflight": {
+    "performed_before_search": true,
+    "exact_id_collision": false,
+    "exact_signature_collision": false,
+    "status": "passed",
+    "duplicate_sweep_rejected": true
+  },
+  "next_repair": "Replace the first residual edge with a sense-compatible event role while preserving causal direction, then solve connector boundaries globally; reject any repeated-unit closure.",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "8b8c5df1aff8d36a53b3834beb1b80b6931c6d33c3e8e4f2611eed3856e74898",
+    "generated_not_catalogue": true
+  }
+}

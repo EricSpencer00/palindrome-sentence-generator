@@ -2961,3 +2961,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   closed. The next concrete operators are domain-valued right-role witness
   pruning, a sixth-character-compatible authored phrase on the matched survey
   branch, and an explicit earlier/later temporal ordering feature.
+
+  The following wave completed those repairs. Domain-valued right-role witness
+  pruning rendered 3 intact candidates up to 93 letters; the authored
+  `v-r-u-s` setting phrase made all 4 matched survey branches satisfy a sixth
+  reverse-prefix character, with candidates up to 57 letters; and the explicit
+  earlier<later temporal-order CFG rendered 256 candidates up to 61 letters
+  while pruning 1,792 reverse-order or inconsistent states. All produced 0
+  exact closures. Independent pointer/SHA-256 replay, provenance, novelty
+  preflight, and anti-shortcut checks are retained for every row. The reader
+  gate remains closed. The next concrete operators are simultaneous witness
+  propagation through both role sides, a seventh-character-compatible authored
+  phrase on the matched survey branch, and a formerly/later ordering-compatible
+  tense-state pair.

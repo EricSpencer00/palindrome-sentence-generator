@@ -1,0 +1,91 @@
+{
+  "experiment_id": "reversible-phrase-determiner-repair-20260916",
+  "signature": "phrase-determiner-repair|single-child|preposition-location-fixed|valency-preserved|fresh-state",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "single determiner substitution against residual while freezing preposition, location head, and valency",
+  "candidates": [
+    {
+      "repair_state": "single determiner substitution",
+      "parent_state": "reversible-phrase-directional-adjunct-repair-20260916",
+      "replacement": {
+        "old": "the old quay",
+        "new": "our old quay"
+      },
+      "preposition_fixed": "beside",
+      "location_fixed": "old quay",
+      "valency_preserved": true,
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The harbor keeper preserves a quiet journal while the night crew carries bright lanterns beside our old quay.",
+        "letters": 91,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "y"
+        ],
+        "normalized_sha256": "242f3cf5661626dbfd4367c3ea0073b400bb59f19bdcf4e02b0337a469a465d6",
+        "reverse_sha256": "77cae81492f95541ad5d6a64c32c73dd45b71bb3ac52eb67a183dfa654065025",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "replace only the location adjective with a held-out compatible adjective matching the first residual",
+        "reason": "determiner repair remains readable but does not close outer obligation"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 1,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "replace only the location adjective with a held-out compatible adjective matching the first residual",
+    "reason": "determiner repair remains readable but does not close outer obligation"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 364,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "word_order_mirror": false,
+    "repeated_units": false
+  },
+  "provenance": {
+    "generator_sha256": "27bd4dd42a18cf8a8fef732aadaff2d370d60d5a4a91ed7792ee8b383e868c5b",
+    "lexical_source": "held-out determiner alternative",
+    "parent_state": "reversible-phrase-directional-adjunct-repair-20260916",
+    "repair": "the->our only; preposition/location and valency frozen",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "anti-shortcut"
+    ]
+  }
+}

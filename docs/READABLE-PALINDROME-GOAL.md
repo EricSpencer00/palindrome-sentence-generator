@@ -2910,3 +2910,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   lexical domains, a compatible third character only on matched setting
   branches, and a bounded two-adverb temporal branch with explicit attachment
   filtering.
+
+  The following wave completed those repairs. Pre-render attachment witness
+  propagation rendered 2 intact candidates up to 94 letters; the gated
+  third-character beam entered 6 two-character-matched branches and retained
+  candidates up to 65 letters, with the best branch matching only 2 of 3
+  characters; and the bounded two-adverb temporal CFG rendered 1,536
+  candidates up to 63 letters while pruning 7,680 invalid attachment/subject
+  states. All produced 0 exact closures. Independent pointer/SHA-256 replay,
+  provenance, novelty preflight, and anti-shortcut checks are retained for
+  every row. The reader gate remains closed. The next concrete operators are
+  witness-domain plus agent/action/theme valency intersection, a grammatical
+  setting phrase beginning with the required third character, and held-out
+  adverb substitution in one temporal slot at a time.

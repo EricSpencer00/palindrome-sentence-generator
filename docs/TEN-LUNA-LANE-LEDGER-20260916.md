@@ -315,7 +315,7 @@ Lane 8's distinct repair is recorded separately as
 harbor scene with plural, past-tense, and possessive-clitic obligations. It is
 non-exact under both independent audits and passes the no-repeated-unit gate.
 
-The common audit is **4,845 rows, 226 route phases, 79 exact rejected tapes,
+The common audit is **4,851 rows, 229 route phases, 79 exact rejected tapes,
 and 0 mechanically admitted outputs**. The exact lane-8 hash is retained only
 as a quarantined duplicate-control failure; it cannot enter a reader packet.
 
@@ -368,7 +368,7 @@ states at 55, 114, 168, and 223 letters. Both continuations have fresh
 provenance and novelty fingerprints, and neither produced an exact closure;
 they are retained as construction evidence rather than duplicate sweeps.
 
-The authoritative aggregate is therefore **4,845 rows across 226 route
+The authoritative aggregate is therefore **4,851 rows across 229 route
 phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**. The
 next reader-facing test remains the randomized blinded intact-versus-shuffled
 packet, gated on a genuinely exact, anti-shortcut-clean candidate.
@@ -379,8 +379,8 @@ function/inflection editor (five 96--104-letter scenes). Both are registered
 as distinct retained families with independent audits and concrete repairs.
 An entailment-preserving active/passive rewrite is explicitly excluded after
 novelty preflight found overlap with existing voice/information-structure
-families. The registry now contains 327 retained artifacts, 31 exclusions,
-and 305 retained run artifacts.
+families. The registry now contains 330 retained artifacts, 31 exclusions,
+and 308 retained run artifacts.
 
 Representative renderings are preserved verbatim: “The baker repairs the
 gate; the pilot maps a gate.” (39 letters, first mismatch 0, normalized SHA
@@ -472,4 +472,12 @@ The next queue adds a scalable outside-in phrase-pair grammar (three
 phrase-pair scene search (two 89--97-letter valency scenes). They are separate
 state representations with rendered text, independent pointer/SHA audits,
 provenance, novelty preflight, anti-shortcut checks, and concrete repairs;
+none closes exactly or enters the reader packet.
+
+The named repair pass is retained separately: paired same-role terminal
+replacement (three 120--132-letter scenes), a held-out joint harbor
+object/locative repair (one 68-letter scene), and a valency-preserving
+phrase-edge repair (two 95--99-letter scenes). These are targeted child
+states with parent linkage, rendered prose, independent pointer/SHA checks,
+provenance, novelty preflight, anti-shortcut gates, and concrete next repairs;
 none closes exactly or enters the reader packet.

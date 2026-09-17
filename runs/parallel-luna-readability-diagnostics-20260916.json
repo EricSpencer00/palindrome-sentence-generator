@@ -221,9 +221,12 @@
     "runs/valency-clitic-live-lexicalizer-20260916.json",
     "runs/scalable-outsidein-phrase-pair-20260916.json",
     "runs/fresh-seed-benchmark-seam-growth-20260916.json",
-    "runs/reversible-phrase-pair-scene-search-20260916.json"
+    "runs/reversible-phrase-pair-scene-search-20260916.json",
+    "runs/scalable-outsidein-paired-terminal-repair-20260916.json",
+    "runs/fresh-seam-heldout-joint-repair-20260916.json",
+    "runs/reversible-phrase-pair-role-repair-20260916.json"
   ],
-  "candidate_count": 4845,
+  "candidate_count": 4851,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -1158,6 +1161,16 @@
       "mean_brown_order_gain_vs_shuffle": 0.6812078827690033
     },
     {
+      "source_run": "runs/fresh-seam-heldout-joint-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 68,
+      "max_letters": 68,
+      "mean_zipf_frequency": 5.61529411764706,
+      "mean_brown_order_gain_vs_shuffle": 1.2950307415781044
+    },
+    {
       "source_run": "runs/fresh-seed-benchmark-seam-growth-20260916.json",
       "rows": 16,
       "exact_count": 0,
@@ -1938,6 +1951,16 @@
       "mean_brown_order_gain_vs_shuffle": 0.9124862683002112
     },
     {
+      "source_run": "runs/reversible-phrase-pair-role-repair-20260916.json",
+      "rows": 2,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 95,
+      "max_letters": 99,
+      "mean_zipf_frequency": 5.252777777777778,
+      "mean_brown_order_gain_vs_shuffle": 0.9863887397285147
+    },
+    {
       "source_run": "runs/reversible-phrase-pair-scene-search-20260916.json",
       "rows": 2,
       "exact_count": 0,
@@ -2006,6 +2029,16 @@
       "max_letters": 278,
       "mean_zipf_frequency": 5.2146766913588944,
       "mean_brown_order_gain_vs_shuffle": 0.7968900443640348
+    },
+    {
+      "source_run": "runs/scalable-outsidein-paired-terminal-repair-20260916.json",
+      "rows": 3,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 120,
+      "max_letters": 132,
+      "mean_zipf_frequency": 5.308827777777778,
+      "mean_brown_order_gain_vs_shuffle": 0.8508220737261555
     },
     {
       "source_run": "runs/scalable-outsidein-phrase-pair-20260916.json",
@@ -233134,6 +233167,281 @@
       "diagnostics_not_readability": {
         "brown_order_gain_vs_shuffle": 0.9763640648084007,
         "mean_zipf_frequency": 5.315,
+        "word_count": 18,
+        "repeated_word_rate": 0.11111111111111116,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, the archivist opens the town archive beside the silent quay, while a patient gardener covers the young seedlings under the copper awning.",
+      "source_run": "runs/scalable-outsidein-paired-terminal-repair-20260916.json",
+      "provenance": {
+        "method": "paired same-role outer-terminal repair on scalable outside-in grammar",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "2f8caa2bece06578df06e642320d8941ea3d9f56640e004f5e727f0a1328d7ab",
+        "source_sha256": "ba13197c80f36585cb34fca5b40a0e644299403e111eed727c69710a33080074"
+      },
+      "repair": null,
+      "letters": 120,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9040704354246536,
+        "mean_zipf_frequency": 5.217083333333334,
+        "word_count": 24,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "By evening, a patient gardener covers the young seedlings along the shaded footbridge, while the careful nurse carries the clean water near the weathered gate.",
+      "source_run": "runs/scalable-outsidein-paired-terminal-repair-20260916.json",
+      "provenance": {
+        "method": "paired same-role outer-terminal repair on scalable outside-in grammar",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "2f8caa2bece06578df06e642320d8941ea3d9f56640e004f5e727f0a1328d7ab",
+        "source_sha256": "c4f8245f2af76338d685adfb3eb77a0daca6ab3be7b9d07e4f97c7588593de06"
+      },
+      "repair": null,
+      "letters": 132,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7083882913895163,
+        "mean_zipf_frequency": 5.3044,
+        "word_count": 25,
+        "repeated_word_rate": 0.16000000000000003,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "After rain, the careful nurse carries the clean water beneath the willow branches, while the archivist opens the town archive across the gravel court.",
+      "source_run": "runs/scalable-outsidein-paired-terminal-repair-20260916.json",
+      "provenance": {
+        "method": "paired same-role outer-terminal repair on scalable outside-in grammar",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "2f8caa2bece06578df06e642320d8941ea3d9f56640e004f5e727f0a1328d7ab",
+        "source_sha256": "80eaf118d062e4bb47f52233102682b7f34e7a89484ec7b597817e7ef6490887"
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9400074943642966,
+        "mean_zipf_frequency": 5.405,
+        "word_count": 24,
+        "repeated_word_rate": 0.20833333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "At dawn, the pilot marks the chart beside the old pier; then the crew secures the boat.",
+      "source_run": "runs/fresh-seam-heldout-joint-repair-20260916.json",
+      "provenance": {
+        "fresh_connected_scene": true,
+        "seed_used_as_output": false,
+        "seed_wrapped": false,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "24391b51a325eb5ae82adc86b2e03041fb8f97742c36e779f81594774ae6a125"
+      },
+      "repair": null,
+      "letters": 68,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2950307415781044,
+        "mean_zipf_frequency": 5.61529411764706,
+        "word_count": 17,
+        "repeated_word_rate": 0.23529411764705888,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The harbor keeper preserves a quiet journal while the night crew carries bright lanterns toward the western pier.",
+      "source_run": "runs/reversible-phrase-pair-role-repair-20260916.json",
+      "provenance": "apply one held-out phrase-edge replacement at highest residual while preserving valency and connected scene",
+      "repair": null,
+      "letters": 95,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0118938705434957,
+        "mean_zipf_frequency": 5.181111111111112,
+        "word_count": 18,
+        "repeated_word_rate": 0.11111111111111116,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The garden steward stores a careful record while the morning team brings clean baskets beside the eastern greenhouse.",
+      "source_run": "runs/reversible-phrase-pair-role-repair-20260916.json",
+      "provenance": "apply one held-out phrase-edge replacement at highest residual while preserving valency and connected scene",
+      "repair": null,
+      "letters": 99,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9608836089135337,
+        "mean_zipf_frequency": 5.3244444444444445,
         "word_count": 18,
         "repeated_word_rate": 0.11111111111111116,
         "punctuation_segments": 1

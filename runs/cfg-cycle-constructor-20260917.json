@@ -1,0 +1,168 @@
+{
+  "method": "recursive_typed_cfg_target_length_character_intersection",
+  "status": "completed_no_novel_exact_closure",
+  "grammar": [
+    "S -> CLAUSE",
+    "S -> CLAUSE AND S",
+    "CLAUSE -> NP V NP",
+    "NP -> DET ADJ NOUN"
+  ],
+  "recursive_rule": "S -> CLAUSE AND S",
+  "derivations_checked": 1328256,
+  "target_length_range": [
+    19,
+    69
+  ],
+  "exact_count": 0,
+  "exact_candidates": [],
+  "rendered_frontier": [
+    {
+      "rendered": "the bright scholar crosses the letters and the bright scholar crosses the letters",
+      "normalized_tape": "thebrightscholarcrossesthelettersandthebrightscholarcrossestheletters",
+      "roles": [
+        "det",
+        "adj",
+        "subj",
+        "verb",
+        "det",
+        "obj",
+        "coord",
+        "det",
+        "adj",
+        "subj",
+        "verb",
+        "det",
+        "obj"
+      ],
+      "provenance": "recursive_typed_cfg_independent_derivation",
+      "audit": {
+        "exact_two_pointer": false,
+        "exact_sha256_reverse": false,
+        "sha256": "47b79fb9a25e17af67a381ca16df8638a3ce15b819b8bd5989738eb92d88ac0e",
+        "letters": 69
+      },
+      "reader_eligible": false
+    },
+    {
+      "rendered": "the bright scholar crosses the letters and the bright lantern crosses the letters",
+      "normalized_tape": "thebrightscholarcrossesthelettersandthebrightlanterncrossestheletters",
+      "roles": [
+        "det",
+        "adj",
+        "subj",
+        "verb",
+        "det",
+        "obj",
+        "coord",
+        "det",
+        "adj",
+        "subj",
+        "verb",
+        "det",
+        "obj"
+      ],
+      "provenance": "recursive_typed_cfg_independent_derivation",
+      "audit": {
+        "exact_two_pointer": false,
+        "exact_sha256_reverse": false,
+        "sha256": "503988e708511a61f7434b3439fcc96fa51f0599b0ee89a0c0f96b6165011dc1",
+        "letters": 69
+      },
+      "reader_eligible": false
+    },
+    {
+      "rendered": "the bright lantern crosses the letters and the bright scholar crosses the letters",
+      "normalized_tape": "thebrightlanterncrossesthelettersandthebrightscholarcrossestheletters",
+      "roles": [
+        "det",
+        "adj",
+        "subj",
+        "verb",
+        "det",
+        "obj",
+        "coord",
+        "det",
+        "adj",
+        "subj",
+        "verb",
+        "det",
+        "obj"
+      ],
+      "provenance": "recursive_typed_cfg_independent_derivation",
+      "audit": {
+        "exact_two_pointer": false,
+        "exact_sha256_reverse": false,
+        "sha256": "80b9fdc66309d42bbcc1bd34ce98fba5c3e4344a2fff27f8fbfd26485252c73a",
+        "letters": 69
+      },
+      "reader_eligible": false
+    },
+    {
+      "rendered": "the bright lantern crosses the letters and the bright lantern crosses the letters",
+      "normalized_tape": "thebrightlanterncrossesthelettersandthebrightlanterncrossestheletters",
+      "roles": [
+        "det",
+        "adj",
+        "subj",
+        "verb",
+        "det",
+        "obj",
+        "coord",
+        "det",
+        "adj",
+        "subj",
+        "verb",
+        "det",
+        "obj"
+      ],
+      "provenance": "recursive_typed_cfg_independent_derivation",
+      "audit": {
+        "exact_two_pointer": false,
+        "exact_sha256_reverse": false,
+        "sha256": "0a1be790dda8f5d3dbb8bf8be2afbcec3cc26641e5d722ec5a382b159c963faf",
+        "letters": 69
+      },
+      "reader_eligible": false
+    },
+    {
+      "rendered": "the quiet scholar crosses the letters and the bright scholar crosses the letters",
+      "normalized_tape": "thequietscholarcrossesthelettersandthebrightscholarcrossestheletters",
+      "roles": [
+        "det",
+        "adj",
+        "subj",
+        "verb",
+        "det",
+        "obj",
+        "coord",
+        "det",
+        "adj",
+        "subj",
+        "verb",
+        "det",
+        "obj"
+      ],
+      "provenance": "recursive_typed_cfg_independent_derivation",
+      "audit": {
+        "exact_two_pointer": false,
+        "exact_sha256_reverse": false,
+        "sha256": "d6ce7febe3b1b8b47b2ad9162454dab53b43be386547bef9032d01e5e080e29a",
+        "letters": 68
+      },
+      "reader_eligible": false
+    }
+  ],
+  "reader_success": false,
+  "shortcut_rejections": {
+    "word_order_mirror": true,
+    "self_palindromic_units": true,
+    "catalogue_import": true,
+    "posthoc_reverse": true
+  },
+  "repair": "add independently authored relative-clause and PP productions with semantic attachment states; preserve target-length product and reject catalogue/known controls",
+  "provenance": {
+    "generator_sha256": "a11490f460700dcc0af3a3b69f7aa6bb2893610274c260bcd7e854aba6962df0",
+    "lexicon": "hand-authored ordinary English role banks",
+    "independent_side_emission": true
+  }
+}

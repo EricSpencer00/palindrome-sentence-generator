@@ -1,0 +1,99 @@
+{
+  "experiment_id": "semantic-wordpair-event-graph-20260916",
+  "signature": "semantic-word-pair-graph|heldout-reverse-compatible-edges|coherent-svo-event|no-semordnilap-chain|independent-pointer-sha",
+  "status": "completed",
+  "method": "one bounded semantic word-pair graph path constrained by a coherent delivery/care event",
+  "candidate": {
+    "rendered": "The pilot carries a sealed parcel to the garden, where the keeper waters the basil before sunset.",
+    "letters": 79,
+    "graph_path": {
+      "nodes": [
+        "pilot",
+        "parcel",
+        "garden",
+        "keeper",
+        "basil"
+      ],
+      "event": "delivery enables garden care",
+      "heldout_edges_considered": [
+        [
+          "pilot",
+          "tends"
+        ],
+        [
+          "garden",
+          "rednag"
+        ],
+        [
+          "parcel",
+          "lecrap"
+        ]
+      ],
+      "selected_edges": []
+    },
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_normalized_sha256",
+      "letters": 79,
+      "two_pointer_exact": false,
+      "mismatch_count": 33,
+      "first_mismatch": {
+        "left": 1,
+        "right": 77,
+        "a": "h",
+        "b": "e"
+      },
+      "sha256_forward": "cb7cbe6ef3576c7e8240314356917f99b3dde854417e55e7e7e3327e13b31cc6",
+      "sha256_reverse": "4e4370953f3c5b914ae69acd9cdc6312703be868654a135ba1ceabbc74eb2806",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "coherent_svo_event": true,
+      "source_sentences_copied": false,
+      "catalogue_imported": false,
+      "borrowed_text": false,
+      "reversed_finished_sentence": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false,
+      "semordnilap_chain_rejected": true,
+      "generator_sha256": "b010af8693e942259a2a6dd9d63d023067a8ef79181acc5dae047ff7a4957beb"
+    }
+  },
+  "stats": {
+    "bounded_paths": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "novelty_preflight": {
+    "performed_before_search": true,
+    "exact_id_collision": false,
+    "exact_signature_collision": false,
+    "status": "passed",
+    "duplicate_sweep_rejected": true
+  },
+  "next_repair": "Add one held-out event-role edge between delivery and care and re-solve the first residual without admitting any semordnilap chain.",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "b010af8693e942259a2a6dd9d63d023067a8ef79181acc5dae047ff7a4957beb",
+    "generated_not_catalogue": true
+  }
+}

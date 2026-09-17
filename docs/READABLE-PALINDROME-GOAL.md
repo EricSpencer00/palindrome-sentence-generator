@@ -3037,3 +3037,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   are pair-specific fixed-point support maps, jointly conditioned seventh and
   eighth locative morphology, and determiner-number realization for the
   alternating objects.
+
+  The following wave completed those repairs. Pair-specific support maps in
+  the cross-side fixed-point loop rendered 4 intact candidates up to 97
+  letters; the typed proper-locative `via del Lago` rendered 4 intact
+  candidates up to 59 letters with all four joint `l/a` matches; and the
+  number-gated determiner CFG rendered 12,288 candidates up to 72 letters
+  while pruning 10,240 invalid number/role states. All produced 0 exact
+  closures. Independent pointer/SHA-256 replay, provenance, novelty
+  preflight, and anti-shortcut checks are retained for every row. The reader
+  gate remains closed. The next concrete operators are pair-local support-map
+  revision, proper-locative tail conditioning against the ninth residual, and
+  a single-position article-agreement transition.

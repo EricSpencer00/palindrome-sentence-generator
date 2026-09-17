@@ -59,7 +59,7 @@ LEXICON = {
 # Deliberately held out from the initial realization product.  ``points out``
 # preserves the transitive event valency while changing the first open target
 # edge (the event node) to the required terminal ``t``.
-HELD_OUT_SYNONYMS = {"event": "points out"}
+HELD_OUT_SYNONYMS = {"event": "points out", "locative": "near the market"}
 
 
 def edge_obligations(nodes: dict[str, Node]) -> list[dict[str, object]]:
@@ -153,23 +153,27 @@ def main() -> None:
     rows.sort(key=lambda r: (r["audit"]["independent_two_pointer"]["mismatch_count"], -r["audit"]["letters"]))
     exact = [r for r in rows if r["audit"]["exact"] and r["audit"]["letters"] > 38]
     best = rows[0]
-    repaired = repair_first_open(best)
+    event_repair = repair_first_open(best)
+    # Continue from the event repair; the next open target is locative on the
+    # theme -> locative edge, not a fresh lexical sweep.
+    locative_repair = repair_first_open(event_repair)
     out = {
         "experiment_id": ID,
         "signature": SIGNATURE,
         "status": "completed_exact_candidate" if exact else "completed_no_exact_closure",
         "reader_eligible": bool(exact),
         "method": "choose typed semantic path first; consume opposing character obligations online during lexical realization",
-        "candidate_scene": repaired["audit"]["rendered"],
+        "candidate_scene": locative_repair["audit"]["rendered"],
         "candidates": rows[:3],
-        "repaired_candidate": repaired,
+        "repaired_candidate": event_repair,
         # Expose the held-out repair through the common aggregate schema so
         # its actual prose and independent audit cannot disappear as metadata.
-        "repair_candidates": [repaired],
-        "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(repaired["audit"]["exact"] and repaired["audit"]["letters"] > 38)},
+        "repair_candidates": [event_repair, locative_repair],
+        "second_repair": locative_repair,
+        "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38)},
         "novelty_preflight": {"registry_entries_read": len(entries), "exact_signature_collision": collision, "catalogue_text_imported": False, "fixed_tape_used": False, "pos_sweep": False, "scene_lattice": False},
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "lexical_source": "hand-authored typed event lexicon", "path": [e.label for e in PATH], "audits": ["independent two-pointer", "forward/reverse SHA-256", "mechanical admission", "anti-shortcut preflight"]},
-        "next_repair": {"operator": "expand the held-out synonym bank for the next unsatisfied edge while retaining event valency, then recompute all edge debts", "reason": "the first repair changes only the event node and preserves a grammatical transitive clause; the remaining open edges require held-out theme, locative, or consequence variants"},
+        "next_repair": {"operator": "replace the consequence node with a held-out role-compatible variant ending in the locative obligation character, then recompute all edge debts", "reason": "the event and theme -> locative obligations now close while the locative -> consequence edge remains open; preserve the same grammatical event path"},
     }
     (ROOT / "runs" / f"{ID}.json").write_text(json.dumps(out, indent=2) + "\n")
     print(json.dumps(out["stats"], sort_keys=True))

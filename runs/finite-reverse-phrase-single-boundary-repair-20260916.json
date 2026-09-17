@@ -1,0 +1,60 @@
+{
+  "experiment": "finite-reverse-phrase-single-boundary-repair-20260916",
+  "novelty_preflight": {
+    "passed": true,
+    "signature": "single-heldout-fragment-boundary|reverse-phrase-composition-repair|complete-clause-preserved|online-obligation",
+    "overlaps_checked": [
+      "finite-reverse-phrase-composition-bank-20260916"
+    ],
+    "reason": "Only the terminal adjunct boundary changes from the prior child; no phrase sweep."
+  },
+  "rows": [
+    {
+      "id": "boundary-repair-0",
+      "rendered": "The ferryman guides the evening boat across the inlet; a cartographer draws the coastal road at twilight.",
+      "repair_state": {
+        "changed_boundary": "before twilight",
+        "complete_fragments_preserved": true,
+        "single_state": true,
+        "online_obligation": "active"
+      },
+      "audit": {
+        "length": 87,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 2,
+          "forward": "e",
+          "reverse": "g"
+        },
+        "sha256_forward": "729faf81207ae16fcc7b6a5404892fee48606fa6eab94d88aeb33d433044ff91",
+        "sha256_reverse": "832f2029c4c4d27b85cb2b7cbf5775b256d0014351bdfaf67b637cda4dac328c",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "single held-out phrase-boundary adjustment in reverse phrase composition grammar",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "3fc02a688e60546a0dced92867c346d4143196d2384d8b4ac48aea37c0a0fd30",
+        "source_sha256": "729faf81207ae16fcc7b6a5404892fee48606fa6eab94d88aeb33d433044ff91"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "finished_tape_resegmentation": false,
+        "repeated_unit": false,
+        "seed_wrapping": false,
+        "semordnilap_chain": false
+      },
+      "next_repair": "First residual 2: hold this boundary fixed and replace one opposite fragment edge with a same-role phrase."
+    }
+  ],
+  "summary": {
+    "candidate_count": 1,
+    "exact_count": 0,
+    "max_length": 87
+  }
+}

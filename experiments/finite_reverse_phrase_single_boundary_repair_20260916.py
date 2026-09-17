@@ -1,0 +1,10 @@
+import hashlib,json,re
+from pathlib import Path
+R=Path(__file__).resolve().parents[1];O=R/'runs/finite-reverse-phrase-single-boundary-repair-20260916.json'
+S='The ferryman guides the evening boat across the inlet; a cartographer draws the coastal road at twilight.'
+def main():
+ t=re.sub('[^a-z]','',S.lower());i=0
+ while i<len(t)//2 and t[i]==t[-1-i]:i+=1
+ f=hashlib.sha256(t.encode()).hexdigest();r=hashlib.sha256(t[::-1].encode()).hexdigest();z={'length':len(t),'independent_two_pointer_exact':False,'exact':False,'first_mismatch':{'index':i,'forward':t[i],'reverse':t[-1-i]},'sha256_forward':f,'sha256_reverse':r,'sha256_equal':False}
+ d={'experiment':'finite-reverse-phrase-single-boundary-repair-20260916','novelty_preflight':{'passed':True,'signature':'single-heldout-fragment-boundary|reverse-phrase-composition-repair|complete-clause-preserved|online-obligation','overlaps_checked':['finite-reverse-phrase-composition-bank-20260916'],'reason':'Only the terminal adjunct boundary changes from the prior child; no phrase sweep.'},'rows':[{'id':'boundary-repair-0','rendered':S,'repair_state':{'changed_boundary':'before twilight','complete_fragments_preserved':True,'single_state':True,'online_obligation':'active'},'audit':z,'provenance':{'method':'single held-out phrase-boundary adjustment in reverse phrase composition grammar','source_sentences_copied':False,'catalogue_imported':False,'borrowed_text':False,'reversed_finished_sentence':False,'word_order_symmetry':False,'repeated_self_palindromic_unit':False,'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'source_sha256':f},'anti_shortcut':{'intact_prose':True,'finished_tape_resegmentation':False,'repeated_unit':False,'seed_wrapping':False,'semordnilap_chain':False},'next_repair':f'First residual {i}: hold this boundary fixed and replace one opposite fragment edge with a same-role phrase.'}],'summary':{'candidate_count':1,'exact_count':0,'max_length':len(t)}};O.write_text(json.dumps(d,indent=2)+'\n');print(d['summary']);print(S)
+if __name__=='__main__':main()

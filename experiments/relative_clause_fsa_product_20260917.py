@@ -16,7 +16,7 @@ LEX = {
     "live": "verb", "on": "prep", "drawer": "noun", "deliver": "verb",
     "diaper": "noun", "flow": "verb", "war": "noun", "was": "verb",
     "evil": "adj", "no": "det", "reviled": "adj", "reward": "noun",
-    "repaid": "verb", "flowwarwasi": "answer-phrase", "flowwarawasi": "answer-phrase",
+    "repaid": "verb",
 }
 FREQ = {w: 2500 for w in LEX}
 LEFT_PATH = ("i", "saw", "raw", "wolf", "live", "on", "drawer", "deliver", "diaper", "part")
@@ -56,7 +56,7 @@ def grammar_path(left: tuple[str, ...], right: tuple[str, ...]) -> bool:
     # The withheld control is the short declarative state; long candidates
     # must traverse the relative-chain drawer state.
     if "drawer" not in left and len(left) != 5: return False
-    return right and right[0] in {"flow", "flowwarawasi", "flowwarwasi", "reviled", "reward", "repaid"} and all(w in LEX and FREQ[w] >= 2000 for w in left + right)
+    return right and right[0] in {"flow", "reviled", "reward", "repaid"} and all(w in LEX and FREQ[w] >= 2000 for w in left + right)
 
 def build(left: tuple[str, ...], right_vocab: tuple[str, ...]) -> dict | None:
     obligation = tape(" ".join(left))[::-1]
@@ -75,7 +75,7 @@ def build(left: tuple[str, ...], right_vocab: tuple[str, ...]) -> dict | None:
             "provenance": {"lexical_choices_before_rendering": True, "seed_used": False}}
 
 def run() -> dict:
-    right_vocab = ("flowwarwasi", "flowwarawasi", "flow", "war", "was", "i", "evil", "no", "reward", "reviled", "repaid")
+    right_vocab = ("flow", "war", "a", "was", "i", "evil", "no", "reward", "reviled", "repaid")
     control = build(("i", "saw", "a", "raw", "wolf"), right_vocab)
     candidates = []
     for n in range(6, len(LEFT_PATH) + 1):
@@ -85,14 +85,14 @@ def run() -> dict:
     if not candidates:  # declared repair: add the final reversible noun pair
         repaired = build(LEFT_PATH, right_vocab)
         if repaired: candidates.append(repaired)
-    result = {"status": "completed_exact_closure" if candidates else "no_exact_closure",
+    result = {"status": "completed_no_admitted_closure",
               "method": "character_level_exact_product_fsa_relative_clause",
-              "withheld_control": control, "candidates": candidates,
+              "withheld_control": control, "candidates": [], "mechanically_admitted": False,
               "search": {"letter_range": [40, 100], "word_boundaries": "independent_fsa_decoder",
                          "grammar": "relative_clause_dialogue_answer", "lexical_inventory": sorted(LEX)},
               "novelty_preflight": {"status": "passed", "catalogue_lookup": "none",
                                     "reason": "fresh relative-clause lexical inventory and template"},
-              "next_repair": {"operator": "add_reversible_relative_modifier",
+              "next_repair": {"operator": "lexicon_driven_boundary_relexicalization",
                               "target": "40_to_100_letter_exact_candidate",
                               "reason": "extend the typed relative chain with a new semordnilap pair"},
               "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "seed_used": False}}

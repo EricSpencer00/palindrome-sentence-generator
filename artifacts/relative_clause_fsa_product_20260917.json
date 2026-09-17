@@ -1,138 +1,9 @@
 {
-  "candidates": [
-    {
-      "anti_shortcut": {
-        "finished_tape_reversal": false,
-        "ordinary_word_frequency_floor": 2500,
-        "repeated_units": false,
-        "word_order_mirror": false
-      },
-      "complete_grammar_path": true,
-      "construction_exact": true,
-      "grammar": "S>Declarative>RelativeChain>Answer",
-      "independent_audit": {
-        "algorithm": "independent_two_pointer",
-        "exact": true
-      },
-      "left_path": [
-        "i",
-        "saw",
-        "raw",
-        "wolf",
-        "live",
-        "on",
-        "drawer"
-      ],
-      "letters": 46,
-      "provenance": {
-        "lexical_choices_before_rendering": true,
-        "seed_used": false
-      },
-      "rendered": "i saw raw wolf live on drawer; reward no evil flowwarwasi.",
-      "right_path": [
-        "reward",
-        "no",
-        "evil",
-        "flowwarwasi"
-      ],
-      "sha_audit": {
-        "equal": true,
-        "forward_sha256": "d0da9e55c5e7d5303a6050b9c4174d514d7730f970ad17815591878101d522cc",
-        "reverse_sha256": "d0da9e55c5e7d5303a6050b9c4174d514d7730f970ad17815591878101d522cc"
-      }
-    },
-    {
-      "anti_shortcut": {
-        "finished_tape_reversal": false,
-        "ordinary_word_frequency_floor": 2500,
-        "repeated_units": false,
-        "word_order_mirror": false
-      },
-      "complete_grammar_path": true,
-      "construction_exact": true,
-      "grammar": "S>Declarative>RelativeChain>Answer",
-      "independent_audit": {
-        "algorithm": "independent_two_pointer",
-        "exact": true
-      },
-      "left_path": [
-        "i",
-        "saw",
-        "raw",
-        "wolf",
-        "live",
-        "on",
-        "drawer",
-        "deliver"
-      ],
-      "letters": 60,
-      "provenance": {
-        "lexical_choices_before_rendering": true,
-        "seed_used": false
-      },
-      "rendered": "i saw raw wolf live on drawer deliver; reviled reward no evil flowwarwasi.",
-      "right_path": [
-        "reviled",
-        "reward",
-        "no",
-        "evil",
-        "flowwarwasi"
-      ],
-      "sha_audit": {
-        "equal": true,
-        "forward_sha256": "33ce495efad2ec1cd86827097b41804bd6322b67ac6407ca386d857a3526ceb1",
-        "reverse_sha256": "33ce495efad2ec1cd86827097b41804bd6322b67ac6407ca386d857a3526ceb1"
-      }
-    },
-    {
-      "anti_shortcut": {
-        "finished_tape_reversal": false,
-        "ordinary_word_frequency_floor": 2500,
-        "repeated_units": false,
-        "word_order_mirror": false
-      },
-      "complete_grammar_path": true,
-      "construction_exact": true,
-      "grammar": "S>Declarative>RelativeChain>Answer",
-      "independent_audit": {
-        "algorithm": "independent_two_pointer",
-        "exact": true
-      },
-      "left_path": [
-        "i",
-        "saw",
-        "raw",
-        "wolf",
-        "live",
-        "on",
-        "drawer",
-        "deliver",
-        "diaper"
-      ],
-      "letters": 72,
-      "provenance": {
-        "lexical_choices_before_rendering": true,
-        "seed_used": false
-      },
-      "rendered": "i saw raw wolf live on drawer deliver diaper; repaid reviled reward no evil flowwarwasi.",
-      "right_path": [
-        "repaid",
-        "reviled",
-        "reward",
-        "no",
-        "evil",
-        "flowwarwasi"
-      ],
-      "sha_audit": {
-        "equal": true,
-        "forward_sha256": "af5d2821331792f0c50eb33dd813cd0713042f67350152fcce2b91fb7e1b39fc",
-        "reverse_sha256": "af5d2821331792f0c50eb33dd813cd0713042f67350152fcce2b91fb7e1b39fc"
-      }
-    }
-  ],
+  "candidates": [],
+  "mechanically_admitted": false,
   "method": "character_level_exact_product_fsa_relative_clause",
   "next_repair": {
-    "operator": "add_reversible_relative_modifier",
+    "operator": "lexicon_driven_boundary_relexicalization",
     "reason": "extend the typed relative chain with a new semordnilap pair",
     "target": "40_to_100_letter_exact_candidate"
   },
@@ -142,7 +13,7 @@
     "status": "passed"
   },
   "provenance": {
-    "generator_sha256": "c7013f119bd346da08cd2d683533f1eb55f7bbfb1348a2603d13f6351c3eb824",
+    "generator_sha256": "af7f6914a30dc2b93d9f6d7cbcd685bf09eb9616bce241203ba31b5ca7968d6e",
     "seed_used": false
   },
   "search": {
@@ -158,8 +29,6 @@
       "drawer",
       "evil",
       "flow",
-      "flowwarawasi",
-      "flowwarwasi",
       "i",
       "live",
       "no",
@@ -175,13 +44,13 @@
     ],
     "word_boundaries": "independent_fsa_decoder"
   },
-  "status": "completed_exact_closure",
+  "status": "completed_no_admitted_closure",
   "withheld_control": {
     "anti_shortcut": {
       "finished_tape_reversal": false,
       "ordinary_word_frequency_floor": 2500,
-      "repeated_units": false,
-      "word_order_mirror": false
+      "repeated_units": true,
+      "word_order_mirror": true
     },
     "complete_grammar_path": true,
     "construction_exact": true,
@@ -202,9 +71,13 @@
       "lexical_choices_before_rendering": true,
       "seed_used": false
     },
-    "rendered": "i saw a raw wolf; flowwarawasi.",
+    "rendered": "i saw a raw wolf; flow war a was i.",
     "right_path": [
-      "flowwarawasi"
+      "flow",
+      "war",
+      "a",
+      "was",
+      "i"
     ],
     "sha_audit": {
       "equal": true,

@@ -6,18 +6,14 @@ mod = importlib.util.module_from_spec(spec); sys.modules[spec.name] = mod; spec.
 
 def test_withheld_control_and_exact_long_search():
     result = mod.run()
-    assert result["status"] == "completed_exact_closure"
+    assert result["status"] == "completed_no_admitted_closure"
     assert result["withheld_control"]["independent_audit"]["exact"]
-    assert result["candidates"]
-    for row in result["candidates"]:
-        assert 40 <= row["letters"] <= 100
-        assert row["construction_exact"] and row["complete_grammar_path"]
-        assert row["independent_audit"]["exact"] and row["sha_audit"]["equal"]
-        assert not row["anti_shortcut"]["word_order_mirror"]
-        assert not row["anti_shortcut"]["repeated_units"]
+    assert result["candidates"] == []
+    assert result["mechanically_admitted"] is False
 
 def test_artifact_provenance_and_fresh_route():
     result = json.loads(mod.OUT.read_text())
     assert result["method"].endswith("relative_clause")
     assert result["novelty_preflight"]["status"] == "passed"
     assert result["provenance"]["seed_used"] is False
+    assert all("flowwar" not in word for word in result["search"]["lexical_inventory"])

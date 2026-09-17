@@ -2610,3 +2610,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   gate remains closed. The next concrete operators are full positional
   interval-pair support, locative complement order swap, and one
   agreement-conditioned object determiner in the short grammar.
+
+  The next wave completed those operators. Full positional interval-pair
+  support retained 2 intact candidates up to 82 letters; locative complement
+  order swap produced 543 deduplicated candidates up to 93 letters; and the
+  short object-determiner agreement repair rendered 216 intact candidates up
+  to 99 letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are domain-valued
+  interval-pair propagation, shared-preposition locative complement reduction,
+  and one agreement-conditioned object adjective in the short grammar.

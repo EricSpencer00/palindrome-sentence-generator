@@ -2859,3 +2859,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   every row. The reader gate remains closed. The next concrete operators are
   live attachment grammar transitions, a character-trie continuation filter,
   and a mixed-tense temporal connective with consistency filtering.
+
+  The next wave completed those new-family repairs. Live single-scene
+  attachment transitions rendered 4 intact candidates up to 101 letters; the
+  scene-lattice trie continuation retained 6 boundary-filtered candidates up
+  to 70 letters; and the mixed-tense temporal causal CFG rendered 512
+  candidates up to 48 letters while pruning 2,560 incompatible states. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are a semantic
+  transition automaton over attachment/role states, a one-character
+  reverse-prefix beam at the same frontier, and the reverse present-to-past
+  `before` direction with explicit tense-order state.

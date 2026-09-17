@@ -2349,3 +2349,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   clause units are explicitly excluded. The next seam-conditioned lexical
   trie search must influence word-boundary choices before clause completion,
   then expose a fresh rendered candidate and its reader-facing test.
+
+  **2026-09-17 follow-up repair wave:** the seam-conditioned lexical trie
+  admitted 24 ordinary-order candidates from a 400-row prefix frontier, with
+  a longest rendered witness of 90 letters and 0 exact closures. The object
+  residual repair tested 240 compatible determiner/adjective realizations,
+  reached 119 letters, and closed 0 tapes while preserving agreement. The
+  number-gated object-relative CFG tested 55,296 controls plus 18,432 held-out
+  subject/verb repairs, reached 61 letters, and closed 0 tapes. Each row has
+  independent two-pointer and SHA-256 replay, generator provenance, and
+  anti-shortcut checks. These are fresh construction operators, not duplicate
+  sweeps; none is reader-eligible. Their concrete next repairs are
+  inflectional word tries with character-by-character seam equations, a
+  residual-conditioned tail preposition, and a fresh number-gated
+  determiner/verb contrast, respectively.

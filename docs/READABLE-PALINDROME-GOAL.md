@@ -2823,3 +2823,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   novelty preflight, and anti-shortcut checks are retained for every row. The
   seam-only family is now exhausted; the next concrete operator is a
   genuinely new center grammar with independent lexical obligations.
+
+  The new-family wave produced three distinct constructive states. The
+  single-scene center grammar rendered 4 intact candidates up to 100 letters;
+  the independent scene lattice rendered 90 compact single-sentence
+  candidates up to 77 letters; and the discourse-CFG obligation intersection
+  rendered 2,048 intact candidates up to 50 letters while pruning 1,024 chart
+  states before final rendering. All produced 0 exact closures. Independent
+  pointer/SHA-256 replay, provenance, novelty preflight, and anti-shortcut
+  checks are retained for every row. The reader gate remains closed. The next
+  concrete operators are semantic attachment alternatives with newly closed-
+  equation pruning, live reverse-obligation filtering at the object-setting
+  boundary, and a typed causal-connective frame with subject sharing and tense
+  agreement.

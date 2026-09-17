@@ -52,7 +52,7 @@ than a larger duplicate sweep.
 The closing queue pass added three non-overlapping Luna states: constrained
 meaning-preserving edits, append-preserving clause algebra, and discourse
 relation involution. Their 20 rendered prose rows are included in the latest
-aggregate (4,794 rows / 217 route phases), with independent audits and named
+aggregate (4,824 rows / 223 route phases), with independent audits and named
 repairs; none is exact or reader-eligible.
 
 A second repair pass added typed semantic center-out construction, lexical

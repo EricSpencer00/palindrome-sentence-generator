@@ -26,7 +26,7 @@ builds ordinary scenes: typed grammar and semantic slots propose the next
 words, and targeted repairs are selected from the current mirrored-letter
 debt.  Ten deliberately orthogonal construction lanes share an independent
 two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 4,794 candidates from 217 route
+The current development snapshot contains 4,824 candidates from 223 route
 summaries; 79 are exact, but none passes the mechanical admission gate and no row has
 yet been promoted by readers.  We report the rendered candidates and the
 failed gates explicitly, then use each failure to define the next repair
@@ -120,9 +120,12 @@ repairable frontiers, not as palindrome claims.}
 \label{tab:lanes}
 \end{table*}
 
-The longest current intact-prose probe is the first row of the table.  Across
-20 held-out two-clause scenes, lengths range from 66 to 72 letters and none
-closes exactly.  A tape resegmentation lane also found the 21-letter catalogue
+The aggregate also records a 1,922-letter recursive clause-growth diagnostic;
+it is retained as a scalability probe, but fails exactness and the repetition
+and length gates, so it is not a reader-facing result.  Among the complete
+prose frontiers, the CFG/Earley lane reaches 270 letters and the character-LM
+lane reaches 227 letters; neither closes exactly.  A tape resegmentation lane
+also found the 21-letter catalogue
 control ``a man a plan a canal panama''; its exactness is independently
 confirmed, but catalogue provenance excludes it.  These controls are useful
 for checking the gates, never for inflating the result set.
@@ -377,9 +380,9 @@ generator's booleans.  The mechanical admission vector records ASCII support,
 lexical form, distinctness, catalogue-family exclusion, repeated-unit and
 self-palindrome exclusion, and non-word-order symmetry.  The registry assigns
 one signature to each run and rejects duplicate families before aggregation.
-On the authoritative snapshot the registry contains 318 unique artifacts (31
-preflight exclusions); the aggregate contains 4,794 rows, 79 exact rows, and
-zero mechanically admitted rows across 217 route summaries.  Every exact row
+On the authoritative snapshot the registry contains 324 unique artifacts (31
+preflight exclusions); the aggregate contains 4,824 rows, 79 exact rows, and
+zero mechanically admitted rows across 223 route summaries.  Every exact row
 therefore has a visible reason for rejection or promotion status rather than
 being silently discarded.  The aggregate report is registered separately as
 an audit artifact, never as a construction family.

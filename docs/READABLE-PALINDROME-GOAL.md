@@ -3181,3 +3181,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   construction advances, but still not reader candidates; the next operators
   are live trie-node propagation, typed agreement in the two-character state,
   and bilateral role-conditioned verb frames with held-out lexical classes.
+
+  The next semantic and phrase repairs also completed without an exact
+  closure. Live trie-node propagation kept intact ordinary-English candidates
+  to 99 letters while checking prefixes before full-word admission; typed
+  singular/plural states in the two-character transducer kept 8 intact
+  candidates to 56 letters. Both retained independent audits, provenance,
+  novelty, and anti-shortcut checks. This confirms the useful direction is
+  earlier whole-tape obligation propagation, not another finished-word sweep;
+  the next repairs carry live states across function-word boundaries and bind
+  object number jointly with determiner agreement.

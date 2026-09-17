@@ -2,7 +2,7 @@
 import hashlib,json,re
 from pathlib import Path
 R=Path(__file__).resolve().parents[1];O=R/'runs/semordnilap-role-clause-product-20260916.json'
-PAIRS=[('deliver','reviled'),('stressed','desserts'),('diaper','repaid'),('drawer','reward')]
+PAIRS=[('delivered','reviled'),('stressed','deserts'),('repaid','diapered'),('rewarded','drawer')]
 SC=[('the archivist','labels','the rescued letters','at dawn'),('a patient gardener','waters','the young cedar trees','after rain'),('the careful pilot','marks','the distant runway lights','through mist')]
 def n(s):return re.sub('[^a-z]','',s.lower())
 def audit(s):

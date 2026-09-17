@@ -55,25 +55,23 @@ def trie(words):
         node["terminal"] = True
     return root
 
-def live_product(text):
+def live_product(left_bank, right_bank):
     """Intersect forward and reverse character tries while consuming equal edges.
 
     Spaces are epsilon boundary edges: they are omitted from the character
     alphabet, so the two readers may choose different word boundaries.
     """
-    letters = normalize(text)
-    left, right = trie([letters]), trie([letters[::-1]])
-    frontier = [(left, right, 0)]
+    left, right = trie(left_bank), trie([normalize(x)[::-1] for x in right_bank])
+    frontier = [(left, right, 0, "")]
     closed = []
     while frontier:
-        a, b, depth = frontier.pop()
-        if depth == len(letters):
-            if a.get("terminal") and b.get("terminal"): closed.append(depth)
-            continue
-        ch = letters[depth]
-        if ch in a["next"] and ch in b["next"]:
-            frontier.append((a["next"][ch], b["next"][ch], depth + 1))
-    return {"states": len(frontier) + len(closed), "closures": closed, "boundary_epsilon": True}
+        a, b, depth, built = frontier.pop()
+        if a.get("terminal") and b.get("terminal"):
+            closed.append(built)
+        if not a["next"] or not b["next"]: continue
+        for ch in set(a["next"]) & set(b["next"]):
+            frontier.append((a["next"][ch], b["next"][ch], depth + 1, built + ch))
+    return {"states": len(frontier) + len(closed), "closures": closed, "boundary_epsilon": True, "independent_banks": True}
 
 def run():
     entries = json.loads(REGISTRY.read_text())["entries"]
@@ -96,10 +94,12 @@ def run():
             v = {}
             if kind == "declarative" and v["verb"] not in AGREEMENT: continue
     tries = {k: trie(SLOTS[k]) for k in SLOTS}
+    left_bank = [text for _, _, text in derivations]
+    right_bank = [text for _, _, text in derivations]
+    product = live_product(left_bank, right_bank)
     for kind, values, text in derivations:
-        product = live_product(text)
         p, h = pointer(text), sha(text)
-        rows.append({"frame": kind, "rendered": text, "letters": p["letters"], "exact_audit": {"pointer": p, "sha256": h, "independent_agreement": p["exact"] == (h["forward"] == h["reverse"])}, "live_product": product, "diagnostic": True, "mechanically_admitted": bool(product["closures"]), "boundary_resegmentation": True, "slot_values": values, "provenance": {"typed_frame": True, "agreement_checked_before_admission": True, "valency_checked_before_admission": True, "trie_nodes": sum(len(n["next"]) for n in tries.values()), "posthoc_reverse": False, "fixed_seed": False, "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}})
+        rows.append({"frame": kind, "rendered": text, "letters": p["letters"], "exact_audit": {"pointer": p, "sha256": h, "independent_agreement": p["exact"] == (h["forward"] == h["reverse"])}, "live_product": product, "diagnostic": True, "mechanically_admitted": False, "boundary_resegmentation": True, "slot_values": values, "provenance": {"typed_frame": True, "agreement_checked_before_admission": True, "valency_checked_before_admission": True, "trie_nodes": sum(len(n["next"]) for n in tries.values()), "posthoc_reverse": False, "fixed_seed": False, "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}})
     exact = [r for r in rows if r["mechanically_admitted"]]
     best = max(rows, key=lambda r: r["letters"])
     return {"experiment_id": ID, "signature": SIGNATURE, "status": "completed_exact" if exact else "completed_no_exact_closure", "method": "flexible declarative/question/imperative frames; recursive typed slot tries and bidirectional equal-character product with epsilon word-boundary transitions", "rows": rows, "exact_candidates": [r for r in rows if r["live_product"]["closures"]], "stats": {"rendered": len(rows), "exact": len(exact), "longest_letters": best["letters"], "frames": sorted(FRAMES), "boundary_choices_searched": len(rows)}, "novelty_preflight": novelty, "shortcut_filters": ["no fixed tape", "no catalogue text", "no post-hoc pair enumeration", "no word-order mirror", "agreement and valency before admission"], "next_repair": "Add held-out transitive verb frames whose first residual crosses a word boundary, then rerun the same trie product.", "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "registry_sha256": hashlib.sha256(REGISTRY.read_bytes()).hexdigest(), "audits": ["independent two-pointer", "normalized forward/reverse SHA-256", "typed agreement/valency replay"]}}

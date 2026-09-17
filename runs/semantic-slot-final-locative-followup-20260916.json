@@ -1,0 +1,86 @@
+{
+  "experiment_id": "semantic-slot-final-locative-followup-20260916",
+  "signature": "heldout-final-locative-repair|preserved-gardener-event|single-state|independent-pointer-sha",
+  "status": "completed",
+  "method": "single held-out final locative attachment replacement preserving lane-10 event slots",
+  "candidate": {
+    "rendered": "After rain, the patient gardener carries a wrapped bundle near the glasshouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart into the dry storehouse.",
+    "letters": 161,
+    "repair_operator": {
+      "changed_slot": "final_locative_attachment",
+      "from": "toward the dry storehouse",
+      "to": "into the dry storehouse",
+      "preserved_event_slots": [
+        "gardener",
+        "bundle",
+        "glasshouse",
+        "ledger",
+        "porter"
+      ],
+      "held_out": true
+    },
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_normalized_sha256",
+      "letters": 161,
+      "two_pointer_exact": false,
+      "mismatch_count": 76,
+      "first_mismatch": {
+        "left": 0,
+        "right": 160,
+        "a": "a",
+        "b": "e"
+      },
+      "sha256_forward": "e2c7a0b8534ca4af67d0d7af16ad3662d83d4f0c1a96c04e7804f750f42eead1",
+      "sha256_reverse": "f026c430cd5e3a871536d1758e7c0acdef1cf3dc9fa8f69f8130c733df00e3ea",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "fresh_authored_scene": true,
+      "source_sentences_copied": false,
+      "catalogue_imported": false,
+      "borrowed_text": false,
+      "reversed_finished_sentence": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false,
+      "generator_sha256": "9f558207ce348193239df878d74053298f7b224a7c9689ff1801c49f905e20b4"
+    }
+  },
+  "stats": {
+    "targeted_states": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "novelty_preflight": {
+    "performed_before_search": true,
+    "exact_id_collision": false,
+    "exact_signature_collision": false,
+    "status": "passed",
+    "sweep": false
+  },
+  "next_repair": "Change only the temporal adjunct at the next residual while preserving all event roles; do not reopen prior slots.",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "9f558207ce348193239df878d74053298f7b224a7c9689ff1801c49f905e20b4",
+    "generated_not_catalogue": true
+  }
+}

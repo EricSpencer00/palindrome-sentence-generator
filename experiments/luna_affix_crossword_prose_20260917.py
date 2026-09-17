@@ -106,7 +106,8 @@ def obligation_plan(left: ClausePlan, right: ClausePlan) -> dict[str, object]:
     # Affix/clitic seams are explicitly logged, even when the current lexical
     # choice misses the obligation and needs a future held-out substitution.
     seams = []
-    for phrase in (left.verb, right.verb, left.clitic, right.clitic):
+    for phrase in (left.subject, left.verb, left.object, left.clitic,
+                   right.subject, right.verb, right.object, right.clitic):
         if phrase:
             base = re.split(r"(?:ed|es|ing|s|n't|'s| for )", phrase, maxsplit=1)[0]
             seams.append({"tile": phrase, "base": base, "affix_or_clitic": phrase[len(base):],
@@ -281,6 +282,29 @@ def run() -> dict[str, object]:
     )
     candidates.extend(make_candidate(left, right, repair=label)
                       for left, right, label in clitic_boundary_pairs)
+    # Tenth recorded repair: place possessive apostrophe-s tiles inside
+    # complete noun phrases.  The noun phrase remains ordinary prose while
+    # the seam detector records the possessive boundary explicitly.
+    possessive_pairs = (
+        (replace(pilot, verb="checks", object="pilot's chart", adjunct="before the morning crossing"),
+         replace(baker, verb="keeps", object="baker's ledger", clitic=" for them",
+                 adjunct="inside the market office"),
+         "pilot's chart + baker's ledger"),
+        (replace(pilot, verb="checks", object="pilot's chart", adjunct="before the morning crossing"),
+         replace(baker, verb="keeps", object="baker's ledger", clitic=" for us",
+                 adjunct="inside the market office"),
+         "possessives + speaker clitic"),
+        (replace(pilot, verb="checks", object="navigator's chart", adjunct="before the morning crossing"),
+         replace(baker, verb="keeps", object="baker's ledger", clitic=" for them",
+                 adjunct="inside the market office"),
+         "navigator's chart + baker's ledger"),
+        (replace(pilot, verb="checks", object="pilot's chart", adjunct="before the morning crossing"),
+         replace(baker, verb="keeps", object="merchant's ledger", clitic=" for them",
+                 adjunct="inside the market office"),
+         "pilot's chart + merchant's ledger"),
+    )
+    candidates.extend(make_candidate(left, right, repair=label)
+                      for left, right, label in possessive_pairs)
     candidates.sort(key=lambda row: row["audit"]["letters"], reverse=True)
     best = candidates[0]
     first = best["audit"]["two_pointer_mismatches"][0] if best["audit"]["two_pointer_mismatches"] else None
@@ -289,7 +313,7 @@ def run() -> dict[str, object]:
             "method": "dependency-valid clauses with productive inflection/clitic tiles and pre-render character obligations",
             "novelty_preflight": preflight, "candidate_count": len(candidates),
             "candidates": candidates, "actual_prose": best["rendered"],
-            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 36,
+            "stats": {"complete_clause_pairs": len(candidates), "repaired_variants": 40,
                       "adjunct_object_variants": 4,
                       "subject_theme_variants": 4,
                       "verb_clitic_variants": 4,
@@ -298,6 +322,7 @@ def run() -> dict[str, object]:
                       "subject_agreement_variants": 4,
                       "object_agreement_variants": 4,
                       "clitic_boundary_variants": 4,
+                      "possessive_clitic_variants": 4,
                       "exact": sum(r["audit"]["exact"] for r in candidates),
                       "longest_letters": best["audit"]["letters"]},
             "failure_and_repair": {"first_residual": first,
@@ -311,9 +336,10 @@ def run() -> dict[str, object]:
                     "A/One + guides and Some/Several pilots + guide on pilot–baker pair",
                     "A/One baker + delivers a loaf and Some/Several bakers + deliver some loaves",
                     "A/One/Some/Several baker agreement frames × us/her/him/them benefactive clitic tiles",
+                    "pilot's/navigator's chart × baker's/merchant's ledger possessive tiles",
                 ],
                 "next_operator": "move the first residual to a role-compatible subject adjunct or noun-number tile, preserving valency and recomputing obligations before punctuation",
-                "concrete_next_repair": "hold out possessive clitic tiles in role-compatible noun phrases (the baker's ledger/the pilot's chart) while preserving the same agreement frames and recomputing obligations"},
+                "concrete_next_repair": "hold out plural possessives (the pilots' charts/the bakers' ledgers) with matching plural subjects and verbs, then recompute the same character obligations"},
             "provenance": {"lexical_source": "fresh hand-authored clause plans and productive English morphology",
                            "catalogue_text_imported": False, "seed_embedding": False, "fixed_tape": False,
                            "word_order_mirror": False, "repeated_self_palindromic_span": False,

@@ -1,0 +1,595 @@
+{
+  "experiment": "word-boundary-position-csp-20260917",
+  "method": "explicit lexical boundary-length variables; propagate resolved character equalities and prune conflicting partial states",
+  "template": "The {a} {v} the {o} {prep} the {s}, and the {a2} {v2} the {o2} {prep2} the {s2}.",
+  "layers": [
+    {
+      "slot": "a",
+      "retained_states": 3,
+      "propagated_conflicts": [
+        1
+      ]
+    },
+    {
+      "slot": "v",
+      "retained_states": 9,
+      "propagated_conflicts": [
+        3
+      ]
+    },
+    {
+      "slot": "o",
+      "retained_states": 18,
+      "propagated_conflicts": [
+        5
+      ]
+    },
+    {
+      "slot": "prep",
+      "retained_states": 18,
+      "propagated_conflicts": [
+        7
+      ]
+    },
+    {
+      "slot": "s",
+      "retained_states": 18,
+      "propagated_conflicts": [
+        9
+      ]
+    },
+    {
+      "slot": "a2",
+      "retained_states": 18,
+      "propagated_conflicts": [
+        8
+      ]
+    },
+    {
+      "slot": "v2",
+      "retained_states": 18,
+      "propagated_conflicts": [
+        10
+      ]
+    },
+    {
+      "slot": "o2",
+      "retained_states": 18,
+      "propagated_conflicts": [
+        13
+      ]
+    },
+    {
+      "slot": "prep2",
+      "retained_states": 18,
+      "propagated_conflicts": [
+        15
+      ]
+    },
+    {
+      "slot": "s2",
+      "retained_states": 18,
+      "propagated_conflicts": [
+        17
+      ]
+    }
+  ],
+  "candidate_count": 10,
+  "candidates": [
+    {
+      "rank": 0,
+      "rendered": "The gardener carries the charts beside the garden, and the gardener carries the charts beside the garden.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "charts",
+        "prep": "beside",
+        "s": "garden",
+        "a2": "gardener",
+        "v2": "carries",
+        "o2": "charts",
+        "prep2": "beside",
+        "s2": "garden"
+      },
+      "boundary_variables": {
+        "a": 8,
+        "v": 7,
+        "o": 6,
+        "prep": 6,
+        "s": 6,
+        "a2": 8,
+        "v2": 7,
+        "o2": 6,
+        "prep2": 6,
+        "s2": 6
+      },
+      "propagated_equalities": 3,
+      "propagated_conflicts": 17,
+      "provenance": "word_boundary_position_character_csp",
+      "novelty_preflight": {
+        "signature": "word_boundary_position_csp_v1",
+        "distinct_from": "bundle CSP; boundary lengths are explicit variables and equalities propagate during assignment"
+      },
+      "audit": {
+        "letters": 87,
+        "exact": false,
+        "mismatch_count": 37,
+        "first_mismatch": 0,
+        "sha256": "46fd61758d5cf40b55cb31512ee29f4cf091b331d206060b97f4602a248891ff",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 1,
+      "rendered": "The gardener carries the charts beside the garden, and the gardener carries the charts beside the harbor.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "charts",
+        "prep": "beside",
+        "s": "garden",
+        "a2": "gardener",
+        "v2": "carries",
+        "o2": "charts",
+        "prep2": "beside",
+        "s2": "harbor"
+      },
+      "boundary_variables": {
+        "a": 8,
+        "v": 7,
+        "o": 6,
+        "prep": 6,
+        "s": 6,
+        "a2": 8,
+        "v2": 7,
+        "o2": 6,
+        "prep2": 6,
+        "s2": 6
+      },
+      "propagated_equalities": 3,
+      "propagated_conflicts": 17,
+      "provenance": "word_boundary_position_character_csp",
+      "novelty_preflight": {
+        "signature": "word_boundary_position_csp_v1",
+        "distinct_from": "bundle CSP; boundary lengths are explicit variables and equalities propagate during assignment"
+      },
+      "audit": {
+        "letters": 87,
+        "exact": false,
+        "mismatch_count": 37,
+        "first_mismatch": 0,
+        "sha256": "a2b2f1aa4f8aa4299eb6b1b3b82e3522465b88b461078ffbdf41a64678f49f08",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 2,
+      "rendered": "The gardener carries the charts beside the harbor, and the gardener carries the charts beside the garden.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "charts",
+        "prep": "beside",
+        "s": "harbor",
+        "a2": "gardener",
+        "v2": "carries",
+        "o2": "charts",
+        "prep2": "beside",
+        "s2": "garden"
+      },
+      "boundary_variables": {
+        "a": 8,
+        "v": 7,
+        "o": 6,
+        "prep": 6,
+        "s": 6,
+        "a2": 8,
+        "v2": 7,
+        "o2": 6,
+        "prep2": 6,
+        "s2": 6
+      },
+      "propagated_equalities": 3,
+      "propagated_conflicts": 17,
+      "provenance": "word_boundary_position_character_csp",
+      "novelty_preflight": {
+        "signature": "word_boundary_position_csp_v1",
+        "distinct_from": "bundle CSP; boundary lengths are explicit variables and equalities propagate during assignment"
+      },
+      "audit": {
+        "letters": 87,
+        "exact": false,
+        "mismatch_count": 37,
+        "first_mismatch": 0,
+        "sha256": "4b9aff356a5b2917f721b0af809597b92d72d9b0d66f54daaeeb6746fb4bcb39",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 3,
+      "rendered": "The gardener carries the charts beside the harbor, and the gardener carries the charts beside the harbor.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "charts",
+        "prep": "beside",
+        "s": "harbor",
+        "a2": "gardener",
+        "v2": "carries",
+        "o2": "charts",
+        "prep2": "beside",
+        "s2": "harbor"
+      },
+      "boundary_variables": {
+        "a": 8,
+        "v": 7,
+        "o": 6,
+        "prep": 6,
+        "s": 6,
+        "a2": 8,
+        "v2": 7,
+        "o2": 6,
+        "prep2": 6,
+        "s2": 6
+      },
+      "propagated_equalities": 3,
+      "propagated_conflicts": 17,
+      "provenance": "word_boundary_position_character_csp",
+      "novelty_preflight": {
+        "signature": "word_boundary_position_csp_v1",
+        "distinct_from": "bundle CSP; boundary lengths are explicit variables and equalities propagate during assignment"
+      },
+      "audit": {
+        "letters": 87,
+        "exact": false,
+        "mismatch_count": 37,
+        "first_mismatch": 0,
+        "sha256": "59e72f6807b2c6da580352d724372cfb829ecb089e95961bda3c3acffcaf756d",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 4,
+      "rendered": "The gardener carries the charts beside the station, and the gardener carries the charts beside the garden.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "charts",
+        "prep": "beside",
+        "s": "station",
+        "a2": "gardener",
+        "v2": "carries",
+        "o2": "charts",
+        "prep2": "beside",
+        "s2": "garden"
+      },
+      "boundary_variables": {
+        "a": 8,
+        "v": 7,
+        "o": 6,
+        "prep": 6,
+        "s": 7,
+        "a2": 8,
+        "v2": 7,
+        "o2": 6,
+        "prep2": 6,
+        "s2": 6
+      },
+      "propagated_equalities": 3,
+      "propagated_conflicts": 17,
+      "provenance": "word_boundary_position_character_csp",
+      "novelty_preflight": {
+        "signature": "word_boundary_position_csp_v1",
+        "distinct_from": "bundle CSP; boundary lengths are explicit variables and equalities propagate during assignment"
+      },
+      "audit": {
+        "letters": 88,
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0,
+        "sha256": "1a8286b1f1c8c8df024a7e29476999b9b856930ddafdddc169ad7fe0e81b7efc",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 5,
+      "rendered": "The gardener carries the charts beside the station, and the gardener carries the charts beside the harbor.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "charts",
+        "prep": "beside",
+        "s": "station",
+        "a2": "gardener",
+        "v2": "carries",
+        "o2": "charts",
+        "prep2": "beside",
+        "s2": "harbor"
+      },
+      "boundary_variables": {
+        "a": 8,
+        "v": 7,
+        "o": 6,
+        "prep": 6,
+        "s": 7,
+        "a2": 8,
+        "v2": 7,
+        "o2": 6,
+        "prep2": 6,
+        "s2": 6
+      },
+      "propagated_equalities": 3,
+      "propagated_conflicts": 17,
+      "provenance": "word_boundary_position_character_csp",
+      "novelty_preflight": {
+        "signature": "word_boundary_position_csp_v1",
+        "distinct_from": "bundle CSP; boundary lengths are explicit variables and equalities propagate during assignment"
+      },
+      "audit": {
+        "letters": 88,
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0,
+        "sha256": "3a6243bf44dcf10f810cdf0d83626bbee47717ca9bf7a95d5cd009e4f40cfea0",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 6,
+      "rendered": "The gardener carries the charts near the garden, and the gardener carries the charts beside the garden.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "charts",
+        "prep": "near",
+        "s": "garden",
+        "a2": "gardener",
+        "v2": "carries",
+        "o2": "charts",
+        "prep2": "beside",
+        "s2": "garden"
+      },
+      "boundary_variables": {
+        "a": 8,
+        "v": 7,
+        "o": 6,
+        "prep": 4,
+        "s": 6,
+        "a2": 8,
+        "v2": 7,
+        "o2": 6,
+        "prep2": 6,
+        "s2": 6
+      },
+      "propagated_equalities": 3,
+      "propagated_conflicts": 17,
+      "provenance": "word_boundary_position_character_csp",
+      "novelty_preflight": {
+        "signature": "word_boundary_position_csp_v1",
+        "distinct_from": "bundle CSP; boundary lengths are explicit variables and equalities propagate during assignment"
+      },
+      "audit": {
+        "letters": 85,
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0,
+        "sha256": "8632e34b6dd2776c8e1a65f79497248cd2ff03a4305b293b93700845718a757f",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 7,
+      "rendered": "The gardener carries the charts near the garden, and the gardener carries the charts beside the harbor.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "charts",
+        "prep": "near",
+        "s": "garden",
+        "a2": "gardener",
+        "v2": "carries",
+        "o2": "charts",
+        "prep2": "beside",
+        "s2": "harbor"
+      },
+      "boundary_variables": {
+        "a": 8,
+        "v": 7,
+        "o": 6,
+        "prep": 4,
+        "s": 6,
+        "a2": 8,
+        "v2": 7,
+        "o2": 6,
+        "prep2": 6,
+        "s2": 6
+      },
+      "propagated_equalities": 3,
+      "propagated_conflicts": 17,
+      "provenance": "word_boundary_position_character_csp",
+      "novelty_preflight": {
+        "signature": "word_boundary_position_csp_v1",
+        "distinct_from": "bundle CSP; boundary lengths are explicit variables and equalities propagate during assignment"
+      },
+      "audit": {
+        "letters": 85,
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0,
+        "sha256": "dd8b3771a7327f4ec1754dd8f4cd290aea92d1e983190b6f173a6ab9b76b74ad",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 8,
+      "rendered": "The gardener carries the charts near the harbor, and the gardener carries the charts beside the garden.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "charts",
+        "prep": "near",
+        "s": "harbor",
+        "a2": "gardener",
+        "v2": "carries",
+        "o2": "charts",
+        "prep2": "beside",
+        "s2": "garden"
+      },
+      "boundary_variables": {
+        "a": 8,
+        "v": 7,
+        "o": 6,
+        "prep": 4,
+        "s": 6,
+        "a2": 8,
+        "v2": 7,
+        "o2": 6,
+        "prep2": 6,
+        "s2": 6
+      },
+      "propagated_equalities": 3,
+      "propagated_conflicts": 17,
+      "provenance": "word_boundary_position_character_csp",
+      "novelty_preflight": {
+        "signature": "word_boundary_position_csp_v1",
+        "distinct_from": "bundle CSP; boundary lengths are explicit variables and equalities propagate during assignment"
+      },
+      "audit": {
+        "letters": 85,
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0,
+        "sha256": "81242e5d8a66e17aa0b66b8c454a87c7f7e7bf56a6e5b0bfc08f4be822762407",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "rank": 9,
+      "rendered": "The gardener carries the charts near the harbor, and the gardener carries the charts beside the harbor.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "charts",
+        "prep": "near",
+        "s": "harbor",
+        "a2": "gardener",
+        "v2": "carries",
+        "o2": "charts",
+        "prep2": "beside",
+        "s2": "harbor"
+      },
+      "boundary_variables": {
+        "a": 8,
+        "v": 7,
+        "o": 6,
+        "prep": 4,
+        "s": 6,
+        "a2": 8,
+        "v2": 7,
+        "o2": 6,
+        "prep2": 6,
+        "s2": 6
+      },
+      "propagated_equalities": 3,
+      "propagated_conflicts": 17,
+      "provenance": "word_boundary_position_character_csp",
+      "novelty_preflight": {
+        "signature": "word_boundary_position_csp_v1",
+        "distinct_from": "bundle CSP; boundary lengths are explicit variables and equalities propagate during assignment"
+      },
+      "audit": {
+        "letters": 85,
+        "exact": false,
+        "mismatch_count": 36,
+        "first_mismatch": 0,
+        "sha256": "7ced1bea1bc634173cf71b4585f3c7f9d35453fecbe04126c708b72fbf13ec74",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 88,
+    "next_repair": "add grammar boundary transitions as variables and propagate equalities bidirectionally across inserted function words"
+  }
+}

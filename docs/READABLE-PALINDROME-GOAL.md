@@ -2679,3 +2679,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   reader gate remains closed. The next concrete operators are paired
   support-map intersection pruning, matrix determiner/subject-number
   alternation, and one second-object-only adjective in the short grammar.
+
+  The next wave completed those operators. Paired support-map intersection
+  pruning retained 2 intact candidates up to 82 letters; shared-`where`
+  matrix-determiner variation produced 512 candidates up to 72 letters; and
+  the short second-object adjective repair rendered 23,328 intact candidates
+  up to 141 letters, with midpoint-inside-token crossing in every candidate.
+  All produced 0 exact closures. Independent pointer/SHA-256 replay,
+  provenance, novelty preflight, and anti-shortcut checks are retained for
+  every row. The reader gate remains closed. The next concrete operators are
+  positional support intersection, coordinated matrix determiner realization,
+  and one second-object-only adverb in the short grammar.

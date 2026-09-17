@@ -1,0 +1,1904 @@
+{
+  "experiment_id": "luna-cross-boundary-clause-decoder-20260917",
+  "signature": "typed-svo-pp|character-obligation-trie|cross-word-seam|fresh-prose|independent-pointer-sha",
+  "status": "completed_no_exact_closure",
+  "method": "complete typed SVO/PP clauses plus character-level reverse-obligation trie across lexical seams",
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_read": 420,
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "self_registered": false,
+    "rejected_shortcuts": [
+      "seed embedding",
+      "fixed tape",
+      "word-order mirror",
+      "repeated/self-palindromic span",
+      "catalogue text",
+      "fragment",
+      "gibberish"
+    ]
+  },
+  "candidate_count": 144,
+  "candidates": [
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the station.",
+      "clauses": [
+        "agent=gardener;event=carries;theme=bell;locative=garden",
+        "agent=writer;event=watches;theme=seed;locative=station"
+      ],
+      "obligation_trie": {
+        "root_edges": [
+          "n"
+        ]
+      },
+      "cross_boundary_obligations": [
+        {
+          "left_word": "the",
+          "right_word": "gardener",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "gardener",
+          "right_word": "carries",
+          "seam": "rc",
+          "reverse_seam": "cr",
+          "character_level": true
+        },
+        {
+          "left_word": "carries",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "bell",
+          "seam": "eb",
+          "reverse_seam": "be",
+          "character_level": true
+        },
+        {
+          "left_word": "bell",
+          "right_word": "beside",
+          "seam": "lb",
+          "reverse_seam": "bl",
+          "character_level": true
+        },
+        {
+          "left_word": "beside",
+          "right_word": "the",
+          "seam": "et",
+          "reverse_seam": "te",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "garden",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "garden",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "writer",
+          "seam": "ew",
+          "reverse_seam": "we",
+          "character_level": true
+        },
+        {
+          "left_word": "writer",
+          "right_word": "watches",
+          "seam": "rw",
+          "reverse_seam": "wr",
+          "character_level": true
+        },
+        {
+          "left_word": "watches",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "seed",
+          "seam": "es",
+          "reverse_seam": "se",
+          "character_level": true
+        },
+        {
+          "left_word": "seed",
+          "right_word": "within",
+          "seam": "dw",
+          "reverse_seam": "wd",
+          "character_level": true
+        },
+        {
+          "left_word": "within",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "station",
+          "seam": "es",
+          "reverse_seam": "se",
+          "character_level": true
+        }
+      ],
+      "audit": {
+        "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the station.",
+        "normalized_tape": "thegardenercarriesthebellbesidethegardenthewriterwatchestheseedwithinthestation",
+        "letters": 79,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 78,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "left_index": 1,
+            "right_index": 77,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 76,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "left_index": 3,
+            "right_index": 75,
+            "left": "g",
+            "right": "t"
+          },
+          {
+            "left_index": 5,
+            "right_index": 73,
+            "left": "r",
+            "right": "t"
+          },
+          {
+            "left_index": 6,
+            "right_index": 72,
+            "left": "d",
+            "right": "s"
+          },
+          {
+            "left_index": 8,
+            "right_index": 70,
+            "left": "n",
+            "right": "h"
+          },
+          {
+            "left_index": 9,
+            "right_index": 69,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 10,
+            "right_index": 68,
+            "left": "r",
+            "right": "n"
+          },
+          {
+            "left_index": 11,
+            "right_index": 67,
+            "left": "c",
+            "right": "i"
+          },
+          {
+            "left_index": 12,
+            "right_index": 66,
+            "left": "a",
+            "right": "h"
+          },
+          {
+            "left_index": 13,
+            "right_index": 65,
+            "left": "r",
+            "right": "t"
+          }
+        ],
+        "sha256_forward": "faa67f7e09cf453e13c645833515d05d386afddda5475ee189198a009edbe639",
+        "sha256_reverse": "54486490885770f5f8f6560dc67d9a95bd8a147c88a7ab73bdc42491263a389f",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed under the station.",
+      "clauses": [
+        "agent=gardener;event=carries;theme=bell;locative=garden",
+        "agent=writer;event=watches;theme=seed;locative=station"
+      ],
+      "obligation_trie": {
+        "root_edges": [
+          "n"
+        ]
+      },
+      "cross_boundary_obligations": [
+        {
+          "left_word": "the",
+          "right_word": "gardener",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "gardener",
+          "right_word": "carries",
+          "seam": "rc",
+          "reverse_seam": "cr",
+          "character_level": true
+        },
+        {
+          "left_word": "carries",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "bell",
+          "seam": "eb",
+          "reverse_seam": "be",
+          "character_level": true
+        },
+        {
+          "left_word": "bell",
+          "right_word": "beside",
+          "seam": "lb",
+          "reverse_seam": "bl",
+          "character_level": true
+        },
+        {
+          "left_word": "beside",
+          "right_word": "the",
+          "seam": "et",
+          "reverse_seam": "te",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "garden",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "garden",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "writer",
+          "seam": "ew",
+          "reverse_seam": "we",
+          "character_level": true
+        },
+        {
+          "left_word": "writer",
+          "right_word": "watches",
+          "seam": "rw",
+          "reverse_seam": "wr",
+          "character_level": true
+        },
+        {
+          "left_word": "watches",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "seed",
+          "seam": "es",
+          "reverse_seam": "se",
+          "character_level": true
+        },
+        {
+          "left_word": "seed",
+          "right_word": "under",
+          "seam": "du",
+          "reverse_seam": "ud",
+          "character_level": true
+        },
+        {
+          "left_word": "under",
+          "right_word": "the",
+          "seam": "rt",
+          "reverse_seam": "tr",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "station",
+          "seam": "es",
+          "reverse_seam": "se",
+          "character_level": true
+        }
+      ],
+      "audit": {
+        "rendered": "The gardener carries the bell beside the garden. The writer watches the seed under the station.",
+        "normalized_tape": "thegardenercarriesthebellbesidethegardenthewriterwatchestheseedunderthestation",
+        "letters": 78,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 77,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "left_index": 1,
+            "right_index": 76,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 75,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "left_index": 3,
+            "right_index": 74,
+            "left": "g",
+            "right": "t"
+          },
+          {
+            "left_index": 5,
+            "right_index": 72,
+            "left": "r",
+            "right": "t"
+          },
+          {
+            "left_index": 6,
+            "right_index": 71,
+            "left": "d",
+            "right": "s"
+          },
+          {
+            "left_index": 8,
+            "right_index": 69,
+            "left": "n",
+            "right": "h"
+          },
+          {
+            "left_index": 9,
+            "right_index": 68,
+            "left": "e",
+            "right": "t"
+          },
+          {
+            "left_index": 11,
+            "right_index": 66,
+            "left": "c",
+            "right": "e"
+          },
+          {
+            "left_index": 12,
+            "right_index": 65,
+            "left": "a",
+            "right": "d"
+          },
+          {
+            "left_index": 13,
+            "right_index": 64,
+            "left": "r",
+            "right": "n"
+          },
+          {
+            "left_index": 14,
+            "right_index": 63,
+            "left": "r",
+            "right": "u"
+          }
+        ],
+        "sha256_forward": "d0d045aea8ad3f141a56c9d91179049f2ac7757fe1f464f656dc7eb15dfc6d09",
+        "sha256_reverse": "209e36aa10606a1f20487c767748d8d96d1247f62ed3836c7ea787a17b793065",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the garden.",
+      "clauses": [
+        "agent=gardener;event=carries;theme=bell;locative=garden",
+        "agent=writer;event=watches;theme=seed;locative=garden"
+      ],
+      "obligation_trie": {
+        "root_edges": [
+          "n"
+        ]
+      },
+      "cross_boundary_obligations": [
+        {
+          "left_word": "the",
+          "right_word": "gardener",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "gardener",
+          "right_word": "carries",
+          "seam": "rc",
+          "reverse_seam": "cr",
+          "character_level": true
+        },
+        {
+          "left_word": "carries",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "bell",
+          "seam": "eb",
+          "reverse_seam": "be",
+          "character_level": true
+        },
+        {
+          "left_word": "bell",
+          "right_word": "beside",
+          "seam": "lb",
+          "reverse_seam": "bl",
+          "character_level": true
+        },
+        {
+          "left_word": "beside",
+          "right_word": "the",
+          "seam": "et",
+          "reverse_seam": "te",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "garden",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "garden",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "writer",
+          "seam": "ew",
+          "reverse_seam": "we",
+          "character_level": true
+        },
+        {
+          "left_word": "writer",
+          "right_word": "watches",
+          "seam": "rw",
+          "reverse_seam": "wr",
+          "character_level": true
+        },
+        {
+          "left_word": "watches",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "seed",
+          "seam": "es",
+          "reverse_seam": "se",
+          "character_level": true
+        },
+        {
+          "left_word": "seed",
+          "right_word": "within",
+          "seam": "dw",
+          "reverse_seam": "wd",
+          "character_level": true
+        },
+        {
+          "left_word": "within",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "garden",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        }
+      ],
+      "audit": {
+        "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the garden.",
+        "normalized_tape": "thegardenercarriesthebellbesidethegardenthewriterwatchestheseedwithinthegarden",
+        "letters": 78,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 77,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "left_index": 1,
+            "right_index": 76,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 75,
+            "left": "e",
+            "right": "d"
+          },
+          {
+            "left_index": 3,
+            "right_index": 74,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 72,
+            "left": "r",
+            "right": "g"
+          },
+          {
+            "left_index": 6,
+            "right_index": 71,
+            "left": "d",
+            "right": "e"
+          },
+          {
+            "left_index": 7,
+            "right_index": 70,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 69,
+            "left": "n",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 68,
+            "left": "e",
+            "right": "n"
+          },
+          {
+            "left_index": 10,
+            "right_index": 67,
+            "left": "r",
+            "right": "i"
+          },
+          {
+            "left_index": 11,
+            "right_index": 66,
+            "left": "c",
+            "right": "h"
+          },
+          {
+            "left_index": 12,
+            "right_index": 65,
+            "left": "a",
+            "right": "t"
+          }
+        ],
+        "sha256_forward": "4cab799b14aa984918d691e839caf2cf864da65031fbd4d505b6b1d44ce62ce4",
+        "sha256_reverse": "c826de17caf600b8311f50f224f2dae850a0af71d5e494664d3e08759058241c",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": false,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": false,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the harbor.",
+      "clauses": [
+        "agent=gardener;event=carries;theme=bell;locative=garden",
+        "agent=writer;event=watches;theme=seed;locative=harbor"
+      ],
+      "obligation_trie": {
+        "root_edges": [
+          "r"
+        ]
+      },
+      "cross_boundary_obligations": [
+        {
+          "left_word": "the",
+          "right_word": "gardener",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "gardener",
+          "right_word": "carries",
+          "seam": "rc",
+          "reverse_seam": "cr",
+          "character_level": true
+        },
+        {
+          "left_word": "carries",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "bell",
+          "seam": "eb",
+          "reverse_seam": "be",
+          "character_level": true
+        },
+        {
+          "left_word": "bell",
+          "right_word": "beside",
+          "seam": "lb",
+          "reverse_seam": "bl",
+          "character_level": true
+        },
+        {
+          "left_word": "beside",
+          "right_word": "the",
+          "seam": "et",
+          "reverse_seam": "te",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "garden",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "garden",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "writer",
+          "seam": "ew",
+          "reverse_seam": "we",
+          "character_level": true
+        },
+        {
+          "left_word": "writer",
+          "right_word": "watches",
+          "seam": "rw",
+          "reverse_seam": "wr",
+          "character_level": true
+        },
+        {
+          "left_word": "watches",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "seed",
+          "seam": "es",
+          "reverse_seam": "se",
+          "character_level": true
+        },
+        {
+          "left_word": "seed",
+          "right_word": "within",
+          "seam": "dw",
+          "reverse_seam": "wd",
+          "character_level": true
+        },
+        {
+          "left_word": "within",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "harbor",
+          "seam": "eh",
+          "reverse_seam": "he",
+          "character_level": true
+        }
+      ],
+      "audit": {
+        "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the harbor.",
+        "normalized_tape": "thegardenercarriesthebellbesidethegardenthewriterwatchestheseedwithintheharbor",
+        "letters": 78,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 77,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 76,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 75,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 74,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 72,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 6,
+            "right_index": 71,
+            "left": "d",
+            "right": "e"
+          },
+          {
+            "left_index": 7,
+            "right_index": 70,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 69,
+            "left": "n",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 68,
+            "left": "e",
+            "right": "n"
+          },
+          {
+            "left_index": 10,
+            "right_index": 67,
+            "left": "r",
+            "right": "i"
+          },
+          {
+            "left_index": 11,
+            "right_index": 66,
+            "left": "c",
+            "right": "h"
+          },
+          {
+            "left_index": 12,
+            "right_index": 65,
+            "left": "a",
+            "right": "t"
+          }
+        ],
+        "sha256_forward": "6beae7604510057069aa4b95fab720cb55fa4a6283f2cc857f8e2d4423375f16",
+        "sha256_reverse": "8f164ea28dae33a73aec7529d3410f696612006253de5aee540a6724cf71014f",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the market.",
+      "clauses": [
+        "agent=gardener;event=carries;theme=bell;locative=garden",
+        "agent=writer;event=watches;theme=seed;locative=market"
+      ],
+      "obligation_trie": {
+        "root_edges": [
+          "t"
+        ]
+      },
+      "cross_boundary_obligations": [
+        {
+          "left_word": "the",
+          "right_word": "gardener",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "gardener",
+          "right_word": "carries",
+          "seam": "rc",
+          "reverse_seam": "cr",
+          "character_level": true
+        },
+        {
+          "left_word": "carries",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "bell",
+          "seam": "eb",
+          "reverse_seam": "be",
+          "character_level": true
+        },
+        {
+          "left_word": "bell",
+          "right_word": "beside",
+          "seam": "lb",
+          "reverse_seam": "bl",
+          "character_level": true
+        },
+        {
+          "left_word": "beside",
+          "right_word": "the",
+          "seam": "et",
+          "reverse_seam": "te",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "garden",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "garden",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "writer",
+          "seam": "ew",
+          "reverse_seam": "we",
+          "character_level": true
+        },
+        {
+          "left_word": "writer",
+          "right_word": "watches",
+          "seam": "rw",
+          "reverse_seam": "wr",
+          "character_level": true
+        },
+        {
+          "left_word": "watches",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "seed",
+          "seam": "es",
+          "reverse_seam": "se",
+          "character_level": true
+        },
+        {
+          "left_word": "seed",
+          "right_word": "within",
+          "seam": "dw",
+          "reverse_seam": "wd",
+          "character_level": true
+        },
+        {
+          "left_word": "within",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "market",
+          "seam": "em",
+          "reverse_seam": "me",
+          "character_level": true
+        }
+      ],
+      "audit": {
+        "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the market.",
+        "normalized_tape": "thegardenercarriesthebellbesidethegardenthewriterwatchestheseedwithinthemarket",
+        "letters": 78,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 1,
+            "right_index": 76,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 2,
+            "right_index": 75,
+            "left": "e",
+            "right": "k"
+          },
+          {
+            "left_index": 3,
+            "right_index": 74,
+            "left": "g",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 72,
+            "left": "r",
+            "right": "m"
+          },
+          {
+            "left_index": 6,
+            "right_index": 71,
+            "left": "d",
+            "right": "e"
+          },
+          {
+            "left_index": 7,
+            "right_index": 70,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 69,
+            "left": "n",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 68,
+            "left": "e",
+            "right": "n"
+          },
+          {
+            "left_index": 10,
+            "right_index": 67,
+            "left": "r",
+            "right": "i"
+          },
+          {
+            "left_index": 11,
+            "right_index": 66,
+            "left": "c",
+            "right": "h"
+          },
+          {
+            "left_index": 12,
+            "right_index": 65,
+            "left": "a",
+            "right": "t"
+          },
+          {
+            "left_index": 13,
+            "right_index": 64,
+            "left": "r",
+            "right": "i"
+          }
+        ],
+        "sha256_forward": "42b21d4b9abd6461d716cfa6c87758f96224829edeb1e448c9ba6cea7cd47b65",
+        "sha256_reverse": "77733d81cd1d7e669defaf39b8cd3d0bdad415b63b1c9c22cd8e94d5f797247a",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the school.",
+      "clauses": [
+        "agent=gardener;event=carries;theme=bell;locative=garden",
+        "agent=writer;event=watches;theme=seed;locative=school"
+      ],
+      "obligation_trie": {
+        "root_edges": [
+          "l"
+        ]
+      },
+      "cross_boundary_obligations": [
+        {
+          "left_word": "the",
+          "right_word": "gardener",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "gardener",
+          "right_word": "carries",
+          "seam": "rc",
+          "reverse_seam": "cr",
+          "character_level": true
+        },
+        {
+          "left_word": "carries",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "bell",
+          "seam": "eb",
+          "reverse_seam": "be",
+          "character_level": true
+        },
+        {
+          "left_word": "bell",
+          "right_word": "beside",
+          "seam": "lb",
+          "reverse_seam": "bl",
+          "character_level": true
+        },
+        {
+          "left_word": "beside",
+          "right_word": "the",
+          "seam": "et",
+          "reverse_seam": "te",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "garden",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "garden",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "writer",
+          "seam": "ew",
+          "reverse_seam": "we",
+          "character_level": true
+        },
+        {
+          "left_word": "writer",
+          "right_word": "watches",
+          "seam": "rw",
+          "reverse_seam": "wr",
+          "character_level": true
+        },
+        {
+          "left_word": "watches",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "seed",
+          "seam": "es",
+          "reverse_seam": "se",
+          "character_level": true
+        },
+        {
+          "left_word": "seed",
+          "right_word": "within",
+          "seam": "dw",
+          "reverse_seam": "wd",
+          "character_level": true
+        },
+        {
+          "left_word": "within",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "school",
+          "seam": "es",
+          "reverse_seam": "se",
+          "character_level": true
+        }
+      ],
+      "audit": {
+        "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the school.",
+        "normalized_tape": "thegardenercarriesthebellbesidethegardenthewriterwatchestheseedwithintheschool",
+        "letters": 78,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 77,
+            "left": "t",
+            "right": "l"
+          },
+          {
+            "left_index": 1,
+            "right_index": 76,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 75,
+            "left": "e",
+            "right": "o"
+          },
+          {
+            "left_index": 3,
+            "right_index": 74,
+            "left": "g",
+            "right": "h"
+          },
+          {
+            "left_index": 4,
+            "right_index": 73,
+            "left": "a",
+            "right": "c"
+          },
+          {
+            "left_index": 5,
+            "right_index": 72,
+            "left": "r",
+            "right": "s"
+          },
+          {
+            "left_index": 6,
+            "right_index": 71,
+            "left": "d",
+            "right": "e"
+          },
+          {
+            "left_index": 7,
+            "right_index": 70,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 69,
+            "left": "n",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 68,
+            "left": "e",
+            "right": "n"
+          },
+          {
+            "left_index": 10,
+            "right_index": 67,
+            "left": "r",
+            "right": "i"
+          },
+          {
+            "left_index": 11,
+            "right_index": 66,
+            "left": "c",
+            "right": "h"
+          }
+        ],
+        "sha256_forward": "9525dea3e0646ca65bc8a24ffe38b86de6982333af6cab74773c9a2391af5084",
+        "sha256_reverse": "08966e834668737480803cccbcd5d4135f8175fa9e30268a24b64e432123d067",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
+      "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the window.",
+      "clauses": [
+        "agent=gardener;event=carries;theme=bell;locative=garden",
+        "agent=writer;event=watches;theme=seed;locative=window"
+      ],
+      "obligation_trie": {
+        "root_edges": [
+          "w"
+        ]
+      },
+      "cross_boundary_obligations": [
+        {
+          "left_word": "the",
+          "right_word": "gardener",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "gardener",
+          "right_word": "carries",
+          "seam": "rc",
+          "reverse_seam": "cr",
+          "character_level": true
+        },
+        {
+          "left_word": "carries",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "bell",
+          "seam": "eb",
+          "reverse_seam": "be",
+          "character_level": true
+        },
+        {
+          "left_word": "bell",
+          "right_word": "beside",
+          "seam": "lb",
+          "reverse_seam": "bl",
+          "character_level": true
+        },
+        {
+          "left_word": "beside",
+          "right_word": "the",
+          "seam": "et",
+          "reverse_seam": "te",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "garden",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "garden",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "writer",
+          "seam": "ew",
+          "reverse_seam": "we",
+          "character_level": true
+        },
+        {
+          "left_word": "writer",
+          "right_word": "watches",
+          "seam": "rw",
+          "reverse_seam": "wr",
+          "character_level": true
+        },
+        {
+          "left_word": "watches",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "seed",
+          "seam": "es",
+          "reverse_seam": "se",
+          "character_level": true
+        },
+        {
+          "left_word": "seed",
+          "right_word": "within",
+          "seam": "dw",
+          "reverse_seam": "wd",
+          "character_level": true
+        },
+        {
+          "left_word": "within",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "window",
+          "seam": "ew",
+          "reverse_seam": "we",
+          "character_level": true
+        }
+      ],
+      "audit": {
+        "rendered": "The gardener carries the bell beside the garden. The writer watches the seed within the window.",
+        "normalized_tape": "thegardenercarriesthebellbesidethegardenthewriterwatchestheseedwithinthewindow",
+        "letters": 78,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 77,
+            "left": "t",
+            "right": "w"
+          },
+          {
+            "left_index": 1,
+            "right_index": 76,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 75,
+            "left": "e",
+            "right": "d"
+          },
+          {
+            "left_index": 3,
+            "right_index": 74,
+            "left": "g",
+            "right": "n"
+          },
+          {
+            "left_index": 4,
+            "right_index": 73,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "left_index": 5,
+            "right_index": 72,
+            "left": "r",
+            "right": "w"
+          },
+          {
+            "left_index": 6,
+            "right_index": 71,
+            "left": "d",
+            "right": "e"
+          },
+          {
+            "left_index": 7,
+            "right_index": 70,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 69,
+            "left": "n",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 68,
+            "left": "e",
+            "right": "n"
+          },
+          {
+            "left_index": 10,
+            "right_index": 67,
+            "left": "r",
+            "right": "i"
+          },
+          {
+            "left_index": 11,
+            "right_index": 66,
+            "left": "c",
+            "right": "h"
+          }
+        ],
+        "sha256_forward": "be0c5aa49945d12b24570ad00d4377b6b8e1ad0ff48bb95586700b83cca3af9d",
+        "sha256_reverse": "678c652bd1eac1ef8b77190726242f78d055cb0a17b69308e4e30e5994cf144c",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    },
+    {
+      "rendered": "The teacher carries the bell beside the garden. The writer watches the seed within the station.",
+      "clauses": [
+        "agent=teacher;event=carries;theme=bell;locative=garden",
+        "agent=writer;event=watches;theme=seed;locative=station"
+      ],
+      "obligation_trie": {
+        "root_edges": [
+          "n"
+        ]
+      },
+      "cross_boundary_obligations": [
+        {
+          "left_word": "the",
+          "right_word": "teacher",
+          "seam": "et",
+          "reverse_seam": "te",
+          "character_level": true
+        },
+        {
+          "left_word": "teacher",
+          "right_word": "carries",
+          "seam": "rc",
+          "reverse_seam": "cr",
+          "character_level": true
+        },
+        {
+          "left_word": "carries",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "bell",
+          "seam": "eb",
+          "reverse_seam": "be",
+          "character_level": true
+        },
+        {
+          "left_word": "bell",
+          "right_word": "beside",
+          "seam": "lb",
+          "reverse_seam": "bl",
+          "character_level": true
+        },
+        {
+          "left_word": "beside",
+          "right_word": "the",
+          "seam": "et",
+          "reverse_seam": "te",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "garden",
+          "seam": "eg",
+          "reverse_seam": "ge",
+          "character_level": true
+        },
+        {
+          "left_word": "garden",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "writer",
+          "seam": "ew",
+          "reverse_seam": "we",
+          "character_level": true
+        },
+        {
+          "left_word": "writer",
+          "right_word": "watches",
+          "seam": "rw",
+          "reverse_seam": "wr",
+          "character_level": true
+        },
+        {
+          "left_word": "watches",
+          "right_word": "the",
+          "seam": "st",
+          "reverse_seam": "ts",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "seed",
+          "seam": "es",
+          "reverse_seam": "se",
+          "character_level": true
+        },
+        {
+          "left_word": "seed",
+          "right_word": "within",
+          "seam": "dw",
+          "reverse_seam": "wd",
+          "character_level": true
+        },
+        {
+          "left_word": "within",
+          "right_word": "the",
+          "seam": "nt",
+          "reverse_seam": "tn",
+          "character_level": true
+        },
+        {
+          "left_word": "the",
+          "right_word": "station",
+          "seam": "es",
+          "reverse_seam": "se",
+          "character_level": true
+        }
+      ],
+      "audit": {
+        "rendered": "The teacher carries the bell beside the garden. The writer watches the seed within the station.",
+        "normalized_tape": "theteachercarriesthebellbesidethegardenthewriterwatchestheseedwithinthestation",
+        "letters": 78,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "two_pointer_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 77,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "left_index": 1,
+            "right_index": 76,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 75,
+            "left": "e",
+            "right": "i"
+          },
+          {
+            "left_index": 4,
+            "right_index": 73,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 5,
+            "right_index": 72,
+            "left": "a",
+            "right": "t"
+          },
+          {
+            "left_index": 6,
+            "right_index": 71,
+            "left": "c",
+            "right": "s"
+          },
+          {
+            "left_index": 7,
+            "right_index": 70,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "left_index": 8,
+            "right_index": 69,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "left_index": 9,
+            "right_index": 68,
+            "left": "r",
+            "right": "t"
+          },
+          {
+            "left_index": 10,
+            "right_index": 67,
+            "left": "c",
+            "right": "n"
+          },
+          {
+            "left_index": 11,
+            "right_index": 66,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "left_index": 12,
+            "right_index": 65,
+            "left": "r",
+            "right": "h"
+          }
+        ],
+        "sha256_forward": "dbeedca9fd8dfbc7994db832349d211098d28fe69fda4b6a9ef4af83f473e9d9",
+        "sha256_reverse": "78c96f8683ed182c984abafce97c2be35d8b787b2153a7b363fa92d7d4e82dc2",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        }
+      },
+      "reader_eligible": false,
+      "anti_shortcut_flags": {
+        "seed_embedding": false,
+        "fixed_tape": false,
+        "word_order_mirror": false,
+        "repeated_span": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "gibberish": false
+      }
+    }
+  ],
+  "stats": {
+    "complete_clauses_generated": 7056,
+    "bounded_pairs": 144,
+    "exact": 0,
+    "longest_letters": 79
+  },
+  "actual_prose": "The gardener carries the bell beside the garden. The writer watches the seed within the station.",
+  "failure_and_repair": {
+    "first_residual": {
+      "left_index": 0,
+      "right_index": 78,
+      "left": "t",
+      "right": "n"
+    },
+    "next_operator": "add one held-out same-role noun whose edge characters satisfy the first cross-word obligation, then re-run the trie without changing clause order",
+    "concrete_next_repair": "replace the first right-clause place with held-out 'orchard' and preserve the typed SVO/PP frame"
+  },
+  "provenance": {
+    "lexical_source": "fresh hand-authored common-word inventory",
+    "catalogue_text_imported": false,
+    "seed_embedding": false,
+    "fixed_tape": false,
+    "word_order_mirror": false,
+    "repeated_self_palindromic_span": false,
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256",
+      "mechanical admission"
+    ],
+    "generator_sha256": "227a9a069d94527fdd4094541d45333f5b0d40ab2cf7acccfbdf1d8d0f31f094"
+  }
+}

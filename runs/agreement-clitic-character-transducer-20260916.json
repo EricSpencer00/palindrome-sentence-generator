@@ -1,0 +1,144 @@
+{
+  "experiment_id": "agreement-clitic-character-transducer-20260916",
+  "signature": "agreement-clitic-character-transducer|single-semantic-scene|lexicalized-character-pairs|no-fixed-tape|independent-pointer-sha",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "agreement-carrying inflection/clitic transducer with character-pair obligations solved during lexicalization",
+  "semantic_scene": {
+    "text": "The patient pilot checks the engine, notes its gauge, and tells the crew it starts at dawn.",
+    "roles": [
+      "agent",
+      "event",
+      "instrument",
+      "recipient",
+      "temporal-setting"
+    ]
+  },
+  "lexicalization": {
+    "features": {
+      "subject_number": "singular",
+      "tense": "present",
+      "possessive_clitic": "its",
+      "subject_agreement": {
+        "checks": "3sg",
+        "notes": "3sg",
+        "tells": "3sg",
+        "starts": "3sg"
+      }
+    },
+    "obligations": [
+      {
+        "name": "agent-to-speech-onset",
+        "left": [
+          "patient",
+          -1
+        ],
+        "right": [
+          "tells",
+          0
+        ],
+        "character": "t",
+        "left_char": "t",
+        "right_char": "t",
+        "matched": true
+      },
+      {
+        "name": "agent-to-clitic-onset",
+        "left": [
+          "pilot",
+          1
+        ],
+        "right": [
+          "its",
+          0
+        ],
+        "character": "i",
+        "left_char": "i",
+        "right_char": "i",
+        "matched": true
+      },
+      {
+        "name": "verb-tense-carry",
+        "left": [
+          "checks",
+          -1
+        ],
+        "right": [
+          "starts",
+          -1
+        ],
+        "character": "s",
+        "left_char": "s",
+        "right_char": "s",
+        "matched": true
+      }
+    ],
+    "all_obligations_solved": true
+  },
+  "audit": {
+    "letters": 72,
+    "normalized_tape": "thepatientpilotcheckstheenginenotesitsgaugeandtellsthecrewitstartsatdawn",
+    "exact": false,
+    "independent_two_pointer_exact": false,
+    "first_mismatch": {
+      "left_index": 0,
+      "right_index": 71,
+      "left": "t",
+      "right": "n"
+    },
+    "sha256_forward": "680d5ae9dee4367b1676dce75fb5215c55bf84f19f85aedc7d06a35542ecadb5",
+    "sha256_reverse": "4c3ba2368d739d233b0edd36f66657f02a65e2eaf9e53454471fc75e98012acd",
+    "mechanical_checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    }
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_before_run": 427,
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "duplicate_sweep": false,
+    "rejected_routes": [
+      "fixed-tape resegmentation",
+      "copied seed",
+      "word-order mirror",
+      "broad morphology sweep"
+    ]
+  },
+  "anti_shortcut_flags": {
+    "fixed_tape_resegmentation": false,
+    "copied_seed": false,
+    "word_order_mirror": false,
+    "broad_morphology_sweep": false,
+    "catalogue_lookup": false,
+    "posthoc_reversal": false
+  },
+  "provenance": {
+    "authored_scene": true,
+    "fresh_feature_lexicon": true,
+    "catalogue_lookup": false,
+    "known_seed_import": false,
+    "single_scene": true,
+    "generator_sha256": "acea9515d731df952e43b8dccaefacb09d91fc0a2b60e650be20f1ac7f9b2e14"
+  },
+  "next_repair": {
+    "operator": "replace only the first residual-bearing inflected verb and clitic-compatible object while retaining singular-present agreement",
+    "reason": "all lexical character obligations close locally, but the complete scene remains non-palindromic at the outer residual"
+  }
+}

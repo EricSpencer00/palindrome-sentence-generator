@@ -1,0 +1,197 @@
+{
+  "experiment": "cross-boundary-phrase-block-grammar-20260916",
+  "novelty_preflight": {
+    "passed": true,
+    "signature": "finite-phrase-block-grammar|cross-boundary-role-transition|non-word-order-mapping|linked-clause-realization",
+    "overlaps_checked": [
+      "brown-phrase-pair-seam-20260916",
+      "boundary-shift-semordnilap-grammar-20260916"
+    ],
+    "reason": "Finite phrase blocks are resegmented at typed semantic role transitions; one mapping is adjunct-to-subject rather than word-order reflection."
+  },
+  "rows": [
+    {
+      "id": "block-0",
+      "rendered": "the archivist records the winter letters after heavy rain; a patient gardener waters the young cedar trees through the narrow mist.",
+      "block_derivation": {
+        "blocks": [
+          [
+            "the archivist records",
+            "the winter letters"
+          ],
+          [
+            "a patient gardener waters",
+            "the young cedar trees"
+          ],
+          [
+            "after heavy rain",
+            "beside the quiet lamp"
+          ],
+          [
+            "the careful pilot marks",
+            "the distant runway lights"
+          ],
+          [
+            "through the narrow mist",
+            "before first light"
+          ]
+        ],
+        "cross_boundary_transition": "adjunct-to-subject and object-to-adjunct role transitions",
+        "mapping": "semantic role transition, not word-order mirror"
+      },
+      "audit": {
+        "length": 109,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 1,
+          "forward": "h",
+          "reverse": "s"
+        },
+        "sha256_forward": "2ec30b6b5f1c5745374c89332c385336458894e05310a2ae52671c238ef66e75",
+        "sha256_reverse": "96225868deacb8ead069a7ca312105e516434c3ced73e7dac3d30b28c05053e9",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "finite cross-boundary phrase-block grammar with typed role transitions",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "f7d969c477beac00c19b5f6593cdd919463a14f79100be5d6380de8ac9f9e120",
+        "source_sha256": "2ec30b6b5f1c5745374c89332c385336458894e05310a2ae52671c238ef66e75"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false,
+        "non_word_order_mapping": true
+      },
+      "next_repair": "First residual 1: alter the cross-boundary block segmentation at the adjacent role transition, preserving the complete clause parse before retesting."
+    },
+    {
+      "id": "block-1",
+      "rendered": "the careful pilot marks the distant runway lights through the narrow mist; the archivist records the winter letters after heavy rain.",
+      "block_derivation": {
+        "blocks": [
+          [
+            "the archivist records",
+            "the winter letters"
+          ],
+          [
+            "a patient gardener waters",
+            "the young cedar trees"
+          ],
+          [
+            "after heavy rain",
+            "beside the quiet lamp"
+          ],
+          [
+            "the careful pilot marks",
+            "the distant runway lights"
+          ],
+          [
+            "through the narrow mist",
+            "before first light"
+          ]
+        ],
+        "cross_boundary_transition": "adjunct-to-subject and object-to-adjunct role transitions",
+        "mapping": "semantic role transition, not word-order mirror"
+      },
+      "audit": {
+        "length": 111,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "230cb39380060bd7cd0511db0478d17f3579958c79c72038f2acc3e9ebe3b2a0",
+        "sha256_reverse": "496a1861c36dcb98c319f9da6d1c7143f1bd8b5065369f27bd7eeae1cab2c614",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "finite cross-boundary phrase-block grammar with typed role transitions",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "f7d969c477beac00c19b5f6593cdd919463a14f79100be5d6380de8ac9f9e120",
+        "source_sha256": "230cb39380060bd7cd0511db0478d17f3579958c79c72038f2acc3e9ebe3b2a0"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false,
+        "non_word_order_mapping": true
+      },
+      "next_repair": "First residual 0: alter the cross-boundary block segmentation at the adjacent role transition, preserving the complete clause parse before retesting."
+    },
+    {
+      "id": "block-2",
+      "rendered": "The archivist records the winter letters, while a patient gardener waters the young cedar trees after heavy rain beside the quiet lamp.",
+      "block_derivation": {
+        "blocks": [
+          [
+            "the archivist records",
+            "the winter letters"
+          ],
+          [
+            "a patient gardener waters",
+            "the young cedar trees"
+          ],
+          [
+            "after heavy rain",
+            "beside the quiet lamp"
+          ]
+        ],
+        "cross_boundary_transition": "adjunct-to-subject and object-to-adjunct role transitions",
+        "mapping": "semantic role transition, not word-order mirror"
+      },
+      "audit": {
+        "length": 112,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "p"
+        },
+        "sha256_forward": "2ce617ca5b04e849622bc7a0ece7f538983324d4a17b9001d2ab9dba47b4e7e4",
+        "sha256_reverse": "070c61279ed0d6c5cb5004bd2220912178b27d2333f3672edd4f1dabbf9dd5ac",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "finite cross-boundary phrase-block grammar with typed role transitions",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "f7d969c477beac00c19b5f6593cdd919463a14f79100be5d6380de8ac9f9e120",
+        "source_sha256": "2ce617ca5b04e849622bc7a0ece7f538983324d4a17b9001d2ab9dba47b4e7e4"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "catalogue_text": false,
+        "non_word_order_mapping": true
+      },
+      "next_repair": "First residual 0: alter the cross-boundary block segmentation at the adjacent role transition, preserving the complete clause parse before retesting."
+    }
+  ],
+  "summary": {
+    "candidate_count": 3,
+    "exact_count": 0,
+    "max_length": 112
+  }
+}

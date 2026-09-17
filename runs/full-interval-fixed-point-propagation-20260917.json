@@ -1,0 +1,118 @@
+{
+  "experiment": "full-interval-fixed-point-propagation-20260917",
+  "method": "iterate lexical domains using support from every character inside rendered slot intervals until convergence",
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "The gardener carries the letters near the harbor, and the teacher writes the notes near the garden.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "letters",
+        "s0": "harbor",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "garden"
+      },
+      "domain_sizes": {
+        "a": 2,
+        "v": 2,
+        "o": 2,
+        "s0": 1,
+        "a2": 2,
+        "v2": 2,
+        "o2": 2,
+        "s1": 2
+      },
+      "rounds": 2,
+      "changes": [
+        [
+          "s0",
+          2,
+          1
+        ]
+      ],
+      "provenance": "full_interval_fixed_point_propagation",
+      "novelty_preflight": {
+        "signature": "full_interval_fixed_point_v1",
+        "distinct_from": "first/last propagation; support tests every character inside each rendered lexical interval"
+      },
+      "audit": {
+        "letters": 81,
+        "exact": false,
+        "mismatch_count": 34,
+        "first_mismatch": 0,
+        "sha256": "a770fe5d70ee85119e36a021bd7c8283abfb1c2a0a333b8665b5ec3d74f53b53",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "The teacher writes the notes near the harbor, and the messenger records the charts near the station.",
+      "slots": {
+        "a": "teacher",
+        "v": "writes",
+        "o": "notes",
+        "s0": "harbor",
+        "a2": "messenger",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station"
+      },
+      "domain_sizes": {
+        "a": 2,
+        "v": 2,
+        "o": 2,
+        "s0": 1,
+        "a2": 2,
+        "v2": 2,
+        "o2": 2,
+        "s1": 2
+      },
+      "rounds": 2,
+      "changes": [
+        [
+          "s0",
+          2,
+          1
+        ]
+      ],
+      "provenance": "full_interval_fixed_point_propagation",
+      "novelty_preflight": {
+        "signature": "full_interval_fixed_point_v1",
+        "distinct_from": "first/last propagation; support tests every character inside each rendered lexical interval"
+      },
+      "audit": {
+        "letters": 82,
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0,
+        "sha256": "a69c1dbe70a218437a9b1e0f84b237c328716346937e108a2521b97f51d762a6",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 82,
+    "next_repair": "carry full interval support maps between paired slots instead of recomputing against a default context"
+  }
+}

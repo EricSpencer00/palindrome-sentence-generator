@@ -100,11 +100,35 @@ def audit(text: str) -> dict[str, object]:
 
 
 def novelty_preflight() -> dict[str, object]:
-    registry = ROOT / "docs/EXPERIMENT-NOVELTY-REGISTRY.md"
-    source = registry.read_text()
-    tokens = ("semantic-relation-plan-solver", "joint-causal-temporal-contrast-relation-selection")
-    collisions = [token for token in tokens if token in source]
-    return {"registry": str(registry), "signature": SIGNATURE, "collisions": collisions, "passed": not collisions}
+    registry = ROOT / "docs/experiment-novelty-registry.json"
+    data = json.loads(registry.read_text())
+    rows = [*data.get("entries", []), *data.get("excluded", [])]
+    self_rows = [
+        row for row in data.get("entries", [])
+        if row.get("id") == EXPERIMENT_ID
+        and row.get("signature") == SIGNATURE
+        and row.get("artifact") == "experiments/semantic_relation_plan_solver_20260916.py"
+    ]
+    collisions = [
+        {"id": row.get("id"), "fields": fields}
+        for row in rows
+        for fields in [[
+            field for field, value in (
+                ("id", row.get("id") == EXPERIMENT_ID),
+                ("signature", row.get("signature") == SIGNATURE),
+                ("artifact", row.get("artifact") == "experiments/semantic_relation_plan_solver_20260916.py"),
+            ) if value
+        ]]
+        if fields and row not in self_rows
+    ]
+    return {
+        "registry": str(registry),
+        "signature": SIGNATURE,
+        "registry_entries": len(data.get("entries", [])),
+        "self_registered": bool(self_rows),
+        "collisions": collisions,
+        "passed": not collisions and len(self_rows) <= 1,
+    }
 
 
 def run() -> dict[str, object]:

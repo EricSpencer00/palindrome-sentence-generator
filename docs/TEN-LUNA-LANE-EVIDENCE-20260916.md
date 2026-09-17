@@ -816,7 +816,23 @@ The next continuation adds a 113-letter word-internal seam scene and four
 atomic-center residual-grammar scenes up to 244 letters. Both retained lanes
 have intact prose, independent pointer/SHA rejection, provenance, novelty
 preflight, anti-shortcut flags, and named repairs. A 12-state semantic-relation
-probe is kept separately as excluded evidence because its own fields mark the
-surfaces as word-order-mirror/repeated-content controls. The authoritative
-retained aggregate is 4,995 rows across 290 routes, with 79 exact controls and
-0 mechanically admitted outputs.
+probe was then re-audited: its positive fields mean that word-order mirroring,
+repeated content, proper palindrome spans, and catalogue scaffolds are absent,
+so it is retained rather than misclassified as a shortcut. Its first rendered
+state is “the patient keeper opened the garden gate in the morning because the
+harbor crew secured the boat before dusk.” (91 letters; exact `false`); the next
+repair swaps the active relation-compatible event at the first residual.
+
+Three targeted repairs are also retained: “the teacher guided the patient
+apprentice through the winter archive; the recorder preserved a precise account
+beside the weathered chart.” (117 letters; two seam-adjacent morphemes changed;
+exact `false`), “The pilot checks the engine. Meanwhile, The sailor steers the
+small boat.” (59 letters; one right verb/object repair; exact `false`), and
+“The patient archivist catalogs sealed journals beneath winter rafters. The
+museum guide opens the west gallery after visitors arrive. The waiting curator
+locks glass cabinets after evening lectures. The coastal signaler guides lantern
+boats at twilight.” (214 letters; one paired constituent replacement; exact
+`false`). Each has independent pointer/SHA validation, provenance, novelty
+preflight, and a concrete next repair. The authoritative retained aggregate is
+now 5,010 rows across 294 routes, with 79 exact controls and 0 mechanically
+admitted outputs.

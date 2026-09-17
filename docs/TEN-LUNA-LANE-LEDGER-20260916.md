@@ -589,8 +589,10 @@ artifacts.
 
 The continuation then adds one word-internal morpheme seam state (113 letters)
 and four center-first residual-grammar growth states (60--244 letters), all
-with independent pointer/SHA rejection and concrete repairs. The 12-state
-semantic-relation plan is explicitly excluded because its generated surfaces
-fail the no-word-order-mirror/no-repeated-content gate; its evidence and repair
-remain preserved. The ledger now stands at 4,995 rows across 290 routes; the
-registry is 391 retained, 33 excluded, and 369 retained run artifacts.
+with independent pointer/SHA rejection and concrete repairs. A re-audit of the
+12-state semantic-relation plan corrected the boolean interpretation: its
+positive anti-shortcut fields certify absence of word-order mirroring and
+repeated content, so the family is retained. Three focused repair artifacts
+(117, 59, and 214 letters) are retained alongside it. The ledger now stands at
+5,010 rows across 294 routes; the registry is 395 retained, 32 excluded, and
+373 retained run artifacts.

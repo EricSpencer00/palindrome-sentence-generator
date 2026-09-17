@@ -13,6 +13,8 @@ SPEC.loader.exec_module(MODULE)
 def test_novelty_preflight_is_new_and_relation_state_is_typed():
     preflight = MODULE.novelty_preflight()
     assert preflight["passed"]
+    assert preflight["self_registered"] is True
+    assert preflight["registry"].endswith("docs/experiment-novelty-registry.json")
     assert len(MODULE.RELATIONS) == 4
     assert {r["id"] for r in MODULE.RELATIONS} == {"cause", "effect", "temporal", "contrast"}
 
@@ -26,6 +28,7 @@ def test_solver_renders_complete_prose_with_joint_relation_equations():
     assert all(row["audit"]["two_pointer_exact"] is False for row in result["rendered_candidates"])
     assert all(row["audit"]["sha_exact"] is False for row in result["rendered_candidates"])
     assert all(row["audit"]["anti_shortcut"]["word_order_mirror"] for row in result["rendered_candidates"])
+    assert all(row["audit"]["anti_shortcut"]["repeated_content"] for row in result["rendered_candidates"])
     assert all(row["audit"]["anti_shortcut"]["catalogue_absent"] for row in result["rendered_candidates"])
     assert result["next_repair"].startswith("at the first residual character debt")
 

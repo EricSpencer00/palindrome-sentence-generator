@@ -2203,11 +2203,12 @@ named next repair. The aggregate is 4,898 rows across 247 route phases (79
 
   The next continuation adds a 113-letter word-internal seam scene and a
   center-first residual grammar that reaches 244 letters through complete SVO
-  growth. A separate relation-plan probe is retained only as excluded evidence
-  because its own anti-shortcut fields identify word-order mirroring and
-  repeated content. The authoritative retained snapshot is now 4,995 rows
-  across 290 routes, with 79 exact rejected tapes and 0 mechanically admitted
-  outputs.
+  growth. The relation-plan probe was re-audited and retained: its positive
+  anti-shortcut fields certify no word-order mirror, no repeated content, and no
+  catalogue scaffold. Three focused repairs (117, 59, and 214 letters) are also
+  retained with independent exact checks and named next operators. The
+  authoritative retained snapshot is now 5,010 rows across 294 routes, with 79
+  exact rejected tapes and 0 mechanically admitted outputs.
 
   The newest committed wave is measured at **4,967 rows across 283 route phases**
   with **79 exact but rejected tapes and 0 mechanically admitted outputs**. Its

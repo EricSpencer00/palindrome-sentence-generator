@@ -285,9 +285,13 @@
     "runs/finite-feature-center-grammar-20260916.json",
     "runs/joint-constituent-equation-scene-solver-20260916.json",
     "runs/word-internal-seam-equation-20260916.json",
-    "runs/minimal-residual-grammar-20260916.json"
+    "runs/minimal-residual-grammar-20260916.json",
+    "runs/semantic-relation-plan-solver-20260916.json",
+    "runs/word-internal-seam-first-mismatch-repair-20260916.json",
+    "runs/minimal-residual-grammar-repair-20260916.json",
+    "runs/joint-constituent-equation-scene-repair-20260916.json"
   ],
-  "candidate_count": 4995,
+  "candidate_count": 5010,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -3190,6 +3194,46 @@
       "max_letters": 113,
       "mean_zipf_frequency": 5.350499999999999,
       "mean_brown_order_gain_vs_shuffle": 0.9508436906056144
+    },
+    {
+      "source_run": "runs/joint-constituent-equation-scene-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 214,
+      "max_letters": 214,
+      "mean_zipf_frequency": 4.774166666666666,
+      "mean_brown_order_gain_vs_shuffle": 0.2482986014452191
+    },
+    {
+      "source_run": "runs/minimal-residual-grammar-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 59,
+      "max_letters": 59,
+      "mean_zipf_frequency": 5.4975,
+      "mean_brown_order_gain_vs_shuffle": 1.0416538353488196
+    },
+    {
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "rows": 12,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 82,
+      "max_letters": 91,
+      "mean_zipf_frequency": 5.5652412280701755,
+      "mean_brown_order_gain_vs_shuffle": 1.3704886537219199
+    },
+    {
+      "source_run": "runs/word-internal-seam-first-mismatch-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 117,
+      "max_letters": 117,
+      "mean_zipf_frequency": 5.3545,
+      "mean_brown_order_gain_vs_shuffle": 0.9563715300023201
     }
   ],
   "rows": [
@@ -240985,6 +241029,733 @@
         "word_count": 50,
         "repeated_word_rate": 0.26,
         "punctuation_segments": 8
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient keeper opened the garden gate in the morning because the harbor crew secured the boat before dusk.",
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "fde7ee2ddbce4be59ab3eec28e98a7965f4ef9e83e89a2dc53b3472855c952df",
+        "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+        "audits": [
+          "independent normalized two-pointer",
+          "forward/reverse SHA-256",
+          "mechanical admission",
+          "independent relation/event reparse"
+        ]
+      },
+      "repair": null,
+      "letters": 91,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3442913537336798,
+        "mean_zipf_frequency": 5.64842105263158,
+        "word_count": 19,
+        "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient keeper opened the garden gate in the morning because the harbor crew lit the lantern after dusk.",
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "fde7ee2ddbce4be59ab3eec28e98a7965f4ef9e83e89a2dc53b3472855c952df",
+        "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+        "audits": [
+          "independent normalized two-pointer",
+          "forward/reverse SHA-256",
+          "mechanical admission",
+          "independent relation/event reparse"
+        ]
+      },
+      "repair": null,
+      "letters": 89,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5520764356771757,
+        "mean_zipf_frequency": 5.597894736842106,
+        "word_count": 19,
+        "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient keeper blocked the narrow path by evening because the harbor crew secured the boat before dusk.",
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "fde7ee2ddbce4be59ab3eec28e98a7965f4ef9e83e89a2dc53b3472855c952df",
+        "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+        "audits": [
+          "independent normalized two-pointer",
+          "forward/reverse SHA-256",
+          "mechanical admission",
+          "independent relation/event reparse"
+        ]
+      },
+      "repair": null,
+      "letters": 89,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9343313047865038,
+        "mean_zipf_frequency": 5.4350000000000005,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the patient keeper blocked the narrow path by evening because the harbor crew lit the lantern after dusk.",
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "fde7ee2ddbce4be59ab3eec28e98a7965f4ef9e83e89a2dc53b3472855c952df",
+        "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+        "audits": [
+          "independent normalized two-pointer",
+          "forward/reverse SHA-256",
+          "mechanical admission",
+          "independent relation/event reparse"
+        ]
+      },
+      "repair": null,
+      "letters": 87,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1276446844034922,
+        "mean_zipf_frequency": 5.381666666666667,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the harbor crew secured the boat before dusk, so the patient keeper opened the garden gate in the morning.",
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "fde7ee2ddbce4be59ab3eec28e98a7965f4ef9e83e89a2dc53b3472855c952df",
+        "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+        "audits": [
+          "independent normalized two-pointer",
+          "forward/reverse SHA-256",
+          "mechanical admission",
+          "independent relation/event reparse"
+        ]
+      },
+      "repair": null,
+      "letters": 86,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4584729986382134,
+        "mean_zipf_frequency": 5.674210526315789,
+        "word_count": 19,
+        "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the harbor crew secured the boat before dusk, so the patient keeper blocked the narrow path by evening.",
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "fde7ee2ddbce4be59ab3eec28e98a7965f4ef9e83e89a2dc53b3472855c952df",
+        "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+        "audits": [
+          "independent normalized two-pointer",
+          "forward/reverse SHA-256",
+          "mechanical admission",
+          "independent relation/event reparse"
+        ]
+      },
+      "repair": null,
+      "letters": 84,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.150721649679829,
+        "mean_zipf_frequency": 5.462222222222222,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the harbor crew lit the lantern after dusk, so the patient keeper opened the garden gate in the morning.",
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "fde7ee2ddbce4be59ab3eec28e98a7965f4ef9e83e89a2dc53b3472855c952df",
+        "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+        "audits": [
+          "independent normalized two-pointer",
+          "forward/reverse SHA-256",
+          "mechanical admission",
+          "independent relation/event reparse"
+        ]
+      },
+      "repair": null,
+      "letters": 84,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.6362045722373946,
+        "mean_zipf_frequency": 5.623684210526315,
+        "word_count": 19,
+        "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the harbor crew lit the lantern after dusk, so the patient keeper blocked the narrow path by evening.",
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "fde7ee2ddbce4be59ab3eec28e98a7965f4ef9e83e89a2dc53b3472855c952df",
+        "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+        "audits": [
+          "independent normalized two-pointer",
+          "forward/reverse SHA-256",
+          "mechanical admission",
+          "independent relation/event reparse"
+        ]
+      },
+      "repair": null,
+      "letters": 82,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2773982469620133,
+        "mean_zipf_frequency": 5.408888888888889,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the coastal pilot studied the map at dawn before the patient keeper opened the garden gate in the morning.",
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "fde7ee2ddbce4be59ab3eec28e98a7965f4ef9e83e89a2dc53b3472855c952df",
+        "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+        "audits": [
+          "independent normalized two-pointer",
+          "forward/reverse SHA-256",
+          "mechanical admission",
+          "independent relation/event reparse"
+        ]
+      },
+      "repair": null,
+      "letters": 87,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5795826088930474,
+        "mean_zipf_frequency": 5.736315789473683,
+        "word_count": 19,
+        "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the coastal pilot studied the map at dawn before the patient keeper blocked the narrow path by evening.",
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "fde7ee2ddbce4be59ab3eec28e98a7965f4ef9e83e89a2dc53b3472855c952df",
+        "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+        "audits": [
+          "independent normalized two-pointer",
+          "forward/reverse SHA-256",
+          "mechanical admission",
+          "independent relation/event reparse"
+        ]
+      },
+      "repair": null,
+      "letters": 85,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3303209277445909,
+        "mean_zipf_frequency": 5.527777777777777,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the coastal pilot reported the signal at noon before the patient keeper opened the garden gate in the morning.",
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "fde7ee2ddbce4be59ab3eec28e98a7965f4ef9e83e89a2dc53b3472855c952df",
+        "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+        "audits": [
+          "independent normalized two-pointer",
+          "forward/reverse SHA-256",
+          "mechanical admission",
+          "independent relation/event reparse"
+        ]
+      },
+      "repair": null,
+      "letters": 91,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.6357096562929785,
+        "mean_zipf_frequency": 5.747368421052631,
+        "word_count": 19,
+        "repeated_word_rate": 0.21052631578947367,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the coastal pilot reported the signal at noon before the patient keeper blocked the narrow path by evening.",
+      "source_run": "runs/semantic-relation-plan-solver-20260916.json",
+      "provenance": {
+        "generator_sha256": "fde7ee2ddbce4be59ab3eec28e98a7965f4ef9e83e89a2dc53b3472855c952df",
+        "material": "fresh authored event propositions; no catalogue text or palindrome seed",
+        "audits": [
+          "independent normalized two-pointer",
+          "forward/reverse SHA-256",
+          "mechanical admission",
+          "independent relation/event reparse"
+        ]
+      },
+      "repair": null,
+      "letters": 89,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "no_self_palindromic_word"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4191094056141207,
+        "mean_zipf_frequency": 5.539444444444444,
+        "word_count": 18,
+        "repeated_word_rate": 0.16666666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "the teacher guided the patient apprentice through the winter archive; the recorder preserved a precise account beside the weathered chart.",
+      "source_run": "runs/word-internal-seam-first-mismatch-repair-20260916.json",
+      "provenance": {
+        "authored_repair": true,
+        "catalogue_lookup": false,
+        "known_seeds": false,
+        "independent_clause_authoring": true,
+        "source_run": "runs/word-internal-seam-equation-20260916.json"
+      },
+      "repair": null,
+      "letters": 117,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9563715300023201,
+        "mean_zipf_frequency": 5.3545,
+        "word_count": 20,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The pilot checks the engine. Meanwhile, The sailor steers the small boat.",
+      "source_run": "runs/minimal-residual-grammar-repair-20260916.json",
+      "provenance": {
+        "source": "fresh right-side sailor event frame",
+        "parent_state": "minimal-residual-grammar-20260916",
+        "repair_scope": "one finite verb/object pair only",
+        "generator": "experiments/minimal_residual_grammar_repair_20260916.py"
+      },
+      "repair": {
+        "side": "right",
+        "old_verb_object": "marks the distant buoy",
+        "new_verb_object": "steers the small boat",
+        "selection": "first residual outer pair"
+      },
+      "letters": 59,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0416538353488196,
+        "mean_zipf_frequency": 5.4975,
+        "word_count": 12,
+        "repeated_word_rate": 0.25,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient archivist catalogs sealed journals beneath winter rafters. The museum guide opens the west gallery after visitors arrive. The waiting curator locks glass cabinets after evening lectures. The coastal signaler guides lantern boats at twilight.",
+      "source_run": "runs/joint-constituent-equation-scene-repair-20260916.json",
+      "provenance": {
+        "baseline_experiment": "joint-constituent-equation-scene-solver-20260916",
+        "baseline_selection": {
+          "left_indices": [
+            0,
+            2
+          ],
+          "right_indices": [
+            1,
+            0
+          ],
+          "rank": 1
+        },
+        "repair_operator": "paired complete constituent replacement at first mirrored mismatch",
+        "authoring": "fresh held-out role-compatible SVO-adjunct events"
+      },
+      "repair": null,
+      "letters": 214,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome",
+        "lexicon_words"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.2482986014452191,
+        "mean_zipf_frequency": 4.774166666666666,
+        "word_count": 36,
+        "repeated_word_rate": 0.13888888888888884,
+        "punctuation_segments": 4
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

@@ -1,0 +1,216 @@
+{
+  "experiment": "full-positional-slot-interval-csp-20260917",
+  "method": "exact character constraints are propagated for every position covered by rendered lexical slot intervals",
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "The gardener carries the letters near the harbor, and the teacher writes the notes near the garden.",
+      "slots": {
+        "a": "gardener",
+        "v": "carries",
+        "o": "letters",
+        "s0": "harbor",
+        "a2": "teacher",
+        "v2": "writes",
+        "o2": "notes",
+        "s1": "garden"
+      },
+      "slot_intervals": {
+        "a": [
+          3,
+          10
+        ],
+        "v": [
+          11,
+          17
+        ],
+        "o": [
+          21,
+          27
+        ],
+        "s0": [
+          35,
+          40
+        ],
+        "a2": [
+          47,
+          53
+        ],
+        "v2": [
+          54,
+          59
+        ],
+        "o2": [
+          63,
+          67
+        ],
+        "s1": [
+          75,
+          80
+        ]
+      },
+      "positional_equalities": [
+        [
+          4,
+          76,
+          "a"
+        ],
+        [
+          22,
+          58,
+          "e"
+        ],
+        [
+          23,
+          57,
+          "t"
+        ],
+        [
+          35,
+          45,
+          "h"
+        ],
+        [
+          40,
+          40,
+          "r"
+        ],
+        [
+          57,
+          23,
+          "t"
+        ],
+        [
+          58,
+          22,
+          "e"
+        ],
+        [
+          76,
+          4,
+          "a"
+        ]
+      ],
+      "positional_conflicts": 44,
+      "provenance": "full_positional_slot_interval_csp",
+      "novelty_preflight": {
+        "signature": "full_positional_slot_interval_csp_v1",
+        "distinct_from": "boundary arcs; constrains every resolved character position inside rendered slot intervals"
+      },
+      "audit": {
+        "letters": 81,
+        "exact": false,
+        "mismatch_count": 34,
+        "first_mismatch": 0,
+        "sha256": "a770fe5d70ee85119e36a021bd7c8283abfb1c2a0a333b8665b5ec3d74f53b53",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "The teacher writes the notes near the garden, and the messenger records the charts near the station.",
+      "slots": {
+        "a": "teacher",
+        "v": "writes",
+        "o": "notes",
+        "s0": "garden",
+        "a2": "messenger",
+        "v2": "records",
+        "o2": "charts",
+        "s1": "station"
+      },
+      "slot_intervals": {
+        "a": [
+          3,
+          9
+        ],
+        "v": [
+          10,
+          15
+        ],
+        "o": [
+          19,
+          23
+        ],
+        "s0": [
+          31,
+          36
+        ],
+        "a2": [
+          43,
+          51
+        ],
+        "v2": [
+          52,
+          58
+        ],
+        "o2": [
+          62,
+          67
+        ],
+        "s1": [
+          75,
+          81
+        ]
+      },
+      "positional_equalities": [
+        [
+          3,
+          78,
+          "t"
+        ],
+        [
+          23,
+          58,
+          "s"
+        ],
+        [
+          58,
+          23,
+          "s"
+        ],
+        [
+          78,
+          3,
+          "t"
+        ]
+      ],
+      "positional_conflicts": 49,
+      "provenance": "full_positional_slot_interval_csp",
+      "novelty_preflight": {
+        "signature": "full_positional_slot_interval_csp_v1",
+        "distinct_from": "boundary arcs; constrains every resolved character position inside rendered slot intervals"
+      },
+      "audit": {
+        "letters": 82,
+        "exact": false,
+        "mismatch_count": 39,
+        "first_mismatch": 0,
+        "sha256": "f97150ad56083939da09ef0557b769a4da9123d7bb116d078868162f792ecd52",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 82,
+    "next_repair": "use interval domains rather than completed word assignments and prune a slot as soon as any positional equality loses support"
+  }
+}

@@ -33,6 +33,11 @@ def test_semantic_path_run_is_reproducible_and_audited():
     assert third["held_out_synonym"] == "and keeps a quiet secret"
     assert third["audit"]["rendered"].endswith("and keeps a quiet secret.")
     assert all(item["satisfied"] for item in third["edge_obligations"])
+    expanded = data["expanded_consequence_candidates"]
+    assert len(expanded) == 2
+    assert all(all(item["satisfied"] for item in row["edge_obligations"]) for row in expanded)
+    assert all(not row["audit"]["exact"] for row in expanded)
+    assert data["candidate_scene"] != third["audit"]["rendered"]
     for row in data["candidates"]:
         assert row["audit"]["normalized_sha256"] != row["audit"]["reverse_sha256"] or row["audit"]["exact"]
         assert len(row["edge_obligations"]) == 4

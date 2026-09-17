@@ -65,6 +65,13 @@ HELD_OUT_SYNONYMS = {
     "consequence": "and keeps a quiet secret",
 }
 
+# Whole-tape frontier: these are predicate-plus-adjunct realizations, held out
+# after local edge closure. Both retain the consequence terminal ``t``.
+EXPANDED_CONSEQUENCES = (
+    "and keeps a quiet secret at sunset",
+    "and keeps a quiet secret in a cabinet",
+)
+
 
 def edge_obligations(nodes: dict[str, Node]) -> list[dict[str, object]]:
     """Consume opposing edge characters before accepting a rendered clause."""
@@ -139,6 +146,21 @@ def repair_first_open(row: dict[str, object]) -> dict[str, object]:
     }
 
 
+def expand_consequence(row: dict[str, object], surface: str) -> dict[str, object]:
+    """Change only the consequence predicate while retaining the closed path."""
+    nodes = {role: Node(role, value["surface"]) for role, value in row["nodes"].items()}
+    nodes["consequence"] = Node("consequence", surface)
+    text = render(nodes)
+    return {
+        "operator": "consequence_predicate_expansion",
+        "expanded_surface": surface,
+        "path": [asdict(e) for e in PATH],
+        "nodes": {k: asdict(v) for k, v in nodes.items()},
+        "edge_obligations": edge_obligations(nodes),
+        "audit": audit(text),
+    }
+
+
 def main() -> None:
     registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
     entries = registry.get("entries", []) + registry.get("excluded", [])
@@ -162,13 +184,16 @@ def main() -> None:
     # theme -> locative edge, not a fresh lexical sweep.
     locative_repair = repair_first_open(event_repair)
     consequence_repair = repair_first_open(locative_repair)
+    expanded = [expand_consequence(consequence_repair, phrase) for phrase in EXPANDED_CONSEQUENCES]
+    expanded.sort(key=lambda row: (row["audit"]["independent_two_pointer"]["mismatch_count"], -row["audit"]["letters"]))
+    expanded_best = expanded[0]
     out = {
         "experiment_id": ID,
         "signature": SIGNATURE,
         "status": "completed_exact_candidate" if exact else "completed_no_exact_closure",
         "reader_eligible": bool(exact),
         "method": "choose typed semantic path first; consume opposing character obligations online during lexical realization",
-        "candidate_scene": consequence_repair["audit"]["rendered"],
+        "candidate_scene": expanded_best["audit"]["rendered"],
         "candidates": rows[:3],
         "repaired_candidate": event_repair,
         # Expose the held-out repair through the common aggregate schema so
@@ -176,10 +201,11 @@ def main() -> None:
         "repair_candidates": [event_repair, locative_repair, consequence_repair],
         "second_repair": locative_repair,
         "third_repair": consequence_repair,
-        "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38)},
+        "expanded_consequence_candidates": expanded,
+        "stats": {"semantic_paths": 1, "lexical_realizations": len(rows), "exact_over_38": len(exact), "repaired_exact_over_38": int(event_repair["audit"]["exact"] and event_repair["audit"]["letters"] > 38), "second_repair_exact_over_38": int(locative_repair["audit"]["exact"] and locative_repair["audit"]["letters"] > 38), "third_repair_exact_over_38": int(consequence_repair["audit"]["exact"] and consequence_repair["audit"]["letters"] > 38), "expanded_consequence_realizations": len(expanded), "expanded_exact_over_38": sum(int(row["audit"]["exact"] and row["audit"]["letters"] > 38) for row in expanded)},
         "novelty_preflight": {"registry_entries_read": len(entries), "exact_signature_collision": collision, "catalogue_text_imported": False, "fixed_tape_used": False, "pos_sweep": False, "scene_lattice": False},
         "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "lexical_source": "hand-authored typed event lexicon", "path": [e.label for e in PATH], "audits": ["independent two-pointer", "forward/reverse SHA-256", "mechanical admission", "anti-shortcut preflight"]},
-        "next_repair": {"operator": "expand the semantic path with a second consequence predicate and require a full character-level closure, then recompute all tape/hash/mechanical gates", "reason": "all four local edge obligations now close, but local terminal agreement is not sufficient for whole-tape palindrome exactness"},
+        "next_repair": {"operator": "jointly relexicalize agent and consequence while preserving the four edge obligations, then require full character-level closure", "reason": "predicate expansion changed the full tape and preserved local closure, but neither expanded realization is an exact palindrome"},
     }
     (ROOT / "runs" / f"{ID}.json").write_text(json.dumps(out, indent=2) + "\n")
     print(json.dumps(out["stats"], sort_keys=True))

@@ -1,0 +1,98 @@
+{
+  "family": "word-internal-seam-equation",
+  "target_letters": 100,
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_before_run": 389,
+    "signature_overlaps": [],
+    "artifact_collisions": [],
+    "route": "word-internal seam equation; one boundary per independently authored clause",
+    "rejected_routes": [
+      "fixed-tape",
+      "reverse-segmentation",
+      "word-order-mirror",
+      "broad morphology"
+    ]
+  },
+  "candidate_count": 9,
+  "best": {
+    "text": "a teacher guided the patient apprentice through the winter archive; the recorder preserved a precise account beside the weathered map.",
+    "semantic_roles": [
+      "agent",
+      "event",
+      "patient",
+      "setting"
+    ],
+    "seams": {
+      "left": {
+        "word": "teacher",
+        "split": 6,
+        "left_morpheme": "teache",
+        "right_morpheme": "r",
+        "left_terminal": "e",
+        "right_initial": "r"
+      },
+      "right": {
+        "word": "recorder",
+        "split": 7,
+        "left_morpheme": "recorde",
+        "right_morpheme": "r",
+        "left_terminal": "e",
+        "right_initial": "r"
+      }
+    },
+    "seam_equation": "e == e",
+    "seam_match": true,
+    "audit": {
+      "letters": 113,
+      "normalized_tape": "ateacherguidedthepatientapprenticethroughthewinterarchivetherecorderpreservedapreciseaccountbesidetheweatheredmap",
+      "independent_ascii_tape": "ateacherguidedthepatientapprenticethroughthewinterarchivetherecorderpreservedapreciseaccountbesidetheweatheredmap",
+      "exact": false,
+      "independent_two_pointer_exact": false,
+      "first_mismatch": {
+        "left_index": 0,
+        "right_index": 112,
+        "left": "a",
+        "right": "p"
+      },
+      "sha256_forward": "738796a3eb3cfa6d5f72e5ce723a14d791086bd583d5964ae2fcfc11bd91bb81",
+      "sha256_reverse": "95c6a152ae3a9fbedb16662934e18fbb4ecdb3b4e834f2be5934948aab531d74",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    },
+    "anti_shortcut_flags": {
+      "fixed_tape": false,
+      "reverse_segmentation": false,
+      "word_order_mirror": false,
+      "repeated_unit": false,
+      "catalogue_lookup": false,
+      "posthoc_reversal": false
+    }
+  },
+  "rendered_intact_scene": "a teacher guided the patient apprentice through the winter archive; the recorder preserved a precise account beside the weathered map.",
+  "provenance": {
+    "authored_inventory": true,
+    "catalogue_lookup": false,
+    "known_seeds": false,
+    "independent_clause_authoring": true,
+    "word_order_mirror": false
+  },
+  "next_repair": "replace only the two seam-adjacent morphemes at the first mismatch while preserving each clause's agent, event, patient, and setting roles"
+}

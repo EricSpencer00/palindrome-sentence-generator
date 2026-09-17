@@ -867,7 +867,7 @@ ranger repairs broken lanterns inside the stone workshop. A patient baker guides
 warm loaves beside the garden porch.” (106 letters; exact `false`). Each attempt
 has independent pointer/SHA validation, provenance, novelty preflight, and a
 concrete first-residual repair; none is reader-eligible. The authoritative
-aggregate is now 5,107 rows across 304 routes, with 79 exact controls and 0
+aggregate is now 5,182 rows across 307 routes, with 79 exact controls and 0
 mechanically admitted outputs.
 
 The next constructive continuation is an outside-in role-phrase equation
@@ -898,3 +898,23 @@ The careful cartographer records a weathered notebook before the evening bell.�
 fresh seed/repair scenes, the longest 108 letters. Each lane has independent
 pointer/SHA validation, novelty preflight, provenance, anti-shortcut checks,
 and a concrete held-out repair; none is reader-eligible.
+
+The next continuation adds a center-free equation ledger and an inflectional
+boundary repair. The center-free lane retains “The quiet engineer tests a
+repaired valve beneath the river bridge. Meanwhile a small lantern warms the
+reading room. A diligent teacher prepares clear lessons for the village
+school.” (152 letters; exact `false`). The morphology lane preserves five
+complete SVO/PP scenes and five held-out suffix/clitic repairs; its best repair
+is “The patient surveyor records the northern route near the cedar bridge.”
+(59 letters; exact `false`). Both carry independent pointer/SHA checks, fresh
+provenance, novelty preflight, anti-shortcut flags, and concrete next repairs;
+neither is reader-eligible.
+
+A dependency-tree seam CSP then expands 64 attachment-compatible scene states
+with distinct agents on the two complete clauses. Its best rendering is “Two
+watchful sailors water young seedlings toward the harbor office, then The
+careful archivist repairs the brass lantern beside the north window during the
+long afternoon.” (145 letters; exact `false`). The dependency reparse,
+two-pointer audit, and forward/reverse SHA check agree; lexical distinctness,
+provenance, novelty, anti-shortcut checks, and a held-out attachment repair
+are recorded. It remains construction evidence rather than reader material.

@@ -299,9 +299,12 @@
     "runs/outside-in-role-phrase-equation-20260916.json",
     "runs/cfg-earley-character-equation-forest-20260916.json",
     "runs/semantic-slot-first-residual-repair-20260916.json",
-    "runs/char-lm-obligation-beam-20260916.json"
+    "runs/char-lm-obligation-beam-20260916.json",
+    "runs/center-free-clause-equation-ledger-20260916.json",
+    "runs/inflectional-clitic-boundary-repair-20260916.json",
+    "runs/dependency-seam-attachment-csp-20260916.json"
   ],
-  "candidate_count": 5107,
+  "candidate_count": 5182,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -3344,6 +3347,36 @@
       "max_letters": 108,
       "mean_zipf_frequency": 5.137438672438673,
       "mean_brown_order_gain_vs_shuffle": 0.8805642399721479
+    },
+    {
+      "source_run": "runs/center-free-clause-equation-ledger-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 152,
+      "max_letters": 152,
+      "mean_zipf_frequency": 5.34551724137931,
+      "mean_brown_order_gain_vs_shuffle": 0.9091853395029155
+    },
+    {
+      "source_run": "runs/inflectional-clitic-boundary-repair-20260916.json",
+      "rows": 10,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 55,
+      "max_letters": 63,
+      "mean_zipf_frequency": 5.1724000000000006,
+      "mean_brown_order_gain_vs_shuffle": 0.9486293548128032
+    },
+    {
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "rows": 64,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 121,
+      "max_letters": 146,
+      "mean_zipf_frequency": 5.242827403846153,
+      "mean_brown_order_gain_vs_shuffle": 1.1902029376054248
     }
   ],
   "rows": [
@@ -246199,6 +246232,3516 @@
         "word_count": 22,
         "repeated_word_rate": 0.13636363636363635,
         "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet engineer tests a repaired valve beneath the river bridge. Meanwhile a small lantern warms the reading room. A diligent teacher prepares clear lessons for the village school.",
+      "source_run": "runs/center-free-clause-equation-ledger-20260916.json",
+      "provenance": {
+        "generator_sha256": "9143f8908e5a70186e4f410116ae0a05fc0d96e28c3cd21261ebdad69a6e1469",
+        "audits": [
+          "independent two-pointer",
+          "forward/reverse SHA-256",
+          "live residual ledger",
+          "mechanical admission",
+          "anti-shortcut checks"
+        ]
+      },
+      "repair": null,
+      "letters": 152,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9091853395029155,
+        "mean_zipf_frequency": 5.34551724137931,
+        "word_count": 29,
+        "repeated_word_rate": 0.1724137931034483,
+        "punctuation_segments": 3
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient surveyor marks the western trail near the cedar bridge.",
+      "source_run": "runs/inflectional-clitic-boundary-repair-20260916.json",
+      "provenance": "fresh authored SVO/PP frame",
+      "repair": "none",
+      "letters": 56,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.207661985408249,
+        "mean_zipf_frequency": 5.371818181818182,
+        "word_count": 11,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient surveyor records the northern route near the cedar bridge.",
+      "source_run": "runs/inflectional-clitic-boundary-repair-20260916.json",
+      "provenance": "fresh authored SVO/PP frame + one held-out verb/object substitution",
+      "repair": "held-out verb/object suffix-clitic substitution at first residual",
+      "letters": 59,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9423393596866756,
+        "mean_zipf_frequency": 5.414545454545455,
+        "word_count": 11,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A careful violinist tunes the silver instrument beside the rehearsal room.",
+      "source_run": "runs/inflectional-clitic-boundary-repair-20260916.json",
+      "provenance": "fresh authored SVO/PP frame",
+      "repair": "none",
+      "letters": 63,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0101149072616256,
+        "mean_zipf_frequency": 5.1509090909090895,
+        "word_count": 11,
+        "repeated_word_rate": 0.09090909090909094,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A careful violinist checks the wooden violin beside the rehearsal room.",
+      "source_run": "runs/inflectional-clitic-boundary-repair-20260916.json",
+      "provenance": "fresh authored SVO/PP frame + one held-out verb/object substitution",
+      "repair": "held-out verb/object suffix-clitic substitution at first residual",
+      "letters": 60,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.26269934440435,
+        "mean_zipf_frequency": 5.1045454545454545,
+        "word_count": 11,
+        "repeated_word_rate": 0.09090909090909094,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet botanist labels the autumn specimens inside the glasshouse.",
+      "source_run": "runs/inflectional-clitic-boundary-repair-20260916.json",
+      "provenance": "fresh authored SVO/PP frame",
+      "repair": "none",
+      "letters": 59,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7907420670732765,
+        "mean_zipf_frequency": 5.046,
+        "word_count": 10,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The quiet botanist files the river samples inside the glasshouse.",
+      "source_run": "runs/inflectional-clitic-boundary-repair-20260916.json",
+      "provenance": "fresh authored SVO/PP frame + one held-out verb/object substitution",
+      "repair": "held-out verb/object suffix-clitic substitution at first residual",
+      "letters": 55,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6482411130630972,
+        "mean_zipf_frequency": 5.218,
+        "word_count": 10,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A watchful mechanic tests the spare battery beneath the station awning.",
+      "source_run": "runs/inflectional-clitic-boundary-repair-20260916.json",
+      "provenance": "fresh authored SVO/PP frame",
+      "repair": "none",
+      "letters": 60,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8866402502308937,
+        "mean_zipf_frequency": 5.010909090909091,
+        "word_count": 11,
+        "repeated_word_rate": 0.09090909090909094,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A watchful mechanic charges the brass starter beneath the station awning.",
+      "source_run": "runs/inflectional-clitic-boundary-repair-20260916.json",
+      "provenance": "fresh authored SVO/PP frame + one held-out verb/object substitution",
+      "repair": "held-out verb/object suffix-clitic substitution at first residual",
+      "letters": 62,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8263371642044923,
+        "mean_zipf_frequency": 4.945454545454545,
+        "word_count": 11,
+        "repeated_word_rate": 0.09090909090909094,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young curator packs the fragile sketches behind the archive desk.",
+      "source_run": "runs/inflectional-clitic-boundary-repair-20260916.json",
+      "provenance": "fresh authored SVO/PP frame",
+      "repair": "none",
+      "letters": 58,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8671426690299757,
+        "mean_zipf_frequency": 5.216363636363636,
+        "word_count": 11,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The young curator stores the folded diagrams behind the archive desk.",
+      "source_run": "runs/inflectional-clitic-boundary-repair-20260916.json",
+      "provenance": "fresh authored SVO/PP frame + one held-out verb/object substitution",
+      "repair": "held-out verb/object suffix-clitic substitution at first residual",
+      "letters": 58,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.044374687765396,
+        "mean_zipf_frequency": 5.245454545454546,
+        "word_count": 11,
+        "repeated_word_rate": 0.18181818181818177,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors water young seedlings toward the harbor office, then The careful archivist repairs the brass lantern beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 145,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9722689991216473,
+        "mean_zipf_frequency": 5.219615384615385,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors repair the brass lantern toward the harbor office, then The careful archivist stores weathered maps beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 144,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2077209475722395,
+        "mean_zipf_frequency": 5.160384615384615,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors store weathered maps toward the harbor office, then The careful archivist carries sealed letters beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 142,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2142776563168258,
+        "mean_zipf_frequency": 5.1108,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors carry sealed letters toward the harbor office, then The careful archivist waters young seedlings beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 142,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1910374118169091,
+        "mean_zipf_frequency": 5.153600000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors water young seedlings beside the north window, then The careful archivist repairs the brass lantern after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 139,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7537284561518423,
+        "mean_zipf_frequency": 5.1536,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors water young seedlings with a wooden key, then The careful archivist repairs the brass lantern toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 139,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9061521793892648,
+        "mean_zipf_frequency": 5.281153846153846,
+        "word_count": 26,
+        "repeated_word_rate": 0.11538461538461542,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors repair the brass lantern beside the north window, then The careful archivist stores weathered maps after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 138,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0985240299417267,
+        "mean_zipf_frequency": 5.092,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors repair the brass lantern with a wooden key, then The careful archivist stores weathered maps toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 138,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2943532471831762,
+        "mean_zipf_frequency": 5.221923076923077,
+        "word_count": 26,
+        "repeated_word_rate": 0.11538461538461542,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors store weathered maps beside the north window, then The careful archivist carries sealed letters after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 136,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0608835139618709,
+        "mean_zipf_frequency": 5.0375000000000005,
+        "word_count": 24,
+        "repeated_word_rate": 0.08333333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors store weathered maps with a wooden key, then The careful archivist carries sealed letters toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 136,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1802224404327681,
+        "mean_zipf_frequency": 5.174800000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.07999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors carry sealed letters beside the north window, then The careful archivist waters young seedlings after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 136,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0083542526009275,
+        "mean_zipf_frequency": 5.082083333333334,
+        "word_count": 24,
+        "repeated_word_rate": 0.08333333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors carry sealed letters with a wooden key, then The careful archivist waters young seedlings toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 136,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2386168079182855,
+        "mean_zipf_frequency": 5.217600000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.07999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors water young seedlings after steady rain, then The careful archivist repairs the brass lantern with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 133,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.914953672752004,
+        "mean_zipf_frequency": 5.217600000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.07999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors repair the brass lantern after steady rain, then The careful archivist stores weathered maps with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 132,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0021679112027346,
+        "mean_zipf_frequency": 5.156000000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.07999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors store weathered maps after steady rain, then The careful archivist carries sealed letters with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 130,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1245820739488455,
+        "mean_zipf_frequency": 5.104166666666667,
+        "word_count": 24,
+        "repeated_word_rate": 0.04166666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Two watchful sailors carry sealed letters after steady rain, then The careful archivist waters young seedlings with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 130,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9633159647071832,
+        "mean_zipf_frequency": 5.148750000000001,
+        "word_count": 24,
+        "repeated_word_rate": 0.04166666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist waters young seedlings toward the harbor office, then The patient gardeners repair the brass lantern beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 146,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2731299082114411,
+        "mean_zipf_frequency": 5.299230769230769,
+        "word_count": 26,
+        "repeated_word_rate": 0.1923076923076923,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist repairs the brass lantern toward the harbor office, then The patient gardeners store weathered maps beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 145,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2330405527278288,
+        "mean_zipf_frequency": 5.270769230769231,
+        "word_count": 26,
+        "repeated_word_rate": 0.1923076923076923,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist carries sealed letters toward the harbor office, then The patient gardeners water young seedlings beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 144,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2796562478375062,
+        "mean_zipf_frequency": 5.2824,
+        "word_count": 25,
+        "repeated_word_rate": 0.16000000000000003,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist stores weathered maps toward the harbor office, then The patient gardeners carry sealed letters beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 142,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.358722368592952,
+        "mean_zipf_frequency": 5.234,
+        "word_count": 25,
+        "repeated_word_rate": 0.16000000000000003,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist waters young seedlings beside the north window, then The patient gardeners repair the brass lantern after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 140,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0568603122943312,
+        "mean_zipf_frequency": 5.2364,
+        "word_count": 25,
+        "repeated_word_rate": 0.16000000000000003,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist waters young seedlings with a wooden key, then The patient gardeners repair the brass lantern toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 140,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.249065265697153,
+        "mean_zipf_frequency": 5.360769230769231,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist repairs the brass lantern beside the north window, then The patient gardeners store weathered maps after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 139,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1593204043594039,
+        "mean_zipf_frequency": 5.2068,
+        "word_count": 25,
+        "repeated_word_rate": 0.16000000000000003,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist repairs the brass lantern with a wooden key, then The patient gardeners store weathered maps toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 139,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3282941639450616,
+        "mean_zipf_frequency": 5.332307692307693,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist carries sealed letters beside the north window, then The patient gardeners water young seedlings after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 138,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.064437912754597,
+        "mean_zipf_frequency": 5.21625,
+        "word_count": 24,
+        "repeated_word_rate": 0.125,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist carries sealed letters with a wooden key, then The patient gardeners water young seedlings toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 138,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3344707076419446,
+        "mean_zipf_frequency": 5.346400000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist stores weathered maps beside the north window, then The patient gardeners carry sealed letters after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 136,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1505438828622019,
+        "mean_zipf_frequency": 5.165833333333333,
+        "word_count": 24,
+        "repeated_word_rate": 0.125,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist stores weathered maps with a wooden key, then The patient gardeners carry sealed letters toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 136,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3472682003012082,
+        "mean_zipf_frequency": 5.298000000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist waters young seedlings after steady rain, then The patient gardeners repair the brass lantern with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 134,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1979028946790926,
+        "mean_zipf_frequency": 5.300400000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist repairs the brass lantern after steady rain, then The patient gardeners store weathered maps with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 133,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0509551358253244,
+        "mean_zipf_frequency": 5.2708,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist carries sealed letters after steady rain, then The patient gardeners water young seedlings with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 132,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0470503633852584,
+        "mean_zipf_frequency": 5.282916666666667,
+        "word_count": 24,
+        "repeated_word_rate": 0.08333333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist stores weathered maps after steady rain, then The patient gardeners carry sealed letters with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 130,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.280476051375512,
+        "mean_zipf_frequency": 5.2325,
+        "word_count": 24,
+        "repeated_word_rate": 0.08333333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners water young seedlings toward the harbor office, then A quiet pilot repairs the brass lantern beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 138,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1812425640364346,
+        "mean_zipf_frequency": 5.381923076923077,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners repair the brass lantern toward the harbor office, then A quiet pilot stores weathered maps beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 137,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4503596771075848,
+        "mean_zipf_frequency": 5.322692307692308,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot waters young seedlings toward the harbor office, then Two watchful sailors repair the brass lantern beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 137,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2232795182244889,
+        "mean_zipf_frequency": 5.245384615384615,
+        "word_count": 26,
+        "repeated_word_rate": 0.11538461538461542,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot repairs the brass lantern toward the harbor office, then Two watchful sailors store weathered maps beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 136,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2057990859335188,
+        "mean_zipf_frequency": 5.216923076923076,
+        "word_count": 26,
+        "repeated_word_rate": 0.11538461538461542,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners store weathered maps toward the harbor office, then A quiet pilot carries sealed letters beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 135,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4577675687539244,
+        "mean_zipf_frequency": 5.2796,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners carry sealed letters toward the harbor office, then A quiet pilot waters young seedlings beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 135,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.472191958582572,
+        "mean_zipf_frequency": 5.3224,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot carries sealed letters toward the harbor office, then Two watchful sailors water young seedlings beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 135,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2842655301456372,
+        "mean_zipf_frequency": 5.226400000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.07999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot stores weathered maps toward the harbor office, then Two watchful sailors carry sealed letters beside the north window during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 133,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3149062224731534,
+        "mean_zipf_frequency": 5.178000000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.07999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners water young seedlings beside the north window, then A quiet pilot repairs the brass lantern after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 132,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0034971608018601,
+        "mean_zipf_frequency": 5.3224,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners water young seedlings with a wooden key, then A quiet pilot repairs the brass lantern toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 132,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.117580927739187,
+        "mean_zipf_frequency": 5.443461538461539,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners repair the brass lantern beside the north window, then A quiet pilot stores weathered maps after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 131,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3450473866549277,
+        "mean_zipf_frequency": 5.260800000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners repair the brass lantern with a wooden key, then A quiet pilot stores weathered maps toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 131,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5010191684171517,
+        "mean_zipf_frequency": 5.384230769230769,
+        "word_count": 26,
+        "repeated_word_rate": 0.15384615384615385,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot waters young seedlings beside the north window, then Two watchful sailors repair the brass lantern after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 131,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9612374804224473,
+        "mean_zipf_frequency": 5.180400000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.07999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot waters young seedlings with a wooden key, then Two watchful sailors repair the brass lantern toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 131,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2028438013795792,
+        "mean_zipf_frequency": 5.306923076923078,
+        "word_count": 26,
+        "repeated_word_rate": 0.11538461538461542,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot repairs the brass lantern beside the north window, then Two watchful sailors store weathered maps after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 130,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0218925180039555,
+        "mean_zipf_frequency": 5.1508,
+        "word_count": 25,
+        "repeated_word_rate": 0.07999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot repairs the brass lantern with a wooden key, then Two watchful sailors store weathered maps toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 130,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2719700097795101,
+        "mean_zipf_frequency": 5.2784615384615385,
+        "word_count": 26,
+        "repeated_word_rate": 0.11538461538461542,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners store weathered maps beside the north window, then A quiet pilot carries sealed letters after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 129,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3236972074839226,
+        "mean_zipf_frequency": 5.213333333333333,
+        "word_count": 24,
+        "repeated_word_rate": 0.08333333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners store weathered maps with a wooden key, then A quiet pilot carries sealed letters toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 129,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.4459225599253909,
+        "mean_zipf_frequency": 5.3436,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners carry sealed letters beside the north window, then A quiet pilot waters young seedlings after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 129,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2872244905696242,
+        "mean_zipf_frequency": 5.2579166666666675,
+        "word_count": 24,
+        "repeated_word_rate": 0.08333333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners carry sealed letters with a wooden key, then A quiet pilot waters young seedlings toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 129,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.5419815617394708,
+        "mean_zipf_frequency": 5.386400000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot carries sealed letters beside the north window, then Two watchful sailors water young seedlings after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 129,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0618706553492423,
+        "mean_zipf_frequency": 5.157916666666667,
+        "word_count": 24,
+        "repeated_word_rate": 0.04166666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot carries sealed letters with a wooden key, then Two watchful sailors water young seedlings toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 129,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.3227544430691633,
+        "mean_zipf_frequency": 5.290400000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.07999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot stores weathered maps beside the north window, then Two watchful sailors carry sealed letters after steady rain during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.115781433538853,
+        "mean_zipf_frequency": 5.1075,
+        "word_count": 24,
+        "repeated_word_rate": 0.04166666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot stores weathered maps with a wooden key, then Two watchful sailors carry sealed letters toward the harbor office during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 127,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2871265073004903,
+        "mean_zipf_frequency": 5.242000000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.07999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners water young seedlings after steady rain, then A quiet pilot repairs the brass lantern with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 126,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.1390838921357709,
+        "mean_zipf_frequency": 5.3864,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners repair the brass lantern after steady rain, then A quiet pilot stores weathered maps with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 125,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2531530460624793,
+        "mean_zipf_frequency": 5.3248,
+        "word_count": 25,
+        "repeated_word_rate": 0.12,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot waters young seedlings after steady rain, then Two watchful sailors repair the brass lantern with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 125,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.0773250514759596,
+        "mean_zipf_frequency": 5.244400000000001,
+        "word_count": 25,
+        "repeated_word_rate": 0.07999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot repairs the brass lantern after steady rain, then Two watchful sailors store weathered maps with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 124,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.9316456765206311,
+        "mean_zipf_frequency": 5.2148,
+        "word_count": 25,
+        "repeated_word_rate": 0.07999999999999996,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners store weathered maps after steady rain, then A quiet pilot carries sealed letters with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.377676035659329,
+        "mean_zipf_frequency": 5.28,
+        "word_count": 24,
+        "repeated_word_rate": 0.08333333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The patient gardeners carry sealed letters after steady rain, then A quiet pilot waters young seedlings with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.213557217214861,
+        "mean_zipf_frequency": 5.324583333333334,
+        "word_count": 24,
+        "repeated_word_rate": 0.08333333333333337,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot carries sealed letters after steady rain, then Two watchful sailors water young seedlings with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 123,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.023784222354875,
+        "mean_zipf_frequency": 5.224583333333333,
+        "word_count": 24,
+        "repeated_word_rate": 0.04166666666666663,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "A quiet pilot stores weathered maps after steady rain, then Two watchful sailors carry sealed letters with a wooden key during the long afternoon.",
+      "source_run": "runs/dependency-seam-attachment-csp-20260916.json",
+      "provenance": {
+        "generator_sha256": "04f3168fc10e3dca02d81dda221357b5fb20f2f44763e596bd7687a8e6fddf35",
+        "registry_sha256": "7451ac5fbbd251e12fbb1a36c36bc7b4c53912f22be960bb61a6e0dc64339e3c",
+        "inventory_shape": [
+          4,
+          4,
+          4
+        ],
+        "ordinary_order_rendering": true
+      },
+      "repair": null,
+      "letters": 121,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.2131494903821238,
+        "mean_zipf_frequency": 5.174166666666667,
+        "word_count": 24,
+        "repeated_word_rate": 0.04166666666666663,
+        "punctuation_segments": 1
       },
       "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
     }

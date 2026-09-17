@@ -38,7 +38,7 @@ PARTNER = {"maps": "letters", "seedlings": "lantern", "lantern": "maps", "letter
 ATTACHMENTS = (
     {"id": "locative", "prep": "beside", "tail": "the north window", "attach": "event", "meaning": "event occurs beside a window"},
     {"id": "temporal", "prep": "after", "tail": "steady rain", "attach": "event", "meaning": "event follows rain"},
-    {"id": "instrument", "prep": "with", "tail": "a brass key", "attach": "verb", "meaning": "agent uses a key"},
+    {"id": "instrument", "prep": "with", "tail": "a wooden key", "attach": "verb", "meaning": "agent uses a key"},
     {"id": "directional", "prep": "toward", "tail": "the harbor office", "attach": "event", "meaning": "theme moves toward an office"},
 )
 
@@ -56,12 +56,12 @@ def render_clause(subject: dict, event: dict, attachment: dict) -> str:
     return f"{subject['text']} {verb} {event['object']} {attachment['prep']} {attachment['tail']}."
 
 
-def render(subject: dict, event: dict, attachment: dict) -> str:
-    """Render a two-event scene; both dependency trees are complete."""
+def render(subject: dict, partner_subject: dict, event: dict, attachment: dict) -> str:
+    """Render a two-event scene with distinct semantic agents."""
     partner = next(item for item in EVENTS if item["id"] == PARTNER[event["id"]])
     second_attachment = ATTACHMENTS[(ATTACHMENTS.index(attachment) + 1) % len(ATTACHMENTS)]
     first = render_clause(subject, event, attachment).rstrip(".")
-    second = render_clause(subject, partner, second_attachment).rstrip(".") + " during the long afternoon."
+    second = render_clause(partner_subject, partner, second_attachment).rstrip(".") + " during the long afternoon."
     return f"{first}, then {second}"
 
 
@@ -94,21 +94,24 @@ def seam_frontier(text: str) -> list[dict]:
     return rows
 
 
-def audit(subject: dict, event: dict, attachment: dict, rank: int) -> dict:
-    text = render(subject, event, attachment)
+def audit(subject: dict, partner_subject: dict, event: dict, attachment: dict, rank: int) -> dict:
+    text = render(subject, partner_subject, event, attachment)
     pointer, sha = independent_pointer(text), independent_sha(text)
     words = tuple(tokenize(text))
     parsed = subject["text"].lower().split()[1] in words and event["object"].split()[0] in words and attachment["prep"] in words and "then" in words
     central = mechanical_admission_checks(text, min_letters=45, max_letters=180)
     exact = pointer["exact"] and sha["exact"] and pointer["exact"] == sha["exact"]
-    return {"rank": rank, "rendered": text, "letters": pointer["letters"], "dependency_provenance": {"subject": subject["id"], "event": event["id"], "partner_event": PARTNER[event["id"]], "attachment": attachment["id"], "semantic_role": event["role"], "attachment_meaning": attachment["meaning"], "agreement": subject["number"]}, "independent_reparse": parsed, "seam_frontier": seam_frontier(text), "exact_check_two_pointer": pointer, "exact_check_sha256": sha, "independent_exact_agreement": pointer["exact"] == sha["exact"], "central_admission": central, "anti_shortcut_flags": {"fixed_tape": False, "reverse_decoder": False, "word_order_mirror": False, "repeated_palindromic_unit": False, "catalogue_text_used": False, "complete_dependency_constituent": parsed, "agreement_checked": True}, "mechanically_admitted": bool(exact and parsed and all(central.values())), "reader_status": "unreviewed; programmatic checks do not certify readability", "next_repair": "Replace the held-out attachment realization at the first open seam offset, preserving subject agreement and event valency, then rerun the CSP."}
+    return {"rank": rank, "rendered": text, "letters": pointer["letters"], "dependency_provenance": {"subject": subject["id"], "partner_subject": partner_subject["id"], "event": event["id"], "partner_event": PARTNER[event["id"]], "attachment": attachment["id"], "semantic_role": event["role"], "attachment_meaning": attachment["meaning"], "agreement": subject["number"]}, "independent_reparse": parsed, "seam_frontier": seam_frontier(text), "exact_check_two_pointer": pointer, "exact_check_sha256": sha, "independent_exact_agreement": pointer["exact"] == sha["exact"], "central_admission": central, "anti_shortcut_flags": {"fixed_tape": False, "reverse_decoder": False, "word_order_mirror": False, "repeated_palindromic_unit": False, "catalogue_text_used": False, "complete_dependency_constituent": parsed, "agreement_checked": True}, "mechanically_admitted": bool(exact and parsed and all(central.values())), "reader_status": "unreviewed; programmatic checks do not certify readability", "next_repair": "Replace the held-out attachment realization at the first open seam offset, preserving subject agreement and event valency, then rerun the CSP."}
 
 
 def run() -> dict:
     novelty = preflight()
     if not novelty["passed"]:
         raise RuntimeError(f"novelty preflight failed: {novelty}")
-    rows = [audit(s, e, a, i + 1) for i, (s, e, a) in enumerate(itertools.product(SUBJECTS, EVENTS, ATTACHMENTS))]
+    rows = []
+    for i, (subject, event, attachment) in enumerate(itertools.product(SUBJECTS, EVENTS, ATTACHMENTS)):
+        partner_subject = SUBJECTS[(SUBJECTS.index(subject) + 1) % len(SUBJECTS)]
+        rows.append(audit(subject, partner_subject, event, attachment, i + 1))
     rows.sort(key=lambda r: (-sum(x["matched_pairs"] for x in r["seam_frontier"]), -r["letters"], r["rank"]))
     exact = [r for r in rows if r["mechanically_admitted"]]
     return {"experiment": EXPERIMENT, "signature": SIGNATURE, "status": "complete; no exact closure" if not exact else "exact closure found", "novelty_preflight": novelty, "states_examined": len(rows), "exact_count": len(exact), "rendered_candidates": rows, "exact_survivors": exact, "mechanically_admitted": exact, "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "registry_sha256": hashlib.sha256(REGISTRY.read_bytes()).hexdigest(), "inventory_shape": [len(SUBJECTS), len(EVENTS), len(ATTACHMENTS)], "ordinary_order_rendering": True}, "anti_shortcut_policy": "No fixed tape, resegmentation, reverse decoding, word mirroring, repeated units, catalogue text, or isolated character editing; all outputs are complete dependency-compatible prose.", "next_repair": "Use a held-out attachment and re-solve agreement plus seam obligations at the first mismatch; do not widen by duplicate sweeps.", "reader_facing_test": {"status": "not triggered unless exact admitted survivor exists", "required": "blind intact-prose rating against shuffled controls"}}

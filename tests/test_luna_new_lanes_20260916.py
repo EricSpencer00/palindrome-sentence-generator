@@ -62,7 +62,7 @@ def test_append_algebra_emits_only_complete_clauses_and_records_invariant_failur
 
 def test_aggregate_surfaces_all_three_new_lane_routes():
     report = json.loads((ROOT / "runs/parallel-luna-readability-diagnostics-20260916.json").read_text())
-    assert report["candidate_count"] == 5107
+    assert report["candidate_count"] == 5182
     assert report["exact_count"] == 79
     by_source = {row["source_run"]: row for row in report["route_summary"]}
     assert by_source["runs/constrained-edit-program-constructor-20260916.json"]["rows"] == 4
@@ -178,6 +178,9 @@ def test_aggregate_surfaces_all_three_new_lane_routes():
     assert by_source["runs/cfg-earley-character-equation-forest-20260916.json"]["rows"] == 2
     assert by_source["runs/semantic-slot-first-residual-repair-20260916.json"]["rows"] == 6
     assert by_source["runs/char-lm-obligation-beam-20260916.json"]["rows"] == 64
+    assert by_source["runs/center-free-clause-equation-ledger-20260916.json"]["rows"] == 1
+    assert by_source["runs/inflectional-clitic-boundary-repair-20260916.json"]["rows"] == 10
+    assert by_source["runs/dependency-seam-attachment-csp-20260916.json"]["rows"] == 64
 
     registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
     retained = {row["id"] for row in registry["entries"]}
@@ -239,6 +242,9 @@ def test_aggregate_surfaces_all_three_new_lane_routes():
         "cfg-earley-character-equation-forest-20260916",
         "semantic-slot-first-residual-repair-20260916",
         "char-lm-obligation-beam-20260916",
+        "center-free-clause-equation-ledger-20260916",
+        "inflectional-clitic-boundary-repair-20260916",
+        "dependency-seam-attachment-csp-20260916",
     } <= retained
 
 

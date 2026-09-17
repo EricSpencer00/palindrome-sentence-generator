@@ -3061,3 +3061,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   closed. The next concrete operators are held-out semantic component
   replacement, a `c`-initial proper-locative tail after the joint `la` onset,
   and the corresponding second-object article transition.
+
+  The following wave completed those repairs. Held-out semantic component
+  replacement rendered 2 intact candidates up to 95 letters; the typed
+  proper-locative `c` tail (`via del Lacy`) rendered 4 intact candidates up to
+  59 letters with all four ninth-character matches; and the second-object
+  article-transition CFG rendered 6,144 candidates up to 72 letters while
+  pruning 10,240 invalid number/role states. All produced 0 exact closures.
+  Independent pointer/SHA-256 replay, provenance, novelty preflight, and
+  anti-shortcut checks are retained for every row. The reader gate remains
+  closed. The next concrete operators are full-scene human-readable checks for
+  held-out replacements, tenth-residual conditioning after the `c` tail, and a
+  coordinated article state for both alternating objects.

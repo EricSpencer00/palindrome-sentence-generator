@@ -3451,3 +3451,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   produced a reader candidate. The next construction change is seam-aware
   joint word selection inside the coordinated grammar, with length-band
   enforcement before selection.
+
+  The seam-aware joint-selection operator now chooses the two opposed lexical
+  slots together, carrying number/tense/valency registers and enforcing a
+  100–140-letter band before ranking. It retained 12 intact, non-mirrored
+  candidates; the best rendered surface is “The patient gardeners recorded the
+  lantern by the doorway, beside the river at dusk; and the careful baker
+  carried the lantern by the doorway, beside the river at dusk.” (136 letters,
+  52 mismatches). Independent two-pointer and forward/reverse SHA-256 audits
+  agree on non-exactness; provenance marks fresh joint selection with no
+  catalogue import, fixed tape, or self-palindromic content. A separate
+  reversible-word composition lane tried 432 typed combinations around
+  reversible lexical pairs; its best is “The nurse stop; then marks the map
+  pots.” (31 letters, 13 mismatches), also independently non-exact. Neither
+  lane reaches the reader gate. Replaying both artifacts in round four expands
+  the history to 15,580 nodes and 424 worlds (35 parent edges, four branching
+  parents); the six policies still separate, but `fixed_mismatch_first` remains
+  the held-out winner with 0.794 mismatch rate and zero admissible exact
+  closures. These are constructive failures, not a reason to relax the goal:
+  the next operator is a human-authored scene lattice with seam-compatible
+  inflectional variants, selected jointly before scoring, followed by the
+  frozen intact-versus-shuffled reader package for the first exact novel
+  survivor.

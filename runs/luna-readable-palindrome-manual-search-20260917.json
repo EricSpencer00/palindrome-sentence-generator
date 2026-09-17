@@ -1,0 +1,194 @@
+{
+  "experiment": "luna-readable-palindrome-manual-search-20260917",
+  "signature": "human-clause-plan|fresh-role-inventory|independent-clause-pair|intact-prose-repair",
+  "status": "complete; no exact closure",
+  "novelty_preflight": {
+    "passed": true,
+    "collisions": [],
+    "registry_entries": 417,
+    "basis": "signature and artifact path checked before search"
+  },
+  "inventory": {
+    "subjects": 6,
+    "verbs": 6,
+    "objects": 6,
+    "adverbs": 6
+  },
+  "states_considered": 30,
+  "candidate_count": 30,
+  "exact_count": 0,
+  "best_intact_prose": {
+    "rank": 278,
+    "rendered": "The baker bakes fresh bread before dawn; The carpenter repairs blue sails after lunch.",
+    "letters": 71,
+    "words": [
+      "the",
+      "baker",
+      "bakes",
+      "fresh",
+      "bread",
+      "before",
+      "dawn",
+      "the",
+      "carpenter",
+      "repairs",
+      "blue",
+      "sails",
+      "after",
+      "lunch"
+    ],
+    "clause_plans": {
+      "left": {
+        "subject": "baker",
+        "verb": "bakes",
+        "object": "fresh bread",
+        "adjunct": "before dawn",
+        "roles": [
+          "singular agent",
+          "present action",
+          "concrete theme",
+          "time adjunct"
+        ]
+      },
+      "right": {
+        "subject": "carpenter",
+        "verb": "repairs",
+        "object": "blue sails",
+        "adjunct": "after lunch",
+        "roles": [
+          "singular agent",
+          "present action",
+          "concrete theme",
+          "time adjunct"
+        ]
+      }
+    },
+    "exact_check_two_pointer": {
+      "algorithm": "independent_two_pointer",
+      "letters": 71,
+      "exact": false,
+      "mismatch_count": 30,
+      "mismatches": [
+        {
+          "offset": 0,
+          "left": "t",
+          "right": "h"
+        },
+        {
+          "offset": 1,
+          "left": "h",
+          "right": "c"
+        },
+        {
+          "offset": 2,
+          "left": "e",
+          "right": "n"
+        },
+        {
+          "offset": 3,
+          "left": "b",
+          "right": "u"
+        },
+        {
+          "offset": 4,
+          "left": "a",
+          "right": "l"
+        },
+        {
+          "offset": 5,
+          "left": "k",
+          "right": "r"
+        },
+        {
+          "offset": 7,
+          "left": "r",
+          "right": "t"
+        },
+        {
+          "offset": 8,
+          "left": "b",
+          "right": "f"
+        }
+      ]
+    },
+    "exact_check_sha256": {
+      "algorithm": "forward_reverse_sha256",
+      "exact": false,
+      "forward": "32a76022702a36e6537532bbf0aee9da488a0dc8e4aab8aad47c57d1db297cc2",
+      "reverse": "201e462a4b3c9004e7ab4562da2a38f362348a56779a962e721df1c77b212a60"
+    },
+    "letter_obligations": [
+      {
+        "offset": 0,
+        "required_left": "h",
+        "observed_left": "t",
+        "role_preserved": true
+      },
+      {
+        "offset": 1,
+        "required_left": "c",
+        "observed_left": "h",
+        "role_preserved": true
+      },
+      {
+        "offset": 2,
+        "required_left": "n",
+        "observed_left": "e",
+        "role_preserved": true
+      },
+      {
+        "offset": 3,
+        "required_left": "u",
+        "observed_left": "b",
+        "role_preserved": true
+      },
+      {
+        "offset": 4,
+        "required_left": "l",
+        "observed_left": "a",
+        "role_preserved": true
+      },
+      {
+        "offset": 5,
+        "required_left": "r",
+        "observed_left": "k",
+        "role_preserved": true
+      },
+      {
+        "offset": 7,
+        "required_left": "t",
+        "observed_left": "r",
+        "role_preserved": true
+      },
+      {
+        "offset": 8,
+        "required_left": "f",
+        "observed_left": "b",
+        "role_preserved": true
+      }
+    ],
+    "independent_exact_agreement": true,
+    "anti_shortcut_flags": {
+      "semordnilap_list": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false,
+      "catalogue_or_borrowed_text": false,
+      "gibberish": false,
+      "fragment": false,
+      "repeated_nontrivial_unit": false
+    },
+    "intact_prose": true,
+    "mechanically_admitted": false,
+    "reader_status": "human-authored clause plans; no catalogue text copied",
+    "next_repair": "At the first open obligation, replace the left clause's character-bearing word with a fresh role-compatible inflection whose first letter is 'h'; preserve both complete clause plans and rerun the two-pointer/SHA checks."
+  },
+  "exact_survivors": [],
+  "provenance": {
+    "generator_sha256": "455a82c4cf98473094e240bf8a4a356521f3e3725bffb26e2e123619358c34e2",
+    "source_sentences_copied": false,
+    "borrowed_text": false,
+    "independent_pointer_sha": true
+  },
+  "anti_shortcut_policy": "Reject semordnilap lists, word-order symmetry, repeated/self-palindromic units, catalogue or borrowed text, fragments, and gibberish.",
+  "next_repair": "At the first open obligation, replace the left clause's character-bearing word with a fresh role-compatible inflection whose first letter is 'h'; preserve both complete clause plans and rerun the two-pointer/SHA checks."
+}

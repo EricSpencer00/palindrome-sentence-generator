@@ -539,9 +539,9 @@ hyperedge terminal replacement, a held-out agreement-compatible relative
 predicate, and one auxiliary/determiner change with agreement propagation.
 They are not reader eligible; the next reader-facing test remains the
 randomized blinded intact-versus-shuffled packet, gated on an exact
-anti-shortcut survivor. The authoritative audit is now **4,946 rows across 265
+anti-shortcut survivor. The authoritative audit is now **4,949 rows across 268
 route phases, 79 exact rejected tapes, and 0 mechanically admitted outputs**;
-the novelty registry has **366 retained artifacts, 31 exclusions, and 344
+the novelty registry has **369 retained artifacts, 31 exclusions, and 347
 retained run artifacts**. The immediate child-repair wave executes the named
 operators without a resweep: one held-out hypergraph object edge yields a new
 141-letter scene, one held-out relative predicate yields a fresh 74-letter Jon

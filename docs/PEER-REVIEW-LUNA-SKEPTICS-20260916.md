@@ -96,7 +96,7 @@ boundary-DP scene. Independent two-pointer and forward/reverse SHA checks
 reject each; provenance and novelty preflight show no copied catalogue text,
 finished-string reversal, word-order mirror, or repeated unit. Each run names
 a different next repair, and none is eligible for the reader packet until an
-exact survivor exists. The authoritative snapshot is 4,946 rows across 265
+exact survivor exists. The authoritative snapshot is 4,949 rows across 268
 route phases (79 exact rejected tapes; 0 mechanically admitted outputs). The
 immediate repairs add a 141-letter hypergraph scene, a 74-letter dialogue
 predicate repair, and an 89-letter function-word determiner repair; all remain

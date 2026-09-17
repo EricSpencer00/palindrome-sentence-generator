@@ -486,9 +486,9 @@ All three fail independent two-pointer and forward/reverse SHA checks, carry
 fresh no-copy/no-catalogue provenance and novelty preflight, and record a
 concrete repair. The next reader-facing test is still the blinded
 intact-versus-shuffled packet, gated on an exact anti-shortcut survivor. The
-aggregate is **4,946 rows across 265 route phases, 79 exact rejected tapes,
-and 0 mechanically admitted outputs**; the registry is **366 retained, 31
-excluded, and 344 run artifacts**. Immediate child repairs add a 141-letter
+aggregate is **4,949 rows across 268 route phases, 79 exact rejected tapes,
+and 0 mechanically admitted outputs**; the registry is **369 retained, 31
+excluded, and 347 run artifacts**. Immediate child repairs add a 141-letter
 hypergraph object-edge scene, a 74-letter dialogue predicate repair, and an
 89-letter function-word determiner repair; each remains non-exact under both
 independent audits and names the next repair. The second child pass adds a

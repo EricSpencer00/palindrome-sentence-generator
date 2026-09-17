@@ -260,9 +260,12 @@
     "runs/semantic-slot-single-object-repair-20260916.json",
     "runs/finite-reverse-phrase-composition-bank-20260916.json",
     "runs/centerfree-clause-pair-csp-20260916.json",
-    "runs/finite-semantic-palindrome-csp-20260916.json"
+    "runs/finite-semantic-palindrome-csp-20260916.json",
+    "runs/finite-reverse-phrase-single-boundary-repair-20260916.json",
+    "runs/centerfree-clause-pair-followup-20260916.json",
+    "runs/finite-semantic-csp-object-verb-repair-20260916.json"
   ],
-  "candidate_count": 4946,
+  "candidate_count": 4949,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -2915,6 +2918,36 @@
       "max_letters": 61,
       "mean_zipf_frequency": 5.039545454545454,
       "mean_brown_order_gain_vs_shuffle": 1.0177148278244692
+    },
+    {
+      "source_run": "runs/centerfree-clause-pair-followup-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 45,
+      "max_letters": 45,
+      "mean_zipf_frequency": 5.3870000000000005,
+      "mean_brown_order_gain_vs_shuffle": 0.7206124214168668
+    },
+    {
+      "source_run": "runs/finite-reverse-phrase-single-boundary-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 87,
+      "max_letters": 87,
+      "mean_zipf_frequency": 5.245882352941176,
+      "mean_brown_order_gain_vs_shuffle": 0.4072427395894884
+    },
+    {
+      "source_run": "runs/finite-semantic-csp-object-verb-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 61,
+      "max_letters": 61,
+      "mean_zipf_frequency": 4.734545454545455,
+      "mean_brown_order_gain_vs_shuffle": 0.8157481251736858
     }
   ],
   "rows": [
@@ -238402,6 +238435,143 @@
       "diagnostics_not_readability": {
         "brown_order_gain_vs_shuffle": 1.1602925001111934,
         "mean_zipf_frequency": 5.122727272727272,
+        "word_count": 11,
+        "repeated_word_rate": 0.09090909090909094,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The ferryman guides the evening boat across the inlet; a cartographer draws the coastal road at twilight.",
+      "source_run": "runs/finite-reverse-phrase-single-boundary-repair-20260916.json",
+      "provenance": {
+        "method": "single held-out phrase-boundary adjustment in reverse phrase composition grammar",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "3fc02a688e60546a0dced92867c346d4143196d2384d8b4ac48aea37c0a0fd30",
+        "source_sha256": "729faf81207ae16fcc7b6a5404892fee48606fa6eab94d88aeb33d433044ff91"
+      },
+      "repair": null,
+      "letters": 87,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.4072427395894884,
+        "mean_zipf_frequency": 5.245882352941176,
+        "word_count": 17,
+        "repeated_word_rate": 0.17647058823529416,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The sailor mends the canvas. A nurse checks the patient.",
+      "source_run": "runs/centerfree-clause-pair-followup-20260916.json",
+      "provenance": {
+        "fresh_complete_clauses": true,
+        "fixed_center_used": false,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "d6137d97671184c19760d89005c9782217659085d8cfa026a2b0a6a0d24fbbdf"
+      },
+      "repair": null,
+      "letters": 45,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.7206124214168668,
+        "mean_zipf_frequency": 5.3870000000000005,
+        "word_count": 10,
+        "repeated_word_rate": 0.19999999999999996,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The observant ranger surveys a weathered sextant beside the rescue shed.",
+      "source_run": "runs/finite-semantic-csp-object-verb-repair-20260916.json",
+      "provenance": "single joint object+verb substitution at highest residual with valency and all other semantic slots frozen",
+      "repair": null,
+      "letters": 61,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.8157481251736858,
+        "mean_zipf_frequency": 4.734545454545455,
         "word_count": 11,
         "repeated_word_rate": 0.09090909090909094,
         "punctuation_segments": 1

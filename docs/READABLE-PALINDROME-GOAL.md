@@ -2897,3 +2897,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   closed. The next concrete operators are character-position-aware opposing
   witnesses for attachment edges, an independently authored two-character-
   compatible setting phrase, and a pre-connective adverbial tense-state branch.
+
+  The following wave completed those repairs. Position-aware attachment
+  witnesses rendered 2 intact candidates up to 92 letters; the authored
+  setting phrase plus tied two-character beam retained 8 candidates up to 67
+  letters with a maximum two-character match; and the pre-connective
+  temporal-adverbial `before` CFG rendered 768 candidates up to 58 letters
+  while pruning 2,304 shared-subject-inconsistent states. All produced 0 exact
+  closures. Independent pointer/SHA-256 replay, provenance, novelty preflight,
+  and anti-shortcut checks are retained for every row. The reader gate remains
+  closed. The next concrete operators are witness propagation into attachment
+  lexical domains, a compatible third character only on matched setting
+  branches, and a bounded two-adverb temporal branch with explicit attachment
+  filtering.

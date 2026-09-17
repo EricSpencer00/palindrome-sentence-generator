@@ -1,0 +1,178 @@
+{
+  "experiment": "edge-local-attachment-pruning-20260917",
+  "method": "edge-local equation support is evaluated and transitions pruned before target semantic role realization",
+  "edges": [
+    {
+      "edge": [
+        "gardener",
+        "through",
+        "mobile"
+      ],
+      "local_support": 0,
+      "pruned_before_target": true
+    },
+    {
+      "edge": [
+        "gardener",
+        "along",
+        "mobile"
+      ],
+      "local_support": 0,
+      "pruned_before_target": true
+    },
+    {
+      "edge": [
+        "teacher",
+        "through",
+        "stationary"
+      ],
+      "local_support": 0,
+      "pruned_before_target": true
+    },
+    {
+      "edge": [
+        "teacher",
+        "along",
+        "stationary"
+      ],
+      "local_support": 0,
+      "pruned_before_target": true
+    }
+  ],
+  "candidate_count": 4,
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "At dawn, the gardener carries the letters through the harbor; meanwhile, a messenger records the charts beside the station.",
+      "edge": {
+        "agent": "gardener",
+        "attachment": "through",
+        "target_role": "mobile"
+      },
+      "local_support": 0,
+      "pruned_before_target": false,
+      "provenance": "edge_local_attachment_support_pruning",
+      "novelty_preflight": {
+        "signature": "edge_local_attachment_pruning_v1",
+        "distinct_from": "automaton support after realization; edge support is evaluated before target role is materialized"
+      },
+      "audit": {
+        "letters": 101,
+        "exact": false,
+        "mismatch_count": 47,
+        "first_mismatch": 0,
+        "sha256": "7df578a3c4c7a889ce9da646957d4d523fb394f9be919ec44250a5fb63a9d0b3",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 1,
+      "rendered": "At dawn, the gardener carries the letters along the harbor; meanwhile, a messenger records the charts beside the station.",
+      "edge": {
+        "agent": "gardener",
+        "attachment": "along",
+        "target_role": "mobile"
+      },
+      "local_support": 0,
+      "pruned_before_target": false,
+      "provenance": "edge_local_attachment_support_pruning",
+      "novelty_preflight": {
+        "signature": "edge_local_attachment_pruning_v1",
+        "distinct_from": "automaton support after realization; edge support is evaluated before target role is materialized"
+      },
+      "audit": {
+        "letters": 99,
+        "exact": false,
+        "mismatch_count": 46,
+        "first_mismatch": 0,
+        "sha256": "cbbcb53ad45934c81a4ba79417636338c90bd3cac846b832648bf83d1ec08bc7",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 2,
+      "rendered": "At dawn, the teacher writes the notes through the harbor; meanwhile, a cartographer marks the maps near the archive.",
+      "edge": {
+        "agent": "teacher",
+        "attachment": "through",
+        "target_role": "stationary"
+      },
+      "local_support": 0,
+      "pruned_before_target": false,
+      "provenance": "edge_local_attachment_support_pruning",
+      "novelty_preflight": {
+        "signature": "edge_local_attachment_pruning_v1",
+        "distinct_from": "automaton support after realization; edge support is evaluated before target role is materialized"
+      },
+      "audit": {
+        "letters": 94,
+        "exact": false,
+        "mismatch_count": 42,
+        "first_mismatch": 0,
+        "sha256": "744d13536fdb9da59184832157c15345c56a40281fb4f31c48faf4737516e541",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    },
+    {
+      "candidate": 3,
+      "rendered": "At dawn, the teacher writes the notes along the harbor; meanwhile, a cartographer marks the maps near the archive.",
+      "edge": {
+        "agent": "teacher",
+        "attachment": "along",
+        "target_role": "stationary"
+      },
+      "local_support": 0,
+      "pruned_before_target": false,
+      "provenance": "edge_local_attachment_support_pruning",
+      "novelty_preflight": {
+        "signature": "edge_local_attachment_pruning_v1",
+        "distinct_from": "automaton support after realization; edge support is evaluated before target role is materialized"
+      },
+      "audit": {
+        "letters": 92,
+        "exact": false,
+        "mismatch_count": 42,
+        "first_mismatch": 0,
+        "sha256": "78f21a8bf42eaf4d6f6d13ee053d403110ec60a44db94740cd590a0601219482",
+        "independent_two_pointer": false
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "fragment": false,
+        "mirrored_halves": false,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false,
+        "intact_prose": true
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 101,
+    "next_repair": "make edge support character-position aware and retain only transitions with opposing-position witnesses"
+  }
+}

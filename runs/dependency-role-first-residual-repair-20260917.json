@@ -1,0 +1,878 @@
+{
+  "experiment": "dependency-role-first-residual-repair-20260917",
+  "signature": "heldout-role-attachment-one-clause|first-residual-live-equation|complete-scene-repair|pointer-sha",
+  "status": "complete; no exact closure",
+  "novelty_preflight": {
+    "entries_inspected": 410,
+    "exact_signature_collisions_before_render": [],
+    "passed": true,
+    "distinction": "one held-out complete role/attachment clause replaces the base clause at its first residual seam; other clauses and ordinary order remain fixed"
+  },
+  "states_examined": 5,
+  "exact_count": 0,
+  "mechanically_admitted_count": 0,
+  "best_rendered_candidates": [
+    {
+      "rank": 3,
+      "rendered": "The careful courier delivers folded maps beside the weathered shed. The watchful sailor repairs loose rigging near the harbor. The young porter carries sealed parcels toward records offices.",
+      "normalized_tape": "thecarefulcourierdeliversfoldedmapsbesidetheweatheredshedthewatchfulsailorrepairslooseriggingneartheharbortheyoungportercarriessealedparcelstowardrecordsoffices",
+      "letters": 160,
+      "replacement": {
+        "position": 1,
+        "heldout_clause_id": "courier-maps-shed",
+        "role": "courier delivers maps",
+        "attachment": "beside shed",
+        "replaced_base_clause": "The quiet gardener waters young seedlings after steady rain."
+      },
+      "provenance": {
+        "base_scene_source": "semantic-valency-attachment-scene-lattice-20260916",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "posthoc_reversal": false,
+        "word_order_symmetry": false,
+        "generator_method": "held-out complete role/attachment clause substitution at first live residual"
+      },
+      "live_obligation": {
+        "base_first_residual": {
+          "offset": 0,
+          "left": "t",
+          "right": "s"
+        },
+        "repaired_first_residual": {
+          "offset": 0,
+          "left": "t",
+          "right": "s"
+        },
+        "equation": "prefix[i] = reverse(full)[i] while preserving complete clause boundaries"
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 160,
+        "mismatch_count": 75,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "c"
+          },
+          {
+            "offset": 3,
+            "left": "c",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "r",
+            "right": "f"
+          },
+          {
+            "offset": 6,
+            "left": "e",
+            "right": "o"
+          },
+          {
+            "offset": 7,
+            "left": "f",
+            "right": "s"
+          },
+          {
+            "offset": 8,
+            "left": "u",
+            "right": "d"
+          },
+          {
+            "offset": 9,
+            "left": "l",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "c",
+            "right": "o"
+          },
+          {
+            "offset": 11,
+            "left": "o",
+            "right": "c"
+          },
+          {
+            "offset": 12,
+            "left": "u",
+            "right": "e"
+          },
+          {
+            "offset": 14,
+            "left": "i",
+            "right": "d"
+          },
+          {
+            "offset": 15,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 16,
+            "left": "r",
+            "right": "a"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "e8ff7cc941ed85986065ddd380d8a9e8dea296639de8f8433d7decd90595d75c",
+        "reverse": "eb8e13daf15090397d84debd91405b289f0be22715a99314ab648058d3e78c43"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "isolated_character_edit": false,
+        "complete_constituents_only": true,
+        "role_attachment_checked": true,
+        "ordinary_order_events": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "If the first seam remains open, replace only the second clause attachment with a fresh held-out complete realization and rerun the same live obligation ledger."
+    },
+    {
+      "rank": 1,
+      "rendered": "The station keeper checks the morning ledger beside platforms. The watchful sailor repairs loose rigging near the harbor. The young porter carries sealed parcels toward records offices.",
+      "normalized_tape": "thestationkeeperchecksthemorningledgerbesideplatformsthewatchfulsailorrepairslooseriggingneartheharbortheyoungportercarriessealedparcelstowardrecordsoffices",
+      "letters": 156,
+      "replacement": {
+        "position": 1,
+        "heldout_clause_id": "keeper-ledger-platform",
+        "role": "keeper checks ledger",
+        "attachment": "beside platforms",
+        "replaced_base_clause": "The quiet gardener waters young seedlings after steady rain."
+      },
+      "provenance": {
+        "base_scene_source": "semantic-valency-attachment-scene-lattice-20260916",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "posthoc_reversal": false,
+        "word_order_symmetry": false,
+        "generator_method": "held-out complete role/attachment clause substitution at first live residual"
+      },
+      "live_obligation": {
+        "base_first_residual": {
+          "offset": 0,
+          "left": "t",
+          "right": "s"
+        },
+        "repaired_first_residual": {
+          "offset": 0,
+          "left": "t",
+          "right": "s"
+        },
+        "equation": "prefix[i] = reverse(full)[i] while preserving complete clause boundaries"
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 156,
+        "mismatch_count": 73,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "c"
+          },
+          {
+            "offset": 3,
+            "left": "s",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "t",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "a",
+            "right": "f"
+          },
+          {
+            "offset": 6,
+            "left": "t",
+            "right": "o"
+          },
+          {
+            "offset": 7,
+            "left": "i",
+            "right": "s"
+          },
+          {
+            "offset": 8,
+            "left": "o",
+            "right": "d"
+          },
+          {
+            "offset": 9,
+            "left": "n",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "k",
+            "right": "o"
+          },
+          {
+            "offset": 11,
+            "left": "e",
+            "right": "c"
+          },
+          {
+            "offset": 13,
+            "left": "p",
+            "right": "r"
+          },
+          {
+            "offset": 14,
+            "left": "e",
+            "right": "d"
+          },
+          {
+            "offset": 16,
+            "left": "c",
+            "right": "a"
+          },
+          {
+            "offset": 17,
+            "left": "h",
+            "right": "w"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "03f4a60304d73082362271037d5b363b399061369a81032973d39966ca972bdf",
+        "reverse": "8acdf5c75333e2892647875e28931be4574f30638294ac34665684acf47a90fe"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "isolated_character_edit": false,
+        "complete_constituents_only": true,
+        "role_attachment_checked": true,
+        "ordinary_order_events": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "If the first seam remains open, replace only the second clause attachment with a fresh held-out complete realization and rerun the same live obligation ledger."
+    },
+    {
+      "rank": 2,
+      "rendered": "The patient teacher reviews marked notes inside the classroom. The watchful sailor repairs loose rigging near the harbor. The young porter carries sealed parcels toward records offices.",
+      "normalized_tape": "thepatientteacherreviewsmarkednotesinsidetheclassroomthewatchfulsailorrepairslooseriggingneartheharbortheyoungportercarriessealedparcelstowardrecordsoffices",
+      "letters": 156,
+      "replacement": {
+        "position": 1,
+        "heldout_clause_id": "teacher-notes-classroom",
+        "role": "teacher reviews notes",
+        "attachment": "inside classroom",
+        "replaced_base_clause": "The quiet gardener waters young seedlings after steady rain."
+      },
+      "provenance": {
+        "base_scene_source": "semantic-valency-attachment-scene-lattice-20260916",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "posthoc_reversal": false,
+        "word_order_symmetry": false,
+        "generator_method": "held-out complete role/attachment clause substitution at first live residual"
+      },
+      "live_obligation": {
+        "base_first_residual": {
+          "offset": 0,
+          "left": "t",
+          "right": "s"
+        },
+        "repaired_first_residual": {
+          "offset": 0,
+          "left": "t",
+          "right": "s"
+        },
+        "equation": "prefix[i] = reverse(full)[i] while preserving complete clause boundaries"
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 156,
+        "mismatch_count": 74,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "c"
+          },
+          {
+            "offset": 3,
+            "left": "p",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "t",
+            "right": "f"
+          },
+          {
+            "offset": 6,
+            "left": "i",
+            "right": "o"
+          },
+          {
+            "offset": 7,
+            "left": "e",
+            "right": "s"
+          },
+          {
+            "offset": 8,
+            "left": "n",
+            "right": "d"
+          },
+          {
+            "offset": 9,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "t",
+            "right": "o"
+          },
+          {
+            "offset": 11,
+            "left": "e",
+            "right": "c"
+          },
+          {
+            "offset": 12,
+            "left": "a",
+            "right": "e"
+          },
+          {
+            "offset": 13,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "offset": 14,
+            "left": "h",
+            "right": "d"
+          },
+          {
+            "offset": 15,
+            "left": "e",
+            "right": "r"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "c10aac201fe809abba4dd9e4cb2cf3ee138932828b86d05c606ce9d46182b198",
+        "reverse": "0ba94c328d93694fc9841574bc86f5d3f583f4a95b81eb901927417ac1213fbc"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": true,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "isolated_character_edit": false,
+        "complete_constituents_only": true,
+        "role_attachment_checked": true,
+        "ordinary_order_events": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "If the first seam remains open, replace only the second clause attachment with a fresh held-out complete realization and rerun the same live obligation ledger."
+    },
+    {
+      "rank": 4,
+      "rendered": "The patient archivist catalogs sealed journals beneath winter rafters. The watchful sailor repairs loose rigging near the harbor. The young porter carries sealed parcels toward records offices.",
+      "normalized_tape": "thepatientarchivistcatalogssealedjournalsbeneathwinterraftersthewatchfulsailorrepairslooseriggingneartheharbortheyoungportercarriessealedparcelstowardrecordsoffices",
+      "letters": 164,
+      "replacement": {
+        "position": 1,
+        "heldout_clause_id": "archivist-journals-rafters",
+        "role": "archivist catalogs journals",
+        "attachment": "beneath rafters",
+        "replaced_base_clause": "The quiet gardener waters young seedlings after steady rain."
+      },
+      "provenance": {
+        "base_scene_source": "semantic-valency-attachment-scene-lattice-20260916",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "posthoc_reversal": false,
+        "word_order_symmetry": false,
+        "generator_method": "held-out complete role/attachment clause substitution at first live residual"
+      },
+      "live_obligation": {
+        "base_first_residual": {
+          "offset": 0,
+          "left": "t",
+          "right": "s"
+        },
+        "repaired_first_residual": {
+          "offset": 0,
+          "left": "t",
+          "right": "s"
+        },
+        "equation": "prefix[i] = reverse(full)[i] while preserving complete clause boundaries"
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 164,
+        "mismatch_count": 76,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "c"
+          },
+          {
+            "offset": 3,
+            "left": "p",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "a",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "t",
+            "right": "f"
+          },
+          {
+            "offset": 6,
+            "left": "i",
+            "right": "o"
+          },
+          {
+            "offset": 7,
+            "left": "e",
+            "right": "s"
+          },
+          {
+            "offset": 8,
+            "left": "n",
+            "right": "d"
+          },
+          {
+            "offset": 9,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "a",
+            "right": "o"
+          },
+          {
+            "offset": 11,
+            "left": "r",
+            "right": "c"
+          },
+          {
+            "offset": 12,
+            "left": "c",
+            "right": "e"
+          },
+          {
+            "offset": 13,
+            "left": "h",
+            "right": "r"
+          },
+          {
+            "offset": 14,
+            "left": "i",
+            "right": "d"
+          },
+          {
+            "offset": 15,
+            "left": "v",
+            "right": "r"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "4d15b34e167fd0e4a942fbeb521f1426b0423afe3fdcb899dae76b7a015be21e",
+        "reverse": "e2f1efeb0893eb2eeac62ee044f27bc6a51b6994acba69c54d74c3166e29117a"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": false,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "isolated_character_edit": false,
+        "complete_constituents_only": true,
+        "role_attachment_checked": true,
+        "ordinary_order_events": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "If the first seam remains open, replace only the second clause attachment with a fresh held-out complete realization and rerun the same live obligation ledger."
+    },
+    {
+      "rank": 5,
+      "rendered": "The alert ranger repairs broken lanterns inside the stone workshop. The watchful sailor repairs loose rigging near the harbor. The young porter carries sealed parcels toward records offices.",
+      "normalized_tape": "thealertrangerrepairsbrokenlanternsinsidethestoneworkshopthewatchfulsailorrepairslooseriggingneartheharbortheyoungportercarriessealedparcelstowardrecordsoffices",
+      "letters": 160,
+      "replacement": {
+        "position": 1,
+        "heldout_clause_id": "ranger-lanterns-workshop",
+        "role": "ranger repairs lanterns",
+        "attachment": "inside workshop",
+        "replaced_base_clause": "The quiet gardener waters young seedlings after steady rain."
+      },
+      "provenance": {
+        "base_scene_source": "semantic-valency-attachment-scene-lattice-20260916",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "posthoc_reversal": false,
+        "word_order_symmetry": false,
+        "generator_method": "held-out complete role/attachment clause substitution at first live residual"
+      },
+      "live_obligation": {
+        "base_first_residual": {
+          "offset": 0,
+          "left": "t",
+          "right": "s"
+        },
+        "repaired_first_residual": {
+          "offset": 0,
+          "left": "t",
+          "right": "s"
+        },
+        "equation": "prefix[i] = reverse(full)[i] while preserving complete clause boundaries"
+      },
+      "exact_check_two_pointer": {
+        "algorithm": "independent_two_pointer",
+        "exact": false,
+        "letters": 160,
+        "mismatch_count": 71,
+        "mismatches": [
+          {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 1,
+            "left": "h",
+            "right": "e"
+          },
+          {
+            "offset": 2,
+            "left": "e",
+            "right": "c"
+          },
+          {
+            "offset": 3,
+            "left": "a",
+            "right": "i"
+          },
+          {
+            "offset": 4,
+            "left": "l",
+            "right": "f"
+          },
+          {
+            "offset": 5,
+            "left": "e",
+            "right": "f"
+          },
+          {
+            "offset": 6,
+            "left": "r",
+            "right": "o"
+          },
+          {
+            "offset": 7,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "offset": 8,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 9,
+            "left": "a",
+            "right": "r"
+          },
+          {
+            "offset": 10,
+            "left": "n",
+            "right": "o"
+          },
+          {
+            "offset": 11,
+            "left": "g",
+            "right": "c"
+          },
+          {
+            "offset": 14,
+            "left": "r",
+            "right": "d"
+          },
+          {
+            "offset": 15,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "offset": 16,
+            "left": "p",
+            "right": "a"
+          },
+          {
+            "offset": 17,
+            "left": "a",
+            "right": "w"
+          }
+        ]
+      },
+      "exact_check_sha256": {
+        "algorithm": "independent_forward_reverse_sha256",
+        "exact": false,
+        "forward": "de3512f1ca8b31df1b09d2ef5e2a1c6deb1065b9a6afee313451edeef5f383c7",
+        "reverse": "ebef5f47d65813a5c4cddb5b4b3387e767e9413b888332ee73ae7f3bff515e5c"
+      },
+      "independent_exact_agreement": true,
+      "central_admission": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "independent_admission": {
+        "ascii_letters_only": true,
+        "complete_sentence_marks": true,
+        "minimum_word_count": true,
+        "content_words_unique": false,
+        "not_word_order_mirror": true
+      },
+      "anti_shortcut_flags": {
+        "fixed_tape": false,
+        "reverse_decoder": false,
+        "mirrored_word_units": false,
+        "repeated_palindromic_unit": false,
+        "catalogue_text_used": false,
+        "isolated_character_edit": false,
+        "complete_constituents_only": true,
+        "role_attachment_checked": true,
+        "ordinary_order_events": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "unreviewed; programmatic checks do not certify readability",
+      "next_repair": "If the first seam remains open, replace only the second clause attachment with a fresh held-out complete realization and rerun the same live obligation ledger."
+    }
+  ],
+  "anti_shortcut_policy": "No fixed tape, word mirroring, repeated units, catalogue text, or character edits; one complete held-out role/attachment clause is selected in ordinary prose order.",
+  "next_repair": "Replace only the second clause attachment at its first residual seam, preserving valency and agreement, then rerun independent pointer/SHA checks.",
+  "provenance": {
+    "generator_sha256": "885718e7b12b8f4300d5e70303c6f7a7652eb863d2183717b3537bfd0a335598",
+    "registry_sha256": "8ac20a8a84b0ca83f3dcddb9e571b42b046f73e6368d30848ec2b3db75a069e2",
+    "heldout_clause_count": 5,
+    "base_scene": [
+      "The quiet gardener waters young seedlings after steady rain.",
+      "The watchful sailor repairs loose rigging near the harbor.",
+      "The young porter carries sealed parcels toward records offices."
+    ]
+  }
+}

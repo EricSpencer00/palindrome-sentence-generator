@@ -42,6 +42,11 @@ HELDOUT_RIGHT_OBJECTS = (
     "the brass compass",
     "fresh route notes",
 )
+HELDOUT_RIGHT_LOCATIVES = (
+    "along the western quay",
+    "beside the railway shed",
+    "within the public garden",
+)
 CENTERS = (
     {"id": "lantern_event", "text": "the lantern flares", "meaning": "a sudden warning light"},
     {"id": "bell_event", "text": "the harbor bell sounds", "meaning": "a scheduled audible signal"},
@@ -151,26 +156,39 @@ def run() -> dict:
         object_repair_rows.append(audit(left, center, punct, repaired, rank + 24,
                                         repair_stage="held_out_right_object_np",
                                         held_out_slot="right_object_np"))
-    rows = baseline_rows + repair_rows + object_repair_rows
+    # Continue with a fresh locative holdout, preserving every preceding
+    # repaired choice and changing only the right-side place phrase.
+    locative_repair_rows = []
+    for rank, (left, center, punct, right, replacement_subject, replacement_object, replacement_place) in enumerate(
+        itertools.islice(itertools.product(LEFT, CENTERS, PUNCTUATION, RIGHT,
+                                            HELDOUT_RIGHT_SUBJECTS, HELDOUT_RIGHT_OBJECTS,
+                                            HELDOUT_RIGHT_LOCATIVES), 12), 1):
+        repaired = (replacement_subject[0], replacement_subject[1], right[2], replacement_object, replacement_place)
+        locative_repair_rows.append(audit(left, center, punct, repaired, rank + 36,
+                                          repair_stage="held_out_right_locative",
+                                          held_out_slot="right_locative"))
+    rows = baseline_rows + repair_rows + object_repair_rows + locative_repair_rows
     rows.sort(key=lambda r: (-r["independent_pointer"]["letters"], r["rank"]))
     exact = [r for r in rows if r["mechanically_admitted"]]
     return {"experiment": EXPERIMENT, "signature": SIGNATURE,
             "status": "exact closure found" if exact else "complete prose plus punctuation-center repair",
-            "novelty_preflight": pre, "states_considered": 36, "candidate_count": len(rows),
+            "novelty_preflight": pre, "states_considered": 48, "candidate_count": len(rows),
             "exact_count": len(exact), "rendered_candidates": rows, "exact_survivors": exact,
-            "repair_summary": {"method": "sequential_subject_then_object_holdout",
+            "repair_summary": {"method": "sequential_subject_object_then_locative_holdout",
                                "preserved_center_event": True, "preserved_punctuation": True,
-                               "held_out_slots": ["right_subject_np", "right_object_np"],
+                               "held_out_slots": ["right_subject_np", "right_object_np", "right_locative"],
                                "baseline_count": len(baseline_rows), "repaired_count": len(repair_rows),
                                "object_repair_count": len(object_repair_rows),
+                               "locative_repair_count": len(locative_repair_rows),
                                "new_subjects": [f"{d} {n}" for d, n in HELDOUT_RIGHT_SUBJECTS],
-                               "new_objects": list(HELDOUT_RIGHT_OBJECTS)},
+                               "new_objects": list(HELDOUT_RIGHT_OBJECTS),
+                               "new_locatives": list(HELDOUT_RIGHT_LOCATIVES)},
             "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                            "registry_sha256": hashlib.sha256(REGISTRY.read_bytes()).hexdigest(),
                            "punctuation_choices_live": True, "nonpalindromic_center_live": True,
                            "catalogue_imported": False},
             "anti_shortcut_policy": "Reject fixed tapes, reverse decoding, word-order mirrors, repeated/self-palindromic spans, fragments, catalogue text, and punctuation that changes letters.",
-            "next_repair": "Use the object-repair residual to hold out the right locative phrase while preserving the event, punctuation, repaired subject, and object.",
+            "next_repair": "Use the locative-repair residual to hold out the right verb inflection while preserving the event, punctuation, subject, object, and place.",
             "reader_facing_test": {"required": "blind intact-prose rating plus shuffled-clause control", "status": "pending"}}
 
 

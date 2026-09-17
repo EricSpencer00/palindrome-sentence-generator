@@ -3205,3 +3205,10 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   58 letters. Independent pointer/SHA audits, provenance, novelty, and
   anti-shortcut checks pass. The next operators are trie-valued boundary
   propagation and tense/aspect carried jointly with agreement.
+
+  The CFG complementizer repair added role-compatible `that`/`where` branches
+  and rendered 1,152 intact sentences, including “the careful cartographer
+  copies where the journal.” at 43 letters, but still produced 0 exact
+  closures. The independent audit and provenance checks pass; the next CFG
+  operator is a typed relative-clause predicate slot with role-preserving
+  valency.

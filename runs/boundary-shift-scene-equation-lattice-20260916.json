@@ -1,0 +1,161 @@
+{
+  "experiment_id": "boundary-shift-scene-equation-lattice-20260916",
+  "signature": "semantic-scene-lattice|boundary-shift-word-equation|asymmetric-token-count|joint-valency|fresh",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "jointly select semantic scene slots and asymmetric token-boundary shifts while matching character obligations online",
+  "candidates": [
+    {
+      "state": "boundary-shift-0",
+      "token_count": 24,
+      "semantic_slots": [
+        "agent",
+        "transitive_event",
+        "location",
+        "independent_agent",
+        "event_patient"
+      ],
+      "boundary_shift": {
+        "left_tokens": 12,
+        "right_tokens": 12,
+        "different_counts": true
+      },
+      "equation": {
+        "outer": [
+          "a",
+          "e"
+        ],
+        "satisfied": false
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "At dawn, the field curator measures the eastern wall with a brass rod, while two apprentices sketch its weathered stones for the village archive.",
+        "letters": 119,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "normalized_sha256": "3b3929660f61003e42577abcf07144e66c0578f0ec1115a893444bc8b564248b",
+        "reverse_sha256": "16e01e898dc1c93aadfc74da0b8ad30b06c775c7d73461227448db0ce93b2fc3",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      }
+    },
+    {
+      "state": "boundary-shift-1",
+      "token_count": 23,
+      "semantic_slots": [
+        "agent",
+        "transitive_event",
+        "location",
+        "independent_agent",
+        "event_patient"
+      ],
+      "boundary_shift": {
+        "left_tokens": 11,
+        "right_tokens": 12,
+        "different_counts": true
+      },
+      "equation": {
+        "outer": [
+          "n",
+          "s"
+        ],
+        "satisfied": false
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "Near sunset, the harbor pilot checks a narrow channel from the old watchtower, while patient sailors prepare warm lamps for the returning boats.",
+        "letters": 119,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "n",
+          "s"
+        ],
+        "normalized_sha256": "e03ffc2a624851469ec3db5ea06184467687ea2784e35aa49f287a8e21fc682c",
+        "reverse_sha256": "4b25ee6c57b8d0af81d1751cc2d8e95a895b6e24e07ba7d64b360ed92c8d068f",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 339,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "word_order_mirror": false,
+    "repeated_units": false
+  },
+  "next_repair": {
+    "operator": "shift the adjunct boundary by one token and replace the location edge with a valency-compatible synonym matching the first residual",
+    "reason": "fresh scenes are complete prose but the outer character equation remains open"
+  },
+  "provenance": {
+    "generator_sha256": "3466f413b60b8a91c7b3ea67f648c3024c5ea64535bf4c25a6f96a9ff2013bb8",
+    "lexical_source": "fresh field/archive and harbor authored banks",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "asymmetric token count",
+      "anti-shortcut"
+    ]
+  }
+}

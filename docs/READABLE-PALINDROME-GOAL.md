@@ -3170,3 +3170,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   remains closed. The next operators are semantic role tries, two-character
   residual branching within complete phrase roles, and character-level verb
   trie expansion inside the midpoint product.
+
+  The next hard-reset follow-up completed all three repairs without producing
+  an exact closure. Live semantic role tries rendered intact ordinary-English
+  candidates up to 99 letters; two-character residual branching retained 2
+  branches and 8 intact SVO candidates up to 55 letters; and character-level
+  agent/verb/patient trie expansion with subject–verb agreement rendered 6,144
+  intact sentences up to 39 letters. Each family has independent pointer/SHA
+  validation, provenance, novelty, and anti-shortcut checks. These are useful
+  construction advances, but still not reader candidates; the next operators
+  are live trie-node propagation, typed agreement in the two-character state,
+  and bilateral role-conditioned verb frames with held-out lexical classes.

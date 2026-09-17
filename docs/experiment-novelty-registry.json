@@ -4883,6 +4883,39 @@
       "distinction": "Expands lexical trie states inside the midpoint-aware CFG×palindrome-automaton product with semantic roles and agreement during bilateral decoding.",
       "reader_evidence": false,
       "status": "new hard-reset repair; 3,072 intact sentences, longest 39 letters, 0 exact closures; character-level verb-trie expansion with role/agreement constraints is next"
+    },
+    {
+      "id": "semantic-role-trie-coupled-expansion-20260917",
+      "signature": "whole-tape-coupled-semantic-scene|semantic-role-tries|character-level-coupled-expansion|immediate-mismatch-pruning|independent-pointer-sha",
+      "artifact": "experiments/semantic_role_trie_coupled_expansion_20260917.py",
+      "run_artifacts": [
+        "runs/semantic-role-trie-coupled-expansion-20260917.json"
+      ],
+      "distinction": "Uses live semantic role tries to supply lexical alternatives during whole-tape coupled expansion and prunes mirrored mismatches immediately, distinct from fixed bundles.",
+      "reader_evidence": false,
+      "status": "new hard-reset repair; intact ordinary-English candidates up to 99 letters, 0 exact closures; live trie-node propagation before completed-word materialization is next"
+    },
+    {
+      "id": "phrase-transducer-two-residual-trie-20260917",
+      "signature": "bidirectional-lexical-phrase-transducer|two-character-residual-trie|complete-grammatical-roles|whole-tape-obligations|independent-pointer-sha",
+      "artifact": "experiments/phrase_transducer_two_residual_trie_20260917.py",
+      "run_artifacts": [
+        "runs/phrase-transducer-two-residual-trie-20260917.json"
+      ],
+      "distinction": "Branches on the first two live residual characters while retaining complete grammatical SVO roles and evaluating whole-tape obligations before rendering.",
+      "reader_evidence": false,
+      "status": "new hard-reset repair; 2 two-character residual branches, 8 intact SVO candidates up to 55 letters, 0 exact closures; typed agreement state is next"
+    },
+    {
+      "id": "cfg-midpoint-verb-trie-agreement-20260917",
+      "signature": "cfg-midpoint-role-automaton|character-level-verb-trie|subject-verb-agreement|bilateral-role-decoding|independent-pointer-sha",
+      "artifact": "experiments/cfg_midpoint_verb_trie_agreement_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-midpoint-verb-trie-agreement-20260917.json"
+      ],
+      "distinction": "Expands agent, verb, and patient tries character-by-character inside midpoint CFG decoding while gating subject–verb agreement before rendering.",
+      "reader_evidence": false,
+      "status": "new hard-reset repair; 6,144 intact sentences, longest 39 letters, 0 exact closures; bilateral role-conditioned verb frames with held-out lexical classes are next"
     }
   ],
   "excluded": [

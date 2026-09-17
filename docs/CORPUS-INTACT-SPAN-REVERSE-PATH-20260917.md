@@ -7,7 +7,7 @@ reversed-character residual of another span. Search grows distinct-span paths
 from both ends, retaining source sentence IDs for provenance rather than
 rewriting or mirroring words.
 
-The run used 160 authored sentences, 2,029 residual edges, and paths of at
+The run used 148 authored sentences, 2,029 residual edges, and paths of at
 most three sentences per side. It found no exact closure. The longest frontier
 matched 14 characters before exhausting the bounded path search. Every
 potential result is independently checked by a two-pointer character audit

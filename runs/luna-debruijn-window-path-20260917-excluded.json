@@ -1,0 +1,86 @@
+{
+  "experiment": "luna-debruijn-window-path-20260917-excluded",
+  "novelty_preflight": {
+    "registry_entries_read_before_run": 439,
+    "signature": "paragraph-window-overlap-path|debruijn-kgram-edges|finite-residue-automaton|semantic-continuity-labels|independent-pointer-sha",
+    "overlaps": [
+      "finite-state-boundary-beam-20260917"
+    ],
+    "passed": false,
+    "reason": "overlap with registered online character-obligation and semantic-path lanes; paragraph windows do not establish a new state-space dimension"
+  },
+  "windows": [
+    {
+      "label": "dawn",
+      "prose": "At dawn, Mira opened the archive and marked the flooded pier.",
+      "continuity_label": "dawn",
+      "audit": {
+        "length": 49,
+        "exact": false,
+        "left_right_mismatches": 48
+      },
+      "sha256": "1ab88afc8abd48ca0532095cab27a68b5e7b2ec37178b7da34ed4dbb1c12c6c1"
+    },
+    {
+      "label": "pier",
+      "prose": "The flooded pier held a lantern, and the harbor keeper carried it inland.",
+      "continuity_label": "pier",
+      "audit": {
+        "length": 59,
+        "exact": false,
+        "left_right_mismatches": 56
+      },
+      "sha256": "2432bb1e86ebc7f5dbb5c8674e9ce3dc01bf43d9a3572bd3c80c8b21cb4ced71"
+    },
+    {
+      "label": "inland",
+      "prose": "Inland, the keeper found dry paper and wrote the tide's new measure.",
+      "continuity_label": "inland",
+      "audit": {
+        "length": 54,
+        "exact": false,
+        "left_right_mismatches": 48
+      },
+      "sha256": "fba621360c5c93fe488ae5c03697c93d96ef4cf53f724af52c55a232bd330706"
+    }
+  ],
+  "edges": [
+    {
+      "from": "dawn",
+      "to": "pier",
+      "k": 6,
+      "suffix": "edpier",
+      "prefix": "theflo",
+      "overlap": false
+    },
+    {
+      "from": "pier",
+      "to": "inland",
+      "k": 6,
+      "suffix": "inland",
+      "prefix": "inland",
+      "overlap": true
+    }
+  ],
+  "paragraph": "At dawn, Mira opened the archive and marked the flooded pier. The flooded pier held a lantern, and the harbor keeper carried it inland. Inland, the keeper found dry paper and wrote the tide's new measure.",
+  "audit": {
+    "length": 162,
+    "exact": false,
+    "left_right_mismatches": 148
+  },
+  "residue_automaton": {
+    "states": 3,
+    "residue_modulus": 6,
+    "closure": false,
+    "reason": "path ends at inland; no return edge to dawn and no mirrored residue closure"
+  },
+  "provenance": {
+    "generator_sha256": "406a2452cfd5573b245bcdcc07182ae150a14881e2b5e591d553610e22d6c194",
+    "independently_authored_windows": true,
+    "catalogue_imported": false,
+    "source_sentences_copied": false,
+    "repeated_units": false,
+    "exact_audit": "normalized two-pointer"
+  },
+  "next_repair": "Do not promote this lane. If revisited, add a genuinely new continuity state (temporal or causal) and a held-out return edge before re-running registry preflight."
+}

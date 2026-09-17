@@ -2565,3 +2565,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   bidirectional arc consistency over character-prefix domains, coordinated
   locative subjects with plural agreement, and a conjunction-free semantic
   attachment retaining the compact complement.
+
+  The next wave completed those operators. Bidirectional arc consistency over
+  character-prefix domains retained audited intact candidates up to 81
+  letters; coordinated locative-relative subjects tested 49,152 candidates up
+  to 78 letters; and the conjunction-free compact-complement family rendered
+  8,748 intact candidates up to 260 letters, with midpoint-inside-token
+  crossing in every candidate. All produced 0 exact closures. Independent
+  pointer/SHA-256 replay, provenance, novelty preflight, and anti-shortcut
+  checks are retained for every row. The reader gate remains closed. The next
+  concrete operators are full positional character constraints over rendered
+  intervals, coordinated place complements, and a shorter two-constituent
+  center grammar rather than further sentence extension.

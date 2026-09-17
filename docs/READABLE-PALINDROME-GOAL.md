@@ -2588,3 +2588,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   reader gate remains closed. The next concrete operators are interval-domain
   support pruning, locative-preposition coordination, and one
   agreement-conditioned verb realization in the shorter grammar.
+
+  The next wave completed those operators. Interval-domain support pruning
+  retained 2 intact candidates up to 82 letters; locative-preposition
+  coordination tested 737,280 candidates up to 96 letters; and the short
+  agreement-conditioned verb grammar rendered 36 intact candidates up to 95
+  letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are incremental AC-3
+  support counters, conjunction alternation inside the locative complement,
+  and one tense-conditioned verb pair in the short grammar.

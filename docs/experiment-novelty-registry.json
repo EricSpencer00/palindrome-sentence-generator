@@ -6280,6 +6280,39 @@
       "distinction": "Resets to a shorter two-constituent center grammar with typed subject/verb/object roles and compact complements, avoiding further sentence extension.",
       "reader_evidence": false,
       "status": "constructive reset; 18 intact ordinary-English candidates, longest 95 letters, midpoint-inside-token in all, 0 exact closures; one agreement-conditioned verb realization is next"
+    },
+    {
+      "id": "interval-domain-support-pruning-20260917",
+      "signature": "slot-interval-csp|early-positional-support-pruning|precompletion-domain-filter|ordinary-prose|independent-pointer-sha",
+      "artifact": "experiments/interval_domain_support_pruning_20260917.py",
+      "run_artifacts": [
+        "runs/interval-domain-support-pruning-20260917.json"
+      ],
+      "distinction": "Prunes lexical interval-domain values immediately when any positional equality loses support, before full word completion, rather than waiting for a completed assignment.",
+      "reader_evidence": false,
+      "status": "targeted constructive repair; 2 intact ordinary-English candidates, longest 82 letters, 0 exact closures; incremental AC-3 support counters are next"
+    },
+    {
+      "id": "cfg-locative-preposition-coordination-20260917",
+      "signature": "locative-preposition-coordination|coordinated-place-state|plural-agreement|inwhich-attachment-fixed|independent-pointer-sha",
+      "artifact": "experiments/cfg_locative_preposition_coordination_20260917.py",
+      "run_artifacts": [
+        "runs/cfg-locative-preposition-coordination-20260917.json"
+      ],
+      "distinction": "Coordinates locative prepositions over coordinated place complements while preserving plural agreement, both place roles, `in which`, and attachment state.",
+      "reader_evidence": false,
+      "status": "targeted constructive repair; 589,824 controls plus 147,456 substitutions, 737,280 candidates, longest 96 letters, 0 exact closures; conjunction alternation inside locative complement is next"
+    },
+    {
+      "id": "short-agreement-conditioned-verbs-20260917",
+      "signature": "short-two-constituent-center-grammar|agreement-conditioned-verb-realization|subject-number-state|compact-complement|independent-pointer-sha",
+      "artifact": "experiments/short_agreement_conditioned_verbs_20260917.py",
+      "run_artifacts": [
+        "runs/short-agreement-conditioned-verbs-20260917.json"
+      ],
+      "distinction": "Jointly realizes subject number and verb morphology in the shorter two-constituent center grammar before emission, with no added clause or attachment.",
+      "reader_evidence": false,
+      "status": "targeted constructive reset; 36 intact candidates, longest 95 letters, midpoint-inside-token in all, 0 exact closures; one tense-conditioned verb pair is next"
     }
   ]
 }

@@ -19,6 +19,7 @@ WORDS = set(x.strip() for x in (ROOT / "data/lexicon.txt").read_text().splitline
 NOUN = set("man woman dog cat rain room door map note town time money wind storm plan trap step light river".split())
 VERB = set("is are was were ran sat saw saws lost held set put left made told came fell had have can tell live spit dump labor".split())
 DET = {"a", "the", "no", "one", "she", "he", "i", "we", "it", "they", "not"}
+SUBJECT = DET - {"not"}
 PREP = set("at on in to of from with".split())
 MIN_ZIPF = 3.0
 
@@ -48,6 +49,9 @@ def pos(w):
 def shape_ok(ws):
     # independent clauses: subject (D/N), verb, optional determiner+noun.
     p = "".join(pos(w) for w in ws)
+    # A complete finite clause must begin with a subject token; ``not set``
+    # is deliberately rejected as an imperative/fragment.
+    if not ws or ws[0] not in SUBJECT: return False
     return p in {"DV", "DNV", "DVN", "DDNV", "DDV", "DVP", "DNVP", "DNPV"}
 
 def segment(tape, trie, beam=80):

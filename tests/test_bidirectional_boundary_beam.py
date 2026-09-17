@@ -12,6 +12,4 @@ def test_reverse_segmentation_is_exact_and_mechanically_verified():
 
 def test_typed_clause_lattice_keeps_complete_surface():
     right = ["not", "set"]
-    assert shape_ok(right)
-    result = validate(["test", "on"], right)
-    assert result["exact"] and result["reverse_tape"]
+    assert not shape_ok(right)

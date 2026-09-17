@@ -248,9 +248,12 @@
     "runs/function-word-boundary-dp-20260916.json",
     "runs/lexical-mirror-hypergraph-edge-repair-20260916.json",
     "runs/dialogue-relative-clause-followup-20260916.json",
-    "runs/function-word-boundary-single-repair-20260916.json"
+    "runs/function-word-boundary-single-repair-20260916.json",
+    "runs/lexical-mirror-hypergraph-verb-edge-repair-20260916.json",
+    "runs/dialogue-speaker-followup-20260916.json",
+    "runs/function-word-auxiliary-single-repair-20260916.json"
   ],
-  "candidate_count": 4912,
+  "candidate_count": 4915,
   "exact_count": 79,
   "mechanically_admitted_count": 0,
   "route_summary": [
@@ -2783,6 +2786,36 @@
       "max_letters": 141,
       "mean_zipf_frequency": 5.487037037037037,
       "mean_brown_order_gain_vs_shuffle": 0.6715075656905753
+    },
+    {
+      "source_run": "runs/dialogue-speaker-followup-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 75,
+      "max_letters": 75,
+      "mean_zipf_frequency": 5.76421052631579,
+      "mean_brown_order_gain_vs_shuffle": 1.101598007465764
+    },
+    {
+      "source_run": "runs/function-word-auxiliary-single-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 89,
+      "max_letters": 89,
+      "mean_zipf_frequency": 5.510555555555556,
+      "mean_brown_order_gain_vs_shuffle": 0.6820018091820597
+    },
+    {
+      "source_run": "runs/lexical-mirror-hypergraph-verb-edge-repair-20260916.json",
+      "rows": 1,
+      "exact_count": 0,
+      "mechanically_admitted_count": 0,
+      "min_letters": 144,
+      "max_letters": 144,
+      "mean_zipf_frequency": 5.430740740740742,
+      "mean_brown_order_gain_vs_shuffle": 0.6191750933698916
     }
   ],
   "rows": [
@@ -236630,6 +236663,146 @@
       "diagnostics_not_readability": {
         "brown_order_gain_vs_shuffle": 0.6069384756087359,
         "mean_zipf_frequency": 5.512777777777778,
+        "word_count": 18,
+        "repeated_word_rate": 0.11111111111111116,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The archivist safeguards the rescued field journals while a patient gardener waters the young seedlings, and the careful pilot marks the distant lights for the field nurse.",
+      "source_run": "runs/lexical-mirror-hypergraph-verb-edge-repair-20260916.json",
+      "provenance": {
+        "method": "single held-out verb-terminal repair in lexical mirror hypergraph",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "eafc4b76b2a064c0b26b6b7528fae13d850a24183dfbe21539e42447f085e5ba",
+        "source_sha256": "4ef53bb1089cfe4ba04c75cd57101da814cc06668b7c834317a0505820575c26"
+      },
+      "repair": null,
+      "letters": 144,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6191750933698916,
+        "mean_zipf_frequency": 5.430740740740742,
+        "word_count": 27,
+        "repeated_word_rate": 0.2222222222222222,
+        "punctuation_segments": 1
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "Mara said, \u201cI found a small key, which the night guard had stored.\u201d The guard replied, \u201cKeep it safe.\u201d",
+      "source_run": "runs/dialogue-speaker-followup-20260916.json",
+      "provenance": {
+        "fresh_dialogue": true,
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "eaf45c78acb21a3a78bfee0a6cfe215f32f3ddcaaf626ae2afa4a395b648d716"
+      },
+      "repair": null,
+      "letters": 75,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": false,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": false,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "distinct_words",
+        "exact_letter_palindrome",
+        "lexicon_words",
+        "word_form"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 1.101598007465764,
+        "mean_zipf_frequency": 5.76421052631579,
+        "word_count": 19,
+        "repeated_word_rate": 0.10526315789473684,
+        "punctuation_segments": 2
+      },
+      "reader_next_test": "Not reader-eligible until every mechanical check passes; if promoted, freeze this intact rendering with a matched word-shuffle control and randomized blinded rater order."
+    },
+    {
+      "rendered": "The careful archivist will carry the ledger, and a patient porter had stored it beside the northern shelves.",
+      "source_run": "runs/function-word-auxiliary-single-repair-20260916.json",
+      "provenance": "single auxiliary substitution with past participle, agreement, and scene held fixed",
+      "repair": null,
+      "letters": 89,
+      "exact_letter_palindrome": false,
+      "independent_sha256_exact": false,
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "failed_checks": [
+        "exact_letter_palindrome"
+      ],
+      "diagnostics_not_readability": {
+        "brown_order_gain_vs_shuffle": 0.6820018091820597,
+        "mean_zipf_frequency": 5.510555555555556,
         "word_count": 18,
         "repeated_word_rate": 0.11111111111111116,
         "punctuation_segments": 1

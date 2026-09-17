@@ -486,12 +486,15 @@ All three fail independent two-pointer and forward/reverse SHA checks, carry
 fresh no-copy/no-catalogue provenance and novelty preflight, and record a
 concrete repair. The next reader-facing test is still the blinded
 intact-versus-shuffled packet, gated on an exact anti-shortcut survivor. The
-aggregate is **4,912 rows across 253 route phases, 79 exact rejected tapes,
-and 0 mechanically admitted outputs**; the registry is **354 retained, 31
-excluded, and 332 run artifacts**. Immediate child repairs add a 141-letter
+aggregate is **4,915 rows across 256 route phases, 79 exact rejected tapes,
+and 0 mechanically admitted outputs**; the registry is **357 retained, 31
+excluded, and 335 run artifacts**. Immediate child repairs add a 141-letter
 hypergraph object-edge scene, a 74-letter dialogue predicate repair, and an
 89-letter function-word determiner repair; each remains non-exact under both
-independent audits and names the next repair.
+independent audits and names the next repair. The second child pass adds a
+144-letter verb-edge scene, a 75-letter speaker-name dialogue, and an
+89-letter auxiliary scene; all remain non-exact and carry another targeted
+repair.
 
 The reset wave adds three genuinely orthogonal state representations. The live
 CFG/Earley character chart renders six fresh complete scenes up to 102 letters;

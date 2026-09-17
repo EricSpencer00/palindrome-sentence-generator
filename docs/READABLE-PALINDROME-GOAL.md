@@ -2180,7 +2180,7 @@ named next repair. The aggregate is 4,898 rows across 247 route phases (79
   provenance, novelty preflight, anti-shortcut checks, and a concrete
   first-residual repair; none closes exactly or enters the reader packet.
 
-  The newest committed wave is measured at **4,912 rows across 253 route phases**
+  The newest committed wave is measured at **4,915 rows across 256 route phases**
   with **79 exact but rejected tapes and 0 mechanically admitted outputs**. Its
   three actual fresh renderings are a 140-letter archivist/gardener/pilot scene,
   a 74-letter Jon dialogue with a complete relative clause, and an 83-letter
@@ -2188,7 +2188,8 @@ named next repair. The aggregate is 4,898 rows across 247 route phases (79
   three; provenance is fresh and no-copy, and each has a named state-specific
   repair. The immediate child repairs add 141-, 74-, and 89-letter scenes and
   also fail exact admission. The reader-facing intact-versus-shuffled test
-  remains gated on a genuinely exact, anti-shortcut-clean candidate.
+  remains gated on a genuinely exact, anti-shortcut-clean candidate. A second
+  child pass adds 144-, 75-, and 89-letter targeted repairs, also non-exact.
 
   The newest queue pass adds three genuinely distinct constructive states: a
   live mirrored-tape terminal decoder (six 88--103-letter scenes), a fresh

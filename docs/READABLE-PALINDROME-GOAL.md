@@ -2495,3 +2495,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   grammar boundary transitions as CSP variables, locative `where`/`in which`
   alternation, and a typed adverbial attachment in the center-crossing
   grammar.
+
+  The next wave completed those operators. Grammar-boundary transition CSP
+  rendered 10 intact candidates up to 83 letters; locative `where`/`in which`
+  alternation tested 6,144 candidates up to 63 letters; and the typed
+  adverbial center-attachment family rendered 162 intact candidates up to
+  169 letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are semantic-valency
+  coupling for bridge transitions, location-preposition substitution within
+  `in which`, and a typed discourse-marker attachment in the center-crossing
+  grammar.

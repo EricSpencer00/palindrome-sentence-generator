@@ -2,14 +2,6 @@
   "version": 1,
   "audit_reports": [
     {
-      "id": "luna-agreement-morphology-boundary-20260917",
-      "signature": "typed-clause|productive-agreement-inflection|bidirectional-seam-obligation|independent-pointer-sha",
-      "artifact": "experiments/luna_agreement_morphology_boundary_20260917.py",
-      "run_artifacts": ["runs/luna-agreement-morphology-boundary-20260917.json"],
-      "overlaps": [],
-      "reason": "Fresh typed clauses carry number/tense inflection choices across a clause boundary; complete prose only, no tape reversal, word-order symmetry, catalogue text, or fragments."
-    },
-    {
       "path": "runs/parallel-luna-readability-diagnostics-20260916.json",
       "kind": "aggregate_readability_diagnostic",
       "status": "diagnostic_not_human_readability_result",
@@ -4385,6 +4377,33 @@
       "distinction": "An authored left clause is kept fixed while a reverse-tape trie chooses new right-side boundaries under lexical cost; this is distinct from word-order mirroring and records the short-fragment failure plus a POS-trie repair.",
       "reader_evidence": false,
       "status": "initial permissive beam yielded exact but fragmentary 28-letter controls; the tagged-POS follow-up returns 0 complete clauses, with lexical expansion of attested senses as the next repair"
+    },
+    {
+      "id": "luna-agreement-morphology-boundary-20260917",
+      "signature": "typed-clause|productive-agreement-inflection|bidirectional-seam-obligation|independent-pointer-sha",
+      "artifact": "experiments/luna_agreement_morphology_boundary_20260917.py",
+      "run_artifacts": ["runs/luna-agreement-morphology-boundary-20260917.json"],
+      "distinction": "Fresh typed clauses carry number/tense inflection choices across a clause boundary; complete prose only, no tape reversal, word-order symmetry, catalogue text, or fragments.",
+      "reader_evidence": false,
+      "status": "144 complete 100+ letter variants, 0 exact closures; next repair changes a held-out agreement-bearing seam"
+    },
+    {
+      "id": "luna-scene-lattice-pivot-20260917",
+      "signature": "scene-lattice|nonpalindromic-central-pivot|bilateral-lexical-obligations|joint-character-equations|independent-pointer-sha",
+      "artifact": "experiments/luna_scene_lattice_pivot_20260917.py",
+      "run_artifacts": ["runs/luna-scene-lattice-pivot-20260917.json"],
+      "distinction": "Fresh scene-lattice construction jointly searches semantic slots and bilateral character equations around an ordinary non-palindromic temporal pivot; no prior scene frames are reswept.",
+      "reader_evidence": false,
+      "status": "24 complete variants up to 112 letters, 0 exact closures; next repair substitutes the first semantic slot at the residual pivot"
+    },
+    {
+      "id": "luna-corpus-phrase-lattice-20260917",
+      "signature": "corpus-ngram-phrase-lattice|fresh-scene-frames|joint-reverse-character-coverage|independent-pointer-sha",
+      "artifact": "experiments/corpus_phrase_lattice_20260917.py",
+      "run_artifacts": ["runs/corpus-phrase-lattice-20260917.json"],
+      "distinction": "Corpus n-gram probabilities score phrase edges for fresh authored scene frames while reverse-character coverage is enforced jointly; corpus text is a scorer, not generated output.",
+      "reader_evidence": false,
+      "status": "4 complete 101--111-letter prose candidates, 0 exact closures; next repair expands the typed phrase lattice at the first residual"
     }
   ],
   "excluded": [
@@ -4790,14 +4809,6 @@
         "self-palindromic-span-controls"
       ],
       "reason": "The independently authored phrase-edge intersection emits a 51-letter exact tape, but the local catalogue flags the witness and the mechanical gate finds a proper self-palindromic span. It remains exact rejection evidence with a held-out assertion/theme replacement repair; it is not a generated readable candidate."
-    },
-    {
-      "id": "luna-scene-lattice-pivot-20260917",
-      "signature": "scene-lattice|nonpalindromic-central-pivot|bilateral-lexical-obligations|joint-character-equations|independent-pointer-sha",
-      "artifact": "experiments/luna_scene_lattice_pivot_20260917.py",
-      "run_artifacts": ["runs/luna-scene-lattice-pivot-20260917.json"],
-      "overlaps": [],
-      "reason": "Fresh scene-lattice constructor jointly searches semantic slots and bilateral character equations around an ordinary non-palindromic temporal pivot; no prior scene frames are reswept."
     }
   ]
 }

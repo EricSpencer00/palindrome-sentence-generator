@@ -3191,3 +3191,9 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   earlier whole-tape obligation propagation, not another finished-word sweep;
   the next repairs carry live states across function-word boundaries and bind
   object number jointly with determiner agreement.
+
+  The CFG lane also completed its role-conditioned held-out-frame repair:
+  576 intact renderings were produced, including “the careful cartographer
+  copies the journal.” at 38 letters, but none was an exact palindrome. The
+  frame state, lexical tries, agreement, provenance, novelty, and independent
+  audit all pass; a typed complementizer branch is the next distinct operator.

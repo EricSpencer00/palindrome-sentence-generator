@@ -2949,3 +2949,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   bidirectional witness propagation with one-side pruning, a fifth-character-
   compatible setting phrase on the matched survey branch, and paired semantic
   agreement for the two temporal adverb slots.
+
+  The following wave completed those repairs. Incremental bidirectional
+  witness propagation rendered 4 intact candidates up to 101 letters; the
+  authored `v-r-u` setting phrase made all 4 matched survey branches satisfy a
+  fifth reverse-prefix character, with candidates up to 63 letters; and the
+  paired temporal-adverb CFG rendered 768 candidates up to 63 letters while
+  pruning 8,448 incompatible pairs. All produced 0 exact closures.
+  Independent pointer/SHA-256 replay, provenance, novelty preflight, and
+  anti-shortcut checks are retained for every row. The reader gate remains
+  closed. The next concrete operators are domain-valued right-role witness
+  pruning, a sixth-character-compatible authored phrase on the matched survey
+  branch, and an explicit earlier/later temporal ordering feature.

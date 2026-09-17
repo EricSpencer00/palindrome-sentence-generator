@@ -1,0 +1,195 @@
+{
+  "experiment_id": "morphology-crossword-transducer-20260916",
+  "signature": "morphology-aware-crossword-transducer|dependency-frame|heldout-lexical-seams|joint-inflection-clitic|fresh-scene",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "cross-word morphology transducer jointly realizes dependency roles, inflections, clitics, and lexical seams while carrying character debt",
+  "candidates": [
+    {
+      "dependency_frame": [
+        "agent->verb->object",
+        "pronoun->verb->possessive object",
+        "temporal adjunct"
+      ],
+      "transducer_states": [
+        "ROOT",
+        "SUBJ[sg]",
+        "V[pres]",
+        "OBJ[det]",
+        "CLITIC[3sg]",
+        "SEAM",
+        "CENTER",
+        "END"
+      ],
+      "heldout_choices": {
+        "verb": [
+          "opens",
+          "charts"
+        ],
+        "noun": [
+          "cabinet",
+          "inlet"
+        ],
+        "clitic": [
+          "she/its",
+          "he/its"
+        ]
+      },
+      "live_character_debt": {
+        "prefix": "thecurat",
+        "suffix": "rsarrive",
+        "center_free": true
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The curator opens the sealed cabinet, and she carefully files its maps before the evening visitors arrive.",
+        "letters": 88,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "normalized_sha256": "0017da5ab78f4c033c1a14b6c801d174b2b35e7d4bd0e7396f7641f0b142ed8d",
+        "reverse_sha256": "a7b49e2cca70f1fa1ac397b8a794b9939152ffe315fbbc11bb26a11f9ba20762",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "change one held-out inflection/clitic seam while preserving dependency features at first residual",
+        "reason": "joint transducer emits grammatical prose but no exact closure"
+      }
+    },
+    {
+      "dependency_frame": [
+        "agent->verb->object",
+        "pronoun->verb->possessive object",
+        "temporal adjunct"
+      ],
+      "transducer_states": [
+        "ROOT",
+        "SUBJ[sg]",
+        "V[pres]",
+        "OBJ[det]",
+        "CLITIC[3sg]",
+        "SEAM",
+        "CENTER",
+        "END"
+      ],
+      "heldout_choices": {
+        "verb": [
+          "opens",
+          "charts"
+        ],
+        "noun": [
+          "cabinet",
+          "inlet"
+        ],
+        "clitic": [
+          "she/its",
+          "he/its"
+        ]
+      },
+      "live_character_debt": {
+        "prefix": "thepilot",
+        "suffix": "ldeparts",
+        "center_free": true
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The pilot charts a narrow inlet, and he quietly marks its buoys before the morning vessel departs.",
+        "letters": 80,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "normalized_sha256": "3d4c9d65ab04cb09afa436bc4ef3847290551e5edea4f6da99de307f410a27c9",
+        "reverse_sha256": "0ab70199e49374d17bed293bc011f2dfbf2ea1bf1e3be3da0a2ee03e821be34c",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "change one held-out inflection/clitic seam while preserving dependency features at first residual",
+        "reason": "joint transducer emits grammatical prose but no exact closure"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "change one held-out inflection or clitic seam preserving dependency features at first residual",
+    "reason": "no exact anti-shortcut candidate survived joint lexicalization"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 373,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "posthoc_repair": false,
+    "word_order_mirror": false
+  },
+  "provenance": {
+    "generator_sha256": "f6a5536eb7b8f925729e4d98727cc243d0ae0cfdcfd06a5811b7e94df0b47c2c",
+    "lexical_source": "held-out verb/noun bank and fresh cabinet/inlet scenes",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "dependency feature replay",
+      "anti-shortcut"
+    ]
+  }
+}

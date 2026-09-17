@@ -1,0 +1,64 @@
+{
+  "experiment": "cfg-earley-fresh-typed-adjunct-repair-20260916",
+  "novelty_preflight": {
+    "passed": true,
+    "signature": "single-typed-adjunct-production|fresh-earley-chart|complete-svo-preservation|live-debt-repair",
+    "overlaps_checked": [
+      "cfg-earley-character-intersection-fresh-20260916"
+    ],
+    "reason": "One new near-dock adjunct production targets the chart residual; no frame sweep."
+  },
+  "rows": [
+    {
+      "id": "adjunct-0",
+      "rendered": "At first light, the surveyor records the river current near the dock while the baker warms bread for the waiting crew.",
+      "chart_state": {
+        "new_production": "PP\u2192near the dock",
+        "completed_items": [
+          "OPEN",
+          "CONNECT",
+          "CLOSE"
+        ],
+        "complete_svo": true,
+        "agreement_preserved": true
+      },
+      "audit": {
+        "length": 96,
+        "independent_two_pointer_exact": false,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "w"
+        },
+        "sha256_forward": "b51d4912f070614759de351bcb0be349a53aeb0d1772262449af7831ce512cd8",
+        "sha256_reverse": "55154f955534fad070e86f032b016d5cc1438ee3ca7f343a8e1329e28121fe0a",
+        "sha256_equal": false
+      },
+      "provenance": {
+        "method": "single held-out typed adjunct production in fresh CFG/Earley chart",
+        "source_sentences_copied": false,
+        "catalogue_imported": false,
+        "borrowed_text": false,
+        "reversed_finished_sentence": false,
+        "word_order_symmetry": false,
+        "repeated_self_palindromic_unit": false,
+        "generator_sha256": "46e370c2ef9d7585d34a6c39d0b5ac096bc16f59db47b80e1d2f5a6aa5919c9b",
+        "source_sha256": "b51d4912f070614759de351bcb0be349a53aeb0d1772262449af7831ce512cd8"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "seed_wrapped_or_repeated": false,
+        "word_order_mirror": false,
+        "semordnilap_chain": false,
+        "nested_spans": false
+      },
+      "next_repair": "First residual 0: add one held-out lexical terminal to the opposing adjunct production while preserving the completed chart item."
+    }
+  ],
+  "summary": {
+    "candidate_count": 1,
+    "exact_count": 0,
+    "max_length": 96
+  }
+}

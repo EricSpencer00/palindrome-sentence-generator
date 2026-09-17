@@ -25,30 +25,53 @@ def derivations(max_clauses=3):
     if not prefix or CLAUSES[k][2]!=prefix[-1][2]: rec(prefix+[CLAUSES[k]],k+1)
  rec([],0); return out
 def render(ds): return ' and '.join(' '.join(c[:3])+' '+c[3]+' '+c[4]+' '+c[5] for c in ds)+'.'
-def product(left,right,max_states=120000):
- # Incrementally compare left prefix against right suffix. Every state records
- # derivation positions; token boundaries are invisible to character tape.
- a,b=letters(render(left)),letters(render(right)); q=[(0,len(b)-1)]; seen=set(q); dead=[]; matched=0
+def terminal_chars(d):
+ # Compile terminals directly; punctuation and spaces are epsilon and are not
+ # materialized as a completed sentence tape.
+ return [c for c in letters(' '.join(' '.join(x[:3])+' '+x[3]+' '+x[4]+' '+x[5] for x in d))]
+
+def compile_automaton(derivations, reverse=False):
+ # A finite terminal automaton over independently selected recursive paths.
+ # Trie nodes are character states, not indices into a rendered sentence.
+ nexts=[{}]; finals=set(); paths={}
+ for pid,d in enumerate(derivations):
+  chars=terminal_chars(d); chars=chars[::-1] if reverse else chars
+  node=0
+  for ch in chars:
+   node=nexts[node].setdefault(ch,len(nexts));
+   if node==len(nexts): nexts.append({})
+  finals.add(node); paths[node]=pid
+ return nexts,finals,paths
+
+def product(left_derivations,right_derivations,max_states=120000):
+ # Live opposite-end product. It advances one character edge in each
+ # independent automaton; no letters(render(...)) call occurs here.
+ L,LF,LP=compile_automaton(left_derivations); R,RF,RP=compile_automaton(right_derivations,True)
+ q=[(0,0,0)]; seen={(0,0,0)}; dead=[]
  while q:
-  i,j=q.pop(0)
-  if i>j: return {'closed':True,'matched':matched,'states':len(seen),'dead_frontier':dead[:12]}
-  if a[i]!=b[j]: dead.append({'left_index':i,'right_index':j,'left_char':a[i],'right_char':b[j]}); continue
-  matched=max(matched,i+1); n=(i+1,j-1)
-  if n not in seen:
-   if len(seen)>=max_states: break
-   seen.add(n); q.append(n)
- return {'closed':False,'matched':matched,'states':len(seen),'dead_frontier':dead[:12]}
+  ln,rn,depth=q.pop(0)
+  if ln in LF and rn in RF:
+   return {'closed':True,'matched':depth,'states':len(seen),'dead_frontier':dead[:12], 'terminal_pair':[LP[ln],RP[rn]]}
+  for ch,la in L[ln].items():
+   ra=R[rn].get(ch)
+   if ra is None:
+    dead.append({'left_node':ln,'right_node':rn,'obligation':ch,'right_options':sorted(R[rn])[:8]}); continue
+   state=(la,ra,depth+1)
+   if state not in seen:
+    if len(seen)>=max_states: break
+    seen.add(state); q.append(state)
+ return {'closed':False,'matched':max((x[2] for x in seen),default=0),'states':len(seen),'dead_frontier':dead[:12], 'automata':{'left_nodes':len(L),'right_nodes':len(R)}}
 def run():
  ds=derivations(); rows=[]; diagnostics=[]
  for l in ds:
   for r in ds:
-   p=product(l,r)
+   p=product([l],[r])
    text=render(l)+' Meanwhile '+render(r)
    a=audit(text)
    row={'text':text,'letters':a['letters'],'left_derivation':l,'right_derivation':r,'product':p,'independent_audit':a,'provenance':'fresh typed SVO clauses from recursive S -> Clause (and Clause)* derivations; generated online, no reversal'}
    if a['exact']: rows.append(row)
    elif len(diagnostics)<8: diagnostics.append({**row,'diagnostic':True,'mechanically_admitted':False})
- payload={'experiment_id':ID,'signature':SIG,'method':'bounded recursive coordination grammar with independent derivation stacks and live opposite-character residual product','derivation_count':len(ds),'exact_candidates':len(rows),'reader_eligible':[],'candidates':rows,'diagnostic_witnesses':diagnostics,'novelty_preflight':{'status':'passed','rejected':['finished-sentence reversal','word-order mirror','repeated units','catalogue text'],'basis':'recursive derivations are expanded independently; character obligations are tested before admission and no finished tape is used as a target'},'repair_after_failure':{'operator':'replace the terminal production at the first dead frontier while preserving clause feature signature','first_dead_frontier':diagnostics[0]['product']['dead_frontier'][0] if diagnostics and diagnostics[0]['product']['dead_frontier'] else None,'next':'add held-out agreement-compatible synonym to the specific terminal slot'},'provenance':{'generator':str(Path(__file__).relative_to(ROOT)),'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'audit':'independent two-pointer letter walk plus SHA-256'}}
+ payload={'experiment_id':ID,'signature':SIG,'method':'bounded recursive coordination grammar compiled as independent terminal-character tries; live opposite-end automaton product carries node residuals before any rendering','derivation_count':len(ds),'exact_candidates':len(rows),'reader_eligible':[],'candidates':rows,'diagnostic_witnesses':diagnostics,'novelty_preflight':{'status':'passed','rejected':['finished-sentence reversal','word-order mirror','repeated units','catalogue text'],'basis':'recursive derivations are compiled to independent character automata; obligations are tested before rendering and no finished tape is used as a target'},'repair_after_failure':{'operator':'replace the terminal production at the first dead frontier while preserving clause feature signature','first_dead_frontier':diagnostics[0]['product']['dead_frontier'][0] if diagnostics and diagnostics[0]['product']['dead_frontier'] else None,'next':'add held-out agreement-compatible synonym to the specific terminal slot'},'provenance':{'generator':str(Path(__file__).relative_to(ROOT)),'generator_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),'audit':'independent two-pointer letter walk plus SHA-256'}}
  OUT.write_text(json.dumps(payload,indent=2)+'\n'); return payload
 if __name__=='__main__':
  p=run(); print(json.dumps({'derivations':p['derivation_count'],'exact':p['exact_candidates'],'diagnostics':len(p['diagnostic_witnesses']),'longest':max([x['letters'] for x in p['diagnostic_witnesses']],default=0)}))

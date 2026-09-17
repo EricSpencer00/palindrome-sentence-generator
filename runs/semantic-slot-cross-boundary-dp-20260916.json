@@ -1,0 +1,202 @@
+{
+  "experiment_id": "semantic-slot-cross-boundary-dp-20260916",
+  "signature": "heldout-semantic-slot|cross-boundary-character-dp|fresh-scene-family|role-compatible-substitution|new-state",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "choose held-out semantic slot substitutions at live cross-boundary residuals while preserving role constraints in a fresh scene family",
+  "candidates": [
+    {
+      "scene": 0,
+      "slot_bank": {
+        "object": [
+          "damaged compass",
+          "missing atlas",
+          "weathered telescope"
+        ],
+        "adjunct": [
+          "beside the rescue shed",
+          "near the reading room",
+          "under the covered porch"
+        ],
+        "patient": [
+          "arriving hikers",
+          "visiting class",
+          "waiting students"
+        ]
+      },
+      "selected_slots": [
+        "object",
+        "adjunct",
+        "patient"
+      ],
+      "role_constraints": [
+        "ranger studies object",
+        "location adjunct",
+        "volunteer prepares patient"
+      ],
+      "cross_boundary_dp": {
+        "residual_prefix": "atnoonth",
+        "residual_suffix": "nghikers",
+        "slot_order": [
+          "object",
+          "adjunct",
+          "patient"
+        ]
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "At noon, the coastal ranger studies a damaged compass beside the rescue shed, while volunteers prepare fresh water for the arriving hikers.",
+        "letters": 115,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "s"
+        ],
+        "normalized_sha256": "585bc35fe6aed79e286321e08b433e25291ff478366dd4bcce0711dbbab2c0c4",
+        "reverse_sha256": "cbcc69a08a88389ff6675d2ce217b30b02bd2864e003c38fffd7a3dfa8283716",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": false,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "substitute one held-out role-compatible object at first residual and relexicalize its clause",
+        "reason": "fresh prose remains grammatical but no exact closure"
+      }
+    },
+    {
+      "scene": 1,
+      "slot_bank": {
+        "object": [
+          "damaged compass",
+          "missing atlas",
+          "weathered telescope"
+        ],
+        "adjunct": [
+          "beside the rescue shed",
+          "near the reading room",
+          "under the covered porch"
+        ],
+        "patient": [
+          "arriving hikers",
+          "visiting class",
+          "waiting students"
+        ]
+      },
+      "selected_slots": [
+        "object",
+        "adjunct",
+        "patient"
+      ],
+      "role_constraints": [
+        "ranger studies object",
+        "location adjunct",
+        "volunteer prepares patient"
+      ],
+      "cross_boundary_dp": {
+        "residual_prefix": "byevenin",
+        "residual_suffix": "ingclass",
+        "slot_order": [
+          "object",
+          "adjunct",
+          "patient"
+        ]
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "By evening, the school librarian sorts a missing atlas near the reading room, while students arrange quiet tables for the visiting class.",
+        "letters": 113,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "b",
+          "s"
+        ],
+        "normalized_sha256": "184990316ad7a8429d537788ac36e3dc719b3461ddc02852fa96c621b3e55135",
+        "reverse_sha256": "ba9bd1cceecb2758391b921a51d0c8db7b27652acb3020ea638370cef7da9f2b",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "substitute one held-out role-compatible object at first residual and relexicalize its clause",
+        "reason": "fresh prose remains grammatical but no exact closure"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "substitute one held-out role-compatible object at first residual and relexicalize its clause",
+    "reason": "no exact anti-shortcut candidate survived semantic slot DP"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 388,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "function_word_auxiliary_search": false,
+    "prior_scene_reused": false,
+    "word_order_mirror": false
+  },
+  "provenance": {
+    "generator_sha256": "9b90203f5ef86a0f9c2819bfc6b31d83693c922a2ff8c9426708c87372744a1e",
+    "lexical_source": "fresh ranger/library semantic slot banks",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "role constraint replay",
+      "anti-shortcut"
+    ]
+  }
+}

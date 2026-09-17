@@ -73,6 +73,13 @@ def test_semantic_path_run_is_reproducible_and_audited():
     assert all(all(item["satisfied"] for item in row["edge_obligations"]) for row in causal_lc)
     assert all(not row["audit"]["exact"] for row in causal_lc)
     assert all(row["audit"]["mechanical_checks"]["lexicon_words"] for row in causal_lc)
+    frame = data["causal_result_clause_frame_candidates"]
+    assert len(frame) == 3
+    assert all(row["operator"] == "causal_result_clause_frame" for row in frame)
+    assert all("as a result" in row["audit"]["rendered"] for row in frame)
+    assert all(all(item["satisfied"] for item in row["edge_obligations"]) for row in frame)
+    assert all(not row["audit"]["exact"] for row in frame)
+    assert all(row["audit"]["mechanical_checks"]["lexicon_words"] for row in frame)
     for row in data["candidates"]:
         assert row["audit"]["normalized_sha256"] != row["audit"]["reverse_sha256"] or row["audit"]["exact"]
         assert len(row["edge_obligations"]) == 4

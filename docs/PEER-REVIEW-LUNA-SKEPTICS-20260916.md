@@ -128,3 +128,11 @@ ordinary prose and independent exact rejection, with novelty and provenance
 records plus named repairs. They add fourteen non-exact rows without reopening
 a duplicate sweep; the authoritative snapshot is 4,990 rows across 288 routes
 (79 exact rejected tapes; 0 mechanically admitted outputs).
+
+The following Luna continuation adds a 113-letter word-internal seam output
+and four center-first residual-grammar outputs up to 244 letters. A separate
+12-state semantic-relation run is rejected from the retained set because its
+own admission fields identify word-order mirroring and repeated content; its
+91-letter clause and concrete re-authoring repair remain in the evidence log.
+The retained snapshot is 4,995 rows across 290 routes (79 exact rejected
+tapes; 0 mechanically admitted outputs).

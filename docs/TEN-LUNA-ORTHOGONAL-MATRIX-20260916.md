@@ -95,3 +95,21 @@ These lanes add fourteen rows, moving the authoritative aggregate to 4,990
 rows across 288 routes (79 exact tapes, 0 mechanically admitted). The registry
 now records 389 retained artifacts, 32 explicit exclusions, and 367 retained
 run artifacts. None is reader-certified.
+
+## Word-internal seam and residual-center continuation
+
+Two more constructive states were retained after novelty preflight:
+
+- Word-internal seam equation: “a teacher guided the patient apprentice through the winter archive; the recorder preserved a precise account beside the weathered map.” (113 letters; independent two-pointer `false`; forward/reverse SHA differ). The `e == e` morpheme-boundary equation was satisfied inside independently authored words, without a fixed tape or broad morphology sweep. The next repair replaces only the two seam-adjacent morphemes at the first global mismatch.
+- Minimal residual grammar: “The pilot checks the engine. A quiet gardener waters the roses. The mason measures the arched window. A patient teacher guides the new reader. Meanwhile, The sailor marks the distant buoy. A careful nurse carries fresh water. The curator labels the painted vessel. A young driver parks beside the mill.” (244 letters; independent two-pointer `false`; SHA digests differ). An atomic center was committed before feature-agreement SVO growth; the next repair changes one right-side verb/object pair while preserving agreement.
+
+A third relation-plan probe rendered ordinary-looking clauses but its own
+anti-shortcut fields marked every state as word-order-mirror/repeated-content
+control. For example, “the patient keeper opened the garden gate in the morning
+because the harbor crew secured the boat before dusk.” (91 letters; exact
+`false`) is preserved in `runs/semantic-relation-plan-solver-20260916.json`,
+but the family is explicitly excluded and its next repair is to re-author
+distinct lexical roles before promotion. The two retained states add five rows,
+bringing the aggregate to 4,995 rows across 290 routes (79 exact tapes, 0
+mechanically admitted); the registry is 391 retained artifacts, 33 exclusions,
+and 369 retained run artifacts.

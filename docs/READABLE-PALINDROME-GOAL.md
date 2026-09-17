@@ -2201,6 +2201,14 @@ named next repair. The aggregate is 4,898 rows across 247 route phases (79
   reader-eligible. The authoritative snapshot is now 4,990 rows across 288
   routes, with 79 exact rejected tapes and 0 mechanically admitted outputs.
 
+  The next continuation adds a 113-letter word-internal seam scene and a
+  center-first residual grammar that reaches 244 letters through complete SVO
+  growth. A separate relation-plan probe is retained only as excluded evidence
+  because its own anti-shortcut fields identify word-order mirroring and
+  repeated content. The authoritative retained snapshot is now 4,995 rows
+  across 290 routes, with 79 exact rejected tapes and 0 mechanically admitted
+  outputs.
+
   The newest committed wave is measured at **4,967 rows across 283 route phases**
   with **79 exact but rejected tapes and 0 mechanically admitted outputs**. Its
   three actual fresh renderings are a 140-letter archivist/gardener/pilot scene,

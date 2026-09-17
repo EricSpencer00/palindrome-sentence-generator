@@ -811,3 +811,12 @@ harbor/museum scene. Each has intact prose, independent pointer/SHA rejection,
 provenance, novelty preflight, anti-shortcut checks, and a concrete next repair.
 They add fourteen rows, bringing the authoritative audit to 4,990 rows across
 288 routes with 79 exact controls and 0 mechanically admitted outputs.
+
+The next continuation adds a 113-letter word-internal seam scene and four
+atomic-center residual-grammar scenes up to 244 letters. Both retained lanes
+have intact prose, independent pointer/SHA rejection, provenance, novelty
+preflight, anti-shortcut flags, and named repairs. A 12-state semantic-relation
+probe is kept separately as excluded evidence because its own fields mark the
+surfaces as word-order-mirror/repeated-content controls. The authoritative
+retained aggregate is 4,995 rows across 290 routes, with 79 exact controls and
+0 mechanically admitted outputs.

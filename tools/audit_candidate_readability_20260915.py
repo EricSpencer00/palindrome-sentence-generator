@@ -184,6 +184,14 @@ def iter_rows(payload: object, source: str, _context_provenance: object = None) 
                 "provenance": context_provenance,
                 "lane": payload.get("experiment") or payload.get("experiment_id"),
             }
+        rendered_intact_scene = payload.get("rendered_intact_scene")
+        if isinstance(rendered_intact_scene, str) and rendered_intact_scene.strip():
+            yield {
+                "source_run": source,
+                "rendered": rendered_intact_scene,
+                "provenance": context_provenance,
+                "lane": payload.get("experiment") or payload.get("family"),
+            }
         # A few older artifacts store one candidate at the top level.
         text = payload.get("rendered") or payload.get("text")
         if isinstance(text, str) and text.strip():

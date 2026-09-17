@@ -586,3 +586,11 @@ novelty preflight, anti-shortcut flags, and targeted next repairs are recorded;
 none is exact or reader-eligible. The ledger now stands at 4,990 rows across
 288 routes; the registry is 389 retained, 32 excluded, and 367 retained run
 artifacts.
+
+The continuation then adds one word-internal morpheme seam state (113 letters)
+and four center-first residual-grammar growth states (60--244 letters), all
+with independent pointer/SHA rejection and concrete repairs. The 12-state
+semantic-relation plan is explicitly excluded because its generated surfaces
+fail the no-word-order-mirror/no-repeated-content gate; its evidence and repair
+remain preserved. The ledger now stands at 4,995 rows across 290 routes; the
+registry is 391 retained, 33 excluded, and 369 retained run artifacts.

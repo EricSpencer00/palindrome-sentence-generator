@@ -2702,3 +2702,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   are rendered tape-offset mapping, coordinated matrix-subject lexical
   substitution, and one short subject-role alternation while retaining the
   second adverb.
+
+  The next wave completed those operators. Rendered tape-offset support
+  retained 2 intact candidates up to 82 letters; shared-`where` coordinated
+  matrix-subject substitution produced 512 candidates up to 84 letters; and
+  the short subject-role alternation rendered 36 intact candidates up to 150
+  letters, with midpoint-inside-token crossing in every candidate. All
+  produced 0 exact closures. Independent pointer/SHA-256 replay, provenance,
+  novelty preflight, and anti-shortcut checks are retained for every row. The
+  reader gate remains closed. The next concrete operators are opposing-offset
+  lexical choice before tape assembly, joint locative-subject substitution,
+  and a two-frame center seam without another lexical sweep.

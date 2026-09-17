@@ -1,0 +1,164 @@
+{
+  "experiment_id": "finite-semantic-palindrome-csp-20260916",
+  "signature": "finite-semantic-csp|subject-verb-object-adjunct|joint-character-obligations|fresh-scene-family|no-posthoc",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "finite CSP jointly assigns fresh subject, verb, object, and adjunct alternatives while carrying character obligations",
+  "candidates": [
+    {
+      "semantic_slots": {
+        "subject": "The observant ranger",
+        "verb": "studies",
+        "object": "a weathered compass",
+        "adjunct": "beside the rescue shed"
+      },
+      "csp_constraints": [
+        "SVO valency",
+        "locative adjunct",
+        "fresh authored alternatives"
+      ],
+      "character_obligations": {
+        "outer": [
+          "t",
+          "d"
+        ],
+        "center_free": true
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The observant ranger studies a weathered compass beside the rescue shed.",
+        "letters": 61,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "normalized_sha256": "8b050fab81cd2deae2b73768cc3f042e9b6466debb735fede579c67e903477a5",
+        "reverse_sha256": "b590e9ff8e6191d15f29d7efeccc9eb9ecb12d0c805d85a347ee251858c29378",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "replace one object alternative jointly with its verb frame at highest residual",
+        "reason": "complete prose CSP state leaves open character obligation"
+      }
+    },
+    {
+      "semantic_slots": {
+        "subject": "The observant ranger",
+        "verb": "studies",
+        "object": "a weathered compass",
+        "adjunct": "near the museum steps"
+      },
+      "csp_constraints": [
+        "SVO valency",
+        "locative adjunct",
+        "fresh authored alternatives"
+      ],
+      "character_obligations": {
+        "outer": [
+          "t",
+          "s"
+        ],
+        "center_free": true
+      },
+      "semantic_consistency": true,
+      "audit": {
+        "rendered": "The observant ranger studies a weathered compass near the museum steps.",
+        "letters": 60,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "s"
+        ],
+        "normalized_sha256": "3239fb16ffa16a0795fcfe97f2359da704a9a8e476bc4537ce98f42feba2ef39",
+        "reverse_sha256": "144d2f2e73a4b42e8d50125e902074ff2f111670043172837ac819e3c5f32401",
+        "mechanical_checks": {
+          "supported_ascii_letters": true,
+          "nonempty": true,
+          "exact_letter_palindrome": false,
+          "length_band": true,
+          "word_form": true,
+          "lexicon_words": true,
+          "ordinary_short_words": true,
+          "distinct_words": true,
+          "no_self_palindromic_word": true,
+          "not_word_order_symmetry": true,
+          "no_repeated_nontrivial_unit": true,
+          "no_self_palindromic_proper_multiword_span": true,
+          "not_forbidden_catalogue_control": true,
+          "not_catalogue_family_derivative": true,
+          "not_forbidden_catalogue_endpoint_scaffold": true,
+          "absent_from_local_catalogue": true,
+          "local_catalogue_absent": true
+        },
+        "anti_shortcut": {
+          "catalogue_family_derivative": false,
+          "seed_wrapped_or_repeated": false,
+          "word_order_mirror": false,
+          "semordnilap_chain": false,
+          "repeated_self_palindromic_unit": false
+        }
+      },
+      "next_repair": {
+        "operator": "replace one object alternative jointly with its verb frame at highest residual",
+        "reason": "complete prose CSP state leaves open character obligation"
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0
+  },
+  "next_repair": {
+    "operator": "replace one object alternative jointly with its valency-compatible verb at highest residual",
+    "reason": "no exact anti-shortcut closure in fresh finite semantic CSP"
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 394,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "posthoc_readability": false,
+    "word_order_mirror": false,
+    "repeated_units": false
+  },
+  "provenance": {
+    "generator_sha256": "e41d3b36edba506e1a205d9ff70390d922aa9335be63d5db595239a568358f2e",
+    "lexical_source": "new authored subject/verb/object/adjunct alternatives",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "CSP feature replay",
+      "anti-shortcut"
+    ]
+  }
+}

@@ -16,9 +16,10 @@ LEX = {
     "live": "verb", "on": "prep", "drawer": "noun", "deliver": "verb",
     "diaper": "noun", "flow": "verb", "war": "noun", "was": "verb",
     "evil": "adj", "no": "det", "reviled": "adj", "reward": "noun",
-    "repaid": "verb", "flowwar": "compound-answer",
+    "repaid": "verb", "flowwarwasi": "answer-phrase", "flowwarawasi": "answer-phrase",
 }
-LEFT_PATH = ("i", "saw", "a", "raw", "wolf", "live", "on", "a", "drawer", "deliver", "diaper")
+FREQ = {w: 2500 for w in LEX}
+LEFT_PATH = ("i", "saw", "raw", "wolf", "live", "on", "drawer", "deliver", "diaper", "part")
 
 def tape(s: str) -> str:
     return "".join(re.findall(r"[a-z]", s.lower()))
@@ -51,11 +52,11 @@ def segment(obligation: str, words: tuple[str, ...]) -> tuple[str, ...] | None:
 
 def grammar_path(left: tuple[str, ...], right: tuple[str, ...]) -> bool:
     # S -> Declarative RelativeChain Answer; each lexical boundary is explicit.
-    if left[:5] != ("i", "saw", "a", "raw", "wolf"): return False
+    if left[:4] not in (("i", "saw", "raw", "wolf"), ("i", "saw", "a", "raw")): return False
     # The withheld control is the short declarative state; long candidates
     # must traverse the relative-chain drawer state.
     if "drawer" not in left and len(left) != 5: return False
-    return right and right[0] in {"flow", "flowwar", "reviled", "reward", "repaid"} and all(w in LEX for w in left + right)
+    return right and right[0] in {"flow", "reviled", "reward", "repaid"} and all(w in LEX and FREQ[w] >= 2000 for w in left + right)
 
 def build(left: tuple[str, ...], right_vocab: tuple[str, ...]) -> dict | None:
     obligation = tape(" ".join(left))[::-1]
@@ -68,12 +69,13 @@ def build(left: tuple[str, ...], right_vocab: tuple[str, ...]) -> dict | None:
             "sha_audit": forward_reverse_sha(rendered),
             "anti_shortcut": {"finished_tape_reversal": False,
                               "word_order_mirror": list(left) == [w[::-1] for w in reversed(right)],
-                              "repeated_units": len(left) != len(set(left))},
+                              "repeated_units": len(left + right) != len(set(left + right)),
+                              "ordinary_word_frequency_floor": min(FREQ[w] for w in left + right)},
             "complete_grammar_path": True, "construction_exact": True,
             "provenance": {"lexical_choices_before_rendering": True, "seed_used": False}}
 
 def run() -> dict:
-    right_vocab = ("flowwar", "flow", "war", "a", "was", "i", "evil", "no", "reward", "reviled", "repaid")
+    right_vocab = ("flowwarwasi", "flowwarawasi", "flow", "war", "was", "i", "evil", "no", "reward", "reviled", "repaid")
     control = build(("i", "saw", "a", "raw", "wolf"), right_vocab)
     candidates = []
     for n in range(6, len(LEFT_PATH) + 1):

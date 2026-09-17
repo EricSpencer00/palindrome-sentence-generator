@@ -2459,3 +2459,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   concrete operators are relative-clause lexical valency bundles,
   valency-gated relative determiner alternation, and a new syntactic
   attachment family for the center-crossing state.
+
+  The next wave completed those operators. Relative-clause lexical valency
+  bundles rendered 6 intact candidates up to 98 letters; valency-gated
+  relative-determiner alternation tested 6,656 candidates up to 61 letters;
+  and the new center-crossing relative-attachment family rendered 54 intact
+  candidates up to 179 letters, with midpoint-inside-token crossing in every
+  candidate. All produced 0 exact closures. Independent pointer/SHA-256
+  replay, provenance, novelty preflight, and anti-shortcut checks are retained
+  for every row. The reader gate remains closed. The next concrete operators
+  are a joint relative/opposing-bundle seam CSP, a state-permitted
+  `that`/`where` complementizer alternation, and a distinct appositive
+  attachment family in the center-crossing grammar.

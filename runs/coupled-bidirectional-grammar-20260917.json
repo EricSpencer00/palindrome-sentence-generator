@@ -1,0 +1,88 @@
+{
+  "chart_counts": [
+    1,
+    1,
+    0
+  ],
+  "terminal_candidates": [],
+  "pruned": {
+    "character_conflict": 33,
+    "length_outside_target": 0
+  },
+  "limit": 100000,
+  "scene_slots": [
+    "det",
+    "agent",
+    "verb",
+    "patient",
+    "prep",
+    "place"
+  ],
+  "domain_sizes": {
+    "det": 3,
+    "agent": 5,
+    "verb": 5,
+    "patient": 5,
+    "prep": 5,
+    "place": 5
+  },
+  "experiment_id": "coupled-bidirectional-grammar-20260917",
+  "signature": "coupled-bidirectional-grammar|typed-scene-slots|opposite-edge-letter-buffer|independent-word-boundaries|online-exact-csp",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "method": "paired typed scene derivations with online opposite-edge buffer; each end emits an independently selected intact word",
+  "withheld_control": {
+    "text": "Never odd or even.",
+    "audit": {
+      "rendered": "Never odd or even.",
+      "letters": 14,
+      "exact": true,
+      "two_pointer_exact": true,
+      "first_mismatch": null,
+      "normalized_sha256": "78b03b1f67602eeabb9dcf2723b4f4988ddc0a262ce41b34cfc97b81a756eec4",
+      "reverse_sha256": "78b03b1f67602eeabb9dcf2723b4f4988ddc0a262ce41b34cfc97b81a756eec4",
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": false,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": false,
+        "local_catalogue_absent": false
+      }
+    },
+    "used_as_generated_output": false
+  },
+  "novelty_preflight": {
+    "registry_entries_read": 492,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "fixed_tape_used": false,
+    "word_order_mirror": false,
+    "repeated_unit": false
+  },
+  "next_repair": {
+    "operator": "split each lexical slot into boundary-aware subword states and propagate the residual before selecting its synonym",
+    "reason": "the typed scene grammar loses all states at the first character intersection; expanding the same domains would be a duplicate sweep"
+  },
+  "provenance": {
+    "generator_sha256": "5708b7a40fd15a36698523947562afd3abbf6b995494a960b681143d843be114",
+    "lexical_source": "fresh small authored scene domains",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256",
+      "withheld control",
+      "online residual CSP"
+    ]
+  }
+}

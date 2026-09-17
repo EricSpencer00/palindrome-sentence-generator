@@ -1,0 +1,87 @@
+{
+  "experiment_id": "semantic-slot-temporal-followup-20260916",
+  "signature": "heldout-temporal-adjunct-repair|preserved-gardener-slots|single-state|independent-pointer-sha",
+  "status": "completed",
+  "method": "single held-out temporal adjunct replacement preserving all gardener event slots",
+  "candidate": {
+    "rendered": "Before dusk, the patient gardener carries a wrapped bundle near the glasshouse, records its arrival in the weather ledger, and waits for the evening porter to wheel the cart into the dry storehouse.",
+    "letters": 162,
+    "repair_operator": {
+      "changed_slot": "temporal_adjunct",
+      "from": "After rain",
+      "to": "Before dusk",
+      "preserved_event_slots": [
+        "gardener",
+        "bundle",
+        "glasshouse",
+        "ledger",
+        "porter",
+        "dry storehouse"
+      ],
+      "held_out": true
+    },
+    "exact_audit": {
+      "algorithm": "independent_two_pointer_plus_normalized_sha256",
+      "letters": 162,
+      "two_pointer_exact": false,
+      "mismatch_count": 73,
+      "first_mismatch": {
+        "left": 0,
+        "right": 161,
+        "a": "b",
+        "b": "e"
+      },
+      "sha256_forward": "05746fff6b41cb5992247df4320c7b0d17296f88f432ddb2430a95a7db3344ca",
+      "sha256_reverse": "6e8f43dc144808a822150ae02c7941d54302a0f7f895891dcf987a068842cd3f",
+      "sha_equal": false
+    },
+    "checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": false,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": true,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "mechanically_admitted": false,
+    "provenance": {
+      "fresh_authored_scene": true,
+      "source_sentences_copied": false,
+      "catalogue_imported": false,
+      "borrowed_text": false,
+      "reversed_finished_sentence": false,
+      "word_order_symmetry": false,
+      "repeated_self_palindromic_unit": false,
+      "generator_sha256": "69948f001db73cb714cda35b16dc9321dda3c04bd45e2bf677bd5ca25d763dab"
+    }
+  },
+  "stats": {
+    "targeted_states": 1,
+    "exact": 0,
+    "mechanically_admitted": 0
+  },
+  "novelty_preflight": {
+    "performed_before_search": true,
+    "exact_id_collision": false,
+    "exact_signature_collision": false,
+    "status": "passed",
+    "sweep": false
+  },
+  "next_repair": "Change only the porter action verb at the next residual while preserving temporal, object, and locative slots; do not reopen prior states.",
+  "reader_status": "not eligible: no exact mechanically admitted candidate",
+  "provenance": {
+    "generator_sha256": "69948f001db73cb714cda35b16dc9321dda3c04bd45e2bf677bd5ca25d763dab",
+    "generated_not_catalogue": true
+  }
+}

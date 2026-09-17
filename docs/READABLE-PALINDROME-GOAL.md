@@ -3212,3 +3212,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   closures. The independent audit and provenance checks pass; the next CFG
   operator is a typed relative-clause predicate slot with role-preserving
   valency.
+
+  The latest three repairs remained exact-zero but moved the state boundary
+  earlier: trie-valued boundary/role nodes rendered intact prose to 101
+  letters; joint agreement-tense-aspect states retained 6 intact candidates to
+  58 letters; and typed relative-predicate slots rendered 2,304 intact
+  sentences, with a 55-letter maximum. Independent audits, provenance,
+  novelty, and anti-shortcut checks pass. The next operators are exact
+  boundary-node requirements, lexical aspect/adverb coupling, and a typed
+  relative-object slot with semantic-class agreement.

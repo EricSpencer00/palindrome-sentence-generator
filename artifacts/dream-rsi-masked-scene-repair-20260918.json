@@ -1,0 +1,145 @@
+{
+  "experiment": "dream-rsi-masked-scene-repair-20260918",
+  "method": "Dream-RSI iterative character-level masked scene infilling",
+  "construction": {
+    "typed_scene_slots": true,
+    "first_mismatch_mask": true,
+    "monotone_repair_only": true,
+    "live_character_equations": true,
+    "grammar_preserved": true,
+    "independent_two_pointer_hash_audit": true
+  },
+  "pairs": [
+    {
+      "nodes": [],
+      "trace": [
+        {
+          "step": 0,
+          "mask": {
+            "offset": 0,
+            "left": "t",
+            "right": "s"
+          },
+          "mismatches": 29,
+          "rendered": "the baker maps fresh notes near dawn. a quiet nurse folds old maps after class.",
+          "equations_checked": 31
+        }
+      ],
+      "rendered": "the baker maps fresh notes near dawn. a quiet nurse folds old maps after class.",
+      "audit": {
+        "letters": 63,
+        "two_pointer_exact": false,
+        "mismatches": 29,
+        "sha256_forward": "10e33efee8a782cf70137ba1e0a309bca2c633ac934b79ad8f812537ec44fcf0",
+        "sha256_reverse": "4ef3feaa995caa89532e125fe15d888f8549392d0933172e3f4c3e506946de94"
+      }
+    },
+    {
+      "nodes": [
+        {
+          "step": 0,
+          "mask_slot": "agent",
+          "replacement": "the baker",
+          "before": 36,
+          "after": 32,
+          "accepted": true
+        }
+      ],
+      "trace": [
+        {
+          "step": 0,
+          "mask": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "mismatches": 36,
+          "rendered": "the young sailor marks winter herbs by the harbor. a gardener opens blue letters in the garden.",
+          "equations_checked": 38
+        },
+        {
+          "step": 1,
+          "mask": {
+            "offset": 0,
+            "left": "t",
+            "right": "n"
+          },
+          "mismatches": 32,
+          "rendered": "the baker marks winter herbs by the harbor. a gardener opens blue letters in the garden.",
+          "equations_checked": 35
+        }
+      ],
+      "rendered": "the baker marks winter herbs by the harbor. a gardener opens blue letters in the garden.",
+      "audit": {
+        "letters": 71,
+        "two_pointer_exact": false,
+        "mismatches": 32,
+        "sha256_forward": "5c6c75259687e030f03433cb07fb0ac1a0985cb966ba0a56f30b70bb70a8f4f0",
+        "sha256_reverse": "baf84c309e319fee78a46fe1e0737c1aa4de7733393f282c13cfe5ca36f4f66f"
+      }
+    }
+  ],
+  "rendered_candidates": [
+    {
+      "candidate_id": "masked-scene-control-0",
+      "rendered": "the baker maps fresh notes near dawn. a quiet nurse folds old maps after class.",
+      "audit": {
+        "letters": 63,
+        "two_pointer_exact": false,
+        "mismatches": 29,
+        "sha256_forward": "10e33efee8a782cf70137ba1e0a309bca2c633ac934b79ad8f812537ec44fcf0",
+        "sha256_reverse": "4ef3feaa995caa89532e125fe15d888f8549392d0933172e3f4c3e506946de94"
+      },
+      "reader_status": "human-unreviewed",
+      "provenance": {
+        "fresh_authored_scene": true,
+        "catalogue_used": false,
+        "reversed_tape_used": false,
+        "repeated_self_palindromic_unit": false
+      }
+    },
+    {
+      "candidate_id": "masked-scene-control-1",
+      "rendered": "the baker marks winter herbs by the harbor. a gardener opens blue letters in the garden.",
+      "audit": {
+        "letters": 71,
+        "two_pointer_exact": false,
+        "mismatches": 32,
+        "sha256_forward": "5c6c75259687e030f03433cb07fb0ac1a0985cb966ba0a56f30b70bb70a8f4f0",
+        "sha256_reverse": "baf84c309e319fee78a46fe1e0737c1aa4de7733393f282c13cfe5ca36f4f66f"
+      },
+      "reader_status": "human-unreviewed",
+      "provenance": {
+        "fresh_authored_scene": true,
+        "catalogue_used": false,
+        "reversed_tape_used": false,
+        "repeated_self_palindromic_unit": false
+      }
+    }
+  ],
+  "fresh_exact_closures": [],
+  "stats": {
+    "fresh_nodes": 1,
+    "fresh_exact": 0,
+    "longest_control_letters": 71
+  },
+  "novelty_preflight": {
+    "new_geometry": "first-mismatch typed mask with monotone scene repair",
+    "prior_lane_reused": false,
+    "duplicate_sweep": false,
+    "catalogue_used": false
+  },
+  "reader_gate": {
+    "status": "not_triggered",
+    "programmatic_metrics_are_diagnostic": true
+  },
+  "next_repair": {
+    "operator": "jointly reopen mirrored verb-object slots with valency-preserving alternatives",
+    "reason": "single-slot monotone repair stalls before satisfying cross-word equations"
+  },
+  "provenance": {
+    "fresh_bank_authored_for_run": true,
+    "generator_sha256": "d3dbff45cfbef52ae7a4041d872b43ad10b885860ad2053e86add90b54d9bb72",
+    "human_readability_certified": false
+  }
+}

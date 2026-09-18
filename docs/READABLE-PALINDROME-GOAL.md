@@ -3720,3 +3720,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   candidate and remains quarantined. This is a concrete repair trace for the
   next run—expand only role-compatible alternatives that match successive seam
   characters—rather than a claim that a failed trace is a result.
+
+  Dream-RSI round twenty-three replays this evidence as 16,618 nodes across
+  442 worlds, with 44 parent edges and seven branching parents. The selected
+  `whole_passage_focus` policy remains indistinguishable from the alternatives
+  on the training metrics; held-out replay has zero admissible exact closures,
+  113 rejected exact controls, and a best intact diagnostic of 159 letters at
+  0.794 mismatch rate. This is the intended Dream-RSI diagnostic: the replay
+  can identify that the history lacks useful sibling choices, but it cannot
+  manufacture a palindrome that was never present in a recorded transition.

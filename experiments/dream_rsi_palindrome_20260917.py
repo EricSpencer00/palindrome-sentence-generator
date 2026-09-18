@@ -102,6 +102,8 @@ EXPLICIT_HISTORY = (
     "runs/relative-seam-two-word-bridge-20260917.json",
     "runs/semantic-frame-seam-replacement-20260917.json",
     "runs/relative-seam-bridge-complement-20260917.json",
+    "runs/relative-seam-typed-oneword-complement-20260917.json",
+    "runs/frame-pair-seam-csp-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")

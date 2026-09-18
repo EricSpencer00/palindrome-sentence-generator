@@ -4043,6 +4043,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   operator is typed one-word complement substitution with the bridge held
   fixed.
 
+- **Typed one-word seam complement, 2026-09-17:** held the `and then` bridge
+  fixed and varied only typed one-word complements across 64 complete prose
+  candidates.  The longest was 88 letters, the best residual was 58, and exact
+  closures were zero.  The next repair jointly chooses the complement with a
+  minimal auxiliary at the seam.
+
+- **Frame-pair seam CSP, 2026-09-17:** applied a pre-render one-letter seam
+  constraint to nine authored frame pairs, rejecting three before rendering
+  and retaining six complete passages up to 142 letters.  Exact closures were
+  zero and the best residual was 124, worse than the prior seam repair; the
+  next refinement is a two-letter seam CSP with role-compatible alternatives.
+
+  Dream-RSI round 53 replays 18,689 audited nodes including the typed
+  complement and frame-CSP lanes.  The held-out policy remains 0.780 with zero
+  mechanically admissible exact rows.  Replay is now a stable routing baseline;
+  the next useful change is the queued two-letter CSP and semantic auxiliary
+  repair, not another larger history sweep.
+
   Dream-RSI round 52 replays 18,619 audited nodes including the live deployment
   and both fresh repairs.  The held-out mismatch-first policy remains 0.780
   with zero mechanically admissible exact rows; this unchanged score is treated

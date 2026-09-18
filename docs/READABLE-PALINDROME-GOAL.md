@@ -4356,6 +4356,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   The next repair replaces that single winner with a bounded Pareto frontier so
   short and long center candidates both survive to live equation solving.
 
+- **Dream-RSI round 69, 2026-09-17:** replayed 501 worlds and 19,391 audited
+  nodes after the tense/valency and live-seam additions.  Fixed mismatch-first
+  remained the held-out winner at 0.780 (431 held-out worlds), with zero
+  mechanically admissible exact rows and 107 exact-but-rejected rows.  The
+  controller therefore advances to the queued Pareto-center and seam-conditioned
+  repair operators; it does not promote this plateau to a result.
+
 - **Dream-RSI round 68, 2026-09-17:** replayed 499 worlds and 19,355 audited
   nodes after the constrained seam repairs.  Fixed mismatch-first remained the
   held-out winner at 0.780 (429 held-out worlds), with zero mechanically

@@ -336,6 +336,7 @@ pairs for review. The latest routes are below the review threshold:
 | `seed-joint-slot-resegment-20260916` | none (0.000) | 0.000 | retained because semantic-slot substitutions and determiner/adjective boundaries are selected jointly on a fresh scene; 9 complete 45–62-letter probes, 0 exact |
 | `lexical-word-equation-grammar-intersection-20260916` | none (0.000) | 0.000 | retained because held-out clauses choose typed lexical realizations under live word-boundary equations; 4 complete 133–143-letter probes, 0 exact |
 | `authored-semantic-seam-lattice` | none (0.000) | 0.000 | retained because independently authored semantic phrase banks are crossed outside-in around a non-palindromic `was` center edge; 112 exact closures, longest 48 letters, all rejected for repeated/self-palindromic phrase reuse |
+| `imperative-vocative-seedless` | none (0.000) | 0.000 | retained because seedless imperative/vocative speech-act templates are crossed around non-palindromic discourse centers; 728 rendered pairs, 0 exact/admitted/reader rows |
 
 The JSON report is retained at `runs/novelty-audit-20260915.json`. Near-pair
 flags are not claims of equivalence; they are a stop-and-review gate before

@@ -3867,3 +3867,9 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   current fixed five-slot scenes with a residual-driven center setting/answer
   expansion.  The mirror-pair inventory is now explicitly a diagnostic source,
   not a generator or a readability shortcut.
+- **Seedless imperative/vocative utterance lattice, 2026-09-17:** crossed
+  independently authored imperative and vocative speech-act templates around
+  four non-palindromic discourse centers (`was`, `said`, `asked`, `told`).
+  The 728 rendered, provenance-tagged probes produced zero exact closures;
+  the closest controls still repeated content or failed the reverse tape.
+  This lane used no seed-wrap composite and produced no reader evidence.

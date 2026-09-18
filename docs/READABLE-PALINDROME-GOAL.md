@@ -5304,3 +5304,5 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   remains fixed mismatch-first at 0.780 and the admissible exact count remains
   0.  The failure is preserved with the concrete typed determiner/adjunct
   attachment repair; no replay-budget expansion is counted as progress.
+
+- **Typed determiner/adjunct attachment seam, 2026-09-18:** added typed determiner and scene-adjunct attachment variants while preserving reciprocal preposition valency and animate/inanimate object types. Live equations were checked before rendering; the lane produced 0 equation-compatible nodes and 0 exact closures. Fresh intact controls remain 66–68 letters, independently audited and human-unreviewed, so the reader gate is closed. The next repair adds noun-number inflection and semantic valency checks at both attachment seams.

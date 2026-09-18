@@ -4410,6 +4410,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   mismatches and exact closures were zero.  The next repair couples this NP
   state with tense alternation.
 
+- **Class-length-matched seam repair, 2026-09-18:** enforced equal paired
+  replacement-length deltas within opposing character classes, rejecting two
+  of four states before rendering.  Two complete passages remained (up to 117
+  letters); the best audit had 108 mismatches and exact closures were zero.
+  The next repair couples semantic heads and verbs under the same gate.
+
+- **NP-agreement/preposition/tense repair, 2026-09-18:** coupled locative NP
+  number, preposition, and tense.  Thirty-two complete rows reached 93 letters;
+  the best audit had 56 mismatches and exact closures were zero.  The next
+  operator couples tense with the locative NP determiner.
+
 - **Dream-RSI round 74, 2026-09-18:** replayed 511 worlds and 19,570 audited
   nodes after the character-class and NP-agreement additions.  Fixed
   mismatch-first remained the held-out winner at 0.780 (440 held-out worlds),
@@ -4483,3 +4494,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   mechanically admissible exact rows and 107 exact-but-rejected rows.  The
   replay plateau is now an explicit trigger for the next representation change;
   it is not a readability or speed result.
+
+- **Full typed edge frontier and unfreezing fix, 2026-09-18:** expanded the
+  first/terminal adjunct frontier and corrected a prefix-freezing bug so the
+  optimizer selects all three components from scratch.  The corrected target
+  rows reached 177, 207, 283, and 388 letters; the best audit had 170
+  mismatches and exact closures were zero.  Duplicate-content rejection stays
+  active; the next repair carries residual ranking into internal adjunct word
+  boundaries.
+
+- **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
+  nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
+  remained the held-out winner at 0.780 (443 held-out worlds), with zero
+  mechanically admissible exact rows and 107 exact-but-rejected rows.  The
+  controller now advances to internal word-boundary edits and seam-conditioned
+  residual ranking; this plateau is not a readability result.

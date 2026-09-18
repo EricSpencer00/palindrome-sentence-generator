@@ -5038,3 +5038,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   and exact admissible rows remain zero.  This confirms that branch accounting
   is working while the construction quality is still unchanged; the next action
   is the three queued seam/bridge repairs, not a larger replay budget.
+
+- **Dream-RSI exact-boundary grammar zipper, 2026-09-18:** the routing plateau
+  triggered a change to the transition system rather than another score sweep.
+  Three deterministic policies grew paired typed grammar derivations from
+  opposite syntax ends, comparing newly exposed characters before a child was
+  admitted and carrying residual length across word boundaries.  The fresh
+  authored bank produced 9 bounded nodes and 0 exact closures; complete fresh
+  controls were rendered and independently audited up to 48 letters.  A
+  withheld smoke bank recovered the existing 38-letter seed in 12 replay
+  traces, but those rows are explicitly excluded from candidate counts and
+  reader evidence.  This is a construction-method result, not a readability
+  claim.  The next repair is a held-out auxiliary/relative-clause frame on the
+  same live residual state, followed by a fresh exact closure and only then a
+  blinded reader package.
+
+- **Dream-RSI round 99, 2026-09-18:** replayed 552 worlds and 21,493 audited
+  nodes after adding the exact-boundary construction tree.  The historical
+  held-out winner and mismatch rate were unchanged (fixed mismatch-first,
+  0.780), so the new lane is not being presented as a routing improvement.
+  Its value is architectural: it supplies a true exact-compatible transition
+  frontier for the next grammar repair, while the withheld seed fixture is
+  excluded from replay admission.

@@ -4905,6 +4905,26 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact-but-rejected rows.  The next construction step expands role
   alternatives under valency rather than increasing boundary obligations.
 
+- **Valency-aware role-trie expansion, 2026-09-18:** varied transitive,
+  ditransitive, and locative frames across the rain/agent/bird/bay/spray/fog
+  role inventory.  It rendered 1,458 complete prose candidates, but no
+  two-character paired-boundary survivor and no exact closure; the longest was
+  104 letters and the best mismatch count remained 56.  The next repair makes
+  predicate-argument boundaries live rather than fixed phrase-edge characters.
+
+- **Role-compatible verb-class repair, 2026-09-18:** substituted verbs within
+  semantic role, number, inflection class, and attachment.  Four complete
+  passages reached 113 letters; the best audit had 90 mismatches and exact
+  closures were zero.  The next repair matches substituted verb lengths at the
+  seam.
+
+- **Attachment/locative-length repair, 2026-09-18:** coupled subject/object
+  attachment with short or expanded locative phrase length while preserving
+  determiner, preposition, anaphor class, and three-way agreement.  Sixteen
+  complete rows reached 96 letters; the best audit had 60 mismatches and exact
+  closures were zero.  The next repair couples attachment with locative
+  complement semantics.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

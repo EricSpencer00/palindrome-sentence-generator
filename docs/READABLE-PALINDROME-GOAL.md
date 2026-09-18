@@ -3763,3 +3763,26 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   failure-only chart and scene traces remain quarantined without fabricated
   text. The replay still has 16,649 nodes, zero admissible exact closures, and
   a closed reader gate; this is routing evidence, not a candidate.
+
+  Round twenty-nine replaces the overclaimed typed/CFG lanes with a verified
+  counterexample-guided role-product constructor.  Its inner solver is the
+  existing outside-in character-edge product; every pushed transition already
+  matches the opposite character, and a grammar-path replay plus an
+  independent two-pointer/SHA audit checks each closure.  At a dead state the
+  run records the two live grammatical roles and their incompatible character
+  sets.  The next round adds only authored, role-compatible lexical entries
+  that address that boundary obligation, then reruns the same product.  A
+  small independent oracle agrees with the product on all exact paths in a
+  synthetic grammar, and the withheld 38-letter benchmark is recovered with
+  matching forward/reverse SHA-256.  The benchmark is explicitly excluded from
+  generated candidates.
+
+  On three fresh clause patterns and four bounded repair rounds, the run
+  visited six bounded frontiers and produced zero fresh exact closures.  The
+  first repairs are concrete (for example, adding `each`/`every` at a
+  determiner boundary and `path` at a noun boundary); later frontiers expose
+  unavailable boundary letters, so the next operator must widen the authored
+  reservoir or change the clause pattern.  No text from the withheld witness
+  enters Dream-RSI replay, and no reader claim is made.  This is a corrected,
+  executable construction loop—not evidence that a long readable palindrome
+  has already been found.

@@ -89,3 +89,9 @@ def test_failure_repair_policy_is_distinct_and_actionable_nodes_score_higher():
 
 def test_malformed_mismatch_trace_is_not_promoted_as_seam_repair():
     assert dream._failure_signature({"mismatches": [[0, 9, None, None]]}, {}) == "unclassified"
+
+
+def test_withheld_kernel_fixture_is_not_loaded_as_a_replay_candidate():
+    worlds = dream.load_worlds()
+    assert not any(node.source_path == "runs/cegar-role-product-20260917.json"
+                   for node in worlds)

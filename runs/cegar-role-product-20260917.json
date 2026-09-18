@@ -1,0 +1,712 @@
+{
+  "experiment_id": "cegar-role-product-20260917",
+  "signature": "dream-rsi|counterexample-guided-role-lexicon|live-character-product|independent-audit",
+  "status": "completed_no_fresh_exact_closure",
+  "method": "counterexample-guided role lexicon expansion over a live character-edge product",
+  "withheld_kernel_witness": {
+    "text": "an aide rips nine memos some men inspire diana",
+    "letters": 38,
+    "product_records": 1,
+    "audit": {
+      "algorithm": "independent_two_pointer_scan",
+      "letters": 38,
+      "exact": true,
+      "mismatches": [],
+      "forward_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+      "reverse_sha256": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+    },
+    "withheld": true,
+    "not_a_generated_candidate": true
+  },
+  "patterns": [
+    [
+      "det",
+      "noun",
+      "verb",
+      "det",
+      "noun"
+    ],
+    [
+      "det",
+      "adj",
+      "noun",
+      "verb",
+      "det",
+      "noun"
+    ],
+    [
+      "det",
+      "adj",
+      "noun",
+      "verb",
+      "det",
+      "adj",
+      "noun"
+    ]
+  ],
+  "rounds": [
+    {
+      "pattern": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "round": 0,
+      "lexicon_sizes": {
+        "det": 6,
+        "adj": 10,
+        "noun": 19,
+        "verb": 13
+      },
+      "states": 3,
+      "truncated": false,
+      "exact_records": 0,
+      "mechanically_admitted": 0,
+      "rendered_rows": [],
+      "dead_frontiers": [
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "h"
+          ],
+          "right_prev_chars": [
+            "e"
+          ],
+          "left_words": [],
+          "right_words": [
+            "poet"
+          ],
+          "reason": "no_equal_live_character_edge"
+        },
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "h"
+          ],
+          "right_prev_chars": [
+            "s"
+          ],
+          "left_words": [],
+          "right_words": [
+            "artist"
+          ],
+          "reason": "no_equal_live_character_edge"
+        }
+      ],
+      "repair_actions": [
+        {
+          "role": "det",
+          "word": "each",
+          "needed_chars": [],
+          "matched_boundary": "first_against_right",
+          "matched_pairs": 1
+        },
+        {
+          "role": "det",
+          "word": "every",
+          "needed_chars": [],
+          "matched_boundary": "first_against_right",
+          "matched_pairs": 1
+        },
+        {
+          "role": "noun",
+          "word": "path",
+          "needed_chars": [],
+          "matched_boundary": "last_against_left",
+          "matched_pairs": 1
+        },
+        {
+          "role": "noun",
+          "word": "path",
+          "needed_chars": [],
+          "matched_boundary": "last_against_left",
+          "matched_pairs": 1
+        }
+      ],
+      "next_repair": {
+        "operator": "role-compatible boundary lexical expansion",
+        "applied": true,
+        "roles": [
+          "det",
+          "noun"
+        ]
+      }
+    },
+    {
+      "pattern": [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "round": 1,
+      "lexicon_sizes": {
+        "noun": 20,
+        "det": 8,
+        "verb": 13,
+        "adj": 10
+      },
+      "states": 5,
+      "truncated": false,
+      "exact_records": 0,
+      "mechanically_admitted": 0,
+      "rendered_rows": [],
+      "dead_frontiers": [
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "v"
+          ],
+          "right_prev_chars": [
+            "s"
+          ],
+          "left_words": [],
+          "right_words": [
+            "nurse"
+          ],
+          "reason": "no_equal_live_character_edge"
+        },
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "a"
+          ],
+          "right_prev_chars": [
+            "s"
+          ],
+          "left_words": [],
+          "right_words": [
+            "nurse"
+          ],
+          "reason": "no_equal_live_character_edge"
+        },
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "h"
+          ],
+          "right_prev_chars": [
+            "e"
+          ],
+          "left_words": [],
+          "right_words": [
+            "poet"
+          ],
+          "reason": "no_equal_live_character_edge"
+        },
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "h"
+          ],
+          "right_prev_chars": [
+            "s"
+          ],
+          "left_words": [],
+          "right_words": [
+            "artist"
+          ],
+          "reason": "no_equal_live_character_edge"
+        }
+      ],
+      "repair_actions": [],
+      "next_repair": {
+        "operator": "role-compatible boundary lexical expansion",
+        "applied": false,
+        "roles": []
+      }
+    },
+    {
+      "pattern": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "round": 0,
+      "lexicon_sizes": {
+        "det": 6,
+        "adj": 10,
+        "noun": 19,
+        "verb": 13
+      },
+      "states": 3,
+      "truncated": false,
+      "exact_records": 0,
+      "mechanically_admitted": 0,
+      "rendered_rows": [],
+      "dead_frontiers": [
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "h"
+          ],
+          "right_prev_chars": [
+            "e"
+          ],
+          "left_words": [],
+          "right_words": [
+            "poet"
+          ],
+          "reason": "no_equal_live_character_edge"
+        },
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "h"
+          ],
+          "right_prev_chars": [
+            "s"
+          ],
+          "left_words": [],
+          "right_words": [
+            "artist"
+          ],
+          "reason": "no_equal_live_character_edge"
+        }
+      ],
+      "repair_actions": [
+        {
+          "role": "det",
+          "word": "each",
+          "needed_chars": [],
+          "matched_boundary": "first_against_right",
+          "matched_pairs": 1
+        },
+        {
+          "role": "det",
+          "word": "every",
+          "needed_chars": [],
+          "matched_boundary": "first_against_right",
+          "matched_pairs": 1
+        },
+        {
+          "role": "noun",
+          "word": "path",
+          "needed_chars": [],
+          "matched_boundary": "last_against_left",
+          "matched_pairs": 1
+        },
+        {
+          "role": "noun",
+          "word": "path",
+          "needed_chars": [],
+          "matched_boundary": "last_against_left",
+          "matched_pairs": 1
+        }
+      ],
+      "next_repair": {
+        "operator": "role-compatible boundary lexical expansion",
+        "applied": true,
+        "roles": [
+          "det",
+          "noun"
+        ]
+      }
+    },
+    {
+      "pattern": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "round": 1,
+      "lexicon_sizes": {
+        "noun": 20,
+        "det": 8,
+        "verb": 13,
+        "adj": 10
+      },
+      "states": 5,
+      "truncated": false,
+      "exact_records": 0,
+      "mechanically_admitted": 0,
+      "rendered_rows": [],
+      "dead_frontiers": [
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "v"
+          ],
+          "right_prev_chars": [
+            "s"
+          ],
+          "left_words": [],
+          "right_words": [
+            "nurse"
+          ],
+          "reason": "no_equal_live_character_edge"
+        },
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "a"
+          ],
+          "right_prev_chars": [
+            "s"
+          ],
+          "left_words": [],
+          "right_words": [
+            "nurse"
+          ],
+          "reason": "no_equal_live_character_edge"
+        },
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "h"
+          ],
+          "right_prev_chars": [
+            "e"
+          ],
+          "left_words": [],
+          "right_words": [
+            "poet"
+          ],
+          "reason": "no_equal_live_character_edge"
+        },
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "h"
+          ],
+          "right_prev_chars": [
+            "s"
+          ],
+          "left_words": [],
+          "right_words": [
+            "artist"
+          ],
+          "reason": "no_equal_live_character_edge"
+        }
+      ],
+      "repair_actions": [],
+      "next_repair": {
+        "operator": "role-compatible boundary lexical expansion",
+        "applied": false,
+        "roles": []
+      }
+    },
+    {
+      "pattern": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "adj",
+        "noun"
+      ],
+      "round": 0,
+      "lexicon_sizes": {
+        "det": 6,
+        "adj": 10,
+        "noun": 19,
+        "verb": 13
+      },
+      "states": 3,
+      "truncated": false,
+      "exact_records": 0,
+      "mechanically_admitted": 0,
+      "rendered_rows": [],
+      "dead_frontiers": [
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "h"
+          ],
+          "right_prev_chars": [
+            "e"
+          ],
+          "left_words": [],
+          "right_words": [
+            "poet"
+          ],
+          "reason": "no_equal_live_character_edge"
+        },
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "h"
+          ],
+          "right_prev_chars": [
+            "s"
+          ],
+          "left_words": [],
+          "right_words": [
+            "artist"
+          ],
+          "reason": "no_equal_live_character_edge"
+        }
+      ],
+      "repair_actions": [
+        {
+          "role": "det",
+          "word": "each",
+          "needed_chars": [],
+          "matched_boundary": "first_against_right",
+          "matched_pairs": 1
+        },
+        {
+          "role": "det",
+          "word": "every",
+          "needed_chars": [],
+          "matched_boundary": "first_against_right",
+          "matched_pairs": 1
+        },
+        {
+          "role": "noun",
+          "word": "path",
+          "needed_chars": [],
+          "matched_boundary": "last_against_left",
+          "matched_pairs": 1
+        },
+        {
+          "role": "noun",
+          "word": "path",
+          "needed_chars": [],
+          "matched_boundary": "last_against_left",
+          "matched_pairs": 1
+        }
+      ],
+      "next_repair": {
+        "operator": "role-compatible boundary lexical expansion",
+        "applied": true,
+        "roles": [
+          "det",
+          "noun"
+        ]
+      }
+    },
+    {
+      "pattern": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "adj",
+        "noun"
+      ],
+      "round": 1,
+      "lexicon_sizes": {
+        "noun": 20,
+        "det": 8,
+        "verb": 13,
+        "adj": 10
+      },
+      "states": 5,
+      "truncated": false,
+      "exact_records": 0,
+      "mechanically_admitted": 0,
+      "rendered_rows": [],
+      "dead_frontiers": [
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "v"
+          ],
+          "right_prev_chars": [
+            "s"
+          ],
+          "left_words": [],
+          "right_words": [
+            "nurse"
+          ],
+          "reason": "no_equal_live_character_edge"
+        },
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "a"
+          ],
+          "right_prev_chars": [
+            "s"
+          ],
+          "left_words": [],
+          "right_words": [
+            "nurse"
+          ],
+          "reason": "no_equal_live_character_edge"
+        },
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "h"
+          ],
+          "right_prev_chars": [
+            "e"
+          ],
+          "left_words": [],
+          "right_words": [
+            "poet"
+          ],
+          "reason": "no_equal_live_character_edge"
+        },
+        {
+          "matched_pairs": 1,
+          "left_roles": [
+            "det"
+          ],
+          "right_roles": [
+            "noun"
+          ],
+          "left_next_chars": [
+            "h"
+          ],
+          "right_prev_chars": [
+            "s"
+          ],
+          "left_words": [],
+          "right_words": [
+            "artist"
+          ],
+          "reason": "no_equal_live_character_edge"
+        }
+      ],
+      "repair_actions": [],
+      "next_repair": {
+        "operator": "role-compatible boundary lexical expansion",
+        "applied": false,
+        "roles": []
+      }
+    }
+  ],
+  "rendered_candidates": [],
+  "candidate_count": 0,
+  "exact_count": 0,
+  "reader_eligible_count": 0,
+  "reader_gate": {
+    "status": "not_triggered",
+    "human_blind_readability_required": true,
+    "programmatic_measures_are_diagnostic": true
+  },
+  "failure_and_repair": {
+    "failure": "no fresh mechanically admitted exact closure",
+    "next_repair": "expand role-compatible lexical entries at the deepest recorded dead frontier, then test a new clause pattern if the seam remains unreachable"
+  },
+  "provenance": {
+    "generator_sha256": "7f5e790e0a0c9aa14511ce95a29ef7413be7dbd1fd5aed2c35c525e70f31a1b6",
+    "independent_audits": [
+      "two-pointer mismatch scan",
+      "forward/reverse SHA-256",
+      "grammar path replay"
+    ],
+    "shortcuts_rejected": [
+      "word-order-only symmetry",
+      "repeated words",
+      "self-palindromic words",
+      "catalogue/fixture promotion"
+    ]
+  }
+}

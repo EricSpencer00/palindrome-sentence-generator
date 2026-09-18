@@ -73,6 +73,7 @@ EXPLICIT_HISTORY = (
     "runs/reverse-phrase-index-20260917.json",
     "runs/live-typed-chart-seam-solver-20260917.json",
     "runs/semantic-scene-live-equation-20260917.json",
+    "runs/cegar-role-product-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")
@@ -292,7 +293,11 @@ def load_worlds() -> list[Node]:
 
         def visit(obj: Any, location: str) -> None:
             if isinstance(obj, dict):
-                if _row_is_candidate(obj):
+                # Kernel fixtures validate the solver but are never replay
+                # worlds or generated candidates.  Keep their provenance in
+                # the artifact while excluding their rendered text here.
+                is_withheld = bool(obj.get("withheld") or obj.get("not_a_generated_candidate"))
+                if not is_withheld and _row_is_candidate(obj):
                     text, raw_audit = _text_and_audit(obj)
                     assert text is not None and raw_audit is not None
                     key = (str(path), text)

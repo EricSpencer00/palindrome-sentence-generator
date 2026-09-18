@@ -276,7 +276,10 @@ def run() -> dict[str, Any]:
         before = render(derivation, base)
         repaired = substitute_first_unresolved(derivation, base)
         base, repaired = joint_event_adjunct_repair(repaired, base)
-        center, repaired = joint_center_terminal(render(repaired, base), repaired, target)
+        # The optimizer receives only the immutable event spine; passing the
+        # already-rendered adjunct sequence here would freeze the first edge
+        # and double-count it in the residual objective.
+        center, repaired = joint_center_terminal(base, repaired, target)
         text = render(repaired, base) + " " + center
         row_audit = audit(text)
         rows.append(

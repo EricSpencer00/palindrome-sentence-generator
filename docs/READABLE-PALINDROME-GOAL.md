@@ -3925,3 +3925,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   winner remains `fixed_mismatch_first` at a 0.794 mismatch rate; this is
   routing evidence only.  The online reader-facing gate is still closed because
   no fresh exact, mechanically admissible prose row exists yet.
+
+- **Relative-clause boundary infill, 2026-09-17:** changed the geometry after
+  the joint agent/object route was exhausted.  Two authored scene frames jointly
+  reopened a relative clause and its host complement on both sides, allowing
+  word boundaries to move across the attachment seam while keeping the outer
+  openings fixed.  The bounded deployment rendered 18 complete prose scenes,
+  up to 109 letters; the best residual debt was 86 and exact closures were
+  zero.  For example, `At dawn, the archivist who marks the map checks the
+  quiet harbor. By dusk, the sailor who charts the inlet notes a broad area.`
+  passes the independent audit as non-exact, with the first outer `a`/`a`
+  agreement preserved and the unresolved seam recorded.  The run uses no
+  catalogue text, finished-tape reversal, repeated unit, or reader claim.  Its
+  concrete successor is a three-region discourse-frame infill with one shared
+  referent; another duplicate two-span sweep is explicitly rejected.

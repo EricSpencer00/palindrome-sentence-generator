@@ -94,6 +94,8 @@ EXPLICIT_HISTORY = (
     "runs/relative-clause-boundary-infill-20260917.json",
     "runs/three-region-discourse-anchor-20260917.json",
     "runs/semantic-frame-mirror-20260917.json",
+    "runs/three-region-agreement-repair-20260917.json",
+    "runs/relative-clause-seam-repair-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")

@@ -3963,3 +3963,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   mismatch-first policy remains at 0.780 mismatch rate, with zero admissible
   exact rows and 111 exact-but-rejected controls.  This fixes an evidence
   accounting bug; it does not turn replay into readability evidence.
+
+- **Agreement-carrying discourse repair, 2026-09-17:** applied the recorded
+  three-region repair by jointly inflecting a shared referent and its anaphoric
+  response while preserving the relative-clause attachment.  Thirty-two typed,
+  complete scenes were rendered; the longest was 65 letters, the best residual
+  was 42 mismatches, and exact closures were zero.  The next operator moves the
+  mutable boundary across the relative-clause seam while retaining agreement.
+
+- **Relative-clause seam repair, 2026-09-17:** applied first-mismatch,
+  role-compatible substitutions inside relative-clause slots on a fresh semantic
+  frame.  Eight complete passages (up to 142 letters) were rendered; the best
+  residual fell from 120 to 116 mismatches, but exact closures remained zero.
+  The concrete successor is coordinated two-sided relative-clause substitution
+  with length balancing; no reader gate is opened by this near-miss improvement.

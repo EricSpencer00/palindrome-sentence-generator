@@ -1,0 +1,72 @@
+{
+  "experiment": "lexical-bridge-phrase-trie-20260918",
+  "method": "reverse a short authored phrase tape, then trie-segment it into fresh words; retain ordinary-looking clauses and audit independently",
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "left_phrase": "stressed",
+      "reverse_tape": "desserts",
+      "right_resegmentation": "desserts",
+      "rendered": "stressed; desserts.",
+      "audit": {
+        "letters": 16,
+        "exact": true,
+        "mismatch_count": 0,
+        "first_mismatch": null,
+        "sha256": "669191307668534f34cf70c8b0250ef9b67260027a51f9a82b2e355386d19470",
+        "independent_two_pointer": true,
+        "forward_reverse_sha256": [
+          "669191307668534f34cf70c8b0250ef9b67260027a51f9a82b2e355386d19470",
+          "669191307668534f34cf70c8b0250ef9b67260027a51f9a82b2e355386d19470"
+        ]
+      },
+      "provenance": {
+        "lexicon": "task-authored-small-bridge-lexicon-v1",
+        "catalogue_used": false,
+        "borrowed_text": false,
+        "generator": "lexical_bridge_phrase_trie_20260918.py"
+      },
+      "novelty_preflight": {
+        "fresh_resegmentation": true,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false
+      },
+      "reader_status": "unreviewed; programmatic metrics do not certify readability"
+    },
+    {
+      "left_phrase": "live on",
+      "reverse_tape": "noevil",
+      "right_resegmentation": "no evil",
+      "rendered": "live on; no evil.",
+      "audit": {
+        "letters": 12,
+        "exact": true,
+        "mismatch_count": 0,
+        "first_mismatch": null,
+        "sha256": "2af0513aa43170f3a0be1f60b4d0d5d8275887dba21ad00e4bc150127146f8e0",
+        "independent_two_pointer": true,
+        "forward_reverse_sha256": [
+          "2af0513aa43170f3a0be1f60b4d0d5d8275887dba21ad00e4bc150127146f8e0",
+          "2af0513aa43170f3a0be1f60b4d0d5d8275887dba21ad00e4bc150127146f8e0"
+        ]
+      },
+      "provenance": {
+        "lexicon": "task-authored-small-bridge-lexicon-v1",
+        "catalogue_used": false,
+        "borrowed_text": false,
+        "generator": "lexical_bridge_phrase_trie_20260918.py"
+      },
+      "novelty_preflight": {
+        "fresh_resegmentation": true,
+        "repeated_unit": false,
+        "punctuation_carries_letters": false
+      },
+      "reader_status": "unreviewed; programmatic metrics do not certify readability"
+    }
+  ],
+  "summary": {
+    "exact_count": 2,
+    "longest_letters": 16,
+    "next_repair": "add syntactic frame constraints to the reverse segmentation and join two independently selected bridge clauses around a named center"
+  }
+}

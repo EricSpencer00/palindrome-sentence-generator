@@ -170,6 +170,7 @@ EXPLICIT_HISTORY = (
     "runs/seam-paired-relative-boundary-edit-20260918.json",
     "runs/seam-agreement-inflectional-edit-20260918.json",
     "runs/seam-inflection-determiner-pair-20260918.json",
+    "runs/direct-character-scene-authoring-20260918.json",
     "runs/recursive-discourse-spine-dream-rsi-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

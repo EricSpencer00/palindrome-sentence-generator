@@ -4839,6 +4839,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact-but-rejected rows.  The next construction step separates temporal
   surface realization from adjunct semantics and adds locative noun coupling.
 
+- **Direct character-constrained scene authoring, 2026-09-18:** ran eight
+  parallel, independently seeded local-model requests with an exact
+  80–180-letter tape constraint and intact-scene instructions.  It produced no
+  exact closure.  The strongest fresh prose was 119 letters with 56 mismatches:
+  “As the rain began to fall, Sam saw the silver sparrow fly past the bay, and
+  the bay’s spray kissed his face as he watched the bird slip back into the fog.”
+  Its provenance records a direct authored scene, no catalogue import, no
+  finished-tape reversal, and no word-order symmetry; the independent
+  forward/reverse hashes differ.  The concrete next repair is a seam-targeted
+  lexical realization beam over this scene’s roles, not another prompt-only
+  sweep.  Reader certification remains closed.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

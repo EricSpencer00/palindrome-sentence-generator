@@ -3729,3 +3729,21 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   0.794 mismatch rate. This is the intended Dream-RSI diagnostic: the replay
   can identify that the history lacks useful sibling choices, but it cannot
   manufacture a palindrome that was never present in a recorded transition.
+
+  Three new Luna lanes then acted on that diagnosis. A live role-conditioned
+  seam grower tested six alternatives for each of six fresh agent clauses and
+  stopped before rendering because every reverse obligation was dead at offset
+  zero. A seed-benchmark lane deliberately did not use the seed as a scaffold;
+  its best rendered near miss was “The quiet gardener maps at dawn. A calm
+  reader bakes a tent.” (47 letters, 15 mismatches, exact false, independent
+  forward/reverse SHA values different). Both artifacts preserve fresh
+  provenance, anti-shortcut checks, and the next seam-conditioned lexical
+  repair.
+
+  Dream-RSI round twenty-five now includes those worlds and a
+  `failure_repair_first` policy. The policy exposes a deduplicated queue of 20
+  actionable failure signatures for the next constructor, while keeping exact
+  admission unchanged. Replay covers 16,624 nodes across 443 worlds; the
+  selected and held-out policies are still `whole_passage_focus`, with zero
+  admissible exact closures. The queue is therefore a routing improvement, not
+  a readability claim.

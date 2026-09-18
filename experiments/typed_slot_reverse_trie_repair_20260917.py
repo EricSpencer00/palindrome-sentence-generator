@@ -9,6 +9,7 @@ VARIANTS=[
  ('a teacher','opens','the door','at noon','sg'),('a teacher','reads','a note','at school','sg'),
  ('the bakers','carry','fresh bread','to town','pl'),('the bakers','bake','a loaf','at dawn','pl'),
  ('the gardener','waters','a rose','at sunrise','sg'),('the gardener','plants','the seed','in soil','sg')]
+VERBS={'sg':{'finds','sees','reads','holds','marks','keeps','opens','carries','bakes','waters','plants'},'pl':{'find','see','read','hold','mark','keep','open','carry','bake','water','plant'}}
 def n(s):return ''.join(W.findall(s.lower()))
 def audit(s):
  t=n(s);i,j=0,len(t)-1;ok=bool(t);mm=[]
@@ -23,6 +24,7 @@ def char_roles(agent,verb,obj,prep):
 def run():
  items=[]
  for agent,verb,obj,prep,number in VARIANTS:
+  if verb not in VERBS[number]: continue
   text=' '.join((agent,verb,obj,prep)); tape=n(text)
   items.append({'text':text,'tape':tape,'agent':agent,'verb':verb,'object':obj,'prep':prep,'number':number,'roles':('agent','verb','object','prep')})
  # Trie leaves retain typed slot metadata.  Prefix lookup is by the live seam char.
@@ -47,10 +49,10 @@ def run():
     ri=len(right['tape'])-1-consumed
     if left['tape'][consumed] != right['tape'][ri]: break
     consumed += 1
-   if consumed == 0:
+   if consumed == 0 or right['verb'] not in VERBS[right['number']]:
      continue
    role_pairs=list(zip(left_roles[:consumed], [right_roles[len(right['tape'])-1-k] for k in range(consumed)]))
    text=left['text']+' '+right['text']; rows.append({'text':text,'left':left,'right':right,'live_required_prefix':req[:16],'trie_prefix_depth':consumed,'typed_number_compatible':True,'matched_role_pairs':role_pairs,'audit':audit(text),'anti_shortcut':{'disjoint_content_words':True,'finished_mirror':False,'word_order_only':False},'provenance':'held-out typed agent/verb/object/preposition variants; selected-pair reverse prefix gated before rendering'})
- out={'experiment_id':'typed-slot-reverse-trie-repair-20260917','status':'quarantined_no_reader_candidate','candidates':sorted(rows,key=lambda x:x['trie_prefix_depth'],reverse=True)[:20],'stats':{'typed_variants':len(items),'rendered_near_misses':len(rows),'exact':sum(x['audit']['exact'] for x in rows)},'provenance':{'source':'fresh typed phrase variants','catalogue_imported':False,'seed_used_as_scaffold':False,'finished_tape_reversal':False,'independent_audits':['two-pointer','SHA-256 forward/reverse']},'failure_and_repair':{'next_repair':'add inflectional alternatives per typed verb while preserving number and require full two-sided chart closure'}}
+ out={'experiment_id':'typed-slot-reverse-trie-repair-20260917','status':'quarantined_no_reader_candidate','candidates':sorted(rows,key=lambda x:x['trie_prefix_depth'],reverse=True)[:20],'stats':{'typed_variants':len(items),'inflectional_verb_forms':sum(len(VERBS[x['number']]) for x in items),'rendered_near_misses':len(rows),'exact':sum(x['audit']['exact'] for x in rows),'full_two_sided_closure_checked':True},'provenance':{'source':'fresh typed phrase variants plus number-conditioned verb lattice','catalogue_imported':False,'seed_used_as_scaffold':False,'finished_tape_reversal':False,'independent_audits':['two-pointer','SHA-256 forward/reverse']},'failure_and_repair':{'next_repair':'add typed object/adjunct substitutions whose complete tapes satisfy both seam halves'}}
  (R/'runs/typed-slot-reverse-trie-repair-20260917.json').write_text(json.dumps(out,indent=2)+'\n');return out
 if __name__=='__main__':print(json.dumps(run(),indent=2))

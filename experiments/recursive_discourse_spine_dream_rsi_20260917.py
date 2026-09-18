@@ -140,6 +140,8 @@ def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) 
                     proposed = (first, *state[1:-1], terminal) if len(state) > 1 else (first,)
                 else:
                     proposed = (first,)
+                if len({item.text for item in proposed}) != len(proposed):
+                    continue
                 tape = letters(prefix + " " + render(proposed) + " " + center)
                 debt = sum(a != b for a, b in zip(tape, tape[::-1]))
                 candidates.append((debt, -len(tape), center, proposed))

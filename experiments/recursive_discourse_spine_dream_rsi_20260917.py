@@ -105,6 +105,11 @@ CENTER_CLAUSES = (
 CENTER_SUBJECTS = ("the witness", "the guide", "the reader", "the careful witness", "a patient guide")
 CENTER_VERBS = ("keeps", "checks", "remembers", "records", "holds", "marks")
 CENTER_OBJECTS = ("the record", "the entry", "the route", "the note", "the old record", "a quiet note", "each small entry", "the marked route")
+CENTER_VALENCY_FRAMES = (
+    ("transitive", "and {s} {v} {o}."),
+    ("ditransitive", "and {s} gives {o} to the reader."),
+    ("locative", "and {s} places {o} by the gate."),
+)
 
 
 def select_live_center(prefix: str, target: int | None = None) -> str:
@@ -113,7 +118,8 @@ def select_live_center(prefix: str, target: int | None = None) -> str:
     def score(clause: str) -> tuple[int, int]:
         ct = letters(clause)
         return (int(ct[0] == tape[-1]) + int(ct[-1] == tape[0]), -abs(len(ct) - len(tape) % 17))
-    candidates = [f"and {s} {v} {o}." for s in CENTER_SUBJECTS for v in CENTER_VERBS for o in CENTER_OBJECTS]
+    candidates = [template.format(s=s, v=v, o=o) for _, template in CENTER_VALENCY_FRAMES
+                  for s in CENTER_SUBJECTS for v in CENTER_VERBS for o in CENTER_OBJECTS]
     # Keep a Pareto-style length frontier: short and long constituents are
     # both eligible; target distance breaks ties only after edge compatibility.
     def residual(c: str) -> tuple[int, int]:
@@ -141,7 +147,9 @@ def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) 
     expanded = (tuple(ADJUNCTS) + tuple(v for item in ADJUNCTS for v in boundary_variants(item)))[:24]
     terminal_pool = expanded
     first_pool = expanded
-    for center in CENTER_CLAUSES + tuple(f"and {s} {v} {o}." for s in CENTER_SUBJECTS for v in CENTER_VERBS for o in CENTER_OBJECTS):
+    frame_centers = tuple(template.format(s=s, v=v, o=o) for _, template in CENTER_VALENCY_FRAMES
+                          for s in CENTER_SUBJECTS for v in CENTER_VERBS for o in CENTER_OBJECTS)
+    for center in CENTER_CLAUSES + frame_centers:
         for first in first_pool:
             for terminal in terminal_pool:
                 if state and first.text == terminal.text:

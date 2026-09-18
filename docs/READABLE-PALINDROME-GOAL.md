@@ -4761,6 +4761,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   rejected rows.  The next construction step is the typed event-order graph
   and seam-selected paired lexical repair; replay remains routing evidence only.
 
+- **Typed event-order graph, 2026-09-18:** represented temporal compatibility
+  with explicit precedence values for Before/After/While/Until/Since and center
+  tense/aspect states, filtering candidates before residual scoring.  Four
+  complete target traces reached 361 letters; exact closures remained zero.  The
+  next repair lets event-order assignments participate directly in seam
+  optimization.
+
+- **Seam-paired relative/boundary edit, 2026-09-18:** selected paired lexical
+  edits across relative-clause and boundary components at the live seam while
+  preserving agreement and attachment.  Four complete passages reached 115
+  letters; the best audit had 88 mismatches and exact closures were zero.  The
+  next repair uses seam-selected agreement-aware inflectional edits.
+
+- **Anaphor/attachment repair, 2026-09-18:** coupled singular/plural anaphor
+  class with subject/object relative attachment while preserving three-way
+  agreement and locative length.  Sixteen complete rows reached 92 letters; the
+  best audit had 60 mismatches and exact closures were zero.  The next repair
+  couples attachment with locative preposition.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

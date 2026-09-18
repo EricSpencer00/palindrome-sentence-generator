@@ -138,6 +138,7 @@ EXPLICIT_HISTORY = (
     "runs/relative-seam-threeway-det-noun-agreement-20260918.json",
     "runs/relative-seam-threeway-locative-length-20260918.json",
     "runs/relative-seam-locative-length-anaphor-class-20260918.json",
+    "runs/relative-seam-anaphor-attachment-20260918.json",
     "runs/key-preserving-slot-length-20260917.json",
     "runs/paired-boundary-inflection-20260917.json",
     "runs/paired-determiner-inflection-20260917.json",
@@ -164,6 +165,7 @@ EXPLICIT_HISTORY = (
     "runs/agreement-boundary-relative-lexical-20260918.json",
     "runs/agreement-relative-seam-length-20260918.json",
     "runs/agreement-relative-boundary-length-20260918.json",
+    "runs/seam-paired-relative-boundary-edit-20260918.json",
     "runs/recursive-discourse-spine-dream-rsi-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

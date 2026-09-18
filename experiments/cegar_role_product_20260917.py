@@ -61,7 +61,7 @@ def compile_pattern(pattern: tuple[str, ...], role_words: dict[str, Iterable[str
     boundary = 0
     next_node = 1
     normalized: dict[str, tuple[str, ...]] = {}
-    for role in set(pattern):
+    for role in dict.fromkeys(pattern):
         choices = tuple(dict.fromkeys(normalize(w) for w in role_words.get(role, ())))
         if not choices or any(not w for w in choices):
             raise ValueError(f"missing lexical choices for {role}")
@@ -292,8 +292,9 @@ def _repair_words(banks: dict[str, tuple[str, ...]], dead: list[dict]) -> tuple[
                                         "needed_chars": sorted(needed),
                                         "matched_boundary": matched_boundary,
                                         "matched_pairs": frontier["matched_pairs"]})
+    role_order = tuple(dict.fromkeys(tuple(banks) + tuple(REPAIR_RESERVOIR)))
     updated = {role: tuple(dict.fromkeys(tuple(banks.get(role, ())) + tuple(sorted(additions.get(role, ())))))
-              for role in set(banks) | set(REPAIR_RESERVOIR)}
+              for role in role_order}
     return updated, actions
 
 

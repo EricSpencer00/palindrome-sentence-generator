@@ -4661,6 +4661,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   tape-reversal shortcut.  The next repair is to replay this new branch and
   couple its tense/aspect morphology to the live seam equation.
 
+- **Joint tense/aspect morphology, 2026-09-18:** jointly varied person/number
+  with present and past predicate realizations in outer and center clauses.
+  Four complete target traces reached 376 letters; exact closures remained zero.
+  The next repair adds aspect auxiliaries and clause-level temporal
+  compatibility.
+
+- **Agreement-aware boundary inflection, 2026-09-18:** varied paired locative
+  boundary inflections while preserving determiner/verb agreement.  Four
+  complete passages reached 113 letters; the best audit had 92 mismatches and
+  exact closures were zero.  The next repair adds role-compatible relative-
+  clause lexical substitution.
+
+- **Three-way/preposition agreement, 2026-09-18:** jointly selected locative
+  preposition within the relative-subject/anaphor/locative-number state.
+  Sixteen complete rows reached 75 letters; the best audit had 60 mismatches
+  and exact closures were zero.  The next repair couples the state with
+  locative determiner and noun.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

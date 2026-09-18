@@ -182,7 +182,7 @@ def substitute_first_unresolved(state: tuple[Adjunct, ...], base: str | None = N
 
 
 def joint_event_adjunct_repair(state: tuple[Adjunct, ...], base: str) -> tuple[str, tuple[Adjunct, ...]]:
-    """Change the event frame and first attached constituent together."""
+    """Change event frame plus both terminal adjunct constituents together."""
     for candidate_base in EVENT_BASES:
         if candidate_base == base:
             continue
@@ -190,6 +190,13 @@ def joint_event_adjunct_repair(state: tuple[Adjunct, ...], base: str) -> tuple[s
             if state and candidate.text == state[0].text:
                 continue
             proposed = (candidate, *state[1:]) if state else (candidate,)
+            if state and len(state) > 1:
+                for terminal in ADJUNCTS:
+                    if terminal.text in {candidate.text, state[-1].text}:
+                        continue
+                    proposed2 = (*proposed[:-1], terminal)
+                    if letters(render(proposed2, candidate_base)) != letters(render(state, base)):
+                        return candidate_base, proposed2
             if letters(render(proposed, candidate_base)) != letters(render(state, base)):
                 return candidate_base, proposed
     return base, state

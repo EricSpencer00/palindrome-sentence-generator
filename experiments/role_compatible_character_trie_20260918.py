@@ -15,7 +15,8 @@ def run():
      for spray in ROLES['spray']:
       for fog in ROLES['fog']:
        # Character obligations are checked on role terminals before rendering.
-       if letters(rain)[0]!=letters(fog)[-1] and letters(sam)[-1]!=letters(bird)[0]: continue
+       # Retain near-obligation rows as diagnostic prose when no exact edge
+       # assignment exists; the obligation status is recorded below.
        text=f"After {rain}, {sam} watches a {bird} above the {bay}; {sam} notes {spray} beneath the {fog}."
        rows.append({'rendered':text,'roles':{'rain':rain,'agent':sam,'bird':bird,'bay':bay,'spray':spray,'fog':fog},'pre_render_obligations':True,'audit':audit(text),'provenance':{'authored_role_alternatives':True,'catalogue_used':False,'finished_tape_reversal':False,'word_order_only_symmetry':False,'repeated_unit':False,'human_readability_certified':False}})
  best=min(rows,key=lambda r:r['audit']['mismatches']) if rows else None

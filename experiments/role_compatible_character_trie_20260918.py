@@ -32,7 +32,14 @@ def run():
   roles=row['roles']; fog=ROLES['fog'][-1]
   text=f"After {roles['rain']}, {roles['agent']} watches a {roles['bird']} above the {roles['bay']}; {roles['agent']} notes {roles['spray']} beneath the {fog}."
   heldout.append({'rendered':text,'heldout_role':'fog','audit':audit(text),'provenance':{'heldout_sibling_replay':True,'catalogue_used':False,'finished_tape_reversal':False}})
- return {'experiment':ID,'rendered_candidates':rows,'heldout_replay_candidates':heldout,'stats':{'rendered':len(rows),'heldout_rendered':len(heldout),'sibling_branches':len({r['sibling_branch_id'] for r in rows}),'exact':sum(r['audit']['two_pointer_exact'] for r in rows),'heldout_exact':sum(r['audit']['two_pointer_exact'] for r in heldout),'two_pair_survivors':sum(all(r['two_character_obligations'].values()) for r in rows),'longest_letters':max((r['audit']['letters'] for r in rows),default=0),'best_mismatches':best['audit']['mismatches'] if best else None},'next_repair':'Use held-out residual trajectory to select a branch policy, then vary the next role boundary only.','reader_gate':'closed; programmatic diagnostics do not certify readability','provenance':{'independent_audits':['two-pointer','forward/reverse SHA-256'],'novelty_preflight':'live role trie before rendering','replay_world_branching':True}}
+ selected=min(heldout,key=lambda r:r['audit']['mismatches']) if heldout else None
+ deployed=[]
+ if selected:
+  for spray in ROLES['spray']:
+   base=selected['rendered'].split(' notes ')[0]
+   text=base+' notes '+spray+' beneath the '+ROLES['fog'][-1]+'.'
+   deployed.append({'rendered':text,'next_role_boundary':'spray','audit':audit(text),'provenance':{'heldout_policy_deployed':True,'single_boundary_varied':True,'catalogue_used':False,'finished_tape_reversal':False}})
+ return {'experiment':ID,'rendered_candidates':rows,'heldout_replay_candidates':heldout,'deployed_next_boundary':deployed,'selected_heldout_policy':selected,'stats':{'rendered':len(rows),'heldout_rendered':len(heldout),'deployed_rendered':len(deployed),'sibling_branches':len({r['sibling_branch_id'] for r in rows}),'exact':sum(r['audit']['two_pointer_exact'] for r in rows),'heldout_exact':sum(r['audit']['two_pointer_exact'] for r in heldout),'deployed_exact':sum(r['audit']['two_pointer_exact'] for r in deployed),'two_pair_survivors':sum(all(r['two_character_obligations'].values()) for r in rows),'longest_letters':max((r['audit']['letters'] for r in rows),default=0),'best_mismatches':best['audit']['mismatches'] if best else None},'next_repair':'Use the deployed spray boundary residual to choose one valency-compatible argument substitution.','reader_gate':'closed; programmatic diagnostics do not certify readability','provenance':{'independent_audits':['two-pointer','forward/reverse SHA-256'],'novelty_preflight':'live role trie before rendering','replay_world_branching':True}}
 if __name__=='__main__':
  p=run()
  for d in (ROOT/'runs',ROOT/'artifacts'): (d/(ID+'.json')).write_text(json.dumps(p,indent=2)+'\n')

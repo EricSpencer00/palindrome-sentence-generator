@@ -3901,6 +3901,20 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   output.  The result is preserved as a repair queue item; replay scores do
   not certify English readability.
 
+- **Joint two-span masked infill, 2026-09-17:** reopened agent+verb+object
+  spans on both sides with cross-side number agreement while retaining the
+  fixed outer setting.  The bounded run rendered 16 ordinary scenes through
+  75 letters; the best residual debt was 56 and exact closures were zero.
+  This geometry is now explicitly exhausted.  Its concrete successor is a
+  boundary-crossing relative-clause infill, which changes the constituent
+  geometry instead of enlarging this bank.
+
+  Round 41 replays 18,152 audited nodes.  The held-out fixed-mismatch policy
+  remains at a 0.780 mismatch rate; the new route changes no reader-facing
+  status because there is still no exact novel survivor.  The replay therefore
+  routes the next experiment toward the relative-clause boundary rather than
+  spending another run on the exhausted constituent geometry.
+
 - **Seedless typed-template equation, 2026-09-17:** 81 fresh typed SVO
   realizations (longest 85 letters) were built from live outside-in character
   obligations; zero exact closures.  The concrete successor is seam-indexed

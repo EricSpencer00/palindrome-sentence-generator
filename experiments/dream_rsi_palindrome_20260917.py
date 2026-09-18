@@ -89,6 +89,8 @@ EXPLICIT_HISTORY = (
     "runs/dream-rsi-palindrome-round39-20260917.json",
     "runs/two-sided-constituent-agreement-20260917.json",
     "runs/dream-rsi-palindrome-round40-20260917.json",
+    "runs/joint-agent-object-masked-infill-20260917.json",
+    "runs/dream-rsi-palindrome-round41-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")

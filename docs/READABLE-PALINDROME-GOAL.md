@@ -4621,6 +4621,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the best audit had 56 mismatches and exact closures were zero.  The next
   repair couples relative agreement with anaphor and locative NP number.
 
+- **Dream-RSI round 81 online redeployment, 2026-09-18:** replayed 525 worlds
+  and 19,812 audited nodes, then redeployed the held-out winner into a fresh
+  two-region authoring tree.  The online tree produced 8 audited nodes and 0
+  exact closures; its best intact passage was 130 letters with 60 mismatches:
+  “The theater archivist found a torn playbill in a locked drawer, carried it to
+  the reading table, and marked the missing cast names before the house lights
+  rose.”  Two sibling proposals were rejected for leaving the 100–140-letter
+  construction band (146 and 148 letters).  This is an actual deployment
+  failure, so the next repair is a broader live branch with length-band-aware
+  seam choices, not a claim of progress.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

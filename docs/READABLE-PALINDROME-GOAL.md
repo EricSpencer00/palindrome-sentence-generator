@@ -4649,6 +4649,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   75 letters; the best audit had 60 mismatches and exact closures were zero.  The
   next repair couples the agreement state with locative preposition choice.
 
+- **Dream-RSI round 83 fresh online redeployment, 2026-09-18:** fixed the
+  duplicate-seed bug by deriving a round-specific artifact, experiment id, and
+  reproducible seed base.  The replay covered 527 worlds and 19,832 audited
+  nodes; the fresh online tree produced 12 nodes and no exact closure.  Its best
+  intact candidate was 137 letters with 58 mismatches:
+  “The theater archivist lifted a torn playbill from the locked drawer, carried
+  it to the reading table, and penciled the missing cast names before the house
+  lights rose.”  Its independent forward/reverse tape hashes differed, and the
+  provenance records a fresh two-region authoring branch with no catalogue or
+  tape-reversal shortcut.  The next repair is to replay this new branch and
+  couple its tense/aspect morphology to the live seam equation.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

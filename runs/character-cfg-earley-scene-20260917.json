@@ -1,10 +1,11 @@
 {
   "experiment_id": "character-cfg-earley-scene-20260917",
-  "method": "character-level Earley-style CFG with live reverse-tape obligations",
-  "grammar": "Scene -> Agent Action Object Location; recursive Scene; typed slots required",
+  "method": "character-level Earley-style CFG with live reverse-tape obligations and typed complement transitions",
+  "grammar": "independent LeftScene/RightScene -> Agent Action Object Location; character complement transitions consume outside-in debt",
   "rendered_candidates": [],
   "candidate_count": 0,
   "exact_count": 0,
+  "target_letters": 100,
   "longest_frontier": null,
   "reader_eligible": false,
   "novelty_preflight": {
@@ -14,7 +15,7 @@
     "signature": "character-cfg-earley-scene-20260917"
   },
   "provenance": {
-    "generator_sha256": "130093fa73ac88576fe8e5eca425ea0a71a926fda04162ab79cf8629010a4b05",
+    "generator_sha256": "4391aecf9a1f5775766b175e4fd9521bc9042723ab5b5711a1756f8b47ba1c79",
     "lexical_source": "fresh authored semantic slots",
     "audits": [
       "two-pointer",
@@ -23,7 +24,7 @@
   },
   "failure_and_repair": {
     "failure": "no exact closure",
-    "next_repair": "Add character-level complement transitions between typed slots; preserve distinct scene identities."
+    "next_repair": "Add agreement-aware complement terminal pairs while retaining outside-in debt."
   },
   "anti_shortcut_flags": {
     "posthoc_reversal": false,

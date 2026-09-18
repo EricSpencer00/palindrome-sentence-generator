@@ -4522,6 +4522,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   active; the next repair carries residual ranking into internal adjunct word
   boundaries.
 
+- **Explicit predicate-valency frames, 2026-09-18:** distinguished transitive,
+  ditransitive, and locative center clauses and selected predicate, subject,
+  object, and frame jointly under the rendered residual objective.  Four target
+  traces reached 394 letters; exact closures remained zero.  The next repair
+  carries the valency frame into the outer event spine and its edge adjuncts.
+
 - **Head/verb boundary-attachment gate, 2026-09-18:** added paired locative
   attachment constraints to equal-length head/verb states, rejecting three of
   four before rendering.  One complete passage reached 118 letters with 112
@@ -4534,12 +4540,33 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   closures were zero.  The next operator couples locative number with
   preposition and determiner while preserving tense.
 
+- **Attachment-aware relative-head repair, 2026-09-18:** varied relative-clause
+  lexical heads while preserving paired locative attachment.  Four complete
+  passages up to 117 letters were rendered; the best audit had 94 mismatches
+  and exact closures were zero.  The next repair coordinates relative heads
+  and verbs under the same role gate.
+
+- **Locative-number/preposition/determiner repair, 2026-09-18:** coupled
+  locative number, preposition, and determiner with fixed tense.  Thirty-two
+  complete rows reached 89 letters; the best audit had 56 mismatches and exact
+  closures were zero.  The next operator couples fixed-tense verb valency with
+  this locative state.
+
 - **Dream-RSI round 77, 2026-09-18:** replayed 517 worlds and 19,670 audited
   nodes after the predicate–argument and attachment-gate additions.  Fixed
   mismatch-first remained the held-out winner at 0.780 (445 held-out worlds),
   with zero mechanically admissible exact rows and 107 exact-but-rejected rows.
   The next construction step is attachment-aware relative-head repair and
   explicit valency frames, not score tuning.
+
+- **Dream-RSI round 78, 2026-09-18:** replayed 519 worlds and 19,706 audited
+  nodes after the attachment-aware relative-head, locative-state, and explicit
+  valency additions.  Fixed mismatch-first again won the held-out split at
+  0.780 (447 held-out worlds), with zero mechanically admissible exact rows and
+  107 exact-but-rejected rows.  This is a routing plateau, not a readable-output
+  result: the next construction actions are paired relative-head/verb repair,
+  fixed-tense valency with locative state, and valency propagation into the
+  outer event spine.
 
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first

@@ -28,11 +28,22 @@ def anti_shortcut(text: str, chain: list[Edge]) -> dict:
     words=WORD.findall(text.lower())
     pal=[w for w in words if len(w)>2 and w==w[::-1]]
     units=[e.left for e in chain]
+    # Independent ordinary-language gate: shipped Wikitext n-gram vocabulary
+    # acts as a conservative Zipf>=4 proxy; only a/i may be one-letter.
+    try: freq=json.loads((ROOT/"data"/"ngrams_wikitext2.json").read_text())
+    except Exception: freq={}
+    common={w for w in words if len(w)>1 and (w in freq or len(w)<=3)}
+    rare=[w for w in words if len(w)>1 and w not in common]
+    fragments=[w for w in words if len(w)==1 and w not in {"a","i"}]
+    typed=all(e.role in ROLES and len(WORD.findall(e.left))==2 for e in chain)
     return {"no_self_palindromic_content_words":not pal,
             "self_palindromic_content_words":pal,
             "no_repeated_edges":len(units)==len(set(units)),
             "repeated_edges":sorted({u for u in units if units.count(u)>1}),
-            "passes":not pal and len(units)==len(set(units))}
+            "ordinary_language":not rare and not fragments,
+            "rare_words":sorted(set(rare)),"fragments":fragments,
+            "typed_complete_phrases":typed,
+            "passes":not pal and len(units)==len(set(units)) and not rare and not fragments and typed}
 
 @dataclass(frozen=True)
 class Edge:

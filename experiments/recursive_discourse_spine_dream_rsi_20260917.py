@@ -130,12 +130,19 @@ def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) 
     """Choose center and terminal adjunct by one rendered residual objective."""
     candidates = []
     terminal_pool = ADJUNCTS[-8:]
+    first_pool = ADJUNCTS[:8]
     for center in CENTER_CLAUSES + tuple(f"and {s} {v} {o}." for s in CENTER_SUBJECTS for v in CENTER_VERBS for o in CENTER_OBJECTS):
-        for terminal in terminal_pool:
-            proposed = (*state[:-1], terminal) if state else (terminal,)
-            tape = letters(prefix + " " + render(proposed) + " " + center)
-            debt = sum(a != b for a, b in zip(tape, tape[::-1]))
-            candidates.append((debt, -len(tape), center, proposed))
+        for first in first_pool:
+            for terminal in terminal_pool:
+                if state and first.text == terminal.text:
+                    continue
+                if state:
+                    proposed = (first, *state[1:-1], terminal) if len(state) > 1 else (first,)
+                else:
+                    proposed = (first,)
+                tape = letters(prefix + " " + render(proposed) + " " + center)
+                debt = sum(a != b for a, b in zip(tape, tape[::-1]))
+                candidates.append((debt, -len(tape), center, proposed))
     _, _, center, proposed = min(candidates, key=lambda row: (row[0], row[1], row[2]))
     return center, proposed
 

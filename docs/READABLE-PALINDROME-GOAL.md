@@ -4871,6 +4871,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   or word-order shortcut.  The next repair adds two-character paired
   obligations over role-phrase boundaries.
 
+- **Dream-RSI round 91, 2026-09-18:** replayed 543 worlds and 20,458 audited
+  nodes after adding the direct authoring, seam-repair, and role-compatible
+  character-trie evidence.  Fixed mismatch-first remained the held-out winner
+  at 0.780 (469 held-out worlds), with zero mechanically admissible exact rows
+  and 107 exact-but-rejected rows.  The next construction step is the trie’s
+  two-character boundary obligation, not another replay sweep.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

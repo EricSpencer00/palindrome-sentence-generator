@@ -4398,6 +4398,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   couples NP agreement with locative preposition alternation while preserving
   tense.
 
+- **Opposing-seam character-class repair, 2026-09-18:** coupled opposing
+  replacement vowel/consonant classes with bounded length matching.  Four
+  complete passages up to 116 letters were rendered; the best audit had 104
+  mismatches and exact closures were zero.  The next repair adds bounded
+  replacement-length matching within each class.
+
+- **NP-agreement/preposition repair, 2026-09-18:** coupled locative NP
+  agreement and preposition alternation with tense while holding noun number
+  fixed.  Thirty-two complete rows reached 91 letters; the best audit had 56
+  mismatches and exact closures were zero.  The next repair couples this NP
+  state with tense alternation.
+
+- **Dream-RSI round 74, 2026-09-18:** replayed 511 worlds and 19,570 audited
+  nodes after the character-class and NP-agreement additions.  Fixed
+  mismatch-first remained the held-out winner at 0.780 (440 held-out worlds),
+  with zero mechanically admissible exact rows and 107 exact-but-rejected rows.
+  This keeps the next work on construction operators—bounded seam lengths and
+  joint recursive center/adjunct selection—rather than on replay-score tuning.
+
 - **Dream-RSI round 73, 2026-09-18:** replayed 509 worlds and 19,534 audited
   nodes after the seam-character and joint-frontier additions.  Fixed
   mismatch-first remained the held-out winner at 0.780 (439 held-out worlds),

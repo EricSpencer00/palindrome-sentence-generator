@@ -102,6 +102,9 @@ CENTER_CLAUSES = (
     "because the guide remembers the route.",
     "and the reader understands the note.",
 )
+CENTER_SUBJECTS = ("the witness", "the guide", "the reader")
+CENTER_VERBS = ("keeps", "checks", "remembers")
+CENTER_OBJECTS = ("the record", "the entry", "the route", "the note")
 
 
 def select_live_center(prefix: str) -> str:
@@ -110,7 +113,8 @@ def select_live_center(prefix: str) -> str:
     def score(clause: str) -> tuple[int, int]:
         ct = letters(clause)
         return (int(ct[0] == tape[-1]) + int(ct[-1] == tape[0]), -abs(len(ct) - len(tape) % 17))
-    return max(CENTER_CLAUSES, key=score)
+    candidates = [f"and {s} {v} {o}." for s in CENTER_SUBJECTS for v in CENTER_VERBS for o in CENTER_OBJECTS]
+    return max(candidates, key=score)
 
 
 def render(adjuncts: tuple[Adjunct, ...], base: str = EVENT_BASES[0]) -> str:

@@ -4348,6 +4348,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   116 mismatches and exact closures were zero.  The next repair keeps the seam
   conditioning but adds semantic edits rather than another boundary-only pass.
 
+- **Seam-conditioned boundary/semantic pair repair, 2026-09-17:** paired live
+  boundary growth with role-compatible noun edits at the first unresolved seam.
+  Four complete passages up to 148 letters were rendered; the best audit had
+  118 mismatches and exact closures were zero.  The next repair couples
+  relative-verb edits to that same live seam.
+
+- **Tense/number/locative-noun repair, 2026-09-17:** coupled present/past tense
+  and referent number with locative noun choices.  Thirty-two complete rows
+  reached 95 letters; the best audit had 56 mismatches and exact closures were
+  zero.  The next operator couples tense and number with the locative
+  preposition while preserving noun length.
+
 - **Variable-length center phrases, 2026-09-17:** exposed multiword center
   subject/object alternatives (for example, ``the careful witness`` and ``a
   quiet note``) instead of a single-word center.  The current edge heuristic

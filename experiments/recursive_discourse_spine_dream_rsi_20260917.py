@@ -133,9 +133,21 @@ def substitute_first_unresolved(state: tuple[Adjunct, ...]) -> tuple[Adjunct, ..
     # terminal must satisfy the character demanded by the opposite side.
     required_terminal = tape[-1 - k]
     used = {item.text for item in state}
+    def boundary_variants(item: Adjunct) -> tuple[Adjunct, ...]:
+        # Preserve the typed adjunct frame while changing an internal
+        # determiner/word boundary.  These are grammatical phrase variants,
+        # not character fragments.
+        variants = []
+        for old, new in ((" the ", " a "), (" a ", " the "),
+                         (" the ", " this "), (" the ", " each ")):
+            if old in item.text:
+                text2 = item.text.replace(old, new, 1)
+                variants.append(Adjunct(item.kind, text2,
+                                        re.sub(r"[^a-z]", "", text2.casefold())[-1]))
+        return tuple(variants)
     before = tape
     for index, old in enumerate(state):
-        for candidate in ADJUNCTS:
+        for candidate in (*ADJUNCTS, *tuple(v for item in state for v in boundary_variants(item))):
             if candidate.text in used or candidate.text == old.text:
                 continue
             # The first character of the candidate is the live boundary

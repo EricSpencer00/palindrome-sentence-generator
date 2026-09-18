@@ -4898,6 +4898,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   reached 92 letters; the best audit had 60 mismatches and exact closures were
   zero.  The next repair couples attachment with locative noun length.
 
+- **Dream-RSI round 92, 2026-09-18:** replayed 545 worlds and 20,478 audited
+  nodes after the role-trie boundary, seam-inflection, and locative-noun
+  repairs.  Fixed mismatch-first remained the held-out winner at 0.780 (471
+  held-out worlds), with zero mechanically admissible exact rows and 107
+  exact-but-rejected rows.  The next construction step expands role
+  alternatives under valency rather than increasing boundary obligations.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

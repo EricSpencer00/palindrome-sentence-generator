@@ -4736,6 +4736,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   107 exact-but-rejected rows.  This plateau triggers the next semantic
   event-ordering and lexical-class construction changes; it is not a result.
 
+- **Pre-render temporal event-order gate, 2026-09-18:** rejected semantically
+  incompatible tense/aspect and temporal-adjunct combinations before rendering,
+  while retaining compatible choices as live seam candidates.  Four complete
+  target traces reached 361 letters; exact closures remained zero.  The next
+  repair replaces pairwise lexical rules with a typed event-order graph.
+
+- **Agreement-relative boundary-length repair, 2026-09-18:** balanced paired
+  boundary and relative-clause lengths while preserving agreement and locative
+  attachment.  Four complete passages reached 113 letters; the best audit had
+  94 mismatches and exact closures were zero.  The next repair uses seam-
+  selected paired lexical edits across both components.
+
+- **Locative-length/anaphor-class repair, 2026-09-18:** coupled locative phrase
+  length with singular/plural anaphor lexical class while preserving three-way
+  agreement.  Sixteen complete rows reached 85 letters; the best audit had 60
+  mismatches and exact closures were zero.  The next repair couples lexical
+  class with relative-clause attachment.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

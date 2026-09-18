@@ -131,8 +131,16 @@ def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) 
     candidates = []
     # Full typed frontier: first and terminal adjunct alternatives are both
     # live, including the newly authored terminal classes.
-    terminal_pool = ADJUNCTS
-    first_pool = ADJUNCTS
+    def boundary_variants(item: Adjunct) -> list[Adjunct]:
+        out = []
+        for old, new in ((" the ", " a "), (" a ", " the "), (" the ", " this ")):
+            if old in item.text:
+                text = item.text.replace(old, new, 1)
+                out.append(Adjunct(item.kind, text, re.sub(r"[^a-z]", "", text.casefold())[-1]))
+        return out
+    expanded = tuple(ADJUNCTS) + tuple(v for item in ADJUNCTS for v in boundary_variants(item))
+    terminal_pool = expanded
+    first_pool = expanded
     for center in CENTER_CLAUSES + tuple(f"and {s} {v} {o}." for s in CENTER_SUBJECTS for v in CENTER_VERBS for o in CENTER_OBJECTS):
         for first in first_pool:
             for terminal in terminal_pool:

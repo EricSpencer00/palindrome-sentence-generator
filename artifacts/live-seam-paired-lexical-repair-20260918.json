@@ -1,0 +1,134 @@
+{
+  "experiment": "live-seam-paired-lexical-repair-20260918",
+  "generator_sha256": "272795975808b7659c1c4fc7ee7cc726ae5253bf695a4147c7a39d13b5e7af8e",
+  "rendered_candidates": [
+    {
+      "repair_id": 0,
+      "rendered": "At dawn, the keeper marks the chart that guides the team beside the inlet; the sailor reads the ledger that remembers the path beside the inlet.",
+      "live_seam": {
+        "base_first_mismatch": 0,
+        "repaired_first_mismatch": 0,
+        "paired_slots": [
+          "crew",
+          "route"
+        ]
+      },
+      "audit": {
+        "letters": 116,
+        "two_pointer_exact": false,
+        "mismatches": 106,
+        "sha256_forward": "9e090642ba0bfd8b16451e3c8d2373bc37cf5f8b8bc65ab2da2a71b6a409c0e7",
+        "sha256_reverse": "2e852c514182eb844ec660db0230f3f00490eda25bfdf76cbb883906e1cebe11"
+      },
+      "provenance": {
+        "best_lattice_state": true,
+        "paired_lexical_repair": true,
+        "live_seam_threshold": true,
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "word_order_only_symmetry": false
+      }
+    },
+    {
+      "repair_id": 1,
+      "rendered": "At dawn, the keeper marks the map that guides the crew beside the inlet; the sailor reads the journal that remembers the route beside the inlet.",
+      "live_seam": {
+        "base_first_mismatch": 0,
+        "repaired_first_mismatch": 0,
+        "paired_slots": [
+          "chart",
+          "ledger"
+        ]
+      },
+      "audit": {
+        "letters": 116,
+        "two_pointer_exact": false,
+        "mismatches": 110,
+        "sha256_forward": "730175e03098994ada96e1a222754530ebd853b26f782f61d073476fb3730feb",
+        "sha256_reverse": "cc4f8a08a39d76ef6b522ab98f88a1f661465fa29f139d4cdffb4cb8d5b35027"
+      },
+      "provenance": {
+        "best_lattice_state": true,
+        "paired_lexical_repair": true,
+        "live_seam_threshold": true,
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "word_order_only_symmetry": false
+      }
+    },
+    {
+      "repair_id": 2,
+      "rendered": "At dawn, the warden marks the chart that guides the crew beside the inlet; the pilot reads the ledger that remembers the route beside the inlet.",
+      "live_seam": {
+        "base_first_mismatch": 0,
+        "repaired_first_mismatch": 0,
+        "paired_slots": [
+          "keeper",
+          "sailor"
+        ]
+      },
+      "audit": {
+        "letters": 116,
+        "two_pointer_exact": false,
+        "mismatches": 110,
+        "sha256_forward": "70acb115af8fa10d4f19ab490f662c787b124a066c973edb94934813fb4745b7",
+        "sha256_reverse": "36936dbe6bf86df6cda173d9dbc7a42a5a38de7a9a0a4487e86d88dfc8281e12"
+      },
+      "provenance": {
+        "best_lattice_state": true,
+        "paired_lexical_repair": true,
+        "live_seam_threshold": true,
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "word_order_only_symmetry": false
+      }
+    },
+    {
+      "repair_id": 3,
+      "rendered": "At dawn, the keeper marks the chart that guides the crew beside the harbor; the sailor reads the ledger that remembers the route beside the harbor.",
+      "live_seam": {
+        "base_first_mismatch": 0,
+        "repaired_first_mismatch": 0,
+        "paired_slots": [
+          "inlet",
+          "inlet"
+        ]
+      },
+      "audit": {
+        "letters": 119,
+        "two_pointer_exact": false,
+        "mismatches": 110,
+        "sha256_forward": "3418dd10ce61f9b1e58e0c0c45748f1bd3870a391092c7d15faee92f9d0e3e7c",
+        "sha256_reverse": "5fdeb426d3856c875bba11eb6191032122954f4980f0734151720e814ba7c675"
+      },
+      "provenance": {
+        "best_lattice_state": true,
+        "paired_lexical_repair": true,
+        "live_seam_threshold": true,
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "word_order_only_symmetry": false
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 4,
+    "exact": 0,
+    "longest_letters": 119,
+    "best_mismatches": 106
+  },
+  "next_repair": {
+    "operator": "paired live-seam character-class lexical repair",
+    "reason": "paired role-compatible word edits shift but do not close the seam; next constrain substitutions by the opposing seam character class",
+    "route_exhausted": false
+  },
+  "provenance": {
+    "bounded_repairs": 4,
+    "catalogue_used": false,
+    "duplicate_sweep": false
+  }
+}

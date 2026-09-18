@@ -5210,3 +5210,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   mismatch-first remains the held-out routing winner at 0.780; no fresh exact
   or reader-certified output was admitted.  The next action is the recorded
   two-sided clitic/inflection seam repair.
+
+- **Agreement-clitic name seam, 2026-09-18:** carried agreement and clitic
+  choices through both name-adjacent seams, scheduling the shorter exposed
+  tape first and pruning character mismatches before rendering.  It produced
+  16 fresh nodes and 0 exact closures; the rendered controls were 35–41
+  letters and the reader gate remained closed.  The next repair adds
+  noun-number inflection together with semantic-valency checks at both seams.
+
+- **Dream-RSI round 110, 2026-09-18:** replayed 563 worlds and 21,719
+  independently audited nodes after the agreement-clitic seam lane.  The
+  held-out policy winner is still fixed mismatch-first at 0.780; this is
+  routing evidence only.  No fresh exact or reader-certified output was
+  admitted, so the next action is the recorded noun-number/valency seam
+  construction rather than a larger replay sweep.

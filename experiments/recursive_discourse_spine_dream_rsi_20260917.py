@@ -107,14 +107,19 @@ CENTER_VERBS = ("keeps", "checks", "remembers")
 CENTER_OBJECTS = ("the record", "the entry", "the route", "the note", "the old record", "a quiet note")
 
 
-def select_live_center(prefix: str) -> str:
+def select_live_center(prefix: str, target: int | None = None) -> str:
     """Select a complete center constituent against both exposed edges."""
     tape = letters(prefix)
     def score(clause: str) -> tuple[int, int]:
         ct = letters(clause)
         return (int(ct[0] == tape[-1]) + int(ct[-1] == tape[0]), -abs(len(ct) - len(tape) % 17))
     candidates = [f"and {s} {v} {o}." for s in CENTER_SUBJECTS for v in CENTER_VERBS for o in CENTER_OBJECTS]
-    return max(candidates, key=score)
+    # Keep a Pareto-style length frontier: short and long constituents are
+    # both eligible; target distance breaks ties only after edge compatibility.
+    ranked = sorted(candidates, key=lambda c: (score(c)[0], len(letters(c))), reverse=True)
+    if target is not None and target >= 250:
+        return max(ranked[: max(2, len(ranked) // 3)], key=lambda c: len(letters(c)))
+    return ranked[0]
 
 
 def render(adjuncts: tuple[Adjunct, ...], base: str = EVENT_BASES[0]) -> str:
@@ -244,7 +249,7 @@ def run() -> dict[str, Any]:
         before = render(derivation, base)
         repaired = substitute_first_unresolved(derivation, base)
         base, repaired = joint_event_adjunct_repair(repaired, base)
-        center = select_live_center(render(repaired, base))
+        center = select_live_center(render(repaired, base), target)
         text = render(repaired, base) + " " + center
         row_audit = audit(text)
         rows.append(

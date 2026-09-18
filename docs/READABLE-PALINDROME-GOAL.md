@@ -4337,6 +4337,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   reached 99 letters; the best audit had 64 mismatches and exact closures were
   zero.  The next repair couples verb tense with valency and the locative pair.
 
+- **Tense/valency/locative repair, 2026-09-17:** coupled present/past tense
+  with verb valency and the locative pair.  Thirty-two complete rows reached 97
+  letters; the best audit had 56 mismatches and exact closures were zero.  The
+  next operator couples tense with referent number and locative noun.
+
+- **Live seam boundary growth, 2026-09-17:** grew only the boundary selected by
+  the first unresolved seam and paired that growth with role-compatible edits.
+  Four complete passages up to 135 letters were rendered; the best audit had
+  116 mismatches and exact closures were zero.  The next repair keeps the seam
+  conditioning but adds semantic edits rather than another boundary-only pass.
+
+- **Variable-length center phrases, 2026-09-17:** exposed multiword center
+  subject/object alternatives (for example, ``the careful witness`` and ``a
+  quiet note``) instead of a single-word center.  The current edge heuristic
+  still selected ``and the guide keeps the note`` for all four targets (170,
+  197, 281, and 376 letters; best audit 150 mismatches; exact closures zero).
+  The next repair replaces that single winner with a bounded Pareto frontier so
+  short and long center candidates both survive to live equation solving.
+
 - **Dream-RSI round 68, 2026-09-17:** replayed 499 worlds and 19,355 audited
   nodes after the constrained seam repairs.  Fixed mismatch-first remained the
   held-out winner at 0.780 (429 held-out worlds), with zero mechanically

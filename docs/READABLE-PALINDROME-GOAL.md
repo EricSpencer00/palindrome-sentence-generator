@@ -4832,6 +4832,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   letters; the best audit had 60 mismatches and exact closures were zero.  The
   next repair couples attachment with locative noun.
 
+- **Dream-RSI round 90, 2026-09-18:** replayed 540 worlds and 19,956 audited
+  nodes after temporal surface, seam inflection, and attachment/determiner
+  repairs.  Fixed mismatch-first remained the held-out winner at 0.780 (466
+  held-out worlds), with zero mechanically admissible exact rows and 107
+  exact-but-rejected rows.  The next construction step separates temporal
+  surface realization from adjunct semantics and adds locative noun coupling.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

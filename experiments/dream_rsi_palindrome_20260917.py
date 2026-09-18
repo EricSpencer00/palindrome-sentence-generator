@@ -197,6 +197,8 @@ EXPLICIT_HISTORY = (
     "runs/dream-rsi-palindrome-round103-20260918.json",
     "runs/morphology-outer-seam-solver-20260918.json",
     "runs/dream-rsi-palindrome-round104-20260918.json",
+    "runs/inflectional-seam-residual-20260918.json",
+    "runs/dream-rsi-palindrome-round105-20260918.json",
     "runs/recursive-discourse-spine-dream-rsi-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

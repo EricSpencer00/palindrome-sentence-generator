@@ -5141,3 +5141,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   has no exact or reader-certified output.  The next action is to learn
   inflectional seam tokens from authored clause pairs, not increase replay
   budget.
+
+- **Inflectional seam residual index, 2026-09-18:** learned number/tense-keyed
+  reverse residuals from 140 complete authored clauses, allowing the seam to
+  cross word boundaries before rendering.  It produced 12 complete-clause
+  controls and 0 exact closures; the longest rendered pair was “the rain fell
+  on it; the answer was no.” (29 letters), independently non-exact.  The next
+  repair composes feature-compatible clauses around a live named center.
+
+- **Dream-RSI round 105, 2026-09-18:** replayed 584 worlds and 21,527 audited
+  nodes after the inflectional residual index.  Fixed mismatch-first remains
+  the held-out routing winner at 0.780; no fresh exact or reader-certified
+  output was admitted.  The next action is the named-center composition repair
+  recorded by the construction lane.

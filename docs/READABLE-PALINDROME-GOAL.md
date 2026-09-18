@@ -3754,3 +3754,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   with structured timeout provenance. The offline replay remains unchanged at
   16,624 nodes and zero admissible exact closures; this patch changes how the
   next live branch is constructed, not how failed text is scored.
+
+  Round twenty-eight fixed a replay bookkeeping gap exposed by the next three
+  Luna lanes: when a run keeps its repair instruction at the artifact root,
+  Dream-RSI now propagates that instruction to otherwise-unclassified prose
+  rows before building the repair queue. The new reverse-phrase lane therefore
+  contributes an actionable seam repair (11 held-out rows in training), while
+  failure-only chart and scene traces remain quarantined without fabricated
+  text. The replay still has 16,649 nodes, zero admissible exact closures, and
+  a closed reader gate; this is routing evidence, not a candidate.

@@ -70,6 +70,9 @@ EXPLICIT_HISTORY = (
     "runs/typed-svo-seam-repair-20260917.json",
     "runs/live-role-seam-growth-20260917.json",
     "runs/seed-semantic-pairing-search-20260917.json",
+    "runs/reverse-phrase-index-20260917.json",
+    "runs/live-typed-chart-seam-solver-20260917.json",
+    "runs/semantic-scene-live-equation-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")
@@ -279,6 +282,13 @@ def load_worlds() -> list[Node]:
         except (OSError, json.JSONDecodeError):
             continue
         experiment_id = payload.get("experiment_id", path.stem) if isinstance(payload, dict) else path.stem
+        root_repair = None
+        if isinstance(payload, dict):
+            repair = payload.get("failure_and_repair") or payload.get("next_repair")
+            if isinstance(repair, dict):
+                repair = repair.get("next_repair") or repair.get("failure")
+            if isinstance(repair, str) and repair:
+                root_repair = repair[:120]
 
         def visit(obj: Any, location: str) -> None:
             if isinstance(obj, dict):
@@ -309,6 +319,14 @@ def load_worlds() -> list[Node]:
                             "grammar-boundary", "lexical-admission-centerout",
                             "reversible-grammar",
                         ))
+                        failure_signature = _failure_signature(obj, raw_audit)
+                        # Many constructive lanes keep their repair instruction
+                        # at the artifact root while storing candidate rows
+                        # below it. Propagate that instruction into each replay
+                        # row only when the row has no concrete failure of its
+                        # own; this changes routing evidence, never admission.
+                        if failure_signature == "unclassified" and root_repair:
+                            failure_signature = root_repair
                         nodes.append(Node(
                             node_id=node_id,
                             world=path.stem,
@@ -326,7 +344,7 @@ def load_worlds() -> list[Node]:
                             shortcut_free=_shortcut_free(obj) and not (exact and forced_control),
                             intact_surface=intact,
                             reader_certified=reader,
-                            failure_signature=_failure_signature(obj, raw_audit),
+                            failure_signature=failure_signature,
                         ))
                 for key, value in obj.items():
                     visit(value, f"{location}.{key}")

@@ -5288,3 +5288,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   admissible exact count remains 0.  This is a recorded failure with a concrete
   next construction—reciprocal preposition alternations plus animate/inanimate
   object typing—not a reason to enlarge the replay budget.
+
+- **Reciprocal preposition/typing seam, 2026-09-18:** added a distinct
+  transducer carrying preposition valency and animate/inanimate object type
+  through reciprocal states, with live mirrored character equations checked
+  before rendering. It produced 0 equation-compatible nodes and 0 exact
+  closures. Fresh intact controls were 66–68 letters and passed independent
+  two-pointer plus forward/reverse hash audits; they remain human-unreviewed,
+  so the reader gate is closed. The next repair allows typed determiner and
+  adjunct attachment changes while preserving valency.

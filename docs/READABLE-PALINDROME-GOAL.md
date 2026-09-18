@@ -4155,3 +4155,21 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   with zero mechanically admissible exact rows.  The stable replay result is
   now a baseline for the next live operators; it is not a readability or speed
   claim.
+
+- **Coupled inflectional head seam, 2026-09-17:** coupled opposing semantic
+  head choices by explicit seam keys, rejecting 10 of 16 pairings before
+  rendering.  Six complete passages up to 119 letters remained; the best
+  residual was 88 and exact closures were zero.  The next repair preserves the
+  seam key while adjusting paired slot lengths.
+
+- **Polarity-object seam repair, 2026-09-17:** coupled positive/negative
+  polarity with typed object number (`maps`/`keys`) in 32 complete candidates.
+  The longest was 81 letters, the best residual was 56, and exact closures were
+  zero.  The next operator couples object number and polarity with a short
+  locative complement.
+
+  Dream-RSI round 59 replays 18,939 audited nodes, including the coupled head
+  and polarity-object repairs.  The held-out mismatch-first policy remains
+  0.780 with zero mechanically admissible exact rows.  The next construction
+  step is the recorded paired-slot length repair and polarity/locative route;
+  no score-tuning or readability claim is made.

@@ -56,8 +56,11 @@ def load_edges(path: Path) -> list[Edge]:
     pal=[]
     for w in words:
         t=norm(w)
-        if len(t) >= 3 and t == t[::-1]:
+        # Held-out ordinary content seeds: self-palindromic words are
+        # deliberately excluded from this repair lane.
+        if len(t) >= 4 and t != t[::-1] and not w.endswith(("'s",)):
             pal.append(w)
+        if len(pal) >= 1200: break
     # Authored phrase edges (two distinct lexical units).  The right phrase
     # is selected by trie segmentation of the live reverse tape, never by
     # reversing a finished surface string.
@@ -87,6 +90,7 @@ def chain_dp(edges: list[Edge], target: int = 100, max_edges: int = 40) -> list[
     # State is (last role, used edge ids, letters).  Role transitions encode a
     # simple dependency/valency grammar: N -> V -> (N|ADV|ADJ), with optional
     # coordination back to N.  Dynamic programming retains the longest chain.
+    if not edges: return []
     allowed = {None:{"noun","adjective"}, "noun":{"verb","adverb"},
                "adjective":{"noun","verb"}, "verb":{"noun","adverb","adjective"},
                "adverb":{"noun","verb"}}
@@ -120,9 +124,9 @@ def run(target=100, out=None):
          "provenance":{"lexicon_sha256":hashlib.sha256((ROOT/"data/lexicon.txt").read_bytes()).hexdigest(),
                         "generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                         "independent_audits":["two-pointer","forward/reverse SHA-256"],"construction":"graph edge + valency DP"}}
-    result={"experiment_id":"lexicon-reverse-edge-chain-20260917","status":"quarantined_shortcut_rejection","candidates":[row],
+    result={"experiment_id":"lexicon-reverse-edge-chain-20260917","status":"completed_exact" if row["reader_eligible"] else "quarantined_no_reader_candidate","candidates":[row],
             "stats":{"lexicon_edges":len(edges),"candidate_count":1,"longest_letters":checks["letters"]},
-            "failure_and_repair":{"failure":"phrase edges still contain self-palindromic content words or repeated units","next_repair":"replace palindromic seed with held-out non-palindromic multiword phrases and require disjoint lexical content before edge admission"}}
+            "failure_and_repair":{"failure":"no reader-worthy disjoint non-palindromic chain" if not row["reader_eligible"] else "none","next_repair":"expand held-out phrase inventory with syntactically typed corpus spans and retain live reverse trie matching"}}
     if out: Path(out).write_text(json.dumps(result,indent=2)+"\n")
     return result
 

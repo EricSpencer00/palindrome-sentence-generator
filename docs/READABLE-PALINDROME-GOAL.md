@@ -3655,6 +3655,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   zero. The next construction must replace the palindromic seed with held-out
   non-palindromic multiword phrases and enforce disjoint lexical content.
 
+  The CFG repair added typed complement productions (`PP -> Prep Obj`) and
+  richer clause paths while retaining live tape-state memoization. It still
+  yielded 62 complete parses, a 107-letter repeated-frame frontier, and zero
+  exact closures; the repeated frontier remains quarantined. Round nineteen
+  replays the updated chart without changing the held-out result (zero
+  admissible exact closures, 16,618 nodes across 442 worlds). The next change
+  must alter the lexical domain, not merely add another complement production.
+
   A direct joint-authoring lane was also timed against the local `gpt-oss:20b`
   model. Four bounded attempts each timed out at 35 seconds before returning a
   passage; the run preserved those failures and a quarantined mismatch-repair

@@ -104,6 +104,15 @@ CENTER_CLAUSES = (
 )
 
 
+def select_live_center(prefix: str) -> str:
+    """Select a complete center constituent against both exposed edges."""
+    tape = letters(prefix)
+    def score(clause: str) -> tuple[int, int]:
+        ct = letters(clause)
+        return (int(ct[0] == tape[-1]) + int(ct[-1] == tape[0]), -abs(len(ct) - len(tape) % 17))
+    return max(CENTER_CLAUSES, key=score)
+
+
 def render(adjuncts: tuple[Adjunct, ...], base: str = EVENT_BASES[0]) -> str:
     if not adjuncts:
         return base
@@ -227,11 +236,11 @@ def run() -> dict[str, Any]:
     rows: list[dict[str, Any]] = []
     for target in (100, 150, 200, 300):
         base = EVENT_BASES[(target // 50) % len(EVENT_BASES)]
-        center = CENTER_CLAUSES[(target // 50) % len(CENTER_CLAUSES)]
         derivation = recursive_derivation(target, base)
         before = render(derivation, base)
         repaired = substitute_first_unresolved(derivation, base)
         base, repaired = joint_event_adjunct_repair(repaired, base)
+        center = select_live_center(render(repaired, base))
         text = render(repaired, base) + " " + center
         row_audit = audit(text)
         rows.append(
@@ -256,6 +265,7 @@ def run() -> dict[str, Any]:
                     "pre_repair_rendered": before,
                     "joint_event_adjunct_repair": True,
                     "mutable_center_clause": center,
+                    "center_selection": "two_sided_outer_obligation_score",
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,
                     "wrapped_seed": False,

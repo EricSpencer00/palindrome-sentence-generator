@@ -5280,3 +5280,11 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   nodes and 0 exact closures.  Fresh intact controls were 65 letters and remain
   human-unreviewed.  The reader gate is closed.  The next repair adds
   reciprocal preposition alternations and animate/inanimate object typing.
+
+- **Dream-RSI round 112, 2026-09-18:** replayed the registered reciprocal
+  plural-frame lane with 564 worlds and 21,729 audited nodes.  The lane added
+  no replayable exact branch (its own live search had 0 equation-compatible
+  nodes), so the held-out fixed mismatch-first policy remains 0.780 and the
+  admissible exact count remains 0.  This is a recorded failure with a concrete
+  next construction—reciprocal preposition alternations plus animate/inanimate
+  object typing—not a reason to enlarge the replay budget.

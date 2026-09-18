@@ -3747,3 +3747,10 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   selected and held-out policies are still `whole_passage_focus`, with zero
   admissible exact closures. The queue is therefore a routing improvement, not
   a readability claim.
+
+  Round twenty-six makes that queue operational: when online redeployment is
+  requested, the top deduplicated seam repair is appended to the fresh
+  authoring anchors, and the bounded local-model call has an explicit timeout
+  with structured timeout provenance. The offline replay remains unchanged at
+  16,624 nodes and zero admissible exact closures; this patch changes how the
+  next live branch is constructed, not how failed text is scored.

@@ -570,6 +570,7 @@ def run(out: Path, budget: int = 8, online: bool = False) -> dict[str, Any]:
     train_reports = [aggregate(train, policy, budget) for policy in POLICIES]
     winner = select_policy(train_reports)
     heldout_report = aggregate(heldout, next(policy for policy in POLICIES if policy["name"] == winner["policy"]), budget)
+    repair_queue = failure_repair_queue(train)
     policy_signatures = {
         (report["admissible_exact"], report["exact_rejected"],
          report["best_mismatch_rate"], report["best_letters"])
@@ -578,22 +579,43 @@ def run(out: Path, budget: int = 8, online: bool = False) -> dict[str, Any]:
     online_run = None
     if online:
         online_out = ROOT / "runs" / "dream-rsi-online-branching-two-region-20260917.json"
+        base_anchors = (
+            "the theater archivist; a torn playbill; the locked drawer; carrying "
+            "it to the reading table; marking the missing cast names before the house lights rose"
+        )
+        if repair_queue:
+            base_anchors += "; Dream-RSI live repair priority: " + repair_queue[0]["next_repair"]
         command = [sys.executable, str(ROOT / "experiments" / "branching_two_region_authoring_20260917.py"),
                    "--experiment-id", "dream-rsi-online-branching-two-region-20260917",
                    "--out", str(online_out), "--branch-factor", "3", "--depth", "2",
                    "--initial",
                    "The theater archivist found a torn playbill in a locked drawer, carried it to the reading table, and marked the missing cast names before the house lights rose.",
                    "--anchors",
-                   "the theater archivist; a torn playbill; the locked drawer; carrying it to the reading table; marking the missing cast names before the house lights rose"]
-        completed = subprocess.run(command, cwd=ROOT, capture_output=True, text=True, check=False)
-        online_run = {
-            "winner_policy": winner["policy"],
-            "command": command,
-            "returncode": completed.returncode,
-            "stdout": completed.stdout,
-            "stderr": completed.stderr,
-            "artifact": str(online_out.relative_to(ROOT)) if online_out.exists() else None,
-        }
+                   base_anchors]
+        try:
+            completed = subprocess.run(
+                command, cwd=ROOT, capture_output=True, text=True, check=False,
+                timeout=240,
+            )
+            online_run = {
+                "winner_policy": winner["policy"],
+                "command": command,
+                "returncode": completed.returncode,
+                "stdout": completed.stdout,
+                "stderr": completed.stderr,
+                "timed_out": False,
+                "artifact": str(online_out.relative_to(ROOT)) if online_out.exists() else None,
+            }
+        except subprocess.TimeoutExpired as exc:
+            online_run = {
+                "winner_policy": winner["policy"],
+                "command": command,
+                "returncode": None,
+                "stdout": str(exc.stdout or ""),
+                "stderr": str(exc.stderr or ""),
+                "timed_out": True,
+                "artifact": str(online_out.relative_to(ROOT)) if online_out.exists() else None,
+            }
     return {
         "experiment_id": EXPERIMENT_ID,
         "signature": signature,
@@ -619,7 +641,7 @@ def run(out: Path, budget: int = 8, online: bool = False) -> dict[str, Any]:
         "split": {"train_nodes": len(train), "heldout_nodes": len(heldout), "split_rule": "last node-id hex nibble parity"},
         "replay_budget_per_world": budget,
         "policy_frontier": train_reports,
-        "failure_repair_queue": failure_repair_queue(train),
+        "failure_repair_queue": repair_queue,
         "winner": winner,
         "heldout_winner": heldout_report,
         "online_deployment": online_run,

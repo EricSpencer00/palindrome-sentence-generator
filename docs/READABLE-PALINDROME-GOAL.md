@@ -3803,8 +3803,8 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   first implementation had used the trie depth from an unrelated leaf as if it
   were evidence for the rendered pair; the corrected run now requires the
   chosen pair's own reverse prefix (plus typed-number compatibility) before
-  rendering.  With 12 fresh frames expanded to 132 number-conditioned verb
-  realizations it produces zero valid near-miss rows and zero exact closures.
-  This removes a false
-  positive diagnostic and leaves a precise next operator: inflectional verb
-  variants with agreement carried through a full two-sided chart.
+  rendering.  With 12 fresh frames expanded to 924 typed realizations (132
+  number-conditioned verb forms plus object/adjunct substitutions) it produces
+  zero valid near-miss rows and zero exact closures.  This removes a false
+  positive diagnostic and leaves a precise next operator: multi-clause chart
+  composition with seam-compatible lexical entries.

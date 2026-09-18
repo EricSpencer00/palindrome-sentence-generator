@@ -95,6 +95,8 @@ EVENT_BASES = (
     "The patient curator records a message.",
     "A quiet teacher marks a lesson.",
     "The young keeper carries a lantern.",
+    "The patient curator gives the reader a message.",
+    "A quiet keeper places the lantern by the gate.",
 )
 CENTER_CLAUSES = (
     "and the witness keeps the record.",
@@ -324,6 +326,11 @@ def run() -> dict[str, Any]:
                     "mutable_center_clause": center,
                     "center_selection": "two_sided_outer_obligation_score",
                     "predicate_argument_boundary_operator": True,
+                    "typed_discourse_graph": {
+                        "outer_event_valency": "propagated",
+                        "center_valency": "jointly ranked",
+                        "adjunct_attachment": "typed temporal/locative/instrumental/causal",
+                    },
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,
                     "wrapped_seed": False,

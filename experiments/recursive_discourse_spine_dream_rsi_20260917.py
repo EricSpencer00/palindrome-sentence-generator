@@ -108,6 +108,34 @@ def recursive_derivation(target: int) -> tuple[Adjunct, ...]:
     return state
 
 
+def substitute_first_unresolved(state: tuple[Adjunct, ...]) -> tuple[Adjunct, ...]:
+    """Apply one live repair at the first unresolved mirrored pair.
+
+    The operator changes an already generated typed adjunct, rather than
+    appending padding.  It is deliberately bounded to one replacement so the
+    trace records a causal repair and cannot silently become a bank sweep.
+    """
+    text = render(state)
+    tape = letters(text)
+    k = next((i for i, (a, b) in enumerate(zip(tape, tape[::-1])) if a != b), None)
+    if k is None or not state:
+        return state
+    # The replacement controls the right edge of the selected adjunct, so its
+    # terminal must satisfy the character demanded by the opposite side.
+    required_terminal = tape[-1 - k]
+    used = {item.text for item in state}
+    for index, old in enumerate(state):
+        for candidate in ADJUNCTS:
+            if candidate.text in used or candidate.text == old.text:
+                continue
+            # The first character of the candidate is the live boundary
+            # variable for this typed expansion; terminal matching is the
+            # opposite-edge obligation.
+            if candidate.terminal == required_terminal:
+                return (*state[:index], candidate, *state[index + 1:])
+    return state
+
+
 def novelty_preflight() -> dict[str, Any]:
     registry_path = ROOT / "docs" / "experiment-novelty-registry.json"
     registry = json.loads(registry_path.read_text())
@@ -127,13 +155,15 @@ def run() -> dict[str, Any]:
     rows: list[dict[str, Any]] = []
     for target in (100, 150, 200, 300):
         derivation = recursive_derivation(target)
-        text = render(derivation)
+        before = render(derivation)
+        repaired = substitute_first_unresolved(derivation)
+        text = render(repaired)
         row_audit = audit(text)
         rows.append(
             {
                 "target_letters": target,
                 "rendered": text,
-                "derivation_depth": len(derivation),
+                "derivation_depth": len(repaired),
                 "typed_adjuncts": [item.kind for item in derivation],
                 "live_equation": {
                     "first_letter": letters(text)[0],
@@ -147,11 +177,13 @@ def run() -> dict[str, Any]:
                 "audit": row_audit,
                 "provenance": {
                     "recursive_typed_spine": True,
+                    "repair_operator": "substitute_first_unresolved_mirrored_pair",
+                    "pre_repair_rendered": before,
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,
                     "wrapped_seed": False,
                     "finished_tape_reversal": False,
-                    "repeated_content_adjunct": len({item.text for item in derivation}) != len(derivation),
+                    "repeated_content_adjunct": len({item.text for item in repaired}) != len(repaired),
                     "human_readability_certified": False,
                 },
             }

@@ -3645,6 +3645,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   metadata is incomplete. Round sixteen replays this artifact at 16,618 nodes
   across 442 worlds; held-out admissible exact closures remain zero.
 
+  The trie-segmented phrase-edge repair produced a 214-letter exact tape, but
+  the rendered chain (“alula malayalam civic malayalam ... anna malayalam”)
+  is a stack of self-palindromic words with repeated `malayalam` units. Its
+  stale eligibility claim was corrected: the lane now persists explicit
+  anti-shortcut checks and marks the row `quarantined_shortcut_rejection` with
+  `reader_eligible: false`. Round eighteen replays the corrected artifact at
+  16,618 nodes across 442 worlds; the held-out admissible exact count remains
+  zero. The next construction must replace the palindromic seed with held-out
+  non-palindromic multiword phrases and enforce disjoint lexical content.
+
   A direct joint-authoring lane was also timed against the local `gpt-oss:20b`
   model. Four bounded attempts each timed out at 35 seconds before returning a
   passage; the run preserved those failures and a quarantined mismatch-repair

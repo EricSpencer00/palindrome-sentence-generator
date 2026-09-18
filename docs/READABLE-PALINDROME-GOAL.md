@@ -4198,3 +4198,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   admits zero exact rows; this is a routing diagnostic, not a readability or
   speed claim.  The next round must consume the paired-inflection and
   polarity/locative repair operators rather than replaying these same choices.
+
+- **Paired boundary-inflection repair, 2026-09-17:** changed paired location
+  boundaries under fixed semantic-role keys and attachment.  Four fresh,
+  complete passages were rendered; the longest was 117 letters and the best
+  independent two-pointer audit still had 104 mismatches, with zero exact
+  closures.  For provenance, one row is ``At dawn, the keeper marks the chart
+  that guides the crew along the inlet; the sailor reads the ledger that
+  remembers the route along the inlet.``  The concrete next operator changes
+  determiners and inflections jointly while retaining the same frame.
+
+- **Locative-preposition seam repair, 2026-09-17:** jointly varied locative
+  preposition, object number, and polarity in 32 complete rows.  The longest
+  row was 93 letters; the best independent audit had 60 mismatches and exact
+  closures remained zero.  The next repair varies locative noun-phrase length
+  while preserving preposition and object agreement.

@@ -4226,3 +4226,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact closures are zero, and the reader gate remains closed.  The next
   repair is to branch from the preserved state with a new semantic operator,
   not to resample this same tree.
+
+- **Paired determiner/inflection repair, 2026-09-17:** coupled singular/plural
+  determiners and inflections under agreement constraints.  Four fresh intact
+  passages were rendered (109--119 letters); the best row had 96 mismatches and
+  exact closures were zero.  One audited row was ``At dawn, a keeper marks a
+  chart that guides the crew beside the inlet; a sailor reads a ledger that
+  remembers the route beside the inlet.``  The next operator couples these
+  changes to agreeing relative-clause heads and verbs.
+
+- **Locative noun-phrase-length repair, 2026-09-17:** varied short versus
+  expanded locative noun phrases while preserving typed preposition and object
+  agreement.  Thirty-two complete rows reached 96 letters; the best audit had
+  60 mismatches and exact closures were zero.  The next repair jointly varies
+  the locative determiner while preserving noun-phrase length.
+
+- **Recursive event-predicate repair, 2026-09-17:** varied the central event
+  predicate across four authored frames before growing the typed adjunct spine.
+  The four requested targets reached 165, 197, 272, and 366 letters; the best
+  audit still had 150 mismatches and all exact closures were zero.  The actual
+  rows remain complete prose with provenance and independent two-pointer/SHA
+  checks.  The next repair jointly varies the event predicate and its first
+  attached adjunct so the live mirrored frontier changes at both boundaries.

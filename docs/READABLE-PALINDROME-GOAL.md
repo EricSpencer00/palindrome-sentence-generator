@@ -3977,3 +3977,10 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   residual fell from 120 to 116 mismatches, but exact closures remained zero.
   The concrete successor is coordinated two-sided relative-clause substitution
   with length balancing; no reader gate is opened by this near-miss improvement.
+
+  Dream-RSI round 48 now replays 18,452 audited nodes including both repairs.
+  The held-out mismatch-first policy is unchanged at 0.780, with zero
+  mechanically admissible exact rows and 107 exact-but-rejected controls in
+  the held-out partition.  The unchanged policy is useful evidence: the next
+  run must alter the live operator (two-sided length-balanced seam infill), not
+  retune replay weights or claim a speed result.

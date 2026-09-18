@@ -8,7 +8,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{enumitem}
-\title{Constructive, Evidence-Gated Generation of Long English Letter-Level Palindromes}
+\title{Dream-RSI-Guided Construction of Long English Letter-Level Palindromes}
 \author{Anonymous submission}
 \newcommand{\norm}[1]{n(#1)}
 \newcommand{\rev}{\operatorname{rev}}
@@ -21,18 +21,17 @@ We study the constructive generation of long English palindromes under a
 strict letter-level definition.  A candidate must be an exact palindrome,
 originate from an auditable construction rather than borrowed catalogue text,
 avoid repeated or self-palindromic units, and survive a blinded human
-readability study.  Our workbench keeps character obligations live while it
-builds ordinary scenes: typed grammar and semantic slots propose the next
-words, and targeted repairs are selected from the current mirrored-letter
-debt.  Ten deliberately orthogonal construction lanes share an independent
-two-pointer and hash verifier, provenance records, and a novelty registry.
-The current development snapshot contains 5,529 candidates from 332 route
-summaries; 84 are exact, but none passes the mechanical admission gate and no row has
-yet been promoted by readers.  We report the rendered candidates and the
-failed gates explicitly, then use each failure to define the next repair
-operator.  The contribution is therefore a reproducible construction and
-evaluation protocol aimed at a genuinely readable long output, not a speed
-benchmark or a proxy-only result.
+readability study.  Our central method is a Dream-RSI-style repair controller:
+historical discovery trees become replay simulators for choosing the next
+repair, while a live character-obligation constructor jointly infills typed
+semantic spans and may change word boundaries inside a reopened seam.  The
+controller is evaluated on held-out authored scenes, then redeployed to a
+fresh construction branch.  Ten deliberately orthogonal lanes share an
+independent two-pointer and hash verifier, provenance records, and a novelty
+registry.  The manuscript leads with rendered construction traces and exact
+gates; reader evaluation is a separate promotion test.  The contribution is
+a reproducible route toward genuinely readable long output, not a speed
+benchmark, proxy-only result, or negative-result thesis.
 \end{abstract}
 
 \section{Task and acceptance gate}
@@ -84,6 +83,37 @@ compositional grammar without nested palindrome spans; and exact-candidate
 repair by semantic slot substitution.  Each lane writes its rendered text,
 normalized tape, independent checks, source hashes, novelty result, and a
 concrete next repair to a JSON artifact.
+
+\section{Dream-RSI repair controller}
+\label{sec:dream-rsi}
+Dream-RSI treats accumulated discovery history as a replay simulator for
+exploration policies \citep{zheng2026dreamrsi}.  We use that idea as an
+orchestration layer, not as an automatic readability judge.  Each completed
+lane contributes a node containing its rendered surface, independently
+recomputed exactness, residual signature, provenance, and next repair.  A
+deterministic policy frontier is trained on one parity split of these nodes;
+the selected policy is evaluated on held-out nodes and then used to route the
+next live constructor.  Exactness and reader status are never replay rewards.
+
+The live operator is masked-span infilling.  A state freezes already matched
+outer character assignments, identifies the first unresolved seam, and
+reopens the seam-owning typed constituents on both sides.  Reopened spans may
+change lexical content, inflection, and word boundaries; all other assignments
+remain fixed.  Narrow one-slot and wider constituent policies are compared in
+replay before held-out deployment.  The current rounds render complete scene
+traces such as ``The careful baker records a blue map near the harbor. A young
+gardener carries winter herbs after class.'' (85 letters, 33--35 unresolved
+character pairs) and ``At first light, the keeper marks the signal, while the
+sailor notes the route, by the inlet.'' (72 letters, exactness false).  These
+surfaces are construction evidence, not promoted palindrome examples: each
+carries its generator hash, independent pointer/SHA audit, and the next
+geometry-changing repair.
+
+Replay makes the search policy scalable without turning a score into a
+readability claim.  A fresh branch can spend its bounded budget on a new
+constituent geometry instead of resampling a completed sentence.  Only a novel
+exact row with intact prose enters the randomized intact-versus-shuffled reader
+study.
 
 The implementation also exposes an explicit totality witness for arbitrary
 requested lengths.  This witness is useful for testing the state machine but
@@ -622,7 +652,7 @@ Each resulting surface will be rendered and audited before a reader-facing
 test.  Once a survivor appears, the reader package and paper tables will be
 regenerated from its immutable provenance record.
 
-\bibliography{refs}
+\bibliography{refs,refs-dreamrsi}
 
 \appendix
 \section{Reproduction checklist}

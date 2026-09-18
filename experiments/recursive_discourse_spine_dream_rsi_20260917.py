@@ -90,14 +90,21 @@ def audit(text: str) -> dict[str, Any]:
     }
 
 
-def render(adjuncts: tuple[Adjunct, ...]) -> str:
-    base = "A careful archivist logs a signal."
+EVENT_BASES = (
+    "A careful archivist logs a signal.",
+    "The patient curator records a message.",
+    "A quiet teacher marks a lesson.",
+    "The young keeper carries a lantern.",
+)
+
+
+def render(adjuncts: tuple[Adjunct, ...], base: str = EVENT_BASES[0]) -> str:
     if not adjuncts:
         return base
     return base + " " + " ".join(item.text for item in adjuncts)
 
 
-def recursive_derivation(target: int) -> tuple[Adjunct, ...]:
+def recursive_derivation(target: int, base: str = EVENT_BASES[0]) -> tuple[Adjunct, ...]:
     """Grow one typed spine to the first state at or above ``target``.
 
     A final adjunct is chosen from the ``a``-terminal class whenever possible,
@@ -106,25 +113,26 @@ def recursive_derivation(target: int) -> tuple[Adjunct, ...]:
     """
     state: tuple[Adjunct, ...] = ()
     index = 0
-    while len(letters(render(state))) < target and index < len(ADJUNCTS):
+    while len(letters(render(state, base))) < target and index < len(ADJUNCTS):
         candidate = ADJUNCTS[index]
         state = (*state, candidate)
         index += 1
-    if letters(render(state))[0] != letters(render(state))[-1]:
+    if letters(render(state, base))[0] != letters(render(state))[-1]:
         terminal = next((item for item in ADJUNCTS[index:] if item.terminal == "a"), None)
         if terminal is not None:
             state = (*state, terminal)
     return state
 
 
-def substitute_first_unresolved(state: tuple[Adjunct, ...]) -> tuple[Adjunct, ...]:
+def substitute_first_unresolved(state: tuple[Adjunct, ...], base: str | None = None) -> tuple[Adjunct, ...]:
     """Apply one live repair at the first unresolved mirrored pair.
 
     The operator changes an already generated typed adjunct, rather than
     appending padding.  It is deliberately bounded to one replacement so the
     trace records a causal repair and cannot silently become a bank sweep.
     """
-    text = render(state)
+    base = base or "A careful archivist logs a signal."
+    text = render(state, base)
     tape = letters(text)
     k = next((i for i, (a, b) in enumerate(zip(tape, tape[::-1])) if a != b), None)
     if k is None or not state:
@@ -157,7 +165,7 @@ def substitute_first_unresolved(state: tuple[Adjunct, ...]) -> tuple[Adjunct, ..
                 proposed = (*state[:index], candidate, *state[index + 1:])
                 # Require an actual boundary change; otherwise the action is
                 # not a repair and must be recorded as unavailable.
-                if letters(render(proposed)) != before:
+                if letters(render(proposed, base)) != before:
                     return proposed
     # Larger-constituent fallback: replace an adjacent typed pair with two
     # fresh, independently grammatical adjuncts.  This changes word
@@ -168,7 +176,7 @@ def substitute_first_unresolved(state: tuple[Adjunct, ...]) -> tuple[Adjunct, ..
                 if first.text in used or second.text in used or first.text == second.text:
                     continue
                 proposed = (*state[:index], first, second, *state[index + 2:])
-                if letters(render(proposed)) != before:
+                if letters(render(proposed, base)) != before:
                     return proposed
     return state
 
@@ -191,10 +199,11 @@ def run() -> dict[str, Any]:
         raise RuntimeError("novelty_preflight_failed: duplicate experiment id")
     rows: list[dict[str, Any]] = []
     for target in (100, 150, 200, 300):
-        derivation = recursive_derivation(target)
-        before = render(derivation)
-        repaired = substitute_first_unresolved(derivation)
-        text = render(repaired)
+        base = EVENT_BASES[(target // 50) % len(EVENT_BASES)]
+        derivation = recursive_derivation(target, base)
+        before = render(derivation, base)
+        repaired = substitute_first_unresolved(derivation, base)
+        text = render(repaired, base)
         row_audit = audit(text)
         rows.append(
             {

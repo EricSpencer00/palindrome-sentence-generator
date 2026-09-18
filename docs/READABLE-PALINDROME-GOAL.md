@@ -5076,3 +5076,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   winner and held-out mismatch rate stayed fixed at 0.780, so no policy claim
   is being substituted for a construction result.  The new frame remains in
   the failure ledger and the next action is the relative-clause linker repair.
+
+- **Held-out relative-linker repair, 2026-09-18:** added a who/that linker
+  before the right finite verb while retaining the live residual and the
+  independently authored left frame.  Three policy replays reached 9 fresh
+  nodes and 0 exact closures; complete controls were rendered up to 41
+  letters and independently audited.  The next repair jointly varies linker
+  attachment and subject number rather than widening the same sweep.
+
+- **Dream-RSI round 101, 2026-09-18:** replayed 558 worlds and 21,499 audited
+  nodes after the relative-linker repair.  The offline policy result remains
+  unchanged (fixed mismatch-first, held-out mismatch rate 0.780); the new
+  construction world is retained as a concrete failure branch rather than
+  converted into a proxy success claim.

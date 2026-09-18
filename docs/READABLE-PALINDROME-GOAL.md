@@ -4568,6 +4568,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   fixed-tense valency with locative state, and valency propagation into the
   outer event spine.
 
+- **Dream-RSI round 79, 2026-09-18:** replayed 521 worlds and 19,742 audited
+  nodes after adding the paired head/verb, fixed-tense valency/locative, and
+  outer-spine valency branches.  Fixed mismatch-first remained the held-out
+  winner at 0.780 (449 held-out worlds), with zero mechanically admissible exact
+  rows and 107 exact-but-rejected rows.  The replay still routes the next
+  construction; it does not certify a palindrome or readability.  The next
+  repair must enforce cross-clause agreement and argument-role compatibility.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

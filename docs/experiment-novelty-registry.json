@@ -2701,7 +2701,7 @@
       "run_artifacts": [
         "runs/grapheme-chunk-finite-state-constructor-20260916.json"
       ],
-      "distinction": "Fresh clauses are emitted by a finite-state START→det→subj→verb→obj machine whose lexical terminals are typed multi-character onset/rime chunks; mirror debt crosses chunk and word boundaries and is independently replayed. Distinct from character-LM tape resegmentation, CFG/Earley intersection, morphology, and paired grammar lanes.",
+      "distinction": "Fresh clauses are emitted by a finite-state START\u2192det\u2192subj\u2192verb\u2192obj machine whose lexical terminals are typed multi-character onset/rime chunks; mirror debt crosses chunk and word boundaries and is independently replayed. Distinct from character-LM tape resegmentation, CFG/Earley intersection, morphology, and paired grammar lanes.",
       "reader_evidence": false,
       "status": "bounded diagnostic; exact closure unresolved; first-rime residual repair recorded"
     },
@@ -4275,7 +4275,7 @@
       "run_artifacts": [
         "runs/luna-semantic-lexical-path-solver-20260917.json"
       ],
-      "distinction": "The solver selects an agent→event→theme→locative→consequence valency path before lexical realization, then tracks terminal character obligations online across typed edges; it retains intact scenes and a held-out role substitution repair rather than a POS sweep.",
+      "distinction": "The solver selects an agent\u2192event\u2192theme\u2192locative\u2192consequence valency path before lexical realization, then tracks terminal character obligations online across typed edges; it retains intact scenes and a held-out role substitution repair rather than a POS sweep.",
       "reader_evidence": false,
       "status": "two semantic paths with nine causal-path joint/result-frame repairs, fourteen role/predicate/endpoint repairs, and one exact-witness repair lane; the 50-letter witness remains rejected for mirror symmetry/self-palindromic span, and all intact candidates are non-exact; next repair couples result-clause agent and consequence"
     },
@@ -4660,7 +4660,7 @@
       "run_artifacts": [
         "runs/scene-lattice-survey-joint-locative-eleventh-20260917.json"
       ],
-      "distinction": "Extends the matched `la…co` proper-locative tail with `locally` to satisfy the eleventh residual `l` on the retained branch.",
+      "distinction": "Extends the matched `la\u2026co` proper-locative tail with `locally` to satisfy the eleventh residual `l` on the retained branch.",
       "reader_evidence": false,
       "status": "new constructive repair; 4 intact candidates, longest 66 letters, all four eleventh-character `l` matches, 0 exact closures; condition the next character against the twelfth residual"
     },
@@ -4693,7 +4693,7 @@
       "run_artifacts": [
         "runs/scene-lattice-survey-joint-locative-twelfth-20260917.json"
       ],
-      "distinction": "Extends the matched `la…co` proper-locative tail and probes the twelfth residual, recording the `o`/`e` mismatch before changing the continuation.",
+      "distinction": "Extends the matched `la\u2026co` proper-locative tail and probes the twelfth residual, recording the `o`/`e` mismatch before changing the continuation.",
       "reader_evidence": false,
       "status": "new constructive repair; 4 intact candidates, longest 66 letters, 0 twelfth-character matches, 0 exact closures; replace `locally` with a grammatical `le`-initial continuation"
     },
@@ -4880,7 +4880,7 @@
       "run_artifacts": [
         "runs/cfg-midpoint-lexical-trie-product-20260917.json"
       ],
-      "distinction": "Expands lexical trie states inside the midpoint-aware CFG×palindrome-automaton product with semantic roles and agreement during bilateral decoding.",
+      "distinction": "Expands lexical trie states inside the midpoint-aware CFG\u00d7palindrome-automaton product with semantic roles and agreement during bilateral decoding.",
       "reader_evidence": false,
       "status": "new hard-reset repair; 3,072 intact sentences, longest 39 letters, 0 exact closures; character-level verb-trie expansion with role/agreement constraints is next"
     },
@@ -4913,7 +4913,7 @@
       "run_artifacts": [
         "runs/cfg-midpoint-verb-trie-agreement-20260917.json"
       ],
-      "distinction": "Expands agent, verb, and patient tries character-by-character inside midpoint CFG decoding while gating subject–verb agreement before rendering.",
+      "distinction": "Expands agent, verb, and patient tries character-by-character inside midpoint CFG decoding while gating subject\u2013verb agreement before rendering.",
       "reader_evidence": false,
       "status": "new hard-reset repair; 6,144 intact sentences, longest 39 letters, 0 exact closures; bilateral role-conditioned verb frames with held-out lexical classes are next"
     },
@@ -5047,7 +5047,7 @@
       ],
       "distinction": "Compiles phrase paths into character-labelled graphs with explicit word-boundary epsilon edges and synchronizes equal character edges before rendering paired full tapes.",
       "reader_evidence": false,
-      "status": "architectural reset; quarantined asymmetric-boundary oracle passes; reusable bounded 2–8-word graph over 500 common audited words exhausted its 2,500-state budget with 0 non-shortcut exact completions"
+      "status": "architectural reset; quarantined asymmetric-boundary oracle passes; reusable bounded 2\u20138-word graph over 500 common audited words exhausted its 2,500-state budget with 0 non-shortcut exact completions"
     },
     {
       "id": "semantic-valency-nfa-product-20260917",
@@ -5092,6 +5092,18 @@
       "distinction": "Compiles paired typed slot sequences into shared layered character NFAs with live reversed-path product and boundary backpointers; complete phrase Cartesian products are not materialized.",
       "reader_evidence": false,
       "status": "architectural repair; 3 asymmetric slot-frame products, 0 exact paths, 0 rendered candidates; replaces the prior retrospective slot sweep; next repair is a larger audited lexical inventory with explicit grammar states"
+    },
+    {
+      "id": "residual-scene-operator-20260917",
+      "signature": "authored-scene-slots|nonpalindromic-centre-first|outside-in-character-obligations|live-residual-ledger|no-tape-reversal|no-bank-sweep",
+      "artifact": "experiments/residual_scene_operator_20260917.py",
+      "run_artifacts": [
+        "runs/residual-scene-operator-20260917.json",
+        "artifacts/residual-scene-operator-20260917.json"
+      ],
+      "distinction": "Starts from a non-palindromic centre-crossing phrase and grows authored semantic scene arms outside-in, selecting each realization against the live opposing character obligation; it never reverses a finished tape or sweeps a duplicate bank.",
+      "reader_evidence": false,
+      "status": "diagnostic run; 2 rendered candidates, no exact closure, longest 77 letters"
     }
   ],
   "excluded": [
@@ -5380,7 +5392,7 @@
         "char-lm-tape-resegment-20260916",
         "char-lm-grammar-2026-09-16"
       ],
-      "reason": "The exact-tape-first route preserves two exact controls: the known 16-letter catalogue sentence “Able was I; I saw Elba” and a 72-letter tape whose reflected half is gibberish. Both are below the reader-worthy target or fail intact-prose quality, so neither is counted in the retained aggregate or presented as generated readable evidence."
+      "reason": "The exact-tape-first route preserves two exact controls: the known 16-letter catalogue sentence \u201cAble was I; I saw Elba\u201d and a 72-letter tape whose reflected half is gibberish. Both are below the reader-worthy target or fail intact-prose quality, so neither is counted in the retained aggregate or presented as generated readable evidence."
     },
     {
       "id": "inflection-clitic-boundary-search-20260916-luna-excluded",
@@ -5393,7 +5405,7 @@
         "known-palindrome-catalogue",
         "word-order-symmetry-controls"
       ],
-      "reason": "The reported 126-letter exact surface is the same canonical clause “A man, a plan, a canal, Panama.” repeated six times. It fails the no-repeated-nontrivial-unit and borrowed-catalogue constraints; the exact hash is preserved as a rejected control, not a generated readable palindrome. The next repair must replace every repeated unit with held-out inflected/clitic clauses before promotion."
+      "reason": "The reported 126-letter exact surface is the same canonical clause \u201cA man, a plan, a canal, Panama.\u201d repeated six times. It fails the no-repeated-nontrivial-unit and borrowed-catalogue constraints; the exact hash is preserved as a rejected control, not a generated readable palindrome. The next repair must replace every repeated unit with held-out inflected/clitic clauses before promotion."
     },
     {
       "id": "reversible-lexical-shell-20260916-excluded",

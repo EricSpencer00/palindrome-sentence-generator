@@ -1,0 +1,70 @@
+{
+  "experiment": "char-grammar-intersection-20260918",
+  "method": "Intersect typed character-level clause generation with reverse-tape trie segmentation; word boundaries and right-side lexical choices are variables.",
+  "assignment_count": 150000,
+  "reverse_parse_count": 0,
+  "candidate_count": 2,
+  "candidates": [
+    {
+      "rendered": "A young teacher writes a kind story by the river.",
+      "left_types": [],
+      "right_types": [],
+      "provenance": "fresh authored control; no exact candidate claimed",
+      "audit": {
+        "letters": 39,
+        "exact": false,
+        "first_mismatch": 0,
+        "sha256": "6a4c140dea8fd13c54f9958e4ec8786cd8b45f0eb276c119e83dc7dddedfbdd9",
+        "independent_two_pointer": false,
+        "independent_forward_reverse_sha": false
+      },
+      "novelty_preflight": {
+        "signature": "char-grammar-intersection-v1"
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "punctuation_carries_letters": false,
+        "fragment": false,
+        "borrowed_text": false
+      },
+      "grammar_intersection": {
+        "complete_tape_parse": false
+      }
+    },
+    {
+      "rendered": "The quiet baker reads a letter near the harbor.",
+      "left_types": [],
+      "right_types": [],
+      "provenance": "fresh authored control; no exact candidate claimed",
+      "audit": {
+        "letters": 38,
+        "exact": false,
+        "first_mismatch": 0,
+        "sha256": "321b3dd33b550b847a4451a6f375b9c15b46a3423532316a34ea7d7bb7156706",
+        "independent_two_pointer": false,
+        "independent_forward_reverse_sha": false
+      },
+      "novelty_preflight": {
+        "signature": "char-grammar-intersection-v1"
+      },
+      "anti_shortcut": {
+        "catalogue": false,
+        "repeated_unit": false,
+        "word_order_only": false,
+        "punctuation_carries_letters": false,
+        "fragment": false,
+        "borrowed_text": false
+      },
+      "grammar_intersection": {
+        "complete_tape_parse": false
+      }
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "longest_letters": 39,
+    "next_repair": "add a finite-state inflectional transducer and seam-aware pruning so grammatical right parses can cross longer clause tapes without importing mirrored units."
+  }
+}

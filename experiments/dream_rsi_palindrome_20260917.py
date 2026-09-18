@@ -128,6 +128,7 @@ EXPLICIT_HISTORY = (
     "runs/relative-seam-np-agreement-prep-20260918.json",
     "runs/relative-seam-np-agreement-prep-tense-20260918.json",
     "runs/relative-seam-tense-locative-det-fixed-np-20260918.json",
+    "runs/relative-seam-det-tense-locative-number-20260918.json",
     "runs/key-preserving-slot-length-20260917.json",
     "runs/paired-boundary-inflection-20260917.json",
     "runs/paired-determiner-inflection-20260917.json",
@@ -144,6 +145,7 @@ EXPLICIT_HISTORY = (
     "runs/opposing-seam-character-class-20260918.json",
     "runs/class-length-matched-repair-20260918.json",
     "runs/class-length-head-verb-coupling-20260918.json",
+    "runs/head-verb-boundary-attachment-20260918.json",
     "runs/recursive-discourse-spine-dream-rsi-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

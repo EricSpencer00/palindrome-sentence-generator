@@ -4851,6 +4851,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   lexical realization beam over this scene’s roles, not another prompt-only
   sweep.  Reader certification remains closed.
 
+- **Direct character-scene lexical repair, 2026-09-18:** applied eight fresh
+  seam-targeted repairs to that authored scene while preserving rain, Sam, the
+  sparrow, bay, spray, and fog roles.  Four responses stayed in the 80–180
+  letter band; none was exact.  The best in-band repair was 80 letters with 36
+  mismatches (“Rain beat, Sam gazed at a silver sparrow near the bay, spray
+  lashed his skin, the bird vanished in fog.”).  Independent forward/reverse
+  hashes differ and provenance records the source scene and no tape reversal.
+  The next operator is a live role-compatible character trie, not another
+  prompt-only repair.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

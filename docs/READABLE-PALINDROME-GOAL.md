@@ -3887,6 +3887,20 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   with agreement-carrying inflections, retaining all other assignments; no
   reader claim is made until an exact novel row survives the admission gate.
 
+- **Two-sided agreement constituent repair, 2026-09-17:** reopened complete
+  agent+verb constituents on both sides while keeping the outer scene
+  assignments fixed and carrying singular/plural agreement through the
+  replacement.  Four fresh scenes (longest 67 letters) were rendered and
+  independently audited; none closed exactly.  The concrete next repair is a
+  joint agent+verb plus object span with cross-side number agreement, not a
+  repeat of the previous one-slot lane.
+
+  Round 40 replay now contains 17,914 independently audited nodes.  The
+  held-out fixed-mismatch policy reaches a 0.780 mismatch rate, a small
+  routing improvement over round 39, but still no exact or reader-eligible
+  output.  The result is preserved as a repair queue item; replay scores do
+  not certify English readability.
+
 - **Seedless typed-template equation, 2026-09-17:** 81 fresh typed SVO
   realizations (longest 85 letters) were built from live outside-in character
   obligations; zero exact closures.  The concrete successor is seam-indexed

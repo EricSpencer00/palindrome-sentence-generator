@@ -3873,3 +3873,27 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   The 728 rendered, provenance-tagged probes produced zero exact closures;
   the closest controls still repeated content or failed the reverse tape.
   This lane used no seed-wrap composite and produced no reader evidence.
+
+- **Dream-RSI masked-span infilling, 2026-09-17:** replayed a narrow
+  one-slot repair against a constituent-width repair, then deployed the
+  selected policy on held-out authored scenes.  The state froze already
+  matching outer character assignments while reopening seam-owning typed
+  slots; phrase length and word boundaries could change inside the reopened
+  span.  It rendered 30 complete scene pairs up to 98 letters, with two
+  independent audits on every row.  The constituent policy improved the best
+  mismatch count from 35 to 33, but produced zero exact closures and zero
+  mechanically admitted rows.  This is a real construction change, not a
+  larger unchanged sweep.  The next operator is a two-sided constituent repair
+  with agreement-carrying inflections, retaining all other assignments; no
+  reader claim is made until an exact novel row survives the admission gate.
+
+- **Seedless typed-template equation, 2026-09-17:** 81 fresh typed SVO
+  realizations (longest 85 letters) were built from live outside-in character
+  obligations; zero exact closures.  The concrete successor is seam-indexed
+  lexical edge substitution rather than another template sweep.
+
+  Dream-RSI round 39 replays the new typed, imperative, seam-repair, and
+  masked-infilling worlds as 17,688 independently audited nodes.  The held-out
+  winner remains `fixed_mismatch_first` at a 0.794 mismatch rate; this is
+  routing evidence only.  The online reader-facing gate is still closed because
+  no fresh exact, mechanically admissible prose row exists yet.

@@ -1,0 +1,2929 @@
+{
+  "experiment_id": "dream-rsi-masked-infilling-20260917",
+  "signature": "dream-rsi|masked-span-infilling|mutable-boundaries|seam-indexed-typed-repair|independent-audit",
+  "method": "replay narrow versus constituent-width masked repair, then deploy winner on held-out authored scenes",
+  "policy_frontier": [
+    {
+      "policy": "narrow_slot",
+      "width": 1,
+      "train_rows": 10,
+      "best_mismatch": 35,
+      "best_letters": 83
+    },
+    {
+      "policy": "constituent_pair",
+      "width": 2,
+      "train_rows": 10,
+      "best_mismatch": 33,
+      "best_letters": 85
+    }
+  ],
+  "winner": {
+    "policy": "constituent_pair",
+    "width": 2,
+    "train_rows": 10,
+    "best_mismatch": 33,
+    "best_letters": 85
+  },
+  "rows": [
+    {
+      "round": 0,
+      "branch": 0,
+      "policy": "narrow_slot",
+      "rendered": "the careful baker records fresh bread before dawn. a patient nurse checks each dosage after class.",
+      "audit": {
+        "letters": 81,
+        "two_pointer_exact": false,
+        "mismatch_count": 35,
+        "mismatch_rate": 0.875,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 80,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "left_index": 1,
+            "right_index": 79,
+            "left": "h",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 78,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 77,
+            "left": "c",
+            "right": "l"
+          },
+          {
+            "left_index": 4,
+            "right_index": 76,
+            "left": "a",
+            "right": "c"
+          },
+          {
+            "left_index": 7,
+            "right_index": 73,
+            "left": "f",
+            "right": "t"
+          },
+          {
+            "left_index": 8,
+            "right_index": 72,
+            "left": "u",
+            "right": "f"
+          },
+          {
+            "left_index": 9,
+            "right_index": 71,
+            "left": "l",
+            "right": "a"
+          }
+        ],
+        "sha256_forward": "449f54c89968e1a26876f1a5ade4322fe0a56f22908bb2b3ce3f27b161f74420",
+        "sha256_reverse": "894bb66150ccfeef61d3aa8ef2ce430eb534b3789fa9ef37a2a93c0c109422f9",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 38,
+        "required_left": "s",
+        "required_right": "t",
+        "length_debt": 3
+      },
+      "provenance": {
+        "fresh_authored_scene": true
+      }
+    },
+    {
+      "rendered": "the careful baker records fresh bread before dawn. a patient nurse checks each dosage near the harbor.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "records",
+        "theme": "fresh bread",
+        "setting": "before dawn"
+      },
+      "right_scene": {
+        "agent": "a patient nurse",
+        "verb": "checks",
+        "theme": "each dosage",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "setting"
+      ],
+      "reopen_width": 1,
+      "required_characters": {
+        "left": "s",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 38,
+        "required_left": "s",
+        "required_right": "t",
+        "length_debt": 3
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "audit": {
+        "letters": 84,
+        "two_pointer_exact": false,
+        "mismatch_count": 37,
+        "mismatch_rate": 0.8809523809523809,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 83,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 82,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 81,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 80,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 78,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 76,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 75,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 74,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "c84e7e7d7128f683e157cd90699a8e2f01bb31fc75e02765a9df868e51cbe376",
+        "sha256_reverse": "a5ddf794fab3267724e34fbf1a91c4a8c109897ff1b0994622c07674800d7b8b",
+        "sha_equal_under_reversal": false
+      },
+      "score": 110.14117647058825,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 1,
+      "branch": 0,
+      "policy": "narrow_slot"
+    },
+    {
+      "rendered": "the careful baker records fresh bread before dawn. a patient nurse checks each dosage near the harbor.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "records",
+        "theme": "fresh bread",
+        "setting": "before dawn"
+      },
+      "right_scene": {
+        "agent": "a patient nurse",
+        "verb": "checks",
+        "theme": "each dosage",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "setting"
+      ],
+      "reopen_width": 1,
+      "required_characters": {
+        "left": "r",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "audit": {
+        "letters": 84,
+        "two_pointer_exact": false,
+        "mismatch_count": 37,
+        "mismatch_rate": 0.8809523809523809,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 83,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 82,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 81,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 80,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 78,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 76,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 75,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 74,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "c84e7e7d7128f683e157cd90699a8e2f01bb31fc75e02765a9df868e51cbe376",
+        "sha256_reverse": "a5ddf794fab3267724e34fbf1a91c4a8c109897ff1b0994622c07674800d7b8b",
+        "sha_equal_under_reversal": false
+      },
+      "score": 110.14117647058825,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 2,
+      "branch": 0,
+      "policy": "narrow_slot"
+    },
+    {
+      "rendered": "the careful baker records fresh bread before dawn. a patient nurse checks each dosage near the harbor.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "records",
+        "theme": "fresh bread",
+        "setting": "before dawn"
+      },
+      "right_scene": {
+        "agent": "a patient nurse",
+        "verb": "checks",
+        "theme": "each dosage",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "setting"
+      ],
+      "reopen_width": 1,
+      "required_characters": {
+        "left": "r",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "audit": {
+        "letters": 84,
+        "two_pointer_exact": false,
+        "mismatch_count": 37,
+        "mismatch_rate": 0.8809523809523809,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 83,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 82,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 81,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 80,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 78,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 76,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 75,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 74,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "c84e7e7d7128f683e157cd90699a8e2f01bb31fc75e02765a9df868e51cbe376",
+        "sha256_reverse": "a5ddf794fab3267724e34fbf1a91c4a8c109897ff1b0994622c07674800d7b8b",
+        "sha_equal_under_reversal": false
+      },
+      "score": 110.14117647058825,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 3,
+      "branch": 0,
+      "policy": "narrow_slot"
+    },
+    {
+      "rendered": "the careful baker records fresh bread before dawn. a patient nurse checks each dosage near the harbor.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "records",
+        "theme": "fresh bread",
+        "setting": "before dawn"
+      },
+      "right_scene": {
+        "agent": "a patient nurse",
+        "verb": "checks",
+        "theme": "each dosage",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "setting"
+      ],
+      "reopen_width": 1,
+      "required_characters": {
+        "left": "r",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "audit": {
+        "letters": 84,
+        "two_pointer_exact": false,
+        "mismatch_count": 37,
+        "mismatch_rate": 0.8809523809523809,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 83,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 82,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 81,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 80,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 78,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 76,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 75,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 74,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "c84e7e7d7128f683e157cd90699a8e2f01bb31fc75e02765a9df868e51cbe376",
+        "sha256_reverse": "a5ddf794fab3267724e34fbf1a91c4a8c109897ff1b0994622c07674800d7b8b",
+        "sha_equal_under_reversal": false
+      },
+      "score": 110.14117647058825,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 4,
+      "branch": 0,
+      "policy": "narrow_slot"
+    },
+    {
+      "round": 0,
+      "branch": 1,
+      "policy": "narrow_slot",
+      "rendered": "the quiet sailor folds a blue map near the harbor. a young gardener carries winter herbs by the stove.",
+      "audit": {
+        "letters": 82,
+        "two_pointer_exact": false,
+        "mismatch_count": 40,
+        "mismatch_rate": 0.975609756097561,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 81,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 80,
+            "left": "h",
+            "right": "v"
+          },
+          {
+            "left_index": 2,
+            "right_index": 79,
+            "left": "e",
+            "right": "o"
+          },
+          {
+            "left_index": 3,
+            "right_index": 78,
+            "left": "q",
+            "right": "t"
+          },
+          {
+            "left_index": 4,
+            "right_index": 77,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 5,
+            "right_index": 76,
+            "left": "i",
+            "right": "e"
+          },
+          {
+            "left_index": 6,
+            "right_index": 75,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 73,
+            "left": "s",
+            "right": "y"
+          }
+        ],
+        "sha256_forward": "0390ef688998a19e616e1c5731251adc0991cbd667b4d8d43ba0b7092a015c77",
+        "sha256_reverse": "fd262541e98aa146a51403c88cac003592ae797c7af1cdacfb111cc60449f121",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "e",
+        "required_right": "t",
+        "length_debt": 2
+      },
+      "provenance": {
+        "fresh_authored_scene": true
+      }
+    },
+    {
+      "rendered": "a patient nurse folds a blue map near the harbor. a young gardener carries winter herbs near the harbor.",
+      "left_scene": {
+        "agent": "a patient nurse",
+        "verb": "folds",
+        "theme": "a blue map",
+        "setting": "near the harbor"
+      },
+      "right_scene": {
+        "agent": "a young gardener",
+        "verb": "carries",
+        "theme": "winter herbs",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "setting"
+      ],
+      "reopen_width": 1,
+      "required_characters": {
+        "left": "e",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "e",
+        "required_right": "t",
+        "length_debt": 2
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 44,
+        "required_left": "r",
+        "required_right": "a",
+        "length_debt": 6
+      },
+      "audit": {
+        "letters": 84,
+        "two_pointer_exact": false,
+        "mismatch_count": 41,
+        "mismatch_rate": 0.9761904761904762,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 83,
+            "left": "a",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 82,
+            "left": "p",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 81,
+            "left": "a",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 80,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 4,
+            "right_index": 79,
+            "left": "i",
+            "right": "a"
+          },
+          {
+            "left_index": 5,
+            "right_index": 78,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "left_index": 6,
+            "right_index": 77,
+            "left": "n",
+            "right": "e"
+          },
+          {
+            "left_index": 7,
+            "right_index": 76,
+            "left": "t",
+            "right": "h"
+          }
+        ],
+        "sha256_forward": "3a78588091ef79f2c321f09d4d27ba3e987f8b1dd9b975ae7fb2e3ab47f82a19",
+        "sha256_reverse": "d025c3f191b0cb931c326f2a2d8255f88c11c23f37cf81526a6c2b4b607e7005",
+        "sha_equal_under_reversal": false
+      },
+      "score": 122.33684210526319,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 1,
+      "branch": 1,
+      "policy": "narrow_slot"
+    },
+    {
+      "rendered": "the careful baker folds a blue map near the harbor. a young gardener carries winter herbs after class.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "folds",
+        "theme": "a blue map",
+        "setting": "near the harbor"
+      },
+      "right_scene": {
+        "agent": "a young gardener",
+        "verb": "carries",
+        "theme": "winter herbs",
+        "setting": "after class"
+      },
+      "reopened_roles": [
+        "agent",
+        "setting"
+      ],
+      "reopen_width": 1,
+      "required_characters": {
+        "left": "r",
+        "right": "a"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 44,
+        "required_left": "r",
+        "required_right": "a",
+        "length_debt": 6
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "s",
+        "required_right": "t",
+        "length_debt": 1
+      },
+      "audit": {
+        "letters": 83,
+        "two_pointer_exact": false,
+        "mismatch_count": 35,
+        "mismatch_rate": 0.8536585365853658,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 82,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "left_index": 1,
+            "right_index": 81,
+            "left": "h",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 80,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 79,
+            "left": "c",
+            "right": "l"
+          },
+          {
+            "left_index": 4,
+            "right_index": 78,
+            "left": "a",
+            "right": "c"
+          },
+          {
+            "left_index": 7,
+            "right_index": 75,
+            "left": "f",
+            "right": "t"
+          },
+          {
+            "left_index": 8,
+            "right_index": 74,
+            "left": "u",
+            "right": "f"
+          },
+          {
+            "left_index": 9,
+            "right_index": 73,
+            "left": "l",
+            "right": "a"
+          }
+        ],
+        "sha256_forward": "33080852c3059588dc18081a0e95469e2cce91108d01bddd4f77820819c0c599",
+        "sha256_reverse": "8e38124607901a70bfd55b4af0f467d9457f68216bb8d73cb4878a0508838136",
+        "sha_equal_under_reversal": false
+      },
+      "score": 116.55888888888889,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 2,
+      "branch": 1,
+      "policy": "narrow_slot"
+    },
+    {
+      "rendered": "the careful baker folds a blue map near the harbor. a young gardener carries winter herbs near the harbor.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "folds",
+        "theme": "a blue map",
+        "setting": "near the harbor"
+      },
+      "right_scene": {
+        "agent": "a young gardener",
+        "verb": "carries",
+        "theme": "winter herbs",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "setting"
+      ],
+      "reopen_width": 1,
+      "required_characters": {
+        "left": "s",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "s",
+        "required_right": "t",
+        "length_debt": 1
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 44,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 4
+      },
+      "audit": {
+        "letters": 86,
+        "two_pointer_exact": false,
+        "mismatch_count": 39,
+        "mismatch_rate": 0.9069767441860465,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 85,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 84,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 83,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 82,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 80,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 78,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 77,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 76,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "7ddb81fef7a7723fd2ca1af7be2b36ec65364c36a929535bec403cd6b2a5444a",
+        "sha256_reverse": "2f4fa7158eb53c66f751ab728da5599cfff0a74bccab60c60d68b5839c343c96",
+        "sha_equal_under_reversal": false
+      },
+      "score": 122.85684210526318,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 3,
+      "branch": 1,
+      "policy": "narrow_slot"
+    },
+    {
+      "rendered": "the careful baker folds a blue map near the harbor. a young gardener carries winter herbs near the harbor.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "folds",
+        "theme": "a blue map",
+        "setting": "near the harbor"
+      },
+      "right_scene": {
+        "agent": "a young gardener",
+        "verb": "carries",
+        "theme": "winter herbs",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "setting"
+      ],
+      "reopen_width": 1,
+      "required_characters": {
+        "left": "r",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 44,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 4
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 44,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 4
+      },
+      "audit": {
+        "letters": 86,
+        "two_pointer_exact": false,
+        "mismatch_count": 39,
+        "mismatch_rate": 0.9069767441860465,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 85,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 84,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 83,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 82,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 80,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 78,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 77,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 76,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "7ddb81fef7a7723fd2ca1af7be2b36ec65364c36a929535bec403cd6b2a5444a",
+        "sha256_reverse": "2f4fa7158eb53c66f751ab728da5599cfff0a74bccab60c60d68b5839c343c96",
+        "sha_equal_under_reversal": false
+      },
+      "score": 122.85684210526318,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 4,
+      "branch": 1,
+      "policy": "narrow_slot"
+    },
+    {
+      "round": 0,
+      "branch": 0,
+      "policy": "constituent_pair",
+      "rendered": "the careful baker records fresh bread before dawn. a patient nurse checks each dosage after class.",
+      "audit": {
+        "letters": 81,
+        "two_pointer_exact": false,
+        "mismatch_count": 35,
+        "mismatch_rate": 0.875,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 80,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "left_index": 1,
+            "right_index": 79,
+            "left": "h",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 78,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 77,
+            "left": "c",
+            "right": "l"
+          },
+          {
+            "left_index": 4,
+            "right_index": 76,
+            "left": "a",
+            "right": "c"
+          },
+          {
+            "left_index": 7,
+            "right_index": 73,
+            "left": "f",
+            "right": "t"
+          },
+          {
+            "left_index": 8,
+            "right_index": 72,
+            "left": "u",
+            "right": "f"
+          },
+          {
+            "left_index": 9,
+            "right_index": 71,
+            "left": "l",
+            "right": "a"
+          }
+        ],
+        "sha256_forward": "449f54c89968e1a26876f1a5ade4322fe0a56f22908bb2b3ce3f27b161f74420",
+        "sha256_reverse": "894bb66150ccfeef61d3aa8ef2ce430eb534b3789fa9ef37a2a93c0c109422f9",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 38,
+        "required_left": "s",
+        "required_right": "t",
+        "length_debt": 3
+      },
+      "provenance": {
+        "fresh_authored_scene": true
+      }
+    },
+    {
+      "rendered": "the careful baker records fresh bread before dawn. a patient nurse checks each dosage near the harbor.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "records",
+        "theme": "fresh bread",
+        "setting": "before dawn"
+      },
+      "right_scene": {
+        "agent": "a patient nurse",
+        "verb": "checks",
+        "theme": "each dosage",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "verb",
+        "setting"
+      ],
+      "reopen_width": 2,
+      "required_characters": {
+        "left": "s",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 38,
+        "required_left": "s",
+        "required_right": "t",
+        "length_debt": 3
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "audit": {
+        "letters": 84,
+        "two_pointer_exact": false,
+        "mismatch_count": 37,
+        "mismatch_rate": 0.8809523809523809,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 83,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 82,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 81,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 80,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 78,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 76,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 75,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 74,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "c84e7e7d7128f683e157cd90699a8e2f01bb31fc75e02765a9df868e51cbe376",
+        "sha256_reverse": "a5ddf794fab3267724e34fbf1a91c4a8c109897ff1b0994622c07674800d7b8b",
+        "sha_equal_under_reversal": false
+      },
+      "score": 110.14117647058825,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 1,
+      "branch": 0,
+      "policy": "constituent_pair"
+    },
+    {
+      "rendered": "the careful baker records fresh bread before dawn. a patient nurse checks each dosage near the harbor.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "records",
+        "theme": "fresh bread",
+        "setting": "before dawn"
+      },
+      "right_scene": {
+        "agent": "a patient nurse",
+        "verb": "checks",
+        "theme": "each dosage",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "verb",
+        "setting"
+      ],
+      "reopen_width": 2,
+      "required_characters": {
+        "left": "r",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "audit": {
+        "letters": 84,
+        "two_pointer_exact": false,
+        "mismatch_count": 37,
+        "mismatch_rate": 0.8809523809523809,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 83,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 82,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 81,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 80,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 78,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 76,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 75,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 74,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "c84e7e7d7128f683e157cd90699a8e2f01bb31fc75e02765a9df868e51cbe376",
+        "sha256_reverse": "a5ddf794fab3267724e34fbf1a91c4a8c109897ff1b0994622c07674800d7b8b",
+        "sha_equal_under_reversal": false
+      },
+      "score": 110.14117647058825,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 2,
+      "branch": 0,
+      "policy": "constituent_pair"
+    },
+    {
+      "rendered": "the careful baker records fresh bread before dawn. a patient nurse checks each dosage near the harbor.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "records",
+        "theme": "fresh bread",
+        "setting": "before dawn"
+      },
+      "right_scene": {
+        "agent": "a patient nurse",
+        "verb": "checks",
+        "theme": "each dosage",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "verb",
+        "setting"
+      ],
+      "reopen_width": 2,
+      "required_characters": {
+        "left": "r",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "audit": {
+        "letters": 84,
+        "two_pointer_exact": false,
+        "mismatch_count": 37,
+        "mismatch_rate": 0.8809523809523809,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 83,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 82,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 81,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 80,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 78,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 76,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 75,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 74,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "c84e7e7d7128f683e157cd90699a8e2f01bb31fc75e02765a9df868e51cbe376",
+        "sha256_reverse": "a5ddf794fab3267724e34fbf1a91c4a8c109897ff1b0994622c07674800d7b8b",
+        "sha_equal_under_reversal": false
+      },
+      "score": 110.14117647058825,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 3,
+      "branch": 0,
+      "policy": "constituent_pair"
+    },
+    {
+      "rendered": "the careful baker records fresh bread before dawn. a patient nurse checks each dosage near the harbor.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "records",
+        "theme": "fresh bread",
+        "setting": "before dawn"
+      },
+      "right_scene": {
+        "agent": "a patient nurse",
+        "verb": "checks",
+        "theme": "each dosage",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "verb",
+        "setting"
+      ],
+      "reopen_width": 2,
+      "required_characters": {
+        "left": "r",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 0
+      },
+      "audit": {
+        "letters": 84,
+        "two_pointer_exact": false,
+        "mismatch_count": 37,
+        "mismatch_rate": 0.8809523809523809,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 83,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 82,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 81,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 80,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 78,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 76,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 75,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 74,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "c84e7e7d7128f683e157cd90699a8e2f01bb31fc75e02765a9df868e51cbe376",
+        "sha256_reverse": "a5ddf794fab3267724e34fbf1a91c4a8c109897ff1b0994622c07674800d7b8b",
+        "sha_equal_under_reversal": false
+      },
+      "score": 110.14117647058825,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 4,
+      "branch": 0,
+      "policy": "constituent_pair"
+    },
+    {
+      "round": 0,
+      "branch": 1,
+      "policy": "constituent_pair",
+      "rendered": "the quiet sailor folds a blue map near the harbor. a young gardener carries winter herbs by the stove.",
+      "audit": {
+        "letters": 82,
+        "two_pointer_exact": false,
+        "mismatch_count": 40,
+        "mismatch_rate": 0.975609756097561,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 81,
+            "left": "t",
+            "right": "e"
+          },
+          {
+            "left_index": 1,
+            "right_index": 80,
+            "left": "h",
+            "right": "v"
+          },
+          {
+            "left_index": 2,
+            "right_index": 79,
+            "left": "e",
+            "right": "o"
+          },
+          {
+            "left_index": 3,
+            "right_index": 78,
+            "left": "q",
+            "right": "t"
+          },
+          {
+            "left_index": 4,
+            "right_index": 77,
+            "left": "u",
+            "right": "s"
+          },
+          {
+            "left_index": 5,
+            "right_index": 76,
+            "left": "i",
+            "right": "e"
+          },
+          {
+            "left_index": 6,
+            "right_index": 75,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 73,
+            "left": "s",
+            "right": "y"
+          }
+        ],
+        "sha256_forward": "0390ef688998a19e616e1c5731251adc0991cbd667b4d8d43ba0b7092a015c77",
+        "sha256_reverse": "fd262541e98aa146a51403c88cac003592ae797c7af1cdacfb111cc60449f121",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "e",
+        "required_right": "t",
+        "length_debt": 2
+      },
+      "provenance": {
+        "fresh_authored_scene": true
+      }
+    },
+    {
+      "rendered": "a patient nurse records a blue map near the harbor. a young gardener carries winter herbs near the harbor.",
+      "left_scene": {
+        "agent": "a patient nurse",
+        "verb": "records",
+        "theme": "a blue map",
+        "setting": "near the harbor"
+      },
+      "right_scene": {
+        "agent": "a young gardener",
+        "verb": "carries",
+        "theme": "winter herbs",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "verb",
+        "setting"
+      ],
+      "reopen_width": 2,
+      "required_characters": {
+        "left": "e",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "e",
+        "required_right": "t",
+        "length_debt": 2
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 44,
+        "required_left": "r",
+        "required_right": "a",
+        "length_debt": 4
+      },
+      "audit": {
+        "letters": 86,
+        "two_pointer_exact": false,
+        "mismatch_count": 41,
+        "mismatch_rate": 0.9534883720930233,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 85,
+            "left": "a",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 84,
+            "left": "p",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 83,
+            "left": "a",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 82,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 4,
+            "right_index": 81,
+            "left": "i",
+            "right": "a"
+          },
+          {
+            "left_index": 5,
+            "right_index": 80,
+            "left": "e",
+            "right": "h"
+          },
+          {
+            "left_index": 6,
+            "right_index": 79,
+            "left": "n",
+            "right": "e"
+          },
+          {
+            "left_index": 7,
+            "right_index": 78,
+            "left": "t",
+            "right": "h"
+          }
+        ],
+        "sha256_forward": "76ea2a4306cfe1f9626d4af891171770187cd30e358181d63ce169d4638094eb",
+        "sha256_reverse": "d4c140b825a15249791da804e19f3a194e708bb71d6e3ba1f19a1b2057df258b",
+        "sha_equal_under_reversal": false
+      },
+      "score": 124.30684210526319,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 1,
+      "branch": 1,
+      "policy": "constituent_pair"
+    },
+    {
+      "rendered": "the careful baker records a blue map near the harbor. a young gardener carries winter herbs after class.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "records",
+        "theme": "a blue map",
+        "setting": "near the harbor"
+      },
+      "right_scene": {
+        "agent": "a young gardener",
+        "verb": "carries",
+        "theme": "winter herbs",
+        "setting": "after class"
+      },
+      "reopened_roles": [
+        "agent",
+        "verb",
+        "setting"
+      ],
+      "reopen_width": 2,
+      "required_characters": {
+        "left": "r",
+        "right": "a"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 44,
+        "required_left": "r",
+        "required_right": "a",
+        "length_debt": 4
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "s",
+        "required_right": "t",
+        "length_debt": 1
+      },
+      "audit": {
+        "letters": 85,
+        "two_pointer_exact": false,
+        "mismatch_count": 33,
+        "mismatch_rate": 0.7857142857142857,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 84,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "left_index": 1,
+            "right_index": 83,
+            "left": "h",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 82,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 81,
+            "left": "c",
+            "right": "l"
+          },
+          {
+            "left_index": 4,
+            "right_index": 80,
+            "left": "a",
+            "right": "c"
+          },
+          {
+            "left_index": 7,
+            "right_index": 77,
+            "left": "f",
+            "right": "t"
+          },
+          {
+            "left_index": 8,
+            "right_index": 76,
+            "left": "u",
+            "right": "f"
+          },
+          {
+            "left_index": 9,
+            "right_index": 75,
+            "left": "l",
+            "right": "a"
+          }
+        ],
+        "sha256_forward": "2a34248736497be7a67ea8b1328384408587c3f18311315fd7e0269007ce95f1",
+        "sha256_reverse": "47454f4a87d3406005ee0b3dbc8d6d3ff83ddc819805365251403de31d8fda21",
+        "sha_equal_under_reversal": false
+      },
+      "score": 118.52888888888889,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 2,
+      "branch": 1,
+      "policy": "constituent_pair"
+    },
+    {
+      "rendered": "the careful baker records a blue map near the harbor. a young gardener carries winter herbs near the harbor.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "records",
+        "theme": "a blue map",
+        "setting": "near the harbor"
+      },
+      "right_scene": {
+        "agent": "a young gardener",
+        "verb": "carries",
+        "theme": "winter herbs",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "verb",
+        "setting"
+      ],
+      "reopen_width": 2,
+      "required_characters": {
+        "left": "s",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 41,
+        "required_left": "s",
+        "required_right": "t",
+        "length_debt": 1
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 44,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 2
+      },
+      "audit": {
+        "letters": 88,
+        "two_pointer_exact": false,
+        "mismatch_count": 40,
+        "mismatch_rate": 0.9090909090909091,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 87,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 86,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 85,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 84,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 82,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 80,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 79,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 78,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "721bdf0f72c8430fd02d5d66d398ac8dcbb37b273285e3a7c4229380a946bda1",
+        "sha256_reverse": "af8ac05317231b38c5a92f72f0356eaa30368b19714da808bec539f0dce7b2df",
+        "sha_equal_under_reversal": false
+      },
+      "score": 124.82684210526318,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 3,
+      "branch": 1,
+      "policy": "constituent_pair"
+    },
+    {
+      "rendered": "the careful baker records a blue map near the harbor. a young gardener carries winter herbs near the harbor.",
+      "left_scene": {
+        "agent": "the careful baker",
+        "verb": "records",
+        "theme": "a blue map",
+        "setting": "near the harbor"
+      },
+      "right_scene": {
+        "agent": "a young gardener",
+        "verb": "carries",
+        "theme": "winter herbs",
+        "setting": "near the harbor"
+      },
+      "reopened_roles": [
+        "agent",
+        "verb",
+        "setting"
+      ],
+      "reopen_width": 2,
+      "required_characters": {
+        "left": "r",
+        "right": "t"
+      },
+      "before_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 44,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 2
+      },
+      "after_seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 44,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 2
+      },
+      "audit": {
+        "letters": 88,
+        "two_pointer_exact": false,
+        "mismatch_count": 40,
+        "mismatch_rate": 0.9090909090909091,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 87,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 86,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 85,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 84,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 82,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 80,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 79,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 78,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "721bdf0f72c8430fd02d5d66d398ac8dcbb37b273285e3a7c4229380a946bda1",
+        "sha256_reverse": "af8ac05317231b38c5a92f72f0356eaa30368b19714da808bec539f0dce7b2df",
+        "sha_equal_under_reversal": false
+      },
+      "score": 124.82684210526318,
+      "provenance": {
+        "fresh_authored_scene": true,
+        "joint_masked_span_infilling": true,
+        "shared_outer_assignments_frozen": 0,
+        "word_boundaries_mutable": true,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "repeated_unit": false
+      },
+      "round": 4,
+      "branch": 1,
+      "policy": "constituent_pair"
+    },
+    {
+      "round": 0,
+      "branch": 2,
+      "policy": "constituent_pair",
+      "rendered": "the observant teacher opens the old journal after class. the careful baker sketches the bright window under soft rain.",
+      "audit": {
+        "letters": 98,
+        "two_pointer_exact": false,
+        "mismatch_count": 49,
+        "mismatch_rate": 1.0,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 97,
+            "left": "t",
+            "right": "n"
+          },
+          {
+            "left_index": 1,
+            "right_index": 96,
+            "left": "h",
+            "right": "i"
+          },
+          {
+            "left_index": 2,
+            "right_index": 95,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 94,
+            "left": "o",
+            "right": "r"
+          },
+          {
+            "left_index": 4,
+            "right_index": 93,
+            "left": "b",
+            "right": "t"
+          },
+          {
+            "left_index": 5,
+            "right_index": 92,
+            "left": "s",
+            "right": "f"
+          },
+          {
+            "left_index": 6,
+            "right_index": 91,
+            "left": "e",
+            "right": "o"
+          },
+          {
+            "left_index": 7,
+            "right_index": 90,
+            "left": "r",
+            "right": "s"
+          }
+        ],
+        "sha256_forward": "c5a3d7cf286825f88cfa99c073fc61d71c03d42bac52fee5f65f173f76603844",
+        "sha256_reverse": "503b321e6f88ad6ef12aeab7fe231f34f72dec81477e5058cc669200bfcedbae",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 50,
+        "required_left": "n",
+        "required_right": "t",
+        "length_debt": 4
+      },
+      "provenance": {
+        "fresh_authored_scene": true,
+        "heldout_deployment": true
+      }
+    },
+    {
+      "round": 1,
+      "branch": 2,
+      "policy": "constituent_pair",
+      "rendered": "the careful baker records the old journal after class. the careful baker sketches the bright window near the harbor.",
+      "audit": {
+        "letters": 96,
+        "two_pointer_exact": false,
+        "mismatch_count": 45,
+        "mismatch_rate": 0.9375,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 95,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 94,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 93,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 92,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 90,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 88,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 87,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 86,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "73315a2353375d77aaf4e9f2560ef3fbdcc8207c558789440e59a71afcb55be2",
+        "sha256_reverse": "b2f63ee21a5499c3e4073e2291bc829a4a6d98a7ff1b85101d7efe6f8ffdc072",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 50,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 6
+      },
+      "provenance": {
+        "fresh_authored_scene": true,
+        "heldout_deployment": true
+      }
+    },
+    {
+      "round": 2,
+      "branch": 2,
+      "policy": "constituent_pair",
+      "rendered": "the careful baker records the old journal after class. the careful baker sketches the bright window near the harbor.",
+      "audit": {
+        "letters": 96,
+        "two_pointer_exact": false,
+        "mismatch_count": 45,
+        "mismatch_rate": 0.9375,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 95,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 94,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 93,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 92,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 90,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 88,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 87,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 86,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "73315a2353375d77aaf4e9f2560ef3fbdcc8207c558789440e59a71afcb55be2",
+        "sha256_reverse": "b2f63ee21a5499c3e4073e2291bc829a4a6d98a7ff1b85101d7efe6f8ffdc072",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 50,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 6
+      },
+      "provenance": {
+        "fresh_authored_scene": true,
+        "heldout_deployment": true
+      }
+    },
+    {
+      "round": 3,
+      "branch": 2,
+      "policy": "constituent_pair",
+      "rendered": "the careful baker records the old journal after class. the careful baker sketches the bright window near the harbor.",
+      "audit": {
+        "letters": 96,
+        "two_pointer_exact": false,
+        "mismatch_count": 45,
+        "mismatch_rate": 0.9375,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 95,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 94,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 93,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 92,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 90,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 88,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 87,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 86,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "73315a2353375d77aaf4e9f2560ef3fbdcc8207c558789440e59a71afcb55be2",
+        "sha256_reverse": "b2f63ee21a5499c3e4073e2291bc829a4a6d98a7ff1b85101d7efe6f8ffdc072",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 50,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 6
+      },
+      "provenance": {
+        "fresh_authored_scene": true,
+        "heldout_deployment": true
+      }
+    },
+    {
+      "round": 4,
+      "branch": 2,
+      "policy": "constituent_pair",
+      "rendered": "the careful baker records the old journal after class. the careful baker sketches the bright window near the harbor.",
+      "audit": {
+        "letters": 96,
+        "two_pointer_exact": false,
+        "mismatch_count": 45,
+        "mismatch_rate": 0.9375,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 95,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 94,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 93,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 92,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 90,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 88,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 87,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 86,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "73315a2353375d77aaf4e9f2560ef3fbdcc8207c558789440e59a71afcb55be2",
+        "sha256_reverse": "b2f63ee21a5499c3e4073e2291bc829a4a6d98a7ff1b85101d7efe6f8ffdc072",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 50,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 6
+      },
+      "provenance": {
+        "fresh_authored_scene": true,
+        "heldout_deployment": true
+      }
+    },
+    {
+      "round": 0,
+      "branch": 3,
+      "policy": "constituent_pair",
+      "rendered": "a patient nurse records each dosage beside the garden gate. the quiet sailor checks a blue map before dawn.",
+      "audit": {
+        "letters": 87,
+        "two_pointer_exact": false,
+        "mismatch_count": 37,
+        "mismatch_rate": 0.8604651162790697,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 86,
+            "left": "a",
+            "right": "n"
+          },
+          {
+            "left_index": 1,
+            "right_index": 85,
+            "left": "p",
+            "right": "w"
+          },
+          {
+            "left_index": 3,
+            "right_index": 83,
+            "left": "t",
+            "right": "d"
+          },
+          {
+            "left_index": 4,
+            "right_index": 82,
+            "left": "i",
+            "right": "e"
+          },
+          {
+            "left_index": 5,
+            "right_index": 81,
+            "left": "e",
+            "right": "r"
+          },
+          {
+            "left_index": 6,
+            "right_index": 80,
+            "left": "n",
+            "right": "o"
+          },
+          {
+            "left_index": 7,
+            "right_index": 79,
+            "left": "t",
+            "right": "f"
+          },
+          {
+            "left_index": 8,
+            "right_index": 78,
+            "left": "n",
+            "right": "e"
+          }
+        ],
+        "sha256_forward": "6da728baaa03e0ad189dd2fb0b04593cb651c6574583366b4ffd1c95383c7466",
+        "sha256_reverse": "8cd85e829db263309518d90cc8086f0170650099130bee930f021e3ab28f29a5",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 37,
+        "required_left": "n",
+        "required_right": "a",
+        "length_debt": 11
+      },
+      "provenance": {
+        "fresh_authored_scene": true,
+        "heldout_deployment": true
+      }
+    },
+    {
+      "round": 1,
+      "branch": 3,
+      "policy": "constituent_pair",
+      "rendered": "the careful baker records each dosage beside the garden gate. the quiet sailor checks a blue map after class.",
+      "audit": {
+        "letters": 89,
+        "two_pointer_exact": false,
+        "mismatch_count": 38,
+        "mismatch_rate": 0.8636363636363636,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 88,
+            "left": "t",
+            "right": "s"
+          },
+          {
+            "left_index": 1,
+            "right_index": 87,
+            "left": "h",
+            "right": "s"
+          },
+          {
+            "left_index": 2,
+            "right_index": 86,
+            "left": "e",
+            "right": "a"
+          },
+          {
+            "left_index": 3,
+            "right_index": 85,
+            "left": "c",
+            "right": "l"
+          },
+          {
+            "left_index": 4,
+            "right_index": 84,
+            "left": "a",
+            "right": "c"
+          },
+          {
+            "left_index": 7,
+            "right_index": 81,
+            "left": "f",
+            "right": "t"
+          },
+          {
+            "left_index": 8,
+            "right_index": 80,
+            "left": "u",
+            "right": "f"
+          },
+          {
+            "left_index": 9,
+            "right_index": 79,
+            "left": "l",
+            "right": "a"
+          }
+        ],
+        "sha256_forward": "a5530f60644143d39b1db6dfc64472aebf554d8cfcef9f732f22ef1e4fe68be1",
+        "sha256_reverse": "044d8d5e3cb4001bf6c26da66caa43febf81c930dbe9cc87ce06486f01e5fa93",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 37,
+        "required_left": "s",
+        "required_right": "t",
+        "length_debt": 13
+      },
+      "provenance": {
+        "fresh_authored_scene": true,
+        "heldout_deployment": true
+      }
+    },
+    {
+      "round": 2,
+      "branch": 3,
+      "policy": "constituent_pair",
+      "rendered": "the careful baker records each dosage beside the garden gate. the quiet sailor checks a blue map near the harbor.",
+      "audit": {
+        "letters": 92,
+        "two_pointer_exact": false,
+        "mismatch_count": 39,
+        "mismatch_rate": 0.8478260869565217,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 91,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 90,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 89,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 88,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 86,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 84,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 83,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 82,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "431597a27bd36728586f292541a1490d53e3462dc5a0034c4f14778cf32a9a6c",
+        "sha256_reverse": "11c061fa7fc62e85c8bc3efee21645c305775478a86fd2240d8efcaeffe25a71",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 40,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 10
+      },
+      "provenance": {
+        "fresh_authored_scene": true,
+        "heldout_deployment": true
+      }
+    },
+    {
+      "round": 3,
+      "branch": 3,
+      "policy": "constituent_pair",
+      "rendered": "the careful baker records each dosage beside the garden gate. the quiet sailor checks a blue map near the harbor.",
+      "audit": {
+        "letters": 92,
+        "two_pointer_exact": false,
+        "mismatch_count": 39,
+        "mismatch_rate": 0.8478260869565217,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 91,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 90,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 89,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 88,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 86,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 84,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 83,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 82,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "431597a27bd36728586f292541a1490d53e3462dc5a0034c4f14778cf32a9a6c",
+        "sha256_reverse": "11c061fa7fc62e85c8bc3efee21645c305775478a86fd2240d8efcaeffe25a71",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 40,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 10
+      },
+      "provenance": {
+        "fresh_authored_scene": true,
+        "heldout_deployment": true
+      }
+    },
+    {
+      "round": 4,
+      "branch": 3,
+      "policy": "constituent_pair",
+      "rendered": "the careful baker records each dosage beside the garden gate. the quiet sailor checks a blue map near the harbor.",
+      "audit": {
+        "letters": 92,
+        "two_pointer_exact": false,
+        "mismatch_count": 39,
+        "mismatch_rate": 0.8478260869565217,
+        "first_mismatches": [
+          {
+            "left_index": 0,
+            "right_index": 91,
+            "left": "t",
+            "right": "r"
+          },
+          {
+            "left_index": 1,
+            "right_index": 90,
+            "left": "h",
+            "right": "o"
+          },
+          {
+            "left_index": 2,
+            "right_index": 89,
+            "left": "e",
+            "right": "b"
+          },
+          {
+            "left_index": 3,
+            "right_index": 88,
+            "left": "c",
+            "right": "r"
+          },
+          {
+            "left_index": 5,
+            "right_index": 86,
+            "left": "r",
+            "right": "h"
+          },
+          {
+            "left_index": 7,
+            "right_index": 84,
+            "left": "f",
+            "right": "h"
+          },
+          {
+            "left_index": 8,
+            "right_index": 83,
+            "left": "u",
+            "right": "t"
+          },
+          {
+            "left_index": 9,
+            "right_index": 82,
+            "left": "l",
+            "right": "r"
+          }
+        ],
+        "sha256_forward": "431597a27bd36728586f292541a1490d53e3462dc5a0034c4f14778cf32a9a6c",
+        "sha256_reverse": "11c061fa7fc62e85c8bc3efee21645c305775478a86fd2240d8efcaeffe25a71",
+        "sha_equal_under_reversal": false
+      },
+      "seam": {
+        "matched_outer_pairs": 0,
+        "left_index": 0,
+        "right_index": 40,
+        "required_left": "r",
+        "required_right": "t",
+        "length_debt": 10
+      },
+      "provenance": {
+        "fresh_authored_scene": true,
+        "heldout_deployment": true
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "mechanically_admitted": [],
+  "stats": {
+    "rendered": 30,
+    "exact": 0,
+    "admitted": 0,
+    "longest_letters": 98,
+    "best_mismatch": 33
+  },
+  "failure_and_repair": {
+    "failure": "typed seam repairs improve local outer agreement but no complete exact closure entered the gate",
+    "next_repair": "reopen one full constituent on each side with agreement-carrying inflections, preserving all other shared assignments; do not widen the unchanged bank"
+  },
+  "reader_gate": "closed; no human readability claim until an exact novel row is shown intact alongside randomized shuffled controls",
+  "provenance": {
+    "catalogue_imported": false,
+    "finished_tape_reversed": false,
+    "word_order_symmetry": false,
+    "repeated_unit": false,
+    "independent_audits": [
+      "two-pointer",
+      "forward/reverse SHA-256"
+    ]
+  },
+  "generator_sha256": "bf04f5a2db98b94943fcc4ffbd877bb049dc6aae13d0b5885f7593539e8ac4b7"
+}

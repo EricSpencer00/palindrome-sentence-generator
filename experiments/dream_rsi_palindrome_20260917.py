@@ -82,6 +82,11 @@ EXPLICIT_HISTORY = (
     "runs/center-boundary-mirror-search-20260917.json",
     "runs/center-word-boundary-scene-20260917.json",
     "runs/dialogue-scene-lattice-crossing-20260917.json",
+    "runs/typed-template-equation-search-20260917.json",
+    "runs/imperative-vocative-seedless-20260917.json",
+    "runs/seam-indexed-typed-repair-20260917.json",
+    "runs/dream-rsi-masked-infilling-20260917.json",
+    "runs/dream-rsi-palindrome-round39-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")

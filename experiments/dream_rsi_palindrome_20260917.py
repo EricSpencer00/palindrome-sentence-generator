@@ -179,6 +179,12 @@ EXPLICIT_HISTORY = (
     "runs/role-compatible-character-trie-20260918.json",
     "runs/single-scene-appositive-redeployment-20260918.json",
     "runs/dream-rsi-three-region-policy-scene-20260918.json",
+    "runs/appositive-head-verb-seam-20260918.json",
+    "runs/dream-rsi-palindrome-round94-20260918.json",
+    "runs/dream-rsi-palindrome-round95-20260918.json",
+    "runs/dream-rsi-palindrome-round96-20260918.json",
+    "runs/dream-rsi-palindrome-round97-20260918.json",
+    "runs/dream-rsi-online-dream-rsi-palindrome-round97-20260918.json",
     "runs/recursive-discourse-spine-dream-rsi-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
@@ -260,7 +266,7 @@ class Node:
     intact_surface: bool
     reader_certified: bool
     failure_signature: str
-    branch_id: str | None
+    branch_id: str | None = None
 
 
 def _shortcut_free(obj: dict[str, Any]) -> bool:
@@ -552,7 +558,20 @@ def _tier(node: Node) -> int:
     return 1 if node.rendered else 0
 
 
-def _priority(node: Node, policy: dict[str, Any], seen_failures: set[str], seen_actions: set[str], seen_branches: set[str], depth: int) -> tuple[float, ...]:
+def _priority(
+    node: Node,
+    policy: dict[str, Any],
+    seen_failures: set[str],
+    seen_actions: set[str],
+    seen_branches: set[str] | int,
+    depth: int | None = None,
+) -> tuple[float, ...]:
+    # Keep the pre-branching helper call shape usable for archived tests and
+    # small downstream probes: ``_priority(node, policy, failures, actions,
+    # depth)`` simply has no branch-novelty state.
+    if depth is None:
+        depth = int(seen_branches)
+        seen_branches = set()
     novelty = policy["diversity_bonus"] if node.action not in seen_actions else 0.0
     branch_novelty = (
         policy["diversity_bonus"]

@@ -4939,3 +4939,77 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   mechanically admissible exact rows and 107 exact-but-rejected rows.  The
   controller now advances to internal word-boundary edits and seam-conditioned
   residual ranking; this plateau is not a readability result.
+
+- **Dream-RSI round 94, 2026-09-18:** replayed 547 worlds and 21,470 audited
+  nodes after the live-valency and direct-authoring lanes.  Fixed mismatch-first
+  remained the held-out winner at 0.780, with zero mechanically admissible exact
+  rows and 107 exact-but-rejected rows.  The replay tree was still mostly flat,
+  so this round did not justify another larger sweep; the next repair makes
+  explicit sibling branches first-class replay evidence.
+
+- **Explicit replay sibling branching, 2026-09-18:** the role-compatible trie
+  now records 27 sibling branch identities across 1,458 complete prose
+  candidates.  Exact closures remain zero; the longest candidate is 104 letters
+  with 56 mismatches.  This is a structural Dream-RSI repair, not a readability
+  claim: the next test replays held-out role alternatives and compares residual
+  trajectories before deployment.
+
+- **Single-scene appositive redeployment, 2026-09-18:** a fresh construction
+  operator produced three intact appositive scenes, none exact.  The longest was
+  75 letters and the best residual was 60 mismatches.  The next repair edits the
+  appositive head and adjacent verb as one seam unit.
+
+- **Dream-RSI three-region policy scene, 2026-09-18:** two fresh maritime/civic
+  three-region scenes were generated under a replay-selected branch policy;
+  neither was exact.  The longest was 93 letters and the best residual was 72
+  mismatches.  The next repair jointly masks the shared referent and response
+  spans rather than extending either scene.
+
+- **Dream-RSI round 95, 2026-09-18:** replayed 549 worlds and 21,475 audited
+  nodes after those orthogonal lanes.  Fixed mismatch-first still won held-out
+  routing at 0.780; exact admissible rows remained zero.  Branch-aware scoring
+  now distinguishes policies by branch coverage (3–6 distinct branches), but
+  the best inherited prose residual did not improve.
+
+- **Dream-RSI round 96, 2026-09-18:** the branch-aware replay controller was
+  verified on the same 549-world pool.  It reports branch identity separately
+  from action diversity and independently audits every node; the best replay
+  residual remains the 119-letter gardener passage at 46 mismatches.  This
+  diagnostic change is not accepted as a candidate; it triggered one fresh
+  online redeployment.
+
+- **Dream-RSI round 97 online redeployment, 2026-09-18:** the selected policy
+  generated a new 8-node branching tree (4 branching parents) from the theater
+  archivist scene.  All children were intact prose but none was exact; the best
+  fresh child was “The theater archivist lifted a torn playbill from the locked
+  drawer, carried it to the reading table, and marked the missing cast names
+  before the house lights rose.” (135 letters, 61 mismatches).  Independent
+  forward/reverse SHA-256 hashes differ.  This is preserved as failure evidence;
+  the next repair is the held-out role-alternative replay and seam-coupled
+  appositive/three-region construction, not a duplicate two-region sweep.
+
+- **Held-out sibling replay, 2026-09-18:** replayed eight unseen fog-role
+  alternatives from the 27 role-trie sibling branches.  Every held-out row was
+  independently audited; exact closures remained zero, the longest output was
+  104 letters, and the best residual remained 56 mismatches.  The next repair
+  selects a branch policy from these residual trajectories and changes only the
+  next role boundary.
+
+- **Appositive head/verb seam repair, 2026-09-18:** treated an appositive head
+  and adjacent verb as one mutable seam in three fresh intact scenes.  No exact
+  closure appeared; the longest output was 69 letters and the best residual was
+  60 mismatches.  The next repair constrains the seam by consonant/vowel class.
+
+- **Three-region joint-mask repair, 2026-09-18:** jointly masked shared
+  referent and response spans in two fresh workshop/garden scenes.  Neither was
+  exact; the longest output was 75 letters and the best residual was 64
+  mismatches.  The next repair replays those masked pairs with a mutable bridge
+  clause.
+
+- **Dream-RSI round 98, 2026-09-18:** replayed 551 worlds and 21,489 audited
+  nodes, including the online tree and held-out role alternatives.  Branch-aware
+  policies now see 3–6 distinct branches per train replay, with nine branching
+  parents overall, but fixed mismatch-first still wins held-out routing at 0.780
+  and exact admissible rows remain zero.  This confirms that branch accounting
+  is working while the construction quality is still unchanged; the next action
+  is the three queued seam/bridge repairs, not a larger replay budget.

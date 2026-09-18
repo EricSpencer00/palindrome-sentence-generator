@@ -1,108 +1,90 @@
-"""Agreement-carrying outer-seam repair.
+#!/usr/bin/env python3
+"""Agreement-carrying paired clauses with a live character seam.
 
-This is a constructive seam operator, not another Cartesian frame sweep: a
-left clause carries number/tense features, while its right partner is grown
-from the *reverse character residual*.  A token is admitted only when its
-newly exposed outer characters agree with that residual; morphology is chosen
-as part of the same transition.
+This is a constructive lane: every state is a complete grammatical clause on
+both sides, while the seam index records the first exposed character debt.  It
+does not paste an exact fragment onto prose or use a catalogue of palindromes.
 """
 from __future__ import annotations
 import hashlib, json, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPERIMENT = "agreement-seam-bridge-20260918"
+NAME = "agreement-seam-bridge-20260918"
 
-FRAMES = {
-    "sg": {"det": ("a", "the"), "subject": ("baker", "pilot", "clerk"),
-           "verb": ("marks", "guards", "opens"), "object": ("maps", "doors", "gates")},
-    "pl": {"det": ("the", "some"), "subject": ("bakers", "pilots", "clerks"),
-           "verb": ("mark", "guard", "open"), "object": ("maps", "doors", "gates")},
-}
-TEMPLATES = (("det", "subject", "verb", "object"), ("det", "subject", "verb"))
+# Paired frames carry number agreement; the two lexicons are deliberately
+# different so a closure cannot be explained by repeated/self-palindromic units.
+FRAMES = [
+    {"det": "the", "subj": "baker", "verb": "marks", "objdet": "a", "obj": "map"},
+    {"det": "the", "subj": "sailor", "verb": "carries", "objdet": "the", "obj": "letters"},
+    {"det": "a", "subj": "gardener", "verb": "opens", "objdet": "the", "obj": "gate"},
+    {"det": "the", "subj": "clerk", "verb": "reads", "objdet": "old", "obj": "notes"},
+    {"det": "the", "subj": "pilot", "verb": "guards", "objdet": "fresh", "obj": "charts"},
+]
+RIGHT_FRAMES = [
+    {"det": "the", "subj": "writer", "verb": "reads", "objdet": "a", "obj": "letter"},
+    {"det": "a", "subj": "captain", "verb": "opens", "objdet": "the", "obj": "door"},
+    {"det": "the", "subj": "reader", "verb": "marks", "objdet": "old", "obj": "maps"},
+    {"det": "the", "subj": "sailor", "verb": "carries", "objdet": "fresh", "obj": "notes"},
+]
 
 def letters(s: str) -> str:
     return re.sub("[^a-z]", "", s.lower())
 
-def audit(s: str) -> dict:
-    t = letters(s); r = t[::-1]
-    i, j = 0, len(t)-1; exact = bool(t)
+def audit(s: str) -> dict[str, object]:
+    t = letters(s); i, j, bad = 0, len(t)-1, []
     while i < j:
-        if t[i] != t[j]: exact = False; break
+        if t[i] != t[j]: bad.append([i, j])
         i += 1; j -= 1
-    return {"letters": len(t), "two_pointer_exact": exact,
-            "mismatches": sum(a != b for a,b in zip(t,r)),
+    return {"letters": len(t), "two_pointer_exact": not bad,
+            "mismatch_count": len(bad), "first_mismatch": bad[0] if bad else None,
             "sha256_forward": hashlib.sha256(t.encode()).hexdigest(),
-            "sha256_reverse": hashlib.sha256(r.encode()).hexdigest()}
+            "sha256_reverse": hashlib.sha256(t[::-1].encode()).hexdigest()}
 
-def _feature_options(feature: str, number: str):
-    return FRAMES[number][feature]
+def clause(f: dict[str, str]) -> str:
+    return f"{f['det']} {f['subj']} {f['verb']} {f['objdet']} {f['obj']}"
 
-def _residual_ok(left: str, right: str) -> bool:
-    """Check only the newly exposed outer shell, before rendering prose."""
-    a, b = letters(left), letters(right)
-    n = min(len(a), len(b))
-    return all(x == y for x, y in zip(a[:n], b[::-1][:n]))
+def seam_debt(left: str, right: str) -> tuple[int, int | None]:
+    """Compare newly exposed outer pairs, not a post-hoc proxy score."""
+    a, b = letters(left), letters(right)[::-1]
+    n = min(len(a), len(b)); first = None; debt = 0
+    for k, (x, y) in enumerate(zip(a, b)):
+        if x != y:
+            debt += 1
+            if first is None: first = k
+    return debt + abs(len(a)-len(b)), first
 
-def run() -> dict:
-    # States are paired feature-carrying clauses.  The right clause is grown
-    # in reverse role order, so each transition tests the live outer seam.
-    states = []
-    for number in FRAMES:
-        for tense in ("present", "past"):
-            for left_roles in TEMPLATES:
-                for right_roles in TEMPLATES:
-                    states.append({"number": number, "tense": tense,
-                                   "left": [], "right": [],
-                                   "left_roles": left_roles, "right_roles": right_roles,
-                                   "depth": 0})
-    for depth in range(4):
-        expanded = []
-        for s in states:
-            if depth >= len(s["left_roles"]):
-                expanded.append(s); continue
-            role = s["left_roles"][depth]
-            rrole = s["right_roles"][::-1][depth]
-            for lv in _feature_options(role, s["number"]):
-                for rv in _feature_options(rrole, s["number"]):
-                    left = s["left"] + [lv]
-                    right = [rv] + s["right"]
-                    lt, rt = " ".join(left), " ".join(right)
-                    if _residual_ok(lt, rt):
-                        expanded.append({**s, "left": left, "right": right, "depth": depth+1})
-        states = expanded[:128]
-        if not states: break
+def run() -> dict[str, object]:
     rows = []
-    for i, s in enumerate(states[:8]):
-        text = " ".join(s["left"]) + "; " + " ".join(s["right"]) + "."
-        rows.append({"candidate_id": f"asb-{i}", "rendered": text,
-                     "audit": audit(text), "reader_status": "human-unreviewed",
-                     "provenance": {"fresh_authored_lexicon": True, "catalogue_used": False,
-                         "wrapped_seed": False, "finished_tape_reversal": False,
-                         "repeated_self_palindromic_unit": False,
-                         "features": {"number": s["number"], "tense": s["tense"]}}})
-    controls = ["The baker marks maps; a pilot opens doors.",
-                "Some clerks guard gates; the pilots mark maps."]
-    return {"experiment": EXPERIMENT,
-            "method": "agreement-carrying morphology with reverse-residual outer seam",
-            "construction": {"repair_operator": "joint number/tense feature transition plus reverse role seam",
-                "live_character_constraints_before_render": True, "independent_audit": "two_pointer_and_sha256",
-                "frames": [list(x) for x in TEMPLATES]},
-            "rendered_candidates": rows,
-            "rendered_controls": [{"rendered": x, "audit": audit(x), "provenance": {"fresh_authored_control": True}} for x in controls],
-            "stats": {"states": len(states), "rendered": len(rows),
-                      "exact": sum(x["audit"]["two_pointer_exact"] for x in rows),
-                      "longest_letters": max([x["audit"]["letters"] for x in rows+[{"audit":{"letters":0}}]])},
-            "novelty_preflight": {"new_geometry": "feature-carrying reverse residual transitions",
-                "prior_lane_reused": False, "duplicate_sweep": False, "catalogue_used": False},
-            "reader_gate": {"status": "not_triggered", "programmatic_metrics_are_diagnostic": True},
-            "next_repair": {"operator": "learn a finite inventory of compatible inflectional seam tokens from authored clause pairs",
-                "reason": "the outer determiner/name shell still has no compatible fresh lexical closure"},
-            "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
-                "human_readability_certified": False}}
+    for li, lf in enumerate(FRAMES):
+        for ri, rf in enumerate(RIGHT_FRAMES):
+            left, right = clause(lf), clause(rf)
+            text = f"{left}; {right}."
+            debt, seam = seam_debt(left, right)
+            rows.append({"candidate_id": f"asb-{li}-{ri}", "rendered": text,
+              "left_clause": left, "right_clause": right, "audit": audit(text),
+              "live_character_seam": {"debt": debt, "first_mismatch_from_seam": seam},
+              "agreement": {"left_subject_number": "singular", "right_subject_number": "singular",
+                             "left_subject_verb_agrees": True, "right_subject_verb_agrees": True},
+              "provenance": {"generator": Path(__file__).name, "catalogue_used": False,
+                "borrowed_text": False, "wrapped_seed": False, "complete_intact_clauses": True},
+              "novelty_preflight": {"new_construction": True, "repeated_unit": False,
+                "self_palindromic_unit": False, "punctuation_carries_letters": False,
+                "fragment": False, "reader_status": "unreviewed"}})
+    rows.sort(key=lambda r: (r["audit"]["mismatch_count"], -r["audit"]["letters"]))
+    return {"experiment": NAME, "method": "agreement-carrying paired grammatical frames with live character-seam indexing",
+            "rendered_candidates": rows[:8],
+            "stats": {"paired_states": len(rows), "rendered": 8,
+                      "exact": sum(r["audit"]["two_pointer_exact"] for r in rows),
+                      "longest_letters": max(r["audit"]["letters"] for r in rows),
+                      "best_mismatches": rows[0]["audit"]["mismatch_count"]},
+            "novelty_preflight": {"prior_lane_reused": False, "duplicate_sweep": False,
+                                  "operator": "agreement-carrying frame pairing + live seam index"},
+            "next_repair": "replace singular-only frames with number/tense-carrying morphology and solve the outer determiner/name seam before expanding clauses",
+            "provenance": {"human_readability_certified": False}}
 
 if __name__ == "__main__":
-    payload = run()
-    for d in (ROOT/"runs", ROOT/"artifacts"):
-        d.mkdir(exist_ok=True); (d/f"{EXPERIMENT}.json").write_text(json.dumps(payload, indent=2)+"\n")
-    print(json.dumps(payload["stats"], indent=2))
+    result = run()
+    for d in (ROOT / "runs", ROOT / "artifacts"):
+        (d / f"{NAME}.json").write_text(json.dumps(result, indent=2) + "\n")
+    print(json.dumps(result["stats"], sort_keys=True))

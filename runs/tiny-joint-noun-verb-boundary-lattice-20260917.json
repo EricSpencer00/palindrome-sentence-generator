@@ -1,0 +1,102 @@
+{
+  "experiment": "tiny-joint-noun-verb-boundary-lattice-20260917",
+  "generator_sha256": "5307c92e3f9b2f00be4e08d516705dea88058cc86851cf631439d75caddd4b2b",
+  "rendered_candidates": [
+    {
+      "state": 0,
+      "rendered": "At dawn, the keeper marks the chart that guides the crew beside the inlet; the sailor reads the ledger that remembers the route beside the inlet.",
+      "live_rejection": {
+        "first_mismatch": 0,
+        "admitted": true
+      },
+      "audit": {
+        "letters": 117,
+        "two_pointer_exact": false,
+        "mismatches": 110,
+        "sha256_forward": "1053bcddda3d71bd495093c03db9c7841535401f0aaaa3d7d1afedcdde7afbf2",
+        "sha256_reverse": "e25ee7cc04e497678ae9a6dfcb17b817f3d2861e11b15151766f089966890dd9"
+      },
+      "provenance": {
+        "tiny_joint_lattice": true,
+        "noun_verb_boundary_joint": true,
+        "live_rejection": true,
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "word_order_only_symmetry": false
+      }
+    },
+    {
+      "state": 1,
+      "rendered": "At dawn, the keeper marks the map that marks the shore near the harbor; the sailor reads the journal that records the way near the harbor.",
+      "live_rejection": {
+        "first_mismatch": 0,
+        "admitted": true
+      },
+      "audit": {
+        "letters": 110,
+        "two_pointer_exact": false,
+        "mismatches": 96,
+        "sha256_forward": "0f93ca2f6beb16f85f3bbac0c6b80e8ad8aa683f6b12d2555ffaca39fb8d8cd0",
+        "sha256_reverse": "7edf72d9fd1b9e21f45b3e9014a77e92a1c537dd86cf8c491a6700279eabf4bf"
+      },
+      "provenance": {
+        "tiny_joint_lattice": true,
+        "noun_verb_boundary_joint": true,
+        "live_rejection": true,
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "word_order_only_symmetry": false
+      }
+    },
+    {
+      "state": 2,
+      "rendered": "At dawn, the keeper marks the plan that guards the pier along the coast; the sailor reads the book that watches the quay along the coast.",
+      "live_rejection": {
+        "first_mismatch": 0,
+        "admitted": true
+      },
+      "audit": {
+        "letters": 109,
+        "two_pointer_exact": false,
+        "mismatches": 94,
+        "sha256_forward": "c172113750a4acdda7dd49fe699ac4743762e9b4c27ecb88439781d8aacf7187",
+        "sha256_reverse": "57ab948af4953faa3dae14b53391859e4c4a9cb26dedccd9a5d077e5999aecac"
+      },
+      "provenance": {
+        "tiny_joint_lattice": true,
+        "noun_verb_boundary_joint": true,
+        "live_rejection": true,
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "word_order_only_symmetry": false
+      }
+    }
+  ],
+  "rejected_states": [
+    {
+      "state": 3,
+      "first_mismatch": 0
+    }
+  ],
+  "stats": {
+    "considered": 4,
+    "rendered": 3,
+    "rejected_live": 1,
+    "exact": 0,
+    "longest_letters": 117,
+    "best_mismatches": 94
+  },
+  "next_repair": {
+    "operator": "live seam threshold with paired lexical repair",
+    "reason": "the joint lattice admits readable states but remains non-exact; next repair only the live seam letters in the best admitted state",
+    "route_exhausted": false
+  },
+  "provenance": {
+    "bounded_states": 4,
+    "catalogue_used": false,
+    "duplicate_sweep": false
+  }
+}

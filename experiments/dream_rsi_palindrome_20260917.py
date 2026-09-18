@@ -370,6 +370,12 @@ POLICIES: list[dict[str, Any]] = [
         "lane_bonus": {}, "failure_penalty": 0.0, "diversity_bonus": 0.1,
         "length_bonus": 0.0,
     },
+    {
+        "name": "failure_repair_first",
+        "description": "route replay toward actionable seam failures and their distinct repairs",
+        "lane_bonus": {}, "failure_penalty": 0.8, "diversity_bonus": 0.6,
+        "length_bonus": 0.01, "failure_bonus": 0.9,
+    },
 ]
 
 
@@ -387,6 +393,12 @@ def _priority(node: Node, policy: dict[str, Any], seen_failures: set[str], seen_
     novelty = policy["diversity_bonus"] if node.action not in seen_actions else 0.0
     repeated = policy["failure_penalty"] if node.failure_signature in seen_failures else 0.0
     exact_bonus = 10.0 if policy["name"] == "exact_gate_first" and node.exact else 0.0
+    # A failure is useful only when it names a concrete seam/repair.  This
+    # turns replay from passive ranking into failure-conditioned exploration:
+    # the first visit to an actionable failure gets budget, while repeated
+    # copies are explicitly discounted.  It never changes candidate gates.
+    actionable = 1.0 if node.failure_signature not in {"exact", "unclassified"} else 0.0
+    failure_bonus = policy.get("failure_bonus", 0.0) * actionable
     score = (
         _tier(node) * 10.0
         + exact_bonus
@@ -394,9 +406,31 @@ def _priority(node: Node, policy: dict[str, Any], seen_failures: set[str], seen_
         + policy["lane_bonus"].get(node.action, 0.0)
         + novelty
         - repeated
+        + failure_bonus
         + node.letters * policy["length_bonus"]
     )
     return (score, -depth, node.letters, node.node_id)
+
+
+def failure_repair_queue(nodes: list[Node], limit: int = 20) -> list[dict[str, Any]]:
+    """Return deduplicated, actionable failures for the next live generator.
+
+    This is deliberately a construction queue, not a readability score: each
+    item preserves provenance and asks the next authoring lane to branch on the
+    observed seam.  No tape is invented or admitted by this diagnostic.
+    """
+    grouped: dict[str, list[Node]] = defaultdict(list)
+    for node in nodes:
+        if node.failure_signature not in {"exact", "unclassified"}:
+            grouped[node.failure_signature].append(node)
+    rows = []
+    for signature, members in grouped.items():
+        exemplar = min(members, key=lambda n: (n.mismatch_rate, -n.letters))
+        rows.append({"failure_signature": signature, "occurrences": len(members),
+                     "action": exemplar.action, "source_path": exemplar.source_path,
+                     "source_location": exemplar.source_location,
+                     "next_repair": f"branch the {exemplar.action} operator at {signature}"})
+    return sorted(rows, key=lambda row: (-row["occurrences"], row["failure_signature"]))[:limit]
 
 
 def replay_world(nodes: list[Node], policy: dict[str, Any], budget: int) -> dict[str, Any]:
@@ -580,6 +614,7 @@ def run(out: Path, budget: int = 8, online: bool = False) -> dict[str, Any]:
         "split": {"train_nodes": len(train), "heldout_nodes": len(heldout), "split_rule": "last node-id hex nibble parity"},
         "replay_budget_per_world": budget,
         "policy_frontier": train_reports,
+        "failure_repair_queue": failure_repair_queue(train),
         "winner": winner,
         "heldout_winner": heldout_report,
         "online_deployment": online_run,

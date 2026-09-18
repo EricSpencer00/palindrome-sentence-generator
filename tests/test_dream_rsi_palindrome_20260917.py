@@ -67,3 +67,21 @@ def test_tree_shape_counts_parent_edges_and_sibling_branches():
     assert shape["root_nodes"] == 1
     assert shape["branching_parents"] == 1
     assert shape["max_children"] == 2
+
+
+def test_failure_repair_queue_preserves_actionable_trace_for_next_constructor():
+    root = _node("ordinary prose root")
+    child = _node("ordinary prose child", root.forward_sha256)
+    queued = dream.failure_repair_queue([root, child])
+    assert queued
+    assert queued[0]["failure_signature"] == "edge:h>i"
+    assert queued[0]["source_path"] == "runs/synthetic.json"
+    assert "branch" in queued[0]["next_repair"]
+
+
+def test_failure_repair_policy_is_distinct_and_actionable_nodes_score_higher():
+    policy = next(p for p in dream.POLICIES if p["name"] == "failure_repair_first")
+    node = _node("ordinary prose")
+    score = dream._priority(node, policy, set(), set(), 0)[0]
+    repeated = dream._priority(node, policy, {node.failure_signature}, set(), 0)[0]
+    assert score > repeated

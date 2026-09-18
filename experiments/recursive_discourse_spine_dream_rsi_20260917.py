@@ -96,6 +96,12 @@ EVENT_BASES = (
     "A quiet teacher marks a lesson.",
     "The young keeper carries a lantern.",
 )
+CENTER_CLAUSES = (
+    "and the witness keeps the record.",
+    "while the witness checks the entry.",
+    "because the guide remembers the route.",
+    "and the reader understands the note.",
+)
 
 
 def render(adjuncts: tuple[Adjunct, ...], base: str = EVENT_BASES[0]) -> str:
@@ -221,11 +227,12 @@ def run() -> dict[str, Any]:
     rows: list[dict[str, Any]] = []
     for target in (100, 150, 200, 300):
         base = EVENT_BASES[(target // 50) % len(EVENT_BASES)]
+        center = CENTER_CLAUSES[(target // 50) % len(CENTER_CLAUSES)]
         derivation = recursive_derivation(target, base)
         before = render(derivation, base)
         repaired = substitute_first_unresolved(derivation, base)
         base, repaired = joint_event_adjunct_repair(repaired, base)
-        text = render(repaired, base)
+        text = render(repaired, base) + " " + center
         row_audit = audit(text)
         rows.append(
             {
@@ -248,6 +255,7 @@ def run() -> dict[str, Any]:
                     "repair_operator": "substitute_first_unresolved_mirrored_pair",
                     "pre_repair_rendered": before,
                     "joint_event_adjunct_repair": True,
+                    "mutable_center_clause": center,
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,
                     "wrapped_seed": False,

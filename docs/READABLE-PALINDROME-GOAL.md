@@ -5342,3 +5342,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   0 equation-compatible branches. Fixed mismatch-first remains the held-out
   winner at 0.780 with 0 admissible exact rows. This is explicitly recorded
   as non-progress; the next step must change construction geometry again.
+
+- **Seed adjunct/tense variation, 2026-09-18:** implemented a fresh
+  semantic-scene transducer carrying adjunct, tense, number, and valency state
+  at both mutable clause boundaries. It tested 256 authored feature-valid
+  combinations, produced 0 live equation-compatible nodes and 0 exact
+  closures, and rendered fresh intact controls with independent pointer/hash
+  audits. The controls remain human-unreviewed and the reader gate is closed;
+  the concrete next repair is object-selection plus adjunct-agreement
+  transitions at both boundaries.

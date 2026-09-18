@@ -4632,6 +4632,23 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   failure, so the next repair is a broader live branch with length-band-aware
   seam choices, not a claim of progress.
 
+- **Joint predicate morphology, 2026-09-18:** realized person/number
+  alternatives directly in both outer and center predicates, changing the
+  character yield while preserving event roles.  Four complete target traces
+  reached 376 letters; exact closures remained zero.  The next repair adds
+  tense/aspect jointly with person/number morphology.
+
+- **Balanced determiner/agreement-verb repair, 2026-09-18:** coupled
+  coordinated determiner changes to singular/plural agreement verbs under the
+  balanced relative-clause structure.  Four complete passages reached 113
+  letters; the best audit had 80 mismatches and exact closures were zero.  The
+  next repair pairs the structure with boundary inflection.
+
+- **Three-way agreement repair, 2026-09-18:** coupled relative-clause subject
+  number, anaphor number, and locative NP number.  Sixteen complete rows reached
+  75 letters; the best audit had 60 mismatches and exact closures were zero.  The
+  next repair couples the agreement state with locative preposition choice.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

@@ -212,6 +212,7 @@ EXPLICIT_HISTORY = (
     "runs/dream-rsi-online-dream-rsi-palindrome-round110-online-20260918.json",
     "runs/dream-rsi-palindrome-round111-20260918.json",
     "runs/dream-rsi-palindrome-round112-20260918.json",
+    "runs/dream-rsi-palindrome-round113-20260918.json",
     "runs/recursive-discourse-spine-dream-rsi-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

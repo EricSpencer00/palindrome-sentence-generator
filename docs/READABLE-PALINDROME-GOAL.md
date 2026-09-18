@@ -5297,3 +5297,10 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   two-pointer plus forward/reverse hash audits; they remain human-unreviewed,
   so the reader gate is closed. The next repair allows typed determiner and
   adjunct attachment changes while preserving valency.
+
+- **Dream-RSI round 113, 2026-09-18:** replayed the registered reciprocal
+  preposition/typing lane with 564 worlds and 21,729 audited nodes.  Its live
+  search contributed no equation-compatible branch, so the held-out policy
+  remains fixed mismatch-first at 0.780 and the admissible exact count remains
+  0.  The failure is preserved with the concrete typed determiner/adjunct
+  attachment repair; no replay-budget expansion is counted as progress.

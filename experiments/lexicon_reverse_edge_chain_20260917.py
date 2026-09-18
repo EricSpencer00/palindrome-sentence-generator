@@ -55,12 +55,19 @@ def load_edges(path: Path) -> list[Edge]:
         for b in pal:
             if a == b: continue
             left=f"{a} {b}"; tape=norm(left); rev=tape[::-1]
-            node=trie; found=[]
-            for ch in rev:
-                node=node.get(ch)
-                if node is None: break
-                if "$ 寔" in node: found.append(node["$ 寔"]); node=trie
-            if node is trie and found and norm(" ".join(found)) == rev:
+            # shortest-token DP over trie matches (longest ordinary words win)
+            seg=[None]*(len(rev)+1); seg[0]=[]
+            for j in range(len(rev)):
+                if seg[j] is None: continue
+                node=trie
+                for k in range(j,len(rev)):
+                    node=node.get(rev[k])
+                    if node is None: break
+                    if "$ 寔" in node:
+                        cand=seg[j]+[node["$ 寔"]]
+                        if seg[k+1] is None or len(cand)<len(seg[k+1]): seg[k+1]=cand
+            found=seg[-1]
+            if found and norm(" ".join(found)) == rev:
                 edges.append(Edge(left," ".join(found),"noun",tape))
             if len(edges)>=4000: return edges
     return edges

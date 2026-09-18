@@ -4925,6 +4925,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   closures were zero.  The next repair couples attachment with locative
   complement semantics.
 
+- **Dream-RSI round 93, 2026-09-18:** replayed 547 worlds and 21,470 audited
+  nodes after the valency-aware role-trie expansion, verb-class, and locative-
+  length repairs.  Fixed mismatch-first remained the held-out winner at 0.780
+  (473 held-out worlds), with zero mechanically admissible exact rows and 107
+  exact-but-rejected rows.  The next construction step makes predicate-
+  argument boundaries live and adds complement semantics; replay remains only
+  a routing mechanism.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

@@ -103,8 +103,8 @@ CENTER_CLAUSES = (
     "and the reader understands the note.",
 )
 CENTER_SUBJECTS = ("the witness", "the guide", "the reader", "the careful witness", "a patient guide")
-CENTER_VERBS = ("keeps", "checks", "remembers")
-CENTER_OBJECTS = ("the record", "the entry", "the route", "the note", "the old record", "a quiet note")
+CENTER_VERBS = ("keeps", "checks", "remembers", "records", "holds", "marks")
+CENTER_OBJECTS = ("the record", "the entry", "the route", "the note", "the old record", "a quiet note", "each small entry", "the marked route")
 
 
 def select_live_center(prefix: str, target: int | None = None) -> str:
@@ -315,6 +315,7 @@ def run() -> dict[str, Any]:
                     "joint_event_adjunct_repair": True,
                     "mutable_center_clause": center,
                     "center_selection": "two_sided_outer_obligation_score",
+                    "predicate_argument_boundary_operator": True,
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,
                     "wrapped_seed": False,

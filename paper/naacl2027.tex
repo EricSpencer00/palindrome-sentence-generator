@@ -130,6 +130,25 @@ constituent geometry instead of resampling a completed sentence.  Only a novel
 exact row with intact prose enters the randomized intact-versus-shuffled reader
 study.
 
+\paragraph{Latest Dream-RSI evaluation.}
+On the 2026-09-18 snapshot, rounds 110--113 replayed 563--564 worlds and
+21,719--21,729 independently audited nodes, with the same held-out
+mismatch-first policy at 0.780.  That policy was redeployed on a fresh seed,
+producing a nine-node branching authoring tree rather than a replay duplicate.
+Its intact controls include ``An archivist at the theater drew a torn playbill
+from a locked drawer, brought it to the reading table, and marked the missing
+cast names as the house lights rose.'' (131 normalized letters, 58 opposing
+mismatches) and ``The theater archivist pulled a torn playbill from a locked
+drawer, carried it to the reading table, and marked the missing cast names
+before the house lights rose.'' (133 letters, 64 mismatches).  The subsequent
+masked-scene, compositional-grammar, reciprocal-frame, and preposition/type
+repairs all retained complete English controls (up to 71, 62, 65, and 68
+letters respectively) while producing zero exact closures.  Every row was
+rechecked by an independent two-pointer scan and forward/reverse SHA-256
+audit; no row is reader-certified.  These results evaluate the controller's
+construction branching and repair provenance, not readability or search speed,
+and the reader gate remains closed until a novel exact survivor exists.
+
 The implementation also exposes an explicit totality witness for arbitrary
 requested lengths.  This witness is useful for testing the state machine but
 is tagged as non-reader output and cannot satisfy the admission gate.  Thus

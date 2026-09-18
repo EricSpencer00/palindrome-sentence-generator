@@ -10,3 +10,4 @@ def test_cfg_dp_reaches_long_frontier_and_records_chart():
     assert r["longest_frontier"]["audit"]["letters"] >= 100
     assert r["chart_states"] > 0
     assert r["novelty_preflight"]["near_miss_scoring"] is False
+    assert "PP -> Prep Obj" in r["grammar"]

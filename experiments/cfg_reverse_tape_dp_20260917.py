@@ -14,7 +14,8 @@ MAX_STATES_PER_RULE = 240
 LEX = {
     "Det": ("the", "a"), "N": ("traveler", "gardener"),
     "V": ("remembers", "observes"), "Adv": ("carefully", "quietly"),
-    "Conj": ("and",),
+    "Conj": ("and",), "Prep": ("near", "under"),
+    "Obj": ("lantern", "harbor"),
 }
 
 def letters(s: str) -> str:
@@ -37,9 +38,10 @@ def run() -> dict:
     def chart(nt: str, left: str, right: str, tape_state: tuple[str,str], depth: int):
         if len(letters(left+right)) > MAX_LETTERS or depth > 5: return ()
         if nt == "S": rules=(("C",), ("C","Conj","S"))
-        elif nt == "C": rules=(("NP","VP"),)
+        elif nt == "C": rules=(("NP","VP"), ("NP","VP","PP"))
         elif nt == "NP": rules=(("Det","N"),)
         elif nt == "VP": rules=(("V",), ("V","Adv"))
+        elif nt == "PP": rules=(("Prep","Obj"),)
         else: rules=tuple((x,) for x in LEX[nt])
         out=[]
         for rule in rules:
@@ -66,7 +68,7 @@ def run() -> dict:
     exact=[x for x in rows if x["audit"]["two_pointer_exact"]]
     best=max(rows,key=lambda x:x["audit"]["letters"],default=None)
     return {"experiment_id":ID,"method":"memoized CFG intersection with live reverse character tape",
-            "grammar":"S -> C | C and S; C -> NP VP; NP -> Det N; VP -> V | V Adv",
+            "grammar":"S -> C | C and S; C -> NP VP | NP VP PP; PP -> Prep Obj; NP -> Det N; VP -> V | V Adv",
             "max_letters":MAX_LETTERS,"candidate_count":len(rows),"exact_count":len(exact),
             "rendered_candidates":exact[:3],"longest_frontier":best,
             "chart_states":chart.cache_info().currsize,
@@ -76,7 +78,7 @@ def run() -> dict:
                            "lexicon":"fresh small common-English terminals embedded in this experiment",
                            "audits":["independent two-pointer", "forward/reverse SHA-256"]},
             "failure_and_repair":{"failure":"no exact closure" if not exact else "exact closure(s) found",
-                                   "next_repair":"Add typed complement terminals to the CFG and retain the same live tape-state key; do not mirror completed clauses."},
+                                   "next_repair":"Introduce typed subject/object agreement and lexical complement classes; preserve live tape-state intersection and reject repeated-frame closures."},
             "anti_shortcut_flags":{"posthoc_reversal":False,"word_order_mirror":False,"catalogue_text":False,"fragment":False}}
 
 if __name__ == "__main__":

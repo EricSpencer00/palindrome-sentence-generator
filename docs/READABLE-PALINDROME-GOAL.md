@@ -4360,6 +4360,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   zero.  The next operator couples tense and number with the locative
   preposition while preserving noun length.
 
+- **Seam-conditioned verb/boundary repair, 2026-09-17:** changed relative verbs
+  and shared boundary material together under live seam tracking.  Four complete
+  passages up to 131 letters were rendered; the best audit had 110 mismatches
+  and exact closures were zero.  The next operator is a tiny joint
+  noun/verb/boundary lattice with live rejection.
+
+- **Tense/number/locative-preposition repair, 2026-09-17:** coupled tense and
+  referent number with locative preposition choices at fixed noun length.
+  Thirty-two complete rows reached 90 letters; the best audit had 54 mismatches
+  and exact closures were zero.  The next repair couples tense/number with the
+  locative determiner.
+
+- **Dream-RSI round 71, 2026-09-17:** replayed 505 worlds and 19,463 audited
+  nodes after adding the seam-conditioned verb and tense/preposition lanes.
+  Fixed mismatch-first remained the held-out winner at 0.780 (435 held-out
+  worlds), with zero mechanically admissible exact rows and 107 exact-but-
+  rejected rows.  The next round must evaluate the tiny noun/verb/boundary
+  lattice and residual-ranked center/adjunct combinations.
+
 - **Dream-RSI round 70, 2026-09-17:** replayed 503 worlds and 19,427 audited
   nodes after the Pareto-center and seam-conditioned repairs.  Fixed
   mismatch-first remained the held-out winner at 0.780 (433 held-out worlds),

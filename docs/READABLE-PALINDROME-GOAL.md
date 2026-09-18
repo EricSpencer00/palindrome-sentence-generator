@@ -4814,6 +4814,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   lexical realizations and agreement-aware seam edits; replay remains only a
   routing mechanism.
 
+- **Multiple temporal surface realizations, 2026-09-18:** offered several
+  grammatical human-authored clauses per event-order class (After, Later,
+  Earlier, During, Afterward) and ranked them by seam residual.  Four complete
+  target traces reached 344 letters; exact closures remained zero.  The next
+  repair separates temporal surface form from adjunct semantic content.
+
+- **Seam inflection/determiner pair, 2026-09-18:** paired seam-selected
+  inflectional endings with coordinated determiner changes under number
+  agreement.  Four complete passages reached 119 letters; the best audit had 80
+  mismatches and exact closures were zero.  The next repair couples
+  relative-verb inflection to the same edit.
+
+- **Attachment/locative-determiner repair, 2026-09-18:** coupled subject/object
+  relative attachment with locative determiner while preserving preposition,
+  anaphor class, and three-way agreement.  Sixteen complete rows reached 92
+  letters; the best audit had 60 mismatches and exact closures were zero.  The
+  next repair couples attachment with locative noun.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

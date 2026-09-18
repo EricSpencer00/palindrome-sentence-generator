@@ -5224,3 +5224,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   routing evidence only.  No fresh exact or reader-certified output was
   admitted, so the next action is the recorded noun-number/valency seam
   construction rather than a larger replay sweep.
+
+- **Noun-number/valency seam, 2026-09-18:** added a distinct transducer that
+  carries subject number and transitivity while checking both name-adjacent
+  character equations before rendering.  The authored complete-clause bank
+  produced 0 equation-compatible nodes and 0 exact closures; intact controls
+  were 33–41 letters (including “The baker marks a map; the gardeners guard
+  letters.”), all independently audited and human-unreviewed.  The reader gate
+  remains closed.  The next repair is lexicalized reciprocal frames with
+  plural-object agreement, not a duplicate sweep.

@@ -5318,3 +5318,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   human-unreviewed, so the reader gate is closed. The next repair inserts
   typed adjunct variants on both reciprocal sides while retaining movable
   boundaries.
+
+- **Seed-centered context growth, 2026-09-18:** implemented a fresh semantic
+  scene constructor that treats the 38-letter seed only as a withheld
+  benchmark. It grows an authored grammatical prefix and independently
+  authored reverse-facing suffix, carrying character equations across mutable
+  word boundaries before rendering. The lane produced 0 equation-compatible
+  nodes and 0 exact closures; fresh intact controls span 89–94 letters and
+  receive independent two-pointer and forward/reverse hash audits. They are
+  human-unreviewed, so the reader gate is closed. The concrete next repair is
+  semantic adjunct and tense variation at both mutable boundaries.

@@ -4603,6 +4603,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   features live variables in the character residual equation; this replay
   result is routing evidence only.
 
+- **Live agreement residual, 2026-09-18:** made singular/plural agreement a
+  live residual-search variable while selecting typed center predicates,
+  arguments, and edge adjuncts.  Four complete target traces reached 393
+  letters; exact closures remained zero.  The next repair jointly realizes
+  person/number morphology on outer and center predicates.
+
+- **Balanced-clause determiner pair, 2026-09-18:** coordinated determiner
+  changes with equal relative-clause lengths under locative attachment.  Four
+  complete passages reached 113 letters; the best audit had 86 mismatches and
+  exact closures were zero.  The next repair couples these determiner changes
+  to agreement-aware verbs.
+
+- **Anaphor/relative-agreement repair, 2026-09-18:** coupled anaphor choice
+  with singular/plural relative-clause subject agreement while preserving
+  valency and locative agreement.  Thirty-two complete rows reached 76 letters;
+  the best audit had 56 mismatches and exact closures were zero.  The next
+  repair couples relative agreement with anaphor and locative NP number.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

@@ -5250,3 +5250,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   letters.”), all independently audited and human-unreviewed.  The reader gate
   remains closed.  The next repair is lexicalized reciprocal frames with
   plural-object agreement, not a duplicate sweep.
+
+- **Dream-RSI masked scene repair, 2026-09-18:** iteratively reopened only a
+  typed scene slot at the first mirrored mismatch, accepting a repair only
+  when the independent mismatch count decreased.  It accepted one monotone
+  repair and rendered two intact controls (63 and 71 letters), with 0 exact
+  closures and no reader certification.  The next repair jointly reopens
+  mirrored verb–object slots while preserving valency.
+
+- **Dream-RSI compositional grammar spine, 2026-09-18:** generated a scene
+  spine first, then solved typed valency/agreement character equations before
+  rendering rather than reversing a finished tape.  It produced 36 fresh
+  nodes, 0 exact closures, and a longest intact control of 62 letters; all
+  rows passed independent audit but remain human-unreviewed.  The next repair
+  permits cross-slot character carry across noun/adjunct boundaries.
+
+- **Dream-RSI round 111, 2026-09-18:** replayed the enlarged history after
+  the noun-number, masked-repair, and compositional-grammar lanes: 564 worlds
+  and 21,729 audited nodes, with 12 branching parents.  Fixed mismatch-first
+  remains the held-out routing winner at 0.780, with 0 admissible exact rows.
+  This is policy-routing evidence, not a palindrome or readability result;
+  the next construction is lexicalized reciprocal frames with plural-object
+  agreement.

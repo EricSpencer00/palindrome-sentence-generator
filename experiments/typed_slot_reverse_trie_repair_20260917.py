@@ -10,6 +10,8 @@ VARIANTS=[
  ('the bakers','carry','fresh bread','to town','pl'),('the bakers','bake','a loaf','at dawn','pl'),
  ('the gardener','waters','a rose','at sunrise','sg'),('the gardener','plants','the seed','in soil','sg')]
 VERBS={'sg':{'finds','sees','reads','holds','marks','keeps','opens','carries','bakes','waters','plants'},'pl':{'find','see','read','hold','mark','keep','open','carry','bake','water','plant'}}
+OBJECTS={'fox':['a den','the moon','a nest'],'child':['the book','a shell','the map'],'sailor':['a map','the log','a boat'],'teacher':['the door','a note','the book'],'baker':['fresh bread','a loaf','the cake'],'gardener':['a rose','the seed','a tree']}
+ADJUNCTS={'dawn':['at dawn','at dusk','by noon'],'water':['by water','near shore','at school'],'shore':['near shore','near harbor','by water'],'noon':['at noon','at school','by dusk'],'town':['to town','at dawn','by road'],'sunrise':['at sunrise','in soil','at noon']}
 def n(s):return ''.join(W.findall(s.lower()))
 def audit(s):
  t=n(s);i,j=0,len(t)-1;ok=bool(t);mm=[]
@@ -26,9 +28,12 @@ def run():
  for agent,base_verb,obj,prep,number in VARIANTS:
   # Expand the held-out verb cell instead of merely checking the base form.
   # The subject number is carried into every realization before seam search.
+  key=agent.split()[-1].rstrip('s'); objs=OBJECTS.get(key,[obj]); adjs=ADJUNCTS.get(prep.split()[-1],[prep])
   for verb in sorted(VERBS[number]):
-   text=' '.join((agent,verb,obj,prep)); tape=n(text)
-   items.append({'text':text,'tape':tape,'agent':agent,'verb':verb,'object':obj,'prep':prep,'number':number,'roles':('agent','verb','object','prep'),'base_verb':base_verb})
+   for oo in objs:
+    for pp in adjs:
+     text=' '.join((agent,verb,oo,pp)); tape=n(text)
+     items.append({'text':text,'tape':tape,'agent':agent,'verb':verb,'object':oo,'prep':pp,'number':number,'roles':('agent','verb','object','prep'),'base_verb':base_verb})
  # Trie leaves retain typed slot metadata.  Prefix lookup is by the live seam char.
  trie={}
  for x in items:

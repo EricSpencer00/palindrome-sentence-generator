@@ -8197,6 +8197,17 @@
       "distinction": "Searches 432 authored dialogue variants with typed speaker, inflection, object, setting, and response slots while auditing a non-palindromic center-token crossing.",
       "reader_evidence": false,
       "status": "new semantic center lane; 432 rendered variants, 0 exact closures, 0 reader candidates; next repair is setting/answer inflection at the center residual"
+    },
+    {
+      "id": "authored-semantic-seam-lattice",
+      "signature": "hand-authored-semantic-phrase-lattice|outside-in-character-seam-propagation|non-palindromic-center-edge|independent-clause-banks|independent-full-tape-audit",
+      "artifact": "experiments/authored_semantic_seam_lattice_20260917.py",
+      "run_artifacts": [
+        "runs/authored-semantic-seam-lattice-20260917.json"
+      ],
+      "distinction": "Hand-authored semantic phrase banks are independently crossed outside-in at character seams around the non-palindromic center edge 'was'; repeated units and proper self-palindromic spans are audited after exact closure.",
+      "reader_evidence": false,
+      "status": "112 exact closures, longest 48 letters, all rejected for repeated/self-palindromic phrase reuse; 0 mechanically admitted and 0 reader-eligible outputs"
     }
   ]
 }

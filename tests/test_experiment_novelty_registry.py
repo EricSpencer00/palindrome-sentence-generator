@@ -191,6 +191,8 @@ def test_latest_experiments_are_registered_as_distinct_families():
     assert "global-tied-masked-denoising" in ids
     assert "character-lm-half-tape" in ids
     assert "corpus-sentence-gram-fst" in ids
+    assert "authored-semantic-seam-lattice" in ids
+
     assert "lexical-admission-centerout" in ids
     assert "grammar-boundary-resegmentation-repair" in ids
     assert "fixed-tape-valency-chart-repair" in ids
@@ -582,3 +584,13 @@ def test_latest_constructive_repairs_record_distinct_preflight_and_failure_front
     assert proper_reverse["grammar_clause_count"] == 140368
     assert proper_reverse["raw_exact_pairs"] == 0
     assert proper_reverse["independent_audit"]["primary_exact"] == 0
+
+
+def test_authored_semantic_seam_run_rejects_shortcut_closures():
+    root = Path(__file__).parents[1]
+    run = json.loads((root / "runs/authored-semantic-seam-lattice-20260917.json").read_text())
+    assert run["exact_candidates"] == 112
+    assert run["mechanically_admitted"] == 0
+    assert run["reader_eligible"] == 0
+    assert max(row["length"] for row in run["rendered_candidates_and_probes"]) == 48
+    assert all(row["checks"]["repeated_unit"] or row["checks"]["proper_self_palindromic_span"] for row in run["rendered_candidates_and_probes"])

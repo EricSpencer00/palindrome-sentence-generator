@@ -3786,3 +3786,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   enters Dream-RSI replay, and no reader claim is made.  This is a corrected,
   executable construction loop—not evidence that a long readable palindrome
   has already been found.
+
+  A separate reverse-conditioned POS/phrase lattice then tested a different
+  search family.  It indexed 21 ordinary authored phrases by their reversed
+  character prefixes and expanded 21 bounded queue states; 26 complete phrase
+  pairs were rendered for diagnosis.  The best intact row was “the old man sat
+  the pot was hot” (24 letters), matching only one outside-in pair; its
+  independent two-pointer audit and forward/reverse SHA values both reject
+  exactness.  There were zero exact closures.  Because the phrase bank is
+  source material rather than generated prose, these rows remain diagnostic
+  and are not presented as outputs.  The concrete repair is to add typed
+  verb/object features to the trie key and continue only when the next seam
+  character has a role-compatible lexical completion.

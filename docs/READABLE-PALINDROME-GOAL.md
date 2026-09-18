@@ -4384,6 +4384,28 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   audit had 54 mismatches and exact closures were zero.  The next repair
   couples tense/number with determiner and noun number.
 
+- **Live-seam paired lexical repair, 2026-09-18:** made four paired
+  role-compatible lexical edits on the best admitted lattice state while
+  tracking the seam before and after each edit.  The longest complete passage
+  was 119 letters; the best audit had 106 mismatches and exact closures were
+  zero.  The next operator constrains substitutions by the opposing seam
+  character class.
+
+- **Tense/number/locative-NP agreement repair, 2026-09-18:** coupled
+  tense/referent-number agreement with locative noun-phrase agreement and
+  preposition alternation.  Thirty-two complete rows reached 91 letters; the
+  best audit had 56 mismatches and exact closures were zero.  The next repair
+  couples NP agreement with locative preposition alternation while preserving
+  tense.
+
+- **Dream-RSI round 73, 2026-09-18:** replayed 509 worlds and 19,534 audited
+  nodes after the seam-character and joint-frontier additions.  Fixed
+  mismatch-first remained the held-out winner at 0.780 (439 held-out worlds),
+  with zero mechanically admissible exact rows and 107 exact-but-rejected rows.
+  The next round consumes the opposing-character-class repair and the full
+  recursive residual objective; policy stability is still only a routing
+  diagnostic.
+
 - **Dream-RSI round 72, 2026-09-17:** replayed 507 worlds and 19,498 audited
   nodes after the tiny lattice, center residual ranking, and tense/determiner
   lanes.  Fixed mismatch-first remained the held-out winner at 0.780 (437
@@ -4413,6 +4435,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   197, 281, and 376 letters; best audit 150 mismatches; exact closures zero).
   The next repair replaces that single winner with a bounded Pareto frontier so
   short and long center candidates both survive to live equation solving.
+
+- **Joint center/first/terminal frontier, 2026-09-18:** selected center
+  subject/verb/object, first adjunct, and terminal adjunct from one rendered
+  residual-debt objective, with duplicate-adjunct rejection.  The four target
+  rows reached 171, 198, 286, and 384 letters; the best audit had 160
+  mismatches and exact closures were zero.  The next repair carries the same
+  objective into the full recursive spine rather than freezing the first
+  adjunct.
 
 - **Dream-RSI round 69, 2026-09-17:** replayed 501 worlds and 19,391 audited
   nodes after the tense/valency and live-seam additions.  Fixed mismatch-first

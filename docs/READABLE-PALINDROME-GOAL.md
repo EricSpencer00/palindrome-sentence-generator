@@ -4686,6 +4686,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   The controller therefore advances to the next construction operator rather
   than retuning this plateau.
 
+- **Aspect auxiliaries/temporal compatibility, 2026-09-18:** added
+  auxiliary-bearing predicate realizations such as “has kept” and linked them
+  to compatible temporal adjuncts.  Four complete target traces reached 376
+  letters; exact closures remained zero.  The next repair exposes temporal
+  adjunct tense/aspect as a shared seam variable.
+
+- **Agreement-boundary relative lexical repair, 2026-09-18:** added
+  role-compatible relative-clause lexical substitutions to the
+  agreement-aware boundary state.  Four complete passages reached 117 letters;
+  the best audit had 94 mismatches and exact closures were zero.  The next
+  repair pairs the edits with seam-length balancing.
+
+- **Three-way determiner/noun agreement, 2026-09-18:** jointly selected
+  locative determiner and noun inside the three-way agreement state while
+  holding preposition fixed.  Sixteen complete rows reached 75 letters; the
+  best audit had 60 mismatches and exact closures were zero.  The next repair
+  couples the state with locative phrase length.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

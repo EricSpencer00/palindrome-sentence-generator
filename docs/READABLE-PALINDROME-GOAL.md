@@ -5168,3 +5168,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   held-out routing winner at 0.780; no fresh exact or reader-certified output
   was admitted.  The next action is the recorded pre-render inflectional
   equation solver.
+
+- **Agreement-inflection center repair, 2026-09-18:** kept number, tense,
+  object number, and a named center live while checking character equations
+  before rendering.  It explored 9,024 feature-valid states and rendered 12
+  complete controls; exact closures remained 0.  The longest control was 51
+  letters (“The baker marked a map near Rhea; the clerks mark a map near
+  Rhea.”), with 19 mismatches under independent replay.  The next repair is
+  asymmetric lexical bridge attachment at the named-center seam.
+
+- **Dream-RSI round 107, 2026-09-18:** replayed 721 worlds and 21,664
+  audited nodes after the agreement-inflection center lane.  Fixed
+  mismatch-first remains the held-out routing winner at 0.780; no fresh exact
+  or reader-certified output was admitted.  The next action is asymmetric
+  lexical bridge attachment at the named-center seam.

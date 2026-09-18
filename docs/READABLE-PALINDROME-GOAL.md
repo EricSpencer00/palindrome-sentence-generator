@@ -3644,3 +3644,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   The replay gate now rejects self-palindromic content words even when legacy
   metadata is incomplete. Round sixteen replays this artifact at 16,618 nodes
   across 442 worlds; held-out admissible exact closures remain zero.
+
+  A direct joint-authoring lane was also timed against the local `gpt-oss:20b`
+  model. Four bounded attempts each timed out at 35 seconds before returning a
+  passage; the run preserved those failures and a quarantined mismatch-repair
+  operator rather than silently dropping them. No candidate or reader evidence
+  was claimed. Round seventeen replays the complete history (16,618 nodes,
+  442 worlds) with the same held-out result: zero admissible exact closures.
+  The concrete response is to keep model calls off the critical construction
+  path and invest in the live CFG/lexical chart, where character obligations are
+  solved before prose is emitted.

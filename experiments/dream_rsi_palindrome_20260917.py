@@ -78,6 +78,7 @@ EXPLICIT_HISTORY = (
     "runs/typed-slot-reverse-trie-repair-20260917.json",
     "runs/multiclause-live-seam-chart-20260917.json",
     "runs/three-clause-center-crossing-20260917.json",
+    "runs/dialogue-scene-semantic-palindrome-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")
@@ -190,7 +191,8 @@ def _shortcut_free(obj: dict[str, Any]) -> bool:
             hard = (
                 "word_form", "lexicon_words", "ordinary_short_words",
                 "distinct_words", "no_self_palindromic_word",
-                "no_repeated_nontrivial_unit", "not_word_order_symmetry",
+                "no_repeated_nontrivial_unit", "no_self_palindromic_proper_multiword_span",
+                "not_word_order_symmetry",
             )
             if not all(checks.get(key, False) for key in hard):
                 return False

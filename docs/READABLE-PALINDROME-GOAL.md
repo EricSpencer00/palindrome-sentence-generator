@@ -3824,3 +3824,28 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   none was exact.  These are diagnostics only; the next implementation must
   replace prefix scoring with a true center-compatible lexical chart that
   carries residual character debt through the crossing.
+
+  **Dream-RSI semantic dialogue branch (2026-09-17).**  A human-authored
+  dialogue lattice supplied explicit role-paired lexical edges and produced
+  three rendered exact rows: the 68-letter scene `Noel, now live on; Damon,
+  draw a map. Was I sore? Eros: I saw Pam, a ward. Nomad: no evil won, Leon.`;
+  a same-tape boundary repair with `I saw Pam award Nomad`; and a 100-letter
+  diagnostic extension with additional named message roles.  Independent
+  two-pointer and forward/reverse SHA audits agree on every row.  The first
+  row is a word-order mirror; the boundary repair removes that mirror but the
+  `sore/Eros` centre is still a forbidden proper palindromic span; the longer
+  extension inherits the same centre debt.  All rows are therefore rejected
+  before any reader claim, and the exact text plus provenance remain in the
+  artifact rather than being promoted as generated prose.
+
+  This is the first Dream-RSI replay node whose repair changes lexical
+  segmentation instead of enlarging a phrase bank.  Round 37 replays the
+  parent/repair/extension branch across 16,714 historical nodes and selects
+  `fixed_mismatch_first` on the held-out split; its online redeployment of the
+  selected policy generated a two-level coordinated prose tree but no exact
+  closure.  The next construction is concrete: replace the `sore/Eros`
+  lexical centre with a live, syntactically complete centre-crossing edge,
+  while retaining the `award` boundary repair and rejecting both word-order
+  mirrors and proper palindromic subspans.  Replay remains routing evidence;
+  the reader gate stays closed until a mechanically eligible 100+ letter row
+  enters the randomized blinded intact/shuffled study.

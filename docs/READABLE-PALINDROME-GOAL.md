@@ -4878,6 +4878,26 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   and 107 exact-but-rejected rows.  The next construction step is the trie’s
   two-character boundary obligation, not another replay sweep.
 
+- **Paired two-character role-boundary obligations, 2026-09-18:** added
+  pre-render obligations over rain↔fog and agent↔sparrow phrase boundaries in
+  the role-compatible trie.  All 486 complete prose candidates failed at least
+  one paired obligation; exact closures remained zero.  The longest remained
+  93 letters and the best residual remained 56 mismatches.  The next repair
+  expands role alternatives while varying the valency frame instead of adding
+  more obligation characters.
+
+- **Seam determiner/verb inflection, 2026-09-18:** coupled determiners,
+  relative verbs, and boundary inflections by number.  Four complete passages
+  reached 119 letters; the best audit had 80 mismatches and exact closures were
+  zero.  The next repair uses role-compatible verb substitution within the
+  inflection class.
+
+- **Attachment/locative-noun repair, 2026-09-18:** coupled subject/object
+  relative attachment with locative noun while preserving determiner,
+  preposition, anaphor class, and three-way agreement.  Sixteen complete rows
+  reached 92 letters; the best audit had 60 mismatches and exact closures were
+  zero.  The next repair couples attachment with locative noun length.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

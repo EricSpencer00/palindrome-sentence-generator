@@ -5225,6 +5225,23 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   admitted, so the next action is the recorded noun-number/valency seam
   construction rather than a larger replay sweep.
 
+- **Dream-RSI online redeployment, 2026-09-18:** deployed the selected policy
+  on a fresh two-region authoring seed, creating a real branching tree (9
+  nodes, 3 branching parents) rather than replaying old text.  It produced
+  intact, original English controls, including “An archivist at the theater
+  drew a torn playbill from a locked drawer, brought it to the reading table,
+  and marked the missing cast names as the house lights rose.” (131 letters,
+  58 opposing-end mismatches) and “The theater archivist pulled a torn
+  playbill from a locked drawer, carried it to the reading table, and marked
+  the missing cast names before the house lights rose.” (133 letters, 64
+  mismatches).  Independent two-pointer and forward/reverse SHA-256 audits
+  reject every row as non-exact; provenance records a fresh seed and no
+  catalogue import or finished-tape reversal.  These are readable controls,
+  not palindrome candidates, so the reader gate is still closed.  The next
+  reader-facing test remains a randomized blinded intact-versus-shuffled study
+  for the first novel exact survivor; the immediate construction repair is
+  reciprocal lexical frames with plural-object agreement.
+
 - **Noun-number/valency seam, 2026-09-18:** added a distinct transducer that
   carries subject number and transitivity while checking both name-adjacent
   character equations before rendering.  The authored complete-clause bank

@@ -3712,3 +3712,11 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   obligations were live; both stopped at the first lexical seam conflict and
   rendered nothing. All three artifacts preserve the conflict trace and the
   next lexical/agreement repair, and none uses a finished-tape mirror.
+
+  The follow-up first-unmatched-seam repair was also replayed: five fresh typed
+  SVO clauses exposed their required reverse prefixes before any surface was
+  rendered. Every clause died at seam offset zero (the first required reverse
+  character had no role-compatible lexical choice), so the lane produced no
+  candidate and remains quarantined. This is a concrete repair trace for the
+  next run—expand only role-compatible alternatives that match successive seam
+  characters—rather than a claim that a failed trace is a result.

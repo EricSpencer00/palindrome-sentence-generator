@@ -181,6 +181,20 @@ def substitute_first_unresolved(state: tuple[Adjunct, ...], base: str | None = N
     return state
 
 
+def joint_event_adjunct_repair(state: tuple[Adjunct, ...], base: str) -> tuple[str, tuple[Adjunct, ...]]:
+    """Change the event frame and first attached constituent together."""
+    for candidate_base in EVENT_BASES:
+        if candidate_base == base:
+            continue
+        for candidate in ADJUNCTS:
+            if state and candidate.text == state[0].text:
+                continue
+            proposed = (candidate, *state[1:]) if state else (candidate,)
+            if letters(render(proposed, candidate_base)) != letters(render(state, base)):
+                return candidate_base, proposed
+    return base, state
+
+
 def novelty_preflight() -> dict[str, Any]:
     registry_path = ROOT / "docs" / "experiment-novelty-registry.json"
     registry = json.loads(registry_path.read_text())
@@ -203,6 +217,7 @@ def run() -> dict[str, Any]:
         derivation = recursive_derivation(target, base)
         before = render(derivation, base)
         repaired = substitute_first_unresolved(derivation, base)
+        base, repaired = joint_event_adjunct_repair(repaired, base)
         text = render(repaired, base)
         row_audit = audit(text)
         rows.append(
@@ -225,6 +240,7 @@ def run() -> dict[str, Any]:
                     "recursive_typed_spine": True,
                     "repair_operator": "substitute_first_unresolved_mirrored_pair",
                     "pre_repair_rendered": before,
+                    "joint_event_adjunct_repair": True,
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,
                     "wrapped_seed": False,

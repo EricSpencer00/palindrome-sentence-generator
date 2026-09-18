@@ -198,6 +198,13 @@ def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) 
                         continue
                     tape = letters(prefix + " " + render(proposed) + " " + center)
                     debt = sum(a != b for a, b in zip(tape, tape[::-1]))
+                    # Event-order assignment is part of the objective: a
+                    # compatible temporal realization with a better precedence
+                    # alignment gets a lower residual cost.
+                    temporal_rows = [event_order_graph(a, center) for a in (first, terminal)
+                                     if a.kind == "temporal_aspect"]
+                    if temporal_rows:
+                        debt += sum(abs(row["adjunct_time"] - row["center_time"]) for row in temporal_rows)
                     candidates.append((debt, -len(tape), center, proposed))
     _, _, center, proposed = min(candidates, key=lambda row: (row[0], row[1], row[2]))
     return center, proposed

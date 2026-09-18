@@ -37,6 +37,7 @@ def run(
     initial: str = INITIAL,
     anchors: str = ANCHORS,
     experiment_id: str = EXPERIMENT_ID,
+    seed_base: int = 2026091800,
 ) -> dict:
     if branch_factor < 2:
         raise ValueError("branch_factor must be at least 2 to create siblings")
@@ -45,6 +46,7 @@ def run(
     two_region.EXPERIMENT_ID = experiment_id
     two_region.ANCHOR_INSTRUCTION = anchors
     two_region.REVISION_COUNT = depth
+    two_region.SEED_BASE = seed_base
     root = two_region.row(
         initial, 0, None, {"authoring": "hand-authored fresh event", "branch": "root"}
     )
@@ -128,6 +130,7 @@ def run(
             "rejected_proposals": len(rejected),
             "anchors": anchors,
             "letter_band": [two_region.MIN_LETTERS, two_region.MAX_LETTERS],
+            "seed_base": seed_base,
         },
         "initial": root,
         "levels": levels[1:],
@@ -170,10 +173,11 @@ if __name__ == "__main__":
     parser.add_argument("--experiment-id", default=EXPERIMENT_ID)
     parser.add_argument("--initial", default=INITIAL)
     parser.add_argument("--anchors", default=ANCHORS)
+    parser.add_argument("--seed-base", type=int, default=2026091800)
     parser.add_argument("--out", type=Path, default=OUT)
     args = parser.parse_args()
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    payload = run(args.branch_factor, args.depth, args.initial, args.anchors, args.experiment_id)
+    payload = run(args.branch_factor, args.depth, args.initial, args.anchors, args.experiment_id, args.seed_base)
     args.out.write_text(json.dumps(payload, indent=2) + "\n")
     print(json.dumps({
         "status": payload["status"],

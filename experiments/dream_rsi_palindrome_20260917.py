@@ -711,7 +711,12 @@ def run(out: Path, budget: int = 8, online: bool = False) -> dict[str, Any]:
     }
     online_run = None
     if online:
-        online_out = ROOT / "runs" / "dream-rsi-online-branching-two-region-20260917.json"
+        # Every redeployment gets a distinct artifact and seed base.  Reusing
+        # the fixed online path/seed would create a duplicate sweep that only
+        # looks new to the replay controller.
+        deployment_tag = out.stem
+        online_out = ROOT / "runs" / f"dream-rsi-online-{deployment_tag}.json"
+        seed_base = 2030000000 + int(hashlib.sha256(deployment_tag.encode()).hexdigest()[:8], 16) % 10000000
         base_anchors = (
             "the theater archivist; a torn playbill; the locked drawer; carrying "
             "it to the reading table; marking the missing cast names before the house lights rose"
@@ -719,8 +724,9 @@ def run(out: Path, budget: int = 8, online: bool = False) -> dict[str, Any]:
         if repair_queue:
             base_anchors += "; Dream-RSI live repair priority: " + repair_queue[0]["next_repair"]
         command = [sys.executable, str(ROOT / "experiments" / "branching_two_region_authoring_20260917.py"),
-                   "--experiment-id", "dream-rsi-online-branching-two-region-20260917",
+                   "--experiment-id", f"dream-rsi-online-branching-two-region-{deployment_tag}",
                    "--out", str(online_out), "--branch-factor", "3", "--depth", "2",
+                   "--seed-base", str(seed_base),
                    "--initial",
                    "The theater archivist found a torn playbill in a locked drawer, carried it to the reading table, and marked the missing cast names before the house lights rose.",
                    "--anchors",

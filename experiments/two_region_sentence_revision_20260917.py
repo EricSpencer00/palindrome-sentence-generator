@@ -25,6 +25,10 @@ HOST = "http://127.0.0.1:11434"
 MIN_LETTERS, MAX_LETTERS = 100, 140
 REVISION_COUNT = 8
 ANCHOR_INSTRUCTION = ""
+# The controller may override this per fresh deployment.  Keeping it explicit
+# prevents repeated Dream-RSI redeployments from silently replaying identical
+# model samples under a new output filename.
+SEED_BASE = 2026091800
 
 INITIAL = (
     "At dawn, the patient archivist carried a sealed letter through autumn rain, "
@@ -147,7 +151,7 @@ errors are allowed, but keep the prose length band and ordinary English."""
         "options": {
             "temperature": 0.78,
             "num_predict": 700,
-            "seed": 2026091800 + revision + seed_offset,
+            "seed": SEED_BASE + revision + seed_offset,
         },
     }
     request = urllib.request.Request(
@@ -163,7 +167,7 @@ errors are allowed, but keep the prose length band and ordinary English."""
         "revision": revision,
         "prompt": prompt,
         "model": MODEL,
-        "seed": 2026091800 + revision + seed_offset,
+        "seed": SEED_BASE + revision + seed_offset,
         "elapsed_seconds": round(time.time() - started, 3),
         "response_done_reason": payload.get("done_reason"),
     }

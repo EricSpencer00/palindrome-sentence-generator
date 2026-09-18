@@ -99,6 +99,7 @@ EVENT_BASES = (
     "A quiet keeper places the lantern by the gate.",
     "The careful curators record a signal.",
     "A patient reader records a message.",
+    "The careful curator marked a signal.",
 )
 CENTER_CLAUSES = (
     "and the witness keeps the record.",
@@ -108,7 +109,8 @@ CENTER_CLAUSES = (
 )
 CENTER_SUBJECTS = ("the witness", "the guide", "the reader", "the careful witness", "a patient guide")
 CENTER_VERBS = ("keeps", "checks", "remembers", "records", "holds", "marks",
-                "keep", "check", "remember", "record", "hold", "mark")
+                "keep", "check", "remember", "record", "hold", "mark",
+                "kept", "checked", "remembered", "recorded", "held", "marked")
 CENTER_OBJECTS = ("the record", "the entry", "the route", "the note", "the old record", "a quiet note", "each small entry", "the marked route")
 CENTER_VALENCY_FRAMES = (
     ("transitive", "and {s} {v} {o}."),
@@ -348,6 +350,7 @@ def run() -> dict[str, Any]:
                         "argument_role_compatibility": True,
                         "agreement_features_live": True,
                         "outer_center_morphology_joint": True,
+                        "tense_aspect_live": True,
                     },
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,

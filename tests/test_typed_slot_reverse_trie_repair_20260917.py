@@ -6,6 +6,8 @@ def test_typed_repair_requires_the_selected_right_phrase_to_match_live_seam():
     assert artifact["stats"]["base_frames"] == 12
     assert artifact["stats"]["typed_variants"] == 924
     assert artifact["stats"]["inflectional_verb_forms"] == 132
+    assert artifact["stats"]["live_prefix_only"] is True
+    assert artifact["stats"]["full_two_sided_closure_checked"] is False
     assert artifact["stats"]["exact"] == 0
     assert artifact["stats"]["rendered_near_misses"] == len(artifact["candidates"])
     assert all(not row["audit"]["exact"] for row in artifact["candidates"])

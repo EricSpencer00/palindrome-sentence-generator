@@ -3806,5 +3806,7 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   rendering.  With 12 fresh frames expanded to 924 typed realizations (132
   number-conditioned verb forms plus object/adjunct substitutions) it produces
   zero valid near-miss rows and zero exact closures.  This removes a false
-  positive diagnostic and leaves a precise next operator: multi-clause chart
-  composition with seam-compatible lexical entries.
+  positive diagnostic; the current run is explicitly a live-prefix probe, not
+  a full two-sided closure.  The precise next operator is therefore a
+  multi-clause chart with seam-compatible lexical entries and a true closure
+  state.

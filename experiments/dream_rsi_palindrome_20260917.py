@@ -164,6 +164,25 @@ def _shortcut_free(obj: dict[str, Any]) -> bool:
         }]
         if any(len(word) > 2 and word == word[::-1] for word in content_words):
             return False
+        # Reuse the shared fail-closed lexical/structure gate for legacy rows
+        # that lack explicit metadata.  These checks filter obvious fragments
+        # and catalogue-like scaffolds; they do not certify human readability.
+        try:
+            from llm_palindrome.admission import mechanical_admission_checks
+            checks = mechanical_admission_checks(
+                text, min_letters=1, max_letters=max(10_000, len(normalize_letters(text)))
+            )
+            hard = (
+                "word_form", "lexicon_words", "ordinary_short_words",
+                "distinct_words", "no_self_palindromic_word",
+                "no_repeated_nontrivial_unit", "not_word_order_symmetry",
+            )
+            if not all(checks.get(key, False) for key in hard):
+                return False
+        except (ImportError, OSError, ValueError):
+            # Replay remains usable in minimal environments; the independent
+            # checks above still reject the most dangerous legacy shortcuts.
+            pass
         for width in (3, 4, 5):
             phrases = [tuple(words[index:index + width])
                        for index in range(len(words) - width + 1)]

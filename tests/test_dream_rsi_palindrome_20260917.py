@@ -29,6 +29,12 @@ def test_self_palindromic_content_word_is_not_admissible_without_metadata_flags(
     assert dream._shortcut_free({"rendered": "The level rises beside the quiet garden."}) is False
 
 
+def test_rare_fragmentary_exact_tape_is_not_admissible_without_metadata_flags():
+    assert dream._shortcut_free({
+        "rendered": "aardvark adrenocorticotropic civic — civic adrenocorticotropic aardvark."
+    }) is False
+
+
 def _node(text: str, parent: str | None = None) -> dream.Node:
     audit = dream.independent_audit(text)
     return dream.Node(

@@ -235,9 +235,12 @@ def _failure_signature(obj: dict[str, Any], audit: dict[str, Any]) -> str:
     if isinstance(mismatches, list) and mismatches:
         first = mismatches[0]
         if isinstance(first, (list, tuple)) and len(first) >= 4:
-            return f"edge:{first[2]}>{first[3]}"
+            if first[2] is not None and first[3] is not None:
+                return f"edge:{first[2]}>{first[3]}"
         if isinstance(first, dict):
-            return f"edge:{first.get('left_letter')}>{first.get('right_letter')}"
+            left, right = first.get("left_letter"), first.get("right_letter")
+            if left is not None and right is not None:
+                return f"edge:{left}>{right}"
     return "exact" if bool(audit.get("exact")) else "unclassified"
 
 

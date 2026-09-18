@@ -85,3 +85,7 @@ def test_failure_repair_policy_is_distinct_and_actionable_nodes_score_higher():
     score = dream._priority(node, policy, set(), set(), 0)[0]
     repeated = dream._priority(node, policy, {node.failure_signature}, set(), 0)[0]
     assert score > repeated
+
+
+def test_malformed_mismatch_trace_is_not_promoted_as_seam_repair():
+    assert dream._failure_signature({"mismatches": [[0, 9, None, None]]}, {}) == "unclassified"

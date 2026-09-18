@@ -51,7 +51,7 @@ def load_edges(path: Path) -> list[Edge]:
     # Authored phrase edges (two distinct lexical units).  The right phrase
     # is selected by trie segmentation of the live reverse tape, never by
     # reversing a finished surface string.
-    for a in pal:
+    for ai,a in enumerate(pal):
         for b in pal:
             if a == b: continue
             left=f"{a} {b}"; tape=norm(left); rev=tape[::-1]
@@ -68,7 +68,8 @@ def load_edges(path: Path) -> list[Edge]:
                         if seg[k+1] is None or len(cand)<len(seg[k+1]): seg[k+1]=cand
             found=seg[-1]
             if found and norm(" ".join(found)) == rev:
-                edges.append(Edge(left," ".join(found),"noun",tape))
+                role=("noun","verb","adverb","adjective")[ai % 4]
+                edges.append(Edge(left," ".join(found),role,tape))
             if len(edges)>=4000: return edges
     return edges
 

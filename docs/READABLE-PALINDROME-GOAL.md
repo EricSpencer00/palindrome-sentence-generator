@@ -4780,6 +4780,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   best audit had 60 mismatches and exact closures were zero.  The next repair
   couples attachment with locative preposition.
 
+- **Dream-RSI round 88, 2026-09-18:** replayed 537 worlds and 19,932 audited
+  nodes after the typed event-order, paired lexical, and anaphor-attachment
+  repairs.  Fixed mismatch-first remained the held-out winner at 0.780 (463
+  held-out worlds), with zero mechanically admissible exact rows and 107
+  exact-but-rejected rows.  The next construction step lets event-order
+  assignments change temporal wording in the live seam rather than only filter.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

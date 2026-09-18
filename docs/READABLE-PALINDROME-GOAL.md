@@ -5089,3 +5089,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   unchanged (fixed mismatch-first, held-out mismatch rate 0.780); the new
   construction world is retained as a concrete failure branch rather than
   converted into a proxy success claim.
+
+- **Syntax-constrained clause bridge, 2026-09-18:** introduced a new
+  construction operator rather than another replay sweep.  It reverses a
+  complete authored clause plus a named center and requires the reversed tape
+  to parse as a second complete clause.  The fresh intersection was empty
+  (0 exact closures).  It still rendered three intact controls — “the baker
+  marks maps; Ada a pilot reads notes.” (36 letters), “a writer charts gates;
+  Iris the clerk opens doors.” (40), and “the captain guards plans; Nora an
+  editor finds books.” (43) — all independently rejected by the two-pointer
+  and forward/reverse hash audits.  These are controls, not candidate prose;
+  they also expose the current missing agreement/center attachment.  The next
+  repair is agreement-carrying inflection with a live character-seam index,
+  retaining complete-clause parsing before any reader-facing test.
+
+- **Dream-RSI round 102, 2026-09-18:** replayed 561 worlds and 21,502 audited
+  nodes after adding that clause-bridge world.  The held-out policy winner
+  remains fixed mismatch-first at 0.780; this is routing evidence only.  No
+  fresh exact or reader-certified output was admitted, so the next action is
+  the agreement/seam construction repair rather than a larger replay budget.

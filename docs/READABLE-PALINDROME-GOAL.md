@@ -4729,6 +4729,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   best audit had 60 mismatches and exact closures were zero.  The next repair
   couples locative phrase length with anaphor lexical class.
 
+- **Dream-RSI round 86, 2026-09-18:** replayed 533 worlds and 19,892 audited
+  nodes after the shared-temporal, relative seam-length, and three-way
+  locative-length repairs.  Fixed mismatch-first remained the held-out winner at
+  0.780 (460 held-out worlds), with zero mechanically admissible exact rows and
+  107 exact-but-rejected rows.  This plateau triggers the next semantic
+  event-ordering and lexical-class construction changes; it is not a result.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

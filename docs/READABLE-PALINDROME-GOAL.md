@@ -4337,6 +4337,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   reached 99 letters; the best audit had 64 mismatches and exact closures were
   zero.  The next repair couples verb tense with valency and the locative pair.
 
+- **Dream-RSI round 68, 2026-09-17:** replayed 499 worlds and 19,355 audited
+  nodes after the constrained seam repairs.  Fixed mismatch-first remained the
+  held-out winner at 0.780 (429 held-out worlds), with zero mechanically
+  admissible exact rows and 107 exact-but-rejected rows.  The route is still
+  using replay to choose the next construction, not to redefine success around
+  the plateau.
+
 - **Dream-RSI round 67, 2026-09-17:** replayed 497 worlds and 19,319 audited
   nodes after the noun/verb and object-determiner repairs.  The mismatch-first
   policy remained the held-out winner at 0.780 (427 held-out worlds), with zero

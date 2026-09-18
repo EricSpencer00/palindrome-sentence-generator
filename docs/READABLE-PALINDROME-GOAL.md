@@ -4256,3 +4256,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   rows.  This stable score is a policy-routing plateau, so the next round is
   required to consume the recorded coupled operators rather than retune the
   replay metric.
+
+- **Coupled determiner/relative agreement repair, 2026-09-17:** carried
+  determiner, subject-number, relative-head, and relative-verb agreement as a
+  single seam state.  Four complete passages up to 119 letters were rendered;
+  the best audit had 92 mismatches and exact closures were zero.  The next
+  operator seam-selects one role-compatible semantic slot rather than reopening
+  the whole phrase bank.
+
+- **Locative-determiner repair, 2026-09-17:** substituted determiners at fixed
+  locative noun-phrase length, preserving preposition attachment and object
+  agreement.  Sixty-four complete rows were rendered up to 96 letters; the
+  best audit had 60 mismatches and exact closures were zero.  The next repair
+  jointly varies determiner and locative noun.
+
+- **Recursive event/adjunct repair, 2026-09-17:** changed the central event
+  predicate and first typed adjunct together.  The requested targets reached
+  160, 187, 271, and 366 letters; the best audit had 134 mismatches and exact
+  closures were zero.  The next operator jointly varies the event predicate,
+  first adjunct, and final adjunct so the terminal seam can move as well.

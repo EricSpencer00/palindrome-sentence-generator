@@ -4029,6 +4029,26 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   co-designs bridge polarity with a short complement, rather than widening the
   connector inventory.
 
+- **Semantic-frame seam replacement, 2026-09-17:** replaced nouns, verbs,
+  settings, and relative clauses on both sides of a fresh frame.  Four complete
+  scenes up to 141 letters were rendered; the best residual improved to 118
+  mismatches, but exact closures were zero.  The next repair is a seam CSP over
+  authored lexical slots, constrained by opposing seam letters before prose is
+  rendered.
+
+- **Relative-seam bridge complement, 2026-09-17:** added a short locative or
+  temporal complement to the typed bridge, changing attachment geometry while
+  preserving complete prose.  Sixty-four candidates up to 89 letters were
+  rendered; the best residual was 58 and exact closures were zero.  The next
+  operator is typed one-word complement substitution with the bridge held
+  fixed.
+
+  Dream-RSI round 52 replays 18,619 audited nodes including the live deployment
+  and both fresh repairs.  The held-out mismatch-first policy remains 0.780
+  with zero mechanically admissible exact rows; this unchanged score is treated
+  as a routing plateau, so the next run must use the queued seam CSP and typed
+  one-word complement operator rather than another replay sweep.
+
   Dream-RSI round 51 replays 18,551 audited nodes, including the live sibling
   tree and both newest repair lanes.  The held-out policy is unchanged at
   0.780, with zero mechanically admissible exact rows; the unchanged replay

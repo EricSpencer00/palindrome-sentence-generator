@@ -34,6 +34,30 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
 
 ## Current frontier (2026-09-17 solver-correction reset)
 
+## Orchestration reset (2026-09-18)
+
+- **Progress audit.** `main` is clean and aligned with `origin/main` at
+  `ca526eb`. It contains 116 commits since 2026-09-18 00:00, but the active
+  acceptance measurements remain unchanged: zero exact admissible rows, zero
+  reader-eligible outputs, and no blinded-reader package. The latest useful
+  diagnostic is the 119-letter inherited prose row with 46 mismatches; it is
+  not a palindrome and is not acceptance progress.
+
+- **Local-minimum finding.** The branch-aware Dream-RSI controller now covers
+  3--6 branches per replay and routes held-out policy at 0.780, while rounds
+  95--98 and the subsequent seam/mirror lanes still produce zero exact
+  admissible rows. This is a strong local-minimum signal: branch accounting and
+  diagnostic coverage are improving, but construction quality is flat.
+
+- **Control decision.** Freeze commits whose only outcome is another replay,
+  seam variant, lexical-bank expansion, branch score, or diagnostic artifact.
+  The next construction must change the material source or representation and
+  be evaluated against the same gate. A run counts as progress only when it
+  produces an independently audited original exact candidate, improves a
+  held-out acceptance-relevant measurement, or decisively falsifies a concrete
+  construction hypothesis. Unit-test coverage and a new artifact alone do not
+  qualify.
+
 - **Seam-correction result (2026-09-17).** The full-sequence product had two
   correctness defects: it rejected a multi-letter palindromic residual at the
   center, and it banned ordinary words merely because they occurred in the

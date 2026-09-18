@@ -4679,6 +4679,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   and exact closures were zero.  The next repair couples the state with
   locative determiner and noun.
 
+- **Dream-RSI round 84, 2026-09-18:** replayed 529 worlds and 19,852 audited
+  nodes after the fresh-seed redeployment and morphology repairs.  Fixed
+  mismatch-first remained the held-out winner at 0.780 (456 held-out worlds),
+  with zero mechanically admissible exact rows and 107 exact-but-rejected rows.
+  The controller therefore advances to the next construction operator rather
+  than retuning this plateau.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

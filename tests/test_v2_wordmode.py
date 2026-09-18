@@ -174,22 +174,15 @@ class TestDefaultLengthClearsThreshold:
     formally correct palindrome with no story in it.
     """
 
-    def test_the_word_mode_is_floored_at_the_threshold(self):
-        """The threshold is the WORD mode's, so it belongs on that path.
-
-        `sentences` used to serve only this mode and its default carried the
-        finding. The endpoint now defaults to the letter mode, where 7 whole
-        sentences is a paragraph and 17 would exhaust the centre inventory —
-        so a shared default cannot express both. The word path floors its own
-        length instead, and a request for fewer still clears 105 words.
-        """
+    def test_the_word_mode_route_is_retired(self):
+        """No legacy word-order construction may be served as a palindrome."""
         from fastapi.testclient import TestClient
-        from server.app import app
+        from server.app import RETIREMENT_MESSAGE, app
         client = TestClient(app)
-        body = client.get("/api/v2/paragraph",
-                          params={"mode": "word", "sentences": 3}).json()
-        assert body["mode"] == "word"
-        assert body["words"] >= 105, body["words"]
+        response = client.get("/api/v2/paragraph",
+                              params={"mode": "word", "sentences": 3})
+        assert response.status_code == 503
+        assert response.json()["detail"] == RETIREMENT_MESSAGE
 
     def test_default_request_clears_105_words(self):
         import json

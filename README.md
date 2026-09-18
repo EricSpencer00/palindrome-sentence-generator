@@ -1,9 +1,23 @@
 # Palindrome Sentence Generator
 
-Generates long, multi-sentence character-level palindromes: text that reads
-identically forwards and backwards once case, spaces, and punctuation are
-stripped. A dictionary search enforces the palindrome constraint; a language
-model chooses among the branches that satisfy it.
+## Current status: no reader-validated output
+
+The generator and all public output routes are retired. This project has no
+long, independently generated English palindrome that has passed blinded human
+reader evaluation. Exact-letter validation and automated language scores are
+filters, not readability evidence; legacy examples and service descriptions
+below are historical development material, not claims about current output.
+
+The active acceptance standard is documented in
+[`docs/READABLE-PALINDROME-GOAL.md`](docs/READABLE-PALINDROME-GOAL.md): an
+independently constructed exact palindrome must clear the shared mechanical
+gate and then pass a blinded study with intact-prose and shuffled controls.
+
+## Historical workbench — quarantined; do not run or cite the commands below
+
+The remaining development notes are preserved only for auditability. Their
+commands, endpoints, examples, and reported outputs are disabled or rejected
+under the current acceptance standard.
 
 ```
 $ python -m llm_palindrome.generate --min-letters 200 --seeds 24
@@ -130,16 +144,22 @@ llm_palindrome/
   search.py        overhang matching, tries, beam search (Norvig/Hoey)
   centerout.py     outward growth, one word at a time
   exhaustive.py    walk the short regime instead of sampling it
-  scoring.py       frequency scorer
-  bigram.py        bidirectional bigram model
-  lm_scoring.py    GPT-2 fluency, whole-text and conditional
-  coherence.py     long-range conditional gain, self-shuffled controls
-  instant_judge.py learned fast judge
+  clause_ngram.py  directional n-gram state for two-sided clause growth
+  sentence_plan.py finite prefix/suffix feasibility over Brown sentence plans
+  semantic.py      lightweight semantic feature extraction
+  semantic_graph.py coherent ordering edges over candidate pairs
   semantic_plan.py typed semantic plans for diagnostic construction searches
   admission.py     shared fail-closed mechanical admission checks
   exact_editor.py  paired-span edits with independent surface audits
   frontier_macros.py anchor-preserving residual search macros
   reader_first.py  quarantined reader-first presentation experiment
+  hierarchy.py     discourse-level connectors and topic hierarchy
+  pareto.py        non-dominated candidate selection across hard diagnostics
+  scoring.py       frequency scorer
+  bigram.py        bidirectional bigram model
+  lm_scoring.py    GPT-2 fluency, whole-text and conditional
+  coherence.py     long-range conditional gain, self-shuffled controls
+  instant_judge.py learned fast judge
   directional.py   forward vs reversed-resegmented cost
   safe_vocab.py    what must never reach a generated public output
   shortwords.py    which 1-2 letter strings are words
@@ -164,6 +184,7 @@ llm_palindrome/
   phrases.py       phrase inventory and unit construction
   overhang.py      cached trie lookahead for the debt
   reversal.py      how well a unit survives being mirrored (word mode)
+  refrain.py       reflected refrain construction and its explicit constraints
   tunable.py       swept parameters, named rather than inlined
   verify.py        end-to-end validity checks
 

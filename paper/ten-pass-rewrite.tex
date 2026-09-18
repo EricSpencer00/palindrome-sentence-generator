@@ -1,0 +1,105 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.72in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{newtxtext,newtxmath}
+\usepackage{xcolor}
+\usepackage{parskip}
+\setlength{\parindent}{0pt}
+\newcommand{\outputlabel}{\textcolor{teal!65!black}{\textbf{OUTPUT}}}
+\newcommand{\critiquelabel}{\textcolor{red!65!black}{\textbf{CRITIQUE}}}
+\newcommand{\reviselabel}{\textcolor{blue!65!black}{\textbf{REVISION APPLIED}}}
+\newcommand{\pass}[1]{\textcolor{gray}{\small MANUSCRIPT ITERATION #1 OF 10}}
+\begin{document}
+
+\pass{1}
+\section*{1. Exact palindromic generation as constrained natural-language generation}
+\outputlabel\quad \emph{Abstract.} We present an exact palindrome generator that constructs English word sequences whose normalized character stream is symmetric. A two-ended search maintains unmatched letter overhangs, uses a trie to find compatible words, and validates every finished candidate exactly. A POS-pattern filter increases accepted outputs under a fixed search budget. These results suggest that palindromes offer a demanding testbed for constrained language generation.
+
+\critiquelabel\quad This reads as a competent search-system paper, but it has not yet identified a linguistic phenomenon. Exactness, output count, and a POS filter are not by themselves a reason for an NLP audience to care.
+
+\reviselabel\quad Reframe the task around its linguistic object: a single letter sequence must sustain two opposed lexical readings, not merely satisfy a string predicate.
+
+\newpage
+\pass{2}
+\section*{2. One letter stream, two lexical readings}
+\outputlabel\quad \emph{Abstract.} Exact palindromes couple a formal character constraint with lexical segmentation: after letters are reversed, original word boundaries need not survive. We therefore study whether an English letter stream can be read plausibly in both directions. Our decoder is a case study of this dual-reading requirement; its two-ended state exposes the unresolved letters that one side owes the other. The intended contribution is a linguistic account of why exact palindrome generation is difficult.
+
+\critiquelabel\quad The key intuition is now linguistic, but the proposed comparison would still be unfair if it compared an author's original spaces with automatically recovered spaces in the reversal. That would mix reversal with a boundary-treatment artifact.
+
+\reviselabel\quad Apply exactly the same vocabulary and segmentation procedure to both the forward letters and their reversal before comparing the readings.
+
+\newpage
+\pass{3}
+\section*{3. Mirror cost under symmetric re-segmentation}
+\outputlabel\quad \emph{Abstract.} We define the \emph{mirror cost} of an English span by removing its formatting, re-segmenting both its letter stream and its reversal with the same lexicon and procedure, and comparing causal-language-model cost per letter. This symmetric control isolates the effect of reversal from the effect of replacing author-supplied spaces. A positive gap means that, under the selected model and segmenter, the reversed reading is less likely. Exact decoding then illustrates the operational consequence of this gap.
+
+\critiquelabel\quad A likelihood gap is not a theorem about English. It does not count grammatical strings, show that a palindrome is impossible, measure meaning, or justify information-theoretic language.
+
+\reviselabel\quad State the metric narrowly as a model-based diagnostic, and remove claims about feasibility counts, grammaticality, human preference, and lower bounds.
+
+\newpage
+\pass{4}
+\section*{4. Mirror cost across segmentation objectives}
+\outputlabel\quad \emph{Abstract.} Mirror cost measures the additional causal-LM bits per letter assigned to a reversed, re-segmented English stream relative to the same forward stream. We estimate it with matched forward/reverse treatment and report three deliberately different segmentation objectives: frequency-sensitive unigram segmentation, minimum-segment segmentation, and longest-word greedy segmentation. The question is not which objective recovers the true reading; it is whether the reverse penalty persists when the boundary preference changes.
+
+\critiquelabel\quad A result from one segmentation routine could be a property of that routine. Even three procedures can alter the magnitude materially, so the paper cannot hide the robustness analysis behind one headline average.
+
+\reviselabel\quad Report the full per-objective ranges, explain the one-letter fallback, and interpret objective sensitivity as part of the finding rather than as noise to suppress.
+
+\newpage
+\pass{5}
+\section*{5. A bounded empirical claim about reversed English}
+\outputlabel\quad \emph{Abstract.} On 57 retained WikiText-2 configurations, reverse readings incur 2.16--3.60 additional bits per letter after matched re-segmentation. The experiment varies span length, three segmentation objectives, and DistilGPT-2, GPT-2, and GPT-2-medium, with a limited GPT-2-large check. The results indicate a stable reverse-reading penalty within this design; they do not establish that every language model or every English corpus behaves identically.
+
+\critiquelabel\quad These checkpoints are all GPT-2-family models. Reporting them as independent architecture replications would overstate the evidence. A single corpus and lexicon are similarly too narrow for a universal English claim.
+
+\reviselabel\quad Describe model variation as a scale-sensitivity check, name the corpus and lexicon in the claim, and make cross-corpus and cross-architecture replication a limitation.
+
+\newpage
+\pass{6}
+\section*{6. Likelihood and lexical coverage are separate diagnostics}
+\outputlabel\quad \emph{Abstract.} The mirror-cost study reports two different signals. Causal-LM cost measures the relative probability assigned to matched segmentations; dictionary-word coverage measures the fraction of letters placed in words of three or more letters, preventing one-letter tiling from looking like successful lexicalization. Across the retained conditions, forward coverage is about 88--92\% and reverse coverage about 48--55\%. The two diagnostics agree that reversal disrupts ordinary lexical structure.
+
+\critiquelabel\quad Dictionary coverage can still be misleading: a fully segmentable word sequence can be ungrammatical or absurd. Conversely, a reverse stream with low coverage is not automatically unreadable. Treating coverage as fluency would reinstate the overclaim removed in the previous pass.
+
+\reviselabel\quad Label coverage as a model-free companion diagnostic only, and explicitly rule out readability, grammaticality, and semantic conclusions from it.
+
+\newpage
+\pass{7}
+\section*{7. Exact decoding as a structural case study}
+\outputlabel\quad \emph{Abstract.} We use exact two-ended palindrome decoding to show what a mirror-cost result means operationally. The decoder preserves character validity independently of any language-model score. A POS-shape feasibility gate rejects partial word sequences that cannot extend to a member of a finite allowed tag-pattern language. It is sound for that finite predicate: an invalid prefix or suffix projection cannot become valid through the permitted future extensions.
+
+\critiquelabel\quad POS shape is not syntax. Tag ambiguity, local agreement failures, attachment, and semantics remain unconstrained. Calling accepted strings grammatical would turn a safe pruning result into an unsupported linguistic claim.
+
+\reviselabel\quad Use the term \emph{finite POS-shape language}; prove only predicate soundness; state that the gate measures structural viability rather than grammar or meaning.
+
+\newpage
+\pass{8}
+\section*{8. Candidate supply under a fixed search budget}
+\outputlabel\quad \emph{Abstract.} In 50 paired opening subtrees with a fixed 50,000-popped-state budget, incremental POS-shape pruning returns 2,137 accepted pairs versus 407 for terminal-only checking: 5.47 times as many accepted pairs per popped state, with a paired-bootstrap interval of 2.89--17.65. It produces 0.95 times as many accepted pairs per generated state. The differing denominators show that pruning changes where the search budget is spent rather than universally improving every efficiency measure.
+
+\critiquelabel\quad A headline 5.47x could be read as a universal algorithmic speedup. The opening subtrees, vocabulary, budget, traversal order, and accepted-pair definition all bound it. The generated-state result also complicates a simple pruning-wins story.
+
+\reviselabel\quad Present this as a fixed-work candidate-supply case study, include both denominators and the interval, and avoid claims about prose quality or general search superiority.
+
+\newpage
+\pass{9}
+\section*{9. Demonstrations are not the contribution}
+\outputlabel\quad \emph{Abstract.} The live palindrome website demonstrates an accessible exact-generation system. The audited 90,937-letter Norvig-derived construction demonstrates that the decoder can sustain formal constraints at unusual scale. Neither artifact measures prose quality, supplies a matched-runtime comparison, or establishes the novelty of the method. The paper's central result remains the controlled mirror-cost protocol and its evidence that reversed English suffers a substantial lexical and likelihood penalty.
+
+\critiquelabel\quad A spectacular length number and a public URL can overwhelm the empirical result in reviewers' memory, inviting the response ``interesting demo, but why NLP?'' The framing must keep both artifacts visibly subordinate.
+
+\reviselabel\quad Move the website to a system-demo role and the Norvig result to a stress-test role; lead the abstract, title, and contributions with bidirectional re-segmentation.
+
+\newpage
+\pass{10}
+\section*{10. The Mirror Cost of English: Exact Palindromic Generation as Bidirectional Re-segmentation}
+\outputlabel\quad \emph{Abstract.} An exact character-level palindrome requires one letter sequence to support two readings: the usual reading and a reading obtained by reversing the letters and recovering word boundaries. We introduce a symmetric measurement of this burden: re-segment the forward and reversed letters with the same vocabulary and algorithm, then compare their causal-language-model costs per letter. On 57 retained WikiText-2 configurations, the reverse reading costs 2.16--3.60 additional bits per letter; forward dictionary-word coverage is 88--92\%, versus 48--55\% in reverse. An exact two-ended decoder is a case study: a sound POS-shape gate raises structurally admitted output per popped state by 5.47 times in 50 fixed-work trials, but establishes neither grammaticality nor meaning. The contribution is a protocol for measuring reversal's linguistic burden, not a claim of coherent long-form generation.
+
+\critiquelabel\quad This final version is appropriately narrow but still pilot-scale: it lacks frozen sampled spans and model revisions, another corpus, an independent model family, and any blinded human study. It should not be submitted as a prose-quality paper.
+
+\reviselabel\quad Keep these limitations in the final manuscript and make the next empirical milestone a preregistered cross-corpus, cross-architecture replication; add human evaluation only if a later paper claims generated-text quality.
+
+\end{document}

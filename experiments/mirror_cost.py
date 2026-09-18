@@ -54,7 +54,10 @@ Usage
 from __future__ import annotations
 
 import argparse
+from datetime import datetime, timezone
 import glob
+import hashlib
+import importlib.metadata
 import json
 import math
 import os
@@ -213,24 +216,62 @@ class Scorer:
         self.tok = AutoTokenizer.from_pretrained(model_name)
         self.model = AutoModelForCausalLM.from_pretrained(model_name).to(device)
         self.model.eval()
+        self.revision = getattr(self.model.config, "_commit_hash", None)
+        self.context_token_id = self.tok.bos_token_id
+        if self.context_token_id is None:
+            self.context_token_id = self.tok.eos_token_id
+        if self.context_token_id is None:
+            raise ValueError(f"{model_name} provides neither a BOS nor EOS token")
 
     def total_logprob(self, text: str) -> float | None:
+        return self.total_logprobs([text], batch_size=1)[0]
+
+    def total_logprobs(self, texts: Sequence[str], batch_size: int = 16
+                       ) -> list[float | None]:
+        """Score every text token after a shared boundary, in padded batches."""
         torch = self.torch
-        ids = self.tok(text, add_special_tokens=False).input_ids
-        if len(ids) < 2:
-            return None
-        with torch.no_grad():
-            tensor = torch.tensor([ids], device=self.device)
-            logits = self.model(tensor).logits
-            logprobs = torch.log_softmax(logits[0, :-1].float(), dim=-1)
-            picked = logprobs.gather(-1, tensor[0, 1:].unsqueeze(-1)).squeeze(-1)
-        # The first token is unscored under every model, on both sides alike.
-        return float(picked.sum())
+        encoded = [self.tok(text, add_special_tokens=False).input_ids
+                   for text in texts]
+        results: list[float | None] = [None] * len(texts)
+        pending = [(i, [self.context_token_id, *ids])
+                   for i, ids in enumerate(encoded) if ids]
+        # Sorting within the call reduces padding without changing result order.
+        pending.sort(key=lambda item: len(item[1]))
+        for start in range(0, len(pending), batch_size):
+            batch = pending[start:start + batch_size]
+            width = max(len(sequence) for _, sequence in batch)
+            input_ids = torch.full(
+                (len(batch), width), self.context_token_id,
+                dtype=torch.long, device=self.device)
+            attention = torch.zeros(
+                (len(batch), width), dtype=torch.long, device=self.device)
+            lengths = []
+            for row, (_, sequence) in enumerate(batch):
+                length = len(sequence)
+                lengths.append(length)
+                input_ids[row, :length] = torch.tensor(sequence, device=self.device)
+                attention[row, :length] = 1
+            with torch.no_grad():
+                logits = self.model(input_ids, attention_mask=attention).logits
+                logprobs = torch.log_softmax(logits[:, :-1].float(), dim=-1)
+                picked = logprobs.gather(
+                    -1, input_ids[:, 1:].unsqueeze(-1)).squeeze(-1)
+            for row, ((original, _), length) in enumerate(zip(batch, lengths)):
+                results[original] = float(picked[row, :length - 1].sum())
+        return results
 
 
 # -------------------------------------------------------------------- corpus
 
-def load_corpus(limit_chars: int = 4_000_000) -> str:
+def file_sha256(path: str) -> str:
+    digest = hashlib.sha256()
+    with open(path, "rb") as stream:
+        for chunk in iter(lambda: stream.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def load_corpus(limit_chars: int = 4_000_000) -> tuple[str, dict]:
     """Plain English prose. wikitext-2 if it is cached, else the repo's own."""
     pattern = os.path.expanduser(
         "~/.cache/huggingface/hub/datasets--wikitext/snapshots/*/"
@@ -250,7 +291,13 @@ def load_corpus(limit_chars: int = 4_000_000) -> str:
             total += len(line)
             if total >= limit_chars:
                 break
-        return "\n".join(chunks)
+        return "\n".join(chunks), {
+            "dataset": "wikitext-2-raw-v1",
+            "snapshot": os.path.basename(os.path.dirname(os.path.dirname(hits[0]))),
+            "parquet_file": os.path.basename(hits[0]),
+            "parquet_sha256": file_sha256(hits[0]),
+            "character_limit": limit_chars,
+        }
     raise SystemExit("no corpus found: expected a cached wikitext-2 parquet")
 
 
@@ -326,11 +373,27 @@ class Row(NamedTuple):
     thinning_per_letter: float
 
 
-def measure(scorer: Scorer, sents: Sequence[str], vocab: frozenset[str],
-            n_letters: int, count: int, strategy: str,
-            rng: random.Random, show: int = 0,
+def measure(scorer: Scorer, sample: Sequence[tuple[str, str]],
+            vocab: frozenset[str], n_letters: int, strategy: str,
+            show: int = 0, batch_size: int = 16,
             min_rev_coverage: float = 0.0) -> Row:
-    sample = spans(sents, n_letters, count, rng)
+    prepared: list[tuple[str, str, str, float, float, int]] = []
+    for natural, letters in sample:
+        seg_f = segment(letters, vocab, strategy)
+        seg_r = segment(letters[::-1], vocab, strategy)
+        c_f = coverage(seg_f, vocab)
+        c_r = coverage(seg_r, vocab)
+        if c_r >= min_rev_coverage:
+            prepared.append((natural, " ".join(seg_f), " ".join(seg_r),
+                             c_f, c_r, len(letters)))
+
+    natural_scores = scorer.total_logprobs(
+        [row[0] for row in prepared], batch_size=batch_size)
+    forward_scores = scorer.total_logprobs(
+        [row[1] for row in prepared], batch_size=batch_size)
+    reverse_scores = scorer.total_logprobs(
+        [row[2] for row in prepared], batch_size=batch_size)
+
     cov_f: list[float] = []
     cov_r: list[float] = []
     nat_bits: list[float] = []
@@ -339,23 +402,14 @@ def measure(scorer: Scorer, sents: Sequence[str], vocab: frozenset[str],
     deltas: list[float] = []
     shown = 0
 
-    for natural, letters in sample:
-        seg_f = segment(letters, vocab, strategy)
-        seg_r = segment(letters[::-1], vocab, strategy)
-        c_f = coverage(seg_f, vocab)
-        c_r = coverage(seg_r, vocab)
-        if c_r < min_rev_coverage:
-            continue
+    for row, lp_nat, lp_fwd, lp_rev in zip(
+            prepared, natural_scores, forward_scores, reverse_scores):
+        natural, seg_f, seg_r, c_f, c_r, n = row
         cov_f.append(c_f)
         cov_r.append(c_r)
-
-        lp_nat = scorer.total_logprob(natural)
-        lp_fwd = scorer.total_logprob(" ".join(seg_f))
-        lp_rev = scorer.total_logprob(" ".join(seg_r))
         if lp_nat is None or lp_fwd is None or lp_rev is None:
             continue
 
-        n = len(letters)
         b_nat = -lp_nat / NATS_PER_BIT / n
         b_fwd = -lp_fwd / NATS_PER_BIT / n
         b_rev = -lp_rev / NATS_PER_BIT / n
@@ -365,8 +419,8 @@ def measure(scorer: Scorer, sents: Sequence[str], vocab: frozenset[str],
         deltas.append(b_rev - b_fwd)
 
         if shown < show:
-            print(f"    fwd: {' '.join(seg_f)}")
-            print(f"    rev: {' '.join(seg_r)}")
+            print(f"    fwd: {seg_f}")
+            print(f"    rev: {seg_r}")
             print(f"         {b_fwd:.2f} -> {b_rev:.2f} bits/letter")
             shown += 1
 
@@ -404,6 +458,8 @@ def main() -> None:
     ap.add_argument("--vocab", default="data/lexicon.txt")
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--show", type=int, default=0, help="print N examples")
+    ap.add_argument("--batch-size", type=int, default=16,
+                    help="language-model scoring batch size")
     ap.add_argument("--min-reversed-coverage", type=float, default=0.0,
                     help="keep only spans whose REVERSED reading places at "
                          "least this fraction of its letters in real words. "
@@ -414,18 +470,36 @@ def main() -> None:
     args = ap.parse_args()
 
     vocab = load_vocab(args.vocab)
-    corpus = load_corpus()
+    corpus, corpus_info = load_corpus()
     sents = sentences(corpus)
     print(f"vocabulary {len(vocab)} words, corpus {len(sents)} sentences\n")
 
+    # Freeze one sample per target length and reuse it for every segmentation
+    # procedure and model.  The output stores the exact natural text and
+    # normalized letters so the reported paired measurements can be rerun.
+    samples = {
+        n: spans(sents, n, args.n, random.Random(args.seed))
+        for n in args.spans
+    }
+    if any(len(sample) != args.n for sample in samples.values()):
+        short = {n: len(sample) for n, sample in samples.items()
+                 if len(sample) != args.n}
+        raise SystemExit(f"not enough spans for requested cells: {short}")
+
     rows: list[Row] = []
+    model_info: list[dict] = []
     for model_name in args.models:
         scorer = Scorer(model_name)
+        model_info.append({
+            "name": model_name,
+            "revision": scorer.revision,
+            "context_token_id": scorer.context_token_id,
+        })
         for strategy in args.strategies:
             for n_letters in args.spans:
-                rng = random.Random(args.seed)
-                row = measure(scorer, sents, vocab, n_letters, args.n,
-                              strategy, rng, show=args.show,
+                row = measure(scorer, samples[n_letters], vocab, n_letters,
+                              strategy, show=args.show,
+                              batch_size=args.batch_size,
                               min_rev_coverage=args.min_reversed_coverage)
                 rows.append(row)
                 print(f"{row.model:22s} {row.strategy:8s} L={row.n_letters:4d} "
@@ -439,8 +513,45 @@ def main() -> None:
         del scorer
         print()
 
+    with open(args.vocab) as stream:
+        vocab_source_entries = sum(1 for line in stream if line.strip())
+    result = {
+        "schema_version": 2,
+        "generated_at_utc": datetime.now(timezone.utc).isoformat(),
+        "design": {
+            "seed": args.seed,
+            "target_lengths": args.spans,
+            "spans_per_length": args.n,
+            "segmentation_strategies": args.strategies,
+            "minimum_reversed_coverage": args.min_reversed_coverage,
+            "batch_size": args.batch_size,
+            "paired_sample_reuse": "The same saved spans are used for every model and segmentation strategy at a target length.",
+            "scoring": "Every text token is scored after one shared model-defined BOS/EOS boundary token; costs are normalized by ASCII letters.",
+        },
+        "vocabulary": {
+            "path": args.vocab,
+            "sha256": file_sha256(args.vocab),
+            "source_entries": vocab_source_entries,
+            "filtered_entries": len(vocab),
+            "max_word_letters": MAX_WORD,
+            "single_letter_fallback": True,
+        },
+        "corpus": corpus_info,
+        "software": {
+            name: importlib.metadata.version(name)
+            for name in ("torch", "transformers", "pyarrow", "wordfreq")
+        },
+        "models": model_info,
+        "samples": {
+            str(n): [{"natural": natural, "letters": letters}
+                     for natural, letters in sample]
+            for n, sample in samples.items()
+        },
+        "rows": [r._asdict() for r in rows],
+    }
     with open(args.out, "w") as fh:
-        json.dump([r._asdict() for r in rows], fh, indent=2)
+        json.dump(result, fh, indent=2)
+        fh.write("\n")
     print(f"wrote {args.out}")
 
     costs = [r.mirror_cost for r in rows]

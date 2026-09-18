@@ -1,3 +1,11 @@
+# QUARANTINED HISTORICAL MATERIAL — NOT THE ACTIVE PAPER OR GENERATION PATH
+
+This page records abandoned scoring, assembly, and model-training ideas.
+Its legacy examples, automated judgments, and refrain constructions do not
+meet the current no-shortcut or human-reader evidence requirements.  The
+active target is [`../paper/TARGET-PAPER-SPEC.md`](../paper/TARGET-PAPER-SPEC.md)
+and [`READABLE-PALINDROME-GOAL.md`](READABLE-PALINDROME-GOAL.md).
+
 # Training: what is worth learning, and in what order
 
 The search enforces the palindrome. A model only chooses among branches that

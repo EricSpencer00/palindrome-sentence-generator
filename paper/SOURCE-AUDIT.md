@@ -1,9 +1,37 @@
+# Quarantined historical source audit
+
+This is not the current paper source audit. It describes a legacy release
+whose search and proxy claims do not meet the reader-evidence standard; it is
+retained only to identify material that must not be released or cited as
+current evidence.
+
+## Historical audit details
+
+The historical release was a controlled study of sound Brown POS-shape pruning,
+with the earlier large saved-output comparison retained as exploratory evidence.
+`REVISION-RESPONSE.md` maps the supplied critique to the revision.
+`EVIDENCE-README.md` gives commands for the portable archive. The current archive
+includes frozen inputs and the source files required for its audits and reruns;
+its hashes identify the actual working files, including uncommitted edits.
+The controlled run records its per-trial measurements, selected openings,
+accepted pairs, current source hashes, and environment. The old exploratory
+revision and complete environments remain unknown.
+
+The Universal POS mapping is credited to Petrov, Das, and McDonald (2012),
+https://aclanthology.org/L12-1115/. Brown has 49,815 word types and 53,548 word-tag
+associations. The independent audit computes 69,745 incremental-only pairs in
+29 junction families, versus 30 families in the whole incremental arm.
+
+The historical audit below records earlier work. It is not the current release
+manifest, and its old bundle description does not describe the portable archive.
+
 # Source and evidence audit — 7 September 2026
 
 This is a research draft, not a certification of readability or a global record.
-All ten active bibliography entries were checked against primary publication
-records or the author's/distributor's own material. The archived bibliography
-retains earlier, uncited entries; they are not evidence for this revision.
+All ten bibliography entries in the September 7 audit were checked against
+primary publication records or the author's/distributor's own material. The
+superseded bibliography is recoverable through Git history; its earlier,
+uncited entries are not evidence for the current paper.
 
 | Reference | Primary source | Scope checked |
 |---|---|---|
@@ -36,7 +64,7 @@ retains earlier, uncited entries; they are not evidence for this revision.
   six variants of 26 texts. Normalized strings and inserted-punctuation word
   sequences were checked. The +0.77 is a within-model descriptive mean change,
   not a blinded human effect.
-- **Scaling:** `runs/polaris/scale_20260823/summaries.jsonl` supports the five
+- **Scaling:** the locally retained scaling aggregate supports the five
   comparable vocabulary points and slope -1.031. Counts are summed worker-local
   distinct outputs per worker-second, not globally deduplicated output.
 - **Sentence planning:** saved aggregates preserve candidate lists and counts;

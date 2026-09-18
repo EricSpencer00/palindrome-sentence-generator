@@ -1,0 +1,242 @@
+\documentclass[11pt]{article}
+\usepackage[review]{../acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xurl}
+
+\title{Generating Exact English Palindromes with POS-Guided Search}
+\author{Anonymous submission}
+
+\newcommand{\norm}[1]{n(#1)}
+\newcommand{\rev}{\operatorname{rev}}
+\newcommand{\seg}{\operatorname{seg}}
+
+\begin{document}
+% Full-paper snapshot 1; critique and successor changes are in FULL-PAPER-REVISION-LEDGER.md.
+\maketitle
+
+\begin{abstract}
+We present a two-ended exact palindrome decoder with trie-guided word expansion and POS-guided pruning. Under a fixed search budget it returns more accepted palindromes than terminal-only checking, and an audited 90,937-letter construction demonstrates scale. We position exact palindrome generation as a difficult constrained-NLP task.
+\end{abstract}
+
+\section{Introduction}
+
+Constrained generation is usually described at the token level: a system must
+include named terms, follow a schema, or satisfy a formal condition while
+producing text \citep{hokamp2017grid,post2018fast,lu2022astar}. An exact
+character-level palindrome is a harsher constraint. After case, spaces, and
+punctuation are removed, a text $x$ must satisfy
+\begin{equation}
+  \norm{x}=\rev(\norm{x}).
+\end{equation}
+The first half of its letters determines the second half in reverse order. A
+word boundary legal in one reading need not be legal in the other. The task is
+therefore not merely to recognize a symmetric string: it is to ask whether one
+letter sequence can be segmented into plausible English twice.
+
+That distinction is visible in familiar examples. ``Madam, I'm Adam'' and
+``Mad am I, madam'' have the same normalized letters but different word
+boundaries and word orders. Long dictionary palindromes make the tension more
+pronounced. Norvig's 90,439-letter version-3 result is an impressive exact
+construction, but its author explicitly distinguishes length from plot and
+character development \citep{norvig2016palindrome}. Length alone is not an
+NLP quality metric.
+
+We study the language cost before generating anything. Starting from ordinary
+English, we remove formatting, segment the resulting letter stream in both
+directions with the same vocabulary and objective, and score both readings
+with the same causal language model. This symmetric control matters: comparing
+the natural spacing of English with an automatically segmented reversal would
+mix the cost of reversal with the cost of replacing the writer's boundaries.
+
+Our contributions are:
+\begin{itemize}
+\item a bidirectional re-segmentation protocol for measuring the cost that an
+  exact reversal constraint imposes on English;
+\item a 57-cell empirical study showing a substantial reverse-reading
+  likelihood penalty and loss of dictionary-word coverage; and
+\item an exact two-ended decoder case study that separates structural candidate
+  supply from linguistic quality. Its POS-shape gate is sound for its stated
+  finite pattern language, but is not a grammar or a meaning model.
+\end{itemize}
+The paper makes no claim that the present system generates coherent long prose.
+
+\section{Measuring the mirror cost}
+\label{sec:measure}
+
+Let $z=\norm{x}$ be the ASCII letter sequence of an English span and let $V$
+be a fixed vocabulary. A segmentation procedure $s$ maps $z$ to a sequence of
+vocabulary words, with single-letter fallbacks so that every stream can be
+segmented. We use the same $V$ and $s$ for $z$ and $\rev(z)$. With a causal
+language model $M$, define its per-letter cost as
+\begin{equation}
+  H_M(w_1\ldots w_k) =
+  -\frac{\log_2 p_M(w_1\ldots w_k)}{|z|},
+\end{equation}
+where the denominator is the number of letters in the underlying stream, not
+the number of model tokens. The \emph{mirror cost} is
+\begin{equation}
+  C_{M,s}(z)=H_M(\seg_s(\rev(z))) - H_M(\seg_s(z)).
+\end{equation}
+A positive value says that the same letters are less probable after reversal
+and re-segmentation. It does not count grammatical strings, estimate a human
+preference, or prove an information-theoretic lower bound.
+
+\subsection{Data, vocabulary, and controls}
+
+We draw spans of at least 20, 30, 40, 60, 80, or 120 letters at word boundaries
+from the cached WikiText-2 training split \citep{merity2016pointer}. Each
+configuration scores 150 spans. The vocabulary contains 52,927 lowercase
+English headwords from the intersection of a dictionary and a frequency list.
+Words have at most 20 letters; an unmatched letter is a legal one-character
+fallback. We separately report coverage: the fraction of letters that land in
+vocabulary words of length at least three. Thus a reversed stream cannot
+appear well covered merely because a segmenter tiled it with one-letter units.
+
+We test three segmentation objectives. \textsc{Unigram} maximizes summed Zipf
+frequency minus a fixed per-word cost. \textsc{Fewest} minimizes the number of
+segments. \textsc{Greedy} takes the longest available word from left to right,
+with backtracking. These are deliberately different boundary preferences, not
+claims that any is the best linguistic segmenter.
+
+The retained results have 57 cells: DistilGPT-2, GPT-2, and GPT-2-medium
+\citep{radford2019language} each score all three segmenters at six lengths;
+GPT-2-large supplies an additional unigram check at 20, 30, and 40 letters.
+All models are members of the GPT-2 family. They test scale sensitivity, not
+independence across model architectures.
+
+\section{Results: English is costly in reverse}
+\label{sec:results}
+
+Table~\ref{tab:unigram} gives the unigram-segmentation results, the condition
+closest to a frequency-sensitive dictionary reading. The cost remains large as
+spans grow. At 80 letters, the three complete model variants place 91\% of
+forward letters but only 52\% of reversed letters inside dictionary words, and
+pay 2.88--3.16 extra bits per letter for the reverse reading.
+
+\begin{table}[t]
+\centering
+\small
+\setlength{\tabcolsep}{3.2pt}
+\begin{tabular}{rccrrr}
+\toprule
+Letters & Forward & Reverse & Distil & GPT-2 & Medium \\
+ & coverage & coverage & cost & cost & cost \\
+\midrule
+20  & .90 & .48 & 3.38 & 3.44 & 3.60 \\
+30  & .90 & .48 & 3.20 & 3.27 & 3.47 \\
+40  & .90 & .50 & 3.03 & 3.16 & 3.30 \\
+60  & .90 & .51 & 2.90 & 3.04 & 3.19 \\
+80  & .91 & .52 & 2.88 & 3.03 & 3.16 \\
+120 & .90 & .51 & 2.79 & 2.96 & 3.09 \\
+\bottomrule
+\end{tabular}
+\caption{Unigram segmentation. Costs are additional bits per letter for the
+reversed reading; each entry uses 150 WikiText-2 spans. GPT-2-large gives
+3.60, 3.44, and 3.29 at 20, 30, and 40 letters, respectively.}
+\label{tab:unigram}
+\end{table}
+
+The conclusion does not depend on the unigram objective alone. Across all 57
+cells, mirror cost ranges from 2.16 to 3.60 bits per letter (mean 2.94).
+The range by segmenter is 2.79--3.60 for \textsc{Unigram} (21 cells),
+2.69--3.56 for \textsc{Fewest} (18), and 2.16--2.83 for \textsc{Greedy} (18).
+The greedy procedure reduces the estimated gap, but does not remove it. Its
+lower score is not evidence that a greedy segmentation makes reversed English
+more grammatical; it only reveals that boundary choice affects the size of the
+model-based diagnostic.
+
+The coverage result is a model-free companion to the likelihood result. It
+shows that roughly half the letters in the reversed spans cannot be placed in a
+dictionary word of length three or more under these procedures. Coverage is
+also not readability: a stream can be fully dictionary segmentable and still
+be nonsensical.
+
+\section{Exact decoding as a case study}
+\label{sec:decoder}
+
+The measurement explains why unconstrained left-to-right generation cannot
+guarantee a palindrome: committing an early letter fixes a distant late letter
+and its possible word boundaries. We use a two-ended overhang search derived
+from the remainder construction of \citet{norvig2016palindrome}. A state
+contains left and right word sequences plus the unmatched letters that one side
+owes the other. A trie returns words compatible with that overhang. Every
+closed candidate is checked by the normalized-letter predicate above, so model
+scores can rank candidates but cannot make an invalid output valid.
+
+The search can add structural constraints. Our finite POS-shape language is
+derived from Brown-corpus universal tags \citep{francis1979brown,bird2009nltk,
+petrov2012universal}. A partial left sequence must match the suffix of at
+least one allowed tag pattern; a partial right sequence must match the prefix
+of at least one allowed pattern. This is sound for the complete predicate:
+future left additions only prepend to an already fixed suffix, and future right
+additions only append to an already fixed prefix. A failed projection cannot
+be repaired by a descendant. The gate is a finite-label viability test, not a
+claim that an admitted word sequence is grammatical.
+
+We ran 50 paired opening subtrees under a fixed 50,000-popped-state budget.
+Opening selection and child order are independent of POS tags and outcomes;
+both arms share vocabulary, letter bounds, terminal checks, and traversal
+order. The terminal-only arm returns 407 accepted pairs; the incremental arm
+returns 2,137. The incremental/terminal ratio is 5.47 for accepted pairs per
+popped state (paired bootstrap 95\% interval 2.89--17.65) and 4.36 per CPU
+second (2.30--13.93). It is 0.95 per generated state (0.46--3.20): pruning can
+reach deeper, higher-branching regions within a pop budget and therefore
+generate more candidate children. This is evidence about structural candidate
+supply, not about the quality of the resulting text.
+
+\section{Related work and scope}
+
+\citet{papadopoulos2015palindromes} generate palindromes from n-gram corpora
+with a graph that conjoins forward and backward constraints; their method also
+uses syntactic patterns. We do not claim that prefix or suffix feasibility is
+new in isolation, nor do we compare the two implementations. Our contribution
+is instead the symmetric language measurement and its use to delimit what an
+exact decoder result can show.
+
+Lexically constrained decoding tracks unmet requirements during left-to-right
+generation \citep{hokamp2017grid,post2018fast}; lookahead methods use future
+feasibility to guide constrained text generation \citep{lu2022astar}. The
+palindrome setting couples the two ends of the character string and allows word
+boundaries to change under reversal. This makes symmetric re-segmentation a
+useful control rather than a cosmetic preprocessing choice.
+
+Our longer artifact illustrates the distinction between scale and language
+quality. An audited inventory-aware adaptation reaches 90,937 letters, 498
+more than Norvig's published version 3, while enforcing stated phrase and
+repetition restrictions. It remains a dictionary list and is not a
+matched-runtime comparison or a benchmark of meaning. We treat it as a stress
+test for exact decoding, not as an NLP result about prose.
+
+\section{Discussion and conclusion}
+
+This complete first draft treats a better decoder and a longer artifact as its research contribution. It has a system story, but not yet a persuasive linguistic question.
+
+\section*{Limitations}
+
+This version does not isolate why palindrome generation is linguistically difficult. POS guidance has not been shown to imply grammar, meaning, or human quality.
+
+\bibliography{../refs}
+
+\appendix
+\section{Reproduction}
+
+The mirror-cost implementation is
+\url{experiments/mirror_cost.py}; retained per-cell results are
+\url{experiments/mirror_cost.json}. The program documents the three
+segmentation objectives, corpus loading, fallback policy, and score
+normalization. The decoder and its validator are under
+\url{llm_palindrome/}; raw fixed-work trials and their audit are under
+\url{runs/controlled-pos-pruning-openings-2026-09-11/}. The long artifact, its
+phrase list, and an independent audit are under \url{artifacts/norvig-v3/}.
+The released sources and results are enough to inspect the claims reported
+here, but the missing sampled-span snapshot and heterogeneous model sweep make
+the mirror-cost result a careful empirical study rather than a completed
+benchmark.
+
+\end{document}

@@ -39,7 +39,10 @@ class Plan:
     right: tuple[tuple[str, tuple[str, ...]], ...]
 
 
-DET = ("a", "an", "each", "every", "one")
+# Use a determiner that is grammatical before every noun in the lexical
+# inventories.  Article allomorphy (a/an) would require look-ahead across the
+# bilateral character ledger and can silently create probes such as "a artist".
+DET = ("the", "each", "every", "one")
 PRONOUN = ("it", "that")
 
 

@@ -222,6 +222,8 @@ def live_product(left: Automaton, right: Automaton, max_states: int = 200_000) -
                     matches.append((le, re))
                     stack.append((le.target, re.source, lp + (le,), rp + (re,)))
         if not matches:
+            left_words, _ = decode(lp)
+            right_words, _ = decode(tuple(reversed(rp)))
             dead_frontiers.append({
                 "left_node": p,
                 "right_node": q,
@@ -230,6 +232,8 @@ def live_product(left: Automaton, right: Automaton, max_states: int = 200_000) -
                 "left_roles": sorted({e.role for e in out_left[p] if e.role}),
                 "right_roles": sorted({e.role for e in in_right[q] if e.role}),
                 "matched_prefix_letters": len(lp),
+                "matched_left_words": left_words,
+                "matched_right_words": right_words,
             })
     return {"states": states, "truncated": bool(stack),
             "records": records, "dead_frontiers": dead_frontiers[:20]}

@@ -1,7 +1,10 @@
-"""CLI: generate a long, multi-sentence, LLM-ranked character palindrome.
+"""Retired legacy search helpers.
 
-Pipeline: wordfreq vocabulary -> Norvig-style overhang beam search (many seeds)
--> GPT-2 rerank of closed palindromes -> sentence formatting -> validation.
+This module still supplies vocabulary and scorer helpers to historical,
+non-serving experiments.  Its command-line generator is disabled: its old
+output path checked only letter reversal and could emit the shortcut material
+that the current project explicitly excludes.  Active construction experiments
+must use the shared admission gate and the later blinded-reader gate.
 """
 from __future__ import annotations
 
@@ -62,6 +65,14 @@ def make_lm_prune(lm, textify_fn, keep: int):
 
 
 def main() -> None:
+    raise SystemExit(
+        "retired: the legacy CLI can emit unvalidated palindrome material; "
+        "use an active evidence-gated construction experiment instead"
+    )
+
+
+def _retired_cli() -> None:
+    """Preserved implementation for audit only; never expose it as a CLI."""
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--min-letters", type=int, default=120)
     ap.add_argument("--beam", type=int, default=60)

@@ -18,8 +18,8 @@ import threading
 import time
 from typing import Optional
 
-from fastapi import FastAPI, Query
-from fastapi.responses import StreamingResponse
+from fastapi import FastAPI, Query, Request
+from fastapi.responses import JSONResponse, StreamingResponse
 
 from llm_palindrome.bigram import BigramModel
 from llm_palindrome.centerout import centerout_search
@@ -54,6 +54,24 @@ from server.v3 import router as v3_router  # noqa: E402
 
 app.include_router(v2_router)
 app.include_router(v3_router)
+
+RETIRED_OUTPUT_PATHS = frozenset({
+    "/api/generate", "/api/v2/paragraph", "/api/v2/generate",
+    "/api/v3/composition", "/api/v3/palindrome", "/api/v3/refrain",
+})
+RETIREMENT_MESSAGE = (
+    "Palindrome output is retired: exactness and programmatic filters do not "
+    "establish readable English. The service will remain unavailable until "
+    "independently generated candidates have blinded human-reader evidence."
+)
+
+
+@app.middleware("http")
+async def refuse_unvalidated_palindrome_output(request: Request, call_next):
+    """Keep every legacy generation route from reviving a shortcut output."""
+    if request.url.path in RETIRED_OUTPUT_PATHS:
+        return JSONResponse(status_code=503, content={"detail": RETIREMENT_MESSAGE})
+    return await call_next(request)
 
 _tries: Optional[WordTries] = None
 _bigrams: Optional[BigramModel] = None
@@ -246,8 +264,9 @@ def _search(prompt: str, budget: float, on_partial=None) -> Optional[dict]:
 
 @app.get("/health")
 def health():
-    return {"ok": True, "vocab": _tries is not None,
-            "lm": _lm is not None, "bigrams": _bigrams is not None, "lm_error": _lm_error}
+    return {"ok": True, "output_available": False, "reason": RETIREMENT_MESSAGE,
+            "vocab": _tries is not None, "lm": _lm is not None,
+            "bigrams": _bigrams is not None, "lm_error": _lm_error}
 
 
 @app.get("/api/generate")

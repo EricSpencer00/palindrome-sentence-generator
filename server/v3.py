@@ -70,6 +70,7 @@ from typing import Optional
 
 from fastapi import APIRouter, HTTPException, Query
 
+from llm_palindrome.admission import mechanical_admission_checks
 from llm_palindrome.lexicon import is_real_word, load_lexicon
 from llm_palindrome.present import present
 from llm_palindrome.shortwords import is_real_short
@@ -81,6 +82,10 @@ BANK_PATH = os.environ.get("PALINDROME_V3_BANK", "data/v3_bank.json")
 MIN_LETTERS = int(os.environ.get("PALINDROME_V3_MIN", "16"))
 # What production announces: server/app.py plans for 3 * LENGTH_FLOOR letters.
 TARGET_LETTERS = int(os.environ.get("PALINDROME_V3_TARGET", "1200"))
+RETIREMENT_REASON = (
+    "legacy v3 material has no blinded human-reader evidence; the service will not "
+    "serve material that programmatic checks cannot certify as readable"
+)
 
 _bank: list[dict] = []
 _tables = None
@@ -124,6 +129,12 @@ def _load_bank(path: str = BANK_PATH) -> list[dict]:
     file that claims it.
     """
     rows = json.loads(Path(path).read_text())
+    known_catalogue = set(json.loads(
+        (Path(__file__).resolve().parents[1] / "data" / "known_palindromes.json").read_text()
+    ))
+    # The shared gate is still evaluated below as a diagnostic, but it cannot
+    # certify readability.  Until blinded readers establish that claim for
+    # independently generated items, no legacy bank row may become API output.
     out = []
     for r in rows:
         text = r["text"]
@@ -134,10 +145,17 @@ def _load_bank(path: str = BANK_PATH) -> list[dict]:
             continue
         if not real_words(words):
             continue
-        out.append({"text": text, "words": words,
-                    "letters": len(normalize(text)),
-                    "source": r.get("source", "generated"),
-                    "origin": r.get("origin", "")})
+        # Legacy v3 material predates the reader-first acceptance contract.
+        # Exactness and dictionary membership cannot let it bypass the shared
+        # exclusions for mirrors, repeated units, or catalogue lineage.
+        checks = mechanical_admission_checks(
+            text, local_catalogue=known_catalogue, min_letters=MIN_LETTERS,
+            max_letters=20_000,
+        )
+        if not all(checks.values()):
+            continue
+        # Mechanical survival is deliberately not an admission decision.
+        # See ``RETIREMENT_REASON`` and the reader-study protocol.
     return out
 
 
@@ -145,12 +163,14 @@ def ensure_loaded() -> None:
     global _bank, _tables, _load_error
     if _bank or _load_error:
         return
+    _load_error = RETIREMENT_REASON
+    return
     try:
         _bank = _load_bank()
         from llm_palindrome.syntax import brown_tables
         _tables = brown_tables()
         if not _bank:
-            _load_error = "bank empty after verification"
+            _load_error = RETIREMENT_REASON
     except Exception as exc:                     # noqa: BLE001 - reported, not raised
         _load_error = f"{type(exc).__name__}: {exc}"
 

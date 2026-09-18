@@ -1,128 +1,166 @@
-"""Build a named source and evidence release; no network calls."""
+"""Build portable source and evidence archives from the current working files."""
 from argparse import ArgumentParser
 from pathlib import Path
 import hashlib
 import json
+import shutil
 import subprocess
+import sys
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_RELEASE_ID = "revision-2026-09-10"
+sys.path.insert(0, str(ROOT))
+from paper.provenance import snapshot
+
+QUARANTINED_RELEASE_IDS = {"naacl2027-2026-09-11"}
+STAGE = ROOT / "paper/out/evidence"
+MODULES = ("__init__", "exhaustive", "pairs", "search", "sentence_plan", "syntax",
+           "centerout", "lexicon", "hierarchy", "bigram", "validator", "shortwords")
+PAPER_CODE = ("verify_structural_draft", "critique_evidence", "rerun_search", "evidence_paths", "provenance")
+INVENTORY_RUNS = ("static", "dynamic", "dynamic-long", "feasible", "comparable", "feasible-300")
+CONTROLLED_RUN = ROOT / "runs/controlled-pos-pruning-openings-2026-09-11"
+MIRROR_RUN = ROOT / "runs/mirror-cost-2026-09-11"
+LONG_FORM_RUN = ROOT / "runs/long-form-examples-2026-09-11"
 
 
-def run(*args):
-    subprocess.run(args, cwd=ROOT, check=True)
+def digest(path):
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def file_manifest(files):
-    return {
-        str(path.relative_to(ROOT)): hashlib.sha256(path.read_bytes()).hexdigest()
-        for path in files
-    }
+def copy(source, name):
+    destination = STAGE / name
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copyfile(ROOT / source, destination)
+    return destination
 
 
-def write_archive(destination, files, *, flatten, release_manifest, readme):
-    with zipfile.ZipFile(destination, "w", zipfile.ZIP_DEFLATED) as archive:
+def write_archive(path, files, manifest, readme):
+    with zipfile.ZipFile(path, "w", zipfile.ZIP_DEFLATED) as archive:
         hashes = {}
-        for path in files:
-            name = path.name if flatten else str(path.relative_to(ROOT))
-            data = path.read_bytes()
+        for name, source in sorted(files.items()):
+            data = source.read_bytes()
             archive.writestr(name, data)
             hashes[name] = hashlib.sha256(data).hexdigest()
         archive.writestr("MANIFEST-SHA256.json", json.dumps(hashes, indent=2) + "\n")
-        archive.writestr("RELEASE-MANIFEST.json", json.dumps(release_manifest, indent=2) + "\n")
+        archive.writestr("RELEASE-MANIFEST.json", json.dumps(manifest, indent=2) + "\n")
         archive.writestr("README.txt", readme)
 
 
 def main():
     parser = ArgumentParser(description=__doc__)
-    parser.add_argument("--release-id", default=DEFAULT_RELEASE_ID)
+    parser.add_argument("--release-id", required=True)
     args = parser.parse_args()
-    release_dir = ROOT / "paper" / "releases" / args.release_id
-    release_dir.mkdir(parents=True, exist_ok=True)
-
-    run("python3", "paper/build_revision_tables.py")
-    run("python3", "experiments/verify_revision.py")
-
-    source = [
-        ROOT / "paper" / "eric_evidence_release_draft.md",
-        ROOT / "paper" / "naacl2027.tex",
-        ROOT / "paper" / "refs.bib",
-        *sorted((ROOT / "paper").glob("revision-*.tex")),
-    ]
-    evidence = []
-    patterns = [
-        "artifacts/norvig-v3/*",
-        "runs/revision-2026-09-07/*.json",
-        "runs/revision-2026-09-07/*.sha256",
-        "runs/revision-2026-09-07/*.csv",
-        "runs/revision-2026-09-07/*.txt",
-        "runs/punct/after_*.json",
-        "experiments/revision_*.py",
-        "experiments/verify_revision.py",
-        "experiments/audit_norvig_result.py",
-        "experiments/sentence_intersection-results.json",
-        "experiments/RESULTS-*.md",
-        "runs/polaris/scale_20260823/summaries.jsonl",
-        "runs/polaris/sentence_plan_20260904_204815/aggregate.json",
-        "runs/polaris/sentence_quality_20260905_011235/aggregate.json",
-        "runs/sentence_quality*120b.json",
-        "paper/SOURCE-AUDIT.md",
-        "paper/eric_evidence_release_draft.md",
-        "paper/build_revision_tables.py",
-        "paper/build_release.py",
-        "paper/validate_release.py",
-        "paper/verify_structural_draft.py",
-    ]
-    for pattern in patterns:
-        evidence.extend(path for path in ROOT.glob(pattern) if path.is_file())
-    evidence = sorted(set(evidence))
-
-    inputs = {}
-    for pattern in [
-        "runs/norvig/npdict.txt",
-        "runs/norvig/pal21txt.html",
-        "runs/norvig/pal3.py",
-        "data/v3_bank.json",
-        "data/*2w*",
-    ]:
-        for path in ROOT.glob(pattern):
-            if path.is_file():
-                inputs[str(path.relative_to(ROOT))] = hashlib.sha256(path.read_bytes()).hexdigest()
-
-    release_manifest = {
-        "release_id": args.release_id,
-        "current_working_draft": "paper/eric_evidence_release_draft.md",
-        "archival_typeset_revision": "paper/naacl2027.tex",
-        "source_bundle": "source.zip",
-        "evidence_bundle": "evidence.zip",
-        "source_build": "tectonic --outdir out naacl2027.tex",
-        "evidence_checks": [
-            "python3 paper/verify_structural_draft.py",
-            "python3 experiments/verify_revision.py",
-            f"python3 paper/validate_release.py --release-id {args.release_id} --compile",
-        ],
-        "external_inputs_sha256": inputs,
-        "source_files_sha256": file_manifest(source),
-        "evidence_files_sha256": file_manifest(evidence),
+    raise RuntimeError(
+        "release building is disabled: no current-evidence submission bundle exists. "
+        "Historical archives are quarantined until shared-gate survivors have "
+        "blinded human-reader evidence."
+    )
+    if Path(args.release_id).name != args.release_id or args.release_id in (".", ".."):
+        parser.error("release-id must be a directory name")
+    if args.release_id in QUARANTINED_RELEASE_IDS:
+        parser.error("the historical release is quarantined and cannot be rebuilt")
+    release = ROOT / "paper/releases" / args.release_id
+    release.mkdir(parents=True, exist_ok=True)
+    # This is a generated staging directory, never a source or saved run.
+    if STAGE.exists():
+        shutil.rmtree(STAGE)
+    STAGE.mkdir(parents=True)
+    mapping = {
+        "inputs/brown.json.gz": "tools/polaris/payload/brown.json.gz",
+        "inputs/vocab30k.txt": "tools/polaris/payload/vocab30k.txt",
+        "data/structural/aggregate.json": "runs/polaris/sentence_plan_20260904_204815/aggregate.json",
+        "data/mirror-cost/results.json": "runs/mirror-cost-2026-09-11/results.json",
+        "data/mirror-cost/audit.json": "runs/mirror-cost-2026-09-11/audit.json",
+        "data/mirror-cost/RESULTS.md": "runs/mirror-cost-2026-09-11/RESULTS.md",
+        "data/long-form/examples.json": "runs/long-form-examples-2026-09-11/examples.json",
+        "data/long-form/audit.json": "runs/long-form-examples-2026-09-11/audit.json",
+        "data/lexicon.txt": "data/lexicon.txt",
+        "data/novel_pairs.json": "data/novel_pairs.json",
+        "data/mirror_units.json": "data/mirror_units.json",
+        "data/centres.json": "data/centres.json",
+        "data/known_palindromes.json": "data/known_palindromes.json",
+        "requirements.txt": "paper/MIRROR-COST-REQUIREMENTS.txt",
+        "TERMS.md": "paper/DATA-TERMS.md",
+        "README.md": "paper/EVIDENCE-README.md",
+        "paper/REVISION-RESPONSE.md": "paper/REVISION-RESPONSE.md",
+        "paper/naacl2027.tex": "paper/naacl2027.tex",
+        "paper/refs.bib": "paper/refs.bib",
+        "licenses/PROJECT-LICENSE.txt": "LICENSE",
+        "server/v3.py": "server/v3.py",
     }
-    readme = (
-        "Current working paper: eric_evidence_release_draft.md.\n"
-        "Archival typeset revision: naacl2027.tex. Compile it with "
-        "tectonic --outdir out naacl2027.tex.\n"
-        "The evidence archive retains repository-relative paths. Run "
-        "python3 paper/validate_release.py --release-id " + args.release_id +
-        " --compile from the repository root to check archive membership and a clean source build.\n"
-        "External corpora are not bundled. SOURCE-AUDIT.md records input versions, "
-        "hashes, provenance, and missing evidence.\n"
-    )
-    (release_dir / "RELEASE-MANIFEST.json").write_text(
-        json.dumps(release_manifest, indent=2) + "\n"
-    )
-    write_archive(release_dir / "source.zip", source, flatten=True,
-                  release_manifest=release_manifest, readme=readme)
-    write_archive(release_dir / "evidence.zip", evidence, flatten=False,
-                  release_manifest=release_manifest, readme=readme)
+    for name in ("npdict.txt", "pal3.py", "pal21txt.html"):
+        mapping[f"inputs/norvig/{name}"] = f"runs/norvig/{name}"
+    for name in ("palindrome.txt", "phrases.json", "result.json", "audit.json"):
+        mapping[f"data/length/{name}"] = f"artifacts/norvig-v3/{name}"
+    for run in INVENTORY_RUNS:
+        mapping[f"data/inventory/{run}.json"] = f"runs/norvig-letter-{run}/result.json"
+    for name in ("provenance.json", "summary.json", "trials.jsonl", "RESULTS.md", "audit.json"):
+        mapping[f"data/controlled/{name}"] = str((CONTROLLED_RUN / name).relative_to(ROOT))
+    for module in MODULES:
+        mapping[f"llm_palindrome/{module}.py"] = f"llm_palindrome/{module}.py"
+    for module in PAPER_CODE:
+        mapping[f"paper/{module}.py"] = f"paper/{module}.py"
+    for module in ("norvig_letters", "norvig_long", "audit_norvig_result",
+                   "controlled_pos_pruning", "audit_controlled_pos_pruning",
+                   "mirror_cost", "audit_mirror_cost",
+                   "freeze_long_form_examples", "audit_long_form_examples"):
+        mapping[f"experiments/{module}.py"] = f"experiments/{module}.py"
+    mapping["tests/test_mirror_cost.py"] = "tests/test_mirror_cost.py"
+    mapping["tests/test_novel_bank.py"] = "tests/test_novel_bank.py"
+    for path in (ROOT / "paper/licenses").iterdir():
+        if path.is_file():
+            mapping[f"licenses/{path.name}"] = str(path.relative_to(ROOT))
+    for name, source in mapping.items():
+        copy(source, name)
+    # Retain exact current bytes and the dirty checkout status, not HEAD alone.
+    code = [STAGE / name for name in mapping if name.endswith((".py", ".tex", ".bib"))]
+    origin = snapshot(STAGE, code)
+    origin["git"] = snapshot(ROOT, [])["git"]
+    (STAGE / "SOURCE-SNAPSHOT.json").write_text(json.dumps(origin, indent=2) + "\n")
+    for program, output in (("verify_structural_draft.py", "structural-evidence.json"),
+                            ("critique_evidence.py", "critique-evidence.json")):
+        with (STAGE / "paper" / output).open("w") as report:
+            subprocess.run([sys.executable, "paper/" + program], cwd=STAGE, stdout=report, check=True)
+        shutil.copyfile(STAGE / "paper" / output, ROOT / "paper" / output)
+    subprocess.run([sys.executable, "-m", "experiments.audit_controlled_pos_pruning",
+                    "data/controlled", "--output", "paper/controlled-audit.json"],
+                   cwd=STAGE, check=True, stdout=subprocess.DEVNULL)
+    subprocess.run([sys.executable, "-m", "experiments.audit_mirror_cost",
+                    "data/mirror-cost/results.json", "--output", "paper/mirror-cost-audit.json"],
+                   cwd=STAGE, check=True, stdout=subprocess.DEVNULL)
+    subprocess.run([sys.executable, "-m", "experiments.audit_long_form_examples",
+                    "data/long-form/examples.json", "--root", ".",
+                    "--output", "paper/long-form-audit.json"],
+                   cwd=STAGE, check=True, stdout=subprocess.DEVNULL)
+    source = {name: ROOT / "paper" / name for name in ("naacl2027.tex", "refs.bib", "acl.sty", "acl_natbib.bst")}
+    source["fig/mirror-cost.pdf"] = ROOT / "paper/fig/mirror-cost.pdf"
+    evidence = {str(path.relative_to(STAGE)): path for path in STAGE.rglob("*")
+                if path.is_file() and "__pycache__" not in path.parts}
+    manifest = {
+        "release_id": args.release_id,
+        "title": "Measuring Reversal Cost in English for Exact Palindrome Search",
+        "current_working_draft": "paper/naacl2027.tex",
+        "source_build": "tectonic naacl2027.tex",
+        "source_bundle": "source.zip", "evidence_bundle": "evidence.zip",
+        "reproduction_context": "Extract evidence.zip and run the commands in README.md. The structural and long-form audits use the standard library; the mirror-cost audit additionally requires the pinned wordfreq package. Full model rescoring uses all packages in requirements.txt and the recorded model revisions.",
+        "evidence_checks": ["python3 -m experiments.audit_mirror_cost data/mirror-cost/results.json --output mirror-cost-audit.json",
+                            "python3 -m experiments.audit_long_form_examples data/long-form/examples.json --root . --output long-form-audit.json",
+                            "python3 paper/verify_structural_draft.py --output structural-evidence.json",
+                            "python3 paper/critique_evidence.py --output critique-evidence.json",
+                            "python3 -m experiments.audit_controlled_pos_pruning data/controlled --output controlled-audit.json"],
+        "source_files_sha256": {name: digest(path) for name, path in sorted(source.items())},
+        "evidence_files_sha256": {name: digest(path) for name, path in sorted(evidence.items())},
+        "historical_provenance": "Incomplete: source revision, full environment, and per-process structural traces were not frozen.",
+        "deposit_status": "prepared_locally; private repository upload is not recorded by this build",
+    }
+    (release / "RELEASE-MANIFEST.json").write_text(json.dumps(manifest, indent=2) + "\n")
+    readme = (ROOT / "paper/EVIDENCE-README.md").read_text()
+    write_archive(release / "source.zip", source, manifest,
+                  "Extract this archive and run tectonic naacl2027.tex. The evidence commands are in evidence.zip.\n")
+    write_archive(release / "evidence.zip", evidence, manifest, readme)
+    # Do not leave an importable duplicate package tree under paper/out: test
+    # discovery can otherwise import staged modules instead of the checkout.
+    shutil.rmtree(STAGE)
     print(f"{args.release_id}: source={len(source)} evidence={len(evidence)}")
 
 

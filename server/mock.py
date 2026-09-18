@@ -28,7 +28,7 @@ from pathlib import Path
 from typing import Optional
 
 from fastapi import FastAPI, Query
-from fastapi.responses import StreamingResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 
 FIXTURE_DIR = Path(os.environ.get(
     "PALINDROME_FIXTURES", Path(__file__).parent / "fixtures"))
@@ -36,6 +36,10 @@ DEFAULT_FIXTURE = os.environ.get("PALINDROME_FIXTURE", "session")
 # 1.0 replays at the speed the search actually ran. Raise it to shorten the
 # loop; lower it when the pacing itself is what is being looked at.
 SPEED = float(os.environ.get("PALINDROME_MOCK_SPEED", "1.0"))
+RETIREMENT_MESSAGE = (
+    "Mock palindrome output is retired with the legacy service: fixture exactness "
+    "does not establish readable English or valid provenance."
+)
 
 app = FastAPI(title="palindrome-mock")
 
@@ -98,13 +102,14 @@ def health():
     tell that a page is talking to a fixture, or a recorded palindrome ends up
     in a screenshot captioned as a fresh one.
     """
-    ok = bool(_sessions)
     return {
-        "ok": ok,
+        "ok": False,
+        "output_available": False,
+        "reason": RETIREMENT_MESSAGE,
         "mock": True,
-        "vocab": ok,          # the real service reports these; keep the keys
+        "vocab": False,
         "lm": False,          # nothing is scored in a replay
-        "bigrams": ok,
+        "bigrams": False,
         "lm_error": None,
         "default": DEFAULT_FIXTURE if DEFAULT_FIXTURE in _sessions else None,
         "speed": SPEED,
@@ -131,6 +136,7 @@ async def generate(prompt: str = Query("", max_length=200),
                    budget: float = Query(14.0),
                    fixture: Optional[str] = Query(None),
                    speed: Optional[float] = Query(None)):
+    return JSONResponse(status_code=503, content={"detail": RETIREMENT_MESSAGE})
     session = _pick(fixture, prompt)
     pace = speed if speed and speed > 0 else SPEED
 

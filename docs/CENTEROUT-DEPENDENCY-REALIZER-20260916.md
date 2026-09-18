@@ -12,15 +12,16 @@ time. Complete proposals are rendered and independently audited for exactness;
 fragments, word-order mirrors, and catalogue text are never promoted.
 
 Novelty preflight against the live registry found no exact signature collision
-(102 entries at execution; the registry had advanced beyond the expected
-100-entry snapshot). The nearest prior was `anaphoric-scene-chain-composition`
+(the run artifact records its 102-entry execution snapshot; the live registry
+has since advanced). The nearest prior was `anaphoric-scene-chain-composition`
 at Jaccard 0.130435; the new state-space dimension is typed topic continuity
 plus center-out bilateral realization.
 
-The run produced three complete discourse proposals (90, 95, and 90 letters),
-all semantically typed but non-palindromic. It explored 101 states, made 90
-lexical assignments, and matched eight seam characters in total before dead
-ends. There were zero exact closures and zero mechanically admitted rows.
+The corrected run produced three complete discourse proposals (111, 117, and
+111 letters), all semantically typed but non-palindromic. It explored 89
+states, made 75 lexical assignments, and matched 11 seam characters in total
+before dead ends. There were zero exact closures, mechanically admitted rows,
+or reader-eligible outputs.
 
 Artifact: [`centerout_dependency_realizer_20260916.py`](../experiments/centerout_dependency_realizer_20260916.py)
 

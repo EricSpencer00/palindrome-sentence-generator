@@ -14,12 +14,14 @@ import re
 import time
 
 from experiments.norvig_long import FUNCTIONS
+from paper.evidence_paths import evidence_path
+from paper.provenance import snapshot, environment
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def load_original():
-    path = ROOT/'runs/norvig/pal3.py'
+    path = evidence_path('inputs/norvig/pal3.py') if (ROOT/'inputs/norvig/pal3.py').is_file() else ROOT/'runs/norvig/pal3.py'
     spec = importlib.util.spec_from_file_location('norvig_original', path)
     module = importlib.util.module_from_spec(spec)
     previous = Path.cwd()
@@ -62,6 +64,15 @@ def run(seconds, dynamic, out, max_content_uses=3, feasible=False, resume=None):
 
     started = time.monotonic()
     out.mkdir(parents=True, exist_ok=True)
+    source_files = [Path(__file__), ROOT/'experiments/norvig_long.py',
+                    ROOT/'paper/evidence_paths.py', ROOT/'paper/provenance.py',
+                    ROOT/'llm_palindrome/search.py', ROOT/'llm_palindrome/__init__.py']
+    (out/'provenance.json').write_text(json.dumps({
+        'source': snapshot(ROOT, source_files), 'environment': environment(),
+        'settings': {'seconds': seconds, 'dynamic': dynamic, 'feasible': feasible,
+                     'max_content_uses': max_content_uses,
+                     'resume_sha256': hashlib.sha256((resume/'phrases.json').read_bytes()).hexdigest() if resume else None},
+    }, indent=2) + '\n')
 
     class StopSearch(Exception):
         pass
@@ -185,8 +196,8 @@ def run(seconds, dynamic, out, max_content_uses=3, feasible=False, resume=None):
                         resume=str(resume) if resume else None, dynamic_inventory=dynamic, feasible_inventory=feasible, seconds=time.monotonic()-started,
                         steps=self.i, closures=self.closed, max_content_uses=max_content_uses,
                         sha256=hashlib.sha256(text.encode()).hexdigest(),
-                        dictionary_sha256=hashlib.sha256((ROOT/'runs/norvig/npdict.txt').read_bytes()).hexdigest(),
-                        original_code_sha256=hashlib.sha256((ROOT/'runs/norvig/pal3.py').read_bytes()).hexdigest(),
+                        dictionary_sha256=hashlib.sha256(Path(original.__file__).with_name('npdict.txt').read_bytes()).hexdigest(),
+                        original_code_sha256=hashlib.sha256(Path(original.__file__).read_bytes()).hexdigest(),
                         beats_published_norvig_letters=len(normalized)>90439)
             (out/'palindrome.txt').write_text(text)
             (out/'phrases.json').write_text(json.dumps(units,indent=2)+'\n')

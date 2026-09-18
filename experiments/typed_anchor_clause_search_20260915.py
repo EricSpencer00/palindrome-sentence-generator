@@ -18,8 +18,8 @@ from llm_palindrome.admission import mechanical_admission_checks, normalize_lett
 ANCHORS = (("repaid", "diaper"), ("drawer", "reward"),
            ("deliver", "reviled"), ("stressed", "desserts"))
 SUBJECTS = ("we", "they", "workers", "teachers", "nurses", "artists")
-VERBS = ("repaid", "deliver", "stressed", "review", "carried", "noticed")
-OBJECTS = ("a diaper", "the drawer", "desserts", "the reward", "reports", "letters")
+VERBS = ("repaid", "deliver", "reviled", "stressed", "desserts", "review", "carried", "noticed")
+OBJECTS = ("a diaper", "the drawer", "reward", "reviled", "deliver", "desserts", "the reward", "reports", "letters")
 ADVERBS = ("today", "quietly", "carefully", "outside", "at dawn", "in spring")
 
 def audit(text: str) -> dict:

@@ -280,3 +280,70 @@ class TestJoinSlack:
         ok = lambda a, b: (a, b) in {("step", "on")}
         assert run(max_letters=14, allow_join=ok) == run(
             max_letters=14, allow_join=ok, join_slack=0)
+
+
+@pytest.mark.parametrize("kwargs, reason", [
+    ({"node_budget": 0}, "node_budget"),
+    ({"deadline": 0}, "deadline"),
+    ({"max_letters": 2}, "exhausted"),
+])
+def test_stop_reason_distinguishes_censoring_from_exhaustion(kwargs, reason):
+    stats = {}
+    list(enumerate_palindromes(WordTries(["a", "no", "on"]), stats=stats, **kwargs))
+    assert stats["stop_reason"] == reason
+
+
+class TestControlledExperimentCounters:
+    def test_unpruned_generated_states_are_all_pushed(self):
+        stats = {}
+        list(enumerate_palindromes(WordTries(VOCAB), max_letters=12,
+                                   node_budget=500, order_seed=7, stats=stats))
+        assert stats["candidate_expansions"] >= stats["states_generated"]
+        assert stats["states_generated"] == stats["states_pushed"]
+        assert stats["states_popped"] == stats["nodes"]
+        assert stats["closed_states"] >= stats["yielded"]
+        assert stats["peak_frontier"] > 0
+
+    def test_pruned_states_account_for_generated_states(self):
+        stats = {}
+        list(enumerate_palindromes(
+            WordTries(VOCAB), max_letters=12, node_budget=500,
+            order_seed=7, allow_state=lambda left, right: "a" not in left + right,
+            stats=stats))
+        assert stats["state_pruned"] > 0
+        assert (stats["states_pushed"] + stats["state_pruned"]
+                == stats["states_generated"])
+
+    def test_stable_order_is_repeatable_and_seeded(self):
+        tries = WordTries(VOCAB)
+
+        def first(seed):
+            return [" ".join(words) for words in enumerate_palindromes(
+                tries, max_letters=14, node_budget=300, order_seed=seed)]
+
+        assert first(11) == first(11)
+        assert first(11) != first(12)
+
+    def test_stateful_and_stable_ordering_cannot_be_combined(self):
+        with pytest.raises(ValueError, match="mutually exclusive"):
+            list(enumerate_palindromes(WordTries(VOCAB), max_letters=12,
+                                       shuffle_seed=1, order_seed=1))
+
+    def test_frontier_policies_preserve_an_exhaustive_solution_set(self):
+        tries = WordTries(VOCAB)
+        settings = [
+            {"traversal": "dfs", "reverse_order": False},
+            {"traversal": "dfs", "reverse_order": True},
+            {"traversal": "bfs", "reverse_order": False},
+            {"traversal": "bfs", "reverse_order": True},
+        ]
+        outputs = []
+        for setting in settings:
+            outputs.append({" ".join(words) for words in enumerate_palindromes(
+                tries, max_letters=12, max_units=6, max_overhang=8,
+                node_budget=1_000_000, order_seed=7, **setting)})
+        assert outputs.count(outputs[0]) == len(outputs)
+
+    def test_unknown_frontier_policy_is_rejected(self):
+        with pytest.raises(ValueError, match="traversal"):
+            list(enumerate_palindromes(WordTries(VOCAB), traversal="best-first"))

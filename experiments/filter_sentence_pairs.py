@@ -123,6 +123,9 @@ def main() -> None:
     ap.add_argument("--out", type=Path,
                     default=Path("runs/v3_sentence_filter.json"))
     args = ap.parse_args()
+    raise RuntimeError(
+        "legacy sentence-pair filtering is retired: model verdicts cannot certify readable output"
+    )
 
     pairs = candidate_pairs(args.pairs_file, args.arm)
     if args.limit:

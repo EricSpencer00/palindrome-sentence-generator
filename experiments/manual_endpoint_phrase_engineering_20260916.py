@@ -4,7 +4,11 @@ import json,re
 from pathlib import Path
 ROOT=Path(__file__).parents[1]
 SIG="manual-endpoint-engineering|grammatical-clause-shells|authored-seam-phrase-pairs|endpoint-character-budget|independent-tape-audit"
-SHELLS=["A {s} {v} the {o}.","The {s} {v} a {o}.","A quiet {s} {v} the {o}."]
+# Keep the authored shells grammatical for every lexical substitution.  The
+# earlier all-article shell emitted forms such as "A artist" and "a oven";
+# this route is a construction diagnostic, so it must not retain those
+# ungrammatical surfaces as if they were complete prose.
+SHELLS=["The {s} {v} the {o}.","The {s} {v} each {o}.","A quiet {s} {v} the {o}."]
 WORDS=[("pilot","guides","boat"),("teacher","carries","map"),("baker","repairs","oven"),("doctor","notes","symptom"),("artist","paints","mural"),("sailor","spots","island")]
 def n(s): return re.sub('[^a-z]','',s.lower())
 def audit(s):

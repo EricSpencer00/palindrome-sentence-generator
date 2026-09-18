@@ -120,20 +120,12 @@ class TestTheEndpoint:
         from server.app import app
         return TestClient(app)
 
-    def test_the_refrain_is_reachable_by_name(self, client):
-        body = client.get("/api/v2/paragraph", params={"mode": "refrain"}).json()
-        assert body["mode"] == "refrain"
-        assert is_palindrome(body["text"])
-
-    def test_the_word_mode_is_still_reachable(self, client):
-        """It is a real curiosity; it is just not the default answer."""
-        body = client.get("/api/v2/paragraph", params={"mode": "word"}).json()
-        assert body["mode"] == "word"
-        assert body["letterPalindrome"] is False
-
-    def test_an_unknown_mode_is_rejected(self, client):
-        assert client.get("/api/v2/paragraph",
-                          params={"mode": "sideways"}).status_code == 422
+    @pytest.mark.parametrize("mode", ("refrain", "word", "sideways"))
+    def test_legacy_paragraph_route_is_retired_for_every_mode(self, client, mode):
+        from server.app import RETIREMENT_MESSAGE
+        response = client.get("/api/v2/paragraph", params={"mode": mode})
+        assert response.status_code == 503
+        assert response.json()["detail"] == RETIREMENT_MESSAGE
 
 
 class TestItReportsTheTheme:

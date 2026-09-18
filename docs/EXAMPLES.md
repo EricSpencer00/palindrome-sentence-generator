@@ -1,3 +1,11 @@
+# QUARANTINED HISTORICAL MATERIAL — DO NOT CITE, DISTRIBUTE, OR TREAT AS OUTPUT
+
+This page preserves pre-standardization examples, automated judgments, and
+catalogue/refrain constructions for audit only.  It does **not** document a
+working generator or reader-validated English palindrome.  The target paper
+and acceptance standard are in [`../paper/TARGET-PAPER-SPEC.md`](../paper/TARGET-PAPER-SPEC.md)
+and [`READABLE-PALINDROME-GOAL.md`](READABLE-PALINDROME-GOAL.md).
+
 # Examples
 
 Generated 25 August 2026 from `runs/punct/`. Every text here is a **valid palindrome** — strip case, spaces and marks and it reads the same both ways.

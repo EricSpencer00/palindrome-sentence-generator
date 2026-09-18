@@ -29,7 +29,7 @@ def expand(seed, repair=False):
 def run():
  reg=json.loads(REG.read_text()); prior={x['signature'] for x in reg['entries'] if x['id']!=ID}
  if SIG in prior: raise RuntimeError('novelty collision')
- base=expand(False); repair=expand(True)
+ base=expand('', repair=False); repair=expand('', repair=True)
  # Decode obligation only through an independently authored lexical bank.
  bank=('Ana','Diana','Nora','Mara','Ira','Ari','Eli','Lena','men','memos')
  def decode(rows):

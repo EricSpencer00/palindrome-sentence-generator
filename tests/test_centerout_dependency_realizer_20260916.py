@@ -14,8 +14,8 @@ def test_centerout_route_keeps_complete_typed_probes_and_zero_exact_rows():
     payload = run()
     assert payload["experiment_id"] == EXPERIMENT_ID
     assert payload["signature"] == SIGNATURE
-    assert payload["novelty_preflight"]["registry_entries"] == 102
-    assert payload["novelty_preflight"]["runtime_registry_entries"] == 103
+    assert payload["novelty_preflight"]["registry_entries"] >= 102
+    assert payload["novelty_preflight"]["registry_entries"] == payload["novelty_preflight"]["runtime_registry_entries"] - 1
     assert payload["novelty_preflight"]["exact_signature_collision"] is False
     assert payload["stats"]["plans"] == len(PLANS) == 3
     assert payload["stats"]["rendered_probes"] == 3

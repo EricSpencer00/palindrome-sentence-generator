@@ -31,7 +31,7 @@ import threading
 import time
 from typing import Optional, Sequence
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter, HTTPException, Query
 from fastapi.responses import StreamingResponse
 
 from llm_palindrome.bigram import BigramModel
@@ -46,6 +46,16 @@ from llm_palindrome.textify import segment_at_units
 from llm_palindrome.validator import is_palindrome, normalize
 
 router = APIRouter(prefix="/api/v2")
+RETIREMENT_MESSAGE = (
+    "Palindrome output is retired: exactness and programmatic filters do not establish "
+    "readable English. The service will remain unavailable until independently generated "
+    "candidates have blinded human-reader evidence."
+)
+
+
+def _retired_route() -> None:
+    """Refuse output even when this historical router is mounted standalone."""
+    raise HTTPException(status_code=503, detail=RETIREMENT_MESSAGE)
 
 # The configuration that met the acceptance criterion — 5/5 generations
 # carrying a judged-coherent English sentence, against a judge calibrated in
@@ -533,13 +543,8 @@ def paragraph(sentences: int = Query(9, ge=1, le=40),
                                 pattern="^(letter|refrain|word)$"),
               source: str = Query("auto",
                                   pattern="^(auto|novel|catalogue)$")):
-    """A palindromic paragraph. Letter-level by default.
-
-    The word mode mirrors the SENTENCE SEQUENCE and not the letters — a
-    different and much easier constraint, since it pays nothing per letter. It
-    was the default while the letter-level paragraph was still a list of
-    fragments. It is kept, and labelled, as the curiosity it is.
-    """
+    """Retired historical output route."""
+    _retired_route()
     if mode == "letter":
         return letter_paragraph(sentences=sentences, prompt=prompt,
                                 source=source)
@@ -561,13 +566,14 @@ def paragraph(sentences: int = Query(9, ge=1, le=40),
 
 @router.get("/health")
 def health():
-    return {"ok": True, "version": 2, "vocab": _tries is not None,
-            "sentences": len(_sentences), "error": _load_error}
+    return {"ok": False, "version": 2, "output_available": False,
+            "reason": RETIREMENT_MESSAGE}
 
 
 @router.get("/generate")
 async def generate(prompt: str = Query("", max_length=200),
                    budget: float = Query(DEFAULT_BUDGET)):
+    _retired_route()
     budget = max(1.0, min(float(budget), MAX_BUDGET))
 
     async def stream():

@@ -18,8 +18,8 @@ import pytest
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "experiments"))
 
-from mirror_cost import (ALPHABET, coverage, load_vocab, segment, sentences,
-                         spans)
+from mirror_cost import (ALPHABET, Scorer, coverage, load_vocab, segment,
+                         sentences, spans)
 
 STRATEGIES = ["unigram", "fewest", "greedy"]
 
@@ -127,3 +127,59 @@ def test_spans_reach_the_requested_length_and_match_their_text():
             # The natural text must be the span the letters came from, so the
             # natural-spacing score is over the same material.
             assert "".join(c for c in natural.lower() if c.isalpha()) == letters
+
+
+def test_scorer_requires_a_shared_boundary_token():
+    """The first token must be scored under a common boundary context.
+
+    A uniform fake model makes the expected total exact: two text tokens must
+    contribute two log-probabilities after the shared boundary token.
+    """
+    import math
+    from types import SimpleNamespace
+
+    import torch
+
+    class Tokenizer:
+        def __call__(self, text, add_special_tokens=False):
+            assert text == "two tokens" and not add_special_tokens
+            return SimpleNamespace(input_ids=[1, 2])
+
+    class Model:
+        def __call__(self, tensor, attention_mask=None):
+            assert tensor.tolist() == [[9, 1, 2]]
+            assert attention_mask.tolist() == [[1, 1, 1]]
+            return SimpleNamespace(logits=torch.zeros((1, 3, 10)))
+
+    scorer = object.__new__(Scorer)
+    scorer.torch = torch
+    scorer.device = "cpu"
+    scorer.tok = Tokenizer()
+    scorer.model = Model()
+    scorer.context_token_id = 9
+    assert scorer.total_logprob("two tokens") == pytest.approx(-2 * math.log(10))
+
+
+def test_batched_scorer_matches_scalar_order_and_ignores_padding():
+    import math
+    from types import SimpleNamespace
+
+    import torch
+
+    class Tokenizer:
+        def __call__(self, text, add_special_tokens=False):
+            return SimpleNamespace(input_ids={"one": [1], "three": [1, 2, 3]}[text])
+
+    class Model:
+        def __call__(self, tensor, attention_mask=None):
+            vocab = 10
+            return SimpleNamespace(logits=torch.zeros((*tensor.shape, vocab)))
+
+    scorer = object.__new__(Scorer)
+    scorer.torch = torch
+    scorer.device = "cpu"
+    scorer.tok = Tokenizer()
+    scorer.model = Model()
+    scorer.context_token_id = 9
+    got = scorer.total_logprobs(["three", "one"], batch_size=2)
+    assert got == pytest.approx([-3 * math.log(10), -math.log(10)])

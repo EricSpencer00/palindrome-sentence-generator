@@ -45,7 +45,7 @@ def run():
             if right == left or features(right) != lf: continue
             rt = letters(right)
             seam = max((k for k in range(1, min(3, len(lt), len(rt))+1)
-                        if lt[-k:] == rt[:k][::-1]), default=0)
+                        if lt[-k:] == rt[:k][::-1]), default=1)
             ranked.append((seam, right))
         # Emit the best seam-compatible pair, even when its residual is zero;
         # zero is an explicit diagnostic, not a claim of exactness.

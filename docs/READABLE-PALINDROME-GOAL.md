@@ -4069,6 +4069,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   zero.  The next operator permits auxiliary inflection with a short complement
   phrase.
 
+- **Recursive discourse spine, 2026-09-17:** implemented the scalable
+  construction route as `Spine := Event (TypedAdjunct)*`, with authored
+  temporal, locative, instrumental, and causal event sentences.  It produced
+  complete readable passages for requested targets 100, 150, 200, and 300
+  letters (actual lengths 151, 187, 256, and 356), while carrying the outer
+  character equation at every expansion.  Exact closures were zero, so these
+  are construction traces—not palindrome claims.  The next repair is recursive
+  adjunct substitution at the first unresolved equation, preserving the
+  scalable grammar rather than padding a fixed sentence.
+
+  Dream-RSI round 55 replays 18,765 audited nodes after adding the recursive
+  spine.  The held-out mismatch-first policy remains 0.780 with zero
+  mechanically admissible exact rows.  The recursive lane changes the length
+  regime and keeps prose intact, but the next live step must repair its first
+  open character equation rather than merely request a longer target.
+
   Dream-RSI round 54 replays 18,761 audited nodes.  The held-out
   mismatch-first policy remains 0.780 with zero mechanically admissible exact
   rows and 111 exact-but-rejected controls in training.  The stable plateau

@@ -129,8 +129,10 @@ def select_live_center(prefix: str, target: int | None = None) -> str:
 def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) -> tuple[str, tuple[Adjunct, ...]]:
     """Choose center and terminal adjunct by one rendered residual objective."""
     candidates = []
-    terminal_pool = ADJUNCTS[-8:]
-    first_pool = ADJUNCTS[:8]
+    # Full typed frontier: first and terminal adjunct alternatives are both
+    # live, including the newly authored terminal classes.
+    terminal_pool = ADJUNCTS
+    first_pool = ADJUNCTS
     for center in CENTER_CLAUSES + tuple(f"and {s} {v} {o}." for s in CENTER_SUBJECTS for v in CENTER_VERBS for o in CENTER_OBJECTS):
         for first in first_pool:
             for terminal in terminal_pool:

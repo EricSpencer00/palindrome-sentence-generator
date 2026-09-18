@@ -4110,6 +4110,33 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   score routes work to the recorded semantic-frame replacement rather than
   another score-tuning pass.
 
+- **Inflectional same-seam alternatives, 2026-09-17:** varied inflectional
+  lexical heads inside the three-letter agreement seam class.  Twelve of 16
+  alternatives were rejected before rendering and four grammatical passages up
+  to 119 letters remained; the best residual was 88 and exact closures were
+  zero.  The result reproduces the prior best, so the next repair couples head
+  choice directly to the opposing seam letters.
+
+- **Auxiliary-polarity seam repair, 2026-09-17:** paired positive and negative
+  two-word auxiliary phrases (`can still` / `cannot yet`) with the fixed bridge
+  and relative attachment.  Sixty-four complete candidates up to 90 letters
+  were rendered; the best residual was 56 and exact closures were zero.  The
+  next operator couples polarity with a short object complement.
+
+- **Recursive-spine adjunct substitution, 2026-09-17:** applied the first
+  unresolved-equation repair to the scalable 100/150/200/300-letter spine.
+  All four complete prose targets remained intact (up to 356 letters), but the
+  current inventory had no unused terminal class that could close the live edge,
+  so exact closures stayed zero and the rows were unchanged.  The concrete next
+  repair expands terminal classes and permits replacing an existing adjunct only
+  when attachment remains grammatical and the mirrored boundary changes.
+
+  Dream-RSI round 58 replays 18,901 audited nodes including the inflectional,
+  polarity, and recursive-spine repair traces.  The held-out mismatch-first
+  policy remains 0.780 with zero mechanically admissible exact rows.  The
+  recursive route therefore advances by changing its terminal inventory, not by
+  claiming the scalable prose traces are palindromes.
+
 - **Three-letter agreement CSP, 2026-09-17:** extended the pre-render seam
   signature to three letters and carried number agreement through the lexical
   alternatives.  Twelve of 16 authored pairs were rejected before rendering;

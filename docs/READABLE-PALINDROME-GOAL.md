@@ -5182,3 +5182,18 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   mismatch-first remains the held-out routing winner at 0.780; no fresh exact
   or reader-certified output was admitted.  The next action is asymmetric
   lexical bridge attachment at the named-center seam.
+
+- **Asymmetric lexical bridge attachment, 2026-09-18:** attached one fresh
+  adjunct bridge to only one side of complete clauses around a named center,
+  checking the reverse-prefix character equation before rendering.  It
+  evaluated 1,000 constructions, found 0 equation hits, and retained 12
+  complete controls; the longest was 59 letters (“a sailor carries letters
+  home at dawn; Diana, a gardener guards old notes.”), independently non-exact.
+  The next repair pairs agreement-carrying bridges with seam-aware name
+  selection.
+
+- **Dream-RSI round 108, 2026-09-18:** replayed 733 worlds and 21,676
+  audited nodes after the asymmetric bridge lane.  Fixed mismatch-first remains
+  the held-out routing winner at 0.780; no fresh exact or reader-certified
+  output was admitted.  The next action is agreement-carrying bridge pairs
+  with seam-aware name selection.

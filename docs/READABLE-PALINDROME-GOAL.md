@@ -44,6 +44,22 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   diagnostic is the 119-letter inherited prose row with 46 mismatches; it is
   not a palindrome and is not acceptance progress.
 
+- **Dream-RSI round 118 (2026-09-18).** A registry audit found that the newest
+  constructive lanes had been appended under `excluded`, so replay was not
+  seeing them. They are now canonical `entries` with provenance preserved.
+  The corrected replay covers 573 worlds and 21,806 independently audited
+  nodes; held-out fixed-mismatch-first remains the selected policy at 0.780,
+  with zero admissible exact rows. Its fresh online deployment produces eight
+  original intact controls (130--140 normalized letters), including `The
+  theater archivist found a torn playbill in a locked drawer, carried it to
+  the reading table, and marked the missing cast names before the house lights
+  rose.` (130 letters, 60 mismatches) and `The stage archivist retrieved a torn
+  playbill from a locked drawer, carried it to the reading table, and marked
+  the missing cast names as the house lights dimmed.` (132 letters, 62
+  mismatches). A fresh independent pointer scan and forward/reverse SHA audit
+  reject all eight; the reader gate remains closed. The next repair must change
+  the live construction operator, not retune this replay score.
+
 - **Local-minimum finding.** The branch-aware Dream-RSI controller now covers
   3--6 branches per replay and routes held-out policy at 0.780, while rounds
   95--98 and the subsequent seam/mirror lanes still produce zero exact

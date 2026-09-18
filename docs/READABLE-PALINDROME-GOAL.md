@@ -3798,3 +3798,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   and are not presented as outputs.  The concrete repair is to add typed
   verb/object features to the trie key and continue only when the next seam
   character has a role-compatible lexical completion.
+
+  That repair was then audited against the selected right phrase itself.  The
+  first implementation had used the trie depth from an unrelated leaf as if it
+  were evidence for the rendered pair; the corrected run now requires the
+  chosen pair's own reverse prefix (plus typed-number compatibility) before
+  rendering.  With 12 fresh agent/verb/object/preposition variants it produces
+  zero valid near-miss rows and zero exact closures.  This removes a false
+  positive diagnostic and leaves a precise next operator: inflectional verb
+  variants with agreement carried through a full two-sided chart.

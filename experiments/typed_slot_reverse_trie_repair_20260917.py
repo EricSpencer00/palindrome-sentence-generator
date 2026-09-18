@@ -17,6 +17,9 @@ def audit(s):
   i+=1;j-=1
  return {'letters':len(t),'exact':ok,'two_pointer':ok,'sha_forward':hashlib.sha256(t.encode()).hexdigest(),'sha_reverse':hashlib.sha256(t[::-1].encode()).hexdigest(),'mismatches':mm[:10]}
 def content(s):return set(W.findall(s.lower()))-{'a','an','the','at','by','near','to','in'}
+def char_roles(agent,verb,obj,prep):
+    return [*('agent',)*len(n(agent)), *('verb',)*len(n(verb)),
+            *('object',)*len(n(obj)), *('prep',)*len(n(prep))]
 def run():
  items=[]
  for agent,verb,obj,prep,number in VARIANTS:
@@ -34,14 +37,20 @@ def run():
   _,li=heapq.heappop(queue); left=items[li]; obligation=left['tape'][::-1]
   for rj,right in enumerate(items):
    if li==rj or left['number']!=right['number'] or content(left['text'])&content(right['text']):continue
-   # role-compatible live prefix: inspect each required character in the trie
-   req=obligation; q=trie; consumed=0
-   for ch in req:
-    if ch not in q:break
-    q=q[ch];consumed+=1
-   if consumed == 0 or right['tape'][-1] != req[0]:
-    continue
-   text=left['text']+' '+right['text']; rows.append({'text':text,'left':left,'right':right,'live_required_prefix':req[:16],'trie_prefix_depth':consumed,'role_compatible':True,'audit':audit(text),'anti_shortcut':{'disjoint_content_words':True,'finished_mirror':False,'word_order_only':False},'provenance':'held-out typed agent/verb/object/preposition variants; lexical right choice gated before rendering'})
+   # The selected right phrase, not an unrelated trie leaf, must satisfy the
+   # live reverse obligation.  The trie is an index; this direct check is the
+   # independent seam witness for the rendered pair.
+   req=obligation; consumed=0
+   left_roles=char_roles(left['agent'],left['verb'],left['object'],left['prep'])
+   right_roles=char_roles(right['agent'],right['verb'],right['object'],right['prep'])
+   while consumed < min(len(left['tape']),len(right['tape'])):
+    ri=len(right['tape'])-1-consumed
+    if left['tape'][consumed] != right['tape'][ri]: break
+    consumed += 1
+   if consumed == 0:
+     continue
+   role_pairs=list(zip(left_roles[:consumed], [right_roles[len(right['tape'])-1-k] for k in range(consumed)]))
+   text=left['text']+' '+right['text']; rows.append({'text':text,'left':left,'right':right,'live_required_prefix':req[:16],'trie_prefix_depth':consumed,'typed_number_compatible':True,'matched_role_pairs':role_pairs,'audit':audit(text),'anti_shortcut':{'disjoint_content_words':True,'finished_mirror':False,'word_order_only':False},'provenance':'held-out typed agent/verb/object/preposition variants; selected-pair reverse prefix gated before rendering'})
  out={'experiment_id':'typed-slot-reverse-trie-repair-20260917','status':'quarantined_no_reader_candidate','candidates':sorted(rows,key=lambda x:x['trie_prefix_depth'],reverse=True)[:20],'stats':{'typed_variants':len(items),'rendered_near_misses':len(rows),'exact':sum(x['audit']['exact'] for x in rows)},'provenance':{'source':'fresh typed phrase variants','catalogue_imported':False,'seed_used_as_scaffold':False,'finished_tape_reversal':False,'independent_audits':['two-pointer','SHA-256 forward/reverse']},'failure_and_repair':{'next_repair':'add inflectional alternatives per typed verb while preserving number and require full two-sided chart closure'}}
  (R/'runs/typed-slot-reverse-trie-repair-20260917.json').write_text(json.dumps(out,indent=2)+'\n');return out
 if __name__=='__main__':print(json.dumps(run(),indent=2))

@@ -4213,3 +4213,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   row was 93 letters; the best independent audit had 60 mismatches and exact
   closures remained zero.  The next repair varies locative noun-phrase length
   while preserving preposition and object agreement.
+
+- **Dream-RSI live redeployment round 62, 2026-09-17:** after held-out policy
+  selection, the winning mismatch-first policy was deployed against a fresh
+  two-region authoring tree using the local language model.  It produced five
+  complete sibling proposals and two rejected proposals.  The strongest
+  rendered branch was ``A theater archivist pulled a torn playbill from a
+  locked drawer, carried it to the reading table, and noted the missing cast
+  names before the house lights rose.`` (130 normalized letters, 60 mismatches,
+  exact=false); its forward and reverse tape hashes are recorded in the run
+  artifact.  The initial and every sibling are independently audited, all
+  exact closures are zero, and the reader gate remains closed.  The next
+  repair is to branch from the preserved state with a new semantic operator,
+  not to resample this same tree.

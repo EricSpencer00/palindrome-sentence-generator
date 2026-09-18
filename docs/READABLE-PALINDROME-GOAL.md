@@ -5124,3 +5124,20 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   remains the held-out routing winner at 0.780, with no fresh exact or
   reader-certified output.  The next action is the recorded morphology/name
   seam repair, not another replay sweep.
+
+- **Morphology outer-seam solver, 2026-09-18:** carried number and tense
+  features through reverse-role transitions and rejected a state before render
+  when the outer determiner/name seam disagreed.  The fresh feature search
+  produced 0 seam states and 0 exact closures; its two authored controls were
+  “The baker marks maps; a pilot opens doors.” (33 letters) and “Some clerks
+  guard gates; the pilots mark maps.” (37), both independently non-exact.
+  This confirms the shell bottleneck rather than a readable-output result.  The
+  next repair learns compatible inflectional seam tokens from authored clause
+  pairs before any length expansion.
+
+- **Dream-RSI round 104, 2026-09-18:** replayed 571 worlds and 21,512
+  audited nodes after the morphology outer-seam repair.  Fixed mismatch-first
+  remains the held-out routing winner at 0.780; the fresh construction still
+  has no exact or reader-certified output.  The next action is to learn
+  inflectional seam tokens from authored clause pairs, not increase replay
+  budget.

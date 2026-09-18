@@ -98,6 +98,8 @@ EXPLICIT_HISTORY = (
     "runs/relative-clause-seam-repair-20260917.json",
     "runs/relative-seam-agreement-20260917.json",
     "runs/two-sided-relative-balance-20260917.json",
+    "runs/relative-head-verb-window-20260917.json",
+    "runs/relative-seam-two-word-bridge-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")

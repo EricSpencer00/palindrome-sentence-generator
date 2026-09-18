@@ -4003,3 +4003,34 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the held-out fixed-mismatch policy remains 0.780 with zero admissible exact
   rows.  The unchanged replay winner is a stop signal for score tuning, so the
   next deployment must use the promised relaxed length-window seam bridge.
+
+- **Live Dream-RSI redeployment, 2026-09-17:** after held-out selection,
+  `fixed_mismatch_first` routed a fresh sibling tree through the local prose
+  model (branch factor 3, depth 2).  Eight accepted complete passages and two
+  rejected length-band proposals were audited.  The strongest rendered branch
+  was `The stage archivist retrieved a torn playbill from a locked drawer,
+  brought it to the reading table, and marked the missing cast names before the
+  house lights rose.` (134 letters, 64 mirrored mismatches); exact closures were
+  zero.  This is the first end-to-end replay-to-live deployment evidence, but
+  it is still a prose diagnostic, not reader evidence.  The live branch now
+  queues the typed two-word seam bridge rather than another model retry.
+
+- **Relaxed relative-head/verb window, 2026-09-17:** replaced strict length
+  equality with a bounded +/-2 character window while changing semantic heads
+  and verbs on both sides.  Two complete passages (up to 137 letters) were
+  admitted to the construction trace, but the best residual stayed at 120 and
+  exact closures were zero.  The next repair is semantic-frame replacement at
+  the two-sided seam.
+
+- **Typed two-word seam bridge, 2026-09-17:** inserted coordinating (`and then`)
+  and causal-temporal (`so now`) bridges while carrying referent/anaphor
+  agreement.  Sixty-four complete candidates (up to 82 letters) were rendered;
+  the best residual was 50 and exact closures were zero.  The next operator
+  co-designs bridge polarity with a short complement, rather than widening the
+  connector inventory.
+
+  Dream-RSI round 51 replays 18,551 audited nodes, including the live sibling
+  tree and both newest repair lanes.  The held-out policy is unchanged at
+  0.780, with zero mechanically admissible exact rows; the unchanged replay
+  score routes work to the recorded semantic-frame replacement rather than
+  another score-tuning pass.

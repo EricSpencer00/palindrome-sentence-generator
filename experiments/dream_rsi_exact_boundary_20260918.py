@@ -99,9 +99,14 @@ def _choices(bank: dict[str, tuple[str, ...]], role: str, policy: str) -> tuple[
     return tuple(sorted(words, key=lambda w: (w.casefold(), len(w))))
 
 
-def discover(bank: dict[str, tuple[str, ...]], policy: str, budget: int = 2500) -> dict:
+def discover(
+    bank: dict[str, tuple[str, ...]],
+    policy: str,
+    budget: int = 2500,
+    right_frame: tuple[str, ...] = RIGHT_FRAME,
+) -> dict:
     """Explore a bounded exact zipper and retain complete closures and traces."""
-    root = State((), (), "", "", 0, len(RIGHT_FRAME) - 1)
+    root = State((), (), "", "", 0, len(right_frame) - 1)
     frontier = [root]
     nodes = []
     closures = []
@@ -128,7 +133,7 @@ def discover(bank: dict[str, tuple[str, ...]], policy: str, budget: int = 2500) 
         for li in left_roles:
             left_words = _choices(bank, LEFT_FRAME[li], policy) if li is not None else (None,)
             for ri in right_roles:
-                right_words = _choices(bank, RIGHT_FRAME[ri], policy) if ri is not None else (None,)
+                right_words = _choices(bank, right_frame[ri], policy) if ri is not None else (None,)
                 for lw, rw in itertools.product(left_words, right_words):
                     lt = state.left_tape + (letters(lw) if lw else "")
                     rt = state.right_reversed_tape + (letters(rw)[::-1] if rw else "")
@@ -167,6 +172,7 @@ def discover(bank: dict[str, tuple[str, ...]], policy: str, budget: int = 2500) 
     return {
         "policy": policy,
         "budget": budget,
+        "right_frame": list(right_frame),
         "nodes": nodes,
         "closures": closures,
         "dead_frontier": dead,

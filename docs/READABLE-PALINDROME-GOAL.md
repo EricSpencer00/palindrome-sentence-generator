@@ -5060,3 +5060,19 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   Its value is architectural: it supplies a true exact-compatible transition
   frontier for the next grammar repair, while the withheld seed fixture is
   excluded from replay admission.
+
+- **Held-out auxiliary-frame repair, 2026-09-18:** executed the queued repair
+  by replacing the right syntax edge with a determiner/subject/auxiliary/
+  finite-verb/name frame while retaining the live character residual.  All
+  three policy replays reached 9 fresh nodes and 0 exact closures; fresh
+  complete controls were rendered up to 51 letters with independent pointer
+  and hash audits.  This is a new construction transition, not a larger
+  duplicate sweep.  The next concrete repair is a relative-clause linker
+  frame, after which a fresh exact closure—not a smoke fixture—must exist
+  before any reader study can start.
+
+- **Dream-RSI round 100, 2026-09-18:** replayed 555 worlds and 21,496 audited
+  nodes after the held-out auxiliary-frame repair.  The historical routing
+  winner and held-out mismatch rate stayed fixed at 0.780, so no policy claim
+  is being substituted for a construction result.  The new frame remains in
+  the failure ledger and the next action is the relative-clause linker repair.

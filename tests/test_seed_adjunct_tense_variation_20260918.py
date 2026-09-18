@@ -8,6 +8,8 @@ def test_controls_have_independent_hash_pointer_audits_and_withheld_seed_is_not_
     for row in payload["rendered_candidates"]:
         assert row["audit"] == independent_audit(row["rendered"])
         assert row["provenance"]["withheld_seed_used_as_output"] is False
+        assert row["shortcut_free"]
+        assert not row["shortcut_flags"]["repeated_content_words"]
 
 def test_search_has_live_equation_nodes_before_any_rendered_closure():
     payload = run()

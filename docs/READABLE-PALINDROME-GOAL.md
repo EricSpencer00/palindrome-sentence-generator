@@ -4275,3 +4275,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   160, 187, 271, and 366 letters; the best audit had 134 mismatches and exact
   closures were zero.  The next operator jointly varies the event predicate,
   first adjunct, and final adjunct so the terminal seam can move as well.
+
+- **Seam-selected semantic-slot repair, 2026-09-17:** selected a
+  role-compatible noun at the first mismatch seam while carrying agreement and
+  attachment.  Four complete passages up to 120 letters were rendered; the
+  best audit had 106 mismatches and exact closures were zero.  The next repair
+  coordinates both opposing semantic nouns at the same seam index.
+
+- **Locative determiner+noun-pair repair, 2026-09-17:** jointly varied the
+  locative determiner and noun at fixed phrase length.  Sixty-four complete
+  rows reached 97 letters; the best audit had 60 mismatches and exact closures
+  were zero.  The next repair couples the locative preposition with that noun
+  pair.
+
+- **Recursive three-region terminal-seam repair, 2026-09-17:** jointly varied
+  the event predicate, first adjunct, and final adjunct.  The four target rows
+  reached 147, 174, 258, and 353 letters; the best audit had 138 mismatches
+  and exact closures were zero.  The next construction changes representation
+  at the central seam (a mutable center clause with live character obligations)
+  rather than repeating three-region substitutions.

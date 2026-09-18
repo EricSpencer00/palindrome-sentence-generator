@@ -138,7 +138,7 @@ def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) 
                 text = item.text.replace(old, new, 1)
                 out.append(Adjunct(item.kind, text, re.sub(r"[^a-z]", "", text.casefold())[-1]))
         return out
-    expanded = tuple(ADJUNCTS) + tuple(v for item in ADJUNCTS for v in boundary_variants(item))
+    expanded = (tuple(ADJUNCTS) + tuple(v for item in ADJUNCTS for v in boundary_variants(item)))[:24]
     terminal_pool = expanded
     first_pool = expanded
     for center in CENTER_CLAUSES + tuple(f"and {s} {v} {o}." for s in CENTER_SUBJECTS for v in CENTER_VERBS for o in CENTER_OBJECTS):

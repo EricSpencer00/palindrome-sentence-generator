@@ -4861,6 +4861,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   The next operator is a live role-compatible character trie, not another
   prompt-only repair.
 
+- **Role-compatible character trie, 2026-09-18:** searched 486 authored
+  alternatives for rain, agent, bird, bay, spray, and fog roles with character
+  obligations checked before rendering.  It produced no exact closure; the
+  longest intact candidate was 93 letters, and the best mismatch count was 56.
+  A representative complete candidate is “After rain, Sam watches a sparrow
+  above the bay; Sam notes spray beneath the fog.”  Independent forward/reverse
+  hashes differ, and provenance records no catalogue, reversal, repeated unit,
+  or word-order shortcut.  The next repair adds two-character paired
+  obligations over role-phrase boundaries.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

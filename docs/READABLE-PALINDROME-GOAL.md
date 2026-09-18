@@ -3984,3 +3984,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the held-out partition.  The unchanged policy is useful evidence: the next
   run must alter the live operator (two-sided length-balanced seam infill), not
   retune replay weights or claim a speed result.
+
+- **Relative-seam agreement repair, 2026-09-17:** jointly varied referent
+  number, anaphor, and subject-relative versus object-relative attachment in 32
+  bounded prose candidates.  The longest was 75 letters, the best residual was
+  48 mismatches, and exact closures were zero.  The seam-crossing attachment
+  is distinct from the earlier one-sided slot repair; its concrete successor
+  is a typed two-word seam bridge.
+
+- **Two-sided relative balance, 2026-09-17:** coordinated left/right
+  relative-clause substitutions with matched length deltas.  The strict
+  balance admitted one complete pair, up to 142 letters, with zero exact
+  closures and a best residual of 120, so it did not improve the prior 116.
+  The next repair relaxes equality to a bounded +/-1 or +/-2 window while
+  jointly changing semantic heads and verbs.
+
+  Dream-RSI round 49 replays 18,485 audited nodes including both seam repairs;
+  the held-out fixed-mismatch policy remains 0.780 with zero admissible exact
+  rows.  The unchanged replay winner is a stop signal for score tuning, so the
+  next deployment must use the promised relaxed length-window seam bridge.

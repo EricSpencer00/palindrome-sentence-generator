@@ -4360,6 +4360,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   zero.  The next operator couples tense and number with the locative
   preposition while preserving noun length.
 
+- **Dream-RSI round 70, 2026-09-17:** replayed 503 worlds and 19,427 audited
+  nodes after the Pareto-center and seam-conditioned repairs.  Fixed
+  mismatch-first remained the held-out winner at 0.780 (433 held-out worlds),
+  with zero mechanically admissible exact rows and 107 exact-but-rejected rows.
+  The next construction operators are therefore boundary-relative-verb edits,
+  tense/preposition coupling, and residual-ranked center candidates.
+
 - **Variable-length center phrases, 2026-09-17:** exposed multiword center
   subject/object alternatives (for example, ``the careful witness`` and ``a
   quiet note``) instead of a single-word center.  The current edge heuristic

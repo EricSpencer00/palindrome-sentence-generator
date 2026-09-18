@@ -5197,3 +5197,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the held-out routing winner at 0.780; no fresh exact or reader-certified
   output was admitted.  The next action is agreement-carrying bridge pairs
   with seam-aware name selection.
+
+- **Agreement-carrying bridge pairs, 2026-09-18:** paired 40 complete
+  grammatical frames by agreement signature and solved each name-adjacent
+  residual before rendering.  Exact closures remained 0; the longest control
+  was “The baker marks a map; the pilot reads Mara.” (34 letters), with 17
+  mismatches under independent replay.  The next repair adds agreement-carrying
+  clitic and inflection variants at both name-adjacent seams.
+
+- **Dream-RSI round 109, 2026-09-18:** replayed 773 worlds and 21,716
+  audited nodes after the agreement-carrying bridge-pair lane.  Fixed
+  mismatch-first remains the held-out routing winner at 0.780; no fresh exact
+  or reader-certified output was admitted.  The next action is the recorded
+  two-sided clitic/inflection seam repair.

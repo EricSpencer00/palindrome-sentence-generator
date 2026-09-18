@@ -205,6 +205,8 @@ EXPLICIT_HISTORY = (
     "runs/dream-rsi-palindrome-round107-20260918.json",
     "runs/asymmetric-bridge-attachment-20260918.json",
     "runs/dream-rsi-palindrome-round108-20260918.json",
+    "runs/agreement-carrying-bridge-pairs-20260918.json",
+    "runs/dream-rsi-palindrome-round109-20260918.json",
     "runs/recursive-discourse-spine-dream-rsi-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

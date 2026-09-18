@@ -4372,6 +4372,26 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   and exact closures were zero.  The next repair couples tense/number with the
   locative determiner.
 
+- **Tiny joint noun/verb/boundary lattice, 2026-09-17:** considered four
+  seam-compatible states and rejected one before rendering.  Three complete
+  passages up to 117 letters remained; the best audit had 94 mismatches and
+  exact closures were zero.  The next operator applies a live-seam threshold
+  with paired lexical repair.
+
+- **Tense/number/locative-determiner repair, 2026-09-17:** coupled tense and
+  referent number with locative determiner and noun number while holding the
+  preposition fixed.  Thirty-two complete rows reached 90 letters; the best
+  audit had 54 mismatches and exact closures were zero.  The next repair
+  couples tense/number with determiner and noun number.
+
+- **Dream-RSI round 72, 2026-09-17:** replayed 507 worlds and 19,498 audited
+  nodes after the tiny lattice, center residual ranking, and tense/determiner
+  lanes.  Fixed mismatch-first remained the held-out winner at 0.780 (437
+  held-out worlds), with zero mechanically admissible exact rows and 107
+  exact-but-rejected rows.  The next round consumes the live-seam threshold
+  and center-plus-adjunct residual operators; it does not treat policy
+  stability as a palindrome result.
+
 - **Dream-RSI round 71, 2026-09-17:** replayed 505 worlds and 19,463 audited
   nodes after adding the seam-conditioned verb and tense/preposition lanes.
   Fixed mismatch-first remained the held-out winner at 0.780 (435 held-out

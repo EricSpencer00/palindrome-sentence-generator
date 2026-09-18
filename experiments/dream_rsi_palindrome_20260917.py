@@ -123,6 +123,7 @@ EXPLICIT_HISTORY = (
     "runs/relative-seam-tense-valency-locative-20260917.json",
     "runs/relative-seam-tense-number-locative-noun-20260917.json",
     "runs/relative-seam-tense-number-locative-prep-20260917.json",
+    "runs/relative-seam-tense-number-locative-det-20260917.json",
     "runs/key-preserving-slot-length-20260917.json",
     "runs/paired-boundary-inflection-20260917.json",
     "runs/paired-determiner-inflection-20260917.json",
@@ -134,6 +135,7 @@ EXPLICIT_HISTORY = (
     "runs/live-seam-boundary-growth-20260917.json",
     "runs/seam-boundary-semantic-pair-20260917.json",
     "runs/seam-boundary-verb-pair-20260917.json",
+    "runs/tiny-joint-noun-verb-boundary-lattice-20260917.json",
     "runs/recursive-discourse-spine-dream-rsi-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

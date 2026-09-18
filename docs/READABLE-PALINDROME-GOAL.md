@@ -3818,3 +3818,9 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   Repeated-clause rows are explicitly flagged and excluded rather than used as
   controls.  The next construction operator is a third-clause center-crossing
   chart with seam obligations carried across clause boundaries.
+
+  The three-clause follow-up rejected 49,430 repeated-clause controls before
+  scoring and retained 8,170 distinct passages.  None crossed the center, and
+  none was exact.  These are diagnostics only; the next implementation must
+  replace prefix scoring with a true center-compatible lexical chart that
+  carries residual character debt through the crossing.

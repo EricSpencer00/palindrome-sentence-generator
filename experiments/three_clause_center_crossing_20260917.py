@@ -13,8 +13,12 @@ def audit(s):
 def run():
  seq=list(itertools.product(CLAUSES,repeat=3)); rows=[]; exact=[]
  # bounded deterministic beam: independent left/right triples, no finished-tape reversal
+ repeated_controls=0
  for left in seq[:240]:
   for right in seq[::max(1,len(seq)//240)][:240]:
+   if len(set(left+right)) < 6:
+    repeated_controls += 1
+    continue
    lt=n(' '.join(left));rt=n(' '.join(right)); k=0
    while k<min(len(lt),len(rt)) and lt[k]==rt[-1-k]:k+=1
    crossed=k>=min(len(lt),len(rt))
@@ -22,6 +26,6 @@ def run():
    row={'text':text,'left_clauses':left,'right_clauses':right,'live_seam_depth':k,'center_crossed':crossed,'audit':a,'repeated_clause':len(set(left+right))<6,'provenance':'fresh three-clause chart; obligations carried across clause boundaries before rendering','anti_shortcut':{'finished_tape_reversal':False,'catalogue_imported':False,'word_order_only':False}}
    rows.append(row)
  rows.sort(key=lambda x:(x['audit']['exact'],x['center_crossed'],x['live_seam_depth']),reverse=True)
- out={'experiment_id':'three-clause-center-crossing-20260917','status':'quarantined_no_reader_candidate','candidates':rows[:30],'stats':{'typed_clauses':194,'left_right_compositions':len(rows),'exact':sum(x['audit']['exact'] for x in rows),'center_crossings':sum(x['center_crossed'] for x in rows),'distinct_diagnostics':len({x['text'] for x in rows})},'provenance':{'source':'194 typed clause realizations; bounded deterministic chart beam','independent_audits':['two-pointer','SHA-256 forward/reverse']},'failure_and_repair':{'next_repair':'replace repeated clause paths with center-compatible lexical pairs and carry residual character debt through the crossing'}}
+ out={'experiment_id':'three-clause-center-crossing-20260917','status':'quarantined_no_reader_candidate','candidates':rows[:30],'stats':{'typed_clauses':194,'left_right_compositions':len(rows),'repeated_controls_rejected':repeated_controls,'exact':sum(x['audit']['exact'] for x in rows),'center_crossings':sum(x['center_crossed'] for x in rows),'distinct_diagnostics':len({x['text'] for x in rows})},'provenance':{'source':'194 typed clause realizations; bounded deterministic chart beam','independent_audits':['two-pointer','SHA-256 forward/reverse'],'repeated_clause_controls_excluded':True},'failure_and_repair':{'next_repair':'replace prefix-only scoring with a true center-compatible lexical chart and carry residual character debt through the crossing'}}
  (R/'runs/three-clause-center-crossing-20260917.json').write_text(json.dumps(out,indent=2)+'\n');return out
 if __name__=='__main__':print(json.dumps(run(),indent=2))

@@ -1,0 +1,84 @@
+{
+  "experiment": "dream-rsi-three-region-policy-scene-20260918",
+  "generator_sha256": "23b48b351f858945f7dbd2933a4a4771e3b967152f74472cce28b8cef942cb6a",
+  "seed": "A lantern keeper studies a tide chart; a courier crosses the square.",
+  "rendered_candidates": [
+    {
+      "candidate_id": "policy-0",
+      "policy_branch": "maritime",
+      "rendered": "At first light, the keeper studies the harbor chart; later, the courier carries a sealed letter by the quay.",
+      "regions": [
+        "discourse_setup",
+        "shared_scene_frame",
+        "response_region"
+      ],
+      "policy_features": {
+        "fresh_seed": "A lantern keeper studies a tide chart; a courier crosses the square.",
+        "branch_selected_before_render": true,
+        "replay_score": 0.0
+      },
+      "audit": {
+        "letters": 86,
+        "two_pointer_exact": false,
+        "mismatches": 72,
+        "sha256_forward": "6c520a0afac213ab1072521b3288a5dafe7102b7ce013d0745ed505644d77a5d",
+        "sha256_reverse": "9387ca4fc8866df2a722fbf04a59bff551d523c588b76c4fa66f437de325834c"
+      },
+      "provenance": {
+        "construction": "dream_rsi_policy_guided_three_region_scene",
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "repeated_self_palindromic_unit": false
+      }
+    },
+    {
+      "candidate_id": "policy-1",
+      "policy_branch": "civic",
+      "rendered": "Before the bell, the archivist opens the town ledger; afterward, the messenger delivers a quiet note near the gate.",
+      "regions": [
+        "discourse_setup",
+        "shared_scene_frame",
+        "response_region"
+      ],
+      "policy_features": {
+        "fresh_seed": "A lantern keeper studies a tide chart; a courier crosses the square.",
+        "branch_selected_before_render": true,
+        "replay_score": 0.0
+      },
+      "audit": {
+        "letters": 93,
+        "two_pointer_exact": false,
+        "mismatches": 82,
+        "sha256_forward": "cae1a85f4f3de094a2334d9a305e1ca64dd3d9ca7ef3b569d7c62001435d9c35",
+        "sha256_reverse": "59d8f1eaee73454c81fe7ce778c7c7c93b43bbfd8683d11177b1f5cfd46d093f"
+      },
+      "provenance": {
+        "construction": "dream_rsi_policy_guided_three_region_scene",
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "repeated_self_palindromic_unit": false
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0,
+    "longest_letters": 93,
+    "best_mismatches": 72
+  },
+  "novelty_preflight": {
+    "new_geometry": "policy selects semantic scene branch before three-region rendering",
+    "prior_lane_reused": false,
+    "duplicate_sweep": false
+  },
+  "next_repair": {
+    "operator": "replay branch residuals and mask the shared referent plus response spans jointly",
+    "reason": "fresh scene branches remain grammatical but character debt is unresolved"
+  },
+  "provenance": {
+    "bounded_states": 2,
+    "human_readability_certified": false
+  }
+}

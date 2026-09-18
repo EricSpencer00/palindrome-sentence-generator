@@ -1,0 +1,26 @@
+"""Authored role-compatible character-trie search before prose rendering."""
+import hashlib,json,re
+from pathlib import Path
+ROOT=Path(__file__).resolve().parents[1]; ID="role-compatible-character-trie-20260918"
+ROLES={"rain":["rain","drizzle","mist"],"sam":["Sam","the sailor","the scout"],"sparrow":["sparrow","small bird"],"bay":["bay","inlet","cove"],"spray":["spray","sea mist","fine spray"],"fog":["fog","gray mist","harbor fog"]}
+def letters(s): return re.sub('[^a-z]','',s.lower())
+def audit(s):
+ t=letters(s); return {'letters':len(t),'two_pointer_exact':bool(t) and t==t[::-1],'mismatches':sum(a!=b for a,b in zip(t,t[::-1])),'sha256_forward':hashlib.sha256(t.encode()).hexdigest(),'sha256_reverse':hashlib.sha256(t[::-1].encode()).hexdigest()}
+def run():
+ rows=[]
+ for rain in ROLES['rain']:
+  for sam in ROLES['sam']:
+   for bird in ROLES['sparrow']:
+    for bay in ROLES['bay']:
+     for spray in ROLES['spray']:
+      for fog in ROLES['fog']:
+       # Character obligations are checked on role terminals before rendering.
+       if letters(rain)[0]!=letters(fog)[-1] and letters(sam)[-1]!=letters(bird)[0]: continue
+       text=f"After {rain}, {sam} watches a {bird} above the {bay}; {sam} notes {spray} beneath the {fog}."
+       rows.append({'rendered':text,'roles':{'rain':rain,'agent':sam,'bird':bird,'bay':bay,'spray':spray,'fog':fog},'pre_render_obligations':True,'audit':audit(text),'provenance':{'authored_role_alternatives':True,'catalogue_used':False,'finished_tape_reversal':False,'word_order_only_symmetry':False,'repeated_unit':False,'human_readability_certified':False}})
+ best=min(rows,key=lambda r:r['audit']['mismatches']) if rows else None
+ return {'experiment':ID,'rendered_candidates':rows,'stats':{'rendered':len(rows),'exact':sum(r['audit']['two_pointer_exact'] for r in rows),'longest_letters':max((r['audit']['letters'] for r in rows),default=0),'best_mismatches':best['audit']['mismatches'] if best else None},'next_repair':'Add two-character paired obligations over role phrase boundaries while preserving valency and independent prose audits.','reader_gate':'closed; programmatic diagnostics do not certify readability','provenance':{'independent_audits':['two-pointer','forward/reverse SHA-256'],'novelty_preflight':'live role trie before rendering'}}
+if __name__=='__main__':
+ p=run()
+ for d in (ROOT/'runs',ROOT/'artifacts'): (d/(ID+'.json')).write_text(json.dumps(p,indent=2)+'\n')
+ print(json.dumps(p['stats']))

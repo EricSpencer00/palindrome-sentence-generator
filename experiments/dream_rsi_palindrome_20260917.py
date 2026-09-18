@@ -112,6 +112,8 @@ EXPLICIT_HISTORY = (
     "runs/relative-seam-auxiliary-polarity-20260917.json",
     "runs/coupled-inflectional-head-seam-20260917.json",
     "runs/relative-seam-polarity-object-20260917.json",
+    "runs/relative-seam-object-number-locative-20260917.json",
+    "runs/key-preserving-slot-length-20260917.json",
     "runs/recursive-discourse-spine-dream-rsi-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

@@ -4173,3 +4173,28 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   0.780 with zero mechanically admissible exact rows.  The next construction
   step is the recorded paired-slot length repair and polarity/locative route;
   no score-tuning or readability claim is made.
+
+- **Key-preserving paired-slot length repair, 2026-09-17:** changed the lengths
+  of paired semantic slots while retaining their role keys and attachment.  The
+  run rendered four complete passages (109--130 letters); for example, ``At
+  dawn, a teacher carries a map which charts the shore beside the inlet; a
+  guide keeps a journal which records the way beside the inlet.``  The
+  independent two-pointer audit found 88 mismatches in the best row and no
+  exact closure.  The next operator is a paired boundary-inflection change,
+  not another Cartesian phrase sweep.
+
+- **Object-number/locative seam repair, 2026-09-17:** jointly varied object
+  number, polarity, and a typed locative while preserving the authored scene
+  roles.  Thirty-two complete rows were rendered (69--93 letters); the best
+  audited row had 60 mismatches and exact closures were zero.  The next repair
+  varies the locative preposition with object number while carrying polarity,
+  preserving this route's grammar and provenance.
+
+- **Dream-RSI round 60, 2026-09-17:** replay now includes both fresh repair
+  worlds above plus the recursive-spine world.  The controller recorded the
+  rendered candidates and their independent audits as replay observations,
+  then evaluated policies on a deterministic held-out split before any online
+  redeployment.  The mismatch-first policy remains at 0.780 held-out score and
+  admits zero exact rows; this is a routing diagnostic, not a readability or
+  speed claim.  The next round must consume the paired-inflection and
+  polarity/locative repair operators rather than replaying these same choices.

@@ -159,6 +159,17 @@ def substitute_first_unresolved(state: tuple[Adjunct, ...]) -> tuple[Adjunct, ..
                 # not a repair and must be recorded as unavailable.
                 if letters(render(proposed)) != before:
                     return proposed
+    # Larger-constituent fallback: replace an adjacent typed pair with two
+    # fresh, independently grammatical adjuncts.  This changes word
+    # boundaries and both sides of the local equation in one operation.
+    for index in range(max(0, len(state) - 1)):
+        for first in ADJUNCTS:
+            for second in ADJUNCTS:
+                if first.text in used or second.text in used or first.text == second.text:
+                    continue
+                proposed = (*state[:index], first, second, *state[index + 2:])
+                if letters(render(proposed)) != before:
+                    return proposed
     return state
 
 

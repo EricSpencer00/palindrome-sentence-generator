@@ -43,6 +43,8 @@ def _authored_adjuncts() -> tuple[Adjunct, ...]:
 
     add_group("temporal", ("Before dusk", "After rain", "While the lamps fade", "Until the meeting ends"),
               (("checks", "the ledger"), ("marks", "the date"), ("files", "the report"), ("seals", "the folder")))
+    add_group("temporal_aspect", ("After the bell rings", "Before the archive closes", "While the keeper waits", "Since the record changed"),
+              (("reviews", "the ledger"), ("marked", "the date"), ("has filed", "the report"), ("kept", "the folder")))
     add_group("locative", ("Near the old marina", "Beside the stone plaza", "Under the cedar gate", "Beyond the quiet garden"),
               (("opens", "the drawer"), ("copies", "the chart"), ("stores", "the note"), ("labels", "the map")))
     add_group("instrumental", ("With a blue pencil", "Using a brass key", "With a field camera", "Using a small brush"),
@@ -355,6 +357,7 @@ def run() -> dict[str, Any]:
                         "tense_aspect_live": True,
                         "auxiliary_aspect_live": True,
                         "temporal_compatibility": True,
+                        "temporal_tense_aspect_shared_variable": True,
                     },
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,

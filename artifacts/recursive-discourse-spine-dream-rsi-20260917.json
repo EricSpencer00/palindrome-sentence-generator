@@ -1,13 +1,14 @@
 {
   "experiment": "recursive-discourse-spine-dream-rsi-20260917",
-  "generator_sha256": "4726fc1d3a956759d2742e69d4bcd3727cfd6b23142080b584badcab10019345",
+  "generator_sha256": "e1c9cf8e670bed925b60d7d43471d3228c354465635a4256f75e582fe1ac1d09",
   "grammar": {
     "production": "Spine := Event (TypedAdjunct)*",
     "typed_kinds": [
       "causal",
       "instrumental",
       "locative",
-      "temporal"
+      "temporal",
+      "temporal_aspect"
     ],
     "growth": "append one semantically attached adjunct; preserve complete event frame",
     "target_lengths": [
@@ -20,7 +21,7 @@
   "rendered_candidates": [
     {
       "target_letters": 100,
-      "rendered": "A careful archivist logs a signal. After rain, she marks the date. Near the old marina, she opens the drawer. While the lamps fade, she files the report. Using a brass key, she labels the chart. and a patient guide held the note.",
+      "rendered": "A careful archivist logs a signal. Before dusk, she checks the ledger. After the bell rings, she reviews the ledger. While the lamps fade, she files the report. Before the archive closes, she marked the date. and a patient guide held the note.",
       "derivation_depth": 4,
       "typed_adjuncts": [
         "temporal",
@@ -38,12 +39,12 @@
         ]
       },
       "audit": {
-        "letters": 177,
+        "letters": 191,
         "two_pointer_exact": false,
-        "mismatch_count": 164,
+        "mismatch_count": 162,
         "matched_outer_pairs_before_first_mismatch": 0,
-        "sha256_forward": "60ea485f602b430ec54bab846fa7dfa7f8bb80509cf3e30ec8c72de1f609c8fc",
-        "sha256_reverse": "d2eb287911a4cf862ea56f8d54beeb6f8cd8ffc9bab3e5dae8d5275a2895083d"
+        "sha256_forward": "553a7de352f5bd33868192215b96ebcb67e36865e69e562134f9d67c28135cc7",
+        "sha256_reverse": "fc221dff042f0564d9214156ad1660ac279a84aebb8b39c95cec47f743fae748"
       },
       "provenance": {
         "recursive_typed_spine": true,
@@ -63,7 +64,8 @@
           "outer_center_morphology_joint": true,
           "tense_aspect_live": true,
           "auxiliary_aspect_live": true,
-          "temporal_compatibility": true
+          "temporal_compatibility": true,
+          "temporal_tense_aspect_shared_variable": true
         },
         "authored_adjunct_inventory": true,
         "catalogue_used": false,
@@ -75,131 +77,13 @@
     },
     {
       "target_letters": 150,
-      "rendered": "A careful archivist logs a signal. Beside the stone plaza, she copies the chart. After rain, she marks the date. While the lamps fade, she files the report. Until the meeting ends, she seals the folder. Using a brass key, she labels the chart. and a patient guide held the note.",
+      "rendered": "A careful archivist logs a signal. Since the record changed, she kept the folder. After rain, she marks the date. While the lamps fade, she files the report. Until the meeting ends, she seals the folder. Before dusk, she checks the ledger. and the guide held the entry.",
       "derivation_depth": 5,
       "typed_adjuncts": [
         "temporal",
         "temporal",
         "temporal",
         "temporal",
-        "causal"
-      ],
-      "live_equation": {
-        "first_letter": "a",
-        "last_letter": "e",
-        "outer_edge_equal": false,
-        "first_open_pair": [
-          "a",
-          "e"
-        ]
-      },
-      "audit": {
-        "letters": 216,
-        "two_pointer_exact": false,
-        "mismatch_count": 192,
-        "matched_outer_pairs_before_first_mismatch": 0,
-        "sha256_forward": "c1486c1d76479403eea4dea3a3b5cc521b9597025fa435f26081defbf85ffc79",
-        "sha256_reverse": "126424f19cab69df5f912855528b15c8536b639a3025dd5ca6fb2df490ca5fa9"
-      },
-      "provenance": {
-        "recursive_typed_spine": true,
-        "repair_operator": "substitute_first_unresolved_mirrored_pair",
-        "pre_repair_rendered": "The young keeper carries a lantern. Before dusk, she checks the ledger. After rain, she marks the date. While the lamps fade, she files the report. Until the meeting ends, she seals the folder. Since the plan holds, she archives the agenda.",
-        "joint_event_adjunct_repair": true,
-        "mutable_center_clause": "and a patient guide held the note.",
-        "center_selection": "two_sided_outer_obligation_score",
-        "predicate_argument_boundary_operator": true,
-        "typed_discourse_graph": {
-          "outer_event_valency": "propagated",
-          "center_valency": "jointly ranked",
-          "adjunct_attachment": "typed temporal/locative/instrumental/causal",
-          "cross_clause_agreement": true,
-          "argument_role_compatibility": true,
-          "agreement_features_live": true,
-          "outer_center_morphology_joint": true,
-          "tense_aspect_live": true,
-          "auxiliary_aspect_live": true,
-          "temporal_compatibility": true
-        },
-        "authored_adjunct_inventory": true,
-        "catalogue_used": false,
-        "wrapped_seed": false,
-        "finished_tape_reversal": false,
-        "repeated_content_adjunct": false,
-        "human_readability_certified": false
-      }
-    },
-    {
-      "target_letters": 200,
-      "rendered": "A careful archivist logs a signal. Before dusk, she checks the ledger. After rain, she marks the date. While the lamps fade, she files the report. Until the meeting ends, she seals the folder. Near the old marina, she opens the drawer. With a blue pencil, she dates the ledger. and the guide held the note.",
-      "derivation_depth": 6,
-      "typed_adjuncts": [
-        "temporal",
-        "temporal",
-        "temporal",
-        "temporal",
-        "locative",
-        "locative"
-      ],
-      "live_equation": {
-        "first_letter": "a",
-        "last_letter": "e",
-        "outer_edge_equal": false,
-        "first_open_pair": [
-          "a",
-          "e"
-        ]
-      },
-      "audit": {
-        "letters": 237,
-        "two_pointer_exact": false,
-        "mismatch_count": 212,
-        "matched_outer_pairs_before_first_mismatch": 0,
-        "sha256_forward": "8c5322a572967d88035a91fcda03c5869051c23a5cd0fa69afbbbcd4fa6811fb",
-        "sha256_reverse": "1db0313b6a32e8ffd442063f90ddab9c41e689e67ef7114b2f3ed91044a97ca7"
-      },
-      "provenance": {
-        "recursive_typed_spine": true,
-        "repair_operator": "substitute_first_unresolved_mirrored_pair",
-        "pre_repair_rendered": "The patient curator gives the reader a message. Before dusk, she checks the ledger. After rain, she marks the date. While the lamps fade, she files the report. Until the meeting ends, she seals the folder. Near the old marina, she opens the drawer. Beside the stone plaza, she copies the chart.",
-        "joint_event_adjunct_repair": true,
-        "mutable_center_clause": "and the guide held the note.",
-        "center_selection": "two_sided_outer_obligation_score",
-        "predicate_argument_boundary_operator": true,
-        "typed_discourse_graph": {
-          "outer_event_valency": "propagated",
-          "center_valency": "jointly ranked",
-          "adjunct_attachment": "typed temporal/locative/instrumental/causal",
-          "cross_clause_agreement": true,
-          "argument_role_compatibility": true,
-          "agreement_features_live": true,
-          "outer_center_morphology_joint": true,
-          "tense_aspect_live": true,
-          "auxiliary_aspect_live": true,
-          "temporal_compatibility": true
-        },
-        "authored_adjunct_inventory": true,
-        "catalogue_used": false,
-        "wrapped_seed": false,
-        "finished_tape_reversal": false,
-        "repeated_content_adjunct": false,
-        "human_readability_certified": false
-      }
-    },
-    {
-      "target_letters": 300,
-      "rendered": "A careful archivist logs a signal. Before dusk, she checks the ledger. After rain, she marks the date. While the lamps fade, she files the report. Until the meeting ends, she seals the folder. Near the old marina, she opens the drawer. Beside the stone plaza, she copies the chart. Under the cedar gate, she stores the note. Beyond the quiet garden, she labels the map. With a blue pencil, she dates the ledger. Using a small brush, she stores the folder. and the guide held the entry.",
-      "derivation_depth": 10,
-      "typed_adjuncts": [
-        "temporal",
-        "temporal",
-        "temporal",
-        "temporal",
-        "locative",
-        "locative",
-        "locative",
-        "locative",
-        "instrumental",
         "causal"
       ],
       "live_equation": {
@@ -212,17 +96,17 @@
         ]
       },
       "audit": {
-        "letters": 376,
+        "letters": 210,
         "two_pointer_exact": false,
-        "mismatch_count": 340,
+        "mismatch_count": 190,
         "matched_outer_pairs_before_first_mismatch": 0,
-        "sha256_forward": "a45ffe1f519124f8b019317a3765d1d6e9dc914f41e184eef39c70afdb7f079e",
-        "sha256_reverse": "acccf49d0da57dba4c647b44d8ab8eb47b74d5b7cac0cbcf40870c5886b3fe7e"
+        "sha256_forward": "c37d0eea7257decc022ba5ae98a5cbab774454a8c2f99cd528b30a253f12a29b",
+        "sha256_reverse": "98033f6296640faca9c2adaa2441a2c995a2c6d5a96b506d1f66e7a4c59d46eb"
       },
       "provenance": {
         "recursive_typed_spine": true,
         "repair_operator": "substitute_first_unresolved_mirrored_pair",
-        "pre_repair_rendered": "The careful curators record a signal. Before dusk, she checks the ledger. After rain, she marks the date. While the lamps fade, she files the report. Until the meeting ends, she seals the folder. Near the old marina, she opens the drawer. Beside the stone plaza, she copies the chart. Under the cedar gate, she stores the note. Beyond the quiet garden, she labels the map. With a blue pencil, she dates the ledger. Since the plan holds, she archives the agenda.",
+        "pre_repair_rendered": "The young keeper carries a lantern. Before dusk, she checks the ledger. After rain, she marks the date. While the lamps fade, she files the report. Until the meeting ends, she seals the folder. Since the plan holds, she archives the agenda.",
         "joint_event_adjunct_repair": true,
         "mutable_center_clause": "and the guide held the entry.",
         "center_selection": "two_sided_outer_obligation_score",
@@ -237,7 +121,128 @@
           "outer_center_morphology_joint": true,
           "tense_aspect_live": true,
           "auxiliary_aspect_live": true,
-          "temporal_compatibility": true
+          "temporal_compatibility": true,
+          "temporal_tense_aspect_shared_variable": true
+        },
+        "authored_adjunct_inventory": true,
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "repeated_content_adjunct": false,
+        "human_readability_certified": false
+      }
+    },
+    {
+      "target_letters": 200,
+      "rendered": "A careful archivist logs a signal. Beside the stone plaza, she copies the chart. After rain, she marks the date. While the lamps fade, she files the report. Until the meeting ends, she seals the folder. After the bell rings, she reviews the ledger. Before the archive closes, she marked the date. Before dusk, she checks the ledger. and a patient guide check the entry.",
+      "derivation_depth": 7,
+      "typed_adjuncts": [
+        "temporal",
+        "temporal",
+        "temporal",
+        "temporal",
+        "temporal_aspect",
+        "temporal_aspect",
+        "causal"
+      ],
+      "live_equation": {
+        "first_letter": "a",
+        "last_letter": "y",
+        "outer_edge_equal": false,
+        "first_open_pair": [
+          "a",
+          "y"
+        ]
+      },
+      "audit": {
+        "letters": 289,
+        "two_pointer_exact": false,
+        "mismatch_count": 260,
+        "matched_outer_pairs_before_first_mismatch": 0,
+        "sha256_forward": "d670f9527bfdb8884c6121a0efd3b0ba871b6aa4507bf5e156ff03636c4e9282",
+        "sha256_reverse": "d2951858706b9594c54325b821753623d9dc5dd0c8b7d3ebb960e4b12dcdefcf"
+      },
+      "provenance": {
+        "recursive_typed_spine": true,
+        "repair_operator": "substitute_first_unresolved_mirrored_pair",
+        "pre_repair_rendered": "The patient curator gives the reader a message. Before dusk, she checks the ledger. After rain, she marks the date. While the lamps fade, she files the report. Until the meeting ends, she seals the folder. After the bell rings, she reviews the ledger. Before the archive closes, she marked the date. Since the plan holds, she archives the agenda.",
+        "joint_event_adjunct_repair": true,
+        "mutable_center_clause": "and a patient guide check the entry.",
+        "center_selection": "two_sided_outer_obligation_score",
+        "predicate_argument_boundary_operator": true,
+        "typed_discourse_graph": {
+          "outer_event_valency": "propagated",
+          "center_valency": "jointly ranked",
+          "adjunct_attachment": "typed temporal/locative/instrumental/causal",
+          "cross_clause_agreement": true,
+          "argument_role_compatibility": true,
+          "agreement_features_live": true,
+          "outer_center_morphology_joint": true,
+          "tense_aspect_live": true,
+          "auxiliary_aspect_live": true,
+          "temporal_compatibility": true,
+          "temporal_tense_aspect_shared_variable": true
+        },
+        "authored_adjunct_inventory": true,
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "repeated_content_adjunct": false,
+        "human_readability_certified": false
+      }
+    },
+    {
+      "target_letters": 300,
+      "rendered": "A careful archivist logs a signal. Before dusk, she checks the ledger. After rain, she marks the date. While the lamps fade, she files the report. Until the meeting ends, she seals the folder. After the bell rings, she reviews the ledger. Before the archive closes, she marked the date. While the keeper waits, she has filed the report. Since the record changed, she kept the folder. Under the cedar gate, she stores the note. and a patient guide held the entry.",
+      "derivation_depth": 9,
+      "typed_adjuncts": [
+        "temporal",
+        "temporal",
+        "temporal",
+        "temporal",
+        "temporal_aspect",
+        "temporal_aspect",
+        "temporal_aspect",
+        "temporal_aspect",
+        "causal"
+      ],
+      "live_equation": {
+        "first_letter": "a",
+        "last_letter": "y",
+        "outer_edge_equal": false,
+        "first_open_pair": [
+          "a",
+          "y"
+        ]
+      },
+      "audit": {
+        "letters": 361,
+        "two_pointer_exact": false,
+        "mismatch_count": 326,
+        "matched_outer_pairs_before_first_mismatch": 0,
+        "sha256_forward": "02c6f0e0a351fc88ff6516932ba50616ac0f8f149600e09facf1dabe8704b359",
+        "sha256_reverse": "2a9cb9ec93c1a84ab8517b484bd808fae739fd9272e420e559203f6c9d53c123"
+      },
+      "provenance": {
+        "recursive_typed_spine": true,
+        "repair_operator": "substitute_first_unresolved_mirrored_pair",
+        "pre_repair_rendered": "The careful curators record a signal. Before dusk, she checks the ledger. After rain, she marks the date. While the lamps fade, she files the report. Until the meeting ends, she seals the folder. After the bell rings, she reviews the ledger. Before the archive closes, she marked the date. While the keeper waits, she has filed the report. Since the record changed, she kept the folder. Since the plan holds, she archives the agenda.",
+        "joint_event_adjunct_repair": true,
+        "mutable_center_clause": "and a patient guide held the entry.",
+        "center_selection": "two_sided_outer_obligation_score",
+        "predicate_argument_boundary_operator": true,
+        "typed_discourse_graph": {
+          "outer_event_valency": "propagated",
+          "center_valency": "jointly ranked",
+          "adjunct_attachment": "typed temporal/locative/instrumental/causal",
+          "cross_clause_agreement": true,
+          "argument_role_compatibility": true,
+          "agreement_features_live": true,
+          "outer_center_morphology_joint": true,
+          "tense_aspect_live": true,
+          "auxiliary_aspect_live": true,
+          "temporal_compatibility": true,
+          "temporal_tense_aspect_shared_variable": true
         },
         "authored_adjunct_inventory": true,
         "catalogue_used": false,
@@ -251,7 +256,7 @@
   "stats": {
     "rendered": 4,
     "exact": 0,
-    "longest_letters": 376,
+    "longest_letters": 361,
     "targets_reached_or_exceeded": 4
   },
   "novelty_preflight": {

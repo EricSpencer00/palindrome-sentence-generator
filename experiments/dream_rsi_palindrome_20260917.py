@@ -177,6 +177,8 @@ EXPLICIT_HISTORY = (
     "runs/direct-character-scene-authoring-20260918.json",
     "runs/direct-character-scene-lexical-repair-20260918.json",
     "runs/role-compatible-character-trie-20260918.json",
+    "runs/single-scene-appositive-redeployment-20260918.json",
+    "runs/dream-rsi-three-region-policy-scene-20260918.json",
     "runs/recursive-discourse-spine-dream-rsi-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
@@ -258,6 +260,7 @@ class Node:
     intact_surface: bool
     reader_certified: bool
     failure_signature: str
+    branch_id: str | None
 
 
 def _shortcut_free(obj: dict[str, Any]) -> bool:
@@ -358,6 +361,28 @@ def _failure_signature(obj: dict[str, Any], audit: dict[str, Any]) -> str:
     return "exact" if bool(audit.get("exact")) else "unclassified"
 
 
+def _branch_id(obj: dict[str, Any]) -> str | None:
+    """Recover an authoring lane's explicit sibling identity when present.
+
+    Historical artifacts predate this field, so absence means the row remains
+    a normal root.  We never infer a branch from text or from a score: only an
+    authoring record can opt into replay-branch novelty.
+    """
+    for key in ("sibling_branch_id", "branch_id"):
+        value = obj.get(key)
+        if value is not None and str(value):
+            return str(value)
+    provenance = obj.get("provenance")
+    if isinstance(provenance, dict):
+        metadata = provenance.get("metadata")
+        if isinstance(metadata, dict):
+            for key in ("sibling_branch_id", "branch_id"):
+                value = metadata.get(key)
+                if value is not None and str(value):
+                    return str(value)
+    return None
+
+
 def _iter_json_files() -> Iterable[Path]:
     # The checkout contains thousands of historical JSON files (including
     # very large raw traces).  Dream-RSI needs a replay world, not an
@@ -433,6 +458,7 @@ def load_worlds() -> list[Node]:
                             "reversible-grammar",
                         ))
                         failure_signature = _failure_signature(obj, raw_audit)
+                        branch_id = _branch_id(obj)
                         # Many constructive lanes keep their repair instruction
                         # at the artifact root while storing candidate rows
                         # below it. Propagate that instruction into each replay
@@ -458,6 +484,7 @@ def load_worlds() -> list[Node]:
                             intact_surface=intact,
                             reader_certified=reader,
                             failure_signature=failure_signature,
+                            branch_id=branch_id,
                         ))
                 for key, value in obj.items():
                     visit(value, f"{location}.{key}")
@@ -525,8 +552,12 @@ def _tier(node: Node) -> int:
     return 1 if node.rendered else 0
 
 
-def _priority(node: Node, policy: dict[str, Any], seen_failures: set[str], seen_actions: set[str], depth: int) -> tuple[float, ...]:
+def _priority(node: Node, policy: dict[str, Any], seen_failures: set[str], seen_actions: set[str], seen_branches: set[str], depth: int) -> tuple[float, ...]:
     novelty = policy["diversity_bonus"] if node.action not in seen_actions else 0.0
+    branch_novelty = (
+        policy["diversity_bonus"]
+        if node.branch_id and node.branch_id not in seen_branches else 0.0
+    )
     repeated = policy["failure_penalty"] if node.failure_signature in seen_failures else 0.0
     exact_bonus = 10.0 if policy["name"] == "exact_gate_first" and node.exact else 0.0
     # A failure is useful only when it names a concrete seam/repair.  This
@@ -541,6 +572,7 @@ def _priority(node: Node, policy: dict[str, Any], seen_failures: set[str], seen_
         - node.mismatch_rate
         + policy["lane_bonus"].get(node.action, 0.0)
         + novelty
+        + branch_novelty
         - repeated
         + failure_bonus
         + node.letters * policy["length_bonus"]
@@ -586,8 +618,9 @@ def replay_world(nodes: list[Node], policy: dict[str, Any], budget: int) -> dict
     seen_nodes: set[str] = set()
     seen_failures: set[str] = set()
     seen_actions: set[str] = set()
+    seen_branches: set[str] = set()
     while frontier and len(visited) < budget:
-        frontier.sort(key=lambda item: _priority(item[0], policy, seen_failures, seen_actions, item[1]), reverse=True)
+        frontier.sort(key=lambda item: _priority(item[0], policy, seen_failures, seen_actions, seen_branches, item[1]), reverse=True)
         node, depth = frontier.pop(0)
         if node.node_id in seen_nodes:
             continue
@@ -595,6 +628,8 @@ def replay_world(nodes: list[Node], policy: dict[str, Any], budget: int) -> dict
         visited.append(node)
         seen_failures.add(node.failure_signature)
         seen_actions.add(node.action)
+        if node.branch_id:
+            seen_branches.add(node.branch_id)
         frontier.extend((child, depth + 1) for child in by_parent[(node.world, node.node_id)])
     admissible_exact = [node for node in visited if _tier(node) == 4]
     # Exact-but-rejected catalogue/shortcut controls are tracked separately;
@@ -626,6 +661,7 @@ def replay_world(nodes: list[Node], policy: dict[str, Any], budget: int) -> dict
         ],
         "exact_rejected": sum(node.exact and _tier(node) < 4 for node in visited),
         "new_actions": len(seen_actions),
+        "new_branches": len(seen_branches),
         "best": asdict(best) if best else None,
         "failure_signatures": len(seen_failures),
         "visited_node_ids": [node.node_id for node in visited],
@@ -649,6 +685,7 @@ def aggregate(nodes: list[Node], policy: dict[str, Any], budget: int) -> dict[st
         ],
         "exact_rejected": sum(report["exact_rejected"] for report in reports.values()),
         "new_actions": sum(report["new_actions"] for report in reports.values()),
+        "new_branches": sum(report["new_branches"] for report in reports.values()),
         "best_mismatch_rate": min((row["mismatch_rate"] for row in bests), default=1.0),
         "best_letters": max((row["letters"] for row in bests), default=0),
         "best": best,
@@ -727,7 +764,8 @@ def run(out: Path, budget: int = 8, online: bool = False) -> dict[str, Any]:
     repair_queue = failure_repair_queue(train)
     policy_signatures = {
         (report["admissible_exact"], report["exact_rejected"],
-         report["best_mismatch_rate"], report["best_letters"])
+        report["best_mismatch_rate"], report["best_letters"],
+        report["new_branches"])
         for report in train_reports
     }
     online_run = None

@@ -97,6 +97,8 @@ EVENT_BASES = (
     "The young keeper carries a lantern.",
     "The patient curator gives the reader a message.",
     "A quiet keeper places the lantern by the gate.",
+    "The careful curators record a signal.",
+    "A patient reader records a message.",
 )
 CENTER_CLAUSES = (
     "and the witness keeps the record.",
@@ -105,7 +107,8 @@ CENTER_CLAUSES = (
     "and the reader understands the note.",
 )
 CENTER_SUBJECTS = ("the witness", "the guide", "the reader", "the careful witness", "a patient guide")
-CENTER_VERBS = ("keeps", "checks", "remembers", "records", "holds", "marks")
+CENTER_VERBS = ("keeps", "checks", "remembers", "records", "holds", "marks",
+                "keep", "check", "remember", "record", "hold", "mark")
 CENTER_OBJECTS = ("the record", "the entry", "the route", "the note", "the old record", "a quiet note", "each small entry", "the marked route")
 CENTER_VALENCY_FRAMES = (
     ("transitive", "and {s} {v} {o}."),
@@ -147,7 +150,7 @@ def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) 
                 text = item.text.replace(old, new, 1)
                 out.append(Adjunct(item.kind, text, re.sub(r"[^a-z]", "", text.casefold())[-1]))
         return out
-    expanded = (tuple(ADJUNCTS) + tuple(v for item in ADJUNCTS for v in boundary_variants(item)))[:24]
+    expanded = (tuple(ADJUNCTS) + tuple(v for item in ADJUNCTS for v in boundary_variants(item)))[:12]
     terminal_pool = expanded
     first_pool = expanded
     frame_centers = tuple(template.format(s=s, v=v, o=o) for _, template in CENTER_VALENCY_FRAMES
@@ -344,6 +347,7 @@ def run() -> dict[str, Any]:
                         "cross_clause_agreement": True,
                         "argument_role_compatibility": True,
                         "agreement_features_live": True,
+                        "outer_center_morphology_joint": True,
                     },
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,

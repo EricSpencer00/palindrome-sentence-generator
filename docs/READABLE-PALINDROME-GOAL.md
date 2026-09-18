@@ -5108,3 +5108,19 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   remains fixed mismatch-first at 0.780; this is routing evidence only.  No
   fresh exact or reader-certified output was admitted, so the next action is
   the agreement/seam construction repair rather than a larger replay budget.
+
+- **Agreement-seam bridge, 2026-09-18:** carried singular subject/verb
+  agreement through paired complete clauses and indexed the live character
+  seam while states were built.  It produced 20 paired states and 8 rendered
+  controls, with 0 exact closures.  The longest control was “the sailor
+  carries the letters; the writer reads a letter.” (47 letters); the best
+  residual was 16 mismatches.  Independent two-pointer and hash audits agree
+  that none is exact.  This is construction evidence only, not a readability
+  claim; the next repair carries number/tense morphology and directly solves
+  the outer determiner/name seam before lengthening clauses.
+
+- **Dream-RSI round 103, 2026-09-18:** replayed 569 worlds and 21,510
+  audited nodes after the agreement-seam construction.  Fixed mismatch-first
+  remains the held-out routing winner at 0.780, with no fresh exact or
+  reader-certified output.  The next action is the recorded morphology/name
+  seam repair, not another replay sweep.

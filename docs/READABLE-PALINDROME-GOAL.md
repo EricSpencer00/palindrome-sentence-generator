@@ -4326,6 +4326,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact closures were zero.  The next repair couples object determiner with
   verb valency.
 
+- **Head/boundary-constrained noun/verb repair, 2026-09-17:** carried relative
+  heads, paired boundaries, noun/verb roles, and number through one seam audit.
+  Four complete passages up to 121 letters were rendered; the best audit had
+  88 mismatches and exact closures were zero.  The next operator grows only the
+  seam-selected boundary clause.
+
+- **Valency/locative-pair repair, 2026-09-17:** coupled object determiner and
+  transitive verb valency with the locative pair.  Thirty-two complete rows
+  reached 99 letters; the best audit had 64 mismatches and exact closures were
+  zero.  The next repair couples verb tense with valency and the locative pair.
+
 - **Dream-RSI round 67, 2026-09-17:** replayed 497 worlds and 19,319 audited
   nodes after the noun/verb and object-determiner repairs.  The mismatch-first
   policy remained the held-out winner at 0.780 (427 held-out worlds), with zero

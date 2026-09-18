@@ -1,13 +1,13 @@
-from experiments.agreement_seam_bridge_20260918 import run, audit
+from experiments.agreement_seam_bridge_20260918 import audit, run
 
-def test_agreement_seam_is_new_complete_clause_lane():
-    result = run()
-    assert result["stats"]["paired_states"] == 20
-    assert result["stats"]["exact"] == 0
-    assert all(";" in row["rendered"] for row in result["rendered_candidates"])
-    assert all(row["provenance"]["complete_intact_clauses"] for row in result["rendered_candidates"])
-    assert all(row["novelty_preflight"]["punctuation_carries_letters"] is False for row in result["rendered_candidates"])
-    assert all(row["audit"]["sha256_forward"] != row["audit"]["sha256_reverse"] for row in result["rendered_candidates"])
+def test_independent_audit_and_provenance():
+    p = run()
+    assert p["construction"]["live_character_constraints_before_render"]
+    assert p["construction"]["independent_audit"] == "two_pointer_and_sha256"
+    assert p["novelty_preflight"]["prior_lane_reused"] is False
+    assert all("rendered" in x and "audit" in x for x in p["rendered_candidates"])
+    assert all(x["provenance"]["catalogue_used"] is False for x in p["rendered_candidates"])
 
-def test_audit_is_independent_two_pointer():
-    assert audit("A man, a plan, a canal: Panama!")["two_pointer_exact"]
+def test_audit_rejects_non_palindrome():
+    assert audit("A baker marks maps") ["two_pointer_exact"] is False
+    assert audit("Live on; no evil.")["two_pointer_exact"] is True

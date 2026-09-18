@@ -136,7 +136,7 @@ def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) 
             tape = letters(prefix + " " + render(proposed) + " " + center)
             debt = sum(a != b for a, b in zip(tape, tape[::-1]))
             candidates.append((debt, -len(tape), center, proposed))
-    _, _, center, proposed = min(candidates)
+    _, _, center, proposed = min(candidates, key=lambda row: (row[0], row[1], row[2]))
     return center, proposed
 
 

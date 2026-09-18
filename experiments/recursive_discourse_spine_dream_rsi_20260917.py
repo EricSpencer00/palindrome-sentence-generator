@@ -152,6 +152,13 @@ def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) 
     frame_centers = tuple(template.format(s=s, v=v, o=o) for _, template in CENTER_VALENCY_FRAMES
                           for s in CENTER_SUBJECTS for v in CENTER_VERBS for o in CENTER_OBJECTS)
     for center in CENTER_CLAUSES + frame_centers:
+        # Cross-clause agreement/role compatibility: definite outer events
+        # pair with definite center referents; indefinite events require a
+        # compatible human/agent center subject.
+        if prefix.startswith("The") and "the " not in center:
+            continue
+        if prefix.startswith("A ") and not ("the " in center or "a " in center):
+            continue
         for first in first_pool:
             for terminal in terminal_pool:
                 if state and first.text == terminal.text:
@@ -330,6 +337,8 @@ def run() -> dict[str, Any]:
                         "outer_event_valency": "propagated",
                         "center_valency": "jointly ranked",
                         "adjunct_attachment": "typed temporal/locative/instrumental/causal",
+                        "cross_clause_agreement": True,
+                        "argument_role_compatibility": True,
                     },
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,

@@ -4704,6 +4704,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   best audit had 60 mismatches and exact closures were zero.  The next repair
   couples the state with locative phrase length.
 
+- **Dream-RSI round 85, 2026-09-18:** replayed 531 worlds and 19,872 audited
+  nodes after aspect, temporal, relative-lexical, and three-way agreement
+  repairs.  Fixed mismatch-first remained the held-out winner at 0.780 (458
+  held-out worlds), with zero mechanically admissible exact rows and 107
+  exact-but-rejected rows.  The next construction run therefore changes the
+  temporal seam representation instead of retuning replay scores.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

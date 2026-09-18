@@ -76,6 +76,7 @@ EXPLICIT_HISTORY = (
     "runs/cegar-role-product-20260917.json",
     "runs/reverse-pos-phrase-lattice-20260917.json",
     "runs/typed-slot-reverse-trie-repair-20260917.json",
+    "runs/multiclause-live-seam-chart-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")

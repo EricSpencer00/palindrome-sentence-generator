@@ -37,9 +37,11 @@ def run():
      if q==r or q==i or r==j:continue
      right=[clauses[q],clauses[r]]
      score=live_score(left,right); text='; '.join(x['text'] for x in left+right)
-     row={'text':text,'clause_ids':[i,j,q,r],'live_seam_depth':score,'audit':audit(text),'provenance':'fresh typed multi-clause chart; clauses selected independently before rendering','anti_shortcut':{'finished_tape_reversal':False,'catalogue_imported':False,'word_order_only':False}}
+     ids=[i,j,q,r]
+     row={'text':text,'clause_ids':ids,'live_seam_depth':score,'audit':audit(text),'provenance':'fresh typed multi-clause chart; clauses selected independently before rendering','anti_shortcut':{'finished_tape_reversal':False,'catalogue_imported':False,'word_order_only':False,'repeated_clause':len(ids)!=len(set(ids))}}
      best.append(row)
  best=sorted(best,key=lambda x:(x['audit']['exact'],x['live_seam_depth']),reverse=True)
- out={'experiment_id':'multiclause-live-seam-chart-20260917','status':'quarantined_no_reader_candidate','candidates':best[:20],'stats':{'typed_clauses':len(clauses),'compositions':len(best),'exact':sum(x['audit']['exact'] for x in best),'max_live_seam_depth':max((x['live_seam_depth'] for x in best),default=0)},'provenance':{'source':'fresh typed clause realizations','independent_audits':['two-pointer','SHA-256 forward/reverse']},'failure_and_repair':{'next_repair':'carry seam obligations across a third clause and add center-crossing lexical entries'}}
+ best=sorted(best,key=lambda x:(not x['anti_shortcut']['repeated_clause'],x['audit']['exact'],x['live_seam_depth']),reverse=True)
+ out={'experiment_id':'multiclause-live-seam-chart-20260917','status':'quarantined_no_reader_candidate','candidates':best[:20],'stats':{'typed_clauses':len(clauses),'compositions':len(best),'exact':sum(x['audit']['exact'] for x in best),'max_live_seam_depth':max((x['live_seam_depth'] for x in best),default=0),'nonrepeating_diagnostics':sum(not x['anti_shortcut']['repeated_clause'] for x in best[:20])},'provenance':{'source':'fresh typed clause realizations','independent_audits':['two-pointer','SHA-256 forward/reverse']},'failure_and_repair':{'next_repair':'carry seam obligations across a third clause and add center-crossing lexical entries'}}
  (R/'runs/multiclause-live-seam-chart-20260917.json').write_text(json.dumps(out,indent=2)+'\n');return out
 if __name__=='__main__':print(json.dumps(run(),indent=2))

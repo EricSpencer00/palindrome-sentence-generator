@@ -3810,3 +3810,11 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   a full two-sided closure.  The precise next operator is therefore a
   multi-clause chart with seam-compatible lexical entries and a true closure
   state.
+
+  The next multi-clause chart composed 194 typed clauses into 1,500,660
+  independently selected four-clause passages.  It performed the live
+  outside-in comparison before rendering and kept 20 nonrepeating diagnostic
+  passages; the best remained at seam depth zero, with zero exact closures.
+  Repeated-clause rows are explicitly flagged and excluded rather than used as
+  controls.  The next construction operator is a third-clause center-crossing
+  chart with seam obligations carried across clause boundaries.

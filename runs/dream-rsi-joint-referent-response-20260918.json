@@ -1,0 +1,94 @@
+{
+  "experiment": "dream-rsi-joint-referent-response-20260918",
+  "generator_sha256": "b9bb09684542498caa2660f576ffe957ae566d5c5fa03ee13ee2818b3c74da6d",
+  "seed": "A bellmaker checks a bronze dial; a runner waits beside the workshop.",
+  "rendered_candidates": [
+    {
+      "candidate_id": "branch-0",
+      "policy_branch": "workshop",
+      "rendered": "At noon, the bellmaker checks the bronze dial; later, the runner waits beside the workshop.",
+      "regions": [
+        "discourse_setup",
+        "shared_referent_action",
+        "masked_response_region"
+      ],
+      "mutable_spans": [
+        "shared_referent",
+        "response_subject",
+        "response_predicate"
+      ],
+      "mask_policy": {
+        "joint_referent_response": true,
+        "selected_before_infill": true,
+        "fresh_seed": "A bellmaker checks a bronze dial; a runner waits beside the workshop."
+      },
+      "audit": {
+        "letters": 73,
+        "two_pointer_exact": false,
+        "mismatches": 68,
+        "sha256_forward": "a3103d7628f16e4146ca0a125e80acd06ff58d9a409fe27dc41092c14f7f91d2",
+        "sha256_reverse": "040602589dc77d887b81cba58e661e60b8c614d663ffc6fe6dfcd5317ec38ccf"
+      },
+      "provenance": {
+        "construction": "dream_rsi_joint_referent_response_mask",
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "repeated_self_palindromic_unit": false
+      }
+    },
+    {
+      "candidate_id": "branch-1",
+      "policy_branch": "garden",
+      "rendered": "Before rain, the gardener labels the seed tray; later, the courier rests near the garden wall.",
+      "regions": [
+        "discourse_setup",
+        "shared_referent_action",
+        "masked_response_region"
+      ],
+      "mutable_spans": [
+        "shared_referent",
+        "response_subject",
+        "response_predicate"
+      ],
+      "mask_policy": {
+        "joint_referent_response": true,
+        "selected_before_infill": true,
+        "fresh_seed": "A bellmaker checks a bronze dial; a runner waits beside the workshop."
+      },
+      "audit": {
+        "letters": 75,
+        "two_pointer_exact": false,
+        "mismatches": 64,
+        "sha256_forward": "177b7d6ea363263ccc1da8186d644830fa2f5042438df6bf4377d5af48263fee",
+        "sha256_reverse": "df3845dbfd5daea3ad756a7d9a48a271d593816cef411481648a7d59392a0760"
+      },
+      "provenance": {
+        "construction": "dream_rsi_joint_referent_response_mask",
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "repeated_self_palindromic_unit": false
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0,
+    "longest_letters": 75,
+    "best_mismatches": 64
+  },
+  "novelty_preflight": {
+    "new_geometry": "joint referent/response masking after policy branch selection",
+    "prior_lane_reused": false,
+    "duplicate_sweep": false
+  },
+  "next_repair": {
+    "operator": "replay masked referent-response pairs with a mutable bridge clause",
+    "reason": "joint infill preserves intact prose but does not yet close character debt"
+  },
+  "provenance": {
+    "bounded_states": 2,
+    "human_readability_certified": false
+  }
+}

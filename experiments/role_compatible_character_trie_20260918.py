@@ -18,7 +18,13 @@ def run():
        for fog in ROLES['fog']:
         tail=(f"notes {spray}" if valency=="transitive" else f"gives {spray} to the bird" if valency=="ditransitive" else f"places {spray} by the {bay}")
         text=f"After {rain}, {sam} watches a {bird} above the {bay}; {sam} {tail} beneath the {fog}."
-        obligations={'rain_fog_pair':letters(rain)[:2]==letters(fog)[-2:][::-1],'agent_bird_pair':letters(sam)[-2:]==letters(bird)[:2][::-1]}
+        boundary_pairs = {
+            'transitive': (spray, fog),
+            'ditransitive': (bay, spray),
+            'locative': (bird, bay),
+        }
+        left_role, right_role = boundary_pairs[valency]
+        obligations={'valency_boundary_pair': letters(left_role)[:2] == letters(right_role)[-2:][::-1], 'live_boundary_roles':[left_role, right_role]}
         rows.append({'rendered':text,'roles':{'rain':rain,'agent':sam,'bird':bird,'bay':bay,'spray':spray,'fog':fog},'valency':valency,'pre_render_obligations':True,'two_character_obligations':obligations,'audit':audit(text),'provenance':{'authored_role_alternatives':True,'valency_frame':valency,'catalogue_used':False,'finished_tape_reversal':False,'word_order_only_symmetry':False,'repeated_unit':False,'human_readability_certified':False}})
  best=min(rows,key=lambda r:r['audit']['mismatches']) if rows else None
  return {'experiment':ID,'rendered_candidates':rows,'stats':{'rendered':len(rows),'exact':sum(r['audit']['two_pointer_exact'] for r in rows),'two_pair_survivors':sum(all(r['two_character_obligations'].values()) for r in rows),'longest_letters':max((r['audit']['letters'] for r in rows),default=0),'best_mismatches':best['audit']['mismatches'] if best else None},'next_repair':'Add three-character obligations and vary the valency frame at the same paired boundary.','reader_gate':'closed; programmatic diagnostics do not certify readability','provenance':{'independent_audits':['two-pointer','forward/reverse SHA-256'],'novelty_preflight':'live role trie before rendering'}}

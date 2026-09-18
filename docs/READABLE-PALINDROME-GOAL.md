@@ -4248,3 +4248,11 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   rows remain complete prose with provenance and independent two-pointer/SHA
   checks.  The next repair jointly varies the event predicate and its first
   attached adjunct so the live mirrored frontier changes at both boundaries.
+
+- **Dream-RSI round 63, 2026-09-17:** replayed 489 worlds and 19,047 audited
+  nodes after adding the three repair lanes above.  The fixed mismatch-first
+  policy remained the held-out winner at 0.780; the held-out report had 418
+  worlds, zero mechanically admissible exact rows, and 107 exact-but-rejected
+  rows.  This stable score is a policy-routing plateau, so the next round is
+  required to consume the recorded coupled operators rather than retune the
+  replay metric.

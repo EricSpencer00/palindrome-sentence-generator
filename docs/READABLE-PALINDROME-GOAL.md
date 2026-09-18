@@ -4294,3 +4294,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   and exact closures were zero.  The next construction changes representation
   at the central seam (a mutable center clause with live character obligations)
   rather than repeating three-region substitutions.
+
+- **Paired opposing-noun seam repair, 2026-09-17:** coordinated opposing noun
+  substitutions at one seam index while preserving agreement and semantic
+  roles.  Four complete passages up to 118 letters were rendered; the best
+  audit had 108 mismatches and exact closures were zero.  The next operator
+  couples the nouns with their relative verbs at that same seam.
+
+- **Locative preposition+noun-pair repair, 2026-09-17:** coupled locative
+  preposition and noun-pair changes at fixed phrase length.  Sixty-four
+  complete rows reached 98 letters; the best audit had 60 mismatches and exact
+  closures were zero.  The next repair couples the object determiner with the
+  locative pair.
+
+- **Mutable center-clause repair, 2026-09-17:** changed the recursive spine's
+  center representation to a typed clause such as ``and the reader understands
+  the note`` rather than appending a fixed center.  Targets reached 179, 204,
+  285, and 385 letters; the best audit had 168 mismatches and exact closures
+  were zero.  The next construction makes that center clause itself a live
+  two-sided constituent selected from opposing boundary obligations.

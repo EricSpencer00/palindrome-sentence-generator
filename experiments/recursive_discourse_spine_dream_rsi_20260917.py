@@ -52,6 +52,15 @@ def _authored_adjuncts() -> tuple[Adjunct, ...]:
     for lead in ("Near the stone plaza", "Beside the cedar marina"):
         text = f"{lead}, she archives the agenda."
         rows.append(Adjunct("locative", text, terminal(text)))
+    # Fresh terminal classes for live substitution.  These are ordinary
+    # attachment-compatible clauses, not mirrored fragments or tape repairs.
+    for kind, lead, verb, obj in (
+        ("temporal", "At first light", "reviews", "the diary"),
+        ("locative", "Across the quiet field", "returns", "the key"),
+        ("instrumental", "With a red pen", "corrects", "the copy"),
+        ("causal", "Since the guide agrees", "shares", "the story"),
+    ):
+        rows.append(Adjunct(kind, f"{lead}, she {verb} {obj}.", terminal(f"{lead}, she {verb} {obj}.")))
     # Stable de-duplication protects the no-repeated-adjunct invariant.
     return tuple(dict((row.text, row) for row in rows).values())
 
@@ -124,6 +133,7 @@ def substitute_first_unresolved(state: tuple[Adjunct, ...]) -> tuple[Adjunct, ..
     # terminal must satisfy the character demanded by the opposite side.
     required_terminal = tape[-1 - k]
     used = {item.text for item in state}
+    before = tape
     for index, old in enumerate(state):
         for candidate in ADJUNCTS:
             if candidate.text in used or candidate.text == old.text:
@@ -132,7 +142,11 @@ def substitute_first_unresolved(state: tuple[Adjunct, ...]) -> tuple[Adjunct, ..
             # variable for this typed expansion; terminal matching is the
             # opposite-edge obligation.
             if candidate.terminal == required_terminal:
-                return (*state[:index], candidate, *state[index + 1:])
+                proposed = (*state[:index], candidate, *state[index + 1:])
+                # Require an actual boundary change; otherwise the action is
+                # not a repair and must be recorded as unavailable.
+                if letters(render(proposed)) != before:
+                    return proposed
     return state
 
 

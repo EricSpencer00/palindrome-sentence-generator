@@ -5154,3 +5154,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the held-out routing winner at 0.780; no fresh exact or reader-certified
   output was admitted.  The next action is the named-center composition repair
   recorded by the construction lane.
+
+- **Named-center clause composition, 2026-09-18:** composed 125 pairs of
+  independently authored, feature-compatible complete clauses around a single
+  live name and ranked their cross-word residuals before exact replay.  The
+  longest rendered control was 56 letters; exact closures remained 0 and no
+  row was reader-eligible.  The strongest seam still left 23 mismatches.  The
+  next repair solves agreement-carrying inflectional equations before a row is
+  rendered, rather than ranking fixed clauses after the fact.
+
+- **Dream-RSI round 106, 2026-09-18:** replayed 709 worlds and 21,652
+  audited nodes after the named-center lane.  Fixed mismatch-first remains the
+  held-out routing winner at 0.780; no fresh exact or reader-certified output
+  was admitted.  The next action is the recorded pre-render inflectional
+  equation solver.

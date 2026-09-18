@@ -112,6 +112,7 @@ CENTER_VALENCY_FRAMES = (
     ("ditransitive", "and {s} gives {o} to the reader."),
     ("locative", "and {s} places {o} by the gate."),
 )
+AGREEMENT_FEATURES = ("singular", "plural")
 
 
 def select_live_center(prefix: str, target: int | None = None) -> str:
@@ -159,19 +160,22 @@ def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) 
             continue
         if prefix.startswith("A ") and not ("the " in center or "a " in center):
             continue
-        for first in first_pool:
-            for terminal in terminal_pool:
-                if state and first.text == terminal.text:
-                    continue
-                if state:
-                    proposed = (first, *state[1:-1], terminal) if len(state) > 1 else (first,)
-                else:
-                    proposed = (first,)
-                if len({item.text for item in proposed}) != len(proposed):
-                    continue
-                tape = letters(prefix + " " + render(proposed) + " " + center)
-                debt = sum(a != b for a, b in zip(tape, tape[::-1]))
-                candidates.append((debt, -len(tape), center, proposed))
+        for feature in AGREEMENT_FEATURES:
+            if feature == "plural" and not any(w in center.split() for w in ("readers", "guides", "witnesses")):
+                continue
+            for first in first_pool:
+                for terminal in terminal_pool:
+                    if state and first.text == terminal.text:
+                        continue
+                    if state:
+                        proposed = (first, *state[1:-1], terminal) if len(state) > 1 else (first,)
+                    else:
+                        proposed = (first,)
+                    if len({item.text for item in proposed}) != len(proposed):
+                        continue
+                    tape = letters(prefix + " " + render(proposed) + " " + center)
+                    debt = sum(a != b for a, b in zip(tape, tape[::-1]))
+                    candidates.append((debt, -len(tape), center, proposed))
     _, _, center, proposed = min(candidates, key=lambda row: (row[0], row[1], row[2]))
     return center, proposed
 
@@ -339,6 +343,7 @@ def run() -> dict[str, Any]:
                         "adjunct_attachment": "typed temporal/locative/instrumental/causal",
                         "cross_clause_agreement": True,
                         "argument_role_compatibility": True,
+                        "agreement_features_live": True,
                     },
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,

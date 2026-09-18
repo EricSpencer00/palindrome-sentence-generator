@@ -62,6 +62,8 @@ EXPLICIT_HISTORY = (
     "runs/dream-rsi-online-branching-two-region-20260917.json",
     "runs/lexicon-reverse-edge-chain-20260917.json",
     "runs/direct-joint-authoring-20260917.json",
+    "runs/ordinary-phrase-pair-chain-20260917.json",
+    "runs/character-cfg-earley-scene-20260917.json",
     "runs/joint-boundary-first-mismatch-repair-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

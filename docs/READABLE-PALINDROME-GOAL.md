@@ -3680,3 +3680,26 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   The concrete response is to keep model calls off the critical construction
   path and invest in the live CFG/lexical chart, where character obligations are
   solved before prose is emitted.
+
+  Three additional Luna construction lanes were run as a Dream-RSI breadth
+  expansion. The ordinary phrase-pair/trie lane filtered 148 authored
+  sentences down to 21 complete common-word phrases, then attempted live
+  reverse-tape segmentation with disjoint lexical content; it found zero exact
+  phrase edges. The semantic character-CFG lane used typed
+  agent/action/object/location slots and independent pointer/SHA audits, but
+  produced no 100-letter frontier or exact closure. A slot-seam lane used the
+  local model only for clause-slot proposals; two calls timed out and the
+  returned control text was rejected as incomplete, so it is not in the replay
+  history. These are distinct failures, not duplicated score sweeps. Their
+  concrete next repairs are, respectively, held-out typed SVO phrase
+  expansion, live complement transitions, and a deterministic seam operator
+  that never mirrors a finished tape.
+
+  Dream-RSI round twenty-one replays the two valid new worlds together with the
+  prior history: 16,618 nodes across 442 replay worlds, with
+  `whole_passage_focus` again selected on training and held-out splits. The
+  held-out winner has zero admissible exact closures (113 exact controls are
+  rejected) and a best intact diagnostic of 159 letters at 0.794 mismatch
+  rate. The replay routes the next construction step but does not claim a
+  readable result; the reader gate remains closed until an original, exact,
+  intact passage is rendered and tested against a randomized shuffled control.

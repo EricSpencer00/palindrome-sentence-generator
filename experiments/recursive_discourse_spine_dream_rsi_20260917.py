@@ -147,6 +147,14 @@ def select_live_center(prefix: str, target: int | None = None) -> str:
 def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) -> tuple[str, tuple[Adjunct, ...]]:
     """Choose center and terminal adjunct by one rendered residual objective."""
     candidates = []
+    def temporal_compatible(adj: Adjunct, center: str) -> bool:
+        if adj.kind != "temporal_aspect":
+            return True
+        if "has " in center and adj.text.startswith("Before"):
+            return False
+        if "marked" in adj.text and "has " in center:
+            return False
+        return True
     # Full typed frontier: first and terminal adjunct alternatives are both
     # live, including the newly authored terminal classes.
     def boundary_variants(item: Adjunct) -> list[Adjunct]:
@@ -174,6 +182,8 @@ def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) 
                 continue
             for first in first_pool:
                 for terminal in terminal_pool:
+                    if not temporal_compatible(first, center) or not temporal_compatible(terminal, center):
+                        continue
                     if state and first.text == terminal.text:
                         continue
                     if state:
@@ -358,6 +368,7 @@ def run() -> dict[str, Any]:
                         "auxiliary_aspect_live": True,
                         "temporal_compatibility": True,
                         "temporal_tense_aspect_shared_variable": True,
+                        "semantic_event_order_pre_render": True,
                     },
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,

@@ -79,6 +79,9 @@ EXPLICIT_HISTORY = (
     "runs/multiclause-live-seam-chart-20260917.json",
     "runs/three-clause-center-crossing-20260917.json",
     "runs/dialogue-scene-semantic-palindrome-20260917.json",
+    "runs/center-boundary-mirror-search-20260917.json",
+    "runs/center-word-boundary-scene-20260917.json",
+    "runs/dialogue-scene-lattice-crossing-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")

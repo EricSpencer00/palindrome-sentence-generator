@@ -3849,3 +3849,21 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   mirrors and proper palindromic subspans.  Replay remains routing evidence;
   the reader gate stays closed until a mechanically eligible 100+ letter row
   enters the randomized blinded intact/shuffled study.
+
+  **Center-repair fan-out (2026-09-17).**  Three orthogonal Luna lanes were
+  replayed as separate construction worlds rather than counted as one sweep.
+  The bounded mirror-pair audit rechecked 256 exact rows and found zero
+  mechanically clean candidates; its best rows are short phrase diagnostics,
+  not prose.  The authored center-word grammar rendered 24 ordinary scene
+  candidates up to 71 letters with the midpoint inside a lexical token and
+  found zero exact closures.  The typed dialogue lattice rendered 432 fresh
+  variants with the same center-crossing invariant and found zero exact
+  closures.  Each row carries rendered text, an independent pointer/SHA audit,
+  provenance, and a concrete repair; none enters the reader study.
+
+  Round 38 adds those worlds to Dream-RSI replay, increasing the history to
+  17,545 nodes while retaining the held-out policy result.  This narrows the
+  next construction: preserve the online center-word ledger, but replace the
+  current fixed five-slot scenes with a residual-driven center setting/answer
+  expansion.  The mirror-pair inventory is now explicitly a diagnostic source,
+  not a generator or a readability shortcut.

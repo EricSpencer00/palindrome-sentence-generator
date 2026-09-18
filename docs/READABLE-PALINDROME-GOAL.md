@@ -4421,6 +4421,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the best audit had 56 mismatches and exact closures were zero.  The next
   operator couples tense with the locative NP determiner.
 
+- **Class-length head/verb coupling, 2026-09-18:** enforced equal paired
+  head/verb letter lengths and rejected three of four states before rendering.
+  The one admitted complete passage was 93 letters with 80 mismatches; exact
+  closures were zero.  This is the strongest residual signal so far, but it is
+  not reader evidence; the next repair adds boundary-attachment constraints.
+
+- **Bounded internal-boundary frontier, 2026-09-18:** added grammatical
+  determiner and phrase-boundary variants for both first and terminal adjuncts,
+  with duplicate-content rejection.  Four target traces reached 394 letters;
+  exact closures remained zero.  The next operator moves beyond adjunct-local
+  edits to a typed predicate-argument boundary operator.
+
+- **Dream-RSI round 76, 2026-09-18:** replayed 515 worlds and 19,637 audited
+  nodes after the equal-length head/verb and internal-boundary repairs.  Fixed
+  mismatch-first remained the held-out winner at 0.780 (444 held-out worlds),
+  with zero mechanically admissible exact rows and 107 exact-but-rejected rows.
+  The next construction step is the typed predicate-argument boundary lane;
+  replay stability remains a routing diagnostic only.
+
 - **Dream-RSI round 74, 2026-09-18:** replayed 511 worlds and 19,570 audited
   nodes after the character-class and NP-agreement additions.  Fixed
   mismatch-first remained the held-out winner at 0.780 (440 held-out worlds),

@@ -4754,6 +4754,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   mismatches and exact closures were zero.  The next repair couples lexical
   class with relative-clause attachment.
 
+- **Dream-RSI round 87, 2026-09-18:** replayed 535 worlds and 19,912 audited
+  nodes after the event-order gate, boundary-length, and anaphor-class repairs.
+  Fixed mismatch-first remained the held-out winner at 0.780 (462 held-out
+  worlds), with zero mechanically admissible exact rows and 107 exact-but-
+  rejected rows.  The next construction step is the typed event-order graph
+  and seam-selected paired lexical repair; replay remains routing evidence only.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

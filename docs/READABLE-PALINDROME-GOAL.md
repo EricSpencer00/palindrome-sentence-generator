@@ -4576,6 +4576,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   construction; it does not certify a palindrome or readability.  The next
   repair must enforce cross-clause agreement and argument-role compatibility.
 
+- **Cross-clause agreement/role compatibility, 2026-09-18:** filtered outer and
+  center event frames jointly for determiner agreement, human-agent subjects,
+  shared argument roles, and typed adjunct attachment.  Four complete target
+  traces reached 393 letters; exact closures remained zero.  The next repair
+  turns agreement features into live residual variables rather than a final
+  filter.
+
+- **Attachment-aware clause-length balance, 2026-09-18:** balanced paired
+  relative-clause lengths under the same locative attachment gate.  Two complete
+  passages reached 115 letters; the best audit had 98 mismatches and exact
+  closures were zero.  The next repair pairs balanced clauses with coordinated
+  determiner changes.
+
+- **Valency/anaphor locative repair, 2026-09-18:** coupled anaphor choice with
+  predicate valency and locative agreement under fixed tense.  Thirty-two
+  complete rows reached 87 letters; the best audit had 56 mismatches and exact
+  closures were zero.  The next repair couples anaphor choice with
+  relative-clause subject agreement.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

@@ -3703,3 +3703,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   rate. The replay routes the next construction step but does not claim a
   readable result; the reader gate remains closed until an original, exact,
   intact passage is rendered and tested against a randomized shuffled control.
+
+  The recorded repairs were then executed rather than merely described. A
+  typed SVO phrase-edge preflight tested five fresh agent/action/object/location
+  clauses and found zero exact edges. The CFG lane was upgraded with explicit
+  character-level complement transitions and still had no 100-letter closure.
+  The pre-closure seam lane paired two complete hand-authored slot pairs while
+  obligations were live; both stopped at the first lexical seam conflict and
+  rendered nothing. All three artifacts preserve the conflict trace and the
+  next lexical/agreement repair, and none uses a finished-tape mirror.

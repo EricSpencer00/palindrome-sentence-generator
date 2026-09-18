@@ -4595,6 +4595,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   closures were zero.  The next repair couples anaphor choice with
   relative-clause subject agreement.
 
+- **Dream-RSI round 80, 2026-09-18:** replayed 523 worlds and 19,776 audited
+  nodes after cross-clause compatibility, clause-length balance, and
+  valency/anaphor repairs.  Fixed mismatch-first remained the held-out winner at
+  0.780 (450 held-out worlds), with zero mechanically admissible exact rows and
+  107 exact-but-rejected rows.  The next construction must make agreement
+  features live variables in the character residual equation; this replay
+  result is routing evidence only.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

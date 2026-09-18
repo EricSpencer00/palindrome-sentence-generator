@@ -36,8 +36,9 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
 
 ## Orchestration reset (2026-09-18)
 
-- **Progress audit.** `main` is clean and aligned with `origin/main` at
-  `ca526eb`. It contains 116 commits since 2026-09-18 00:00, but the active
+- **Progress audit.** `main` is clean and one local orchestration commit ahead
+  of `origin/main`; the code baseline remains `ca526eb`. It contains 116
+  commits since 2026-09-18 00:00, but the active
   acceptance measurements remain unchanged: zero exact admissible rows, zero
   reader-eligible outputs, and no blinded-reader package. The latest useful
   diagnostic is the 119-letter inherited prose row with 46 mismatches; it is

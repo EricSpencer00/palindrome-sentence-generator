@@ -4313,3 +4313,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   285, and 385 letters; the best audit had 168 mismatches and exact closures
   were zero.  The next construction makes that center clause itself a live
   two-sided constituent selected from opposing boundary obligations.
+
+- **Paired noun/relative-verb seam repair, 2026-09-17:** changed opposing
+  semantic nouns and their relative verbs together under agreement and
+  boundary-balance constraints.  Four complete passages up to 121 letters were
+  rendered; the best audit had 94 mismatches and exact closures were zero.  The
+  next operator adds relative-head and boundary-length constraints.
+
+- **Object-determiner/locative-pair repair, 2026-09-17:** coupled object
+  determiners with the locative preposition+noun pair at fixed length.  Sixty-
+  four complete rows reached 101 letters; the best audit had 60 mismatches and
+  exact closures were zero.  The next repair couples object determiner with
+  verb valency.
+
+- **Dream-RSI round 67, 2026-09-17:** replayed 497 worlds and 19,319 audited
+  nodes after the noun/verb and object-determiner repairs.  The mismatch-first
+  policy remained the held-out winner at 0.780 (427 held-out worlds), with zero
+  mechanically admissible exact rows and 107 exact-but-rejected rows.  The
+  replay plateau is now an explicit trigger for the next representation change;
+  it is not a readability or speed result.

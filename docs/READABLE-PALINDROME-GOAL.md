@@ -4109,3 +4109,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   0.780, with zero mechanically admissible exact rows; the unchanged replay
   score routes work to the recorded semantic-frame replacement rather than
   another score-tuning pass.
+
+- **Three-letter agreement CSP, 2026-09-17:** extended the pre-render seam
+  signature to three letters and carried number agreement through the lexical
+  alternatives.  Twelve of 16 authored pairs were rejected before rendering;
+  four complete scenes up to 119 letters remained, with best residual 88 and
+  zero exact closures.  The next repair varies inflectional lexical choices
+  within the same seam class.
+
+- **Auxiliary-plus-complement phrase, 2026-09-17:** permitted an inflected
+  auxiliary together with a short two-word complement while preserving the
+  bridge and attachment.  Sixty-four complete candidates up to 89 letters were
+  rendered; the best residual was 58 and exact closures were zero.  The next
+  operator is auxiliary polarity choice with a two-word complement.
+
+  Dream-RSI round 56 replays 18,833 audited nodes after the three-letter and
+  auxiliary-phrase repairs.  The held-out mismatch-first policy remains 0.780
+  with zero mechanically admissible exact rows.  The stable replay result is
+  now a baseline for the next live operators; it is not a readability or speed
+  claim.

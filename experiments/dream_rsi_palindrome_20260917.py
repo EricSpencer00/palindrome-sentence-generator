@@ -106,6 +106,8 @@ EXPLICIT_HISTORY = (
     "runs/frame-pair-seam-csp-20260917.json",
     "runs/two-letter-frame-seam-csp-20260917.json",
     "runs/relative-seam-complement-auxiliary-20260917.json",
+    "runs/relative-seam-auxiliary-phrase-20260917.json",
+    "runs/three-letter-agreement-csp-20260917.json",
     "runs/recursive-discourse-spine-dream-rsi-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )

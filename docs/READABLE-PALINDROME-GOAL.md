@@ -3663,6 +3663,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   admissible exact closures, 16,618 nodes across 442 worlds). The next change
   must alter the lexical domain, not merely add another complement production.
 
+  As a diagnostic sanity check, the Brown word-bigram order-gain audit (64
+  deterministic own-word shuffles) gives the quarantined 214-letter chain
+  gain 0.000, mean Zipf 2.732, and repeated-word rate 0.719, whereas the
+  fluent 134-letter theater diagnostic gives gain 1.017, mean Zipf 5.403, and
+  repeated-word rate 0.111. These figures are descriptive only: they support
+  filtering and failure analysis, never a readability certificate or a
+  substitute for the blinded intact/shuffled reader study.
+
   A direct joint-authoring lane was also timed against the local `gpt-oss:20b`
   model. Four bounded attempts each timed out at 35 seconds before returning a
   passage; the run preserved those failures and a quarantined mismatch-repair

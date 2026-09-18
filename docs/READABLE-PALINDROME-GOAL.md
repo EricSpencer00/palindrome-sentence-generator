@@ -5272,3 +5272,11 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   This is policy-routing evidence, not a palindrome or readability result;
   the next construction is lexicalized reciprocal frames with plural-object
   agreement.
+
+- **Lexicalized reciprocal plural-frame seam, 2026-09-18:** generated fresh
+  reciprocal verb frames with plural subject/object agreement and semantic
+  valency carried as state.  Both name/object seams were checked by live
+  character equations before rendering; the lane produced 0 equation-compatible
+  nodes and 0 exact closures.  Fresh intact controls were 65 letters and remain
+  human-unreviewed.  The reader gate is closed.  The next repair adds
+  reciprocal preposition alternations and animate/inanimate object typing.

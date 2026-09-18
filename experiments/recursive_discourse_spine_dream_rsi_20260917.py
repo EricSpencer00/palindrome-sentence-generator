@@ -102,9 +102,9 @@ CENTER_CLAUSES = (
     "because the guide remembers the route.",
     "and the reader understands the note.",
 )
-CENTER_SUBJECTS = ("the witness", "the guide", "the reader")
+CENTER_SUBJECTS = ("the witness", "the guide", "the reader", "the careful witness", "a patient guide")
 CENTER_VERBS = ("keeps", "checks", "remembers")
-CENTER_OBJECTS = ("the record", "the entry", "the route", "the note")
+CENTER_OBJECTS = ("the record", "the entry", "the route", "the note", "the old record", "a quiet note")
 
 
 def select_live_center(prefix: str) -> str:

@@ -122,6 +122,14 @@ CENTER_VALENCY_FRAMES = (
     ("locative", "and {s} places {o} by the gate."),
 )
 AGREEMENT_FEATURES = ("singular", "plural")
+EVENT_ORDER = {"Before": 0, "After": 2, "While": 1, "Until": 1, "Since": 2}
+
+
+def event_order_graph(adj: Adjunct, center: str) -> dict:
+    lead = adj.text.split()[0]
+    return {"adjunct_time": EVENT_ORDER.get(lead, 1),
+            "center_time": 2 if "has " in center else (1 if "ed " in center else 0),
+            "precedence_valid": not (lead == "Before" and "has " in center)}
 
 
 def select_live_center(prefix: str, target: int | None = None) -> str:
@@ -150,11 +158,7 @@ def joint_center_terminal(prefix: str, state: tuple[Adjunct, ...], target: int) 
     def temporal_compatible(adj: Adjunct, center: str) -> bool:
         if adj.kind != "temporal_aspect":
             return True
-        if "has " in center and adj.text.startswith("Before"):
-            return False
-        if "marked" in adj.text and "has " in center:
-            return False
-        return True
+        return event_order_graph(adj, center)["precedence_valid"]
     # Full typed frontier: first and terminal adjunct alternatives are both
     # live, including the newly authored terminal classes.
     def boundary_variants(item: Adjunct) -> list[Adjunct]:
@@ -369,6 +373,7 @@ def run() -> dict[str, Any]:
                         "temporal_compatibility": True,
                         "temporal_tense_aspect_shared_variable": True,
                         "semantic_event_order_pre_render": True,
+                        "typed_event_order_graph": True,
                     },
                     "authored_adjunct_inventory": True,
                     "catalogue_used": False,

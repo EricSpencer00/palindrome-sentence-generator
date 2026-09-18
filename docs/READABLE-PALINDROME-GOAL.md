@@ -5308,3 +5308,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
 - **Typed determiner/adjunct attachment seam, 2026-09-18:** added typed determiner and scene-adjunct attachment variants while preserving reciprocal preposition valency and animate/inanimate object types. Live equations were checked before rendering; the lane produced 0 equation-compatible nodes and 0 exact closures. Fresh intact controls remain 66–68 letters, independently audited and human-unreviewed, so the reader gate is closed. The next repair carries character obligations across the attachment boundary and resegments the determiner/adjunct seam, rather than repeating the noun-number sweep.
 
 - **Dream-RSI round 114, 2026-09-18:** replayed the registered typed determiner/adjunct lane with 564 worlds and 21,729 audited nodes. Its attachment geometry produced no equation-compatible branch, so the held-out fixed mismatch-first policy remains 0.780 and the admissible exact count is still 0. The concrete next construction is cross-attachment boundary carry with determiner/adjunct seam resegmentation; replay expansion is not counted as progress.
+
+- **Cross-attachment character carry, 2026-09-18:** implemented a distinct
+  resegmentation operator that lets character obligations cross the object/
+  adjunct attachment boundary while retaining reciprocal transitive valency
+  and object typing. The fresh search produced 0 compatible nodes and 0 exact
+  closures; its intact authored controls span 58–70 letters and pass an
+  independent two-pointer plus forward/reverse hash audit. They are
+  human-unreviewed, so the reader gate is closed. The next repair inserts
+  typed adjunct variants on both reciprocal sides while retaining movable
+  boundaries.

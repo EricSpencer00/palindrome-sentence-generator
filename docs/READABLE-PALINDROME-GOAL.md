@@ -4711,6 +4711,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact-but-rejected rows.  The next construction run therefore changes the
   temporal seam representation instead of retuning replay scores.
 
+- **Shared temporal seam variable, 2026-09-18:** shared tense/aspect across
+  outer and center predicates and their temporal adjuncts, changing the live
+  seam equation.  Four complete target traces reached 361 letters; exact
+  closures remained zero.  The next repair enforces semantic event ordering
+  before rendering.
+
+- **Agreement-aware relative seam length, 2026-09-18:** enforced equal paired
+  relative-clause lengths while preserving agreement and locative attachment.
+  Four complete passages reached 113 letters; the best audit had 88 mismatches
+  and exact closures were zero.  The next repair balances paired boundary
+  lengths at the same seam.
+
+- **Three-way locative-length repair, 2026-09-18:** jointly selected short or
+  expanded locative phrase length inside the three-way agreement state while
+  holding preposition fixed.  Sixteen complete rows reached 79 letters; the
+  best audit had 60 mismatches and exact closures were zero.  The next repair
+  couples locative phrase length with anaphor lexical class.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

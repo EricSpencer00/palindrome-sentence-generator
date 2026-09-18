@@ -5328,3 +5328,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   receive independent two-pointer and forward/reverse hash audits. They are
   human-unreviewed, so the reader gate is closed. The concrete next repair is
   semantic adjunct and tense variation at both mutable boundaries.
+
+- **Dream-RSI round 115, 2026-09-18:** replayed the cross-attachment
+  resegmentation lane with 565 worlds and 21,735 audited nodes, including 12
+  branching parents. The held-out fixed mismatch-first policy remains 0.780
+  and the admissible exact count remains 0. This records a new boundary state
+  but no exact closure; the next construction is typed adjunct insertion on
+  both reciprocal seams with boundary carry.
+
+- **Dream-RSI round 116, 2026-09-18:** replayed the seed-centered context
+  growth lane together with the cross-attachment history. The tree remains 565
+  worlds and 21,735 audited nodes, because both new live searches contributed
+  0 equation-compatible branches. Fixed mismatch-first remains the held-out
+  winner at 0.780 with 0 admissible exact rows. This is explicitly recorded
+  as non-progress; the next step must change construction geometry again.

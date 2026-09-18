@@ -4055,6 +4055,27 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   zero and the best residual was 124, worse than the prior seam repair; the
   next refinement is a two-letter seam CSP with role-compatible alternatives.
 
+- **Two-letter frame seam CSP, 2026-09-17:** refined the pre-render frame
+  constraint to a two-letter opposing signature over 16 authored frame pairs.
+  Eight were rejected before rendering and eight complete passages up to 141
+  letters were audited; exact closures were zero and the best residual stayed
+  at 120.  The next route is a three-letter signature with inflectional
+  agreement.
+
+- **Complement-plus-auxiliary seam repair, 2026-09-17:** jointly varied the
+  one-word complement and a minimal `can`/`will` auxiliary while holding the
+  bridge and relative attachment fixed.  Sixty-four complete candidates up to
+  91 letters were rendered; the best residual was 60 and exact closures were
+  zero.  The next operator permits auxiliary inflection with a short complement
+  phrase.
+
+  Dream-RSI round 54 replays 18,761 audited nodes.  The held-out
+  mismatch-first policy remains 0.780 with zero mechanically admissible exact
+  rows and 111 exact-but-rejected controls in training.  The stable plateau
+  confirms that replay is routing evidence; the next live construction must use
+  the queued morphology-aware three-letter signature and auxiliary-inflection
+  operator.
+
   Dream-RSI round 53 replays 18,689 audited nodes including the typed
   complement and frame-CSP lanes.  The held-out policy remains 0.780 with zero
   mechanically admissible exact rows.  Replay is now a stable routing baseline;

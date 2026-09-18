@@ -92,6 +92,8 @@ EXPLICIT_HISTORY = (
     "runs/joint-agent-object-masked-infill-20260917.json",
     "runs/dream-rsi-palindrome-round41-20260917.json",
     "runs/relative-clause-boundary-infill-20260917.json",
+    "runs/three-region-discourse-anchor-20260917.json",
+    "runs/semantic-frame-mirror-20260917.json",
     "runs/whole-prose-repair-2026-09-13/pilot-01.json",
 )
 TEXT_KEYS = ("rendered", "text", "sentence", "surface")
@@ -205,7 +207,9 @@ def _shortcut_free(obj: dict[str, Any]) -> bool:
                 "word_form", "lexicon_words", "ordinary_short_words",
                 "distinct_words", "no_self_palindromic_word",
                 "no_repeated_nontrivial_unit", "no_self_palindromic_proper_multiword_span",
-                "not_word_order_symmetry",
+                "not_word_order_symmetry", "not_forbidden_catalogue_control",
+                "not_catalogue_family_derivative", "not_forbidden_catalogue_endpoint_scaffold",
+                "absent_from_local_catalogue",
             )
             if not all(checks.get(key, False) for key in hard):
                 return False
@@ -238,7 +242,8 @@ def _shortcut_free(obj: dict[str, Any]) -> bool:
             # grammatical anaphora; contiguous repeated phrases are rejected
             # above.  Do not confuse that legitimate repetition with a copied
             # unit.
-            "word_order_mirror", "borrowed_catalogue_text",
+            "word_order_mirror", "word_order_only_symmetry", "word_order_only",
+            "borrowed_catalogue_text",
             "reader_certified", "catalogue_family_derivative", "repeated_unit",
             "finished_tape_reversed", "fragment",
         }
@@ -515,6 +520,26 @@ def replay_world(nodes: list[Node], policy: dict[str, Any], budget: int) -> dict
     return {
         "visited": len(visited),
         "admissible_exact": len(admissible_exact),
+        # Never report an admission count without the concrete rendered rows
+        # that earned it.  This prevents an inherited exact/control signal
+        # from looking like a new reader-facing candidate in replay summaries.
+        "admissible_exact_rows": [
+            {
+                "node_id": node.node_id,
+                "world": node.world,
+                "source_path": node.source_path,
+                "source_location": node.source_location,
+                "rendered": node.rendered,
+                "letters": node.letters,
+                "exact": node.exact,
+                "mismatch_count": node.mismatch_count,
+                "forward_sha256": node.forward_sha256,
+                "shortcut_free": node.shortcut_free,
+                "intact_surface": node.intact_surface,
+                "reader_certified": node.reader_certified,
+            }
+            for node in admissible_exact
+        ],
         "exact_rejected": sum(node.exact and _tier(node) < 4 for node in visited),
         "new_actions": len(seen_actions),
         "best": asdict(best) if best else None,
@@ -535,6 +560,9 @@ def aggregate(nodes: list[Node], policy: dict[str, Any], budget: int) -> dict[st
         "world_count": len(reports),
         "world_reports": reports,
         "admissible_exact": sum(report["admissible_exact"] for report in reports.values()),
+        "admissible_exact_rows": [
+            row for report in reports.values() for row in report["admissible_exact_rows"]
+        ],
         "exact_rejected": sum(report["exact_rejected"] for report in reports.values()),
         "new_actions": sum(report["new_actions"] for report in reports.values()),
         "best_mismatch_rate": min((row["mismatch_rate"] for row in bests), default=1.0),

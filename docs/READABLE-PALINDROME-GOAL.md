@@ -3939,3 +3939,27 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   catalogue text, finished-tape reversal, repeated unit, or reader claim.  Its
   concrete successor is a three-region discourse-frame infill with one shared
   referent; another duplicate two-span sweep is explicitly rejected.
+
+- **Three-region discourse anchor, 2026-09-17:** changed the live state again
+  to a setup, a shared-referent relative clause, and an anaphoric response.
+  Sixteen bounded authored scenes were rendered (longest 69 letters); the
+  best had 42 mirrored mismatches and exact closures were zero.  The shared
+  referent is semantic glue, not a repeated palindrome unit.  Independent
+  pointer/SHA checks and provenance are retained; the next repair jointly
+  inflects the referent and anaphoric response without dropping the attachment.
+
+- **Semantic-frame mirror, 2026-09-17:** independently varied semantic slots
+  in two long scene frames with mutable subjects, actions, objects, and
+  relative clauses.  Four fresh complete passages (135--140 letters) were
+  rendered and audited; exact closures were zero and the best had 120
+  mismatches.  The concrete next repair is seam-conditioned role-compatible
+  substitution inside the relative-clause slots, not another broad sweep.
+
+- **Dream-RSI replay audit correction, 2026-09-17:** replay round 47 now
+  exposes every mechanically-admissible exact row with its rendered text,
+  source path, and audit hashes instead of reporting a bare count.  The
+  fail-closed shortcut gate also rejects legacy `word_order_only_symmetry`
+  flags and all catalogue-family aliases.  On 18,412 nodes the held-out
+  mismatch-first policy remains at 0.780 mismatch rate, with zero admissible
+  exact rows and 111 exact-but-rejected controls.  This fixes an evidence
+  accounting bug; it does not turn replay into readability evidence.

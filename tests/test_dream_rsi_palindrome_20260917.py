@@ -95,3 +95,23 @@ def test_withheld_kernel_fixture_is_not_loaded_as_a_replay_candidate():
     worlds = dream.load_worlds()
     assert not any(node.source_path == "runs/cegar-role-product-20260917.json"
                    for node in worlds)
+
+
+def test_replay_admission_count_exposes_the_rendered_row():
+    exact = _node("A man, a plan, a canal: Panama!")
+    report = dream.replay_world(
+        [exact], next(p for p in dream.POLICIES if p["name"] == "fixed_mismatch_first"), 2
+    )
+    assert report["admissible_exact"] == 1
+    assert report["admissible_exact_rows"][0]["rendered"] == exact.rendered
+    assert report["admissible_exact_rows"][0]["source_path"] == exact.source_path
+
+
+def test_word_order_only_exact_control_cannot_enter_admissible_tier():
+    import json
+
+    row = json.loads(
+        (Path(__file__).parents[1] / "runs" / "dialogue-scene-semantic-palindrome-20260917.json").read_text()
+    )["candidates"][2]
+    assert row["shortcut_flags"]["word_order_only_symmetry"] is True
+    assert dream._shortcut_free(row) is False

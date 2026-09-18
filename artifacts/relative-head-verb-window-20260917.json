@@ -1,0 +1,81 @@
+{
+  "experiment": "relative-head-verb-window-20260917",
+  "generator_sha256": "619230684affa706e91ea7d50137606cca90ba7b7efee8f66e1a58fd7bc88160",
+  "rendered_candidates": [
+    {
+      "pair_id": 0,
+      "rendered": "At dawn, the patient keeper marks the weathered chart that guides the crew beside the inlet; the sailor reads the tide ledger that remembers the route beside the inlet.",
+      "mutable_spans": [
+        "left.relative.head+verb",
+        "right.relative.head+verb"
+      ],
+      "length_window": {
+        "delta": -4,
+        "reference_delta": -4,
+        "within_plus_minus_two": true
+      },
+      "audit": {
+        "letters": 137,
+        "two_pointer_exact": false,
+        "mismatches": 120,
+        "sha256_forward": "7411bb93016d082188d3a458fd0ae8123faf8d6db067554f571cd3bd07780cce",
+        "sha256_reverse": "562ced657c6a51996ca09f26dea60273cfc52e9a3be4f45895d0c05177d3f321"
+      },
+      "provenance": {
+        "source_experiment": "two-sided-relative-balance-20260917",
+        "coordinated_two_sided": true,
+        "semantic_head_and_verb_changed": true,
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "word_order_only_symmetry": false
+      }
+    },
+    {
+      "pair_id": 1,
+      "rendered": "At dawn, the patient keeper marks the weathered chart that maps the shore beside the inlet; the sailor reads the tide ledger that marks the course beside the inlet.",
+      "mutable_spans": [
+        "left.relative.head+verb",
+        "right.relative.head+verb"
+      ],
+      "length_window": {
+        "delta": -2,
+        "reference_delta": -4,
+        "within_plus_minus_two": true
+      },
+      "audit": {
+        "letters": 133,
+        "two_pointer_exact": false,
+        "mismatches": 122,
+        "sha256_forward": "ae9e86667701962ad0ee8c7f93e9cc51be01e2241e6d579278f61d95036f4279",
+        "sha256_reverse": "0a8f4ff41153dad8bc744f6e5ac598d9f214ec3d71dac29e6177e2e25b858649"
+      },
+      "provenance": {
+        "source_experiment": "two-sided-relative-balance-20260917",
+        "coordinated_two_sided": true,
+        "semantic_head_and_verb_changed": true,
+        "catalogue_used": false,
+        "wrapped_seed": false,
+        "finished_tape_reversal": false,
+        "word_order_only_symmetry": false
+      }
+    }
+  ],
+  "stats": {
+    "rendered": 2,
+    "exact": 0,
+    "longest_letters": 137,
+    "best_mismatches": 120
+  },
+  "next_repair": {
+    "operator": "semantic-frame replacement at two-sided seam",
+    "reason": "the relaxed window admits multiple grammatical paired edits, but the residual remains broad; next change the frame nouns and relation while preserving the same audit gates",
+    "route_exhausted": false
+  },
+  "provenance": {
+    "bounded_pair_candidates": 2,
+    "window": 2,
+    "strict_balance_preserved": true,
+    "catalogue_used": false
+  }
+}

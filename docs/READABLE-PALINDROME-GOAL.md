@@ -4787,6 +4787,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact-but-rejected rows.  The next construction step lets event-order
   assignments change temporal wording in the live seam rather than only filter.
 
+- **Event-order optimization, 2026-09-18:** allowed compatible temporal
+  assignments to participate directly in residual ranking, combining mirrored
+  character debt with precedence distance and typed-prose constraints.  Four
+  complete target traces reached 361 letters; exact closures remained zero.  The
+  next repair exposes multiple grammatical temporal realizations per event
+  order.
+
+- **Seam-selected inflectional repair, 2026-09-18:** coupled relative and
+  boundary inflectional endings with number agreement at the live seam.  Four
+  complete passages reached 115 letters; the best audit had 96 mismatches and
+  exact closures were zero.  The next repair pairs inflectional endings with
+  coordinated determiners.
+
+- **Attachment/preposition repair, 2026-09-18:** coupled subject/object
+  relative attachment with locative preposition while preserving anaphor class
+  and three-way agreement.  Sixteen complete rows reached 92 letters; the best
+  audit had 60 mismatches and exact closures were zero.  The next repair couples
+  attachment with locative determiner.
+
 - **Dream-RSI round 75, 2026-09-18:** replayed 513 worlds and 19,604 audited
   nodes after the class-length and unfreezing repairs.  Fixed mismatch-first
   remained the held-out winner at 0.780 (443 held-out worlds), with zero

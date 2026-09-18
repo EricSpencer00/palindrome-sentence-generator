@@ -24,6 +24,16 @@ def audit(s: str) -> dict:
             "independent_two_pointer":not mismatches and bool(t),
             "sha256_forward":f,"sha256_reverse":r,"first_mismatches":mismatches[:8]}
 
+def anti_shortcut(text: str, chain: list[Edge]) -> dict:
+    words=WORD.findall(text.lower())
+    pal=[w for w in words if len(w)>2 and w==w[::-1]]
+    units=[e.left for e in chain]
+    return {"no_self_palindromic_content_words":not pal,
+            "self_palindromic_content_words":pal,
+            "no_repeated_edges":len(units)==len(set(units)),
+            "repeated_edges":sorted({u for u in units if units.count(u)>1}),
+            "passes":not pal and len(units)==len(set(units))}
+
 @dataclass(frozen=True)
 class Edge:
     left: str; right: str; role: str; tape: str
@@ -102,16 +112,17 @@ def run(target=100, out=None):
            "novelty_scope":"lexicon edge ids; no finished reversal or repeated unit"}
     edges=load_edges(ROOT/"data/lexicon.txt"); chain=chain_dp(edges,target)
     text=render(chain); checks=audit(text)
-    row={"text":text,"checks":checks,"edge_count":len(chain),
+    shortcuts=anti_shortcut(text,chain)
+    row={"text":text,"checks":checks,"anti_shortcut":shortcuts,"edge_count":len(chain),
          "edges":[e.__dict__ for e in chain],"grammar":{"dependency":"N -> V -> (N|ADV|ADJ)","unique_edges":True},
-         "reader_eligible":checks["letters"]>=target and checks["exact"],
+         "reader_eligible":checks["letters"]>=target and checks["exact"] and shortcuts["passes"],
          "novelty_preflight":pre,
          "provenance":{"lexicon_sha256":hashlib.sha256((ROOT/"data/lexicon.txt").read_bytes()).hexdigest(),
                         "generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                         "independent_audits":["two-pointer","forward/reverse SHA-256"],"construction":"graph edge + valency DP"}}
-    result={"experiment_id":"lexicon-reverse-edge-chain-20260917","status":"completed_exact","candidates":[row],
+    result={"experiment_id":"lexicon-reverse-edge-chain-20260917","status":"quarantined_shortcut_rejection","candidates":[row],
             "stats":{"lexicon_edges":len(edges),"candidate_count":1,"longest_letters":checks["letters"]},
-            "failure_and_repair":{"failure":"palindromic-word seed is semantically repetitive","next_repair":"add multiword phrase edges via trie segmentation and retain the same valency DP"}}
+            "failure_and_repair":{"failure":"phrase edges still contain self-palindromic content words or repeated units","next_repair":"replace palindromic seed with held-out non-palindromic multiword phrases and require disjoint lexical content before edge admission"}}
     if out: Path(out).write_text(json.dumps(result,indent=2)+"\n")
     return result
 

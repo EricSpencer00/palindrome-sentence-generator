@@ -116,9 +116,13 @@ def select_live_center(prefix: str, target: int | None = None) -> str:
     candidates = [f"and {s} {v} {o}." for s in CENTER_SUBJECTS for v in CENTER_VERBS for o in CENTER_OBJECTS]
     # Keep a Pareto-style length frontier: short and long constituents are
     # both eligible; target distance breaks ties only after edge compatibility.
-    ranked = sorted(candidates, key=lambda c: (score(c)[0], len(letters(c))), reverse=True)
+    def residual(c: str) -> tuple[int, int]:
+        tape = letters(prefix + " " + c)
+        debt = sum(a != b for a, b in zip(tape, tape[::-1]))
+        return debt, -len(letters(c))
+    ranked = sorted(candidates, key=residual)
     if target is not None and target >= 250:
-        return max(ranked[: max(2, len(ranked) // 3)], key=lambda c: len(letters(c)))
+        return ranked[0]
     return ranked[0]
 
 

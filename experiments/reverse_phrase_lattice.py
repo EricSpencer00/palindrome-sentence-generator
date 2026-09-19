@@ -37,8 +37,11 @@ def search(sentences, pairs, max_edges=8):
         for path in frontier.get(len(toks), ()):
             right = tuple(w for edge in path for w in edge["right"])
             ltxt, rtxt = " ".join(toks), " ".join(right)
+            # The right tape is the reverse *of the left tape*, not a second
+            # copy in the same direction.  The eventual sentence is left +
+            # center + right, with a separately chosen centre if desired.
             out.append({"left": ltxt, "right": rtxt,
-                        "edges": len(path), "exact": norm(ltxt + rtxt) == norm(ltxt + rtxt)[::-1],
+                        "edges": len(path), "exact": norm(ltxt)[::-1] == norm(rtxt),
                         "right_in_bank": right in sentence_set})
     return out
 

@@ -5367,3 +5367,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   audits. The controls remain human-unreviewed and the reader gate is closed;
   the concrete next repair is object-selection plus adjunct-agreement
   transitions at both boundaries.
+
+- **Grammar-aware seed seam, 2026-09-18:** enumerated 3,456 fresh complete
+  scene frames around the withheld 38-letter benchmark and required the
+  reflected outer frame to be independently grammatical. It produced 0 exact
+  closures; the prefix/suffix fragment wrappers were not admitted. Fresh
+  complete-clause controls remain independently pointer/SHA audited and
+  human-unreviewed. The next repair grows the reflected side character by
+  character with typed residual state.
+
+- **Dream-RSI semordnilap residual repair, 2026-09-18:** reopened both
+  lexical spans at the first mismatch and tried six typed role-changing
+  substitutions inside a fresh scene. All six were independently non-exact;
+  no one-word substitution was promoted. The next operator carries the
+  residual through a grammar chart before committing either span.
+
+- **Typed reflected-residual chart, 2026-09-18:** deployed that next operator
+  as an opposite-edge scene-frame chart. It expanded 3 live states across 3
+  typed frame pairs and produced 0 exact closures; fresh intact controls span
+  67–68 letters. The withheld benchmark passes the chart's independent audit
+  but is explicitly not output. The reader gate remains closed; the next
+  repair is a role-preserving lexical-category transition at a live boundary.

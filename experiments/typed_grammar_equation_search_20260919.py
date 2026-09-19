@@ -149,8 +149,11 @@ def article_boundaries_are_grammatical(words: tuple[str, ...]) -> bool:
     for the reader gate.
     """
     vowels = set("aeiou")
+    determiners = {"a", "an", "the", "some", "this", "that", "my", "your", "each"}
     for index, word in enumerate(words[:-1]):
         following = words[index + 1]
+        if word in {"a", "an"} and following in determiners:
+            return False
         if word == "a" and following[:1] in vowels:
             return False
         if word == "an" and following[:1] not in vowels:

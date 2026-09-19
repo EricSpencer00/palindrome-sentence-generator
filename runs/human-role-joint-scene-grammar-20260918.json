@@ -1,0 +1,45 @@
+{
+  "experiment_id": "human-role-joint-scene-grammar-20260918",
+  "signature": "lane6|human-role-joint-scene-grammar|bilateral-tape-role-ledger|two-scene-repair",
+  "novelty_preflight": {
+    "registry_entries_read": 162,
+    "catalogue_text_imported": false,
+    "known_palindrome_imported": false,
+    "exact_signature_collision": false,
+    "distinction": "role assignments are selected jointly with left/right tape obligations; two complete authored scenes, not a parameter sweep or catalogue reflection"
+  },
+  "grammar": {
+    "equation": "role_left[k] + role_right[N-1-k] must emit the same character while preserving scene predicate links",
+    "roles": ["time", "agent", "action", "artifact", "setting", "record", "purpose"],
+    "joint_choice_ledger": [
+      {"role": "time", "left": "After the storm", "right_obligation": "before dusk/rain"},
+      {"role": "agent", "left": "Lena/Omar", "right_obligation": "agent-owned recovery action"},
+      {"role": "artifact", "left": "wet photographs/broken radio", "right_obligation": "recovered evidence"},
+      {"role": "setting", "left": "harbor office/mountain station", "right_obligation": "inside safe place"},
+      {"role": "record", "left": "labeled box/logged signal", "right_obligation": "traceable archive"}
+    ]
+  },
+  "candidates": [
+    {
+      "scene_id": "harbor-photographs",
+      "rendered": "After the storm, Lena sorted the wet photographs in the harbor office, labeled each recovered box, and carried them upstairs before dusk.",
+      "letters": 112,
+      "normalized": "afterthestormlenasortedthewetphotographsintheharborofficelabeledeachrecoveredboxandcarriedthemupstairsbeforedusk",
+      "role_choices": {"time": "after the storm", "agent": "Lena", "action": "sorted/labeled/carried", "artifact": "photographs and boxes", "setting": "harbor office", "record": "recovered box", "purpose": "preserve evidence"},
+      "live_equation": {"positions_checked": 112, "matching_pairs": 8, "first_mismatch": {"left": 0, "right": 111, "left_char": "a", "right_char": "k"}, "unresolved_outer_debt": "a/k, f/s, t/u, e/d..."},
+      "independent_audit": {"two_pointer_exact": false, "ascii_reverse_exact": false, "sha256_normalized": "c65d965d9cd38f92243d3d4fcee70d15cab823c72464efd4ded5a04145a99438", "sha256_reversed": "91a27d8ffe1166c386d5d8bf1e9cd789d66e41130287bef51d93d5756911fe5e"},
+      "diagnostic": {"intact_english_prose": true, "semantic_roles_complete": true, "reader_claim": "none; pending blinded review"}
+    },
+    {
+      "scene_id": "mountain-radio",
+      "rendered": "Before sunrise, Omar repaired the broken radio beside the mountain station, logged each rescued signal, and carried the notes indoors before rain.",
+      "letters": 121,
+      "normalized": "beforesunriseomarrepairedthebrokenradiobesidethemountainstationloggedeachrescuedsignalandcarriedthenotesindoorsbeforerain",
+      "role_choices": {"time": "before sunrise", "agent": "Omar", "action": "repaired/logged/carried", "artifact": "radio and notes", "setting": "mountain station", "record": "rescued signal", "purpose": "retain evidence"},
+      "live_equation": {"positions_checked": 121, "matching_pairs": 9, "first_mismatch": {"left": 0, "right": 120, "left_char": "b", "right_char": "n"}, "unresolved_outer_debt": "b/n, e/i, f/a, o/r..."},
+      "independent_audit": {"two_pointer_exact": false, "ascii_reverse_exact": false, "sha256_normalized": "601a16109c9282eacd8933297ee13fe804a9f46bbe025de71c052f98d8a57d51", "sha256_reversed": "88f7dcc1a5014b7c94f77991bb39e7ce0232c495bf9229257352377c47081e7f"},
+      "diagnostic": {"intact_english_prose": true, "semantic_roles_complete": true, "reader_claim": "none; pending blinded review"}
+    }
+  ],
+  "next_repair": "Use the first unmatched outer pair as a hard role-choice constraint: re-author only the time and closing-purpose realizations, seeking a natural before/after frame whose first and last letters satisfy the live debt, then rerun both scene audits."
+}

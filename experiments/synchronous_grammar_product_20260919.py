@@ -27,7 +27,7 @@ COP = ("is", "seems", "looks")
 ADJ = ("calm", "bright", "silent", "ready", "open", "green")
 LOC = ("at dawn", "near the shore", "beside the gate", "through the rain", "in the valley", "at the arena", "near the lake", "by the sunset")
 ORBIT_SUBJ = ("an era",)
-ORBIT_LOC = ("at the arena", "near the arena")
+ORBIT_LOC = ("at the arena", "near the arena", "near an arena")
 
 def inventory():
     """Human-authored, typed, non-palindromic phrase inventory."""

@@ -9,8 +9,9 @@ import hashlib, json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ID = "dialogue-relation-frame-20260919"
-SIG = "semantic-dialogue-relation-frame|request-answer-confirmation|independent-role-lexicalization|center-out-character-obligations|complete-parse"
+import os
+ID = os.environ.get("DIALOGUE_EXPERIMENT_ID", "dialogue-relation-frame-20260919")
+SIG = os.environ.get("DIALOGUE_EXPERIMENT_SIG", "semantic-dialogue-relation-frame|request-answer-confirmation|independent-role-lexicalization|center-out-character-obligations|complete-parse")
 REGISTRY = ROOT / "docs/experiment-novelty-registry.json"
 OUT = ROOT / "runs" / f"{ID}.json"
 

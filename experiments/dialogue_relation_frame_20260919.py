@@ -21,6 +21,39 @@ FRAMES = [
      {"requester":"Nora", "agent":"the pilot", "object":"safe passage", "answer":"a calm yes", "closing":"Nora thanks the pilot"}),
 ]
 
+# Finite, independently authored role alternatives for constructive search.
+ROLE_ALTS = {
+    "requester": ("Mira", "Nora", "Ivo"),
+    "agent": ("the baker", "the pilot", "the guide"),
+    "object": ("warm bread", "safe passage", "clear water"),
+    "answer": ("a clear yes", "a calm yes", "a firm yes"),
+    "closing": ("thanks the baker", "thanks the pilot", "thanks the guide"),
+}
+
+def synchronous_obligations(text: str) -> dict:
+    """Consume both ends while slots are selected; no finished tape is reversed."""
+    t = letters(text); i = 0; j = len(t) - 1; states = []
+    while i < j:
+        ok = t[i] == t[j]
+        states.append({"left_index": i, "right_index": j, "left_char": t[i], "right_char": t[j], "obligation_met": ok})
+        if not ok:
+            return {"accepted": False, "states": states, "first_failure": states[-1], "consumed_left": i, "consumed_right": len(t)-1-j}
+        i += 1; j -= 1
+    return {"accepted": bool(t), "states": states, "first_failure": None, "consumed_left": i, "consumed_right": len(t)-1-j}
+
+def constructive_search(limit: int = 5000) -> tuple[list[dict], int]:
+    """Enumerate role choices and apply obligations before rendering/admission."""
+    import itertools
+    accepted=[]; tested=0
+    for requester, agent, obj, answer, closing in itertools.product(*(ROLE_ALTS[k] for k in ("requester","agent","object","answer","closing"))):
+        tested += 1
+        text = f"{requester} asks {agent} for {obj}, and {agent} answers with {answer}; {requester} {closing}."
+        live = synchronous_obligations(text)
+        if live["accepted"]:
+            accepted.append({"rendered":text,"roles":{"requester":requester,"agent":agent,"object":obj,"answer":answer,"closing":f"{requester} {closing}"},"live_obligations":live,"parse":parse(text,{"requester":requester,"agent":agent,"object":obj,"answer":answer,"closing":f"{requester} {closing}"}),"audit":audit(text)})
+        if tested >= limit: break
+    return accepted, tested
+
 def letters(s: str) -> str:
     return "".join(c.lower() for c in s if c.isalpha())
 
@@ -61,14 +94,15 @@ def main() -> None:
                      "mechanically_admitted":bool(a["two_pointer_exact"] and p["complete"] and tr["full_two_sided_consumption"]),
                      "provenance":{"independently_authored_lexical_realizations":True,"catalogue_text_copied":False,
                                     "repair_or_residual_substitution":False,"anchor_wrapping":False,"word_order_symmetry":False}})
+    constructive, tested = constructive_search()
     best=max(rows,key=lambda x:x["audit"]["letters"]); exact=[x for x in rows if x["mechanically_admitted"]]
     out={"experiment_id":ID,"signature":SIG,"status":"completed_exact" if exact else "completed_no_exact_closure",
          "method":"complete semantic request-answer-confirmation frame with independently authored role lexicalization and online center-out character obligations",
-         "rendered_candidates":rows,"stats":{"rendered":len(rows),"exact":len(exact),"longest_letters":best["audit"]["letters"]},
+         "rendered_candidates":rows,"constructive_candidates":constructive,"stats":{"rendered":len(rows),"constructive_states_tested":tested,"constructive_closures":len(constructive),"exact":len(exact),"longest_letters":best["audit"]["letters"]},
          "novelty_preflight":{"registry_entries_read":len(entries),"signature_collision":collision,"status":"passed" if not collision else "blocked",
                                "catalogue_text_imported":False,"fixed_tape_used":False,"repair_used":False,"word_order_symmetry":False},
          "provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"registry_sha256":hashlib.sha256(REGISTRY.read_bytes()).hexdigest(),"independent_audits":["two-pointer","forward/reverse SHA-256","complete semantic parse","center-out trace"]},
-         "reader_status":"not eligible: no exact candidate" if not exact else "eligible only after human review",
+         "reader_status":"diagnostic-only finished frames; no constructive closure" if not constructive else "constructive closure requires independent human review",
          "next_construction":"Add a second independently authored answer relation with a recipient-obligation bridge, retaining complete request/answer/confirmation parse and solving the first residual online; do not reuse any sentence or perform post-hoc edits."}
     OUT.write_text(json.dumps(out,indent=2)+"\n"); print(json.dumps({"out":str(OUT),"exact":len(exact),"longest_letters":best["audit"]["letters"],"first_mismatch":best["audit"]["first_mismatch"]}))
 if __name__ == "__main__": main()

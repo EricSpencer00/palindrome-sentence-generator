@@ -1,0 +1,59 @@
+{
+  "experiment_id": "char-token-lm-residual-decode-20260918",
+  "signature": "joint-token-expansion|character-residual|transparent-bigram-prior|independent-audit",
+  "config": {
+    "slots": [
+      "DET",
+      "SUBJ",
+      "VERB",
+      "OBJ",
+      "ADV"
+    ],
+    "max_states": 50000,
+    "model": "add-one character bigram over embedded prose"
+  },
+  "stats": {
+    "state_counts": [
+      1,
+      0
+    ],
+    "pruned_character_conflicts": 64,
+    "exact_closures": 0,
+    "mechanically_admitted": 0
+  },
+  "rendered_candidates_and_controls": [
+    {
+      "rendered": "The careful poet reads a letter at dawn.",
+      "control": true,
+      "audit": {
+        "letters": 32,
+        "two_pointer_exact": false,
+        "mismatch_count": 32,
+        "sha256_forward": "733dbad4dcc5572cca28b9262d9b3c01b365f693ce998ee5f8d87f8cc313656c",
+        "sha256_reverse": "2d2d4ef0b2ef95bb11d10f8163d9c8510d29362caec65e21137dd82b89b0d299",
+        "sha_equal_under_reversal": false
+      },
+      "reader_status": "intact prose control; not a palindrome"
+    },
+    {
+      "rendered": "A teacher marks the map near home.",
+      "control": true,
+      "audit": {
+        "letters": 27,
+        "two_pointer_exact": false,
+        "mismatch_count": 22,
+        "sha256_forward": "c01ce6af7bd00db2d0870a7b7ede1c67c278bcf2b08427d6d38415be4342941b",
+        "sha256_reverse": "3b6e334da53e50951ee85b9fa1f9db4a387d7cd8f141e732e1e23aa1cb437bd2",
+        "sha_equal_under_reversal": false
+      },
+      "reader_status": "intact prose control; not a palindrome"
+    }
+  ],
+  "provenance": {
+    "finished_tape_reversed": false,
+    "catalogue_text_imported": false,
+    "exact_validator": "two-pointer plus forward/reverse SHA-256",
+    "readability_certified": false
+  },
+  "next_repair": "retain the live residual but allow heterogeneous slot pairings and a character trie over inflected phrase tokens; then run blinded intact-prose controls."
+}

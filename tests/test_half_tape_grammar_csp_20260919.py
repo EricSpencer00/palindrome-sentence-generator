@@ -1,4 +1,4 @@
-from experiments.half_tape_grammar_csp_20260919 import _audit, _place, run
+from experiments.half_tape_grammar_csp_20260919 import FRAMES, _audit, _options, _place, run
 
 
 def test_half_tape_alias_rejects_conflicting_character_assignments():
@@ -16,3 +16,10 @@ def test_half_tape_pilot_records_exact_rows_with_independent_audits():
         assert row["audit"]["two_pointer_exact"]
         assert row["audit"]["sha_equal"]
         assert row["audit"]["normalized"] == row["audit"]["normalized"][::-1]
+
+
+def test_shared_participant_temporal_repair_is_agreement_gated():
+    frame = next(frame for frame in FRAMES if frame.name == "shared_participant_temporal")
+    assert "COREF" in frame.chunks
+    assert {option.words for option in _options("COREF", {"subject_number": "sg"})} == {("she",), ("he",)}
+    assert {option.words for option in _options("COREF", {"subject_number": "pl"})} == {("they",), ("we",)}

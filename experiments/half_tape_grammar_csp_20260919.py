@@ -124,11 +124,21 @@ CONJUNCTIONS = (
     Option(("while",), content=frozenset()),
 )
 
+COREFERENT_PRONOUNS = (
+    Option(("she",), number="sg", content=frozenset()),
+    Option(("he",), number="sg", content=frozenset()),
+    Option(("they",), number="pl", content=frozenset()),
+    Option(("we",), number="pl", content=frozenset()),
+)
+
 FRAMES = (
     Frame("two_complete_beats", ("SUBJ", "VERB", "OBJ", "SUBJ2", "VERB2", "OBJ2"), 3),
     Frame("two_beats_with_left_time", ("SUBJ", "VERB", "OBJ", "PP", "SUBJ2", "VERB2", "OBJ2"), 4),
     Frame("two_beats_with_right_time", ("SUBJ", "VERB", "OBJ", "SUBJ2", "VERB2", "OBJ2", "PP2"), 3),
     Frame("coordinated_beats", ("SUBJ", "VERB", "OBJ", "CONJ", "SUBJ2", "VERB2", "OBJ2"), None),
+    # Repair operator: keep one discourse participant alive across the seam
+    # with an agreement-carrying pronoun, while adding a temporal adjunct.
+    Frame("shared_participant_temporal", ("SUBJ", "VERB", "OBJ", "PP", "COREF", "VERB2", "OBJ2"), 4),
 )
 
 
@@ -136,6 +146,9 @@ def _options(chunk: str, state: dict[str, object]) -> tuple[Option, ...]:
     if chunk in {"SUBJ", "SUBJ2"}:
         used_proper = bool(state["proper_names"])
         return tuple(option for option in SUBJECTS if not (option.proper_name and used_proper))
+    if chunk == "COREF":
+        return tuple(option for option in COREFERENT_PRONOUNS
+                     if option.number == state["subject_number"])
     if chunk in {"VERB", "VERB2"}:
         number = state["subject_number"] if chunk == "VERB" else state["subject2_number"]
         return tuple(option for option in VERBS if option.number == number)
@@ -155,6 +168,8 @@ def _set_chunk_state(chunk: str, option: Option, state: dict[str, object]) -> No
     elif chunk == "VERB":
         state["object_type"] = option.object_type
     elif chunk == "SUBJ2":
+        state["subject2_number"] = option.number
+    elif chunk == "COREF":
         state["subject2_number"] = option.number
     elif chunk == "VERB2":
         state["object2_type"] = option.object_type
@@ -297,7 +312,7 @@ def run(*, lengths: range = range(40, 53), max_nodes: int = 120_000) -> dict[str
     admitted = [row for row in exact if row["mechanically_admitted"]]
     return {
         "experiment_id": EXPERIMENT_ID,
-        "method": "fixed-length half-tape grammar CSP with variable word boundaries and semantic role state",
+        "method": "fixed-length half-tape grammar CSP with variable word boundaries, semantic role state, and shared-participant temporal repair",
         "status": "completed_exact" if exact else "completed_no_exact_closure",
         "target_lengths": [length for length in lengths],
         "frames": [frame.name for frame in FRAMES],
@@ -322,8 +337,8 @@ def run(*, lengths: range = range(40, 53), max_nodes: int = 120_000) -> dict[str
                               "prior_lanes_checked": ["typed_constituent_seam_search_20260919",
                                                        "typed_phrase_graph_walk_20260919",
                                                        "pcfg_fsa_intersection_20260919"]},
-        "next_repair": {"action": "add one shared-participant pronoun frame and a temporal complement while retaining the same half-tape alias CSP",
-                        "reason": "the pilot either recovers the 38-letter anchor or finds no role-valid closure at 40–52; lexical boundaries remain unconstrained across the midpoint",
+        "next_repair": {"action": "add a second shared-participant frame with a temporal complement or a new agreement-carrying pronoun, then replay the same half-tape alias CSP",
+                        "reason": "the shared-participant temporal repair is itself bounded; future progress must alter a grammar obligation rather than widen the same lexical bank",
                         "reader_test": "randomized blinded intact-prose versus shuffled-control rating for every admitted row"},
         "reader_gate": "closed; exactness and programmatic diagnostics do not certify readability",
     }

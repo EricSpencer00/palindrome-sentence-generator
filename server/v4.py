@@ -679,7 +679,7 @@ PHRASE_BOUNDARY_LIVE_RUN = {
     "run_id": "phrase-boundary-live-fsm-20260920",
     "method": "synchronous authored constituent traversal with live one-sided character debt across phrase boundaries",
     "status": "completed_no_exact_closure",
-    "visited_transitions": 154,
+    "visited_transitions": 159,
     "complete_clause_pairs": 0,
     "exact_candidates_over_38": 0,
     "provenance": "corrected live two-cursor traversal; left constituents advance forward and right constituents backward, with combined tape audit; earlier independent-clause draft withdrawn; no repair, finished-tape reversal, word-order mirror, repeated module, or catalogue text",

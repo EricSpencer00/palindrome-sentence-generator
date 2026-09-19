@@ -101,7 +101,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][26]["visited_states"] == 4608
     assert method.json()["method_runs"][27]["live_states"] == 12
     assert method.json()["method_runs"][27]["exact_candidates"] == 0
-    assert method.json()["method_runs"][28]["visited_transitions"] == 154
+    assert method.json()["method_runs"][28]["visited_transitions"] == 159
     assert method.json()["method_runs"][28]["exact_candidates_over_38"] == 0
     assert method.json()["method_runs"][29]["calibration_letters"] == 38
     assert method.json()["method_runs"][29]["long_form_exact_candidates"] == 0

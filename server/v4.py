@@ -290,9 +290,9 @@ def method() -> dict[str, Any]:
 
 
 @router.get("/best-evaluation")
-def best_evaluation() -> dict[str, Any]:
+def best_evaluation(use_lm: bool = Query(False)) -> dict[str, Any]:
     """Run the deterministic Shakespearean repair rubric on the frontier item."""
-    return _evaluate(BEST_KNOWN_TEXT)
+    return _evaluate(BEST_KNOWN_TEXT, use_lm=use_lm)
 
 
 @router.post("/evaluate")

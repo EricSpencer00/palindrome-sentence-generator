@@ -1,0 +1,84 @@
+{
+  "experiment": "grammar-aware-seed-seam-20260918",
+  "seed": {
+    "rendered": "An aide rips nine memos; some men inspire Diana.",
+    "letters": 38,
+    "immutable": true,
+    "seed_exact": true
+  },
+  "method": "enumerate fresh complete scene frames; require reversed left tape to be another complete frame before seed insertion; independently replay exactness",
+  "inventory": {
+    "left_frames": 3456,
+    "right_frames": 864,
+    "roles": [
+      "archivist",
+      "teacher",
+      "captain",
+      "gardener",
+      "editor",
+      "pilot"
+    ],
+    "objects": [
+      "letters",
+      "maps",
+      "notes",
+      "doors",
+      "plans",
+      "parcels"
+    ],
+    "adjuncts": [
+      "at dawn",
+      "by the river",
+      "near the station",
+      "after the storm"
+    ]
+  },
+  "candidate_count": 0,
+  "candidates": [],
+  "controls": [
+    {
+      "rendered": "the archivist reads notes at dawn; An aide rips nine memos; some men inspire Diana. the editor opens doors near the station.",
+      "audit": {
+        "letters": 99,
+        "exact": false,
+        "mismatch_count": 98,
+        "first_mismatch": 0,
+        "independent_two_pointer": false,
+        "forward_sha256": "ca5f4abced2e78277df28d1822c842cb1804615712693ac66ca7f9c4fe41e203",
+        "reverse_sha256": "856e44a45beb42291a2a99a0e423570dc479c4e768a171c27761481d2105c2ae"
+      },
+      "complete_left_frame": true,
+      "complete_right_frame": false
+    },
+    {
+      "rendered": "a teacher marks letters by the river; An aide rips nine memos; some men inspire Diana. the editor opens doors near the station.",
+      "audit": {
+        "letters": 101,
+        "exact": false,
+        "mismatch_count": 96,
+        "first_mismatch": 0,
+        "independent_two_pointer": false,
+        "forward_sha256": "f26ae7d9cd0fc1ba25b12637c29b4c6c53ad65640cdc42ec6edf2df8afaf8da6",
+        "reverse_sha256": "13bb499957fce688788c1856861798fad29f0308c0e4bb9d35cd09752fb8002e"
+      },
+      "complete_left_frame": false,
+      "complete_right_frame": false
+    }
+  ],
+  "summary": {
+    "exact_count": 0,
+    "next_repair": "replace whole-frame reverse equality with typed seam CSP: select grammatical left frame, expose only its terminal character residual, and grow a right frame with agreement/valency constraints before committing any tape",
+    "shortcut_rejected": [
+      "prefix/suffix fragment",
+      "known mirror-pair wrapper",
+      "word-order symmetry",
+      "catalogue text",
+      "repeated self-palindromic unit"
+    ]
+  },
+  "provenance": {
+    "authoring": "fresh role-scene inventory",
+    "borrowed_text": false,
+    "generator_sha256": "6914ad8aa78e4459f8f4002145d5ee2d0f9fad3fff44832d54ad63a0d3f45758"
+  }
+}

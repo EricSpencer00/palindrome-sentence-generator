@@ -88,7 +88,10 @@ def choose_methods(registry: dict) -> list[dict]:
     # Dream-RSI constructions appear in the matrix.
     selected: list[dict] = []
     seen: set[str] = set()
-    for entry in eligible[:40] + eligible[-20:]:
+    # Keep a representative historical prefix, but reserve the entire tail
+    # for the newest construction lanes so the current repair cannot be
+    # displaced by the first ten entries from that tail.
+    for entry in eligible[:30] + eligible[-20:]:
         identifier = str(entry.get("id", ""))
         if identifier and identifier not in seen:
             selected.append(entry)
@@ -121,6 +124,7 @@ def build_pdf() -> None:
     registry = load_json("docs/experiment-novelty-registry.json")
     dual = load_json("runs/dream-rsi-dual-boundary-model-authoring-20260918.json")
     discourse = load_json("runs/dream-rsi-discourse-ellipsis-20260918.json")
+    role_live = load_json("runs/dream-rsi-role-live-phrase-lattice-20260918.json")
 
     styles = getSampleStyleSheet()
     title = ParagraphStyle(
@@ -265,7 +269,7 @@ def build_pdf() -> None:
     )
     story.append(
         Paragraph(
-            "The current live operator freezes matched outer character assignments, reopens the seam-owning typed constituents, and lets lexical content, inflection, and word boundaries change while carrying the mirrored character obligation immediately. The next branch is a single discourse grammar: a complete question plus a complete answer clause generated jointly across the seam, with all proper palindromic subspans forbidden.",
+            "The current live operator freezes matched outer character assignments, reopens the seam-owning typed constituents, and lets lexical content, inflection, and word boundaries change while carrying the mirrored character obligation immediately. The latest branch also carries subject/verb/object/adjunct role labels and clause feasibility through each character expansion; its next repair replaces the sparse corpus chart with a typed hand-authored clause automaton.",
             body,
         )
     )
@@ -277,6 +281,7 @@ def build_pdf() -> None:
         [para("Replay round 119", small), para("21,990 independently audited nodes; 120 exact-but-fragment controls entered replay.", small), para("0 admissible exact", small), para("No reader gate; held-out mismatch-first stayed 0.780.", small)],
         [para("Dual-boundary model authoring", small), para("8 left x 8 right model proposals; 64 fresh paired worlds; no seed scaffold in output.", small), para("0 exact; longest 58 letters", small), para("Human-unreviewed; next repair reopens a complete residual word.", small)],
         [para("Discourse ellipsis + cross-word seam", small), para("148 exact diagnostic rows, 42-46 letters; 100 passed word-order check, but all retained rows have a forbidden proper palindromic island.", small), para("148 exact / 0 strict", small), para("Reader gate closed; next repair jointly authors a complete answer clause.", small)],
+        [para("Role-live phrase lattice", small), para("34 fresh model units (1 subject, 11 verb phrases, 11 objects, 11 adjuncts); role order and clause prefix/suffix feasibility were live constraints.", small), para("0 exact; 189,481 states rejected", small), para("Reader gate closed; Brown shape inventory is too sparse; next repair is a typed hand-authored clause automaton.", small)],
     ]
     t = Table(round_data, colWidths=[1.62 * inch, 4.25 * inch, 1.55 * inch, 2.75 * inch], repeatRows=1)
     t.setStyle(TableStyle([
@@ -355,7 +360,7 @@ def build_pdf() -> None:
     story.append(Paragraph("Reproducibility anchors", h2))
     story.append(
         Paragraph(
-            "Source artifacts: docs/experiment-novelty-registry.json; runs/dream-rsi-dual-boundary-model-authoring-20260918.json; runs/dream-rsi-discourse-ellipsis-20260918.json. The report is generated from these files so the table and headline counts can be regenerated after the next Dream-RSI branch.",
+            "Source artifacts: docs/experiment-novelty-registry.json; runs/dream-rsi-dual-boundary-model-authoring-20260918.json; runs/dream-rsi-discourse-ellipsis-20260918.json; runs/dream-rsi-role-live-phrase-lattice-20260918.json. The report is generated from these files so the table and headline counts can be regenerated after the next Dream-RSI branch.",
             body,
         )
     )

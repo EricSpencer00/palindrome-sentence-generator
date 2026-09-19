@@ -1,0 +1,854 @@
+{
+  "experiment": "dream-rsi-model-phrase-bank-lattice-20260918",
+  "method": "Dream-RSI model phrase bank plus exact role-agnostic phrase lattice",
+  "model": {
+    "raw_reply": "{\"items\":[{\"text\":\"archivist catalogues forgotten manuscripts\",\"role\":\"verb_phrase\"},{\"text\":\"reader curls fingers around dusty book\",\"role\":\"verb_phrase\"},{\"text\":\"weather drifts over quiet coastal town\",\"role\":\"verb_phrase\"},{\"text\":\"cooking simmering stew releases aromatic steam\",\"role\":\"verb_phrase\"},{\"text\":\"traveling explorers chart unvisited paths\",\"role\":\"verb_phrase\"},{\"text\":\"daily work begins with coffee mug\",\"role\":\"verb_phrase\"},{\"text\":\"archivist preserves brittle parchment in climate chamber\",\"role\":\"verb_phrase\"},{\"text\":\"reader devours novels while sun sets\",\"role\":\"verb_phrase\"},{\"text\":\"weather clears after stormy night\",\"role\":\"verb_phrase\"},{\"text\":\"cooking pans clatter in bustling kitchen\",\"role\":\"verb_phrase\"},{\"text\":\"traveling journalists capture sunrise over desert\",\"role\":\"verb_phrase\"},{\"text\":\"daily work demands meticulous attention to detail\",\"role\":\"verb_phrase\"},{\"text\":\"archivist organizes shelves by century\",\"role\":\"verb_phrase\"},{\"text\":\"reader sighs over poignant chapter ending\",\"role\":\"verb_phrase\"},{\"text\":\"weather whispers through open windowpanes\",\"role\":\"verb_phrase\"},{\"text\":\"cooking aromas lure neighbors into kitchen\",\"role\":\"verb_phrase\"},{\"text\":\"traveling hikers ascend misty mountain ridge\",\"role\":\"verb_phrase\"},{\"text\":\"daily work balances meetings and report writing\",\"role\":\"verb_phrase\"},{\"text\":\"archivist decodes ancient symbols with patience\",\"role\":\"verb_phrase\"},{\"text\":\"reader whispers to characters in silence\",\"role\":\"verb_phrase\"},{\"text\":\"weather paints skies with shifting hues\",\"role\":\"verb_phrase\"},{\"text\":\"cooking knives gleam after sharpening session\",\"role\":\"verb_phrase\"},{\"text\":\"traveling chefs experiment with exotic spices\",\"role\":\"verb_phrase\"},{\"text\":\"daily work thrives on routine and structure\",\"role\":\"verb_phrase\"},{\"text\":\"archivist consults librarians for rare references\",\"role\":\"verb_phrase\"},{\"text\":\"reader discovers hidden footnotes beneath text\",\"role\":\"verb_phrase\"},{\"text\":\"weather cools breezes through open windows\",\"role\":\"verb_phrase\"},{\"text\":\"cooking pots bubble over steady flame\",\"role\":\"verb_phrase\"},{\"text\":\"traveling artists sketch scenes from afar\",\"role\":\"verb_phrase\"},{\"text\":\"daily work involves sorting, filing, and scanning\",\"role\":\"verb_phrase\"},{\"text\":\"archivist protects fragile volumes from light\",\"role\":\"verb_phrase\"},{\"text\":\"reader learns languages through translated classics\",\"role\":\"verb_phrase\"},{\"text\":\"weather shifts abruptly during afternoon thunderstorms\",\"role\":\"verb_phrase\"},{\"text\":\"cooking recipes evolve with seasonal ingredients\",\"role\":\"verb_phrase\"},{\"text\":\"traveling musicians perform in bustling caf\u00e9s\",\"role\":\"verb_phrase\"},{\"text\":\"daily work motivates collaboration across departments\",\"role\":\"verb_phrase\"},{\"text\":\"archivist attends conferences to share methodologies\",\"role\":\"verb_phrase\"},{\"text\":\"reader applauds narrative twists in quiet library\",\"role\":\"verb_phrase\"},{\"text\":\"weather predicts snow by late evening\",\"role\":\"verb_phrase\"},{\"text\":\"cooking garnishes dishes with fresh herbs\",\"role\":\"verb_phrase\"},{\"text\":\"traveling writers chase inspiring landscapes for plots\",\"role\":\"verb_phrase\"},{\"text\":\"daily work rewards those who persevere\",\"role\":\"verb_phrase\"},{\"text\":\"archivist archives digital records for future access\",\"role\":\"verb_phrase\"},{\"text\":\"reader celebrates discoveries in literary treasures\",\"role\":\"verb_phrase\"},{\"text\":\"weather brightens city after relentless drizzle\",\"role\":\"verb_phrase\"},{\"text\":\"cooking blends flavors into harmonious symphony\",\"role\":\"verb_phrase\"},{\"text\":\"traveling scouts uncover hidden coastal coves\",\"role\":\"verb_phrase\"}]}",
+    "parse_error": null,
+    "model": "gpt-oss:20b",
+    "prompt": "Generate 48 distinct original ordinary-English phrases, each 3 to 8 words, about an archivist, reader, weather, cooking, travel, or daily work. Every phrase must be a natural clause or noun/verb phrase, not a list, quotation, famous palindrome, reversed-word pair, or fragment. Use lowercase ASCII words. Return JSON only as {\"items\":[{\"text\":\"...\",\"role\":\"subject|verb_phrase|object|adjunct|discourse\"}]}."
+  },
+  "phrase_items": [
+    {
+      "text": "archivist catalogues forgotten manuscripts",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "reader curls fingers around dusty book",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "weather drifts over quiet coastal town",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "cooking simmering stew releases aromatic steam",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "traveling explorers chart unvisited paths",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "daily work begins with coffee mug",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "archivist preserves brittle parchment in climate chamber",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "reader devours novels while sun sets",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "weather clears after stormy night",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "cooking pans clatter in bustling kitchen",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "traveling journalists capture sunrise over desert",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "daily work demands meticulous attention to detail",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "archivist organizes shelves by century",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "reader sighs over poignant chapter ending",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "weather whispers through open windowpanes",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "cooking aromas lure neighbors into kitchen",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "traveling hikers ascend misty mountain ridge",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "daily work balances meetings and report writing",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "archivist decodes ancient symbols with patience",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "reader whispers to characters in silence",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "weather paints skies with shifting hues",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "cooking knives gleam after sharpening session",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "traveling chefs experiment with exotic spices",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "daily work thrives on routine and structure",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "archivist consults librarians for rare references",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "reader discovers hidden footnotes beneath text",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "weather cools breezes through open windows",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "cooking pots bubble over steady flame",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "traveling artists sketch scenes from afar",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "daily work involves sorting filing and scanning",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "archivist protects fragile volumes from light",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "reader learns languages through translated classics",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "weather shifts abruptly during afternoon thunderstorms",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "cooking recipes evolve with seasonal ingredients",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "traveling musicians perform in bustling cafs",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "daily work motivates collaboration across departments",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "archivist attends conferences to share methodologies",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "reader applauds narrative twists in quiet library",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "weather predicts snow by late evening",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "cooking garnishes dishes with fresh herbs",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "traveling writers chase inspiring landscapes for plots",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "daily work rewards those who persevere",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "archivist archives digital records for future access",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "reader celebrates discoveries in literary treasures",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "weather brightens city after relentless drizzle",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "cooking blends flavors into harmonious symphony",
+      "role": "verb_phrase"
+    },
+    {
+      "text": "traveling scouts uncover hidden coastal coves",
+      "role": "verb_phrase"
+    }
+  ],
+  "records": [
+    {
+      "seed": 0,
+      "rendered": "Erased on forever event is an evening. I saw one rates to not set. Are now a sign in even as it. Never ever of nodes are.",
+      "letters": 91,
+      "units": [
+        "erased",
+        "on",
+        "forever",
+        "event",
+        "is",
+        "an",
+        "evening",
+        "i",
+        "saw",
+        "one",
+        "rates",
+        "to",
+        "not",
+        "set",
+        "are",
+        "now",
+        "a",
+        "sign in",
+        "even",
+        "as",
+        "it",
+        "never",
+        "ever",
+        "of",
+        "nodes",
+        "are"
+      ],
+      "audit": {
+        "letters": 91,
+        "two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatches": [],
+        "sha256_forward": "b407919e9eefb5f8407d0a2dd7cbcb536489c61570c1861b802dcb664e1b60d4",
+        "sha256_reverse": "b407919e9eefb5f8407d0a2dd7cbcb536489c61570c1861b802dcb664e1b60d4",
+        "sha_equal_under_reversal": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "human-unreviewed",
+      "provenance": {
+        "fresh_model_phrase_bank": true,
+        "model_phrase_count": 47,
+        "seed_scaffold_in_output": false,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "word_order_only": false,
+        "human_readability_certified": false
+      }
+    },
+    {
+      "seed": 1,
+      "rendered": "To new tube many men on its. Old a home may be rome most. Are here with girl law on red. Roses order now all right i were. Her at some more by a memo. Had lost in one my name but. We not.",
+      "letters": 137,
+      "units": [
+        "to",
+        "new",
+        "tube",
+        "many",
+        "men",
+        "on",
+        "its",
+        "old",
+        "a",
+        "home",
+        "may",
+        "be",
+        "rome",
+        "most",
+        "are",
+        "here",
+        "with",
+        "girl",
+        "law",
+        "on",
+        "red",
+        "roses",
+        "order",
+        "now",
+        "all",
+        "right",
+        "i",
+        "were",
+        "her",
+        "at",
+        "some",
+        "more",
+        "by",
+        "a",
+        "memo",
+        "had",
+        "lost",
+        "in",
+        "one",
+        "my",
+        "name",
+        "but",
+        "we",
+        "not"
+      ],
+      "audit": {
+        "letters": 137,
+        "two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatches": [],
+        "sha256_forward": "95ccfba936ddc1e4e955a17ccfc409d649cd36f79b468b0443f964c6d2c65861",
+        "sha256_reverse": "95ccfba936ddc1e4e955a17ccfc409d649cd36f79b468b0443f964c6d2c65861",
+        "sha_equal_under_reversal": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "human-unreviewed",
+      "provenance": {
+        "fresh_model_phrase_bank": true,
+        "model_phrase_count": 47,
+        "seed_scaffold_in_output": false,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "word_order_only": false,
+        "human_readability_certified": false
+      }
+    },
+    {
+      "seed": 2,
+      "rendered": "To new tube not all its saw. Title from i hate me by a. More hotel based on forever of nodes able to. Hero may be met a him or. Felt it was still at one but. We not.",
+      "letters": 121,
+      "units": [
+        "to",
+        "new",
+        "tube",
+        "not",
+        "all",
+        "its",
+        "saw",
+        "title",
+        "from",
+        "i",
+        "hate",
+        "me",
+        "by",
+        "a",
+        "more",
+        "hotel",
+        "based on",
+        "forever",
+        "of",
+        "nodes",
+        "able to",
+        "hero",
+        "may",
+        "be",
+        "met",
+        "a",
+        "him",
+        "or",
+        "felt",
+        "it",
+        "was",
+        "still",
+        "at",
+        "one",
+        "but",
+        "we",
+        "not"
+      ],
+      "audit": {
+        "letters": 121,
+        "two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatches": [],
+        "sha256_forward": "0b919674d303f4a643d00e995041ed62bb784540ad41bad75de9f485133b2767",
+        "sha256_reverse": "0b919674d303f4a643d00e995041ed62bb784540ad41bad75de9f485133b2767",
+        "sha_equal_under_reversal": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "human-unreviewed",
+      "provenance": {
+        "fresh_model_phrase_bank": true,
+        "model_phrase_count": 47,
+        "seed_scaffold_in_output": false,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "word_order_only": false,
+        "human_readability_certified": false
+      }
+    },
+    {
+      "seed": 3,
+      "rendered": "Erased on forever often are voting is. To note tale relate to not sign it. Over a net for ever of nodes. Are.",
+      "letters": 83,
+      "units": [
+        "erased",
+        "on",
+        "forever",
+        "often",
+        "are",
+        "voting",
+        "is",
+        "to",
+        "note",
+        "tale",
+        "relate to",
+        "not",
+        "sign",
+        "it",
+        "over",
+        "a",
+        "net",
+        "for",
+        "ever",
+        "of",
+        "nodes",
+        "are"
+      ],
+      "audit": {
+        "letters": 83,
+        "two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatches": [],
+        "sha256_forward": "1073207db0cf5e0d60b228cdbdbbfe2ea85574f822c50d007e5b7da37e2db137",
+        "sha256_reverse": "1073207db0cf5e0d60b228cdbdbbfe2ea85574f822c50d007e5b7da37e2db137",
+        "sha_equal_under_reversal": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "human-unreviewed",
+      "provenance": {
+        "fresh_model_phrase_bank": true,
+        "model_phrase_count": 47,
+        "seed_scaffold_in_output": false,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "word_order_only": false,
+        "human_readability_certified": false
+      }
+    }
+  ],
+  "fresh_exact_closures": [
+    {
+      "seed": 0,
+      "rendered": "Erased on forever event is an evening. I saw one rates to not set. Are now a sign in even as it. Never ever of nodes are.",
+      "letters": 91,
+      "units": [
+        "erased",
+        "on",
+        "forever",
+        "event",
+        "is",
+        "an",
+        "evening",
+        "i",
+        "saw",
+        "one",
+        "rates",
+        "to",
+        "not",
+        "set",
+        "are",
+        "now",
+        "a",
+        "sign in",
+        "even",
+        "as",
+        "it",
+        "never",
+        "ever",
+        "of",
+        "nodes",
+        "are"
+      ],
+      "audit": {
+        "letters": 91,
+        "two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatches": [],
+        "sha256_forward": "b407919e9eefb5f8407d0a2dd7cbcb536489c61570c1861b802dcb664e1b60d4",
+        "sha256_reverse": "b407919e9eefb5f8407d0a2dd7cbcb536489c61570c1861b802dcb664e1b60d4",
+        "sha_equal_under_reversal": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "human-unreviewed",
+      "provenance": {
+        "fresh_model_phrase_bank": true,
+        "model_phrase_count": 47,
+        "seed_scaffold_in_output": false,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "word_order_only": false,
+        "human_readability_certified": false
+      }
+    },
+    {
+      "seed": 1,
+      "rendered": "To new tube many men on its. Old a home may be rome most. Are here with girl law on red. Roses order now all right i were. Her at some more by a memo. Had lost in one my name but. We not.",
+      "letters": 137,
+      "units": [
+        "to",
+        "new",
+        "tube",
+        "many",
+        "men",
+        "on",
+        "its",
+        "old",
+        "a",
+        "home",
+        "may",
+        "be",
+        "rome",
+        "most",
+        "are",
+        "here",
+        "with",
+        "girl",
+        "law",
+        "on",
+        "red",
+        "roses",
+        "order",
+        "now",
+        "all",
+        "right",
+        "i",
+        "were",
+        "her",
+        "at",
+        "some",
+        "more",
+        "by",
+        "a",
+        "memo",
+        "had",
+        "lost",
+        "in",
+        "one",
+        "my",
+        "name",
+        "but",
+        "we",
+        "not"
+      ],
+      "audit": {
+        "letters": 137,
+        "two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatches": [],
+        "sha256_forward": "95ccfba936ddc1e4e955a17ccfc409d649cd36f79b468b0443f964c6d2c65861",
+        "sha256_reverse": "95ccfba936ddc1e4e955a17ccfc409d649cd36f79b468b0443f964c6d2c65861",
+        "sha_equal_under_reversal": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "human-unreviewed",
+      "provenance": {
+        "fresh_model_phrase_bank": true,
+        "model_phrase_count": 47,
+        "seed_scaffold_in_output": false,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "word_order_only": false,
+        "human_readability_certified": false
+      }
+    },
+    {
+      "seed": 2,
+      "rendered": "To new tube not all its saw. Title from i hate me by a. More hotel based on forever of nodes able to. Hero may be met a him or. Felt it was still at one but. We not.",
+      "letters": 121,
+      "units": [
+        "to",
+        "new",
+        "tube",
+        "not",
+        "all",
+        "its",
+        "saw",
+        "title",
+        "from",
+        "i",
+        "hate",
+        "me",
+        "by",
+        "a",
+        "more",
+        "hotel",
+        "based on",
+        "forever",
+        "of",
+        "nodes",
+        "able to",
+        "hero",
+        "may",
+        "be",
+        "met",
+        "a",
+        "him",
+        "or",
+        "felt",
+        "it",
+        "was",
+        "still",
+        "at",
+        "one",
+        "but",
+        "we",
+        "not"
+      ],
+      "audit": {
+        "letters": 121,
+        "two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatches": [],
+        "sha256_forward": "0b919674d303f4a643d00e995041ed62bb784540ad41bad75de9f485133b2767",
+        "sha256_reverse": "0b919674d303f4a643d00e995041ed62bb784540ad41bad75de9f485133b2767",
+        "sha_equal_under_reversal": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "human-unreviewed",
+      "provenance": {
+        "fresh_model_phrase_bank": true,
+        "model_phrase_count": 47,
+        "seed_scaffold_in_output": false,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "word_order_only": false,
+        "human_readability_certified": false
+      }
+    },
+    {
+      "seed": 3,
+      "rendered": "Erased on forever often are voting is. To note tale relate to not sign it. Over a net for ever of nodes. Are.",
+      "letters": 83,
+      "units": [
+        "erased",
+        "on",
+        "forever",
+        "often",
+        "are",
+        "voting",
+        "is",
+        "to",
+        "note",
+        "tale",
+        "relate to",
+        "not",
+        "sign",
+        "it",
+        "over",
+        "a",
+        "net",
+        "for",
+        "ever",
+        "of",
+        "nodes",
+        "are"
+      ],
+      "audit": {
+        "letters": 83,
+        "two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatches": [],
+        "sha256_forward": "1073207db0cf5e0d60b228cdbdbbfe2ea85574f822c50d007e5b7da37e2db137",
+        "sha256_reverse": "1073207db0cf5e0d60b228cdbdbbfe2ea85574f822c50d007e5b7da37e2db137",
+        "sha_equal_under_reversal": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "human-unreviewed",
+      "provenance": {
+        "fresh_model_phrase_bank": true,
+        "model_phrase_count": 47,
+        "seed_scaffold_in_output": false,
+        "finished_tape_reversed": false,
+        "catalogue_imported": false,
+        "word_order_only": false,
+        "human_readability_certified": false
+      }
+    }
+  ],
+  "mechanically_admitted": [],
+  "stats": {
+    "model_phrases": 47,
+    "seeds": 4,
+    "closures": 4,
+    "exact": 4,
+    "mechanically_admitted": 0,
+    "longest_letters": 137
+  },
+  "reader_gate": {
+    "status": "closed",
+    "reason": "No exact row is reader-eligible until it clears the strict mechanical gate and a blinded intact/shuffled study.",
+    "programmatic_metrics_are_diagnostic": true
+  },
+  "next_repair": {
+    "operator": "carry role labels into the live character trie and reject a branch when either half loses a complete clause parse",
+    "reason": "phrase-bank search supplies fresh lexical material, but role-agnostic closures can still be word salad",
+    "reader_test": "only a strict exact survivor enters randomized intact/shuffled blinded rating"
+  },
+  "provenance": {
+    "generator_sha256": "3610fa83a60cb032677e234e3b900a9ad82f10e1f39403b8fa27dfd548da6ccc",
+    "catalogue_imported": false,
+    "human_readability_certified": false
+  }
+}

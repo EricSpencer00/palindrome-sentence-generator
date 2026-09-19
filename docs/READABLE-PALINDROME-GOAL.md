@@ -5423,3 +5423,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   palindromic island. No row reached readers. The next construction jointly
   authors a complete answer clause and forbids every proper palindromic
   subspan before closure.
+
+- **Dream-RSI role-live phrase lattice, 2026-09-18:** asked the local model
+  for a balanced fresh bank of role-tagged subject, verb-phrase, object, and
+  adjunct units, then carried those labels through the exact character trie.
+  The live clause-prefix/suffix chart rejected 189,481 states before closure;
+  the parsed bank contained 34 valid units (1 subject, 11 verb phrases, 11
+  objects, 11 adjuncts), and produced 0 exact closures. This is a concrete
+  grammar failure, not a readability claim. The reader gate remains closed;
+  the next repair replaces sparse corpus shapes with a typed hand-authored
+  subject/verb/object automaton while retaining role state at both mirrored
+  boundaries.

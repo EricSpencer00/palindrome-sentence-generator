@@ -1,0 +1,69 @@
+<div id="palindrome-progress" role="img" aria-labelledby="palindrome-progress-title palindrome-progress-desc">
+  <style>
+    #palindrome-progress { --background: transparent; --foreground: #16324f; --muted-foreground: #526579; --border: #b8c5d2; --viz-series-1: #176b87; --viz-series-2: #d97706; --viz-series-3: #b42318; font: 14px/1.35 system-ui, -apple-system, sans-serif; color: var(--foreground); max-width: 760px; }
+    #palindrome-progress svg { width: 100%; height: auto; display: block; overflow: visible; }
+    #palindrome-progress .title { font-size: 19px; font-weight: 500; }
+    #palindrome-progress .subtitle { fill: var(--muted-foreground); font-size: 12px; }
+    #palindrome-progress .axis { fill: var(--muted-foreground); font-size: 12px; }
+    #palindrome-progress .label { fill: var(--foreground); font-size: 12px; }
+    #palindrome-progress .value { fill: var(--foreground); font-size: 12px; font-variant-numeric: tabular-nums; }
+    #palindrome-progress .grid { stroke: var(--border); stroke-width: 1; opacity: .55; }
+    #palindrome-progress .track { fill: #e8eef3; }
+    #palindrome-progress .exact { fill: var(--viz-series-1); }
+    #palindrome-progress .blocked { fill: var(--viz-series-2); }
+    #palindrome-progress .reader { fill: var(--viz-series-3); }
+    #palindrome-progress .target { stroke: var(--viz-series-3); stroke-width: 2; stroke-dasharray: 5 4; }
+    #palindrome-progress .note { fill: var(--muted-foreground); font-size: 11px; }
+  </style>
+  <svg viewBox="0 0 760 520" aria-labelledby="palindrome-progress-title palindrome-progress-desc">
+    <title id="palindrome-progress-title">How close the current search is to the actual goal</title>
+    <desc id="palindrome-progress-desc">The search has exact diagnostic tapes, but none has cleared the shortcut-free and human reader gates. The target is a long, exact, original, readable English passage.</desc>
+    <text x="24" y="30" class="title">Distance to a reader-worthy palindrome</text>
+    <text x="24" y="51" class="subtitle">Each gate is necessary; none is a readability proxy for the next gate.</text>
+
+    <text x="24" y="86" class="label">Current-gate funnel (latest Dream-RSI lanes)</text>
+    <text x="24" y="111" class="axis">Candidate records</text>
+    <rect x="154" y="96" width="440" height="22" class="track" rx="2" />
+    <rect x="154" y="96" width="440" height="22" class="exact" rx="2" />
+    <text x="606" y="112" class="value">164 exact diagnostic surfaces</text>
+
+    <text x="24" y="151" class="axis">Shortcut-free mechanical gate</text>
+    <rect x="254" y="136" width="340" height="22" class="track" rx="2" />
+    <rect x="254" y="136" width="0" height="22" class="blocked" rx="2" />
+    <text x="606" y="152" class="value">0 in these latest lanes</text>
+
+    <text x="24" y="191" class="axis">Blind intact-vs-shuffled reader gate</text>
+    <rect x="254" y="176" width="340" height="22" class="track" rx="2" />
+    <rect x="254" y="176" width="0" height="22" class="reader" rx="2" />
+    <text x="606" y="192" class="value">0 tested; 0 readable claims</text>
+
+    <line x1="24" y1="224" x2="736" y2="224" class="grid" />
+    <text x="24" y="252" class="label">Length is a target constraint, not a success score</text>
+    <text x="72" y="474" class="axis">0</text>
+    <text x="240" y="474" class="axis">50</text>
+    <text x="399" y="474" class="axis">100</text>
+    <text x="559" y="474" class="axis">150</text>
+    <text x="704" y="474" class="axis">180 letters</text>
+    <line x1="72" y1="282" x2="704" y2="282" class="grid" />
+    <line x1="72" y1="329" x2="704" y2="329" class="grid" />
+    <line x1="72" y1="376" x2="704" y2="376" class="grid" />
+    <line x1="72" y1="423" x2="704" y2="423" class="grid" />
+    <line x1="423" y1="270" x2="423" y2="443" class="target" />
+    <text x="429" y="274" class="note">100-letter floor</text>
+
+    <text x="24" y="296" class="label">Phrase-bank exact</text>
+    <circle cx="506" cy="291" r="7" class="exact" />
+    <text x="520" y="296" class="value">137, exact but proper-palindrome island</text>
+    <text x="24" y="343" class="label">Model-span exact</text>
+    <circle cx="493" cy="338" r="7" class="exact" />
+    <text x="507" y="343" class="value">120, exact but residual is unsegmented</text>
+    <text x="24" y="390" class="label">Older mechanical diagnostic</text>
+    <circle cx="439" cy="385" r="7" class="blocked" />
+    <text x="453" y="390" class="value">116, exact but word salad / no complete clause</text>
+    <text x="24" y="437" class="label">Best reader-facing target</text>
+    <circle cx="423" cy="432" r="7" class="reader" />
+    <text x="437" y="437" class="value">100+ exact, shortcut-free, then human-preferred</text>
+
+    <text x="24" y="505" class="note">What we are chasing: one globally intertwined tape that is long, independently exact, original, intact English—and preferred by blinded readers.</text>
+  </svg>
+</div>

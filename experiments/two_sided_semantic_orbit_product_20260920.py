@@ -31,10 +31,10 @@ sys.path.insert(0, str(ROOT))
 from llm_palindrome.admission import mechanical_admission_checks, normalize_letters
 
 
-EXPERIMENT_ID = "two-sided-semantic-orbit-product-20260920"
+EXPERIMENT_ID = "two-sided-semantic-orbit-product-setting-frame-20260920"
 SIGNATURE = (
     "independent-semantic-scene-paths|two-sided-character-orbit-product|"
-    "complete-svo-terminal-gate|ordinary-right-rendering"
+    "complete-svo-terminal-gate|ordinary-right-rendering|initial-setting-frame"
 )
 # The bounded frontier is deliberately the same 39--60-letter band used by
 # the current exact-construction acceptance work.  Keeping it here (rather
@@ -255,6 +255,25 @@ SUBJECT_ADJECTIVES = ("patient", "careful", "quiet", "watchful")
 OBJECT_ADJECTIVES = ("old", "bright", "sealed", "small")
 DETERMINERS = {"sg": ("a", "the"), "pl": ("some", "the")}
 PREPOSITIONS = ("at", "near", "by", "after", "before", "under", "through")
+# The prior frontier died between a left OBJECT and a right SUBJECT_DET.  This
+# held-out frame changes the right grammar state's first role to an ordinary
+# setting preposition/object pair, selected before orbit expansion.  ``on``
+# and ``over`` deliberately expose a different initial character support than
+# the subject determiner bank; they are not repairs to a rendered row.
+SETTING_PREPOSITIONS = ("at", "on", "near", "by", "under", "over")
+
+
+def _setting_prep_allowed(prep: str, kind: str, place: str = "") -> bool:
+    """Keep finite time/locative preposition combinations ordinary."""
+    if kind == "time":
+        return prep in {"at", "by", "near", "after", "before"}
+    if prep == "on":
+        return place in {"shore", "river", "road", "bridge", "tower", "arch"}
+    if prep == "over":
+        return place in {"river", "road", "bridge"}
+    if prep == "under":
+        return place in {"shore", "river", "bridge", "tower", "arch"}
+    return prep in {"at", "near", "by", "after", "before", "through"}
 
 
 def _article(noun: str) -> str:
@@ -285,6 +304,29 @@ def _verb_text(singular: str, plural: str, number: str) -> str:
     return singular if number == "sg" else plural
 
 
+def _setting_segments(prep: str, place: str, kind: str) -> tuple[Segment, ...]:
+    """Build a grammatical initial setting before the finite clause.
+
+    Time expressions take the ordinary bare form (``at dawn``); locatives
+    carry their determiner (``near the village``).  The distinction is fixed
+    in the semantic path, before any character orbit is considered.
+    """
+    segments = [Segment("SETTING_PREP", prep, semantic_id=f"setting-prep:{prep}")]
+    if kind == "place":
+        segments.append(Segment("SETTING_DET", "the", kind=kind, semantic_id="setting-det:the"))
+    segments.append(Segment("SETTING_OBJECT", place, kind=kind, semantic_id=f"setting:{place}"))
+    return tuple(segments)
+
+
+def _adjunct_segments(prep: str, place: str, kind: str) -> tuple[Segment, ...]:
+    """Build a grammatical clause-final setting adjunct."""
+    segments = [Segment("ADJUNCT_PREP", prep, semantic_id=f"prep:{prep}")]
+    if kind == "place":
+        segments.append(Segment("ADJUNCT_DET", "the", kind=kind, semantic_id="adjunct-det:the"))
+    segments.append(Segment("ADJUNCT_OBJECT", place, kind=kind, semantic_id=f"place:{place}"))
+    return tuple(segments)
+
+
 def build_paths(
     side: str,
     *,
@@ -293,7 +335,7 @@ def build_paths(
 ) -> tuple[ScenePath, ...]:
     """Enumerate bounded complete story paths before any orbit is expanded.
 
-    The path inventory is intentionally stratified across four ordinary
+    The path inventory is intentionally stratified across five ordinary
     clause frames.  A prior prototype filled its cap with one long frame,
     making the 39--60-letter product unnecessarily large while hiding the
     grammar boundary choices.  Each frame now gets its own deterministic
@@ -303,7 +345,7 @@ def build_paths(
     paths: list[ScenePath] = []
     path_number = 0
     # Separate quotas keep the story grammar present in the finite product.
-    frames = ("svo", "svo_subject_adj", "svo_object_adj", "svo_adjunct")
+    frames = ("svo", "svo_subject_adj", "svo_object_adj", "svo_adjunct", "setting_svo")
     frame_limits = {frame: max(1, max_paths // len(frames)) for frame in frames}
     frame_counts = Counter()
 
@@ -322,40 +364,49 @@ def build_paths(
                         for object_adj in object_adjectives:
                             object_segments = _object_segments(obj, object_adj)
                             base_segments = subject_segments + (verb_segment,) + object_segments
+                            prefix_options: Iterable[tuple[Segment, ...]] = ((),)
+                            if frame == "setting_svo":
+                                prefix_options = (
+                                    _setting_segments(prep, place, place_kind)
+                                    for prep in SETTING_PREPOSITIONS
+                                    for place, place_kind in bank["places"]
+                                    if _setting_prep_allowed(prep, place_kind, place)
+                                )
                             adjunct_options: Iterable[tuple[Segment, ...]] = ((),)
                             if frame == "svo_adjunct":
                                 adjunct_options = (
-                                    (
-                                        Segment("ADJUNCT_PREP", prep, semantic_id=f"prep:{prep}"),
-                                        Segment("ADJUNCT_OBJECT", place, kind=place_kind, semantic_id=f"place:{place}"),
-                                    )
+                                    _adjunct_segments(prep, place, place_kind)
                                     for prep in PREPOSITIONS
                                     for place, place_kind in bank["places"]
+                                    if _setting_prep_allowed(prep, place_kind, place)
                                 )
-                            for adjunct in adjunct_options:
-                                segments = base_segments + tuple(adjunct)
-                                content = [
-                                    normalize_letters(segment.text)
-                                    for segment in segments
-                                    if segment.role not in {"SUBJECT_DET", "OBJECT_DET", "ADJUNCT_PREP"}
-                                ]
-                                if len(content) != len(set(content)):
-                                    continue
-                                path = ScenePath(
-                                    path_id=f"{side}-{frame}-{path_number:06d}",
-                                    side=side,
-                                    frame=frame,
-                                    segments=segments,
-                                )
-                                if len(path.tape) > max_letters:
-                                    continue
-                                paths.append(path)
-                                path_number += 1
-                                frame_counts[frame] += 1
+                            for prefix in prefix_options:
+                                for adjunct in adjunct_options:
+                                    segments = tuple(prefix) + base_segments + tuple(adjunct)
+                                    content = [
+                                        normalize_letters(segment.text)
+                                        for segment in segments
+                                        if segment.role not in {
+                                            "SUBJECT_DET", "OBJECT_DET", "SETTING_DET", "ADJUNCT_DET", "ADJUNCT_PREP",
+                                        }
+                                    ]
+                                    if len(content) != len(set(content)):
+                                        continue
+                                    path = ScenePath(
+                                        path_id=f"{side}-{frame}-{path_number:06d}",
+                                        side=side,
+                                        frame=frame,
+                                        segments=segments,
+                                    )
+                                    if len(path.tape) > max_letters:
+                                        continue
+                                    paths.append(path)
+                                    path_number += 1
+                                    frame_counts[frame] += 1
+                                    if frame_counts[frame] >= frame_limits[frame]:
+                                        break
                                 if frame_counts[frame] >= frame_limits[frame]:
                                     break
-                            if frame_counts[frame] >= frame_limits[frame]:
-                                break
                         if frame_counts[frame] >= frame_limits[frame]:
                             break
                     if frame_counts[frame] >= frame_limits[frame]:
@@ -637,8 +688,13 @@ def _control_pairs(
     """
     controls: list[tuple[ScenePath, ScenePath]] = []
     scored: list[tuple[int, int, int, ScenePath, ScenePath]] = []
-    for left in left_paths[:800]:
-        for right in right_paths[:800]:
+    # Controls are evidence preservation, not a second Cartesian search.  A
+    # small deterministic prefix is enough to expose the strongest dead
+    # frontier and keeps the bounded remote run finite even when each grammar
+    # language contains tens of thousands of paths.
+    control_prefix = 120
+    for left in left_paths[:control_prefix]:
+        for right in right_paths[:control_prefix]:
             total = len(left.tape) + len(right.tape)
             if not MIN_TOTAL_LETTERS <= total <= MAX_TOTAL_LETTERS:
                 continue
@@ -782,12 +838,17 @@ def run(*, max_paths: int = DEFAULT_MAX_PATHS, max_states: int = DEFAULT_MAX_STA
             ).hexdigest(),
         },
         "grammar": {
-            "left_complete_path_frames": ["SVO", "SVO+subject-adjective", "SVO+object-adjective", "SVO+adjunct"],
-            "right_complete_path_frames": ["SVO", "SVO+subject-adjective", "SVO+object-adjective", "SVO+adjunct"],
+            "left_complete_path_frames": [
+                "SVO", "SVO+subject-adjective", "SVO+object-adjective", "SVO+adjunct", "initial-setting+SVO",
+            ],
+            "right_complete_path_frames": [
+                "SVO", "SVO+subject-adjective", "SVO+object-adjective", "SVO+adjunct", "initial-setting+SVO",
+            ],
             "required_roles": ["SUBJECT", "FINITE_VERB", "OBJECT"],
             "semantic_roles": [
                 "SUBJECT_DET", "SUBJECT_ADJ", "SUBJECT", "FINITE_VERB",
-                "OBJECT_DET", "OBJECT_ADJ", "OBJECT", "ADJUNCT_PREP", "ADJUNCT_OBJECT",
+                "OBJECT_DET", "OBJECT_ADJ", "OBJECT", "ADJUNCT_PREP", "ADJUNCT_DET", "ADJUNCT_OBJECT",
+                "SETTING_PREP", "SETTING_DET", "SETTING_OBJECT",
             ],
             "boundary_policy": "complete segment boundaries are selected before trie expansion and retained on every orbit state",
             "orbit_orientation": "left ordinary end -> centre and right ordinary beginning -> exterior",
@@ -832,9 +893,9 @@ def run(*, max_paths: int = DEFAULT_MAX_PATHS, max_states: int = DEFAULT_MAX_STA
             "dead_frontier_samples": product["dead_frontier_samples"],
         },
         "next_discriminator": {
-            "operator": "add one held-out complete story frame with a distinct semantic role, then rerun the same centre-out product",
-            "selection_rule": "choose the frame whose first dead frontier has the largest boundary-role support; do not edit a rendered tape",
-            "falsifier": "if the added frame produces no new shared character frontier at the first exhausted orbit, reject it and keep the grammar closed",
+            "operator": "held-out initial-setting+SVO frame selected for the OBJECT/SUBJECT dead frontier",
+            "selection_rule": "introduce setting-preposition/object roles before the subject; no selected tape is edited after the orbit product",
+            "falsifier": "if the setting frame produces no new shared frontier at the first exhausted orbit, reject the frame and keep the prior grammar closed",
         },
         "reader_gate": "closed; no exact candidate is human readability evidence until blinded readers compare intact and shuffled controls",
     }

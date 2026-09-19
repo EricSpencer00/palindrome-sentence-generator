@@ -1,0 +1,3030 @@
+{
+  "experiment_id": "two-sided-semantic-orbit-product-setting-frame-20260920",
+  "signature": "independent-semantic-scene-paths|two-sided-character-orbit-product|complete-svo-terminal-gate|ordinary-right-rendering|initial-setting-frame",
+  "method": "fresh center-out story grammar; each accepted edge assigns one mirrored character orbit",
+  "target_range": [
+    39,
+    60
+  ],
+  "run_config": {
+    "max_paths_per_side": 2000,
+    "max_product_states": 20000,
+    "path_length_cap": 40,
+    "remote_bounded_run_required": true
+  },
+  "execution": {
+    "host": "Eric-MB64.local",
+    "runtime": "deterministic Python; no model or remote API",
+    "generator_sha256": "89219e0f7bc1472f226a604e3731d17160a2a487c5eee445bb941c143c530de7",
+    "lexical_bank_sha256": "6abfd413f50cfaf8f941141384b99680ae1e4e0da1d6ab4486f9fbd0c5ba207f"
+  },
+  "grammar": {
+    "left_complete_path_frames": [
+      "SVO",
+      "SVO+subject-adjective",
+      "SVO+object-adjective",
+      "SVO+adjunct",
+      "initial-setting+SVO"
+    ],
+    "right_complete_path_frames": [
+      "SVO",
+      "SVO+subject-adjective",
+      "SVO+object-adjective",
+      "SVO+adjunct",
+      "initial-setting+SVO"
+    ],
+    "required_roles": [
+      "SUBJECT",
+      "FINITE_VERB",
+      "OBJECT"
+    ],
+    "semantic_roles": [
+      "SUBJECT_DET",
+      "SUBJECT_ADJ",
+      "SUBJECT",
+      "FINITE_VERB",
+      "OBJECT_DET",
+      "OBJECT_ADJ",
+      "OBJECT",
+      "ADJUNCT_PREP",
+      "ADJUNCT_DET",
+      "ADJUNCT_OBJECT",
+      "SETTING_PREP",
+      "SETTING_DET",
+      "SETTING_OBJECT"
+    ],
+    "boundary_policy": "complete segment boundaries are selected before trie expansion and retained on every orbit state",
+    "orbit_orientation": "left ordinary end -> centre and right ordinary beginning -> exterior",
+    "left_paths": 2000,
+    "right_paths": 2000,
+    "left_trie_nodes": 21087,
+    "right_trie_nodes": 14322
+  },
+  "stats": {
+    "expanded_product_states": 37,
+    "matched_orbit_transitions": 20,
+    "rejected_orbit_transitions": 201,
+    "max_orbit_depth": 3,
+    "budget_exhausted": false,
+    "exact_closures_before_novelty": 0,
+    "exact": 0,
+    "mechanically_admitted": 0,
+    "mechanical_rejections": 0,
+    "duplicate_rejections": 0,
+    "intact_controls": 4,
+    "longest_rendered_letters": 59,
+    "shortest_rendered_letters": 59
+  },
+  "rendered_candidates": [],
+  "rendered_controls": [
+    {
+      "rendered": "At the gate a baker carries a memo; over the river an artist answers a bell.",
+      "source": "intact-complete-semantic-story-control",
+      "orbit_assignment": {
+        "constructed_before_render": false,
+        "center_mode": "control",
+        "assigned_orbits": 1,
+        "first_failure": {
+          "orbit": 1,
+          "left_index": 25,
+          "right_index": 1,
+          "left_char": "m",
+          "right_char": "v",
+          "left_role": "OBJECT",
+          "right_role": "SETTING_PREP",
+          "left_boundary": "7:OBJECT",
+          "right_boundary": "0:SETTING_PREP"
+        }
+      },
+      "complete_paths": {
+        "left": {
+          "path_id": "left-setting_svo-001721",
+          "side": "left",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "at",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "start": 5,
+              "end": 9
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "start": 9,
+              "end": 10
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "baker",
+              "start": 10,
+              "end": 15
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "start": 15,
+              "end": 22
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 22,
+              "end": 23
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "memo",
+              "start": 23,
+              "end": 27
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "at",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:at"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:gate"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "baker",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:baker"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:carries"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "memo",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:memo"
+            }
+          ]
+        },
+        "right": {
+          "path_id": "right-setting_svo-001632",
+          "side": "right",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "over",
+              "start": 0,
+              "end": 4
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 4,
+              "end": 7
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "river",
+              "start": 7,
+              "end": 12
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "start": 12,
+              "end": 14
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "artist",
+              "start": 14,
+              "end": 20
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "start": 20,
+              "end": 27
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 27,
+              "end": 28
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "bell",
+              "start": 28,
+              "end": 32
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "over",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:over"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "river",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:river"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:an"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "artist",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:artist"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:answers"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "bell",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:bell"
+            }
+          ]
+        }
+      },
+      "audit": {
+        "normalized": "atthegateabakercarriesamemoovertheriveranartistanswersabell",
+        "letters": 59,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "orbit": 0,
+          "left_index": 0,
+          "right_index": 58,
+          "left_char": "a",
+          "right_char": "l"
+        },
+        "sha256_forward": "417724526103a622c91efe4165437d644021ade64e57613b9367161738ca5f31",
+        "sha256_reverse": "55161d21c0571091652b36c0601a2ab2c3b55088f2c56b0230445041c3787bf4",
+        "sha256_equal": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "construction": "independent finite semantic story paths joined by a live center-out character-orbit product",
+        "lexical_banks_independent": true,
+        "grammar_boundaries_selected_before_render": true,
+        "semantic_roles_selected_before_render": true,
+        "center_out_cursor": "left clause end and right clause start",
+        "right_path_rendered_in_ordinary_order": true,
+        "completed_palindrome_seed": false,
+        "reversible_lexical_pairs_used": false,
+        "word_order_mirror": false,
+        "finished_tape_reversal": false,
+        "repair_mismatch_after_render": false,
+        "catalogue_text_imported": false,
+        "rlaif_used": false,
+        "reader_status": "unreviewed; exactness and mechanical checks are not readability evidence"
+      }
+    },
+    {
+      "rendered": "At the gate a baker carries a memo; on the shore an artist answers a ledger.",
+      "source": "intact-complete-semantic-story-control",
+      "orbit_assignment": {
+        "constructed_before_render": false,
+        "center_mode": "control",
+        "assigned_orbits": 1,
+        "first_failure": {
+          "orbit": 1,
+          "left_index": 25,
+          "right_index": 1,
+          "left_char": "m",
+          "right_char": "n",
+          "left_role": "OBJECT",
+          "right_role": "SETTING_PREP",
+          "left_boundary": "7:OBJECT",
+          "right_boundary": "0:SETTING_PREP"
+        }
+      },
+      "complete_paths": {
+        "left": {
+          "path_id": "left-setting_svo-001721",
+          "side": "left",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "at",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "start": 5,
+              "end": 9
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "start": 9,
+              "end": 10
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "baker",
+              "start": 10,
+              "end": 15
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "start": 15,
+              "end": 22
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 22,
+              "end": 23
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "memo",
+              "start": 23,
+              "end": 27
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "at",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:at"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:gate"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "baker",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:baker"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:carries"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "memo",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:memo"
+            }
+          ]
+        },
+        "right": {
+          "path_id": "right-setting_svo-001641",
+          "side": "right",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "on",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "shore",
+              "start": 5,
+              "end": 10
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "start": 10,
+              "end": 12
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "artist",
+              "start": 12,
+              "end": 18
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "start": 18,
+              "end": 25
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 25,
+              "end": 26
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "ledger",
+              "start": 26,
+              "end": 32
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "on",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:on"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "shore",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:shore"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:an"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "artist",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:artist"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:answers"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "ledger",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:ledger"
+            }
+          ]
+        }
+      },
+      "audit": {
+        "normalized": "atthegateabakercarriesamemoontheshoreanartistanswersaledger",
+        "letters": 59,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "orbit": 0,
+          "left_index": 0,
+          "right_index": 58,
+          "left_char": "a",
+          "right_char": "r"
+        },
+        "sha256_forward": "ac038fe58fe79aaab5a063b995d141112d2985ba247e8d56c2903808d9a036ad",
+        "sha256_reverse": "99067b565e0c08be0df4080d396651fca6fb0cd3da6322e9ad4feea66aaf6d37",
+        "sha256_equal": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "construction": "independent finite semantic story paths joined by a live center-out character-orbit product",
+        "lexical_banks_independent": true,
+        "grammar_boundaries_selected_before_render": true,
+        "semantic_roles_selected_before_render": true,
+        "center_out_cursor": "left clause end and right clause start",
+        "right_path_rendered_in_ordinary_order": true,
+        "completed_palindrome_seed": false,
+        "reversible_lexical_pairs_used": false,
+        "word_order_mirror": false,
+        "finished_tape_reversal": false,
+        "repair_mismatch_after_render": false,
+        "catalogue_text_imported": false,
+        "rlaif_used": false,
+        "reader_status": "unreviewed; exactness and mechanical checks are not readability evidence"
+      }
+    },
+    {
+      "rendered": "At the gate a baker carries a memo; on the tower an artist answers a ledger.",
+      "source": "intact-complete-semantic-story-control",
+      "orbit_assignment": {
+        "constructed_before_render": false,
+        "center_mode": "control",
+        "assigned_orbits": 1,
+        "first_failure": {
+          "orbit": 1,
+          "left_index": 25,
+          "right_index": 1,
+          "left_char": "m",
+          "right_char": "n",
+          "left_role": "OBJECT",
+          "right_role": "SETTING_PREP",
+          "left_boundary": "7:OBJECT",
+          "right_boundary": "0:SETTING_PREP"
+        }
+      },
+      "complete_paths": {
+        "left": {
+          "path_id": "left-setting_svo-001721",
+          "side": "left",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "at",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "start": 5,
+              "end": 9
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "start": 9,
+              "end": 10
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "baker",
+              "start": 10,
+              "end": 15
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "start": 15,
+              "end": 22
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 22,
+              "end": 23
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "memo",
+              "start": 23,
+              "end": 27
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "at",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:at"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:gate"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "baker",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:baker"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:carries"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "memo",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:memo"
+            }
+          ]
+        },
+        "right": {
+          "path_id": "right-setting_svo-001642",
+          "side": "right",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "on",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "tower",
+              "start": 5,
+              "end": 10
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "start": 10,
+              "end": 12
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "artist",
+              "start": 12,
+              "end": 18
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "start": 18,
+              "end": 25
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 25,
+              "end": 26
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "ledger",
+              "start": 26,
+              "end": 32
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "on",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:on"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "tower",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:tower"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:an"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "artist",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:artist"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:answers"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "ledger",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:ledger"
+            }
+          ]
+        }
+      },
+      "audit": {
+        "normalized": "atthegateabakercarriesamemoonthetoweranartistanswersaledger",
+        "letters": 59,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "orbit": 0,
+          "left_index": 0,
+          "right_index": 58,
+          "left_char": "a",
+          "right_char": "r"
+        },
+        "sha256_forward": "0ef194f3ab52b36d80db91270d6f832124326aacc2ce804454a0d61387a6725c",
+        "sha256_reverse": "012b15d26b765764bcd5e1dd2537301b804459cdec01dda3510f5326729514b4",
+        "sha256_equal": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "construction": "independent finite semantic story paths joined by a live center-out character-orbit product",
+        "lexical_banks_independent": true,
+        "grammar_boundaries_selected_before_render": true,
+        "semantic_roles_selected_before_render": true,
+        "center_out_cursor": "left clause end and right clause start",
+        "right_path_rendered_in_ordinary_order": true,
+        "completed_palindrome_seed": false,
+        "reversible_lexical_pairs_used": false,
+        "word_order_mirror": false,
+        "finished_tape_reversal": false,
+        "repair_mismatch_after_render": false,
+        "catalogue_text_imported": false,
+        "rlaif_used": false,
+        "reader_status": "unreviewed; exactness and mechanical checks are not readability evidence"
+      }
+    },
+    {
+      "rendered": "At the gate a baker carries a memo; on the river an artist answers a ledger.",
+      "source": "intact-complete-semantic-story-control",
+      "orbit_assignment": {
+        "constructed_before_render": false,
+        "center_mode": "control",
+        "assigned_orbits": 1,
+        "first_failure": {
+          "orbit": 1,
+          "left_index": 25,
+          "right_index": 1,
+          "left_char": "m",
+          "right_char": "n",
+          "left_role": "OBJECT",
+          "right_role": "SETTING_PREP",
+          "left_boundary": "7:OBJECT",
+          "right_boundary": "0:SETTING_PREP"
+        }
+      },
+      "complete_paths": {
+        "left": {
+          "path_id": "left-setting_svo-001721",
+          "side": "left",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "at",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "start": 5,
+              "end": 9
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "start": 9,
+              "end": 10
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "baker",
+              "start": 10,
+              "end": 15
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "start": 15,
+              "end": 22
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 22,
+              "end": 23
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "memo",
+              "start": 23,
+              "end": 27
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "at",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:at"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:gate"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "baker",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:baker"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:carries"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "memo",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:memo"
+            }
+          ]
+        },
+        "right": {
+          "path_id": "right-setting_svo-001644",
+          "side": "right",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "on",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "river",
+              "start": 5,
+              "end": 10
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "start": 10,
+              "end": 12
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "artist",
+              "start": 12,
+              "end": 18
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "start": 18,
+              "end": 25
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 25,
+              "end": 26
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "ledger",
+              "start": 26,
+              "end": 32
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "on",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:on"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "river",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:river"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:an"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "artist",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:artist"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:answers"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "ledger",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:ledger"
+            }
+          ]
+        }
+      },
+      "audit": {
+        "normalized": "atthegateabakercarriesamemoontheriveranartistanswersaledger",
+        "letters": 59,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "orbit": 0,
+          "left_index": 0,
+          "right_index": 58,
+          "left_char": "a",
+          "right_char": "r"
+        },
+        "sha256_forward": "34099a680e9b51e6f0818c92cac48aa29b07444db12c0cf718e28c1b608fda7d",
+        "sha256_reverse": "5251ead0023e8435af55d8bf22039057b0817a531f79b721bcc1df3b2ea99431",
+        "sha256_equal": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "construction": "independent finite semantic story paths joined by a live center-out character-orbit product",
+        "lexical_banks_independent": true,
+        "grammar_boundaries_selected_before_render": true,
+        "semantic_roles_selected_before_render": true,
+        "center_out_cursor": "left clause end and right clause start",
+        "right_path_rendered_in_ordinary_order": true,
+        "completed_palindrome_seed": false,
+        "reversible_lexical_pairs_used": false,
+        "word_order_mirror": false,
+        "finished_tape_reversal": false,
+        "repair_mismatch_after_render": false,
+        "catalogue_text_imported": false,
+        "rlaif_used": false,
+        "reader_status": "unreviewed; exactness and mechanical checks are not readability evidence"
+      }
+    }
+  ],
+  "all_rendered_rows": [
+    {
+      "rendered": "At the gate a baker carries a memo; over the river an artist answers a bell.",
+      "source": "intact-complete-semantic-story-control",
+      "orbit_assignment": {
+        "constructed_before_render": false,
+        "center_mode": "control",
+        "assigned_orbits": 1,
+        "first_failure": {
+          "orbit": 1,
+          "left_index": 25,
+          "right_index": 1,
+          "left_char": "m",
+          "right_char": "v",
+          "left_role": "OBJECT",
+          "right_role": "SETTING_PREP",
+          "left_boundary": "7:OBJECT",
+          "right_boundary": "0:SETTING_PREP"
+        }
+      },
+      "complete_paths": {
+        "left": {
+          "path_id": "left-setting_svo-001721",
+          "side": "left",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "at",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "start": 5,
+              "end": 9
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "start": 9,
+              "end": 10
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "baker",
+              "start": 10,
+              "end": 15
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "start": 15,
+              "end": 22
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 22,
+              "end": 23
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "memo",
+              "start": 23,
+              "end": 27
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "at",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:at"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:gate"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "baker",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:baker"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:carries"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "memo",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:memo"
+            }
+          ]
+        },
+        "right": {
+          "path_id": "right-setting_svo-001632",
+          "side": "right",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "over",
+              "start": 0,
+              "end": 4
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 4,
+              "end": 7
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "river",
+              "start": 7,
+              "end": 12
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "start": 12,
+              "end": 14
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "artist",
+              "start": 14,
+              "end": 20
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "start": 20,
+              "end": 27
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 27,
+              "end": 28
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "bell",
+              "start": 28,
+              "end": 32
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "over",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:over"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "river",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:river"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:an"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "artist",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:artist"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:answers"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "bell",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:bell"
+            }
+          ]
+        }
+      },
+      "audit": {
+        "normalized": "atthegateabakercarriesamemoovertheriveranartistanswersabell",
+        "letters": 59,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "orbit": 0,
+          "left_index": 0,
+          "right_index": 58,
+          "left_char": "a",
+          "right_char": "l"
+        },
+        "sha256_forward": "417724526103a622c91efe4165437d644021ade64e57613b9367161738ca5f31",
+        "sha256_reverse": "55161d21c0571091652b36c0601a2ab2c3b55088f2c56b0230445041c3787bf4",
+        "sha256_equal": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "construction": "independent finite semantic story paths joined by a live center-out character-orbit product",
+        "lexical_banks_independent": true,
+        "grammar_boundaries_selected_before_render": true,
+        "semantic_roles_selected_before_render": true,
+        "center_out_cursor": "left clause end and right clause start",
+        "right_path_rendered_in_ordinary_order": true,
+        "completed_palindrome_seed": false,
+        "reversible_lexical_pairs_used": false,
+        "word_order_mirror": false,
+        "finished_tape_reversal": false,
+        "repair_mismatch_after_render": false,
+        "catalogue_text_imported": false,
+        "rlaif_used": false,
+        "reader_status": "unreviewed; exactness and mechanical checks are not readability evidence"
+      }
+    },
+    {
+      "rendered": "At the gate a baker carries a memo; on the shore an artist answers a ledger.",
+      "source": "intact-complete-semantic-story-control",
+      "orbit_assignment": {
+        "constructed_before_render": false,
+        "center_mode": "control",
+        "assigned_orbits": 1,
+        "first_failure": {
+          "orbit": 1,
+          "left_index": 25,
+          "right_index": 1,
+          "left_char": "m",
+          "right_char": "n",
+          "left_role": "OBJECT",
+          "right_role": "SETTING_PREP",
+          "left_boundary": "7:OBJECT",
+          "right_boundary": "0:SETTING_PREP"
+        }
+      },
+      "complete_paths": {
+        "left": {
+          "path_id": "left-setting_svo-001721",
+          "side": "left",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "at",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "start": 5,
+              "end": 9
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "start": 9,
+              "end": 10
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "baker",
+              "start": 10,
+              "end": 15
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "start": 15,
+              "end": 22
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 22,
+              "end": 23
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "memo",
+              "start": 23,
+              "end": 27
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "at",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:at"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:gate"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "baker",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:baker"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:carries"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "memo",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:memo"
+            }
+          ]
+        },
+        "right": {
+          "path_id": "right-setting_svo-001641",
+          "side": "right",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "on",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "shore",
+              "start": 5,
+              "end": 10
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "start": 10,
+              "end": 12
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "artist",
+              "start": 12,
+              "end": 18
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "start": 18,
+              "end": 25
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 25,
+              "end": 26
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "ledger",
+              "start": 26,
+              "end": 32
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "on",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:on"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "shore",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:shore"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:an"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "artist",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:artist"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:answers"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "ledger",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:ledger"
+            }
+          ]
+        }
+      },
+      "audit": {
+        "normalized": "atthegateabakercarriesamemoontheshoreanartistanswersaledger",
+        "letters": 59,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "orbit": 0,
+          "left_index": 0,
+          "right_index": 58,
+          "left_char": "a",
+          "right_char": "r"
+        },
+        "sha256_forward": "ac038fe58fe79aaab5a063b995d141112d2985ba247e8d56c2903808d9a036ad",
+        "sha256_reverse": "99067b565e0c08be0df4080d396651fca6fb0cd3da6322e9ad4feea66aaf6d37",
+        "sha256_equal": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "construction": "independent finite semantic story paths joined by a live center-out character-orbit product",
+        "lexical_banks_independent": true,
+        "grammar_boundaries_selected_before_render": true,
+        "semantic_roles_selected_before_render": true,
+        "center_out_cursor": "left clause end and right clause start",
+        "right_path_rendered_in_ordinary_order": true,
+        "completed_palindrome_seed": false,
+        "reversible_lexical_pairs_used": false,
+        "word_order_mirror": false,
+        "finished_tape_reversal": false,
+        "repair_mismatch_after_render": false,
+        "catalogue_text_imported": false,
+        "rlaif_used": false,
+        "reader_status": "unreviewed; exactness and mechanical checks are not readability evidence"
+      }
+    },
+    {
+      "rendered": "At the gate a baker carries a memo; on the tower an artist answers a ledger.",
+      "source": "intact-complete-semantic-story-control",
+      "orbit_assignment": {
+        "constructed_before_render": false,
+        "center_mode": "control",
+        "assigned_orbits": 1,
+        "first_failure": {
+          "orbit": 1,
+          "left_index": 25,
+          "right_index": 1,
+          "left_char": "m",
+          "right_char": "n",
+          "left_role": "OBJECT",
+          "right_role": "SETTING_PREP",
+          "left_boundary": "7:OBJECT",
+          "right_boundary": "0:SETTING_PREP"
+        }
+      },
+      "complete_paths": {
+        "left": {
+          "path_id": "left-setting_svo-001721",
+          "side": "left",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "at",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "start": 5,
+              "end": 9
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "start": 9,
+              "end": 10
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "baker",
+              "start": 10,
+              "end": 15
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "start": 15,
+              "end": 22
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 22,
+              "end": 23
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "memo",
+              "start": 23,
+              "end": 27
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "at",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:at"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:gate"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "baker",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:baker"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:carries"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "memo",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:memo"
+            }
+          ]
+        },
+        "right": {
+          "path_id": "right-setting_svo-001642",
+          "side": "right",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "on",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "tower",
+              "start": 5,
+              "end": 10
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "start": 10,
+              "end": 12
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "artist",
+              "start": 12,
+              "end": 18
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "start": 18,
+              "end": 25
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 25,
+              "end": 26
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "ledger",
+              "start": 26,
+              "end": 32
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "on",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:on"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "tower",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:tower"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:an"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "artist",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:artist"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:answers"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "ledger",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:ledger"
+            }
+          ]
+        }
+      },
+      "audit": {
+        "normalized": "atthegateabakercarriesamemoonthetoweranartistanswersaledger",
+        "letters": 59,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "orbit": 0,
+          "left_index": 0,
+          "right_index": 58,
+          "left_char": "a",
+          "right_char": "r"
+        },
+        "sha256_forward": "0ef194f3ab52b36d80db91270d6f832124326aacc2ce804454a0d61387a6725c",
+        "sha256_reverse": "012b15d26b765764bcd5e1dd2537301b804459cdec01dda3510f5326729514b4",
+        "sha256_equal": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "construction": "independent finite semantic story paths joined by a live center-out character-orbit product",
+        "lexical_banks_independent": true,
+        "grammar_boundaries_selected_before_render": true,
+        "semantic_roles_selected_before_render": true,
+        "center_out_cursor": "left clause end and right clause start",
+        "right_path_rendered_in_ordinary_order": true,
+        "completed_palindrome_seed": false,
+        "reversible_lexical_pairs_used": false,
+        "word_order_mirror": false,
+        "finished_tape_reversal": false,
+        "repair_mismatch_after_render": false,
+        "catalogue_text_imported": false,
+        "rlaif_used": false,
+        "reader_status": "unreviewed; exactness and mechanical checks are not readability evidence"
+      }
+    },
+    {
+      "rendered": "At the gate a baker carries a memo; on the river an artist answers a ledger.",
+      "source": "intact-complete-semantic-story-control",
+      "orbit_assignment": {
+        "constructed_before_render": false,
+        "center_mode": "control",
+        "assigned_orbits": 1,
+        "first_failure": {
+          "orbit": 1,
+          "left_index": 25,
+          "right_index": 1,
+          "left_char": "m",
+          "right_char": "n",
+          "left_role": "OBJECT",
+          "right_role": "SETTING_PREP",
+          "left_boundary": "7:OBJECT",
+          "right_boundary": "0:SETTING_PREP"
+        }
+      },
+      "complete_paths": {
+        "left": {
+          "path_id": "left-setting_svo-001721",
+          "side": "left",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "at",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "start": 5,
+              "end": 9
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "start": 9,
+              "end": 10
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "baker",
+              "start": 10,
+              "end": 15
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "start": 15,
+              "end": 22
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 22,
+              "end": 23
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "memo",
+              "start": 23,
+              "end": 27
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "at",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:at"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "gate",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:gate"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "baker",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:baker"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "carries",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:carries"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "memo",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:memo"
+            }
+          ]
+        },
+        "right": {
+          "path_id": "right-setting_svo-001644",
+          "side": "right",
+          "frame": "setting_svo",
+          "complete_finite_semantic_path": true,
+          "word_boundaries": [
+            {
+              "segment_index": 0,
+              "role": "SETTING_PREP",
+              "text": "on",
+              "start": 0,
+              "end": 2
+            },
+            {
+              "segment_index": 1,
+              "role": "SETTING_DET",
+              "text": "the",
+              "start": 2,
+              "end": 5
+            },
+            {
+              "segment_index": 2,
+              "role": "SETTING_OBJECT",
+              "text": "river",
+              "start": 5,
+              "end": 10
+            },
+            {
+              "segment_index": 3,
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "start": 10,
+              "end": 12
+            },
+            {
+              "segment_index": 4,
+              "role": "SUBJECT",
+              "text": "artist",
+              "start": 12,
+              "end": 18
+            },
+            {
+              "segment_index": 5,
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "start": 18,
+              "end": 25
+            },
+            {
+              "segment_index": 6,
+              "role": "OBJECT_DET",
+              "text": "a",
+              "start": 25,
+              "end": 26
+            },
+            {
+              "segment_index": 7,
+              "role": "OBJECT",
+              "text": "ledger",
+              "start": 26,
+              "end": 32
+            }
+          ],
+          "segments": [
+            {
+              "role": "SETTING_PREP",
+              "text": "on",
+              "number": "",
+              "kind": "",
+              "semantic_id": "setting-prep:on"
+            },
+            {
+              "role": "SETTING_DET",
+              "text": "the",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting-det:the"
+            },
+            {
+              "role": "SETTING_OBJECT",
+              "text": "river",
+              "number": "",
+              "kind": "place",
+              "semantic_id": "setting:river"
+            },
+            {
+              "role": "SUBJECT_DET",
+              "text": "an",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "det:an"
+            },
+            {
+              "role": "SUBJECT",
+              "text": "artist",
+              "number": "sg",
+              "kind": "person",
+              "semantic_id": "subject:artist"
+            },
+            {
+              "role": "FINITE_VERB",
+              "text": "answers",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "verb:answers"
+            },
+            {
+              "role": "OBJECT_DET",
+              "text": "a",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "det:a"
+            },
+            {
+              "role": "OBJECT",
+              "text": "ledger",
+              "number": "sg",
+              "kind": "thing",
+              "semantic_id": "object:ledger"
+            }
+          ]
+        }
+      },
+      "audit": {
+        "normalized": "atthegateabakercarriesamemoontheriveranartistanswersaledger",
+        "letters": 59,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "orbit": 0,
+          "left_index": 0,
+          "right_index": 58,
+          "left_char": "a",
+          "right_char": "r"
+        },
+        "sha256_forward": "34099a680e9b51e6f0818c92cac48aa29b07444db12c0cf718e28c1b608fda7d",
+        "sha256_reverse": "5251ead0023e8435af55d8bf22039057b0817a531f79b721bcc1df3b2ea99431",
+        "sha256_equal": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "construction": "independent finite semantic story paths joined by a live center-out character-orbit product",
+        "lexical_banks_independent": true,
+        "grammar_boundaries_selected_before_render": true,
+        "semantic_roles_selected_before_render": true,
+        "center_out_cursor": "left clause end and right clause start",
+        "right_path_rendered_in_ordinary_order": true,
+        "completed_palindrome_seed": false,
+        "reversible_lexical_pairs_used": false,
+        "word_order_mirror": false,
+        "finished_tape_reversal": false,
+        "repair_mismatch_after_render": false,
+        "catalogue_text_imported": false,
+        "rlaif_used": false,
+        "reader_status": "unreviewed; exactness and mechanical checks are not readability evidence"
+      }
+    }
+  ],
+  "independent_audits": [
+    "live two-sided character-orbit product",
+    "independent normalized outside-in two-pointer scan",
+    "independent forward/reverse SHA-256 comparison"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_read": 564,
+    "signature_collision": false,
+    "signature": "independent-semantic-scene-paths|two-sided-character-orbit-product|complete-svo-terminal-gate|ordinary-right-rendering|initial-setting-frame",
+    "catalogue_text_used_as_input": false,
+    "known_catalogue_used_only_by_shared_exclusion_gate": true,
+    "reversible_lexical_pairs_used": false,
+    "word_order_mirror_used": false,
+    "finished_tape_reversal_used": false,
+    "rlaif_used": false
+  },
+  "grammar_exhaustion": {
+    "status": "exhausted",
+    "reason": "the product exhausted all shared character frontiers before both complete semantic paths reached a 39--60-letter terminal pair",
+    "dead_states_by_orbit": {
+      "0": 6,
+      "1": 12,
+      "2": 3,
+      "3": 1
+    },
+    "dead_frontier_samples": [
+      {
+        "orbit_depth": 1,
+        "center_mode": "right_center",
+        "total_letters_so_far": 3,
+        "left_roles": [
+          "ADJUNCT_OBJECT",
+          "OBJECT"
+        ],
+        "right_roles": [
+          "SETTING_PREP"
+        ],
+        "left_boundaries": [
+          "4:OBJECT",
+          "5:OBJECT",
+          "6:ADJUNCT_OBJECT",
+          "6:OBJECT",
+          "7:ADJUNCT_OBJECT",
+          "7:OBJECT"
+        ],
+        "right_boundaries": [
+          "0:SETTING_PREP"
+        ],
+        "left_next_characters": [
+          "a",
+          "e",
+          "o",
+          "w"
+        ],
+        "right_next_characters": [
+          "d"
+        ],
+        "left_terminal": false,
+        "right_terminal": false
+      },
+      {
+        "orbit_depth": 1,
+        "center_mode": "right_center",
+        "total_letters_so_far": 3,
+        "left_roles": [
+          "ADJUNCT_OBJECT",
+          "OBJECT"
+        ],
+        "right_roles": [
+          "SETTING_DET"
+        ],
+        "left_boundaries": [
+          "4:OBJECT",
+          "5:OBJECT",
+          "6:ADJUNCT_OBJECT",
+          "6:OBJECT",
+          "7:ADJUNCT_OBJECT",
+          "7:OBJECT"
+        ],
+        "right_boundaries": [
+          "1:SETTING_DET"
+        ],
+        "left_next_characters": [
+          "a",
+          "e",
+          "o",
+          "w"
+        ],
+        "right_next_characters": [
+          "t"
+        ],
+        "left_terminal": false,
+        "right_terminal": false
+      },
+      {
+        "orbit_depth": 1,
+        "center_mode": "right_center",
+        "total_letters_so_far": 3,
+        "left_roles": [
+          "ADJUNCT_OBJECT",
+          "OBJECT"
+        ],
+        "right_roles": [
+          "SETTING_PREP"
+        ],
+        "left_boundaries": [
+          "4:OBJECT",
+          "5:OBJECT",
+          "6:OBJECT",
+          "7:ADJUNCT_OBJECT",
+          "7:OBJECT"
+        ],
+        "right_boundaries": [
+          "0:SETTING_PREP"
+        ],
+        "left_next_characters": [
+          "g",
+          "l",
+          "r",
+          "t"
+        ],
+        "right_next_characters": [
+          "a"
+        ],
+        "left_terminal": false,
+        "right_terminal": false
+      },
+      {
+        "orbit_depth": 0,
+        "center_mode": "right_center",
+        "total_letters_so_far": 1,
+        "left_roles": [
+          "ADJUNCT_OBJECT",
+          "OBJECT"
+        ],
+        "right_roles": [
+          "SETTING_PREP"
+        ],
+        "left_boundaries": [
+          "4:OBJECT",
+          "5:OBJECT",
+          "6:ADJUNCT_OBJECT",
+          "6:OBJECT",
+          "7:ADJUNCT_OBJECT",
+          "7:OBJECT"
+        ],
+        "right_boundaries": [
+          "0:SETTING_PREP"
+        ],
+        "left_next_characters": [
+          "e",
+          "g",
+          "k",
+          "l",
+          "m",
+          "n",
+          "o",
+          "p",
+          "r",
+          "s",
+          "t"
+        ],
+        "right_next_characters": [
+          "y"
+        ],
+        "left_terminal": false,
+        "right_terminal": false
+      },
+      {
+        "orbit_depth": 1,
+        "center_mode": "right_center",
+        "total_letters_so_far": 3,
+        "left_roles": [
+          "OBJECT"
+        ],
+        "right_roles": [
+          "SETTING_DET",
+          "SETTING_OBJECT"
+        ],
+        "left_boundaries": [
+          "4:OBJECT",
+          "5:OBJECT",
+          "6:OBJECT",
+          "7:OBJECT"
+        ],
+        "right_boundaries": [
+          "1:SETTING_DET",
+          "1:SETTING_OBJECT"
+        ],
+        "left_next_characters": [
+          "r"
+        ],
+        "right_next_characters": [
+          "n",
+          "t",
+          "w"
+        ],
+        "left_terminal": false,
+        "right_terminal": false
+      },
+      {
+        "orbit_depth": 2,
+        "center_mode": "right_center",
+        "total_letters_so_far": 5,
+        "left_roles": [
+          "OBJECT"
+        ],
+        "right_roles": [
+          "SUBJECT_ADJ"
+        ],
+        "left_boundaries": [
+          "4:OBJECT",
+          "5:OBJECT",
+          "6:OBJECT",
+          "7:OBJECT"
+        ],
+        "right_boundaries": [
+          "1:SUBJECT_ADJ"
+        ],
+        "left_next_characters": [
+          "m"
+        ],
+        "right_next_characters": [
+          "t"
+        ],
+        "left_terminal": false,
+        "right_terminal": false
+      },
+      {
+        "orbit_depth": 3,
+        "center_mode": "right_center",
+        "total_letters_so_far": 7,
+        "left_roles": [
+          "ADJUNCT_OBJECT"
+        ],
+        "right_roles": [
+          "SUBJECT"
+        ],
+        "left_boundaries": [
+          "7:ADJUNCT_OBJECT"
+        ],
+        "right_boundaries": [
+          "1:SUBJECT"
+        ],
+        "left_next_characters": [
+          "r"
+        ],
+        "right_next_characters": [
+          "i"
+        ],
+        "left_terminal": false,
+        "right_terminal": false
+      },
+      {
+        "orbit_depth": 2,
+        "center_mode": "right_center",
+        "total_letters_so_far": 5,
+        "left_roles": [
+          "OBJECT"
+        ],
+        "right_roles": [
+          "SUBJECT"
+        ],
+        "left_boundaries": [
+          "4:OBJECT",
+          "5:OBJECT",
+          "6:OBJECT",
+          "7:OBJECT"
+        ],
+        "right_boundaries": [
+          "1:SUBJECT"
+        ],
+        "left_next_characters": [
+          "l"
+        ],
+        "right_next_characters": [
+          "r",
+          "u"
+        ],
+        "left_terminal": false,
+        "right_terminal": false
+      },
+      {
+        "orbit_depth": 1,
+        "center_mode": "left_center",
+        "total_letters_so_far": 3,
+        "left_roles": [
+          "OBJECT"
+        ],
+        "right_roles": [
+          "SETTING_PREP"
+        ],
+        "left_boundaries": [
+          "4:OBJECT",
+          "5:OBJECT"
+        ],
+        "right_boundaries": [
+          "0:SETTING_PREP"
+        ],
+        "left_next_characters": [
+          "a"
+        ],
+        "right_next_characters": [
+          "e"
+        ],
+        "left_terminal": false,
+        "right_terminal": false
+      },
+      {
+        "orbit_depth": 0,
+        "center_mode": "left_center",
+        "total_letters_so_far": 1,
+        "left_roles": [
+          "OBJECT"
+        ],
+        "right_roles": [
+          "SETTING_PREP",
+          "SUBJECT_DET"
+        ],
+        "left_boundaries": [
+          "4:OBJECT",
+          "5:OBJECT",
+          "6:OBJECT",
+          "7:OBJECT"
+        ],
+        "right_boundaries": [
+          "0:SETTING_PREP",
+          "0:SUBJECT_DET"
+        ],
+        "left_next_characters": [
+          "e"
+        ],
+        "right_next_characters": [
+          "a",
+          "b",
+          "n",
+          "o",
+          "u"
+        ],
+        "left_terminal": false,
+        "right_terminal": false
+      },
+      {
+        "orbit_depth": 1,
+        "center_mode": "left_center",
+        "total_letters_so_far": 3,
+        "left_roles": [
+          "ADJUNCT_OBJECT"
+        ],
+        "right_roles": [
+          "SETTING_PREP"
+        ],
+        "left_boundaries": [
+          "7:ADJUNCT_OBJECT"
+        ],
+        "right_boundaries": [
+          "0:SETTING_PREP"
+        ],
+        "left_next_characters": [
+          "b"
+        ],
+        "right_next_characters": [
+          "n",
+          "v"
+        ],
+        "left_terminal": false,
+        "right_terminal": false
+      },
+      {
+        "orbit_depth": 0,
+        "center_mode": "left_center",
+        "total_letters_so_far": 1,
+        "left_roles": [
+          "OBJECT"
+        ],
+        "right_roles": [
+          "SETTING_PREP",
+          "SUBJECT_DET"
+        ],
+        "left_boundaries": [
+          "4:OBJECT",
+          "5:OBJECT",
+          "6:OBJECT",
+          "7:OBJECT"
+        ],
+        "right_boundaries": [
+          "0:SETTING_PREP",
+          "0:SUBJECT_DET"
+        ],
+        "left_next_characters": [
+          "r"
+        ],
+        "right_next_characters": [
+          "a",
+          "b",
+          "n",
+          "o",
+          "u"
+        ],
+        "left_terminal": false,
+        "right_terminal": false
+      }
+    ]
+  },
+  "next_discriminator": {
+    "operator": "held-out initial-setting+SVO frame selected for the OBJECT/SUBJECT dead frontier",
+    "selection_rule": "introduce setting-preposition/object roles before the subject; no selected tape is edited after the orbit product",
+    "falsifier": "if the setting frame produces no new shared frontier at the first exhausted orbit, reject the frame and keep the prior grammar closed"
+  },
+  "reader_gate": "closed; no exact candidate is human readability evidence until blinded readers compare intact and shuffled controls"
+}

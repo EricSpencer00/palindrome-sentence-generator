@@ -66,8 +66,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "two-sided-semantic-orbit-product-20260920"
-    assert method.json()["optimization"]["search_history"][-1] == "two-sided-semantic-orbit-product-20260920"
+    assert method.json()["optimization"]["current_search"] == "two-sided-semantic-orbit-product-setting-frame-20260920"
+    assert method.json()["optimization"]["search_history"][-1] == "two-sided-semantic-orbit-product-setting-frame-20260920"
     assert method.json()["repair_frontier"][0]["letters"] == 50
     assert method.json()["method_runs"][0]["longest_rendered_letters"] == 183
     assert method.json()["method_runs"][1]["longest_exact_letters"] == 38
@@ -79,7 +79,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][7]["longest_rendered_letters"] == 77
     assert method.json()["method_runs"][8]["frontier_controls"] == 390
     assert method.json()["method_runs"][9]["longest_rendered_letters"] == 81
-    assert len(method.json()["method_runs"]) == 20
+    assert len(method.json()["method_runs"]) == 21
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10
@@ -91,7 +91,9 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][18]["outer_equation_pruned"] == 15120
     assert method.json()["method_runs"][19]["expanded_product_states"] == 34
     assert method.json()["method_runs"][19]["intact_controls"] == 4
-    assert len(method.json()["rlaif_frontier"]) == 11
+    assert method.json()["method_runs"][20]["expanded_product_states"] == 37
+    assert method.json()["method_runs"][20]["intact_controls"] == 4
+    assert len(method.json()["rlaif_frontier"]) == 12
 
 
 def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
@@ -137,6 +139,9 @@ def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
     assert body["rows"][10]["role"] == "center_out_intact_control"
     assert body["rows"][10]["exact"] is False
     assert body["rows"][10]["letters"] == 41
+    assert body["rows"][11]["role"] == "center_out_setting_frame_control"
+    assert body["rows"][11]["exact"] is False
+    assert body["rows"][11]["letters"] == 59
 
     evaluation = client.get("/api/v4/best-evaluation")
     assert evaluation.status_code == 200

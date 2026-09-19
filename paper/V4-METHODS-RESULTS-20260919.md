@@ -51,6 +51,7 @@ multiword palindrome span:
 | Agreement-carrying adjunct center CSP | Solves subject/adjunct character equations before selecting the finite verb and object, with number carried into temporal/locative slots | 16,800 semantic shells; 15,120 outer-pruned; 24 intact controls up to 47 letters; **“The quiet poet guards an open journal while he waits.”** | 0 / 0 |
 | Finite SVO character-orbit search | Intersects two complete finite SVO tries while assigning mirrored character orbits and refusing partial-fragment closure | 8 orbit states; 7 matched transitions; 3 intact controls up to 48 letters; no exact closure | 0 / 0 |
 | Two-sided semantic orbit product | Builds independent complete SVO/adjunct story paths on both sides, then assigns each mirrored character orbit while grammar boundaries and semantic roles remain live | 12,000 left paths × 10,200 right paths; 34 product states; 20 matched and 140 rejected orbit transitions; 4 intact 41-letter controls; no exact closure | 0 / 0 |
+| Two-sided semantic orbit product — held-out setting frame | Adds one initial setting-preposition/object frame at the prior OBJECT/SUBJECT dead frontier, then reruns the same center-out product with determiner and SVO roles fixed before expansion | 2,000 paths per side; 37 product states; 20 matched and 201 rejected orbit transitions; 4 intact 59-letter controls; no exact closure | 0 / 0 |
 | Dictionary reverse-segmentation DP | 51,129 authored SVO seeds are matched against a 52,927-headword POS-neutral reverse segmentation | No exact closure above 38; no candidate promoted | 0 / 0 |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
@@ -170,11 +171,23 @@ bells.” The failure is therefore a construction-boundary result, not a reason
 to enlarge a repair queue: the next discriminator adds one held-out complete
 story frame at the first dead frontier and reruns the same orbit product.
 
+The held-out setting-frame discriminator adds a grammatical initial
+preposition/object pair (bare time expressions such as “at noon” and
+determined locatives such as “over the river”) before the same finite SVO
+grammar. On the bounded remote replay, 2,000 paths per side produced 37
+product states, 20 matched transitions, and 201 rejected transitions. No
+39–60-letter exact closure appeared; four intact 59-letter controls remain
+available, and their first failures are retained at the
+setting-preposition/object boundary with independent pointer, SHA, and
+mechanical audits. This frame is a falsifiable extension of the grammar, not
+a repair to a rendered sentence.
+
 These repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:
 grammar boundaries and mirrored character orbits must be selected together,
 so an off-tape prose draft is never promoted into a repair queue. The
-two-sided semantic orbit product is now the working generation claim; earlier
+two-sided semantic orbit product, now with its held-out initial-setting frame,
+is the working generation claim; earlier
 repair runs remain auditable evidence and controls, but they are no longer the
 paper's proposed route to a readable palindrome.
 

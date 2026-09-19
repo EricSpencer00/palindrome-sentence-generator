@@ -26,6 +26,24 @@ def test_bounded_run_keeps_story_controls_and_independent_audits():
         assert row["orbit_assignment"]["first_failure"]
 
 
+def test_held_out_setting_frame_is_complete_and_ordinary_order():
+    paths = lane.build_paths("right", max_paths=200, max_letters=40)
+    setting_paths = [path for path in paths if path.frame == "setting_svo"]
+    assert setting_paths
+    assert all(path.complete_finite_semantics for path in setting_paths)
+    assert any("near the " in path.text or "at the " in path.text for path in setting_paths)
+    assert any(
+        marker in f" {path.text} "
+        for marker in (" at noon ", " at winter ")
+        for path in setting_paths
+    )
+    assert all(
+        segment.role in {"SETTING_PREP", "SETTING_DET", "SETTING_OBJECT", "SUBJECT_DET", "SUBJECT", "FINITE_VERB", "OBJECT_DET", "OBJECT"}
+        for path in setting_paths[:20]
+        for segment in path.segments
+    )
+
+
 def test_product_starts_at_the_clause_centre_and_supports_odd_length():
     # The repeated letter is only a compact orientation fixture; the
     # production bank is still role-complete and lexicon-gated.  ``left`` has

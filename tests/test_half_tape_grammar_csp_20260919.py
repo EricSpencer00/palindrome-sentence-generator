@@ -23,3 +23,11 @@ def test_shared_participant_temporal_repair_is_agreement_gated():
     assert "COREF" in frame.chunks
     assert {option.words for option in _options("COREF", {"subject_number": "sg"})} == {("she",), ("he",)}
     assert {option.words for option in _options("COREF", {"subject_number": "pl"})} == {("they",), ("we",)}
+
+
+def test_relative_complement_is_a_distinct_agreement_path():
+    frame = next(frame for frame in FRAMES if frame.name == "relative_complement_then_second_beat")
+    assert frame.chunks[:4] == ("SUBJ", "VERB", "OBJ", "RELMARK")
+    assert {option.words for option in _options("RELMARK", {})} == {("who",), ("that",)}
+    assert all(option.number == "sg" for option in _options("RELVERB", {"relative_number": "sg"}))
+    assert all(option.number == "pl" for option in _options("RELVERB", {"relative_number": "pl"}))

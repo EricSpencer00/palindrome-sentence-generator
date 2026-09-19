@@ -95,6 +95,27 @@ VERBS = (
     Option(("keep",), "pl", "transitive", "document", _content(("keep",))),
 )
 
+# A deliberately separate relative-clause bank.  These are not aliases for
+# the two-beat bank: the relative subject is agreement-carrying and its verb
+# has an independent valency/object type.  The half-tape CSP can therefore
+# reject a word before it consumes any later seam characters.
+RELATIVE_MARKERS = (
+    Option(("who",), content=_content(("who",))),
+    Option(("that",), content=_content(("that",))),
+)
+RELATIVE_SUBJECTS = (
+    _np("the poet", "sg"), _np("the herald", "sg"),
+    _np("some singers", "pl"), _np("the sailors", "pl"),
+)
+RELATIVE_VERBS = (
+    Option(("reads",), "sg", "transitive", "document", _content(("reads",))),
+    Option(("marks",), "sg", "transitive", "document", _content(("marks",))),
+    Option(("inspires",), "sg", "transitive", "person", _content(("inspires",))),
+    Option(("read",), "pl", "transitive", "document", _content(("read",))),
+    Option(("mark",), "pl", "transitive", "document", _content(("mark",))),
+    Option(("inspire",), "pl", "transitive", "person", _content(("inspire",))),
+)
+
 OBJECTS = (
     Option(("nine", "memos"), content=_content(("nine", "memos")), object_type="document"),
     Option(("a", "letter"), content=_content(("a", "letter")), object_type="document"),
@@ -139,6 +160,12 @@ FRAMES = (
     # Repair operator: keep one discourse participant alive across the seam
     # with an agreement-carrying pronoun, while adding a temporal adjunct.
     Frame("shared_participant_temporal", ("SUBJ", "VERB", "OBJ", "PP", "COREF", "VERB2", "OBJ2"), 4),
+    # New family: a complete relative complement is attached to the first
+    # object.  It is intentionally not a renamed two-beat frame: the
+    # relative clause has its own subject/verb/object agreement path.
+    Frame("relative_complement_then_second_beat", (
+        "SUBJ", "VERB", "OBJ", "RELMARK", "RELSUBJ", "RELVERB", "RELOBJ",
+        "SUBJ2", "VERB2", "OBJ2"), 7),
 )
 
 
@@ -146,15 +173,25 @@ def _options(chunk: str, state: dict[str, object]) -> tuple[Option, ...]:
     if chunk in {"SUBJ", "SUBJ2"}:
         used_proper = bool(state["proper_names"])
         return tuple(option for option in SUBJECTS if not (option.proper_name and used_proper))
+    if chunk == "RELMARK":
+        return RELATIVE_MARKERS
+    if chunk == "RELSUBJ":
+        return RELATIVE_SUBJECTS
     if chunk == "COREF":
         return tuple(option for option in COREFERENT_PRONOUNS
                      if option.number == state["subject_number"])
     if chunk in {"VERB", "VERB2"}:
         number = state["subject_number"] if chunk == "VERB" else state["subject2_number"]
         return tuple(option for option in VERBS if option.number == number)
+    if chunk == "RELVERB":
+        return tuple(option for option in RELATIVE_VERBS
+                     if option.number == state["relative_number"])
     if chunk in {"OBJ", "OBJ2"}:
         object_type = state["object_type"] if chunk == "OBJ" else state["object2_type"]
         return tuple(option for option in OBJECTS if option.object_type == object_type)
+    if chunk == "RELOBJ":
+        return tuple(option for option in OBJECTS
+                     if option.object_type == state["relative_object_type"])
     if chunk in {"PP", "PP2"}:
         return ADJUNCTS
     if chunk == "CONJ":
@@ -169,6 +206,10 @@ def _set_chunk_state(chunk: str, option: Option, state: dict[str, object]) -> No
         state["object_type"] = option.object_type
     elif chunk == "SUBJ2":
         state["subject2_number"] = option.number
+    elif chunk == "RELSUBJ":
+        state["relative_number"] = option.number
+    elif chunk == "RELVERB":
+        state["relative_object_type"] = option.object_type
     elif chunk == "COREF":
         state["subject2_number"] = option.number
     elif chunk == "VERB2":
@@ -291,7 +332,8 @@ def search_target(target: int, frame: Frame, *, max_nodes: int = 120_000) -> tup
 
     initial = {"content": frozenset(), "proper_names": frozenset(),
                "subject_number": None, "subject2_number": None,
-               "object_type": None, "object2_type": None}
+               "object_type": None, "object2_type": None,
+               "relative_number": None, "relative_object_type": None}
     dfs(0, 0, (), (), assignments, initial)
     return rows, {"nodes": nodes, "longest_words": list(longest_words)}
 

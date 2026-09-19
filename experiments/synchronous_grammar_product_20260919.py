@@ -21,8 +21,8 @@ class Utterance:
     def text(self): return " ".join(self.words).capitalize() + "."
 
 SUBJ = ("the baker", "the sailor", "the gardener", "the keeper", "a pilot", "a teacher", "the artist", "a farmer", "an artist", "an engineer", "I", "we")
-VERB = ("marks", "charts", "guards", "carries", "records", "watches", "plants", "draws")
-OBJ = ("the harbor", "the garden", "the bridge", "a lantern", "the vessel", "the valley", "a map", "the orchard", "the area", "the gate", "the boat", "a comet", "an idea")
+VERB = ("marks", "charts", "guards", "carries", "records", "watches", "plants", "draws", "narrates")
+OBJ = ("the harbor", "the garden", "the bridge", "a lantern", "the vessel", "the valley", "a map", "the orchard", "the area", "the gate", "the boat", "a comet", "an idea", "an arena")
 COP = ("is", "seems", "looks")
 ADJ = ("calm", "bright", "silent", "ready", "open", "green")
 LOC = ("at dawn", "near the shore", "beside the gate", "through the rain", "in the valley", "at the arena", "near the lake", "by the sunset")

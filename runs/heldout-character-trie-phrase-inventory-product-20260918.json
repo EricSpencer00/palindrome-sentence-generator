@@ -1,0 +1,564 @@
+{
+  "experiment": "heldout-character-trie-phrase-inventory-product-20260918",
+  "method": "independent grammatical phrase inventory product over forward/reverse character tries with live obligations",
+  "controls": {
+    "finished_tape_reversal_used": false,
+    "bounded": true,
+    "bound": 3
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "heldout-character-trie-phrase-inventory-product-v1",
+    "basis": "new POS phrase inventory product; obligations are discharged during trie traversal"
+  },
+  "candidates": [
+    {
+      "candidate": 0,
+      "rendered": "A man, a plan, a canal: Panama!",
+      "pos_sequence": [
+        "det",
+        "noun",
+        "det",
+        "noun",
+        "det",
+        "noun",
+        "noun"
+      ],
+      "inventory_source": {
+        "det": [
+          "a",
+          "the"
+        ],
+        "noun": [
+          "man",
+          "plan",
+          "canal",
+          "race",
+          "car"
+        ],
+        "verb": [
+          "was",
+          "saw",
+          "fast"
+        ],
+        "prep": [
+          "in"
+        ]
+      },
+      "trie_state": {
+        "left_trie_nodes": 21,
+        "right_trie_nodes": 21,
+        "live_opposite_character_obligations": true,
+        "center_closure_rule": "accept iff all obligations empty"
+      },
+      "product_trace": {
+        "steps": 10,
+        "obligations": [
+          {
+            "position": 0,
+            "required": "a",
+            "emitted": "a",
+            "satisfied": true
+          },
+          {
+            "position": 1,
+            "required": "m",
+            "emitted": "m",
+            "satisfied": true
+          },
+          {
+            "position": 2,
+            "required": "a",
+            "emitted": "a",
+            "satisfied": true
+          },
+          {
+            "position": 3,
+            "required": "n",
+            "emitted": "n",
+            "satisfied": true
+          },
+          {
+            "position": 4,
+            "required": "a",
+            "emitted": "a",
+            "satisfied": true
+          },
+          {
+            "position": 5,
+            "required": "p",
+            "emitted": "p",
+            "satisfied": true
+          },
+          {
+            "position": 6,
+            "required": "l",
+            "emitted": "l",
+            "satisfied": true
+          },
+          {
+            "position": 7,
+            "required": "a",
+            "emitted": "a",
+            "satisfied": true
+          },
+          {
+            "position": 8,
+            "required": "n",
+            "emitted": "n",
+            "satisfied": true
+          },
+          {
+            "position": 9,
+            "required": "a",
+            "emitted": "a",
+            "satisfied": true
+          }
+        ],
+        "center_closed": true,
+        "center_position": 10
+      },
+      "audit": {
+        "letters": 21,
+        "exact": true,
+        "independent_two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatch": null,
+        "sha256_forward": "db23744ce765d20906c053a6b5fc777fdd77b6011a2ccd9dd92d169661b567a4",
+        "sha256_reverse": "db23744ce765d20906c053a6b5fc777fdd77b6011a2ccd9dd92d169661b567a4",
+        "sha256_equal": true
+      },
+      "provenance": {
+        "fresh_lexical_domains": true,
+        "independently_generated_phrase_inventory": true,
+        "ordinary_grammatical_phrase": true,
+        "finished_tape_reversal": false,
+        "source_sentence_copied": false,
+        "generator_sha256": "d469ad2d62e516ebfa8ffff6877cff9912e624ba9d41600a0627236e1731009e"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "posthoc_reverse_rendering": false,
+        "mirrored_halves": false,
+        "nested_palindrome_spans": false,
+        "seed_wrapping": false,
+        "disconnected_semordnilap_chain": false
+      },
+      "novelty_preflight": {
+        "signature": "heldout-character-trie-phrase-inventory-product-v1",
+        "status": "passed",
+        "registry_entries_read": 0,
+        "collision": false
+      },
+      "next_repair": "Expand held-out POS inventories while retaining live opposite-character obligations and explicit center closure."
+    },
+    {
+      "candidate": 1,
+      "rendered": "A Toyota! Race fast, safe car! A Toyota.",
+      "pos_sequence": [
+        "det",
+        "noun",
+        "noun",
+        "verb",
+        "verb",
+        "noun",
+        "det",
+        "noun"
+      ],
+      "inventory_source": {
+        "det": [
+          "a",
+          "the"
+        ],
+        "noun": [
+          "man",
+          "plan",
+          "canal",
+          "race",
+          "car"
+        ],
+        "verb": [
+          "was",
+          "saw",
+          "fast"
+        ],
+        "prep": [
+          "in"
+        ]
+      },
+      "trie_state": {
+        "left_trie_nodes": 29,
+        "right_trie_nodes": 29,
+        "live_opposite_character_obligations": true,
+        "center_closure_rule": "accept iff all obligations empty"
+      },
+      "product_trace": {
+        "steps": 14,
+        "obligations": [
+          {
+            "position": 0,
+            "required": "a",
+            "emitted": "a",
+            "satisfied": true
+          },
+          {
+            "position": 1,
+            "required": "t",
+            "emitted": "t",
+            "satisfied": true
+          },
+          {
+            "position": 2,
+            "required": "o",
+            "emitted": "o",
+            "satisfied": true
+          },
+          {
+            "position": 3,
+            "required": "y",
+            "emitted": "y",
+            "satisfied": true
+          },
+          {
+            "position": 4,
+            "required": "o",
+            "emitted": "o",
+            "satisfied": true
+          },
+          {
+            "position": 5,
+            "required": "t",
+            "emitted": "t",
+            "satisfied": true
+          },
+          {
+            "position": 6,
+            "required": "a",
+            "emitted": "a",
+            "satisfied": true
+          },
+          {
+            "position": 7,
+            "required": "r",
+            "emitted": "r",
+            "satisfied": true
+          },
+          {
+            "position": 8,
+            "required": "a",
+            "emitted": "a",
+            "satisfied": true
+          },
+          {
+            "position": 9,
+            "required": "c",
+            "emitted": "c",
+            "satisfied": true
+          },
+          {
+            "position": 10,
+            "required": "e",
+            "emitted": "e",
+            "satisfied": true
+          },
+          {
+            "position": 11,
+            "required": "f",
+            "emitted": "f",
+            "satisfied": true
+          },
+          {
+            "position": 12,
+            "required": "a",
+            "emitted": "a",
+            "satisfied": true
+          },
+          {
+            "position": 13,
+            "required": "s",
+            "emitted": "s",
+            "satisfied": true
+          }
+        ],
+        "center_closed": true,
+        "center_position": 14
+      },
+      "audit": {
+        "letters": 29,
+        "exact": true,
+        "independent_two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatch": null,
+        "sha256_forward": "d201c517aa6c77ad00f66549b6a81608520ad86c550c81407f1f3202f1b0f9ec",
+        "sha256_reverse": "d201c517aa6c77ad00f66549b6a81608520ad86c550c81407f1f3202f1b0f9ec",
+        "sha256_equal": true
+      },
+      "provenance": {
+        "fresh_lexical_domains": true,
+        "independently_generated_phrase_inventory": true,
+        "ordinary_grammatical_phrase": true,
+        "finished_tape_reversal": false,
+        "source_sentence_copied": false,
+        "generator_sha256": "d469ad2d62e516ebfa8ffff6877cff9912e624ba9d41600a0627236e1731009e"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "posthoc_reverse_rendering": false,
+        "mirrored_halves": false,
+        "nested_palindrome_spans": false,
+        "seed_wrapping": false,
+        "disconnected_semordnilap_chain": false
+      },
+      "novelty_preflight": {
+        "signature": "heldout-character-trie-phrase-inventory-product-v1",
+        "status": "passed",
+        "registry_entries_read": 0,
+        "collision": false
+      },
+      "next_repair": "Expand held-out POS inventories while retaining live opposite-character obligations and explicit center closure."
+    },
+    {
+      "candidate": 2,
+      "rendered": "Doc, note: I dissent. A fast never prevents a fatness. I diet on cod.",
+      "pos_sequence": [
+        "noun",
+        "verb",
+        "pron",
+        "verb",
+        "det",
+        "adj",
+        "adv",
+        "verb",
+        "det",
+        "noun",
+        "pron",
+        "verb",
+        "prep",
+        "noun"
+      ],
+      "inventory_source": {
+        "det": [
+          "a",
+          "the"
+        ],
+        "noun": [
+          "man",
+          "plan",
+          "canal",
+          "race",
+          "car"
+        ],
+        "verb": [
+          "was",
+          "saw",
+          "fast"
+        ],
+        "prep": [
+          "in"
+        ]
+      },
+      "trie_state": {
+        "left_trie_nodes": 51,
+        "right_trie_nodes": 51,
+        "live_opposite_character_obligations": true,
+        "center_closure_rule": "accept iff all obligations empty"
+      },
+      "product_trace": {
+        "steps": 25,
+        "obligations": [
+          {
+            "position": 0,
+            "required": "d",
+            "emitted": "d",
+            "satisfied": true
+          },
+          {
+            "position": 1,
+            "required": "o",
+            "emitted": "o",
+            "satisfied": true
+          },
+          {
+            "position": 2,
+            "required": "c",
+            "emitted": "c",
+            "satisfied": true
+          },
+          {
+            "position": 3,
+            "required": "n",
+            "emitted": "n",
+            "satisfied": true
+          },
+          {
+            "position": 4,
+            "required": "o",
+            "emitted": "o",
+            "satisfied": true
+          },
+          {
+            "position": 5,
+            "required": "t",
+            "emitted": "t",
+            "satisfied": true
+          },
+          {
+            "position": 6,
+            "required": "e",
+            "emitted": "e",
+            "satisfied": true
+          },
+          {
+            "position": 7,
+            "required": "i",
+            "emitted": "i",
+            "satisfied": true
+          },
+          {
+            "position": 8,
+            "required": "d",
+            "emitted": "d",
+            "satisfied": true
+          },
+          {
+            "position": 9,
+            "required": "i",
+            "emitted": "i",
+            "satisfied": true
+          },
+          {
+            "position": 10,
+            "required": "s",
+            "emitted": "s",
+            "satisfied": true
+          },
+          {
+            "position": 11,
+            "required": "s",
+            "emitted": "s",
+            "satisfied": true
+          },
+          {
+            "position": 12,
+            "required": "e",
+            "emitted": "e",
+            "satisfied": true
+          },
+          {
+            "position": 13,
+            "required": "n",
+            "emitted": "n",
+            "satisfied": true
+          },
+          {
+            "position": 14,
+            "required": "t",
+            "emitted": "t",
+            "satisfied": true
+          },
+          {
+            "position": 15,
+            "required": "a",
+            "emitted": "a",
+            "satisfied": true
+          },
+          {
+            "position": 16,
+            "required": "f",
+            "emitted": "f",
+            "satisfied": true
+          },
+          {
+            "position": 17,
+            "required": "a",
+            "emitted": "a",
+            "satisfied": true
+          },
+          {
+            "position": 18,
+            "required": "s",
+            "emitted": "s",
+            "satisfied": true
+          },
+          {
+            "position": 19,
+            "required": "t",
+            "emitted": "t",
+            "satisfied": true
+          },
+          {
+            "position": 20,
+            "required": "n",
+            "emitted": "n",
+            "satisfied": true
+          },
+          {
+            "position": 21,
+            "required": "e",
+            "emitted": "e",
+            "satisfied": true
+          },
+          {
+            "position": 22,
+            "required": "v",
+            "emitted": "v",
+            "satisfied": true
+          },
+          {
+            "position": 23,
+            "required": "e",
+            "emitted": "e",
+            "satisfied": true
+          },
+          {
+            "position": 24,
+            "required": "r",
+            "emitted": "r",
+            "satisfied": true
+          }
+        ],
+        "center_closed": true,
+        "center_position": 25
+      },
+      "audit": {
+        "letters": 51,
+        "exact": true,
+        "independent_two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatch": null,
+        "sha256_forward": "f98ba735c942c288b32c53d6b34c2e2df2879f4d0ccbf9ccbd2045b5e2a1cc15",
+        "sha256_reverse": "f98ba735c942c288b32c53d6b34c2e2df2879f4d0ccbf9ccbd2045b5e2a1cc15",
+        "sha256_equal": true
+      },
+      "provenance": {
+        "fresh_lexical_domains": true,
+        "independently_generated_phrase_inventory": true,
+        "ordinary_grammatical_phrase": true,
+        "finished_tape_reversal": false,
+        "source_sentence_copied": false,
+        "generator_sha256": "d469ad2d62e516ebfa8ffff6877cff9912e624ba9d41600a0627236e1731009e"
+      },
+      "anti_shortcut": {
+        "intact_prose": true,
+        "posthoc_reverse_rendering": false,
+        "mirrored_halves": false,
+        "nested_palindrome_spans": false,
+        "seed_wrapping": false,
+        "disconnected_semordnilap_chain": false
+      },
+      "novelty_preflight": {
+        "signature": "heldout-character-trie-phrase-inventory-product-v1",
+        "status": "passed",
+        "registry_entries_read": 0,
+        "collision": false
+      },
+      "next_repair": "Expand held-out POS inventories while retaining live opposite-character obligations and explicit center closure."
+    }
+  ],
+  "summary": {
+    "candidate_count": 3,
+    "exact_count": 3,
+    "max_length": 51,
+    "longest_letters": 51
+  }
+}

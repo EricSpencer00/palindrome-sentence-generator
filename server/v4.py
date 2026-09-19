@@ -664,15 +664,15 @@ SYNCHRONOUS_GRAMMAR_PRODUCT_RUN = {
     "run_id": "synchronous-grammar-product-20260919",
     "method": "forward/reverse character-trie intersection over typed transitive, copular, and locative clauses",
     "status": "completed_no_exact_closure",
-    "inventory": 2115,
-    "live_states": 11,
-    "frontier_prefixes": ["th", "anerae", "anerana"],
+    "inventory": 2116,
+    "live_states": 12,
+    "frontier_prefixes": ["th", "anerae", "aneranar"],
     "exact_candidates": 0,
     "mechanically_admitted_candidates": 0,
     "provenance": "fresh authored finite grammar; both complete clauses remain parseable while mirrored character obligations are consumed; no repair, anchor wrapping, finished-tape reversal, word-order mirror, repeated module, or catalogue text",
     "independent_validation": ["forward/reverse trie intersection", "literal outside-in two-pointer", "forward/reverse SHA-256", "independent grammar parse"],
     "reader_status": "not_run; no exact candidate reached the reader gate",
-    "next_construction_discriminator": "extend the anerana endpoint noun orbit beyond the r/s conflict while preserving complete parses, then rerun the same full-trie product",
+    "next_construction_discriminator": "extend the aneranar endpoint orbit beyond the r/a conflict while preserving complete parses, then rerun the same full-trie product",
 }
 
 READER_PACKAGE = {

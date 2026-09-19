@@ -672,7 +672,7 @@ SYNCHRONOUS_GRAMMAR_PRODUCT_RUN = {
     "provenance": "fresh authored finite grammar; both complete clauses remain parseable while mirrored character obligations are consumed; no repair, anchor wrapping, finished-tape reversal, word-order mirror, repeated module, or catalogue text",
     "independent_validation": ["forward/reverse trie intersection", "literal outside-in two-pointer", "forward/reverse SHA-256", "independent grammar parse"],
     "reader_status": "not_run; no exact candidate reached the reader gate",
-    "next_construction_discriminator": "extend the aneranar endpoint orbit beyond the r/a conflict while preserving complete parses, then rerun the same full-trie product",
+    "next_construction_discriminator": "endpoint family exhausted at the r/a conflict; pivot to a phrase-boundary finite-state grammar rather than force an unnatural continuation",
 }
 
 READER_PACKAGE = {

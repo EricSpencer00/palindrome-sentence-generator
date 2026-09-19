@@ -275,7 +275,9 @@ to `anerana`, and the fresh “near an arena” realization extends that branch 
 the older `th` branch still dies at `e`/`g`. This is a small, honest frontier
 diagnostic: it demonstrates that endpoint design can deepen the live orbit
 before rendering, and gives the next construction a concrete continuation
-target rather than a repair queue.
+target rather than a repair queue. The endpoint family is now exhausted at the
+`aneranar` `r`/`a` conflict; forcing another continuation would be repair-like,
+so the next branch is an orthogonal phrase-boundary finite-state grammar.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

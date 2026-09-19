@@ -1,0 +1,139 @@
+{
+  "method": "character-FSA x PCFG intersection (outside-in obligations)",
+  "date": "2026-09-19",
+  "grammar": {
+    "S": [
+      [
+        "NP VP",
+        "event"
+      ]
+    ],
+    "NP": [
+      [
+        "the baker",
+        "agent"
+      ],
+      [
+        "a quiet sailor",
+        "agent"
+      ],
+      [
+        "the kind nurse",
+        "agent"
+      ]
+    ],
+    "VP": [
+      [
+        "records NP",
+        "action"
+      ],
+      [
+        "carries NP",
+        "action"
+      ],
+      [
+        "opens NP",
+        "action"
+      ]
+    ],
+    "NP_OBJ": [
+      [
+        "the map",
+        "object"
+      ],
+      [
+        "a letter",
+        "object"
+      ],
+      [
+        "the parcel",
+        "object"
+      ]
+    ]
+  },
+  "states": 6561,
+  "pruned": 6561,
+  "exact_count": 0,
+  "exact_candidates": [],
+  "intact_controls": [
+    {
+      "text": "The baker records the map before dawn.",
+      "length": 31,
+      "audit": {
+        "letters": 31,
+        "two_pointer_exact": false,
+        "forward_sha256": "23ddd902af6a4f57e22d8e4dfd9d240b95a03ebd4782e74ffda79ef8fb259a1f",
+        "reverse_sha256": "f0d1817ac7b0713c9196dcfd1d6bc1138d78aab5b664e6e3633c80f17f2a8de3",
+        "mismatch": 0
+      },
+      "provenance": "independently authored grammar control"
+    },
+    {
+      "text": "The baker records the map near the harbor.",
+      "length": 34,
+      "audit": {
+        "letters": 34,
+        "two_pointer_exact": false,
+        "forward_sha256": "71d52c42c82cf1177eb8253429ec24b909b556522c4717c0255e4e0646af6dac",
+        "reverse_sha256": "869e90c2fbe0a35d0a3893b968a12823fca5e23e4ab1e30de7676715dd583c4e",
+        "mismatch": 0
+      },
+      "provenance": "independently authored grammar control"
+    },
+    {
+      "text": "The baker records the map beside the northern harbor.",
+      "length": 44,
+      "audit": {
+        "letters": 44,
+        "two_pointer_exact": false,
+        "forward_sha256": "e7bc29b4f348116bf34197543ca1861189ac70dc07a68e2d60bd4bae0f90fe00",
+        "reverse_sha256": "75ece25e776172c0bb5acf8048b7ae28524b82182ce8f3516d012f8cbbc86378",
+        "mismatch": 0
+      },
+      "provenance": "independently authored grammar control"
+    },
+    {
+      "text": "The baker records a letter before dawn.",
+      "length": 32,
+      "audit": {
+        "letters": 32,
+        "two_pointer_exact": false,
+        "forward_sha256": "700cf34dc269124aabc3064e65ee354ef53cc820e020e96de40bce042516cfa0",
+        "reverse_sha256": "cf287331402a8ea7bea2ff3e8356fa6d9f406ad2fba04290c6271ced31438533",
+        "mismatch": 0
+      },
+      "provenance": "independently authored grammar control"
+    },
+    {
+      "text": "The baker records a letter near the harbor.",
+      "length": 35,
+      "audit": {
+        "letters": 35,
+        "two_pointer_exact": false,
+        "forward_sha256": "46b5e1a44bfd07cfeeebb80615176ac5b3db3ec99a576f30a88100dc3188e859",
+        "reverse_sha256": "85b3023fe86a654f03b97f00bed0e89c71baf4f5b25f6008cd51f1ae8725ca73",
+        "mismatch": 0
+      },
+      "provenance": "independently authored grammar control"
+    },
+    {
+      "text": "The baker records a letter beside the northern harbor.",
+      "length": 45,
+      "audit": {
+        "letters": 45,
+        "two_pointer_exact": false,
+        "forward_sha256": "b59e0de2e191bbd7cd89d752b16dfa9c04e7576e40352479ac5dc0cbbde963f5",
+        "reverse_sha256": "c35168a8d34c9e2c895abbea975f6f1b76551b0d674b8c6147a77221e57c72f4",
+        "mismatch": 0
+      },
+      "provenance": "independently authored grammar control"
+    }
+  ],
+  "strict_gate": {
+    "admitted": 0,
+    "reader_gate": "closed",
+    "reason": "No exact closure in bounded product"
+  },
+  "novelty": "Character-level finite-state obligations intersect a semantic PCFG during expansion; no finished-tape reversal, mirrored word order, repeated units, or catalogue text.",
+  "next_repair": "Add optional determiner and prepositional-phrase nonterminals with semantic compatibility, then retain only states whose first residual mismatch can be repaired by a held-out production."
+}

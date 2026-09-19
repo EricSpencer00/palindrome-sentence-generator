@@ -199,6 +199,18 @@ RESIDUAL_SEAM_RUN = {
     "next_repair": "replace one residual-bearing clause terminal with a held-out same-valency Shakespearean realization",
 }
 
+READER_PACKAGE = {
+    "experiment_id": "reader-package-v4-20260919",
+    "status": "blinded_package_ready_human_ratings_pending",
+    "seed": 20260919,
+    "pair_count": 5,
+    "conditions": ["intact", "word-shuffled_control"],
+    "randomized_blinded_order": True,
+    "answer_key_separated": True,
+    "programmatic_metrics_certify_readability": False,
+    "next_action": "collect independent ratings and report pairwise preference with rater IDs and exclusions",
+}
+
 OPTIMIZATION_SPEC = {
     "objective_order": [
         "exact letter-level closure",
@@ -476,6 +488,7 @@ def evidence() -> dict[str, Any]:
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
+        "reader_package": READER_PACKAGE,
         "optimization": OPTIMIZATION_SPEC,
     }
 
@@ -498,6 +511,7 @@ def method() -> dict[str, Any]:
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
+        "reader_package": READER_PACKAGE,
     }
 
 
@@ -513,6 +527,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "method_run": SEMANTIC_SHELL_RUN,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
+        "reader_package": READER_PACKAGE,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",
     }
 

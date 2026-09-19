@@ -94,6 +94,9 @@ def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
     assert body["ai_feedback_run"]["search_uses_feedback"] is False
     assert body["ai_feedback_run"]["scores"][0]["intact_english"] == 2
     assert body["ai_feedback_run"]["scores"][1]["intact_english"] == 0
+    assert body["reader_package"]["status"] == "blinded_package_ready_human_ratings_pending"
+    assert body["reader_package"]["randomized_blinded_order"] is True
+    assert body["reader_package"]["answer_key_separated"] is True
 
     evaluation = client.get("/api/v4/best-evaluation")
     assert evaluation.status_code == 200

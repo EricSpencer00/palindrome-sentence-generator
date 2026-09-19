@@ -43,8 +43,8 @@ def novelty_preflight():
     d = json.loads(REG.read_text()); rows = d.get("entries", []) + d.get("excluded", [])
     rel = str(Path(__file__).relative_to(ROOT))
     return {"status": "passed", "registry_entries_read": len(rows),
-            "signature_collision": any(x.get("signature") == SIG for x in rows),
-            "artifact_collision": any(x.get("artifact") == rel for x in rows),
+            "signature_collision": any(x.get("signature") == SIG and x.get("id") != ID for x in rows),
+            "artifact_collision": any(x.get("artifact") == rel and x.get("id") != ID for x in rows),
             "shortcuts_rejected": ["finished-tape reversal", "word-order symmetry", "repeated/self-palindromic units", "catalogue text", "fragments/gibberish", "post-hoc repair"]}
 
 def render(number, tense, boundary, cadence):

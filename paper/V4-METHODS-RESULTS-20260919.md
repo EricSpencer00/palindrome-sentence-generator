@@ -55,6 +55,8 @@ multiword palindrome span:
 | Lexical boundary-state product | Selects inflection/clitic boundary states and mirrored orbit locks before rendering two independent scene clauses | 4 bounded assignments; intact controls to 78 letters; no exact closure | 0 / 0 |
 | CFG/character-orbit chart intersection | Intersects a finite semantic CFG with live terminal character orbits and requires agent/action/theme/setting closure | 2 complete English clauses; no exact closure or admission | 0 / 0 |
 | Semantic slot/orbit product | Chooses valency, attachment, agreement, and center-out character equations jointly over authored Shakespearean scene frames | 12 agreement-valid scene pairs; intact controls to 75 letters; no exact closure | 0 / 0 |
+| Large-lexicon CFG/trie orbit search | Expands a 70-word finite SVO+PP grammar into a character trie while selecting two ordinary-order clauses and their word boundaries before orbit checking | 2,781 trie nodes; 200 bounded states; complete controls to 63 letters; no exact closure | 0 / 0 |
+| Morphology-first orbit grammar | Selects agreement, tense, article-boundary, and cadence states before lexical emission across two complete clauses | 16 agreement-valid variants; longest 66 letters; no exact closure | 0 / 0 |
 | Dictionary reverse-segmentation DP | 51,129 authored SVO seeds are matched against a 52,927-headword POS-neutral reverse segmentation | No exact closure above 38; no candidate promoted | 0 / 0 |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
@@ -204,6 +206,16 @@ pointer and forward/reverse hash audits; none is exact. These are concrete
 construction outcomes, not a readability claim or a reason to launch a repair
 queue. The next discriminator holds out attachment prepositions and measures
 whether any valency frame gains a live closure frontier.
+
+The larger-lexicon CFG/trie search widened the finite language rather than
+adding a reward model: 70 authored/common-English words became 2,781 trie
+nodes and 200 bounded two-sided states. It retained complete ordinary-order
+controls to 63 letters and closed at zero. The morphology-first lane then
+selected agreement, tense, article-boundary, and cadence states before
+emission. After excluding malformed agreement variants, 16 valid rows reached
+66 letters with zero exact closures. Both lanes leave a concrete next state
+change—held-out transitive verbs for the trie, and a held-out boundary state
+for morphology—rather than another repair pass.
 
 These repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

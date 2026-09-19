@@ -66,8 +66,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "semantic-slot-orbit-product-shakespeare-frame-20260920"
-    assert method.json()["optimization"]["search_history"][-1] == "semantic-slot-orbit-product-shakespeare-frame-20260920"
+    assert method.json()["optimization"]["current_search"] == "morphology-orbit-grammar-20260920"
+    assert method.json()["optimization"]["search_history"][-1] == "morphology-orbit-grammar-20260920"
     assert method.json()["repair_frontier"][0]["letters"] == 50
     assert method.json()["method_runs"][0]["longest_rendered_letters"] == 183
     assert method.json()["method_runs"][1]["longest_exact_letters"] == 38
@@ -79,7 +79,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][7]["longest_rendered_letters"] == 77
     assert method.json()["method_runs"][8]["frontier_controls"] == 390
     assert method.json()["method_runs"][9]["longest_rendered_letters"] == 81
-    assert len(method.json()["method_runs"]) == 24
+    assert len(method.json()["method_runs"]) == 26
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10
@@ -96,7 +96,9 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][21]["bounded_assignments"] == 4
     assert method.json()["method_runs"][22]["complete_clauses"] == 2
     assert method.json()["method_runs"][23]["states"] == 12
-    assert len(method.json()["rlaif_frontier"]) == 15
+    assert method.json()["method_runs"][24]["trie_nodes"] == 2781
+    assert method.json()["method_runs"][25]["variants"] == 16
+    assert len(method.json()["rlaif_frontier"]) == 17
 
 
 def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
@@ -152,6 +154,10 @@ def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
     assert body["rows"][13]["exact"] is False
     assert body["rows"][14]["role"] == "semantic_slot_scene_control"
     assert body["rows"][14]["exact"] is False
+    assert body["rows"][15]["role"] == "large_lexicon_cfg_control"
+    assert body["rows"][15]["exact"] is False
+    assert body["rows"][16]["role"] == "morphology_orbit_control"
+    assert body["rows"][16]["exact"] is False
 
     evaluation = client.get("/api/v4/best-evaluation")
     assert evaluation.status_code == 200

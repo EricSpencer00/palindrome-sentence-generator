@@ -44,7 +44,11 @@ def audit(text):
 
 def run(max_states=5000):
     registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
-    collision = any(x.get("id") == EXPERIMENT_ID or x.get("signature") == SIGNATURE for x in registry.get("entries", []) + registry.get("excluded", []))
+    collision = any(
+        (x.get("id") == EXPERIMENT_ID or x.get("signature") == SIGNATURE)
+        and x.get("id") != EXPERIMENT_ID
+        for x in registry.get("entries", []) + registry.get("excluded", [])
+    )
     nov = {"status": "collision" if collision else "novel", "registry_entries_checked": len(registry.get("entries", [])), "signature_collision": collision}
     trie = Trie(sum(LEXICON.values(), ()))
     rows=[]; states=0
@@ -53,6 +57,10 @@ def run(max_states=5000):
         if states >= max_states: break
         # Both ordinary-order arms are selected as typed CFG slots first.
         for right in domains[: max(1, min(len(domains), max_states // max(1, len(domains))) )]:
+            if left == right:
+                # Do not use a duplicated sentence as a pseudo-palindromic
+                # control; both arms must carry distinct authored content.
+                continue
             states += 1
             lt, rt = sentence(*left), sentence(*right)
             lnorm, rnorm = normalize_letters(lt), normalize_letters(rt)

@@ -60,6 +60,8 @@ BEST_KNOWN_PROVENANCE = {
         "latest_character_boundary_product": "4 lexical-boundary assignments; longest intact control 78 letters; zero exact closure",
         "latest_cfg_character_intersection": "2 complete CFG clauses; live orbit chart closed at zero exact rows",
         "latest_semantic_slot_orbit_product": "12 agreement-valid scene-frame pairs; intact controls to 75 letters; zero exact closure",
+        "latest_large_lexicon_cfg_orbit": "70-word lexicon, 2,781 trie nodes, 200 live states; zero exact closure",
+        "latest_morphology_orbit": "16 agreement-valid variants across 8 morphology states; longest 66 letters; zero exact closure",
         "reader_study": "not run",
     },
 }
@@ -583,6 +585,44 @@ SEMANTIC_SLOT_ORBIT_RUN = {
     "next_construction_discriminator": "hold out attachment prepositions and compare closure support by valency frame",
 }
 
+LARGE_LEXICON_CFG_RUN = {
+    "run_id": "large-lexicon-cfg-orbit-20260920",
+    "method": "70-word finite SVO+PP CFG intersected with live two-sided character tries",
+    "status": "completed_no_exact_closure",
+    "lexicon_words": 70,
+    "trie_nodes": 2781,
+    "states": 200,
+    "exact_candidates": 0,
+    "mechanically_admitted": 0,
+    "intact_controls": 8,
+    "longest_control_letters": 63,
+    "best_control": "the artist admires the answer under the tower. the artist admires the answer.",
+    "provenance": "authored/common-English finite CFG slots with word boundaries selected before rendering; live orbit assignment; no post-hoc repair, finished-tape reversal, word-order mirror, repeated modules, catalogue text, or RLAIF reward",
+    "independent_validation": ["CFG/trie intersection", "literal outside-in two-pointer", "forward/reverse SHA-256", "mechanical admission gate"],
+    "reader_status": "not_run; controls are complete ordinary-order clauses but no exact candidate reached the reader gate",
+    "next_construction_discriminator": "add held-out transitive verbs and compare first-residual orbit depth",
+}
+
+MORPHOLOGY_ORBIT_RUN = {
+    "run_id": "morphology-orbit-grammar-20260920",
+    "method": "joint agreement/tense/article-boundary state with mirrored character-orbit obligations",
+    "status": "completed_no_exact_closure",
+    "variants": 16,
+    "morphology_states": 8,
+    "exact_candidates": 0,
+    "mechanically_admitted": 0,
+    "intact_controls": 2,
+    "longest_variant_letters": 66,
+    "controls": [
+        "the gardener opens the window at dawn.",
+        "the children watched the river in silence.",
+    ],
+    "provenance": "agreement-valid complete clauses with tense and article-boundary states selected before lexical emission; no malformed forms, post-hoc repair, finished-tape reversal, catalogue text, or RLAIF reward",
+    "independent_validation": ["morphology-state replay", "literal outside-in two-pointer", "forward/reverse SHA-256", "independent prose controls"],
+    "reader_status": "not_run; no exact candidate reached the reader gate",
+    "next_construction_discriminator": "hold agreement and tense fixed, then vary a new boundary state and require a new orbit signature",
+}
+
 READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
@@ -610,7 +650,7 @@ OPTIMIZATION_SPEC = {
     ],
     "promotion_rule": "Historical diagnostics cannot certify readability or drive post-hoc edits; each active candidate must be generated on the exact character orbit, and promotion requires randomized blinded intact-prose versus shuffled-control readers.",
     "active_construction_policy": "Exact-by-construction orbit generation: choose grammar boundaries and mirrored character pairs together; residual repair lanes are historical diagnostics, not the primary search.",
-    "current_search": "semantic-slot-orbit-product-shakespeare-frame-20260920",
+    "current_search": "morphology-orbit-grammar-20260920",
     "search_history": [
         "half-tape-grammar-csp-20260919",
         "dream-rsi-strict-phrase-bank-20260919",
@@ -638,6 +678,8 @@ OPTIMIZATION_SPEC = {
         "character-boundary-product-20260920",
         "grammar-char-intersection-20260920",
         "semantic-slot-orbit-product-shakespeare-frame-20260920",
+        "large-lexicon-cfg-orbit-20260920",
+        "morphology-orbit-grammar-20260920",
     ],
 }
 
@@ -915,6 +957,18 @@ def _rlaif_frontier() -> list[dict[str, Any]]:
             "rendered": SEMANTIC_SLOT_ORBIT_RUN["best_control"],
             "provenance": SEMANTIC_SLOT_ORBIT_RUN["provenance"],
         },
+        {
+            "run_id": LARGE_LEXICON_CFG_RUN["run_id"],
+            "role": "large_lexicon_cfg_control",
+            "rendered": LARGE_LEXICON_CFG_RUN["best_control"],
+            "provenance": LARGE_LEXICON_CFG_RUN["provenance"],
+        },
+        {
+            "run_id": MORPHOLOGY_ORBIT_RUN["run_id"],
+            "role": "morphology_orbit_control",
+            "rendered": MORPHOLOGY_ORBIT_RUN["controls"][0],
+            "provenance": MORPHOLOGY_ORBIT_RUN["provenance"],
+        },
     ]
     comparison = []
     for row in rows:
@@ -962,7 +1016,7 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -985,7 +1039,7 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -1002,7 +1056,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": TWO_SIDED_SETTING_FRAME_RUN,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",

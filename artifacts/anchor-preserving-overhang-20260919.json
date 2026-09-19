@@ -1,0 +1,58 @@
+{
+  "experiment_id": "anchor-preserving-overhang-20260919",
+  "method": "center-out extension of the independently constructed readable anchor with cached overhang debt and bidirectional corpus-bigram scoring",
+  "status": "exact_frontier_not_admissible",
+  "rendered": "Name not left onto her a. Set add new one last one. Can all its an aide rips nine memos some men inspire Diana still an. Ace not sale now end dates. Are hot not felt one man.",
+  "normalized": "namenotleftontoherasetaddnewonelastonecanallitsanaideripsninememossomemeninspiredianastillanacenotsalenowenddatesarehotnotfeltoneman",
+  "letters": 132,
+  "beats_panama_letters": true,
+  "anchor": "An aide rips nine memos; some men inspire Diana.",
+  "anchor_letters": 38,
+  "exact_audits": {
+    "two_pointer": true,
+    "sha256_forward": "69fddbd56a740baa888ca8d4172ada57dfa8d0baaeed7da591da082a8b8ab655",
+    "sha256_reverse": "69fddbd56a740baa888ca8d4172ada57dfa8d0baaeed7da591da082a8b8ab655"
+  },
+  "search_configuration": {
+    "vocabulary": "safe wordfreq top 30000",
+    "center": "an aide rips nine memos some men inspire Diana",
+    "debt_index_limit": 48,
+    "debt_weight": 1.6,
+    "dead_penalty": 24.0,
+    "coherent_scorer": "data/count_2w.txt",
+    "short_word_penalty": 4.0,
+    "beam_width": 220,
+    "max_steps": 45,
+    "candidate_limit": 500,
+    "per_parent": 22,
+    "outer_content_words_unique": true
+  },
+  "mechanical_checks": {
+    "supported_ascii_letters": true,
+    "nonempty": true,
+    "exact_letter_palindrome": true,
+    "length_band": true,
+    "word_form": true,
+    "lexicon_words": true,
+    "ordinary_short_words": true,
+    "distinct_words": false,
+    "no_self_palindromic_word": true,
+    "not_word_order_symmetry": true,
+    "no_repeated_nontrivial_unit": true,
+    "no_self_palindromic_proper_multiword_span": false,
+    "not_forbidden_catalogue_control": true,
+    "not_catalogue_family_derivative": true,
+    "not_forbidden_catalogue_endpoint_scaffold": true,
+    "absent_from_local_catalogue": true,
+    "local_catalogue_absent": true
+  },
+  "rejection_reason": "The 38-letter anchor is embedded as a proper self-palindromic multiword span, and the outer material repeats a content word. The exact tape is therefore a search diagnostic, not a promoted readable palindrome.",
+  "reader_status": "closed; no blinded-reader package",
+  "comparison": {
+    "published_panama_control_letters": 24,
+    "best_known_admissible_anchor_letters": 38,
+    "local_norvig_dictionary_record_letters": 90937,
+    "local_norvig_dictionary_record_status": "exact but noun-list material; not meaningful prose"
+  },
+  "next_action": "Offload any further substantive search to a remote compute host; keep this Mac for coordination, editing, and lightweight exactness checks."
+}

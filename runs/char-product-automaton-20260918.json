@@ -1,0 +1,52 @@
+{
+  "experiment_id": "char-product-automaton-20260918",
+  "signature": "typed-clause-DFA-x-character-obligation-product|heterogeneous-slot-pairs|add-one-char-bigram",
+  "config": {
+    "grammar_states": 4,
+    "max_states": 100000,
+    "depth": 5,
+    "model": "transparent add-one character bigram"
+  },
+  "stats": {
+    "state_counts": [
+      2,
+      0
+    ],
+    "character_conflicts": 1370,
+    "exact_closures": 0,
+    "candidate_rows": 0
+  },
+  "rendered_candidates": [],
+  "prose_controls": [
+    {
+      "rendered": "The careful poet reads a letter at dawn.",
+      "audit": {
+        "letters": 32,
+        "two_pointer_exact": false,
+        "sha256_forward": "733dbad4dcc5572cca28b9262d9b3c01b365f693ce998ee5f8d87f8cc313656c",
+        "sha256_reverse": "2d2d4ef0b2ef95bb11d10f8163d9c8510d29362caec65e21137dd82b89b0d299",
+        "sha_equal_under_reversal": false
+      },
+      "provenance": "hand-authored intact English control; not imported as a palindrome"
+    },
+    {
+      "rendered": "A teacher marks the map near home.",
+      "audit": {
+        "letters": 27,
+        "two_pointer_exact": false,
+        "sha256_forward": "c01ce6af7bd00db2d0870a7b7ede1c67c278bcf2b08427d6d38415be4342941b",
+        "sha256_reverse": "3b6e334da53e50951ee85b9fa1f9db4a387d7cd8f141e732e1e23aa1cb437bd2",
+        "sha_equal_under_reversal": false
+      },
+      "provenance": "hand-authored intact English control; not imported as a palindrome"
+    }
+  ],
+  "provenance": {
+    "finished_tape_reversed": false,
+    "catalogue_text_imported": false,
+    "validator": "independent two-pointer plus forward/reverse SHA-256",
+    "readability_certified": false,
+    "novelty_preflight": "candidate normalized tapes must be checked against data/known_palindromes.json before admission"
+  },
+  "next_repair": "replace slot words with a character trie mined from held-out non-palindromic prose and add a center-closure state; do not treat LM score as readability."
+}

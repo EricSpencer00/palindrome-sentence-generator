@@ -11,7 +11,7 @@ or filter a fixed tape.
 The run evaluated 9 scene pairs (scribe, gardener, pilot), rendering 9 intact
 two-clause prose rows. Every row failed the live outer-inward equation and the
 independent exact audit: 0 equation passes, 0 exact palindromes. The longest
-rendered row contained 58 normalized letters. Each row stores the rendered
+rendered row contained 62 normalized letters. Each row stores the rendered
 prose, first mirrored mismatch, normalized/reversed SHA-256 values, and a
 separate two-pointer replay.
 

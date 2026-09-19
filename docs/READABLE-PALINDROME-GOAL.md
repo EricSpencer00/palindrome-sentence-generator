@@ -5626,3 +5626,27 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the remaining obstacle from the earlier invalid products. The next repair
   replaces only the ending constituent responsible for that first residual,
   rather than widening the whole inventory.
+
+- **Edge-compatible semantic-valency test, 2026-09-19:** co-designed six
+  fresh complete clause pairs so the subject prefix and adjunct suffix were
+  compatible with the live outer equation before rendering. The strongest
+  row, “Ariadne maps a route near the cove. Daria marks a chart beside Daira.”,
+  reached five mirrored characters in a 55-letter intact control; all six
+  failed exact closure and none was reader-eligible. The next repair replaces
+  only the first mismatching ending constituent while preserving the compatible
+  semantic frame.
+
+- **Fresh boundary-ending replacement, 2026-09-19:** tested 12 fresh
+  opening/middle/ending combinations with an ending-only replacement operator
+  and explicit 4/8/12/16-character reach gates. The best near-miss,
+  “I saw the careful keeper mark the ledger, was I.”, reached four characters
+  and failed at the fifth; no row reached eight or closed exactly. The next
+  operation is a single replacement of that row’s mismatching ending
+  constituent, not a broader sweep.
+
+- **Center-state boundary reassessment, 2026-09-19:** preflighted 138,240
+  fresh left clause records against 105,600 natural terminal-noun reversals
+  before rendering. There were zero four-character prefix matches and zero
+  complete-clause overlaps, so this lane is pruned rather than padded with
+  pseudo-words or finished-tape reversals. The next construction moves to a
+  productive inflectional/agreement boundary.

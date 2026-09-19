@@ -290,6 +290,9 @@ def build_pdf() -> None:
         [para("Held-out semantic valency frames", small), para("Six complete authored subject/verb/object/adjunct frame pairs with agreement and valency live before rendering; longest pair 72 letters.", small), para("0 exact", small), para("Reader gate closed; next repair adds a held-out adjunct transition at the center seam.", small)],
         [para("Fresh reverse-tape grammar chart", small), para("Six fresh authored clauses consumed by a typed DET/ADJ/N/V/P chart with optional-slot transitions; best intact control 42 letters.", small), para("0 exact / 0 shortcut survivors", small), para("Reader gate closed; next repair adds typed plural and inflectional variants at the first residual character.", small)],
         [para("Boundary-conditioned two-ended clauses", small), para("20 fresh opening/ending pairs were selected only after a four-character outer match; both incomplete grammar sides then expanded under a live residual.", small), para("20 survive 4 / 0 survive 8", small), para("Reader gate closed; next repair replaces only the ending constituent causing the first continuation mismatch.", small)],
+        [para("Edge-compatible semantic valency", small), para("Six fresh complete clause pairs co-designed subject prefixes and adjunct suffixes before rendering, with typed valency and live residual equations.", small), para("Max live match 5 / 0 exact", small), para("Reader gate closed; next repair replaces only the first mismatching ending constituent while preserving the compatible frame.", small)],
+        [para("Fresh boundary-ending replacement", small), para("Twelve fresh opening/middle/ending combinations used an ending-only replacement operator with explicit 4/8/12/16-character reach gates.", small), para("1 survives 4 / 0 survive 8", small), para("Reader gate closed; best intact near-miss reaches four characters; next repair changes that row's ending constituent only.", small)],
+        [para("Center-state boundary reassessment", small), para("A fresh preflight compared 138,240 left clause records with 105,600 natural terminal-noun reversals before rendering.", small), para("0 four-char matches / lane pruned", small), para("No pseudo-words or finished-tape reversal; next repair moves to a productive inflectional/agreement boundary.", small)],
     ]
     t = Table(round_data, colWidths=[1.62 * inch, 4.25 * inch, 1.55 * inch, 2.75 * inch], repeatRows=1)
     t.setStyle(TableStyle([
@@ -361,14 +364,14 @@ def build_pdf() -> None:
     story.append(Paragraph("5. Reader-facing protocol and next constructive repair", h1))
     story.append(
         Paragraph(
-            "No row has reached the reader study in this snapshot. When one does, the package will contain the intact passage, a word-shuffled control, randomized blinded order, the exact normalization and hash audit, provenance and generator commit, and a reproducible rater form. The immediate next experiment is not another sweep: jointly generate a complete question-answer discourse across the seam, carry agreement and valency state, and reject any candidate containing a proper palindromic subspan before it can be considered for readers.",
+            "No row has reached the reader study in this snapshot. When one does, the package will contain the intact passage, a word-shuffled control, randomized blinded order, the exact normalization and hash audit, provenance and generator commit, and a reproducible rater form. The immediate next experiment is not another sweep: replace only the first mismatching ending constituent in the five-character edge-compatible frame, then move to a productive inflectional/agreement boundary if that repair fails.",
             body,
         )
     )
     story.append(Paragraph("Reproducibility anchors", h2))
     story.append(
         Paragraph(
-            "Source artifacts: docs/experiment-novelty-registry.json; runs/dream-rsi-dual-boundary-model-authoring-20260918.json; runs/dream-rsi-discourse-ellipsis-20260918.json; runs/dream-rsi-role-live-phrase-lattice-20260918.json; runs/center-state-grammar-transition-20260918.json; runs/held-out-semantic-valency-frame-product-20260918.json; runs/fresh-clause-resegmentation-chart-20260918.json; runs/boundary-conditioned-two-ended-clause-20260918.json. The report is generated from these files so the table and headline counts can be regenerated after the next Dream-RSI branch.",
+            "Source artifacts: docs/experiment-novelty-registry.json; runs/dream-rsi-dual-boundary-model-authoring-20260918.json; runs/dream-rsi-discourse-ellipsis-20260918.json; runs/dream-rsi-role-live-phrase-lattice-20260918.json; runs/center-state-grammar-transition-20260918.json; runs/held-out-semantic-valency-frame-product-20260918.json; runs/fresh-clause-resegmentation-chart-20260918.json; runs/boundary-conditioned-two-ended-clause-20260918.json; runs/edge-compatible-valency-frames-20260919.json; runs/fresh-boundary-ending-replacement-20260919.json; runs/center-state-boundary-reassessment-20260919.json. The report is generated from these files so the table and headline counts can be regenerated after the next Dream-RSI branch.",
             body,
         )
     )

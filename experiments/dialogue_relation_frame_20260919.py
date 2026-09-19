@@ -28,6 +28,7 @@ ROLE_ALTS = {
     "object": ("warm bread", "safe passage", "clear water"),
     "answer": ("a clear yes", "a calm yes", "a firm yes"),
     "closing": ("thanks the baker", "thanks the pilot", "thanks the guide"),
+    "bridge": ("confirms receipt", "confirms the request", "confirms the reply"),
 }
 
 def synchronous_obligations(text: str) -> dict:
@@ -45,12 +46,12 @@ def constructive_search(limit: int = 5000) -> tuple[list[dict], int]:
     """Enumerate role choices and apply obligations before rendering/admission."""
     import itertools
     accepted=[]; tested=0
-    for requester, agent, obj, answer, closing in itertools.product(*(ROLE_ALTS[k] for k in ("requester","agent","object","answer","closing"))):
+    for requester, agent, obj, answer, closing, bridge in itertools.product(*(ROLE_ALTS[k] for k in ("requester","agent","object","answer","closing","bridge"))):
         tested += 1
-        text = f"{requester} asks {agent} for {obj}, and {agent} answers with {answer}; {requester} {closing}."
+        text = f"{requester} asks {agent} for {obj}, and {agent} answers with {answer}; {requester} {closing} and {agent} {bridge}."
         live = synchronous_obligations(text)
         if live["accepted"]:
-            accepted.append({"rendered":text,"roles":{"requester":requester,"agent":agent,"object":obj,"answer":answer,"closing":f"{requester} {closing}"},"live_obligations":live,"parse":parse(text,{"requester":requester,"agent":agent,"object":obj,"answer":answer,"closing":f"{requester} {closing}"}),"audit":audit(text)})
+            accepted.append({"rendered":text,"roles":{"requester":requester,"agent":agent,"object":obj,"answer":answer,"closing":f"{requester} {closing}; {agent} {bridge}"},"live_obligations":live,"parse":parse(text,{"requester":requester,"agent":agent,"object":obj,"answer":answer,"closing":f"{requester} {closing}"}),"audit":audit(text)})
         if tested >= limit: break
     return accepted, tested
 

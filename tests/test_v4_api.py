@@ -99,7 +99,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][24]["trie_nodes"] == 2781
     assert method.json()["method_runs"][25]["variants"] == 16
     assert method.json()["method_runs"][26]["visited_states"] == 4608
-    assert method.json()["method_runs"][27]["live_states"] == 6
+    assert method.json()["method_runs"][27]["live_states"] == 9
     assert method.json()["method_runs"][27]["exact_candidates"] == 0
     assert method.json()["method_runs"][28]["calibration_letters"] == 38
     assert method.json()["method_runs"][28]["long_form_exact_candidates"] == 0

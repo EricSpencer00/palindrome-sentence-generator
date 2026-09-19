@@ -5584,3 +5584,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   copied catalogue controls, excluded from candidate and exact counts, and
   quarantined from the paper. The corrected run reports zero fresh candidates;
   the next implementation must use a genuinely fresh held-out phrase inventory.
+
+- **Fresh phrase-trie product, 2026-09-18:** replaced those controls with a
+  genuinely authored POS inventory and complete clause templates. The live
+  product walked 232,320 left obligations through 947,222 reversed-right trie
+  nodes before rendering any pair; it found 0 terminal pairs, 0 exact closures,
+  and 0 admissible rows. Fresh clause controls are 23--25 letters and remain
+  human-unreviewed. This is a new construction geometry, not a larger replay;
+  the next repair adds a center-state grammar transition and held-out semantic
+  valency frames while keeping the live obligation walk.

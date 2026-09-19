@@ -674,7 +674,17 @@ def _registry_preflight() -> dict[str, object]:
         signatures = [str(row.get("signature", "")) for row in rows if isinstance(row, dict)]
     except (OSError, json.JSONDecodeError):
         return {"status": "failed", "registry_entries_read": 0, "reason": "registry unavailable"}
-    collision = SIGNATURE in signatures
+    # Once this committed run is entered in the registry, replaying the same
+    # deterministic artifact must remain reproducible.  A signature collision
+    # from a different experiment is still a hard stop; this lane's own
+    # registration is not a duplicate sweep.
+    collision = any(
+        signature == SIGNATURE
+        and str(row.get("id", "")) != EXPERIMENT_ID
+        for row in rows
+        if isinstance(row, dict)
+        for signature in [str(row.get("signature", ""))]
+    )
     return {
         "status": "failed" if collision else "passed",
         "registry_entries_read": entries,

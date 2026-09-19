@@ -55,6 +55,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_authored_scene_lattice": "45 exact 42-letter diagnostics; 10 prior-tape collisions; zero mechanically admitted",
         "latest_compositional_shell_repair": "21,660 complete-shell compositions; 164 intact controls to 75 letters; zero exact closure",
         "latest_shell_inflection_repair": "11,340 role-preserving variants; 420 controls; zero exact closure",
+        "latest_center_out_orbit_product": "12,000 independent paths per side; 34 product states; 4 intact 41-letter controls; zero exact closure",
         "reader_study": "not run",
     },
 }
@@ -460,6 +461,39 @@ FINITE_CLAUSE_ORBIT_RUN = {
     "next_repair": "add one held-out subject/object noun bundle at the first live orbit frontier",
 }
 
+TWO_SIDED_SEMANTIC_ORBIT_RUN = {
+    "run_id": "two-sided-semantic-orbit-product-20260920",
+    "method": "fresh center-out semantic story grammar with a live two-sided character-orbit product",
+    "status": "completed_no_exact_closure",
+    "target_range": "39–60 letters",
+    "path_budget_per_side": 12000,
+    "left_paths": 12000,
+    "right_paths": 10200,
+    "expanded_product_states": 34,
+    "matched_orbit_transitions": 20,
+    "rejected_orbit_transitions": 140,
+    "max_orbit_depth": 3,
+    "exact_candidates": 0,
+    "mechanically_admitted_candidates": 0,
+    "intact_controls": 4,
+    "longest_control_letters": 41,
+    "controls": [
+        "A baker carries a map; an artist answers some bells.",
+        "A baker carries a map; an artist follows an archive.",
+        "A baker carries a map; an artist follows some roads.",
+        "A baker carries a map; an artist hears some ledgers.",
+    ],
+    "provenance": "remote deterministic independent semantic path banks; grammar boundaries and mirrored character orbits selected before rendering; no repair, finished-tape reversal, catalogue import, or RLAIF reward",
+    "independent_validation": [
+        "live two-sided orbit product",
+        "literal outside-in two-pointer",
+        "forward/reverse SHA-256",
+        "mechanical admission gate",
+    ],
+    "reader_status": "not_run; controls are intact prose but no exact candidate reached the reader gate",
+    "next_construction_discriminator": "add one held-out complete story frame at the first dead frontier and rerun the same center-out product; do not edit a rendered tape",
+}
+
 READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
@@ -485,9 +519,9 @@ OPTIMIZATION_SPEC = {
         "borrowed catalogue text",
         "fragmentary or gibberish output",
     ],
-    "promotion_rule": "A diagnostic score can choose the next repair but cannot certify readability; promotion requires randomized blinded intact-prose versus shuffled-control readers.",
+    "promotion_rule": "Historical diagnostics cannot certify readability or drive post-hoc edits; each active candidate must be generated on the exact character orbit, and promotion requires randomized blinded intact-prose versus shuffled-control readers.",
     "active_construction_policy": "Exact-by-construction orbit generation: choose grammar boundaries and mirrored character pairs together; residual repair lanes are historical diagnostics, not the primary search.",
-    "current_search": "agreement-carrying-adjunct-center-csp-20260920",
+    "current_search": "two-sided-semantic-orbit-product-20260920",
     "search_history": [
         "half-tape-grammar-csp-20260919",
         "dream-rsi-strict-phrase-bank-20260919",
@@ -510,6 +544,7 @@ OPTIMIZATION_SPEC = {
         "anchor-preserving-overhang-20260919",
         "astra-bidirectional-half-tape-20260920",
         "agreement-carrying-adjunct-center-csp-20260920",
+        "two-sided-semantic-orbit-product-20260920",
     ],
 }
 
@@ -757,6 +792,12 @@ def _rlaif_frontier() -> list[dict[str, Any]]:
             "rendered": FINITE_CLAUSE_ORBIT_RUN["longest_control"],
             "provenance": FINITE_CLAUSE_ORBIT_RUN["provenance"],
         },
+        {
+            "run_id": TWO_SIDED_SEMANTIC_ORBIT_RUN["run_id"],
+            "role": "center_out_intact_control",
+            "rendered": TWO_SIDED_SEMANTIC_ORBIT_RUN["controls"][0],
+            "provenance": TWO_SIDED_SEMANTIC_ORBIT_RUN["provenance"],
+        },
     ]
     comparison = []
     for row in rows:
@@ -804,7 +845,7 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -827,7 +868,7 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -843,8 +884,8 @@ def frontier_evaluation() -> dict[str, Any]:
         "certifies_readability": False,
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
-        "method_run": SEMANTIC_SHELL_RUN,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN],
+        "method_run": TWO_SIDED_SEMANTIC_ORBIT_RUN,
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",

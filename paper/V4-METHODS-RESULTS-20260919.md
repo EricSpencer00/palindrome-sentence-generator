@@ -38,12 +38,14 @@ multiword palindrome span:
 | Method | Search-space change | Rendered evidence | Exact / admitted |
 |---|---|---|---:|
 | Fixed half-tape grammar CSP | Character aliases are assigned before word boundaries; agreement and valency are live state | 38-letter anchor | 2 / 2 at 38; none above |
+| Phrase-valued half-tape CSP (z2) | Phrase edges keep determiner/noun boundaries live while assigning mirrored character variables | **An aide rips nine memos; some men inspire Diana.** (38 letters; 24 target runs; 48,999 nodes) | 1 / 1 at 38; no >38 closure |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
 | Residual-seam scene lattice | Complete grammatical clauses indexed by remaining length, required character, agreement, and valency | 246 grammatical renderings; longest 66 | 0 / 0 |
 | Semantic shell growth | Held-out event pairs require live edge overlap at each incremental shell step | 7,272 renderings; longest 183 | 0 / 0 |
 | Held-out terminal repair | Same-valency terminals selected by residual character and typed state | 252 grammatical renderings; longest 67 | 0 / 0 |
 | Relative indexed boundary CSP | Agreement-carrying relative complement with indexed word-boundary offsets | 12,588 search nodes; longest exact 0 | 0 / 0 |
+| Explicit relative-slot CSP (z2) | `who`/`that`, finite relative verb, and object are separate live edges rather than one opaque clause | 194,216 nodes across 39–70 letters; no exact closure | 0 / 0 |
 | Shared relative complement | Shared participant plus finite `that`/`and` markers across the relative seam | 4,042 indexed nodes; no exact closure | 0 / 0 |
 | Residual-prefix attachment lattice | Two-character seam-prefix state with attachment, agreement, and valency | 258 candidates; longest 77 | 0 / 0 |
 | One-time typed lexical bank | Local model authors lexical alternatives once; deterministic CSP searches them without per-candidate feedback | 703,172 nodes; 390 grammatical frontier controls | 0 / 0 |
@@ -53,6 +55,13 @@ Every lane records a literal two-pointer audit, forward/reverse SHA-256, source
 provenance, novelty preflight, and a concrete next repair. None reverses a
 finished sentence, imports catalogue text, or scores each search state with an
 LM/RLAIF reward.
+
+The constructive result is therefore specific, not a proxy claim: the z2
+half-tape representation independently recovers the 38-letter readable anchor,
+but the bounded 38--45-letter pilot does not yet improve its length. The next
+repair exposes relative-clause internals as separate character-constrained
+edges; its 194,216-node run also closes at zero, so it remains a repair record,
+not a promoted example.
 
 ## Reader evidence and API gate
 

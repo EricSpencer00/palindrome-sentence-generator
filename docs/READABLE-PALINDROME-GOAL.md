@@ -5616,3 +5616,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   warm loaves home.” (42 letters, 20 mirrored mismatches). The next repair is
   typed plural and inflectional variation at the first residual chart
   character, not another catalogue or inventory sweep.
+
+- **Boundary-conditioned two-ended clause search, 2026-09-18:** after the
+  outer-edge diagnosis, froze 20 fresh opening/ending constituent pairs that
+  really matched for four characters, then expanded both incomplete grammar
+  sides with a bounded live residual. All 20 passed the four-character
+  boundary test, but none reached eight characters: each failed at the first
+  typed continuation, with 0 terminal rows and 0 exact closures. This separates
+  the remaining obstacle from the earlier invalid products. The next repair
+  replaces only the ending constituent responsible for that first residual,
+  rather than widening the whole inventory.

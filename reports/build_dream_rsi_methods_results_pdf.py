@@ -289,6 +289,7 @@ def build_pdf() -> None:
         [para("Center-state grammar transition", small), para("2,027,520 live trie walks with a typed observation-to-consequence center transition; 48 fresh diagnostics were rendered.", small), para("0 terminal pairs / 0 exact", small), para("Reader gate closed; next repair carries held-out semantic valency agreement across the center.", small)],
         [para("Held-out semantic valency frames", small), para("Six complete authored subject/verb/object/adjunct frame pairs with agreement and valency live before rendering; longest pair 72 letters.", small), para("0 exact", small), para("Reader gate closed; next repair adds a held-out adjunct transition at the center seam.", small)],
         [para("Fresh reverse-tape grammar chart", small), para("Six fresh authored clauses consumed by a typed DET/ADJ/N/V/P chart with optional-slot transitions; best intact control 42 letters.", small), para("0 exact / 0 shortcut survivors", small), para("Reader gate closed; next repair adds typed plural and inflectional variants at the first residual character.", small)],
+        [para("Boundary-conditioned two-ended clauses", small), para("20 fresh opening/ending pairs were selected only after a four-character outer match; both incomplete grammar sides then expanded under a live residual.", small), para("20 survive 4 / 0 survive 8", small), para("Reader gate closed; next repair replaces only the ending constituent causing the first continuation mismatch.", small)],
     ]
     t = Table(round_data, colWidths=[1.62 * inch, 4.25 * inch, 1.55 * inch, 2.75 * inch], repeatRows=1)
     t.setStyle(TableStyle([
@@ -367,7 +368,7 @@ def build_pdf() -> None:
     story.append(Paragraph("Reproducibility anchors", h2))
     story.append(
         Paragraph(
-            "Source artifacts: docs/experiment-novelty-registry.json; runs/dream-rsi-dual-boundary-model-authoring-20260918.json; runs/dream-rsi-discourse-ellipsis-20260918.json; runs/dream-rsi-role-live-phrase-lattice-20260918.json; runs/center-state-grammar-transition-20260918.json; runs/held-out-semantic-valency-frame-product-20260918.json; runs/fresh-clause-resegmentation-chart-20260918.json. The report is generated from these files so the table and headline counts can be regenerated after the next Dream-RSI branch.",
+            "Source artifacts: docs/experiment-novelty-registry.json; runs/dream-rsi-dual-boundary-model-authoring-20260918.json; runs/dream-rsi-discourse-ellipsis-20260918.json; runs/dream-rsi-role-live-phrase-lattice-20260918.json; runs/center-state-grammar-transition-20260918.json; runs/held-out-semantic-valency-frame-product-20260918.json; runs/fresh-clause-resegmentation-chart-20260918.json; runs/boundary-conditioned-two-ended-clause-20260918.json. The report is generated from these files so the table and headline counts can be regenerated after the next Dream-RSI branch.",
             body,
         )
     )

@@ -8,9 +8,11 @@ graph: a forward question edge is matched against an incoming answer edge, and
 the recorded path is rendered in ordinary English order.
 
 Only a small boundary-conditioned inventory was added: complete polar
-questions and object-fronted declarative answers. The graph also retains the
-44-letter discourse line as a diagnostic control because it exercises the
-useful cross-word boundary but is not complete prose.
+questions and object-fronted declarative answers. Five additional complete
+`subject met object` alternatives were then tried at the first dead frontier;
+none closed. The graph also retains the 44-letter discourse line as a
+diagnostic control because it exercises the useful cross-word boundary but is
+not complete prose.
 
 ## Result
 
@@ -23,14 +25,17 @@ SHA-256 agreement. It fails exactly one strict gate,
 `no_self_palindromic_proper_multiword_span`, and its answer is fragmentary.
 There are no complete-answer exact rows, no mechanically admitted rows, and no
 reader-eligible rows. The row is therefore retained as a geometry control, not
-as a result.
+as a result. The failed complete-answer alternatives are preserved in the run
+provenance rather than counted as a larger vocabulary sweep.
 
 ## Concrete next repair
 
-Inspect the first dead pair frontier and author one complete object-fronted
-answer whose outer letters satisfy that boundary. Preserve the lexical history
-and reject proper palindromic subspans before any reader package is created.
-This is a boundary-conditioned grammar repair, not a larger vocabulary sweep.
+The next construction must keep the same pair graph but expand the answer
+subject/verb/object roles *before* committing the whole phrase, carrying the
+dead frontier's character debt across those token boundaries. Preserve the
+lexical history and reject proper palindromic subspans before any reader
+package is created. This is a boundary-conditioned grammar repair, not a
+larger vocabulary sweep.
 
 Human readability remains unmeasured; programmatic exactness and gate checks do
 not certify English prose.

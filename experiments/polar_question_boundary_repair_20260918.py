@@ -101,6 +101,14 @@ FRONTED_ANSWERS = (
     "Diana, Noel saw",
     "Noel, Leon met",
     "Leon, Noel met",
+    # Boundary-conditioned alternatives requested by the first dead frontier:
+    # they begin with an explicit subject plus the verb ``met`` rather than
+    # the fragmentary participle ``met in a``.
+    "Mara met Noel",
+    "Mara met Leon",
+    "Mara met an aide",
+    "Leon met Mara",
+    "Nora met Aram",
 )
 
 # This is kept for geometry comparison only.  It is deliberately not in the

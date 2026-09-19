@@ -51,13 +51,16 @@ app = FastAPI(title="palindrome")
 # hostname, no new tunnel, and nothing on the v1 path changes.
 from server.v2 import router as v2_router  # noqa: E402  (after app exists)
 from server.v3 import router as v3_router  # noqa: E402
+from server.v4 import router as v4_router  # noqa: E402
 
 app.include_router(v2_router)
 app.include_router(v3_router)
+app.include_router(v4_router)
 
 RETIRED_OUTPUT_PATHS = frozenset({
     "/api/generate", "/api/v2/paragraph", "/api/v2/generate",
     "/api/v3/composition", "/api/v3/palindrome", "/api/v3/refrain",
+    "/api/v4/generate",
 })
 RETIREMENT_MESSAGE = (
     "Palindrome output is retired: exactness and programmatic filters do not "

@@ -5350,6 +5350,33 @@
       "distinction": "A fresh local model proposes role-tagged subject, verb, object, and adjunct units; role order and attested clause-prefix/suffix feasibility are carried inside each exact character expansion rather than used as a post-hoc reranker.",
       "reader_evidence": false,
       "status": "34 valid model units (1 subject, 11 verb phrases, 11 objects, 11 adjuncts), 189,481 live syntax rejections, 0 exact closures; reader gate closed; next repair replaces sparse corpus shapes with a typed hand-authored clause automaton"
+    },
+    {
+      "id": "typed-clause-reverse-slot-automaton-20260918",
+      "signature": "typed-clause-reverse-slot-order|agreement-carry|live-character-residual|independent-audit",
+      "artifact": "experiments/typed_clause_reverse_slot_automaton_20260918.py",
+      "run_artifacts": ["runs/typed-clause-reverse-slot-automaton-20260918.json"],
+      "distinction": "The right clause is expanded from its outer edge in reverse grammatical slot order while agreement is carried until its governing subject is selected; character debt is compared live across slot boundaries rather than pairing the same grammatical slot on both sides.",
+      "reader_evidence": false,
+      "status": "462 live character conflicts and 0 exact closures after reverse-slot repair; no candidate promoted; reader gate closed; next repair expands typed phrases into word tokens so residual debt can cross phrase boundaries"
+    },
+    {
+      "id": "typed-word-boundary-clause-automaton-20260918",
+      "signature": "typed-word-boundary|cross-phrase-residual|independent-role-clauses|agreement-carry",
+      "artifact": "experiments/typed_word_boundary_clause_automaton_20260918.py",
+      "run_artifacts": ["runs/typed-word-boundary-clause-automaton-20260918.json"],
+      "distinction": "Independent typed clauses expand one lexical token at a time; residual character debt may cross determiner, noun, and verb boundaries while reverse grammatical order, agreement, and optional adjunct presence remain live. Known seed tapes are smoke controls only.",
+      "reader_evidence": false,
+      "status": "1,856 live lexical witnesses, 82 exact terminals (2 seed controls and 80 short name/repetition loops), 0 new mechanically admitted rows; reader gate closed; next repair is semantic event-frame expansion with live uniqueness and proper-span pruning"
+    },
+    {
+      "id": "semantic-event-frame-lane-20260918",
+      "signature": "semantic-event-frame|relation-labeled|independent-role-product|two-pointer-sha-audit",
+      "artifact": "experiments/semantic_event_frame_lane_20260918.py",
+      "run_artifacts": ["runs/semantic-event-frame-lane-20260918.json"],
+      "distinction": "Independent semantic event frames are joined by a relation-labeled transition; actor, action, object, and setting remain explicit frame roles and are audited from the rendered sentence without finished-tape reversal or word-order mirroring.",
+      "reader_evidence": false,
+      "status": "5,000 bounded event-frame probes, longest intact control 59 letters, 0 exact palindromes, 0 mechanically admitted candidates; reader gate closed; next repair adds typed argument-selection transitions and varies the second setting"
     }
   ],
   "excluded": [
@@ -10176,33 +10203,6 @@
       "distinction": "A new chart grows independently typed scene frames from opposite character edges and carries residual debt across lexical boundaries; repeated words, finished-tape reversal, catalogue text, and word-order symmetry are not used.",
       "reader_evidence": false,
       "status": "3 frame pairs, 3 expanded states, 0 exact closures; fresh complete-clause controls 67–68 letters; withheld seed smoke passes independently but is not promoted; next repair changes lexical category only at a live typed boundary"
-    },
-    {
-      "id": "typed-clause-reverse-slot-automaton-20260918",
-      "signature": "typed-clause-reverse-slot-order|agreement-carry|live-character-residual|independent-audit",
-      "artifact": "experiments/typed_clause_reverse_slot_automaton_20260918.py",
-      "run_artifacts": ["runs/typed-clause-reverse-slot-automaton-20260918.json"],
-      "distinction": "The right clause is expanded from its outer edge in reverse grammatical slot order while agreement is carried until its governing subject is selected; character debt is compared live across slot boundaries rather than pairing the same grammatical slot on both sides.",
-      "reader_evidence": false,
-      "status": "462 live character conflicts and 0 exact closures after reverse-slot repair; no candidate promoted; reader gate closed; next repair expands typed phrases into word tokens so residual debt can cross phrase boundaries"
-    },
-    {
-      "id": "typed-word-boundary-clause-automaton-20260918",
-      "signature": "typed-word-boundary|cross-phrase-residual|independent-role-clauses|agreement-carry",
-      "artifact": "experiments/typed_word_boundary_clause_automaton_20260918.py",
-      "run_artifacts": ["runs/typed-word-boundary-clause-automaton-20260918.json"],
-      "distinction": "Independent typed clauses expand one lexical token at a time; residual character debt may cross determiner, noun, and verb boundaries while reverse grammatical order, agreement, and optional adjunct presence remain live. Known seed tapes are smoke controls only.",
-      "reader_evidence": false,
-      "status": "1,856 live lexical witnesses, 82 exact terminals (2 seed controls and 80 short name/repetition loops), 0 new mechanically admitted rows; reader gate closed; next repair is semantic event-frame expansion with live uniqueness and proper-span pruning"
-    },
-    {
-      "id": "semantic-event-frame-lane-20260918",
-      "signature": "semantic-event-frame|relation-labeled|independent-role-product|two-pointer-sha-audit",
-      "artifact": "experiments/semantic_event_frame_lane_20260918.py",
-      "run_artifacts": ["runs/semantic-event-frame-lane-20260918.json"],
-      "distinction": "Independent semantic event frames are joined by a relation-labeled transition; actor, action, object, and setting remain explicit frame roles and are audited from the rendered sentence without finished-tape reversal or word-order mirroring.",
-      "reader_evidence": false,
-      "status": "bounded event-frame probes retained with independent two-pointer/SHA audits; no readability claim; next repair adds typed argument-selection transitions and varies the second setting"
     }
   ]
 }

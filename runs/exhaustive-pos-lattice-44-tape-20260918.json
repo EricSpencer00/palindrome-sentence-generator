@@ -1,0 +1,128 @@
+{
+  "experiment": "exhaustive-pos-lattice-44-tape-20260918",
+  "tape": "wasnoelaneraagasanitemmetinasagaarenaleonsaw",
+  "letters": 44,
+  "method": {
+    "lexicon": "data/lexicon.txt intersected with tape; authored POS tags in source",
+    "enumeration": "all complete dictionary segmentations (no LM beam)",
+    "grammar": "permissive finite clause POS recognizer; candidate flag is not human readability"
+  },
+  "stats": {
+    "dictionary_edges": 30,
+    "complete_segmentations": 1,
+    "pos_coherent_candidates": 1,
+    "strict_admissions": 0
+  },
+  "actual_segmentations": [
+    {
+      "rendered": "was noel an era a gas an item met in a saga arena leon saw",
+      "words": [
+        "was",
+        "noel",
+        "an",
+        "era",
+        "a",
+        "gas",
+        "an",
+        "item",
+        "met",
+        "in",
+        "a",
+        "saga",
+        "arena",
+        "leon",
+        "saw"
+      ],
+      "letters": 44,
+      "exact": true,
+      "reverse_tokens": false,
+      "hidden_palindromic_spans": [
+        "asnoelaneraagasanitemmetinasagaarenaleonsa",
+        "snoelaneraagasanitemmetinasagaarenaleons",
+        "noelaneraagasanitemmetinasagaarenaleon",
+        "oelaneraagasanitemmetinasagaarenaleo",
+        "elaneraagasanitemmetinasagaarenale",
+        "laneraagasanitemmetinasagaarenal",
+        "aneraagasanitemmetinasagaarena",
+        "neraagasanitemmetinasagaaren",
+        "eraagasanitemmetinasagaare",
+        "raagasanitemmetinasagaar",
+        "aagasanitemmetinasagaa",
+        "agasanitemmetinasaga",
+        "gasanitemmetinasag",
+        "asanitemmetinasa",
+        "sanitemmetinas",
+        "anitemmetina",
+        "nitemmetin",
+        "itemmeti",
+        "temmet",
+        "emme",
+        "aga",
+        "asa"
+      ],
+      "coherent_pos": true
+    }
+  ],
+  "pos_coherent_candidates": [
+    {
+      "rendered": "was noel an era a gas an item met in a saga arena leon saw",
+      "words": [
+        "was",
+        "noel",
+        "an",
+        "era",
+        "a",
+        "gas",
+        "an",
+        "item",
+        "met",
+        "in",
+        "a",
+        "saga",
+        "arena",
+        "leon",
+        "saw"
+      ],
+      "letters": 44,
+      "exact": true,
+      "reverse_tokens": false,
+      "hidden_palindromic_spans": [
+        "asnoelaneraagasanitemmetinasagaarenaleonsa",
+        "snoelaneraagasanitemmetinasagaarenaleons",
+        "noelaneraagasanitemmetinasagaarenaleon",
+        "oelaneraagasanitemmetinasagaarenaleo",
+        "elaneraagasanitemmetinasagaarenale",
+        "laneraagasanitemmetinasagaarenal",
+        "aneraagasanitemmetinasagaarena",
+        "neraagasanitemmetinasagaaren",
+        "eraagasanitemmetinasagaare",
+        "raagasanitemmetinasagaar",
+        "aagasanitemmetinasagaa",
+        "agasanitemmetinasaga",
+        "gasanitemmetinasag",
+        "asanitemmetinasa",
+        "sanitemmetinas",
+        "anitemmetina",
+        "nitemmetin",
+        "itemmeti",
+        "temmet",
+        "emme",
+        "aga",
+        "asa"
+      ],
+      "coherent_pos": true
+    }
+  ],
+  "strict_gate": {
+    "status": "closed",
+    "rule": "exact tape + complete coherent English + no proper contiguous palindromic subspan + no reverse-token shortcut + provenance",
+    "admitted": 0,
+    "reason": "all POS-lattice candidates either fragmentary/overpermissive or contain hidden palindromic spans; no human reader test run"
+  },
+  "provenance": {
+    "generator_sha256": "06e2263c57daa9851cc9862c30869f89cb27c8ee2cc5686b0edef8c5791ef119",
+    "lexicon_sha256": "0831919ec27fe131e8b4b4ad41630c48a37087802dc9a94f94cc57441f91f5e6",
+    "material": "fixed diagnostic tape only; no catalogue import; no finished-tape reversal"
+  },
+  "next_constructive_repair": "Author a new complete finite clause around a changed outer seam; do not continue resegmenting this immutable tape."
+}

@@ -4,7 +4,7 @@ def test_typed_inventory_and_preflight():
     result = run(500_000)
     assert result["novelty_preflight"]["status"] == "passed"
     assert result["config"]["inventory"] == len(inventory())
-    assert set(result["config"]["families"]) == {"transitive", "copular", "locative", "endpoint_orbit"}
+    assert set(result["config"]["families"]) == {"transitive", "copular", "locative", "endpoint_orbit", "endpoint_noun_orbit"}
     assert result["stats"]["truncated"] is False
 
 def test_independent_exactness_audit():

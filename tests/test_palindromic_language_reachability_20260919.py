@@ -3,7 +3,7 @@ import itertools
 import random
 
 from experiments.palindromic_language_reachability_20260919 import (
-    compile_templates, letters, solve,
+    compile_templates, letters, solve, solve_packed,
 )
 
 
@@ -42,3 +42,15 @@ def test_disjoint_outer_letters_prove_empty_without_enumeration():
     assert result["representative_exact_candidates"] == []
     assert result["dead_end_certificates"][0]["forward_next"] == ["a", "t"]
     assert result["dead_end_certificates"][0]["backward_next"] == ["p", "r"]
+
+
+def test_packed_solver_retains_distinct_surface_witnesses():
+    # Both alternatives reach the same paired character state.  The old
+    # predecessor map could retain only one; packing must expose both exact
+    # tapes without changing the character-level result.
+    result = solve_packed(compile_templates([(("a", "aa"), ("a", "aa"))]),
+                          max_letters=20, witnesses_per_state=32)
+    assert {r["audit"]["letters"] for r in result["representative_exact_candidates"]} == {2, 3, 4}
+    assert result["paired_states"] > 1
+    assert result["witnesses_per_state"] == 32
+    assert result["exhaustive_existence_within_bound"] is False

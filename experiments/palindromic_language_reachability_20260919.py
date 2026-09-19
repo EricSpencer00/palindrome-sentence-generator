@@ -163,6 +163,126 @@ def solve(language, max_letters=160):
                 caveat="One witness per state loses alternative surfaces/quality; no quality optimum claim.")
 
 
+def _render_witness(left_edges, middle, right_edges):
+    """Render a packed witness whose right half is stored outer-to-inner."""
+    path = list(left_edges) + ([middle] if middle else []) + list(reversed(right_edges))
+    if not path:
+        return None
+    text = "".join(e.surface for e in path).strip().capitalize() + "."
+    return text, path
+
+
+def _witness_rank(witness):
+    """Stable, deliberately weak ordering for bounded witness retention.
+
+    This is only a diversity-preserving tie breaker.  It is not a readability
+    certificate and is never used by the admission gate.  Prefer witnesses
+    with more lexical boundaries and fewer repeated surface words so that a
+    packed state does not discard the most human-looking alternatives first.
+    """
+    left_edges, right_edges = witness
+    surfaces = [e.surface.strip() for e in left_edges + right_edges if e.surface.strip()]
+    words = [w.lower() for s in surfaces for w in s.split() if w.isalpha()]
+    repeated = len(words) - len(set(words))
+    boundaries = sum(s.count(" ") for s in surfaces)
+    return (-boundaries, repeated, " ".join(surfaces))
+
+
+def solve_packed(language, max_letters=160, witnesses_per_state=32):
+    """Find exact paths while retaining bounded alternatives per paired state.
+
+    ``solve`` answers existence but keeps one arbitrary predecessor.  That is
+    unsafe for a readable-language search: two derivations can reach the same
+    character state while differing completely in lexical surface.  This
+    variant keeps up to ``witnesses_per_state`` distinct edge witnesses per
+    state, deduplicates edge identities, and emits all distinct exact tapes
+    represented by the retained witnesses.  It remains a bounded diagnostic,
+    not an exhaustive quality optimizer.
+    """
+    if witnesses_per_state < 1:
+        raise ValueError("witnesses_per_state must be positive")
+    root = (0, language.start, language.end)
+    witnesses = {root: [((), ())]}
+    visited_states = {root}
+    frontier = [root]
+    layers, closures, dead_ends = [], [], []
+    transitions = 0
+    dropped = 0
+    for depth in range(max_letters // 2 + 1):
+        if not frontier:
+            break
+        layers.append(len(frontier))
+        next_witnesses = defaultdict(list)
+        for state in frontier:
+            _, left, right = state
+            state_witnesses = witnesses[state]
+            if left == right:
+                closures.extend((state, None, w) for w in state_witnesses)
+            if 2 * depth + 1 <= max_letters:
+                for edge in language.out[left]:
+                    if edge.dst == right:
+                        closures.extend((state, edge, w) for w in state_witnesses)
+            left_by_char, right_by_char = defaultdict(list), defaultdict(list)
+            for edge in language.out[left]:
+                left_by_char[edge.char].append(edge)
+            for edge in language.inc[right]:
+                right_by_char[edge.char].append(edge)
+            common = left_by_char.keys() & right_by_char.keys()
+            if not common and len(dead_ends) < 12:
+                dead_ends.append(dict(depth=depth, left_node=left, right_node=right,
+                                      forward_next=sorted(left_by_char),
+                                      backward_next=sorted(right_by_char)))
+            if depth == max_letters // 2:
+                continue
+            for char in sorted(common):
+                for left_edge in left_by_char[char]:
+                    for right_edge in right_by_char[char]:
+                        transitions += len(state_witnesses)
+                        key = (depth + 1, left_edge.dst, right_edge.src)
+                        bucket = next_witnesses[key]
+                        for left_path, right_path in state_witnesses:
+                            witness = (left_path + (left_edge,), right_path + (right_edge,))
+                            if witness in bucket:
+                                continue
+                            bucket.append(witness)
+                        if len(bucket) > witnesses_per_state:
+                            bucket.sort(key=_witness_rank)
+                            del bucket[witnesses_per_state:]
+                            dropped += 1
+        frontier = sorted(next_witnesses)
+        visited_states.update(frontier)
+        witnesses = {state: next_witnesses[state] for state in frontier}
+
+    rows, tapes = [], set()
+    for state, middle, packed_witness in closures:
+        left_path, right_path = packed_witness
+        rendered = _render_witness(left_path, middle, right_path)
+        if rendered is None:
+            continue
+        text, path = rendered
+        assert path[0].src == language.start and path[-1].dst == language.end
+        assert all(a.dst == b.src for a, b in zip(path, path[1:]))
+        tape = letters(text)
+        if tape in tapes:
+            continue
+        tapes.add(tape)
+        check = audit(text)
+        assert check["two_pointer_exact"] and check["sha_equal"]
+        rows.append(dict(rendered=text, audit=check,
+                         center_inside_lexical_path=middle is not None,
+                         reader_status="unreviewed; exactness is not readability"))
+    return dict(nfa_nodes=language.nodes, nfa_edges=len(language.edges),
+                paired_states=len(visited_states), paired_transitions=transitions,
+                layer_state_counts=layers, dead_end_certificates=dead_ends,
+                max_letters=max_letters, representative_exact_candidates=rows,
+                represented_closure_states=len(closures),
+                longest_exact=max((r["audit"]["letters"] for r in rows), default=0),
+                witnesses_per_state=witnesses_per_state,
+                dropped_witness_buckets=dropped,
+                exhaustive_existence_within_bound=False,
+                caveat="Bounded packed witnesses preserve alternatives but do not certify readability or a quality optimum.")
+
+
 def compile_templates(templates):
     language = Language()
     for slots in templates:
@@ -216,10 +336,20 @@ def run():
             math.prod(len(slot) for slot in slots) for slots in templates)
         result["rendered_controls"] = [dict(rendered=(text := " ".join(slot[index] for slot in slots).capitalize() + "."),
                                             audit=audit(text), provenance="grammar path; noncandidate control")
-                                       for slots in templates for index in (0, -1)]
+                                        for slots in templates for index in (0, -1)]
         results[label] = result
+    packed_results = {}
+    for label, templates in (("base", base), ("endpoint_repair", repair)):
+        result = solve_packed(compile_templates(templates), witnesses_per_state=64)
+        result["factorized_sentence_count"] = sum(
+            math.prod(len(slot) for slot in slots) for slots in templates)
+        result["rendered_controls"] = [dict(rendered=(text := " ".join(slot[index] for slot in slots).capitalize() + "."),
+                                            audit=audit(text), provenance="grammar path; noncandidate control")
+                                       for slots in templates for index in (0, -1)]
+        packed_results[label] = result
     source = Path(__file__)
-    payload = dict(experiment_id=ID, results=results, oracle_checks=oracle_checks(),
+    payload = dict(experiment_id=ID, results=results, packed_results=packed_results,
+        oracle_checks=oracle_checks(),
         novelty=dict(disposition="implementation repair, NOT a new linguistic family",
                      prior_families=overlaps, registry_entries=len(registry_ids),
                      registry_sha256=hashlib.sha256(registry_path.read_bytes()).hexdigest(),

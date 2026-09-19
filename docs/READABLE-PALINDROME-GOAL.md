@@ -5650,3 +5650,29 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   complete-clause overlaps, so this lane is pruned rather than padded with
   pseudo-words or finished-tape reversals. The next construction moves to a
   productive inflectional/agreement boundary.
+
+- **Character-paired grammar search, 2026-09-19:** generated typed lexical
+  choices online and checked each mirrored character immediately, with free
+  word boundaries. It produced the fresh exact control “Live on time, emit no
+  evil” (20 letters), but the longest candidate was only 26 letters and the
+  first failed continuation was `n` versus `l`. The next repair adds one
+  authored transitive-event state at that boundary; this lane does not claim
+  progress beyond the 38-letter benchmark.
+
+- **Semantic template lattice with joint equations, 2026-09-19:** composed
+  nine complete subject/verb/object/adjunct scene pairs while checking the
+  mirrored equation before exact auditing. All nine were intact prose controls
+  (longest 62 letters), but none passed even the first outer equation. The
+  concrete repair is a two-word subject/object lattice carrying residual
+  character domains through inflectional variants, not more complete-clause
+  pairing.
+
+- **Boundary-aware phrase transducer DP, 2026-09-19:** composed fresh
+  role-complete phrase chunks through three residual-DP depths, retaining 128
+  final residual states and 512 rendered complete-clause candidates. The
+  longest intact control was “The patient astronomer measures the river garden
+  before the quiet bell; the courier guards the returning swan.” (92 letters);
+  all rows failed exact closure. This is the first current lane that makes
+  phrase composition and character cancellation the same search state. The
+  next repair adds only a boundary chunk whose opening character matches the
+  residual's closing character.

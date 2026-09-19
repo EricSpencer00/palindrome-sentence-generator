@@ -293,6 +293,9 @@ def build_pdf() -> None:
         [para("Edge-compatible semantic valency", small), para("Six fresh complete clause pairs co-designed subject prefixes and adjunct suffixes before rendering, with typed valency and live residual equations.", small), para("Max live match 5 / 0 exact", small), para("Reader gate closed; next repair replaces only the first mismatching ending constituent while preserving the compatible frame.", small)],
         [para("Fresh boundary-ending replacement", small), para("Twelve fresh opening/middle/ending combinations used an ending-only replacement operator with explicit 4/8/12/16-character reach gates.", small), para("1 survives 4 / 0 survive 8", small), para("Reader gate closed; best intact near-miss reaches four characters; next repair changes that row's ending constituent only.", small)],
         [para("Center-state boundary reassessment", small), para("A fresh preflight compared 138,240 left clause records with 105,600 natural terminal-noun reversals before rendering.", small), para("0 four-char matches / lane pruned", small), para("No pseudo-words or finished-tape reversal; next repair moves to a productive inflectional/agreement boundary.", small)],
+        [para("Character-paired grammar", small), para("Typed lexical choices were generated online and checked against mirrored character obligations immediately, with free word boundaries.", small), para("1 exact control / 20 letters", small), para("Longest candidate 26 letters; reader gate closed; next repair adds one authored transitive-event state at the failed boundary.", small)],
+        [para("Semantic template lattice", small), para("Nine complete subject/verb/object/adjunct scene pairs were composed while joint mirrored equations were live before exact auditing.", small), para("0 equation passes / 0 exact", small), para("Longest intact row 62 letters; next repair carries residual character domains through a two-word subject/object lattice.", small)],
+        [para("Boundary-aware phrase transducer DP", small), para("Three residual-DP depths composed fresh role-complete phrase chunks; 128 final residual states and 512 complete-clause renders were retained.", small), para("0 exact / longest 92 letters", small), para("Reader gate closed; next repair adds only a boundary chunk whose opening character matches the residual closing character.", small)],
     ]
     t = Table(round_data, colWidths=[1.62 * inch, 4.25 * inch, 1.55 * inch, 2.75 * inch], repeatRows=1)
     t.setStyle(TableStyle([
@@ -355,8 +358,8 @@ def build_pdf() -> None:
         ("ROWBACKGROUNDS", (0, 1), (-1, -1), [colors.white, colors.HexColor("#f6f9fc")]),
         ("LEFTPADDING", (0, 0), (-1, -1), 3),
         ("RIGHTPADDING", (0, 0), (-1, -1), 3),
-        ("TOPPADDING", (0, 0), (-1, -1), 3),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+        ("TOPPADDING", (0, 0), (-1, -1), 2),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2),
     ]))
     story.append(matrix)
     story.append(Spacer(1, 8))
@@ -364,14 +367,14 @@ def build_pdf() -> None:
     story.append(Paragraph("5. Reader-facing protocol and next constructive repair", h1))
     story.append(
         Paragraph(
-            "No row has reached the reader study in this snapshot. When one does, the package will contain the intact passage, a word-shuffled control, randomized blinded order, the exact normalization and hash audit, provenance and generator commit, and a reproducible rater form. The immediate next experiment is not another sweep: replace only the first mismatching ending constituent in the five-character edge-compatible frame, then move to a productive inflectional/agreement boundary if that repair fails.",
+            "No row has reached the reader study in this snapshot. When one does, the package will contain the intact passage, a word-shuffled control, randomized blinded order, the exact normalization and hash audit, provenance and generator commit, and a reproducible rater form. The immediate next experiment is not another sweep: extend the boundary-aware phrase transducer with one residual-compatible boundary chunk, then carry the same state into the two-word subject/object lattice if that repair fails.",
             body,
         )
     )
     story.append(Paragraph("Reproducibility anchors", h2))
     story.append(
         Paragraph(
-            "Source artifacts: docs/experiment-novelty-registry.json; runs/dream-rsi-dual-boundary-model-authoring-20260918.json; runs/dream-rsi-discourse-ellipsis-20260918.json; runs/dream-rsi-role-live-phrase-lattice-20260918.json; runs/center-state-grammar-transition-20260918.json; runs/held-out-semantic-valency-frame-product-20260918.json; runs/fresh-clause-resegmentation-chart-20260918.json; runs/boundary-conditioned-two-ended-clause-20260918.json; runs/edge-compatible-valency-frames-20260919.json; runs/fresh-boundary-ending-replacement-20260919.json; runs/center-state-boundary-reassessment-20260919.json. The report is generated from these files so the table and headline counts can be regenerated after the next Dream-RSI branch.",
+            "Source artifacts: docs/experiment-novelty-registry.json; runs/dream-rsi-dual-boundary-model-authoring-20260918.json; runs/dream-rsi-discourse-ellipsis-20260918.json; runs/dream-rsi-role-live-phrase-lattice-20260918.json; runs/center-state-grammar-transition-20260918.json; runs/held-out-semantic-valency-frame-product-20260918.json; runs/fresh-clause-resegmentation-chart-20260918.json; runs/boundary-conditioned-two-ended-clause-20260918.json; runs/edge-compatible-valency-frames-20260919.json; runs/fresh-boundary-ending-replacement-20260919.json; runs/center-state-boundary-reassessment-20260919.json; runs/character-paired-grammar-20260919.json; runs/semantic-template-lattice-joint-equations-20260919.json; runs/boundary-aware-phrase-transducer-dp-20260919.json. The report is generated from these files so the table and headline counts can be regenerated after the next Dream-RSI branch.",
             body,
         )
     )

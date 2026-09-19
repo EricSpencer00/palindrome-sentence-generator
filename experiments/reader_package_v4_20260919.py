@@ -15,7 +15,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from server.v4 import BEST_KNOWN_TEXT, DREAM_RSI_REPAIR_FRONTIER, independent_audit
+from server.v4 import BEST_KNOWN_TEXT, independent_audit
 from llm_palindrome.admission import mechanical_admission_checks
 
 EXPERIMENT_ID = "reader-package-v4-20260919"
@@ -26,6 +26,8 @@ SEED = 20260919
 INTACT_CONTROLS = (
     "At dawn, a careful scribe reads the harbor letter while Diana watches the tide.",
     "The young herald carries a sonnet to the court, and the players answer with song.",
+    "A baker carries a map; an artist answers some bells.",
+    "The herald carries the letter through the hall; the actors keep the oath near the grove.",
 )
 
 
@@ -45,10 +47,6 @@ def _shuffle(text: str, seed: int) -> str:
 def _frontier() -> list[dict[str, object]]:
     rows = [
         {"source_id": "best-known-38", "source": "half-tape-grammar-csp-20260919", "text": BEST_KNOWN_TEXT},
-        *[
-            {"source_id": f"dream-rsi-{row['letters']}", "source": row["provenance"].split(";", 1)[0], "text": row["rendered"]}
-            for row in DREAM_RSI_REPAIR_FRONTIER
-        ],
     ]
     rows.extend(
         {"source_id": f"intact-control-{i}", "source": "authored-reader-control", "text": text}

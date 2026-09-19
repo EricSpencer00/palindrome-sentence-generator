@@ -154,6 +154,13 @@ The baker records a sonnet.” It returned zero exact closures. The next repair
 adds one held-out subject/object noun bundle at the first live orbit frontier,
 without relaxing complete-clause or independent-audit gates.
 
+These repair and frontier rows now motivate a strategy reset rather than more
+residual patching. The active construction policy is exact-by-construction:
+grammar boundaries and mirrored character orbits must be selected together,
+so an off-tape prose draft is never promoted into a repair queue. Earlier
+repair runs remain auditable evidence, but they are no longer the paper's
+working generation claim.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates five deterministic blinded

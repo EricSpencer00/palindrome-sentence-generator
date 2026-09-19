@@ -486,6 +486,7 @@ OPTIMIZATION_SPEC = {
         "fragmentary or gibberish output",
     ],
     "promotion_rule": "A diagnostic score can choose the next repair but cannot certify readability; promotion requires randomized blinded intact-prose versus shuffled-control readers.",
+    "active_construction_policy": "Exact-by-construction orbit generation: choose grammar boundaries and mirrored character pairs together; residual repair lanes are historical diagnostics, not the primary search.",
     "current_search": "agreement-carrying-adjunct-center-csp-20260920",
     "search_history": [
         "half-tape-grammar-csp-20260919",

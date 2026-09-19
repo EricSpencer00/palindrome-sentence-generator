@@ -1,0 +1,141 @@
+{
+  "experiment_id": "polar-question-token-boundary-csp-20260918",
+  "signature": "typed-polar-question|token-boundary-answer-csp|incoming-outgoing-pair-graph|independent-audit",
+  "config": {
+    "names": 6,
+    "predicates": 16,
+    "subjects": 19,
+    "verbs": 19,
+    "objects": 26
+  },
+  "graph": {
+    "nodes": 11171,
+    "pair_states": 3118,
+    "pair_edges": 3203,
+    "center_states": 2,
+    "exact_paths": [
+      {
+        "rendered": "Was Eva a gas? a saga saw Ave.",
+        "edge_provenance": [
+          "question auxiliary",
+          "question subject: Eva",
+          "question predicate: a gas?",
+          "fronted object: a saga",
+          "fronted verb: saw",
+          "fronted subject: Ave"
+        ],
+        "audit": {
+          "letters": 21,
+          "two_pointer_exact": false,
+          "mismatch_count": 6,
+          "first_mismatch": [
+            0,
+            20
+          ],
+          "sha256_forward": "deca8a92b9d89e007ac6d2c8004a747b84611359a41b576cad84dde0f84a58d4",
+          "sha256_reverse": "41d405fbd6a7b4bbc86165e0f9983adea81d16967f06b1ea839db96fe722e56a",
+          "sha_equal_under_reversal": false
+        }
+      },
+      {
+        "rendered": "Was Noel an era, a gas, an item? met in a, saga, arena, Leon saw.",
+        "edge_provenance": [
+          "question auxiliary",
+          "question subject: Noel",
+          "question predicate: an era, a gas, an item?",
+          "diagnostic discourse ellipsis"
+        ],
+        "audit": {
+          "letters": 44,
+          "two_pointer_exact": true,
+          "mismatch_count": 0,
+          "first_mismatch": null,
+          "sha256_forward": "0419d58b6773dcca6d527271d41fd0197da9dde876598c9dadfc87fa4f1a9f83",
+          "sha256_reverse": "0419d58b6773dcca6d527271d41fd0197da9dde876598c9dadfc87fa4f1a9f83",
+          "sha_equal_under_reversal": true
+        }
+      }
+    ]
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "Was Noel an era, a gas, an item? met in a, saga, arena, Leon saw.",
+      "edge_provenance": [
+        "question auxiliary",
+        "question subject: Noel",
+        "question predicate: an era, a gas, an item?",
+        "diagnostic discourse ellipsis"
+      ],
+      "audit": {
+        "letters": 44,
+        "two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatch": null,
+        "sha256_forward": "0419d58b6773dcca6d527271d41fd0197da9dde876598c9dadfc87fa4f1a9f83",
+        "sha256_reverse": "0419d58b6773dcca6d527271d41fd0197da9dde876598c9dadfc87fa4f1a9f83",
+        "sha_equal_under_reversal": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "not_run; human readability is unmeasured"
+    }
+  ],
+  "non_exact_reconstruction_paths": [
+    {
+      "rendered": "Was Eva a gas? a saga saw Ave.",
+      "edge_provenance": [
+        "question auxiliary",
+        "question subject: Eva",
+        "question predicate: a gas?",
+        "fronted object: a saga",
+        "fronted verb: saw",
+        "fronted subject: Ave"
+      ],
+      "audit": {
+        "letters": 21,
+        "two_pointer_exact": false,
+        "mismatch_count": 6,
+        "first_mismatch": [
+          0,
+          20
+        ],
+        "sha256_forward": "deca8a92b9d89e007ac6d2c8004a747b84611359a41b576cad84dde0f84a58d4",
+        "sha256_reverse": "41d405fbd6a7b4bbc86165e0f9983adea81d16967f06b1ea839db96fe722e56a",
+        "sha_equal_under_reversal": false
+      }
+    }
+  ],
+  "stats": {
+    "exact": 1,
+    "mechanically_admitted": 0,
+    "reader_eligible": 0,
+    "longest_exact_letters": 44
+  },
+  "provenance": {
+    "finished_tape_reversed": false,
+    "catalogue_text_imported": false,
+    "word_order_mirror": false,
+    "independent_validator": "two-pointer normalized tape plus forward/reverse SHA-256",
+    "human_readability_certified": false
+  },
+  "next_repair": "Use the first dead token-boundary pair to add one complete finite-predicate complement, preserving subject/verb/object state and rejecting proper palindromic subspans.",
+  "reader_gate": "closed until a new exact row clears strict mechanical admission and randomized blinded readers prefer intact prose to shuffled controls"
+}

@@ -75,6 +75,14 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   frontier before committing the phrase, rather than widening the vocabulary
   or reranking fragments.
 
+- **Token-boundary follow-up (2026-09-18).** Splitting the answer into
+  independently chosen object, subject, and verb transitions grew the graph to
+  11,171 lexical states and 3,118 reachable pair states. It still found only
+  the 44-letter diagnostic and exposed one non-exact reconstruction, which is
+  now a regression fixture rather than a candidate. The next repair is a
+  finite predicate complement at that first dead token pair; no reader package
+  is justified until a new exact row clears the strict gate.
+
 - **Progress audit.** `main` is clean and one local orchestration commit ahead
   of `origin/main`; the code baseline remains `ca526eb`. It contains 116
   commits since 2026-09-18 00:00, but the active

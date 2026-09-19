@@ -30,14 +30,16 @@ GATE_MESSAGE = (
 
 BEST_KNOWN_TEXT = "An aide rips nine memos; some men inspire Diana."
 BEST_KNOWN_PROVENANCE = {
-    "run_id": "typed-constituent-seam-search-20260919",
-    "method": "typed complete NP/VP constituent emission with boundary-indexed residual zipper",
+    "run_id": "half-tape-grammar-csp-20260919",
+    "method": "fixed-length half-tape grammar CSP with variable word boundaries and agreement/valency state",
     "source": "project construction run; not catalogue text",
     "novelty_preflight": "passed local catalogue and construction-shortcut exclusions",
     "search_summary": {
         "exact_candidates": 2,
         "longest_exact_letters": 38,
         "mechanically_admitted_candidates": 2,
+        "pilot_lengths": "40–52; no exact closure",
+        "shared_participant_temporal_repair": "no exact closure in bounded pilot",
         "reader_study": "not run",
     },
 }
@@ -56,7 +58,7 @@ OPTIMIZATION_SPEC = {
         "fragmentary or gibberish output",
     ],
     "promotion_rule": "A diagnostic score can choose the next repair but cannot certify readability; promotion requires randomized blinded intact-prose versus shuffled-control readers.",
-    "current_search": "typed-constituent-seam-search-20260919",
+    "current_search": "half-tape-grammar-csp-20260919",
 }
 
 

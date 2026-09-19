@@ -43,6 +43,8 @@ multiword palindrome span:
 | Character-trie relative decoder | Adds typed `who`/`that`, relative subject, finite verb, and object transitions to the live character trie | 84 target runs (39--80 letters); 306,725 nodes; no exact closure | 0 / 0 |
 | Authored scene lattice | Human-authored semantic edge pairs are joined only when their live character equations close | 45 exact diagnostics (42 letters); 10 collide with prior run tapes | 35 novel / 0 admitted; reader-rejected |
 | Compositional shell seam DP | Joins independently authored complete SVO shells with live outside-in seam obligations; no finished-tape reversal | 21,660 compositions; 164 intact retained controls; longest 75 letters; best seam 4 chars | 0 / 0 |
+| Seam-conditioned shell substitution | Role-preserving lexical and inflectional substitutions inside one complete SVO shell | 11,340 grammatical variants; 420 retained controls; longest 27 letters; best seam 4 chars | 0 / 0 |
+| Fresh grammatical clause-pair lattice | Newly authored reversible clause/response pairs, checked as live equations before rendering | 49 exact diagnostics; **“Stressed, Deliver; reviled, desserts.”** (30 letters) | 49 / 0; reader-rejected |
 | Dictionary reverse-segmentation DP | 51,129 authored SVO seeds are matched against a 52,927-headword POS-neutral reverse segmentation | No exact closure above 38; no candidate promoted | 0 / 0 |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
@@ -102,6 +104,15 @@ controls up to 75 letters, and matched at most four outside-in characters; no
 exact closure occurred. The longest controls are useful reader materials, but
 they are not palindromes. The next repair is seam-conditioned inflectional
 substitution inside one complete shell while keeping the semantic roles fixed.
+
+The seam-conditioned substitution repair evaluated 11,340 role-preserving
+variants and retained 420 controls, but still closed at zero exact rows. Its
+best intact controls are short (“Some scribe inspires some memos.”), so it is
+a diagnostic repair rather than a length advance. A separate fresh clause-pair
+lattice closed 49 exact rows, the longest 30 letters, including “Stressed,
+Deliver; reviled, desserts.” All were mechanically rejected as incomplete or
+fragmentary clause pairs. The next repair is to require finite subject/verb
+clauses before any reverse-compatible pair can enter the lattice.
 
 ## Reader evidence and API gate
 

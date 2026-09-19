@@ -354,6 +354,37 @@ COMPOSITIONAL_SHELL_RUN = {
     "next_repair": "apply seam-conditioned inflectional substitutions within one complete shell while preserving semantic roles",
 }
 
+SHELL_INFLECTION_RUN = {
+    "run_id": "shell-inflection-seam-repair-20260920",
+    "method": "seam-conditioned role-preserving lexical and inflectional substitution inside one complete SVO shell",
+    "status": "completed_no_exact_closure",
+    "visited": 11340,
+    "retained_controls": 420,
+    "exact_candidates": 0,
+    "longest_retained_letters": 27,
+    "best_seam_match_chars": 4,
+    "longest_retained_example": "Some scribe inspires some memos.",
+    "provenance": "complete SVO shell with agreement-aware substitutions; no finished-tape reversal; no catalogue import",
+    "independent_validation": ["literal outside-in two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "not_run; controls are intact but below the exact reader gate",
+    "next_repair": "add agreement-carrying adjunct slots while preserving one-shell semantics",
+}
+
+AUTHORED_GRAMMATICAL_PAIR_RUN = {
+    "run_id": "authored-grammatical-clause-pairs-20260920",
+    "method": "fresh authored grammatical clause-pair lattice with live character equations",
+    "status": "completed_exact_diagnostics",
+    "nodes": 49,
+    "exact_candidates": 49,
+    "mechanically_admitted_candidates": 0,
+    "longest_exact_letters": 30,
+    "longest_exact_example": "Stressed, Deliver; reviled, desserts.",
+    "provenance": "fresh reversible lexical pairs; no catalogue import; no finished-tape reversal",
+    "independent_validation": ["literal outside-in two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "withdrawn; exact rows are fragmentary and below the target length",
+    "next_repair": "require complete finite subject/verb clauses before reverse-compatible pairs enter the lattice",
+}
+
 READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
@@ -380,7 +411,7 @@ OPTIMIZATION_SPEC = {
         "fragmentary or gibberish output",
     ],
     "promotion_rule": "A diagnostic score can choose the next repair but cannot certify readability; promotion requires randomized blinded intact-prose versus shuffled-control readers.",
-    "current_search": "compositional-shell-seam-dp-20260920",
+    "current_search": "authored-grammatical-clause-pairs-20260920",
     "search_history": [
         "half-tape-grammar-csp-20260919",
         "dream-rsi-strict-phrase-bank-20260919",
@@ -397,6 +428,8 @@ OPTIMIZATION_SPEC = {
         "character-trie-relative-decoder-20260920",
         "authored-scene-lattice-20260920",
         "compositional-shell-seam-dp-20260920",
+        "shell-inflection-seam-repair-20260920",
+        "authored-grammatical-clause-pairs-20260920",
     ],
 }
 
@@ -614,6 +647,18 @@ def _rlaif_frontier() -> list[dict[str, Any]]:
             "rendered": COMPOSITIONAL_SHELL_RUN["longest_retained_example"],
             "provenance": COMPOSITIONAL_SHELL_RUN["provenance"],
         },
+        {
+            "run_id": AUTHORED_GRAMMATICAL_PAIR_RUN["run_id"],
+            "role": "fragmentary_exact_diagnostic",
+            "rendered": AUTHORED_GRAMMATICAL_PAIR_RUN["longest_exact_example"],
+            "provenance": AUTHORED_GRAMMATICAL_PAIR_RUN["provenance"],
+        },
+        {
+            "run_id": SHELL_INFLECTION_RUN["run_id"],
+            "role": "short_intact_control",
+            "rendered": SHELL_INFLECTION_RUN["longest_retained_example"],
+            "provenance": SHELL_INFLECTION_RUN["provenance"],
+        },
     ]
     comparison = []
     for row in rows:
@@ -661,7 +706,7 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -684,7 +729,7 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -701,7 +746,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": SEMANTIC_SHELL_RUN,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",

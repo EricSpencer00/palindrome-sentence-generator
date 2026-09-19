@@ -21,6 +21,11 @@ ARTIFACT = "runs/semantic_slot_orbit_product_20260920.json"
 class Frame:
     name: str; subject: str; verb_sg: str; verb_pl: str; obj: str; attach: str; prep: str
     def realize(self, plural: bool) -> str:
+        # The semantic frame carries subject number; an orbit state that
+        # violates agreement is not an English control and is never rendered.
+        subject_plural = self.subject.endswith("s")
+        if plural != subject_plural:
+            raise ValueError("agreement-incompatible frame realization")
         verb = self.verb_pl if plural else self.verb_sg
         det = "the"
         return f"{det} {self.subject} {verb} {det} {self.obj} {self.prep} {self.attach}"
@@ -59,6 +64,12 @@ def run(max_states: int = 2000) -> dict:
         for ri, right in enumerate(FRAMES):
             for lp in (False, True):
                 for rp in (False, True):
+                    if lp != left.subject.endswith("s") or rp != right.subject.endswith("s"):
+                        continue
+                    if li == ri:
+                        # Do not use a repeated frame as a pseudo-palindrome
+                        # or as a control with duplicated semantic content.
+                        continue
                     if states >= max_states: break
                     states += 1
                     ltext, rtext = left.realize(lp), right.realize(rp)
@@ -68,7 +79,7 @@ def run(max_states: int = 2000) -> dict:
                                "right": rt[k] if k < len(rt) else None,
                                "equal": k < len(lt) and k < len(rt) and lt[-1-k] == rt[k]}
                               for k in range(min(len(lt), len(rt)))]
-                    text = f"{ltext} {rtext}"
+                    text = f"{ltext}; {rtext}."
                     a = audit(text)
                     row = {"left_frame": left.name, "right_frame": right.name,
                            "semantic_slots": {"left_attachment": left.attach, "right_attachment": right.attach,

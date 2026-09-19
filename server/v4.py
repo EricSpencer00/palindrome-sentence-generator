@@ -442,6 +442,24 @@ AGREEMENT_ADJUNCT_RUN = {
     "next_repair": "carry one held-out agreement-compatible verb/object edge into the residual character state",
 }
 
+FINITE_CLAUSE_ORBIT_RUN = {
+    "run_id": "finite-clause-character-orbits-20260919",
+    "method": "finite SVO character-orbit product over two complete clause tries",
+    "status": "completed_no_exact_closure",
+    "expanded_orbit_states": 8,
+    "matched_orbit_transitions": 7,
+    "rejected_orbit_transitions": 5,
+    "exact_candidates": 0,
+    "mechanically_admitted_candidates": 0,
+    "intact_controls": 3,
+    "longest_control_letters": 48,
+    "longest_control": "A patient keeper guards charts; The baker records a sonnet.",
+    "provenance": "remote deterministic complete finite-SVO tries; no reversible lexical pairs; no finished-tape reversal; no catalogue import",
+    "independent_validation": ["literal outside-in two-pointer", "forward/reverse SHA-256", "remote replay SHA-256"],
+    "reader_status": "not_run; controls are intact prose but not exact candidates",
+    "next_repair": "add one held-out subject/object noun bundle at the first live orbit frontier",
+}
+
 READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
@@ -482,6 +500,7 @@ OPTIMIZATION_SPEC = {
         "residual-prefix2-attachment-lattice-20260919",
         "llm-authored-typed-bank-csp-20260919",
         "three-beat-alias-grammar-20260919",
+        "finite-clause-character-orbits-20260919",
         "character-trie-relative-decoder-20260920",
         "authored-scene-lattice-20260920",
         "compositional-shell-seam-dp-20260920",
@@ -731,6 +750,12 @@ def _rlaif_frontier() -> list[dict[str, Any]]:
             "rendered": AGREEMENT_ADJUNCT_RUN["best_control"],
             "provenance": AGREEMENT_ADJUNCT_RUN["provenance"],
         },
+        {
+            "run_id": FINITE_CLAUSE_ORBIT_RUN["run_id"],
+            "role": "finite_clause_intact_control",
+            "rendered": FINITE_CLAUSE_ORBIT_RUN["longest_control"],
+            "provenance": FINITE_CLAUSE_ORBIT_RUN["provenance"],
+        },
     ]
     comparison = []
     for row in rows:
@@ -778,7 +803,7 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -801,7 +826,7 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -818,7 +843,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": SEMANTIC_SHELL_RUN,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",

@@ -79,16 +79,17 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][7]["longest_rendered_letters"] == 77
     assert method.json()["method_runs"][8]["frontier_controls"] == 390
     assert method.json()["method_runs"][9]["longest_rendered_letters"] == 81
-    assert len(method.json()["method_runs"]) == 18
-    assert method.json()["method_runs"][10]["search_nodes"] == 306725
-    assert method.json()["method_runs"][11]["prior_exact_collisions"] == 10
-    assert method.json()["method_runs"][12]["longest_retained_letters"] == 75
-    assert method.json()["method_runs"][13]["retained_controls"] == 420
-    assert method.json()["method_runs"][14]["longest_exact_letters"] == 30
-    assert method.json()["method_runs"][15]["letters"] == 132
-    assert method.json()["method_runs"][16]["edge_attempts"] == 2421192
-    assert method.json()["method_runs"][17]["outer_equation_pruned"] == 15120
-    assert len(method.json()["rlaif_frontier"]) == 9
+    assert len(method.json()["method_runs"]) == 19
+    assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
+    assert method.json()["method_runs"][11]["search_nodes"] == 306725
+    assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10
+    assert method.json()["method_runs"][13]["longest_retained_letters"] == 75
+    assert method.json()["method_runs"][14]["retained_controls"] == 420
+    assert method.json()["method_runs"][15]["longest_exact_letters"] == 30
+    assert method.json()["method_runs"][16]["letters"] == 132
+    assert method.json()["method_runs"][17]["edge_attempts"] == 2421192
+    assert method.json()["method_runs"][18]["outer_equation_pruned"] == 15120
+    assert len(method.json()["rlaif_frontier"]) == 10
 
 
 def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
@@ -128,6 +129,9 @@ def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
     assert body["rows"][8]["role"] == "agreement_carrying_intact_control"
     assert body["rows"][8]["exact"] is False
     assert body["rows"][8]["letters"] == 43
+    assert body["rows"][9]["role"] == "finite_clause_intact_control"
+    assert body["rows"][9]["exact"] is False
+    assert body["rows"][9]["letters"] == 48
 
     evaluation = client.get("/api/v4/best-evaluation")
     assert evaluation.status_code == 200

@@ -48,6 +48,7 @@ multiword palindrome span:
 | Anchor-preserving overhang search | Center-out overhang expansion around the 38-letter anchor with debt tracking | **132-letter exact frontier**; anchor embedded as a proper palindromic span | 0 admitted; withdrawn shortcut |
 | Bidirectional typed half-tape CSP | Expands the more constrained unfinished grammar edge from either end while propagating character, agreement, and valency state | 70 cells; 2,421,192 edge attempts; anchor regression recovered; no >38 closure | 0 / 0 above 38 |
 | Agreement-carrying adjunct center CSP | Solves subject/adjunct character equations before selecting the finite verb and object, with number carried into temporal/locative slots | 16,800 semantic shells; 15,120 outer-pruned; 24 intact controls up to 47 letters; **“The quiet poet guards an open journal while he waits.”** | 0 / 0 |
+| Finite SVO character-orbit search | Intersects two complete finite SVO tries while assigning mirrored character orbits and refusing partial-fragment closure | 8 orbit states; 7 matched transitions; 3 intact controls up to 48 letters; no exact closure | 0 / 0 |
 | Dictionary reverse-segmentation DP | 51,129 authored SVO seeds are matched against a 52,927-headword POS-neutral reverse segmentation | No exact closure above 38; no candidate promoted | 0 / 0 |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
@@ -143,6 +144,15 @@ example: “The quiet poet guards an open journal while he waits.” No exact ro
 closed, so these are reader-facing controls for the next study, not candidate
 palindromes. The next repair carries one held-out inner verb/object edge into
 the residual character state rather than widening every slot.
+
+The finite-SVO character-orbit lane is a separate complete-constituent
+baseline: two hand-authored finite SVO tries are intersected while mirrored
+character orbits are assigned, and only complete SVO terminals may close. The
+remote run expanded 8 orbit states, matched 7 transitions, and retained three
+intact controls up to 48 letters, including “A patient keeper guards charts;
+The baker records a sonnet.” It returned zero exact closures. The next repair
+adds one held-out subject/object noun bundle at the first live orbit frontier,
+without relaxing complete-clause or independent-audit gates.
 
 ## Reader evidence and API gate
 

@@ -9,7 +9,7 @@ import hashlib, json, re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPERIMENT_ID = "phrase-boundary-fsm-20260920"
+EXPERIMENT_ID = "phrase-boundary-live-fsm-20260920"
 SIGNATURE = "synchronous-authored-constituents|cross-boundary-character-fsm|two-complete-clauses"
 WORD = re.compile(r"[A-Za-z]+")
 
@@ -37,13 +37,14 @@ def parse_clause(s):
             "constituent_count": 3}
 
 def run():
-    # finite-state synchronous traversal: each transition consumes one left
-    # and one right character, including when the cursor crosses phrase edges.
-    states = [("", "", 0, 0, [])]
+    # True two-cursor traversal: right constituents are opened in reverse
+    # order, and every character is consumed before another constituent pair
+    # is opened.  Unequal unit lengths leave explicit cross-boundary debt.
+    stack = [("", "", 0, len(ORDER)-1, "", "", [])]
     visited = 0; terminals = []
-    while states:
-        left, right, li, ri, path = states.pop()
-        if li == len(ORDER) and ri == len(ORDER):
+    while stack:
+        left, right, li, ri, ldebt, rdebt, path = stack.pop()
+        if li == len(ORDER) and ri < 0 and not ldebt and not rdebt:
             visited += 1
             ltxt, rtxt = left.capitalize()+".", right.capitalize()+"."
             la, ra = audit(ltxt), audit(rtxt)
@@ -54,18 +55,26 @@ def run():
                               "combined_audit": combined,
                               "mechanically_admitted": combined["two_pointer_exact"] and lp["complete"] and rp["complete"]})
             continue
-        slot = ORDER[li]
-        for lunit in UNITS[slot]:
-            for runit in UNITS[slot]:
-                # The lock is checked as characters are emitted.  Crossing a
-                # phrase edge is represented explicitly in the transition.
-                a, b = norm(lunit), norm(runit)
-                if not a or not b: continue
+        if ldebt or rdebt:
+            # consume the live residual one character at a time
+            if ldebt and rdebt:
                 visited += 1
-                states.append((left+lunit+" ", right+runit+" ", li+1, ri+1,
-                               path+[ {"slot":slot,"left_unit":lunit,"right_unit":runit,
-                                       "left_last":a[-1],"right_first":b[0],
-                                       "boundary_obligation":a[-1]==b[0]} ]))
+                if ldebt[0] != rdebt[0]: continue
+                stack.append((left, right, li, ri, ldebt[1:], rdebt[1:], path))
+            continue
+        if li >= len(ORDER) or ri < 0: continue
+        lslot, rslot = ORDER[li], ORDER[ri]
+        for lunit in UNITS[lslot]:
+            for runit in UNITS[rslot]:
+                a, b = norm(lunit), norm(runit)[::-1]
+                # consume the common prefix now; remaining suffix is debt
+                k = 0
+                while k < len(a) and k < len(b) and a[k] == b[k]: k += 1
+                visited += k + 1
+                if k < min(len(a), len(b)): continue
+                stack.append((left+lunit+" ", runit+" "+right, li+1, ri-1,
+                              a[k:], b[k:], path+[ {"left_slot":lslot,"right_slot":rslot,
+                              "left_unit":lunit,"right_unit":runit,"consumed":k} ]))
     admitted = [x for x in terminals if x["mechanically_admitted"] and min(x["left_audit"]["letters"],x["right_audit"]["letters"]) > 38]
     return {"experiment_id":EXPERIMENT_ID,"signature":SIGNATURE,
             "method":"synchronous finite-state traversal of authored subject/predicate/adjunct constituents; obligations cross phrase boundaries before either clause is complete",

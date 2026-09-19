@@ -19,8 +19,9 @@ UNITS = {
     "subject": ("the careful ranger", "a patient keeper", "the young cartographer"),
     "predicate": ("maps the harbor", "guards the lantern", "marks the old bridge"),
     "adjunct": ("near the quiet orchard", "beside a narrow inlet", "under the winter moon"),
+    "complement": ("that the watchman noticed", "while the harbor rested", "because the tide turned"),
 }
-ORDER = ("subject", "predicate", "adjunct")
+ORDER = ("subject", "predicate", "adjunct", "complement")
 
 def norm(s): return "".join(c.lower() for c in s if c.isalpha())
 def audit(s):

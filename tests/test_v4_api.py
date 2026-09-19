@@ -66,9 +66,26 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "dream-rsi-strict-phrase-bank-20260919"
-    assert method.json()["optimization"]["search_history"][-1] == "dream-rsi-strict-phrase-bank-20260919"
+    assert method.json()["optimization"]["current_search"] == "semantic-shell-growth-20260919"
+    assert method.json()["optimization"]["search_history"][-1] == "semantic-shell-growth-20260919"
     assert method.json()["repair_frontier"][0]["letters"] == 50
+    assert method.json()["method_runs"][0]["longest_rendered_letters"] == 183
+    assert len(method.json()["rlaif_frontier"]) == 3
+
+
+def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
+    response = client.get("/api/v4/frontier-evaluation")
+    assert response.status_code == 200
+    body = response.json()
+    assert body["status"] == "diagnostic_only"
+    assert body["certifies_readability"] is False
+    assert body["human_evidence_required"] is True
+    assert body["rows"][0]["rendered"] == "An aide rips nine memos; some men inspire Diana."
+    assert body["rows"][0]["exact"] is True
+    assert body["rows"][1]["letters"] == 50
+    assert body["rows"][1]["rlaif"]["scores"]["shakespearean_image"] == 0.0
+    assert body["rows"][2]["exact"] is True
+    assert body["rows"][2]["mechanically_admitted"] is False
 
     evaluation = client.get("/api/v4/best-evaluation")
     assert evaluation.status_code == 200

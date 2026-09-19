@@ -41,8 +41,35 @@ BEST_KNOWN_PROVENANCE = {
         "pilot_lengths": "40–52; no exact closure",
         "shared_participant_temporal_repair": "no exact closure in bounded pilot",
         "latest_dream_rsi_repair": "2 mechanically admitted exact rows; longest 50 letters; reader gate closed",
+        "latest_semantic_shell_repair": "7,272 intact scene-shell renderings; longest 183 letters; zero exact closure",
         "reader_study": "not run",
     },
+}
+
+# The most recent constructive lane is kept alongside the exact frontier.  It
+# is evidence about a search method, not a candidate being quietly promoted:
+# the longest shell rendering is deliberately recorded as non-palindromic.
+SEMANTIC_SHELL_RUN = {
+    "run_id": "semantic-shell-growth-20260919",
+    "method": "incremental typed semantic shells with live mirrored-edge character debt",
+    "status": "completed_no_exact_closure",
+    "rendered_candidates": 7272,
+    "longest_rendered_letters": 183,
+    "exact_candidates": 0,
+    "mechanically_admitted_candidates": 0,
+    "longest_rendered_example": (
+        "some patient poets praise the sonnet a young herald guides Diana "
+        "the actor guards the tent; the actors meet in the harbor; "
+        "the harbor guards the quiet captain a new tale reads the sailor "
+        "the sonnet praises some patient poets."
+    ),
+    "provenance": "fresh typed event bank; no finished-tape reversal; no catalogue import",
+    "independent_validation": ["literal two-pointer audit", "forward/reverse SHA-256"],
+    "reader_status": "not_run; no exact candidate reached the reader gate",
+    "next_repair": (
+        "replace the unclosed event shell with indexed character-debt states and a grammatical connector lattice; "
+        "reader-test only an exact, intact-prose closure against shuffled controls"
+    ),
 }
 
 # Fresh Dream-RSI closures are exposed as a repair frontier, never folded into
@@ -90,10 +117,11 @@ OPTIMIZATION_SPEC = {
         "fragmentary or gibberish output",
     ],
     "promotion_rule": "A diagnostic score can choose the next repair but cannot certify readability; promotion requires randomized blinded intact-prose versus shuffled-control readers.",
-    "current_search": "dream-rsi-strict-phrase-bank-20260919",
+    "current_search": "semantic-shell-growth-20260919",
     "search_history": [
         "half-tape-grammar-csp-20260919",
         "dream-rsi-strict-phrase-bank-20260919",
+        "semantic-shell-growth-20260919",
     ],
 }
 
@@ -186,13 +214,16 @@ def _rlaif_diagnostic(text: str, checks: Mapping[str, bool], audit: Mapping[str,
 
     if not audit.get("exact"):
         feedback = "Repair the letter tape first; language judgements are premature until closure is exact."
+    elif scene < 0.5:
+        feedback = (
+            "Exact closure is mechanically real, but the line is semantically thin: replace abstract or repeated slots "
+            "with a named actor, a concrete object, and one consequential Shakespearean action before any reader test."
+        )
     elif len(audit.get("normalized", "")) < 80:
         feedback = (
             "Compact dramatic image, but not yet a full Shakespearean movement: preserve the aide/memos/Diana scene "
             "while extending it with a subject-led clause, a strong verb, and a consequential second beat."
         )
-    elif scene < 0.5:
-        feedback = "Keep the cadence, then replace abstract or repeated slots with concrete action and setting."
     else:
         feedback = "The scene and cadence are promising; test this intact prose against blinded readers before promotion."
 
@@ -278,6 +309,42 @@ def _best_known_record() -> dict[str, Any]:
     }
 
 
+def _rlaif_frontier() -> list[dict[str, Any]]:
+    """Compare actual rendered rows without turning a proxy into a gate."""
+    rows = [
+        {
+            "run_id": BEST_KNOWN_PROVENANCE["run_id"],
+            "role": "best_known_reader_plausible",
+            "rendered": BEST_KNOWN_TEXT,
+            "provenance": BEST_KNOWN_PROVENANCE["method"],
+        },
+        *[
+            {
+                "run_id": row["provenance"].split(";", 1)[0],
+                "role": "repair_frontier",
+                "rendered": row["rendered"],
+                "provenance": row["provenance"],
+            }
+            for row in DREAM_RSI_REPAIR_FRONTIER
+        ],
+    ]
+    comparison = []
+    for row in rows:
+        evaluation = _evaluate(row["rendered"])
+        comparison.append(
+            {
+                **row,
+                "letters": evaluation["candidate"]["audit"].get("letters", 0),
+                "exact": evaluation["candidate"]["audit"].get("exact", False),
+                "mechanically_admitted": all(evaluation["candidate"]["mechanical_checks"].values()),
+                "rlaif": evaluation["rlaif"],
+                "next_reader_facing_test": evaluation["rlaif"]["next_reader_facing_test"],
+                "promotion": evaluation["promotion"],
+            }
+        )
+    return comparison
+
+
 @router.get("/health")
 def health() -> dict[str, Any]:
     return {
@@ -307,6 +374,8 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
+        "method_runs": [SEMANTIC_SHELL_RUN],
+        "rlaif_frontier": _rlaif_frontier(),
         "optimization": OPTIMIZATION_SPEC,
     }
 
@@ -326,6 +395,22 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
+        "method_runs": [SEMANTIC_SHELL_RUN],
+        "rlaif_frontier": _rlaif_frontier(),
+    }
+
+
+@router.get("/frontier-evaluation")
+def frontier_evaluation() -> dict[str, Any]:
+    """Return the repair comparison used by the next construction decision."""
+    return {
+        "version": "v4",
+        "status": "diagnostic_only",
+        "certifies_readability": False,
+        "human_evidence_required": True,
+        "rows": _rlaif_frontier(),
+        "method_run": SEMANTIC_SHELL_RUN,
+        "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",
     }
 
 

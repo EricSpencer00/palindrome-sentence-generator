@@ -41,6 +41,7 @@ multiword palindrome span:
 | Phrase-valued half-tape CSP (z2) | Phrase edges keep determiner/noun boundaries live while assigning mirrored character variables | **An aide rips nine memos; some men inspire Diana.** (38 letters; 24 target runs; 48,999 nodes) | 1 / 1 at 38; no >38 closure |
 | Character-trie grammar decoder | POS/inflection terminals choose individual word boundaries while each emitted character assigns its mirrored variable | 69 target runs; 290,359 nodes; anchor recovered at 38 letters | 1 / 1 at 38; no >38 closure |
 | Character-trie relative decoder | Adds typed `who`/`that`, relative subject, finite verb, and object transitions to the live character trie | 84 target runs (39--80 letters); 306,725 nodes; no exact closure | 0 / 0 |
+| Authored scene lattice | Human-authored semantic edge pairs are joined only when their live character equations close | **Was Noel an item stressed? Desserts met in a leon saw.** (42 letters; 45 nodes) | 45 exact / 0 admitted; reader-rejected |
 | Dictionary reverse-segmentation DP | 51,129 authored SVO seeds are matched against a 52,927-headword POS-neutral reverse segmentation | No exact closure above 38; no candidate promoted | 0 / 0 |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
@@ -83,6 +84,15 @@ the character seam and agreement state. Across 84 deterministic targets from
 This is a concrete negative result with a live construction change, not a
 readability or sparsity claim. The next repair is a shared-participant/anaphor
 state plus one adjunct edge, gated on first finding a valid relative closure.
+
+An authored scene lattice did produce a longer mechanically exact row:
+“Was Noel an item stressed? Desserts met in a leon saw.” is 42 letters and
+passes the independent two-pointer and forward/reverse SHA checks. It is not
+reader-worthy English: the reverse-compatible witness phrases do not form a
+coherent scene, so all 45 exact rows are rejected by the readability gate.
+This is a useful length win and a clear construction target, not a promoted
+example; the next repair must author grammatical clause pairs rather than
+assembling reverse-compatible witness fragments.
 
 ## Reader evidence and API gate
 

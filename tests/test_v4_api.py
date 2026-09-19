@@ -33,7 +33,7 @@ def test_v4_evidence_contains_actual_rendered_candidate_and_independent_audit():
     assert candidate["audit"]["sha256_forward"] == digest
     assert candidate["audit"]["sha256_reverse"] == digest
     assert candidate["provenance"]["source"] == "project construction run; not catalogue text"
-    assert candidate["provenance"]["run_id"] == "character-trie-grammar-decoder-20260919"
+    assert candidate["provenance"]["run_id"] == "live-clause-pair-dfs-20260920-calibration"
     assert candidate["provenance"]["search_summary"]["pilot_lengths"] == "38–60; one independently recovered 38-letter anchor, no >38 closure"
     assert "longest 50 letters" in candidate["provenance"]["search_summary"]["latest_dream_rsi_repair"]
     assert candidate["promotion_status"] == "gated_pending_blinded_readers"
@@ -66,8 +66,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "char-orbit-scene-search-20260920"
-    assert method.json()["optimization"]["search_history"][-1] == "char-orbit-scene-search-20260920"
+    assert method.json()["optimization"]["current_search"] == "live-clause-pair-dfs-20260920"
+    assert method.json()["optimization"]["search_history"][-1] == "live-clause-pair-dfs-20260920"
     assert method.json()["repair_frontier"][0]["letters"] == 50
     assert method.json()["method_runs"][0]["longest_rendered_letters"] == 183
     assert method.json()["method_runs"][1]["longest_exact_letters"] == 38
@@ -79,7 +79,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][7]["longest_rendered_letters"] == 77
     assert method.json()["method_runs"][8]["frontier_controls"] == 390
     assert method.json()["method_runs"][9]["longest_rendered_letters"] == 81
-    assert len(method.json()["method_runs"]) == 27
+    assert len(method.json()["method_runs"]) == 28
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10
@@ -99,6 +99,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][24]["trie_nodes"] == 2781
     assert method.json()["method_runs"][25]["variants"] == 16
     assert method.json()["method_runs"][26]["visited_states"] == 4608
+    assert method.json()["method_runs"][27]["calibration_letters"] == 38
+    assert method.json()["method_runs"][27]["long_form_exact_candidates"] == 0
     assert len(method.json()["rlaif_frontier"]) == 18
 
 

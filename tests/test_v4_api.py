@@ -17,6 +17,7 @@ def test_v4_health_reports_evidence_gate():
     assert body["gate"]["generation"] == "gated"
     assert body["gate"]["reader_evidence"] is False
     assert body["best_known_letters"] == 38
+    assert body["optimization"]["objective_order"][2] == "longer rendered tape"
 
 
 def test_v4_evidence_contains_actual_rendered_candidate_and_independent_audit():
@@ -45,6 +46,20 @@ def test_v4_evaluate_returns_repair_feedback_without_certifying_readability():
     assert body["rlaif"]["human_evidence_required"] is True
     assert body["promotion"]["reader_status"] == "not_run"
     assert "Shakespearean" in body["rlaif"]["framework"]
+    assert body["rlaif"]["scores"]["dramatic_cadence_diagnostic"] > 0
+    assert body["rlaif"]["repairs"]
+
+
+def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
+    method = client.get("/api/v4/method")
+    assert method.status_code == 200
+    assert method.json()["status"] == "constructive_search_in_progress"
+    assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
+
+    evaluation = client.get("/api/v4/best-evaluation")
+    assert evaluation.status_code == 200
+    assert evaluation.json()["candidate"]["audit"]["exact"] is True
+    assert evaluation.json()["rlaif"]["certifies_readability"] is False
 
 
 def test_v4_generation_is_fail_closed():

@@ -30,16 +30,33 @@ GATE_MESSAGE = (
 
 BEST_KNOWN_TEXT = "An aide rips nine memos; some men inspire Diana."
 BEST_KNOWN_PROVENANCE = {
-    "run_id": "typed_grammar_equation_search_20260919",
-    "method": "typed grammar intersection with exact tape closure",
+    "run_id": "typed-constituent-seam-search-20260919",
+    "method": "typed complete NP/VP constituent emission with boundary-indexed residual zipper",
     "source": "project construction run; not catalogue text",
     "novelty_preflight": "passed local catalogue and construction-shortcut exclusions",
     "search_summary": {
-        "exact_candidates": 5,
+        "exact_candidates": 2,
         "longest_exact_letters": 38,
-        "mechanically_admitted_candidates": 0,
+        "mechanically_admitted_candidates": 2,
         "reader_study": "not run",
     },
+}
+
+OPTIMIZATION_SPEC = {
+    "objective_order": [
+        "exact letter-level closure",
+        "intact grammatical constituents with a concrete scene",
+        "longer rendered tape",
+        "human-rated readability and dramatic cadence",
+    ],
+    "hard_exclusions": [
+        "word-order-only symmetry",
+        "repeated or self-palindromic units",
+        "borrowed catalogue text",
+        "fragmentary or gibberish output",
+    ],
+    "promotion_rule": "A diagnostic score can choose the next repair but cannot certify readability; promotion requires randomized blinded intact-prose versus shuffled-control readers.",
+    "current_search": "typed-constituent-seam-search-20260919",
 }
 
 
@@ -120,6 +137,14 @@ def _rlaif_diagnostic(text: str, checks: Mapping[str, bool], audit: Mapping[str,
     cadence = min(1.0, (_std(lengths) / 3.0) + (0.15 if re.search(r"[,;:!?]", text) else 0.0))
     grammar = 1.0 if checks.get("word_form") and lexical else 0.35 if words else 0.0
     exactness = 1.0 if audit.get("exact") else 0.0
+    # These axes are deliberately interpretable Shakespearean craft prompts:
+    # image, agency, turn, and cadence.  They are a repair rubric, not a
+    # reward model and not a substitute for a reader response.
+    concrete = {"aide", "memos", "men", "diana", "bard", "rose", "shore", "moon", "river"}
+    image = min(1.0, len(set(content) & concrete) / 3.0) if content else 0.0
+    agency = 1.0 if re.search(r"\b(?:a|an|the|some)\s+\w+\s+\w+", text.casefold()) else 0.0
+    turn = 1.0 if re.search(r"[;:!?]", text) and len(words) >= 7 else 0.35 if words else 0.0
+    dramatic = round((image + agency + turn + cadence) / 4.0, 3)
 
     if not audit.get("exact"):
         feedback = "Repair the letter tape first; language judgements are premature until closure is exact."
@@ -144,7 +169,20 @@ def _rlaif_diagnostic(text: str, checks: Mapping[str, bool], audit: Mapping[str,
             "scene_specificity": round(scene, 3),
             "cadence": round(cadence, 3),
             "grammatical_surface": round(grammar, 3),
+            "shakespearean_image": round(image, 3),
+            "shakespearean_agency": round(agency, 3),
+            "shakespearean_turn": round(turn, 3),
+            "dramatic_cadence_diagnostic": dramatic,
         },
+        "strengths": [
+            "concrete actors and objects" if image >= 0.67 else "some concrete imagery",
+            "subject-led action" if agency else "no stable subject-led action yet",
+            "a visible turn or beat boundary" if turn >= 0.75 else "no clear dramatic turn yet",
+        ],
+        "repairs": [
+            "extend the scene with a second consequential beat while preserving the live character seam",
+            "keep any added clause independently grammatical and reader-testable",
+        ],
         "feedback": feedback,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",
     }
@@ -214,6 +252,7 @@ def health() -> dict[str, Any]:
             "human_certification_required": True,
         },
         "best_known_letters": 38,
+        "optimization": OPTIMIZATION_SPEC,
     }
 
 
@@ -229,6 +268,7 @@ def evidence() -> dict[str, Any]:
             "human_certification_required": True,
         },
         "best_known": _best_known_record(),
+        "optimization": OPTIMIZATION_SPEC,
     }
 
 
@@ -236,6 +276,23 @@ def evidence() -> dict[str, Any]:
 def candidate() -> dict[str, Any]:
     """Alias for clients that call the evidence item a candidate."""
     return evidence()
+
+
+@router.get("/method")
+def method() -> dict[str, Any]:
+    """Expose the constructive objective and its evidence gate."""
+    return {
+        "version": "v4",
+        "status": "constructive_search_in_progress",
+        "optimization": OPTIMIZATION_SPEC,
+        "current_best": _best_known_record(),
+    }
+
+
+@router.get("/best-evaluation")
+def best_evaluation() -> dict[str, Any]:
+    """Run the deterministic Shakespearean repair rubric on the frontier item."""
+    return _evaluate(BEST_KNOWN_TEXT)
 
 
 @router.post("/evaluate")

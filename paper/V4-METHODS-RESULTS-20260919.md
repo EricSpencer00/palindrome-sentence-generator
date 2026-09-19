@@ -60,6 +60,7 @@ multiword palindrome span:
 | Semantic-role character FSM | Carries semantic role, valency, agreement, and word-boundary state on every center-out character transition with a complete-clause terminal gate | 4,608 bounded states; two complete prose controls to 36 letters; no exact closure | 0 / 0 |
 | Live paired-slot clause DFS | Selects both ordinary-order clauses from grammatical slots while carrying the unmatched character stream into the next slot; no rendered-string repair | 26 live states in the long SVO+double-modifier form; a short-form calibration independently re-finds the 38-letter anchor; no >38 closure | 1 / 1 at 38; 0 / 0 above |
 | Synchronous typed grammar product | Intersects complete transitive, copular, and locative clauses in a forward/reverse character trie before either side is rendered | 2,116 authored utterances; 12 live trie states; the near-`an arena` orbit reaches `aneranar` before an `r`/`a` conflict; no exact closure | 0 / 0 |
+| Live phrase-boundary FSM | Advances authored subject, predicate, and adjunct constituents with one-sided character debt across phrase edges; right constituents are opened backward and the combined tape is audited at closure | 154 live transitions; 0 complete clause closures; no exact candidate over 38 letters | 0 / 0 |
 | Boundary-indexed typed clause growth | Places each fresh subject/verb/number/object/name/adjunct at its real tape offset and rejects conflicts before opening the next slot | 66,967 live nodes and 23,668 terminal leaves across 40–70 letters; no exact closure | 0 / 0 |
 | Asymmetric boundary-indexed growth | Tests a six-slot left clause against a four-slot response while carrying every outer character obligation before lexical placement | 150,719 live nodes and 1,868 terminal leaves; the withheld fresh inventory produced no exact closure | 0 / 0 |
 | Character-level grammar beam | Keeps word-boundary and role state live in a bounded two-sided character beam with fixed lexical proposal scores | 3,010 bounded expansions over 38–45-letter targets; no exact closure | 0 / 0 |
@@ -278,6 +279,13 @@ before rendering, and gives the next construction a concrete continuation
 target rather than a repair queue. The endpoint family is now exhausted at the
 `aneranar` `r`/`a` conflict; forcing another continuation would be repair-like,
 so the next branch is an orthogonal phrase-boundary finite-state grammar.
+
+The corrected phrase-boundary FSM then consumed one-sided debt across constituent
+edges rather than discarding states when one unit was longer. Its remote replay
+visited 154 live transitions but produced no complete clause closure; the reader
+gate remains closed. The earlier draft that audited the two clauses separately
+is withdrawn and covered by a regression test, so neither version is presented
+as a readable candidate.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

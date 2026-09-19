@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 EXPERIMENT_ID = "phrase-boundary-live-fsm-20260920"
-SIGNATURE = "synchronous-authored-constituents|cross-boundary-character-fsm|two-complete-clauses"
+SIGNATURE = "synchronous-authored-constituents|cross-boundary-character-fsm|live-debt|two-complete-clauses"
 WORD = re.compile(r"[A-Za-z]+")
 
 # Human-authored, role-complete constituents.  Each side must choose one unit

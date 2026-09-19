@@ -133,8 +133,11 @@ def run() -> dict[str, object]:
     rows = [row(scene) for scene in SCENES]
     exact = [r for r in rows if r["independent_audit"]["two_pointer_exact"]]
     admitted = [r for r in rows if r["mechanically_admitted"]]
-    best = max(rows, key=lambda r: (-r["live_character_obligation"]["matched_outer_characters"],
-                                    r["id"]))
+    best = max(rows, key=lambda r: (
+        r["live_character_obligation"]["matched_outer_characters"],
+        -r["independent_audit"]["mismatch_count"],
+        r["id"],
+    ))
     return {
         "experiment_id": "semantic-relay-outer-edge-repair-20260918",
         "signature": "semantic-relay|outer-edge-determiner-object|live-residual|independent-audit",

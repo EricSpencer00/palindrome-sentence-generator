@@ -61,8 +61,8 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   addressed directly by co-authoring `an`-initial subjects and terminal
   `an arena` consequence objects. Eight complete-clause probes advanced the
   live match from one character to at most three, but produced no exact
-  closure. The best rendered control is `An author edits a draft at dawn; she
-  maps an arena.` This isolates the next constructive requirement: co-design
+  closure. The best rendered control is `An engineer tests a signal at night;
+  she sees an arena.` This isolates the next constructive requirement: co-design
   the first subject lexical token with the terminal-object suffix, rather than
   widening either inventory independently.
 

@@ -1,0 +1,43 @@
+{
+  "experiment": "cfg-character-product-20260918",
+  "method": "bounded typed CFG derivations intersected with a character-level palindrome product and independent CFG chart parse",
+  "derivations": 1500,
+  "independent_right_parses": 0,
+  "candidate_count": 2,
+  "exact_count": 0,
+  "candidates": [
+    {
+      "rendered": "The quiet baker reads a letter near the harbor.",
+      "provenance": "fresh intact CFG control; no candidate claim",
+      "audit": {
+        "letters": 38,
+        "two_pointer_exact": false,
+        "sha256_forward": "321b3dd33b550b847a4451a6f375b9c15b46a3423532316a34ea7d7bb7156706",
+        "sha256_reverse": "241a5d965dfec195b96c52bc62f62dc8301411a74f8be0ec02667251b652b83f",
+        "first_mismatch": 0
+      },
+      "strict_admission": false,
+      "reader_gate": "closed"
+    },
+    {
+      "rendered": "A young teacher writes a kind story by the river.",
+      "provenance": "fresh intact CFG control; no candidate claim",
+      "audit": {
+        "letters": 39,
+        "two_pointer_exact": false,
+        "sha256_forward": "6a4c140dea8fd13c54f9958e4ec8786cd8b45f0eb276c119e83dc7dddedfbdd9",
+        "sha256_reverse": "12d2a1b4c9fa84b4b3dbb0bbdba9dd50943584869b6959c0ef00e6c285f0d9dd",
+        "first_mismatch": 0
+      },
+      "strict_admission": false,
+      "reader_gate": "closed"
+    }
+  ],
+  "novelty_preflight": {
+    "finished_tape_reversal": false,
+    "word_order_only": false,
+    "rlaif": false,
+    "signature": "cfg-production-character-product-independent-chart"
+  },
+  "next_repair": "carry nonterminal and semantic valency state through the outside-in character product, then allow PP attachment at the first residual seam"
+}

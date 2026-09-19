@@ -5311,6 +5311,24 @@
       "distinction": "Replay after the first actually model-guided span-resynthesis lane; the controller ingests its saved proposal worlds, keeps exact-but-fragment rows rejected, and evaluates the held-out policy separately from the construction result.",
       "reader_evidence": false,
       "status": "21,990 independently audited nodes; model-guided rows add 120 exact-but-fragment controls and 0 admissible exact rows; held-out mismatch-first remains 0.780; no reader gate triggered"
+    },
+    {
+      "id": "dream-rsi-dual-boundary-model-authoring-20260918",
+      "signature": "dream-rsi|dual-independent-model-clauses|first-residual-complete-word-repair|no-seed-scaffold",
+      "artifact": "experiments/dream_rsi_dual_boundary_model_authoring_20260918.py",
+      "run_artifacts": ["runs/dream-rsi-dual-boundary-model-authoring-20260918.json", "artifacts/dream-rsi-dual-boundary-model-authoring-20260918.json"],
+      "distinction": "Removes the bootstrap sentence entirely: independent local-model clause authoring creates sibling worlds, then the first mirrored mismatch reopens a complete typed word for valency-preserving repair. No exact row is inferred from a score.",
+      "reader_evidence": false,
+      "status": "8 left and 8 right model proposals, 64 paired worlds, 0 exact closures; longest intact model pair 58 letters; next repair is a complete-word residual transition"
+    },
+    {
+      "id": "dream-rsi-discourse-ellipsis-20260918",
+      "signature": "dream-rsi|polar-question-topicalized-answer|cross-word-boundary-resegmentation|strict-subspan-gate",
+      "artifact": "experiments/dream_rsi_discourse_ellipsis_20260918.py",
+      "run_artifacts": ["runs/dream-rsi-discourse-ellipsis-20260918.json", "artifacts/dream-rsi-discourse-ellipsis-20260918.json"],
+      "distinction": "A typed discourse operator jointly realizes a polar question and a topicalized answer, allowing mirrored obligations to cross word boundaries; every exact row is checked against word-order, repeated-unit, self-palindromic-subspan, catalogue, and independent pointer/SHA gates.",
+      "reader_evidence": false,
+      "status": "148 exact diagnostic rows (42–46 letters), including a 44-letter cross-boundary row, but 0 strict mechanical admissions because every row contains a word-mirror or proper palindromic island; reader gate closed; next repair forbids all proper subspans while generating a complete answer clause"
     }
   ],
   "excluded": [

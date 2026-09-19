@@ -5407,3 +5407,19 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   construction failure without turning it into a readable result. The next
   repair must remove the seed scaffold and make both boundary clauses model
   authored before the residual chart is allowed to score a branch.
+
+- **Dream-RSI dual-boundary model authoring, 2026-09-18:** removed the seed
+  scaffold from the rendered output and queried independent local-model
+  clauses on both sides of the seam. Eight left proposals crossed with eight
+  right proposals produced 64 fresh worlds, zero exact closures, and a
+  longest intact pair of 58 letters. The first residual is now a complete-word
+  obligation; the next repair reopens that word while preserving valency.
+
+- **Dream-RSI discourse ellipsis, 2026-09-18:** tried a discourse-licensed
+  polar question plus topicalized answer with typed cross-word boundary
+  resegmentation. It produced 148 independently exact diagnostic rows from
+  42--46 letters, including the 44-letter row shown in the paper, but zero
+  strict admissions: every row contains a word mirror or a proper
+  palindromic island. No row reached readers. The next construction jointly
+  authors a complete answer clause and forbids every proper palindromic
+  subspan before closure.

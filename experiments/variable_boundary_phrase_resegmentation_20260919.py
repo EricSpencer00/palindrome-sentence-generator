@@ -87,6 +87,49 @@ def audit(text: str) -> dict:
             "admission": checks}
 
 
+def seam_substitution_controls(pool: list[dict], limit: int = 8) -> list[dict]:
+    """Emit bounded residual repairs, holding a matched tape prefix fixed.
+
+    For each left three-unit tape, choose a right unit whose letters begin the
+    reverse obligation, then substitute only the adjacent unit from the same
+    POS boundary class.  These are deliberately controls (not candidates):
+    they expose the first residual and preserve the exact-audit failure for
+    the next operator rather than pretending a near match is a palindrome.
+    """
+    rows = []
+    for a in pool:
+        for b in pool:
+            if not seam_compatible(a, b):
+                continue
+            for e in pool:
+                if not seam_compatible(b, e):
+                    continue
+                target = (a["tape"] + b["tape"] + e["tape"])[::-1]
+                choices = [u for u in pool if target.startswith(u["tape"])]
+                if not choices:
+                    continue
+                c = choices[0]
+                # Same boundary class, different surface unit: the repair
+                # changes one neighbor while retaining the matched tape.
+                alternatives = [u for u in pool[1:] if u["tape"] != c["tape"]
+                                and seam_compatible(c, u)]
+                if not alternatives:
+                    continue
+                d = alternatives[0]
+                text = f"{a['text']} {b['text']} {e['text']} {c['text']} {d['text']}"
+                normalized = normalize(text)
+                mismatch = next((i for i, (x, y) in enumerate(
+                    zip(normalized, normalized[::-1])) if x != y), None)
+                rows.append({"text": text, "length": len(normalized),
+                             "exact": is_palindrome(text), "first_mismatch": mismatch,
+                             "held_reverse_prefix": c["tape"],
+                             "replaced_neighbor": d, "provenance": [a, b, e, c, d],
+                             "audit": audit(text)})
+                if len(rows) >= limit:
+                    return rows
+    return rows
+
+
 def run(min_letters: int, max_letters: int, limit: int, max_pairs: int) -> dict:
     pool = units(min_letters=min_letters, max_letters=max_letters, limit=limit)
     by_tape: dict[str, list[dict]] = defaultdict(list)
@@ -149,9 +192,11 @@ def run(min_letters: int, max_letters: int, limit: int, max_pairs: int) -> dict:
         control_text = " ".join(row["text"] for row in pool[:6])
         controls.append({"text": control_text, "audit": audit(control_text),
                          "units": pool[:6]})
+    repairs = seam_substitution_controls(pool)
     return {"pool": len(pool), "checked": checked, "exact": exact,
             "admitted": admitted, "candidates": candidates,
-            "controls": controls}
+            "controls": controls, "seam_repairs": repairs,
+            "next_repair": "Carry the longest matched reverse prefix through a POS-compatible two-unit replacement; require the replacement to close the residual before admission."}
 
 
 def main() -> None:

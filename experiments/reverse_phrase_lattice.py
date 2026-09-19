@@ -35,7 +35,9 @@ def search(sentences, pairs, max_edges=8):
                         if len(path) < max_edges:
                             frontier.setdefault(j, []).append(path + (edge,))
         for path in frontier.get(len(toks), ()):
-            right = tuple(w for edge in path for w in edge["right"])
+            # Mirroring reverses edge order as well as letters within each
+            # phrase; this is the lattice distinction from catalogue joins.
+            right = tuple(w for edge in reversed(path) for w in edge["right"])
             ltxt, rtxt = " ".join(toks), " ".join(right)
             # The right tape is the reverse *of the left tape*, not a second
             # copy in the same direction.  The eventual sentence is left +

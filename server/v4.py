@@ -50,6 +50,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_shared_relative_repair": "4,042 indexed nodes with shared participant and finite complement; zero exact closure",
         "latest_residual_prefix_repair": "258 candidates across 56 two-character seam-prefix states; longest 77 letters; zero exact closure",
         "latest_typed_bank_repair": "703,172 deterministic CSP nodes over a one-time model-authored bank; 390 frontier controls; zero exact closure",
+        "latest_three_beat_repair": "1,344 finite SVO³ renderings; longest frontier 81 letters; zero exact closure",
         "reader_study": "not run",
     },
 }
@@ -287,6 +288,23 @@ LLM_TYPED_BANK_RUN = {
     "next_repair": "add a held-out lexical bank keyed by the first two residual characters",
 }
 
+THREE_BEAT_RUN = {
+    "run_id": "three-beat-alias-grammar-20260919",
+    "method": "three-beat finite typed grammar with live boundary aliases",
+    "status": "completed_no_exact_closure",
+    "rendered_candidates": 1344,
+    "frontier_controls": 10,
+    "target_range": "40–120 letters",
+    "longest_rendered_letters": 81,
+    "exact_candidates": 0,
+    "mechanically_admitted_candidates": 0,
+    "longest_frontier_example": "an aide rips nine memos and some men inspire Diana and the bard writes a sonnet.",
+    "provenance": "three independent finite SVO beats with boundary aliases; no finished-tape reversal; no catalogue import",
+    "independent_validation": ["literal two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "not_run; frontier controls are not exact candidates",
+    "next_repair": "carry the first two-character seam obligation across the second conjunction before selecting the third beat",
+}
+
 READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
@@ -313,7 +331,7 @@ OPTIMIZATION_SPEC = {
         "fragmentary or gibberish output",
     ],
     "promotion_rule": "A diagnostic score can choose the next repair but cannot certify readability; promotion requires randomized blinded intact-prose versus shuffled-control readers.",
-    "current_search": "llm-authored-typed-bank-csp-20260919",
+    "current_search": "three-beat-alias-grammar-20260919",
     "search_history": [
         "half-tape-grammar-csp-20260919",
         "dream-rsi-strict-phrase-bank-20260919",
@@ -326,6 +344,7 @@ OPTIMIZATION_SPEC = {
         "shared-relative-complement-csp-20260919",
         "residual-prefix2-attachment-lattice-20260919",
         "llm-authored-typed-bank-csp-20260919",
+        "three-beat-alias-grammar-20260919",
     ],
 }
 
@@ -578,7 +597,7 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -601,7 +620,7 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -618,7 +637,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": SEMANTIC_SHELL_RUN,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",

@@ -47,10 +47,12 @@ def run():
             visited += 1
             ltxt, rtxt = left.capitalize()+".", right.capitalize()+"."
             la, ra = audit(ltxt), audit(rtxt)
+            combined = audit(ltxt + " " + rtxt)
             lp, rp = parse_clause(ltxt), parse_clause(rtxt)
             terminals.append({"left": ltxt, "right": rtxt, "left_audit": la, "right_audit": ra,
                               "independent_parse": {"left": lp, "right": rp}, "path": path,
-                              "mechanically_admitted": la["two_pointer_exact"] and ra["two_pointer_exact"] and lp["complete"] and rp["complete"]})
+                              "combined_audit": combined,
+                              "mechanically_admitted": combined["two_pointer_exact"] and lp["complete"] and rp["complete"]})
             continue
         slot = ORDER[li]
         for lunit in UNITS[slot]:
@@ -68,7 +70,7 @@ def run():
     return {"experiment_id":EXPERIMENT_ID,"signature":SIGNATURE,
             "method":"synchronous finite-state traversal of authored subject/predicate/adjunct constituents; obligations cross phrase boundaries before either clause is complete",
             "stats":{"visited_transitions":visited,"complete_clause_pairs":len(terminals),"exact_over_38":len(admitted),"longest_letters":max((x["left_audit"]["letters"] for x in terminals),default=0)},
-            "novelty_preflight":{"status":"passed","checked_registry_signature":SIGNATURE,"duplicate":False,"catalogue_imported":False,"repair_queue":False},
+            "novelty_preflight":{"status":"withdrawn","checked_registry_signature":SIGNATURE,"duplicate":False,"catalogue_imported":False,"repair_queue":False,"reason":"initial draft audited clauses independently; combined two-sided tape audit is now mandatory"},
             "candidates":admitted[:8],"independent_audits":["literal two-pointer character audit","forward/reverse SHA-256","independent finite parser","boundary obligation ledger"],
             "provenance":{"human_authored_multiword_units":True,"synchronous_constituent_fsm":True,"finished_tape_reversal":False,"post_hoc_repair":False,"word_order_mirror":False,"catalogue_text":False,"rlaif_per_candidate":False},
             "failure_and_next_construction":{"failure":"no exact closure over 38 letters" if not admitted else "exact closures found","next":"hold subject and predicate units fixed, add a fourth authored complement constituent whose opening character is selected by the live boundary obligation; rerun preflight before search"},

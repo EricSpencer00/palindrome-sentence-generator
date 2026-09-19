@@ -182,7 +182,10 @@ def search_pair(
             return
         visited.add(state)
         if len(left) == len(left_pattern) and len(right) == len(right_pattern):
-            if not debt:
+            # A complete grammar can close with an odd-length palindromic
+            # residual inside the final lexical token.  Requiring an empty
+            # residual silently discarded every odd exact candidate.
+            if debt == debt[::-1]:
                 rendered = " ".join(left) + "; " + " ".join(right) + "."
                 checked = audit(rendered)
                 admission = mechanical_admission_checks(
@@ -197,6 +200,7 @@ def search_pair(
                     "audit": checked,
                     "admission": admission,
                     "mechanically_admitted": checked["exact"] and all(admission.values()),
+                    "center_residual": debt,
                     "provenance": {
                         "lane": "typed-grammar-equation-search-20260919",
                         "construction": "independently typed clause slots with live reverse-tape obligations",

@@ -1,0 +1,48 @@
+{
+  "experiment": "reverse-segmentation-grammar-product-20260920",
+  "status": "completed_no_exact_closure",
+  "novelty_preflight": {
+    "status": "passed",
+    "distinct_mechanism": "complete ordinary-order clauses from authored lexicon; reverse grammar trie consumes live character equations",
+    "excluded": [
+      "known palindromes",
+      "catalogue text",
+      "word-order mirrors",
+      "repeated/self-palindromic modules",
+      "fragments",
+      "RLAIF"
+    ],
+    "preflight_before_search": true
+  },
+  "config": {
+    "state_limit": 250000,
+    "inventory": 2080,
+    "left_forward_trie": true,
+    "right_reverse_trie": true,
+    "simultaneous_character_intersection": true,
+    "posthoc_reversal": false,
+    "remote_target": "hst-bench"
+  },
+  "stats": {
+    "states": 1,
+    "truncated": false,
+    "frontier_rows": 0,
+    "rejected_rows": 0,
+    "exact_rows": 0
+  },
+  "frontier": [],
+  "rejected_rows": [],
+  "exact_candidates": [],
+  "provenance": {
+    "generator_sha256": "175fd6f66152cb15150d323deee23c9e0b16123b9cb824e056c31b8baff6dc04",
+    "lexicon": "authored finite role inventory",
+    "human_readable_candidates": true,
+    "independent_audits": [
+      "two-pointer character scan",
+      "forward/reverse SHA-256",
+      "independent clause parse"
+    ]
+  },
+  "falsifier": "A complete pair with >=38 letters passing exact audit, independent parses, and all admission checks would falsify the no-closure hypothesis.",
+  "next_action": "expand typed lexicon only if a new ordinary clause family changes the live-character frontier"
+}

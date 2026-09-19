@@ -70,6 +70,9 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["optimization"]["search_history"][-1] == "semantic-shell-growth-20260919"
     assert method.json()["repair_frontier"][0]["letters"] == 50
     assert method.json()["method_runs"][0]["longest_rendered_letters"] == 183
+    assert method.json()["method_runs"][1]["longest_exact_letters"] == 38
+    assert method.json()["method_runs"][2]["exact_candidates"] == 0
+    assert len(method.json()["method_runs"]) == 3
     assert len(method.json()["rlaif_frontier"]) == 3
 
 

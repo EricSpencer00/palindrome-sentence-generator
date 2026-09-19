@@ -685,7 +685,7 @@ PHRASE_BOUNDARY_LIVE_RUN = {
     "provenance": "corrected live two-cursor traversal; left constituents advance forward and right constituents backward, with combined tape audit; earlier independent-clause draft withdrawn; no repair, finished-tape reversal, word-order mirror, repeated module, or catalogue text",
     "independent_validation": ["live debt consumption", "literal combined outside-in two-pointer", "forward/reverse SHA-256", "independent finite parser"],
     "reader_status": "not_run; no exact candidate reached the reader gate",
-    "next_construction_discriminator": "add a held-out complement constituent only when its opening characters are compatible with the live debt, then rerun the same two-cursor parser",
+    "next_construction_discriminator": "phrase-boundary family stopped after the held-out complement probe; reset to a new grammar family rather than adding residual repairs",
 }
 
 READER_PACKAGE = {

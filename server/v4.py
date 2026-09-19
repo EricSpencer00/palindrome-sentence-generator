@@ -35,9 +35,9 @@ BEST_KNOWN_PROVENANCE = {
     "source": "project construction run; not catalogue text",
     "novelty_preflight": "passed local catalogue and construction-shortcut exclusions",
     "search_summary": {
-        "exact_candidates": 2,
+        "exact_candidates": 1,
         "longest_exact_letters": 38,
-        "mechanically_admitted_candidates": 2,
+        "mechanically_admitted_candidates": 1,
         "pilot_lengths": "38–45; one independently recovered 38-letter anchor, no >38 closure",
         "shared_participant_temporal_repair": "no exact closure in bounded pilot",
         "latest_dream_rsi_repair": "2 mechanically admitted exact rows; longest 50 letters; reader gate closed",

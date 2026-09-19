@@ -45,6 +45,37 @@ BEST_KNOWN_PROVENANCE = {
     },
 }
 
+# Fresh Dream-RSI closures are exposed as a repair frontier, never folded into
+# ``best_known``: the 50-letter row clears mechanical checks but has not been
+# read by blinded humans, while the longer row is explicitly rejected for a
+# hidden proper palindrome span.
+DREAM_RSI_REPAIR_FRONTIER = [
+    {
+        "rendered": "To new one post is an evening. Is sign in even as its open owe. Not.",
+        "letters": 50,
+        "normalized": "tonewonepostisaneveningissigninevenasitsopenowenot",
+        "sha256_forward": "855d51fa2b5cb8b4f63b9e043494f066702f8abbb329671ee5c68b82ca7788e3",
+        "sha256_reverse": "855d51fa2b5cb8b4f63b9e043494f066702f8abbb329671ee5c68b82ca7788e3",
+        "exact": True,
+        "mechanically_admitted": True,
+        "reader_status": "not_run",
+        "promotion_status": "gated_pending_blinded_readers",
+        "provenance": "dream-rsi-strict-phrase-bank-20260919; fresh model phrase proposals; not catalogue text",
+    },
+    {
+        "rendered": "Erased on forever event is an evening. Is sign in even as it never ever. Of nodes are.",
+        "letters": 66,
+        "normalized": "erasedonforevereventisaneveningissigninevenasitnevereverofnodesare",
+        "sha256_forward": "a4ebb3e316fb257c50e3eb17a9b35d94cf5796c43075cdf552cfa92c93492469",
+        "sha256_reverse": "a4ebb3e316fb257c50e3eb17a9b35d94cf5796c43075cdf552cfa92c93492469",
+        "exact": True,
+        "mechanically_admitted": False,
+        "rejection": "hidden proper palindrome span",
+        "reader_status": "not_run",
+        "provenance": "dream-rsi-strict-phrase-bank-20260919; fresh model phrase proposals; not catalogue text",
+    },
+]
+
 OPTIMIZATION_SPEC = {
     "objective_order": [
         "exact letter-level closure",
@@ -275,6 +306,7 @@ def evidence() -> dict[str, Any]:
             "human_certification_required": True,
         },
         "best_known": _best_known_record(),
+        "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
         "optimization": OPTIMIZATION_SPEC,
     }
 
@@ -293,6 +325,7 @@ def method() -> dict[str, Any]:
         "status": "constructive_search_in_progress",
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
+        "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
     }
 
 

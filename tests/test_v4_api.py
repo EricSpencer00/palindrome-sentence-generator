@@ -38,6 +38,14 @@ def test_v4_evidence_contains_actual_rendered_candidate_and_independent_audit():
     assert "longest 50 letters" in candidate["provenance"]["search_summary"]["latest_dream_rsi_repair"]
     assert candidate["promotion_status"] == "gated_pending_blinded_readers"
     assert candidate["rlaif"]["certifies_readability"] is False
+    frontier = body["repair_frontier"]
+    assert frontier[0]["letters"] == 50
+    assert frontier[0]["exact"] is True
+    assert frontier[0]["mechanically_admitted"] is True
+    assert frontier[0]["reader_status"] == "not_run"
+    assert frontier[1]["letters"] == 66
+    assert frontier[1]["mechanically_admitted"] is False
+    assert "hidden proper palindrome span" in frontier[1]["rejection"]
 
 
 def test_v4_evaluate_returns_repair_feedback_without_certifying_readability():
@@ -60,6 +68,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
     assert method.json()["optimization"]["current_search"] == "dream-rsi-strict-phrase-bank-20260919"
     assert method.json()["optimization"]["search_history"][-1] == "dream-rsi-strict-phrase-bank-20260919"
+    assert method.json()["repair_frontier"][0]["letters"] == 50
 
     evaluation = client.get("/api/v4/best-evaluation")
     assert evaluation.status_code == 200

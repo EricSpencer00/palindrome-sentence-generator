@@ -36,6 +36,17 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
 
 ## Orchestration reset (2026-09-18)
 
+- **Targeted center extension (2026-09-18).** A deliberately small authored
+  repair inserted reversible predicate/answer pairs at the live center of the
+  44-letter polar-question diagnostic. It produced exact diagnostics from 50
+  to 54 letters; the longest rendered text is `Was Noel an era, a gas, an item
+  smart? Trams met in a, saga, arena, Leon saw.` The independent pointer and
+  forward/reverse SHA checks pass, but every row fails the strict hidden-span
+  gate because the inserted pair is itself a reversible word pair, and the
+  answer is fragmentary. This is length evidence, not readable-prose
+  progress. The next repair must carry a complete finite predicate complement
+  across the center without a direct reversible pair.
+
 - **Current best outputs and argument-CSP audit (2026-09-18).** The strongest
   admitted item remains `An aide rips nine memos; some men inspire Diana.`
   (38 letters; normalized tape

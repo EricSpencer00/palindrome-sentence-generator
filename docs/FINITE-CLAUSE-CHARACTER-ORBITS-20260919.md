@@ -56,4 +56,3 @@ audits unchanged.
 Rerun with:
 
     python experiments/finite_clause_character_orbits_20260919.py
-

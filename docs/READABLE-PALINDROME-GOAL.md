@@ -52,6 +52,18 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   typed argument tokens before complete-frame joining; enlarging this product
   would be wheel-spinning.
 
+- **Three orthogonal Luna probes (2026-09-18).** The token-level character
+  decoder reached 64 character-obligation conflicts and died after its second
+  slot, while retaining two intact prose controls. The independently indexed
+  scene lattice checked 2,304 typed scene pairs and rejected all of them at
+  live outer-edge equations. The semantic slot-substitution repair checked
+  10,000 worlds over 710 typed clauses and recovered only punctuation variants
+  of the 38-letter seed. These are distinct construction failures, not a
+  reason to lower the readability target. The common diagnosis is that whole
+  grammatical chunks are still too coarse: the next lane must allow
+  heterogeneous lexical slot pairings and inflected phrase tokens while
+  carrying residual debt across token boundaries.
+
 - **Progress audit.** `main` is clean and one local orchestration commit ahead
   of `origin/main`; the code baseline remains `ca526eb`. It contains 116
   commits since 2026-09-18 00:00, but the active

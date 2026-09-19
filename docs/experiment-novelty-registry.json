@@ -5386,6 +5386,39 @@
       "distinction": "A bounded typed event-frame CSP independently selects actor, verb, object, setting, and seam before rendering; agreement and valency are enforced in the frame bank, and every rendered row receives independent pointer and forward/reverse SHA audits.",
       "reader_evidence": false,
       "status": "10,000 bounded pair worlds, 2 exact rows, both punctuation variants of the existing 38-letter benchmark; 0 new candidates and 0 reader-eligible rows; next repair carries residual debt through typed argument tokens before frame joining"
+    },
+    {
+      "id": "char-token-lm-residual-decode-20260918",
+      "signature": "joint-token-expansion|character-residual|transparent-bigram-prior|independent-audit",
+      "artifact": "experiments/char_token_lm_residual_decode_20260918.py",
+      "run_artifacts": [
+        "runs/char-token-lm-residual-decode-20260918.json",
+        "docs/CHAR-TOKEN-LM-RESIDUAL-DECODE-20260918.md"
+      ],
+      "distinction": "Jointly expands grammatical token chunks from both edges and checks character residuals before completion; the embedded character-bigram model only orders legal choices and never certifies readability.",
+      "reader_evidence": false,
+      "status": "64 character-obligation conflicts; state counts 1→0 after the second slot; 0 exact closures and 0 mechanically admitted rows; intact prose controls retained; next repair allows heterogeneous slot pairings and inflected phrase tokens"
+    },
+    {
+      "id": "human-scene-edge-lattice-20260918",
+      "signature": "typed-scene-lattice|independent-edge-equations|outer-inward-pruning",
+      "artifact": "experiments/human_scene_edge_lattice_20260918.py",
+      "run_artifacts": ["runs/human-scene-edge-lattice-20260918.json"],
+      "distinction": "Independently indexed typed scenes choose agent, action, patient, and setting on each side while live outer-edge equations reject mismatches before promotion; no finished tape or word-order mirror is used.",
+      "reader_evidence": false,
+      "status": "2,304 typed scene pairs, all rejected by live edge equations; 0 exact closures, 0 mechanically admitted rows, and 0 reader-eligible rows; next repair is token-level residual CSP across scene boundaries"
+    },
+    {
+      "id": "semantic-slot-substitution-repair-20260918",
+      "signature": "authored-clause|typed-slot-substitution|pre-render-residual|independent-audit",
+      "artifact": "experiments/semantic_slot_substitution_repair_20260918.py",
+      "run_artifacts": [
+        "runs/semantic-slot-substitution-repair-20260918-v2.json",
+        "docs/SEMANTIC-SLOT-SUBSTITUTION-REPAIR-20260918.md"
+      ],
+      "distinction": "Substitutes typed subject, verb, object, and adjunct slots inside intact authored clauses while computing the residual before punctuation is rendered; agreement and valency remain live.",
+      "reader_evidence": false,
+      "status": "710 typed clauses and 10,000 bounded pair worlds; 2 exact rows, both punctuation variants of the 38-letter seed; 0 new admissions and 0 reader-eligible rows; next repair adds adjective–noun slots and held-out clauses"
     }
   ],
   "excluded": [

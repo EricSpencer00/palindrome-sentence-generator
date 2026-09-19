@@ -24,8 +24,13 @@ LEXICON = {
 
 def _registry_preflight():
     data = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
-    sigs = {str(e.get("signature", "")) for e in data.get("entries", [])}
-    return {"entries_scanned": len(sigs), "exact_signature_collision": SIGNATURE in sigs,
+    entries = data.get("entries", [])
+    collision = any(
+        str(e.get("signature", "")) == SIGNATURE
+        and str(e.get("id", "")) != ID
+        for e in entries
+    )
+    return {"entries_scanned": len(entries), "exact_signature_collision": collision,
             "catalogue_text_imported": False, "known_palindrome_imported": False}
 
 def orbit_pair(left: str, right: str, orbit: str = ""):

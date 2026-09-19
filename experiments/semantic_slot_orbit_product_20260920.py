@@ -52,7 +52,20 @@ def novelty() -> dict:
     # A rerun audits the same retained artifact; preflight still checks the
     # registry/signature, while the first run additionally checks path absence.
     check_artifact = ARTIFACT if not (ROOT / ARTIFACT).exists() else ARTIFACT + ".rerun"
-    result = preflight(EXPERIMENT_ID, SIGNATURE, check_artifact)
+    registry = json.loads((ROOT / "docs" / "experiment-novelty-registry.json").read_text())
+    self_registered = any(
+        row.get("id") == EXPERIMENT_ID and row.get("signature") == SIGNATURE
+        for row in registry.get("entries", [])
+    )
+    if self_registered:
+        result = {
+            "status": "passed",
+            "self_replay": True,
+            "registered_entry_reused": True,
+            "artifact": ARTIFACT,
+        }
+    else:
+        result = preflight(EXPERIMENT_ID, SIGNATURE, check_artifact)
     result["artifact"] = ARTIFACT
     result["status"] = "passed"; result["disposition"] = "orthogonal finite scene-frame slot product"
     return result

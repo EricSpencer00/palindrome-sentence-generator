@@ -52,6 +52,9 @@ multiword palindrome span:
 | Finite SVO character-orbit search | Intersects two complete finite SVO tries while assigning mirrored character orbits and refusing partial-fragment closure | 8 orbit states; 7 matched transitions; 3 intact controls up to 48 letters; no exact closure | 0 / 0 |
 | Two-sided semantic orbit product | Builds independent complete SVO/adjunct story paths on both sides, then assigns each mirrored character orbit while grammar boundaries and semantic roles remain live | 12,000 left paths × 10,200 right paths; 34 product states; 20 matched and 140 rejected orbit transitions; 4 intact 41-letter controls; no exact closure | 0 / 0 |
 | Two-sided semantic orbit product — held-out setting frame | Adds one initial setting-preposition/object frame at the prior OBJECT/SUBJECT dead frontier, then reruns the same center-out product with determiner and SVO roles fixed before expansion | 2,000 paths per side; 37 product states; 20 matched and 201 rejected orbit transitions; 4 intact 59-letter controls; no exact closure | 0 / 0 |
+| Lexical boundary-state product | Selects inflection/clitic boundary states and mirrored orbit locks before rendering two independent scene clauses | 4 bounded assignments; intact controls to 78 letters; no exact closure | 0 / 0 |
+| CFG/character-orbit chart intersection | Intersects a finite semantic CFG with live terminal character orbits and requires agent/action/theme/setting closure | 2 complete English clauses; no exact closure or admission | 0 / 0 |
+| Semantic slot/orbit product | Chooses valency, attachment, agreement, and center-out character equations jointly over authored Shakespearean scene frames | 12 agreement-valid scene pairs; intact controls to 75 letters; no exact closure | 0 / 0 |
 | Dictionary reverse-segmentation DP | 51,129 authored SVO seeds are matched against a 52,927-headword POS-neutral reverse segmentation | No exact closure above 38; no candidate promoted | 0 / 0 |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
@@ -182,12 +185,32 @@ setting-preposition/object boundary with independent pointer, SHA, and
 mechanical audits. This frame is a falsifiable extension of the grammar, not
 a repair to a rendered sentence.
 
+Three orthogonal Luna probes then tested whether the remaining failure was
+caused by boundary choice, grammar representation, or semantic-slot selection.
+The lexical boundary-state product selected inflection/clitic boundaries and
+mirrored locks before rendering four independently authored clause pairs. It
+retained a grammatical 78-letter control (“the quiet ranger marks the trail at
+dawn; then the patient baker packs the loaves for the market.”) but closed at
+zero. The CFG/character chart intersection rendered two complete clauses—
+“the artist admires canvas near the river bridge” and “a gardener waters
+garden beside the school bridge”—and likewise found no exact closure. Its
+static lexical order was not a candidate reward.
+
+The semantic-slot product added a separate valency/attachment lattice with
+agreement-valid morphology and rejected repeated frame pairs. It evaluated 12
+complete scene pairs, including “the herald carries the letter through the
+hall; the actors keep the oath near the grove.” Every row has independent
+pointer and forward/reverse hash audits; none is exact. These are concrete
+construction outcomes, not a readability claim or a reason to launch a repair
+queue. The next discriminator holds out attachment prepositions and measures
+whether any valency frame gains a live closure frontier.
+
 These repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:
 grammar boundaries and mirrored character orbits must be selected together,
 so an off-tape prose draft is never promoted into a repair queue. The
-two-sided semantic orbit product, now with its held-out initial-setting frame,
-is the working generation claim; earlier
+two-sided semantic orbit product and its semantic-slot extension are the
+working generation claim; earlier
 repair runs remain auditable evidence and controls, but they are no longer the
 paper's proposed route to a readable palindrome.
 

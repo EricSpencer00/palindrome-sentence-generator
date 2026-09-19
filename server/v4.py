@@ -57,6 +57,9 @@ BEST_KNOWN_PROVENANCE = {
         "latest_shell_inflection_repair": "11,340 role-preserving variants; 420 controls; zero exact closure",
         "latest_center_out_orbit_product": "12,000 independent paths per side; 34 product states; 4 intact 41-letter controls; zero exact closure",
         "latest_setting_frame_orbit_product": "2,000 independent paths per side; 37 product states; 4 intact 59-letter controls; zero exact closure",
+        "latest_character_boundary_product": "4 lexical-boundary assignments; longest intact control 78 letters; zero exact closure",
+        "latest_cfg_character_intersection": "2 complete CFG clauses; live orbit chart closed at zero exact rows",
+        "latest_semantic_slot_orbit_product": "12 agreement-valid scene-frame pairs; intact controls to 75 letters; zero exact closure",
         "reader_study": "not run",
     },
 }
@@ -528,6 +531,58 @@ TWO_SIDED_SETTING_FRAME_RUN = {
     "next_construction_discriminator": "retain the precise setting-preposition/OBJECT frontier; add no further frame until this boundary's support is independently falsified",
 }
 
+CHARACTER_BOUNDARY_PRODUCT_RUN = {
+    "run_id": "character-boundary-product-20260920",
+    "method": "lexical boundary-state product with pre-render mirrored character-orbit locks",
+    "status": "completed_no_exact_closure",
+    "target_range": "40–220 letters",
+    "bounded_assignments": 4,
+    "exact_candidates": 0,
+    "mechanically_admitted": 0,
+    "intact_controls": 4,
+    "longest_control_letters": 78,
+    "longest_control": "the quiet ranger marks the trail at dawn; then the patient baker packs the loaves for the market.",
+    "provenance": "two independently authored ordinary-order scene clauses; lexical boundary states selected before rendering; no post-hoc repair, finished-tape reversal, word-order mirror, catalogue text, or RLAIF reward",
+    "independent_validation": ["pre-render boundary lock", "literal outside-in two-pointer", "forward/reverse SHA-256", "mechanical admission gate"],
+    "reader_status": "not_run; controls are grammatical but no exact candidate reached the reader gate",
+    "next_construction_discriminator": "add a held-out clitic-state axis and require locks at every lexical boundary; compare residual-orbit entropy without editing rendered text",
+}
+
+GRAMMAR_CHAR_INTERSECTION_RUN = {
+    "run_id": "grammar-char-intersection-20260920",
+    "method": "bounded two-sided CFG/character-orbit chart intersection with semantic closure",
+    "status": "completed_no_exact_closure",
+    "target_range": "20–260 letters",
+    "rendered_controls": 2,
+    "complete_clauses": 2,
+    "exact_candidates": 0,
+    "mechanically_admitted": 0,
+    "controls": [
+        "the artist admires canvas near the river bridge",
+        "a gardener waters garden beside the school bridge",
+    ],
+    "provenance": "authored finite CFG lexicon; live chart/orbit intersection; static lexical ordering only; no post-hoc repair, finished-tape reversal, catalogue text, or RLAIF reward",
+    "independent_validation": ["live orbit residual", "literal outside-in two-pointer", "SHA-256", "mechanical admission gate"],
+    "reader_status": "not_run; complete controls are non-palindromic",
+    "next_construction_discriminator": "add a held-out transitive clause frame with typed plural agreement",
+}
+
+SEMANTIC_SLOT_ORBIT_RUN = {
+    "run_id": "semantic-slot-orbit-product-shakespeare-frame-20260920",
+    "method": "finite Shakespearean scene-frame lattice with simultaneous semantic-slot and mirrored-character equations",
+    "status": "completed_no_exact_closure",
+    "states": 12,
+    "exact_candidates": 0,
+    "mechanically_admitted": 0,
+    "intact_controls": 12,
+    "longest_control_letters": 75,
+    "best_control": "the herald carries the letter through the hall; the actors keep the oath near the grove.",
+    "provenance": "finite authored scene frames with valency, attachment, agreement, and center-out orbit state selected before rendering; no repeated frame, repair, finished-tape reversal, catalogue text, or RLAIF reward",
+    "independent_validation": ["center-out orbit equations", "literal outside-in two-pointer", "forward/reverse SHA-256", "mechanical admission gate"],
+    "reader_status": "not_run; controls are intact grammatical scene pairs but no exact candidate reached the reader gate",
+    "next_construction_discriminator": "hold out attachment prepositions and compare closure support by valency frame",
+}
+
 READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
@@ -555,7 +610,7 @@ OPTIMIZATION_SPEC = {
     ],
     "promotion_rule": "Historical diagnostics cannot certify readability or drive post-hoc edits; each active candidate must be generated on the exact character orbit, and promotion requires randomized blinded intact-prose versus shuffled-control readers.",
     "active_construction_policy": "Exact-by-construction orbit generation: choose grammar boundaries and mirrored character pairs together; residual repair lanes are historical diagnostics, not the primary search.",
-    "current_search": "two-sided-semantic-orbit-product-setting-frame-20260920",
+    "current_search": "semantic-slot-orbit-product-shakespeare-frame-20260920",
     "search_history": [
         "half-tape-grammar-csp-20260919",
         "dream-rsi-strict-phrase-bank-20260919",
@@ -580,6 +635,9 @@ OPTIMIZATION_SPEC = {
         "agreement-carrying-adjunct-center-csp-20260920",
         "two-sided-semantic-orbit-product-20260920",
         "two-sided-semantic-orbit-product-setting-frame-20260920",
+        "character-boundary-product-20260920",
+        "grammar-char-intersection-20260920",
+        "semantic-slot-orbit-product-shakespeare-frame-20260920",
     ],
 }
 
@@ -839,6 +897,24 @@ def _rlaif_frontier() -> list[dict[str, Any]]:
             "rendered": TWO_SIDED_SETTING_FRAME_RUN["controls"][0],
             "provenance": TWO_SIDED_SETTING_FRAME_RUN["provenance"],
         },
+        {
+            "run_id": CHARACTER_BOUNDARY_PRODUCT_RUN["run_id"],
+            "role": "lexical_boundary_control",
+            "rendered": CHARACTER_BOUNDARY_PRODUCT_RUN["longest_control"],
+            "provenance": CHARACTER_BOUNDARY_PRODUCT_RUN["provenance"],
+        },
+        {
+            "run_id": GRAMMAR_CHAR_INTERSECTION_RUN["run_id"],
+            "role": "cfg_character_intersection_control",
+            "rendered": GRAMMAR_CHAR_INTERSECTION_RUN["controls"][0],
+            "provenance": GRAMMAR_CHAR_INTERSECTION_RUN["provenance"],
+        },
+        {
+            "run_id": SEMANTIC_SLOT_ORBIT_RUN["run_id"],
+            "role": "semantic_slot_scene_control",
+            "rendered": SEMANTIC_SLOT_ORBIT_RUN["best_control"],
+            "provenance": SEMANTIC_SLOT_ORBIT_RUN["provenance"],
+        },
     ]
     comparison = []
     for row in rows:
@@ -886,7 +962,7 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -909,7 +985,7 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -926,7 +1002,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": TWO_SIDED_SETTING_FRAME_RUN,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",

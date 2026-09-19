@@ -2,6 +2,15 @@
   "version": 1,
   "audit_reports": [
     {
+      "id": "phrase-boundary-fsm-20260920",
+      "signature": "synchronous-authored-constituents|cross-boundary-character-fsm|two-complete-clauses",
+      "artifact": "experiments/phrase_boundary_fsm_20260920.py",
+      "run_artifacts": ["runs/phrase-boundary-fsm-20260920.json"],
+      "distinction": "Advances both complete English clauses synchronously through human-authored multiword subject, predicate, and adjunct constituents. A finite-state boundary ledger carries character obligations across phrase edges before either clause is complete; no Cartesian whole-clause product, residual repair, anchor wrapping, catalogue sentence, or finished-tape reversal is used.",
+      "reader_evidence": false,
+      "status": "Novelty preflight passed; 729 complete clause pairs and 1,548 live transitions audited remotely; longest 56 letters, 0 exact closures above 38 letters; independent pointer/SHA/parser/provenance audits pass; next construction adds a held-out complement constituent selected by the live boundary obligation."
+    },
+    {
       "path": "runs/parallel-luna-readability-diagnostics-20260916.json",
       "kind": "aggregate_readability_diagnostic",
       "status": "diagnostic_not_human_readability_result",

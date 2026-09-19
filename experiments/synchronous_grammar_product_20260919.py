@@ -47,6 +47,9 @@ def inventory():
     for s in ORBIT_SUBJ:
         for v in ("ends",):
             for x in ORBIT_LOC: out.append(Utterance("endpoint_orbit", (s, v, x)))
+        # Noun-phrase orbit: ``an era narrates ...`` begins ``aneran...``;
+        # a clause ending in ``an arena`` reverses to the same live prefix.
+        out.append(Utterance("endpoint_noun_orbit", (s, "narrates", "an arena")))
     return tuple(out)
 
 class Node:
@@ -103,7 +106,7 @@ def run(state_limit=500_000):
             "novelty_preflight": {"status": "passed", "preflight_before_search": True,
               "distinct_mechanism": "typed varied English clause product with live forward/reverse character obligations",
               "excluded": ["post-hoc repair", "residual substitution", "anchor wrapping", "repeated/self-palindromic units", "catalogue text", "word-order symmetry"]},
-            "config": {"state_limit": state_limit, "inventory": len(items), "families": ["transitive", "copular", "locative", "endpoint_orbit"], "synchronous_character_intersection": True, "posthoc_reversal": False, "remote_target": "hst-bench"},
+            "config": {"state_limit": state_limit, "inventory": len(items), "families": ["transitive", "copular", "locative", "endpoint_orbit", "endpoint_noun_orbit"], "synchronous_character_intersection": True, "posthoc_reversal": False, "remote_target": "hst-bench"},
             "stats": {"states": states, "truncated": truncated, "frontier_rows": len(frontier), "rejected_rows": len(rejected), "exact_rows": len(exact)},
             "frontier": frontier[:500], "rejected_rows": rejected[:500], "exact_candidates": exact,
             "provenance": {"generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(), "lexicon": "authored finite typed grammar", "human_readable_candidates": True, "independent_audits": ["two-pointer scan", "forward/reverse SHA-256", "independent grammar parse"]},

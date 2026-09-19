@@ -59,7 +59,7 @@ multiword palindrome span:
 | Morphology-first orbit grammar | Selects agreement, tense, article-boundary, and cadence states before lexical emission across two complete clauses | 16 agreement-valid variants; longest 66 letters; no exact closure | 0 / 0 |
 | Semantic-role character FSM | Carries semantic role, valency, agreement, and word-boundary state on every center-out character transition with a complete-clause terminal gate | 4,608 bounded states; two complete prose controls to 36 letters; no exact closure | 0 / 0 |
 | Live paired-slot clause DFS | Selects both ordinary-order clauses from grammatical slots while carrying the unmatched character stream into the next slot; no rendered-string repair | 26 live states in the long SVO+double-modifier form; a short-form calibration independently re-finds the 38-letter anchor; no >38 closure | 1 / 1 at 38; 0 / 0 above |
-| Synchronous typed grammar product | Intersects complete transitive, copular, and locative clauses in a forward/reverse character trie before either side is rendered | 1,850 authored utterances; 9 live trie states; endpoint orbit `anerae` reached before its next `n`/`h` conflict; no exact closure | 0 / 0 |
+| Synchronous typed grammar product | Intersects complete transitive, copular, and locative clauses in a forward/reverse character trie before either side is rendered | 2,115 authored utterances; 11 live trie states; endpoint orbits `anerae` and `anerana` reached before `n`/`h` and `r`/`s` conflicts; no exact closure | 0 / 0 |
 | Boundary-indexed typed clause growth | Places each fresh subject/verb/number/object/name/adjunct at its real tape offset and rejects conflicts before opening the next slot | 66,967 live nodes and 23,668 terminal leaves across 40–70 letters; no exact closure | 0 / 0 |
 | Asymmetric boundary-indexed growth | Tests a six-slot left clause against a four-slot response while carrying every outer character obligation before lexical placement | 150,719 live nodes and 1,868 terminal leaves; the withheld fresh inventory produced no exact closure | 0 / 0 |
 | Character-level grammar beam | Keeps word-boundary and role state live in a bounded two-sided character beam with fixed lexical proposal scores | 3,010 bounded expansions over 38–45-letter targets; no exact closure | 0 / 0 |
@@ -266,12 +266,14 @@ generation method.
 The synchronous typed grammar product tests the same invariant with a different
 representation: complete transitive, copular, and locative clauses are placed
 in forward and reverse tries, and only shared character prefixes are expanded.
-The 1,850-utterance inventory reached nine live states. The endpoint grammar
+The 2,115-utterance inventory reached eleven live states. The endpoint grammar
 extended the `ane` branch through the fresh `an era ... arena` shell to
-`anerae`, then exposed its next `n`/`h` conflict; the older `th` branch still
-dies at `e`/`g`. This is a small, honest frontier diagnostic: it demonstrates
-that endpoint design can deepen the live orbit before rendering, and gives the
-next construction a concrete continuation target rather than a repair queue.
+`anerae`, then through the parsed noun-phrase orbit `an era narrates an arena`
+to `anerana`; the branches expose concrete `n`/`h` and `r`/`s` conflicts, while
+the older `th` branch still dies at `e`/`g`. This is a small, honest frontier
+diagnostic: it demonstrates that endpoint design can deepen the live orbit
+before rendering, and gives the next construction a concrete continuation
+target rather than a repair queue.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

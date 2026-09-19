@@ -66,7 +66,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "authored-grammatical-clause-pairs-20260920"
+    assert method.json()["optimization"]["current_search"] == "astra-bidirectional-half-tape-20260920"
     assert method.json()["optimization"]["search_history"][-1] == "astra-bidirectional-half-tape-20260920"
     assert method.json()["repair_frontier"][0]["letters"] == 50
     assert method.json()["method_runs"][0]["longest_rendered_letters"] == 183

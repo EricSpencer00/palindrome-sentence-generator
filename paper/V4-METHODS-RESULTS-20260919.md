@@ -39,6 +39,7 @@ multiword palindrome span:
 |---|---|---|---:|
 | Fixed half-tape grammar CSP | Character aliases are assigned before word boundaries; agreement and valency are live state | 38-letter anchor | 2 / 2 at 38; none above |
 | Phrase-valued half-tape CSP (z2) | Phrase edges keep determiner/noun boundaries live while assigning mirrored character variables | **An aide rips nine memos; some men inspire Diana.** (38 letters; 24 target runs; 48,999 nodes) | 1 / 1 at 38; no >38 closure |
+| Dictionary reverse-segmentation DP | 51,129 authored SVO seeds are matched against a 52,927-headword POS-neutral reverse segmentation | No exact closure above 38; no candidate promoted | 0 / 0 |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
 | Residual-seam scene lattice | Complete grammatical clauses indexed by remaining length, required character, agreement, and valency | 246 grammatical renderings; longest 66 | 0 / 0 |
@@ -62,6 +63,11 @@ but the bounded 38--45-letter pilot does not yet improve its length. The next
 repair exposes relative-clause internals as separate character-constrained
 edges; its 194,216-node run also closes at zero, so it remains a repair record,
 not a promoted example.
+
+An orthogonal dictionary-DP check also returned zero above 38. Its failure is
+not folded into a general sparsity claim: it chooses a complete seed before
+reverse segmentation, so the concrete repair is a POS/inflection-aware
+character trie that inserts boundaries during half-tape search.
 
 ## Reader evidence and API gate
 

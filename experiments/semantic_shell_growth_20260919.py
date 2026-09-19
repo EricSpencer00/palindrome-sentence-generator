@@ -39,6 +39,21 @@ RIGHT = (
     Event("the letter marks a careful scribe", "document", "sg", content("the letter marks a careful scribe")),
 )
 
+# Held-out Shakespearean repair bank. These beats were absent from the first
+# run and are admitted only when their outer characters satisfy live debt.
+HELD_OUT_LEFT = (
+    Event("the player marks the sonnet", "document", "sg", content("the player marks the sonnet")),
+    Event("a singer praises the court", "place", "sg", content("a singer praises the court")),
+    Event("the actor guards the tent", "place", "sg", content("the actor guards the tent")),
+    Event("a poet writes a quiet part", "document", "sg", content("a poet writes a quiet part")),
+)
+HELD_OUT_RIGHT = (
+    Event("the players answer the king", "person", "pl", content("the players answer the king")),
+    Event("the court receives a singer", "person", "sg", content("the court receives a singer")),
+    Event("the tent shelters the actor", "place", "sg", content("the tent shelters the actor")),
+    Event("the king hears a poet", "person", "sg", content("the king hears a poet")),
+)
+
 def audit(text: str) -> dict[str, object]:
     tape = normalize_letters(text); i, j = 0, len(tape)-1; mismatches=[]
     while i < j:
@@ -54,15 +69,17 @@ def hidden_span(text: str) -> bool:
     return any((z := "".join(ws[a:b])) == z[::-1] for a in range(len(ws)) for b in range(a+2,len(ws)+1)
                if not (a == 0 and b == len(ws)))
 
-def grow(max_depth: int = 3) -> dict[str, object]:
+def grow(max_depth: int = 3, *, repaired: bool = True) -> dict[str, object]:
     # The center is a semantic event, not the retained 38-letter seed.
     centers = ("the players wait at dawn", "the actors meet in the harbor", "a bard speaks to Diana")
     rows=[]; states=[("", "", frozenset(), 0)]
     for depth in range(1, max_depth+1):
         nxt=[]
         for left, right, used, debt in states:
-            for le in LEFT:
-                for re in RIGHT:
+            left_bank = LEFT + HELD_OUT_LEFT if repaired else LEFT
+            right_bank = RIGHT + HELD_OUT_RIGHT if repaired else RIGHT
+            for le in left_bank:
+                for re in right_bank:
                     if used & (le.content | re.content): continue
                     # Live debt is computed from the newly selected edge, not
                     # from a reversed complete sentence.
@@ -70,6 +87,8 @@ def grow(max_depth: int = 3) -> dict[str, object]:
                     overlap = 0
                     for k in range(1, min(len(l),len(r))+1):
                         if l[-k:] == r[:k][::-1]: overlap = k
+                    if repaired and overlap == 0:
+                        continue
                     nd = debt + len(l) + len(r) - 2*overlap
                     nl = (left + " " + le.text).strip(); nr = (re.text + " " + right).strip()
                     for center in centers:
@@ -78,7 +97,7 @@ def grow(max_depth: int = 3) -> dict[str, object]:
                         row={"rendered":rendered,"length":a["letters"],"depth":depth,"audit":a,
                              "mechanical_checks":checks,"hidden_proper_span":hidden_span(rendered),
                              "mechanically_admitted":a["two_pointer_exact"] and not hidden_span(rendered) and all(checks.values()),
-                             "live_debt":nd,"provenance":{"representation":"typed semantic shell growth",
+                             "live_debt":nd,"edge_overlap":overlap,"provenance":{"representation":"typed semantic shell growth",
                              "left_event":le.text,"right_event":re.text,"center":center,
                              "finished_tape_reversed":False,"catalogue_imported":False,"rlaif_used":False},
                              "reader_status":"unreviewed; programmatic metrics do not certify readability"}

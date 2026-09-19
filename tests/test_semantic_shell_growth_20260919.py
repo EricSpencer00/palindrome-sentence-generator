@@ -10,3 +10,8 @@ def test_shell_growth_is_reproducible_and_not_finished_tape_reversal():
     assert result["novelty_preflight"]["status"] == "passed"
     assert result["stats"]["rendered"] > 0
     assert all(row["provenance"]["finished_tape_reversed"] is False for row in result["actual_candidates"])
+
+def test_repair_requires_live_edge_overlap():
+    result = grow(max_depth=1, repaired=True)
+    assert result["stats"]["rendered"] > 0
+    assert all(row["edge_overlap"] > 0 for row in result["actual_candidates"])

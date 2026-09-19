@@ -5520,3 +5520,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   intact controls were 49--53 letters. This is distinct from reversing or
   resegmenting a finished clause. The next repair carries residuals through
   optional determiners and adjunct boundaries and adds held-out valency frames.
+
+- **Outer subject/lexical-pair construction, 2026-09-18:** jointly varied a
+  complete agent noun phrase and a terminal locative suffix around a finite
+  clause. It rendered 256 fresh constructions (longest 62 letters); the best
+  intact probe was “The quiet baker opens the chart; meanwhile, near the old
+  map.” at 48 letters, with 42 mismatches. There were 0 exact closures and 0
+  reader-eligible rows. The next repair replaces only the typed
+  preposition/object pair at the live residual seam.
+
+- **Role-labeled grammar CSP, 2026-09-18:** kept subject, finite transitive
+  verb, object, and adjunct roles live on both sides of four fresh two-clause
+  constructions (73–76 letters). The best rendered control was “The singer
+  carries the compass near the orchard; one sailor guides a basket beside the
+  river.” It failed at the first outer character and produced 0 exact closures;
+  the next repair is a typed adjunct substitution that preserves valency.
+
+- **Exhaustive POS lattice of the 44-letter diagnostic tape, 2026-09-18:**
+  enumerated all 30 dictionary edges and the single complete segmentation of
+  the fixed tape. No alternate coherent rendering exists in this declared
+  lattice, and hidden spans such as `anitemmetina` keep the strict gate closed.
+  This is evidence to change an authored outer seam, not evidence that the
+  diagnostic sentence is a readable result.

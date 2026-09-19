@@ -4,8 +4,9 @@ Complete subject NPs and complete right-clause object/verb suffixes are varied
 together.  The middle clause is fixed only as a grammatical frame; this is a
 fresh seam geometry, not a reverse-word or catalogue sweep.
 """
-import hashlib, json, re
+import hashlib, json, re, sys
 from pathlib import Path
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from llm_palindrome.admission import mechanical_admission_checks, normalize_letters
 
 ROOT = Path(__file__).resolve().parents[1]

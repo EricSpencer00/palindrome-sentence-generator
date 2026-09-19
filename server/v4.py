@@ -45,6 +45,8 @@ BEST_KNOWN_PROVENANCE = {
         "latest_indexed_path_repair": "1,205 typed-path nodes across 38–56 letters; two exact 38-letter admissions; no improvement",
         "latest_connector_product_repair": "100 typed connector frontier witnesses; longest 65 letters; zero exact closure",
         "latest_residual_seam_repair": "246 grammatical clause combinations across 151 seam states; longest 66 letters; zero exact closure",
+        "latest_terminal_repair": "252 state-selected held-out terminals; longest 67 letters; zero exact closure",
+        "latest_relative_repair": "12,588 indexed relative-path nodes across 40–90 letters; zero exact closure",
         "reader_study": "not run",
     },
 }
@@ -199,6 +201,40 @@ RESIDUAL_SEAM_RUN = {
     "next_repair": "replace one residual-bearing clause terminal with a held-out same-valency Shakespearean realization",
 }
 
+RESIDUAL_TERMINAL_RUN = {
+    "run_id": "residual-terminal-repair-lattice-20260919",
+    "method": "held-out same-valency terminal replacement selected by residual seam state",
+    "status": "completed_no_exact_closure",
+    "selected_by_state": 252,
+    "rendered_candidates": 252,
+    "target_range": "40–90 letters",
+    "longest_rendered_letters": 67,
+    "exact_candidates": 0,
+    "mechanically_admitted_candidates": 0,
+    "longest_rendered_example": "a quiet singer praises the court while the player greets the king.",
+    "provenance": "held-out same-valency terminal bank; no finished-tape reversal; no catalogue import",
+    "independent_validation": ["literal two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "not_run; no exact candidate reached the reader gate",
+    "next_repair": "add a second held-out terminal tier keyed by a two-character residual prefix",
+}
+
+RELATIVE_INDEXED_RUN = {
+    "run_id": "relative-indexed-boundary-csp-20260919",
+    "method": "agreement-carrying relative-complement path with indexed word-boundary offsets",
+    "status": "completed_no_exact_closure",
+    "search_nodes": 12588,
+    "target_range": "40–90 letters",
+    "exact_candidates": 0,
+    "mechanically_admitted_candidates": 0,
+    "longest_exact_letters": 0,
+    "longest_frontier_example": "a bard reads a letter who some men inspire Diana.",
+    "frontier_letters": 39,
+    "provenance": "agreement-carrying relative path; no finished-tape reversal; no catalogue import",
+    "independent_validation": ["outside-in two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "not_run; no exact candidate reached the reader gate",
+    "next_repair": "permit a shared participant across the relative seam and add a finite verb-complement marker",
+}
+
 READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
@@ -225,7 +261,7 @@ OPTIMIZATION_SPEC = {
         "fragmentary or gibberish output",
     ],
     "promotion_rule": "A diagnostic score can choose the next repair but cannot certify readability; promotion requires randomized blinded intact-prose versus shuffled-control readers.",
-    "current_search": "residual-seam-scene-lattice-20260919",
+    "current_search": "relative-indexed-boundary-csp-20260919",
     "search_history": [
         "half-tape-grammar-csp-20260919",
         "dream-rsi-strict-phrase-bank-20260919",
@@ -233,6 +269,8 @@ OPTIMIZATION_SPEC = {
         "half-tape-indexed-path-csp-20260919",
         "connector-character-product-20260919",
         "residual-seam-scene-lattice-20260919",
+        "residual-terminal-repair-lattice-20260919",
+        "relative-indexed-boundary-csp-20260919",
     ],
 }
 
@@ -485,7 +523,7 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -508,7 +546,7 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -525,7 +563,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": SEMANTIC_SHELL_RUN,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",

@@ -51,6 +51,10 @@ BEST_KNOWN_PROVENANCE = {
         "latest_residual_prefix_repair": "258 candidates across 56 two-character seam-prefix states; longest 77 letters; zero exact closure",
         "latest_typed_bank_repair": "703,172 deterministic CSP nodes over a one-time model-authored bank; 390 frontier controls; zero exact closure",
         "latest_three_beat_repair": "1,344 finite SVO³ renderings; longest frontier 81 letters; zero exact closure",
+        "latest_character_trie_relative_repair": "306,725 nodes across 84 targets from 39–80 letters; zero exact closure",
+        "latest_authored_scene_lattice": "45 exact 42-letter diagnostics; 10 prior-tape collisions; zero mechanically admitted",
+        "latest_compositional_shell_repair": "21,660 complete-shell compositions; 164 intact controls to 75 letters; zero exact closure",
+        "latest_shell_inflection_repair": "11,340 role-preserving variants; 420 controls; zero exact closure",
         "reader_study": "not run",
     },
 }

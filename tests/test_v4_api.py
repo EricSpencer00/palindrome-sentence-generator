@@ -67,7 +67,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
     assert method.json()["optimization"]["current_search"] == "authored-grammatical-clause-pairs-20260920"
-    assert method.json()["optimization"]["search_history"][-1] == "anchor-preserving-overhang-20260919"
+    assert method.json()["optimization"]["search_history"][-1] == "astra-bidirectional-half-tape-20260920"
     assert method.json()["repair_frontier"][0]["letters"] == 50
     assert method.json()["method_runs"][0]["longest_rendered_letters"] == 183
     assert method.json()["method_runs"][1]["longest_exact_letters"] == 38
@@ -79,13 +79,14 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][7]["longest_rendered_letters"] == 77
     assert method.json()["method_runs"][8]["frontier_controls"] == 390
     assert method.json()["method_runs"][9]["longest_rendered_letters"] == 81
-    assert len(method.json()["method_runs"]) == 16
+    assert len(method.json()["method_runs"]) == 17
     assert method.json()["method_runs"][10]["search_nodes"] == 306725
     assert method.json()["method_runs"][11]["prior_exact_collisions"] == 10
     assert method.json()["method_runs"][12]["longest_retained_letters"] == 75
     assert method.json()["method_runs"][13]["retained_controls"] == 420
     assert method.json()["method_runs"][14]["longest_exact_letters"] == 30
     assert method.json()["method_runs"][15]["letters"] == 132
+    assert method.json()["method_runs"][16]["edge_attempts"] == 2421192
     assert len(method.json()["rlaif_frontier"]) == 8
 
 

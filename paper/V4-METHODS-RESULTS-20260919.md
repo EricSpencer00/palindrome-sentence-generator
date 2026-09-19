@@ -46,6 +46,7 @@ multiword palindrome span:
 | Seam-conditioned shell substitution | Role-preserving lexical and inflectional substitutions inside one complete SVO shell | 11,340 grammatical variants; 420 retained controls; longest 27 letters; best seam 4 chars | 0 / 0 |
 | Fresh grammatical clause-pair lattice | Newly authored reversible clause/response pairs, checked as live equations before rendering | 49 exact diagnostics; **“Stressed, Deliver; reviled, desserts.”** (30 letters) | 49 / 0; reader-rejected |
 | Anchor-preserving overhang search | Center-out overhang expansion around the 38-letter anchor with debt tracking | **132-letter exact frontier**; anchor embedded as a proper palindromic span | 0 admitted; withdrawn shortcut |
+| Bidirectional typed half-tape CSP | Expands the more constrained unfinished grammar edge from either end while propagating character, agreement, and valency state | 70 cells; 2,421,192 edge attempts; anchor regression recovered; no >38 closure | 0 / 0 above 38 |
 | Dictionary reverse-segmentation DP | 51,129 authored SVO seeds are matched against a 52,927-headword POS-neutral reverse segmentation | No exact closure above 38; no candidate promoted | 0 / 0 |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
@@ -121,6 +122,17 @@ span and repeating a content word. The independent audit is retained as a
 frontier diagnostic; the shared admission gate withdraws it, and no reader
 study is run on it. The next constructive search must forbid anchor embedding
 before expansion rather than treating this overhang as a result.
+
+The bidirectional half-tape pilot then changed the expansion order itself: it
+selected the more constrained unfinished edge from either end and propagated
+the mirrored character orbit, agreement, and object type before choosing the
+opposite edge. The remote replay completed all 70 cells from 39 through 52
+letters (2,421,192 edge attempts and 10,460 search nodes) without exhausting
+its budgets, recovered the 38-letter anchor in regression mode, and produced
+zero exact closures above 38. This excludes that bounded grammar, not the
+overall readable-palindrome goal; the next repair must change sentence
+structure or lexical boundary possibilities rather than spend more time in
+the exhausted cells.
 
 ## Reader evidence and API gate
 

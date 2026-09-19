@@ -1,0 +1,442 @@
+{
+  "experiment_id": "scene-phrase-equations-20260920",
+  "decision": "scene/phrase equations can be audited independently of prose rendering",
+  "falsifier": "zero exact candidates, any unsatisfied equation, or any provenance shortcut",
+  "baseline": "complete prose controls rendered through the same mechanical audit",
+  "fixed_conditions": [
+    "lowercase letters-only normalization",
+    "center-out pointer pairing",
+    "no candidate ranking model"
+  ],
+  "controls": [
+    {
+      "rendered": "The steward keeps the lantern by the western stair.",
+      "audit": {
+        "normalized": "thestewardkeepsthelanternbythewesternstair",
+        "letters": 42,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "b7ea9a464de0ad7081614e825f54a714a54d9d55dc28322b434a632bfac0a542",
+        "sha256_reverse": "8450f32979f8bcb1884bbb34895a38c427a6fadd358b0b79b8186427e35f4897"
+      }
+    },
+    {
+      "rendered": "When the bell sounds, the players cross the silent yard.",
+      "audit": {
+        "normalized": "whenthebellsoundstheplayerscrossthesilentyard",
+        "letters": 45,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "w",
+          "d"
+        ],
+        "sha256_forward": "6eec2cab4655c189e60fcbb331e42b84834954fdced16ce26484c8e16ad00be4",
+        "sha256_reverse": "5317604f97fd3fcb89183207e75bd5f994e40dd49e6c98866c41a60b3893f308"
+      }
+    },
+    {
+      "rendered": "A patient queen asks whether the raven saw the shore.",
+      "audit": {
+        "normalized": "apatientqueenaskswhethertheravensawtheshore",
+        "letters": 43,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "ac0a115b20d57b4e7c925558fa7bd87ad27734e330a050b5ee41e5f585a3d779",
+        "sha256_reverse": "92f806b3a1e6378be8553e41f2ca1abcd364ccdfa70ff521b802c8861b27d6fd"
+      }
+    }
+  ],
+  "candidates": [
+    {
+      "id": "scene-1",
+      "rendered": "Evil is a name of a foeman, as I live.",
+      "scene": {
+        "subject": "a queen",
+        "verb": "consults",
+        "object": "the raven",
+        "setting": "at dusk"
+      },
+      "phrase_boundary": {
+        "left": "Evil is a name of a",
+        "right": " foeman, as I live."
+      },
+      "semantic_roles": [
+        "agent",
+        "event",
+        "theme",
+        "setting"
+      ],
+      "attachment": "center-out role attachment; punctuation retained in rendered prose",
+      "equations": [
+        {
+          "left_pointer": 0,
+          "right_pointer": 26,
+          "left_char": "e",
+          "right_char": "e",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 1,
+          "right_pointer": 25,
+          "left_char": "v",
+          "right_char": "v",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 2,
+          "right_pointer": 24,
+          "left_char": "i",
+          "right_char": "i",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 3,
+          "right_pointer": 23,
+          "left_char": "l",
+          "right_char": "l",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 4,
+          "right_pointer": 22,
+          "left_char": "i",
+          "right_char": "i",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 5,
+          "right_pointer": 21,
+          "left_char": "s",
+          "right_char": "s",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 6,
+          "right_pointer": 20,
+          "left_char": "a",
+          "right_char": "a",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 7,
+          "right_pointer": 19,
+          "left_char": "n",
+          "right_char": "n",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 8,
+          "right_pointer": 18,
+          "left_char": "a",
+          "right_char": "a",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 9,
+          "right_pointer": 17,
+          "left_char": "m",
+          "right_char": "m",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 10,
+          "right_pointer": 16,
+          "left_char": "e",
+          "right_char": "e",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 11,
+          "right_pointer": 15,
+          "left_char": "o",
+          "right_char": "o",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 12,
+          "right_pointer": 14,
+          "left_char": "f",
+          "right_char": "f",
+          "satisfied": true
+        }
+      ],
+      "exact_audit": {
+        "normalized": "evilisanameofafoemanasilive",
+        "letters": 27,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "95f3bca2a2e2e873d765da0192fe1760fc26e0d3c58f3f9edd2013a7954e4777",
+        "sha256_reverse": "95f3bca2a2e2e873d765da0192fe1760fc26e0d3c58f3f9edd2013a7954e4777"
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": false,
+        "local_catalogue_absent": false
+      },
+      "provenance": {
+        "independently_authored_scene": true,
+        "independently_authored_phrases": true,
+        "finished_tape_reversal": false,
+        "word_order_mirror": false,
+        "catalogue_imported": false,
+        "repeated_module": false,
+        "rlaif_candidate_scoring": false
+      }
+    },
+    {
+      "id": "scene-2",
+      "rendered": "Madam, in Eden, I'm Adam.",
+      "scene": {
+        "subject": "the steward",
+        "verb": "guards",
+        "object": "a sealed letter",
+        "setting": "by candlelight"
+      },
+      "phrase_boundary": {
+        "left": "Madam, in Ed",
+        "right": "en, I'm Adam."
+      },
+      "semantic_roles": [
+        "agent",
+        "event",
+        "theme",
+        "setting"
+      ],
+      "attachment": "center-out role attachment; punctuation retained in rendered prose",
+      "equations": [
+        {
+          "left_pointer": 0,
+          "right_pointer": 16,
+          "left_char": "m",
+          "right_char": "m",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 1,
+          "right_pointer": 15,
+          "left_char": "a",
+          "right_char": "a",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 2,
+          "right_pointer": 14,
+          "left_char": "d",
+          "right_char": "d",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 3,
+          "right_pointer": 13,
+          "left_char": "a",
+          "right_char": "a",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 4,
+          "right_pointer": 12,
+          "left_char": "m",
+          "right_char": "m",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 5,
+          "right_pointer": 11,
+          "left_char": "i",
+          "right_char": "i",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 6,
+          "right_pointer": 10,
+          "left_char": "n",
+          "right_char": "n",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 7,
+          "right_pointer": 9,
+          "left_char": "e",
+          "right_char": "e",
+          "satisfied": true
+        }
+      ],
+      "exact_audit": {
+        "normalized": "madaminedenimadam",
+        "letters": 17,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "426ab6c2b45bca01218a38ca1d95eee0b6e8a61d8908e935e51195bd4d4beacb",
+        "sha256_reverse": "426ab6c2b45bca01218a38ca1d95eee0b6e8a61d8908e935e51195bd4d4beacb"
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": false,
+        "ordinary_short_words": false,
+        "distinct_words": true,
+        "no_self_palindromic_word": false,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": false,
+        "local_catalogue_absent": false
+      },
+      "provenance": {
+        "independently_authored_scene": true,
+        "independently_authored_phrases": true,
+        "finished_tape_reversal": false,
+        "word_order_mirror": false,
+        "catalogue_imported": false,
+        "repeated_module": false,
+        "rlaif_candidate_scoring": false
+      }
+    },
+    {
+      "id": "scene-3",
+      "rendered": "Do geese see God?",
+      "scene": {
+        "subject": "a player",
+        "verb": "questions",
+        "object": "the silent king",
+        "setting": "before the curtain"
+      },
+      "phrase_boundary": {
+        "left": "Do geese",
+        "right": " see God?"
+      },
+      "semantic_roles": [
+        "agent",
+        "event",
+        "theme",
+        "setting"
+      ],
+      "attachment": "center-out role attachment; punctuation retained in rendered prose",
+      "equations": [
+        {
+          "left_pointer": 0,
+          "right_pointer": 12,
+          "left_char": "d",
+          "right_char": "d",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 1,
+          "right_pointer": 11,
+          "left_char": "o",
+          "right_char": "o",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 2,
+          "right_pointer": 10,
+          "left_char": "g",
+          "right_char": "g",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 3,
+          "right_pointer": 9,
+          "left_char": "e",
+          "right_char": "e",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 4,
+          "right_pointer": 8,
+          "left_char": "e",
+          "right_char": "e",
+          "satisfied": true
+        },
+        {
+          "left_pointer": 5,
+          "right_pointer": 7,
+          "left_char": "s",
+          "right_char": "s",
+          "satisfied": true
+        }
+      ],
+      "exact_audit": {
+        "normalized": "dogeeseseegod",
+        "letters": 13,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "aeaccfb6dcadb7ec16cf5639b9f6543ec369332da061a2051bdb103bb799ea60",
+        "sha256_reverse": "aeaccfb6dcadb7ec16cf5639b9f6543ec369332da061a2051bdb103bb799ea60"
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": false,
+        "local_catalogue_absent": false
+      },
+      "provenance": {
+        "independently_authored_scene": true,
+        "independently_authored_phrases": true,
+        "finished_tape_reversal": false,
+        "word_order_mirror": false,
+        "catalogue_imported": false,
+        "repeated_module": false,
+        "rlaif_candidate_scoring": false
+      }
+    }
+  ],
+  "stats": {
+    "controls": 3,
+    "candidates": 3,
+    "exact": 3,
+    "equations": 27
+  },
+  "independent_audit": [
+    "two-pointer character equality",
+    "forward/reverse SHA-256",
+    "mechanical admission checks"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_search": "no matching scene/phrase equation entry"
+  },
+  "next_construction_discriminator": "blindly replace one semantic-role phrase per side and require closure without changing attachment labels"
+}

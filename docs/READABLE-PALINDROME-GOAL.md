@@ -5560,3 +5560,27 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   0 exact closures. Repeated-content checks correctly kept the strongest
   near-misses out of the reader gate. The next repair propagates the full
   mirrored residual vector into each valency choice before expanding a scene.
+
+- **Seed-extension wrapper search, 2026-09-18:** tested 25 fresh pairs of
+  independently authored grammatical prefix/suffix clauses around an internal
+  seed state. Live outer-character equations rejected every pair before exact
+  closure; the longest intact control was 103 letters. The seed was never
+  rendered as a claimed output, and the controls remain human-unreviewed. The
+  next construction authors held-out wrappers ending in the first residual
+  character class rather than replaying this wrapper sweep.
+
+- **Reader-first complete-clause lattice, 2026-09-18:** began with ten
+  human-authored, complete Shakespeare-like scenes and explicit subject, verb,
+  object, and adjunct roles, then formed 400 typed center/edge lattice states.
+  No state closed exactly; the longest complete-scene control was 67 letters.
+  This lane is evidence that readable prose can be kept primary in the search,
+  not added after closure, but it has no reader evidence yet and its catalogue
+  preflight still needs an explicit rerun. The concrete repair broadens center
+  vocabulary and carries residuals through typed verb-object transitions.
+
+- **Held-out character-trie provenance correction, 2026-09-18:** the apparent
+  51-letter result was not a fresh discovery. The implementation had hard-coded
+  three published palindromes (21, 29, and 51 letters). They are now marked
+  copied catalogue controls, excluded from candidate and exact counts, and
+  quarantined from the paper. The corrected run reports zero fresh candidates;
+  the next implementation must use a genuinely fresh held-out phrase inventory.

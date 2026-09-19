@@ -4,6 +4,10 @@ def test_lattice_has_independently_exact_rows_and_no_hidden_reversal():
     result = run()
     assert result["stats"]["nodes"] == 45
     assert result["stats"]["exact"] == 45
+    assert result["stats"]["novel_exact"] == 35
+    assert result["stats"]["prior_exact_collisions"] == 10
     assert result["stats"]["longest_exact_letters"] == 42
+    assert result["stats"]["mechanically_admitted"] == 0
     assert all(row["audit"]["two_pointer_exact"] for row in result["candidates"])
     assert all(not row["provenance"]["finished_tape_reversed"] for row in result["candidates"])
+    assert result["novelty_preflight"]["status"] == "blocked"

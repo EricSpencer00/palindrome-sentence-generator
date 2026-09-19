@@ -1,0 +1,61 @@
+# v4 construction and evaluation ledger
+
+This note is the current evidence-led core for the paper. The working claim
+is constructive: choose grammatical lexical paths while satisfying character
+seams during search. Exactness is independently checked; automatic language
+scores and AI feedback only select the next repair. No output below is human
+certified yet.
+
+## Anchor and frontier
+
+The strongest reader-plausible exact output remains:
+
+> **An aide rips nine memos; some men inspire Diana.**
+
+It has 38 ASCII letters, normalized tape
+`anaideripsninememossomemeninspirediana`, and forward/reverse SHA-256
+`ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6`.
+The independent outside-in pointer audit and the fail-closed mechanical gate
+both pass. It has not yet been rated by blinded humans.
+
+The longest mechanically admitted repair is exact but not readable:
+
+> **To new one post is an evening. Is sign in even as its open owe. Not.**
+
+It has 50 letters and SHA-256
+`855d51fa2b5cb8b4f63b9e043494f066702f8abbb329671ee5c68b82ca7788e3` in both
+directions. A post-hoc `gpt-oss:20b` AI-feedback pass scored intact English,
+scene coherence, and Shakespearean cadence 0/3, 0/3, 0/3. This is diagnostic,
+not a readability certificate and not a search reward.
+
+The 66-letter exact row is rejected mechanically for a hidden proper
+multiword palindrome span:
+
+> **Erased on forever event is an evening. Is sign in even as it never ever. Of nodes are.**
+
+## Constructive methods
+
+| Method | Search-space change | Rendered evidence | Exact / admitted |
+|---|---|---|---:|
+| Fixed half-tape grammar CSP | Character aliases are assigned before word boundaries; agreement and valency are live state | 38-letter anchor | 2 / 2 at 38; none above |
+| Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
+| Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
+| Residual-seam scene lattice | Complete grammatical clauses indexed by remaining length, required character, agreement, and valency | 246 grammatical renderings; longest 66 | 0 / 0 |
+| Semantic shell growth | Held-out event pairs require live edge overlap at each incremental shell step | 7,272 renderings; longest 183 | 0 / 0 |
+
+Every lane records a literal two-pointer audit, forward/reverse SHA-256, source
+provenance, novelty preflight, and a concrete next repair. None reverses a
+finished sentence, imports catalogue text, or scores each search state with an
+LM/RLAIF reward.
+
+## Reader evidence and API gate
+
+`experiments/reader_package_v4_20260919.py` creates five deterministic blinded
+pairs: each exact frontier item and each intact prose control is paired with a
+word-shuffled control. A fixed seed randomizes A/B order, while the answer key
+is held separately from the rater form. The package is ready, but human ratings
+are pending. Therefore `/api/v4/generate` remains fail-closed; v4 exposes
+evidence and diagnostics only.
+
+The next reader-facing test is a randomized blinded intact-prose versus
+shuffled-control rating with independent raters and explicit exclusions.

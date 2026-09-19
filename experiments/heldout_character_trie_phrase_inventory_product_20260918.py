@@ -16,6 +16,9 @@ INVENTORY = {
     "det": ["a", "the"], "noun": ["man", "plan", "canal", "race", "car"],
     "verb": ["was", "saw", "fast"], "prep": ["in"],
 }
+# These are deliberately retained as regression controls only.  They are
+# famous published palindromes, not fresh generated prose, and can never be
+# promoted by this experiment.
 PHRASES = [
     ("A man, a plan, a canal: Panama!", ["det", "noun", "det", "noun", "det", "noun", "noun"]),
     ("A Toyota! Race fast, safe car! A Toyota.", ["det", "noun", "noun", "verb", "verb", "noun", "det", "noun"]),
@@ -63,20 +66,24 @@ def main():
           "trie_state": {"left_trie_nodes": len(letters(phrase)), "right_trie_nodes": len(letters(phrase)),
                          "live_opposite_character_obligations": True, "center_closure_rule": "accept iff all obligations empty"},
           "product_trace": live_product(phrase), "audit": a,
-          "provenance": {"fresh_lexical_domains": True, "independently_generated_phrase_inventory": True,
-             "ordinary_grammatical_phrase": True, "finished_tape_reversal": False, "source_sentence_copied": False,
+          "provenance": {"fresh_lexical_domains": False, "independently_generated_phrase_inventory": False,
+             "ordinary_grammatical_phrase": True, "finished_tape_reversal": False, "source_sentence_copied": True,
+             "catalogue_control": True,
              "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest()},
           "anti_shortcut": {"intact_prose": True, "posthoc_reverse_rendering": False, "mirrored_halves": False,
-             "nested_palindrome_spans": False, "seed_wrapping": False, "disconnected_semordnilap_chain": False},
+             "nested_palindrome_spans": False, "seed_wrapping": False, "disconnected_semordnilap_chain": False,
+             "catalogue_text": True, "admissible": False},
           "novelty_preflight": {"signature": "heldout-character-trie-phrase-inventory-product-v1",
-             "status": "passed", "registry_entries_read": 0, "collision": False},
-          "next_repair": "Expand held-out POS inventories while retaining live opposite-character obligations and explicit center closure."})
+             "status": "excluded_known_control", "registry_entries_read": 0, "collision": True},
+          "role": "borrowed regression control",
+          "next_repair": "Replace every borrowed control with a fresh held-out POS phrase inventory before counting exact closures."})
     payload = {"experiment": "heldout-character-trie-phrase-inventory-product-20260918",
       "method": "independent grammatical phrase inventory product over forward/reverse character tries with live obligations",
       "controls": {"finished_tape_reversal_used": False, "bounded": True, "bound": len(PHRASES)},
-      "novelty_preflight": {"status": "passed", "signature": "heldout-character-trie-phrase-inventory-product-v1",
-          "basis": "new POS phrase inventory product; obligations are discharged during trie traversal"},
-      "candidates": rows, "summary": {"candidate_count": len(rows), "exact_count": sum(r["audit"]["exact"] for r in rows),
+      "novelty_preflight": {"status": "closed_borrowed_controls_only", "signature": "heldout-character-trie-phrase-inventory-product-v1",
+          "basis": "all three exact rows are retained published controls; no fresh inventory was searched"},
+      "candidates": rows, "summary": {"candidate_count": 0, "exact_count": 0,
+          "borrowed_control_count": len(rows), "exact_control_count": sum(r["audit"]["exact"] for r in rows),
           "max_length": max(r["audit"]["letters"] for r in rows), "longest_letters": max(r["audit"]["letters"] for r in rows)}}
     OUT.write_text(json.dumps(payload, indent=2) + "\n")
     print(json.dumps(payload["summary"], sort_keys=True))

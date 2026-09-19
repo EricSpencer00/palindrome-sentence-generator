@@ -61,6 +61,7 @@ multiword palindrome span:
 | Live paired-slot clause DFS | Selects both ordinary-order clauses from grammatical slots while carrying the unmatched character stream into the next slot; no rendered-string repair | 26 live states in the long SVO+double-modifier form; a short-form calibration independently re-finds the 38-letter anchor; no >38 closure | 1 / 1 at 38; 0 / 0 above |
 | Synchronous typed grammar product | Intersects complete transitive, copular, and locative clauses in a forward/reverse character trie before either side is rendered | 2,116 authored utterances; 12 live trie states; the near-`an arena` orbit reaches `aneranar` before an `r`/`a` conflict; no exact closure | 0 / 0 |
 | Semantic dialogue-relation product | Chooses requester, agent, object, answer, and closing roles from authored alternatives while checking the full two-sided character obligation and request/answer/confirmation parse | 243 role states; two intact diagnostic frames to 78 letters; 0 constructive closures | 0 / 0 |
+| Dialogue recipient-bridge extension | Adds a distinct recipient-obligation bridge relation while retaining the complete request/answer/confirmation parse and live two-sided character debt | 729 role states; diagnostic frames only to 78 letters; 0 constructive closures | 0 / 0 |
 | Live phrase-boundary FSM | Advances authored subject, predicate, adjunct, and one held-out complement with one-sided character debt across phrase edges; right constituents are opened backward and the combined tape is audited at closure | 159 live transitions; 0 complete clause closures; no exact candidate over 38 letters | 0 / 0 |
 | Boundary-indexed typed clause growth | Places each fresh subject/verb/number/object/name/adjunct at its real tape offset and rejects conflicts before opening the next slot | 66,967 live nodes and 23,668 terminal leaves across 40–70 letters; no exact closure | 0 / 0 |
 | Asymmetric boundary-indexed growth | Tests a six-slot left clause against a four-slot response while carrying every outer character obligation before lexical placement | 150,719 live nodes and 1,868 terminal leaves; the withheld fresh inventory produced no exact closure | 0 / 0 |
@@ -295,6 +296,13 @@ useful intact controls—“Mira asks the baker for warm bread, and the baker
 answers with a clear yes; Mira thanks the baker.”—at 77 letters and a 78-letter
 variant, but no constructive closure. Those controls are not palindrome
 outputs and do not enter the reader gate.
+
+Adding the recipient-obligation bridge made a genuinely new construction rather
+than a residual edit: the same live character equations were carried through
+729 role states before rendering. It still produced zero constructive closures;
+the 78-letter frames remain diagnostic controls only. Its distinct experiment
+identity passed novelty preflight, so the dialogue family is now closed instead
+of being expanded with post-hoc repairs.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

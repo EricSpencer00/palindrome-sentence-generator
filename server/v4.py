@@ -3,9 +3,9 @@
 v4 is deliberately an evidence surface, not another unblinded generator.  It
 exposes the strongest independently constructed candidate, its provenance,
 and two independent exactness checks.  The evaluation endpoint is a
-Shakespearean/RLAIF-inspired diagnostic: it can rank what to repair next, but
-it cannot certify that a candidate reads as English.  That claim remains a
-blinded-reader decision.
+Shakespearean/RLAIF-inspired diagnostic only: it never edits a tape or drives
+post-hoc repair.  Readability remains a blinded-reader decision, and new
+palindromes must be generated on the live character/grammar constraints.
 """
 from __future__ import annotations
 
@@ -139,10 +139,10 @@ AI_FEEDBACK_RUN = {
     "next_test": "randomized blinded intact-prose versus shuffled-control rating",
 }
 
-# Fresh Dream-RSI closures are exposed as a repair frontier, never folded into
-# ``best_known``: the 50-letter row clears mechanical checks but has not been
-# read by blinded humans, while the longer row is explicitly rejected for a
-# hidden proper palindrome span.
+# Historical Dream-RSI closures remain exposed as a diagnostic frontier, never
+# folded into ``best_known`` or used to edit a candidate: the 50-letter row
+# clears mechanical checks but has not been read by blinded humans, while the
+# longer row is explicitly rejected for a hidden proper palindrome span.
 DREAM_RSI_REPAIR_FRONTIER = [
     {
         "rendered": "To new one post is an evening. Is sign in even as its open owe. Not.",
@@ -702,6 +702,19 @@ DIALOGUE_RELATION_RUN = {
     "next_construction_discriminator": "add one independent answer relation with a recipient-obligation bridge, then require a new live character branch before rendering",
 }
 
+DIALOGUE_RECIPIENT_BRIDGE_RUN = {
+    "run_id": "dialogue-recipient-bridge-20260920",
+    "method": "dialogue role product with a second recipient-obligation bridge relation",
+    "status": "completed_no_exact_closure",
+    "constructive_states_tested": 729,
+    "constructive_closures": 0,
+    "longest_diagnostic_letters": 78,
+    "provenance": "distinct bridge grammar identity; full combined audit and complete semantic parse; no repair, fixed tape, catalogue text, anchor wrapping, or word-order symmetry",
+    "independent_validation": ["live two-sided obligation trace", "literal outside-in two-pointer", "forward/reverse SHA-256", "complete semantic parse", "novelty preflight"],
+    "reader_status": "diagnostic-only finished frames; no constructive closure",
+    "next_construction_discriminator": "dialogue family closed after the bridge branch; reset to a different grammar family",
+}
+
 READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
@@ -728,7 +741,13 @@ OPTIMIZATION_SPEC = {
         "fragmentary or gibberish output",
     ],
     "promotion_rule": "Historical diagnostics cannot certify readability or drive post-hoc edits; each active candidate must be generated on the exact character orbit, and promotion requires randomized blinded intact-prose versus shuffled-control readers.",
-    "active_construction_policy": "Exact-by-construction orbit generation: choose grammar boundaries and mirrored character pairs together; residual repair lanes are historical diagnostics, not the primary search.",
+    "generation_policy": {
+        "mode": "constructive_only",
+        "posthoc_repair": False,
+        "required_before_render": ["grammar boundary", "semantic role", "mirrored character obligation"],
+        "failure_action": "retire the grammar family and open a distinct construction; do not edit an off-tape prose draft",
+    },
+    "active_construction_policy": "Exact-by-construction orbit generation only: grammar boundaries, semantic roles, and mirrored character pairs are selected together before rendering. Historical residual-repair runs are diagnostics and cannot seed generation.",
     "current_search": "live-clause-pair-dfs-20260920",
     "search_history": [
         "half-tape-grammar-csp-20260919",
@@ -762,6 +781,7 @@ OPTIMIZATION_SPEC = {
         "char-orbit-scene-search-20260920",
         "synchronous-grammar-product-20260919",
         "dialogue-relation-frame-20260919",
+        "dialogue-recipient-bridge-20260920",
         "phrase-boundary-live-fsm-20260920",
         "live-clause-pair-dfs-20260920",
     ],
@@ -1106,7 +1126,7 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -1129,7 +1149,7 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -1146,7 +1166,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": TWO_SIDED_SETTING_FRAME_RUN,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",

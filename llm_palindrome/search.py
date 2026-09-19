@@ -268,6 +268,7 @@ def beam_search(
     max_word_uses: Optional[int] = None,
     initial_state: Optional[State] = None,
     allow_state=None,
+    allow_closed=None,
 ) -> list[str]:
     """Beam search for a word sequence whose letters form a palindrome.
 
@@ -278,6 +279,11 @@ def beam_search(
     text. It is applied when the left half first appears, not to the initial
     search move (which becomes the text's final unit). `max_word_uses` is a
     hard cap across individual words, including words inside phrase units.
+
+    `allow_closed(left, right) -> bool` is an optional grammar gate for a
+    closure. Unlike `allow_state`, it is evaluated only when the live
+    character debt is itself palindromic, so callers can require a complete
+    clause shape before a short accidental closure becomes the incumbent.
 
     `prune(states) -> states` is called every `prune_every` steps; a language
     model uses it to drop branches that are letter-valid but not fluent. It may
@@ -300,7 +306,8 @@ def beam_search(
         for state in beam:
             over = state.overhang
             closable = over == over[::-1]
-            if closable and state.letters >= min_letters:
+            closed_ok = allow_closed is None or allow_closed(state.left, state.right)
+            if closable and closed_ok and state.letters >= min_letters:
                 words = list(state.left) + list(state.right)
                 per_letter = state.score / max(1, state.letters)
                 if best is None or per_letter > best[0]:

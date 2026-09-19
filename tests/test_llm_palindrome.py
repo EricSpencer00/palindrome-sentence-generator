@@ -125,6 +125,16 @@ class TestBeamSearch:
         assert max(words.count(word) for word in set(words)) <= 2
         assert is_palindrome(" ".join(words))
 
+    def test_allow_closed_can_require_a_complete_grammar_shape(self):
+        tries = WordTries(TINY_DICT)
+        scorer = FreqScorer(TINY_DICT)
+        words = beam_search(
+            tries, scorer, min_letters=1, beam_width=20,
+            candidate_limit=len(TINY_DICT), seed=2,
+            allow_closed=lambda left, right: False,
+        )
+        assert words == []
+
 
 class TestLMPruning:
     def test_prune_callback_shapes_the_beam(self):

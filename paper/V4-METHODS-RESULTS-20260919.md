@@ -57,6 +57,7 @@ multiword palindrome span:
 | Semantic slot/orbit product | Chooses valency, attachment, agreement, and center-out character equations jointly over authored Shakespearean scene frames | 12 agreement-valid scene pairs; intact controls to 75 letters; no exact closure | 0 / 0 |
 | Large-lexicon CFG/trie orbit search | Expands a 70-word finite SVO+PP grammar into a character trie while selecting two ordinary-order clauses and their word boundaries before orbit checking | 2,781 trie nodes; 200 bounded states; complete controls to 63 letters; no exact closure | 0 / 0 |
 | Morphology-first orbit grammar | Selects agreement, tense, article-boundary, and cadence states before lexical emission across two complete clauses | 16 agreement-valid variants; longest 66 letters; no exact closure | 0 / 0 |
+| Semantic-role character FSM | Carries semantic role, valency, agreement, and word-boundary state on every center-out character transition with a complete-clause terminal gate | 4,608 bounded states; two complete prose controls to 36 letters; no exact closure | 0 / 0 |
 | Dictionary reverse-segmentation DP | 51,129 authored SVO seeds are matched against a 52,927-headword POS-neutral reverse segmentation | No exact closure above 38; no candidate promoted | 0 / 0 |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
@@ -217,11 +218,19 @@ emission. After excluding malformed agreement variants, 16 valid rows reached
 change—held-out transitive verbs for the trie, and a held-out boundary state
 for morphology—rather than another repair pass.
 
+The semantic-role character FSM carried the obligation at finer resolution:
+every emitted character retained its agent/predicate/patient or scene-modifier
+role, valency, agreement, and word-boundary state. It visited 4,608 bounded
+states and retained two complete prose controls (“Ranger maps harbor near
+bridge quietly.” and “Scribe marks signal carefully under tower.”), but no
+terminal closure or near-miss survived. Its next test adds a plural
+agent/object pair to the same FSM; it does not edit either control.
+
 These repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:
 grammar boundaries and mirrored character orbits must be selected together,
 so an off-tape prose draft is never promoted into a repair queue. The
-two-sided semantic orbit product and its semantic-slot extension are the
+two-sided semantic orbit product, its semantic-slot extension, and the semantic-role character FSM are the
 working generation claim; earlier
 repair runs remain auditable evidence and controls, but they are no longer the
 paper's proposed route to a readable palindrome.

@@ -5542,3 +5542,21 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   lattice, and hidden spans such as `anitemmetina` keep the strict gate closed.
   This is evidence to change an authored outer seam, not evidence that the
   diagnostic sentence is a readable result.
+
+- **Character-product automaton, 2026-09-18:** crossed independent typed
+  clause positions with live character obligations and heterogeneous slot
+  pairs. Only 2 states survived the first step; 1,370 character conflicts
+  killed the second, with 0 exact closures. The concrete repair is a held-out
+  character-trie phrase inventory plus explicit center closure.
+
+- **Recursive semantic-scene grammar, 2026-09-18:** generated 729 depth-one
+  derivations per side and 531,441 independent pair probes. None was
+  equation-compatible. The method preserves complete semantic trees and
+  independent audits; the next repair carries residual obligations through
+  recursive valency choices rather than pairing finished strings.
+
+- **Human-authored typed-valency scene lattice, 2026-09-18:** searched 26,244
+  fresh two-scene realizations, including 95-letter intact controls, but found
+  0 exact closures. Repeated-content checks correctly kept the strongest
+  near-misses out of the reader gate. The next repair propagates the full
+  mirrored residual vector into each valency choice before expanding a scene.

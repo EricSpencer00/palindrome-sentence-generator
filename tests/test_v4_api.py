@@ -66,8 +66,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "three-beat-alias-grammar-20260919"
-    assert method.json()["optimization"]["search_history"][-1] == "three-beat-alias-grammar-20260919"
+    assert method.json()["optimization"]["current_search"] == "compositional-shell-seam-dp-20260920"
+    assert method.json()["optimization"]["search_history"][-1] == "compositional-shell-seam-dp-20260920"
     assert method.json()["repair_frontier"][0]["letters"] == 50
     assert method.json()["method_runs"][0]["longest_rendered_letters"] == 183
     assert method.json()["method_runs"][1]["longest_exact_letters"] == 38
@@ -79,8 +79,11 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][7]["longest_rendered_letters"] == 77
     assert method.json()["method_runs"][8]["frontier_controls"] == 390
     assert method.json()["method_runs"][9]["longest_rendered_letters"] == 81
-    assert len(method.json()["method_runs"]) == 10
-    assert len(method.json()["rlaif_frontier"]) == 3
+    assert len(method.json()["method_runs"]) == 13
+    assert method.json()["method_runs"][10]["search_nodes"] == 306725
+    assert method.json()["method_runs"][11]["prior_exact_collisions"] == 10
+    assert method.json()["method_runs"][12]["longest_retained_letters"] == 75
+    assert len(method.json()["rlaif_frontier"]) == 5
 
 
 def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
@@ -103,6 +106,11 @@ def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
     assert body["reader_package"]["status"] == "blinded_package_ready_human_ratings_pending"
     assert body["reader_package"]["randomized_blinded_order"] is True
     assert body["reader_package"]["answer_key_separated"] is True
+    assert body["rows"][3]["role"] == "withdrawn_exact_diagnostic"
+    assert body["rows"][3]["exact"] is True
+    assert body["rows"][3]["mechanically_admitted"] is False
+    assert body["rows"][4]["role"] == "longest_intact_control"
+    assert body["rows"][4]["exact"] is False
 
     evaluation = client.get("/api/v4/best-evaluation")
     assert evaluation.status_code == 200

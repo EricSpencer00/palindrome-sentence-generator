@@ -305,6 +305,55 @@ THREE_BEAT_RUN = {
     "next_repair": "carry the first two-character seam obligation across the second conjunction before selecting the third beat",
 }
 
+CHARACTER_RELATIVE_RUN = {
+    "run_id": "character-trie-relative-decoder-20260920",
+    "method": "character-trie grammar decoder with typed relative marker/subject/verb/object transitions",
+    "status": "completed_no_exact_closure",
+    "search_nodes": 306725,
+    "target_runs": 84,
+    "target_range": "39–80 letters",
+    "exact_candidates": 0,
+    "mechanically_admitted_candidates": 0,
+    "longest_exact_letters": 0,
+    "provenance": "live character-trie boundaries and agreement state; no finished-tape reversal; no catalogue import",
+    "independent_validation": ["literal outside-in two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "not_run; no exact candidate reached the reader gate",
+    "next_repair": "add a shared-participant/anaphor state plus one adjunct edge after a valid relative closure",
+}
+
+AUTHORED_SCENE_LATTICE_RUN = {
+    "run_id": "authored-scene-lattice-20260920",
+    "method": "human-authored semantic scene lattice with live reverse-tape edge equations",
+    "status": "completed_exact_diagnostics_with_novelty_collisions",
+    "nodes": 45,
+    "exact_candidates": 45,
+    "novel_exact_candidates": 35,
+    "prior_exact_collisions": 10,
+    "mechanically_admitted_candidates": 0,
+    "longest_exact_letters": 42,
+    "longest_exact_example": "Was Noel an item stressed? Desserts met in a leon saw.",
+    "provenance": "fresh lattice code, but reverse-compatible edge family overlaps prior run artifacts; no finished-tape reversal",
+    "independent_validation": ["literal outside-in two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "withdrawn; exact diagnostics are not coherent prose and the longest row is a prior-run collision",
+    "next_repair": "replace reverse-compatible witness fragments with fresh grammatical clause pairs and rerun novelty preflight",
+}
+
+COMPOSITIONAL_SHELL_RUN = {
+    "run_id": "compositional-shell-seam-dp-20260920",
+    "method": "compositional shell seam DP over independently authored complete SVO clauses",
+    "status": "completed_no_exact_closure",
+    "visited": 21660,
+    "retained_intact_controls": 164,
+    "exact_candidates": 0,
+    "longest_retained_letters": 75,
+    "best_seam_match_chars": 4,
+    "longest_retained_example": "Some singers praise the dawn, while a friend follows the road, while an aide reads nine memos.",
+    "provenance": "complete grammatical shells joined with live seam obligations; no finished-tape reversal; no catalogue import",
+    "independent_validation": ["literal outside-in two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "not_run; controls are intact English but not exact candidates",
+    "next_repair": "apply seam-conditioned inflectional substitutions within one complete shell while preserving semantic roles",
+}
+
 READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
@@ -331,7 +380,7 @@ OPTIMIZATION_SPEC = {
         "fragmentary or gibberish output",
     ],
     "promotion_rule": "A diagnostic score can choose the next repair but cannot certify readability; promotion requires randomized blinded intact-prose versus shuffled-control readers.",
-    "current_search": "three-beat-alias-grammar-20260919",
+    "current_search": "compositional-shell-seam-dp-20260920",
     "search_history": [
         "half-tape-grammar-csp-20260919",
         "dream-rsi-strict-phrase-bank-20260919",
@@ -345,6 +394,9 @@ OPTIMIZATION_SPEC = {
         "residual-prefix2-attachment-lattice-20260919",
         "llm-authored-typed-bank-csp-20260919",
         "three-beat-alias-grammar-20260919",
+        "character-trie-relative-decoder-20260920",
+        "authored-scene-lattice-20260920",
+        "compositional-shell-seam-dp-20260920",
     ],
 }
 
@@ -550,6 +602,18 @@ def _rlaif_frontier() -> list[dict[str, Any]]:
             }
             for row in DREAM_RSI_REPAIR_FRONTIER
         ],
+        {
+            "run_id": AUTHORED_SCENE_LATTICE_RUN["run_id"],
+            "role": "withdrawn_exact_diagnostic",
+            "rendered": AUTHORED_SCENE_LATTICE_RUN["longest_exact_example"],
+            "provenance": AUTHORED_SCENE_LATTICE_RUN["provenance"],
+        },
+        {
+            "run_id": COMPOSITIONAL_SHELL_RUN["run_id"],
+            "role": "longest_intact_control",
+            "rendered": COMPOSITIONAL_SHELL_RUN["longest_retained_example"],
+            "provenance": COMPOSITIONAL_SHELL_RUN["provenance"],
+        },
     ]
     comparison = []
     for row in rows:
@@ -597,7 +661,7 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -620,7 +684,7 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -637,7 +701,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": SEMANTIC_SHELL_RUN,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",

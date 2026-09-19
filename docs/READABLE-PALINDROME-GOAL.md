@@ -5399,3 +5399,11 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   bootstrap structure only, not a claimed novel output. The concrete next
   repair replaces that scaffold with two independently model-authored boundary
   clauses and keeps a live residual chart across both seams.
+
+- **Dream-RSI round 119, 2026-09-18:** replayed the saved worlds from that
+  actual model call across 21,990 independently audited nodes. The new lane
+  contributes 120 exact-but-fragment controls and zero admissible exact rows;
+  held-out mismatch-first remains 0.780. Replay therefore confirms the
+  construction failure without turning it into a readable result. The next
+  repair must remove the seed scaffold and make both boundary clauses model
+  authored before the residual chart is allowed to score a branch.

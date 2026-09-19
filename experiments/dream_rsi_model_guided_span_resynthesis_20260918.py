@@ -104,7 +104,7 @@ def segment_reverse(tape: str, max_words: int = 7) -> tuple[str, dict]:
     return " ".join(words), {"solved": True, "words": words, "score": score}
 
 
-def shortcut_flags(text: str, generated_span: str) -> dict:
+def shortcut_flags(text: str, generated_span: str, reflected_segmentation_solved: bool = True) -> dict:
     words = [w.casefold() for w in WORD_RE.findall(text)]
     content = [w for w in words if w not in STOPWORDS]
     return {
@@ -114,6 +114,10 @@ def shortcut_flags(text: str, generated_span: str) -> dict:
         "catalogue_text": False,
         "finished_tape_reversed": False,
         "whole_seed_reused_without_resynthesis": not generated_span.strip(),
+        # An exact row whose reflected residual cannot be word-segmented is a
+        # diagnostic gibberish/fragment, never a replay admission.
+        "fragment": not reflected_segmentation_solved,
+        "gibberish_residual": not reflected_segmentation_solved,
     }
 
 
@@ -190,7 +194,7 @@ def build_candidate(proposal: dict) -> dict:
         "reflected_surface": reflected_surface,
         "reverse_segmentation": segmentation,
         "audit": a,
-        "shortcut_flags": shortcut_flags(text, span),
+        "shortcut_flags": shortcut_flags(text, span, segmentation.get("solved", False)),
         "provenance": {
             "fresh_model_proposal": True,
             "model": proposal["model"],

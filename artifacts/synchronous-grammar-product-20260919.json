@@ -1,0 +1,61 @@
+{
+  "experiment": "synchronous-grammar-product-20260919",
+  "status": "completed_no_exact_closure",
+  "novelty_preflight": {
+    "status": "passed",
+    "preflight_before_search": true,
+    "distinct_mechanism": "typed varied English clause product with live forward/reverse character obligations",
+    "excluded": [
+      "post-hoc repair",
+      "residual substitution",
+      "anchor wrapping",
+      "repeated/self-palindromic units",
+      "catalogue text",
+      "word-order symmetry"
+    ]
+  },
+  "config": {
+    "state_limit": 500000,
+    "inventory": 816,
+    "families": [
+      "transitive",
+      "copular",
+      "locative"
+    ],
+    "synchronous_character_intersection": true,
+    "posthoc_reversal": false,
+    "remote_target": "hst-bench"
+  },
+  "stats": {
+    "states": 3,
+    "truncated": false,
+    "frontier_rows": 1,
+    "rejected_rows": 0,
+    "exact_rows": 0
+  },
+  "frontier": [
+    {
+      "prefix": "th",
+      "left_next": [
+        "e"
+      ],
+      "right_next": [
+        "g"
+      ]
+    }
+  ],
+  "rejected_rows": [],
+  "exact_candidates": [],
+  "provenance": {
+    "generator_sha256": "71a26e5596ed209597b7e1883d3596ef2abb33c6915d11e13c086069bf54dc20",
+    "lexicon": "authored finite typed grammar",
+    "human_readable_candidates": true,
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256",
+      "independent grammar parse"
+    ]
+  },
+  "falsifier": "A complete pair with >=38 letters passing exact audit, independent parses, and admission checks would falsify the no-closure hypothesis.",
+  "next_action": "add a new typed clause family only if it creates a new live-character frontier"
+}

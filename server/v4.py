@@ -72,6 +72,51 @@ SEMANTIC_SHELL_RUN = {
     ),
 }
 
+# One post-hoc local-model pass is recorded separately from the deterministic
+# rubric.  It is an AI-feedback diagnostic, not a reward used during search.
+AI_FEEDBACK_RUN = {
+    "experiment_id": "v4-rlaif-frontier-eval-20260919",
+    "model": "gpt-oss:20b",
+    "status": "diagnostic_only",
+    "search_uses_feedback": False,
+    "readability_certified": False,
+    "blind_human_readers_required": True,
+    "rubric": "0-3 intact English, scene coherence, Shakespearean cadence; length ignored",
+    "scores": [
+        {
+            "run_id": "half-tape-grammar-csp-20260919",
+            "rendered": BEST_KNOWN_TEXT,
+            "letters": 38,
+            "exact": True,
+            "intact_english": 2,
+            "scene_coherence": 2,
+            "shakespearean_cadence": 1,
+            "repair": "Preserve the compact scene, then add a consequential second beat only through a new exact construction.",
+        },
+        {
+            "run_id": "dream-rsi-strict-phrase-bank-20260919",
+            "rendered": "To new one post is an evening. Is sign in even as its open owe. Not.",
+            "letters": 50,
+            "exact": True,
+            "intact_english": 0,
+            "scene_coherence": 0,
+            "shakespearean_cadence": 0,
+            "repair": "The passage is incoherent; return to a typed scene construction rather than preserving this closure.",
+        },
+        {
+            "run_id": "dream-rsi-strict-phrase-bank-20260919",
+            "rendered": "Erased on forever event is an evening. Is sign in even as it never ever. Of nodes are.",
+            "letters": 66,
+            "exact": True,
+            "intact_english": 0,
+            "scene_coherence": 0,
+            "shakespearean_cadence": 0,
+            "repair": "The passage is incoherent and is already rejected for a hidden proper palindrome span.",
+        },
+    ],
+    "next_test": "randomized blinded intact-prose versus shuffled-control rating",
+}
+
 # Fresh Dream-RSI closures are exposed as a repair frontier, never folded into
 # ``best_known``: the 50-letter row clears mechanical checks but has not been
 # read by blinded humans, while the longer row is explicitly rejected for a
@@ -376,6 +421,7 @@ def evidence() -> dict[str, Any]:
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
         "method_runs": [SEMANTIC_SHELL_RUN],
         "rlaif_frontier": _rlaif_frontier(),
+        "ai_feedback_run": AI_FEEDBACK_RUN,
         "optimization": OPTIMIZATION_SPEC,
     }
 
@@ -397,6 +443,7 @@ def method() -> dict[str, Any]:
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
         "method_runs": [SEMANTIC_SHELL_RUN],
         "rlaif_frontier": _rlaif_frontier(),
+        "ai_feedback_run": AI_FEEDBACK_RUN,
     }
 
 
@@ -410,6 +457,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": SEMANTIC_SHELL_RUN,
+        "ai_feedback_run": AI_FEEDBACK_RUN,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",
     }
 

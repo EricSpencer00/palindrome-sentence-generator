@@ -86,6 +86,10 @@ def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
     assert body["rows"][1]["rlaif"]["scores"]["shakespearean_image"] == 0.0
     assert body["rows"][2]["exact"] is True
     assert body["rows"][2]["mechanically_admitted"] is False
+    assert body["ai_feedback_run"]["model"] == "gpt-oss:20b"
+    assert body["ai_feedback_run"]["search_uses_feedback"] is False
+    assert body["ai_feedback_run"]["scores"][0]["intact_english"] == 2
+    assert body["ai_feedback_run"]["scores"][1]["intact_english"] == 0
 
     evaluation = client.get("/api/v4/best-evaluation")
     assert evaluation.status_code == 200

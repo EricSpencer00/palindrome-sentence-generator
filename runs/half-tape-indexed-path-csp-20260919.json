@@ -1,0 +1,132 @@
+{
+  "experiment_id": "half-tape-indexed-path-csp-20260919",
+  "method": "typed grammar path with inverted half-tape seam index",
+  "actual_candidates": [
+    {
+      "rendered": "an aide rips nine memos some men inspire Diana.",
+      "length": 38,
+      "audit": {
+        "normalized": "anaideripsninememossomemeninspirediana",
+        "letters": 38,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+        "sha_equal": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": true,
+      "word_path": [
+        "an aide",
+        "rips",
+        "nine memos",
+        "some men",
+        "inspire",
+        "Diana"
+      ],
+      "provenance": {
+        "experiment_id": "half-tape-indexed-path-csp-20260919",
+        "target_length": 38,
+        "search": "typed-path inverted seam index",
+        "rlaif_used": false,
+        "catalogue_imported": false,
+        "finished_tape_reversed": false
+      },
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    },
+    {
+      "rendered": "some men inspire Diana an aide rips nine memos.",
+      "length": 38,
+      "audit": {
+        "normalized": "somemeninspiredianaanaideripsninememos",
+        "letters": 38,
+        "two_pointer_exact": true,
+        "first_mismatch": null,
+        "sha256_forward": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+        "sha256_reverse": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+        "sha_equal": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": true,
+      "word_path": [
+        "some men",
+        "inspire",
+        "Diana",
+        "an aide",
+        "rips",
+        "nine memos"
+      ],
+      "provenance": {
+        "experiment_id": "half-tape-indexed-path-csp-20260919",
+        "target_length": 38,
+        "search": "typed-path inverted seam index",
+        "rlaif_used": false,
+        "catalogue_imported": false,
+        "finished_tape_reversed": false
+      },
+      "reader_status": "unreviewed; programmatic checks do not certify readability"
+    }
+  ],
+  "stats": {
+    "nodes": 1205,
+    "exact": 2,
+    "mechanically_admitted": 2,
+    "longest_exact": 38
+  },
+  "provenance": {
+    "independent_audits": [
+      "outside-in two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "rlaif_per_candidate": false
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "distinction": "typed path uses an inverted character-slot index; no phrase pair or completed-tape reversal",
+    "prior_lanes_checked": [
+      "half-tape-grammar-csp-20260919",
+      "dream-rsi-strict-phrase-bank-20260919"
+    ]
+  },
+  "next_repair": {
+    "action": "add agreement-carrying relative complement path and index word-boundary offsets",
+    "reader_test": "blinded intact-prose versus shuffled controls"
+  },
+  "reader_gate": "closed"
+}

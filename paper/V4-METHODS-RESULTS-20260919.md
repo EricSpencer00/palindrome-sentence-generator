@@ -39,6 +39,7 @@ multiword palindrome span:
 |---|---|---|---:|
 | Fixed half-tape grammar CSP | Character aliases are assigned before word boundaries; agreement and valency are live state | 38-letter anchor | 2 / 2 at 38; none above |
 | Phrase-valued half-tape CSP (z2) | Phrase edges keep determiner/noun boundaries live while assigning mirrored character variables | **An aide rips nine memos; some men inspire Diana.** (38 letters; 24 target runs; 48,999 nodes) | 1 / 1 at 38; no >38 closure |
+| Character-trie grammar decoder | POS/inflection terminals choose individual word boundaries while each emitted character assigns its mirrored variable | 69 target runs; 290,359 nodes; anchor recovered at 38 letters | 1 / 1 at 38; no >38 closure |
 | Dictionary reverse-segmentation DP | 51,129 authored SVO seeds are matched against a 52,927-headword POS-neutral reverse segmentation | No exact closure above 38; no candidate promoted | 0 / 0 |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
@@ -68,6 +69,11 @@ An orthogonal dictionary-DP check also returned zero above 38. Its failure is
 not folded into a general sparsity claim: it chooses a complete seed before
 reverse segmentation, so the concrete repair is a POS/inflection-aware
 character trie that inserts boundaries during half-tape search.
+
+The character-trie decoder now implements that repair and independently
+recovers the anchor across individual word boundaries. Its 69-run pilot still
+has no >38 closure, so the representation is a verified construction step,
+not a claim that the length target has been met.
 
 ## Reader evidence and API gate
 

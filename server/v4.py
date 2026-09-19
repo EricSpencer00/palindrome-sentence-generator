@@ -30,15 +30,15 @@ GATE_MESSAGE = (
 
 BEST_KNOWN_TEXT = "An aide rips nine memos; some men inspire Diana."
 BEST_KNOWN_PROVENANCE = {
-    "run_id": "half-tape-grammar-csp-z2-20260919",
-    "method": "fixed-length half-tape grammar CSP with variable word boundaries and agreement/valency state",
+    "run_id": "character-trie-grammar-decoder-20260919",
+    "method": "character-trie grammar decoder with POS/inflection terminals and live half-tape assignments",
     "source": "project construction run; not catalogue text",
     "novelty_preflight": "passed local catalogue and construction-shortcut exclusions",
     "search_summary": {
         "exact_candidates": 1,
         "longest_exact_letters": 38,
         "mechanically_admitted_candidates": 1,
-        "pilot_lengths": "38–45; one independently recovered 38-letter anchor, no >38 closure",
+        "pilot_lengths": "38–60; one independently recovered 38-letter anchor, no >38 closure",
         "shared_participant_temporal_repair": "no exact closure in bounded pilot",
         "latest_dream_rsi_repair": "2 mechanically admitted exact rows; longest 50 letters; reader gate closed",
         "latest_semantic_shell_repair": "7,272 intact scene-shell renderings; longest 183 letters; zero exact closure",
@@ -93,7 +93,7 @@ AI_FEEDBACK_RUN = {
     "rubric": "0-3 intact English, scene coherence, Shakespearean cadence; length ignored",
     "scores": [
         {
-            "run_id": "half-tape-grammar-csp-z2-20260919",
+            "run_id": "character-trie-grammar-decoder-20260919",
             "rendered": BEST_KNOWN_TEXT,
             "letters": 38,
             "exact": True,

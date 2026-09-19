@@ -1,0 +1,99 @@
+{
+  "experiment_id": "palindrome-grammar-reachability-20260918",
+  "novelty": "Exhaustive finite pair-graph reachability plus productive-cycle test; no beam or maximum length.",
+  "provenance": "Fresh authored typed subject/verb/object inventories; user seed vocabulary included as calibration, never claimed original.",
+  "source_sha256": "a29cfa0eb6476798164647473f24a2aac395d03313280ad46d263453f8461112",
+  "results": [
+    {
+      "variant": "typed_core",
+      "states": 99,
+      "pair_states": 49,
+      "pair_edges": 50,
+      "productive_pairs": 37,
+      "nonempty_exact_language": true,
+      "unbounded_exact_language": true,
+      "witnesses": [
+        {
+          "text": "an aide rips nine memos; some men inspire Diana.",
+          "audit": {
+            "letters": 38,
+            "exact": true,
+            "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+            "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+          }
+        },
+        {
+          "text": "some men inspire Diana; an aide rips nine memos.",
+          "audit": {
+            "letters": 38,
+            "exact": true,
+            "sha256_forward": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+            "sha256_reverse": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec"
+          }
+        }
+      ]
+    },
+    {
+      "variant": "past_tense_pronoun_repair",
+      "states": 147,
+      "pair_states": 61,
+      "pair_edges": 62,
+      "productive_pairs": 37,
+      "nonempty_exact_language": true,
+      "unbounded_exact_language": true,
+      "witnesses": [
+        {
+          "text": "an aide rips nine memos; some men inspire Diana.",
+          "audit": {
+            "letters": 38,
+            "exact": true,
+            "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
+            "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6"
+          }
+        },
+        {
+          "text": "some men inspire Diana; an aide rips nine memos.",
+          "audit": {
+            "letters": 38,
+            "exact": true,
+            "sha256_forward": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec",
+            "sha256_reverse": "228f7026596c1ec96361ba76803f40464716930ee8f91257554f93af7e2525ec"
+          }
+        }
+      ]
+    },
+    {
+      "variant": "seed_object_withheld",
+      "states": 139,
+      "pair_states": 33,
+      "pair_edges": 32,
+      "productive_pairs": 1,
+      "nonempty_exact_language": false,
+      "unbounded_exact_language": false,
+      "witnesses": []
+    }
+  ],
+  "intact_controls": [
+    {
+      "text": "A reader files some notes; the aides admire Nora.",
+      "audit": {
+        "letters": 39,
+        "exact": false,
+        "sha256_forward": "b94c5349959a0e6ed21e40478891736765554f003f72e9ce64716ed30dec6b23",
+        "sha256_reverse": "ca752d4557311fc6c8fe869e96f7c09efc25283504a8ade13123523480658532"
+      }
+    },
+    {
+      "text": "Nora met some men; we admired Diana.",
+      "audit": {
+        "letters": 28,
+        "exact": false,
+        "sha256_forward": "a66405ce2ddc36861f250007ede84ef3930d5eb1ff64288823d957ac54c3aadf",
+        "sha256_reverse": "6e14d5231d5bc465a799482cab667890b9b7362dfe7de4332af6a6d4bb40c6c2"
+      }
+    }
+  ],
+  "reader_evidence": false,
+  "admission": "All exact witnesses are seed calibration or clause-order rearrangements. None is a new generated result. Unboundedness allows repetition and is not success.",
+  "next_repair": "Use dead productive-pair frontier to request role-compatible lexical paths spanning multiple word boundaries; grammar cycles alone do not provide long prose."
+}

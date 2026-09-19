@@ -27,10 +27,10 @@ VERBS = {
     ("pl", "past"): ("copied", "guarded", "carried", "watched", "studied"),
 }
 OBJECTS = {
-    "sg": ("the letter", "a weathered map", "the quiet harbor", "an old journal"),
-    "pl": ("the letters", "weathered maps", "quiet harbors", "old journals"),
+    "sg": ("the letter", "a weathered map", "the quiet harbor", "an old journal", "the report", "a boat", "the chart"),
+    "pl": ("the letters", "weathered maps", "quiet harbors", "old journals", "the reports", "boats", "the charts"),
 }
-ADJUNCTS = ("at dawn", "before the bell", "by the river", "after the storm", "near the garden")
+ADJUNCTS = ("at dawn", "before the bell", "by the river", "after the storm", "near the garden", "while they wait", "until twilight")
 CLITICS = ("", " indeed", " again")
 
 def clause(subject: str, verb: str, obj: str, adjunct: str, clitic: str = "") -> str:

@@ -13,6 +13,7 @@ import re
 from collections import defaultdict
 from pathlib import Path
 import sys
+from functools import lru_cache
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
@@ -22,6 +23,32 @@ from llm_palindrome.validator import is_palindrome, normalize
 
 def letters(text: str) -> str:
     return re.sub(r"[^a-z]", "", text.casefold())
+
+
+@lru_cache(maxsize=4096)
+def tags(words: tuple[str, ...]) -> tuple[str, ...]:
+    """Use the local tagger only as a seam diagnostic/filter."""
+    import nltk
+    return tuple(tag for _, tag in nltk.pos_tag(list(words)))
+
+
+def seam_compatible(left: dict, right: dict) -> bool:
+    """Reject obviously impossible phrase-unit joins.
+
+    This is intentionally permissive: it filters only determiner/particle
+    collisions and duplicate finite-verb seams.  It is not a readability
+    certificate, and it leaves noun compounds and attachment ambiguities in
+    the search for the reader study.
+    """
+    lt = tags(tuple(left["words"]))[-1]
+    rt = tags(tuple(right["words"]))[0]
+    if lt in {"DT", "PDT", "WDT"} and rt in {"DT", "PDT", "WDT"}:
+        return False
+    if lt in {"IN", "TO", "RP"} and rt in {"IN", "TO", "RP"}:
+        return False
+    if lt in {"VB", "VBD", "VBG", "VBN", "VBP", "VBZ"} and rt in {"VB", "VBD", "VBG", "VBN", "VBP", "VBZ"}:
+        return False
+    return True
 
 
 def units(*, min_letters: int, max_letters: int, limit: int) -> list[dict]:
@@ -47,7 +74,8 @@ def units(*, min_letters: int, max_letters: int, limit: int) -> list[dict]:
                     rows.append({"text": subtext, "tape": tape,
                                  "words": tuple(subtext.split()),
                                  "source": "frozen WikiText-2 ngram subspan",
-                                 "parent": text, "rank": rank, "ngram": key})
+                                 "parent": text, "rank": rank, "ngram": key,
+                                 "pos": tags(tuple(subtext.split()))})
                     if len(rows) >= limit:
                         return rows
     return rows
@@ -74,12 +102,18 @@ def run(min_letters: int, max_letters: int, limit: int, max_pairs: int) -> dict:
     pair_index: dict[str, list[tuple[dict, dict]]] = defaultdict(list)
     for a in pool:
         for b in pool:
+            if not seam_compatible(a, b):
+                continue
             tape = a["tape"] + b["tape"]
             if len(tape) <= 38:
                 pair_index[tape].append((a, b))
     for a in pool:
         for b in pool:
+            if not seam_compatible(a, b):
+                continue
             for e in pool:
+                if not seam_compatible(b, e):
+                    continue
                 tape = a["tape"] + b["tape"] + e["tape"]
                 if len(tape) < 39:
                     continue
@@ -91,6 +125,8 @@ def run(min_letters: int, max_letters: int, limit: int, max_pairs: int) -> dict:
                         continue
                     for c in lefts:
                         for d, f in rights:
+                            if not seam_compatible(c, d) or not seam_compatible(d, f):
+                                continue
                             checked += 1
                             text = f"{a['text']} {b['text']} {e['text']} {c['text']} {d['text']} {f['text']}"
                             result = audit(text)

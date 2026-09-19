@@ -45,6 +45,7 @@ multiword palindrome span:
 | Compositional shell seam DP | Joins independently authored complete SVO shells with live outside-in seam obligations; no finished-tape reversal | 21,660 compositions; 164 intact retained controls; longest 75 letters; best seam 4 chars | 0 / 0 |
 | Seam-conditioned shell substitution | Role-preserving lexical and inflectional substitutions inside one complete SVO shell | 11,340 grammatical variants; 420 retained controls; longest 27 letters; best seam 4 chars | 0 / 0 |
 | Fresh grammatical clause-pair lattice | Newly authored reversible clause/response pairs, checked as live equations before rendering | 49 exact diagnostics; **“Stressed, Deliver; reviled, desserts.”** (30 letters) | 49 / 0; reader-rejected |
+| Anchor-preserving overhang search | Center-out overhang expansion around the 38-letter anchor with debt tracking | **132-letter exact frontier**; anchor embedded as a proper palindromic span | 0 admitted; withdrawn shortcut |
 | Dictionary reverse-segmentation DP | 51,129 authored SVO seeds are matched against a 52,927-headword POS-neutral reverse segmentation | No exact closure above 38; no candidate promoted | 0 / 0 |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
@@ -113,6 +114,13 @@ lattice closed 49 exact rows, the longest 30 letters, including “Stressed,
 Deliver; reviled, desserts.” All were mechanically rejected as incomplete or
 fragmentary clause pairs. The next repair is to require finite subject/verb
 clauses before any reverse-compatible pair can enter the lattice.
+
+The earlier center-out overhang search reached a 132-letter exact tape, but it
+did so by embedding the complete 38-letter anchor as a proper self-palindromic
+span and repeating a content word. The independent audit is retained as a
+frontier diagnostic; the shared admission gate withdraws it, and no reader
+study is run on it. The next constructive search must forbid anchor embedding
+before expansion rather than treating this overhang as a result.
 
 ## Reader evidence and API gate
 

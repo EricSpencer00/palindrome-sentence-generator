@@ -5434,3 +5434,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   the next repair replaces sparse corpus shapes with a typed hand-authored
   subject/verb/object automaton while retaining role state at both mirrored
   boundaries.
+
+- **Phrase-boundary valency equations, 2026-09-18:** selected two independent
+  complete transitive clauses from typed agent/verb/object/attachment frames
+  and propagated character obligations across their slot boundaries before
+  rendering. Of 1,562,500 frame-pair states, all were rejected by the
+  pre-render equations and none was an exact closure; independently rendered
+  intact controls were 49--53 letters. This is distinct from reversing or
+  resegmenting a finished clause. The next repair carries residuals through
+  optional determiners and adjunct boundaries and adds held-out valency frames.

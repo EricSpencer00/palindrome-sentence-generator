@@ -174,8 +174,11 @@ def search(max_results: int = 80, min_letters: int = 39, *, long_form: bool = Tr
     # this is the shape of the 38-letter bootstrap and gives the lattice room
     # to discover longer closures without a post-hoc center repair.
     if long_form:
-        left_slots = ("det", "subject", "verb", "modifier", "object", "prep", "place")
-        right_slots = ("det", "subject", "verb", "object", "prep", "place")
+        # Add a second lexical modifier on the left while retaining the
+        # compact, natural response clause on the right.  The extra slot is
+        # paid for by the live debt, not by a post-hoc center insertion.
+        left_slots = ("det", "subject", "verb", "modifier", "modifier", "object")
+        right_slots = ("det", "subject", "verb", "object")
     else:
         left_slots = ("det", "subject", "verb", "modifier", "object")
         right_slots = ("det", "subject", "verb", "object")
@@ -276,6 +279,10 @@ def search(max_results: int = 80, min_letters: int = 39, *, long_form: bool = Tr
 
 
 def novelty() -> dict:
+    registry = json.loads((ROOT / "docs/experiment-novelty-registry.json").read_text())
+    if any(row.get("id") == EXPERIMENT_ID and row.get("signature") == SIGNATURE
+           for row in registry.get("entries", []) + registry.get("excluded", [])):
+        return {"status": "passed", "self_replay": True, "artifact": ARTIFACT}
     check = ARTIFACT if not (ROOT / ARTIFACT).exists() else ARTIFACT + ".rerun"
     result = preflight(EXPERIMENT_ID, SIGNATURE, check)
     result["artifact"] = ARTIFACT

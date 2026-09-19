@@ -57,6 +57,15 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   sweep. The next operation is one authored consequence-object substitution
   at that recorded first mismatch, keeping the same hard filters.
 
+- **Semantic-relay outer-edge repair (2026-09-18).** The first mismatch was
+  addressed directly by co-authoring `an`-initial subjects and terminal
+  `an arena` consequence objects. Eight complete-clause probes advanced the
+  live match from one character to at most three, but produced no exact
+  closure. The best rendered control is `An author edits a draft at dawn; she
+  maps an arena.` This isolates the next constructive requirement: co-design
+  the first subject lexical token with the terminal-object suffix, rather than
+  widening either inventory independently.
+
 - **Current best outputs and argument-CSP audit (2026-09-18).** The strongest
   admitted item remains `An aide rips nine memos; some men inspire Diana.`
   (38 letters; normalized tape

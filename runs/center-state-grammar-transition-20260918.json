@@ -1,0 +1,1711 @@
+{
+  "experiment": "center-state-grammar-transition-20260918",
+  "signature": "fresh-authored-center-transition|live-reversed-character-trie|typed-observation-consequence|independent-audits",
+  "method": "author fresh POS inventory; insert typed observation-to-consequence center transition while walking live obligations against reversed-right character trie",
+  "inventory": {
+    "det": [
+      "a",
+      "the",
+      "this",
+      "one"
+    ],
+    "adj": [
+      "quiet",
+      "silver",
+      "patient",
+      "young",
+      "gentle",
+      "watchful"
+    ],
+    "noun": [
+      "scribe",
+      "keeper",
+      "pilot",
+      "teacher",
+      "gardener",
+      "captain",
+      "poet",
+      "lantern",
+      "letter",
+      "garden",
+      "harbor",
+      "river"
+    ],
+    "verb": [
+      "marks",
+      "opens",
+      "carries",
+      "copies",
+      "guards",
+      "follows",
+      "writes",
+      "meets",
+      "keeps",
+      "guides"
+    ],
+    "prep": [
+      "near",
+      "under",
+      "beside",
+      "toward",
+      "across"
+    ],
+    "connective": [
+      "while",
+      "because",
+      "after",
+      "although"
+    ],
+    "state": [
+      "observes",
+      "notices",
+      "remembers",
+      "expects"
+    ]
+  },
+  "grammar": {
+    "left": [
+      "det",
+      "adj",
+      "noun",
+      "verb",
+      "det",
+      "noun"
+    ],
+    "center": {
+      "transition": "observation -> consequence",
+      "connective": [
+        "while",
+        "because",
+        "after",
+        "although"
+      ],
+      "state": [
+        "observes",
+        "notices",
+        "remembers",
+        "expects"
+      ]
+    },
+    "right": [
+      "det",
+      "noun",
+      "verb",
+      "prep",
+      "det",
+      "noun"
+    ]
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "fresh_inventory_authored": true,
+    "catalogue_sentence_imported": false,
+    "finished_tape_reversal_used": false,
+    "controls_disjoint_from_candidates": true
+  },
+  "stats": {
+    "left_records": 126720,
+    "right_records": 105600,
+    "trie_walks": 2027520,
+    "terminal_center_states": 0,
+    "candidate_count": 48,
+    "terminal_pair_rows": 0,
+    "exact_count": 0,
+    "control_count": 3
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "a quiet scribe marks a keeper while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 56,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "9eb1875565f4cbe998c9b0001f7a0d9607c788e336b7b9639ea08a1b1619c96c",
+        "sha256_reverse": "d53feb930b8c5edd962196f05467e094c333363b11e5219b644e8749926e84e8",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a keeper because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 57,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "170f2400b179a99b35d1bee4aebdcefcbcdf8a11ed7e0a1ae9138cf1b12961f7",
+        "sha256_reverse": "bca831ede6e54a0e0461f94d9b398afb2417f27f0620b6b954719c0a68693a20",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a pilot while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 55,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "b0f78a2cf7c9b3399c6a497753559570ef2ca4eadf5cf39baf24169e4f8e3998",
+        "sha256_reverse": "200e3a8d79edacea5e2cf74305e4f2381e429b8a078cb08f234d69edf16856aa",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a pilot because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 27,
+        "first_mismatch": {
+          "left": 0,
+          "right": 56,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "90414ddf778d56e78e395f694c4173b2f88c90e93a096db6db4e1d2a0c7ba444",
+        "sha256_reverse": "1b9a54c7fda772384d1e97edb76a8624deea8de07a088ce7f72709da664b6b10",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a teacher while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 57,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "d903ee8abb79a0245f8a6ffa9703cb117d1485bcc16a49dffdbf2c8d0562fb44",
+        "sha256_reverse": "22d59b9122f7a69b7a0eab46b65c04643cc8587880a643e13406e34ccfb74246",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a teacher because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 58,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "c4c5597f5f1b70ea99336c36eba7a827dfa478eff1a69cf8644dbfff2fc002ab",
+        "sha256_reverse": "1b40b9964bb152b3d041f889d73fb6cd89af72aa532a7021451e61e1277644ec",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a gardener while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 58,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "ff76a84b13a4f4a8d1c3da5f56ddd44808efaf1b828724478b995aa7568882a5",
+        "sha256_reverse": "003c0b1da57725df5ca44f7cb7f63c706d28ae84a8115fe50cf1daab86322395",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a gardener because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 60,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 59,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "fefd9aa2911fe21c46f6714f114016871271be7fec68a1d0a24a5ffa8f85b37f",
+        "sha256_reverse": "31b9163d590da0743df925b3556c58fea5e1b4a6750f6360bc3871e7f0f0292e",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a captain while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 57,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "60a77499e7147c00dec0ab0b33236a7ee6fb04957675d1f675d37e0716b50676",
+        "sha256_reverse": "30c2bc6fc14206b51add6f8f140e4f6835fa78c8cfd4106e28ff3952b40aa423",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a captain because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 58,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "e6ba37e1998ed0a34a34a221bfda378f4c061c93e270235667af26bfcf180a2f",
+        "sha256_reverse": "aec211ae554fd7419c9163db0aa926eb8fb7c84fcd267361b7c35f469008b01b",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a poet while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 55,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 27,
+        "first_mismatch": {
+          "left": 0,
+          "right": 54,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "df92f5f04f73d8308392c1edd02e52ba7b9ed25bc81ae737c5818e271829a91e",
+        "sha256_reverse": "467b6775b134dbf403a190e2225c0143d3a9b5bba1c731c0f1c59e9be643682f",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a poet because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 26,
+        "first_mismatch": {
+          "left": 0,
+          "right": 55,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "56310bd985b4695828fb999d3e88870e423dca28917f77a885f4737a91287ca1",
+        "sha256_reverse": "75a90baab4108c506788cba08e36fc072a746168f9430d5ee0f54bf4d1cccf5f",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a lantern while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 57,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "4bd8ff54cc1d5e369c7e60d649b02e4da2937ca0af7b9433034401c9bce902bc",
+        "sha256_reverse": "4064719d76e5104c55d77b72599020bf154b1f10a0166d4ef804e0f15031fdb5",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a lantern because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 58,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "a684836bd5721feec9e8aa420f045af5cc088fa0cd40662de42c92d6d1ab88e5",
+        "sha256_reverse": "acf696e508c4841e55378171c785fbda17537ab96599ca1bf6dc3204eb646aa4",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a letter while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 56,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "a6a35eb5a4028867f0cd7f5d0330b45e6270a32a73901b117eecbf0050f611f3",
+        "sha256_reverse": "6cd05df731013af939a774b2487866530479ffed8b81626e0eda9a8957d466a0",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a letter because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 57,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "6f1840c402f6334899d4e359baafefae86521664f8309139a807046712dd33bb",
+        "sha256_reverse": "365d56cb7b04a5fb27b094b2cd0512e4ef97957a076e980aa9738c7980d478ee",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a garden while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 27,
+        "first_mismatch": {
+          "left": 0,
+          "right": 56,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "2a92adb79a5f7878777c1daa11a108fecd46a2a04168937ce13ce6adcfc0c548",
+        "sha256_reverse": "d68b0b7abd53d26e4cfa809b935620e2ac0445f5cbd74033a66591e8a803a7d9",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a garden because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 57,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "2dcee70c7710f10efa8deb42ed36aad9fa4a4ab1694830f1e766729c9ff8e692",
+        "sha256_reverse": "4d8dbf5fb10cc033814346a8662b936952078bd4001c5c9a18ba23e0d3297afe",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a harbor while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 27,
+        "first_mismatch": {
+          "left": 0,
+          "right": 56,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "f3ecfcdf9a8bd270083a5a0b35d2bf8741d3d587933723490fb9ee70da69ec55",
+        "sha256_reverse": "93e5e25495e1fe09204525a0a146e9974963a4347633832857d39b052be154bc",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a harbor because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 57,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "4c96a35945d146ac8da1397f88abd23458ca1e869a050c7fa7f76f6a31a7c7a6",
+        "sha256_reverse": "1a3bd4ca9fa7e350f88018b3065211b17c0947e4629df4a420ac5f4a5c81bb0d",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a river while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 56,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 27,
+        "first_mismatch": {
+          "left": 0,
+          "right": 55,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "9dae3ba0c5430f2514928bc04b36e64b35cc964ada7ac752a3d3c64fed540c59",
+        "sha256_reverse": "f2cd1f5314104c4e304ac48d7f4e2ccf980e80f93424a49fa1b181e2637bf6ee",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks a river because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 27,
+        "first_mismatch": {
+          "left": 0,
+          "right": 56,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "0ce49f1467c41236e267663583fb4f028748f23d5934a4f34e29482c4b1462bd",
+        "sha256_reverse": "f5619b50e91a9aa70547a82e5b7f535839604950b58d8f3433b1cda191937cf7",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the keeper while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 58,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "77901eb094606a67955e2404ad1116f111111048830d59d1d3ff96562a8b276c",
+        "sha256_reverse": "aaa4fad339dd14489b6ad154031b3bc6e88a0437dabbbc691df1854f5ab0bd3e",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the keeper because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 60,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 59,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "f00710db305c6a8c216de448e897b1aa1084e18dc2985546432be5bd648b10ac",
+        "sha256_reverse": "b7d5ba109d3641bd4944a1afb07d94c0774bd4f4e6abb68ecdd9cc25cf884bae",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the pilot while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 57,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "3bbd3badd435b222a0540d49c4b2ee6e629c036d73a4b57a44632fd2cebadcd6",
+        "sha256_reverse": "906acc8991be7dc0fd8143c92604cad616f2e66de6dda04cabdde07e5e0716d5",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the pilot because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 58,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "16eb5d6bbbd766622ab0201e688ed03d89820dc5f29386308ea9c0fc0389cb61",
+        "sha256_reverse": "1af4e5a1ba1ee42dafced7d2357902c55cbfc918983b61354db858aecd7cafeb",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the teacher while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 60,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 59,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "595660d8abb12d96e17394fea27ea304c3c407705a320a081bd89bab4307c334",
+        "sha256_reverse": "735619984bc7da13a48bc9a0d582664afc42c0ef725ce17803149717cbb83da9",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the teacher because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 61,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 30,
+        "first_mismatch": {
+          "left": 0,
+          "right": 60,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "e45a45aeaaf520c3895f84c878966e10915391088a3c628be2cf2dc40c98695c",
+        "sha256_reverse": "766805e57720ae5bf1946ad0ce5442b0a34a96e4c5a47095c145289d90d0f24e",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the gardener while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 61,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 30,
+        "first_mismatch": {
+          "left": 0,
+          "right": 60,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "1b86b0acf0d7bcf1a76d9ab34f5896948eeb6c7314d0044f55a34361688ba09a",
+        "sha256_reverse": "c673cbecc25b073b38943ceb2033ccde444f30662d18012b59d3de182a1447af",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the gardener because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 62,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 30,
+        "first_mismatch": {
+          "left": 0,
+          "right": 61,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "dec615c6ed523393a6764e3c0cdbf081ebecc566c38ffb5f23b473561d66b28c",
+        "sha256_reverse": "85bec7803ed953816fb3c16bed44f58d9030caac237987c496f01946a354c8ef",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the captain while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 60,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 30,
+        "first_mismatch": {
+          "left": 0,
+          "right": 59,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "c4a2791fb448d72e756f84f8815ea9e222594e95e1778450c6c02044ab2070c2",
+        "sha256_reverse": "22cef7940e7f772102c38b55b677523a0ddb6fbd3dc8090bdddd48d73bba0ea8",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the captain because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 61,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 30,
+        "first_mismatch": {
+          "left": 0,
+          "right": 60,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "c18fccc74f0c0176cbafb783135605f2ad9cda9379afc1ce1e0ec8c0231df40e",
+        "sha256_reverse": "6073e07936f2f304dd77ed7749f75da47d49165973e40d4f5227669815afc1e5",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the poet while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 57,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 56,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "b54b0a9facb1bc69f45aaac08ebabd773780c1422a22c286b4b5aa3b65d1499c",
+        "sha256_reverse": "2a92c45bc7c311b317fa2f337e0dcadd471df4e4525703141388a3cad495225f",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the poet because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 57,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "879b74a3388af5cbe5a9998162a27de14b3867b780d07815f0efe0435cac5663",
+        "sha256_reverse": "09d0d14f44f515ba58f13ddcacda7c9b1f4a4568e67da81d9753657a63a831c1",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the lantern while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 60,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 30,
+        "first_mismatch": {
+          "left": 0,
+          "right": 59,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "10dfc028e5df4e1860e6542f0899876da83341812df3d4847d132986b8018e8e",
+        "sha256_reverse": "4bd733bf70e0c50ae9e2fb31dfb813aa2d83547ce5ff1712e3b67175faaedef5",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the lantern because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 61,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 60,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "561f97228033c9aaa57d727efc9fcb886462799b27081114b07ef8f0937cdd44",
+        "sha256_reverse": "d1f3288b0f6b705486894fa5d4a72e4e293d1c9481f8893e460d04b7e78bb51a",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the letter while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 58,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "004313621776e6ab80b536280c9052ac4574170058b3a47285ace3690d4547d2",
+        "sha256_reverse": "873014cb7c3592ea094d42ed319a5344a9f6077f65f83b925d49ff1cce2f25c7",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the letter because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 60,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 59,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "cb19c8e6c8e63da0342eba2820873988e38c2613b9b90d5c5350e4aa7cdd47f1",
+        "sha256_reverse": "c7e711ffdf7315f8d7b4a03a9e31d478c380e729b3d8723f05979680cafb651c",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the garden while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 58,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "97fc582e77e651fc7674395a2adf2a559a69782ae362f5b4ba3fe768ccff027d",
+        "sha256_reverse": "8e9fd60e0ea253e750b10c861b3e0cb482eb7e72dc7aef01470f35a2ac9c9ac0",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the garden because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 60,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 59,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "19acb82d4c9ed0b7bac4b8c6aaf32e156a684bb1902aab96758ce3b407f376f1",
+        "sha256_reverse": "fb9de6a611a30f1b41f66617405b3028e694bea4e9dce5f6350f95b3bb1208a6",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the harbor while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 27,
+        "first_mismatch": {
+          "left": 0,
+          "right": 58,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "c16c56e7d5502e15b1e806e71a25c9188f723dae21c244fd696d2f1348b957d6",
+        "sha256_reverse": "0a1b0b683f2a45a9adefd332005d4493243bfb3800143e3ecb939481d807cdb5",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the harbor because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 60,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 59,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "009c4c803d6c98473bd34f5a339791a68b2c4e386aa3c079cbba7bfcad6d9149",
+        "sha256_reverse": "47e21deb2a78d4c7bd517b7f0c16a7e0c500cf0d7d5b705f766c6a51314e1b71",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the river while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 58,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 27,
+        "first_mismatch": {
+          "left": 0,
+          "right": 57,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "99bb34128b1a0e4920fbf8672debbd17e29b1d76ef5d8c27337ab4295b60376c",
+        "sha256_reverse": "13fc19955a50aedacaf85303484a9b7897fa7afc7436f6e0077b00da64acd159",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks the river because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 58,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "f0ee7de85f02f327afb4ee4f5bcf4b922dec118893c580f01e76fbb77961446b",
+        "sha256_reverse": "c411855f78070086f4b9299067386a9b38aa87bb7c60358eff551c5bd2983b0b",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks this keeper while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 60,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 59,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "31acb6ed5437d62c7e55857b2468aa67791b6f71c06421986e024c0106e5dad6",
+        "sha256_reverse": "ff96e0df9fb01c92354673572f2d990380f111660000d5ead539640690b9bdbd",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks this keeper because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 61,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 30,
+        "first_mismatch": {
+          "left": 0,
+          "right": 60,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "8c17caf12b889a88361207fd79a0048d4eeb6e0c21353ed454bd859e237062c4",
+        "sha256_reverse": "15111e3c9ed3da53c7a3727f1250be36a89f1e658f9dc19c5d5c05c138ab8fad",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks this pilot while the observer observes the change.",
+      "center_state": {
+        "transition": "while",
+        "state": "observes",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 59,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 28,
+        "first_mismatch": {
+          "left": 0,
+          "right": 58,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "11364f1a8f12273fa07b78fa2a0ea0b2bf80ef97a7c2898b388f7c84a0c1cffb",
+        "sha256_reverse": "fc7c12fe16437143fc2f8a816765135362d0d2c32807573a2d288cc6b4aa56ff",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    },
+    {
+      "rendered": "a quiet scribe marks this pilot because the observer notices the change.",
+      "center_state": {
+        "transition": "because",
+        "state": "notices",
+        "from": "observation",
+        "to": "consequence"
+      },
+      "audit": {
+        "letters": 60,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 29,
+        "first_mismatch": {
+          "left": 0,
+          "right": 59,
+          "actual": "a",
+          "expected": "e"
+        },
+        "sha256_forward": "54cd0975b963390edfc27b9b265ab61838d2161613c6544032f07e3f8f88db98",
+        "sha256_reverse": "ab6b03df2234a222b4b349c27ea1f210d3e1910c78b2490bd1980f46f36412f5",
+        "sha256_equal": false
+      },
+      "source": "live-left-obligation-render",
+      "candidate": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false,
+        "finished_tape_reversal": false
+      }
+    }
+  ],
+  "rendered_exact_rows": [],
+  "rendered_controls": [
+    {
+      "rendered": "one watchful river guides one letter.",
+      "roles": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "audit": {
+        "letters": 31,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 14,
+        "first_mismatch": {
+          "left": 0,
+          "right": 30,
+          "actual": "o",
+          "expected": "r"
+        },
+        "sha256_forward": "99d3711513a5739a3a516cf1a5d5f1deec013f660a3ef0fa66217bd59b73e3a0",
+        "sha256_reverse": "e5fd84ebb1a30d11b7aeeab2493c53707c57a8c3a264613d431f26cca81a521d",
+        "sha256_equal": false
+      },
+      "control_only": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false
+      }
+    },
+    {
+      "rendered": "one watchful river guides one garden.",
+      "roles": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "audit": {
+        "letters": 31,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 13,
+        "first_mismatch": {
+          "left": 0,
+          "right": 30,
+          "actual": "o",
+          "expected": "n"
+        },
+        "sha256_forward": "d895d03a807fc7f4b6e79e6561b17efa26c82b55a3722d6a7c10cd2a7494ae82",
+        "sha256_reverse": "fce983ae5b5ef18ac7b9cf98bc4e7c1290972cff3c2ae4f74171fcab8f3a5417",
+        "sha256_equal": false
+      },
+      "control_only": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false
+      }
+    },
+    {
+      "rendered": "one watchful river guides one harbor.",
+      "roles": [
+        "det",
+        "adj",
+        "noun",
+        "verb",
+        "det",
+        "noun"
+      ],
+      "audit": {
+        "letters": 31,
+        "exact": false,
+        "independent_two_pointer_exact": false,
+        "mismatch_count": 13,
+        "first_mismatch": {
+          "left": 0,
+          "right": 30,
+          "actual": "o",
+          "expected": "r"
+        },
+        "sha256_forward": "038be6a5c70f836e4a9204abd05b8705b5201fe44032496e34c49c4760451a52",
+        "sha256_reverse": "fe6326b7da488ae874670377ce8fc40b66d0c053bbb37d4f50ef0785978ffdc1",
+        "sha256_equal": false
+      },
+      "control_only": true,
+      "provenance": {
+        "fresh_lexical_inventory": true,
+        "catalogue_sentence_copied": false
+      }
+    }
+  ],
+  "reader_eligible": false,
+  "provenance": {
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "human_readability": "unreviewed"
+  },
+  "next_repair": "Add held-out semantic valency agreement across the center transition (observer selects compatible state and object role), then rerun the same live trie audit; do not widen lexical inventory."
+}

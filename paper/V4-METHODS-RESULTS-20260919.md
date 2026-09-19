@@ -82,6 +82,11 @@ letters, and all failed at the outer seam (the first pair compared `a` with
 `n`). It never edited a completed sentence. The next useful step is therefore
 to change the endpoint lexical inventory, not to repair those 16 renderings.
 
+A prior 256-clause product is explicitly withdrawn from the results: its first
+implementation compared only first/last word characters rather than consuming
+the full mirrored streams. The regression test now rejects that shallow gate,
+so it cannot inflate the construction ledger.
+
 Every lane records a literal two-pointer audit, forward/reverse SHA-256, source
 provenance, novelty preflight, and a concrete next construction discriminator.
 None reverses a finished sentence, imports catalogue text, or scores each

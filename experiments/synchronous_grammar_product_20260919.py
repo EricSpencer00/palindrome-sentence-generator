@@ -26,6 +26,8 @@ OBJ = ("the harbor", "the garden", "the bridge", "a lantern", "the vessel", "the
 COP = ("is", "seems", "looks")
 ADJ = ("calm", "bright", "silent", "ready", "open", "green")
 LOC = ("at dawn", "near the shore", "beside the gate", "through the rain", "in the valley", "at the arena", "near the lake", "by the sunset")
+ORBIT_SUBJ = ("an era",)
+ORBIT_LOC = ("at the arena", "near the arena")
 
 def inventory():
     """Human-authored, typed, non-palindromic phrase inventory."""
@@ -39,6 +41,12 @@ def inventory():
     for s in SUBJ:
         for v in ("walks", "waits", "rests", "works"):
             for x in LOC: out.append(Utterance("locative", (s, v, x)))
+    # Endpoint orbit: the normalized subject prefix ``anera`` can meet the
+    # reverse of a terminal ``arena`` locative; ``ends`` continues that live
+    # character equation with a real finite verb.
+    for s in ORBIT_SUBJ:
+        for v in ("ends",):
+            for x in ORBIT_LOC: out.append(Utterance("endpoint_orbit", (s, v, x)))
     return tuple(out)
 
 class Node:

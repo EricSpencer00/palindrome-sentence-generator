@@ -42,7 +42,9 @@ REPEATABLE_FUNCTION_WORDS = frozenset(
     "a an the this that these those i me we us you he him she her it they them "
     "who which whose and or but if as while when after before because though "
     "of to in on at by for from with without near during is are was were be been "
-    "do does did can could will would may might should have has had not no".split()
+    "do does did can could will would may might should have has had not no "
+    "some any each every either neither another all both few many much more most "
+    "several enough less little own same such whatever whichever".split()
 )
 
 

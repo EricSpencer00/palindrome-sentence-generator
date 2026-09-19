@@ -47,6 +47,16 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   progress. The next repair must carry a complete finite predicate complement
   across the center without a direct reversible pair.
 
+- **Semantic-relay SVO/SVO repair (2026-09-18).** A fresh eight-scene
+  inventory paired two complete finite clauses with anaphoric actor links and
+  shared event/setting labels. The solver carried live character debt across
+  token boundaries and hard-rejected literal reversed tokens and hidden spans
+  before admission. It produced eight grammatical probes, zero exact
+  closures, and a best 39-letter frontier with 17 mismatches. This is a
+  genuine syntax-and-semantics repair, not a polar-question or reversible-pair
+  sweep. The next operation is one authored consequence-object substitution
+  at that recorded first mismatch, keeping the same hard filters.
+
 - **Current best outputs and argument-CSP audit (2026-09-18).** The strongest
   admitted item remains `An aide rips nine memos; some men inspire Diana.`
   (38 letters; normalized tape

@@ -5388,3 +5388,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   67–68 letters. The withheld benchmark passes the chart's independent audit
   but is explicitly not output. The reader gate remains closed; the next
   repair is a role-preserving lexical-category transition at a live boundary.
+
+- **Dream-RSI model-guided span resynthesis, 2026-09-18:** implemented the
+  denoising transition that had previously only been named: a cached GPT-2
+  policy proposed 12 complete seam spans, and each was paired with an
+  independently charted reflected residual. All 12 rows are exact by
+  construction and 86–120 letters, but none received a lexical segmentation
+  for its reflected residual; consequently zero rows are shortcut-free
+  admissions and no row is reader-certified. The 38-letter user sentence is
+  bootstrap structure only, not a claimed novel output. The concrete next
+  repair replaces that scaffold with two independently model-authored boundary
+  clauses and keeps a live residual chart across both seams.

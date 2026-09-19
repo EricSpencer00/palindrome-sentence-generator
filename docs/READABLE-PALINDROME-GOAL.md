@@ -36,6 +36,22 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
 
 ## Orchestration reset (2026-09-18)
 
+- **Current best outputs and argument-CSP audit (2026-09-18).** The strongest
+  admitted item remains `An aide rips nine memos; some men inspire Diana.`
+  (38 letters; normalized tape
+  `anaideripsninememossomemeninspirediana`; independent pointer and
+  forward/reverse SHA-256 both pass). The best longer human-looking diagnostic
+  remains `Was Noel an era, a gas, an item? Met in a, saga, arena, Leon saw.`
+  (44 letters; exact tape and SHA pass), but it is rejected by the strict
+  proper-multiword-subspan gate because it contains `an item met in a` and
+  larger nested spans. The new typed event-argument CSP checked 10,000 bounded
+  independently selected frame/seam worlds and reproduced only two punctuation
+  variants of the 38-letter benchmark: zero new admitted candidates and zero
+  reader-eligible rows. This is a duplicate-control result, not progress toward
+  the goal. The next construction must carry residual character debt through
+  typed argument tokens before complete-frame joining; enlarging this product
+  would be wheel-spinning.
+
 - **Progress audit.** `main` is clean and one local orchestration commit ahead
   of `origin/main`; the code baseline remains `ca526eb`. It contains 116
   commits since 2026-09-18 00:00, but the active

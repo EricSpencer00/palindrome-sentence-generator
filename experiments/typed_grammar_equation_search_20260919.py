@@ -140,6 +140,26 @@ def content_words(words: tuple[str, ...], role_banks: dict[str, tuple[str, ...]]
     return tuple(word for word in words if word not in function)
 
 
+def article_boundaries_are_grammatical(words: tuple[str, ...]) -> bool:
+    """Reject locally impossible article joins before exact admission.
+
+    This is a grammar constraint, not a readability certificate.  It prevents
+    exact but visibly malformed joins such as ``a an aide`` and ``a some men``
+    from consuming the candidate budget while leaving attachment and meaning
+    for the reader gate.
+    """
+    vowels = set("aeiou")
+    for index, word in enumerate(words[:-1]):
+        following = words[index + 1]
+        if word == "a" and following[:1] in vowels:
+            return False
+        if word == "an" and following[:1] not in vowels:
+            return False
+        if word == "some" and following in {"a", "an", "the", "some"}:
+            return False
+    return True
+
+
 def search_pair(
     left_pattern: tuple[str, ...],
     right_pattern: tuple[str, ...],
@@ -185,7 +205,7 @@ def search_pair(
             # A complete grammar can close with an odd-length palindromic
             # residual inside the final lexical token.  Requiring an empty
             # residual silently discarded every odd exact candidate.
-            if debt == debt[::-1]:
+            if debt == debt[::-1] and article_boundaries_are_grammatical(left + right):
                 rendered = " ".join(left) + "; " + " ".join(right) + "."
                 checked = audit(rendered)
                 admission = mechanical_admission_checks(

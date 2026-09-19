@@ -66,8 +66,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "relative-indexed-boundary-csp-20260919"
-    assert method.json()["optimization"]["search_history"][-1] == "relative-indexed-boundary-csp-20260919"
+    assert method.json()["optimization"]["current_search"] == "residual-prefix2-attachment-lattice-20260919"
+    assert method.json()["optimization"]["search_history"][-1] == "residual-prefix2-attachment-lattice-20260919"
     assert method.json()["repair_frontier"][0]["letters"] == 50
     assert method.json()["method_runs"][0]["longest_rendered_letters"] == 183
     assert method.json()["method_runs"][1]["longest_exact_letters"] == 38
@@ -75,7 +75,9 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][3]["longest_rendered_letters"] == 66
     assert method.json()["method_runs"][4]["longest_rendered_letters"] == 67
     assert method.json()["method_runs"][5]["search_nodes"] == 12588
-    assert len(method.json()["method_runs"]) == 6
+    assert method.json()["method_runs"][6]["search_nodes"] == 4042
+    assert method.json()["method_runs"][7]["longest_rendered_letters"] == 77
+    assert len(method.json()["method_runs"]) == 8
     assert len(method.json()["rlaif_frontier"]) == 3
 
 

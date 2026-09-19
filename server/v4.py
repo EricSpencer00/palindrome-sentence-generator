@@ -47,6 +47,8 @@ BEST_KNOWN_PROVENANCE = {
         "latest_residual_seam_repair": "246 grammatical clause combinations across 151 seam states; longest 66 letters; zero exact closure",
         "latest_terminal_repair": "252 state-selected held-out terminals; longest 67 letters; zero exact closure",
         "latest_relative_repair": "12,588 indexed relative-path nodes across 40–90 letters; zero exact closure",
+        "latest_shared_relative_repair": "4,042 indexed nodes with shared participant and finite complement; zero exact closure",
+        "latest_residual_prefix_repair": "258 candidates across 56 two-character seam-prefix states; longest 77 letters; zero exact closure",
         "reader_study": "not run",
     },
 }
@@ -235,6 +237,38 @@ RELATIVE_INDEXED_RUN = {
     "next_repair": "permit a shared participant across the relative seam and add a finite verb-complement marker",
 }
 
+SHARED_RELATIVE_RUN = {
+    "run_id": "shared-relative-complement-csp-20260919",
+    "method": "shared-participant relative seam with finite complement markers",
+    "status": "completed_no_exact_closure",
+    "search_nodes": 4042,
+    "target_range": "40–100 letters",
+    "exact_candidates": 0,
+    "mechanically_admitted_candidates": 0,
+    "longest_exact_letters": 0,
+    "provenance": "shared participant and finite that/and markers; no finished-tape reversal; no catalogue import",
+    "independent_validation": ["outside-in two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "not_run; no exact candidate reached the reader gate",
+    "next_repair": "carry two finite markers plus a bounded adjunct slot",
+}
+
+RESIDUAL_PREFIX_RUN = {
+    "run_id": "residual-prefix2-attachment-lattice-20260919",
+    "method": "two-character residual-prefix lattice with attachment, agreement, and valency state",
+    "status": "completed_no_exact_closure",
+    "selected_by_prefix": 258,
+    "indexed_states": 56,
+    "target_range": "40–100 letters",
+    "longest_rendered_letters": 77,
+    "exact_candidates": 0,
+    "mechanically_admitted_candidates": 0,
+    "longest_rendered_example": "the player guards the hearth while a quiet poet praises the sonnet at dawn.",
+    "provenance": "fresh attachment lattice; no finished-tape reversal; no catalogue import",
+    "independent_validation": ["literal two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "not_run; no exact candidate reached the reader gate",
+    "next_repair": "replace the one-character edge policy with indexed two-character word transitions",
+}
+
 READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
@@ -261,7 +295,7 @@ OPTIMIZATION_SPEC = {
         "fragmentary or gibberish output",
     ],
     "promotion_rule": "A diagnostic score can choose the next repair but cannot certify readability; promotion requires randomized blinded intact-prose versus shuffled-control readers.",
-    "current_search": "relative-indexed-boundary-csp-20260919",
+    "current_search": "residual-prefix2-attachment-lattice-20260919",
     "search_history": [
         "half-tape-grammar-csp-20260919",
         "dream-rsi-strict-phrase-bank-20260919",
@@ -271,6 +305,8 @@ OPTIMIZATION_SPEC = {
         "residual-seam-scene-lattice-20260919",
         "residual-terminal-repair-lattice-20260919",
         "relative-indexed-boundary-csp-20260919",
+        "shared-relative-complement-csp-20260919",
+        "residual-prefix2-attachment-lattice-20260919",
     ],
 }
 
@@ -523,7 +559,7 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -546,7 +582,7 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -563,7 +599,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": SEMANTIC_SHELL_RUN,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",

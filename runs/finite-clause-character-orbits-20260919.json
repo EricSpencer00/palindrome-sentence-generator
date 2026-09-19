@@ -1,0 +1,369 @@
+{
+  "experiment_id": "finite-clause-character-orbits-20260919",
+  "signature": "finite-svo-clause-language|character-trie-product|live-mirrored-orbit-assignment|terminal-complete-clause-gate",
+  "method": "finite SVO clause-trie product with live mirrored character-orbit assignment",
+  "grammar": {
+    "left_slots": [
+      "subject",
+      "finite_verb",
+      "object"
+    ],
+    "right_slots": [
+      "subject",
+      "finite_verb",
+      "object"
+    ],
+    "terminal_gate": "both independent clause tries must reach complete SVO terminals",
+    "left_clause_count": 6,
+    "right_clause_count": 6
+  },
+  "stats": {
+    "expanded_states": 8,
+    "matched_orbits": 7,
+    "rejected_orbits": 5,
+    "exact_closures_before_novelty": 0,
+    "duplicate_rejections": 0,
+    "exact": 0,
+    "mechanically_admitted": 0,
+    "intact_controls": 3,
+    "longest_rendered_letters": 48
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "An aide writes nine memos; Some men inspire Diana.",
+      "roles": {
+        "left": {
+          "subject": "An aide",
+          "finite_verb": "writes",
+          "object": "nine memos"
+        },
+        "right": {
+          "subject": "Some men",
+          "finite_verb": "inspire",
+          "object": "Diana"
+        }
+      },
+      "complete_finite_svo": true,
+      "source": "intact-finite-svo-control",
+      "orbit_assignment": {
+        "assigned_orbits": 7,
+        "trace": [
+          {
+            "orbit": 0,
+            "left_index": 0,
+            "right_index": 18,
+            "left_char": "a",
+            "right_char": "a",
+            "assigned": true
+          },
+          {
+            "orbit": 1,
+            "left_index": 1,
+            "right_index": 17,
+            "left_char": "n",
+            "right_char": "n",
+            "assigned": true
+          },
+          {
+            "orbit": 2,
+            "left_index": 2,
+            "right_index": 16,
+            "left_char": "a",
+            "right_char": "a",
+            "assigned": true
+          },
+          {
+            "orbit": 3,
+            "left_index": 3,
+            "right_index": 15,
+            "left_char": "i",
+            "right_char": "i",
+            "assigned": true
+          },
+          {
+            "orbit": 4,
+            "left_index": 4,
+            "right_index": 14,
+            "left_char": "d",
+            "right_char": "d",
+            "assigned": true
+          },
+          {
+            "orbit": 5,
+            "left_index": 5,
+            "right_index": 13,
+            "left_char": "e",
+            "right_char": "e",
+            "assigned": true
+          },
+          {
+            "orbit": 6,
+            "left_index": 6,
+            "right_index": 12,
+            "left_char": "w",
+            "right_char": "r",
+            "assigned": false
+          }
+        ],
+        "first_failure": {
+          "orbit": 6,
+          "left_index": 6,
+          "right_index": 12,
+          "left_char": "w",
+          "right_char": "r",
+          "assigned": false
+        },
+        "equal_clause_length": false,
+        "closed": false
+      },
+      "audit": {
+        "normalized": "anaidewritesninememossomemeninspirediana",
+        "letters": 40,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "orbit": 6,
+          "left_index": 6,
+          "right_index": 33,
+          "left_char": "w",
+          "right_char": "r"
+        },
+        "sha256_forward": "778207abd38d3c95b402aab1b5032e3221e580da35de8b814b947eeaf71d9e46",
+        "sha256_reverse": "b584fbcefa3bfc02268b3a4b6b2741270c89be7c5f21fa748ebc8769692d7a9b",
+        "sha256_equal": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "construction": "independent finite SVO clause tries with live mirrored character-orbit assignment",
+        "lexical_domains_independent": true,
+        "complete_finite_subject_verb_object_clauses": true,
+        "reversible_lexical_pairs": false,
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "rlaif_reward_loop": false,
+        "reader_status": "unreviewed; mechanical gates are not readability evidence"
+      }
+    },
+    {
+      "rendered": "A patient keeper guards charts; The baker records a sonnet.",
+      "roles": {
+        "left": {
+          "subject": "A patient keeper",
+          "finite_verb": "guards",
+          "object": "charts"
+        },
+        "right": {
+          "subject": "The baker",
+          "finite_verb": "records",
+          "object": "a sonnet"
+        }
+      },
+      "complete_finite_svo": true,
+      "source": "intact-finite-svo-control",
+      "orbit_assignment": {
+        "assigned_orbits": 1,
+        "trace": [
+          {
+            "orbit": 0,
+            "left_index": 0,
+            "right_index": 21,
+            "left_char": "a",
+            "right_char": "t",
+            "assigned": false
+          }
+        ],
+        "first_failure": {
+          "orbit": 0,
+          "left_index": 0,
+          "right_index": 21,
+          "left_char": "a",
+          "right_char": "t",
+          "assigned": false
+        },
+        "equal_clause_length": false,
+        "closed": false
+      },
+      "audit": {
+        "normalized": "apatientkeeperguardschartsthebakerrecordsasonnet",
+        "letters": 48,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "orbit": 0,
+          "left_index": 0,
+          "right_index": 47,
+          "left_char": "a",
+          "right_char": "t"
+        },
+        "sha256_forward": "94f14c164048c0de434e87763900777391c37635a217bbd649f9336259ca7c7c",
+        "sha256_reverse": "ea553a844153baa1e33fb6c64277d3b18078b7cfd6b45c519c7160f1d031c302",
+        "sha256_equal": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "construction": "independent finite SVO clause tries with live mirrored character-orbit assignment",
+        "lexical_domains_independent": true,
+        "complete_finite_subject_verb_object_clauses": true,
+        "reversible_lexical_pairs": false,
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "rlaif_reward_loop": false,
+        "reader_status": "unreviewed; mechanical gates are not readability evidence"
+      }
+    },
+    {
+      "rendered": "A careful pilot maps rivers; A singer carries parcels.",
+      "roles": {
+        "left": {
+          "subject": "A careful pilot",
+          "finite_verb": "maps",
+          "object": "rivers"
+        },
+        "right": {
+          "subject": "A singer",
+          "finite_verb": "carries",
+          "object": "parcels"
+        }
+      },
+      "complete_finite_svo": true,
+      "source": "intact-finite-svo-control",
+      "orbit_assignment": {
+        "assigned_orbits": 1,
+        "trace": [
+          {
+            "orbit": 0,
+            "left_index": 0,
+            "right_index": 20,
+            "left_char": "a",
+            "right_char": "s",
+            "assigned": false
+          }
+        ],
+        "first_failure": {
+          "orbit": 0,
+          "left_index": 0,
+          "right_index": 20,
+          "left_char": "a",
+          "right_char": "s",
+          "assigned": false
+        },
+        "equal_clause_length": false,
+        "closed": false
+      },
+      "audit": {
+        "normalized": "acarefulpilotmapsriversasingercarriesparcels",
+        "letters": 44,
+        "two_pointer_exact": false,
+        "first_mismatch": {
+          "orbit": 0,
+          "left_index": 0,
+          "right_index": 43,
+          "left_char": "a",
+          "right_char": "s"
+        },
+        "sha256_forward": "9313dabfb935072b6a0e766891b7ec7c55a65fdf37aa7cb50488bffd818d66a3",
+        "sha256_reverse": "fc20fc8e298b33216ab9b7d7fb612d95eb2aa526b5d40f845ed83f319807833c",
+        "sha256_equal": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "provenance": {
+        "construction": "independent finite SVO clause tries with live mirrored character-orbit assignment",
+        "lexical_domains_independent": true,
+        "complete_finite_subject_verb_object_clauses": true,
+        "reversible_lexical_pairs": false,
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "rlaif_reward_loop": false,
+        "reader_status": "unreviewed; mechanical gates are not readability evidence"
+      }
+    }
+  ],
+  "independent_audits": [
+    "live trie orbit assignment",
+    "independent normalized two-pointer scan",
+    "forward/reverse SHA-256 comparison"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "finite-svo-clause-language|character-trie-product|live-mirrored-orbit-assignment|terminal-complete-clause-gate",
+    "prior_artifacts_compared": [
+      "typed-clause-zipper-20260919",
+      "typed-word-boundary-clause-automaton-20260918"
+    ],
+    "prior_exact_tapes_loaded": 2,
+    "duplicate_rejections": 0,
+    "catalogue_text_imported": false,
+    "reversible_lexical_pairs_used": false,
+    "finished_tape_reversed": false,
+    "word_order_symmetry_used": false,
+    "rlaif_used": false
+  },
+  "next_repair": {
+    "operator": "add one held-out subject/object noun bundle whose opening and closing characters satisfy the live orbit frontier",
+    "reason": "the bounded complete-SVO chart records no 39--60-letter closure; controls fail at the first unresolved orbit after the shared outer prefix",
+    "preserve": [
+      "finite subject/finite verb/object completion",
+      "ordinary rendering order",
+      "independent two-pointer and SHA audits"
+    ]
+  },
+  "reader_gate": "closed; intact controls and mechanical checks do not certify readability"
+}

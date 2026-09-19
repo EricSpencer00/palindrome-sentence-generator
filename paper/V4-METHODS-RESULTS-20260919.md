@@ -47,6 +47,7 @@ multiword palindrome span:
 | Fresh grammatical clause-pair lattice | Newly authored reversible clause/response pairs, checked as live equations before rendering | 49 exact diagnostics; **“Stressed, Deliver; reviled, desserts.”** (30 letters) | 49 / 0; reader-rejected |
 | Anchor-preserving overhang search | Center-out overhang expansion around the 38-letter anchor with debt tracking | **132-letter exact frontier**; anchor embedded as a proper palindromic span | 0 admitted; withdrawn shortcut |
 | Bidirectional typed half-tape CSP | Expands the more constrained unfinished grammar edge from either end while propagating character, agreement, and valency state | 70 cells; 2,421,192 edge attempts; anchor regression recovered; no >38 closure | 0 / 0 above 38 |
+| Agreement-carrying adjunct center CSP | Solves subject/adjunct character equations before selecting the finite verb and object, with number carried into temporal/locative slots | 16,800 semantic shells; 15,120 outer-pruned; 24 intact controls up to 47 letters; **“The quiet poet guards an open journal while he waits.”** | 0 / 0 |
 | Dictionary reverse-segmentation DP | 51,129 authored SVO seeds are matched against a 52,927-headword POS-neutral reverse segmentation | No exact closure above 38; no candidate promoted | 0 / 0 |
 | Indexed half-tape path CSP | Inverted character-slot seam index over typed grammar paths | Anchor recovered from 1,205 nodes | 2 / 2; longest 38 |
 | Connector character product | Typed clauses and connectors cross an outside-in character product | 100 frontier witnesses; longest 65 | 0 / 0 |
@@ -133,6 +134,15 @@ zero exact closures above 38. This excludes that bounded grammar, not the
 overall readable-palindrome goal; the next repair must change sentence
 structure or lexical boundary possibilities rather than spend more time in
 the exhausted cells.
+
+The agreement-carrying adjunct center CSP changed the seam state again by
+solving a subject/temporal-or-locative equation before choosing the verb and
+object. Its remote run evaluated 16,800 semantic shells, pruned 15,120 at
+that outer equation, and rendered 24 intact controls up to 47 letters. For
+example: “The quiet poet guards an open journal while he waits.” No exact row
+closed, so these are reader-facing controls for the next study, not candidate
+palindromes. The next repair carries one held-out inner verb/object edge into
+the residual character state rather than widening every slot.
 
 ## Reader evidence and API gate
 

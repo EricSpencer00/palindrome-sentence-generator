@@ -5677,6 +5677,15 @@
       "distinction": "Composes fresh role-complete phrase chunks through a finite residual dynamic program while exact character cancellation remains live; it changes phrase boundaries rather than filtering a fixed tape and excludes catalogue, word-order, repeated-unit, and finished-tape shortcuts.",
       "reader_evidence": false,
       "status": "3 DP depths, 128 final residual states, 512 rendered complete-clause candidates, longest 92 letters, 0 exact closures; next repair adds a boundary chunk whose opening character matches the residual closing character"
+    },
+    {
+      "id": "finite-clause-character-orbits-20260919",
+      "signature": "finite-svo-clause-language|character-trie-product|live-mirrored-orbit-assignment|terminal-complete-clause-gate",
+      "artifact": "experiments/finite_clause_character_orbits_20260919.py",
+      "run_artifacts": ["runs/finite-clause-character-orbits-20260919.json"],
+      "distinction": "Two independent finite SVO clause tries assign mirrored character orbits online and admit only simultaneous complete subject/finite-verb/object terminals; it does not enumerate reversible lexical pairs, mirror word order, reverse a finished tape, import catalogue text, or use RLAIF.",
+      "reader_evidence": false,
+      "status": "8 orbit states, 7 matched and 5 rejected live transitions, 0 exact closures in the 39–60-letter band; three intact 40–48-letter controls retained with independent pointer/SHA audits; next repair adds one held-out SVO noun bundle at the first orbit frontier"
     }
   ],
   "excluded": [

@@ -1,0 +1,125 @@
+{
+  "experiment_id": "polar-question-boundary-repair-20260918",
+  "signature": "typed-polar-question|object-fronted-answer|incoming-outgoing-pair-graph|boundary-conditioned-repair",
+  "config": {
+    "question_names": 6,
+    "question_predicates": 16,
+    "complete_answers": 13,
+    "diagnostic_ellipsis_included": true
+  },
+  "graph": {
+    "nodes": 337,
+    "pair_states": 105,
+    "pair_edges": 104,
+    "center_states": 1,
+    "exact_paths": [
+      {
+        "rendered": "Was Noel an era, a gas, an item? met in a, saga, arena, Leon saw.",
+        "edge_provenance": [
+          "question auxiliary",
+          "question subject name: Noel",
+          "complete polar predicate: an era, a gas, an item?",
+          "diagnostic discourse ellipsis; not complete prose"
+        ],
+        "audit": {
+          "letters": 44,
+          "two_pointer_exact": true,
+          "mismatch_count": 0,
+          "first_mismatch": null,
+          "sha256_forward": "0419d58b6773dcca6d527271d41fd0197da9dde876598c9dadfc87fa4f1a9f83",
+          "sha256_reverse": "0419d58b6773dcca6d527271d41fd0197da9dde876598c9dadfc87fa4f1a9f83",
+          "sha_equal_under_reversal": true
+        }
+      }
+    ]
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "Was Noel an era, a gas, an item? met in a, saga, arena, Leon saw.",
+      "edge_provenance": [
+        "question auxiliary",
+        "question subject name: Noel",
+        "complete polar predicate: an era, a gas, an item?",
+        "diagnostic discourse ellipsis; not complete prose"
+      ],
+      "audit": {
+        "letters": 44,
+        "two_pointer_exact": true,
+        "mismatch_count": 0,
+        "first_mismatch": null,
+        "sha256_forward": "0419d58b6773dcca6d527271d41fd0197da9dde876598c9dadfc87fa4f1a9f83",
+        "sha256_reverse": "0419d58b6773dcca6d527271d41fd0197da9dde876598c9dadfc87fa4f1a9f83",
+        "sha_equal_under_reversal": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "mechanically_admitted": false,
+      "reader_status": "not_run; human readability is unmeasured"
+    }
+  ],
+  "diagnostic_control": {
+    "rendered": "Was Noel an era, a gas, an item? met in a, saga, arena, Leon saw.",
+    "audit": {
+      "letters": 44,
+      "two_pointer_exact": true,
+      "mismatch_count": 0,
+      "first_mismatch": null,
+      "sha256_forward": "0419d58b6773dcca6d527271d41fd0197da9dde876598c9dadfc87fa4f1a9f83",
+      "sha256_reverse": "0419d58b6773dcca6d527271d41fd0197da9dde876598c9dadfc87fa4f1a9f83",
+      "sha_equal_under_reversal": true
+    },
+    "mechanical_checks": {
+      "supported_ascii_letters": true,
+      "nonempty": true,
+      "exact_letter_palindrome": true,
+      "length_band": true,
+      "word_form": true,
+      "lexicon_words": true,
+      "ordinary_short_words": true,
+      "distinct_words": true,
+      "no_self_palindromic_word": true,
+      "not_word_order_symmetry": true,
+      "no_repeated_nontrivial_unit": true,
+      "no_self_palindromic_proper_multiword_span": false,
+      "not_forbidden_catalogue_control": true,
+      "not_catalogue_family_derivative": true,
+      "not_forbidden_catalogue_endpoint_scaffold": true,
+      "absent_from_local_catalogue": true,
+      "local_catalogue_absent": true
+    },
+    "reader_status": "diagnostic only; fragmentary answer and proper-palindromic span"
+  },
+  "stats": {
+    "exact": 1,
+    "mechanically_admitted": 0,
+    "reader_eligible": 0,
+    "longest_exact_letters": 44
+  },
+  "provenance": {
+    "finished_tape_reversed": false,
+    "catalogue_text_imported": false,
+    "word_order_mirror": false,
+    "construction": "small boundary-conditioned complete phrase repair on pair graph",
+    "independent_validator": "two-pointer normalized tape plus forward/reverse SHA-256",
+    "human_readability_certified": false
+  },
+  "next_repair": "Use the first dead pair frontier to author one additional complete object-fronted answer whose outer letters satisfy the observed question boundary; retain lexical history and reject every proper palindromic subspan before readers.",
+  "reader_gate": "closed until a new exact row clears strict mechanical admission and then passes randomized blinded intact-versus-shuffled reading"
+}

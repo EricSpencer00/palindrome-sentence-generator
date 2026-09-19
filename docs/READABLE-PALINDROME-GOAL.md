@@ -64,6 +64,15 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   heterogeneous lexical slot pairings and inflected phrase tokens while
   carrying residual debt across token boundaries.
 
+- **Boundary-conditioned graph repair (2026-09-18).** Astra identified two
+  concrete implementation faults in the latest token lane: residual ownership
+  was unsigned, and the right side was assembled in reverse grammatical slot
+  order. The repaired incoming/outgoing pair graph recovered the 44-letter
+  polar-question diagnostic exactly, but produced no complete-answer closure.
+  Its next repair is now narrow and evidence-driven: author one complete
+  object-fronted answer whose outer letters satisfy the first dead pair
+  frontier, rather than widening the vocabulary or reranking fragments.
+
 - **Progress audit.** `main` is clean and one local orchestration commit ahead
   of `origin/main`; the code baseline remains `ca526eb`. It contains 116
   commits since 2026-09-18 00:00, but the active

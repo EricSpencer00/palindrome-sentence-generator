@@ -40,6 +40,7 @@ BEST_KNOWN_PROVENANCE = {
         "mechanically_admitted_candidates": 2,
         "pilot_lengths": "40–52; no exact closure",
         "shared_participant_temporal_repair": "no exact closure in bounded pilot",
+        "latest_dream_rsi_repair": "2 mechanically admitted exact rows; longest 50 letters; reader gate closed",
         "reader_study": "not run",
     },
 }
@@ -58,7 +59,11 @@ OPTIMIZATION_SPEC = {
         "fragmentary or gibberish output",
     ],
     "promotion_rule": "A diagnostic score can choose the next repair but cannot certify readability; promotion requires randomized blinded intact-prose versus shuffled-control readers.",
-    "current_search": "half-tape-grammar-csp-20260919",
+    "current_search": "dream-rsi-strict-phrase-bank-20260919",
+    "search_history": [
+        "half-tape-grammar-csp-20260919",
+        "dream-rsi-strict-phrase-bank-20260919",
+    ],
 }
 
 

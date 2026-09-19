@@ -35,6 +35,7 @@ def test_v4_evidence_contains_actual_rendered_candidate_and_independent_audit():
     assert candidate["provenance"]["source"] == "project construction run; not catalogue text"
     assert candidate["provenance"]["run_id"] == "half-tape-grammar-csp-20260919"
     assert candidate["provenance"]["search_summary"]["pilot_lengths"] == "40–52; no exact closure"
+    assert "longest 50 letters" in candidate["provenance"]["search_summary"]["latest_dream_rsi_repair"]
     assert candidate["promotion_status"] == "gated_pending_blinded_readers"
     assert candidate["rlaif"]["certifies_readability"] is False
 
@@ -57,7 +58,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "half-tape-grammar-csp-20260919"
+    assert method.json()["optimization"]["current_search"] == "dream-rsi-strict-phrase-bank-20260919"
+    assert method.json()["optimization"]["search_history"][-1] == "dream-rsi-strict-phrase-bank-20260919"
 
     evaluation = client.get("/api/v4/best-evaluation")
     assert evaluation.status_code == 200

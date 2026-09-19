@@ -5593,3 +5593,26 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   human-unreviewed. This is a new construction geometry, not a larger replay;
   the next repair adds a center-state grammar transition and held-out semantic
   valency frames while keeping the live obligation walk.
+
+- **Center-state grammar transition, 2026-09-18:** inserted a typed
+  observation-to-consequence transition between fresh clause regions while
+  retaining the live reversed-character trie. It walked 2,027,520 states and
+  rendered 48 fresh diagnostic candidates, but found 0 terminal pairs and 0
+  exact closures. The concrete repair is held-out semantic valency agreement
+  across the center transition; widening the lexical bank is explicitly not
+  counted as progress.
+
+- **Held-out semantic valency frame product, 2026-09-18:** paired six complete
+  independently authored subject/verb/object/adjunct frame worlds with
+  agreement and valency state live before rendering. The longest intact pair
+  was 72 letters; all six were independently non-exact and none reached the
+  reader gate. The next repair adds a held-out adjunct transition at the center
+  seam.
+
+- **Fresh clause reverse-tape grammar chart, 2026-09-18:** consumed live
+  reverse-character obligations from six fresh human-authored clauses through
+  a typed DET/ADJ/N/V/P chart with optional-slot transitions. It found 0 exact
+  candidates; the best intact control was “By dusk, the patient baker carries
+  warm loaves home.” (42 letters, 20 mirrored mismatches). The next repair is
+  typed plural and inflectional variation at the first residual chart
+  character, not another catalogue or inventory sweep.

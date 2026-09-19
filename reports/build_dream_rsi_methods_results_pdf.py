@@ -286,6 +286,9 @@ def build_pdf() -> None:
         [para("Reader-first complete-clause lattice", small), para("10 human-authored complete scenes with explicit subject, verb, object, and adjunct roles; 400 typed center/edge lattice states.", small), para("0 exact; longest 67 letters", small), para("Reader gate closed; catalogue preflight still requires an explicit rerun; next repair carries residuals through typed verb-object transitions.", small)],
         [para("Character-trie provenance correction", small), para("The apparent 51-letter result was three hard-coded published palindromes, retained only as regression controls after audit.", small), para("0 fresh / 0 admissible", small), para("Quarantined; next repair must use a genuinely fresh held-out phrase inventory.", small)],
         [para("Fresh phrase-trie product", small), para("232,320 fresh complete-clause records; live obligations walked 947,222 reversed-right trie nodes before rendering any pair.", small), para("0 terminal pairs / 0 exact", small), para("Reader gate closed; next repair adds a center-state grammar transition and held-out semantic valency frames.", small)],
+        [para("Center-state grammar transition", small), para("2,027,520 live trie walks with a typed observation-to-consequence center transition; 48 fresh diagnostics were rendered.", small), para("0 terminal pairs / 0 exact", small), para("Reader gate closed; next repair carries held-out semantic valency agreement across the center.", small)],
+        [para("Held-out semantic valency frames", small), para("Six complete authored subject/verb/object/adjunct frame pairs with agreement and valency live before rendering; longest pair 72 letters.", small), para("0 exact", small), para("Reader gate closed; next repair adds a held-out adjunct transition at the center seam.", small)],
+        [para("Fresh reverse-tape grammar chart", small), para("Six fresh authored clauses consumed by a typed DET/ADJ/N/V/P chart with optional-slot transitions; best intact control 42 letters.", small), para("0 exact / 0 shortcut survivors", small), para("Reader gate closed; next repair adds typed plural and inflectional variants at the first residual character.", small)],
     ]
     t = Table(round_data, colWidths=[1.62 * inch, 4.25 * inch, 1.55 * inch, 2.75 * inch], repeatRows=1)
     t.setStyle(TableStyle([
@@ -364,7 +367,7 @@ def build_pdf() -> None:
     story.append(Paragraph("Reproducibility anchors", h2))
     story.append(
         Paragraph(
-            "Source artifacts: docs/experiment-novelty-registry.json; runs/dream-rsi-dual-boundary-model-authoring-20260918.json; runs/dream-rsi-discourse-ellipsis-20260918.json; runs/dream-rsi-role-live-phrase-lattice-20260918.json. The report is generated from these files so the table and headline counts can be regenerated after the next Dream-RSI branch.",
+            "Source artifacts: docs/experiment-novelty-registry.json; runs/dream-rsi-dual-boundary-model-authoring-20260918.json; runs/dream-rsi-discourse-ellipsis-20260918.json; runs/dream-rsi-role-live-phrase-lattice-20260918.json; runs/center-state-grammar-transition-20260918.json; runs/held-out-semantic-valency-frame-product-20260918.json; runs/fresh-clause-resegmentation-chart-20260918.json. The report is generated from these files so the table and headline counts can be regenerated after the next Dream-RSI branch.",
             body,
         )
     )

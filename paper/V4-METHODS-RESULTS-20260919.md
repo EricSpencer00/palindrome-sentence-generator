@@ -19,7 +19,7 @@ It has 38 ASCII letters, normalized tape
 The independent outside-in pointer audit and the fail-closed mechanical gate
 both pass. It has not yet been rated by blinded humans.
 
-The longest mechanically admitted repair is exact but not readable:
+The longest mechanically admitted exact control is not readable:
 
 > **To new one post is an evening. Is sign in even as its open owe. Not.**
 
@@ -59,6 +59,7 @@ multiword palindrome span:
 | Morphology-first orbit grammar | Selects agreement, tense, article-boundary, and cadence states before lexical emission across two complete clauses | 16 agreement-valid variants; longest 66 letters; no exact closure | 0 / 0 |
 | Semantic-role character FSM | Carries semantic role, valency, agreement, and word-boundary state on every center-out character transition with a complete-clause terminal gate | 4,608 bounded states; two complete prose controls to 36 letters; no exact closure | 0 / 0 |
 | Live paired-slot clause DFS | Selects both ordinary-order clauses from grammatical slots while carrying the unmatched character stream into the next slot; no rendered-string repair | 26 live states in the long SVO+double-modifier form; a short-form calibration independently re-finds the 38-letter anchor; no >38 closure | 1 / 1 at 38; 0 / 0 above |
+| Synchronous typed grammar product | Intersects complete transitive, copular, and locative clauses in a forward/reverse character trie before either side is rendered | 1,848 authored utterances; 6 live trie states; endpoint conflicts at `th` versus `g` and `ane` versus `r`; no exact closure | 0 / 0 |
 | Boundary-indexed typed clause growth | Places each fresh subject/verb/number/object/name/adjunct at its real tape offset and rejects conflicts before opening the next slot | 66,967 live nodes and 23,668 terminal leaves across 40–70 letters; no exact closure | 0 / 0 |
 | Asymmetric boundary-indexed growth | Tests a six-slot left clause against a four-slot response while carrying every outer character obligation before lexical placement | 150,719 live nodes and 1,868 terminal leaves; the withheld fresh inventory produced no exact closure | 0 / 0 |
 | Character-level grammar beam | Keeps word-boundary and role state live in a bounded two-sided character beam with fixed lexical proposal scores | 3,010 bounded expansions over 38–45-letter targets; no exact closure | 0 / 0 |
@@ -75,29 +76,36 @@ multiword palindrome span:
 | One-time typed lexical bank | Local model authors lexical alternatives once; deterministic CSP searches them without per-candidate feedback | 703,172 nodes; 390 grammatical frontier controls | 0 / 0 |
 | Three-beat alias grammar | Three finite SVO beats with live boundary aliases and conjunction state | 1,344 renderings; longest frontier 81 | 0 / 0 |
 
+The manual clause-seam check is retained as a separate construction
+discriminator: 16 independently authored clause pairs were rendered above 38
+letters, and all failed at the outer seam (the first pair compared `a` with
+`n`). It never edited a completed sentence. The next useful step is therefore
+to change the endpoint lexical inventory, not to repair those 16 renderings.
+
 Every lane records a literal two-pointer audit, forward/reverse SHA-256, source
-provenance, novelty preflight, and a concrete next repair. None reverses a
-finished sentence, imports catalogue text, or scores each search state with an
-LM/RLAIF reward.
+provenance, novelty preflight, and a concrete next construction discriminator.
+None reverses a finished sentence, imports catalogue text, or scores each
+search state with an LM/RLAIF reward.
 
 The constructive result is therefore specific, not a proxy claim: the z2
 half-tape representation independently recovers the 38-letter readable anchor,
-but the bounded 38--45-letter pilot does not yet improve its length. The next
-repair exposes relative-clause internals as separate character-constrained
-edges; its 194,216-node run also closes at zero, so it remains a repair record,
+but the bounded 38--45-letter pilot does not yet improve its length. A failed
+construction is not repaired after rendering; the next construction exposes
+relative-clause internals as separate character-constrained edges. Its
+194,216-node run also closes at zero, so it remains an auditable discriminator,
 not a promoted example.
 
 An orthogonal dictionary-DP check also returned zero above 38. Its failure is
 not folded into a general sparsity claim: it chooses a complete seed before
-reverse segmentation, so the concrete repair is a POS/inflection-aware
+reverse segmentation, so the concrete construction change is a POS/inflection-aware
 character trie that inserts boundaries during half-tape search.
 
-The character-trie decoder now implements that repair and independently
+The character-trie decoder now implements that construction change and independently
 recovers the anchor across individual word boundaries. Its 69-run pilot still
 has no >38 closure, so the representation is a verified construction step,
 not a claim that the length target has been met.
 
-The next character-trie repair made the relative clause internal rather than
+The next character-trie construction made the relative clause internal rather than
 opaque: marker, relative subject, finite verb, and object each participate in
 the character seam and agreement state. Across 84 deterministic targets from
 39 through 80 letters it visited 306,725 nodes and returned zero exact rows.
@@ -250,11 +258,20 @@ no exact closure survived. The residual is therefore a boundary-inventory
 signal for the next search, while the paired-slot DFS remains the active
 generation method.
 
-These repair and frontier rows now motivate a strategy reset rather than more
+The synchronous typed grammar product tests the same invariant with a different
+representation: complete transitive, copular, and locative clauses are placed
+in forward and reverse tries, and only shared character prefixes are expanded.
+The 1,848-utterance inventory reached six live states before endpoint
+conflicts (`th` on the forward side versus `g`, and `ane` versus `r`). This is a
+small, honest frontier diagnostic; its next construction expands endpoint
+lexical classes so a valid outer orbit can exist before deeper grammar states
+are explored.
+
+These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:
 grammar boundaries and mirrored character orbits must be selected together,
 so an off-tape prose draft is never promoted into a repair queue. The
-the paired-slot clause DFS, two-sided semantic orbit product, its semantic-slot
+paired-slot clause DFS, two-sided semantic orbit product, its semantic-slot
 extension, and the semantic-role character FSM are the working generation
 claim; earlier
 repair runs remain auditable evidence and controls, but they are no longer the

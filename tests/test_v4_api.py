@@ -79,7 +79,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][7]["longest_rendered_letters"] == 77
     assert method.json()["method_runs"][8]["frontier_controls"] == 390
     assert method.json()["method_runs"][9]["longest_rendered_letters"] == 81
-    assert len(method.json()["method_runs"]) == 28
+    assert len(method.json()["method_runs"]) == 29
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10
@@ -99,8 +99,10 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][24]["trie_nodes"] == 2781
     assert method.json()["method_runs"][25]["variants"] == 16
     assert method.json()["method_runs"][26]["visited_states"] == 4608
-    assert method.json()["method_runs"][27]["calibration_letters"] == 38
-    assert method.json()["method_runs"][27]["long_form_exact_candidates"] == 0
+    assert method.json()["method_runs"][27]["live_states"] == 6
+    assert method.json()["method_runs"][27]["exact_candidates"] == 0
+    assert method.json()["method_runs"][28]["calibration_letters"] == 38
+    assert method.json()["method_runs"][28]["long_form_exact_candidates"] == 0
     assert len(method.json()["rlaif_frontier"]) == 18
 
 

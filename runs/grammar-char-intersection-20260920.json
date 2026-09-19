@@ -1,0 +1,148 @@
+{
+  "experiment_id": "grammar-char-intersection-20260920",
+  "signature": "cfg-semantic-closure|live-character-orbit|two-sided-earley-chart|lexicon-order-only",
+  "novelty_preflight": {
+    "entries_scanned": 564,
+    "exact_signature_collision": false,
+    "catalogue_text_imported": false,
+    "known_palindrome_imported": false
+  },
+  "grammar": {
+    "productions": [
+      "S->NP VP PP",
+      "NP->DET N",
+      "VP->V OBJ",
+      "PP->P NP"
+    ],
+    "semantic_closure": [
+      "agent",
+      "action",
+      "theme",
+      "setting"
+    ],
+    "lexical_prior": "static ordering only",
+    "posthoc_repair": false
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "the artist admires canvas near the river bridge",
+      "letters": 40,
+      "exact": false,
+      "mismatch_positions": [
+        0,
+        1,
+        2,
+        3,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "two_pointer_pairs": 20,
+      "sha256": "480c0343c94a53529e1fbf176775b47360e29e7e8a6f223e86128465f0da8ef0",
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "semantic_closure": {
+        "roles": {
+          "agent": "artist",
+          "action": "admires",
+          "theme": "canvas",
+          "setting": "bridge"
+        },
+        "orbit_closed": false,
+        "residual": "mismatch-at-live-edge"
+      }
+    },
+    {
+      "rendered": "a gardener waters garden beside the school bridge",
+      "letters": 42,
+      "exact": false,
+      "mismatch_positions": [
+        0,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        13
+      ],
+      "two_pointer_pairs": 21,
+      "sha256": "dfabbe7bc3ea323db30f3d80b2b1ab676e401a2324c3db866df8583bedaf5075",
+      "checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": true,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      },
+      "semantic_closure": {
+        "roles": {
+          "agent": "gardener",
+          "action": "waters",
+          "theme": "garden",
+          "setting": "bridge"
+        },
+        "orbit_closed": false,
+        "residual": "mismatch-at-live-edge"
+      }
+    }
+  ],
+  "mechanical_admission": [],
+  "stats": {
+    "rendered": 2,
+    "complete_clauses": 2,
+    "exact": 0,
+    "admitted": 0
+  },
+  "provenance": {
+    "generator_sha256": "46340df05558bca58f71681223bbc65a03c4f5765fe5cac7a32080af4daff804",
+    "lexical_source": "authored finite lexicon; no catalogue text",
+    "independent_audits": [
+      "two-pointer",
+      "SHA-256",
+      "mechanical admission"
+    ]
+  },
+  "next_discriminator": {
+    "operator": "add held-out transitive clause frame with typed plural agreement",
+    "reason": "current live orbit closes no exact ordinary control"
+  }
+}

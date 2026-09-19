@@ -44,6 +44,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_semantic_shell_repair": "7,272 intact scene-shell renderings; longest 183 letters; zero exact closure",
         "latest_indexed_path_repair": "1,205 typed-path nodes across 38–56 letters; two exact 38-letter admissions; no improvement",
         "latest_connector_product_repair": "100 typed connector frontier witnesses; longest 65 letters; zero exact closure",
+        "latest_residual_seam_repair": "246 grammatical clause combinations across 151 seam states; longest 66 letters; zero exact closure",
         "reader_study": "not run",
     },
 }
@@ -181,6 +182,23 @@ CONNECTOR_PRODUCT_RUN = {
     "next_repair": "index residual seam by remaining length, next character, and agreement state",
 }
 
+RESIDUAL_SEAM_RUN = {
+    "run_id": "residual-seam-scene-lattice-20260919",
+    "method": "complete grammatical clauses indexed by residual seam state",
+    "status": "completed_no_exact_closure",
+    "rendered_candidates": 246,
+    "indexed_states": 151,
+    "target_range": "40–70 letters",
+    "longest_rendered_letters": 66,
+    "exact_candidates": 0,
+    "mechanically_admitted_candidates": 0,
+    "longest_rendered_example": "the player greets the king as the bells sound a quiet poet praises the sonnet.",
+    "provenance": "fresh grammatical clauses and connectors; no finished-tape reversal; no catalogue import",
+    "independent_validation": ["literal outside-in two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "not_run; no exact candidate reached the reader gate",
+    "next_repair": "replace one residual-bearing clause terminal with a held-out same-valency Shakespearean realization",
+}
+
 OPTIMIZATION_SPEC = {
     "objective_order": [
         "exact letter-level closure",
@@ -195,11 +213,14 @@ OPTIMIZATION_SPEC = {
         "fragmentary or gibberish output",
     ],
     "promotion_rule": "A diagnostic score can choose the next repair but cannot certify readability; promotion requires randomized blinded intact-prose versus shuffled-control readers.",
-    "current_search": "semantic-shell-growth-20260919",
+    "current_search": "residual-seam-scene-lattice-20260919",
     "search_history": [
         "half-tape-grammar-csp-20260919",
         "dream-rsi-strict-phrase-bank-20260919",
         "semantic-shell-growth-20260919",
+        "half-tape-indexed-path-csp-20260919",
+        "connector-character-product-20260919",
+        "residual-seam-scene-lattice-20260919",
     ],
 }
 
@@ -452,7 +473,7 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "optimization": OPTIMIZATION_SPEC,
@@ -474,7 +495,7 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
     }
@@ -490,7 +511,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": SEMANTIC_SHELL_RUN,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",
     }

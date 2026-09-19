@@ -1,0 +1,53 @@
+{
+  "nfa_nodes": 511489,
+  "nfa_edges": 571968,
+  "paired_states": 1,
+  "paired_transitions": 0,
+  "layer_state_counts": [
+    1
+  ],
+  "dead_end_certificates": [
+    {
+      "depth": 0,
+      "left_node": 0,
+      "right_node": 1,
+      "forward_next": [
+        "a"
+      ],
+      "backward_next": [
+        "e",
+        "l",
+        "n"
+      ]
+    }
+  ],
+  "max_letters": 180,
+  "representative_exact_candidates": [],
+  "represented_closure_states": 0,
+  "longest_exact": 0,
+  "witnesses_per_state": 96,
+  "dropped_witness_buckets": 0,
+  "exhaustive_existence_within_bound": false,
+  "caveat": "Bounded packed witnesses preserve alternatives but do not certify readability or a quality optimum.",
+  "strict_gate": {
+    "admitted": 0,
+    "readable_over_38": 0,
+    "human_readability_test": "not performed; exact candidates require blinded readers"
+  },
+  "experiment": "semantic-cfg-palindrome-search-20260919b",
+  "method": "feature-unified semantic CFG -> factored character NFA -> packed exact palindrome paths",
+  "grammar": {
+    "clause_count": 20736,
+    "complete_clause_only": true,
+    "agreement_enforced_before_search": true,
+    "coordinated_paths": 32400
+  },
+  "independent_audit": "each rendered row uses two-pointer audit plus forward/reverse SHA-256 equality",
+  "next_repair": "add semantic role compatibility and boundary-aware lexical alternatives at the live dead-end character sets; do not widen with unconstrained word products",
+  "provenance": {
+    "source": "experiments/semantic_cfg_palindrome_search_20260919b.py",
+    "source_sha256": "ccb5fdeea0b20dad61d456a6cbe3a4546c911f002e9ef560d1d00951c0443310",
+    "source_head": "49f11eb87d06642be73a27ea34f543cc119e8da8",
+    "registry_sha256": "993deacf36415da367083f96d25350454ef69916bb8a524d945801864736219c"
+  }
+}

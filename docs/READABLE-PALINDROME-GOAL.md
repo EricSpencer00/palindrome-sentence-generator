@@ -69,9 +69,11 @@ relexicalization, repeated unit, fragment, or filler output can satisfy it.
   was unsigned, and the right side was assembled in reverse grammatical slot
   order. The repaired incoming/outgoing pair graph recovered the 44-letter
   polar-question diagnostic exactly, but produced no complete-answer closure.
-  Its next repair is now narrow and evidence-driven: author one complete
-  object-fronted answer whose outer letters satisfy the first dead pair
-  frontier, rather than widening the vocabulary or reranking fragments.
+  Five targeted complete `subject met object` alternatives at the first dead
+  frontier also produced no closure. Its next repair is now narrow and
+  evidence-driven: carry answer subject/verb/object tokens through that
+  frontier before committing the phrase, rather than widening the vocabulary
+  or reranking fragments.
 
 - **Progress audit.** `main` is clean and one local orchestration commit ahead
   of `origin/main`; the code baseline remains `ca526eb`. It contains 116

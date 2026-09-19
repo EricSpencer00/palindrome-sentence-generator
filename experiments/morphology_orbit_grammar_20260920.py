@@ -17,7 +17,10 @@ SIG = "joint-agreement-tense-clitic-state|independent-complete-english-clauses|m
 
 SUBJECTS = {"sg": ("the steward", "the lantern"), "pl": ("the stewards", "the lanterns")}
 VERBS = {"past": ("kept", "watched"), "present": ("keeps", "watches")}
-OBJECTS = {"sg": ("a record", "the gate"), "pl": ("records", "the gates")}
+OBJECTS = {
+    "sg": (("a record", "the gate"), ("the record", "the gate")),
+    "pl": (("records", "the gates"), ("the records", "the gates")),
+}
 CADENCE = ("at dusk", "in the hall")
 
 def _letters(s):
@@ -44,24 +47,25 @@ def novelty_preflight():
             "artifact_collision": any(x.get("artifact") == rel for x in rows),
             "shortcuts_rejected": ["finished-tape reversal", "word-order symmetry", "repeated/self-palindromic units", "catalogue text", "fragments/gibberish", "post-hoc repair"]}
 
-def render(number, tense, clitic, cadence):
+def render(number, tense, boundary, cadence):
     # Distinct clause authorship/order is encoded in separate templates.
-    s1, s2 = SUBJECTS[number]; v1, v2 = VERBS[tense]; o1, o2 = OBJECTS[number]
-    c1 = f"{s1} {v1} {o1}{clitic}"
+    s1, s2 = SUBJECTS[number]; v1, v2 = VERBS[tense]; o1, o2 = OBJECTS[number][boundary]
+    c1 = f"{s1} {v1} {o1}"
     c2 = f"{s2} {v2} {o2}"
     return f"{c1}, while {c2} {cadence}."
 
-def candidate(number, tense, clitic, cadence):
-    text = render(number, tense, clitic, cadence); a = audit(text)
-    return {"rendered": text, "grammar_state": {"number": number, "tense": tense, "clitic_boundary": clitic or "none", "cadence_slot": cadence},
-            "morphology_trace": [{"stage":"agreement","selected":number},{"stage":"tense","selected":tense},{"stage":"clitic","selected":clitic or "none"}],
+def candidate(number, tense, boundary, cadence):
+    text = render(number, tense, boundary, cadence); a = audit(text)
+    boundary_name = "indefinite" if boundary == 0 else "definite"
+    return {"rendered": text, "grammar_state": {"number": number, "tense": tense, "article_boundary": boundary_name, "cadence_slot": cadence},
+            "morphology_trace": [{"stage":"agreement","selected":number},{"stage":"tense","selected":tense},{"stage":"article_boundary","selected":boundary_name}],
             "orbit_obligation": {"left_pointer": 0, "right_pointer": a["letters"]-1, "jointly_selected": True, "lexicalized_before_emit": True},
             "audit": a,
             "anti_shortcut_flags": {k: False for k in ("finished_tape_reversal","word_order_symmetry","repeated_self_palindromic_unit","catalogue_text","fragment","post_hoc_repair")},
             "independent_clause_authorship": {"left_complete": True, "right_complete": True, "distinct_templates": True}}
 
 def run():
-    pre = novelty_preflight(); rows = [candidate(n,t,c,k) for n in ("sg","pl") for t in ("past","present") for c in ("","s") for k in CADENCE]
+    pre = novelty_preflight(); rows = [candidate(n,t,b,k) for n in ("sg","pl") for t in ("past","present") for b in (0,1) for k in CADENCE]
     controls = [{"text":"the gardener opens the window at dawn.", "real_prose":True, "audit":audit("the gardener opens the window at dawn.")}, {"text":"the children watched the river in silence.", "real_prose":True, "audit":audit("the children watched the river in silence.")}]
     exact = [r for r in rows if r["audit"]["two_pointer_exact"]]
     return {"experiment_id":ID,"signature":SIG,"status":"completed_exact" if exact else "completed_no_exact_closure","method":"joint morphology state and mirrored character orbit over two complete independently authored clauses","novelty_preflight":pre,"candidate_count":len(rows),"exact_count":len(exact),"reader_eligible":False,"rendered_candidates":rows,"real_prose_controls":controls,"stats":{"variants":len(rows),"longest_letters":max(r["audit"]["letters"] for r in rows),"morphology_states":8,"exact":len(exact)},"failure_and_repair":{"failure":"no exact closure" if not exact else "exact closure found","next_construction_discriminator":"hold agreement and tense fixed, then vary clitic attachment across the clause boundary and require a new orbit signature"},"provenance":{"generator_sha256":hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),"independent_audits":["two-pointer character orbit","forward/reverse SHA-256","independent prose controls","grammar-state replay"],"shortcuts_excluded":True}}

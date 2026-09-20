@@ -1164,6 +1164,15 @@ a case for a wider beam: the next topology allows free cross-word boundary
 offsets through a lexical boundary transducer. Artifact:
 `runs/brown-bidirectional-beam-decoder-20260920.json`.
 
+The free-offset boundary transducer allowed independent word entry and exit on
+the two sides while retaining complete role-specific grammar paths. It still
+explored only 16 states and closed no exact candidate; the same 38- and
+46-letter prose controls were independently audited. This isolates the next
+missing geometry: a seam-indexed lexical generator must choose compatible
+character spans before selecting complete grammar roles, rather than widening
+the same beam. Artifact:
+`runs/brown-boundary-transducer-free-offsets-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

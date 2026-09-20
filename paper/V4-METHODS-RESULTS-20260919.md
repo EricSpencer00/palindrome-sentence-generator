@@ -112,6 +112,8 @@ multiword palindrome span:
 | Four-slot carried-character grammar | Agent, verb, object, and attachment slots propagate mirrored character obligations after each slot and prune before complete rendering | 6,144 states; all pruned before rendering; no candidate promoted | 0 / 0 |
 | Relation/connector event frames | Carries contrast, cause, or sequence relation choice alongside agreement-valid event frames and scores outer agreement before rendering | 24 complete prose candidates; longest 73 letters; best pre-render outer agreement 5 | 0 / 0 |
 | Typed semordnilap phrase graph | Uses mirror-pair strings only as a vocabulary index, then enforces phrase role and article agreement before shell rendering | 4,656 indexed pairs; all rejected before rendering; malformed fragments quarantined | 0 / 0 |
+| Dependency attachment reset | Pairs active, passive, and locative dependency realizations and measures attachment seams after independent clause selection | 36 complete natural-English candidates; longest 77 letters; diagnostic only | 0 / 0 |
+| Held-out endpoint/function frames | Enforces bilateral first/last character equality on new event frames before selecting a held-out connector | 27 complete natural-English candidates; longest 79 letters | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
 discriminator: 16 independently authored clause pairs were rendered above 38

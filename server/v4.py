@@ -86,6 +86,8 @@ BEST_KNOWN_PROVENANCE = {
         "latest_relation_connector_frames": "3 relations over 4 typed frames; 24 complete prose candidates; longest 73 letters; max pre-render outer agreement 5; zero exact >38 closure",
         "latest_compositional_slot_carry": "6,144 states; all pruned before rendering by carried character obligations; zero rendered candidates",
         "latest_semordnilap_phrase_graph": "4,656 indexed mirror pairs; zero phrase edges survive role and article-agreement gates; zero rendered candidates",
+        "latest_dependency_attachment_reset": "36 complete natural-English candidates; longest 77 letters; attachment seam diagnostic only; zero exact >38 closure",
+        "latest_heldout_endpoint_function_frames": "27 endpoint-gated complete prose candidates; longest 79 letters; zero exact >38 closure",
         "reader_study": "not run",
     },
 }

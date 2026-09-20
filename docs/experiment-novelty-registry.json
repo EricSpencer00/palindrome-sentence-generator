@@ -12562,6 +12562,24 @@
       "distinction": "Uses the mirror-pair file only as a vocabulary search index, then classifies phrase roles and enforces article agreement before any shell is rendered; malformed fragments and catalogue rows are quarantined. No finished-tape reversal, word-order-only symmetry, repeated units, or self-palindromic units.",
       "reader_evidence": false,
       "status": "4,656 indexed pairs, 0 phrase edges surviving role and article-agreement gates, 0 rendered candidates, 0 exact candidates above 38 letters; malformed diagnostics withheld from reader evaluation"
+    },
+    {
+      "id": "dependency-attachment-reset-20260920",
+      "signature": "active-passive-locative|attachment-seam-diagnostic|typed-dependency-reset",
+      "artifact": "dependency_attachment_reset_20260920.py",
+      "run_artifacts": ["runs/dependency-attachment-reset-20260920.json"],
+      "distinction": "Pairs active, passive, and locative dependency realizations and measures an attachment seam after independent clause selection; it is explicitly diagnostic rather than a pre-render character gate. No repair, reversal, catalogue borrowing, mirrored units, or fragments.",
+      "reader_evidence": false,
+      "status": "36 complete natural-English candidates, longest 77 letters, 0 exact candidates above 38 letters; attachment seam measured after selection; independent pointer/SHA audits retained; reader gate closed"
+    },
+    {
+      "id": "heldout-endpoint-function-frames-20260920",
+      "signature": "heldout-endpoint-function-frames|independent-event-clauses|endpoint-class-gate|heldout-connectors",
+      "artifact": "heldout_endpoint_function_frames_20260920.py",
+      "run_artifacts": ["runs/heldout-endpoint-function-frames-20260920.json"],
+      "distinction": "Applies a bilateral first/last character gate to new independently authored event frames before choosing a held-out connector bank; distinct from relation-only frame scoring. No repair, reversal, catalogue borrowing, mirrored units, or fragments.",
+      "reader_evidence": false,
+      "status": "3 by 3 frame pairs and 3 held-out connectors, 27 complete prose candidates, longest 79 letters, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed"
     }
   ]
 }

@@ -1,0 +1,3083 @@
+{
+  "experiment_id": "unequal-center-ditransitive-relative-complement-20260920",
+  "signature": "typed-seam-machine|token-frontier-product|center-overhang|heldout-ditransitive-relative-complement",
+  "method": "Held-out ditransitive and theme-headed object-relative-complement grammar paths intersected by the same minimal two-cursor seam machine as the base unequal-center lane; left characters advance forward, right characters advance inward, and unequal word/clause boundaries plus in-word centers remain live.",
+  "operator_added": {
+    "name": "held-out ditransitive and relative-complement productions",
+    "ditransitive_form": "Subject finite-verb Recipient Theme",
+    "relative_complement_form": "Subject finite-verb ThemeHead that RelativeSubject RelativeFiniteVerb",
+    "old_transitive_bank_replayed": false,
+    "same_cursor_product": true
+  },
+  "stats": {
+    "heldout_clause_paths": 96,
+    "paths_by_production": {
+      "ditransitive": 32,
+      "relative_complement": 64
+    },
+    "paired_grammar_states": 9216,
+    "online_character_equations": 9472,
+    "mismatch_prunes": 9216,
+    "overhang_prunes": 0,
+    "seam_closures": 0,
+    "unequal_word_count_pairs": 5632,
+    "unequal_letter_count_pairs": 8714,
+    "rendered_controls": 20,
+    "mechanical_exact_candidates": 0,
+    "exact_clean_above_38": 0,
+    "longest_rendered_control_letters": 142,
+    "longest_exact_clean_letters": 0
+  },
+  "rendered_controls": [
+    {
+      "rendered": "The astute courier offers the quiet keeper a sealed letter; a patient gardener sends a careful student the blue atlas.",
+      "letters": 97,
+      "audit": {
+        "normalized_tape": "theastutecourieroffersthequietkeeperasealedletterapatientgardenersendsacarefulstudenttheblueatlas",
+        "letters": 97,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 96,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "2e1019f07a9157f25a965b1546580b98a9d1ccd4a66c49c84b3d70f369b35b69",
+        "sha256_reverse": "19a70d767ebe04a91407465b92b534eb531c60713537629d769bd91430efbaa8",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "atlas",
+            "role": "theme",
+            "word_index": 9,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 49,
+        "right_remaining": 48
+      },
+      "midpoint": {
+        "midpoint": 48,
+        "crossing": {
+          "token": "letter",
+          "token_interval": [
+            43,
+            49
+          ],
+          "midpoint": 48,
+          "offset": 5,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "ditransitive:courier:offer:keeper:letter",
+        "right_frame_id": "ditransitive:gardener:send:student:atlas",
+        "left_production": "ditransitive",
+        "right_production": "ditransitive",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "recipient",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "recipient",
+          "theme"
+        ],
+        "left_clause_words": [
+          "the",
+          "astute",
+          "courier",
+          "offers",
+          "the",
+          "quiet",
+          "keeper",
+          "a",
+          "sealed",
+          "letter"
+        ],
+        "right_clause_words": [
+          "a",
+          "patient",
+          "gardener",
+          "sends",
+          "a",
+          "careful",
+          "student",
+          "the",
+          "blue",
+          "atlas"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The astute courier offers the quiet keeper a sealed letter; the weathered sailor studies the weathered chart that the careful beekeeper guards.",
+      "letters": 120,
+      "audit": {
+        "normalized_tape": "theastutecourieroffersthequietkeeperasealedlettertheweatheredsailorstudiestheweatheredchartthatthecarefulbeekeeperguards",
+        "letters": 120,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 119,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "8e22168d1daf773a3ea1b3c61d309f190c8c6ea95f16984b0d28e50970e644c6",
+        "sha256_reverse": "77ba4ff948bd221fd51eeefdeaf663e42ec48a529984239f528d3ce85e93d551",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "guards",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 49,
+        "right_remaining": 71
+      },
+      "midpoint": {
+        "midpoint": 59,
+        "crossing": {
+          "token": "weathered",
+          "token_interval": [
+            52,
+            61
+          ],
+          "midpoint": 59,
+          "offset": 7,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "ditransitive:courier:offer:keeper:letter",
+        "right_frame_id": "relative-complement:sailor:study:chart:beekeeper:guard",
+        "left_production": "ditransitive",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "recipient",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "astute",
+          "courier",
+          "offers",
+          "the",
+          "quiet",
+          "keeper",
+          "a",
+          "sealed",
+          "letter"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor studies the weathered chart that the careful beekeeper guards; the astute courier offers the quiet keeper a sealed letter.",
+      "letters": 120,
+      "audit": {
+        "normalized_tape": "theweatheredsailorstudiestheweatheredchartthatthecarefulbeekeeperguardstheastutecourieroffersthequietkeeperasealedletter",
+        "letters": 120,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 119,
+          "left_char": "t",
+          "right_char": "r"
+        },
+        "sha256_forward": "9fee123d9e6d5dab9b0cb1e1f6d0a3d2de127c5bf8e18c57891a2c0f6b1c087a",
+        "sha256_reverse": "d19920a0c92d03a8640749da7a00c4d9cc13c560df58e01a78a0461b17f95ae6",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "r",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "letter",
+            "role": "theme",
+            "word_index": 9,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 71,
+        "right_remaining": 49
+      },
+      "midpoint": {
+        "midpoint": 59,
+        "crossing": {
+          "token": "beekeeper",
+          "token_interval": [
+            56,
+            65
+          ],
+          "midpoint": 59,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:study:chart:beekeeper:guard",
+        "right_frame_id": "ditransitive:courier:offer:keeper:letter",
+        "left_production": "relative_complement",
+        "right_production": "ditransitive",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "recipient",
+          "theme"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "right_clause_words": [
+          "the",
+          "astute",
+          "courier",
+          "offers",
+          "the",
+          "quiet",
+          "keeper",
+          "a",
+          "sealed",
+          "letter"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor studies the weathered chart that the careful beekeeper guards; a distant painter records a narrow bridge that a quiet engineer names.",
+      "letters": 129,
+      "audit": {
+        "normalized_tape": "theweatheredsailorstudiestheweatheredchartthatthecarefulbeekeeperguardsadistantpainterrecordsanarrowbridgethataquietengineernames",
+        "letters": 129,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 128,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "3dcb24c81041b51071ced50fc83684eadb6f2a249dfec8efe64221ff24383698",
+        "sha256_reverse": "7bfb19f225a649ab8be5c31e07c8022ed824592e3286d4f60f52a4074284ba55",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "names",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 71,
+        "right_remaining": 58
+      },
+      "midpoint": {
+        "midpoint": 64,
+        "crossing": {
+          "token": "beekeeper",
+          "token_interval": [
+            56,
+            65
+          ],
+          "midpoint": 64,
+          "offset": 8,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:study:chart:beekeeper:guard",
+        "right_frame_id": "relative-complement:painter:record:bridge:engineer:name",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "right_clause_words": [
+          "a",
+          "distant",
+          "painter",
+          "records",
+          "a",
+          "narrow",
+          "bridge",
+          "that",
+          "a",
+          "quiet",
+          "engineer",
+          "names"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": false,
+        "repeated_content_words": [],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor records the weathered chart that the careful beekeeper guards; the weathered sailor studies the weathered chart that the careful beekeeper guards.",
+      "letters": 142,
+      "audit": {
+        "normalized_tape": "theweatheredsailorrecordstheweatheredchartthatthecarefulbeekeeperguardstheweatheredsailorstudiestheweatheredchartthatthecarefulbeekeeperguards",
+        "letters": 142,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 141,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "364c85fb0cb09e90ded1f99cf485a71fd911a066c79f9f997443bea10ca40093",
+        "sha256_reverse": "516a5f8684411a04d4f0bcc66441c50e9155330cfeb8c3c88e093cc9a2e67f5e",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "guards",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 71,
+        "right_remaining": 71
+      },
+      "midpoint": {
+        "midpoint": 70,
+        "crossing": {
+          "token": "guards",
+          "token_interval": [
+            65,
+            71
+          ],
+          "midpoint": 70,
+          "offset": 5,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:record:chart:beekeeper:guard",
+        "right_frame_id": "relative-complement:sailor:study:chart:beekeeper:guard",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "beekeeper",
+          "careful",
+          "chart",
+          "guards",
+          "sailor",
+          "weathered"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "Distant painters record the weathered chart that quiet engineers guard; the weathered sailor records the weathered chart that the careful beekeeper guards.",
+      "letters": 132,
+      "audit": {
+        "normalized_tape": "distantpaintersrecordtheweatheredchartthatquietengineersguardtheweatheredsailorrecordstheweatheredchartthatthecarefulbeekeeperguards",
+        "letters": 132,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 131,
+          "left_char": "d",
+          "right_char": "s"
+        },
+        "sha256_forward": "520ce05c59dc4476f6206d9ea5730dc51cd711ec4bcaf30811109c2f36ed294d",
+        "sha256_reverse": "aafbe449fff0a79f278e5a9bf56ac28f7dfb2e44c3e89e5767d0de43687c4ab7",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "d",
+          "right_char": "s",
+          "left_location": {
+            "word": "distant",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "guards",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 61,
+        "right_remaining": 71
+      },
+      "midpoint": {
+        "midpoint": 65,
+        "crossing": {
+          "token": "weathered",
+          "token_interval": [
+            64,
+            73
+          ],
+          "midpoint": 65,
+          "offset": 1,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:painters:record:chart:engineers:guard",
+        "right_frame_id": "relative-complement:sailor:record:chart:beekeeper:guard",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "distant",
+          "painters",
+          "record",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "quiet",
+          "engineers",
+          "guard"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "chart",
+          "weathered"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "Distant painters record a narrow bridge that quiet engineers name; the weathered sailor records a narrow bridge that the careful beekeeper names.",
+      "letters": 122,
+      "audit": {
+        "normalized_tape": "distantpaintersrecordanarrowbridgethatquietengineersnametheweatheredsailorrecordsanarrowbridgethatthecarefulbeekeepernames",
+        "letters": 122,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 121,
+          "left_char": "d",
+          "right_char": "s"
+        },
+        "sha256_forward": "0f1994b181f8ff8ef7cb84bb403995ac8a74fdb5fb896735b5c21d239af1b235",
+        "sha256_reverse": "dfa03a5832367870ad62272ce396016571ac836473f820c060469d33b9d2e99b",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "d",
+          "right_char": "s",
+          "left_location": {
+            "word": "distant",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "names",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 56,
+        "right_remaining": 66
+      },
+      "midpoint": {
+        "midpoint": 60,
+        "crossing": {
+          "token": "weathered",
+          "token_interval": [
+            59,
+            68
+          ],
+          "midpoint": 60,
+          "offset": 1,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:painters:record:bridge:engineers:name",
+        "right_frame_id": "relative-complement:sailor:record:bridge:beekeeper:name",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "distant",
+          "painters",
+          "record",
+          "a",
+          "narrow",
+          "bridge",
+          "that",
+          "quiet",
+          "engineers",
+          "name"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "a",
+          "narrow",
+          "bridge",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "names"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bridge",
+          "narrow"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "Distant painters record a narrow bridge that quiet engineers name; distant painters study a narrow bridge that quiet engineers guard.",
+      "letters": 112,
+      "audit": {
+        "normalized_tape": "distantpaintersrecordanarrowbridgethatquietengineersnamedistantpaintersstudyanarrowbridgethatquietengineersguard",
+        "letters": 112,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 1,
+          "right_index": 110,
+          "left_char": "i",
+          "right_char": "r"
+        },
+        "sha256_forward": "b7ebb8a4f4db364af06e10f56cb2b54be2cdfe5df1914c849a018c41c5c27b0f",
+        "sha256_reverse": "3977889ae0ddad8a8c42d8b8528512b9a46de722cf801dbb9ba174b2d14d6cda",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 1,
+        "online_equations": 2,
+        "first_mismatch": {
+          "left_char": "i",
+          "right_char": "r",
+          "left_location": {
+            "word": "distant",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 1,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "guard",
+            "role": "relative_finite_verb",
+            "word_index": 9,
+            "offset": 3,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 1
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 55,
+        "right_remaining": 55
+      },
+      "midpoint": {
+        "midpoint": 55,
+        "crossing": {
+          "token": "name",
+          "token_interval": [
+            52,
+            56
+          ],
+          "midpoint": 55,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:painters:record:bridge:engineers:name",
+        "right_frame_id": "relative-complement:painters:study:bridge:engineers:guard",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "distant",
+          "painters",
+          "record",
+          "a",
+          "narrow",
+          "bridge",
+          "that",
+          "quiet",
+          "engineers",
+          "name"
+        ],
+        "right_clause_words": [
+          "distant",
+          "painters",
+          "study",
+          "a",
+          "narrow",
+          "bridge",
+          "that",
+          "quiet",
+          "engineers",
+          "guard"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bridge",
+          "distant",
+          "engineers",
+          "narrow",
+          "painters",
+          "quiet"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "Distant painters record a narrow bridge that quiet engineers name; patient gardeners send the quiet keeper the blue atlas.",
+      "letters": 102,
+      "audit": {
+        "normalized_tape": "distantpaintersrecordanarrowbridgethatquietengineersnamepatientgardenerssendthequietkeepertheblueatlas",
+        "letters": 102,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 101,
+          "left_char": "d",
+          "right_char": "s"
+        },
+        "sha256_forward": "38fbdcb47c35d126ce276abb3259b93ac745092591e24ff7917a7d4ee325da12",
+        "sha256_reverse": "fd1300d5d9468db26c2de6d414d59e1f7524e8782d372eec5404f2ff8a7136e5",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "d",
+          "right_char": "s",
+          "left_location": {
+            "word": "distant",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "atlas",
+            "role": "theme",
+            "word_index": 8,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 56,
+        "right_remaining": 46
+      },
+      "midpoint": {
+        "midpoint": 50,
+        "crossing": {
+          "token": "engineers",
+          "token_interval": [
+            43,
+            52
+          ],
+          "midpoint": 50,
+          "offset": 7,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:painters:record:bridge:engineers:name",
+        "right_frame_id": "ditransitive:gardeners:send:keeper:atlas",
+        "left_production": "relative_complement",
+        "right_production": "ditransitive",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "recipient",
+          "theme"
+        ],
+        "left_clause_words": [
+          "distant",
+          "painters",
+          "record",
+          "a",
+          "narrow",
+          "bridge",
+          "that",
+          "quiet",
+          "engineers",
+          "name"
+        ],
+        "right_clause_words": [
+          "patient",
+          "gardeners",
+          "send",
+          "the",
+          "quiet",
+          "keeper",
+          "the",
+          "blue",
+          "atlas"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "quiet"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "Patient gardeners send a careful student the blue atlas; astute couriers send a careful student the blue atlas.",
+      "letters": 92,
+      "audit": {
+        "normalized_tape": "patientgardenerssendacarefulstudenttheblueatlasastutecourierssendacarefulstudenttheblueatlas",
+        "letters": 92,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 91,
+          "left_char": "p",
+          "right_char": "s"
+        },
+        "sha256_forward": "962bbc585b552b099f850aca75fc1275847644350569e43a403b355c23e38f00",
+        "sha256_reverse": "9bbccc56c8b6a4912848de22c5bd6df34aa226abe3a2393840ab70673318cd9a",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "p",
+          "right_char": "s",
+          "left_location": {
+            "word": "patient",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "atlas",
+            "role": "theme",
+            "word_index": 8,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 47,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 45,
+        "crossing": {
+          "token": "atlas",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 45,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "ditransitive:gardeners:send:student:atlas",
+        "right_frame_id": "ditransitive:couriers:send:student:atlas",
+        "left_production": "ditransitive",
+        "right_production": "ditransitive",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "recipient",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "recipient",
+          "theme"
+        ],
+        "left_clause_words": [
+          "patient",
+          "gardeners",
+          "send",
+          "a",
+          "careful",
+          "student",
+          "the",
+          "blue",
+          "atlas"
+        ],
+        "right_clause_words": [
+          "astute",
+          "couriers",
+          "send",
+          "a",
+          "careful",
+          "student",
+          "the",
+          "blue",
+          "atlas"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "atlas",
+          "blue",
+          "careful",
+          "send",
+          "student"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor studies the weathered chart that the careful beekeeper guards; the weathered sailor records the weathered chart that the careful beekeeper guards.",
+      "letters": 142,
+      "audit": {
+        "normalized_tape": "theweatheredsailorstudiestheweatheredchartthatthecarefulbeekeeperguardstheweatheredsailorrecordstheweatheredchartthatthecarefulbeekeeperguards",
+        "letters": 142,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 141,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "f56ebe731e70c0387a0481195799f1bb3fb47eb2fedda145984f953cfe0d5d1a",
+        "sha256_reverse": "981270baee5415b487680e996db68f63f2e803228691ad66354bf2234d011d2e",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "guards",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 71,
+        "right_remaining": 71
+      },
+      "midpoint": {
+        "midpoint": 70,
+        "crossing": {
+          "token": "guards",
+          "token_interval": [
+            65,
+            71
+          ],
+          "midpoint": 70,
+          "offset": 5,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:study:chart:beekeeper:guard",
+        "right_frame_id": "relative-complement:sailor:record:chart:beekeeper:guard",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "beekeeper",
+          "careful",
+          "chart",
+          "guards",
+          "sailor",
+          "weathered"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor records the weathered chart that the careful beekeeper names; the weathered sailor records the weathered chart that the careful beekeeper guards.",
+      "letters": 141,
+      "audit": {
+        "normalized_tape": "theweatheredsailorrecordstheweatheredchartthatthecarefulbeekeepernamestheweatheredsailorrecordstheweatheredchartthatthecarefulbeekeeperguards",
+        "letters": 141,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 140,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "db441c3f01ca856101235444c0296134e8da47dd23514e39fb98dbb7ff32d624",
+        "sha256_reverse": "480a6c03faebff829746af4ed007e91f903c3c29025dbf1ce10825af22608ca9",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "guards",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 70,
+        "right_remaining": 71
+      },
+      "midpoint": {
+        "midpoint": 70,
+        "crossing": {
+          "token": "the",
+          "token_interval": [
+            70,
+            73
+          ],
+          "midpoint": 70,
+          "offset": 0,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:record:chart:beekeeper:name",
+        "right_frame_id": "relative-complement:sailor:record:chart:beekeeper:guard",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "names"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "beekeeper",
+          "careful",
+          "chart",
+          "records",
+          "sailor",
+          "weathered"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor records the weathered chart that the careful beekeeper names; the weathered sailor studies the weathered chart that the careful beekeeper guards.",
+      "letters": 141,
+      "audit": {
+        "normalized_tape": "theweatheredsailorrecordstheweatheredchartthatthecarefulbeekeepernamestheweatheredsailorstudiestheweatheredchartthatthecarefulbeekeeperguards",
+        "letters": 141,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 140,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "fa44693a59079d5e37a4a865dd0871e9992b85538ef8e06e2c1d6fe02e1470a0",
+        "sha256_reverse": "f55e951cd76fa3309a4e0d099fa5b056469872ce428754aafa6a6e3732c81249",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "guards",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 70,
+        "right_remaining": 71
+      },
+      "midpoint": {
+        "midpoint": 70,
+        "crossing": {
+          "token": "the",
+          "token_interval": [
+            70,
+            73
+          ],
+          "midpoint": 70,
+          "offset": 0,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:record:chart:beekeeper:name",
+        "right_frame_id": "relative-complement:sailor:study:chart:beekeeper:guard",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "names"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "beekeeper",
+          "careful",
+          "chart",
+          "sailor",
+          "weathered"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor records the weathered chart that the careful beekeeper guards; the weathered sailor records the weathered chart that the careful beekeeper names.",
+      "letters": 141,
+      "audit": {
+        "normalized_tape": "theweatheredsailorrecordstheweatheredchartthatthecarefulbeekeeperguardstheweatheredsailorrecordstheweatheredchartthatthecarefulbeekeepernames",
+        "letters": 141,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 140,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "0d841ec5f0f316c1e67e382b82ce611f5bef9692159b4742a8d415128ddb39a7",
+        "sha256_reverse": "c1c35c605ffb97c9335062a37486eb546e047b0dacc24d30d0740e6e815c0751",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "names",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 71,
+        "right_remaining": 70
+      },
+      "midpoint": {
+        "midpoint": 70,
+        "crossing": {
+          "token": "guards",
+          "token_interval": [
+            65,
+            71
+          ],
+          "midpoint": 70,
+          "offset": 5,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:record:chart:beekeeper:guard",
+        "right_frame_id": "relative-complement:sailor:record:chart:beekeeper:name",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "names"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "beekeeper",
+          "careful",
+          "chart",
+          "records",
+          "sailor",
+          "weathered"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor records the weathered chart that the careful beekeeper guards; the weathered sailor studies the weathered chart that the careful beekeeper names.",
+      "letters": 141,
+      "audit": {
+        "normalized_tape": "theweatheredsailorrecordstheweatheredchartthatthecarefulbeekeeperguardstheweatheredsailorstudiestheweatheredchartthatthecarefulbeekeepernames",
+        "letters": 141,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 140,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "5d35d87f9e62af628716871df4a9281790d18bd9c2df2b2b4335745d1c3fe7e8",
+        "sha256_reverse": "911eea49c6d753198fd027983cc66e0f85f7a4993cb2e352353a913676001a5d",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "names",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 71,
+        "right_remaining": 70
+      },
+      "midpoint": {
+        "midpoint": 70,
+        "crossing": {
+          "token": "guards",
+          "token_interval": [
+            65,
+            71
+          ],
+          "midpoint": 70,
+          "offset": 5,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:record:chart:beekeeper:guard",
+        "right_frame_id": "relative-complement:sailor:study:chart:beekeeper:name",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "names"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "beekeeper",
+          "careful",
+          "chart",
+          "sailor",
+          "weathered"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor studies the weathered chart that the careful beekeeper names; the weathered sailor records the weathered chart that the careful beekeeper guards.",
+      "letters": 141,
+      "audit": {
+        "normalized_tape": "theweatheredsailorstudiestheweatheredchartthatthecarefulbeekeepernamestheweatheredsailorrecordstheweatheredchartthatthecarefulbeekeeperguards",
+        "letters": 141,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 140,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "88c1060f7897c5c7933e5d2a7c7f0ca49185f22ad90556a83606d6c7834f2cb3",
+        "sha256_reverse": "d1456194dc3a7f497c29be7337e0d79de543e306fec95ff4e268300b9540f03e",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "guards",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 70,
+        "right_remaining": 71
+      },
+      "midpoint": {
+        "midpoint": 70,
+        "crossing": {
+          "token": "the",
+          "token_interval": [
+            70,
+            73
+          ],
+          "midpoint": 70,
+          "offset": 0,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:study:chart:beekeeper:name",
+        "right_frame_id": "relative-complement:sailor:record:chart:beekeeper:guard",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "names"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "beekeeper",
+          "careful",
+          "chart",
+          "sailor",
+          "weathered"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor studies the weathered chart that the careful beekeeper names; the weathered sailor studies the weathered chart that the careful beekeeper guards.",
+      "letters": 141,
+      "audit": {
+        "normalized_tape": "theweatheredsailorstudiestheweatheredchartthatthecarefulbeekeepernamestheweatheredsailorstudiestheweatheredchartthatthecarefulbeekeeperguards",
+        "letters": 141,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 140,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "5000127da9119361344b0dfdece8034dc1f259aaa92b6c33a29bae3f21ac6fe8",
+        "sha256_reverse": "a636a63c38e1d0c4bd5018bb6af3a9d0ee1538aed3f4087f075ba8eb25b4744a",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "guards",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 70,
+        "right_remaining": 71
+      },
+      "midpoint": {
+        "midpoint": 70,
+        "crossing": {
+          "token": "the",
+          "token_interval": [
+            70,
+            73
+          ],
+          "midpoint": 70,
+          "offset": 0,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:study:chart:beekeeper:name",
+        "right_frame_id": "relative-complement:sailor:study:chart:beekeeper:guard",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "names"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "beekeeper",
+          "careful",
+          "chart",
+          "sailor",
+          "studies",
+          "weathered"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor studies the weathered chart that the careful beekeeper guards; the weathered sailor records the weathered chart that the careful beekeeper names.",
+      "letters": 141,
+      "audit": {
+        "normalized_tape": "theweatheredsailorstudiestheweatheredchartthatthecarefulbeekeeperguardstheweatheredsailorrecordstheweatheredchartthatthecarefulbeekeepernames",
+        "letters": 141,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 140,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "479c7e7df2813ae4ce396129d84ce4bafc36e880a184710b03ea57ff198883b6",
+        "sha256_reverse": "21cb63cfcd6f64bc2ce0d8595fec05eb1d326b9911a258bbc53f94514be31e21",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "names",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 71,
+        "right_remaining": 70
+      },
+      "midpoint": {
+        "midpoint": 70,
+        "crossing": {
+          "token": "guards",
+          "token_interval": [
+            65,
+            71
+          ],
+          "midpoint": 70,
+          "offset": 5,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:study:chart:beekeeper:guard",
+        "right_frame_id": "relative-complement:sailor:record:chart:beekeeper:name",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "names"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "beekeeper",
+          "careful",
+          "chart",
+          "sailor",
+          "weathered"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor studies the weathered chart that the careful beekeeper guards; the weathered sailor studies the weathered chart that the careful beekeeper names.",
+      "letters": 141,
+      "audit": {
+        "normalized_tape": "theweatheredsailorstudiestheweatheredchartthatthecarefulbeekeeperguardstheweatheredsailorstudiestheweatheredchartthatthecarefulbeekeepernames",
+        "letters": 141,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 140,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "b06287819e0f95fa7b6f31fffe33ae53096375f988998a933b3c0e04afccbfa8",
+        "sha256_reverse": "86b63486852c7f0ec9cffc2dbb4e640970b05c2ec7a44e13151b0e95fef803b1",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "names",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 71,
+        "right_remaining": 70
+      },
+      "midpoint": {
+        "midpoint": 70,
+        "crossing": {
+          "token": "guards",
+          "token_interval": [
+            65,
+            71
+          ],
+          "midpoint": 70,
+          "offset": 5,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:study:chart:beekeeper:guard",
+        "right_frame_id": "relative-complement:sailor:study:chart:beekeeper:name",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "guards"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "names"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "beekeeper",
+          "careful",
+          "chart",
+          "sailor",
+          "studies",
+          "weathered"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The weathered sailor records the weathered chart that the careful beekeeper names; the weathered sailor studies the weathered chart that the careful beekeeper names.",
+      "letters": 140,
+      "audit": {
+        "normalized_tape": "theweatheredsailorrecordstheweatheredchartthatthecarefulbeekeepernamestheweatheredsailorstudiestheweatheredchartthatthecarefulbeekeepernames",
+        "letters": 140,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 139,
+          "left_char": "t",
+          "right_char": "s"
+        },
+        "sha256_forward": "25d6332c96427395db1c35c257060f8af79e863176c4efb5f59601e15000f2dc",
+        "sha256_reverse": "077acf1d0f63329322b716a4da080adbef001fd83221a9cb5ac040cb958d067a",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "t",
+          "right_char": "s",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "names",
+            "role": "relative_finite_verb",
+            "word_index": 11,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 70,
+        "right_remaining": 70
+      },
+      "midpoint": {
+        "midpoint": 69,
+        "crossing": {
+          "token": "names",
+          "token_interval": [
+            65,
+            70
+          ],
+          "midpoint": 69,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "relative-complement:sailor:record:chart:beekeeper:name",
+        "right_frame_id": "relative-complement:sailor:study:chart:beekeeper:name",
+        "left_production": "relative_complement",
+        "right_production": "relative_complement",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme_head",
+          "relative_marker",
+          "relative_subject",
+          "relative_finite_verb"
+        ],
+        "left_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "records",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "names"
+        ],
+        "right_clause_words": [
+          "the",
+          "weathered",
+          "sailor",
+          "studies",
+          "the",
+          "weathered",
+          "chart",
+          "that",
+          "the",
+          "careful",
+          "beekeeper",
+          "names"
+        ],
+        "lexical_source": "held-out authored ditransitive and object-relative-complement slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "beekeeper",
+          "careful",
+          "chart",
+          "names",
+          "sailor",
+          "weathered"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "exact_clean_candidates": [],
+  "reader_facing_candidates": [],
+  "reader_gate": {
+    "status": "closed",
+    "reason": "No exact-clean candidate from this lane has blinded human readability evidence.",
+    "human_raters": 0
+  },
+  "center_transition_contract": {
+    "description": "Cursor-level contract only; probe strings are not sentence candidates.",
+    "probes": [
+      {
+        "left_words": [
+          "aba"
+        ],
+        "right_words": [
+          "ba"
+        ],
+        "status": "closed",
+        "seam_mode": "left_center_inside_word",
+        "center_location": {
+          "word": "aba",
+          "role": "probe",
+          "word_index": 0,
+          "offset": 2,
+          "word_length": 3,
+          "inside_word": true
+        }
+      },
+      {
+        "left_words": [
+          "ab"
+        ],
+        "right_words": [
+          "cba"
+        ],
+        "status": "closed",
+        "seam_mode": "right_center_inside_word",
+        "center_location": {
+          "word": "cba",
+          "role": "probe",
+          "word_index": 0,
+          "offset": 0,
+          "word_length": 3,
+          "inside_word": true
+        }
+      },
+      {
+        "left_words": [
+          "ab"
+        ],
+        "right_words": [
+          "ba"
+        ],
+        "status": "closed",
+        "seam_mode": "even_seam",
+        "center_location": null
+      }
+    ],
+    "all_expected_modes_present": true
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_inspected": true,
+    "registry_entries_read": 666,
+    "exact_signature_collision": [],
+    "base_lane_seen": true,
+    "related_signatures_seen": [
+      "terminal-aware-grammar-intersection-20260916",
+      "unequal-center-grammar-intersection-20260920"
+    ],
+    "signature": "typed-seam-machine|token-frontier-product|center-overhang|heldout-ditransitive-relative-complement",
+    "distinction": "The prior seam machine is reused unchanged as the cursor product, but this run emits only two held-out ordinary-order productions: a recipient/theme ditransitive and a theme-headed object-relative complement. Both carry typed valency and agreement roles through unequal word and letter boundaries; no old transitive bank is replayed.",
+    "not_a_duplicate_sweep": true
+  },
+  "provenance": {
+    "generator_sha256": "bdf373892213b4cf9578e5e19d683992382febc64d339ac7a53b4a9770edbc60",
+    "independent_audits": [
+      "direct outside-in two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "search_lexical_source": "held-out authored ditransitive and object-relative-complement role slots",
+    "old_transitive_paths_replayed": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "mirrored_or_self_palindromic_units": false,
+    "catalogue_text": false,
+    "word_order_symmetry": false,
+    "fragment_output": false,
+    "per_search_rlaif": false
+  },
+  "status": "completed_no_exact_closure",
+  "next_construction": {
+    "operator": "typed benefactive alternation plus a subject-relative companion",
+    "description": "If this held-out valency product remains empty, add one independently authored to/for benefactive ditransitive frame and one subject-relative frame, carrying case, attachment, number, and tense as live grammar state in the same cursor product.",
+    "reader_facing_test": "Retain only complete vivid prose; independently audit any exact closure above 38, then run randomized blinded intact-vs-shuffled ratings."
+  }
+}

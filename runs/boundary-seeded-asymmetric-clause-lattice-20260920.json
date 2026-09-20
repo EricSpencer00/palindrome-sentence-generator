@@ -1,11 +1,12 @@
 {
   "experiment_id": "boundary-seeded-asymmetric-clause-lattice-20260920",
-  "method": "endpoint-indexed asymmetric clause lattice with live interior growth",
+  "method": "endpoint-indexed SVO/SVO lattice with live asymmetric residual growth",
   "stats": {
     "subjects": 12,
     "objects": 12,
     "endpoint_seed_pairs": 25,
-    "verb_states": 250,
+    "verb_states": 2500,
+    "seam_prunes": 2500,
     "rendered_candidates": 0,
     "fresh_exact_gt38": 0,
     "controls": 20
@@ -316,9 +317,9 @@
   ],
   "novelty_preflight": {
     "status": "passed",
-    "signature": "boundary-seeded-asymmetric|subject-object-endpoint-index|live-verb-residuals|complete-svo-ovs",
+    "signature": "boundary-seeded-svo-role-crossing|subject-object-endpoint-index|live-residual-phrase-growth|complete-svo-svo",
     "registry_entries_checked": 579,
-    "distinct_from": "prior asymmetric Cartesian product; subject/object endpoint seeds precede verb and PP expansion",
+    "distinct_from": "prior asymmetric Cartesian product; ordinary SVO/SVO clauses are seeded by reversed subject/object endpoints and grown with residual buffers",
     "finished_tape_reversal": false,
     "post_hoc_repair": false,
     "catalogue_text": false,
@@ -334,5 +335,5 @@
     "next_reader_test": "blinded complete clauses versus shuffled controls"
   },
   "status": "no fresh exact >38 candidate",
-  "next_construction": "allow independently chosen right verb and PP attachment after endpoint seed"
+  "next_construction": "add independently selected PP attachments only after a complete SVO residual closes"
 }

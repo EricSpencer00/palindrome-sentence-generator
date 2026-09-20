@@ -19,6 +19,11 @@ It has 38 ASCII letters, normalized tape
 The independent outside-in pointer audit and the fail-closed mechanical gate
 both pass. It has not yet been rated by blinded humans.
 
+Here, “Shakespearean” in earlier experiment labels is only shorthand for a
+broad English-readability target, not a literal style requirement. The active
+construction lanes therefore use ordinary contemporary English; literary-style
+lanes are retained only as clearly disclosed historical diagnostics.
+
 The longest mechanically admitted exact control is not readable:
 
 > **To new one post is an evening. Is sign in even as its open owe. Not.**

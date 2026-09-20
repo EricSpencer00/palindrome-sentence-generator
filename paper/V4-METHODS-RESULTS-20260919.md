@@ -1717,6 +1717,17 @@ audits; no repair, reversal, mirrored unit, catalogue text, or fragment was
 admitted. Artifact:
 `runs/large-phrase-endpoint-reverse-envelope-20260920.json`.
 
+The optional-slot live-buffer lane independently combined a core two-clause
+frame with optional locative PP, relative, and adjunct slots. It maintained
+complete unmatched prefix/suffix buffers while choosing each word. The base,
+PP, relative, and combined frames visited 1,938, 1,938, 816, and 24 live
+states respectively, with zero exact candidates. Twenty unique intact
+contemporary-English controls were independently audited; no repair, reversal,
+mirrored unit, catalogue text, or fragment was admitted. This result motivated
+the larger authored two-clause lexical bank rather than another discourse
+toggle. Artifact:
+`runs/live-buffer-optional-grammar-search-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

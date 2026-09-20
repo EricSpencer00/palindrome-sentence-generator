@@ -19,20 +19,25 @@ def chunks(role,ref,valency,*texts,number=None,animacy=None):return tuple(Chunk(
 def banks():
  return (
   chunks("subject","agent1","animate-agent","the poet","a sailor","the guard","a reader",number="singular",animacy="animate")+chunks("subject","agent1","animate-agent","the poets","some sailors","the guards","some readers",number="plural",animacy="animate"),
-  chunks("verb","event1","transitive","reads","opens","keeps","marks","guards"),
+  chunks("verb","event1","transitive","reads","opens","keeps","marks","guards","greets"),
   chunks("object","theme1","patient","the letter","a book","the poet","a friend",number="singular",animacy="inanimate")+chunks("object","theme1","patient","the letters","some books","the poets","some friends",number="plural",animacy="animate"),
   chunks("connector","relation","coordination","and","while","but"),
   chunks("subject","agent2","animate-agent","the queen","a captain","the poet","a friend",number="singular",animacy="animate")+chunks("subject","agent2","animate-agent","the queens","some captains","the poets","some friends",number="plural",animacy="animate"),
-  chunks("verb","event2","transitive","reads","opens","keeps","marks","guards"),
+  chunks("verb","event2","transitive","reads","opens","keeps","marks","guards","greets"),
   chunks("object","theme2","patient","the letter","a book","the poet","a friend",number="singular",animacy="animate")+chunks("object","theme2","patient","the letters","some books","the poets","some friends",number="plural",animacy="animate"),
  )
 def verb_ok(sub,verb):return (sub.number=="singular")==verb.text.endswith("s")
 def object_ok(verb,obj):
- # all selected verbs are transitive; retain an explicit typed check so the
- # object feature participates in construction rather than post-hoc prose.
- return verb.valency=="transitive" and obj.valency=="patient" and obj.animacy in {"animate","inanimate"}
+ # Keep the object feature live and reject semantically ill-typed verb/object
+ # pairs before closure; the control text is not the semantic gate.
+ accepted={
+  "reads":{"inanimate"}, "opens":{"inanimate"}, "keeps":{"animate","inanimate"},
+  "marks":{"inanimate"}, "guards":{"animate","inanimate"}, "greets":{"animate"},
+ }
+ return (verb.valency=="transitive" and obj.valency=="patient"
+         and obj.animacy in accepted.get(verb.text,set()))
 def controls():
- ts=["The poet reads the letter and the queen opens a book.","A sailor opens the book while some guards mark the letters.","The guard keeps a friend but the poet reads the books.","A reader marks the poet and the captain opens the letter.","The poets guard the book while a friend reads the letters.","Some sailors open the poets and the queens mark a book.","The guards keep the letter but the poet opens some friends.","Some readers mark the books while a captain reads the poet.","The poet opens a friend and some poets keep the letter.","A captain reads the letters while the guards mark a book.","The guard marks some friends but the poets open the book.","The readers keep the poet and a queen reads the letters.","The captain opens the book while some poets guard a friend.","A friend marks the letter and the guards keep the books.","The queens read some friends but a sailor opens the book.","Some captains guard the poet while the poet marks the letters.","The poet keeps a book and some readers open the friends.","A captain reads the letter but the guards mark some books.","The sailors guard the letters while a queen opens a book.","Some friends read the poet and the poet keeps the book."]
+ ts=["The poet reads the letter and the queen opens a book.","A sailor opens the book while some guards mark the letters.","The guard keeps a friend but the poet reads the books.","A reader greets a friend and the captain opens the letter.","The poets guard the book while a friend reads the letters.","Some sailors greet the poets and the queens mark a book.","The guards keep the letters but the poet opens a book.","Some readers mark the books while a captain greets a friend.","The poet greets a friend and some poets keep the letter.","A captain reads the letters while the guards mark a book.","The guard greets some friends but the poets open the book.","The readers greet the poet and a queen reads the letters.","The captain opens the book while some poets guard a friend.","A friend marks the letter and the guards keep the books.","The queens greet some friends but a sailor opens the book.","Some captains greet the poet while the poet marks the letters.","The poet keeps a book and some readers greet the friends.","A captain reads the letter but the guards mark some books.","The sailors guard the letters while a queen opens a book.","Some friends greet the poet and the poet keeps the book."]
  return [{"rendered":t,"audit":audit(t),"reader_status":"complete contemporary prose control; not exact"} for t in ts]
 def run(*,state_limit=250000):
  lattice=banks();states=pruned=advances=feature_pruned=equations=0;survivors=[];rows=[]

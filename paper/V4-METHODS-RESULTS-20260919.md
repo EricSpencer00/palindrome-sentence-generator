@@ -4384,3 +4384,16 @@ sentence-shaped palindrome hits. The result is diagnostic evidence, not a new
 generation method or reader claim; the family is retired rather than widened
 by another vocabulary-only sweep. Artifact:
 `runs/bench-sentence-plan-debug-20260920.json`.
+
+The bidirectional CFG word-boundary intersection crossed 65,536 independent
+derivation pairs with 81,920 memoized frontier states. It retained complete
+controls to 59 letters but no exact closure. Phrase-level convolution then
+paired 96 paths per side with variable buffers, making 9,792 character
+transitions and retaining controls to 124 letters; all exact and reader-facing
+lists were empty after gate hygiene. A length-scaled recursive event grammar
+tested targets 40, 60, and 80, rendering controls to 117 letters after 576
+obligation prunes. These are algorithmic diagnostics rather than larger
+Cartesian sweeps. Artifacts:
+`runs/bidirectional-cfg-word-boundary-intersection-20260920.json`,
+`runs/phrase-lattice-convolution-20260920.json`, and
+`runs/length-scaled-constructive-grammar-20260920.json`.

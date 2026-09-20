@@ -7150,3 +7150,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   finding zero sentence-shaped palindrome hits. This closes the exhaustive
   sentence-plan diagnostic family for now; a larger vocabulary sweep is not a
   new construction. Artifact: `runs/bench-sentence-plan-debug-20260920.json`.
+
+- **Bidirectional CFG word-boundary intersection, 2026-09-20:** crossed 256
+  independent derivations per side (65,536 pairs) with 81,920 memoized
+  frontier states. Complete controls reached 59 letters, but no exact pair
+  closed. The next topology adds recursive coordination and relative clauses
+  without changing the memo key. Artifact:
+  `runs/bidirectional-cfg-word-boundary-intersection-20260920.json`.
+
+- **Phrase-lattice convolution, 2026-09-20:** paired 96 complete phrase paths
+  per side with variable word-boundary buffers, making 9,792 character
+  transitions. The longest intact control was 124 letters; all 9,216 pairings
+  pruned and the reader list is empty. The non-exact controls were moved to
+  `diagnostic_controls` before registration. Artifact:
+  `runs/phrase-lattice-convolution-20260920.json`.
+
+- **Length-scaled constructive grammar, 2026-09-20:** tested target bands
+  40/60/80 with recursive event clauses, three center nonterminals, and
+  memoized obligation states. It rendered 193 complete controls to 117 letters,
+  with 576 obligation prunes and zero exact rows. The next topology introduces
+  a typed event-composition nonterminal with a wider obligation buffer. Artifact:
+  `runs/length-scaled-constructive-grammar-20260920.json`.

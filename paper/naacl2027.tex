@@ -878,6 +878,15 @@ one million nodes and 8,371 closures in 88.771 seconds and found zero
 sentence-shaped palindrome hits. This family is therefore retired rather than
 expanded by a vocabulary-only sweep; it does not change the reader evidence.
 
+Three algorithmic resets followed. A bidirectional CFG word-boundary
+intersection crossed 65,536 independent derivation pairs with 81,920 memoized
+frontier states and controls to 59 letters. A phrase-level convolution paired
+96 paths per side with variable buffers, making 9,792 character transitions and
+retaining controls to 124 letters. A recursive length-scaled event grammar
+tested 40-, 60-, and 80-letter targets and retained controls to 117 letters.
+All three produced zero exact rows above the anchor; non-exact controls remain
+outside the reader packet.
+
 \section{Independent verification and provenance}
 For every row, the verifier recomputes normalization, length, first mismatch,
 two-pointer equality, and a forward/reverse digest without importing the

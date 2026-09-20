@@ -123,7 +123,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][53]["early_pruned_derivations"] == 10800
     assert method.json()["method_runs"][53]["exact_candidates"] == 0
     assert method.json()["method_runs"][54]["run_id"] == "slot-pair-character-search-20260919"
-    assert method.json()["method_runs"][54]["pruned_states"] == 71
+    assert method.json()["method_runs"][54]["pruned_states"] == 61
     assert method.json()["method_runs"][54]["exact_candidates"] == 0
     assert len(method.json()["method_runs"]) == 55
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8

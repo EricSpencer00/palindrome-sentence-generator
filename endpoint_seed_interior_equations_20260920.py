@@ -7,7 +7,7 @@ def audit(s):
  t=n(s); mm=next(((i,t[i],t[-1-i]) for i in range(len(t)//2) if t[i]!=t[-1-i]),None)
  return {'letters':len(t),'exact':bool(t) and mm is None,'first_mismatch':mm,'sha256_forward':hashlib.sha256(t.encode()).hexdigest(),'sha256_reverse':hashlib.sha256(t[::-1].encode()).hexdigest()}
 LEFT=(('a','archivist','maps','a','harbor'),('a','artist','marks','a','garden'),('a','analyst','keeps','a','journal'))
-RIGHT=(('a','baker','opens','the','door'),('a','builder','mends','the','gate'),('a','broker','holds','the','map'))
+RIGHT=(('a','baker','opens','the','plaza'),('a','builder','mends','the','area'),('a','broker','holds','a','panorama'))
 def live(left,right):
  a,b=n(' '.join(left)),n(' '.join(right))[::-1]; tr=[]
  for i,(x,y) in enumerate(zip(a,b)):

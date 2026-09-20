@@ -2888,3 +2888,16 @@ constituent bank remained at 41,280 states with no closure. Every retained
 exact output has an independent pointer and SHA audit in
 `runs/palindromic-residual-closure-regression-20260920.json`; no reader-evidence
 or availability claim changes.
+
+The next representation change was a typed dependency-edge yield algebra.
+Rather than pairing complete dependency trees, it first composed four typed
+semantic edges (agent, action, object, and setting) through attachment
+interfaces, then applied the bilateral character equation to the composed
+yields. The authored bank produced 81 typed paths and 6,561 bilateral states;
+all 6,561 were rejected at the first character comparison, leaving no
+compatible frontier or exact candidate. The two intact controls (44 and 47
+letters) were independently pointer/SHA audited and remain diagnostic only.
+This closes that four-edge inventory at its outer interface; a future
+construction must change the edge algebra or lexical language, not repeat the
+same path product. Artifact:
+`runs/typed-edge-yield-algebra-20260920.json`.

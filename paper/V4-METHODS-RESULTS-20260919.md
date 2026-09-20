@@ -1218,6 +1218,18 @@ mirrored token, or catalogue text was used. The next construction changes the
 semantic representation to a dependency-tree seam CSP. Artifact:
 `runs/packed-cfg-earley-intersection-20260920.json`.
 
+The dependency-tree seam CSP generated three typed dependency trees and paired
+their exposed character spans before expanding complete role-bearing clauses.
+It tested 9 tree pairs, 18 compatible boundary seeds, 84,852 live states, and
+307,864 seam rejections, with no exact candidate above 38 letters. Independently
+audited complete controls reached 39, 41, 49, 51, 60, 65, and 67 letters.
+The character equations were enforced before rendering; no repair,
+finished-tape reversal, mirrored token, catalogue text, or fragment output was
+admitted. This is a topology-level failure, so the next construction changes
+the semantic representation again: a role-permuted scene-graph transducer
+with cross-boundary spans, rather than another agreement or morphology toggle.
+Artifact: `runs/dependency-tree-seam-csp-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

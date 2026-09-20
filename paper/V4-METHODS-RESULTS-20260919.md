@@ -653,6 +653,13 @@ active. The nine reachable states were again pruned at the first character
 seam, with zero exact closures. The next construction moves the relative
 attachment onto the bridge conjunction and adds explicit complement selection.
 
+The bridge-complement construction selected a finite subordinate complement
+before expanding its attached relative clause. Agreement state and held-out
+subordinate lexicalizations were carried through the same live residual seam;
+all nine reachable states were pruned at the first character comparison, with
+zero exact closures. The next construction conditions bridge complement choice
+on tense and mood before seam expansion.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

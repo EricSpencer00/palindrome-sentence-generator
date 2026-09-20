@@ -4141,6 +4141,27 @@ longest intact diagnostic was 56 letters. The next construction carries typed
 attachment through reverse parsing. Artifact:
 `runs/heldout-reverse-segmentation-grammar-20260920.json`.
 
+The typed-attachment reverse lane carried subject/object/relative attachment
+and agreement state through the held-out parser. It checked 32 forward
+candidates and 32 typed states, found zero reverse parse hits, and produced
+zero exact candidates above 38; the longest diagnostic was 56 letters. The next
+construction carries reverse tense attachment state. Artifact:
+`runs/typed-attachment-reverse-segmentation-20260920.json`.
+
+The typed-agreement CFG adjunct lane added singular/plural agreement and
+optional semantic adjunct productions. It checked 108 typed transitions,
+pruned 108, and reached zero exact candidates above 38; the longest control was
+36 letters. The next construction pairs optional adjuncts with distinct
+semantic attachments. Artifact:
+`runs/bounded-cfg-typed-agreement-adjuncts-20260920.json`.
+
+The author-first role-agreement lane added hard role agreement between ordered
+outward edges and the center frame. It checked 216 role-agreement states and
+retained diagnostics up to 80 letters, with zero exact candidates above 38.
+The next construction adds semantic compatibility between the center predicate
+and ordered roles. Artifact:
+`runs/author-first-role-agreement-20260920.json`.
+
 The reader-gate hygiene pass audited 20 historical artifacts and moved every
 non-exact or shortcut-prone control out of `reader_facing_candidates` into
 `diagnostic_controls`, while protecting borrowed/catalogue rows. This makes the

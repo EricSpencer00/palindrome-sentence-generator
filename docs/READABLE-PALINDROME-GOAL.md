@@ -6881,6 +6881,28 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   typed attachment through reverse parsing. Artifact:
   `runs/heldout-reverse-segmentation-grammar-20260920.json`.
 
+- **Typed attachment reverse segmentation, 2026-09-20:** carried explicit
+  subject/object/relative attachment and agreement state through the held-out
+  reverse parser. It checked 32 forward candidates and 32 typed states, found
+  0 reverse parse hits, and produced 0 exact candidates above 38; the longest
+  diagnostic was 56 letters. The next construction carries reverse tense
+  attachment state. Artifact:
+  `runs/typed-attachment-reverse-segmentation-20260920.json`.
+
+- **Typed-agreement CFG adjuncts, 2026-09-20:** added singular/plural
+  agreement and optional semantic adjunct productions to paired CFG states. It
+  checked 108 typed transitions, pruned 108, and reached 0 exact candidates
+  above 38; the longest control was 36 letters. The next construction pairs
+  optional adjuncts with distinct semantic attachments. Artifact:
+  `runs/bounded-cfg-typed-agreement-adjuncts-20260920.json`.
+
+- **Author-first role agreement, 2026-09-20:** added hard role agreement
+  between ordered outward edges and the shared center frame. It checked 216
+  role-agreement states and retained diagnostics up to 80 letters, with 0 exact
+  candidates above 38. The next construction adds semantic compatibility
+  between the center predicate and ordered roles. Artifact:
+  `runs/author-first-role-agreement-20260920.json`.
+
 - **Reader-gate hygiene, 2026-09-20:** audited 20 historical run artifacts
   and moved every non-exact or shortcut-prone control out of
   `reader_facing_candidates` into `diagnostic_controls`. Borrowed/catalogue

@@ -3259,3 +3259,21 @@ patient gardener who records the note records the patient diaper that the
 gardener guards before dusk.”; zero exact candidates above 38 survived. The
 next construction coordinates object relatives with distinct attachment
 indices. Artifact: `runs/word-boundary-object-relative-automaton-20260920.json`.
+
+The coordinated-object-relative topology carried two finite relative events
+with distinct attachment indices and 3sg agreement inside the object noun
+phrase. Four frames incurred 36,864 live boundary prunes and retained 20
+complete near-misses to 112 letters, including “The patient gardener who
+records the note records the patient diaper that the scribe records and that
+the gardener guards before dusk.”; zero exact candidates above 38 survived.
+The next construction adds an explicit attachment graph and tense state to a
+second coordinated relation. Artifact:
+`runs/word-boundary-coordinated-object-relatives-20260920.json`.
+
+In parallel, modal passive embedding added modal scope before the passive
+beneficiary/agent/theme frame and finite complement. Across target lengths 44,
+56, 68, and 80 it visited 1,454 states and made 772 live factor prunes, with
+zero complete parses and zero exact candidates above 38. The two modal passive
+controls (94 and 103 letters) were independently pointer/SHA audited. The next
+topology is an aspectual modal passive frame. Artifact:
+`runs/modal-passive-embedding-csp-20260920.json`.

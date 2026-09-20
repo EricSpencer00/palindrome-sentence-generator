@@ -1,0 +1,152 @@
+{
+  "experiment_id": "shakespeare-dialogue-response-reverse-lattice-20260920",
+  "method": "Shakespearean dialogue-response complements times reverse trie parser",
+  "sentence_paths": 801,
+  "grammar_paths": [
+    [
+      "NP",
+      "DIALOGUE",
+      "COMP"
+    ],
+    [
+      "NP",
+      "DIALOGUE",
+      "COMP",
+      "PP"
+    ],
+    [
+      "NP",
+      "DIALOGUE",
+      "COMP",
+      "REL"
+    ]
+  ],
+  "trie_sizes": {
+    "NP": 5,
+    "DIALOGUE": 4,
+    "COMP": 5,
+    "PP": 4,
+    "REL": 3
+  },
+  "stats": {
+    "states": 2403,
+    "reverse_parses": 0,
+    "rendered_candidates": 0,
+    "exact": 0
+  },
+  "rendered_candidates": [],
+  "dialogue_controls": [
+    {
+      "rendered": "the young bard asks whether the fair queen guards the crown beneath the moon",
+      "audit": {
+        "letters": 63,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          62
+        ],
+        "sha256_forward": "f7ea34704a9ae8f0a5633a2821fa08455ad0e87758d941ad52c54f71386aa85f",
+        "sha256_reverse": "63fa6f1b126177a96e1cffd7586b506c9a0310d96c9c0ddf5291fceef6c20f55",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "the fair queen replies that he praises the rose within the court",
+      "audit": {
+        "letters": 53,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          51
+        ],
+        "sha256_forward": "5e55d4a67d81d18c49c3d7f0a84fccca31c485fbab0615753e601f9c41a1007c",
+        "sha256_reverse": "755eae993e0251e9bdef49542dad99c56bda46e0c28a8afc58fa8e22a9cb2417",
+        "sha_equal": false
+      }
+    }
+  ],
+  "baseline_controls": [
+    {
+      "rendered": "an aide rips nine memos",
+      "right_roles": [
+        "NP",
+        "DIALOGUE",
+        "COMP"
+      ],
+      "parse_count": 0,
+      "audit": {
+        "letters": 19,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          18
+        ],
+        "sha256_forward": "789ebff082e963bbc2fbea1e1c07059b524425e97f5c717fdcc61e835c9f2ef2",
+        "sha256_reverse": "3ff8bb9c3c12bc6124b83c185eeabb371a313612e9e10bf5bddddfd606a28285",
+        "sha_equal": false
+      },
+      "reader_status": "old 38 seed excluded control"
+    },
+    {
+      "rendered": "an aide rips nine memos",
+      "right_roles": [
+        "NP",
+        "DIALOGUE",
+        "COMP",
+        "PP"
+      ],
+      "parse_count": 0,
+      "audit": {
+        "letters": 19,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          18
+        ],
+        "sha256_forward": "789ebff082e963bbc2fbea1e1c07059b524425e97f5c717fdcc61e835c9f2ef2",
+        "sha256_reverse": "3ff8bb9c3c12bc6124b83c185eeabb371a313612e9e10bf5bddddfd606a28285",
+        "sha_equal": false
+      },
+      "reader_status": "old 38 seed excluded control"
+    },
+    {
+      "rendered": "an aide rips nine memos",
+      "right_roles": [
+        "NP",
+        "DIALOGUE",
+        "COMP",
+        "REL"
+      ],
+      "parse_count": 0,
+      "audit": {
+        "letters": 19,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          18
+        ],
+        "sha256_forward": "789ebff082e963bbc2fbea1e1c07059b524425e97f5c717fdcc61e835c9f2ef2",
+        "sha256_reverse": "3ff8bb9c3c12bc6124b83c185eeabb371a313612e9e10bf5bddddfd606a28285",
+        "sha_equal": false
+      },
+      "reader_status": "old 38 seed excluded control"
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "dialogue-response|asks-replies-answers-speaks-to|pronoun-pp-attachments|reverse-segmentation",
+    "distinct_from": "prior declarative complement lane; dialogue response predicates and attachments are newly authored",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "vocabulary": "fresh authored bard/king/queen dialogue-response lattice",
+    "independent_audit": "two-pointer mismatch plus forward/reverse SHA-256",
+    "reader_evidence": false
+  },
+  "status": "no fresh exact >38 parse",
+  "next_construction": "human-reader package for the strongest complete scene controls",
+  "reader_gate": "closed until blinded human ratings"
+}

@@ -1,0 +1,24 @@
+{
+  "run_id": "role-edge-graph-20260919",
+  "lane": "role-compatible semordnilap edge automaton",
+  "construction": "Each edge is admitted only when its left tape equals the reversed right tape; paths select outgoing edges by next semantic role while growing both sides online.",
+  "edges_considered": 3,
+  "malformed_edges_admitted": 0,
+  "paths_rendered": 3,
+  "exact_paths": 3,
+  "novelty_preflight": "normalized render catalogue exclusion available",
+  "controls": [
+    {"left": "stressed", "right": "desserts", "role": "subject", "next_role": "verb"},
+    {"left": "deliver", "right": "reviled", "role": "verb", "next_role": "object"},
+    {"left": "drawer", "right": "reward", "role": "object", "next_role": "end"}
+  ],
+  "candidate": "stressed deliver drawer reward reviled desserts",
+  "candidate_tape": "stresseddeliverdrawerrewardrevileddesserts",
+  "candidate_exact": true,
+  "audit": [
+    "No post-hoc character repair or completed-tape reversal is used.",
+    "Role transition subject -> verb -> object is checked during traversal.",
+    "Duplicate catalogue renders are rejected by normalized tape before admission."
+  ],
+  "next_construction": "Replace the demonstration semordnilap inventory with held-out role-labelled phrase edges and retain the same transition audit."
+}

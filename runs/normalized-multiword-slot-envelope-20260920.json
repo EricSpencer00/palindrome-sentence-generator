@@ -1,0 +1,67 @@
+{
+  "experiment_id": "normalized-multiword-slot-envelope-20260920",
+  "method": "normalized multiword NP/PP/relative slot envelope",
+  "stats": {
+    "slot_domains": {
+      "AGENT": 10,
+      "VERB": 9,
+      "OBJECT": 8,
+      "PP": 5,
+      "REL": 3
+    },
+    "nodes": 27,
+    "fresh_exact_gt38": 0
+  },
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "The young bard guards the crown within the court.",
+      "audit": {
+        "letters": 40,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "r"
+        ],
+        "sha256_forward": "330d0419fd744e3a585d1980b829fcaef56aba5c0b5df55a5a7a0df5eb1cb12b",
+        "sha256_reverse": "d7381a5acaa0de7768eccea05cfc3de7aa28c7e0bf7aaa1263c20047dcf27404",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "The fair queen praises a bright rose beneath the pale moon.",
+      "audit": {
+        "letters": 48,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "4da59784d696e62dbcb5ca269f5935a4542c03b8558b19e4d98d87bdb90bc11c",
+        "sha256_reverse": "a57b819c602ca18f77fc30bad8e3180fd3e84fedc31534ec4e7a2b4ee0423be0",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "normalized-letter-tapes|multiword-semantic-slots|np-pp-relative-boundaries|live-paired-equations",
+    "distinct_from": "corrected single-word envelope; multiword semantic slots carry normalized tapes across internal word boundaries",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "bank": "data/brown_pcfg_bank_20260920.json",
+    "authored_name_and_scene_slots": true,
+    "audits": [
+      "two-pointer mismatch",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed unless exact >38 rows appear"
+  },
+  "status": "no fresh exact >38 candidate"
+}

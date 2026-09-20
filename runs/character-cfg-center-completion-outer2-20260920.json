@@ -1,0 +1,69 @@
+{
+  "experiment_id": "character-cfg-center-completion-outer2-20260920",
+  "method": "typed lexical-center completion jointly solved with two-character outer seam",
+  "grammar": [
+    "S -> NPsubject VP",
+    "VP -> V NPobject",
+    "NP -> DET NOUN REL",
+    "REL -> who VP",
+    "CENTER -> complete lexical token"
+  ],
+  "center_bank": [
+    {
+      "onset": "th",
+      "surface": "the",
+      "agreement": "sg"
+    },
+    {
+      "onset": "so",
+      "surface": "some",
+      "agreement": "pl"
+    }
+  ],
+  "stats": {
+    "subject_derivations": 540,
+    "object_derivations": 540,
+    "subject_chart_states": 15934,
+    "object_chart_states": 18252,
+    "center_support": {
+      "th": 7744
+    },
+    "center_debt_states": 0,
+    "outer_twochar_states": 2816,
+    "center_mismatch_support": {
+      "t/e": 7744
+    },
+    "joint_seam_closures": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_joint_score": 1
+  },
+  "complete_prose_controls": [
+    "The sailor who reads the area guards the harbor.",
+    "Some guides who keep the era mark a garden."
+  ],
+  "best_diagnostic": {
+    "score": 1,
+    "left": "a area guides the area",
+    "right": "a area guides the area",
+    "center": "the",
+    "outer_left": "aa",
+    "outer_right": "ea",
+    "outer_seam": true,
+    "center_closed": false
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-center-completion-outer2-20260920",
+    "catalogue_imported": false,
+    "fixed_bank_sweep": false,
+    "distinct_from": "character-cfg-complete-center-admission-20260920"
+  },
+  "next_construction": "Use the recorded center mismatch pair as a typed two-sided center item and solve its residual jointly with the outer seam; do not admit mirrored fragments.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

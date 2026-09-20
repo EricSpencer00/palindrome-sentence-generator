@@ -7700,6 +7700,33 @@
       "distinction": "Uses Brown token/tag frequencies only to build a reverse lexical trie, then intersects it online with independently generated typed complete clauses across word boundaries; no Brown sentence context is emitted and no finished-tape reversal, repair, mirrored units, catalogue text, or per-search RLAIF is used.",
       "reader_evidence": false,
       "status": "2,058 complete-clause renderings, 2,401 online character states, longest 74 letters, 0 exact-clean candidates above 38; reader list empty; next expands typed role classes while retaining the online trie intersection"
+    },
+    {
+      "id": "discourse-graph-bilateral-csp-20260920",
+      "signature": "typed-bilateral-discourse-graph|live-character-equations|agreement-attachment-state",
+      "artifact": "experiments/discourse_graph_bilateral_csp_20260920.py",
+      "run_artifacts": ["runs/discourse-graph-bilateral-csp-20260920.json"],
+      "distinction": "Carries discourse relation, tense, agreement, and attachment states through a bilateral graph CSP while consuming complete clauses from opposite character frontiers; distinct from flat scene lattices, lexical tries, and seam-only products.",
+      "reader_evidence": false,
+      "status": "3 hand-authored edges, 24 typed states, 408 online nodes, 288 live character prunes, 288 complete prose controls to 73 letters, 0 exact-clean closures; next adds one relative-clause attachment edge"
+    },
+    {
+      "id": "unequal-center-grammar-intersection-20260920",
+      "signature": "typed-seam-machine|token-frontier-product|center-overhang|independent-clause-grammar",
+      "artifact": "experiments/unequal_center_grammar_intersection_20260920.py",
+      "run_artifacts": ["runs/unequal-center-grammar-intersection-20260920.json"],
+      "distinction": "Intersects independent typed complete-clause paths with explicit even/odd seam and in-word center states, allowing unequal word and letter boundaries without materializing a reversed tape; distinct from prior equal-half, center-WFST, and boundary-DP lanes.",
+      "reader_evidence": false,
+      "status": "360 paths per side, 129,600 paired states, 164,160 online equations, 99,360 unequal-word pairs, 122,144 unequal-letter pairs, 16 controls to 94 letters, 0 exact-clean closures; next adds held-out ditransitive and relative-complement productions"
+    },
+    {
+      "id": "semantic-role-skeleton-live-csp-20260920",
+      "signature": "semantic-role-skeleton|lazy-typed-lexicalization|opposing-character-csp",
+      "artifact": "experiments/semantic_role_skeleton_live_csp_20260920.py",
+      "run_artifacts": ["runs/semantic-role-skeleton-live-csp-20260920.json"],
+      "distinction": "Selects semantic role skeletons and typed lexical choices lazily inside the same opposing-character DP from the first terminal; distinct from clause-pair seam products, reverse tries, and completed-scene re-ranking.",
+      "reader_evidence": false,
+      "status": "3 skeletons, 90 live character equations, 9 first-character survivors, 81 character prunes, 10 complete prose controls to 39 letters, 0 exact-clean closures; next adds a held-out instrumental or temporal role edge with a two-character boundary state"
     }
   ],
   "excluded": [

@@ -320,6 +320,19 @@ context is never emitted, this is a construction experiment rather than
 borrowed prose; its next step expands held-out role classes while retaining
 the live trie intersection.
 
+Three additional Luna lanes test whether the remaining failure is the choice
+of linguistic state rather than the character equation itself.  A semantic
+role-skeleton CSP lazily assigns transitive, intransitive, and copular roles
+inside the opposing-character state, producing ten complete controls to 39
+letters.  A bilateral discourse-graph CSP carries relation, tense, agreement,
+and attachment through 408 frontier nodes and produces 288 complete controls
+to 73 letters.  Finally, an unequal-center grammar intersection explicitly
+allows in-word centers and unequal word boundaries, evaluating 129,600 paired
+grammar states and rendering controls to 94 letters.  All three lanes have
+zero exact-clean closures above 38 letters.  They therefore narrow the next
+construction: add a second typed boundary or attachment state without
+relaxing the live equation, rather than widening a completed-tape reranker.
+
 The implementation also exposes an explicit totality witness for arbitrary
 requested lengths.  This witness is useful for testing the state machine but
 is tagged as non-reader output and cannot satisfy the admission gate.  Thus

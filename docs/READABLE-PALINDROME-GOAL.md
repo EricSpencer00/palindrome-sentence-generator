@@ -55,6 +55,18 @@ The active construction borrows the state-space/inspection ideas while
 intersecting them with typed grammar, agreement, valency, and semantic scene
 states before rendering any candidate.
 
+The latest three Luna lanes keep that constructive reset honest. A semantic
+role-skeleton CSP chose transitive, intransitive, and copular roles lazily
+inside the opposing-character state and rendered ten controls to 39 letters;
+a bilateral discourse-graph CSP carried relation, tense, agreement, and
+attachment through 408 online nodes and rendered 288 complete controls to 73
+letters; and an unequal-center grammar intersection exercised 129,600 paired
+typed paths, including 99,360 unequal-word and 122,144 unequal-letter pairs,
+with controls to 94 letters. All three had zero exact-clean closures above 38
+letters. Their concrete successors are held-out temporal/instrumental roles,
+a relative-clause attachment edge, and held-out ditransitive/relative-
+complement productions respectively—not repair or another lexical sweep.
+
 The active target is an original, coherent, intact-prose palindrome longer than
 that benchmark (with the paper's promotion floor at 100 letters), followed by
 the blinded intact-prose versus shuffled-control study. No wrapper, catalogue

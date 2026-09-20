@@ -121,7 +121,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_fresh_heteropalindrome_seam": "Four by four complete-clause cross-word seam enumeration: 16 fresh candidates, best 76-letter control, zero exact closures; the 38-letter anchor stayed held out",
         "latest_character_clause_trie_csp": "Six independently authored complete clauses per side joined through a reverse character trie: six prefix steps, zero exact joins, and complete prose controls retained",
         "latest_clitic_boundary_residual_lockstep": "Eighteen fresh agreement/clitic frames, 324 full residual-vector transitions, and two complete prose controls to 72 letters; zero exact closures above 38",
-        "latest_typed_central_residual_clause_csp": "Three-by-two-by-three typed assignments with a complete authored center sentence: 18 character transitions, controls to 116 letters, zero exact closures above 38",
+        "latest_typed_central_residual_clause_csp": "Three-by-two-by-three typed assignments with a complete authored center sentence: 18 character transitions, controls to 118 letters, zero exact closures above 38",
         "reader_study": "not run",
     },
 }

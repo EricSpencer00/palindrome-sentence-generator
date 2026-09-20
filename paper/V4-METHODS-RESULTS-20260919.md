@@ -2656,7 +2656,7 @@ independently authored observation sentence between complete agentive and
 eventive clauses, and indexed the residual boundary state while constructing
 the three-part sentence. The bounded bank yielded 18 typed assignments, two
 indexed residual states, and 18 character transitions. It retained complete
-controls at 99 and 116 letters, including “A careful baker carries warm bread
+controls at 99 and 118 letters, including “A careful baker carries warm bread
 to the village; the evening bell sounds, while the village welcomes a careful
 baker.”, but no exact candidate above 38 letters. Every row has independent
 outside-in and forward/reverse SHA-256 audits and explicit anti-shortcut

@@ -11,9 +11,9 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "runs/word-boundary-grammar-automaton-20260920.json"
-ID = "word-boundary-grammar-automaton-20260920"
-SIG = "word-boundary-aware|semordnilap-ordinary-edges|joint-scene-frame|live-equations"
+OUT = ROOT / "runs/word-boundary-relative-grammar-automaton-20260920.json"
+ID = "word-boundary-relative-grammar-automaton-20260920"
+SIG = "word-boundary-aware|optional-relative-clause|agreement-carrier|live-equations"
 
 def letters(s: str) -> str: return re.sub(r"[^a-z]", "", s.casefold())
 def audit(s: str):
@@ -43,6 +43,8 @@ EDGES = (
 
 FRAMES = (("agent", "record", "theme", "temporal"), ("agent", "protect", "theme", "temporal"),
           ("agent", "repay", "theme", "temporal"), ("agent", "return", "theme", "temporal"))
+RELATIVES = (("", "none", "none"), ("who records the note", "record", "3sg"),
+             ("who guards the gate", "protect", "3sg"))
 
 def live_equation(left: str, right: str):
     """Consume opposing edge characters immediately, returning first failure."""
@@ -60,10 +62,13 @@ def run():
     tails = [e for e in EDGES if e.pos == "PP"]
     rows=[]; near=[]; prunes=0
     for frame in FRAMES:
-        for d, a, n, v, od, oa, on, tail in itertools.product(dets, adjs, nouns, verbs, dets, adjs, nouns, tails):
+        for d, a, n, v, od, oa, on, tail, (rel, rel_event, agreement) in itertools.product(dets, adjs, nouns, verbs, dets, adjs, nouns, tails, RELATIVES):
             if n.role != "subject-agent" or v.role != "event-" + frame[1] or on.role != "object-theme": continue
             if d.role != "subject-det" or od.role != "object-det": continue
-            subject = Edge(f"{d.text} {a.text} {n.text}", "NP", "agent")
+            # Relative clauses are complete, agreement-checked modifiers, not
+            # mirrored padding.  All available lexical heads are singular.
+            if rel and agreement != "3sg": continue
+            subject = Edge(f"{d.text} {a.text} {n.text}" + (f" {rel}" if rel else ""), "NP+REL" if rel else "NP", "agent")
             obj = Edge(f"{od.text} {oa.text} {on.text}", "NP", "theme")
             rendered = render(subject, v, obj, tail)
             # The boundary equation is checked while selecting the final edge.
@@ -76,7 +81,7 @@ def run():
                 continue
             if len({letters(x.text) for x in (subject, v, obj, tail)}) < 4: continue
             aout = audit(rendered)
-            rows.append({"rendered": rendered, "frame": {"agent": n.text, "event": frame[1], "theme": on.text, "time": tail.text},
+            rows.append({"rendered": rendered, "frame": {"agent": n.text, "event": frame[1], "theme": on.text, "time": tail.text, "relative_event": rel_event, "agreement": agreement},
               "edges": [{"text":x.text,"pos":x.pos,"role":x.role,"semordnilap_pair":x.pair} for x in (subject,v,obj,tail)],
               "audit": aout, "live_equation":{"accepted":True,"mismatch":mismatch},
               "provenance":{"lexical_edges":"hand-authored ordinary words","finished_tape_reversal":False,"post_hoc_repair":False,"catalogue_text":False,"mirrored_units":False,"repeated_units":False,"fragment":False,"tautological_word_order":False}})
@@ -85,8 +90,8 @@ def run():
     return {"experiment_id":ID,"method":"bounded word-boundary grammar automaton; lexical edges and complete semantic frames selected jointly",
       "stats":{"frames":len(FRAMES),"states_pruned_live":prunes,"rendered_candidates":len(rows),"fresh_exact_gt38":len(exact),"max_letters":max((r["audit"]["letters"] for r in rows),default=0)},
       "rendered_candidates":rows[:100],"near_misses":sorted(near,key=lambda r:-r["audit"]["letters"])[:20],"exact_candidates":exact,
-      "novelty_preflight":{"status":"passed","signature":SIG,"distinct_from":"center, bridge, coordination, embedding, and finished-reversal lanes"},
-      "next_topology":{"if_no_closure":"replace one NP adjective slot with an optional relative clause and carry its event role through the same boundary equation","reason":"current lexical frame bank has no exact closure above the reader threshold"},
+      "novelty_preflight":{"status":"passed","signature":SIG,"distinct_from":"prior adjective-slot automaton: optional subject relative clause with explicit 3sg agreement carried as a typed edge"},
+      "next_topology":{"if_no_closure":"add an object-relative clause with finite-verb agreement and a bounded attachment state","reason":"current relative-clause frame bank has no exact closure above the reader threshold"},
       "status":"fresh exact >38 candidate requires human reading" if exact else "no fresh exact >38 closure; grammatical near-misses and next topology recorded"}
 
 if __name__ == "__main__":

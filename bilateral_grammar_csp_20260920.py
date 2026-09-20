@@ -41,6 +41,8 @@ def bilateral_grammar_csp(
     max_words: int = 10,
     max_nodes: int = 100_000,
     grammar=None,
+    left_symbols=None,
+    right_symbols=None,
 ):
     """Search two independent grammar clauses while matching characters live.
 
@@ -153,7 +155,7 @@ def bilateral_grammar_csp(
                 search(lsymbols, rsymbols[:-1], left, right_rev + [word.text],
                        *residual)
 
-    search(["CLAUSE"], ["CLAUSE"], [], [])
+    search(list(left_symbols or ("CLAUSE",)), list(right_symbols or ("CLAUSE",)), [], [])
     stats["status"] = "timeout" if stats["nodes"] >= max_nodes else (
         "SAT" if found else "UNSAT"
     )

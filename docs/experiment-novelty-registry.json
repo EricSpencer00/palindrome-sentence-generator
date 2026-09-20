@@ -2,6 +2,42 @@
   "version": 1,
   "audit_reports": [
     {
+      "id": "semantic-role-bilateral-20260920",
+      "signature": "agent-theme-role-grammar|bilateral-character-residual|typed-transitive-frame",
+      "artifact": "experiments/semantic_role_bilateral_20260920.py",
+      "run_artifacts": ["runs/semantic-role-bilateral-20260920.json"],
+      "distinction": "Curated subject-agent/theme-object lexical roles and determiner/adjective alternatives are expanded on two independently parsed transitive clauses while opposing character residuals are consumed live; no catalogue text, finished-tape reversal, repeated units, or post-hoc repair.",
+      "reader_evidence": false,
+      "status": "65,841 states, 779,926 live prunes, 56,430 complete states, exact controls to 30 letters, 0 exact candidates above 38; telegraphic controls remain below the reader gate"
+    },
+    {
+      "id": "ngram-bilateral-csp-20260920",
+      "signature": "observed-ngram-transition-lattice|bilateral-grammar-csp|hard-search-constraint",
+      "artifact": "ngram_bilateral_csp_20260920.py",
+      "run_artifacts": ["runs/ngram-bilateral-remote-2000-20260920.json"],
+      "distinction": "Observed adjacent transitions from intact 3--6-gram phrases constrain both independently parsed clauses before live character residual consumption; transitions are hard search-space edges, never a reward or reranker.",
+      "reader_evidence": false,
+      "status": "Remote bounded run used 2,000 Brown POS entries and 100,000 n-gram rows: 428 states, 13,652,945 character prunes, 320,313,552 transition prunes, 0 complete closures, and 0 exact candidates above 38"
+    },
+    {
+      "id": "vocative-bilateral-grammar-20260920",
+      "signature": "whole-sentence-vocative|bilateral-character-residual|nested-span-rejection",
+      "artifact": "experiments/vocative_bilateral_grammar_20260920.py",
+      "run_artifacts": ["runs/vocative-bilateral-grammar-20260920.json"],
+      "distinction": "A whole-sentence VOC+CLAUSE / CLAUSE+VOC grammar is expanded bilaterally with live character residuals; exact closures are independently audited and proper nested word-aligned palindrome spans are rejected before any reader claim.",
+      "reader_evidence": false,
+      "status": "Remote run: 400,087 states, 4,377,393 prunes, 347,360 complete states, 512 exact closures above 38, and 0 non-nested survivors; longest rejected examples are 42 letters and are retained in the artifact"
+    },
+    {
+      "id": "wordpath-ngram-csp-20260920",
+      "signature": "variable-word-path|observed-bigram-lattice|live-character-residual",
+      "artifact": "wordpath_ngram_csp_20260920.py",
+      "run_artifacts": ["runs/wordpath-ngram-remote-100-30000-20260920.json"],
+      "distinction": "Variable-length left and right word paths are constrained by observed adjacent bigram edges while opposing character residuals are consumed live; no fixed grammar, reranker, finished-tape reversal, or repair is used.",
+      "reader_evidence": false,
+      "status": "Remote bounded run with 100-word vocabulary, 30,000 observed rows, and eight-word cap: 376 states, 47,771 character prunes, 3,091 repeat prunes, 0 closures"
+    },
+    {
       "id": "independent-clause-seam-trie-20260920",
       "signature": "independent-clause-derivations|character-trie-cross-boundary|reverse-obligation-index|brown-terminals",
       "artifact": "experiments/independent_clause_seam_trie_20260920.py",

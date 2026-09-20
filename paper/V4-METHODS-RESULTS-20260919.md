@@ -2742,3 +2742,28 @@ the current two-`CLAUSE` grammar envelope at 2,413 states and 9,385,984 live
 pair prunes, with zero complete closures and zero exact candidates. This is a
 constructive baseline for adding typed adjunct and relative productions, not a
 repair pass and not a readability claim.
+
+Two bounded extensions were evaluated against that baseline. The observed
+n-gram lattice used 100,000 intact 3--6-gram rows to constrain adjacent lexical
+transitions (2,000 Brown POS entries); its bilateral grammar CSP visited 428
+states and pruned 13,652,945 character and 320,313,552 transition attempts,
+with zero complete closures. A separate curated agent/theme grammar visited
+65,841 states and reached 56,430 complete states, but its longest exact output
+was only 30 letters (for example, “deer deliver leon; noel reviled reed.”), an
+exact telegraphic control rather than reader prose. Neither lane is promoted to
+the reader gate. These results narrow the next construction: keep lexical
+transitions as hard search constraints, but add richer discourse/valency
+realizations before seeking another exact closure.
+
+We also tested two non-repair construction boundaries. A variable-length
+word-path lattice over 30,000 observed bigram rows (100-word vocabulary,
+eight-word cap) visited 376 states, rejected 47,771 character mismatches and
+3,091 repeats, and reached no exact closure. A whole-sentence vocative grammar
+(`VOC+CLAUSE` on the left and `CLAUSE+VOC` on the right) did produce 512 exact
+closures above 38 letters in a remote run (400,087 states; 347,360 complete
+states), but every closure contained a proper word-aligned palindromic span.
+The longest rejected rows are retained verbatim in the run artifact; the
+nested-span gate leaves zero reader candidates. This is a useful boundary
+diagnostic, not a promoted output: the next construction must make discourse
+attachment part of the grammar while preventing a seed clause from being
+wrapped by names.

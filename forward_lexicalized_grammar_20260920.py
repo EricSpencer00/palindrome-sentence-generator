@@ -262,7 +262,10 @@ def ngram_bilateral_search(lexicon=ATOMIC, limit=2000, max_nodes=20000):
     lattice = ngram_lattice(limit=limit)
     vocab = {w.text for w in lexicon if any(w.text == a or w.text == b for a, b in lattice["edges"])}
     bounded = tuple(w for w in lexicon if w.text in vocab)
-    result = bilateral_lexical_csp(bounded, max_nodes=max_nodes)
+    # Delegate to the grammar-aware implementation; the older arbitrary-edge
+    # bilateral sweep is not evidence for this lane.
+    from ngram_bilateral_csp_20260920 import ngram_bilateral_csp
+    result = ngram_bilateral_csp(bounded, lattice["edges"], max_nodes=max_nodes)
     result["lattice"] = lattice["stats"]
     result["provenance"]["observed_transition_filter"] = True
     result["provenance"]["next_construction"] = "typed transition-conditioned expansion"

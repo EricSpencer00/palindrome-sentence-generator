@@ -1098,6 +1098,16 @@ audits. The next step is reader packaging for the strongest intact controls,
 not another repair or surface feature. Artifact:
 `runs/shakespeare-dialogue-response-reverse-lattice-20260920.json`.
 
+The broad-vocabulary lane used Brown-derived word forms and frequency scores
+only, while composing new semantic SVO, adjunct, recipient, and relative
+frames. It built 45,000 complete left frames and tested 180,000 reverse-parser
+states; no complete reverse parse or exact candidate closed. Controls reached
+31, 40, and 42 letters. Collocation scores ranked complete parses only and did
+not certify readability; no Brown sentence text, catalogue palindrome,
+finished-tape reversal, or repair was admitted. The next construction changes
+grammar geometry to coordination rather than enlarging lexical scoring.
+Artifact: `runs/brown-authored-semantic-reverse-decoder-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

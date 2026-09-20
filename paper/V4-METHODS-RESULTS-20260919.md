@@ -3102,3 +3102,19 @@ therefore improves the first-character state but still leaves an interior
 mismatch; the next construction is a two-character endpoint trie with
 held-out nouns. Artifact:
 `runs/endpoint-indexed-common-grammar-20260920.json`.
+
+Astra's architecture audit identified that many earlier lanes enumerated small
+finished sentence pairs rather than solving one global language. The next
+implementation corrected that: a single forward grammar factored lexical
+alternatives, carried agreement/transitivity/attachment features, allowed
+variable word boundaries, and propagated exact position factors
+`x[i] = x[N-1-i]` during each word emission. At target lengths 44, 52, and
+60 it explored 5,485 bounded states and made 30,746 live factor prunes, with
+zero complete palindrome parses and zero exact candidates above 38. The
+ordinary controls (“The patient sailor studies the chart beside the harbor.”
+and “A careful gardener carries a silver lantern through the orchard.”) were
+independently pointer/SHA audited. This is an implementation correction and
+scale test, not a readability claim; the next construction applies
+position-domain lexical arc consistency over held-out alternatives before
+choosing the next grammar factor. Artifact:
+`runs/global-forward-sentence-csp-20260920.json`.

@@ -5828,3 +5828,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   letters, with 0 exact candidates above 38. The next operator is a
   two-character endpoint trie with held-out nouns. Artifact:
   `runs/endpoint-indexed-common-grammar-20260920.json`.
+
+- **Global forward sentence CSP, 2026-09-20:** replaced fixed sentence-pair
+  enumeration with one factorized forward grammar. Variable word boundaries,
+  agreement, transitivity, attachment, and exact position factors
+  `x[i] = x[N-1-i]` were propagated during lexical emission. Across target
+  lengths 44, 52, and 60 it explored 5,485 states and made 30,746 live
+  prunes, but produced 0 complete palindrome parses and 0 exact candidates
+  above 38. The next construction is position-domain lexical arc consistency
+  over held-out alternatives. Artifact:
+  `runs/global-forward-sentence-csp-20260920.json`.

@@ -1,0 +1,71 @@
+{
+  "experiment_id": "lexical-reverse-automaton-grammar-20260920",
+  "method": "online reverse lexical trie intersected with independently generated typed complete clauses",
+  "signature": "brown-frequency|reverse-trie-intersection|typed-independent-clauses|boundary-crossing",
+  "stats": {
+    "brown_tokens": 1005119,
+    "ordinary_word_types": 46275,
+    "typed_inventory": {
+      "agent": 7,
+      "action": 7,
+      "theme": 7,
+      "place": 6
+    },
+    "reverse_trie_nodes": 113,
+    "rendered_candidates": 2058,
+    "online_states": 2401,
+    "rejected_or_nonclosing": 2058,
+    "exact_clean_above_38": 0,
+    "reader_worthy": 0,
+    "longest_letters": 74
+  },
+  "controls": [
+    {
+      "rendered": "The pilot reads the map at the harbor.",
+      "audit": {
+        "letters": 30,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "e0e89c522efee1d986101ec4981a5cd552305e91412d84fda4bf19d6202152ce",
+        "sha256_reverse": "2f6ac30ef3c151ff043c001144a8c7b505098eb4df76997e4d2286028512d918",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "A teacher marks the letter by the garden.",
+      "audit": {
+        "letters": 33,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "n"
+        ],
+        "sha256_forward": "a71ab810942adb1aa60f5fec3f32434bde3b2f5c405e91abc3000004398708c9",
+        "sha256_reverse": "0113e3b356155f5047e251a218416b48b53d30a14e4b74b676be98302b88104a",
+        "sha_equal": false
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_inspected": true,
+    "distinct_from": "finished-tape reversal, post-hoc repair, aligned token mirrors, repeated units, borrowed prose, RLAIF-per-search",
+    "hard_provenance_gate": true
+  },
+  "independent_audits": [
+    "two-pointer scan",
+    "forward/reverse SHA-256"
+  ],
+  "provenance": {
+    "generator_sha256": "66ef70ab78a5bb51ec22bc421fb5e8748ecaabb397377f09bf32a65586551f7f",
+    "raw_lexicon": "Brown token/tag counts only; no sentence context retained"
+  },
+  "status": "no reader-worthy exact closure",
+  "next_construction": "Expand typed role classes with held-out ordinary words and retain online trie intersection; do not add repair or mirrored-token operators."
+}

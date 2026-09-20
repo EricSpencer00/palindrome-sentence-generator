@@ -4915,6 +4915,22 @@ LUNA_PARALLEL_RUNS = [
         "implementation_correction": "the prior recursion returned when the left grammar completed and never expanded the right grammar; a regression test now recovers the 38-letter anchor",
         "next_construction": "replace free POS slots with agreement- and valency-typed clause frames, retaining live center-inside-word closure and the same independent reader gate",
     },
+    {
+        "run_id": "typed-agreement-clause-intersection-20260920",
+        "method": "agreement-typed outside-in character intersection over five asymmetric clause frames",
+        "status": "completed_no_exact_closure",
+        "templates": 5,
+        "visited_nodes": 1827820,
+        "exact_candidates_over_38": 0,
+        "agreement_valid_exact": 0,
+        "longest_exact_letters": 0,
+        "reader_eligible": False,
+        "example_near_miss": "An aide rips nine memos; some men inspire Diana.",
+        "first_live_diagnostic": "agreement-valid anchor remains a held-out calibration witness; no new typed closure reached the >38 gate",
+        "provenance": "fresh number/subject–verb feature states prune lexical edges during live matching; no finished-tape reversal, repair, mirrored units, or catalogue text",
+        "independent_validation": ["literal two-pointer audit", "forward/reverse SHA-256"],
+        "next_construction": "add transitive/intransitive valency to the typed state and allow a finite adjunct edge only when its attachment is licensed",
+    },
 ]
 
 LATEST_LUNA_RUN = LUNA_PARALLEL_RUNS[-1]

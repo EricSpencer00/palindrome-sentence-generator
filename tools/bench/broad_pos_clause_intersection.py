@@ -120,7 +120,8 @@ def audit(text: str) -> dict:
     }
 
 
-def search(left_template: tuple[str, ...], right_template: tuple[str, ...], cap: int = 100):
+def search(left_template: tuple[str, ...], right_template: tuple[str, ...], cap: int = 100,
+           partial_ok=None):
     rows: list[tuple[list[str], list[str]]] = []
     nodes = 0
 
@@ -151,6 +152,9 @@ def search(left_template: tuple[str, ...], right_template: tuple[str, ...], cap:
             for word in BANK[left_template[li]]:
                 if word in left or word in right_reversed:
                     continue
+                if partial_ok is not None and not partial_ok(
+                        left + [word], left_template, "left"):
+                    continue
                 visit(li + 1, ri, 0, ro, left + [word], right_reversed)
             return
         if ri >= 0 and (not right_reversed or right_done):
@@ -159,6 +163,9 @@ def search(left_template: tuple[str, ...], right_template: tuple[str, ...], cap:
                 if word in left or word in right_reversed:
                     continue
                 if needed is not None and word[-1] != needed:
+                    continue
+                if partial_ok is not None and not partial_ok(
+                        list(reversed(right_reversed + [word])), right_template, "right"):
                     continue
                 visit(li, ri - 1, lo, 0, left, right_reversed + [word])
             return

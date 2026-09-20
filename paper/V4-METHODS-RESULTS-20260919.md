@@ -1080,6 +1080,15 @@ used. The next construction adds authored complement cadence and pronoun
 attachment paths. Artifact:
 `runs/shakespearean-scene-reverse-lattice-20260920.json`.
 
+The Shakespearean lattice was expanded with authored matrix cadence
+(`says/hears/vows/declares`), complete `that` complements carrying he/she/they
+attachments, and PP/relative extensions. It produced 1,001 complete scene
+paths and 3,003 reverse-trie states; no reverse parse closed. Complete
+authored controls reached 50 and 51 letters and passed independent audits. The
+next construction adds authored dialogue-response complements before the
+search space is reassessed. Artifact:
+`runs/shakespeare-complement-pronoun-reverse-lattice-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

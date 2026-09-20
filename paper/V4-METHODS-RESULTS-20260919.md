@@ -974,6 +974,20 @@ independent pointer/SHA audits. The next construction changes seam scheduling
 to allow unequal constituent lengths. Artifact:
 `runs/complete-frame-length-extension-20260920.json`.
 
+### Unequal complete-frame seam scheduler
+
+The zip-only seam was then replaced with independent constituent advancement:
+one complete semantic frame may consume a residual across several phrase
+boundaries before the other frame advances. The run tested 150 fresh
+three-to-five-constituent frames and 23,128 live states, with 23,102 residual
+prunes and 24 surviving transitions. It closed only ten explicitly isolated
+baseline rows at 38 letters; no fresh exact candidate above 38 closed. The
+fresh prose controls remain 38, 50, and 72 letters, all independently audited.
+This is a direct unequal-length construction, not a repair or wrapper around a
+finished palindrome. The next lane carries the scheduler into typed complement
+frames. Artifact:
+`runs/unequal-complete-frame-seam-scheduler-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

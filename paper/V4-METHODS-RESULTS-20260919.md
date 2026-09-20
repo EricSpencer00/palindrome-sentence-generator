@@ -835,6 +835,17 @@ letters. Twelve complete generated controls were independently audited. This
 is a direct lexical intersection result, not a repair queue. Artifact:
 `runs/lexical-grammar-lm-intersection-20260920.json`.
 
+### Unequal phrase-count scheduler
+
+The lexical intersection then removed its equal-path-count restriction. Left and
+right clause paths could be SVO, SVO+PP, SVO+relative, or SVO+PP+relative, and
+an independent scheduler advanced whichever side still had residual character
+debt. It tested 420 outer-character seeds; every branch failed its first live
+constituent obligation, so there were zero closures and no exact row above 38
+letters. Complete controls reached 48 letters and were independently audited.
+This is the direct scheduler result, not a repaired tape. Artifact:
+`runs/independent-unequal-clause-scheduler-20260920.json`.
+
 ### Negation/clitic polarity chart
 
 The aspectual recipient grammar then added polarity as a first-class state:

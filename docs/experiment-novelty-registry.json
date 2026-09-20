@@ -11336,6 +11336,17 @@
       "distinction": "Generates independent complete SVO and SVO+PP paths, seeds compatible exposed character classes, carries unequal phrase-length residuals live, and uses collocation ordering only after exact-compatible transitions. No finished-tape reversal, token mirror, catalogue replay, or post-hoc repair is used.",
       "reader_evidence": false,
       "status": "The run tested 688 compatible class-seeded states and pruned all of them, with 0 exact closures above 38 letters. Twelve complete generated controls were independently audited; boundary-class coverage prevents the collocation prior from erasing exact options."
+    },
+    {
+      "id": "independent-unequal-clause-scheduler-20260920",
+      "signature": "unequal-phrase-count|independent-side-scheduler|live-residual|relative-adjunct-paths",
+      "artifact": "experiments/independent_unequal_clause_scheduler_20260920.py",
+      "run_artifacts": [
+        "runs/independent-unequal-clause-scheduler-20260920.json"
+      ],
+      "distinction": "Allows independent left/right SVO, SVO+PP, and relative paths to have different phrase counts; an outside-in scheduler advances whichever side still carries character debt while complete grammar paths remain intact. No finished-tape reversal, token mirror, catalogue replay, or post-hoc repair is used.",
+      "reader_evidence": false,
+      "status": "420 outer-character seeds were tested; all failed their first live constituent obligation, with 0 closures and 0 exact candidates above 38 letters. Complete controls reached 48 letters and were independently audited."
     }
   ]
 }

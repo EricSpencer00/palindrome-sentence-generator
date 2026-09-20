@@ -3785,3 +3785,25 @@ explicit past-to-present transition while alternating roles. It retained 192
 complete scenes up to 195 letters, with zero exact candidates above 38; the
 next construction adds a fourth aspectual edge. Artifact:
 `runs/three-edge-tense-transition-20260920.json`.
+
+The cadence-compatible evidential branch added held-out certainty/source frames
+while preserving polarity, modal/tense compatibility, role agreement, and PP
+attachment. It retained four vivid diagnostics up to 121 letters after eight
+seam prunes, but zero exact candidates above 38; the next construction adds
+discourse-source frames. Artifact:
+`runs/cadence-evidential-adjunct-growth-20260920.json`.
+
+The typed residual-mismatch branch added 36 mismatch transitions and an
+explicitly diagnostic-only bounded fallback to the synchronous paired-buffer
+lane. It retained 36 controls and 216 buffer comparisons up to 137 letters,
+with zero exact candidates above 38. The next construction replaces the
+fallback with a typed optional adjunct edge only after reader-gated validation.
+Artifact:
+`runs/synchronized-valency-tries-residual-mismatch-fallback-20260920.json`.
+
+The four-edge aspectual chain added a fourth lexical event with simple,
+progressive, and perfect aspect while preserving alternating roles and tense
+agreement. It retained 192 complete scenes up to 238 letters, with zero exact
+candidates above 38; the next construction moves aspect into a live
+lexical-edge residual automaton. Artifact:
+`runs/four-edge-aspectual-chain-20260920.json`.

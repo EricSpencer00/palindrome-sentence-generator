@@ -6505,3 +6505,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   retained 192 complete scenes up to 195 letters, with 0 exact candidates above
   38. The next construction adds a fourth aspectual edge. Artifact:
   `runs/three-edge-tense-transition-20260920.json`.
+
+- **Cadence-compatible evidential adjunct growth, 2026-09-20:** added held-out
+  evidential certainty/source frames while preserving polarity, modal/tense
+  compatibility, role agreement, and PP attachment. The depth-three run
+  retained four vivid diagnostics up to 121 letters after eight seam prunes,
+  with 0 exact candidates above 38. The next construction adds discourse-source
+  frames. Artifact: `runs/cadence-evidential-adjunct-growth-20260920.json`.
+
+- **Typed residual-mismatch transition, 2026-09-20:** added 36 typed mismatch
+  transitions and an explicitly diagnostic-only bounded fallback to the
+  synchronous paired-buffer lane. It retained 36 controls and 216 buffer
+  comparisons up to 137 letters, with 0 exact candidates above 38. The next
+  construction replaces the fallback with a typed optional adjunct edge only
+  after reader-gated validation. Artifact:
+  `runs/synchronized-valency-tries-residual-mismatch-fallback-20260920.json`.
+
+- **Four-edge aspectual chain, 2026-09-20:** added a fourth lexical edge with
+  simple, progressive, and perfect aspect while preserving alternating roles
+  and tense agreement. It retained 192 complete scenes up to 238 letters, with
+  0 exact candidates above 38. The next construction moves aspect into a live
+  lexical-edge residual automaton. Artifact:
+  `runs/four-edge-aspectual-chain-20260920.json`.

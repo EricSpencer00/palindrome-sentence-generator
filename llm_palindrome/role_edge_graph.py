@@ -27,7 +27,11 @@ class RoleEdge:
     provenance: str = "authored"
 
     def exact(self) -> bool:
-        return bool(tape(self.left)) and tape(self.left) == tape(self.right)[::-1]
+        # A one-token semordnilap is a catalogue shortcut, not a sentence
+        # construction.  Require a lexical boundary on each side so every
+        # admitted edge crosses a word seam during composition.
+        return (len(self.left.split()) >= 2 and len(self.right.split()) >= 2
+                and tape(self.left) == tape(self.right)[::-1])
 
 
 @dataclass(frozen=True)
@@ -47,7 +51,7 @@ class GraphPath:
 
 
 def build_graph(edges: Iterable[RoleEdge]) -> Mapping[str, tuple[RoleEdge, ...]]:
-    """Index only exact edges; malformed edges can never enter the automaton."""
+    """Index only exact, cross-word edges; malformed edges never enter."""
     graph: dict[str, list[RoleEdge]] = {}
     for edge in edges:
         if edge.exact():

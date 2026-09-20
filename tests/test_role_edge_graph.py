@@ -3,9 +3,9 @@ from llm_palindrome.role_edge_graph import RoleEdge, build_graph, novelty_prefli
 
 def test_edges_and_role_path_are_exact_before_rendering():
     edges = [
-        RoleEdge("stressed", "desserts", "subject", "verb"),
-        RoleEdge("deliver", "reviled", "verb", "object"),
-        RoleEdge("drawer", "reward", "object", "end"),
+        RoleEdge("stressed deliver", "reviled desserts", "subject", "verb"),
+        RoleEdge("drawer reward", "drawer reward", "verb", "object"),
+        RoleEdge("deliver stressed", "desserts reviled", "object", "end"),
     ]
     paths = search_paths(build_graph(edges), ["subject"], max_edges=3)
     assert paths
@@ -20,6 +20,6 @@ def test_malformed_edges_are_not_repaired_into_graph():
 
 
 def test_novelty_preflight_uses_normalized_render():
-    edge = RoleEdge("stressed", "desserts", "subject", "end")
+    edge = RoleEdge("stressed deliver", "reviled desserts", "subject", "end")
     path = search_paths(build_graph([edge]), ["subject"])[0]
     assert novelty_preflight([path], [path.render().upper()]) == []

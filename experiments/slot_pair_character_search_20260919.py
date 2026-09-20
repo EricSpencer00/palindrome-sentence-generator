@@ -38,12 +38,21 @@ class Slot:
     role: str
     words: tuple[str, ...]
     features: tuple[str, ...] = ()
+    word_features: tuple[tuple[str, str], ...] = ()
+
+    def feature(self, word: str) -> str | None:
+        return dict(self.word_features).get(word)
 
 
 def _compatible(prefix: str, suffix: str) -> bool:
     """Check every character whose opposite endpoint is already assigned."""
     overlap = min(len(prefix), len(suffix))
     return prefix[:overlap] == suffix[::-1][:overlap]
+
+def agreement_compatible(subject: Slot, subject_word: str, verb: Slot, verb_word: str) -> bool:
+    """Word-level Penn-derived features, evaluated before rendering."""
+    a, b = subject.feature(subject_word), verb.feature(verb_word)
+    return a is None or b is None or a == b
 
 
 def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:

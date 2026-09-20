@@ -136,6 +136,8 @@ BEST_KNOWN_PROVENANCE = {
         "latest_typed_relative_residual_scheduler": "Typed relative-complement scheduler: 9,341 states, 413,528 character prunes, 2,821 repeat prunes, 344 complete states, zero exact candidates above 38",
         "latest_phrase_path_graph_join": "Phrase-first observed-bigram path join: 5,913 left paths from 100,000 rows, typed reverse-obligation parsing, zero exact closures",
         "latest_qwen_phrase_bank_beam": "Fresh Qwen phrase bank plus exact outside-in beam: 76 proposals, 10 seeds, 9 exact rows at 39–125 letters, 3 mechanical admissions, zero reader-worthy outputs",
+        "latest_qwen_direct_draft": "Direct Qwen whole-sentence drafting: 12 batches, 158 drafts, 21 exact rows, maximum 20 letters; all exact rows were famous short palindromes and none passed the structural gate",
+        "latest_two_sided_pcfg_sampler": "Broad two-sided PCFG sampler: 30,000 draws and 11,814 unique left tapes, independently reverse-segmented, zero exact closures",
         "reader_study": "not run",
     },
 }

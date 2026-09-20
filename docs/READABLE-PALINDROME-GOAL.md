@@ -6485,3 +6485,23 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   155 letters and 0 exact candidates above 38. The next construction adds a
   typed third edge event. Artifact:
   `runs/chained-two-edge-relative-roles-20260920.json`.
+
+- **Cadence-compatible polarity adjunct growth, 2026-09-20:** added held-out
+  positive/negative polarity frames while preserving modal/tense compatibility,
+  role agreement, and PP attachment. The depth-three run retained four vivid
+  diagnostics up to 121 letters after eight seam prunes, with 0 exact
+  candidates above 38. The next construction adds evidential frames. Artifact:
+  `runs/cadence-polarity-adjunct-growth-20260920.json`.
+
+- **Synchronous residual consumption, 2026-09-20:** consumed paired left/right
+  residual buffers synchronously at relative boundaries after tense
+  compatibility. It retained 36 paired controls and 216 buffer comparisons up
+  to 137 letters, with 0 exact candidates above 38. The next construction adds
+  a typed residual-mismatch transition. Artifact:
+  `runs/synchronized-valency-tries-synchronous-consumption-20260920.json`.
+
+- **Three-edge tense transition, 2026-09-20:** added a third lexical edge event
+  with an explicit past-to-present transition while alternating roles. It
+  retained 192 complete scenes up to 195 letters, with 0 exact candidates above
+  38. The next construction adds a fourth aspectual edge. Artifact:
+  `runs/three-edge-tense-transition-20260920.json`.

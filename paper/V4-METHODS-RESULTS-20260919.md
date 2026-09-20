@@ -3767,3 +3767,21 @@ alternating agent/theme roles. It retained 72 complete scenes up to 155
 letters, with zero exact candidates above 38; the next construction adds a
 typed third edge event. Artifact:
 `runs/chained-two-edge-relative-roles-20260920.json`.
+
+The cadence-compatible polarity branch added held-out positive/negative frames
+while preserving modal/tense compatibility, role agreement, and PP attachment.
+It retained four vivid diagnostics up to 121 letters after eight seam prunes,
+but zero exact candidates above 38; the next construction adds evidential
+frames. Artifact: `runs/cadence-polarity-adjunct-growth-20260920.json`.
+
+The synchronous-residual branch consumed paired left/right buffers at relative
+boundaries after tense compatibility. It retained 36 paired controls and 216
+buffer comparisons up to 137 letters, with zero exact candidates above 38; the
+next construction adds a typed residual-mismatch transition. Artifact:
+`runs/synchronized-valency-tries-synchronous-consumption-20260920.json`.
+
+The three-edge tense-transition branch added a third lexical event with an
+explicit past-to-present transition while alternating roles. It retained 192
+complete scenes up to 195 letters, with zero exact candidates above 38; the
+next construction adds a fourth aspectual edge. Artifact:
+`runs/three-edge-tense-transition-20260920.json`.

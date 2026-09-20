@@ -5707,3 +5707,33 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   explicit subject/object attachment interfaces, not another complementizer
   sweep. Artifact:
   `runs/composed-typed-center-grammar-20260920.json`.
+
+- **Endpoint-conditioned compositional decoder, 2026-09-20:** paired fresh
+  lexical endpoints before expanding independent interiors, so endpoint
+  choices—not a post-hoc repair—controlled the outer equation. It rendered 72
+  intact candidates up to 79 letters, including “A patient cartographer
+  sketches distant hills; answers a folded letter beside a small veranda.”
+  The matched `a` endpoint passed, but the next character failed (`p` versus
+  `d`); there were 0 fresh exact candidates above 38. The next construction is
+  an agreement-typed endpoint schema with held-out interiors. Artifact:
+  `runs/endpoint-conditioned-compositional-decoder-20260920.json`.
+
+- **Center-first scene grammar, 2026-09-20:** selected a semantic center
+  before lexical outward growth and expanded paired scene arms under live
+  obligations. Three centers produced nine bounded transitions and three
+  complete prose controls at 58--66 letters; the longest was “In autumn Nell
+  entered; the apples ripened; while the keeper counted the baskets.” Its
+  first outer comparison failed (`i` versus `s`), with 0 exact candidates
+  above 38. The next operator is a two-clause event bridge with an
+  obligation-indexed semantic phrase bank. Artifact:
+  `runs/center-first-scene-grammar-20260920.json`.
+
+- **Character-LM grammar-constrained lane, 2026-09-20:** used a five-gram
+  character model only to order emissions inside independently authored typed
+  SVO clauses while a live cross-boundary residual remained hard. Sixteen
+  clause pairs were tested and all 16 pruned before closure; there were 0 live
+  closures and 0 exact candidates above 38. An intact 76-letter control was
+  “A careful sailor studies the northern current; the northern current tests
+  a careful sailor.” The next construction is a held-out typed valency bank
+  with the LM retained only as an ordering signal. Artifact:
+  `runs/character-lm-grammar-constrained-20260920.json`.

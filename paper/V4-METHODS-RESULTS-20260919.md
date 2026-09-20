@@ -846,6 +846,15 @@ letters. Complete controls reached 48 letters and were independently audited.
 This is the direct scheduler result, not a repaired tape. Artifact:
 `runs/independent-unequal-clause-scheduler-20260920.json`.
 
+The recipient-bearing follow-up added typed ditransitive paths, recipient/theme
+attachments, adjuncts, and relatives while retaining unequal phrase counts and
+independent-side scheduling. It tested 2,160 outer-character seeds; every seed
+failed the first live obligation, with zero closures and no exact row above 38
+letters. Recipient and adjunct controls were independently audited. The next
+construction carries recipient agreement states; no rendered candidate is
+repaired. Artifact:
+`runs/recipient-unequal-attachment-scheduler-20260920.json`.
+
 ### Negation/clitic polarity chart
 
 The aspectual recipient grammar then added polarity as a first-class state:

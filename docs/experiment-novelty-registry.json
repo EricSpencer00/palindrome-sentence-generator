@@ -7626,6 +7626,17 @@
       "distinction": "Selects a semantic relation before lexicalization, then generates constrained sentence halves whose word slots intentionally cross the clause boundary while exact position factors are solved online. Distinct from crossing-consequence, seam/index, and clause-pair lanes; no repair, reversal, repetition, mirrored units, or catalogue text.",
       "reader_evidence": false,
       "status": "Targets 44/56/68/80: 5,550 bounded lexical states, 768 live equation prunes, 0 complete renderings and 0 exact candidates above 38; controls independently pointer/SHA audited; next is relation-conditioned voice alternation"
+    },
+    {
+      "id": "relation-conditioned-voice-grammar-20260920",
+      "signature": "relation-conditioned-voice|active-passive-lexicalization|cross-boundary-word-slots",
+      "artifact": "experiments/relation_conditioned_voice_grammar_20260920.py",
+      "run_artifacts": [
+        "runs/relation-conditioned-voice-grammar-20260920.json"
+      ],
+      "distinction": "Preselects a semantic relation, then chooses active/passive lexicalization online for constrained sentence halves whose word slots cross the boundary while exact position factors are solved during emission. Distinct from crossing-consequence, seam/index, and clause-pair lanes; no repair, reversal, repetition, mirrored units, or catalogue text.",
+      "reader_evidence": false,
+      "status": "Targets 44/56/68/80: 5,550 bounded lexical states, 768 live equation prunes, 0 complete renderings and 0 exact candidates above 38; controls independently pointer/SHA audited; next is relation-conditioned aspect alternation"
     }
   ],
   "excluded": [
@@ -15541,7 +15552,9 @@
       "id": "center-relation-outward-clause-grammar-20260920",
       "signature": "center-relation-grammar|full-clause-authoring|outward-equations-online",
       "artifact": "center_relation_outward_clause_grammar_20260920.py",
-      "run_artifacts": ["runs/center-relation-outward-clause-grammar-20260920.json"],
+      "run_artifacts": [
+        "runs/center-relation-outward-clause-grammar-20260920.json"
+      ],
       "distinction": "Authors full clauses around a typed center relation, then checks outward character equations online; distinct from direct pair, seam automaton, and consequence-scene families, with seed wrapping, repair, reversal, mirrored/repeated units, fragments, and catalogue text excluded.",
       "reader_evidence": false,
       "status": "3 subjects, 3 predicates, 3 objects, 3 center relations, 3 tails, 243 authored controls/prunes to 76 letters, 0 exact candidates above 38; reader list empty"

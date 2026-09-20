@@ -2776,3 +2776,14 @@ states, pruned 126,222 character mismatches and 4,984 repeats, and reached no
 exact closure. Exact states would have been terminal, so this lane cannot hide
 a seed under an outer wrapper. The next branch is a typed clause gate over
 this residual scheduler, not a larger beam or a post-hoc repair.
+
+The typed residual scheduler then restored hard subject/object/preposition
+frontiers while retaining one-sided character-debt advancement. With 70
+Brown-derived entries per coarse part of speech plus names and numerals, it
+visited 6,620 states, pruned 295,080 character mismatches and 2,268 repeats,
+and reached 344 complete grammar states; no exact candidate above 38 letters
+survived. The known 38-letter anchor is recovered as an internal control when
+the anchor vocabulary is supplied, but is not counted as progress. This closes
+the residual-scheduler branch and points to a genuinely different next step:
+add a typed relative complement to the grammar, rather than widening the same
+SVO/PP beam.

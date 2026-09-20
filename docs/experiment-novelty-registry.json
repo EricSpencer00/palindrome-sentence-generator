@@ -47,6 +47,15 @@
       "status": "Remote bounded run with 300-word vocabulary, 100,000 observed rows, 5,000 beam, and 12-word cap: 1,631 states, 126,222 character prunes, 4,984 repeat prunes, 0 exact closures"
     },
     {
+      "id": "typed-residual-scheduler-20260920",
+      "signature": "typed-svo-pp-grammar|one-sided-character-debt|agreement-valency-frontier",
+      "artifact": "experiments/typed_residual_scheduler_20260920.py",
+      "run_artifacts": ["runs/typed-residual-scheduler-20260920.json"],
+      "distinction": "Keeps subject/object/preposition grammar frontiers and typed lexical roles on both sides while allowing only the side opposite outstanding character debt to advance; exact closures are audited and proper nested spans are rejected before the reader gate.",
+      "reader_evidence": false,
+      "status": "Remote bounded run with 70 Brown-derived entries per coarse POS plus names/numerals, 250,000-node cap, and 20,000 beam: 6,620 states, 295,080 character prunes, 2,268 repeat prunes, 344 complete states, and 0 exact candidates above 38"
+    },
+    {
       "id": "independent-clause-seam-trie-20260920",
       "signature": "independent-clause-derivations|character-trie-cross-boundary|reverse-obligation-index|brown-terminals",
       "artifact": "experiments/independent_clause_seam_trie_20260920.py",

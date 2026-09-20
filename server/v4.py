@@ -132,6 +132,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_vocative_bilateral_grammar": "Whole-sentence VOC+CLAUSE / CLAUSE+VOC grammar: 400,087 states, 347,360 complete states, 512 exact closures above 38, all rejected for proper nested palindrome spans; zero reader candidates",
         "latest_wordpath_ngram_csp": "Variable word-path lattice over 30,000 observed bigram rows: 376 states, 47,771 character prunes, 3,091 repeat prunes, zero exact closures",
         "latest_wordpath_beam_csp": "Variable word-path beam with one-sided residual advancement: 300-word vocabulary, 100,000 observed rows, 1,631 states, 126,222 character prunes, 4,984 repeat prunes, zero exact closures",
+        "latest_typed_residual_scheduler": "Typed SVO/PP grammar with one-sided residual advancement: 6,620 states, 295,080 character prunes, 2,268 repeat prunes, 344 complete states, zero exact candidates above 38",
         "reader_study": "not run",
     },
 }

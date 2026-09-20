@@ -6446,3 +6446,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   candidates above 38. The next construction synchronizes typed residual
   streams at lexical-edge boundaries. Artifact:
   `runs/typed-dual-relative-residual-trie-20260920.json`.
+
+- **Cadence-compatible voice adjunct growth, 2026-09-20:** added held-out
+  active/passive voice event frames while preserving aspect, tense, role, and
+  PP attachment state. The depth-three run retained four vivid diagnostics up
+  to 121 letters after eight seam prunes, with 0 exact candidates above 38.
+  The next construction adds modal/deontic voice frames. Artifact:
+  `runs/cadence-voice-adjunct-growth-20260920.json`.
+
+- **Asymmetric-tense paired valency tries, 2026-09-20:** carried three
+  asymmetric tense states across shared relative boundaries in paired tries. It
+  retained 36 ordinary-clause controls up to 137 letters, with 0 exact
+  candidates above 38. The next construction adds residual character buffers.
+  Artifact: `runs/synchronized-valency-tries-asymmetric-tense-20260920.json`.
+
+- **Synchronized typed dual-relative lexical edges, 2026-09-20:** synchronized
+  typed residual streams at 48 lexical-edge checks and rendered 48 diagnostics
+  up to 100 letters, with 0 exact candidates above 38. The next construction
+  chains two edge pairs with alternating relative roles. Artifact:
+  `runs/sync-typed-dual-relative-edges-20260920.json`.

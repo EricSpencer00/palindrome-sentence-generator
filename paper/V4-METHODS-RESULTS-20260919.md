@@ -3732,3 +3732,20 @@ complete scenes up to 88 letters, with zero exact candidates above 38. The
 next construction synchronizes typed residual streams at lexical-edge
 boundaries. Artifact:
 `runs/typed-dual-relative-residual-trie-20260920.json`.
+
+The cadence-compatible voice branch added held-out active/passive voice frames
+while preserving aspect, tense, role, and PP attachment state. It retained four
+vivid diagnostics up to 121 letters after eight seam prunes, but zero exact
+candidates above 38; the next construction adds modal/deontic voice frames.
+Artifact: `runs/cadence-voice-adjunct-growth-20260920.json`.
+
+The asymmetric-tense paired-valency branch carried three asymmetric tense
+states across shared relative boundaries. It retained 36 ordinary-clause
+controls up to 137 letters, with zero exact candidates above 38. The next
+construction adds residual character buffers. Artifact:
+`runs/synchronized-valency-tries-asymmetric-tense-20260920.json`.
+
+The synchronized typed dual-relative lexical-edge branch checked 48 boundary
+keys and rendered 48 diagnostics up to 100 letters, with zero exact candidates
+above 38. Its next construction chains two edge pairs with alternating relative
+roles. Artifact: `runs/sync-typed-dual-relative-edges-20260920.json`.

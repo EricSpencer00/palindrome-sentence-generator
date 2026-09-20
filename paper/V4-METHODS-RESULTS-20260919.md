@@ -63,6 +63,12 @@ multiword palindrome span:
 | Semantic dialogue-relation product | Chooses requester, agent, object, answer, and closing roles from authored alternatives while checking the full two-sided character obligation and request/answer/confirmation parse | 243 role states; two intact diagnostic frames to 78 letters; 0 constructive closures | 0 / 0 |
 | Dialogue recipient-bridge extension | Adds a distinct recipient-obligation bridge relation while retaining the complete request/answer/confirmation parse and live two-sided character debt | 729 role states; diagnostic frames only to 78 letters; 0 constructive closures | 0 / 0 |
 | Live phrase-boundary FSM | Advances authored subject, predicate, adjunct, and one held-out complement with one-sided character debt across phrase edges; right constituents are opened backward and the combined tape is audited at closure | 159 live transitions; 0 complete clause closures; no exact candidate over 38 letters | 0 / 0 |
+| Luna bilateral character-LM/grammar beam | Selects two ordinary typed SVO clauses while a character 3-gram prior ranks only transitions that already satisfy the live mirrored orbit | 36,134 live character expansions; 1,200 rendered diagnostic controls to 69 letters; 0 exact closures | 0 / 0 |
+| Luna recursive CFG scene lattice | Adds independent weather, agent, and purpose beats through a compositional scene grammar, with terminal choices intersected before rendering | 8 fresh scene paths at 68–74 letters; 0 exact closures | 0 / 0 |
+| Luna dependency/valency CSP | Fixes fresh ditransitive donor/recipient/theme dependency frames and audits every reflected terminal obligation | 4 fresh frames at 17–19 letters; 0 exact closures | 0 / 0 |
+| Hand-authored POS bilateral CFG orbit | Selects determiner/noun/verb and modified-SVO slots independently on both sides, matching each live character before advancing a word boundary | 2 typed templates; 88 live states; 0 complete closures | 0 / 0 |
+| Brown PCFG bilateral orbit | Composes new POS-template clauses from Brown frequency domains while matching both ordinary clauses character-by-character | 961 independent template pairs; 179,205 live states; 0 exact closures | 0 / 0 |
+| Luna relative-clause CFG orbit | Intersects independent relative-clause/coordination parses from a held-out lexical bank while consuming opposite-end characters live | 200,000 constructive states; 0 closures; no prose candidate reached the render gate | 0 / 0 |
 | Boundary-indexed typed clause growth | Places each fresh subject/verb/number/object/name/adjunct at its real tape offset and rejects conflicts before opening the next slot | 66,967 live nodes and 23,668 terminal leaves across 40–70 letters; no exact closure | 0 / 0 |
 | Asymmetric boundary-indexed growth | Tests a six-slot left clause against a four-slot response while carrying every outer character obligation before lexical placement | 150,719 live nodes and 1,868 terminal leaves; the withheld fresh inventory produced no exact closure | 0 / 0 |
 | Character-level grammar beam | Keeps word-boundary and role state live in a bounded two-sided character beam with fixed lexical proposal scores | 3,010 bounded expansions over 38–45-letter targets; no exact closure | 0 / 0 |
@@ -303,6 +309,26 @@ than a residual edit: the same live character equations were carried through
 the 78-letter frames remain diagnostic controls only. Its distinct experiment
 identity passed novelty preflight, so the dialogue family is now closed instead
 of being expanded with post-hoc repairs.
+
+Three Luna lanes then changed the search representation rather than patching a
+failed tape. The bilateral character-LM beam expanded 36,134 live character
+states and retained ordinary controls such as “A careful pilot maps rivers
+after rain; The quiet teacher reads letters after rain.” (68 letters), but no
+exact closure. The recursive scene lattice produced eight fresh 68–74-letter
+weather/agent/purpose paths, and the dependency lane tested four fresh
+ditransitive frames; both closed at zero. A Brown-derived PCFG widened the
+typed vocabulary to 961 independent template pairs and 179,205 live states,
+also with zero closure. These outputs are diagnostic controls, not palindrome
+candidates; each has an independent two-pointer and forward/reverse hash
+record. The next construction is a held-out relative-clause grammar, selected
+on the live orbit before any prose is rendered.
+
+The relative-clause follow-up supplied that held-out grammar directly: it
+tested 200,000 relative-clause/coordination state pairs and still found zero
+constructive closures. Because the outer character obligation failed before a
+complete parse could be rendered, it produced no reader-facing text; the
+failure is retained as a grammar-family discriminator, not converted into a
+repair pass.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

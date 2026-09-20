@@ -66,8 +66,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "live-clause-pair-dfs-20260920"
-    assert method.json()["optimization"]["search_history"][-1] == "live-clause-pair-dfs-20260920"
+    assert method.json()["optimization"]["current_search"] == "luna-relative-cfg-orbit-20260920"
+    assert method.json()["optimization"]["search_history"][-1] == "luna-relative-cfg-orbit-20260920"
     assert method.json()["optimization"]["generation_policy"]["mode"] == "constructive_only"
     assert method.json()["optimization"]["generation_policy"]["posthoc_repair"] is False
     assert "retire the grammar family" in method.json()["optimization"]["generation_policy"]["failure_action"]
@@ -82,7 +82,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][7]["longest_rendered_letters"] == 77
     assert method.json()["method_runs"][8]["frontier_controls"] == 390
     assert method.json()["method_runs"][9]["longest_rendered_letters"] == 81
-    assert len(method.json()["method_runs"]) == 32
+    assert len(method.json()["method_runs"]) == 38
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10
@@ -108,10 +108,22 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][28]["constructive_closures"] == 0
     assert method.json()["method_runs"][29]["constructive_states_tested"] == 729
     assert method.json()["method_runs"][29]["constructive_closures"] == 0
-    assert method.json()["method_runs"][30]["visited_transitions"] == 159
-    assert method.json()["method_runs"][30]["exact_candidates_over_38"] == 0
-    assert method.json()["method_runs"][31]["calibration_letters"] == 38
-    assert method.json()["method_runs"][31]["long_form_exact_candidates"] == 0
+    assert method.json()["method_runs"][30]["expanded_states"] == 36134
+    assert method.json()["method_runs"][30]["exact_candidates"] == 0
+    assert method.json()["method_runs"][31]["scene_paths"] == 8
+    assert method.json()["method_runs"][31]["exact_candidates"] == 0
+    assert method.json()["method_runs"][32]["fresh_frames_tested"] == 4
+    assert method.json()["method_runs"][32]["exact_candidates"] == 0
+    assert method.json()["method_runs"][33]["typed_templates"] == 2
+    assert method.json()["method_runs"][33]["live_states"] == 88
+    assert method.json()["method_runs"][34]["template_pairs"] == 961
+    assert method.json()["method_runs"][34]["live_states"] == 179205
+    assert method.json()["method_runs"][35]["constructive_states_tested"] == 200000
+    assert method.json()["method_runs"][35]["constructive_closures"] == 0
+    assert method.json()["method_runs"][36]["visited_transitions"] == 159
+    assert method.json()["method_runs"][36]["exact_candidates_over_38"] == 0
+    assert method.json()["method_runs"][37]["calibration_letters"] == 38
+    assert method.json()["method_runs"][37]["long_form_exact_candidates"] == 0
     assert len(method.json()["rlaif_frontier"]) == 18
 
 

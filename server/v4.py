@@ -715,6 +715,85 @@ DIALOGUE_RECIPIENT_BRIDGE_RUN = {
     "next_construction_discriminator": "dialogue family closed after the bridge branch; reset to a different grammar family",
 }
 
+LUNA_CHAR_LM_ORBIT_RUN = {
+    "run_id": "luna-char-lm-orbit-20260920",
+    "method": "bilateral typed SVO grammar with live character 3-gram orbit ordering",
+    "status": "completed_no_exact_closure",
+    "expanded_states": 36134,
+    "rendered_diagnostic_candidates": 1200,
+    "longest_diagnostic_letters": 69,
+    "exact_candidates": 0,
+    "provenance": "fresh typed slots; character prior ranks only already-exact transitions; no repair, finished-tape reversal, word-order symmetry, repeated units, catalogue text, or reward feedback",
+    "independent_validation": ["live character equality", "literal outside-in two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "diagnostic-only controls; no constructive closure",
+    "next_construction_discriminator": "add one held-out determiner/adjective slot as a new live grammar state; do not edit a failed tape",
+}
+
+LUNA_CFG_SEMANTIC_LATTICE_RUN = {
+    "run_id": "luna-cfg-semantic-lattice-20260920",
+    "method": "recursive compositional weather/agent/purpose scene CFG with bilateral terminal audit",
+    "status": "completed_no_exact_closure",
+    "scene_paths": 8,
+    "longest_diagnostic_letters": 74,
+    "exact_candidates": 0,
+    "provenance": "fresh hand-authored scene beats; independent path choices; no repair, finished-tape reversal, word-order symmetry, repeated modules, or catalogue seed",
+    "independent_validation": ["literal two-pointer", "forward/reverse SHA-256", "novelty preflight"],
+    "reader_status": "diagnostic-only scene paths; no constructive closure",
+    "next_construction_discriminator": "add an independent ditransitive transfer beat with held-out lexical domains before rendering",
+}
+
+LUNA_DEPENDENCY_SCENE_CSP_RUN = {
+    "run_id": "luna-dependency-scene-csp-20260920",
+    "method": "fresh ditransitive dependency/valency frame CSP with reflected terminal obligations",
+    "status": "completed_no_exact_closure",
+    "fresh_frames_tested": 4,
+    "longest_diagnostic_letters": 19,
+    "exact_candidates": 0,
+    "provenance": "fresh donor/recipient/theme frames; famous catalogue palindromes excluded; no repair, reversal, or repeated units",
+    "independent_validation": ["independent normalizer", "literal reflected-obligation audit", "forward SHA-256"],
+    "reader_status": "diagnostic-only; no constructive closure",
+    "next_construction_discriminator": "open a three-way ditransitive seam with lexical choices selected before any rendering",
+}
+
+POS_BILATERAL_CFG_ORBIT_RUN = {
+    "run_id": "pos-bilateral-cfg-orbit-20260920",
+    "method": "hand-authored POS-slot bilateral character orbit with asynchronous word boundaries",
+    "status": "completed_no_exact_closure",
+    "typed_templates": 2,
+    "live_states": 88,
+    "exact_candidates": 0,
+    "provenance": "fresh hand-authored determiner/adjective/noun/verb domains; exact character equality gates every transition; no repair, reversal, word-order symmetry, repeated units, or catalogue text",
+    "independent_validation": ["live character equality", "literal outside-in two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "no complete clause pair reached the reader gate",
+    "next_construction_discriminator": "add agreement-carrying plural domains as a new grammar family rather than editing a failed path",
+}
+
+BROWN_PCFG_BILATERAL_ORBIT_RUN = {
+    "run_id": "brown-pcfg-bilateral-orbit-20260920",
+    "method": "Brown POS-frequency domains composed through a bilateral PCFG character orbit",
+    "status": "completed_no_exact_closure",
+    "template_pairs": 961,
+    "live_states": 179205,
+    "exact_candidates": 0,
+    "provenance": "Brown contributes POS frequency domains only; new clauses are composed before live character matching; no source sentence text, repair, reversal, word-order symmetry, or reward feedback",
+    "independent_validation": ["live opposite-pointer equality", "literal two-pointer", "forward/reverse SHA-256"],
+    "reader_status": "diagnostic-only; no constructive closure",
+    "next_construction_discriminator": "add an agreement-carrying relative-clause grammar as a new state family",
+}
+
+LUNA_RELATIVE_CFG_ORBIT_RUN = {
+    "run_id": "luna-relative-cfg-orbit-20260920",
+    "method": "held-out relative-clause/coordination CFG with opposite-pointer character equality",
+    "status": "completed_no_exact_closure",
+    "constructive_states_tested": 200000,
+    "constructive_closures": 0,
+    "rendered_prose_candidates": 0,
+    "provenance": "fresh finite relative-clause grammar and held-out lexical bank; no repair, finished-tape reversal, word-order symmetry, repeated units, catalogue text, or RLAIF reward",
+    "independent_validation": ["live opposite-pointer equality", "forward/reverse SHA-256", "complete parse gate"],
+    "reader_status": "no candidate reached the reader gate",
+    "next_construction_discriminator": "hold the relative marker and add one held-out transitive-agent slot before rendering",
+}
+
 READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
@@ -748,7 +827,7 @@ OPTIMIZATION_SPEC = {
         "failure_action": "retire the grammar family and open a distinct construction; do not edit an off-tape prose draft",
     },
     "active_construction_policy": "Exact-by-construction orbit generation only: grammar boundaries, semantic roles, and mirrored character pairs are selected together before rendering. Historical residual-repair runs are diagnostics and cannot seed generation.",
-    "current_search": "live-clause-pair-dfs-20260920",
+    "current_search": "luna-relative-cfg-orbit-20260920",
     "search_history": [
         "half-tape-grammar-csp-20260919",
         "dream-rsi-strict-phrase-bank-20260919",
@@ -784,6 +863,12 @@ OPTIMIZATION_SPEC = {
         "dialogue-recipient-bridge-20260920",
         "phrase-boundary-live-fsm-20260920",
         "live-clause-pair-dfs-20260920",
+        "luna-char-lm-orbit-20260920",
+        "luna-cfg-semantic-lattice-20260920",
+        "luna-dependency-scene-csp-20260920",
+        "pos-bilateral-cfg-orbit-20260920",
+        "brown-pcfg-bilateral-orbit-20260920",
+        "luna-relative-cfg-orbit-20260920",
     ],
 }
 
@@ -1126,7 +1211,7 @@ def evidence() -> dict[str, Any]:
         },
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -1149,7 +1234,7 @@ def method() -> dict[str, Any]:
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN],
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -1166,7 +1251,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": TWO_SIDED_SETTING_FRAME_RUN,
-        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN],
+        "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
         "next_reader_facing_test": "randomized blinded intact-prose versus shuffled-control rating",

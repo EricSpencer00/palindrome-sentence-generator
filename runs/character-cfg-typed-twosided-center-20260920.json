@@ -1,0 +1,70 @@
+{
+  "experiment_id": "character-cfg-typed-twosided-center-20260920",
+  "method": "typed two-sided center item with complete lexical constituent and outer-two seam",
+  "grammar": [
+    "S -> NPsubject VP",
+    "VP -> V NPobject",
+    "NP -> DET NOUN REL",
+    "REL -> who VP",
+    "CENTER2 -> (left_char,right_char)"
+  ],
+  "center_items": [
+    {
+      "left": "t",
+      "right": "e",
+      "surface": "the",
+      "agreement": "sg"
+    },
+    {
+      "left": "s",
+      "right": "e",
+      "surface": "some",
+      "agreement": "pl"
+    }
+  ],
+  "stats": {
+    "subject_derivations": 540,
+    "object_derivations": 540,
+    "subject_chart_states": 15934,
+    "object_chart_states": 18252,
+    "center_item_support": {
+      "t/e": 7744
+    },
+    "observed_mismatch_support": {
+      "t/e": 7744
+    },
+    "outer_twochar_states": 2816,
+    "joint_seam_closures": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_joint_score": 1
+  },
+  "complete_prose_controls": [
+    "The sailor who reads the area guards the harbor.",
+    "Some guides who keep the era mark a garden."
+  ],
+  "best_diagnostic": {
+    "score": 1,
+    "left": "a area guides the area",
+    "right": "a area guides the area",
+    "center_item": "t/e",
+    "actual": "t/e",
+    "outer_left": "aa",
+    "outer_right": "ea",
+    "outer_seam": true
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-typed-twosided-center-20260920",
+    "catalogue_imported": false,
+    "fixed_bank_sweep": false,
+    "distinct_from": "character-cfg-center-completion-outer2-20260920"
+  },
+  "next_construction": "Carry the typed t/e pair as a nonterminal with a semantic relation rather than treating it as closable; then seek a fresh grammatical center category without mirroring fragments.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

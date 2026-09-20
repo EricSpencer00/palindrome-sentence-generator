@@ -4196,6 +4196,26 @@ exact candidates above 38. The next construction adds typed instrument
 entailment. Artifact:
 `runs/author-first-event-setting-entailment-20260920.json`.
 
+The paired-adjunct residual lane carried two separate buffers for left/right
+adjunct ownership. It checked 162 states and 324 buffer transitions, pruned
+162, and reached zero exact candidates above 38; the longest control was 46
+letters. The next construction crosses optional adjunct boundaries
+asynchronously. Artifact:
+`runs/bounded-cfg-paired-adjunct-buffers-20260920.json`.
+
+The author-first instrument-entailment lane added typed instrument entailment
+on the third outward edge. It retained 54 compatible diagnostics after 54
+online prunes, up to 79 letters, with zero exact candidates above 38. The next
+construction adds attachment scope depth and instrument ordering. Artifact:
+`runs/author-first-instrument-entailment-20260920.json`.
+
+The reverse-polarity-attachment lane carried polarity alongside voice,
+tense/aspect, and typed attachment through held-out reverse segmentation. It
+checked 32 forward candidates and 32 typed states, found zero reverse parse
+hits, and produced zero exact candidates above 38; the longest diagnostic was
+56 letters. The next construction carries reverse evidential attachment state.
+Artifact: `runs/reverse-polarity-attachment-segmentation-20260920.json`.
+
 The reader-gate hygiene pass audited 20 historical artifacts and moved every
 non-exact or shortcut-prone control out of `reader_facing_candidates` into
 `diagnostic_controls`, while protecting borrowed/catalogue rows. This makes the

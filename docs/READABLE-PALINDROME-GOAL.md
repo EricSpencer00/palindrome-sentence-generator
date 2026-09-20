@@ -6939,6 +6939,27 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   entailment. Artifact:
   `runs/author-first-event-setting-entailment-20260920.json`.
 
+- **Paired adjunct residual buffers, 2026-09-20:** carried two separate
+  residual buffers for left/right adjunct ownership. It checked 162 states and
+  324 buffer transitions, pruned 162, and reached 0 exact candidates above 38;
+  the longest control was 46 letters. The next construction crosses optional
+  adjunct boundaries asynchronously. Artifact:
+  `runs/bounded-cfg-paired-adjunct-buffers-20260920.json`.
+
+- **Author-first instrument entailment, 2026-09-20:** added typed instrument
+  entailment on the third outward edge. It retained 54 compatible diagnostics
+  after 54 online prunes, up to 79 letters, with 0 exact candidates above 38.
+  The next construction adds attachment scope depth and instrument ordering.
+  Artifact: `runs/author-first-instrument-entailment-20260920.json`.
+
+- **Reverse polarity attachment, 2026-09-20:** carried polarity alongside
+  voice, tense/aspect, and typed attachment through held-out reverse
+  segmentation. It checked 32 forward candidates and 32 typed states, found 0
+  reverse parse hits, and produced 0 exact candidates above 38; the longest
+  diagnostic was 56 letters. The next construction carries reverse evidential
+  attachment state. Artifact:
+  `runs/reverse-polarity-attachment-segmentation-20260920.json`.
+
 - **Reader-gate hygiene, 2026-09-20:** audited 20 historical run artifacts
   and moved every non-exact or shortcut-prone control out of
   `reader_facing_candidates` into `diagnostic_controls`. Borrowed/catalogue

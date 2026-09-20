@@ -80,11 +80,15 @@ def scene(valency: str, frame: tuple[str, str, str, str], rel: tuple[str, str],
           tail: str) -> tuple[str, dict]:
     verb, complement, antecedent, setting = frame
     relative, rel_role = rel
-    # The relative is attached to the complement, with an intact finite clause.
+    # Attach the relative to an antecedent licensed by its gap type.  Subject-
+    # gap relatives modify an animate noun; object-gap relatives modify the
+    # overt object/location.  This keeps every control ordinary prose.
     if valency == "transitive":
-        sentence = f"{verb} {complement} {relative}; then walk toward {setting} {tail}."
+        head = antecedent if rel_role == "subject-gap" else complement
+        sentence = f"{verb} {head} {relative}; then walk toward {setting} {tail}."
     else:
-        sentence = f"{verb} {complement} {relative}; then walk beside {setting} {tail}."
+        head = antecedent if rel_role == "subject-gap" else complement
+        sentence = f"{verb} {head} {relative}; then walk beside {setting} {tail}."
     return sentence, {
         "valency": valency,
         "relative_attachment": rel_role,

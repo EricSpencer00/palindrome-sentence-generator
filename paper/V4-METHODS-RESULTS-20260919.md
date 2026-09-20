@@ -1154,6 +1154,16 @@ bidirectional beam decoder that grows both complete grammar sides under exact
 character constraints instead of enumerating fixed frame products. Artifact:
 `runs/brown-authored-causal-reverse-decoder-20260920.json`.
 
+The first joint bidirectional decoder expanded both grammar sides
+synchronously, matching character obligations while word boundaries remained
+live. It tested two complete SVO/SVO+place shapes across 16 states; all died at
+the initial boundary, with zero closures. Collocation scores ranked only
+already-compatible states, and complete 38- and 46-letter prose controls were
+audited independently. This failure identifies a missing state dimension, not
+a case for a wider beam: the next topology allows free cross-word boundary
+offsets through a lexical boundary transducer. Artifact:
+`runs/brown-bidirectional-beam-decoder-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

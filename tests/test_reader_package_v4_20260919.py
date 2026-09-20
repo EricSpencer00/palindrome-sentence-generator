@@ -23,4 +23,10 @@ def test_every_frontier_item_has_intact_and_shuffled_pair_with_audit():
         and row["audit"]["exact"]
         for row in result["answer_key"]
     )
+    assert any(
+        row["source_id"] == "semordnilap-noel-scene-56"
+        and row["condition"] == "shuffled"
+        and row["audit"]["exact"] is False
+        for row in result["answer_key"]
+    )
     assert all("mechanical_checks" in row for row in result["answer_key"])

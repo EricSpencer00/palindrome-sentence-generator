@@ -21,11 +21,11 @@
         "task_id": "pair-001",
         "a": {
           "item_id": "item-001-intact",
-          "text": "At dawn, a careful scribe reads the harbor letter while Diana watches the tide."
+          "text": "No evil Noel deliver desserts raw; war stressed reviled Leon live on."
         },
         "b": {
           "item_id": "item-001-shuffled",
-          "text": "reads the At letter careful dawn tide the harbor a scribe watches Diana while."
+          "text": "No on raw evil reviled deliver war stressed Noel desserts live Leon."
         },
         "question": "Which passage reads more like intact English? Choose A or B; ignore length and palindrome status."
       },
@@ -33,11 +33,11 @@
         "task_id": "pair-002",
         "a": {
           "item_id": "item-002-intact",
-          "text": "The young herald carries a sonnet to the court, and the players answer with song."
+          "text": "At dawn, a careful scribe reads the harbor letter while Diana watches the tide."
         },
         "b": {
           "item_id": "item-002-shuffled",
-          "text": "players sonnet and a the the court to herald answer young song The carries with."
+          "text": "the letter scribe reads while harbor Diana a watches dawn the At careful tide."
         },
         "question": "Which passage reads more like intact English? Choose A or B; ignore length and palindrome status."
       },
@@ -45,11 +45,11 @@
         "task_id": "pair-003",
         "a": {
           "item_id": "item-003-intact",
-          "text": "A baker carries a map; an artist answers some bells."
+          "text": "The young herald carries a sonnet to the court, and the players answer with song."
         },
         "b": {
           "item_id": "item-003-shuffled",
-          "text": "carries some a bells artist answers map A baker an."
+          "text": "herald and carries answer to the a The court young sonnet with the players song."
         },
         "question": "Which passage reads more like intact English? Choose A or B; ignore length and palindrome status."
       },
@@ -57,11 +57,23 @@
         "task_id": "pair-004",
         "a": {
           "item_id": "item-004-shuffled",
-          "text": "the near carries herald actors oath keep The grove hall the the through letter the the."
+          "text": "bells artist A answers some baker carries map a an."
         },
         "b": {
           "item_id": "item-004-intact",
+          "text": "A baker carries a map; an artist answers some bells."
+        },
+        "question": "Which passage reads more like intact English? Choose A or B; ignore length and palindrome status."
+      },
+      {
+        "task_id": "pair-005",
+        "a": {
+          "item_id": "item-005-intact",
           "text": "The herald carries the letter through the hall; the actors keep the oath near the grove."
+        },
+        "b": {
+          "item_id": "item-005-shuffled",
+          "text": "actors letter herald through the hall the the grove oath carries the the keep near The."
         },
         "question": "Which passage reads more like intact English? Choose A or B; ignore length and palindrome status."
       }
@@ -112,13 +124,13 @@
       "condition": "shuffled",
       "rendered": "An men memos nine rips inspire Diana some aide.",
       "audit": {
-        "exact": true,
-        "independent_two_pointer": true,
+        "exact": false,
+        "independent_two_pointer": false,
         "letters": 38,
-        "normalized": "anaideripsninememossomemeninspirediana",
-        "sha256_forward": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
-        "sha256_reverse": "ce71723a3eab38613adeb89c3ce18bab20286d91e6bcee20b25d3f4a724184c6",
-        "sha256_match": true
+        "normalized": "anmenmemosnineripsinspiredianasomeaide",
+        "sha256_forward": "2ad83a33942880cef71b2bd3ae100b5d9cf2682c4de187cc6028e1e6a81e2e92",
+        "sha256_reverse": "467ada720744860753536cf7f5bd8c6950ec08599c22179033c2e71c987056c7",
+        "sha256_match": false
       },
       "mechanical_checks": {
         "supported_ascii_letters": true,
@@ -143,6 +155,78 @@
     {
       "item_id": "item-001-intact",
       "task_id": "pair-001",
+      "source_id": "semordnilap-noel-scene-56",
+      "source": "semordnilap-poetic-clause-20261001",
+      "condition": "intact",
+      "rendered": "No evil Noel deliver desserts raw; war stressed reviled Leon live on.",
+      "audit": {
+        "exact": true,
+        "independent_two_pointer": true,
+        "letters": 56,
+        "normalized": "noevilnoeldeliverdessertsrawwarstressedreviledleonliveon",
+        "sha256_forward": "ed051ff9aa02617944a97c003dfd2a875d2fed278af4c555f812575f302a4b17",
+        "sha256_reverse": "ed051ff9aa02617944a97c003dfd2a875d2fed278af4c555f812575f302a4b17",
+        "sha256_match": true
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": true,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": false,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    },
+    {
+      "item_id": "item-001-shuffled",
+      "task_id": "pair-001",
+      "source_id": "semordnilap-noel-scene-56",
+      "source": "semordnilap-poetic-clause-20261001",
+      "condition": "shuffled",
+      "rendered": "No on raw evil reviled deliver war stressed Noel desserts live Leon.",
+      "audit": {
+        "exact": false,
+        "independent_two_pointer": false,
+        "letters": 56,
+        "normalized": "noonrawevilrevileddeliverwarstressednoeldessertsliveleon",
+        "sha256_forward": "039d76695ead964787cb53331226645d1af85b4a567c85f747cbec5a5e30fd18",
+        "sha256_reverse": "5c7ce7de1ea4bea5153a80885709d912578937c528402a2525fbcec4f8d80961",
+        "sha256_match": false
+      },
+      "mechanical_checks": {
+        "supported_ascii_letters": true,
+        "nonempty": true,
+        "exact_letter_palindrome": false,
+        "length_band": true,
+        "word_form": true,
+        "lexicon_words": true,
+        "ordinary_short_words": true,
+        "distinct_words": true,
+        "no_self_palindromic_word": true,
+        "not_word_order_symmetry": true,
+        "no_repeated_nontrivial_unit": true,
+        "no_self_palindromic_proper_multiword_span": false,
+        "not_forbidden_catalogue_control": true,
+        "not_catalogue_family_derivative": true,
+        "not_forbidden_catalogue_endpoint_scaffold": true,
+        "absent_from_local_catalogue": true,
+        "local_catalogue_absent": true
+      }
+    },
+    {
+      "item_id": "item-002-intact",
+      "task_id": "pair-002",
       "source_id": "intact-control-1",
       "source": "authored-reader-control",
       "condition": "intact",
@@ -177,19 +261,19 @@
       }
     },
     {
-      "item_id": "item-001-shuffled",
-      "task_id": "pair-001",
+      "item_id": "item-002-shuffled",
+      "task_id": "pair-002",
       "source_id": "intact-control-1",
       "source": "authored-reader-control",
       "condition": "shuffled",
-      "rendered": "reads the At letter careful dawn tide the harbor a scribe watches Diana while.",
+      "rendered": "the letter scribe reads while harbor Diana a watches dawn the At careful tide.",
       "audit": {
         "exact": false,
         "independent_two_pointer": false,
         "letters": 64,
-        "normalized": "atdawnacarefulscribereadstheharborletterwhiledianawatchesthetide",
-        "sha256_forward": "e2062e0f423c62fb9e6f244c24dc0bdea9971a5fbcecb4004b038033a731f85c",
-        "sha256_reverse": "3b7729388cc1e45722d6a6cf6e0e7d9b835824a4920a699c68b2ce1c08113092",
+        "normalized": "theletterscribereadswhileharbordianaawatchesdawntheatcarefultide",
+        "sha256_forward": "1e51ea18f0716b376e9c467813e6b1629823f2b2cc57d1909653fd3359a9c6ef",
+        "sha256_reverse": "3731ee8dab65ece33093b200db2fffd9250309e7c021ce9cb4ac55515ea8f87e",
         "sha256_match": false
       },
       "mechanical_checks": {
@@ -213,8 +297,8 @@
       }
     },
     {
-      "item_id": "item-002-intact",
-      "task_id": "pair-002",
+      "item_id": "item-003-intact",
+      "task_id": "pair-003",
       "source_id": "intact-control-2",
       "source": "authored-reader-control",
       "condition": "intact",
@@ -249,19 +333,19 @@
       }
     },
     {
-      "item_id": "item-002-shuffled",
-      "task_id": "pair-002",
+      "item_id": "item-003-shuffled",
+      "task_id": "pair-003",
       "source_id": "intact-control-2",
       "source": "authored-reader-control",
       "condition": "shuffled",
-      "rendered": "players sonnet and a the the court to herald answer young song The carries with.",
+      "rendered": "herald and carries answer to the a The court young sonnet with the players song.",
       "audit": {
         "exact": false,
         "independent_two_pointer": false,
         "letters": 65,
-        "normalized": "theyoungheraldcarriesasonnettothecourtandtheplayersanswerwithsong",
-        "sha256_forward": "e2cbc7958e7bad22a8c97353bb70b7ce77f65c659056bee4adbf3d2ab37088f4",
-        "sha256_reverse": "1090c46a9d4c6c3db07b2eb52bdcce2b5196ae60ebb2db2d8ba177cfda5cf767",
+        "normalized": "heraldandcarriesanswertotheathecourtyoungsonnetwiththeplayerssong",
+        "sha256_forward": "f2b7c4b1b01b330042e169bbb565da90016af54d416be731c3736d127871ef04",
+        "sha256_reverse": "fd8081a35cbef0835d3cbb90c6020000a17ae73334a8c0df14821336bf0d90a8",
         "sha256_match": false
       },
       "mechanical_checks": {
@@ -285,8 +369,8 @@
       }
     },
     {
-      "item_id": "item-003-intact",
-      "task_id": "pair-003",
+      "item_id": "item-004-intact",
+      "task_id": "pair-004",
       "source_id": "intact-control-3",
       "source": "authored-reader-control",
       "condition": "intact",
@@ -321,19 +405,19 @@
       }
     },
     {
-      "item_id": "item-003-shuffled",
-      "task_id": "pair-003",
+      "item_id": "item-004-shuffled",
+      "task_id": "pair-004",
       "source_id": "intact-control-3",
       "source": "authored-reader-control",
       "condition": "shuffled",
-      "rendered": "carries some a bells artist answers map A baker an.",
+      "rendered": "bells artist A answers some baker carries map a an.",
       "audit": {
         "exact": false,
         "independent_two_pointer": false,
         "letters": 41,
-        "normalized": "abakercarriesamapanartistanswerssomebells",
-        "sha256_forward": "973bb6f808b4d7d3ea33e59f1aa6ab495f292047fed1e29a73fbbe9a9951b9e5",
-        "sha256_reverse": "0900df041b4579d7bfa19ac4b529694ba875e82d74fd2668e622d11c29fbc7e7",
+        "normalized": "bellsartistaanswerssomebakercarriesmapaan",
+        "sha256_forward": "7d0c94c42d90e685a6fd80cb4e15f63c372870c0fac18d031fe336c49637dd40",
+        "sha256_reverse": "ff941c0f92051babb2e894c018ff837b482285adf92790340f07343017607f43",
         "sha256_match": false
       },
       "mechanical_checks": {
@@ -357,8 +441,8 @@
       }
     },
     {
-      "item_id": "item-004-intact",
-      "task_id": "pair-004",
+      "item_id": "item-005-intact",
+      "task_id": "pair-005",
       "source_id": "intact-control-4",
       "source": "authored-reader-control",
       "condition": "intact",
@@ -393,19 +477,19 @@
       }
     },
     {
-      "item_id": "item-004-shuffled",
-      "task_id": "pair-004",
+      "item_id": "item-005-shuffled",
+      "task_id": "pair-005",
       "source_id": "intact-control-4",
       "source": "authored-reader-control",
       "condition": "shuffled",
-      "rendered": "the near carries herald actors oath keep The grove hall the the through letter the the.",
+      "rendered": "actors letter herald through the hall the the grove oath carries the the keep near The.",
       "audit": {
         "exact": false,
         "independent_two_pointer": false,
         "letters": 71,
-        "normalized": "theheraldcarriestheletterthroughthehalltheactorskeeptheoathnearthegrove",
-        "sha256_forward": "63fe4f52ebf092a48e8e18662eb434cccf2c1577c4612983bacd333c67d47a3d",
-        "sha256_reverse": "238be1fe7917f13edfa6b7e7b62aa4c2e9842a084c07cf8069de6e8ea573b856",
+        "normalized": "actorsletterheraldthroughthehallthethegroveoathcarriesthethekeepnearthe",
+        "sha256_forward": "fdb1a49533ad9c1016e8a07b3be1ea165e1efffe36d6d423855d8416d3c49bbc",
+        "sha256_reverse": "cd60301bf08ff124d9707f43025ddb69c1ba880015a5013c2f635e0a0f1774b2",
         "sha256_match": false
       },
       "mechanical_checks": {
@@ -430,9 +514,9 @@
     }
   ],
   "reproducibility": {
-    "generator_sha256": "8747f7a9b855d3c7938cca3c805b45210be0f151765d2e3bb53036bc13424c80",
+    "generator_sha256": "55d9276d93bab580a0910825f859eeee5523614c0f78434fd21b28ebef16ec4d",
     "randomization": "Python Random with explicit integer seed; answer key is separate from rater form",
-    "pair_count": 5
+    "pair_count": 6
   },
   "reader_protocol": {
     "intact_vs_shuffled": true,

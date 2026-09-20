@@ -84,20 +84,19 @@ def build(seed: int = SEED) -> dict[str, object]:
                 "question": "Which passage reads more like intact English? Choose A or B; ignore length and palindrome status.",
             }
         )
-        audit = independent_audit(str(row["text"]))
-        answer_key.extend(
-            {
-                "item_id": item_id,
-                "task_id": f"pair-{index:03d}",
-                "source_id": row["source_id"],
-                "source": row["source"],
-                "condition": condition,
-                "rendered": rendered,
-                "audit": audit,
-                "mechanical_checks": mechanical_admission_checks(rendered, min_letters=30, max_letters=2000),
-            }
-            for item_id, rendered, condition in pair
-        )
+        for item_id, rendered, condition in pair:
+            answer_key.append(
+                {
+                    "item_id": item_id,
+                    "task_id": f"pair-{index:03d}",
+                    "source_id": row["source_id"],
+                    "source": row["source"],
+                    "condition": condition,
+                    "rendered": rendered,
+                    "audit": independent_audit(rendered),
+                    "mechanical_checks": mechanical_admission_checks(rendered, min_letters=30, max_letters=2000),
+                }
+            )
     return {
         "experiment_id": EXPERIMENT_ID,
         "seed": seed,

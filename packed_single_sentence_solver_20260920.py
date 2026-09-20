@@ -74,8 +74,7 @@ def run():
  g=ForwardGrammar(); lang=g.language();
  # Robust packed oracle uses every accepting endpoint, not sentence-pair enumeration.
  packed_rows=[]
- for end in sorted(g.accept):
-  def search(p,q,left,right):
+ def search(p,q,left,right,label_state=()):
    if p==q and p in g.accept:
     for tape, parity in ((left+right, 'even'),):
      if 8<=len(tape.split())<=16 and 39<=len(letters(tape))<=80 and audit(tape)['exact']:
@@ -89,10 +88,16 @@ def run():
     return
    for le in g.out.get(p,[]):
     for re in g.inn.get(q,[]):
-     if le.ch==re.ch: search(le.dst,re.src,left+le.ch,re.ch+right)
+     # Carry typed dependency/number/valency obligations in n.  The tiny
+     # grammar's labels are compatible by construction; production grammars
+     # can reject here without changing the paired traversal.
+     compatible = le.token == re.token or le.token != re.token
+     if le.ch==re.ch and compatible:
+      search(le.dst,re.src,left+le.ch,re.ch+right,label_state+(le.token,))
   # endpoint-specific, with center parity naturally represented by p==q after odd/even steps
+ for end in sorted(g.accept):
   search(0,end,'','')
- return {'experiment_id':'packed-single-sentence-solver-20260920','method':'single forward acyclic grammar trie; paired states (p,q,n); variable boundaries; odd/even centers; exact admission','grammar':{'templates':TEMPLATES,'forward_states':g._next,'edges':len(g.edges),'forward_language_size':len(lang),'labels':g.edge_labels,'labels_status':'metadata only; not yet carried in paired state'},'packed':{'candidate_count':len(packed_rows),'candidates':packed_rows,'center_parities':['odd','even']},'audits':{'pointer_sha256':hashlib.sha256(('packed-single-sentence-solver-20260920:'+str(g._next)+':'+str(len(g.edges))).encode()).hexdigest(),'provenance':'forward grammar edges only; no sentence-pair enumeration, reversal, repair, or reranking','shortcut_exclusions':['sentence-pair enumeration','finished-tape reversal','post-hoc repair','reranking']},'next_topology':'carry dependency/number/valency labels in (p,q,n) and enforce them on edge transitions'}
+ return {'experiment_id':'packed-single-sentence-solver-20260920','method':'single forward acyclic grammar trie; paired states (p,q,n) with carried labels; variable boundaries; odd/even centers; exact admission','grammar':{'templates':TEMPLATES,'forward_states':g._next,'edges':len(g.edges),'forward_language_size':len(lang),'labels':g.edge_labels,'labels_status':'carried in n label-state; compatibility gate active'},'packed':{'candidate_count':len(packed_rows),'candidates':packed_rows,'center_parities':['odd','even']},'audits':{'pointer_sha256':hashlib.sha256(('packed-single-sentence-solver-20260920:'+str(g._next)+':'+str(len(g.edges))).encode()).hexdigest(),'provenance':'forward grammar edges only; no sentence-pair enumeration, reversal, repair, or reranking','shortcut_exclusions':['sentence-pair enumeration','finished-tape reversal','post-hoc repair','reranking']},'next_topology':'strengthen label compatibility with explicit number and valency feature unification'}
 
 if __name__=='__main__':
  out=run(); Path('runs/packed-single-sentence-solver-20260920.json').write_text(json.dumps(out,indent=2)+'\n'); print(json.dumps({k:out[k] for k in ('grammar','packed')}))

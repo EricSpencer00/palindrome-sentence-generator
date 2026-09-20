@@ -6337,3 +6337,23 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   letters; 0 exact candidates above 38 survived. The next construction
   separates recipient/theme tense and aspect. Artifact:
   `runs/heldout-ditransitive-semordnilap-search-20260920.json`.
+
+- **Tense-agreeing semordnilap complements, 2026-09-20:** unified tense
+  across two finite clauses while selecting complements independently. It
+  retained 80 complete controls to 100 letters, with 0 exact candidates above
+  38. The next construction adds aspectual auxiliaries with agreement-safe
+  complements. Artifact: `runs/semordnilap-tense-complement-20260920.json`.
+
+- **Held-out tense/agreement growth, 2026-09-20:** alternated held-out
+  past/plural clauses and attachment-compatible PPs through depth four. It
+  retained four intact controls to 96 letters after six seam prunes, with 0
+  exact candidates above 38. The next construction adds past-perfect and
+  progressive plural clauses. Artifact:
+  `runs/heldout-tense-agreement-growth-20260920.json`.
+
+- **Held-out ditransitive tense-aspect semordnilap, 2026-09-20:** conditioned
+  recipient and theme on separate tense/aspect states before adding a third
+  lexical edge. It tested 125 states, made 27,000 live prunes, and retained 40
+  controls to 172 letters; 0 exact candidates above 38 survived. The next
+  construction adds aspect compatibility before adjunct attachment. Artifact:
+  `runs/heldout-ditransitive-tense-semordnilap-search-20260920.json`.

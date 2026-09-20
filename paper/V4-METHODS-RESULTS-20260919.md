@@ -3628,3 +3628,22 @@ lexical edge to five pair edges. It tested 25 dual-edge states, made 1,350 live
 prunes, and retained 40 controls to 135 letters; zero exact candidates above
 38 survived. The next construction separates recipient/theme tense and aspect.
 Artifact: `runs/heldout-ditransitive-semordnilap-search-20260920.json`.
+
+The tense-agreeing semordnilap complement lane unified tense across two finite
+clauses while selecting complements independently. It retained 80 complete
+controls to 100 letters, with zero exact candidates above 38. The next
+construction adds aspectual auxiliaries with agreement-safe complements.
+Artifact: `runs/semordnilap-tense-complement-20260920.json`.
+
+The held-out tense/agreement lane alternated past/plural clauses and
+attachment-compatible PPs through depth four. It retained four intact controls
+to 96 letters after six seam prunes, with zero exact candidates above 38. The
+next construction adds past-perfect and progressive plural clauses. Artifact:
+`runs/heldout-tense-agreement-growth-20260920.json`.
+
+The held-out ditransitive tense-aspect semordnilap lane conditioned recipient
+and theme on separate tense/aspect states before adding a third lexical edge.
+It tested 125 states, made 27,000 live prunes, and retained 40 controls to 172
+letters; zero exact candidates above 38 survived. The next construction adds
+aspect compatibility before adjunct attachment. Artifact:
+`runs/heldout-ditransitive-tense-semordnilap-search-20260920.json`.

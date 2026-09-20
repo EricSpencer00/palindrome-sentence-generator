@@ -5076,6 +5076,22 @@ LUNA_PARALLEL_RUNS = [
         "independent_validation": ["literal two-pointer audit", "forward/reverse SHA-256"],
         "next_construction": "expand semantic edge inventory only after retaining exact mirror support",
     },
+    {
+        "run_id": "multiclause-variable-boundary-semantic-csp-20260920",
+        "method": "three-clause SVO/imperative/copular semantic CSP with variable word-boundary residuals",
+        "status": "completed_no_exact_closure",
+        "sequences": 12,
+        "states": 3828,
+        "character_prunes": 3696,
+        "semantic_prunes": 12,
+        "exact_candidates_over_38": 0,
+        "reader_eligible": False,
+        "complete_prose_controls": 3,
+        "control_lengths": [68, 68, 69],
+        "provenance": "fresh authored multi-clause sequences with live cross-word seams and complete semantic roles; no reversal, repair, mirrored units, or catalogue text",
+        "independent_validation": ["literal two-pointer audit", "forward/reverse SHA-256"],
+        "next_construction": "hold out one agreement-typed ditransitive clause while retaining the cross-word seam gate",
+    },
 ]
 
 LATEST_LUNA_RUN = LUNA_PARALLEL_RUNS[-1]

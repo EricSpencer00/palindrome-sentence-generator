@@ -3215,3 +3215,26 @@ passive embedded controls (90 and 99 letters) were independently pointer/SHA
 audited. The next construction adds a held-out modal passive frame; no
 scheduler or post-hoc repair is being substituted for a new grammar topology.
 Artifact: `runs/passive-ditransitive-embedding-csp-20260920.json`.
+
+An orthogonal word-boundary grammar automaton then selected ordinary lexical
+edges jointly with complete agent/event/theme frames. Semordnilap words were
+allowed only as ordinary lexical alternatives, never as mirrored units. Four
+fresh frames incurred 2,048 live boundary prunes and retained 20 grammatical
+near-misses, the longest 51 letters (for example, “The patient gardener records
+the patient diaper before dusk.”); zero exact candidates above 38 survived.
+Every near-miss received independent pointer and forward/reverse SHA-256
+audits. The next topology adds an optional relative-clause slot to the noun
+phrase while carrying its event role through the same boundary equation.
+Artifact: `runs/word-boundary-grammar-automaton-20260920.json`.
+
+The packed single-sentence solver then moved from frame products to one
+acyclic forward grammar trie. Paired grammar states consumed matching
+characters with variable word boundaries and explicit odd/even center closure;
+complete closures had to end at accepting grammar states. Its 8-, 9-, and
+12-word templates represented 89,856 forward-language strings across 521,451
+trie states and 521,450 character edges, but yielded zero exact candidates in
+the 39–80-letter admission band. Dependency, number, and valency labels are
+recorded as metadata in this structural pass and are not yet enforced in the
+paired state. The next construction carries those labels in `(p, q, n)` rather
+than expanding another untyped grammar. Artifact:
+`runs/packed-single-sentence-solver-20260920.json`.

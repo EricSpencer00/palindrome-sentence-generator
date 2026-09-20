@@ -1,14 +1,14 @@
 import hashlib,itertools,json
 from pathlib import Path
-DET=['a','the']; SUB=['pilot','baker','clerk']; VERB=['marks','opens']; OBJ=['map','gate','note']; ADV=['near','by']
+DET=['a','the','one']; SUB=['pilot','baker','clerk','guard','poet','ranger']; VERB=['marks','opens','reads','packs','seals']; OBJ=['map','gate','note','lamp','parcel','book']; ADV=['near','by','at','under']
 def norm(s): return ''.join(c for c in s.lower() if c.isalpha())
 def audit(s):
  t=norm(s); f=hashlib.sha256(t.encode()).hexdigest(); r=hashlib.sha256(t[::-1].encode()).hexdigest(); bad=next((i for i in range(len(t)//2) if t[i]!=t[-1-i]),None)
  return {'letters':len(t),'exact':bad is None and bool(t),'first_mismatch':bad,'sha256_forward':f,'sha256_reverse':r,'sha_equal':f==r}
 rows=[]; states=0; pruned=0
-for d,s,v,o,a in itertools.product(DET,SUB,VERB,OBJ,ADV):
- if len({d,s,v,o,a}) < 5: continue
- sentence=f'{d} {s} {v} {d} {o} {a} {o}'; t=norm(sentence); trace=[]
+for d,s,v,o,a,o2 in itertools.product(DET,SUB,VERB,OBJ,ADV,OBJ):
+ if len({d,s,v,o,a,o2}) < 6: continue
+ sentence=f'{d} {s} {v} {o} {a} {o2}'; t=norm(sentence); trace=[]
  for i in range((len(t)+1)//2):
   j=len(t)-1-i
   if t[i] != t[j]: pruned += 1; break

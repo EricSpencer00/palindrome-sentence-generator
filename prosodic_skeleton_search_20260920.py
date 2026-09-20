@@ -1,4 +1,4 @@
-"""Fresh clause search constrained by catalogue-derived prosodic skeletons.
+"""Readability diagnostic using catalogue-derived prosodic skeletons.
 
 Only aggregate word-count/length-profile shapes are extracted from the
 quarantined catalogue.  Surface words are newly authored and each side is
@@ -53,7 +53,8 @@ def run() -> dict:
     shapes = skeletons()
     rows = []
     # Fresh clauses are complete English and never generated from a reversed
-    # tape.  A profile score rewards comparable prosody before exact checking.
+    # tape.  This score is computed after rendering: it is a prose control,
+    # not a live construction equation and cannot make a palindrome.
     for lh, lb in LEFT:
         left = f"{lh} {lb}"
         for rh, rb in RIGHT:
@@ -74,19 +75,21 @@ def run() -> dict:
     rows.sort(key=lambda r: (-r["skeleton_score"], -r["audit"]["letters"]))
     exact = [r for r in rows if r["audit"]["exact"] and r["audit"]["letters"] > 38]
     return {"experiment_id": "prosodic-skeleton-search-20260920",
-            "method": "catalogue-derived aggregate word-length skeleton prior over fresh typed clauses",
+            "method": "post-render catalogue-derived aggregate word-length profile diagnostic over fresh typed clauses",
             "stats": {"aggregate_skeletons": len(shapes), "left_clauses": len(LEFT),
                       "right_clauses": len(RIGHT), "rendered_candidates": len(rows),
                       "fresh_exact_gt38": len(exact),
                       "max_letters": max((r["audit"]["letters"] for r in rows), default=0)},
             "aggregate_skeletons": shapes, "rendered_candidates": rows,
             "exact_candidates": exact,
-            "novelty_preflight": {"status": "passed",
+            "novelty_preflight": {"status": "passed-diagnostic-only",
                 "distinct_from": "endpoint classes, boundary debt, mirror-pair products, and semantic-frame ranking",
-                "catalogue_surface_reuse": False},
+                "catalogue_surface_reuse": False,
+                "live_construction_equation": False,
+                "palindrome_constructor": False},
             "provenance": {"audits": ["independent two-pointer mismatch", "forward/reverse SHA-256"],
-                           "reader_gate": "closed unless fresh exact >38 appears"},
-            "status": "fresh exact >38 candidate requires human reading" if exact else "no fresh exact >38 candidate"}
+                           "reader_gate": "closed: no reader claim is made for prose controls"},
+            "status": "diagnostic prose controls; no-reader claim; no palindrome constructor"}
 
 if __name__ == "__main__":
     result = run(); OUT.write_text(json.dumps(result, indent=2) + "\n"); print(json.dumps(result["stats"]))

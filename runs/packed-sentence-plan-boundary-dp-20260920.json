@@ -1,0 +1,48 @@
+{
+  "experiment_id": "packed-sentence-plan-boundary-dp-20260920",
+  "method": "packed grammar chart with reverse-compatible boundary signatures and length-band DP",
+  "grammar": "recursive NP/VP/PP/REL sentence-plan space",
+  "stats": {
+    "raw_plans": 1200,
+    "packed_plans": 195,
+    "boundary_buckets": 4,
+    "reverse_compatible_states": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 0
+  },
+  "length_bands": [
+    6
+  ],
+  "best_diagnostic": {
+    "matched": 0,
+    "left": "",
+    "right": ""
+  },
+  "candidates": [],
+  "complete_prose_controls": [
+    "The careful writer reads a quiet book.",
+    "A kind teacher helps the young student.",
+    "The sailor guides the poet with a bright map."
+  ],
+  "independent_audit": [
+    "reverse-compatible boundary signature",
+    "full normalized character equality",
+    "two-pointer audit",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "packed-sentence-plan-boundary-dp-20260920",
+    "distinct_from": "char-cfg-direct-pp-relative-20260920",
+    "per_step_rlaif": false,
+    "repair": false,
+    "catalogue_imported": false
+  },
+  "provenance": {
+    "generator_sha256": "71a78de273d40b9257eb41d1699271b0d820864e3804dcbf60e10c5c542735b8",
+    "sentence_plan_space": "broad recursive CFG"
+  },
+  "next_construction": "Add packed typed agreement features to boundary buckets without shrinking existing grammar branches.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

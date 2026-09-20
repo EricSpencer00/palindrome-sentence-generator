@@ -1,0 +1,103 @@
+{
+  "experiment_id": "reverse-segmentation-endpoint-indexed-grammar-20260920",
+  "signature": "endpoint-indexed|complete-clause-grammar|reverse-segmentation|overlap-conditioned-adjuncts",
+  "status": "completed_no_exact_closure",
+  "method": "endpoint-indexed authored complete-clause grammar with simultaneous forward/reverse character-trie intersection",
+  "endpoint_preflight": {
+    "inventory": 1296,
+    "endpoint_classes": [
+      [
+        "a",
+        "a"
+      ],
+      [
+        "a",
+        "e"
+      ],
+      [
+        "a",
+        "n"
+      ],
+      [
+        "a",
+        "t"
+      ],
+      [
+        "t",
+        "a"
+      ],
+      [
+        "t",
+        "e"
+      ],
+      [
+        "t",
+        "n"
+      ],
+      [
+        "t",
+        "t"
+      ]
+    ],
+    "compatible_initial_final_classes": [
+      "a",
+      "t"
+    ],
+    "precondition_changed_before_search": true
+  },
+  "stats": {
+    "states": 4,
+    "truncated": false,
+    "frontier_rows": 2,
+    "rendered_complete_prose_controls": 0,
+    "exact_candidates_above_38": 0
+  },
+  "controls": [],
+  "frontier": [
+    {
+      "matched_prefix": "a",
+      "left_next": [
+        "n",
+        "p",
+        "t"
+      ],
+      "right_next": [
+        "r"
+      ]
+    },
+    {
+      "matched_prefix": "th",
+      "left_next": [
+        "e"
+      ],
+      "right_next": [
+        "g"
+      ]
+    }
+  ],
+  "exact_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "endpoint-indexed|complete-clause-grammar|reverse-segmentation|overlap-conditioned-adjuncts",
+    "distinct_from": "predecessor reverse-segmentation lane had zero compatible root endpoint classes; this lane changes authored adjunct endpoint classes and indexes them before the same complete-clause intersection",
+    "excluded": [
+      "finished-tape reversal",
+      "posthoc repair",
+      "word-order-only symmetry",
+      "mirrored/self-palindromic units",
+      "catalogue text",
+      "fragments",
+      "per-search RLAIF"
+    ]
+  },
+  "provenance": {
+    "lexicon": "fresh authored subject/verb/object/adjunct slots",
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "reader_evidence": false
+  },
+  "next_construction": "if exact closures remain absent, add one independently authored PP/relative template whose final endpoint is a new class, preserving endpoint indexing and complete-clause reverse parsing rather than widening incompatible roots",
+  "reader_gate": "closed until an exact-clean original closure is independently audited and rated against shuffled intact prose"
+}

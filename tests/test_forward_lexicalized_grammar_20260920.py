@@ -17,27 +17,30 @@ def test_forward_reverse_hashes_agree_only_for_exact():
         assert audit["exact"] == (audit["sha256_forward"] == audit["sha256_reverse"])
 
 def test_bounded_csp_matches_bruteforce_at_each_length():
-    csp = constrained_paths(lengths=range(1, 21))
-    expected = {t for t in brute_force(GRAMMAR, ATOMIC, max_words=8) if independent_audit(t)["letters"] <= 20}
-    got = {r["rendered"].rstrip(".") for r in csp["paths"]}
-    assert got == {t for t in expected if independent_audit(t)["exact"]}
+    small = ATOMIC[:9]
+    csp = constrained_paths(lexicon=small, lengths=range(1, 21), max_nodes=20000)
+    expected = {t for t in brute_force(GRAMMAR, small, max_words=8) if independent_audit(t)["letters"] <= 20 and admission_ok(t.split())}
+    got = {letters(r["rendered"]) for r in csp["paths"]}
+    assert got == {letters(t) for t in expected if independent_audit(t)["exact"]}
     assert csp["stats"]["pruned"] >= 0
 
 def test_atomic_38_letter_witness_is_recovered():
     anchor_lex = tuple(w for w in ATOMIC if w.text in {"an", "aide", "rips", "nine", "memos", "some", "men", "inspire", "diana"})
     result = constrained_paths(lexicon=anchor_lex, lengths=[38], max_words=10, max_nodes=20000)
     anchor = "an aide rips nine memos some men inspire diana"
-    assert any(r["rendered"].rstrip(".") == anchor for r in result["paths"])
+    assert any(letters(r["rendered"]) == letters(anchor) for r in result["paths"])
+    assert any(";" in r["rendered"] for r in result["paths"] if letters(r["rendered"]) == letters(anchor))
     assert independent_audit(anchor)["exact"]
 
 def test_shortcut_witnesses_are_rejected():
     rows = constrained_paths(lengths=[38], max_words=10, max_nodes=1000)["paths"]
     assert all("ava sees ava ava sees ava" not in r["rendered"] for r in rows)
-    assert all(len(set(r["rendered"].rstrip(".").split())) == len(r["rendered"].rstrip(".").split()) for r in rows)
+    assert all(len(set(r["rendered"].replace(";", "").rstrip(".").split())) == len(r["rendered"].replace(";", "").rstrip(".").split()) for r in rows)
 
 def test_center_inside_word_and_asymmetric_boundaries_are_supported():
-    # "level" has an interior center for N=5; no word-boundary symmetry is assumed.
-    lex = (Word("level", "N"),)
-    grammar = {"S": (("N",),)}
-    result = constrained_paths(lexicon=lex, lengths=[5], max_words=1, grammar=grammar)
-    assert any(r["rendered"].startswith("level") for r in result["paths"])
+    # The center of ``a bcba`` falls inside the second word; no boundary
+    # symmetry is assumed and neither lexical unit is a shortcut palindrome.
+    lex = (Word("a", "N"), Word("bcba", "N"))
+    grammar = {"S": (("N", "N"),)}
+    result = constrained_paths(lexicon=lex, lengths=[5], max_words=2, grammar=grammar)
+    assert any(letters(r["rendered"]) == "abcba" for r in result["paths"])

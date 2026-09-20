@@ -40,6 +40,27 @@ GRAMMAR = {"S": (("CLAUSE", "CLAUSE"),), "CLAUSE": (("NP", "V", "NP"),),
 def letters(text):
     return re.sub(r"[^a-z]", "", text.casefold())
 
+def render_path(text, lexicon=ATOMIC):
+    """Render a two-clause lexical path; punctuation is presentation only."""
+    words = text.split()
+    pos = {w.text: w.pos for w in lexicon}
+    verbs = [i for i, word in enumerate(words) if pos.get(word) == "V"]
+    if verbs:
+        verb = verbs[0]
+        obj = verb + 1
+        obj_len = 2 if obj + 1 < len(words) and pos.get(words[obj]) in {"DET", "N"} and pos.get(words[obj + 1]) == "N" else 1
+        split = obj + obj_len
+        if 0 < split < len(words):
+            return " ".join(words[:split]) + "; " + " ".join(words[split:]) + "."
+    return text + "."
+
+def admission_ok(words):
+    """Reject self-palindromic/repeated/mirrored lexical shortcuts."""
+    if any(len(letters(w)) > 1 and letters(w) == letters(w)[::-1] for w in words): return False
+    if len(words) != len(set(words)): return False
+    mid = len(words) // 2
+    return not (len(words) % 2 == 0 and words[:mid] == list(reversed(words[mid:])))
+
 def independent_audit(text):
     t = letters(text)
     mismatch = None
@@ -107,13 +128,6 @@ def constrained_paths(lexicon=ATOMIC, lengths=range(1, 65), max_words=10, gramma
     grammar = grammar or GRAMMAR
     by_pos = {}
     for w in lexicon: by_pos.setdefault(w.pos, []).append(w)
-    def admissible(words):
-        # Exclude degenerate constructions before they become witnesses.
-        if any(len(letters(w)) > 1 and letters(w) == letters(w)[::-1] for w in words): return False
-        if len(words) != len(set(words)): return False
-        mid = len(words) // 2
-        if len(words) % 2 == 0 and words[:mid] == list(reversed(words[mid:])): return False
-        return True
     def run(n):
         cells = [None] * n
         def emit(words, pos, symbols):
@@ -121,7 +135,7 @@ def constrained_paths(lexicon=ATOMIC, lengths=range(1, 65), max_words=10, gramma
             stats["nodes"] += 1
             if pos == n:
                 stats["complete"] += 1
-                if not symbols and admissible(words): found.append((n, " ".join(words)))
+                if not symbols and admission_ok(words): found.append((n, " ".join(words)))
                 return
             if len(words) >= max_words: return
             if not symbols: return
@@ -139,13 +153,13 @@ def constrained_paths(lexicon=ATOMIC, lengths=range(1, 65), max_words=10, gramma
                     if cells[i] not in (None, ch) or cells[mirror] not in (None, ch): ok = False; break
                     for k in {i, mirror}:
                         if cells[k] is None: cells[k] = ch; changed.append(k)
-                if ok and admissible(words + [word.text]): emit(words + [word.text], pos + len(text), tail)
+                if ok and admission_ok(words + [word.text]): emit(words + [word.text], pos + len(text), tail)
                 else: stats["pruned"] += 1
                 for k in changed: cells[k] = None
         emit([], 0, ["S"])
     for n in lengths: run(n)
     stats["status"] = "timeout" if stats["nodes"] >= max_nodes else ("SAT" if found else "UNSAT")
-    return {"paths": [{"length": n, "rendered": text + ".", "audit": independent_audit(text)} for n, text in found], "stats": stats}
+    return {"paths": [{"length": n, "rendered": render_path(text, lexicon), "audit": independent_audit(text)} for n, text in found], "stats": stats}
 
 if __name__ == "__main__":
     # Keep the exhaustive differential toy small; the expanded inventory is

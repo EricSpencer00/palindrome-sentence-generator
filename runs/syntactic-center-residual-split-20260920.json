@@ -1,0 +1,154 @@
+{
+  "experiment_id": "syntactic-center-residual-split-20260920",
+  "method": "syntactic center-residual split across unequal typed attachment depths",
+  "stats": {
+    "clause_frames": 8,
+    "left_depth_two_scenes": 4608,
+    "right_depth_one_scenes": 192,
+    "center_states": 3,
+    "signature_buckets": 6,
+    "signature_join_hits": 6000,
+    "live_checked": 6000,
+    "live_prunes": 6000,
+    "live_survivors": 0,
+    "exact_gt38": 0,
+    "reader_eligible": 0,
+    "longest_letters": 208
+  },
+  "controls": [
+    {
+      "rendered": "the weathered sailor studies the northern chart, while the weathered sailor waits by the harbor; while a patient keeper studies the northern chart. the weathered sailor studies the northern chart, while the weathered sailor waits by the harbor.",
+      "left_depth": 2,
+      "right_depth": 1,
+      "center_residual": {
+        "text": "",
+        "state": "epsilon",
+        "syntactic_chunks": []
+      },
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "syntactic_chunks": [],
+        "discharge_stage": 0,
+        "max_residual": 4
+      },
+      "audit": {
+        "letters": 202,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "92393a591adae3a0372b4298baaa9fea00d5907a41b2d3839e377b4e05a56cdf",
+        "sha256_reverse": "dc981a85053823425afd8da469bd63365aae500f50c0fd3566b0a87796d9774d",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the weathered sailor studies the northern chart, while the weathered sailor waits by the harbor; although a patient keeper studies the northern chart. the weathered sailor studies the northern chart, although the weathered sailor waits by the harbor.",
+      "left_depth": 2,
+      "right_depth": 1,
+      "center_residual": {
+        "text": "",
+        "state": "epsilon",
+        "syntactic_chunks": []
+      },
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "syntactic_chunks": [],
+        "discharge_stage": 0,
+        "max_residual": 4
+      },
+      "audit": {
+        "letters": 208,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "331b4b98bf6f4aa4ba2e3fd695daa2a12d2f5a8f37fc13209d525ada206e090f",
+        "sha256_reverse": "627ee7f7d1988091596ea1576c2fd4acab82b7dd7bbb97ca9db54fe3849de30d",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the weathered sailor studies the northern chart, while the weathered sailor waits by the harbor; because a patient keeper studies the northern chart. the weathered sailor studies the northern chart, because the weathered sailor waits by the harbor.",
+      "left_depth": 2,
+      "right_depth": 1,
+      "center_residual": {
+        "text": "",
+        "state": "epsilon",
+        "syntactic_chunks": []
+      },
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "syntactic_chunks": [],
+        "discharge_stage": 0,
+        "max_residual": 4
+      },
+      "audit": {
+        "letters": 206,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "00bc944064274a8ff044ee7fc83c56695cb467e915eff407b6084f74becd6e52",
+        "sha256_reverse": "3ce5709589030c5b05ada9a20eb407259695ed988e3183d6cf2a318df9e05c7e",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    }
+  ],
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "unequal-depth|syntactic-constituent-split|delayed-boundary|agreement-valency",
+    "registry_inspected": true,
+    "distinct_from": "character-count staged discharge, nullable CFG join, and lexical repair lanes",
+    "catalogue_text_imported": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "mirrored_units": false
+  },
+  "provenance": {
+    "generator_sha256": "4f61dc70b29eeb663b2c2bc784f9c403ef2c5c9053227008385b2e02fc6e55fb",
+    "independent_audits": [
+      "two-pointer mismatch scan",
+      "forward/reverse SHA-256"
+    ],
+    "reader_evidence": false
+  },
+  "status": "no reader-worthy exact closure",
+  "next_construction": "Carry a typed attachment head and noun phrase as separate center obligations with relation-aware matching.",
+  "reader_gate": "closed until exact candidates exist and blinded human ratings are collected"
+}

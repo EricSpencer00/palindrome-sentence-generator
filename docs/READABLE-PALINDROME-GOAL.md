@@ -6160,3 +6160,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   near-miss diagnostics to 186 letters; 0 exact candidates above 38 survived.
   The next construction adds a causal-subordinator connector edge. Artifact:
   `runs/word-boundary-since-while-graph-20260920.json`.
+
+- **Causal-subordinator connector graph, 2026-09-20:** added a typed `as`-
+  clause relation to the since/while attachment graph. Four frames incurred
+  2,654,208 live boundary prunes and retained 20 ordinary-prose near-miss
+  diagnostics to 186 letters; 0 exact candidates above 38 survived. The next
+  construction adds a concessive-subordinator edge. Artifact:
+  `runs/word-boundary-causal-subordinator-20260920.json`.
+
+- **Distributive modal-passive topology, 2026-09-20:** introduced a typed
+  `each-being` distributive state before the modal passive
+  beneficiary/agent/theme frame. Across target lengths 44/56/68/80 it visited
+  1,336 states and made 496 live factor prunes, with 0 complete parses and 0
+  exact candidates above 38. The next construction is quantified modal
+  passive. Artifact: `runs/distributive-modal-passive-csp-20260920.json`.
+
+- **Width-three relative-role buffer, 2026-09-20:** carried width-three
+  residuals with typed agent/theme roles and tense/number states across two
+  indexed attachments. All 81 transitions were pruned at the strict gate;
+  complete controls reached 92 letters, with 0 exact candidates above 38. The
+  next construction is asynchronous one-character role transitions. Artifact:
+  `runs/width3-relative-role-buffer-20260920.json`.

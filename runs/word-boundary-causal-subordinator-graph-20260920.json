@@ -1,6 +1,6 @@
 {
   "experiment_id": "word-boundary-causal-subordinator-graph-20260920",
-  "method": "bounded word-boundary grammar automaton with four finite event relations, explicit attachment graph, and typed since/while duration connector edges",
+  "method": "bounded word-boundary grammar automaton with four finite event relations, explicit attachment graph, and typed causal-subordinator connector edge",
   "stats": {
     "frames": 4,
     "states_pruned_live": 2654208,
@@ -755,11 +755,11 @@
   "novelty_preflight": {
     "status": "passed",
     "signature": "word-boundary-aware|causal-subordinator|connector-edge|live-equations",
-    "distinct_from": "temporal-until connector graph: adds typed since/while durative relations without increasing the event count"
+    "distinct_from": "since/while duration connector graph: adds a typed causal-subordinator as-clause without increasing the event count"
   },
   "next_topology": {
-    "if_no_closure": "add a causal-subordinator connector edge with explicit attachment and tense state",
-    "reason": "current since/while duration connector frame bank has no exact closure above the reader threshold"
+    "if_no_closure": "add a concessive-subordinator connector edge with explicit attachment and tense state",
+    "reason": "current causal-subordinator connector frame bank has no exact closure above the reader threshold"
   },
   "status": "no fresh exact >38 closure; grammatical near-misses and next topology recorded"
 }

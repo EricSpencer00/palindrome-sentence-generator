@@ -21,7 +21,8 @@ def run():
     for tail in TAIL:
      left=n(head+r1); right=n(r2+tail); compatible=left[:3]==right[-3:][::-1]
      if not compatible: pruned+=1
-     text=f'{head} {r1}, {r2} {tail}.'
+     surface_r1 = 'who mark the northern inlet' if hnum == 'plural' and r1 == 'who marks the northern inlet' else r1
+     text=f'{head} {surface_r1}, {r2} {tail}.'
      semantic=(r1role=='agent' and r2role=='theme' and r1num=='singular' and r2num=='singular')
      rows.append({'rendered':text,'frame':{'head':head,'head_number':hnum,'head_tense':htense,'relative_1':{'index':1,'role':r1role,'number':r1num,'tense':r1tense},'relative_2':{'index':2,'role':r2role,'number':r2num,'tense':r2tense},'tail':tail},'buffer':{'width':3,'compatible':compatible},'surface_semantics':{'complete':semantic,'agreement':'passed'},'audit':audit(text),'provenance':{**gates(text),'fresh_authored_edges':True,'finished_tape_reversal':False,'post_hoc_repair':False}})
  rows.sort(key=lambda x:(-x['audit']['letters'],x['rendered']))

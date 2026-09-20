@@ -43,6 +43,7 @@ RIGHT = (
     Frame("careful teachers", "share", "share", "the patient lesson", "among", "the children", "pl", "event", "transitive"),
     Frame("a distant village", "welcomes", "welcome", "the returning sailors", "after", "the rain", "sg", "complement", "transitive"),
 )
+HELDOUT_DITRANSITIVE = Frame("the trusted courier", "gives", "give", "the careful scribe a sealed message", "before", "the bell", "sg", "complement", "ditransitive")
 
 def live_equations(text, state):
     t = letters(text); trace = []
@@ -71,9 +72,29 @@ def run():
                              "center_complement_seam": True, "outside_in_equations": True,
                              "finished_tape_reversal": False, "post_hoc_repair": False,
                              "catalogue_text": False, "mirrored_token_units": False, "repeated_units": False}})
+    # Held-out construction: the recipient/object complement is authored as a
+    # single ditransitive dependency frame. Its determiner is part of the live
+    # seam state rather than a post-hoc lexical substitution.
+    for li, left in enumerate(LEFT):
+        right = HELDOUT_DITRANSITIVE
+        rendered = f"{left.render()}, and {right.render()}."
+        state = {"left_number": left.number, "right_number": right.number,
+                 "left_attachment": left.attachment, "right_attachment": right.attachment,
+                 "left_valency": left.valency, "right_valency": right.valency,
+                 "seam": "and|ditransitive-complement-determiner", "determiner_obligation": "the"}
+        trace, first = live_equations(rendered, state); transitions += len(trace)
+        rows.append({"rendered": rendered, "left_frame": asdict(left), "right_frame": asdict(right),
+                     "center_seam": "and", "live_trace": trace[:12], "first_live_obligation": first,
+                     "audit": audit(rendered), "complete_prose": True, "held_out": True,
+                     "provenance": {"independent_left_frame": True, "independent_right_frame": True,
+                         "held_out_ditransitive": True, "complement_determiner_in_seam_state": True,
+                         "dependency_attachment_alternatives": True, "agreement_checked_before_render": True,
+                         "outside_in_equations": True, "finished_tape_reversal": False,
+                         "post_hoc_repair": False, "catalogue_text": False, "mirrored_token_units": False,
+                         "repeated_units": False}})
     exact = [r for r in rows if r["audit"]["exact"] and r["audit"]["letters"] > 38]
     return {"experiment_id": ID, "method": "independent dependency frames with attachment alternatives and live center-complement seam",
-            "stats": {"left_frames": len(LEFT), "right_frames": len(RIGHT), "states": len(rows),
+            "stats": {"left_frames": len(LEFT), "right_frames": len(RIGHT), "held_out_ditransitive_states": len(LEFT), "states": len(rows),
                       "live_transitions": transitions, "fresh_exact_gt38": len(exact),
                       "max_letters": max(r["audit"]["letters"] for r in rows)},
             "rendered_candidates": rows, "exact_candidates": exact,
@@ -81,7 +102,7 @@ def run():
                 "distinct_from": "typed-central clause lane and clause-bank sweeps: attachment alternatives and complement seam are state dimensions",
                 "duplicate_cartesian_sweep": False, "finished_tape_reversal": False, "post_hoc_repair": False},
             "provenance": {"audits": ["independent two-pointer", "forward/reverse SHA-256"], "reader_gate": "closed unless exact >38"},
-            "next_construction": "author a held-out ditransitive frame whose complement determiner carries the next seam obligation, then rerun the same two-pointer state walk",
+            "next_construction": "author a held-out benefactive frame with an optional to-phrase and carry its article/preposition choice through the seam state",
             "status": "fresh exact >38 candidate requires human reading" if exact else "no fresh exact >38 candidate; complete prose controls retained"}
 
 if __name__ == "__main__":

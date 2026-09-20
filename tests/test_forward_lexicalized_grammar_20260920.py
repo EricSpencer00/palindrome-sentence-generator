@@ -56,3 +56,8 @@ def test_bilateral_edges_propagate_and_audit():
 def test_bilateral_rejects_mirrored_token_shortcut():
     result = bilateral_lexical_csp((Word("ab", "N"), Word("ba", "N")), max_words=2, max_nodes=50)
     assert result["candidates"] == []
+
+def test_bilateral_requires_two_parsed_clauses():
+    lex = tuple(w for w in ATOMIC if w.text in {"an", "aide", "rips", "nine", "memos", "some", "men", "inspire", "diana"})
+    result = bilateral_lexical_csp(lex, max_words=10, max_nodes=100000)
+    assert result["stats"]["status"] in {"UNSAT", "timeout"}

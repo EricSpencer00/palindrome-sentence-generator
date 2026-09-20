@@ -183,11 +183,19 @@ def bilateral_lexical_csp(lexicon=ATOMIC, max_words=10, max_nodes=20000, edge_po
     """Expand independent left/right lexical edges inward with live residuals."""
     words = [w for w in lexicon if w.pos in edge_pos and letters(w.text) and not (len(letters(w.text)) > 1 and letters(w.text) == letters(w.text)[::-1])]
     out, nodes, pruned = [], 0, 0
+    def clause(words):
+        ps = [next((w.pos for w in lexicon if w.text == x), "") for x in words]
+        for split in range(1, len(ps)-1):
+            if ps[split] != "V": continue
+            np1, np2 = ps[:split], ps[split+1:]
+            if np1 in (["N"], ["PROPN"], ["DET", "N"]) and np2 in (["N"], ["PROPN"], ["DET", "N"], ["N", "N"]): return True
+        return False
     def grow(left, right, lb, rb):
         nonlocal nodes, pruned
         if nodes >= max_nodes: return
         nodes += 1
         if not lb and not rb and left and right:
+            if not clause(left) or not clause(right): return
             if len(set(left + right)) != len(left + right): return
             if left == list(reversed(right)): return
             if any(letters(a) == letters(b)[::-1] for a, b in zip(left, right)): return

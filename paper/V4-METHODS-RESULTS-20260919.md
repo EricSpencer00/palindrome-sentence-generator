@@ -1705,6 +1705,18 @@ mirrored unit, catalogue text, or fragment was admitted. The next constructive
 expansion is phrase-level relative clauses in this lexical-envelope search.
 Artifact: `runs/large-phrase-endpoint-reverse-envelope-20260920.json`.
 
+The relative-clause expansion kept the endpoint envelope but added subject-gap
+(`subject who/that verb object`) and object-gap (`object who/that subject verb`)
+templates. Relative-role and transitivity gates run before exact admission,
+while word boundaries remain live. The combined run visited 2,912 states
+(1,659 base and 1,253 relative), indexed 179 endpoint keys, and produced zero
+fresh exact candidates above 38 letters. It rendered 40 unique intact controls,
+including 20 complete relative-clause controls such as “The teacher who read
+the essay praised the student.” All controls received independent pointer/SHA
+audits; no repair, reversal, mirrored unit, catalogue text, or fragment was
+admitted. Artifact:
+`runs/large-phrase-endpoint-reverse-envelope-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

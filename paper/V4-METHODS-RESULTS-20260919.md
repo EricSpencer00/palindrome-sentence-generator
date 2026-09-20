@@ -3571,3 +3571,23 @@ with explicit tense/agreement state. Four frames incurred 4,128,768 live
 boundary prunes and produced zero exact candidates above 38; the next
 construction adds probabilistic modal scope. Artifact:
 `runs/word-boundary-modal-scope-graph-20260920.json`.
+
+The cross-stream boundary synchronization lane added explicit leader events
+while two other residual streams retained their obligations. It retained 36
+complete prose controls through 108 synchronization events, to 97 letters,
+with zero exact candidates above 38. The next construction chains alternating
+leaders with typed tense transitions. Artifact:
+`runs/crossstream-boundary-sync-20260920.json`.
+
+The probabilistic modal-passive lane introduced a distinct `likely-being`
+scope state before the typed beneficiary/agent/theme frame. Across target
+lengths 44, 56, 68, and 80 it visited 1,234 states and made 436 live factor
+prunes, with zero complete parses and zero exact candidates above 38. The next
+construction is stochastic modal passive. Artifact:
+`runs/probabilistic-modal-passive-csp-20260920.json`.
+
+The probabilistic modal-scope connector graph added a typed `probably when`
+relation with probabilistic scope and explicit attachment/tense state. Four
+frames incurred 4,423,680 live boundary prunes and produced zero exact
+candidates above 38; the next construction adds stochastic modal scope.
+Artifact: `runs/word-boundary-probabilistic-modal-graph-20260920.json`.

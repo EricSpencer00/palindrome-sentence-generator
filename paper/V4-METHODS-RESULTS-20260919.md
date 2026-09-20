@@ -459,6 +459,13 @@ reached (`agreement_pruned=0`), so this is an implementation result, not a
 readability gain; the next state expands feature-conditioned banks and inner
 states.
 
+The feature-conditioned run then used separate Brown Penn-tag banks for
+singular+VBZ, plural+VBP, and past+VBD frames. It searched two complete
+templates per feature (64/64, 58/53, and 64/64 subject/verb inventories),
+visited 59 bounded states, and pruned all 59 before an exact closure. No
+candidate reached the reader gate; the next construction adds frame-attested
+adjunct and prepositional banks without relaxing the character obligation.
+
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:
 grammar boundaries and mirrored character orbits must be selected together,

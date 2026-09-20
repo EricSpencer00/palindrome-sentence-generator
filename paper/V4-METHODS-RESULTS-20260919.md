@@ -19,6 +19,19 @@ It has 38 ASCII letters, normalized tape
 The independent outside-in pointer audit and the fail-closed mechanical gate
 both pass. It has not yet been rated by blinded humans.
 
+## Cross-role clause CSP
+
+As a new constructive lane, we paired complete contemporary clauses while
+deliberately crossing grammatical endpoint roles: names, determiners, nouns,
+quantities, prepositions, and places can occupy different positions on the two
+sides. A shared character obligation is consumed online as each side expands;
+the search never materializes a finished clause to reverse or repair. The
+25 typed shape pairs produced 1,768 live states and pruned 17,885 conflicting
+obligations. Six intact prose controls and independent two-pointer/SHA audits
+were retained. It produced no fresh exact candidate above 38 letters, so the
+reader gate remains closed; this is a construction result, not evidence that
+the controls are palindromic.
+
 Here, “Shakespearean” in earlier experiment labels is only shorthand for a
 broad English-readability target, not a literal style requirement. The active
 construction lanes therefore use ordinary contemporary English; literary-style

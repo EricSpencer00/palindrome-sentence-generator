@@ -159,6 +159,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_coordinated_clause_topology": "Coordinated-clause topology: 44/56/68/80 search visited 15,720 states and made 49,324 live factor prunes, with zero complete parses and zero exact candidates above 38",
         "latest_embedded_complement_topology": "Embedded finite-complement topology: 44/56/68/80 search visited 14,972 states and made 47,696 live factor prunes, with zero complete parses and zero exact candidates above 38",
         "latest_ditransitive_embedding_topology": "Ditransitive embedding topology: 44/56/68/80 search visited 8,094 states and made 8,888 live factor prunes, with zero complete parses and zero exact candidates above 38",
+        "latest_passive_ditransitive_topology": "Passive ditransitive embedding topology: 44/56/68/80 search visited 1,380 states and made 918 live factor prunes, with zero complete parses and zero exact candidates above 38",
         "reader_study": "not run",
     },
 }
@@ -1636,6 +1637,26 @@ LUNA_PARALLEL_RUNS = [
         "provenance": "one forward MatrixClause(recipient, theme) -> complementizer -> EmbeddedClause grammar with explicit ditransitive roles, separate agreement/attachment states, variable word boundaries, and live position factors; no reversal, repair, mirrored units, catalogue text, or sentence-pair enumeration",
         "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
         "next_construction": "change voice to a held-out passive ditransitive embedding frame with an explicit beneficiary; preflight a new topology signature",
+    },
+    {
+        "run_id": "passive-ditransitive-embedding-csp-20260920",
+        "method": "global forward passive ditransitive-embedding grammar CSP over held-out typed lexical factors",
+        "status": "completed_no_exact_closure",
+        "target_lengths": [44, 56, 68, 80],
+        "states": 1380,
+        "live_factor_prunes": 918,
+        "complete_palindrome_parses": 0,
+        "exact_candidates_over_38": 0,
+        "rendered_controls": 2,
+        "controls": [
+            "The patient sailor was given the chart by the teacher because a careful gardener carries a lantern through the orchard.",
+            "A young scholar was given the lesson by the keeper because a quiet keeper guards the gate near the lighthouse.",
+        ],
+        "reader_eligible": False,
+        "first_live_diagnostic": "the passive beneficiary/agent/theme factor leaves no complete parse at any target length",
+        "provenance": "one forward PassiveMatrix(beneficiary, agent, theme) -> complementizer -> EmbeddedClause grammar with passive voice and live position factors; no reversal, repair, mirrored units, catalogue text, or sentence-pair enumeration",
+        "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
+        "next_construction": "add a held-out modal passive embedding frame with explicit beneficiary/agent/theme roles; preflight a new topology signature",
     },
 ]
 

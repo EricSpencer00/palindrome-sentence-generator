@@ -5914,3 +5914,13 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   frame with an explicit beneficiary; no scheduler or post-hoc repair pass is
   being added. Artifact:
   `runs/ditransitive-embedding-global-csp-20260920.json`.
+
+- **Passive ditransitive embedding topology, 2026-09-20:** changed argument
+  realization to a passive matrix carrying beneficiary, agent, and theme roles
+  before selecting the embedded clause. Across target lengths 44/56/68/80 it
+  visited 1,380 states and made 918 live factor prunes, with 0 complete parses
+  and 0 exact candidates above 38. Two passive embedded controls (90 and 99
+  letters) passed independent pointer/SHA audits. The next construction is a
+  held-out modal passive frame; no scheduler or post-hoc repair pass is being
+  substituted for a new topology. Artifact:
+  `runs/passive-ditransitive-embedding-csp-20260920.json`.

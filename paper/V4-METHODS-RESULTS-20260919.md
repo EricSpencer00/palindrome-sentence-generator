@@ -3205,3 +3205,13 @@ independently pointer/SHA audited. The next construction changes voice to a
 passive ditransitive embedding frame with an explicit beneficiary; it does not
 revisit scheduler ordering or post-hoc repair. Artifact:
 `runs/ditransitive-embedding-global-csp-20260920.json`.
+
+The passive ditransitive topology changed argument realization again: a
+beneficiary, agent, and theme were carried through a passive matrix frame
+before the finite complementizer selected the embedded clause. Across target
+lengths 44, 56, 68, and 80 it visited 1,380 states and made 918 live factor
+prunes, with zero complete parses and zero exact candidates above 38. The two
+passive embedded controls (90 and 99 letters) were independently pointer/SHA
+audited. The next construction adds a held-out modal passive frame; no
+scheduler or post-hoc repair is being substituted for a new grammar topology.
+Artifact: `runs/passive-ditransitive-embedding-csp-20260920.json`.

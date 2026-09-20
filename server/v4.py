@@ -89,6 +89,8 @@ BEST_KNOWN_PROVENANCE = {
         "latest_dependency_attachment_reset": "36 complete natural-English candidates; longest 77 letters; attachment seam diagnostic only; zero exact >38 closure",
         "latest_heldout_endpoint_function_frames": "27 endpoint-gated complete prose candidates; longest 79 letters; zero exact >38 closure",
         "latest_inner_character_class_event_frames": "9 subject/object inner-class states; 8 rejected before rendering, 1 complete 72-letter prose control; zero exact >38 closure",
+        "latest_semantic_relation_frame_orbit": "9 relation-frame pairings; 8 pruned before rendering, 1 complete 64-letter prose control; zero exact >38 closure",
+        "latest_semantic_relation_lattice": "36 active/passive/locative relation states; 24 rejected before rendering, 12 prose controls to 59 letters; zero exact >38 closure",
         "reader_study": "not run",
     },
 }

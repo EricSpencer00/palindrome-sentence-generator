@@ -115,6 +115,8 @@ multiword palindrome span:
 | Dependency attachment reset | Pairs active, passive, and locative dependency realizations and measures attachment seams after independent clause selection | 36 complete natural-English candidates; longest 77 letters; diagnostic only | 0 / 0 |
 | Held-out endpoint/function frames | Enforces bilateral first/last character equality on new event frames before selecting a held-out connector | 27 complete natural-English candidates; longest 79 letters | 0 / 0 |
 | Held-out subject/object inner-class frames | Carries vowel/consonant class obligations across independently authored subject and object boundaries before rendering | 9 frame pairs; 8 rejected before rendering, 1 complete 72-letter prose control; no exact closure | 0 / 0 |
+| Semantic relation-frame orbit | Pairs independently authored agent/relation/object/setting frames under a live outer lexical orbit before rendering | 9 frame pairings; 8 pruned before rendering, 1 complete 64-letter prose control; no exact closure | 0 / 0 |
+| Semantic relation realization lattice | Gates active, passive, and locative realizations by attachment signature before rendering | 36 relation-pair states; 24 rejected before rendering, 12 complete controls to 59 letters; no exact closure | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
 discriminator: 16 independently authored clause pairs were rendered above 38
@@ -2385,3 +2387,36 @@ There were no exact candidates above 38 letters. The survivor is retained as a
 readability control, not promoted as a palindrome or certified by the class
 score; the next reader-facing test is a randomized blinded intact-versus-word-
 shuffled comparison if a future exact row reaches the gate.
+
+## Semantic relation-frame orbit
+
+An independently authored relation-frame lane paired agent, relation, object,
+and setting realizations before rendering. A live outer lexical orbit rejected
+eight of nine pairings; the one complete ordinary-English control was:
+
+> **The baker greets the traveler at noon; the traveler thanks the baker at sunset.**
+
+It has 64 normalized letters and first mismatches at character 1 (`h` versus
+`e`). Its independent forward and reverse SHA-256 digests are
+`e1c26b01062309c31e23bc4016011ee077450a8937ca9098e73d03422f0c88e2` and
+`dd4d0b2073bb96facee984b24617e92290570563663ee3d7368d0656de23e738`.
+There were no exact candidates above 38 letters, so no reader packet is
+claimed. The lane's concrete next test is to carry residual character debt
+through relation and setting slots while preserving independent forward
+realizations.
+
+## Semantic relation realization lattice
+
+A separate, broader lattice varied three authored relation families and their
+active, passive, or locative realizations. It retained only compatible
+attachment signatures before surface rendering: 24 of 36 relation-pair states
+were rejected, leaving 12 complete prose controls. The longest control was:
+
+> **The cartographer maps the shore, and at the harbor, the shore appears.**
+
+It has 59 normalized letters and fails at character 0 (`t` versus `s`). The
+full run recorded independent pointer and forward/reverse SHA audits, no exact
+candidate above 38 letters, and no catalogue/reversal provenance. This is a
+construction discriminator rather than a palindrome claim; if an exact row is
+found, the specified next reader test is a randomized relation-family versus
+word-shuffled naturalness study.

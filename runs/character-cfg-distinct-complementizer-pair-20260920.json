@@ -1,0 +1,81 @@
+{
+  "experiment_id": "character-cfg-distinct-complementizer-pair-20260920",
+  "method": "relation-constrained distinct complementizer pair with direct center equality",
+  "grammar": [
+    "S -> NP VP",
+    "NP -> DET NOUN COMP S",
+    "COMP -> that | if",
+    "shared relation -> scene role"
+  ],
+  "complementizers": [
+    {
+      "category": "COMP_THAT",
+      "surface": "that",
+      "agreement": "sg"
+    },
+    {
+      "category": "COMP_IF",
+      "surface": "if",
+      "agreement": "sg"
+    }
+  ],
+  "relations": {
+    "writing_scene": [
+      "guides",
+      "poet",
+      "writer",
+      "writers"
+    ],
+    "maritime_scene": [
+      "harbor",
+      "sailor",
+      "sailors"
+    ]
+  },
+  "stats": {
+    "that_derivations": 180,
+    "if_derivations": 180,
+    "chart_states": 18908,
+    "relation_pair_support": {
+      "that/if:writing_scene": 5120,
+      "that/if:maritime_scene": 3173,
+      "if/that:writing_scene": 5120,
+      "if/that:maritime_scene": 3173
+    },
+    "center_mismatch_support": {
+      "t/f": 8293,
+      "i/t": 8293
+    },
+    "outer_twochar_states": 7556,
+    "joint_closures": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_score": 2
+  },
+  "complete_prose_controls": [
+    "The sailor that the poet reads guards the harbor.",
+    "The sailor if the poet reads guards the harbor."
+  ],
+  "best_diagnostic": {
+    "score": 2,
+    "left": "a era that a area guides a era",
+    "right": "a area if a poet guides a area",
+    "pair": "that/if",
+    "relation": "writing_scene",
+    "outer_seam": true
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-distinct-complementizer-pair-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "character-cfg-shared-comp-semantic-relation-20260920"
+  },
+  "next_construction": "Use two distinct complementizers with compatible subcategorization and agreement, preserving direct center equality and the hard outer seam.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

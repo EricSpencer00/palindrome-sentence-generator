@@ -138,21 +138,29 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
 
 
 def main() -> None:
-    det = ("a", "the")
-    adj = ("calm", "brave", "young", "wise", "fair", "quiet")
-    noun = ("poet", "sailor", "keeper", "reader", "bard", "pilot", "guard")
-    verb = ("reads", "marks", "guides", "guards", "seeks", "keeps", "hears")
-    obj = ("letter", "sonnet", "garden", "harbor", "parcel", "secret", "candle")
+    det = ("a", "the", "one", "this")
+    adj = ("calm", "brave", "young", "wise", "fair", "quiet", "keen", "mild")
+    noun = ("poet", "sailor", "keeper", "reader", "bard", "pilot", "guard", "artist", "teacher")
+    verb = ("reads", "marks", "guides", "guards", "seeks", "keeps", "hears", "writes", "leads")
+    obj = ("letter", "sonnet", "garden", "harbor", "parcel", "secret", "candle", "story", "map")
     template = (
         Slot("det", det), Slot("adj", adj), Slot("subject", noun),
         Slot("verb", verb), Slot("det", det), Slot("object", obj),
     )
-    result = search(template)
+    templates = [template, (
+        Slot("det", det), Slot("subject", noun), Slot("verb", verb),
+        Slot("det", det), Slot("object", obj), Slot("adjunct", ("today", "quietly", "nearby")),
+    )]
+    runs = [search(item, limit=32) for item in templates]
+    result = {"candidates": [c for r in runs for c in r["candidates"]],
+              "stats": {"states": sum(r["stats"]["states"] for r in runs),
+                        "pruned": sum(r["stats"]["pruned"] for r in runs),
+                        "exact": sum(r["stats"]["exact"] for r in runs)}}
     result.update({
         "experiment_id": "slot-pair-character-search-20260919",
         "method": "single-sentence grammar slot product with online cross-word character obligations",
         "provenance": {
-            "template": [slot.role for slot in template],
+            "templates": [[slot.role for slot in item] for item in templates],
             "finished_tape_reversal": False,
             "paired_clauses": False,
             "aligned_token_mirror": False,

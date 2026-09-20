@@ -20,12 +20,13 @@ def _base(tag: str) -> str:
     return tag.split("-", 1)[0]
 
 
-def extract_frames(limit: int = 50_000) -> tuple[dict[str, Counter[str]], dict[str, Counter[str]], dict[str, int]]:
+def extract_frames(limit: int = 50_000):
     from nltk.corpus import brown
 
     subjects: dict[str, Counter[str]] = defaultdict(Counter)
     verbs: dict[str, Counter[str]] = defaultdict(Counter)
     frames = Counter()
+    adjuncts = Counter()
     for sentence in brown.tagged_sents()[:limit]:
         for i in range(len(sentence) - 4):
             (det, det_tag), (subj, subj_tag), (verb, verb_tag), (obj_det, obj_det_tag), (obj, obj_tag) = sentence[i:i + 5]
@@ -45,7 +46,11 @@ def extract_frames(limit: int = 50_000) -> tuple[dict[str, Counter[str]], dict[s
             frames[feature] += 1
             subjects[feature][subj.casefold()] += 1
             verbs[feature][verb.casefold()] += 1
-    return subjects, verbs, dict(frames)
+        for i in range(len(sentence)-1):
+            (prep, ptag), (noun, ntag) = sentence[i:i+2]
+            if ptag == 'IN' and ntag.startswith(('NN','NP')) and prep.isalpha() and noun.isalpha():
+                adjuncts[f'{prep.casefold()} {noun.casefold()}'] += 1
+    return subjects, verbs, dict(frames), adjuncts
 
 
 def top(counter: Counter[str], limit: int = 64) -> tuple[str, ...]:
@@ -53,9 +58,9 @@ def top(counter: Counter[str], limit: int = 64) -> tuple[str, ...]:
 
 
 def run() -> dict[str, object]:
-    subjects, verbs, frame_counts = extract_frames()
+    subjects, verbs, frame_counts, adjunct_counts = extract_frames()
     det = ("a", "the", "this", "that", "one")
-    adjunct = ("today", "nearby", "at", "dawn")
+    adjunct = tuple(word for word, _ in adjunct_counts.most_common(32)) or ("today",)
     results = []
     feature_stats = {}
     for feature in ("singular_vbz", "plural_vbp", "past_vbd"):
@@ -85,6 +90,7 @@ def run() -> dict[str, object]:
         "method": "Penn-feature-conditioned single-sentence slot product with live cross-word character obligations",
         "candidates": results,
         "frame_counts": frame_counts,
+        "adjunct_frame_counts": dict(adjunct_counts),
         "feature_stats": feature_stats,
         "provenance": {
             "penn_tags": True,

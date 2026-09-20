@@ -3,10 +3,13 @@
   "method": "typed forward clause product with reverse-facing character trie and deque residuals",
   "stats": {
     "nodes": 12001,
-    "rendered_candidates": 1,
-    "exact": 0
+    "rendered_candidates": 0,
+    "diagnostic_rows": 1,
+    "exact": 0,
+    "reader_eligible_exact": 0
   },
-  "candidates": [
+  "candidates": [],
+  "diagnostics": [
     {
       "rendered": "a calm artist charts a artist; a bright captain charts this captain.",
       "residual_left": "acalmartistchartsaartist",
@@ -68,10 +71,24 @@
         "unequal_word_boundaries": true,
         "finished_tape_reversal": false,
         "semordnilap_token_pairs": false,
-        "repeated_units": false,
+        "repeated_units": true,
         "self_palindromic_units": false,
         "catalogue_text": false,
-        "post_hoc_repair": false
+        "post_hoc_repair": false,
+        "malformed_surface": true,
+        "reader_eligible": false
+      },
+      "quarantine": {
+        "reason": "repeated content words and determiner-noun agreement failures",
+        "repeated_words": [
+          "artist",
+          "captain"
+        ],
+        "malformed_spans": [
+          "a artist",
+          "a artist"
+        ],
+        "reader_eligible": false
       }
     }
   ],

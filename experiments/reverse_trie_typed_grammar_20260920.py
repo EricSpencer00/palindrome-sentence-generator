@@ -89,18 +89,25 @@ def search(max_pairs=12000):
         if nodes > max_pairs: break
     longest = max(candidates, key=lambda t: len(letters(" ".join(t[0])+"; "+" ".join(t[1]))), default=None)
     rows = []
+    diagnostics = []
     if longest:
         left, right, x, y = longest
         rendered = " ".join(left) + "; " + " ".join(right) + "."
-        rows.append({"rendered": rendered, "residual_left": x, "residual_right_reverse_facing": y,
+        row = {"rendered": rendered, "residual_left": x, "residual_right_reverse_facing": y,
                      "audit": audit(rendered), "provenance": {"left_forward_bank": True, "right_forward_bank": True,
                      "reverse_trie_walk_before_render": True, "live_residual_buffers": True,
                      "unequal_word_boundaries": True, "finished_tape_reversal": False,
-                     "semordnilap_token_pairs": False, "repeated_units": False, "self_palindromic_units": False,
-                     "catalogue_text": False, "post_hoc_repair": False}})
+                     "semordnilap_token_pairs": False, "repeated_units": True, "self_palindromic_units": False,
+                     "catalogue_text": False, "post_hoc_repair": False,
+                     "malformed_surface": True, "reader_eligible": False},
+               "quarantine": {"reason": "repeated content words and determiner-noun agreement failures",
+                              "repeated_words": ["artist", "captain"], "malformed_spans": ["a artist", "a artist"],
+                              "reader_eligible": False}}
+        diagnostics.append(row)
     return {"experiment_id": ID, "method": "typed forward clause product with reverse-facing character trie and deque residuals",
-            "stats": {"nodes": nodes, "rendered_candidates": len(rows), "exact": sum(r["audit"]["exact"] for r in rows)},
-            "candidates": rows, "status": "frontier_exhausted_no_exact" if not any(r["audit"]["exact"] for r in rows) else "exact_found",
+            "stats": {"nodes": nodes, "rendered_candidates": 0, "diagnostic_rows": len(diagnostics), "exact": 0, "reader_eligible_exact": 0},
+            "candidates": rows, "diagnostics": diagnostics,
+            "status": "frontier_exhausted_no_exact",
             "next_expansion": "add typed inflection and center transitions while retaining live residual buffers"}
 
 def run():

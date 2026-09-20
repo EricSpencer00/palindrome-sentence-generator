@@ -11,9 +11,15 @@ def test_reverse_trie_and_forward_banks_are_distinct():
 def test_lane_records_live_unequal_residuals_and_independent_audit():
     result = run()
     assert result["status"] == "frontier_exhausted_no_exact"
-    row = result["candidates"][0]
+    assert result["stats"]["exact"] == 0
+    assert result["candidates"] == []
+    row = result["diagnostics"][0]
     assert row["residual_left"] or row["residual_right_reverse_facing"]
     assert row["audit"] == audit(row["rendered"])
     assert row["provenance"]["reverse_trie_walk_before_render"]
     assert row["provenance"]["finished_tape_reversal"] is False
+    assert row["provenance"]["repeated_units"] is True
+    assert row["provenance"]["malformed_surface"] is True
+    assert row["provenance"]["reader_eligible"] is False
+    assert row["quarantine"]["reader_eligible"] is False
     assert row["audit"]["forward_sha256"] != row["audit"]["reverse_sha256"]

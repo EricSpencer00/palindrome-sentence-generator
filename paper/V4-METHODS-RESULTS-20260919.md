@@ -3368,3 +3368,25 @@ the witness checks the seal before dusk because the record matters.”; zero
 exact candidates above 38 survived. The next construction adds a concessive
 connector edge. Artifact:
 `runs/word-boundary-resultative-causal-graph-20260920.json`.
+
+The stative modal-passive lane introduced a typed `stay-being` state before the
+modal passive beneficiary/agent/theme frame. Across target lengths 44, 56, 68,
+and 80 it visited 1,336 states and made 496 live factor prunes, with zero
+complete parses and zero exact candidates above 38. Its complete controls were
+independently pointer/SHA audited; the next construction is habitual modal
+passive. Artifact: `runs/stative-modal-passive-csp-20260920.json`.
+
+The concessive connector graph added a typed contrast relation to the
+four-event attachment graph. Four frames incurred 1,179,648 live boundary
+prunes and retained 20 ordinary-prose near-miss diagnostics to 186 letters;
+zero exact candidates above 38 survived. The next construction adds a
+conditional connector edge. Artifact:
+`runs/word-boundary-concessive-graph-20260920.json`.
+
+The typed relative attachment author generated 64 complete scenes with
+antecedent number, tense, relative-clause features, and transitive/locative
+valency unified before rendering. The longest intact diagnostic is “Several
+careful navigators who carried near the northern lighthouse.” (59 letters);
+zero exact candidates above 38 survived. The next construction adds two
+indexed relative attachments. Artifact:
+`runs/typed-relative-attachment-author-20260920.json`.

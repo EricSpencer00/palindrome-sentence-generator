@@ -6072,3 +6072,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   matters.`; 0 exact candidates above 38 survived. The next construction adds
   a concessive connector edge. Artifact:
   `runs/word-boundary-resultative-causal-graph-20260920.json`.
+
+- **Stative modal-passive topology, 2026-09-20:** introduced a typed
+  `stay-being` stative state before the modal passive beneficiary/agent/theme
+  frame. Across target lengths 44/56/68/80 it visited 1,336 states and made
+  496 live factor prunes, with 0 complete parses and 0 exact candidates above
+  38. The next construction is habitual modal passive. Artifact:
+  `runs/stative-modal-passive-csp-20260920.json`.
+
+- **Concessive connector graph, 2026-09-20:** added a typed concessive
+  contrast relation to the four-event attachment graph. Four frames incurred
+  1,179,648 live boundary prunes and retained 20 ordinary-prose near-miss
+  diagnostics to 186 letters; 0 exact candidates above 38 survived. The next
+  construction adds a conditional connector edge. Artifact:
+  `runs/word-boundary-concessive-graph-20260920.json`.
+
+- **Typed relative attachment author, 2026-09-20:** generated 64 complete
+  scenes with antecedent number, tense, relative-clause features, and
+  transitive/locative valency unified before rendering. The longest intact
+  diagnostic is 59 letters (`Several careful navigators who carried near the
+  northern lighthouse.`); 0 exact candidates above 38 survived. The next
+  construction adds two indexed relative attachments. Artifact:
+  `runs/typed-relative-attachment-author-20260920.json`.

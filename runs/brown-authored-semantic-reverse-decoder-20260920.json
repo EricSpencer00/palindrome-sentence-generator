@@ -1,0 +1,150 @@
+{
+  "experiment_id": "brown-authored-semantic-reverse-decoder-20260920",
+  "method": "authored semantic frame product over Brown-derived lexical domains, followed by complete reverse character parsing",
+  "shapes": [
+    {
+      "name": "simple",
+      "roles": [
+        "DET",
+        "ADJ",
+        "AGENT",
+        "ACTION",
+        "DET",
+        "ADJ",
+        "OBJECT"
+      ]
+    },
+    {
+      "name": "adjunct",
+      "roles": [
+        "DET",
+        "ADJ",
+        "AGENT",
+        "ACTION",
+        "DET",
+        "OBJECT",
+        "PREP",
+        "DET",
+        "PLACE"
+      ]
+    },
+    {
+      "name": "recipient",
+      "roles": [
+        "DET",
+        "AGENT",
+        "ACTION",
+        "PREP",
+        "DET",
+        "AGENT",
+        "DET",
+        "OBJECT"
+      ]
+    },
+    {
+      "name": "relative",
+      "roles": [
+        "DET",
+        "ADJ",
+        "AGENT",
+        "ACTION",
+        "DET",
+        "OBJECT",
+        "that",
+        "ACTION",
+        "DET",
+        "OBJECT"
+      ]
+    }
+  ],
+  "stats": {
+    "domain_sizes": {
+      "DET": 3,
+      "ADJ": 7,
+      "AGENT": 11,
+      "ACTION": 22,
+      "OBJECT": 46,
+      "PREP": 15,
+      "PLACE": 2
+    },
+    "complete_left_frames": 45000,
+    "reverse_states": 180000,
+    "complete_reverse_parses": 0,
+    "rendered_candidates": 0,
+    "exact": 0
+  },
+  "rendered_candidates": [],
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "The young poet writes a letter beside the old tower.",
+      "audit": {
+        "letters": 42,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "240639a204dae8eacb36074bf700bf593143005fb5202c53e6902565e8157e8a",
+        "sha256_reverse": "289cbb4dd4313125b33d94d5643f71b2d10dffd91d752b8cf4815552274a87d5",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    },
+    {
+      "rendered": "The fair queen guards the crown within the court.",
+      "audit": {
+        "letters": 40,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "r"
+        ],
+        "sha256_forward": "9dd0feba9560cf7f9fd52d3f0d0ea8483ec009c02a5c48e875e5974ba0fcacfe",
+        "sha256_reverse": "f093bc2ccbb702deec6f2e2e3ce125a78a97343f1245579c0cab8044ed42231f",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    },
+    {
+      "rendered": "A wise king hears a song near the river.",
+      "audit": {
+        "letters": 31,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "4a8ac8ad77968ec71e676dfc5c6f938cbe1b4507b45b78fd1083441ca10717b5",
+        "sha256_reverse": "b931e0c8c2f960f2cd85e33256e3eaa108c45167b4bd04ecc153ba69769938ff",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "brown-derived-lexicon|authored-semantic-frame-product|variable-boundary-reverse-parse|complete-parse-ranking",
+    "distinct_from": "prior fixed authored banks and dialogue scene lanes; Brown forms are used only as lexical domains while semantic frame combinations are newly authored",
+    "catalogue_text": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false
+  },
+  "provenance": {
+    "bank": "data/brown_pcfg_bank_20260920.json",
+    "bank_sha256": "53037c8356cf0bd387985fb085c5d41823ce5ea1d7c27c86c4ad50b25b72d322",
+    "generator_sha256": "49ca3e678becc0f180283cf74ffcb966c0bb8b596c23d38140abca2477031d07",
+    "independent_audits": [
+      "two-pointer character mismatch",
+      "forward/reverse SHA-256"
+    ],
+    "collocation_role": "ranking complete parses only",
+    "reader_gate": "closed; programmatic scores do not certify English readability",
+    "next_reader_test": "randomized blinded ratings of intact prose versus shuffled controls, packaged with provenance and exact audit"
+  },
+  "status": "no fresh exact parse in this lane",
+  "next_construction": "retain only exact complete frames and prepare the blinded intact-versus-shuffled reader package; if empty, add a genuinely new coordination grammar rather than enlarging this bank"
+}

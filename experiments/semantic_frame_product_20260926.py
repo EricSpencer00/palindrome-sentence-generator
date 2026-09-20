@@ -35,6 +35,27 @@ def audit(s: str) -> dict:
             "sha256_forward": hashlib.sha256(t.encode()).hexdigest(),
             "sha256_reverse": hashlib.sha256(rev.encode()).hexdigest()}
 
+def live_match(left_words: list[str], right_words: list[str]) -> tuple[bool, int]:
+    """Compare exposed characters as the two frame yields are emitted.
+
+    The right stream is opened from the clause end, so no completed tape is
+    reversed or scored after the fact.  Returning the number of comparisons
+    makes the run artifact report the actual live-obligation work.
+    """
+    left = (ch for word in left_words for ch in tape(word))
+    right = (ch for word in reversed(right_words) for ch in reversed(tape(word)))
+    comparisons = 0
+    while True:
+        try: lch = next(left)
+        except StopIteration:
+            try: next(right)
+            except StopIteration: return True, comparisons
+            return False, comparisons
+        try: rch = next(right)
+        except StopIteration: return False, comparisons
+        comparisons += 1
+        if lch != rch: return False, comparisons
+
 def clauses(frame: dict):
     for shape in frame["shapes"]:
         for number in ("sg", "pl"):
@@ -60,10 +81,11 @@ def run(min_letters: int, limit: int):
         text = " ".join(left["words"] + right["words"])
         lt=tape(text)
         if len(lt) < min_letters: continue
-        # The product is checked before completion: opposite characters are
-        # required at every position, not after constructing a finished tape.
-        states += len(lt)//2
-        if any(lt[i] != lt[-1-i] for i in range(len(lt)//2)):
+        # The product is checked incrementally: each exposed character is
+        # compared with the opposite live obligation before the next one.
+        matched, comparisons = live_match(left["words"], right["words"])
+        states += comparisons
+        if not matched:
             pruned += 1; continue
         if proper_span(lt): pruned += 1; continue
         rows.append({"rendered": text, "audit": audit(text), "reader_worthy": False,

@@ -4,6 +4,7 @@ from pathlib import Path
 
 def test_slot_pair_search_is_cross_word_and_exact_by_construction():
     data = json.loads(Path("runs/slot-pair-character-search-20260919.json").read_text())
+    assert data["agreement_audit"].startswith("REJECTED:")
     assert data["stats"]["exact"] == 0
     assert data["stats"]["pruned"] == 220
     assert data["candidates"] == []

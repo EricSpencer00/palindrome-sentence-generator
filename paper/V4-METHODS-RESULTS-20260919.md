@@ -452,8 +452,10 @@ combinations rather than only counting frames. Keeping subject and object
 banks separate produced 230 live states, 220 early prunes, and zero exact
 closures. A Penn-tag preflight found 2,231 NN→VBZ and 4,377 NN→VBD
 transitions but no NNS→VBP transitions in the bounded corpus. Those counts
-are availability evidence only; the next state carries the features through
-Slot state rather than merely measuring them.
+are availability evidence only. A trial that put the constant label `sg` on
+both slots was rejected: it could not detect word-level mismatches and is not
+counted as agreement enforcement. The next state must carry actual word-to-Penn
+feature maps through Slot state.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

@@ -6858,6 +6858,29 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   frame with residual buffers. Artifact:
   `runs/bounded-cfg-earley-palindrome-intersection-20260920.json`.
 
+- **Bounded CFG shared-frame residuals, 2026-09-20:** paired distinct left and
+  right clause productions under two shared semantic frames and carried
+  residual buffers across nonterminal boundaries. It checked 18 states and 54
+  transitions, pruned 14, and reached no exact candidate above 38; the longest
+  control was 38 letters. The next construction adds typed agreement and
+  optional adjunct productions. Artifact:
+  `runs/bounded-cfg-shared-frame-residuals-20260920.json`.
+
+- **Author-first attachment ordering, 2026-09-20:** added two attachment-order
+  states across three independently authored outward edges. It made 216
+  center/outward walks and retained prose diagnostics up to 80 letters, with 0
+  exact candidates above 38. The next construction adds role agreement between
+  ordered outward edges and the center frame. Artifact:
+  `runs/author-first-attachment-order-20260920.json`.
+
+- **Held-out reverse segmentation grammar, 2026-09-20:** generated 32 fresh
+  complete-forward phrase candidates and parsed each reverse tape with an
+  independent subject/verb/object/PP/relative grammar. It visited 32 bounded
+  states, found 0 reverse parse hits, and produced 0 exact candidates above 38;
+  the longest intact diagnostic was 56 letters. The next construction carries
+  typed attachment through reverse parsing. Artifact:
+  `runs/heldout-reverse-segmentation-grammar-20260920.json`.
+
 - **Reader-gate hygiene, 2026-09-20:** audited 20 historical run artifacts
   and moved every non-exact or shortcut-prone control out of
   `reader_facing_candidates` into `diagnostic_controls`. Borrowed/catalogue

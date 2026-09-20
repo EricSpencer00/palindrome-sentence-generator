@@ -4119,6 +4119,28 @@ the exact count above 38 was zero. The next construction pairs distinct clause
 productions under a shared semantic frame with residual buffers. Artifact:
 `runs/bounded-cfg-earley-palindrome-intersection-20260920.json`.
 
+The shared-frame CFG residual lane paired distinct left and right productions
+under two semantic frames and carried residual buffers across nonterminal
+boundaries. It checked 18 states and 54 transitions, pruned 14, and reached no
+exact candidate above 38; the longest control was 38 letters. The next
+construction adds typed agreement and optional adjunct productions. Artifact:
+`runs/bounded-cfg-shared-frame-residuals-20260920.json`.
+
+The author-first attachment-order lane added two ordering states across three
+independently authored outward edges. It made 216 center/outward walks and
+retained prose diagnostics up to 80 letters, with zero exact candidates above
+38. The next construction adds role agreement between ordered outward edges
+and the center frame. Artifact:
+`runs/author-first-attachment-order-20260920.json`.
+
+The held-out reverse-segmentation lane generated 32 fresh complete-forward
+phrase candidates and parsed each reverse tape with an independent
+subject/verb/object/PP/relative grammar. It visited 32 bounded states, found
+zero reverse parse hits, and produced zero exact candidates above 38; the
+longest intact diagnostic was 56 letters. The next construction carries typed
+attachment through reverse parsing. Artifact:
+`runs/heldout-reverse-segmentation-grammar-20260920.json`.
+
 The reader-gate hygiene pass audited 20 historical artifacts and moved every
 non-exact or shortcut-prone control out of `reader_facing_candidates` into
 `diagnostic_controls`, while protecting borrowed/catalogue rows. This makes the

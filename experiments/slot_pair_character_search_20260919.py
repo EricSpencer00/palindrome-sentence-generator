@@ -138,11 +138,18 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
 
 
 def main() -> None:
-    det = ("a", "the", "one", "this")
+    bank_path = Path("data/brown_pcfg_bank_20260920.json")
+    if bank_path.exists():
+        bank = json.loads(bank_path.read_text())["lexicon"]
+        def top(tag, fallback):
+            return tuple(x["word"] for x in bank.get(tag, [])[:24]) or fallback
+    else:
+        def top(tag, fallback): return fallback
+    det = top("DET", ("a", "the", "one", "this"))
     adj = ("calm", "brave", "young", "wise", "fair", "quiet", "keen", "mild")
-    noun = ("poet", "sailor", "keeper", "reader", "bard", "pilot", "guard", "artist", "teacher")
-    verb = ("reads", "marks", "guides", "guards", "seeks", "keeps", "hears", "writes", "leads")
-    obj = ("letter", "sonnet", "garden", "harbor", "parcel", "secret", "candle", "story", "map")
+    noun = top("N", ("poet", "sailor", "keeper", "reader", "bard", "pilot", "guard"))
+    verb = top("V", ("reads", "marks", "guides", "guards", "seeks", "keeps", "hears"))
+    obj = top("N", ("letter", "sonnet", "garden", "harbor", "parcel", "secret", "candle"))
     template = (
         Slot("det", det), Slot("adj", adj), Slot("subject", noun),
         Slot("verb", verb), Slot("det", det), Slot("object", obj),

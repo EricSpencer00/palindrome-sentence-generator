@@ -10734,6 +10734,42 @@
       "distinction": "Indexes fresh authored NP/VP phrase pairs by exposed boundary characters and length difference before center-out construction; full boundary debt, grammar states, and duplicate rejection remain live. No rendered-tape repair, catalogue text, word-order symmetry, or reward feedback.",
       "reader_evidence": false,
       "status": "12 index keys and 30 pair options; 0 states reached the frontier and 0 exact closures; no candidate rendered; next construction adds NP/NP and VP/VP seam families"
+    },
+    {
+      "id": "seam-family-indexed-centerout-20260921",
+      "signature": "center-out-seam-families|NP-NP|VP-VP|full-debt",
+      "artifact": "experiments/seam_family_indexed_centerout_20260921.py",
+      "run_artifacts": [
+        "artifacts/seam-family-indexed-centerout-20260921-local.json",
+        "artifacts/seam-family-indexed-centerout-20260921-remote.json"
+      ],
+      "distinction": "Adds fresh semantic NP/NP and VP/VP seam families to the indexed center-out grammar, with seam-aware transitions, full debt consumption, and duplicate rejection before rendering. No reversal, catalogue text, word-order symmetry, or post-hoc repair.",
+      "reader_evidence": false,
+      "status": "178 index keys and 196 pairs; 0 states reached the frontier and 0 exact closures; no candidate rendered; next construction adds lexical inflection at the NP/NP seam"
+    },
+    {
+      "id": "brown-char-decoder-centerout-20260922",
+      "signature": "brown-char-ngram|immediate-mirror|word-boundary-decoder",
+      "artifact": "experiments/brown_char_decoder_centerout_20260922.py",
+      "run_artifacts": [
+        "artifacts/brown-char-decoder-centerout-20260922-local.json",
+        "artifacts/brown-char-decoder-centerout-20260922-remote.json"
+      ],
+      "distinction": "Generates the left half with a Brown-derived character/word-boundary decoder and mirrors each character immediately, rejecting repeated units before rendering. It does not copy catalogue text or mirror a finished prose draft; right-side lexical segmentation is the held-out next state.",
+      "reader_evidence": false,
+      "status": "20 exact 40-letter closures with independent pointer/SHA audits; 0 reader-worthy; rendered controls expose raw reverse-half gibberish; next construction adds a right-side boundary WFSA inside decoding"
+    },
+    {
+      "id": "right-boundary-wfsa-decoder-20260923",
+      "signature": "brown-pos-lexicon|right-boundary-wfsa|immediate-mirror",
+      "artifact": "experiments/right_boundary_wfsa_decoder_20260923.py",
+      "run_artifacts": [
+        "artifacts/right-boundary-wfsa-decoder-20260923-local.json",
+        "artifacts/right-boundary-wfsa-decoder-20260923-remote.json"
+      ],
+      "distinction": "Puts mirrored right-side word boundaries and POS transitions inside character decoding while preserving immediate exact mirroring and fresh-word rejection. It does not split a finished tape, use catalogue text, or repair a near miss.",
+      "reader_evidence": false,
+      "status": "0 segmented exact closures at 40+ letters and 0 reader-worthy candidates; next construction adds agreement and valency states to the right-side WFSA"
     }
   ]
 }

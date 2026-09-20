@@ -69,6 +69,8 @@ multiword palindrome span:
 | Hand-authored POS bilateral CFG orbit | Selects determiner/noun/verb and modified-SVO slots independently on both sides, matching each live character before advancing a word boundary | 2 typed templates; 88 live states; 0 complete closures | 0 / 0 |
 | Brown PCFG bilateral orbit | Composes new POS-template clauses from Brown frequency domains while matching both ordinary clauses character-by-character | 961 independent template pairs; 179,205 live states; 0 exact closures | 0 / 0 |
 | Luna relative-clause CFG orbit | Intersects independent relative-clause/coordination parses from a held-out lexical bank while consuming opposite-end characters live | 200,000 constructive states; 0 closures; no prose candidate reached the render gate | 0 / 0 |
+| Brown character decoder center-out | Emits the left half with a Brown-derived character/word-boundary decoder and mirrors each character immediately, rejecting repeated units before rendering | 20 exact 40-letter closures with independent pointer/SHA audits; all failed the human readability gate because the right half was not English-segmentable | 20 / 0 admitted |
+| Right-boundary WFSA decoder | Constrains mirrored right-side word boundaries and POS transitions during character decoding, while retaining immediate exact mirroring and fresh-word rejection | 0 segmented exact closures at 40+ letters; no candidate reached the reader gate | 0 / 0 |
 | Indexed phrase-boundary center-out | Pre-indexes fresh NP/VP phrase pairs by exposed boundary characters and length difference, then consumes full debt before opening the next grammatical seam | 12 index keys, 30 pair options; 0 states reached the frontier; no candidate rendered | 0 / 0 |
 | Boundary-indexed typed clause growth | Places each fresh subject/verb/number/object/name/adjunct at its real tape offset and rejects conflicts before opening the next slot | 66,967 live nodes and 23,668 terminal leaves across 40–70 letters; no exact closure | 0 / 0 |
 | Asymmetric boundary-indexed growth | Tests a six-slot left clause against a four-slot response while carrying every outer character obligation before lexical placement | 150,719 live nodes and 1,868 terminal leaves; the withheld fresh inventory produced no exact closure | 0 / 0 |
@@ -349,6 +351,22 @@ compatible initial state. The result is useful precisely because it is not a
 repair: the incompatible grammar family is retired at the index boundary and
 the next construction must add NP/NP and VP/VP seam families rather than
 editing a rendered string.
+
+The Brown character-decoder lane supplied the first nonzero exact frontier
+above the 38-letter anchor: 20 fresh 40-letter tapes closed under immediate
+character mirroring, with matching two-pointer and SHA-256 audits. The actual
+rendered controls make the remaining problem explicit—for example,
+“the about nevertheless sselehtreventuobaeht” is exact but its right half is
+not English. These are not readable outputs and are not promoted. The next
+decoder version therefore carries a right-side lexical/POS boundary automaton
+inside generation; raw reversal or post-hoc resegmentation is disallowed.
+
+The right-boundary WFSA was then put inside that decoder. It required the
+mirrored side to remain lexically and POS-segmentable before a character was
+accepted, rather than splitting the finished tape afterward. The held-out
+40+-letter run produced zero segmented exact closures, so it supplies no
+reader-facing output; the next state change is agreement and valency on the
+right WFSA, not a repair pass.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

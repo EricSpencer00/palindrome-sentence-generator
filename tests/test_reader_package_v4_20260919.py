@@ -12,7 +12,7 @@ def test_package_is_deterministic_and_blinded():
 
 def test_every_frontier_item_has_intact_and_shuffled_pair_with_audit():
     result = build()
-    assert len(result["rater_form"]["items"]) == 5
+    assert len(result["rater_form"]["items"]) == 6
     for item in result["rater_form"]["items"]:
         assert item["a"]["text"] != item["b"]["text"]
     assert any(row["condition"] == "intact" and row["audit"]["exact"] for row in result["answer_key"])

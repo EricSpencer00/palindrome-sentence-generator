@@ -1,0 +1,29 @@
+{
+  "method": "bilateral lexicalized grammar CSP with reverse-edge expansion",
+  "paths": [],
+  "stats": {
+    "nodes": 34,
+    "pruned": 1313,
+    "complete": 0,
+    "status": "UNSAT",
+    "admitted_non_nested": 0
+  },
+  "provenance": {
+    "grammar": "independent CLAUSE derivation on each side; S = CLAUSE CLAUSE",
+    "lexicon": "caller-supplied lexical entries with POS features",
+    "character_equation": "shared prefix residuals consume x[i] = x[N-1-i] online",
+    "next_construction": "add typed adjunct/relative productions only after this bilateral baseline is audited"
+  },
+  "experiment_id": "inverted-copular-bilateral-20260920",
+  "novelty_preflight": {
+    "duplicate": false,
+    "topology": "NP COP ADJ NP / reverse-edge bilateral",
+    "not_svo": true,
+    "catalogue_text": false,
+    "post_hoc_repair": false
+  },
+  "failure_and_next_construction": {
+    "failure": "no non-nested reader candidate",
+    "next": "add short copular contractions and coordinated predicate complements, preserving live residual equation"
+  }
+}

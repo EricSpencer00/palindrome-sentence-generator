@@ -2274,11 +2274,12 @@ the endpoint alone.
 
 ## Width-three endpoint plus interior boundary equation
 
-The next lane carried the width-three endpoint state into a real interior
-word-boundary equation. From 6,144 width-one endpoint survivors, the varied
-third class retained 1,536 pairs; requiring the first character of the left
-verb phrase to match the reverse-facing last character of the right verb phrase
-left 256 complete forward renders. The longest disjoint-content control was:
+The next lane carried the width-three endpoint state into two real interior
+word-boundary equations. From 12,288 width-one endpoint survivors, the varied
+third class retained 3,072 pairs; requiring both the first character of the
+left verb phrase to match the reverse-facing last character of the right verb
+phrase and the object/tail onset equation left 128 complete forward renders.
+The longest disjoint-content control was:
 
 > **An old teacher carries warm bread near the garden; the patient artist makes music near Verona.**
 
@@ -2286,9 +2287,10 @@ It has 77 letters and fails at normalized character 3 (`l` versus `r`). Its
 forward and reverse SHA-256 digests are
 `c493b13b1094ccd7e9a6dcfb27c324abc05c1045824abdc47e3b957d962ba05f` and
 `1198b3fb13788705807194a14c01b8c7be7d0efd3d83fda192da7ee6ec82a2b2`.
-The endpoint class `ano` and the interior verb-boundary class `c` both match
-their reverse-facing counterparts, but the complete tape still diverges at
-the next character. All 256 rows have zero repeated content, no shortcut or
-repair provenance, and independent full-tape audits; exact candidates above 38
-letters remain zero. The next construction carries this state into a second
-interior slot with a new disjoint bank.
+The endpoint class `ano`, the interior verb-boundary class `c`, and the
+object/tail onset class `n` all match their independently generated
+counterparts, but the complete tape still diverges at the next character. All
+128 rows have zero repeated content, no shortcut or repair provenance, and
+independent full-tape audits; exact candidates above 38 letters remain zero.
+The next construction carries both equations into a third interior slot with a
+new disjoint bank.

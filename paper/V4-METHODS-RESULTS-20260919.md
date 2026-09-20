@@ -721,6 +721,18 @@ recipient family is therefore stopped; the next construction adds feature
 carrying to a different chart state rather than repairing any rendered tape.
 Artifact: `runs/bottom-up-recipient-adjunct-chart-20260920.json`.
 
+### Recursive scene chart
+
+An independent recursive scene grammar tested imperative, copular/locative, and
+finite-conjunction alternatives with explicit agreement and valency. It produced
+3,570 complete grammar paths and paired them with variable word boundaries in a
+300,000-state character-synchronous chart. Every state was pruned before exact
+closure; no candidate was promoted. Complete scene controls and diagnostic
+witnesses retain their two-pointer/SHA audits, but they are not readability or
+palindrome evidence. The next construction adds typed dialogue complements as a
+new grammar family, not a repair operator. Artifact:
+`runs/earley-scene-chart-orbit-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

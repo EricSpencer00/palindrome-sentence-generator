@@ -1,0 +1,95 @@
+{
+  "experiment_id": "ditransitive-embedding-global-csp-20260920",
+  "method": "global forward embedded finite-complement grammar CSP over held-out typed lexical factors",
+  "results": [
+    {
+      "target_length": 44,
+      "represented_forward_language_count": "71757434772884797301015112966222864852962266283047203505664834122152214310002011374397782917464060276837692945109721754424172229349146432504327486720208832828079728637132100449299817095075108749312",
+      "states": 495,
+      "prunes": 898,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 56,
+      "represented_forward_language_count": "3848439611920893797383606906165019312338235911076119516889432090706346329706202471687004932369715024748553222650185071332734197401631353871575233918605561335640668096662555706242617672330659506735731939011683736414440352203892491283232114835618302862387267630527188858637283278763609818135935835103711872012146018074769710517831332800241953317016567808",
+      "states": 1011,
+      "prunes": 1412,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 68,
+      "represented_forward_language_count": "14523866489584247934617856602720826949811579699526596148945674057564117321063291667666321067190627041591747245627563262628142174404221418546669055028643871463733261521705850843167631561535420750466686422703541868576651088408508186485424493733265090788440395522222206182045018810902636527646317014466001151858931636564873975919174806410857851909077304079496776550233443703650269609623910292694415089303898247772687231704470893997121941946740693497288296091830981735906043731524059863791700242969982230179685580485435588608",
+      "states": 2273,
+      "prunes": 1972,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 80,
+      "represented_forward_language_count": "146076498331162980073008852977744423305214964105905636671827593904651251906469639329797495192414716453688176339301702106720602242827058178854241836863446837038870590264481734701564020469051334430209385451771261284129940543476411639482658915994338682031430078830275364399083096938382227084475927149483551046107700340872338576733886897602738613746048896604639773866769141977026391861656157239103817586498846192826529151111104179734852571602922528836906318496191635456029510929344625659252247389928957522353865537972919311516374129045693918675376452824872948844058893833316680020273693541332205980009020606369571137148669939244904024442289356873957903042906514275918991804360113342639764993786515949413262557319222066681949593925588891365099803746883257050710161501116280187732422901470769605554450725840482799259539258326580851441402725776542178380975729361908424959518272373096158659127728690157823026186127842243354886521735661269178642271219233094265878614599355008903668563968",
+      "states": 4315,
+      "prunes": 4606,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "The patient sailor gives the traveler the chart because a careful gardener carries a lantern through the orchard.",
+      "audit": {
+        "letters": 95,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "a013f763d4eb2d452068fd4f2b2c2fa1007a2ec8e6a18e48fe16bb7de49739ff",
+        "sha256_reverse": "0475d5a19d92f24bf1ae3837ab4cdde696cdd404c22755dd91e4732813694d81",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "A young scholar tells a child the lesson because a quiet keeper guards the gate near the lighthouse.",
+      "audit": {
+        "letters": 82,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "fd7ba0df55d49e416eee4a20f137b5320551b553f2beda78db64e9bd72aa1d6c",
+        "sha256_reverse": "cef3b99cdb0d111f308d7f36797ec4e483ca9da272b2985bba38e465e83cb226",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_checked": 610,
+    "signature": "ditransitive-embedding-topology|recipient-theme-state|global-position-factors",
+    "distinct_from": "coordination/finite-complement/relative/center/bridge/endpoint lanes: a matrix recipient-theme factor selects an embedded clause, with separate agreement/valency states and direct x-position factor propagation"
+  },
+  "provenance": {
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "source_text": "held-out common-word typed bank, no copied sentences",
+    "reader_evidence": false,
+    "reader_gate": "closed until exact >38 and blinded ratings"
+  },
+  "next_construction": {
+    "name": "passive ditransitive embedding topology",
+    "operator": "Add a held-out passive ditransitive matrix frame with an explicit beneficiary and embedded clause; keep live position factors and preflight a new signature first.",
+    "reader_facing_test": "retain complete prose only, independently audit exact closures above 38, then blinded intact-vs-shuffled ratings"
+  },
+  "status": "diagnostic lane; no exact candidate above 38"
+}

@@ -92,7 +92,11 @@ def run() -> dict:
                 "post_hoc_repair": False, "copied_or_reversed_tape": False, "mirrored_token_units": False,
                 "repeated_units": len(set(lw + rw)) != len(lw + rw)}})
     rows.sort(key=lambda r: (-r["intersection"]["matched_from_both_ends"], -r["audit"]["letters"]))
-    exact = [r for r in rows if r["intersection"]["exact"] and r["audit"]["letters"] > 38]
+    # The clause-level intersection is only a construction diagnostic: the
+    # rendered sentence also contains the independently authored connector.
+    # Admission must therefore use the complete rendered tape audit, never the
+    # seam preflight alone.
+    exact = [r for r in rows if r["audit"]["exact"] and r["audit"]["letters"] > 38]
     return {"experiment_id": EXPERIMENT_ID, "method": "frequency/bigram lexical graph plus typed valency walks and memoized exact character intersection",
         "stats": {"graph_states": len(GRAPH), "independent_walks": len(clause_walks), "rendered_candidates": len(rows),
             "near_misses": sum(r["near_miss"] for r in rows), "fresh_exact_gt38": len(exact),

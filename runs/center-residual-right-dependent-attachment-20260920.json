@@ -1,0 +1,171 @@
+{
+  "experiment_id": "center-residual-right-dependent-attachment-20260920",
+  "method": "center residual attaches to typed right dependent after left closure",
+  "stats": {
+    "center_nodes": 3,
+    "left_roles": 3,
+    "right_roles": 3,
+    "residuals": 3,
+    "states": 81,
+    "live_prunes": 81,
+    "live_survivors": 0,
+    "exact_gt38": 0,
+    "reader_eligible": 0,
+    "longest_letters": 76
+  },
+  "controls": [
+    {
+      "rendered": "the patient keeper hears when the bell rings; the harbor brightens, goal at dawn after it.",
+      "center_dependency": {
+        "event": "the bell rings",
+        "kind": "signal"
+      },
+      "left_dependent": [
+        "agent",
+        "the patient keeper hears"
+      ],
+      "right_dependent": [
+        "goal",
+        "the harbor brightens"
+      ],
+      "attached_residual": {
+        "text": "at dawn",
+        "target_role": "goal",
+        "after_left_closure": true
+      },
+      "online_character_equations": {
+        "equations": 2,
+        "satisfied": 1,
+        "all_satisfied": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ],
+        "sha256_forward": "e6a0b9d10568a5ebb897920de478c0dca3da9d440f8d4682e61a2afcf0ce9cbf",
+        "sha256_reverse": "5b6c2a17722ee37bff65b7d3d55a893b393021e6dd569face96922275af62e51",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the patient keeper hears when the bell rings; the harbor brightens, goal before dusk after it.",
+      "center_dependency": {
+        "event": "the bell rings",
+        "kind": "signal"
+      },
+      "left_dependent": [
+        "agent",
+        "the patient keeper hears"
+      ],
+      "right_dependent": [
+        "goal",
+        "the harbor brightens"
+      ],
+      "attached_residual": {
+        "text": "before dusk",
+        "target_role": "goal",
+        "after_left_closure": true
+      },
+      "online_character_equations": {
+        "equations": 2,
+        "satisfied": 1,
+        "all_satisfied": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ]
+      },
+      "audit": {
+        "letters": 76,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ],
+        "sha256_forward": "6fad93e96eb50d28489e234a4d6ca4040f9721c97ad087abd89e51d4ee8afb04",
+        "sha256_reverse": "d6971edb4bc5f41b42bb656a9fedc2bdcafde84fb62805d57dd2756fc396c82b",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the patient keeper hears when the bell rings; the harbor brightens, goal after rain after it.",
+      "center_dependency": {
+        "event": "the bell rings",
+        "kind": "signal"
+      },
+      "left_dependent": [
+        "agent",
+        "the patient keeper hears"
+      ],
+      "right_dependent": [
+        "goal",
+        "the harbor brightens"
+      ],
+      "attached_residual": {
+        "text": "after rain",
+        "target_role": "goal",
+        "after_left_closure": true
+      },
+      "online_character_equations": {
+        "equations": 2,
+        "satisfied": 1,
+        "all_satisfied": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ]
+      },
+      "audit": {
+        "letters": 75,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ],
+        "sha256_forward": "1e9d2f1f84b7fd3c7e4cf3a5bece915f59602ffae955e11b6d6a02847debb1bf",
+        "sha256_reverse": "71294cd33b883f27d03d8f80db1be6cf21e15100658aa149e592d1764a45ca6d",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    }
+  ],
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "center-dependency|right-dependent-residual-attachment|left-closure-first",
+    "registry_inspected": true,
+    "distinct_from": "left-dependent attachment, unattached residual, and repair lanes",
+    "catalogue_text_imported": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "mirrored_units": false
+  },
+  "provenance": {
+    "generator_sha256": "74bdf8d3bc710e6e0e85d648dc92a3f94cdb33e33984ae370585e0e64c507ae8",
+    "independent_audits": [
+      "pointer scan",
+      "forward/reverse SHA-256"
+    ]
+  },
+  "status": "no reader-worthy exact closure",
+  "next_construction": "Compare left- and right-attached residual paths inside a single joint dependency grammar."
+}

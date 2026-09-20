@@ -4110,3 +4110,11 @@ intact prose diagnostics up to 67 letters, with zero exact candidates above 38.
 The reader-facing list is empty. The next construction adds a third
 independently authored outward edge with typed attachment. Artifact:
 `runs/author-first-bidirectional-boundary-20260920.json`.
+
+The bounded CFG/Earley intersection lane intersected a fresh five-nonterminal
+English grammar with the character-level palindrome relation, carrying odd/even
+center metadata during paired derivation. It visited 81 complete derivations
+and pruned 81 online obligations; the longest intact control was 40 letters and
+the exact count above 38 was zero. The next construction pairs distinct clause
+productions under a shared semantic frame with residual buffers. Artifact:
+`runs/bounded-cfg-earley-palindrome-intersection-20260920.json`.

@@ -6848,3 +6848,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   construction adds a third independently authored outward edge with typed
   attachment. Artifact:
   `runs/author-first-bidirectional-boundary-20260920.json`.
+
+- **Bounded CFG/Earley palindrome intersection, 2026-09-20:** intersected a
+  fresh five-nonterminal English grammar with the character-level palindrome
+  relation, carrying odd/even center metadata during paired derivation. It
+  visited 81 complete derivations and pruned 81 online obligations; the
+  longest intact control was 40 letters and exact count above 38 was 0. The
+  next construction pairs distinct clause productions under a shared semantic
+  frame with residual buffers. Artifact:
+  `runs/bounded-cfg-earley-palindrome-intersection-20260920.json`.

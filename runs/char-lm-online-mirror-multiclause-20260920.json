@@ -1,0 +1,85 @@
+{
+  "method": "char-lm-online-mirror-multiclause-20260920",
+  "status": "completed_no_exact_closure",
+  "semantic_parse": "two-event dialogue-free multi-clause scene",
+  "frames": 288,
+  "states": 30000,
+  "lm_ranked_edges": 56471,
+  "character_prunes": 28235,
+  "semantic_prunes": 648,
+  "state_limit": 30000,
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "reader_eligible": false,
+  "rendered_diagnostics": [],
+  "prose_controls": [
+    {
+      "rendered": "the patient sailor studies the northern chart and the careful keeper guards the lantern by the river at dawn.",
+      "audit": {
+        "letters": 90,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "n"
+        },
+        "sha256_forward": "83400a33021ab8b077feb7440d6c2a90866e64efdae8e7693c5a85ea8d0f73fb",
+        "sha256_reverse": "f4b7649f2d31a44cf0492347877539e2516c4811fee75ef9b041796ac1011e26"
+      },
+      "independent_pointer_exact": false,
+      "reader_eligible": false,
+      "provenance": "complete authored two-event semantic parse control; not a generated palindrome"
+    },
+    {
+      "rendered": "the patient sailor studies the northern chart and the careful keeper guards the lantern near the quiet harbor before dusk.",
+      "audit": {
+        "letters": 102,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "k"
+        },
+        "sha256_forward": "16419e7df1832bdc03e88ec7efdf9843cfb40599494d488798074117353565d1",
+        "sha256_reverse": "7bf6f3232669ffe7c2a4233b359a31a66be249abb31b80d22864e9b761f84857"
+      },
+      "independent_pointer_exact": false,
+      "reader_eligible": false,
+      "provenance": "complete authored two-event semantic parse control; not a generated palindrome"
+    },
+    {
+      "rendered": "the patient sailor studies the northern chart and the careful keeper guards the lantern under the old trees in silence.",
+      "audit": {
+        "letters": 99,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "e"
+        },
+        "sha256_forward": "3a5cec6b363e8a603c603a3bdbd4fcc97ea9830760f141e1d692ec7c66942053",
+        "sha256_reverse": "fe9b296a732777614e8a962e729f298934717abbb605d7af72ce76e67e404bf6"
+      },
+      "independent_pointer_exact": false,
+      "reader_eligible": false,
+      "provenance": "complete authored two-event semantic parse control; not a generated palindrome"
+    }
+  ],
+  "independent_validation": [
+    "literal outside-in two-pointer",
+    "forward/reverse SHA-256"
+  ],
+  "provenance": "fresh authored two-event semantic frames; character trigram context ranks only legal edge choices and exact mirror residual is enforced online; no finished-tape reversal, catalogue text, mirrored units, or repair",
+  "novelty_preflight": {
+    "passed": true,
+    "overlaps_checked": [
+      "char-lm-grammar-decode-20260916",
+      "char-lm-semantic-beam-20260916",
+      "luna-constrained-reverse-decode-20260915"
+    ],
+    "unused_dimension": "typed trigram context plus complete two-event parse before rendering",
+    "reason": "earlier char-LM lanes ranked bigrams or emitted independent semantic-beam rows; this lane intersects trigram context with online mirror obligations and requires both event parses complete"
+  },
+  "first_live_diagnostic": "character residual mismatch at a typed edge",
+  "next_construction": "hold out a third event edge with tense-compatible verb choices and retain trigram-context residual decoding; do not widen the same frame bank"
+}

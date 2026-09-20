@@ -18,7 +18,7 @@ LA=("at dawn","in spring","with care","before dusk")
 RS=("the harbor keeper","a tired painter","our old friend","the evening nurse")
 RV=("reads a note","keeps a map","carries warm bread","finds a lantern")
 RO=("for a friend","by the river","near the window","after the rain")
-RA=("at dawn","in spring","with care","before dusk")
+RA=("at dawn","in spring","with care","before dusk","near a marina")
 def run():
  left=[f'{s} {v} {o} {x}' for s in LS for v in LV for o in LO for x in LA]
  right=[f'{s} {v} {o} {x}' for s in RS for v in RV for o in RO for x in RA]

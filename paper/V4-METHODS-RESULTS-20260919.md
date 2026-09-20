@@ -1362,6 +1362,16 @@ pointer/SHA audits; no repair, tape reversal, mirrored unit, catalogue text,
 or fragment was admitted. Artifact:
 `runs/discourse-plan-delayed-realization-20260920.json`.
 
+The typed-valency follow-up made transitive, intransitive, and ditransitive
+predicate features, subject agreement, and referent binding explicit before
+surface emission. It retained the shared discourse plan and delayed paired
+character generation, testing 165 states and 165 residual rejections with 24
+complete controls (up to 60 letters) and zero exact candidates above 38
+letters. The lane is retained as a grammar result; its authored vocabulary was
+still literary, so it is not treated as a readability claim. No repair,
+reversal, mirrored unit, catalogue text, or fragment was used. Artifact:
+`runs/discourse-plan-typed-valency-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

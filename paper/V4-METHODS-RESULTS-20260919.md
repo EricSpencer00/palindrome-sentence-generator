@@ -1907,6 +1907,19 @@ indexing endpoint character classes before optional PP expansion. This is
 construction evidence, not readability evidence; no output enters the reader
 package.
 
+## Recipient/theme and locative attachment product
+
+The endpoint construction was extended with typed ditransitive recipient/theme
+roles and locative attachment roles. These features are part of the endpoint
+bucket key and state, so a candidate is selected from a grammatical attachment
+class before live opposite-character matching; this is not an SVO/PP sweep or
+a repair pass. The bounded run visited 58 buckets and 972 probes, rendered an
+intact ditransitive control, and found zero exact closures above 38 letters.
+Independent pointer/SHA audits and provenance are retained in
+`runs/role-attachment-endpoint-product-20260926.json`. The next construction
+adds semantic recipient/theme compatibility and locative scene roles inside
+the same live state before any adjunct expansion.
+
 ## Frame-yield endpoint classes and live obligation buckets
 
 As the next bounded construction, typed transitive argument frames were

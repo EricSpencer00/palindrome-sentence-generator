@@ -27,7 +27,8 @@ def grammatical(text):
 def surface(root,agreement,tense,aspect):
  if aspect=="simple":
   if tense=="present": return root+("s" if agreement=="third" else "")
-  return root+"ed" if root not in {"send"} else "sent"
+  past={"notice":"noticed","track":"tracked","wait":"waited","send":"sent"}
+  return past[root]
  aux=(("is" if agreement=="third" else "am" if agreement=="first_singular" else "are") if tense=="present" else ("was" if agreement=="third" else "were"))
  ing={"notice":"noticing","track":"tracking","wait":"waiting","send":"sending"}[root]
  return aux+" "+ing
@@ -38,6 +39,7 @@ def strict_surface(text):
  if re.search(r"^(?:and|but|so)\b|\b(?:and|but|so)$",low): return False
  if re.search(r"\bI is\b|\bI are\b|\bwe is\b|\bwe am\b|\bthe teacher am\b|\bthe teacher are\b",low): return False
  if re.search(r"\bI notices\b|\bwe notices\b|\bthe teacher notice\b",low): return False
+ if re.search(r"noticeed|trackked|waitted",low): return False
  return True
 def render(xs): return " ".join(xs).replace(" but ",", but ").replace(" so ",", so ")
 def run(limit=50000):

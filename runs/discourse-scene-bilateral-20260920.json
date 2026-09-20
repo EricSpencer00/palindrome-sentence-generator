@@ -1,0 +1,23 @@
+{
+  "method": "typed scene-plan (setting/event/result) with bilateral live character CSP",
+  "paths": [],
+  "stats": {
+    "nodes": 10,
+    "pruned": 1140,
+    "complete": 0,
+    "status": "UNSAT"
+  },
+  "provenance": {
+    "grammar": "independent CLAUSE derivation on each side; S = CLAUSE CLAUSE",
+    "lexicon": "caller-supplied lexical entries with POS features",
+    "character_equation": "shared prefix residuals consume x[i] = x[N-1-i] online",
+    "next_construction": "if no admissible closure, replace RESULT with anaphoric consequence rather than widening lexical beam",
+    "scene_roles": "SETTING -> EVENT -> RESULT; independent scene plans on both sides",
+    "search_space": "grammar expansion and lexical choices are constrained online by shared character residual",
+    "post_hoc_repair": false,
+    "reward_model": false,
+    "catalogue_text": false,
+    "reader_gate": "closed until intact-versus-shuffled blinded reading"
+  },
+  "experiment_id": "discourse-scene-bilateral-20260920"
+}

@@ -1321,6 +1321,15 @@ finished-tape reversal, mirrored token, catalogue text, or fragment was
 admitted. Artifact:
 `runs/broad-lexicon-envelope-transducer-20260920.json`.
 
+The scaled endpoint-indexed envelope replaced the small bank with the Brown
+POS inventory plus 45 ordinary authored names: 102 agent forms, 60 verbs, 60
+objects, 50 places, and 30 prepositions. Its endpoint index contained 285
+keys and 30,600 indexed envelope starts, yet no fresh exact candidate above 38
+letters closed. Complete controls at 34 and 43 letters were independently
+audited, with the Brown bank hash recorded for reproducibility. No repair,
+finished-tape reversal, mirrored unit, catalogue text, or fragment was used.
+Artifact: `runs/scaled-endpoint-indexed-envelope-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

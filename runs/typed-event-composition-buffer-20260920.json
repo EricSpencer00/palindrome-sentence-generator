@@ -1,0 +1,269 @@
+{
+  "experiment_id": "typed-event-composition-buffer-20260920",
+  "method": "recursive typed event-composition nonterminal with wide live obligation buffer",
+  "stats": {
+    "recursive_derivations": 1010526,
+    "paired_sample_derivations": 86,
+    "paired_states": 1636,
+    "max_depth": 4,
+    "complete_prose_controls": 1636,
+    "length_by_event_depth": {
+      "1": 78,
+      "2": 138,
+      "3": 194,
+      "4": 242,
+      "5": 298
+    },
+    "exact_gt38": 0,
+    "reader_eligible": 0,
+    "longest_letters": 298
+  },
+  "controls": [
+    {
+      "rendered": "The lanterns warm the quay. The lanterns warm the quay.",
+      "left_derivation": [
+        [
+          "observation",
+          "The lanterns warm the quay"
+        ],
+        []
+      ],
+      "right_derivation": [
+        [
+          "observation",
+          "The lanterns warm the quay"
+        ],
+        []
+      ],
+      "audit": {
+        "letters": 44,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "y"
+        ],
+        "sha256_forward": "99e4c752a05e57d3921ec4ba3751619548c30013f76aad17340ca89be5885ec7",
+        "sha256_reverse": "82a13c8a402e7ea39eef2d6342d1e8d802fd173f465285a5accd08366f1f4641",
+        "sha_equal": false
+      },
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "y"
+        ],
+        "max_obligation_buffer": 5
+      },
+      "provenance": {
+        "recursive_nonterminal": "Event -> event | event, Continuation Event",
+        "event_depth_left": 1,
+        "event_depth_right": 1,
+        "complete_utterances": true,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "nested_self_palindrome": false
+      }
+    },
+    {
+      "rendered": "The lanterns warm the quay, so a young pilot crosses the inlet, when a quiet bell announces the rising tide. The lanterns warm the quay, so a young pilot crosses the inlet, so our careful captain chooses the northern road.",
+      "left_derivation": [
+        [
+          "observation",
+          "The lanterns warm the quay"
+        ],
+        [
+          [
+            "motion",
+            "so",
+            "A young pilot crosses the inlet"
+          ],
+          [
+            "warning",
+            "when",
+            "A quiet bell announces the rising tide"
+          ]
+        ]
+      ],
+      "right_derivation": [
+        [
+          "observation",
+          "The lanterns warm the quay"
+        ],
+        [
+          [
+            "motion",
+            "so",
+            "A young pilot crosses the inlet"
+          ],
+          [
+            "decision",
+            "so",
+            "Our careful captain chooses the northern road"
+          ]
+        ]
+      ],
+      "audit": {
+        "letters": 177,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "fe35c86089f49b035de009486c32b2b69e1345c134e8b2024111f58bdf152f1c",
+        "sha256_reverse": "dbcca736b211b139a2158ba29e626d47593c9ee76480e433b5583a5d0a0ac5aa",
+        "sha_equal": false
+      },
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "max_obligation_buffer": 5
+      },
+      "provenance": {
+        "recursive_nonterminal": "Event -> event | event, Continuation Event",
+        "event_depth_left": 3,
+        "event_depth_right": 3,
+        "complete_utterances": true,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "nested_self_palindrome": false
+      }
+    },
+    {
+      "rendered": "The lanterns warm the quay, so a young pilot crosses the inlet, so the lanterns warm the quay, so a young pilot crosses the inlet, when a quiet bell announces the rising tide. The lanterns warm the quay, so a young pilot crosses the inlet, so the lanterns warm the quay, so a young pilot crosses the inlet, when a quiet bell announces the rising tide.",
+      "left_derivation": [
+        [
+          "observation",
+          "The lanterns warm the quay"
+        ],
+        [
+          [
+            "motion",
+            "so",
+            "A young pilot crosses the inlet"
+          ],
+          [
+            "observation",
+            "so",
+            "The lanterns warm the quay"
+          ],
+          [
+            "motion",
+            "so",
+            "A young pilot crosses the inlet"
+          ],
+          [
+            "warning",
+            "when",
+            "A quiet bell announces the rising tide"
+          ]
+        ]
+      ],
+      "right_derivation": [
+        [
+          "observation",
+          "The lanterns warm the quay"
+        ],
+        [
+          [
+            "motion",
+            "so",
+            "A young pilot crosses the inlet"
+          ],
+          [
+            "observation",
+            "so",
+            "The lanterns warm the quay"
+          ],
+          [
+            "motion",
+            "so",
+            "A young pilot crosses the inlet"
+          ],
+          [
+            "warning",
+            "when",
+            "A quiet bell announces the rising tide"
+          ]
+        ]
+      ],
+      "audit": {
+        "letters": 276,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "e7c38e6432895f1f048eb721b21a2c17f0df023cd0867c0932cfa3b3e1fb7830",
+        "sha256_reverse": "7b804616753abb4a695805df9c10dfc1c22653c4d0355f84132b3ac99cd849de",
+        "sha_equal": false
+      },
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "max_obligation_buffer": 5
+      },
+      "provenance": {
+        "recursive_nonterminal": "Event -> event | event, Continuation Event",
+        "event_depth_left": 5,
+        "event_depth_right": 5,
+        "complete_utterances": true,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "nested_self_palindrome": false
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "recursive-event-composition|typed-continuation|wide-live-buffer",
+    "registry_inspected": true,
+    "distinct_from": "flat clause products, repair operators, direct seam/index banks, and mirrored event templates",
+    "catalogue_text_imported": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "mirrored_units": false
+  },
+  "provenance": {
+    "generator_sha256": "cd65fe6fec9557817fb1343734e1ebd123391d028263ff86e1508e615b51a3d9",
+    "independent_audits": [
+      "two-pointer mismatch scan",
+      "forward/reverse SHA-256"
+    ],
+    "reader_evidence": false
+  },
+  "status": "no reader-worthy exact closure",
+  "next_construction": "Use typed event roles to select a center event before recursive continuation, retaining the wide buffer; do not enlarge this Cartesian pairing.",
+  "reader_gate": "closed until exact candidates exist and blinded human ratings are collected"
+}

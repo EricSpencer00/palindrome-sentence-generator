@@ -822,6 +822,19 @@ not palindrome candidates. The next construction is pied-piping; no question
 string is repaired. Artifact:
 `runs/wh-question-chart-orbit-20260920.json`.
 
+### Lexical grammar intersection with collocation ordering
+
+The next lane returned to the successful boundary geometry but changed the
+search object: complete SVO and SVO+PP clause paths were generated from
+independent phrase banks, seeded by compatible outer character classes, and
+expanded with unequal phrase lengths under live residual debt. A collocation
+prior ranked only already-compatible states, with boundary-class coverage
+reserved so scoring could not erase exact possibilities. The run tested 688
+compatible seeds and states, rejected all 688, and closed no exact row above 38
+letters. Twelve complete generated controls were independently audited. This
+is a direct lexical intersection result, not a repair queue. Artifact:
+`runs/lexical-grammar-lm-intersection-20260920.json`.
+
 ### Negation/clitic polarity chart
 
 The aspectual recipient grammar then added polarity as a first-class state:

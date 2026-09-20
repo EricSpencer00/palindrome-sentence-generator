@@ -33,7 +33,10 @@ def collocations():
  common=('a scholar','the sailor','quiet poet','old letters','the lantern','bright book','reads old','keeps the','marks the','writes new','by the','in the','with care','at dawn','near the')
  return Counter(common)
 def score(words,counts):
- toks=tuple(letters(x) for x in words); return sum(math.log1p(counts.get(f'{a} {b}',0)) for a,b in zip(toks,toks[1:]))
+ # Keep phrase boundaries for the collocation prior.  The prior ranks only
+ # already character-compatible transitions; it never relaxes the exact gate.
+ toks=tuple(tok for phrase in words for tok in re.findall(r"[a-z]+", phrase.casefold()))
+ return sum(math.log1p(counts.get(f'{a} {b}',0)) for a,b in zip(toks,toks[1:]))
 def clauses(b,counts,cap=120):
  out=[]
  # Complete SVO and SVO+PP paths; phrase lengths intentionally cross debt.
@@ -43,7 +46,22 @@ def clauses(b,counts,cap=120):
     words=(n,v,o); out.append(Clause(words,('subject','verb','object'),score(words,counts)))
     for p in b['PP']:
      ws=words+(p,); out.append(Clause(ws,('subject','verb','object','adjunct'),score(ws,counts)))
- return tuple(sorted(out,key=lambda x:(-x.score,x.words))[:cap])
+ ordered=sorted(out,key=lambda x:(-x.score,x.words))
+ # Do not let a score beam erase the outer-character classes needed for an
+ # exact orbit. Reserve a few representatives per exposed boundary class,
+ # then fill the remaining slots by collocation score.
+ selected=[]; seen=set()
+ for c in ordered:
+  key=(letters(c.words[0])[0],letters(c.words[-1])[-1])
+  if key not in seen:
+   selected.append(c); seen.add(key)
+  if len(selected)>=cap: break
+ if len(selected)<cap:
+  for c in ordered:
+   if c not in selected:
+    selected.append(c)
+   if len(selected)>=cap: break
+ return tuple(selected)
 def run(state_limit=60000):
  b=banks(); counts=collocations(); cs=clauses(b,counts); states=pruned=transitions=class_seeds=0; exact=[]; controls=[]
  for c in cs[:12]: controls.append({'rendered':' '.join(c.words),'audit':audit(' '.join(c.words)),'score':c.score,'reader_status':'complete generated control; not exact candidate'})

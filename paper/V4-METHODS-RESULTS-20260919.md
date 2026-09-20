@@ -629,6 +629,14 @@ conflicts, orbit steps, or exact closures. This rules out morphology as the
 missing ingredient for this role order; the next construction adds a central
 conjunction with independently inflected subordinate clauses.
 
+The central-conjunction construction then generated a complete main clause,
+`while`/`though`/`when`, and a complete subordinate clause with held-out
+lexicalizations. Subject number and event agreement were carried before each
+seam comparison, and residual characters were consumed immediately. Its nine
+reachable states were all pruned at the first character seam; there were zero
+feature conflicts, orbit steps, or exact closures. The next construction puts a
+relative clause inside the subordinate subject to change the boundary geometry.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

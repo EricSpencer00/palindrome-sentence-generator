@@ -6965,3 +6965,39 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   `reader_facing_candidates` into `diagnostic_controls`. Borrowed/catalogue
   rows were protected rather than silently rewritten. Artifact:
   `runs/reader-gate-hygiene-20260920.json`.
+
+- **First/last indexed direct bank, 2026-09-20:** indexed six fresh complete
+  clauses by their exposed first/last characters before any reverse seam
+  check. The index removed all incompatible pairs (0 seam checks, 0 exact
+  rows); the six intact clause controls reach 53 letters and remain
+  diagnostic only. The next
+  construction indexes two-character exposed classes and permits unequal
+  normalized lengths. Artifact:
+  `runs/firstlast-indexed-direct-clause-bank-20260920.json`.
+
+- **Character-boundary automaton, 2026-09-20:** advanced two independent
+  clause seams while retaining only current exposed first/last character
+  classes. It checked 20 bounded pairs and accepted 0 boundaries; the
+  longest complete prose control was 85 letters. The next construction adds
+  a third seam without adding semantic state. Artifact:
+  `runs/character-boundary-automaton-clauses-20260920.json`.
+
+- **Two-step boundary continuation, 2026-09-20:** matched a first seam and
+  selected a held-out continuation by the next exposed character. It made 9
+  online choices and 9 continuation prunes, with complete controls to 73
+  letters and 0 exact rows. The next construction carries a second exposed
+  character into a third continuation. Artifact:
+  `runs/two-step-boundary-continuation-20260920.json`.
+
+- **Vivid scene outer-equation CSP, 2026-09-20:** authored a fresh scene
+  template with three subjects, verbs, objects, and tails, solving outer
+  character equations online. All 81 states pruned before closure; complete
+  controls reached 66 letters. The next construction adds one attached vivid
+  adjunct while preserving the live equations. Artifact:
+  `runs/vivid-scene-outer-equation-csp-20260920.json`.
+
+- **Duplicate-sweep policy, 2026-09-20:** the six-clause direct inventory,
+  its larger twelve-clause expansion, and the later first/last-indexed bank
+  share the same direct lexical family. The larger expansion is retained as
+  evidence but is not counted as a new method; only the indexed preselection
+  is admitted as a distinct topology.

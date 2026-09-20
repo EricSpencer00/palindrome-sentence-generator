@@ -4221,3 +4221,35 @@ non-exact or shortcut-prone control out of `reader_facing_candidates` into
 `diagnostic_controls`, while protecting borrowed/catalogue rows. This makes the
 reader package a mechanically gated input rather than a readability claim.
 Artifact: `runs/reader-gate-hygiene-20260920.json`.
+
+The first/last indexed direct-bank lane preselected compatible complete clauses
+before reverse seam checks. Its six-clause bank yielded zero compatible pairs
+and zero exact rows; the six intact clauses reach 53 letters and remain
+diagnostic controls. The next
+operator indexes two-character exposed classes and permits unequal normalized
+lengths. Artifact:
+`runs/firstlast-indexed-direct-clause-bank-20260920.json`.
+
+The character-boundary automaton retained only current exposed first/last
+character classes while advancing two complete-clause seams. It checked 20
+pairs, accepted zero boundaries, and retained complete prose controls to 85
+letters. The next operator adds a third seam without adding semantic state.
+Artifact: `runs/character-boundary-automaton-clauses-20260920.json`.
+
+The two-step boundary continuation matched a first seam and chose a held-out
+continuation from the next exposed character. It made nine online choices and
+nine continuation prunes, retained controls to 73 letters, and produced zero
+exact rows. The next operator carries a second exposed character into a third
+continuation. Artifact:
+`runs/two-step-boundary-continuation-20260920.json`.
+
+The vivid-scene outer-equation CSP authored a fresh scene template with three
+subjects, verbs, objects, and tails, solving outer character equations online.
+All 81 states pruned before closure; the complete controls reached 66 letters.
+The next operator adds one attached vivid adjunct while preserving the live
+equations. Artifact: `runs/vivid-scene-outer-equation-csp-20260920.json`.
+
+The direct six-clause inventory and its larger twelve-clause expansion are
+retained as diagnostics but are not counted as separate methods: their
+construction signature is the same direct lexical-boundary family. Only the
+indexed preselection changes the topology.

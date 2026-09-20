@@ -611,8 +611,9 @@ constructive regression—the seam is now represented correctly—yet it is not 
 length or reader win; the next construction must widen the grammar and vary
 phrase lengths while retaining this word-level invariant.
 
-An authored Shakespearean scene lattice tested the semantic side of that
-construction. Six human-written court frames carried explicit subject,
+An authored literary-register scene lattice (the legacy ``Shakespearean''
+label means broad vivid English here, not literal Elizabethan diction) tested
+the semantic side of that construction. Six human-written court frames carried explicit subject,
 transitive, adjunct, relative, and object valencies. After correcting its
 residual consumer, all 16 outer frame pairs were pruned at the first character
 equation, with zero orbit steps and zero exact closures. The pre-correction

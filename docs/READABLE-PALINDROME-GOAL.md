@@ -5941,7 +5941,17 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   characters with variable word boundaries and explicit odd/even center
   closure, requiring accepting grammar endpoints. The 8/9/12-word templates
   represented 89,856 forward-language strings across 521,451 states and
-  521,450 character edges, but produced 0 exact candidates in the 39–80-letter
-  band. Dependency/number/valency labels are metadata-only in this structural
-  pass; the next construction carries them in `(p, q, n)` and enforces them.
+  521,450 character edges. A carried typed-role gate passed differential
+  compatible/incompatible transition tests, but produced 0 exact candidates
+  in the 39–80-letter band. Number and valency feature unification are the
+  next refinement; this remains a solver result, not a readability claim.
   Artifact: `runs/packed-single-sentence-solver-20260920.json`.
+
+- **Subject-relative word-boundary topology, 2026-09-20:** added an optional
+  finite relative event with explicit 3sg agreement to the word-boundary
+  automaton. The four-frame run made 6,144 live boundary prunes and retained
+  20 complete near-misses to 68 letters, including `The patient gardener who
+  records the note records the patient diaper before dusk.`; 0 exact candidates
+  above 38 survived. Pointer/SHA audits and shortcut exclusions were retained.
+  The next topology is an object-relative attachment state. Artifact:
+  `runs/word-boundary-relative-grammar-automaton-20260920.json`.

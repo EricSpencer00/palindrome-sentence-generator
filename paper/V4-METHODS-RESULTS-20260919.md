@@ -3232,9 +3232,20 @@ acyclic forward grammar trie. Paired grammar states consumed matching
 characters with variable word boundaries and explicit odd/even center closure;
 complete closures had to end at accepting grammar states. Its 8-, 9-, and
 12-word templates represented 89,856 forward-language strings across 521,451
-trie states and 521,450 character edges, but yielded zero exact candidates in
-the 39–80-letter admission band. Dependency, number, and valency labels are
-recorded as metadata in this structural pass and are not yet enforced in the
-paired state. The next construction carries those labels in `(p, q, n)` rather
-than expanding another untyped grammar. Artifact:
+trie states and 521,450 character edges. A carried typed-role gate was tested
+with differential compatible/incompatible transitions, but the run still
+yielded zero exact candidates in the 39–80-letter admission band. Number and
+valency feature unification remain the next refinement; this is a structural
+solver result, not a readability claim. Artifact:
 `runs/packed-single-sentence-solver-20260920.json`.
+
+The word-boundary automaton was then extended with an optional subject
+relative clause. Its finite relative event and 3sg agreement were carried as
+typed semantic state while the same live boundary equation consumed ordinary
+lexical edges. The four-frame run made 6,144 live boundary prunes and retained
+20 complete relative-clause near-misses to 68 letters, including “The patient
+gardener who records the note records the patient diaper before dusk.”; zero
+exact candidates above 38 survived. Independent pointer/SHA audits and
+shortcut exclusions were retained. The next topology is an object-relative
+attachment state. Artifact:
+`runs/word-boundary-relative-grammar-automaton-20260920.json`.

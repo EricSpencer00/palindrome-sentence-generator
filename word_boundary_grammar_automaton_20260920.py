@@ -87,7 +87,7 @@ def run():
               "provenance":{"lexical_edges":"hand-authored ordinary words","finished_tape_reversal":False,"post_hoc_repair":False,"catalogue_text":False,"mirrored_units":False,"repeated_units":False,"fragment":False,"tautological_word_order":False}})
     rows.sort(key=lambda r:(-r["audit"]["letters"], r["rendered"]))
     exact=[r for r in rows if r["audit"]["exact"] and r["audit"]["letters"] > 38]
-    return {"experiment_id":ID,"method":"bounded word-boundary grammar automaton; lexical edges and complete semantic frames selected jointly",
+    return {"experiment_id":ID,"method":"bounded word-boundary grammar automaton with optional subject-relative clause; lexical edges and complete semantic frames selected jointly",
       "stats":{"frames":len(FRAMES),"states_pruned_live":prunes,"rendered_candidates":len(rows),"fresh_exact_gt38":len(exact),"max_letters":max((r["audit"]["letters"] for r in rows),default=0)},
       "rendered_candidates":rows[:100],"near_misses":sorted(near,key=lambda r:-r["audit"]["letters"])[:20],"exact_candidates":exact,
       "novelty_preflight":{"status":"passed","signature":SIG,"distinct_from":"prior adjective-slot automaton: optional subject relative clause with explicit 3sg agreement carried as a typed edge"},

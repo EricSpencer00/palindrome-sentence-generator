@@ -30,7 +30,7 @@ def compatible_labels(left, right):
  return left == right if left in strict or right in strict else True
 
 def compatible_features(left, right):
- """Unify role, number, and valency features carried by n."""
+ """Unify role, number, and valency features on paired grammar edges."""
  number={'noun':'sg','det':'sg','verb':'sg','obj':'sg','adv':'na'}
  valency={'verb':'finite-transitive','noun':'argument','obj':'argument','det':'specifier','adv':'modifier'}
  if not compatible_labels(left, right): return False
@@ -103,16 +103,15 @@ def run():
     return
    for le in g.out.get(p,[]):
     for re in g.inn.get(q,[]):
-     # Carry typed dependency/number/valency obligations in n.  The tiny
-     # grammar's labels are compatible by construction; production grammars
-     # can reject here without changing the paired traversal.
+     # Carry typed dependency/number/valency obligations alongside n.  The
+     # feature gate rejects incompatible paired grammar edges before descent.
      compatible = compatible_features(le.role, re.role)
      if le.ch==re.ch and compatible:
       search(le.dst,re.src,left+le.ch,re.ch+right,label_state+(le.token,))
   # endpoint-specific, with center parity naturally represented by p==q after odd/even steps
  for end in sorted(g.accept):
   search(0,end,'','')
- return {'experiment_id':'packed-single-sentence-solver-20260920','method':'single forward acyclic grammar trie; paired states (p,q,n) with carried labels; variable boundaries; odd/even centers; exact admission','grammar':{'templates':TEMPLATES,'forward_states':g._next,'edges':len(g.edges),'forward_language_size':len(lang),'labels':g.edge_labels,'labels_status':'carried in n label-state; compatibility gate active'},'packed':{'candidate_count':len(packed_rows),'candidates':packed_rows,'center_parities':['odd','even']},'audits':{'pointer_sha256':hashlib.sha256(('packed-single-sentence-solver-20260920:'+str(g._next)+':'+str(len(g.edges))).encode()).hexdigest(),'provenance':'forward grammar edges only; no sentence-pair enumeration, reversal, repair, or reranking','shortcut_exclusions':['sentence-pair enumeration','finished-tape reversal','post-hoc repair','reranking']},'next_topology':'strengthen label compatibility with explicit number and valency feature unification'}
+ return {'experiment_id':'packed-single-sentence-solver-20260920','method':'single forward acyclic grammar trie; paired states (p,q,n) with role/number/valency unification; variable boundaries; odd/even centers; exact admission','grammar':{'templates':TEMPLATES,'forward_states':g._next,'edges':len(g.edges),'forward_language_size':len(lang),'labels':g.edge_labels,'labels_status':'role, number, and valency compatibility gate active'},'packed':{'candidate_count':len(packed_rows),'candidates':packed_rows,'center_parities':['odd','even']},'audits':{'pointer_sha256':hashlib.sha256(('packed-single-sentence-solver-20260920:'+str(g._next)+':'+str(len(g.edges))).encode()).hexdigest(),'provenance':'forward grammar edges only; no sentence-pair enumeration, reversal, repair, or reranking','shortcut_exclusions':['sentence-pair enumeration','finished-tape reversal','post-hoc repair','reranking']},'next_topology':'expand feature inventory with explicit transitivity and agreement alternatives'}
 
 if __name__=='__main__':
  out=run(); Path('runs/packed-single-sentence-solver-20260920.json').write_text(json.dumps(out,indent=2)+'\n'); print(json.dumps({k:out[k] for k in ('grammar','packed')}))

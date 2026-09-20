@@ -3249,3 +3249,13 @@ exact candidates above 38 survived. Independent pointer/SHA audits and
 shortcut exclusions were retained. The next topology is an object-relative
 attachment state. Artifact:
 `runs/word-boundary-relative-grammar-automaton-20260920.json`.
+
+The next boundary topology added an indexed object-relative attachment state
+alongside the subject-relative option. Its finite object-relative event and 3sg
+agreement were carried into the complete semantic frame while opposing
+characters were consumed live. Four frames incurred 18,432 live boundary
+prunes and retained 20 grammatical near-misses to 89 letters, including “The
+patient gardener who records the note records the patient diaper that the
+gardener guards before dusk.”; zero exact candidates above 38 survived. The
+next construction coordinates object relatives with distinct attachment
+indices. Artifact: `runs/word-boundary-object-relative-automaton-20260920.json`.

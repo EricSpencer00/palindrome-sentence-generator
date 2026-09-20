@@ -163,6 +163,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_word_boundary_grammar": "Word-boundary grammar automaton: four complete semantic frames incurred 2,048 live boundary prunes and retained 20 grammatical near-misses to 51 letters, with zero exact candidates above 38",
         "latest_packed_single_sentence": "Packed single-sentence grammar: one trie represented 89,856 forward-language strings across 8/9/12-word templates and visited 521,451 states; typed-role compatibility is active, with zero exact qualifying candidates and explicit number/valency unification next",
         "latest_word_boundary_relative": "Word-boundary relative grammar: optional subject-relative agreement state incurred 6,144 live boundary prunes and retained 20 grammatical near-misses to 68 letters, with zero exact candidates above 38",
+        "latest_object_relative_boundary": "Object-relative boundary grammar: subject/object attachment states incurred 18,432 live boundary prunes and retained 20 grammatical near-misses to 89 letters, with zero exact candidates above 38",
         "reader_study": "not run",
     },
 }
@@ -1714,6 +1715,23 @@ LUNA_PARALLEL_RUNS = [
         "provenance": "hand-authored ordinary lexical edges with optional subject-relative clause and explicit 3sg agreement; complete semantic frames selected jointly; no finished-tape reversal, repair, mirrored units, catalogue text, or fragments",
         "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
         "next_construction": "add an object-relative clause with finite-verb agreement and a bounded attachment state",
+    },
+    {
+        "run_id": "word-boundary-object-relative-automaton-20260920",
+        "method": "bounded word-boundary grammar automaton with subject- and object-relative attachment states and jointly selected semantic frames",
+        "status": "completed_no_exact_closure",
+        "frames": 4,
+        "live_boundary_prunes": 18432,
+        "rendered_candidates": 0,
+        "near_miss_count": 20,
+        "longest_near_miss_letters": 89,
+        "exact_candidates_over_38": 0,
+        "example_near_miss": "The patient gardener who records the note records the patient diaper that the gardener guards before dusk.",
+        "reader_eligible": False,
+        "first_live_diagnostic": "first outer mismatch t versus k after indexed object-relative attachment",
+        "provenance": "hand-authored ordinary lexical edges with subject- and object-relative finite events and explicit 3sg agreement; complete semantic frames selected jointly; no finished-tape reversal, repair, mirrored units, catalogue text, or fragments",
+        "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
+        "next_construction": "allow coordinated object relatives with distinct attachment indices while retaining agreement state",
     },
 ]
 

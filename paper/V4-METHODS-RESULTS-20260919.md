@@ -4118,3 +4118,9 @@ and pruned 81 online obligations; the longest intact control was 40 letters and
 the exact count above 38 was zero. The next construction pairs distinct clause
 productions under a shared semantic frame with residual buffers. Artifact:
 `runs/bounded-cfg-earley-palindrome-intersection-20260920.json`.
+
+The reader-gate hygiene pass audited 20 historical artifacts and moved every
+non-exact or shortcut-prone control out of `reader_facing_candidates` into
+`diagnostic_controls`, while protecting borrowed/catalogue rows. This makes the
+reader package a mechanically gated input rather than a readability claim.
+Artifact: `runs/reader-gate-hygiene-20260920.json`.

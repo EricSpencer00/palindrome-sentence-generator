@@ -4058,6 +4058,11 @@ READER_PACKAGE = {
     "randomized_blinded_order": True,
     "answer_key_separated": True,
     "programmatic_metrics_certify_readability": False,
+    "reader_gate_hygiene": {
+        "artifact": "runs/reader-gate-hygiene-20260920.json",
+        "rule": "keep only exact >38 anti-shortcut-clean rows in reader_facing_candidates; move all other rows to diagnostic_controls",
+        "historical_artifacts_audited": 20,
+    },
     "next_action": "collect independent ratings and report pairwise preference with rater IDs and exclusions",
 }
 

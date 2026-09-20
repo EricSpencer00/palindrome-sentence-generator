@@ -6857,3 +6857,9 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   next construction pairs distinct clause productions under a shared semantic
   frame with residual buffers. Artifact:
   `runs/bounded-cfg-earley-palindrome-intersection-20260920.json`.
+
+- **Reader-gate hygiene, 2026-09-20:** audited 20 historical run artifacts
+  and moved every non-exact or shortcut-prone control out of
+  `reader_facing_candidates` into `diagnostic_controls`. Borrowed/catalogue
+  rows were protected rather than silently rewritten. Artifact:
+  `runs/reader-gate-hygiene-20260920.json`.

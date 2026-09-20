@@ -2139,3 +2139,29 @@ Both sides are independently forward-generated; neither is a reversal or a
 repair of the other. The exact count above 38 is zero. The next reader-facing
 test is to expand the phrase banks by exposed outer-letter class while keeping
 the same complete-prose and independent-audit contract.
+
+## Symmetric endpoint-class grammar
+
+The endpoint-class lane made the top-level boundary equation explicit before
+interior search: a two-letter prefix class of a forward-generated left clause
+was matched to the reversed two-letter suffix class of an independently
+generated right clause. Only compatible endpoint classes then entered the SVO
+by-clause grammar product. This differs from the preceding boundary lattice,
+which indexed internal opening/closing classes but did not gate the whole
+sentence's first and last letters first.
+
+The 30 retained complete-prose candidates reached 64 letters. The longest was:
+
+> **The young cartographer names the distant harbor, and waits beneath the night.**
+
+Its independent full-tape audit fails at normalized character 2 (`e` versus
+`g`). The forward and reverse SHA-256 digests are
+`7d4f33ff610411e6ce85b97f38e5611a22fdc22a538ed2f3d6df518d841993c9` and
+`8ab6dd9f7b4e2f899fe2b9cb3c4080442f6ca64082be91824a2f94e999960cea`.
+Endpoint conditioning therefore improved the construction boundary but did not
+close the interior character equations: zero exact candidates above 38 letters
+appeared. Both clauses were generated forward from fresh hand-authored banks,
+with no reversal, repair, catalogue text, mirrored units, or fragments. The
+next test increases endpoint width only after adding a second independent
+interior grammar, so endpoint compatibility cannot be mistaken for a full
+palindrome certificate.

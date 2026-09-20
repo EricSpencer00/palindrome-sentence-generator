@@ -6257,3 +6257,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   prunes and produced 0 exact candidates above 38; the next construction adds
   a possibility-bearing connector with modal scope. Artifact:
   `runs/word-boundary-epistemic-irrealis-graph-20260920.json`.
+
+- **Asynchronous three-way typed join, 2026-09-20:** advanced separate agent,
+  theme, and attachment residual streams through 108 character steps. It
+  retained 36 broad-English controls to 97 letters, with 0 exact candidates
+  above 38. The next construction adds cross-stream synchronization events.
+  Artifact: `runs/async-threeway-typed-join-20260920.json`.
+
+- **Possibility modal-passive topology, 2026-09-20:** introduced a distinct
+  `perhaps-being` scope state before the typed beneficiary/agent/theme frame.
+  Across target lengths 44/56/68/80 it visited 1,192 states and made 420 live
+  factor prunes, with 0 complete parses and 0 exact candidates above 38. The
+  next construction is probabilistic modal passive. Artifact:
+  `runs/possibility-modal-passive-csp-20260920.json`.
+
+- **Possibility modal-scope connector graph, 2026-09-20:** added a typed
+  `might if` relation with explicit tense/agreement state. Four frames incurred
+  4,128,768 live boundary prunes and produced 0 exact candidates above 38;
+  the next construction adds probabilistic modal scope. Artifact:
+  `runs/word-boundary-modal-scope-graph-20260920.json`.

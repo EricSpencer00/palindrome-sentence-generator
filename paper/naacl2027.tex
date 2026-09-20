@@ -8,7 +8,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage{booktabs}
 \usepackage{enumitem}
-\title{Dream-RSI-Guided Construction of Long English Letter-Level Palindromes}
+\title{Scene-Conditioned Construction of Long English Letter-Level Palindromes}
 \author{Anonymous submission}
 \newcommand{\norm}[1]{n(#1)}
 \newcommand{\rev}{\operatorname{rev}}
@@ -21,17 +21,19 @@ We study the constructive generation of long English palindromes under a
 strict letter-level definition.  A candidate must be an exact palindrome,
 originate from an auditable construction rather than borrowed catalogue text,
 avoid repeated or self-palindromic units, and survive a blinded human
-readability study.  Our central method is a Dream-RSI-style repair controller:
-historical discovery trees become replay simulators for choosing the next
-repair, while a live character-obligation constructor jointly infills typed
-semantic spans and may change word boundaries inside a reopened seam.  The
-controller is evaluated on held-out authored scenes, then redeployed to a
-fresh construction branch.  Ten deliberately orthogonal lanes share an
-independent two-pointer and hash verifier, provenance records, and a novelty
-registry.  The manuscript leads with rendered construction traces and exact
-gates; reader evaluation is a separate promotion test.  The contribution is
-a reproducible route toward genuinely readable long output, not a speed
-benchmark, proxy-only result, or negative-result thesis.
+readability study.  Our central method is a live scene-conditioned
+character-obligation constructor: it jointly chooses typed semantic spans,
+grammar states, and word boundaries while consuming the opposing character
+equation.  It grows intact prose from fresh lexical and discourse plans,
+rather than writing a sentence and mirroring it afterward.  Evidence-guided
+replay is used only to choose which genuinely new construction topology to try
+next; it is not a repair objective or a readability judge.  Ten deliberately
+orthogonal lanes share an independent two-pointer and hash verifier,
+provenance records, and a novelty registry.  The manuscript leads with
+rendered construction traces, exact gates, and the path toward blinded reader
+evidence.  The contribution is a reproducible route toward genuinely readable
+long output, not a speed benchmark, proxy-only result, or negative-result
+thesis.
 \end{abstract}
 
 \section{Task and acceptance gate}
@@ -63,8 +65,8 @@ grammar and agreement state, and $\rho$ is the semantic scene graph.  At each
 step it (i) chooses a typed scene slot or boundary, (ii) proposes a short
 ordinary word or inflection compatible with $\sigma$ and $\rho$, (iii) updates
 the opposing character obligation immediately, and (iv) retains the best
-frontier by length and unresolved debt.  A repair may replace a complete
-semantic slot, resegment an exact tape, change a dependency seam, or alter an
+frontier by length and unresolved debt.  A new branch may choose a different
+semantic slot, resegment a boundary, change a dependency seam, or alter an
 inflection/clitic boundary.  A run is not counted as progress when it merely
 resamples the same lane or duplicates a prior signature.
 
@@ -79,21 +81,23 @@ character-level LM decoding; exact-tape grammatical resegmentation;
 dependency-tree seam CSP; agreement-carrying morphology; CFG/Earley character
 intersection; a human-authored scene lattice with live equations; semantic
 valency and attachment; inflectional and clitic boundary search; a flat,
-compositional grammar without nested palindrome spans; and exact-candidate
-repair by semantic slot substitution.  Each lane writes its rendered text,
+compositional grammar without nested palindrome spans; and semantic slot
+substitution.  Each lane writes its rendered text,
 normalized tape, independent checks, source hashes, novelty result, and a
-concrete next repair to a JSON artifact.
+concrete next construction to a JSON artifact.
 
-\section{Dream-RSI repair controller}
+\section{Evidence-guided construction branching}
 \label{sec:dream-rsi}
 Dream-RSI treats accumulated discovery history as a replay simulator for
-exploration policies \citep{zheng2026dreamrsi}.  We use that idea as an
-orchestration layer, not as an automatic readability judge.  Each completed
+exploration policies \citep{zheng2026dreamrsi}.  We use that idea only as an
+orchestration layer for choosing the next genuinely new constructor, not as a
+generator, repair objective, or automatic readability judge.  Each completed
 lane contributes a node containing its rendered surface, independently
-recomputed exactness, residual signature, provenance, and next repair.  A
-deterministic policy frontier is trained on one parity split of these nodes;
-the selected policy is evaluated on held-out nodes and then used to route the
-next live constructor.  Exactness and reader status are never replay rewards.
+recomputed exactness, residual signature, provenance, and next construction
+topology.  A deterministic policy frontier is trained on one parity split of
+these nodes; the selected policy is evaluated on held-out nodes and then used
+to route the next live constructor.  Exactness and reader status are never
+replay rewards.
 
 The live operator is masked-span infilling.  A state freezes already matched
 outer character assignments, identifies the first unresolved seam, and
@@ -107,20 +111,20 @@ character pairs) and ``At first light, the keeper marks the signal, while the
 sailor notes the route, by the inlet.'' (72 letters, exactness false).  These
 surfaces are construction evidence, not promoted palindrome examples: each
 carries its generator hash, independent pointer/SHA audit, and the next
-geometry-changing repair.
+geometry-changing construction.
 
-For length scaling, the same controller can grow a recursive discourse spine,
+For length scaling, the same constructor can grow a recursive discourse spine,
 \(\textsc{Spine}\mathrel{::=}\textsc{Event}\ (\textsc{TypedAdjunct})^*\).
 Each adjunct is a complete, semantically attached temporal, locative,
 instrumental, or causal event sentence.  The derivation state carries the live
 outer-character equation and chooses a fresh typed adjunct or reopens an
 existing adjunct boundary at the first unresolved pair.  Across the current
-Dream-RSI repair rounds this grammar produced intact prose at requested 100,
+construction rounds this grammar produced intact prose at requested 100,
 150, 200, and 300-letter targets (roughly 170--394 letters after
 normalization, depending on the live center and adjunct choices); none was
-exact.  The controller now retains a residual-ranked frontier over center,
+exact.  The constructor now retains a residual-ranked frontier over center,
 first-adjunct, and terminal-adjunct choices, with duplicate-adjunct rejection.
-This is a scalable construction mechanism and a concrete repair frontier, not
+This is a scalable construction mechanism and a concrete frontier, not
 a length-based admission shortcut: every target still requires the independent
 exact gate and, only after survival, the blinded reader gate.
 
@@ -146,6 +150,18 @@ the independent two-pointer and forward/reverse SHA-256 audits; none is
 reader-certified.  The next reader-facing test is therefore still gated: it
 will randomize any future exact survivor with an intact/shuffled pair and
 blinded raters, rather than treating replay residuals as readability evidence.
+
+The current live constructor is now evaluated on fresh role-bearing
+topologies rather than larger replay sweeps.  An asynchronous three-way join
+keeps agent, theme, and attachment residuals separate and retains broad
+English controls to 97 letters; possibility-modal and modal-scope branches
+likewise preserve intact lexical and agreement states while consuming the
+character equation online.  These surfaces remain construction controls until
+an exact closure survives the no-shortcuts audit.  Their concrete next
+operators---cross-stream synchronization, probabilistic modal scope, and new
+typed attachment states---are recorded with immutable artifacts so that every
+failed run changes the constructor rather than becoming a negative-result
+claim.
 
 The next construction turn changed the search geometry rather than enlarging
 that replay.  A grammar-aware seam enumerated 3,456 fresh complete scene

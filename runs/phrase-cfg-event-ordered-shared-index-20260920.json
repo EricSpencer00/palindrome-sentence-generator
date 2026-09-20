@@ -1,0 +1,42 @@
+{
+  "experiment_id": "phrase-cfg-event-ordered-shared-index-20260920",
+  "method": "event-ordered coordination with shared dawn/dusk temporal index",
+  "grammar": [
+    "S -> TIME CLAUSE , TIME CLAUSE",
+    "TIME -> at dawn | at dusk",
+    "CLAUSE -> NP V NP",
+    "V1 != V2"
+  ],
+  "stats": {
+    "left_events": 240,
+    "right_events": 240,
+    "shared_temporal_index_pairs": 57600,
+    "crossed_role_states": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 0
+  },
+  "complete_prose_controls": [
+    "At dawn the sailor guards the harbor; at dusk the poet reads the letter.",
+    "At dawn a writer marks the shore; at dusk a captain guides the notes."
+  ],
+  "best_diagnostic": {
+    "matched": 0,
+    "left": "",
+    "right": ""
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-event-ordered-shared-index-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-coordination-distinct-events-20260920"
+  },
+  "next_construction": "Pivot to event-order reversal with distinct temporal indices on each side if first-character blocking persists.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

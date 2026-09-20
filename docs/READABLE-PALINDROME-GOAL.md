@@ -5879,3 +5879,15 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   topology; the next construction changes the grammar topology to a coordinated
   or embedded-clause factor with new outer-character exposure. Artifact:
   `runs/heldout-common-support-csp-20260920.json`.
+
+- **Coordinated-clause topology, 2026-09-20:** changed the grammar rather
+  than adding another scheduler or lexical widening. One forward
+  `S -> Clause1 and Clause2` CSP carried separate agreement/valency states,
+  variable word boundaries, and live character factors during emission. Across
+  target lengths 44/56/68/80 it visited 15,720 states and made 49,324 live
+  factor prunes, with 0 complete parses and 0 exact candidates above 38. Two
+  intact coordinated controls (up to 97 letters) passed independent
+  pointer/SHA audits. The next topology is a held-out finite-complement frame
+  with separate agreement states; no further scheduler variant is authorized
+  for this branch. Artifact:
+  `runs/coordinated-clause-global-csp-20260920.json`.

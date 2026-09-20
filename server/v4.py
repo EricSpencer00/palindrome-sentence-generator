@@ -156,6 +156,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_min_domain_factor_csp": "Minimum-domain factor branching: differential passed and recorded represented forward-language counts; 44/52/60 traversal reproduced 5,485 states, 30,746 prunes, and zero complete parses",
         "latest_two_factor_lookahead": "Two-factor lookahead: differential passed; 44/52/60 search visited 2,137 states, made 7,192 lookahead-aware prunes, and found zero complete parses",
         "latest_heldout_common_support": "Held-out common-word POS/number/valency support: 44/56/68/80 search visited 19,757 states, made 86,860 lookahead prunes, and produced 9,061 complete prose diagnostics but zero exact candidates above 38; longest rendered diagnostic was 40 letters",
+        "latest_coordinated_clause_topology": "Coordinated-clause topology: 44/56/68/80 search visited 15,720 states and made 49,324 live factor prunes, with zero complete parses and zero exact candidates above 38",
         "reader_study": "not run",
     },
 }
@@ -1573,6 +1574,26 @@ LUNA_PARALLEL_RUNS = [
         "provenance": "held-out common-word POS/number/valency alternatives in one forward variable-boundary grammar; no pair enumeration, reversal, repair, mirrored units, or catalogue text",
         "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
         "next_construction": "change grammar topology to a coordinated or embedded-clause factor exposing different outer characters; do not widen this lexical inventory",
+    },
+    {
+        "run_id": "coordinated-clause-global-csp-20260920",
+        "method": "global forward coordinated-clause grammar CSP over held-out typed lexical factors",
+        "status": "completed_no_exact_closure",
+        "target_lengths": [44, 56, 68, 80],
+        "states": 15720,
+        "live_factor_prunes": 49324,
+        "complete_palindrome_parses": 0,
+        "exact_candidates_over_38": 0,
+        "rendered_controls": 2,
+        "controls": [
+            "The patient sailor studies the chart beside the harbor, and a careful gardener carries a lantern through the orchard.",
+            "A young scholar copies the letter under the window, and a quiet keeper guards the gate near the lighthouse.",
+        ],
+        "reader_eligible": False,
+        "first_live_diagnostic": "the live conjunction factor leaves no complete parse at any target length",
+        "provenance": "one forward S -> Clause1 and Clause2 grammar with independent agreement/valency states, variable word boundaries, and live position factors; no reversal, repair, mirrored units, catalogue text, or sentence-pair enumeration",
+        "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
+        "next_construction": "replace coordination with a held-out finite-complement frame and separate agreement states; preflight a new topology signature",
     },
 ]
 

@@ -3168,3 +3168,16 @@ character. The next method therefore changes grammar topology to a coordinated
 or embedded-clause factor that exposes different outer characters, rather than
 widening this inventory again. Artifact:
 `runs/heldout-common-support-csp-20260920.json`.
+
+The first topology pivot made coordination itself a live grammar factor. The
+solver used one forward `S -> Clause1 and Clause2` grammar, separate
+agreement/valency states for the two clauses, variable word boundaries, and
+direct character equations during lexical emission. Across target lengths 44,
+56, 68, and 80 it visited 15,720 states and made 49,324 live factor prunes,
+with zero complete parses and zero exact candidates above 38. The two intact
+coordinated controls (up to 97 letters) were independently pointer/SHA audited;
+they are controls, not palindrome claims. This is a genuine topology change,
+not a scheduler or repair pass. The next construction replaces the conjunction
+with a held-out finite-complement frame while preserving independent agreement
+states and live position factors. Artifact:
+`runs/coordinated-clause-global-csp-20260920.json`.

@@ -1,0 +1,131 @@
+{
+  "experiment_id": "shared-event-order-tense-compatibility-20260920",
+  "method": "event-specific tense jointly selected with temporal ordering",
+  "stats": {
+    "events": 3,
+    "order_states": 2,
+    "predicate_tenses": 2,
+    "states": 12,
+    "live_prunes": 3,
+    "live_survivors": 0,
+    "exact_gt38": 0,
+    "reader_eligible": 0,
+    "longest_letters": 51
+  },
+  "controls": [
+    {
+      "rendered": "the keeper heard at dawn; the harbor brightened by noon.",
+      "shared_event_variable": "signal",
+      "event_tense": "past",
+      "temporal_order": "before",
+      "predicate_tense": "past",
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ]
+      },
+      "audit": {
+        "letters": 45,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "b4654ec1eb2ccbdd8f29efc75b596e0bce95277983f556fecd3af6e2f9c50aba",
+        "sha256_reverse": "c61e2ca6dc4bee3c9f9b0df97c2b6a7d186f4fa91c8a487ad056560b6bd7f117",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the keeper hears at dusk; the harbor brightens by night.",
+      "shared_event_variable": "arrival",
+      "event_tense": "present",
+      "temporal_order": "after",
+      "predicate_tense": "present",
+      "online_character_equations": {
+        "equations": 3,
+        "satisfied": 2,
+        "all_satisfied": false,
+        "first_mismatch": [
+          2,
+          "e",
+          "g"
+        ]
+      },
+      "audit": {
+        "letters": 45,
+        "pointer_exact": false,
+        "first_mismatch": [
+          2,
+          "e",
+          "g"
+        ],
+        "sha256_forward": "2f28c3c6a4af7fdda78f031552705d01495f6f0963c034e19532eab479c282a1",
+        "sha256_reverse": "7da5398ee8240273602020c5179118c9b32131d60103ef107d6b8b99a0ab2354",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the keeper heard at morning; the harbor brightened by evening.",
+      "shared_event_variable": "warning",
+      "event_tense": "past",
+      "temporal_order": "before",
+      "predicate_tense": "past",
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "g"
+        ]
+      },
+      "audit": {
+        "letters": 51,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "g"
+        ],
+        "sha256_forward": "fe2ba4479e14023b00d280d8f31828aa9789b70c81b48a02f3c2d6077b0246a8",
+        "sha256_reverse": "2a68bdaa7bf7f75c915a4220f8b61a844a9c7d3171c6817d2ebd2ede4c8c897b",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    }
+  ],
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "shared-event|order-tense-compatibility|event-specific-tense|distinct-predicates",
+    "registry_inspected": true,
+    "distinct_from": "untyped temporal order, generic aspect, repeated event wording, and relation-overhang lanes",
+    "catalogue_text_imported": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "mirrored_units": false
+  },
+  "provenance": {
+    "generator_sha256": "6aa19c0edcd8ab79fbebde1c98f76a299c19478ce7d3d7c573141a85f678e45c",
+    "independent_audits": [
+      "pointer scan",
+      "forward/reverse SHA-256"
+    ]
+  },
+  "status": "no reader-worthy exact closure",
+  "next_construction": "Tie event order and tense to independently authored temporal adjunct morphology."
+}

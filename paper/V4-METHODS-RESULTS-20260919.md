@@ -645,6 +645,14 @@ outer seam, and produced zero exact closures. The construction is therefore
 stopped with a concrete next step—another held-out relative attachment site
 conditioned on valency—rather than a post-hoc repair.
 
+The dual-relative follow-up added two distinct attachment sites: a
+subject-modifying relative in the main clause and an object-modifying relative
+in the subordinate clause. Valency labels, agreement/tense state, held-out
+subordinate lexicalizations, and live residual consumption all remained
+active. The nine reachable states were again pruned at the first character
+seam, with zero exact closures. The next construction moves the relative
+attachment onto the bridge conjunction and adds explicit complement selection.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -3826,3 +3826,22 @@ states into 96 live lexical-edge transitions and 96 boundary prunes. It
 retained diagnostics up to 127 letters, with zero exact candidates above 38;
 the next construction synchronizes two aspect streams. Artifact:
 `runs/aspectual-edge-residual-automaton-20260920.json`.
+
+The cadence-compatible quotation branch added held-out quotation-source frames
+while preserving discourse, evidential, polarity, modal, and tense
+compatibility, role agreement, and PP attachment. It retained four vivid
+diagnostics up to 121 letters after eight seam prunes, but zero exact
+candidates above 38; the next construction adds reported-speech frames.
+Artifact: `runs/cadence-quotation-adjunct-growth-20260920.json`.
+
+The two-adjunct scope branch added typed adjuncts with attachment agreement and
+scope states under the strict reader gate. It retained 36 paired controls up to
+161 letters, with 216 synchronous buffer pairs and zero exact candidates above
+38. The next construction adds scope nesting. Artifact:
+`runs/synchronized-valency-tries-two-adjunct-scope-20260920.json`.
+
+The synchronized dual-aspect branch carried two independently typed aspect
+streams across 288 lexical-edge checks and boundary prunes. It retained
+diagnostics up to 127 letters, with zero exact candidates above 38; the next
+construction allows asynchronous aspect transitions. Artifact:
+`runs/synchronized-dual-aspect-residuals-20260920.json`.

@@ -1,0 +1,102 @@
+{
+  "method": "corpus-phrase-wfsa-bidirectional-20260920",
+  "status": "completed_no_exact_closure",
+  "corpus": "paper/out/final-prose.txt",
+  "template_count": 5791,
+  "indexed_path_count": 5791,
+  "index_keys": 3501,
+  "states": 50000,
+  "character_prunes": 44935,
+  "seam_prunes": 0,
+  "state_limit": 50000,
+  "exact_candidates": [],
+  "exact_candidate_count": 0,
+  "rendered_diagnostics": [],
+  "controls": [
+    {
+      "rendered": "Palindrome search with brown.",
+      "audit": {
+        "letters": 25,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "p",
+          "reverse": "n"
+        },
+        "sha256_forward": "42c6e65dbabaa3059047638f7bc53da12ca09588f9380b0cb1b597cf1ffe4551",
+        "sha256_reverse": "58bc4a76efb07bd31a19e1d3a9ac686c92ab37af601f35bb7cf18fd89f0d99e6"
+      },
+      "independent_pointer_exact": false,
+      "reader_eligible": false,
+      "intact_prose": true,
+      "provenance": {
+        "kind": "corpus control",
+        "source_sha256": "9da904789dc518182deb52c2ef9004b588c3468eda1fab35fa3cf9689e6137f1",
+        "borrowed_as_generated": false
+      }
+    },
+    {
+      "rendered": "Palindrome search with brown pos.",
+      "audit": {
+        "letters": 28,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "p",
+          "reverse": "s"
+        },
+        "sha256_forward": "9183482156f56c3ec98f5a979e9a8ba8087a82fb203f349d2f807da2ecfadf54",
+        "sha256_reverse": "45a7a4f944b59a975d0b7f92db4edee1d76b48888911c37879de19f97d48e95b"
+      },
+      "independent_pointer_exact": false,
+      "reader_eligible": false,
+      "intact_prose": true,
+      "provenance": {
+        "kind": "corpus control",
+        "source_sha256": "9da904789dc518182deb52c2ef9004b588c3468eda1fab35fa3cf9689e6137f1",
+        "borrowed_as_generated": false
+      }
+    },
+    {
+      "rendered": "Palindrome search with brown pos shape.",
+      "audit": {
+        "letters": 33,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "p",
+          "reverse": "e"
+        },
+        "sha256_forward": "9de31842a2b980b7bcd89e3653332a7fa25b6496276c354376ef4866746bfb1a",
+        "sha256_reverse": "6333c04d6a85a0ef2f8d0e6287f8e7d3a0e970ab01e1c2aec8baa6046a17432d"
+      },
+      "independent_pointer_exact": false,
+      "reader_eligible": false,
+      "intact_prose": true,
+      "provenance": {
+        "kind": "corpus control",
+        "source_sha256": "9da904789dc518182deb52c2ef9004b588c3468eda1fab35fa3cf9689e6137f1",
+        "borrowed_as_generated": false
+      }
+    }
+  ],
+  "reader_facing_candidates": [],
+  "reader_eligible": false,
+  "independent_validation": [
+    "literal outside-in two-pointer",
+    "forward/reverse SHA-256"
+  ],
+  "provenance": "fresh local-corpus phrase templates indexed by semantic role and first/last character runs; paths intersect bidirectionally with variable word boundaries and live residual equations; intact corpus text is controls only and never claimed as generated",
+  "novelty_preflight": {
+    "passed": true,
+    "overlaps_checked": [
+      "right-boundary-wfsa-decoder-20260923-local",
+      "broad-lexical-boundary-wfsa-20260925-remote",
+      "phrase-boundary-indexed-centerout-20260920-remote"
+    ],
+    "unused_dimension": "role/boundary-run indexed phrase WFSA mined from local intact prose with two-sided variable-boundary intersection",
+    "reason": "prior WFSA lanes used lexical boundary decoders; this lane builds reusable semantic-role and boundary-run indices from local intact prose and blocks same-source borrowed closures"
+  },
+  "first_live_diagnostic": "WFSA residual mismatch at variable word boundary",
+  "next_construction": "if closure remains empty, add a typed finite-clause transition between two indexed phrase paths while preserving source separation"
+}

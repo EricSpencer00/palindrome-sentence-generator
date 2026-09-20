@@ -32,6 +32,39 @@ GATE_MESSAGE = (
 
 BEST_KNOWN_TEXT = "An aide rips nine memos; some men inspire Diana."
 ALTERNATE_EXACT_TEXT = "Some men inspire Diana; an aide rips nine memos."
+# Keep the reader-facing claim separate from the mechanical ledger.  The
+# ledger contains longer exact strings, but none is currently eligible for a
+# reader study under the no-shortcuts and intact-prose gates.
+EXACT_DIAGNOSTIC_SUMMARY = [
+    {
+        "run_id": "broad-pos-clause-intersection-corrected-20260920",
+        "rendered": "Some mad loss went save no level; one vast news sold a memos.",
+        "letters": 47,
+        "status": "exact_mechanical_diagnostic",
+        "disposition": "rejected: malformed clause boundaries and determiner/noun agreement",
+    },
+    {
+        "run_id": "dream-rsi-strict-phrase-bank-20260919",
+        "rendered": "To new one post is an evening. Is sign in even as its open owe. Not.",
+        "letters": 50,
+        "status": "exact_mechanically_admitted_diagnostic",
+        "disposition": "not reader-eligible: incoherent surface; no human certification",
+    },
+    {
+        "run_id": "semordnilap-poetic-clause-20261001",
+        "rendered": "No evil Noel deliver desserts raw; war stressed reviled Leon live on.",
+        "letters": 56,
+        "status": "exact_withdrawn_diagnostic",
+        "disposition": "rejected: aligned whole-token semordnilap chain",
+    },
+    {
+        "run_id": "anchor-preserving-overhang-20260919",
+        "rendered": "Name not left onto her a. Set add new one last one. Can all its an aide rips nine memos some men inspire Diana still an. Ace not sale now end dates. Are hot not felt one man.",
+        "letters": 132,
+        "status": "exact_withdrawn_diagnostic",
+        "disposition": "rejected: embeds the complete 38-letter self-palindromic anchor",
+    },
+]
 ALTERNATE_EXACT_PROVENANCE = {
     "run_id": "bilateral-grammar-csp-20260920",
     "method": "independent left/right CLAUSE grammar with live reverse-edge residual consumption",
@@ -46,10 +79,14 @@ BEST_KNOWN_PROVENANCE = {
     "search_summary": {
         "exact_candidates": 1,
         "longest_exact_letters": 38,
+        "longest_admitted_exact_letters": 38,
+        "longest_mechanical_diagnostic_letters": 132,
+        "admission_scope": "best exact, original, coherent, shortcut-clean candidate; longer exact diagnostics remain quarantined",
         "mechanically_admitted_candidates": 1,
         "pilot_lengths": "38–60; one independently recovered 38-letter anchor, no >38 closure",
         "shared_participant_temporal_repair": "no exact closure in bounded pilot",
         "latest_dream_rsi_repair": "2 mechanically admitted exact rows; longest 50 letters; reader gate closed",
+        "longer_exact_diagnostics": "47/50/56/66/132-letter rows exist in the ledger; each is rejected for malformed prose, incoherence, hidden self-palindrome, aligned semordnilap, or embedded-anchor shortcut",
         "latest_semantic_shell_repair": "7,272 intact scene-shell renderings; longest 183 letters; zero exact closure",
         "latest_indexed_path_repair": "1,205 typed-path nodes across 38–56 letters; two exact 38-letter admissions; no improvement",
         "latest_connector_product_repair": "100 typed connector frontier witnesses; longest 65 letters; zero exact closure",
@@ -7512,6 +7549,60 @@ LUNA_PARALLEL_RUNS = [
         "novelty_preflight": "passed; distinct from fixed two-clause lattices and aligned mirrors",
         "next_construction": "add typed scene-level connective roles while preserving variable depths and disjoint frame banks",
     },
+    {
+        "run_id": "packed-sentence-plan-boundary-dp-20260920",
+        "method": "packed grammar chart with reverse-compatible boundary signatures and length-band DP",
+        "status": "completed_no_exact_closure",
+        "raw_plans": 1200,
+        "packed_plans": 195,
+        "boundary_buckets": 4,
+        "reverse_compatible_states": 0,
+        "exact_candidates_over_38": 0,
+        "reader_eligible": 0,
+        "longest_matched_prefix": 0,
+        "complete_prose_controls": 3,
+        "provenance": "broad recursive CFG sentence plans packed by reusable boundary signatures and length bands; no per-step RLAIF, repair, reversal, catalogue text, or mirrored units",
+        "independent_validation": ["boundary-signature audit", "normalized tape", "two-pointer scan", "forward/reverse SHA-256"],
+        "novelty_preflight": "passed; distinct from flat paired sentence enumeration and prior fixed-boundary chart",
+        "next_construction": "add packed typed-agreement features to boundary buckets without shrinking existing grammar branches",
+    },
+    {
+        "run_id": "corpus-phrase-wfsa-bidirectional-20260920",
+        "method": "corpus-mined phrase WFSA with bidirectional variable-boundary intersection",
+        "status": "completed_no_exact_closure",
+        "template_count": 5791,
+        "indexed_path_count": 5791,
+        "index_keys": 3501,
+        "states": 50000,
+        "character_prunes": 44935,
+        "seam_prunes": 0,
+        "exact_candidates_over_38": 0,
+        "reader_eligible": False,
+        "longest_rendered_letters": 0,
+        "complete_prose_controls": 3,
+        "provenance": "fresh local-corpus phrase templates indexed by semantic role and boundary runs; intact corpus text is controls only and never claimed as generated",
+        "independent_validation": ["literal outside-in two-pointer", "forward/reverse SHA-256"],
+        "novelty_preflight": "passed; distinct from lexical boundary decoders through role/run-indexed phrase WFSA and source-separated paths",
+        "next_construction": "add a typed finite-clause transition between two indexed phrase paths while preserving source separation",
+    },
+    {
+        "run_id": "semantic-frame-wfst-best-first-20260920",
+        "method": "semantic frame graph compiled to character WFST with best-first left/right intersection",
+        "status": "completed_no_exact_closure",
+        "event_frames": 4,
+        "setting_frames": 4,
+        "compiled_wfst_states": 6,
+        "character_transitions": 122,
+        "best_first_states": 80,
+        "rendered_candidates": 80,
+        "exact_candidates_over_38": 0,
+        "reader_eligible": 0,
+        "longest_rendered_letters": 83,
+        "provenance": "fresh typed event/setting frames compiled to an agreement-aware character WFST; no catalogue text, finished-tape reversal, repair, mirrored units, or word-order symmetry",
+        "independent_validation": ["literal outside-in two-pointer", "forward/reverse SHA-256"],
+        "novelty_preflight": "passed; distinct from flat scene lattices through best-first WFST intersection",
+        "next_construction": "intersect variable-depth scene trees in the WFST state while carrying residual character obligations across clause boundaries",
+    },
 ]
 
 LATEST_LUNA_RUN = LUNA_PARALLEL_RUNS[-1]
@@ -7801,6 +7892,7 @@ def _best_known_record() -> dict[str, Any]:
     return {
         "rendered": BEST_KNOWN_TEXT,
         "letters": evaluation["candidate"]["audit"]["letters"],
+        "claim_scope": "best admitted exact, original, coherent, shortcut-clean candidate",
         "provenance": BEST_KNOWN_PROVENANCE,
         "audit": evaluation["candidate"]["audit"],
         "mechanical_checks": evaluation["candidate"]["mechanical_checks"],
@@ -7953,6 +8045,8 @@ def health() -> dict[str, Any]:
             "human_certification_required": True,
         },
         "best_known_letters": 38,
+        "best_known_scope": "reader-plausible, original, shortcut-clean exact candidate",
+        "longest_mechanical_diagnostic_letters": 132,
         "optimization": OPTIMIZATION_SPEC,
     }
 
@@ -7969,6 +8063,7 @@ def evidence() -> dict[str, Any]:
             "human_certification_required": True,
         },
         "best_known": _best_known_record(),
+        "exact_diagnostic_summary": EXACT_DIAGNOSTIC_SUMMARY,
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN, LEXICAL_CENTEROUT_RUN, PHRASE_BOUNDARY_INDEXED_CENTEROUT_RUN, BROWN_CHAR_DECODER_RUN, RIGHT_BOUNDARY_WFSA_RUN, AGREEMENT_VALENCY_WFSA_RUN, BROAD_LEXICAL_BOUNDARY_RUN, VARIABLE_BOUNDARY_LATTICE_RUN, PAIRED_CLAUSE_LATTICE_RUN, CONNECTOR_CLAUSE_DEBT_RUN, SEMORDNILAP_INTERSECTION_RUN, SEMORDNILAP_AGREEMENT_RUN, SEMORDNILAP_POETIC_RUN, PROPER_NAME_SCENE_SEAM_RUN, CROSS_BOUNDARY_DP_RUN, CROSS_BOUNDARY_MORPHOLOGY_RUN, CFG_CENTER_OUT_RUN, SLOT_PAIR_CHARACTER_RUN, PENN_FEATURE_SLOT_RUN, VARIABLE_PHRASE_RUN],
         "latest_constructive_run": LATEST_LUNA_RUN,
@@ -7994,6 +8089,7 @@ def method() -> dict[str, Any]:
         "status": "constructive_search_in_progress",
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
+        "exact_diagnostic_summary": EXACT_DIAGNOSTIC_SUMMARY,
         "latest_constructive_run": LATEST_LUNA_RUN,
         "parallel_luna_runs": LUNA_PARALLEL_RUNS,
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,

@@ -30,6 +30,24 @@ The current benchmark remains the independently verified 38-letter sentence:
 
 > *An aide rips nine memos; some men inspire Diana.*
 
+This is the **best admitted** result, not the longest mechanically exact string
+ever seen in the ledger.  The audit ledger also contains exact diagnostics at
+47, 50, 56, 66, and 132 letters.  They are not progress claims: the 47-letter
+row has malformed clause boundaries and determiner agreement, the 50/66-letter
+Dream-RSI rows are incoherent or contain a hidden self-palindromic span, the
+56-letter row is an aligned whole-token semordnilap chain, and the 132-letter
+row embeds the complete 38-letter anchor.  The paper and API therefore report
+both fields explicitly: `longest_admitted_exact_letters = 38` and
+`longest_mechanical_diagnostic_letters = 132`.
+
+The live public API is a useful architectural reference, not a readability
+result.  Its fast lexical mirror-state search and clickable word-to-mirror
+inspection suggest a scalable character-orbit index and a good provenance UX;
+its 1,198-letter demo is visibly word salad rather than intact English prose.
+The active construction borrows the state-space/inspection ideas while
+intersecting them with typed grammar, agreement, valency, and semantic scene
+states before rendering any candidate.
+
 The active target is an original, coherent, intact-prose palindrome longer than
 that benchmark (with the paper's promotion floor at 100 letters), followed by
 the blinded intact-prose versus shuffled-control study. No wrapper, catalogue

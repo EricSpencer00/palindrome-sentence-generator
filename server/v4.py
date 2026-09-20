@@ -3987,6 +3987,26 @@ LUNA_PARALLEL_RUNS = [
       "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
       "next_construction": "add quotation attitude entailment and source consistency",
     },
+    {
+      "run_id": "author-first-bidirectional-boundary-20260920",
+      "method": "author-first independent center/outward clause growth with online opposite character obligations",
+      "status": "completed_no_exact_closure",
+      "centers": 3,
+      "left_edges": 3,
+      "right_edges": 3,
+      "outer_edges": 2,
+      "bidirectional_walks": 54,
+      "online_prunes": 54,
+      "rendered_candidates": 54,
+      "longest_rendered_letters": 67,
+      "exact_candidates_over_38": 0,
+      "reader_eligible": False,
+      "example_near_miss": "the patient archivist the careful record guards the small bridge in the village.",
+      "first_live_diagnostic": "fresh intact clause expansions are readable but the first center/outward boundary mismatches",
+      "provenance": "fresh hand-authored clause inventory grown independently from a shared center; no finished-string reversal, repair, mirrored order, repeated units, or catalogue text",
+      "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
+      "next_construction": "add a third independently authored outward edge with typed attachment while retaining center obligations",
+    },
 ]
 
 LATEST_LUNA_RUN = LUNA_PARALLEL_RUNS[-1]

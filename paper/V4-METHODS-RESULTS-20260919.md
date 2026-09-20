@@ -4102,3 +4102,11 @@ retained 20 complete controls up to 151 letters, with zero exact candidates
 above 38. The longest control remains diagnostic-only; no reader claim is made.
 The next construction adds attitude entailment and source consistency. Artifact:
 `runs/shared-scene-quotation-attitude-20260920.json`.
+
+The author-first bidirectional boundary lane grew fresh hand-authored clause
+expansions independently from a shared center while consuming opposite
+character obligations online. It made 54 bidirectional walks and retained 54
+intact prose diagnostics up to 67 letters, with zero exact candidates above 38.
+The reader-facing list is empty. The next construction adds a third
+independently authored outward edge with typed attachment. Artifact:
+`runs/author-first-bidirectional-boundary-20260920.json`.

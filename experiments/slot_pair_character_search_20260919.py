@@ -101,7 +101,12 @@ def search(template: tuple[Slot, ...], *, limit: int = 32) -> dict[str, object]:
         for left in template[lo].words:
             if left in left_words or left in right_words or left == left[::-1]:
                 continue
-            for right in template[hi].words:
+            # Boundary index: the first exposed left character must equal the
+            # last exposed right character before any deeper expansion.
+            wanted = letters(left)[:1]
+            indexed_right = tuple(right for right in template[hi].words
+                                   if letters(right)[-1:] == wanted)
+            for right in indexed_right:
                 if right in left_words or right in right_words or right == right[::-1] or right == left:
                     continue
                 new_prefix = prefix + letters(left)

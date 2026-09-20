@@ -91,6 +91,9 @@ BEST_KNOWN_PROVENANCE = {
         "latest_inner_character_class_event_frames": "9 subject/object inner-class states; 8 rejected before rendering, 1 complete 72-letter prose control; zero exact >38 closure",
         "latest_semantic_relation_frame_orbit": "9 relation-frame pairings; 8 pruned before rendering, 1 complete 64-letter prose control; zero exact >38 closure",
         "latest_semantic_relation_lattice": "36 active/passive/locative relation states; 24 rejected before rendering, 12 prose controls to 59 letters; zero exact >38 closure",
+        "latest_live_residual_relation_slots": "9 relation/object/setting states; zero width-one survivors and zero rendered candidates",
+        "latest_cross_word_boundary_dp": "63 transition states and 9 prose controls to 77 letters; quarantined because global residual was not enforced",
+        "latest_residual_relation_setting": "4 prose controls to 90 letters; debt trace diagnostic only because its filter was arbitrary",
         "reader_study": "not run",
     },
 }

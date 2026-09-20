@@ -117,6 +117,9 @@ multiword palindrome span:
 | Held-out subject/object inner-class frames | Carries vowel/consonant class obligations across independently authored subject and object boundaries before rendering | 9 frame pairs; 8 rejected before rendering, 1 complete 72-letter prose control; no exact closure | 0 / 0 |
 | Semantic relation-frame orbit | Pairs independently authored agent/relation/object/setting frames under a live outer lexical orbit before rendering | 9 frame pairings; 8 pruned before rendering, 1 complete 64-letter prose control; no exact closure | 0 / 0 |
 | Semantic relation realization lattice | Gates active, passive, and locative realizations by attachment signature before rendering | 36 relation-pair states; 24 rejected before rendering, 12 complete controls to 59 letters; no exact closure | 0 / 0 |
+| Live residual relation slots | Carries width-one and width-two residual equations through relation/object/setting slots before rendering | 9 states; 0 width-one survivors, 0 rendered candidates | 0 / 0 |
+| Cross-word boundary grammar DP (diagnostic) | Records per-word cross-boundary traces over fresh frame pairs, with full audits but no enforced global residual | 63 transition states; 9 complete prose controls to 77 letters; quarantined diagnostic | 0 / 0 |
+| Relation/setting debt trace (diagnostic) | Records residual traces across two slots while retaining an explicitly arbitrary filter | 6 states; 4 complete prose controls to 90 letters; diagnostic only | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
 discriminator: 16 independently authored clause pairs were rendered above 38
@@ -2420,3 +2423,29 @@ candidate above 38 letters, and no catalogue/reversal provenance. This is a
 construction discriminator rather than a palindrome claim; if an exact row is
 found, the specified next reader test is a randomized relation-family versus
 word-shuffled naturalness study.
+
+## Live residual relation slots
+
+The smallest follow-up carried width-one and width-two character obligations
+through relation, object, and setting slots before any sentence was rendered.
+All nine independently authored frame pairings failed the first width-one
+gate, leaving zero rendered candidates and zero exact closures. This is a
+useful over-constraint result: the next construction must widen the ordinary
+surface-realization banks before adding another equation, rather than treating
+the empty frontier as a readable output.
+
+Two subsequent probes are retained as diagnostics, not as constructive
+advances. The cross-word boundary DP recorded 63 per-word transition states
+and nine complete controls, the longest 77 letters:
+
+> **The steady pilot charts a hidden island, while each quiet sailor studies the open map.**
+
+Its first mismatch is at character 0 (`t` versus `p`); the run explicitly
+records `global_residual_enforced: false`. The relation/setting debt trace
+retained four complete controls to 90 letters, including:
+
+> **The cartographer maps the shore by the window, and the shore is mapped by the cartographer through the window.**
+
+Its first mismatch is at character 0 (`t` versus `w`). That lane's filter was
+arbitrary, so neither diagnostic can enter a reader packet or be described as
+an exact-generation method.

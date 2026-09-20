@@ -153,6 +153,12 @@ def consume(s: State, left: tuple[str, ...], right: tuple[str, ...]):
                    provenance=s.provenance + ("left:" + " ".join(left), "right:" + " ".join(right))), None
 
 
+def initialize(first: str, final: str):
+    """Initialize from complete exposed lexical words, retaining residuals."""
+    base = State((), (), "", "none", 0, ("initial-exposure",))
+    return consume(base, (first,), (final,))
+
+
 def readable_shape(left: tuple[str, ...], right: tuple[str, ...]) -> bool:
     # A light grammar guard: each exposed half remains an ordinary clause or
     # phrase, and no side is merely the reverse word list of the other.
@@ -206,10 +212,17 @@ def run() -> dict:
     starts = [(l[0], (final,), l, final, category) for l in LEFT_STARTS
               for final, category, opening in RIGHT_FINALS
               if norm(l[0]) == norm(opening)][:16]
-    states = [State((first,), right, "", "none", len(norm(first)),
-                    ("authored-start", "source-left:" + " ".join(full_left),
-                     "source-right-final:" + final), category, True)
-              for first, right, full_left, final, category in starts]
+    states = []
+    for first, right, full_left, final, category in starts:
+        state, why = initialize(first, final)
+        if why:
+            continue
+        states.append(replace(state, provenance=("authored-start", "source-left:" + " ".join(full_left),
+                                                  "source-right-final:" + final),
+                              right_final_category=category, right_clause_final=True,
+                              left_grammar_state=grammar_state((first,), "left"),
+                              right_grammar_state=grammar_state(right, "right"),
+                              left_progress=1, right_progress=1))
     deepest = []
     rejects = {"character_conflict": 0, "shape": 0, "embedded_palindrome": 0}
     finished = []

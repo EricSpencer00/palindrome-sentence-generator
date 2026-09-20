@@ -5,7 +5,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "experiments"))
-from live_context_infilling_20260920 import State, beam_key, consume  # noqa: E402
+from live_context_infilling_20260920 import State, beam_key, consume, initialize  # noqa: E402
+
+
+def test_initial_exposure_keeps_full_final_word_residual():
+    s, why = initialize("A", "idea")
+    assert why is None and s.residual == "edi" and s.residual_side == "right"
+    s, why = initialize("A", "night")
+    assert s is None and why == "character_conflict"
 
 
 def test_beam_prefers_balanced_residual_over_long_one_sided_state():

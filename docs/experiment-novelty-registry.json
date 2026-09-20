@@ -12354,7 +12354,7 @@
       "run_artifacts": ["runs/live-context-infilling-20260920.json"],
       "distinction": "Grows left words by appending and right words by prepending in ordinary order, carrying an unmatched residual and consuming newly exposed characters immediately; distinct from fixed CFG products and n-gram ranking. No repair, finished-tape reversal, mirrored units, or catalogue text.",
       "reader_evidence": false,
-      "status": "16 starts, 32-state beam, 12 rounds, grammatical noun-final suffixes with explicit final-category state, finite grammar states on both edges, residual-first balanced beam ranking with bounded per-round progress, nonterminal transitions requiring both edges to add words, 0 final live states, 66 character conflicts, 74 one-sided-stall rejections, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; reader gate closed; next method must add residual-indexed paired continuations before relaxing the stall gate"
+      "status": "CORRECTED: complete opening/final lexical words are consumed at initialization, retaining residuals (the prior one-character initialization and deepest traces are withdrawn). Corrected run: 16 starts, 32-state beam, 12 rounds, 0 final live states, 32 initialization/character conflicts, 32 one-sided-stall rejections, 0 exact candidates above 38 letters; independent pointer/SHA audits retained; next method must add residual-indexed paired continuations before relaxing the stall gate"
     },
     {
       "id": "inflectional-clitic-boundary-csp-20260920",

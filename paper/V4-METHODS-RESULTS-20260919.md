@@ -1182,6 +1182,15 @@ still too sparse. The next construction widens semantic frame topology rather
 than refining the seam index. Artifact:
 `runs/brown-seam-indexed-lexical-generator-20260920.json`.
 
+The authored phrase-pair graph moved construction to the seam itself: 12 left
+scene/dialogue chunks and 11 right chunks yielded eight exposed-span-compatible
+pairs, followed by three complete frame-topology checks. No fresh exact row
+closed. The 38-letter seed was independently audited and retained only as an
+excluded baseline control; new chunks were not wrappers around it. This closes
+the current constructive sweep and supplies evidence for a method-level
+reassessment rather than another ad hoc feature lane. Artifact:
+`runs/authored-phrase-pair-graph-scene-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

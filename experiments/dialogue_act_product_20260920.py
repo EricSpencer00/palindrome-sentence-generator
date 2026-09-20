@@ -1,10 +1,10 @@
-"""Dialogue-act product search: complete turns grow under shared character equations.
+"""Dialogue-act product diagnostic over complete authored turns.
 
 This is deliberately not a clause-pair or repair search.  Each arm is a
-different, authored conversational act (question, answer, request, promise,
-warning, report); a product state chooses whole acts while comparing the
-outer character residuals before accepting the next act.  It is retained as
-evidence even when the exact intersection is empty.
+ different, authored conversational act (question, answer, request, promise,
+ warning, report); a product state chooses whole acts and then receives an
+ independent exact audit.  It is retained as evidence even when the exact
+ intersection is empty; it is not presented as a live character constructor.
 """
 from __future__ import annotations
 import hashlib, json, re
@@ -47,7 +47,7 @@ def run() -> dict:
                              "repair": False}})
     exact=[r for r in rows if r["audit"]["two_pointer_exact"] and r["audit"]["letters"]>38]
     out={"experiment":"dialogue-act-product-20260920",
-         "method":"independent conversational-act product with live outer residual check",
+         "method":"independent conversational-act product with independent exact audit",
          "novelty_preflight":{"registry_inspected":True,"catalogue_text_imported":False,
                               "finished_tape_reversal":False,"repair":False,
                               "mirrored_units":False},

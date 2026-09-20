@@ -2854,3 +2854,6 @@ audited, but none is an exact candidate. This closes the four-role frame at
 its outer boundary and specifies the next topology: add a typed recipient
 relation edge, not a lexical substitution or a larger sweep. Artifact:
 `runs/semantic-frame-hyperedges-20260920.json`.
+
+
+A distinct dialogue-act product tested six independently authored conversational acts on each side: questions, requests, reports, warnings, and promises. The product retained complete utterances rather than token mirrors and generated 36 transitions, with intact controls from 45 to 59 letters. Independent two-pointer and forward/reverse SHA audits found zero exact candidates above 38 letters. Because this bounded product checks complete acts after selection, it is recorded as a topology diagnostic rather than a live character constructor; the next construction is a three-turn acknowledgement/clarification grammar with jointly solved act lengths. Artifact: `runs/dialogue-act-product-20260920.json`.

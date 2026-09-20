@@ -4376,3 +4376,11 @@ pruned all of them before a complete prose construction. Both remain outside
 the reader packet. Artifacts:
 `runs/typed-dialogue-three-turn-20260920.json` and
 `runs/imperative-relative-temporal-20260920.json`.
+
+For a bounded compute check, the existing outside-in sentence-plan walk ran on
+the Intel NUC bench over a frozen 11,011-word vocabulary. It explored one
+million nodes and 8,371 closures in 88.771 seconds and found zero
+sentence-shaped palindrome hits. The result is diagnostic evidence, not a new
+generation method or reader claim; the family is retired rather than widened
+by another vocabulary-only sweep. Artifact:
+`runs/bench-sentence-plan-debug-20260920.json`.

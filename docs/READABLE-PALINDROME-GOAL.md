@@ -7143,3 +7143,10 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   zero exact rows were produced. The next topology pairs two complete scenes
   with asymmetric temporal adjunct placement. Artifact:
   `runs/imperative-relative-temporal-20260920.json`.
+
+- **Bounded bench sentence-plan diagnostic, 2026-09-20:** ran the existing
+  outside-in sentence-plan walk on the Intel NUC bench with a frozen 11,011-word
+  vocabulary. It explored 1,000,000 nodes and 8,371 closures in 88.771 seconds,
+  finding zero sentence-shaped palindrome hits. This closes the exhaustive
+  sentence-plan diagnostic family for now; a larger vocabulary sweep is not a
+  new construction. Artifact: `runs/bench-sentence-plan-debug-20260920.json`.

@@ -1,0 +1,22 @@
+{
+  "experiment_id": "bench-sentence-plan-debug-20260920",
+  "method": "bounded outside-in sentence-plan palindrome diagnostic on Intel NUC bench",
+  "host": "hst-bench",
+  "vocab": 11011,
+  "shards": 1,
+  "nodes": 1000000,
+  "closures": 8371,
+  "state_pruned": 0,
+  "hits": 0,
+  "seconds": 88.771,
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "status": "completed_no_reader_candidate",
+  "provenance": {
+    "remote_code": "tools/polaris/sentence_plan_debug.py",
+    "bounded_wall_clock_seconds": 90,
+    "independent_validator": "llm_palindrome.validator.is_palindrome",
+    "reader_gate": "closed; no exact rows produced"
+  },
+  "next_construction": "retire this exhaustive sentence-plan diagnostic and use endpoint-conditioned lexical generation rather than another larger vocabulary sweep"
+}

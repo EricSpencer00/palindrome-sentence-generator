@@ -3610,3 +3610,21 @@ from opposing frontiers through depth four, retaining four intact controls to
 next construction carries agreement and attachment state across the
 alternating growth. Artifact:
 `runs/synchronous-clause-growth-20260920.json`.
+
+The typed agreement-aware adjunct lane carried subject number, tense, and PP
+attachment through the same depth-four alternating growth. It retained four
+intact controls to 96 letters after six seam prunes, with zero exact candidates
+above 38. The next construction adds held-out tense/agreement growth.
+Artifact: `runs/typed-agreement-adjunct-growth-20260920.json`.
+
+The two-clause semordnilap valency grammar selected two independently authored
+finite clauses with explicit transitive/intransitive states and four ordinary
+lexical edges. It produced 108 complete scenes to 82 letters, with zero exact
+candidates above 38. The next construction adds tense agreement and clause
+complements. Artifact: `runs/semordnilap-two-clause-valency-20260920.json`.
+
+The held-out ditransitive semordnilap lane added a recipient role and a second
+lexical edge to five pair edges. It tested 25 dual-edge states, made 1,350 live
+prunes, and retained 40 controls to 135 letters; zero exact candidates above
+38 survived. The next construction separates recipient/theme tense and aspect.
+Artifact: `runs/heldout-ditransitive-semordnilap-search-20260920.json`.

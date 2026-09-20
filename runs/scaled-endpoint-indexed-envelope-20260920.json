@@ -1,0 +1,68 @@
+{
+  "experiment_id": "scaled-endpoint-indexed-envelope-20260920",
+  "method": "Brown POS plus 45-name endpoint index with live envelope starts",
+  "domain_sizes": {
+    "AGENT": 102,
+    "VERB": 60,
+    "OBJECT": 60,
+    "PREP": 30,
+    "PLACE": 50,
+    "DET": 3
+  },
+  "stats": {
+    "endpoint_keys": 285,
+    "nodes": 30600,
+    "fresh_exact_gt38": 0
+  },
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "Alice sees the house; Diana finds the door.",
+      "audit": {
+        "letters": 34,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "f52b2ec46fd7f66cb3614edb61bfdde2e89aa25d1316fda7e64a1b66cd209cad",
+        "sha256_reverse": "3d6ca12b2853784728ee657211e96d1edbf3385b48b3746aa48e13e593fbcb97",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "The young man writes the letter; Marie reads the book.",
+      "audit": {
+        "letters": 43,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "k"
+        ],
+        "sha256_forward": "7db9a1c188d867c648735a4a3343080b64a611d8c103e2bb0140d742eee87aa3",
+        "sha256_reverse": "e019eef56488b92f1153a297b893177fc9f5c463a12cddb5a295114c2694844a",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "brown-pos-expanded|ordinary-name-bank|endpoint-indexed-envelope",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "brown_bank": "data/brown_pcfg_bank_20260920.json",
+    "bank_sha256": "53037c8356cf0bd387985fb085c5d41823ce5ea1d7c27c86c4ad50b25b72d322",
+    "name_bank": "45 ordinary authored proper names",
+    "audits": [
+      "two-pointer mismatch",
+      "forward/reverse SHA-256"
+    ]
+  },
+  "status": "no fresh exact >38 candidate"
+}

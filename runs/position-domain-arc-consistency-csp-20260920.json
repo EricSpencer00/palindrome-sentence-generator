@@ -1,0 +1,89 @@
+{
+  "experiment_id": "position-domain-arc-consistency-csp-20260920",
+  "method": "global forward factorized lexical CSP with position-domain arc consistency and live palindrome factors",
+  "differential_test": {
+    "cases": 32,
+    "unequal_word_boundaries": true,
+    "odd_even_centers": true,
+    "status": "passed"
+  },
+  "results": [
+    {
+      "target_length": 44,
+      "states": 619,
+      "prunes": 3098,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 52,
+      "states": 1197,
+      "prunes": 6408,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 60,
+      "states": 3669,
+      "prunes": 21240,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "The patient sailor studies the chart beside the harbor.",
+      "audit": {
+        "letters": 46,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "0c3dd4906d9ec925881690ca8a742f0071d8bbf665649c6dd43936827ca71a1b",
+        "sha256_reverse": "661e7c66bcc23ae7b1d61dc07f1771529ab33435153aef2cb4a14f8409b2ddb9",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "A careful gardener carries a silver lantern through the orchard.",
+      "audit": {
+        "letters": 54,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "d"
+        ],
+        "sha256_forward": "ebef1ad7860256f92a8a5e556df3c3ce75d2feb1926f1f98f6263f067979d5fc",
+        "sha256_reverse": "ca62e87d206bbcb190e435054ed8fa6e9d0e05a5a5b24b2bc2068318255eb684",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_checked": 604,
+    "signature": "position-domain-arc-consistency|global-forward-factorized-csp|held-out-lexical-support",
+    "distinct_from": "fixed sentence-pair audits and shared-cell toys: each lexical edge is rejected only when a mirrored position has no domain support, before branching; one forward grammar still assigns x[0:N] with agreement/valency factors"
+  },
+  "provenance": {
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "source_text": "fresh factorized lexical grammar in this script",
+    "reader_evidence": false,
+    "reader_gate": "closed until exact >38 and blinded ratings"
+  },
+  "next_construction": {
+    "name": "domain-guided grammar-factor branching",
+    "operator": "Choose the next grammar factor by minimum remaining mirrored-support domain, then propagate lexical edge supports across two adjacent factors; preserve full-forward generation and complete parse constraints.",
+    "reader_facing_test": "retain only intact complete prose, independently audit every exact closure above 38, then randomize intact prose against word-shuffled controls for blinded ratings"
+  },
+  "status": "diagnostic lane; no exact candidate above 38"
+}

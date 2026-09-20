@@ -164,8 +164,19 @@ def main() -> None:
         def tagged_top(tag, fallback):
             vals = sorted(counts.get(tag, {}), key=lambda w: (-counts[tag][w], w))
             return tuple(vals[:24]) or fallback
+        frame_counts = {"det_noun_verb_det_noun": 0, "det_noun_verb_prep": 0}
+        from nltk.corpus import brown as _brown
+        for sent in _brown.tagged_sents(tagset="universal")[:50000]:
+            tags = [tag for _, tag in sent]
+            for i in range(len(tags) - 4):
+                if tags[i:i+5] == ["DET", "NOUN", "VERB", "DET", "NOUN"]:
+                    frame_counts["det_noun_verb_det_noun"] += 1
+            for i in range(len(tags) - 3):
+                if tags[i:i+4] == ["DET", "NOUN", "VERB", "ADP"]:
+                    frame_counts["det_noun_verb_prep"] += 1
     else:
         def tagged_top(tag, fallback): return fallback
+        frame_counts = {}
     def inflected(tag, fallback, predicate):
         values = top(tag, fallback)
         chosen = tuple(word for word in values if predicate(word))
@@ -202,6 +213,7 @@ def main() -> None:
             "aligned_token_mirror": False,
             "fallback": False,
             "distinct_words": True,
+            "brown_frame_counts": frame_counts,
         },
     })
     Path("runs/slot-pair-character-search-20260919.json").write_text(json.dumps(result, indent=2) + "\n")

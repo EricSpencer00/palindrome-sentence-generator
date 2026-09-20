@@ -48,3 +48,8 @@ def test_center_inside_word_and_asymmetric_boundaries_are_supported():
 def test_brown_loader_is_bounded_and_deterministic():
     a = load_brown_lexicon(limit=2000)
     assert len(a) == 2000 and a == load_brown_lexicon(limit=2000)
+
+def test_bilateral_edges_propagate_and_audit():
+    result = bilateral_lexical_csp((Word("anna", "PROPN"),), max_words=2, max_nodes=50)
+    assert result["stats"]["status"] == "SAT"
+    assert result["candidates"][0]["audit"]["exact"]

@@ -179,6 +179,30 @@ def constrained_paths(lexicon=ATOMIC, lengths=range(1, 65), max_words=10, gramma
                                         "word_order_mirroring": False, "repeated_units": False,
                                         "catalogue_text": False}} for n, text in found], "stats": stats}
 
+def bilateral_lexical_csp(lexicon=ATOMIC, max_words=10, max_nodes=20000):
+    """Expand independent left/right lexical edges inward with live residuals."""
+    words = [w for w in lexicon if letters(w.text)]
+    out, nodes, pruned = [], 0, 0
+    def grow(left, right, lb, rb):
+        nonlocal nodes, pruned
+        if nodes >= max_nodes: return
+        nodes += 1
+        if not lb and not rb and left and right:
+            text = " ".join(left + right)
+            if independent_audit(text)["exact"]: out.append(text + ".")
+            return
+        if len(left) + len(right) >= max_words: return
+        for a in words:
+            for b in words:
+                x, y = lb + letters(a.text), rb + letters(b.text)[::-1]
+                k = min(len(x), len(y))
+                if x[:k] != y[:k]: pruned += 1; continue
+                grow(left + [a.text], right + [b.text], x[k:], y[k:])
+    grow([], [], "", "")
+    return {"candidates": [{"rendered": t, "audit": independent_audit(t)} for t in sorted(set(out))],
+            "stats": {"nodes": nodes, "pruned": pruned, "status": "timeout" if nodes >= max_nodes else ("SAT" if out else "UNSAT")},
+            "provenance": {"independent_left_right_edges": True, "finished_tape_reversal": False, "repair": False}}
+
 if __name__ == "__main__":
     import argparse
     ap = argparse.ArgumentParser(); ap.add_argument("--brown", action="store_true"); ap.add_argument("--limit", type=int, default=5000); ap.add_argument("--max-nodes", type=int, default=20000)

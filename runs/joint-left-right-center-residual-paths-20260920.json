@@ -1,0 +1,165 @@
+{
+  "experiment_id": "joint-left-right-center-residual-paths-20260920",
+  "method": "joint dependency grammar comparing left- and right-attached center residual paths",
+  "stats": {
+    "center_nodes": 3,
+    "left_roles": 3,
+    "right_roles": 3,
+    "residuals": 3,
+    "attachment_paths": 2,
+    "states": 162,
+    "live_prunes": 162,
+    "live_survivors": 0,
+    "exact_gt38": 0,
+    "reader_eligible": 0,
+    "longest_letters": 77,
+    "control_mismatch_invariant": true
+  },
+  "controls": [
+    {
+      "rendered": "the patient keeper hears when the bell rings, agent at dawn; the harbor brightens after it.",
+      "center_dependency": {
+        "event": "the bell rings",
+        "kind": "signal"
+      },
+      "left_dependent": [
+        "agent",
+        "the patient keeper hears"
+      ],
+      "right_dependent": [
+        "goal",
+        "the harbor brightens"
+      ],
+      "residual": "at dawn",
+      "attachment_path": "left_attached",
+      "online_character_equations": {
+        "equations": 2,
+        "satisfied": 1,
+        "all_satisfied": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ]
+      },
+      "audit": {
+        "letters": 73,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ],
+        "sha256_forward": "7712f35832a4a38f06948b85df3d3d59583937b6cdf32354ca283f6aa043e3fe",
+        "sha256_reverse": "5bb7cf2d9f2d3dca502a205547faba2c045044092928cb5ce99fbbf39e18bd15",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the patient keeper hears when the bell rings; the harbor brightens, goal at dawn after it.",
+      "center_dependency": {
+        "event": "the bell rings",
+        "kind": "signal"
+      },
+      "left_dependent": [
+        "agent",
+        "the patient keeper hears"
+      ],
+      "right_dependent": [
+        "goal",
+        "the harbor brightens"
+      ],
+      "residual": "at dawn",
+      "attachment_path": "right_attached",
+      "online_character_equations": {
+        "equations": 2,
+        "satisfied": 1,
+        "all_satisfied": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ]
+      },
+      "audit": {
+        "letters": 72,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ],
+        "sha256_forward": "e6a0b9d10568a5ebb897920de478c0dca3da9d440f8d4682e61a2afcf0ce9cbf",
+        "sha256_reverse": "5b6c2a17722ee37bff65b7d3d55a893b393021e6dd569face96922275af62e51",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the patient keeper hears when the bell rings, agent before dusk; the harbor brightens after it.",
+      "center_dependency": {
+        "event": "the bell rings",
+        "kind": "signal"
+      },
+      "left_dependent": [
+        "agent",
+        "the patient keeper hears"
+      ],
+      "right_dependent": [
+        "goal",
+        "the harbor brightens"
+      ],
+      "residual": "before dusk",
+      "attachment_path": "left_attached",
+      "online_character_equations": {
+        "equations": 2,
+        "satisfied": 1,
+        "all_satisfied": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ]
+      },
+      "audit": {
+        "letters": 77,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "h",
+          "i"
+        ],
+        "sha256_forward": "ce086e3acdaae7d455366c02b9d2ac4fb2ede3468b895052f209b365a64cd697",
+        "sha256_reverse": "c0fc2389d9f592a1229931927a144f929e28d4662a217086a0f6768987dbc9c8",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    }
+  ],
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "joint-left-right-residual-paths|center-dependency|path-state",
+    "registry_inspected": true,
+    "distinct_from": "separate left/right sweeps, unattached residual, and feature families",
+    "catalogue_text_imported": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "mirrored_units": false
+  },
+  "provenance": {
+    "generator_sha256": "49a6b46bd9c6521ff5a0408612c82a241be7c3fbe0e3b1c237debfdc57a4a007",
+    "independent_audits": [
+      "pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "reader_evidence": false
+  },
+  "status": "no reader-worthy exact closure",
+  "next_construction": "Pivot topology because both attachment paths share the same first-character bottleneck; use a centerless cross-clause seam with independent clause lengths."
+}

@@ -94,6 +94,9 @@ BEST_KNOWN_PROVENANCE = {
         "latest_live_residual_relation_slots": "9 relation/object/setting states; zero width-one survivors and zero rendered candidates",
         "latest_cross_word_boundary_dp": "63 transition states and 9 prose controls to 77 letters; quarantined because global residual was not enforced",
         "latest_residual_relation_setting": "4 prose controls to 90 letters; debt trace diagnostic only because its filter was arbitrary",
+        "latest_center_crossing_unequal_grammar": "16 unequal clause pairings; zero two-character center-buffer survivors and zero rendered candidates",
+        "latest_unequal_center_buffer_grammar": "243 unequal typed states; all pruned before rendering, zero exact candidates",
+        "latest_two_sided_unmatched_buffer_dp": "18 explicit-buffer transitions; 17 pruned, zero live states and zero rendered candidates",
         "reader_study": "not run",
     },
 }

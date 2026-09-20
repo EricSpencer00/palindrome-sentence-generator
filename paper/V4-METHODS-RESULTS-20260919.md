@@ -120,6 +120,9 @@ multiword palindrome span:
 | Live residual relation slots | Carries width-one and width-two residual equations through relation/object/setting slots before rendering | 9 states; 0 width-one survivors, 0 rendered candidates | 0 / 0 |
 | Cross-word boundary grammar DP (diagnostic) | Records per-word cross-boundary traces over fresh frame pairs, with full audits but no enforced global residual | 63 transition states; 9 complete prose controls to 77 letters; quarantined diagnostic | 0 / 0 |
 | Relation/setting debt trace (diagnostic) | Records residual traces across two slots while retaining an explicitly arbitrary filter | 6 states; 4 complete prose controls to 90 letters; diagnostic only | 0 / 0 |
+| Unequal center-crossing grammar | Carries a two-character buffer across an unequal center before rendering | 16 typed pairings; 0 buffer survivors and 0 rendered candidates | 0 / 0 |
+| Wider unequal-center buffer | Propagates an exact unmatched buffer through unequal subject/verb slots | 243 typed states; all pruned before rendering | 0 / 0 |
+| Two-sided unmatched-buffer DP | Stores actual unmatched buffers on both word streams and prunes on mismatch | 18 transitions; 17 pruned, 0 surviving states, 0 rendered candidates | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
 discriminator: 16 independently authored clause pairs were rendered above 38
@@ -2449,3 +2452,16 @@ retained four complete controls to 90 letters, including:
 Its first mismatch is at character 0 (`t` versus `w`). That lane's filter was
 arbitrary, so neither diagnostic can enter a reader packet or be described as
 an exact-generation method.
+
+## Unequal center and explicit-buffer frontiers
+
+To test the unequal-partition possibility directly, three fresh typed-
+grammar lanes carried actual center buffers before rendering. The first
+two-character center check examined 16 clause pairings and retained none. A
+wider subject/verb variant propagated the unmatched buffer through 243 states
+and pruned all of them. Finally, a two-sided word-trie DP stored unmatched
+characters on both streams rather than a scalar similarity score: 18
+transitions were attempted, 17 were rejected by an actual buffer mismatch, and
+the final live frontier was empty. These are precise zero-frontier results,
+not failed reader candidates; the next construction widens only the
+buffer-compatible subject/agent classes before adding adjuncts.

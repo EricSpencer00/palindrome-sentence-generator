@@ -3591,3 +3591,22 @@ relation with probabilistic scope and explicit attachment/tense state. Four
 frames incurred 4,423,680 live boundary prunes and produced zero exact
 candidates above 38; the next construction adds stochastic modal scope.
 Artifact: `runs/word-boundary-probabilistic-modal-graph-20260920.json`.
+
+The constructive semordnilap scene grammar embedded five ordinary lexical
+edges independently into scene roles, producing 135 complete diagnostics to
+71 letters and zero exact candidates above 38. The next construction expands
+the edge bank with valency-typed finite clauses. Artifact:
+`runs/constructive-semordnilap-scene-20260920.json`.
+
+The held-out semordnilap valency search jointly selected five pair edges under
+three transitive valency/attachment states. It retained 40 complete controls
+to 77 letters, with zero exact candidates above 38. The next construction adds
+a ditransitive recipient frame. Artifact:
+`runs/heldout-semordnilap-valency-search-20260920.json`.
+
+The synchronous typed clause-growth lane alternated clause and adjunct growth
+from opposing frontiers through depth four, retaining four intact controls to
+96 letters after six live seam prunes and zero exact candidates above 38. The
+next construction carries agreement and attachment state across the
+alternating growth. Artifact:
+`runs/synchronous-clause-growth-20260920.json`.

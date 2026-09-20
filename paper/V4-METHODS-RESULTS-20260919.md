@@ -108,6 +108,8 @@ multiword palindrome span:
 | Residual-prefix attachment lattice | Two-character seam-prefix state with attachment, agreement, and valency | 258 candidates; longest 77 | 0 / 0 |
 | One-time typed lexical bank | Local model authors lexical alternatives once; deterministic CSP searches them without per-candidate feedback | 703,172 nodes; 390 grammatical frontier controls | 0 / 0 |
 | Three-beat alias grammar | Three finite SVO beats with live boundary aliases and conjunction state | 1,344 renderings; longest frontier 81 | 0 / 0 |
+| Scope-conditioned event frames | Independently authored event frames enforce subject-number agreement, transitivity, semantic scope, and adjunct attachment before surface realization | 22 complete forward-English candidates; **“The patient nurses carry a quiet message through town, while a young pilot checks the clear signal before rain.”** (91 letters) | 0 / 0 |
+| Four-slot carried-character grammar | Agent, verb, object, and attachment slots propagate mirrored character obligations after each slot and prune before complete rendering | 6,144 states; all pruned before rendering; no candidate promoted | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
 discriminator: 16 independently authored clause pairs were rendered above 38
@@ -2294,3 +2296,32 @@ counterparts, but the complete tape still diverges at the next character. All
 independent full-tape audits; exact candidates above 38 letters remain zero.
 The next construction carries both equations into a third interior slot with a
 new disjoint bank.
+
+## Forward event-frame readability baseline
+
+An orthogonal language-first baseline generated complete event frames before
+any character comparison. Each frame carried subject-number agreement,
+transitivity, semantic scope, and adjunct attachment into surface realization;
+the two sides were independently authored and neither side was copied or
+reversed. Across six typed frames it produced 22 complete prose candidates.
+The longest rendered control was:
+
+> **The patient nurses carry a quiet message through town, while a young pilot checks the clear signal before rain.**
+
+It has 91 normalized letters and fails immediately at character 0 (`t` versus
+`n`). Its independent forward and reverse SHA-256 digests are
+`577e42b5ee2b7b961a1c1ab649f1ff5a4ec441663933fd5dbed4ef3c1e256b41` and
+`33b7fa1832f78d8958b55132b84dc89c3d088b02583d8ca8f2420756e001fd8b`.
+The run has zero exact candidates above 38 letters and no reader packet is
+claimed. The next reader-facing test remains a randomized blinded comparison
+of any future exact intact-prose row against a word-shuffled control.
+
+The four-slot carried-character follow-up was corrected before promotion:
+its first implementation labeled a post-hoc mismatch check as “carried” and
+rendered a 128-letter control, but did not prune during slot growth. The
+corrected implementation propagates the obligation after every independently
+generated slot and prunes all 6,144 states before rendering. It therefore has
+no rendered candidate to promote; the earlier 128-letter row is withdrawn as
+method evidence. This correction keeps the ledger honest and identifies the
+next construction requirement: widen the slot banks while retaining a
+non-empty prefix-compatible state after the first live obligation.

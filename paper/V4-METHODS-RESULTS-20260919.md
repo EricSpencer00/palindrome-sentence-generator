@@ -3277,3 +3277,22 @@ zero complete parses and zero exact candidates above 38. The two modal passive
 controls (94 and 103 letters) were independently pointer/SHA audited. The next
 topology is an aspectual modal passive frame. Artifact:
 `runs/modal-passive-embedding-csp-20260920.json`.
+
+The aspectual modal-passive lane added perfect aspect before the modal passive
+beneficiary/agent/theme frame and finite complement. Across target lengths 44,
+56, 68, and 80 it visited 1,390 states and made 532 live factor prunes, with
+zero complete parses and zero exact candidates above 38. The two aspectual
+controls (100 and 109 letters) were independently pointer/SHA audited. The
+next topology is progressive modal passive embedding. Artifact:
+`runs/aspectual-modal-passive-csp-20260920.json`.
+
+A fresh prose-first semordnilap authoring lane separately selected complete
+typed question/scene frames from an ordinary lexical bank and rejected nested
+self-palindromic spans, repeated units, word-order symmetry, fragments, and
+catalogue text before admission. It rendered 32 complete frames to at most 30
+letters; zero exact candidates above 38 or 50 survived. The strongest complete
+near-miss, “Did the pilot read a civic by the quay?”, is retained only as a
+diagnostic because it is not exact and contains a self-palindromic lexical
+span. The next construction expands typed ordinary verb edges while preserving
+the same hard exclusions. Artifact:
+`runs/fresh-semordnilap-author-20260920.json`.

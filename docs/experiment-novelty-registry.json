@@ -15695,6 +15695,15 @@
       "distinction": "A bounded Intel NUC benchmark of the existing outside-in sentence-plan diagnostic over a frozen 11,011-word vocabulary; it is retained as search evidence and cannot promote reader candidates.",
       "reader_evidence": false,
       "status": "1,000,000 nodes and 8,371 closures in 88.771 seconds, 0 sentence-shaped palindrome hits; Polaris queue submission was blocked by no active allocation"
+    },
+    {
+      "id": "bidirectional-cfg-word-boundary-intersection-20260920",
+      "signature": "fresh-authored|bidirectional-independent-cfg|memoized-word-boundary-residual|dual-derivation",
+      "artifact": "bidirectional_cfg_word_boundary_intersection_20260920.py",
+      "run_artifacts": ["runs/bidirectional-cfg-word-boundary-intersection-20260920.json"],
+      "distinction": "Traverses two independently authored complete CFG derivations from opposite ends, memoizing terminal and word-boundary offsets before accepting each character pair; unlike prior paired-nonterminal, seam, center, or finished-tape CFG lanes, the product state is two opposing derivation frontiers.",
+      "reader_evidence": false,
+      "status": "65,536 paired derivations, 81,920 memoized frontier states, 65,536 online prunes, longest complete control 59 letters, 0 exact clean candidates; reader list empty"
     }
   ]
 }

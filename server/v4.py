@@ -4963,6 +4963,19 @@ LUNA_PARALLEL_RUNS = [
         "independent_validation": ["literal two-pointer audit", "forward/reverse SHA-256"],
         "next_construction": "add transitive/intransitive valency to the typed state and allow a finite adjunct edge only when its attachment is licensed",
     },
+    {
+        "run_id": "language-gated-clause-intersection-20260920",
+        "method": "outside-in bilateral POS grammar intersected with observed forward word-transition edges",
+        "status": "completed_no_exact_closure",
+        "edge_count": 249533,
+        "templates": 14,
+        "visited_nodes": 4348558,
+        "exact_candidates_over_38": 0,
+        "reader_eligible": False,
+        "provenance": "count_2w adjacency was enforced before character closure; no finished-tape reversal, post-hoc repair, mirrored units, or catalogue text",
+        "independent_validation": ["literal two-pointer audit", "forward/reverse SHA-256"],
+        "next_construction": "replace raw adjacency with typed dependency transitions carrying valency, attachment, and agreement in the live state",
+    },
 ]
 
 LATEST_LUNA_RUN = LUNA_PARALLEL_RUNS[-1]

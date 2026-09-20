@@ -1773,6 +1773,15 @@ repeating the same dead end; the next constructive method must carry both
 grammar states and the shared character obligation simultaneously. Artifact:
 `runs/reverse-grammar-parser-20260920.json`.
 
+The simultaneous multi-constituent orbit lane selected independently authored
+multiword subjects, predicates, objects, PPs, relatives, and coordinations on
+both sides while consuming their shared character obligation. It visited 168
+live states and produced zero exact closures above 38 letters. Six intact
+contemporary-English controls were retained with independent pointer/SHA
+audits; no row was promoted without the anti-shortcut checks and a future
+reader gate. Artifact:
+`runs/multiconstituent-orbit-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

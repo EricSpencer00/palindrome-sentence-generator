@@ -6,7 +6,7 @@ def n(s): return re.sub('[^a-z]','',s.casefold())
 def audit(s):
  t=n(s);m=next(((i,t[i],t[-i-1]) for i in range(len(t)//2) if t[i]!=t[-i-1]),None)
  return {'letters':len(t),'exact':bool(t) and m is None,'first_mismatch':m,'sha256_forward':hashlib.sha256(t.encode()).hexdigest(),'sha256_reverse':hashlib.sha256(t[::-1].encode()).hexdigest()}
-LH=('a quiet baker','a quick poet','a quaint teacher')
+LH=('a calm baker','a careful poet','a candid teacher')
 LV=('keeps a journal','carries warm bread','writes a letter')
 LO=('for a friend','by the river','near the window')
 LA=('at dawn','in spring','with care')
@@ -15,7 +15,7 @@ RV=('opens the gate','reads the note','lights the hall')
 RO=('for the crew','by the quay','near the shore')
 # Independently authored tails deliberately include an ordinary place name so
 # the reverse endpoint class can be tested without synthesizing a mirror.
-RA=('near Iraq','across Iraq','toward Iraq')
+RA=('near CA','across CA','toward CA')
 def run():
  left=[f'{h} {v} {o} {x}' for h in LH for v in LV for o in LO for x in LA]
  right=[f'{h} {v} {o} {x}' for h in RH for v in RV for o in RO for x in RA]

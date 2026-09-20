@@ -1728,6 +1728,18 @@ the larger authored two-clause lexical bank rather than another discourse
 toggle. Artifact:
 `runs/live-buffer-optional-grammar-search-20260920.json`.
 
+The richer authored two-clause live-buffer lane expanded the lexical bank to
+71,280 complete SVO/SVO+PP/SVO+relative clause realizations. It indexed 894
+endpoint buckets and examined 57,644 live paired states after enforcing
+determiner-number, subject-verb agreement, and transitive-object valency. No
+exact candidate above 38 letters emerged. Twenty unique intact
+contemporary-English controls were independently audited (maximum 40 letters),
+including “the artist admires the apple at the harbor.” The initial draft's
+bare common-noun surfaces was corrected before this run; only the corrected
+artifact is counted. No repair, reversal, mirrored unit, catalogue text, or
+fragment was admitted. Artifact:
+`runs/richer-two-clause-live-buffer-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

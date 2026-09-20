@@ -113,6 +113,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_reverse_conditioned_semantic_transducer": "3 fresh left scenes with a 40-word lexicon; zero online right-grammar parses and zero exact candidates",
         "latest_compositional_terminal_class_center": "9 semantic-frame/terminal-class combinations; all pruned by live residual mismatch, zero rendered candidates",
         "latest_asynchronous_typed_clause_buffer_dp": "9 typed template pairs; 348,335 endpoint-indexed joins and 2,107,452 memoized residual states, zero exact candidates; next step widens grammar after valid controls",
+        "latest_async_plural_relative_dp": "2 plural/relative grammar frames and 2 independently authored responses; both live transitions pruned by mismatch, zero rendered or exact candidates",
         "reader_study": "not run",
     },
 }

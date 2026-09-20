@@ -2592,6 +2592,12 @@ candidate above 38 letters. The retained controls are grammatical but not
 palindromic, and the next construction widens grammar roles only after this
 non-empty buffer frontier rather than repeating the same endpoint sweep.
 
+The first grammar expansion added plural agreement and one relative/locative
+frame to the asynchronous scheduler. Two fresh frame pairs reached the live
+transition check; both were pruned by residual mismatch before rendering. The
+lane therefore contributes zero candidates, but it tests a real syntactic
+dimension that the singular base grammar could not express.
+
 The exact frontier is therefore unchanged: the best independently verified
 reader-plausible output remains the 38-letter anchor above. No human reader
 study is claimed for any non-exact control; a future exact intact-prose row

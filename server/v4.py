@@ -155,6 +155,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_position_domain_arc_consistency": "Position-domain arc-consistency implementation: 32-case odd/even and unequal-boundary differential passed; the 44/52/60 search reproduced 5,485 states, 30,746 prunes, and zero complete parses",
         "latest_min_domain_factor_csp": "Minimum-domain factor branching: differential passed and recorded represented forward-language counts; 44/52/60 traversal reproduced 5,485 states, 30,746 prunes, and zero complete parses",
         "latest_two_factor_lookahead": "Two-factor lookahead: differential passed; 44/52/60 search visited 2,137 states, made 7,192 lookahead-aware prunes, and found zero complete parses",
+        "latest_heldout_common_support": "Held-out common-word POS/number/valency support: 44/56/68/80 search visited 19,757 states, made 86,860 lookahead prunes, and produced 9,061 complete prose diagnostics but zero exact candidates above 38; longest rendered diagnostic was 40 letters",
         "reader_study": "not run",
     },
 }
@@ -1545,6 +1546,33 @@ LUNA_PARALLEL_RUNS = [
         "provenance": "fresh two-factor support intersection over one forward grammar; differential-tested for odd/even centers and unequal boundaries; no reversal, repair, mirrored units, or catalogue text",
         "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
         "next_construction": "replace the compact inventory with held-out lexical support domains; if the seam remains empty, change grammar topology",
+    },
+    {
+        "run_id": "heldout-common-support-csp-20260920",
+        "method": "global forward factorized lexical CSP with held-out common-word support domains and two-factor lookahead",
+        "status": "completed_no_exact_closure",
+        "differential_cases": 5,
+        "differential_odd_even_centers": True,
+        "differential_unequal_word_boundaries": True,
+        "target_lengths": [44, 56, 68, 80],
+        "states": 19757,
+        "lookahead_prunes": 86860,
+        "complete_prose_diagnostics": 9061,
+        "exact_candidates_over_38": 0,
+        "longest_rendered_letters": 40,
+        "rendered_examples": [
+            "The gentle pilot opens a seed before dawn.",
+            "The watchful traveler writes a seed before dawn.",
+        ],
+        "controls": [
+            "The patient sailor studies the chart beside the harbor.",
+            "A careful gardener carries a silver lantern through the orchard.",
+        ],
+        "reader_eligible": False,
+        "first_live_diagnostic": "complete prose diagnostics still mismatch at the first outer character (t versus n)",
+        "provenance": "held-out common-word POS/number/valency alternatives in one forward variable-boundary grammar; no pair enumeration, reversal, repair, mirrored units, or catalogue text",
+        "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
+        "next_construction": "change grammar topology to a coordinated or embedded-clause factor exposing different outer characters; do not widen this lexical inventory",
     },
 ]
 

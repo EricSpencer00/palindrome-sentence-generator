@@ -3150,3 +3150,21 @@ the compact lexical inventory as a scheduler bottleneck; the next experiment
 must replace its lexical support domains or change grammar topology rather
 than add another ordering heuristic. Artifact:
 `runs/two-factor-lookahead-csp-20260920.json`.
+
+The held-out common-support run changed the lexical support domains rather
+than adding another scheduler. It used unseen common-word alternatives
+annotated for part of speech, number, transitivity, and attachment inside the
+same single forward variable-boundary grammar, while enforcing the character
+equations during emission. The differential suite covered five odd/even-center
+and unequal-boundary cases. Across target lengths 44, 56, 68, and 80 it visited
+19,757 states and made 86,860 lookahead-aware prunes. It produced 9,061
+complete prose diagnostics, including “The gentle pilot opens a seed before
+dawn.” and “The watchful traveler writes a seed before dawn.”, but zero exact
+candidates above 38; the longest rendered diagnostic was 40 letters. Each
+diagnostic and both intact controls received independent two-pointer and
+forward/reverse SHA-256 audits. This is a constructive lexical-domain result,
+not a readable-palindrome claim: the first live mismatch remains at the outer
+character. The next method therefore changes grammar topology to a coordinated
+or embedded-clause factor that exposes different outer characters, rather than
+widening this inventory again. Artifact:
+`runs/heldout-common-support-csp-20260920.json`.

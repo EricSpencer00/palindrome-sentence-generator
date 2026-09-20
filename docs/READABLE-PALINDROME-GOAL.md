@@ -5863,4 +5863,19 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact candidates above 38. This closes the compact inventory as a scheduler
   bottleneck. The next move must replace lexical support domains or change
   grammar topology. Artifact:
-  `runs/two-factor-lookahead-csp-20260920.json`.
+`runs/two-factor-lookahead-csp-20260920.json`.
+
+- **Held-out common-support CSP, 2026-09-20:** replaced the compact lexical
+  support domains with unseen common-word alternatives carrying POS, number,
+  valency, and attachment features. A single forward variable-boundary grammar
+  enforced the palindrome position factors during emission; five differential
+  cases covered odd/even centers and unequal boundaries. Across target lengths
+  44/56/68/80 it visited 19,757 states and made 86,860 lookahead-aware prunes,
+  yielding 9,061 complete prose diagnostics but 0 exact candidates above 38.
+  Rendered diagnostics included “The gentle pilot opens a seed before dawn.”
+  and “The watchful traveler writes a seed before dawn.”; the longest rendered
+  diagnostic was 40 letters. Independent pointer/SHA audits passed for every
+  recorded diagnostic and both controls. This closes lexical widening for this
+  topology; the next construction changes the grammar topology to a coordinated
+  or embedded-clause factor with new outer-character exposure. Artifact:
+  `runs/heldout-common-support-csp-20260920.json`.

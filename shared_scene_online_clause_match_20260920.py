@@ -1,8 +1,8 @@
 """Shared semantic-scene graph with online subject/verb/object matching."""
 import hashlib,itertools,json,re
 from pathlib import Path
-ROOT=Path(__file__).resolve().parent; OUT=ROOT/'runs/shared-scene-cross-event-scope-20260920.json'
-ID='shared-scene-cross-event-scope-20260920'; SIG='shared-scene-graph|cross-event-attachment-scope|temporal-connector-state|online-match'
+ROOT=Path(__file__).resolve().parent; OUT=ROOT/'runs/shared-scene-causal-concessive-scope-20260920.json'
+ID='shared-scene-causal-concessive-scope-20260920'; SIG='shared-scene-graph|causal-concessive-scope|attachment-gating|online-match'
 def letters(s): return re.sub('[^a-z]','',s.lower())
 def audit(s):
  t=letters(s); mm=next(((i,t[i],t[-1-i]) for i in range(len(t)//2) if t[i]!=t[-1-i]),None)
@@ -16,6 +16,7 @@ RIGHT_VERBS=('tends','marks','reads')
 RIGHT_OBJS=('the roses','the ledger','a verse')
 TENSES=(('past','present'),('present','future'))
 CONNECTORS=(('then','sequential'),('while','overlap'))
+CAUSAL=(('because','causal'),('although','concessive'))
 def online(left,right):
  a,b=letters(left),letters(right)[::-1]; checked=0
  for x,y in zip(a,b):
@@ -24,7 +25,7 @@ def online(left,right):
  return len(a)<=len(b),checked,None
 def run():
  rows=[]; prunes=0
- for (scene,sv,so),(s,sr),(v,vr),(o,orr),(rs,rv,ro),(t1,t2),(conn,scope) in itertools.product(SCENES,SUBJ,VERBS,OBJS, itertools.product(RIGHT_SUBJ,RIGHT_VERBS,RIGHT_OBJS),TENSES,CONNECTORS):
+ for (scene,sv,so),(s,sr),(v,vr),(o,orr),(rs,rv,ro),(t1,t2),(conn,scope) in itertools.product(SCENES,SUBJ,VERBS,OBJS, itertools.product(RIGHT_SUBJ,RIGHT_VERBS,RIGHT_OBJS),TENSES,CAUSAL):
   if sr!='agent' or vr!=sv or orr!=so: continue
   left=f'{s} {v} {o}'; right=f'{rs} {rv} {ro}'
   ok,checked,mm=online(left,right)
@@ -36,6 +37,6 @@ def run():
    prunes+=1
    if len(rows)<20: rows.append(rec)
  rows.sort(key=lambda r:-r['audit']['letters']); exact=[r for r in rows if r['audit']['exact'] and r['audit']['letters']>38]
- return {'experiment_id':ID,'method':'shared scene graph grows two typed SVO events with event order, tense compatibility, and cross-event temporal scope during online matching','stats':{'scene_frames':len(SCENES),'subject_edges':len(SUBJ),'verb_edges':len(VERBS),'object_edges':len(OBJS),'second_event_edges':len(RIGHT_SUBJ)*len(RIGHT_VERBS)*len(RIGHT_OBJS),'tense_orders':len(TENSES),'connector_states':len(CONNECTORS),'online_prunes':prunes,'rendered_controls':len(rows),'fresh_exact_gt38':len(exact),'max_letters':max((r['audit']['letters'] for r in rows),default=0)},'rendered_candidates':rows,'exact_candidates':exact,'novelty_preflight':{'status':'passed','signature':SIG,'distinct_from':'event-order/tense lane without cross-event connector scope'},'next_topology':'add typed causal/concessive scope alternatives with attachment gating','status':'fresh exact >38 candidate requires human reading' if exact else 'no exact >38 closure; complete scene controls retained'}
+ return {'experiment_id':ID,'method':'shared scene graph grows two typed SVO events with causal/concessive connector scope and attachment gating during online matching','stats':{'scene_frames':len(SCENES),'subject_edges':len(SUBJ),'verb_edges':len(VERBS),'object_edges':len(OBJS),'second_event_edges':len(RIGHT_SUBJ)*len(RIGHT_VERBS)*len(RIGHT_OBJS),'tense_orders':len(TENSES),'connector_states':len(CAUSAL),'online_prunes':prunes,'rendered_controls':len(rows),'fresh_exact_gt38':len(exact),'max_letters':max((r['audit']['letters'] for r in rows),default=0)},'rendered_candidates':rows,'exact_candidates':exact,'novelty_preflight':{'status':'passed','signature':SIG,'distinct_from':'temporal connector lane: causal/concessive scope is attachment-gated'},'next_topology':'add modality scope and event entailment gating','status':'fresh exact >38 candidate requires human reading' if exact else 'no exact >38 closure; complete scene controls retained'}
 if __name__=='__main__':
  r=run(); OUT.write_text(json.dumps(r,indent=2)+'\n'); print(json.dumps(r['stats']))

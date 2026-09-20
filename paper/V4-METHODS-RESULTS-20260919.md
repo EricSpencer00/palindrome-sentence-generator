@@ -2028,3 +2028,29 @@ rendered seed remains a control, not a fresh result. Independent pointer and
 forward/reverse SHA-256 audits are retained in
 `runs/edge-lexical-compatibility-20260920.json`; the next construction expands
 the edge inventory by semantic scene while preserving residual-indexed growth.
+
+## Language-first heteropalindrome lattice
+
+The next construction made readable language the primary search object: two
+independently authored complete clauses were drawn from a small scene lattice,
+and their exposed character buffers were compared before a rendering was
+accepted. The lattice contains cross-word boundary joins, so a word is never
+required to mirror a word; the only hard equation is the letter stream. A
+character trie was not used as a post-hoc repair step, and no candidate was
+formed by reversing an already finished clause.
+
+The 46,656 bounded clause combinations produced a strongest intact prose
+near-miss, retained here because it is concrete evidence about the next search
+space rather than a claimed palindrome:
+
+> **A careful gardener describes a distant harbor, and finds the lantern burning. The old lighthouse keeper as morning enters the garden, and holds the blue umbrella.**
+
+This rendering has 133 letters. Its independent pointer audit first conflicts
+at normalized character 1 (`c` versus `l`); forward and reverse SHA-256 hashes
+therefore differ (`b029c6719559639936da0989a7e907d425286857bbb8846fdcae176e4dc2c92b`
+versus `b885f6ba6131a7219b9441d43fbd92c8494b5b9bc114145f76b6eea843874564`).
+The next construction is a larger *boundary-conditioned lexical lattice*: it
+adds alternative natural clause realizations whose first two exposed letters
+are indexed before the semantic continuation is selected. This is a new
+generation space, not an edit of the displayed near-miss. The run artifact is
+`runs/language-first-heteropalindrome-20260920.json`.

@@ -1,0 +1,64 @@
+{
+  "experiment_id": "character-clause-trie-csp-20260920",
+  "signature": "character-csp|independent-complete-clauses|reverse-trie|exact-join",
+  "method": "exact character CSP joining independently authored complete clauses through a reverse tape trie",
+  "stats": {
+    "left_clauses": 6,
+    "right_clauses": 6,
+    "trie_terminal_keys": 6,
+    "prefix_steps": 6,
+    "rendered_exact_joins": 0,
+    "fresh_exact_gt38": 0
+  },
+  "rendered_candidates": [],
+  "controls": [
+    {
+      "rendered": "A patient keeper watches the winter harbor; the harbor welcomes a patient keeper.",
+      "audit": {
+        "letters": 67,
+        "exact": false,
+        "independent_two_pointer": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "7cdbf47c466b3311efa1000aced165b8cb8fa804ff5bdad708744f33ac4cb877",
+        "sha256_reverse": "13e5a1bcf2e4c6a9b82fe7cd9f7d07e3cb7695c4ccc48506ce9657d42b425016",
+        "sha_equal_under_reverse": false
+      }
+    },
+    {
+      "rendered": "A young sailor reads a letter beside the river; stars cover the road followed by a careful singer.",
+      "audit": {
+        "letters": 79,
+        "exact": false,
+        "independent_two_pointer": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "cac8c78b722eb46de3d2300221b70dc089433c176eeff583434f05a2f849a377",
+        "sha256_reverse": "0a7e6bc79678aa5af299e9e651d58e2f056bf8b16229b2a4e8b6b6e66c203d01",
+        "sha_equal_under_reverse": false
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-csp|independent-complete-clauses|reverse-trie|exact-join",
+    "distinct_from": "prior seam, beam, buffer, and repair lanes; independent clause-bank trie joins"
+  },
+  "provenance": {
+    "audits": [
+      "independent two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "next_construction": "expand authored clauses with a typed central sentence and index residual boundary states, preserving independent authorship",
+    "next_reader_test": "blind human rating only after a fresh exact candidate exceeds 38 letters",
+    "reader_evidence": "none; no exact candidate admitted"
+  },
+  "status": "zero exact joins; construction frontier recorded"
+}

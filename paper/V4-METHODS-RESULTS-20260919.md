@@ -2984,3 +2984,25 @@ ordinary prose provenance rather than generated palindrome evidence. The next
 construction is a held-out typed valency bank with the character model kept
 strictly as an ordering signal. Artifact:
 `runs/character-lm-grammar-constrained-20260920.json`.
+
+The endpoint lane then carried number and attachment type in the endpoint
+schema while holding out the interior clause choices. Thirty-two fresh
+ordinary-English renderings reached 89--92 letters; for example, “Our careful
+surveyors collect pressed leaves near the station; mark the river crossings
+near distant gardens.” The agreement schema did not close the first outer
+character (`o` versus `s`), and no exact candidate above 38 survived. The
+held-out interiors changed the live character state, so this is not a rerun of
+the earlier endpoint pair. Artifact:
+`runs/agreement-typed-endpoint-decoder-20260920.json`.
+
+The center-first follow-up selected a two-clause event bridge and indexed scene
+phrases by the exposed obligation class before rendering. It tested three
+bridges across six live transitions and retained six diagnostic renderings up
+to 94 letters. These rows are not reader candidates: their outer comparison
+failed immediately, and some bridge tails are intentionally logged as
+fragmentary controls (for example, “At first light, through the garden the
+bell rang; the keeper opened the chapel door then the traveler by dusk.”).
+There were zero exact candidates above 38. The next construction adds a third
+bridge clause and two-character obligation-prefix indexing; it will retain the
+fragment filter. Artifact:
+`runs/center-bridge-obligation-bank-20260920.json`.

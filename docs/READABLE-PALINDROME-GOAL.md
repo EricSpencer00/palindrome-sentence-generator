@@ -5737,3 +5737,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   a careful sailor.” The next construction is a held-out typed valency bank
   with the LM retained only as an ordering signal. Artifact:
   `runs/character-lm-grammar-constrained-20260920.json`.
+
+- **Agreement-typed endpoint decoder, 2026-09-20:** carried number and
+  attachment type in jointly selected endpoint schemas while holding out
+  interior clauses. It rendered 32 fresh diagnostics at 89--92 letters,
+  including “Our careful surveyors collect pressed leaves near the station;
+  mark the river crossings near distant gardens.” The first outer character
+  still failed (`o` versus `s`), with 0 exact candidates above 38. The next
+  operator is tense/aspect-typed endpoint schemas with disjoint finite-verb
+  interiors. Artifact:
+  `runs/agreement-typed-endpoint-decoder-20260920.json`.
+
+- **Two-clause center bridge, 2026-09-20:** selected three fresh event bridges
+  and indexed scene-arm phrases by the exposed obligation class. Six live
+  transitions were all pruned at the outer mismatch; six diagnostics reached
+  88--94 letters, but some tails are fragmentary and none is reader-eligible.
+  There were 0 exact candidates above 38. The next operation adds a third
+  bridge clause and two-character obligation-prefix indexing while retaining a
+  hard fragment filter. Artifact:
+  `runs/center-bridge-obligation-bank-20260920.json`.

@@ -7043,3 +7043,22 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact rows. The next construction adds one causal subordinate clause with
   attachment scope. Artifact:
   `runs/whole-scene-consequence-contrast-20260920.json`.
+
+- **Prelexical semantic-relation half grammar, 2026-09-20:** selected
+  transitive/locative relation states before lexicalization and allowed word
+  boundaries to cross the sentence-half boundary. It visited 5,550 lexical
+  states and pruned 768 equations; no complete target rendered. Artifact:
+  `runs/semantic-relation-half-grammar-20260920.json`.
+
+- **Relation/valency character intersection, 2026-09-20:** emitted complete
+  clauses under two typed relation states while consuming characters online.
+  It made 1,536 transitions over 48 emissions, retained controls to 38
+  letters, and promoted 0 exact rows. The next construction adds an explicit
+  odd/even center nonterminal. Artifact:
+  `runs/relation-valency-char-grammar-intersection-20260920.json`.
+
+- **Center-relation outward grammar, 2026-09-20:** authored complete clauses
+  around three typed center relations and solved outward equations online. It
+  checked 243 states, pruned 243, retained controls to 76 letters, and
+  promoted 0 exact rows. Artifact:
+  `runs/center-relation-outward-clause-grammar-20260920.json`.

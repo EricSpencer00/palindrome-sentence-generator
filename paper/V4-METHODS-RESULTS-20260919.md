@@ -4290,3 +4290,22 @@ selected connectives online. It checked 27 states and pruned 27, retained
 controls to 73 letters, and produced zero exact rows. The next topology adds a
 single causal subordinate clause with attachment scope. Artifact:
 `runs/whole-scene-consequence-contrast-20260920.json`.
+
+The prelexical semantic-relation half grammar selected transitive/locative
+relations before lexicalization and allowed word boundaries to cross the
+half/clause boundary. It visited 5,550 lexical states and pruned 768 live
+equations; no complete target rendered. Artifact:
+`runs/semantic-relation-half-grammar-20260920.json`.
+
+The relation/valency character intersection emitted complete clauses under two
+typed relation states while consuming characters online. It made 1,536
+transitions over 48 emissions, retained controls to 38 letters, and promoted
+zero exact rows. The next topology adds an explicit odd/even center
+nonterminal. Artifact:
+`runs/relation-valency-char-grammar-intersection-20260920.json`.
+
+The center-relation outward grammar authored complete clauses around three
+typed center relations and solved outward equations online. It checked 243
+states and pruned 243, retaining controls to 76 letters and promoting zero
+exact rows. Artifact:
+`runs/center-relation-outward-clause-grammar-20260920.json`.

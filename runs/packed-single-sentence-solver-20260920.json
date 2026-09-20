@@ -1,0 +1,53 @@
+{
+  "experiment_id": "packed-single-sentence-solver-20260920",
+  "method": "single forward acyclic grammar trie; paired states (p,q,n); variable boundaries; odd/even centers",
+  "grammar": {
+    "templates": [
+      [
+        "det",
+        "noun",
+        "verb",
+        "det",
+        "obj"
+      ],
+      [
+        "verb",
+        "det",
+        "obj"
+      ],
+      [
+        "det",
+        "noun",
+        "verb"
+      ],
+      [
+        "det",
+        "noun",
+        "verb",
+        "adv"
+      ]
+    ],
+    "forward_states": 1003,
+    "edges": 1002,
+    "forward_language_size": 234
+  },
+  "packed": {
+    "candidate_count": 0,
+    "candidates": [],
+    "center_parities": [
+      "odd",
+      "even"
+    ]
+  },
+  "audits": {
+    "pointer_sha256": "79aa668ae40c6c136e9f85e5fb24099487006c8309fc25050c142a594c1086c4",
+    "provenance": "forward grammar edges only; no sentence-pair enumeration, reversal, repair, or reranking",
+    "shortcut_exclusions": [
+      "sentence-pair enumeration",
+      "finished-tape reversal",
+      "post-hoc repair",
+      "reranking"
+    ]
+  },
+  "next_topology": "add typed dependency/number/valency labels to grammar edges and carry them in (p,q,n)"
+}

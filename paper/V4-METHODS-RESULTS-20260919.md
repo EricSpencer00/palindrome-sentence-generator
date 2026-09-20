@@ -988,6 +988,15 @@ finished palindrome. The next lane carries the scheduler into typed complement
 frames. Artifact:
 `runs/unequal-complete-frame-seam-scheduler-20260920.json`.
 
+The same independent advancement was then carried into typed finite-complement
+frames. It tested 160 complete matrix/complement or matrix/complement+adjunct
+frames and 26,268 live states, with 26,242 residual prunes and 24 surviving
+transitions. No fresh exact row above 38 letters closed; the known row was
+recovered only as a baseline control. Complete complement controls reached 40,
+50, and 55 letters and passed independent audits. The next construction adds
+typed question/answer complement frames, not a repair pass. Artifact:
+`runs/unequal-typed-complement-frame-scheduler-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

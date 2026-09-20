@@ -1,0 +1,2334 @@
+{
+  "experiment_id": "unequal-center-grammar-intersection-20260920",
+  "signature": "typed-seam-machine|token-frontier-product|center-overhang|independent-clause-grammar",
+  "method": "Independent typed complete-clause grammar paths intersected by a minimal two-cursor seam machine; left characters advance forward, right characters advance inward, and unequal word/clause boundaries remain live.",
+  "stats": {
+    "left_grammar_paths": 360,
+    "right_grammar_paths": 360,
+    "paired_grammar_states": 129600,
+    "online_character_equations": 164160,
+    "mismatch_prunes": 129600,
+    "overhang_prunes": 0,
+    "seam_closures": 0,
+    "unequal_word_count_pairs": 99360,
+    "unequal_letter_count_pairs": 122144,
+    "rendered_controls": 16,
+    "mechanical_exact_candidates": 0,
+    "exact_clean_above_38": 0,
+    "longest_rendered_control_letters": 94,
+    "longest_exact_clean_letters": 0
+  },
+  "rendered_controls": [
+    {
+      "rendered": "The careful mason guides a bright lantern at first light; the careful mason charts a bright lantern at first light.",
+      "letters": 94,
+      "audit": {
+        "normalized_tape": "thecarefulmasonguidesabrightlanternatfirstlightthecarefulmasonchartsabrightlanternatfirstlight",
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 2,
+          "right_index": 91,
+          "left_char": "e",
+          "right_char": "g"
+        },
+        "sha256_forward": "295ff44be83a3819a6b6b4e2901e1b5ac2459d749841f12a6007e5fc3bac03b3",
+        "sha256_reverse": "02a3c79b32521ef44eb0b985cc9c3368027bf8c5faaffe591e61a9c843ead642",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 2,
+        "online_equations": 3,
+        "first_mismatch": {
+          "left_char": "e",
+          "right_char": "g",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 2,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "light",
+            "role": "adjunct",
+            "word_index": 9,
+            "offset": 2,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 2
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 45,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 46,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 46,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "mason:guide:lantern:time",
+        "right_frame_id": "mason:chart:lantern:time",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "guides",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "charts",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bright",
+          "careful",
+          "first",
+          "lantern",
+          "light",
+          "mason"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The careful mason guides a bright lantern at first light; the patient pilot guides a bright lantern at first light.",
+      "letters": 94,
+      "audit": {
+        "normalized_tape": "thecarefulmasonguidesabrightlanternatfirstlightthepatientpilotguidesabrightlanternatfirstlight",
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 2,
+          "right_index": 91,
+          "left_char": "e",
+          "right_char": "g"
+        },
+        "sha256_forward": "037cb68e9c1d3a260276d1c64cd49c53308fd3a8e0a1bc2cf8b7ba1a551c4e6e",
+        "sha256_reverse": "63ea08aad4bf197a00b888892448d4fe007855695217f29a73e133367dee66ea",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 2,
+        "online_equations": 3,
+        "first_mismatch": {
+          "left_char": "e",
+          "right_char": "g",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 2,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "light",
+            "role": "adjunct",
+            "word_index": 9,
+            "offset": 2,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 2
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 45,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 46,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 46,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "mason:guide:lantern:time",
+        "right_frame_id": "pilot:guide:lantern:time",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "guides",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "guides",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bright",
+          "first",
+          "guides",
+          "lantern",
+          "light"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "Careful masons guide a field journal at first light; careful masons read a field journal by the harbor.",
+      "letters": 84,
+      "audit": {
+        "normalized_tape": "carefulmasonsguideafieldjournalatfirstlightcarefulmasonsreadafieldjournalbytheharbor",
+        "letters": 84,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 83,
+          "left_char": "c",
+          "right_char": "r"
+        },
+        "sha256_forward": "9e6d9c5945a8c539ee067b18ff83f1e35d8d5d6d0fde857ef95262a75b302061",
+        "sha256_reverse": "cb3069c509713c398259db0f337b32b477db235ba140af01b29632dc07f28067",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "c",
+          "right_char": "r",
+          "left_location": {
+            "word": "careful",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "harbor",
+            "role": "adjunct",
+            "word_index": 8,
+            "offset": 5,
+            "word_length": 6,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 43,
+        "right_remaining": 41
+      },
+      "midpoint": {
+        "midpoint": 41,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            38,
+            43
+          ],
+          "midpoint": 41,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "masons:guide:journal:time",
+        "right_frame_id": "masons:read:journal:place",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "careful",
+          "masons",
+          "guide",
+          "a",
+          "field",
+          "journal",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "careful",
+          "masons",
+          "read",
+          "a",
+          "field",
+          "journal",
+          "by",
+          "the",
+          "harbor"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "careful",
+          "field",
+          "journal",
+          "masons"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "Careful masons guide a field journal at first light; careful masons guide a field journal.",
+      "letters": 74,
+      "audit": {
+        "normalized_tape": "carefulmasonsguideafieldjournalatfirstlightcarefulmasonsguideafieldjournal",
+        "letters": 74,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 73,
+          "left_char": "c",
+          "right_char": "l"
+        },
+        "sha256_forward": "60c5acae8aee80adf43a9ee212c6d35d35837ee4a017c52df4645b55f4fef574",
+        "sha256_reverse": "c927613bbdee220ce0427884ce623afb32ba2c25e20d880c00c9894821f8702e",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "c",
+          "right_char": "l",
+          "left_location": {
+            "word": "careful",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "journal",
+            "role": "theme",
+            "word_index": 5,
+            "offset": 6,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 43,
+        "right_remaining": 31
+      },
+      "midpoint": {
+        "midpoint": 36,
+        "crossing": {
+          "token": "first",
+          "token_interval": [
+            33,
+            38
+          ],
+          "midpoint": 36,
+          "offset": 3,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "masons:guide:journal:time",
+        "right_frame_id": "masons:guide:journal:bare",
+        "left_number": "pl",
+        "right_number": "pl",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "left_clause_words": [
+          "careful",
+          "masons",
+          "guide",
+          "a",
+          "field",
+          "journal",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "careful",
+          "masons",
+          "guide",
+          "a",
+          "field",
+          "journal"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "careful",
+          "field",
+          "guide",
+          "journal",
+          "masons"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "Careful masons guide a field journal; the careful mason reads a field journal.",
+      "letters": 64,
+      "audit": {
+        "normalized_tape": "carefulmasonsguideafieldjournalthecarefulmasonreadsafieldjournal",
+        "letters": 64,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 63,
+          "left_char": "c",
+          "right_char": "l"
+        },
+        "sha256_forward": "b97f109e5155f6f352ee73540ae2b31296f25f6e7b8f8a8dff9f2e9475936fb3",
+        "sha256_reverse": "9d699fca74878095fac659c1f178f55e9123f5430e2c98eaae31e3d8790a7e60",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "c",
+          "right_char": "l",
+          "left_location": {
+            "word": "careful",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "journal",
+            "role": "theme",
+            "word_index": 6,
+            "offset": 6,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 31,
+        "right_remaining": 33
+      },
+      "midpoint": {
+        "midpoint": 31,
+        "crossing": {
+          "token": "the",
+          "token_interval": [
+            31,
+            34
+          ],
+          "midpoint": 31,
+          "offset": 0,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "masons:guide:journal:bare",
+        "right_frame_id": "mason:read:journal:bare",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "left_clause_words": [
+          "careful",
+          "masons",
+          "guide",
+          "a",
+          "field",
+          "journal"
+        ],
+        "right_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "reads",
+          "a",
+          "field",
+          "journal"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "careful",
+          "field",
+          "journal"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "Careful masons guide new notes; the careful mason reads new notes.",
+      "letters": 54,
+      "audit": {
+        "normalized_tape": "carefulmasonsguidenewnotesthecarefulmasonreadsnewnotes",
+        "letters": 54,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 0,
+          "right_index": 53,
+          "left_char": "c",
+          "right_char": "s"
+        },
+        "sha256_forward": "1be5bf464a9ec7bd7c9994c2501d380f550599242f4d45677c04aae40872c1ed",
+        "sha256_reverse": "57e93f8bc398da7a1480396519bd4ca9e0c3a7dd4102091ab867f824b0e9dcb6",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 0,
+        "online_equations": 1,
+        "first_mismatch": {
+          "left_char": "c",
+          "right_char": "s",
+          "left_location": {
+            "word": "careful",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 0,
+            "word_length": 7,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "notes",
+            "role": "theme",
+            "word_index": 5,
+            "offset": 4,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 0
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 26,
+        "right_remaining": 28
+      },
+      "midpoint": {
+        "midpoint": 26,
+        "crossing": {
+          "token": "the",
+          "token_interval": [
+            26,
+            29
+          ],
+          "midpoint": 26,
+          "offset": 0,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "masons:guide:notes:bare",
+        "right_frame_id": "mason:read:notes:bare",
+        "left_number": "pl",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme"
+        ],
+        "left_clause_words": [
+          "careful",
+          "masons",
+          "guide",
+          "new",
+          "notes"
+        ],
+        "right_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "reads",
+          "new",
+          "notes"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "careful",
+          "notes"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The careful mason guides a bright lantern at first light; the patient pilot charts a bright lantern at first light.",
+      "letters": 94,
+      "audit": {
+        "normalized_tape": "thecarefulmasonguidesabrightlanternatfirstlightthepatientpilotchartsabrightlanternatfirstlight",
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 2,
+          "right_index": 91,
+          "left_char": "e",
+          "right_char": "g"
+        },
+        "sha256_forward": "1b33ae6c12a9ed0a17923dda3af3c02cbffd9bf972cf5be8fbe5bf37ed24f402",
+        "sha256_reverse": "3335f5cfe556c471adcd2d1848e58a5474d5e60bbfefc8b8a4af3a26bc1fc02b",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 2,
+        "online_equations": 3,
+        "first_mismatch": {
+          "left_char": "e",
+          "right_char": "g",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 2,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "light",
+            "role": "adjunct",
+            "word_index": 9,
+            "offset": 2,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 2
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 45,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 46,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 46,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "mason:guide:lantern:time",
+        "right_frame_id": "pilot:chart:lantern:time",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "guides",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "charts",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bright",
+          "first",
+          "lantern",
+          "light"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The careful mason charts a bright lantern at first light; the careful mason guides a bright lantern at first light.",
+      "letters": 94,
+      "audit": {
+        "normalized_tape": "thecarefulmasonchartsabrightlanternatfirstlightthecarefulmasonguidesabrightlanternatfirstlight",
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 2,
+          "right_index": 91,
+          "left_char": "e",
+          "right_char": "g"
+        },
+        "sha256_forward": "291ff0b56b906f9bdf925106cdc473e9ebd2de2e9fa28405ab6c684727b738ec",
+        "sha256_reverse": "6e04b95e464add1d2030088db765569354dde8f8b4a9eedb7b3a2e6f46e88aa7",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 2,
+        "online_equations": 3,
+        "first_mismatch": {
+          "left_char": "e",
+          "right_char": "g",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 2,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "light",
+            "role": "adjunct",
+            "word_index": 9,
+            "offset": 2,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 2
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 45,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 46,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 46,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "mason:chart:lantern:time",
+        "right_frame_id": "mason:guide:lantern:time",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "charts",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "guides",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bright",
+          "careful",
+          "first",
+          "lantern",
+          "light",
+          "mason"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The careful mason charts a bright lantern at first light; the patient pilot guides a bright lantern at first light.",
+      "letters": 94,
+      "audit": {
+        "normalized_tape": "thecarefulmasonchartsabrightlanternatfirstlightthepatientpilotguidesabrightlanternatfirstlight",
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 2,
+          "right_index": 91,
+          "left_char": "e",
+          "right_char": "g"
+        },
+        "sha256_forward": "ef568f1e4ca51df105b4ffbe3f2243680e6957db793e7f50932474f27370831c",
+        "sha256_reverse": "5f7fd0b8c6d3946e5fb5e35040ed6ed6874c32694a62593bde2c7d512a18be05",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 2,
+        "online_equations": 3,
+        "first_mismatch": {
+          "left_char": "e",
+          "right_char": "g",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 2,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "light",
+            "role": "adjunct",
+            "word_index": 9,
+            "offset": 2,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 2
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 45,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 46,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 46,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "mason:chart:lantern:time",
+        "right_frame_id": "pilot:guide:lantern:time",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "charts",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "guides",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bright",
+          "first",
+          "lantern",
+          "light"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The careful mason charts a bright lantern at first light; the patient pilot charts a bright lantern at first light.",
+      "letters": 94,
+      "audit": {
+        "normalized_tape": "thecarefulmasonchartsabrightlanternatfirstlightthepatientpilotchartsabrightlanternatfirstlight",
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 2,
+          "right_index": 91,
+          "left_char": "e",
+          "right_char": "g"
+        },
+        "sha256_forward": "5be63da5d45438c1bf1f40ca29ebf354408019b52efa8698820c76abdaffe62d",
+        "sha256_reverse": "62b72da2a4a8dde2ed2ef7dbf93792ac0b0970779a84dd085d96132d668cdf88",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 2,
+        "online_equations": 3,
+        "first_mismatch": {
+          "left_char": "e",
+          "right_char": "g",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 2,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "light",
+            "role": "adjunct",
+            "word_index": 9,
+            "offset": 2,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 2
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 45,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 46,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 46,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "mason:chart:lantern:time",
+        "right_frame_id": "pilot:chart:lantern:time",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "charts",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "charts",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bright",
+          "charts",
+          "first",
+          "lantern",
+          "light"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The patient pilot guides a bright lantern at first light; the careful mason guides a bright lantern at first light.",
+      "letters": 94,
+      "audit": {
+        "normalized_tape": "thepatientpilotguidesabrightlanternatfirstlightthecarefulmasonguidesabrightlanternatfirstlight",
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 2,
+          "right_index": 91,
+          "left_char": "e",
+          "right_char": "g"
+        },
+        "sha256_forward": "a28702b4dc69d2292795b1e54413ca8417f0183ec22ac7639345f8a975dd6a4b",
+        "sha256_reverse": "250a9aff42da43954a1b0ba5e3c75482cda8b192ea0b1ca451e91eac212056ff",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 2,
+        "online_equations": 3,
+        "first_mismatch": {
+          "left_char": "e",
+          "right_char": "g",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 2,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "light",
+            "role": "adjunct",
+            "word_index": 9,
+            "offset": 2,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 2
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 45,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 46,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 46,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "pilot:guide:lantern:time",
+        "right_frame_id": "mason:guide:lantern:time",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "guides",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "guides",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bright",
+          "first",
+          "guides",
+          "lantern",
+          "light"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The patient pilot guides a bright lantern at first light; the careful mason charts a bright lantern at first light.",
+      "letters": 94,
+      "audit": {
+        "normalized_tape": "thepatientpilotguidesabrightlanternatfirstlightthecarefulmasonchartsabrightlanternatfirstlight",
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 2,
+          "right_index": 91,
+          "left_char": "e",
+          "right_char": "g"
+        },
+        "sha256_forward": "9bc8c540d158ca041665f48c3c8c2cfac6f229c8989894fd46ab182c3d456fd9",
+        "sha256_reverse": "ee2c25b86c65926243a5c7ad20a446ad96ffc7ea72782ccd66db23722da329f0",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 2,
+        "online_equations": 3,
+        "first_mismatch": {
+          "left_char": "e",
+          "right_char": "g",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 2,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "light",
+            "role": "adjunct",
+            "word_index": 9,
+            "offset": 2,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 2
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 45,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 46,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 46,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "pilot:guide:lantern:time",
+        "right_frame_id": "mason:chart:lantern:time",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "guides",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "charts",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bright",
+          "first",
+          "lantern",
+          "light"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The patient pilot guides a bright lantern at first light; the patient pilot charts a bright lantern at first light.",
+      "letters": 94,
+      "audit": {
+        "normalized_tape": "thepatientpilotguidesabrightlanternatfirstlightthepatientpilotchartsabrightlanternatfirstlight",
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 2,
+          "right_index": 91,
+          "left_char": "e",
+          "right_char": "g"
+        },
+        "sha256_forward": "5d914ac43073010675f6db4de4ad4b4f249a2b17f9232741fcc71034511dfd29",
+        "sha256_reverse": "fdc8f520d6633310896a27fa0924f25f0597defef17bda178a0c937e96072d46",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 2,
+        "online_equations": 3,
+        "first_mismatch": {
+          "left_char": "e",
+          "right_char": "g",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 2,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "light",
+            "role": "adjunct",
+            "word_index": 9,
+            "offset": 2,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 2
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 45,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 46,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 46,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "pilot:guide:lantern:time",
+        "right_frame_id": "pilot:chart:lantern:time",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "guides",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "charts",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bright",
+          "first",
+          "lantern",
+          "light",
+          "patient",
+          "pilot"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The patient pilot charts a bright lantern at first light; the careful mason guides a bright lantern at first light.",
+      "letters": 94,
+      "audit": {
+        "normalized_tape": "thepatientpilotchartsabrightlanternatfirstlightthecarefulmasonguidesabrightlanternatfirstlight",
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 2,
+          "right_index": 91,
+          "left_char": "e",
+          "right_char": "g"
+        },
+        "sha256_forward": "bbe58847f491c57e2d9830dcdba4498931c05ee7e79d1b0011ba87dab9f656f0",
+        "sha256_reverse": "71a592492b8aa106dbfd40918f008d679e3b605249ec04e6975e9dd2df05f835",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 2,
+        "online_equations": 3,
+        "first_mismatch": {
+          "left_char": "e",
+          "right_char": "g",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 2,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "light",
+            "role": "adjunct",
+            "word_index": 9,
+            "offset": 2,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 2
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 45,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 46,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 46,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "pilot:chart:lantern:time",
+        "right_frame_id": "mason:guide:lantern:time",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "charts",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "guides",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bright",
+          "first",
+          "lantern",
+          "light"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The patient pilot charts a bright lantern at first light; the careful mason charts a bright lantern at first light.",
+      "letters": 94,
+      "audit": {
+        "normalized_tape": "thepatientpilotchartsabrightlanternatfirstlightthecarefulmasonchartsabrightlanternatfirstlight",
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 2,
+          "right_index": 91,
+          "left_char": "e",
+          "right_char": "g"
+        },
+        "sha256_forward": "2fed058eb3cc4e45abba622104c4fbc00dae99239f80dd30cdc162731197c060",
+        "sha256_reverse": "3cfb373e4e01a564dee12502e83a4e467d3b34d0c04f92d23f08c782fedc9f24",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 2,
+        "online_equations": 3,
+        "first_mismatch": {
+          "left_char": "e",
+          "right_char": "g",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 2,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "light",
+            "role": "adjunct",
+            "word_index": 9,
+            "offset": 2,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 2
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 45,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 46,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 46,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "pilot:chart:lantern:time",
+        "right_frame_id": "mason:chart:lantern:time",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "charts",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "the",
+          "careful",
+          "mason",
+          "charts",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bright",
+          "charts",
+          "first",
+          "lantern",
+          "light"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    },
+    {
+      "rendered": "The patient pilot charts a bright lantern at first light; the patient pilot guides a bright lantern at first light.",
+      "letters": 94,
+      "audit": {
+        "normalized_tape": "thepatientpilotchartsabrightlanternatfirstlightthepatientpilotguidesabrightlanternatfirstlight",
+        "letters": 94,
+        "exact": false,
+        "first_mismatch": {
+          "left_index": 2,
+          "right_index": 91,
+          "left_char": "e",
+          "right_char": "g"
+        },
+        "sha256_forward": "48dd5d311187db08009d02d219883d250a5ad6ccd7d242d63d43744c828e719b",
+        "sha256_reverse": "d71a48d928f9123fa61ada5aae0c36207be1d4de82196f7f8042f5d178b3eadf",
+        "sha_equal_under_reversal": false,
+        "independent_exact": false
+      },
+      "seam_machine": {
+        "status": "mismatch_pruned",
+        "mode": "open",
+        "matched_characters": 2,
+        "online_equations": 3,
+        "first_mismatch": {
+          "left_char": "e",
+          "right_char": "g",
+          "left_location": {
+            "word": "the",
+            "role": "subject",
+            "word_index": 0,
+            "offset": 2,
+            "word_length": 3,
+            "inside_word": true
+          },
+          "right_location": {
+            "word": "light",
+            "role": "adjunct",
+            "word_index": 9,
+            "offset": 2,
+            "word_length": 5,
+            "inside_word": true
+          },
+          "matched_before_mismatch": 2
+        },
+        "left_word_boundary_crossings": 0,
+        "right_word_boundary_crossings": 0,
+        "center_location": null,
+        "left_remaining": 45,
+        "right_remaining": 45
+      },
+      "midpoint": {
+        "midpoint": 46,
+        "crossing": {
+          "token": "light",
+          "token_interval": [
+            42,
+            47
+          ],
+          "midpoint": 46,
+          "offset": 4,
+          "inside_word": true
+        }
+      },
+      "provenance": {
+        "left_frame_id": "pilot:chart:lantern:time",
+        "right_frame_id": "pilot:guide:lantern:time",
+        "left_number": "sg",
+        "right_number": "sg",
+        "left_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "right_roles": [
+          "subject",
+          "finite_verb",
+          "theme",
+          "adjunct"
+        ],
+        "left_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "charts",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "right_clause_words": [
+          "the",
+          "patient",
+          "pilot",
+          "guides",
+          "a",
+          "bright",
+          "lantern",
+          "at",
+          "first",
+          "light"
+        ],
+        "lexical_source": "fresh authored typed scene slots",
+        "grammar_paths_independent": true,
+        "lexicalized_during_cursor_walk": true,
+        "right_clause_read_inward_by_cursor": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "mirrored_units": false,
+        "catalogue_text": false,
+        "word_order_symmetry": false,
+        "per_search_rlaif": false
+      },
+      "shortcut_flags": {
+        "identical_clause_surface": false,
+        "repeated_content_units": true,
+        "repeated_content_words": [
+          "bright",
+          "first",
+          "lantern",
+          "light",
+          "patient",
+          "pilot"
+        ],
+        "self_palindromic_units": false,
+        "self_palindromic_words": [],
+        "word_order_symmetry": false,
+        "catalogue_text": false,
+        "fragment": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "per_search_rlaif": false
+      },
+      "reader_facing_eligible": false,
+      "reader_evidence": {
+        "status": "not_run",
+        "human_raters": 0,
+        "reason": "No blinded reader study has been run for this diagnostic lane."
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "exact_clean_candidates": [],
+  "reader_facing_candidates": [],
+  "reader_gate": {
+    "status": "closed",
+    "reason": "No exact-clean candidate has independent blinded human readability evidence.",
+    "human_raters": 0
+  },
+  "center_transition_contract": {
+    "description": "Cursor-level contract only; probe strings are not sentence candidates.",
+    "probes": [
+      {
+        "left_words": [
+          "aba"
+        ],
+        "right_words": [
+          "ba"
+        ],
+        "status": "closed",
+        "seam_mode": "left_center_inside_word",
+        "center_location": {
+          "word": "aba",
+          "role": "probe",
+          "word_index": 0,
+          "offset": 2,
+          "word_length": 3,
+          "inside_word": true
+        }
+      },
+      {
+        "left_words": [
+          "ab"
+        ],
+        "right_words": [
+          "cba"
+        ],
+        "status": "closed",
+        "seam_mode": "right_center_inside_word",
+        "center_location": {
+          "word": "cba",
+          "role": "probe",
+          "word_index": 0,
+          "offset": 0,
+          "word_length": 3,
+          "inside_word": true
+        }
+      },
+      {
+        "left_words": [
+          "ab"
+        ],
+        "right_words": [
+          "ba"
+        ],
+        "status": "closed",
+        "seam_mode": "even_seam",
+        "center_location": null
+      }
+    ],
+    "all_expected_modes_present": true
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_inspected": true,
+    "registry_entries_read": 663,
+    "exact_signature_collision": [],
+    "related_signatures_seen": [
+      "terminal-aware-grammar-intersection-20260916"
+    ],
+    "signature": "typed-seam-machine|token-frontier-product|center-overhang|independent-clause-grammar",
+    "distinction": "The product state stores only two independent grammar-path cursor positions, typed number/valency metadata, and an explicit even/left-centre/right-centre seam mode. Unlike residual-string, reverse-trie, boundary-DP, or paired-CFG lanes, it permits unequal terminal counts and lets the one-character centre be the edge character of a multi-character terminal without a fixed seam or endpoint seed.",
+    "not_a_duplicate_sweep": true
+  },
+  "provenance": {
+    "generator_sha256": "3ee3ff8359ff2bf724b589fa46d13a840603cac420b38eec56f6379e2a352277",
+    "independent_audits": [
+      "direct two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "search_lexical_source": "fresh authored typed subject/verb/theme/adjunct slots",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "mirrored_or_self_palindromic_units": false,
+    "catalogue_text": false,
+    "word_order_symmetry": false,
+    "per_search_rlaif": false
+  },
+  "status": "completed_no_exact_closure",
+  "next_construction": "Add a held-out ditransitive and relative-complement production to the same cursor product, keeping the seam state scalar and preserving unequal-boundary advancement; do not add repair, endpoint seeding, or mirrored lexical units."
+}

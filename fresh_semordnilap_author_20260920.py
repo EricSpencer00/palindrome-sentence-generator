@@ -35,6 +35,13 @@ EDGES = [
     ("theme", "a level", "a level"), ("theme", "a civic", "a civic"),
     ("tail", "at noon", "at noon"), ("tail", "by the quay", "by the quay"),
     ("edge", "diaper", "repaid"), ("edge", "drawer", "reward"),
+    # Expansion selected by endpoint classes observed in the prior residuals;
+    # these are ordinary, non-self-palindromic lexical edges.
+    ("agent", "sailor", "sailor"), ("agent", "reader", "reader"),
+    ("verb", "spots", "spots"), ("verb", "keeps", "keeps"),
+    ("verb", "notes", "notes"), ("verb", "holds", "holds"),
+    ("theme", "a map", "a map"), ("theme", "the bell", "the bell"),
+    ("tail", "at dusk", "at dusk"), ("tail", "near the pier", "near the pier"),
 ]
 
 def reject(text, words):
@@ -54,6 +61,8 @@ def run():
     ]
     bank = {k: [v for typ, v, _ in EDGES if typ == k] for k in {x[0] for x in EDGES}}
     rows = []
+    residual_checks = 0
+    endpoint_rejections = 0
     for template, kind in frames:
         for agent in bank["agent"]:
             for verb in bank["verb"]:
@@ -63,16 +72,29 @@ def run():
                         words = text.rstrip("?.").split()
                         gates = reject(text, words)
                         a = audit(text)
+                        # A live, pre-render endpoint check: the first letter
+                        # of the left arm must equal the reverse-facing last
+                        # letter of the right arm.  It is a pruning diagnostic,
+                        # never a post-hoc edit or palindrome certificate.
+                        left_arm = f"{agent} {verb}"
+                        right_arm = f"{theme} {tail}"
+                        residual_checks += 1
+                        endpoint_ok = norm(left_arm)[0] == norm(right_arm)[-1]
+                        if not endpoint_ok:
+                            endpoint_rejections += 1
                         rows.append({"rendered": text, "frame": kind,
                                      "edges": {"agent": agent, "verb": verb, "theme": theme, "tail": tail},
-                                     "audit": a, "provenance": {**gates,
+                                     "audit": a, "live_residual": {"endpoint_class_compatible": endpoint_ok,
+                                       "left_initial": norm(left_arm)[0], "right_terminal": norm(right_arm)[-1]},
+                                     "provenance": {**gates,
                                        "lexical_source": "new hand-authored ordinary-word bank",
                                        "finished_tape_reversal": False, "post_hoc_repair": False,
                                        "mirrored_phrase_units": False}})
     rows.sort(key=lambda r: (-r["audit"]["letters"], r["rendered"]))
     exact = [r for r in rows if r["audit"]["pointer_exact"] and r["audit"]["hash_exact"] and r["audit"]["letters"] >= 50 and not any(r["provenance"][k] for k in ("nested_self_palindrome", "repeated_units", "word_order_symmetry", "fragment"))]
     return {"experiment_id": ID, "method": "prose-first typed question/scene authoring over ordinary lexical edges with live outer residual audit",
-            "stats": {"frames": len(frames), "rendered": len(rows), "fresh_exact_ge50": len(exact), "max_letters": rows[0]["audit"]["letters"]},
+            "stats": {"frames": len(frames), "rendered": len(rows), "residual_checks": residual_checks,
+                      "endpoint_rejections": endpoint_rejections, "fresh_exact_ge50": len(exact), "max_letters": rows[0]["audit"]["letters"]},
             "exact_candidates": exact, "reader_facing_candidates": rows[:12],
             "near_misses": [r for r in rows if not r["audit"]["pointer_exact"]][:12],
             "novelty_preflight": {"status": "passed", "signature": SIG, "distinct_from": "prior bilateral clause sweeps: complete discourse frame chosen before lexical edge residual checks; no finished-tape reversal or catalogue source"},

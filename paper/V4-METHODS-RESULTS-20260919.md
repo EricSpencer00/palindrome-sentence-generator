@@ -2636,3 +2636,17 @@ The exact frontier is therefore unchanged: the best independently verified
 reader-plausible output remains the 38-letter anchor above. No human reader
 study is claimed for any non-exact control; a future exact intact-prose row
 must still be tested against randomized word-shuffled controls in blinded order.
+
+The clitic-boundary follow-up changed the construction state space rather than
+repairing a failed sentence. Eighteen independently authored agreement frames
+included legal contractions and clitic boundaries, and each of the 324 paired
+transitions carried the full residual-vector comparison before completion. It
+retained two complete ordinary-English controls (71 and 72 normalized letters),
+with independent outside-in and forward/reverse SHA-256 audits, but no exact
+candidate above 38 letters. The strongest controls were “The poet can't forget
+a small vow in the hall; keepers don't lose an old song at first light.” and
+“The poet can't forget the blue key in the hall; keepers don't lose a small vow
+at first light.” They are prose controls, not palindrome claims. The next
+construction composes two independent clitic frames through a typed comma or
+relative boundary while retaining the residual vector; no human rating is
+claimed until an exact candidate clears the 38-letter gate.

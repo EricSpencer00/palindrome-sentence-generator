@@ -119,6 +119,8 @@ BEST_KNOWN_PROVENANCE = {
         "latest_forward_phrase_equation": "Two forward-authored phrase banks produced 12 online transitions; 10 pruned at live mismatch, zero surviving states, zero rendered candidates",
         "latest_agreement_valency_wfsa": "Agreement/valency-aware clause-final WFSA over fresh Brown-derived domains: zero exact closures at the 40-letter gate",
         "latest_fresh_heteropalindrome_seam": "Four by four complete-clause cross-word seam enumeration: 16 fresh candidates, best 76-letter control, zero exact closures; the 38-letter anchor stayed held out",
+        "latest_character_clause_trie_csp": "Six independently authored complete clauses per side joined through a reverse character trie: six prefix steps, zero exact joins, and complete prose controls retained",
+        "latest_clitic_boundary_residual_lockstep": "Eighteen fresh agreement/clitic frames, 324 full residual-vector transitions, and two complete prose controls to 72 letters; zero exact closures above 38",
         "reader_study": "not run",
     },
 }
@@ -1223,6 +1225,8 @@ OPTIMIZATION_SPEC = {
         "brown-char-decoder-centerout-20260922",
         "right-boundary-wfsa-decoder-20260923",
         "agreement-valency-wfsa-decoder-20260924",
+        "character-clause-trie-csp-20260920",
+        "clitic-boundary-residual-lockstep-20260920",
         "broad-lexical-boundary-wfsa-20260925",
         "variable-boundary-lattice-decoder-20260926",
         "paired-clause-lattice-20260927",

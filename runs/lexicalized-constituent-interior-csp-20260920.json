@@ -1,0 +1,52 @@
+{
+  "stats": {
+    "popped": 41280,
+    "unique_states": 41280,
+    "grammar_expansions": 31862,
+    "word_choices": 4893,
+    "character_matches": 4524,
+    "character_prunes": 25622,
+    "repeat_prunes": 112,
+    "complete": 0,
+    "deepest_letters": 23
+  },
+  "exact_candidates": [],
+  "controls": [],
+  "deepest_frontier": {
+    "left": "noel carries",
+    "right": "inspires leon",
+    "left_stack": [
+      "OBJNP_SG",
+      "PP"
+    ],
+    "right_stack": [
+      "NP_SG"
+    ],
+    "letters_emitted": 23
+  },
+  "experiment_id": "lexicalized-constituent-interior-csp-20260920",
+  "method": "joint lexicalized constituent grammar with live internal boundary states",
+  "status": "completed_no_exact_closure",
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "lexicalized-constituent-interior|feature-carrying-synchronous-stack|live-boundary-state",
+    "distinct_from": "complete phrase joins and word-only CFG beams: constituent interiors are generated one typed terminal at a time",
+    "shortcuts_rejected": [
+      "finished-tape reversal",
+      "word-order symmetry",
+      "repeated units",
+      "catalogue text",
+      "post-hoc repair"
+    ]
+  },
+  "provenance": {
+    "lexicon": "small authored role/feature inventory",
+    "generator_sha256": "f1c81d20a7a4664e13d634e90c9dad2a99d5da48b0bd9809abdc39f040c62dbb",
+    "independent_audits": [
+      "literal outside-in two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed; programmatic exactness is not human readability evidence"
+  },
+  "next_construction": "add a lexicalized recipient/benefactive constituent only after novelty preflight; do not widen the same terminal bank"
+}

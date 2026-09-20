@@ -179,15 +179,18 @@ def constrained_paths(lexicon=ATOMIC, lengths=range(1, 65), max_words=10, gramma
                                         "word_order_mirroring": False, "repeated_units": False,
                                         "catalogue_text": False}} for n, text in found], "stats": stats}
 
-def bilateral_lexical_csp(lexicon=ATOMIC, max_words=10, max_nodes=20000):
+def bilateral_lexical_csp(lexicon=ATOMIC, max_words=10, max_nodes=20000, edge_pos=("DET", "N", "V", "PROPN")):
     """Expand independent left/right lexical edges inward with live residuals."""
-    words = [w for w in lexicon if letters(w.text)]
+    words = [w for w in lexicon if w.pos in edge_pos and letters(w.text) and not (len(letters(w.text)) > 1 and letters(w.text) == letters(w.text)[::-1])]
     out, nodes, pruned = [], 0, 0
     def grow(left, right, lb, rb):
         nonlocal nodes, pruned
         if nodes >= max_nodes: return
         nodes += 1
         if not lb and not rb and left and right:
+            if len(set(left + right)) != len(left + right): return
+            if left == list(reversed(right)): return
+            if any(letters(a) == letters(b)[::-1] for a, b in zip(left, right)): return
             text = " ".join(left + right)
             if independent_audit(text)["exact"]: out.append(text + ".")
             return

@@ -51,5 +51,8 @@ def test_brown_loader_is_bounded_and_deterministic():
 
 def test_bilateral_edges_propagate_and_audit():
     result = bilateral_lexical_csp((Word("anna", "PROPN"),), max_words=2, max_nodes=50)
-    assert result["stats"]["status"] == "SAT"
-    assert result["candidates"][0]["audit"]["exact"]
+    assert result["stats"]["status"] == "UNSAT"
+
+def test_bilateral_rejects_mirrored_token_shortcut():
+    result = bilateral_lexical_csp((Word("ab", "N"), Word("ba", "N")), max_words=2, max_nodes=50)
+    assert result["candidates"] == []

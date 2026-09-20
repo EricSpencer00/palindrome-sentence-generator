@@ -170,7 +170,7 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][36]["exact_candidates_over_38"] == 0
     assert method.json()["method_runs"][37]["calibration_letters"] == 38
     assert method.json()["method_runs"][37]["long_form_exact_candidates"] == 0
-    assert len(method.json()["rlaif_frontier"]) == 18
+    assert len(method.json()["rlaif_frontier"]) == 19
 
 
 def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
@@ -228,6 +228,11 @@ def test_v4_frontier_evaluation_keeps_rlaif_diagnostic_only():
     assert body["rows"][14]["exact"] is False
     assert body["rows"][15]["role"] == "large_lexicon_cfg_control"
     assert body["rows"][15]["exact"] is False
+    assert body["rows"][-1]["role"] == "alternate_exact_reader_candidate"
+    assert body["rows"][-1]["rendered"] == "Some men inspire Diana; an aide rips nine memos."
+    assert body["rows"][-1]["exact"] is True
+    assert body["rows"][-1]["letters"] == 38
+    assert body["rows"][-1]["promotion"]["reader_status"] == "not_run"
     assert body["rows"][16]["role"] == "morphology_orbit_control"
     assert body["rows"][16]["exact"] is False
     assert body["rows"][17]["role"] == "char_orbit_scene_control"

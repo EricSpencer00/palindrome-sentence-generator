@@ -15,7 +15,7 @@ import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from server.v4 import BEST_KNOWN_TEXT, independent_audit
+from server.v4 import ALTERNATE_EXACT_TEXT, BEST_KNOWN_TEXT, independent_audit
 from llm_palindrome.admission import mechanical_admission_checks
 
 EXPERIMENT_ID = "reader-package-v4-20260919"
@@ -59,6 +59,7 @@ def _shuffle(text: str, seed: int) -> str:
 def _frontier() -> list[dict[str, object]]:
     rows = [
         {"source_id": "best-known-38", "source": "half-tape-grammar-csp-20260919", "text": BEST_KNOWN_TEXT},
+        {"source_id": "alternate-exact-38", "source": "variable-phrase-grammar-20260920", "text": ALTERNATE_EXACT_TEXT},
     ]
     rows.extend(
         {"source_id": f"intact-control-{i}", "source": "authored-reader-control", "text": text}

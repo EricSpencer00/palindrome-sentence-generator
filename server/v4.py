@@ -29,6 +29,13 @@ GATE_MESSAGE = (
 )
 
 BEST_KNOWN_TEXT = "An aide rips nine memos; some men inspire Diana."
+ALTERNATE_EXACT_TEXT = "Some men inspire Diana; an aide rips nine memos."
+ALTERNATE_EXACT_PROVENANCE = {
+    "run_id": "variable-phrase-grammar-20260920",
+    "method": "variable-length joint phrase grammar with live residual consumption",
+    "source": "fresh authored/Brown-bigram construction; not catalogue text",
+    "novelty_preflight": "passed no-reversal, no-token-mirror, no-repeated-unit exclusions",
+}
 BEST_KNOWN_PROVENANCE = {
     "run_id": "live-clause-pair-dfs-20260920-calibration",
     "method": "paired-slot clause DFS with live character debt and grammatical boundaries",
@@ -1073,7 +1080,7 @@ READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
     "seed": 20260919,
-    "pair_count": 5,
+    "pair_count": 6,
     "conditions": ["intact", "word-shuffled_control"],
     "randomized_blinded_order": True,
     "answer_key_separated": True,
@@ -1456,6 +1463,12 @@ def _rlaif_frontier() -> list[dict[str, Any]]:
             "role": "char_orbit_scene_control",
             "rendered": CHAR_ORBIT_SCENE_RUN["controls"][0],
             "provenance": CHAR_ORBIT_SCENE_RUN["provenance"],
+        },
+        {
+            "run_id": ALTERNATE_EXACT_PROVENANCE["run_id"],
+            "role": "alternate_exact_reader_candidate",
+            "rendered": ALTERNATE_EXACT_TEXT,
+            "provenance": ALTERNATE_EXACT_PROVENANCE,
         },
     ]
     comparison = []

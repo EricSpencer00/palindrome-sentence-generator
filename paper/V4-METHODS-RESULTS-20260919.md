@@ -1782,6 +1782,15 @@ audits; no row was promoted without the anti-shortcut checks and a future
 reader gate. Artifact:
 `runs/multiconstituent-orbit-20260920.json`.
 
+The center-out CFG frontier lane grew one ordinary-English parse tree from a
+selected center terminal, alternating nonterminal expansion on the two exposed
+frontiers. It visited 259 live states, pruned 73, and rendered 22 contemporary
+controls, with zero exact candidates above 38 letters. The lane is distinct
+from clause-pair products and endpoint sweeps: grammar state and character
+obligation advance in one parse tree, and no completed tape is reversed or
+repaired. Artifact:
+`runs/centerout-cfg-frontier-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

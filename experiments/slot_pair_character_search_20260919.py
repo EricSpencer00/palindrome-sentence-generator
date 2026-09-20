@@ -145,10 +145,14 @@ def main() -> None:
             return tuple(x["word"] for x in bank.get(tag, [])[:24]) or fallback
     else:
         def top(tag, fallback): return fallback
+    def inflected(tag, fallback, predicate):
+        values = top(tag, fallback)
+        chosen = tuple(word for word in values if predicate(word))
+        return chosen or values
     det = top("DET", ("a", "the", "one", "this"))
     adj = top("ADJ", ("calm", "brave", "young", "wise", "fair", "quiet", "keen", "mild"))
-    noun = top("NOUN", ("poet", "sailor", "keeper", "reader", "bard", "pilot", "guard"))
-    verb = top("VERB", ("reads", "marks", "guides", "guards", "seeks", "keeps", "hears"))
+    noun = inflected("NOUN", ("poet", "sailor", "keeper", "reader", "bard", "pilot", "guard"), lambda w: not w.endswith("s"))
+    verb = inflected("VERB", ("reads", "marks", "guides", "guards", "seeks", "keeps", "hears"), lambda w: w.endswith("s"))
     obj = top("NOUN", ("letter", "sonnet", "garden", "harbor", "parcel", "secret", "candle"))
     template = (
         Slot("det", det), Slot("adj", adj), Slot("subject", noun),
@@ -157,6 +161,10 @@ def main() -> None:
     templates = [template, (
         Slot("det", det), Slot("subject", noun), Slot("verb", verb),
         Slot("det", det), Slot("object", obj), Slot("adjunct", ("today", "quietly", "nearby")),
+    ), (
+        Slot("det", det), Slot("subject", noun), Slot("verb", verb),
+        Slot("det", det), Slot("object", obj), Slot("prep", ("in", "at", "on")),
+        Slot("object", obj),
     )]
     runs = [search(item, limit=32) for item in templates]
     result = {"candidates": [c for r in runs for c in r["candidates"]],

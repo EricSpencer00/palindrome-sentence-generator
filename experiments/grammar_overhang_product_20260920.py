@@ -221,8 +221,17 @@ def search_pair(left_frame: tuple[str, ...], right_frame: tuple[str, ...], bank:
         text = " ".join(left) + "; " + " ".join(reversed(right_rev))
         check = audit(text)
         if check["letters"] > MIN_EXACT and check["exact"]:
+            slots = [
+                {"side": "left", "index": i, "tag": tag, "word": word}
+                for i, (tag, word) in enumerate(zip(left_frame, left))
+            ]
+            slots.extend(
+                {"side": "right", "index": i, "tag": tag, "word": word}
+                for i, (tag, word) in enumerate(zip(right_frame, right_words))
+            )
             rows.append({"rendered": text, "left_frame": list(left_frame),
                          "right_frame": list(right_frame), "audit": check,
+                         "slot_provenance": slots,
                          "reader_eligible": False,
                          "provenance": {"grammar_selected_before_emission": True,
                                         "live_overhang": True,

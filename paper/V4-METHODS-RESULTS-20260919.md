@@ -1394,6 +1394,20 @@ natural contemporary-English controls (maximum 52 letters), 164 states, and
 corrected run is the only tense/aspect result retained for evaluation. Artifact:
 `runs/discourse-plan-tense-aspect-20260920.json`.
 
+The multi-plan plain-English expansion kept the corrected morphology and added
+eight ordinary discourse plans (weather, school, travel, meeting, letter,
+garden, work, and home). Each plan was realized in present/past simple and
+present/past progressive states with typed valency, agreement, and referent
+binding. The run produced 32 complete contemporary-English controls, including
+natural 59-letter realizations such as “the manager is reviewing the report, so
+is sending the client the report,” while the work plan was constrained to a
+grammatical transitive “share the results” frame. It explored 128 paired
+character states, rejected 128 residual states, and closed zero exact
+candidates above 38 letters. Every control and candidate gate was checked with
+the independent two-pointer audit and forward/reverse SHA-256 tapes. No repair,
+reversal, mirrored unit, catalogue text, or fragment was admitted. Artifact:
+`runs/discourse-plan-multi-plain-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

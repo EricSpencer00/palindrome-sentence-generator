@@ -17,7 +17,7 @@ PLANS=(
  Plan("meeting",(S("I","first"),S("we","plural"),S("the manager","third")),"review",("the plan","the notes","the report"),"send","ditransitive",("the update","a message","the report"),("the team","the staff","the client"),("plan","update","team")),
  Plan("letter",(S("I","first"),S("we","plural"),S("the writer","third")),"read",("the letter","the note","the message"),"send","ditransitive",("the reply","a note","the update"),("my friend","our friend","the editor"),("letter","reply","friend")),
  Plan("garden",(S("I","first"),S("we","plural"),S("the gardener","third")),"check",("the soil","the bed","the plants"),"water","transitive",("the plants","the garden","the bed"),("the plants",),("soil","plants")),
- Plan("work",(S("I","first"),S("we","plural"),S("the team","third")),"finish",("the task","the report","the project"),"share","ditransitive",("the results","the report","the plan"),("the client","the team","the manager"),("task","results","team")),
+ Plan("work",(S("I","first"),S("we","plural"),S("the team","third")),"finish",("the task","the report","the project"),"share","transitive",("the results","the report","the plan"),("the client","the team","the manager"),("task","results","team")),
  Plan("home",(S("I","first"),S("we","plural"),S("the parent","third")),"check",("the child","the room","the door"),"give","ditransitive",("the meal","the book","the key"),("the child","the guest","the neighbor"),("child","meal","home")),
 )
 TENSES=(("present","simple"),("past","simple"),("present","progressive"),("past","progressive")); CONJ=("and","but","so")

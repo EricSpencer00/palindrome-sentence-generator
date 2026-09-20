@@ -1563,6 +1563,22 @@ constructive expansion is an explicit prepositional benefactive recipient
 frame. Artifact:
 `runs/typed-recipient-dative-equations-20260920.json`.
 
+The benefactive-preposition lane replaced the bare ditransitive recipient with
+an explicit `for`/`to` phrase while retaining typed animate recipients,
+inanimate theme number, and subject agreement. The corrected implementation
+tracks both clause sides independently, uses reverse arrival order only for
+the live character equation, and audits the complete grammatical surface in
+surface order. It visited 36 states, pruned 36 seams, and produced zero
+equation completions and zero exact candidates above 38 letters. Twenty intact
+contemporary-English benefactive controls were independently audited (maximum
+68 letters), including “A sailor brings the seal for the poet while some guards
+offer books to the children.” The earlier run was invalid because its closure
+accumulator was never populated; it is superseded and not counted. No repair,
+reversal, mirrored unit, catalogue text, or fragment was admitted. The next
+construction alternates recipient prepositions under an explicit discourse
+relation. Artifact:
+`runs/benefactive-preposition-equations-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -6117,3 +6117,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   0 exact candidates above 38 survived. The next construction adds a temporal-
   until connector edge. Artifact:
   `runs/word-boundary-conditional-graph-20260920.json`.
+
+- **Iterative modal-passive topology, 2026-09-20:** introduced a typed
+  `again-being` iterative state before the modal passive beneficiary/agent/
+  theme frame. Across target lengths 44/56/68/80 it visited 1,278 states and
+  made 460 live factor prunes, with 0 complete parses and 0 exact candidates
+  above 38. The next construction is frequentative modal passive. Artifact:
+  `runs/iterative-modal-passive-csp-20260920.json`.
+
+- **Indexed relative residual trie, 2026-09-20:** carried endpoint residual
+  classes through two indexed relative attachments, filtering subject-number
+  agreement before emission. It tested 81 transitions, pruned 72 endpoints,
+  and retained 81 scenes to 92 letters; 0 exact candidates above 38 survived.
+  The best scene remains attachment-awkward, so the next construction carries
+  multi-character residual buffers. Artifact:
+  `runs/indexed-relative-residual-trie-20260920.json`.
+
+- **Temporal-until connector graph, 2026-09-20:** added a typed duration
+  relation to the conditional attachment graph. Four frames incurred
+  1,769,472 live boundary prunes and retained 20 ordinary-prose near-miss
+  diagnostics to 186 letters; 0 exact candidates above 38 survived. The next
+  construction adds a since/while duration connector. Artifact:
+  `runs/word-boundary-temporal-until-graph-20260920.json`.

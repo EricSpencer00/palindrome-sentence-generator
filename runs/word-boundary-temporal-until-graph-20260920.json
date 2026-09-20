@@ -1,6 +1,6 @@
 {
   "experiment_id": "word-boundary-temporal-until-graph-20260920",
-  "method": "bounded word-boundary grammar automaton with four finite event relations, explicit attachment graph, and typed conditional connector edge",
+  "method": "bounded word-boundary grammar automaton with four finite event relations, explicit attachment graph, and typed temporal-until connector edge",
   "stats": {
     "frames": 4,
     "states_pruned_live": 1769472,
@@ -755,11 +755,11 @@
   "novelty_preflight": {
     "status": "passed",
     "signature": "word-boundary-aware|temporal-until-relation|connector-edge|live-equations",
-    "distinct_from": "concessive connector graph: adds a typed conditional relation without increasing the event count"
+    "distinct_from": "conditional connector graph: adds a typed temporal-until duration relation without increasing the event count"
   },
   "next_topology": {
-    "if_no_closure": "add a temporal-until connector edge with explicit attachment and tense state",
-    "reason": "current conditional connector frame bank has no exact closure above the reader threshold"
+    "if_no_closure": "add a since/while duration connector edge with explicit attachment and tense state",
+    "reason": "current temporal-until connector frame bank has no exact closure above the reader threshold"
   },
   "status": "no fresh exact >38 closure; grammatical near-misses and next topology recorded"
 }

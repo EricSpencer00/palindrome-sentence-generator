@@ -64,6 +64,7 @@ def build() -> None:
     ]
     diag = [
         [p("Length", th), p("Rendered diagnostic", th), p("Disposition", th)],
+        [p("44", small), p("Was Noel an era, a gas, an item? Met in a, saga, arena, Leon saw.", small), p("Best human-looking diagnostic, but contains a proper self-palindromic multiword span and a fragmentary answer.", small)],
         [p("47", small), p("Some mad loss went save no level; one vast news sold a memos.", small), p("Malformed clause boundaries and determiner/noun agreement.", small)],
         [p("50", small), p("To new one post is an evening. Is sign in even as its open owe. Not.", small), p("Mechanically admitted, but incoherent and not reader-certified.", small)],
         [p("56", small), p("No evil Noel deliver desserts raw; war stressed reviled Leon live on.", small), p("Aligned whole-token semordnilap chain; withdrawn shortcut.", small)],

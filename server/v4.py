@@ -37,6 +37,13 @@ ALTERNATE_EXACT_TEXT = "Some men inspire Diana; an aide rips nine memos."
 # reader study under the no-shortcuts and intact-prose gates.
 EXACT_DIAGNOSTIC_SUMMARY = [
     {
+        "run_id": "polar-question-boundary-repair-20260918",
+        "rendered": "Was Noel an era, a gas, an item? Met in a, saga, arena, Leon saw.",
+        "letters": 44,
+        "status": "exact_withdrawn_diagnostic",
+        "disposition": "best human-looking diagnostic, but rejected for a proper self-palindromic multiword span and fragmentary answer",
+    },
+    {
         "run_id": "broad-pos-clause-intersection-corrected-20260920",
         "rendered": "Some mad loss went save no level; one vast news sold a memos.",
         "letters": 47,

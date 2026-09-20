@@ -41,8 +41,10 @@ def test_v4_evidence_contains_actual_rendered_candidate_and_independent_audit():
     assert "longest 50 letters" in candidate["provenance"]["search_summary"]["latest_dream_rsi_repair"]
     assert candidate["provenance"]["search_summary"]["longest_admitted_exact_letters"] == 38
     assert candidate["provenance"]["search_summary"]["longest_mechanical_diagnostic_letters"] == 132
-    assert body["exact_diagnostic_summary"][0]["letters"] == 47
-    assert body["exact_diagnostic_summary"][0]["status"] == "exact_mechanical_diagnostic"
+    diagnostic_rows = {row["run_id"]: row for row in body["exact_diagnostic_summary"]}
+    assert diagnostic_rows["polar-question-boundary-repair-20260918"]["letters"] == 44
+    assert diagnostic_rows["broad-pos-clause-intersection-corrected-20260920"]["letters"] == 47
+    assert diagnostic_rows["broad-pos-clause-intersection-corrected-20260920"]["status"] == "exact_mechanical_diagnostic"
     assert candidate["promotion_status"] == "gated_pending_blinded_readers"
     assert candidate["rlaif"]["certifies_readability"] is False
     frontier = body["repair_frontier"]

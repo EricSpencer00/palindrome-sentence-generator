@@ -32,8 +32,11 @@ The current benchmark remains the independently verified 38-letter sentence:
 
 This is the **best admitted** result, not the longest mechanically exact string
 ever seen in the ledger.  The audit ledger also contains exact diagnostics at
-47, 50, 56, 66, and 132 letters.  They are not progress claims: the 47-letter
-row has malformed clause boundaries and determiner agreement, the 50/66-letter
+44, 47, 50, 56, 66, and 132 letters.  They are not progress claims: the
+44-letter `Was Noel an era, a gas, an item? Met in a, saga, arena, Leon saw.`
+is the best human-looking diagnostic but contains a proper self-palindromic
+multiword span and fragmentary answer; the 47-letter row has malformed clause
+boundaries and determiner agreement, the 50/66-letter
 Dream-RSI rows are incoherent or contain a hidden self-palindromic span, the
 56-letter row is an aligned whole-token semordnilap chain, and the 132-letter
 row embeds the complete 38-letter anchor.  The paper and API therefore report

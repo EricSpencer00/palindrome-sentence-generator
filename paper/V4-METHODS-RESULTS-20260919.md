@@ -679,6 +679,22 @@ is the current stopped lexical baseline; the next construction must add a
 different semantic center or a larger complete-role grammar, not repair a
 rendered tape.
 
+### Center-seeded semantic expansion
+
+The center-seeded lane tested the opposite construction order: choose a center
+first, reject non-palindromic grammatical centers by the exact central invariant,
+then grow complete semantic role pairs outward while checking the exposed
+characters before each transition. Four lexical centers (`level`, `radar`,
+`refer`, and `noon`) survived the center gate; 100 outer transitions were tested
+and all were rejected at the first character obligation. It produced no complete
+candidate and no reader-facing text. This is a valid negative construction, but
+it also identifies why a simple word-level center is too rigid: ordinary English
+phrase pairs need residual debt to cross word boundaries, not whole-word outer
+matches. The next lane therefore changes the chart representation to combine
+complete constituents with live character residuals; it does not repair a
+rendered draft. The independent artifact is
+`runs/center-seeded-semantic-expansion-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -124,6 +124,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_typed_central_residual_clause_csp": "Three-by-two-by-three typed assignments with a complete authored center sentence: 18 character transitions, controls to 118 letters, zero exact closures above 38",
         "latest_chart_phrase_path": "160 independently authored chart paths including 40 held-out relative and 40 held-out passive-complement paths and 25,440 live unequal-boundary states, controls to 120 letters, zero exact closures above 38",
         "latest_dependency_frame_center_seam": "15 dependency-frame states including 3 held-out ditransitive and 3 held-out benefactive frames with attachment/valency/agreement across a complement seam, controls to 119 letters, zero exact closures above 38",
+        "latest_apposition_seam_grammar": "48 independently authored clause joins across comma, coordination, and appositive seams, longest control 79 letters, zero live or exact closures above 38",
         "reader_study": "not run",
     },
 }
@@ -1233,6 +1234,7 @@ OPTIMIZATION_SPEC = {
         "typed-central-residual-clause-csp-20260920",
         "chart-phrase-path-20260920",
         "dependency-frame-center-seam-20260920",
+        "apposition-seam-grammar-20260920",
         "broad-lexical-boundary-wfsa-20260925",
         "variable-boundary-lattice-decoder-20260926",
         "paired-clause-lattice-20260927",

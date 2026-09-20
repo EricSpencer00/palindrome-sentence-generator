@@ -2689,3 +2689,13 @@ Each row has the independent two-pointer and forward/reverse SHA-256 audits,
 with no reversal, repair, mirrored units, or catalogue text. The next
 construction is an agreement-sensitive relative-complement frame with
 alternate attachment.
+
+The coordination/apposition lane changed only the sentence-boundary grammar,
+not the lexical bank. Four independently authored complete clauses were joined
+through comma, conjunction, or appositive seams, and each opposing character
+was checked before the next state was admitted. It rendered 48 complete
+controls, with no live closure and no exact candidate above 38 letters; the
+longest control was 79 letters. Every row carries independent two-pointer and
+forward/reverse SHA-256 audits plus anti-shortcut provenance. The next
+construction adds a held-out temporal appositive seam, and no reader evidence
+is claimed for these non-exact controls.

@@ -1,0 +1,57 @@
+{
+  "experiment_id": "phrase-cfg-slot-seam-length-solver-20260920",
+  "method": "slot-specific first/last domains with word-boundary seam lengths before lexicalization",
+  "grammar": [
+    "S -> NP VP PP",
+    "NP -> DET ADJ NOUN",
+    "VP -> V NP",
+    "PP -> TAIL"
+  ],
+  "stats": {
+    "left_phrases": 240,
+    "right_phrases": 240,
+    "admissible_slot_pairs": 0,
+    "slot_domain_pair_support": {
+      "TAIL": 14400,
+      "OBJ": 4928,
+      "DET2": 5760
+    },
+    "slot_length_pair_support": {
+      "DET": 57600,
+      "ADJ": 57600,
+      "SUBJ": 57600,
+      "VERB": 57600,
+      "DET2": 43008,
+      "OBJ": 57600,
+      "TAIL": 36000
+    },
+    "lexicalized_character_states": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 0
+  },
+  "complete_prose_controls": [
+    "The patient sailor guards the harbor at dawn.",
+    "A careful writer reads the letter before rain."
+  ],
+  "best_diagnostic": {
+    "matched": 0,
+    "left": "",
+    "right": "",
+    "compatible_slots": 0
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-slot-seam-length-solver-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-slot-domain-solver-20260920"
+  },
+  "next_construction": "Propagate boundary domains through adjacent slots rather than requiring independent slot compatibility; retain seam lengths before lexicalization.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

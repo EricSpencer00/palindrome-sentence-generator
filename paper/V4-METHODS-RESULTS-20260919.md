@@ -1906,3 +1906,18 @@ audits, and the next constructive step: enlarge the vivid role lexicon while
 indexing endpoint character classes before optional PP expansion. This is
 construction evidence, not readability evidence; no output enters the reader
 package.
+
+## Frame-yield endpoint classes and live obligation buckets
+
+As the next bounded construction, typed transitive argument frames were
+indexed by their yielded tape endpoints plus agreement number and valency.
+The opposite frame bucket was queried before paired expansion, while every
+candidate obligation still required immediate character matching. This differs
+from phrase-envelope endpoint sweeps because the key is a semantic frame yield
+and its grammatical bundle, not a completed lexical phrase. The run visited
+36 endpoint buckets and 540 bounded bucket probes, rendered one intact
+contemporary control, and found no exact closure above 38 letters. The control
+and independent pointer/SHA audit are in
+`runs/frame-yield-endpoint-buckets-20260926.json`; no row is reader evidence.
+The next constructive step is to add vivid ditransitive and locative role
+frames to the same endpoint buckets before optional adjunct expansion.

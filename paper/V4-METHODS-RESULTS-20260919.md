@@ -1089,6 +1089,15 @@ next construction adds authored dialogue-response complements before the
 search space is reassessed. Artifact:
 `runs/shakespeare-complement-pronoun-reverse-lattice-20260920.json`.
 
+The final scene-vocabulary lane added authored dialogue-response predicates
+(`asks`, `replies`, `answers`, `speaks-to`) with pronoun-bearing complements and
+PP/relative attachments. It produced 801 complete dialogue paths and 2,403
+reverse-trie states; no fresh exact parse above 38 letters appeared. Complete
+dialogue controls reached 53 and 63 letters and passed independent pointer/SHA
+audits. The next step is reader packaging for the strongest intact controls,
+not another repair or surface feature. Artifact:
+`runs/shakespeare-dialogue-response-reverse-lattice-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

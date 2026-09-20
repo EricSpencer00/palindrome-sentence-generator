@@ -1,0 +1,53 @@
+{
+  "experiment_id": "character-cfg-opposite-depth-agreement-20260920",
+  "method": "opposite complementizer depth with opposite embedded agreement",
+  "grammar": [
+    "depth1 NP -> DET NOUN COMP S",
+    "depth2 NP -> DET NOUN COMP NP COMP S",
+    "COMP -> that|as",
+    "embedded V agrees"
+  ],
+  "stats": {
+    "depth1_sg": 180,
+    "depth2_pl": 81,
+    "chart_states": 17212,
+    "depth_pair_support": {
+      "depth1-sg/depth2-pl": 14580,
+      "depth2-pl/depth1-sg": 14580
+    },
+    "center_mismatch_support": {
+      "t/s": 14580,
+      "a/t": 14580
+    },
+    "outer_twochar_states": 1440,
+    "joint_closures": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_score": 1
+  },
+  "complete_prose_controls": [
+    "The sailor that the poet reads guards the harbor.",
+    "The writers as the guides that the sailors read guide the harbor."
+  ],
+  "best_diagnostic": {
+    "score": 1,
+    "left": "a guides as a guides as a guides guide a guides",
+    "right": "a area that a area guides a area",
+    "orientation": "depth2-pl/depth1-sg",
+    "outer_seam": true
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "character-cfg-opposite-depth-agreement-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "character-cfg-opposite-complementizer-depth-20260920"
+  },
+  "next_construction": "Pair opposite depths with a semantic attachment relation while preserving opposite agreement and direct center equality.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

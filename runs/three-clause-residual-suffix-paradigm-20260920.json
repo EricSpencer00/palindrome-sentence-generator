@@ -1,0 +1,89 @@
+{
+  "experiment_id": "three-clause-residual-suffix-paradigm-20260920",
+  "signature": "three-clause|residual-suffix-vector|held-out-auxiliary|agreement-live-csp",
+  "method": "three independent grammatical clauses with residual suffix-class vector and held-out auxiliary center",
+  "status": "completed_no_exact_closure",
+  "reader_eligible": false,
+  "stats": {
+    "frame_count": 64,
+    "transitions": 4096,
+    "live_pruned": 4096,
+    "outer_compatible": 0,
+    "rendered_controls_or_closures": 2,
+    "fresh_exact_gt38": 0
+  },
+  "rendered_candidates": [
+    {
+      "rendered": "the quiet keeper marks the old letter by the river; while the bell has sounded; patient poets kept a silver map near the garden.",
+      "control": true,
+      "residual_suffix_vector": {
+        "left_pending_suffix": "er",
+        "right_pending_suffix": "en",
+        "center_prefix": "wh"
+      },
+      "audit": {
+        "rendered": "the quiet keeper marks the old letter by the river; while the bell has sounded; patient poets kept a silver map near the garden.",
+        "letters": 102,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "e0a4ec1f12bdf8082583f341cdc728c8e88f1cd635d63e7576174ad6a97b6d12",
+        "sha256_reverse": "73bf55be094c70bcdcea10c1834c782563602eeac2533f8006a020ec13906f1f"
+      },
+      "provenance": {
+        "independent_outer_frames": true,
+        "held_out_center_auxiliary": true,
+        "live_residual_vector": true,
+        "reader_eligible": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_import": false
+      }
+    },
+    {
+      "rendered": "the quiet keeper marks a silver map near the garden; as the tide turns; a patient poet marks the old letter by the river.",
+      "control": true,
+      "residual_suffix_vector": {
+        "left_pending_suffix": "en",
+        "right_pending_suffix": "er",
+        "center_prefix": "as"
+      },
+      "audit": {
+        "rendered": "the quiet keeper marks a silver map near the garden; as the tide turns; a patient poet marks the old letter by the river.",
+        "letters": 95,
+        "exact": false,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "r"
+        ],
+        "sha256_forward": "52e9fb4b9924cfe0f415c57085a705f4de088612afc466d65bf70a188fc4ae2f",
+        "sha256_reverse": "2d70c316ea67bd3555726330223276f9dc52cfd3404c3d2e5725b3a34d7a64de"
+      },
+      "provenance": {
+        "independent_outer_frames": true,
+        "held_out_center_auxiliary": true,
+        "live_residual_vector": true,
+        "reader_eligible": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "catalogue_import": false
+      }
+    }
+  ],
+  "exact_candidates": [],
+  "provenance": {
+    "generator_sha256": "e56778ab2b5eead7bc8944473c21ba97c00f32c864153615b21237c0899ae0b6",
+    "audits": [
+      "independent two-pointer",
+      "forward/reverse SHA-256"
+    ],
+    "next_construction": "condition a fourth clause on the full two-character residual vector and finite-verb agreement, with a held-out relative auxiliary",
+    "next_reader_test": "blinded human readability only after exact candidate exceeds 38 letters"
+  }
+}

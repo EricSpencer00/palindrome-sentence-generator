@@ -1,0 +1,68 @@
+{
+  "experiment_id": "brown-authored-discourse-reverse-decoder-20260920",
+  "method": "authored discourse-marker frames over Brown-derived domains with complete reverse parsing",
+  "stats": {
+    "complete_forward_frames": 10000,
+    "reverse_states": 10000,
+    "complete_reverse_parses": 0,
+    "rendered_candidates": 0,
+    "exact": 0
+  },
+  "rendered_candidates": [],
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "Then the young man sees the house; now the old woman hears the word.",
+      "audit": {
+        "letters": 53,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "9744dfec20803876b4ca5c00c59649ddc1c8c5e8322bd25f95a8b7e23ebef4c1",
+        "sha256_reverse": "14bcb8ae4675e1ae28bae84ced66f7fd06f17adc179eb836f4fa71d80bb41930",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    },
+    {
+      "rendered": "Now a good boy found the door; then a new girl held the key.",
+      "audit": {
+        "letters": 45,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "n",
+          "y"
+        ],
+        "sha256_forward": "d9231b4df53793537acacf3d144e60ebf8d63dc3d4ce768b5df8a39c3d108468",
+        "sha256_reverse": "63c0512b553c279b43085b174d7c80a4f28a2d2867e99216fb78c568210eca69",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "brown-derived-lexicon|authored-discourse-frame|complete-clause-marker-clause|variable-boundary-reverse-parse",
+    "distinct_from": "prior clause, coordination, and subordination lanes; temporal discourse markers are authored frame constituents",
+    "catalogue_text": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false
+  },
+  "provenance": {
+    "bank": "data/brown_pcfg_bank_20260920.json",
+    "bank_sha256": "53037c8356cf0bd387985fb085c5d41823ce5ea1d7c27c86c4ad50b25b72d322",
+    "generator_sha256": "b0d2c62c440ca6addb61aca92231757fb0a8201397715208d29c6b09a3bee5fa",
+    "audits": [
+      "independent two-pointer mismatch",
+      "forward/reverse SHA-256"
+    ],
+    "marker_policy": "then and now admitted from Brown-derived ADV forms; however/therefore unavailable in frozen bank",
+    "next_reader_test": "randomized blinded ratings of intact discourse frames versus shuffled controls"
+  },
+  "status": "no fresh exact parse in this lane",
+  "next_construction": "prepare reader package if exact rows survive; otherwise author a new event-chain grammar"
+}

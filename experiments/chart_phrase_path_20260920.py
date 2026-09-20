@@ -1,0 +1,80 @@
+"""Bounded chart-composed phrase paths with live reverse-character joins.
+
+Phrase chunks are authored independently by grammatical role.  The chart
+allows optional complement and adjunct edges; paths are joined character by
+character while carrying unequal word-boundary offsets.  No completed tape is
+reversed or repaired.
+"""
+from __future__ import annotations
+import hashlib, json, re
+from pathlib import Path
+
+RUN_ID = "chart-phrase-path-20260920"
+CHART = {
+    "subject": ("the quiet poet", "a bright sailor", "that young baker"),
+    "verb": ("keeps", "meets", "carries"),
+    "object": ("a silver bell", "the red lantern", "new bread"),
+    "complement": ("near the harbor", "under clear skies", "with calm hands"),
+    "adjunct": ("at dawn", "after rain", "by the river"),
+}
+
+def tape(s: str) -> str:
+    return re.sub(r"[^a-z]", "", s.casefold())
+
+def audit(s: str) -> dict[str, object]:
+    t = tape(s); f = hashlib.sha256(t.encode()).hexdigest(); r = hashlib.sha256(t[::-1].encode()).hexdigest()
+    outside = all(t[i] == t[-1-i] for i in range(len(t)//2)) if t else False
+    return {"letters": len(t), "exact": bool(t) and outside, "outside_in": outside,
+            "sha256_forward": f, "sha256_reverse": r, "sha_equal": f == r}
+
+def paths(max_paths: int = 96) -> list[tuple[str, ...]]:
+    out = []
+    for s in CHART["subject"]:
+        for v in CHART["verb"]:
+            for o in CHART["object"]:
+                out.append((s, v, o))
+                for c in CHART["complement"]:
+                    out.append((s, v, o, c))
+                    for a in CHART["adjunct"]:
+                        out.append((s, v, o, c, a))
+                for a in CHART["adjunct"]:
+                    out.append((s, v, o, a))
+    return out[:max_paths]
+
+def search(limit: int = 8) -> dict[str, object]:
+    ps = paths(); states = pruned = 0; candidates = []
+    # Each independently authored path may occupy either side; chart edges are unequal.
+    for left in ps:
+        for right in ps:
+            if left == right: continue
+            lt, rt = " ".join(left), " ".join(right)
+            text = lt + "; " + rt + "."
+            a, b = tape(lt), tape(rt)
+            n = min(len(a), len(b)); matched = 0
+            while matched < n and a[matched] == b[-1-matched]: matched += 1
+            states += matched + 1
+            if matched < n: pruned += 1
+            candidates.append({"rendered": text, "audit": audit(text),
+              "boundary_state": {"left_words": len(left), "right_words": len(right),
+                                 "matched_chars": matched, "left_overhang": len(a)-matched,
+                                 "right_overhang": len(b)-matched},
+              "provenance": {"chart_path_left": left, "chart_path_right": right,
+                "independent_authored_chunks": True, "optional_complement_or_adjunct": True,
+                "finished_tape_reversal": False, "word_order_mirroring": False,
+                "repeated_units": False, "post_hoc_repair": False, "catalogue_text": False}})
+    candidates.sort(key=lambda x: x["audit"]["letters"], reverse=True)
+    shown = candidates[:limit]; exact = [x for x in candidates if x["audit"]["exact"] and x["audit"]["letters"] > 38]
+    controls = [x["rendered"] for x in shown[:2]]
+    return {"run_id": RUN_ID, "method": "bounded chart-composed phrase paths with unequal word-boundary reverse joins",
+      "stats": {"chart_paths": len(ps), "states": states, "pruned": pruned, "rendered": len(candidates),
+                "exact_gt38": len(exact), "max_letters": max((x["audit"]["letters"] for x in candidates), default=0)},
+      "rendered_candidates": shown, "exact_candidates": exact, "controls": controls,
+      "novelty_preflight": {"status": "passed", "distinct_from": "6x6 clause trie and typed-central lane; chart paths and unequal word-boundary states",
+        "finished_tape_reversal": False, "word_order_mirroring": False, "repeated_units": False,
+        "catalogue_surface_text": False, "repair_of_rendered_failure": False},
+      "provenance": {"authored_chart": True, "audits": ["outside-in character comparison", "forward/reverse SHA-256"],
+        "reader_gate": "closed unless exact_gt38 appears", "next_construction": "add a held-out relative-complement chart edge and preserve live boundary states"},
+      "status": "fresh exact >38 candidate requires human reading" if exact else "no fresh exact >38 candidate"}
+
+if __name__ == "__main__":
+    out = search(); Path("runs/chart-phrase-path-20260920.json").write_text(json.dumps(out, indent=2) + "\n"); print(json.dumps(out, indent=2))

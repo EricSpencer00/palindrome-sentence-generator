@@ -6662,3 +6662,24 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   exact candidates above 38. The next construction adds cross-event attachment
   scope and temporal connector state. Artifact:
   `runs/shared-scene-event-order-tense-20260920.json`.
+
+- **Instrument/source attachment, 2026-09-20:** added held-out instrument and
+  source attachment frames with agreement state to the independent full-clause
+  factorization. The bounded run visited 5,000 states, pruned 4,499, and
+  reached no complete two-sided parse; its longest intact control was 108
+  letters and exact count above 38 was 0. The next construction adds recipient
+  and theme attachment frames. Artifact:
+  `runs/instrument-source-attachment-csp-20260920.json`.
+
+- **Unequal-slot residual carryover, 2026-09-20:** let unequal subject, verb,
+  object, and adjunct lengths carry residual text across 1,767 incremental
+  steps. It retained 27 diagnostics up to 58 letters, with 0 exact candidates
+  above 38. The next construction types residual carryover by semantic role.
+  Artifact: `runs/unequal-slot-residual-carry-20260920.json`.
+
+- **Cross-event temporal scope, 2026-09-20:** added two connector-scope states
+  (`then`/`while`) to the ordered, tense-compatible two-event scene graph. It
+  checked 972 online prunes and retained 20 complete controls up to 66 letters,
+  with 0 exact candidates above 38. The next construction adds causal and
+  concessive scope alternatives with attachment gating. Artifact:
+  `runs/shared-scene-cross-event-scope-20260920.json`.

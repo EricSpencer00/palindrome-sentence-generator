@@ -3930,3 +3930,23 @@ independently typed scene graph. It checked 486 online prunes and retained 20
 complete controls up to 65 letters, with zero exact candidates above 38. The
 next construction adds cross-event attachment scope and temporal connector
 state. Artifact: `runs/shared-scene-event-order-tense-20260920.json`.
+
+The instrument/source attachment lane added held-out attachment frames with
+agreement state to independent full-clause factorization. Its bounded run
+visited 5,000 states, pruned 4,499, and reached no complete two-sided parse;
+the longest intact control was 108 letters and the exact count above 38 was
+zero. The next construction adds recipient and theme attachment frames.
+Artifact: `runs/instrument-source-attachment-csp-20260920.json`.
+
+The unequal-slot residual lane carried residual text across 1,767 incremental
+steps while subject, verb, object, and adjunct lengths varied. It retained 27
+diagnostics up to 58 letters, with zero exact candidates above 38. The next
+construction types residual carryover by semantic role. Artifact:
+`runs/unequal-slot-residual-carry-20260920.json`.
+
+The cross-event temporal-scope lane added two connector states (`then`/`while`)
+to the ordered, tense-compatible two-event graph. It checked 972 online prunes
+and retained 20 complete controls up to 66 letters, with zero exact candidates
+above 38. The next construction adds causal and concessive scope alternatives
+with attachment gating. Artifact:
+`runs/shared-scene-cross-event-scope-20260920.json`.

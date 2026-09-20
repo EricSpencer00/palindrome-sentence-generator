@@ -429,14 +429,17 @@ the next method changes the boundary representation itself.
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:
 grammar boundaries and mirrored character orbits must be selected together,
-so an off-tape prose draft is never promoted into a repair queue. The
-paired-slot clause DFS, two-sided semantic orbit product, its semantic-slot
-extension, and the semantic-role character FSM are the working generation
-claim; earlier
-repair runs remain auditable evidence and controls, but they are no longer the
-paper's proposed route to a readable palindrome. The semordnilap intersection
-is now the active constructive route; exactness is necessary, while human
-readability remains an independent gate.
+so an off-tape prose draft is never promoted into a repair queue. The next
+construction is a whole-sentence grammar intersection: compile one fresh
+sentence grammar into lexical character tries, then search the forward and
+reverse derivation frontiers together while carrying POS, semantic-role, and
+word-boundary state. The complete sentence—not two pre-paired clauses—is the
+object being generated. The paired-slot clause DFS, two-sided semantic orbit
+product, its semantic-slot extension, and the semantic-role character FSM are
+retained as prior exact-by-construction baselines; earlier repair runs and the
+semordnilap rows remain auditable diagnostics, not the paper's proposed route
+to readable prose. Exactness is necessary, while human readability remains an
+independent gate.
 
 ## Reader evidence and API gate
 

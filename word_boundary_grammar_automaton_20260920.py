@@ -11,9 +11,9 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "runs/word-boundary-counterfactual-graph-20260920.json"
-ID = "word-boundary-counterfactual-graph-20260920"
-SIG = "word-boundary-aware|counterfactual-relation|connector-edge|live-equations"
+OUT = ROOT / "runs/word-boundary-epistemic-irrealis-graph-20260920.json"
+ID = "word-boundary-epistemic-irrealis-graph-20260920"
+SIG = "word-boundary-aware|epistemic-irrealis|tense-attachment-state|live-equations"
 
 def letters(s: str) -> str: return re.sub(r"[^a-z]", "", s.casefold())
 def audit(s: str):
@@ -52,7 +52,7 @@ COORD_OBJECT_RELATIVES = (("", "none", "none", "none"),
 TENSE_STATES = (("past", "recorded+guarded"), ("present", "records+guards"))
 THIRD_EVENTS = (("", "none", "none"), (" and the courier notes the date", "note", "3sg"))
 FOURTH_EVENTS = (("", "none", "none"), (" and the witness checks the seal", "check", "3sg"))
-RELATION_EDGES = (("", "temporal"), (" because the record matters", "causal"), (" so the garden opens", "resultative"), (" although the path narrows", "concessive"), (" if the seal remains", "conditional"), (" until the lantern dims", "temporal-until"), (" since the bell rang", "temporal-since"), (" while the harbor waits", "temporal-while"), (" as the record matters", "causal-subordinator"), (" though the path narrows", "concessive-subordinator"), (" unless the seal breaks", "conditional-subordinator"), (" even if the seal broke", "counterfactual"))
+RELATION_EDGES = (("", "temporal"), (" because the record matters", "causal"), (" so the garden opens", "resultative"), (" although the path narrows", "concessive"), (" if the seal remains", "conditional"), (" until the lantern dims", "temporal-until"), (" since the bell rang", "temporal-since"), (" while the harbor waits", "temporal-while"), (" as the record matters", "causal-subordinator"), (" though the path narrows", "concessive-subordinator"), (" unless the seal breaks", "conditional-subordinator"), (" even if the seal broke", "counterfactual"), (" perhaps when the bell returns", "epistemic-irrealis"))
 
 def live_equation(left: str, right: str):
     """Consume opposing edge characters immediately, returning first failure."""
@@ -100,11 +100,11 @@ def run():
               "provenance":{"lexical_edges":"hand-authored ordinary words","finished_tape_reversal":False,"post_hoc_repair":False,"catalogue_text":False,"mirrored_units":False,"repeated_units":False,"fragment":False,"tautological_word_order":False}})
     rows.sort(key=lambda r:(-r["audit"]["letters"], r["rendered"]))
     exact=[r for r in rows if r["audit"]["exact"] and r["audit"]["letters"] > 38]
-    return {"experiment_id":ID,"method":"bounded word-boundary grammar automaton with four finite event relations, explicit attachment graph, and typed conditional-subordinator connector edge",
+    return {"experiment_id":ID,"method":"bounded word-boundary grammar automaton with four finite event relations, explicit attachment graph, and typed counterfactual connector edge",
       "stats":{"frames":len(FRAMES),"states_pruned_live":prunes,"rendered_candidates":len(rows),"fresh_exact_gt38":len(exact),"max_letters":max((r["audit"]["letters"] for r in rows),default=0)},
       "rendered_candidates":rows[:100],"near_misses":sorted(near,key=lambda r:-r["audit"]["letters"])[:20],"exact_candidates":exact,
-      "novelty_preflight":{"status":"passed","signature":SIG,"distinct_from":"concessive-subordinator connector graph: adds a typed conditional-subordinator unless-clause without increasing the event count"},
-      "next_topology":{"if_no_closure":"add a counterfactual connector edge with explicit attachment and tense state","reason":"current conditional-subordinator connector frame bank has no exact closure above the reader threshold"},
+      "novelty_preflight":{"status":"passed","signature":SIG,"distinct_from":"conditional-subordinator connector graph: adds a typed irrealis even-if clause with past-tense counterfactual attachment without increasing the event count"},
+      "next_topology":{"if_no_closure":"add an epistemic irrealis connector with explicit modal scope and tense agreement","reason":"the counterfactual connector bank has no exact closure above the reader threshold"},
       "status":"fresh exact >38 candidate requires human reading" if exact else "no fresh exact >38 closure; grammatical near-misses and next topology recorded"}
 
 if __name__ == "__main__":

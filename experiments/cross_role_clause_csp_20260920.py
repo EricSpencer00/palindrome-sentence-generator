@@ -38,13 +38,22 @@ SHAPES=(('svo',('NAME','VERB','DET','NOUN')),('svo_name',('DET','NOUN','VERB','N
 
 def valid(shape, words):
     w=[norm(x) for x in words]
-    if shape[1] != 'VERB' and 'VERB' in shape: return False
+    if 'VERB' not in shape: return False
     if shape[-1]=='PLACE' and w[-2] not in PREPS: return False
     if shape.count('PREP') and w[shape.index('PREP')] not in PREPS: return False
     v=w[shape.index('VERB')]
     if 'PREP' not in shape and v not in TRANS|DITR: return False
     if shape.count('PREP')==1 and shape[-1]=='NAME' and v not in DITR: return False
     return True
+
+def proper_palindrome_span(words):
+    toks=[norm(x) for x in words]
+    for i in range(len(toks)):
+        for j in range(i+2,len(toks)+1):
+            if i==0 and j==len(toks): continue
+            t=''.join(toks[i:j])
+            if t and t==t[::-1]: return True
+    return False
 
 def search(left_shape,right_shape,max_states=120000):
     # State contains only current word buffers and residual character offsets;
@@ -56,11 +65,11 @@ def search(left_shape,right_shape,max_states=120000):
         if key in seen: continue
         seen.add(key)
         if li==len(left_shape) and ri<0 and not lb and not rb:
-            if valid(left_shape,L) and valid(right_shape,R) and norm(' '.join(L))!=norm(' '.join(R)):
+            if valid(left_shape,L) and valid(right_shape,R) and not proper_palindrome_span(L+R) and norm(' '.join(L))!=norm(' '.join(R)):
                 text=' '.join(L)+'; '+' '.join(R)+'.'; a=audit(text)
                 if a['exact'] and a['letters']>38 and len(set(norm(text)))>5:
                     exact.append({'rendered':text,'length':a['letters'],'audit':a,'left_roles':left_shape,'right_roles':right_shape,
-                      'provenance':{'cross_role':True,'online_residual_consumption':True,'complete_clauses':True,'finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'repeated_units':False}})
+                      'provenance':{'cross_role':True,'online_residual_consumption':True,'complete_clauses':True,'finished_tape_reversal':False,'post_hoc_repair':False,'catalogue_text':False,'repeated_units':False,'proper_palindrome_span':False}})
             continue
         lvals=(lb,) if lb else (left_items[left_shape[li]] if li<len(left_shape) else ())
         rvals=(rb,) if rb else (right_items[right_shape[ri]] if ri>=0 else ())

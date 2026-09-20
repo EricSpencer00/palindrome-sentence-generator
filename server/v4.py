@@ -80,6 +80,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_corpus_phrase_pair_dp": "2,832 synchronized transitions; 160 complete controls; longest 90 letters; zero exact >38 closure",
         "latest_manual_bilateral_author": "63,504 fresh clause pairs; longest 120 letters; zero exact >38 closure",
         "latest_endpoint_width2": "4,374 width-1 survivors reduced to 1,458 width-2 survivors; longest 104 letters; zero exact >38 closure",
+        "latest_endpoint_width3": "729 width-1 survivors reduced to 243 width-3 survivors; longest 84 letters; zero exact >38 closure",
         "reader_study": "not run",
     },
 }

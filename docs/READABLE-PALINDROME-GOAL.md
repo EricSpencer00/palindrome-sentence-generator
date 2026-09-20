@@ -6683,3 +6683,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   with 0 exact candidates above 38. The next construction adds causal and
   concessive scope alternatives with attachment gating. Artifact:
   `runs/shared-scene-cross-event-scope-20260920.json`.
+
+- **Recipient/theme attachment, 2026-09-20:** added held-out recipient and
+  theme attachment frames with agreement state to the independent full-clause
+  factorization. The bounded run visited 5,000 states, pruned 4,499, and
+  reached no complete two-sided parse; its longest intact control was 108
+  letters and exact count above 38 was 0. The next construction adds argument
+  alternation frames. Artifact:
+  `runs/recipient-theme-attachment-csp-20260920.json`.
+
+- **Role-typed unequal residuals, 2026-09-20:** labeled residual carryover as
+  agent, event, theme, or setting and delayed pruning until role-compatible
+  closure. It checked 108 typed role steps across 27 scenes, retained
+  diagnostics up to 58 letters, and found 0 exact candidates above 38. The next
+  construction allows typed cross-role residual transitions. Artifact:
+  `runs/role-typed-unequal-residual-20260920.json`.
+
+- **Causal/concessive scope, 2026-09-20:** added attachment-gated causal and
+  concessive connector states to the ordered, tense-compatible two-event graph.
+  It checked 972 online prunes and retained 20 complete controls up to 69
+  letters, with 0 exact candidates above 38. The next construction adds
+  modality scope and event-entailment gating. Artifact:
+  `runs/shared-scene-causal-concessive-scope-20260920.json`.

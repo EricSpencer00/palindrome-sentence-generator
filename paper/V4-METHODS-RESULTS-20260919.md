@@ -3950,3 +3950,23 @@ and retained 20 complete controls up to 66 letters, with zero exact candidates
 above 38. The next construction adds causal and concessive scope alternatives
 with attachment gating. Artifact:
 `runs/shared-scene-cross-event-scope-20260920.json`.
+
+The recipient/theme attachment lane added held-out attachment frames with
+agreement state to independent full-clause factorization. Its bounded run
+visited 5,000 states, pruned 4,499, and reached no complete two-sided parse;
+the longest intact control was 108 letters and the exact count above 38 was
+zero. The next construction adds argument alternation frames. Artifact:
+`runs/recipient-theme-attachment-csp-20260920.json`.
+
+The role-typed unequal-residual lane labeled carryover as agent, event, theme,
+or setting and delayed pruning until role-compatible closure. It checked 108
+typed role steps across 27 scenes, retaining diagnostics up to 58 letters with
+zero exact candidates above 38. The next construction allows typed cross-role
+residual transitions. Artifact:
+`runs/role-typed-unequal-residual-20260920.json`.
+
+The causal/concessive-scope lane added attachment-gated connector states to the
+ordered, tense-compatible two-event graph. It checked 972 online prunes and
+retained 20 complete controls up to 69 letters, with zero exact candidates above
+38. The next construction adds modality scope and event-entailment gating.
+Artifact: `runs/shared-scene-causal-concessive-scope-20260920.json`.

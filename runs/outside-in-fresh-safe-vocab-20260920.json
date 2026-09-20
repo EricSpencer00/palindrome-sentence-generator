@@ -16,6 +16,32 @@
     "exact": 0
   },
   "best_rendered_tapes": [],
+  "control_rendered_tapes": [
+    {
+      "rendered": "The careful writer reads a quiet book.",
+      "audit": {
+        "normalized": "thecarefulwriterreadsaquietbook",
+        "letters": 31,
+        "two_pointer_exact": false,
+        "sha256_forward": "688f6fef884bbd1b95f187f7ad6b9b2d792785dbe15077ca53272b8fe6ab9e8b",
+        "sha256_reverse": "3504aa216db7eb58d0ec80d24ee55ee37651bbf84e195c0ffb2969ddc1e62013"
+      },
+      "source": "intact prose control",
+      "reader_status": "control only"
+    },
+    {
+      "rendered": "A kind teacher helps the young student.",
+      "audit": {
+        "normalized": "akindteacherhelpstheyoungstudent",
+        "letters": 32,
+        "two_pointer_exact": false,
+        "sha256_forward": "311836de9d89d23a164928a621ec944206710e7ee66c55c8e822c7724d6bb615",
+        "sha256_reverse": "3faf72c9741bd7de953e448f4c06a411b108f99d20e06b73a530481ae697a50d"
+      },
+      "source": "intact prose control",
+      "reader_status": "control only"
+    }
+  ],
   "complete_prose_controls": [
     "The careful writer reads a quiet book.",
     "A kind teacher helps the young student."
@@ -37,5 +63,5 @@
     "vocabulary_sha256": "1a79a347a2e60c5916a3c07b930d47ac3bf1fe034cd54051536f72e983c5abf0",
     "reader_gate": "all outputs are diagnostics until blinded human evaluation"
   },
-  "next_construction": "Use the best intact overhang tape as a seed for a semantic-valency paired chart, without mutating a finished tape."
+  "next_construction": "Use a semantic-valency paired chart with fresh lexical choices, without mutating a finished tape."
 }

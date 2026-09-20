@@ -122,9 +122,9 @@ BEST_KNOWN_PROVENANCE = {
         "latest_character_clause_trie_csp": "Six independently authored complete clauses per side joined through a reverse character trie: six prefix steps, zero exact joins, and complete prose controls retained",
         "latest_clitic_boundary_residual_lockstep": "Eighteen fresh agreement/clitic frames, 324 full residual-vector transitions, and two complete prose controls to 72 letters; zero exact closures above 38",
         "latest_typed_central_residual_clause_csp": "Three-by-two-by-three typed assignments with a complete authored center sentence: 18 character transitions, controls to 118 letters, zero exact closures above 38",
-        "latest_chart_phrase_path": "160 independently authored chart paths including 40 held-out relative and 40 held-out passive-complement paths and 25,440 live unequal-boundary states, controls to 120 letters, zero exact closures above 38",
-        "latest_dependency_frame_center_seam": "15 dependency-frame states including 3 held-out ditransitive and 3 held-out benefactive frames with attachment/valency/agreement across a complement seam, controls to 119 letters, zero exact closures above 38",
-        "latest_apposition_seam_grammar": "48 independently authored clause joins across comma, coordination, and appositive seams, longest control 79 letters, zero live or exact closures above 38",
+        "latest_chart_phrase_path": "192 independently authored chart paths including held-out relative, passive-complement, and temporal-adjunct paths and 36,672 live unequal-boundary states, controls to 120 letters, zero exact closures above 38",
+        "latest_dependency_frame_center_seam": "18 dependency-frame states including held-out ditransitive, benefactive, and agreement-sensitive relative frames with attachment/valency/agreement across a complement seam, controls to 119 letters, zero exact closures above 38",
+        "latest_apposition_seam_grammar": "48 baseline plus 64 held-out temporal three-clause joins across comma, coordination, and appositive seams, longest control 110 letters, zero live or exact closures above 38",
         "reader_study": "not run",
     },
 }

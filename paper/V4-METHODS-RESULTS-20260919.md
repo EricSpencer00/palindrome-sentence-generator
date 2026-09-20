@@ -1690,6 +1690,21 @@ current discourse-feature family; the next run pivots to a materially
 different character/lexical search. Artifact:
 `runs/noncoreferential-number-mismatch-equations-20260920.json`.
 
+The endpoint-indexed lexical-envelope pivot changed the search representation
+rather than adding another discourse feature. It draws a larger Brown-derived
+inventory plus 20 authored names, indexes lexical endpoints, and advances two
+independent complete grammar templates across live word boundaries. Explicit
+transitive, ditransitive, and location-preposition compatibility gates run at
+closure; they are diagnostic grammar filters, not readability certification.
+Across SVO, SVO+PP, and ditransitive template pairs it visited 1,659 live
+lexical-envelope states and 177 endpoint keys, with zero fresh exact candidates
+above 38 letters. Its separate control set contains 20 unique intact
+contemporary-English sentences, independently audited (maximum 47 letters),
+including “Alice reads the report near the station.” No repair, reversal,
+mirrored unit, catalogue text, or fragment was admitted. The next constructive
+expansion is phrase-level relative clauses in this lexical-envelope search.
+Artifact: `runs/large-phrase-endpoint-reverse-envelope-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -16,7 +16,7 @@ def run(limit):
  lookup={a:b for a,b,_,_ in PAIRS}
  if all(w in lookup for w in scene):
   right=[lookup[w] for w in scene][::-1]; text=' '.join(scene)+'; '+' '.join(right); a=audit(text)
-  out.append({'rendered':text,'audit':a,'reader_worthy':True,'template':'noel-war-scene','left_words':scene,'right_words':right,'provenance':{'fresh_authored_pair_bank':True,'online_role_intersection':True,'human_grammar_gate':True,'blinded_reader_preflight':'imperative Noel / war predicate / imperative Leon','catalogue_used':False,'posthoc_repair':False,'duplicate_units':False}})
+  out.append({'rendered':text,'audit':a,'grammar_preflight':True,'reader_candidate':True,'reader_worthy':False,'human_reader_status':'pending','template':'noel-war-scene','left_words':scene,'right_words':right,'provenance':{'fresh_authored_pair_bank':True,'online_role_intersection':True,'blinded_reader_preflight':'imperative Noel / war predicate / imperative Leon','catalogue_used':False,'posthoc_repair':False,'duplicate_units':False}})
   if len(out)>=limit:return out
  for name,tags in TEMPLATES:
   for ch in itertools.product(*(by[t] for t in tags)):
@@ -27,9 +27,9 @@ def run(limit):
    # Human grammar gate: these are only prose if both token-role sequences
    # instantiate the named template; no semantic credit for a raw fragment.
    readable=(name=='noel-war-scene' and left==['no','evil','noel','deliver','desserts','raw'] and right==['war','stressed','reviled','leon','live','on'])
-   out.append({'rendered':text,'audit':a,'reader_worthy':readable,'template':name,'left_words':left,'right_words':right,'provenance':{'fresh_authored_pair_bank':True,'online_role_intersection':True,'human_grammar_gate':True,'blinded_reader_preflight':'imperative Noel / war predicate / imperative Leon', 'catalogue_used':False,'posthoc_repair':False,'duplicate_units':False}})
+   out.append({'rendered':text,'audit':a,'grammar_preflight':readable,'reader_candidate':True,'reader_worthy':False,'human_reader_status':'pending','template':name,'left_words':left,'right_words':right,'provenance':{'fresh_authored_pair_bank':True,'online_role_intersection':True,'blinded_reader_preflight':'imperative Noel / war predicate / imperative Leon', 'catalogue_used':False,'posthoc_repair':False,'duplicate_units':False}})
    if len(out)>=limit:return out
  return out
 def main():
- ap=argparse.ArgumentParser();ap.add_argument('--limit',type=int,default=50);ap.add_argument('--out',required=True);a=ap.parse_args();r=run(a.limit);p={'experiment':'semordnilap-poetic-clause-20261001','host':socket.gethostname(),'parameters':vars(a),'candidates':r,'closures':len(r),'reader_worthy':sum(x['reader_worthy'] for x in r),'provenance':{'fresh_constructed_sentences_only':True,'poetic_templates':True,'exact_audit':'two-pointer plus SHA-256'},'next_construction':'add lexical pronouns and non-self articles with explicit person/number slots, then re-run the human grammar gate.'};Path(a.out).parent.mkdir(parents=True,exist_ok=True);Path(a.out).write_text(json.dumps(p,indent=2)+'\n');print(json.dumps({k:p[k] for k in ('experiment','closures','reader_worthy')}))
+ ap=argparse.ArgumentParser();ap.add_argument('--limit',type=int,default=50);ap.add_argument('--out',required=True);a=ap.parse_args();r=run(a.limit);p={'experiment':'semordnilap-poetic-clause-20261001','host':socket.gethostname(),'parameters':vars(a),'candidates':r,'reader_queue':[x for x in r if x.get('reader_candidate')],'closures':len(r),'reader_worthy_candidates':0,'reader_worthy':0,'provenance':{'fresh_constructed_sentences_only':True,'poetic_templates':True,'exact_audit':'two-pointer plus SHA-256'},'next_construction':'add lexical pronouns and non-self articles with explicit person/number slots, then re-run the human grammar gate.'};Path(a.out).parent.mkdir(parents=True,exist_ok=True);Path(a.out).write_text(json.dumps(p,indent=2)+'\n');print(json.dumps({k:p[k] for k in ('experiment','closures','reader_worthy_candidates')}))
 if __name__=='__main__':main()

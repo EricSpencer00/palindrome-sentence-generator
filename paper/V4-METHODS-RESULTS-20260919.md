@@ -1311,6 +1311,16 @@ Marie seeks the moon” (45 letters), each independently audited. No catalogue
 sentence text, repair, finished-tape reversal, mirrored token, or fragment was
 used. Artifact: `runs/broad-name-bank-complete-sentence-generator-20260920.json`.
 
+The broad-lexicon envelope transducer removed the whole-frame alignment
+restriction: a character-level WFSA carried independent word-boundary offsets
+while complete SVO, ditransitive, and PP semantic paths stayed open. It
+explored 255 envelope states across the expanded common-word/name bank, with
+zero fresh exact candidates above 38 letters. The same 43- and 45-letter
+complete prose controls were independently audited. No post-hoc repair,
+finished-tape reversal, mirrored token, catalogue text, or fragment was
+admitted. Artifact:
+`runs/broad-lexicon-envelope-transducer-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

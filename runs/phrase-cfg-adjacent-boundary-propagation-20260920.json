@@ -1,0 +1,43 @@
+{
+  "experiment_id": "phrase-cfg-adjacent-boundary-propagation-20260920",
+  "method": "adjacent-slot boundary propagation before phrase lexicalization",
+  "grammar": [
+    "S -> NP VP PP",
+    "NP -> DET ADJ NOUN",
+    "VP -> V NP",
+    "PP -> TAIL"
+  ],
+  "stats": {
+    "left_phrases": 240,
+    "right_phrases": 240,
+    "propagated_pairs": 0,
+    "propagation_states": 0,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_mirrored_prefix": 0
+  },
+  "complete_prose_controls": [
+    "The patient sailor guards the harbor at dawn.",
+    "A careful writer reads the letter before rain."
+  ],
+  "best_diagnostic": {
+    "states": 0,
+    "left": "",
+    "right": "",
+    "path": []
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-adjacent-boundary-propagation-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-slot-seam-length-solver-20260920"
+  },
+  "next_construction": "Add variable-length slot boundaries to the propagated state, keeping adjacent obligations live before lexicalization.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

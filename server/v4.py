@@ -1029,9 +1029,10 @@ SLOT_PAIR_CHARACTER_RUN = {
     "method": "single-sentence grammar slot product with online cross-word character obligations",
     "status": "completed_no_exact_closure",
     "templates": [["det", "adj", "subject", "verb", "det", "object"], ["det", "subject", "verb", "det", "object", "adjunct"], ["det", "subject", "verb", "det", "object", "prep", "object"]],
-    "states": 226,
-    "pruned_states": 216,
+    "states": 230,
+    "pruned_states": 220,
     "frame_lexical_banks": True,
+    "subject_object_banks_separate": True,
     "boundary_index": "first exposed character to right-word final character",
     "tag_source": "NLTK Brown universal POS counts",
     "brown_frame_counts": {"det_noun_verb_det_noun": 864, "det_noun_verb_prep": 1991},
@@ -1041,7 +1042,7 @@ SLOT_PAIR_CHARACTER_RUN = {
     "provenance": "independent outer slots are selected together; unequal word lengths remain in prefix/suffix buffers so obligations may cross word boundaries; no paired clauses, aligned token mirrors, finished-tape reversal, fallback, catalogue text, or post-hoc repair",
     "independent_validation": ["online prefix/suffix character gate", "literal two-pointer", "forward/reverse SHA-256"],
     "reader_status": "no complete candidate reached the reader gate",
-    "next_construction_discriminator": "carry frame-specific subject/object distinction and number through the inner slot states; the current frame bank still merges both noun roles",
+    "next_construction_discriminator": "carry explicit subject number and verb agreement through the inner slot states; the current frame bank separates roles but not inflectional agreement",
 }
 
 READER_PACKAGE = {

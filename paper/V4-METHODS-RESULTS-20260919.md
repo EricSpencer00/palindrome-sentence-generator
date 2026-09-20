@@ -448,9 +448,10 @@ role buckets with NLTK Brown universal DET/NOUN/VERB counts did not produce a
 complete sentence: all states were pruned before closure. A frame extraction
 over the same corpus found 864 `DET NOUN VERB DET NOUN` sentences and 1,991
 `DET NOUN VERB ADP` sentences; the next pass used their observed lexical
-combinations rather than only counting frames. That produced 226 live states,
-216 early prunes, and zero exact closures. The next state keeps subject and
-object banks separate and carries number through the inner slots.
+combinations rather than only counting frames. Keeping subject and object
+banks separate produced 230 live states, 220 early prunes, and zero exact
+closures. The next state carries explicit subject number and verb agreement
+through the inner slots.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

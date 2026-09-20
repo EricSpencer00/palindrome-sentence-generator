@@ -1027,6 +1027,20 @@ lexical reverse-segmentation intersection over complete sentence paths, rather
 than another recipient/case toggle or repair pass. Artifact:
 `runs/typed-wh-recipient-ditransitive-scheduler-20260920.json`.
 
+### Lexical reverse-segmentation grammar
+
+This reset enumerated 3,403 complete ordinary-order sentences, then parsed
+each sentence's reversed character obligation through role-specific tries with
+variable phrase boundaries. It used 4,231 parser states and found three
+complete reverse parses, recovering the known 38-letter palindrome in both
+orientations (plus one duplicate control). No fresh exact parse above 38
+letters appeared. The reverse side is a complete grammatical parse, not an
+edited output: no finished tape is reversed for presentation, no near miss is
+repaired, and no catalogue text is replayed. The next construction permits
+independent right-side role permutations while retaining the complete parse
+gate. Artifact:
+`runs/lexical-reverse-segmentation-grammar-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

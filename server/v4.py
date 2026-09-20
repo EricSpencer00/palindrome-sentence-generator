@@ -88,6 +88,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_semordnilap_phrase_graph": "4,656 indexed mirror pairs; zero phrase edges survive role and article-agreement gates; zero rendered candidates",
         "latest_dependency_attachment_reset": "36 complete natural-English candidates; longest 77 letters; attachment seam diagnostic only; zero exact >38 closure",
         "latest_heldout_endpoint_function_frames": "27 endpoint-gated complete prose candidates; longest 79 letters; zero exact >38 closure",
+        "latest_inner_character_class_event_frames": "9 subject/object inner-class states; 8 rejected before rendering, 1 complete 72-letter prose control; zero exact >38 closure",
         "reader_study": "not run",
     },
 }

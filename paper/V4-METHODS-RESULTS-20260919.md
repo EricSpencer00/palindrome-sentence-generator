@@ -114,6 +114,7 @@ multiword palindrome span:
 | Typed semordnilap phrase graph | Uses mirror-pair strings only as a vocabulary index, then enforces phrase role and article agreement before shell rendering | 4,656 indexed pairs; all rejected before rendering; malformed fragments quarantined | 0 / 0 |
 | Dependency attachment reset | Pairs active, passive, and locative dependency realizations and measures attachment seams after independent clause selection | 36 complete natural-English candidates; longest 77 letters; diagnostic only | 0 / 0 |
 | Held-out endpoint/function frames | Enforces bilateral first/last character equality on new event frames before selecting a held-out connector | 27 complete natural-English candidates; longest 79 letters | 0 / 0 |
+| Held-out subject/object inner-class frames | Carries vowel/consonant class obligations across independently authored subject and object boundaries before rendering | 9 frame pairs; 8 rejected before rendering, 1 complete 72-letter prose control; no exact closure | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
 discriminator: 16 independently authored clause pairs were rendered above 38
@@ -2363,3 +2364,24 @@ survived the combined role and article gates. Thus the earlier malformed rows
 English candidates, and the lane contributes zero rendered or exact rows.
 The next construction must add a fresh, typed phrase bank whose reversed
 surface also has valid determiner phonotactics before any graph edge is used.
+
+## Held-out inner subject/object character classes
+
+The next constructive lane carried two small character-class obligations
+inside the event frame rather than widening the already-tested outer endpoint:
+the left and right subject boundaries had to share a vowel/consonant class,
+and the corresponding object boundaries had to share the opposite class. The
+classes were checked before surface rendering over independently authored
+frames. Eight of nine frame pairs were rejected at this live inner gate; one
+survived as complete ordinary English:
+
+> **A quiet curator keeps the archive guide, while every careful guide maps a distant plaza.**
+
+It has 72 normalized letters and fails at character 1 (`q` versus `z`). Its
+independent forward and reverse SHA-256 digests are
+`c63ab93d450d5c8171a52b0f55606e243c91ae2ce37775ceb981456b857b17b9` and
+`89fcfe6d07ce8326dc13a78548a419c70b43ef9c01bb269c54cd23703111cb11`.
+There were no exact candidates above 38 letters. The survivor is retained as a
+readability control, not promoted as a palindrome or certified by the class
+score; the next reader-facing test is a randomized blinded intact-versus-word-
+shuffled comparison if a future exact row reaches the gate.

@@ -123,6 +123,7 @@ multiword palindrome span:
 | Unequal center-crossing grammar | Carries a two-character buffer across an unequal center before rendering | 16 typed pairings; 0 buffer survivors and 0 rendered candidates | 0 / 0 |
 | Wider unequal-center buffer | Propagates an exact unmatched buffer through unequal subject/verb slots | 243 typed states; all pruned before rendering | 0 / 0 |
 | Two-sided unmatched-buffer DP | Stores actual unmatched buffers on both word streams and prunes on mismatch | 18 transitions; 17 pruned, 0 surviving states, 0 rendered candidates | 0 / 0 |
+| Variable-buffer adjunct-trie DP | Adds variable-length word-trie transitions and independently authored adjunct slots to the live buffer | 8 slots; 4 transitions, 4 pruned, 0 rendered candidates | 0 / 0 |
 
 The manual clause-seam check is retained as a separate construction
 discriminator: 16 independently authored clause pairs were rendered above 38
@@ -2465,3 +2466,9 @@ transitions were attempted, 17 were rejected by an actual buffer mismatch, and
 the final live frontier was empty. These are precise zero-frontier results,
 not failed reader candidates; the next construction widens only the
 buffer-compatible subject/agent classes before adding adjuncts.
+
+The first such expansion added variable-length word-trie transitions and
+independently authored adjunct slots. It attempted eight slot positions, made
+four transitions, and pruned all four on actual buffer mismatch. The live
+frontier again reached zero before any prose was rendered; this is a concrete
+construction boundary, not a reader result.

@@ -1028,16 +1028,16 @@ SLOT_PAIR_CHARACTER_RUN = {
     "run_id": "slot-pair-character-search-20260919",
     "method": "single-sentence grammar slot product with online cross-word character obligations",
     "status": "completed_no_exact_closure",
-    "templates": [["det", "adj", "subject", "verb", "det", "object"], ["det", "subject", "verb", "det", "object", "adjunct"]],
-    "states": 621,
-    "pruned_states": 621,
+    "templates": [["det", "adj", "subject", "verb", "det", "object"], ["det", "subject", "verb", "det", "object", "adjunct"], ["det", "subject", "verb", "det", "object", "prep", "object"]],
+    "states": 1173,
+    "pruned_states": 1173,
     "lexicon_cap_per_role": 24,
     "exact_candidates": 0,
     "reader_worthy_candidates": 0,
     "provenance": "independent outer slots are selected together; unequal word lengths remain in prefix/suffix buffers so obligations may cross word boundaries; no paired clauses, aligned token mirrors, finished-tape reversal, fallback, catalogue text, or post-hoc repair",
     "independent_validation": ["online prefix/suffix character gate", "literal two-pointer", "forward/reverse SHA-256"],
     "reader_status": "no complete candidate reached the reader gate",
-    "next_construction_discriminator": "add inflection-safe valency partitions and a third complete template without changing the cross-word obligation state",
+    "next_construction_discriminator": "replace heuristic inflection filters with explicit Brown tag/valency partitions and widen the compatible boundary index",
 }
 
 READER_PACKAGE = {

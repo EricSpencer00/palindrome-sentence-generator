@@ -11,6 +11,25 @@ def tape(s):return re.sub(r'[^a-z]','',s.lower())
 def audit(s):
  t=tape(s);r=t[::-1]
  return {'letters':len(t),'two_pointer_exact':bool(t) and all(t[i]==t[-1-i] for i in range(len(t))), 'pointer_mismatches':sum(a!=b for a,b in zip(t,r))//2,'sha256_forward':hashlib.sha256(t.encode()).hexdigest(),'sha256_reverse':hashlib.sha256(r.encode()).hexdigest()}
+def live_match(left_words,right_words):
+ left=(ch for word in left_words for ch in tape(word))
+ right=(ch for word in reversed(right_words) for ch in reversed(tape(word)))
+ compared=0
+ while True:
+  try:lch=next(left)
+  except StopIteration:
+   try:next(right)
+   except StopIteration:return True,compared
+   return False,compared
+  try:rch=next(right)
+  except StopIteration:return False,compared
+  compared+=1
+  if lch!=rch:return False,compared
+def proper_span(t):
+ for i in range(len(t)):
+  for j in range(i+4,len(t)+1):
+   if j-i<len(t) and t[i:j]==t[i:j][::-1]:return True
+ return False
 def yields():
  for kind,num,*parts in FRAMES:
   for vals in itertools.product(*parts):
@@ -33,7 +52,8 @@ def run(min_letters,limit):
     if r['words']==l['words'] or r['frame']['number']!=l['frame']['number']:continue
     t=tape(' '.join(l['words']+r['words']))
     if len(t)<min_letters:continue
-    if any(t[i]!=t[-1-i] for i in range(len(t)//2)):pruned+=1;continue
+    matched,_=live_match(l['words'],r['words'])
+    if not matched or proper_span(t):pruned+=1;continue
     rows.append({'rendered':' '.join(l['words']+r['words']),'audit':audit(' '.join(l['words']+r['words'])),'reader_worthy':False,'provenance':{'construction':'recipient/theme and locative attachment endpoint product','left_frame':l,'right_frame':r,'live_character_invariant':True,'agreement_checked':True,'valency_checked':True,'attachment_feature_keyed':True,'no_finished_tape_reversal':True,'no_posthoc_repair':True,'catalogue_text':False}})
     if len(rows)>=limit:break
    if len(rows)>=limit:break

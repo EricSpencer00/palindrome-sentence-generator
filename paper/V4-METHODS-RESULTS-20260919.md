@@ -2545,6 +2545,19 @@ before rendering, this lane contributes no reader candidate and no claim of
 progress in length; its concrete next step is to widen the consequence-frame
 bank while preserving the same live prefix equation.
 
+Finally, an equation-first manual lane authored two fresh clause pairs and
+required an eight-character outer equation before opening any interior slot.
+Both pairs failed before inward expansion. The strongest readable diagnostic
+was:
+
+> **A careful teacher opens a bright window in winter; our kind neighbor carries warm bread to the station.**
+
+It has 84 normalized letters, fails immediately at offset 0 (`a` versus `n`),
+and carries independent pointer/SHA-256 evidence. It is retained as a prose
+control only; no exact candidate or reader packet is claimed. The next
+construction should author endpoint-compatible role choices before extending
+the equation width, rather than trying to repair this rendered sentence.
+
 The exact frontier is therefore unchanged: the best independently verified
 reader-plausible output remains the 38-letter anchor above. No human reader
 study is claimed for any non-exact control; a future exact intact-prose row

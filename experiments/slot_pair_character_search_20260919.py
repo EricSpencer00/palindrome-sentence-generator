@@ -165,7 +165,7 @@ def main() -> None:
             vals = sorted(counts.get(tag, {}), key=lambda w: (-counts[tag][w], w))
             return tuple(vals[:24]) or fallback
         frame_counts = {"det_noun_verb_det_noun": 0, "det_noun_verb_prep": 0}
-        frame_words = {"DET": set(), "NOUN": set(), "VERB": set(), "ADP": set()}
+        frame_words = {"DET": set(), "NOUN": set(), "VERB": set(), "ADP": set(), "SUBJ": set(), "OBJ": set()}
         from nltk.corpus import brown as _brown
         for sent in _brown.tagged_sents(tagset="universal")[:50000]:
             tags = [tag for _, tag in sent]
@@ -174,6 +174,7 @@ def main() -> None:
                     frame_counts["det_noun_verb_det_noun"] += 1
                     for j in (i, i+3): frame_words["DET"].add(sent[j][0].casefold())
                     for j in (i+1, i+4): frame_words["NOUN"].add(sent[j][0].casefold())
+                    frame_words["SUBJ"].add(sent[i+1][0].casefold()); frame_words["OBJ"].add(sent[i+4][0].casefold())
                     frame_words["VERB"].add(sent[i+2][0].casefold())
             for i in range(len(tags) - 3):
                 if tags[i:i+4] == ["DET", "NOUN", "VERB", "ADP"]:
@@ -197,7 +198,8 @@ def main() -> None:
     obj = top("NOUN", ("letter", "sonnet", "garden", "harbor", "parcel", "secret", "candle"))
     if frame_words.get("NOUN"):
         noun = tuple(sorted(frame_words["NOUN"]))[:24]
-        obj = noun
+        obj = tuple(sorted(frame_words.get("OBJ", set())))[:24] or noun
+        noun = tuple(sorted(frame_words.get("SUBJ", set())))[:24] or noun
     if frame_words.get("DET"): det = tuple(sorted(frame_words["DET"]))[:24]
     if frame_words.get("VERB"): verb = tuple(sorted(frame_words["VERB"]))[:24]
     template = (

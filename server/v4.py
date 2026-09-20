@@ -145,6 +145,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_typed_edge_yield_algebra": "Typed dependency-edge yield algebra: 81 authored edge paths, 6,561 bilateral states, 6,561 immediate character prunes, zero compatible frontiers and zero exact candidates above 38",
         "latest_residual_equivalence_edge_quotient": "Myhill–Nerode-style quotient over typed edge continuations: existing bank 33 states/9 canonical states/24 merges and fresh bank 12 states/9 canonical states/3 merges; zero compatible frontiers or exact candidates above 38",
         "latest_residual_language_center_automaton": "Typed residual-language center automaton after edge quotienting: existing bank 33 states/24 merges/8 prunes and fresh bank 12 states/3 merges/8 prunes; zero compatible center frontiers or exact candidates above 38; next is a held-out two-edge typed-center grammar",
+        "latest_composed_typed_center_grammar": "Online composed typed-center grammar: 20 complementizer/finite-clause derivations; existing bank 100 left derivations/511 states and fresh bank 40/91; zero complete renderings or exact candidates above 38; next is a held-out center valency frame",
         "reader_study": "not run",
     },
 }
@@ -1209,6 +1210,35 @@ RESIDUAL_LANGUAGE_CENTER_AUTOMATON_RUN = {
     },
 }
 
+COMPOSED_TYPED_CENTER_GRAMMAR_RUN = {
+    "run_id": "composed-typed-center-grammar-20260920",
+    "method": "online composed typed-center grammar (complementizer plus finite clause) over bilateral edge residuals",
+    "status": "completed_no_exact_closure",
+    "center_compositions": 20,
+    "banks": {
+        "existing_semantic_role_bank": {"left_derivations": 100, "states": 511, "quotient_merges": 499, "prunes": 11, "complete_renderings": 0, "exact_candidates_over_38": 0},
+        "fresh_authored_edge_bank": {"left_derivations": 40, "states": 91, "quotient_merges": 79, "prunes": 11, "complete_renderings": 0, "exact_candidates_over_38": 0},
+    },
+    "controls": [
+        "The patient scribe marks the old letters by the harbor.",
+        "A careful archivist copies a faded map near the quay.",
+    ],
+    "provenance": "center is composed into the ordinary left derivation before live bilateral matching; no finished-tape reversal, resegmentation, repair, repeated unit, or catalogue text",
+    "independent_validation": ["literal two-pointer", "forward/reverse SHA-256"],
+    "novelty_preflight": {
+        "status": "passed",
+        "registry_entries_checked": 597,
+        "signature": "composed-center-typed-grammar|online-center-edge-emission|attachment-aware-residual",
+    },
+    "reader_status": "no exact candidate reached the reader gate",
+    "next_construction": {
+        "name": "held-out center valency grammar",
+        "operator": "Add one held-out ditransitive or relative center frame with explicit subject/object attachment interfaces, then solve its characters online against the residual; do not add another complementizer sweep.",
+        "preflight": "preflight the new center valency signature before execution",
+        "reader_test": "randomized blinded intact-prose versus shuffled-control rating for any exact closure above 38",
+    },
+}
+
 READER_PACKAGE = {
     "experiment_id": "reader-package-v4-20260919",
     "status": "blinded_package_ready_human_ratings_pending",
@@ -1659,7 +1689,7 @@ def evidence() -> dict[str, Any]:
         "best_known": _best_known_record(),
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN, LEXICAL_CENTEROUT_RUN, PHRASE_BOUNDARY_INDEXED_CENTEROUT_RUN, BROWN_CHAR_DECODER_RUN, RIGHT_BOUNDARY_WFSA_RUN, AGREEMENT_VALENCY_WFSA_RUN, BROAD_LEXICAL_BOUNDARY_RUN, VARIABLE_BOUNDARY_LATTICE_RUN, PAIRED_CLAUSE_LATTICE_RUN, CONNECTOR_CLAUSE_DEBT_RUN, SEMORDNILAP_INTERSECTION_RUN, SEMORDNILAP_AGREEMENT_RUN, SEMORDNILAP_POETIC_RUN, PROPER_NAME_SCENE_SEAM_RUN, CROSS_BOUNDARY_DP_RUN, CROSS_BOUNDARY_MORPHOLOGY_RUN, CFG_CENTER_OUT_RUN, SLOT_PAIR_CHARACTER_RUN, PENN_FEATURE_SLOT_RUN, VARIABLE_PHRASE_RUN],
-        "latest_constructive_run": RESIDUAL_LANGUAGE_CENTER_AUTOMATON_RUN,
+        "latest_constructive_run": COMPOSED_TYPED_CENTER_GRAMMAR_RUN,
         "rlaif_frontier": _rlaif_frontier(),
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,
@@ -1681,7 +1711,7 @@ def method() -> dict[str, Any]:
         "status": "constructive_search_in_progress",
         "optimization": OPTIMIZATION_SPEC,
         "current_best": _best_known_record(),
-        "latest_constructive_run": RESIDUAL_LANGUAGE_CENTER_AUTOMATON_RUN,
+        "latest_constructive_run": COMPOSED_TYPED_CENTER_GRAMMAR_RUN,
         "repair_frontier": DREAM_RSI_REPAIR_FRONTIER,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN, LEXICAL_CENTEROUT_RUN, PHRASE_BOUNDARY_INDEXED_CENTEROUT_RUN, BROWN_CHAR_DECODER_RUN, RIGHT_BOUNDARY_WFSA_RUN, AGREEMENT_VALENCY_WFSA_RUN, BROAD_LEXICAL_BOUNDARY_RUN, VARIABLE_BOUNDARY_LATTICE_RUN, PAIRED_CLAUSE_LATTICE_RUN, CONNECTOR_CLAUSE_DEBT_RUN, SEMORDNILAP_INTERSECTION_RUN, SEMORDNILAP_AGREEMENT_RUN, SEMORDNILAP_POETIC_RUN, PROPER_NAME_SCENE_SEAM_RUN, CROSS_BOUNDARY_DP_RUN, CROSS_BOUNDARY_MORPHOLOGY_RUN, CFG_CENTER_OUT_RUN, SLOT_PAIR_CHARACTER_RUN, PENN_FEATURE_SLOT_RUN, VARIABLE_PHRASE_RUN],
         "rlaif_frontier": _rlaif_frontier(),
@@ -1700,7 +1730,7 @@ def frontier_evaluation() -> dict[str, Any]:
         "human_evidence_required": True,
         "rows": _rlaif_frontier(),
         "method_run": TWO_SIDED_SETTING_FRAME_RUN,
-        "latest_constructive_run": RESIDUAL_LANGUAGE_CENTER_AUTOMATON_RUN,
+        "latest_constructive_run": COMPOSED_TYPED_CENTER_GRAMMAR_RUN,
         "method_runs": [SEMANTIC_SHELL_RUN, INDEXED_PATH_RUN, CONNECTOR_PRODUCT_RUN, RESIDUAL_SEAM_RUN, RESIDUAL_TERMINAL_RUN, RELATIVE_INDEXED_RUN, SHARED_RELATIVE_RUN, RESIDUAL_PREFIX_RUN, LLM_TYPED_BANK_RUN, THREE_BEAT_RUN, FINITE_CLAUSE_ORBIT_RUN, CHARACTER_RELATIVE_RUN, AUTHORED_SCENE_LATTICE_RUN, COMPOSITIONAL_SHELL_RUN, SHELL_INFLECTION_RUN, AUTHORED_GRAMMATICAL_PAIR_RUN, ANCHOR_OVERHANG_RUN, BIDIRECTIONAL_HALF_TAPE_RUN, AGREEMENT_ADJUNCT_RUN, TWO_SIDED_SEMANTIC_ORBIT_RUN, TWO_SIDED_SETTING_FRAME_RUN, CHARACTER_BOUNDARY_PRODUCT_RUN, GRAMMAR_CHAR_INTERSECTION_RUN, SEMANTIC_SLOT_ORBIT_RUN, LARGE_LEXICON_CFG_RUN, MORPHOLOGY_ORBIT_RUN, CHAR_ORBIT_SCENE_RUN, SYNCHRONOUS_GRAMMAR_PRODUCT_RUN, DIALOGUE_RELATION_RUN, DIALOGUE_RECIPIENT_BRIDGE_RUN, LUNA_CHAR_LM_ORBIT_RUN, LUNA_CFG_SEMANTIC_LATTICE_RUN, LUNA_DEPENDENCY_SCENE_CSP_RUN, POS_BILATERAL_CFG_ORBIT_RUN, BROWN_PCFG_BILATERAL_ORBIT_RUN, LUNA_RELATIVE_CFG_ORBIT_RUN, PHRASE_BOUNDARY_LIVE_RUN, LIVE_CLAUSE_PAIR_RUN, LEXICAL_CENTEROUT_RUN, PHRASE_BOUNDARY_INDEXED_CENTEROUT_RUN, BROWN_CHAR_DECODER_RUN, RIGHT_BOUNDARY_WFSA_RUN, AGREEMENT_VALENCY_WFSA_RUN, BROAD_LEXICAL_BOUNDARY_RUN, VARIABLE_BOUNDARY_LATTICE_RUN, PAIRED_CLAUSE_LATTICE_RUN, CONNECTOR_CLAUSE_DEBT_RUN, SEMORDNILAP_INTERSECTION_RUN, SEMORDNILAP_AGREEMENT_RUN, SEMORDNILAP_POETIC_RUN, PROPER_NAME_SCENE_SEAM_RUN, CROSS_BOUNDARY_DP_RUN, CROSS_BOUNDARY_MORPHOLOGY_RUN, CFG_CENTER_OUT_RUN, SLOT_PAIR_CHARACTER_RUN, PENN_FEATURE_SLOT_RUN, VARIABLE_PHRASE_RUN],
         "ai_feedback_run": AI_FEEDBACK_RUN,
         "reader_package": READER_PACKAGE,

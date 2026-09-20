@@ -2932,3 +2932,17 @@ plus finite clause) whose attachment state and characters are solved online;
 it will be novelty-preflighted before execution rather than enlarging this
 finite center list. Artifact:
 `runs/residual-language-center-automaton-20260920.json`.
+
+That boundary was then tested directly rather than by enlarging the same
+center list. We composed 20 ordinary typed centers from a complementizer and a
+finite subject/verb clause, attached each to an outer edge path, and emitted
+the center characters into the bilateral residual while the opposing outer
+path was still unfinished. The existing semantic-role bank produced 100 left
+derivations and 511 live states (499 quotient merges and 11 prunes); the fresh
+authored bank produced 40 left derivations and 91 states (79 merges and 11
+prunes). Neither bank reached a complete rendering or an exact candidate above
+38. The same two intact prose controls remain independently pointer/SHA
+audited. This closes the complementizer-plus-finite-center topology at this
+bound; the next construction is a novelty-preflighted held-out center valency
+frame with explicit subject/object attachment interfaces. Artifact:
+`runs/composed-typed-center-grammar-20260920.json`.

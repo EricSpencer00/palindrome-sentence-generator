@@ -5694,3 +5694,16 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   attachment state and characters solved online, not an enlargement of the
   current finite center list. Artifact:
   `runs/residual-language-center-automaton-20260920.json`.
+
+- **Composed typed-center grammar, 2026-09-20:** made the proposed center
+  construction participate in the live search rather than checking it only
+  after both outer paths ended. Twenty ordinary typed centers were composed
+  from a complementizer plus a finite subject/verb clause and attached to the
+  left derivation before bilateral matching. The existing bank produced 100
+  left derivations and 511 states (499 quotient merges, 11 prunes); the fresh
+  bank produced 40 derivations and 91 states (79 merges, 11 prunes). There
+  were 0 complete renderings and 0 exact candidates above 38. The next
+  construction is a novelty-preflighted held-out center valency frame with
+  explicit subject/object attachment interfaces, not another complementizer
+  sweep. Artifact:
+  `runs/composed-typed-center-grammar-20260920.json`.

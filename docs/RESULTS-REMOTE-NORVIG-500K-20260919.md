@@ -2,15 +2,15 @@
 
 This run searched for a palindrome longer than 500,000 normalized letters.
 It did not reach that target. The best finished strict run is preserved under
-`artifacts/remote-norvig-500k-20260919/custom-word-1800/`.
+`artifacts/remote-norvig-500k-20260919/custom-word-3600/`.
 
 ## Candidate
 
-- 280,829 letters
-- 52,835 word tokens
-- 46,337 distinct normalized word units
-- 1,800-second remote run on `hst-bench`
-- 82,458,937 search steps and 19,027 closures
+- 283,049 letters
+- 53,280 word tokens
+- 46,737 distinct normalized word units
+- 2,016-second remote run on `hst-bench`
+- 89,623,773 search steps and 19,681 closures
 - maximum three uses of any non-function word
 - no adjacent repeated words
 
@@ -23,7 +23,7 @@ feasible inventory guard. The inventory snapshot is saved as
 
 The rendered text passes a fresh outside-in character comparison. Forward and
 reverse normalized SHA-256 both equal
-`f3eb63383fa9d90665944a99159eb725931f9abf96dca7a724444affcac2b759`.
+`53baf39b2f2f1067bd9ac72b9f531bb7cc79d87c39ca184717cf6923a87d1545`.
 Phrase keys are unique, adjacent word repeats are zero, and the maximum
 non-function-word count is three. The complete audit is in `audit.json`.
 

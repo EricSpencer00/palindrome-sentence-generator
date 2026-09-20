@@ -5891,3 +5891,14 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   with separate agreement states; no further scheduler variant is authorized
   for this branch. Artifact:
   `runs/coordinated-clause-global-csp-20260920.json`.
+
+- **Embedded finite-complement topology, 2026-09-20:** replaced conjunction
+  with a matrix verb selecting a finite embedded clause. Separate
+  agreement/valency/complement-selection state and live character factors were
+  carried through one forward variable-boundary grammar. Across target lengths
+  44/56/68/80 it visited 14,972 states and made 47,696 live factor prunes,
+  with 0 complete parses and 0 exact candidates above 38. Two complete prose
+  controls (91 and 101 letters) passed independent pointer/SHA audits. The
+  next construction is a held-out ditransitive embedding frame, not another
+  scheduler or repair pass. Artifact:
+  `runs/embedded-complement-global-csp-20260920.json`.

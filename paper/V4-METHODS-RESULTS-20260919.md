@@ -3181,3 +3181,15 @@ not a scheduler or repair pass. The next construction replaces the conjunction
 with a held-out finite-complement frame while preserving independent agreement
 states and live position factors. Artifact:
 `runs/coordinated-clause-global-csp-20260920.json`.
+
+The embedded-complement topology replaced coordination with a finite
+complementizer selected by a matrix verb. The forward grammar carried separate
+agreement, valency, and complement-selection state for the matrix and embedded
+clauses, with variable word boundaries and live character equations. Across
+target lengths 44, 56, 68, and 80 it visited 14,972 states and made 47,696
+live factor prunes, with zero complete parses and zero exact candidates above
+38. The two complete embedded-clause controls (91 and 101 letters) received
+independent pointer/SHA audits. This closes the complementizer topology as
+implemented; the next construction is a held-out ditransitive matrix frame,
+not another scheduler or repair pass. Artifact:
+`runs/embedded-complement-global-csp-20260920.json`.

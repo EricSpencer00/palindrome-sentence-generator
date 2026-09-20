@@ -1,0 +1,95 @@
+{
+  "experiment_id": "aspectual-modal-passive-csp-20260920",
+  "method": "global forward modal passive embedding grammar CSP over held-out typed lexical factors",
+  "results": [
+    {
+      "target_length": 44,
+      "represented_forward_language_count": "7679688081408",
+      "states": 181,
+      "prunes": 84,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 56,
+      "represented_forward_language_count": "7679688081408",
+      "states": 307,
+      "prunes": 84,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 68,
+      "represented_forward_language_count": "553379846108011330403605413888",
+      "states": 409,
+      "prunes": 140,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    },
+    {
+      "target_length": 80,
+      "represented_forward_language_count": "10703922944229519330909695368498631451056096404316356608",
+      "states": 493,
+      "prunes": 224,
+      "complete_renderings": 0,
+      "exact_candidates_above_38": 0,
+      "rendered_candidates": []
+    }
+  ],
+  "controls": [
+    {
+      "rendered": "The patient sailor could have been given the chart by the teacher because a careful gardener carries a lantern through the orchard.",
+      "audit": {
+        "letters": 109,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "d"
+        ],
+        "sha256_forward": "2e3eeebfb12d28a19cc1219b043b29ae5795ba94553319c1ee48a39fbfdf8921",
+        "sha256_reverse": "871c07483736f0fe15e05b20182ca9b142335d3474d08596c1d4d27eb14fa935",
+        "sha_equal": false
+      }
+    },
+    {
+      "rendered": "A young scholar could have been given the lesson by the keeper because a quiet keeper guards the gate near the lighthouse.",
+      "audit": {
+        "letters": 100,
+        "two_pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "e"
+        ],
+        "sha256_forward": "85fc9bd64e2e26668c908b03bc5d422b3a2a59da111be2d756c336448f5d81cb",
+        "sha256_reverse": "4d8679d9bae7d5eb08105248dffd3a3fd61a23f80fdcf92d3aab6efc1c77e267",
+        "sha_equal": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_entries_checked": 613,
+    "signature": "aspectual-modal-passive|perfect-state|beneficiary-agent-theme-state",
+    "distinct_from": "modal-passive/active-ditransitive/coordination/finite-complement/relative/center/bridge/endpoint lanes: an aspectual perfect state scopes the modal passive before beneficiary, agent, and theme roles"
+  },
+  "provenance": {
+    "independent_audits": [
+      "two-pointer scan",
+      "forward/reverse SHA-256"
+    ],
+    "source_text": "held-out common-word typed bank, no copied sentences",
+    "reader_evidence": false,
+    "reader_gate": "closed until exact >38 and blinded ratings"
+  },
+  "next_construction": {
+    "name": "progressive modal passive topology",
+    "operator": "Add a held-out progressive modal passive frame with explicit beneficiary/agent/theme roles; keep live position factors and preflight a new signature first.",
+    "reader_facing_test": "retain complete prose only, independently audit exact closures above 38, then blinded intact-vs-shuffled ratings"
+  },
+  "status": "diagnostic lane; no exact candidate above 38"
+}

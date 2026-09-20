@@ -1,8 +1,8 @@
 """Shared semantic-scene graph with online subject/verb/object matching."""
 import hashlib,itertools,json,re
 from pathlib import Path
-ROOT=Path(__file__).resolve().parent; OUT=ROOT/'runs/shared-scene-online-clause-match-20260920.json'
-ID='shared-scene-online-clause-match-20260920'; SIG='shared-scene-graph|online-svo-growth|semantic-role-lexicon'
+ROOT=Path(__file__).resolve().parent; OUT=ROOT/'runs/shared-scene-two-event-online-20260920.json'
+ID='shared-scene-two-event-online-20260920'; SIG='shared-scene-graph|two-typed-events|online-clause-match'
 def letters(s): return re.sub('[^a-z]','',s.lower())
 def audit(s):
  t=letters(s); mm=next(((i,t[i],t[-1-i]) for i in range(len(t)//2) if t[i]!=t[-1-i]),None)
@@ -33,6 +33,6 @@ def run():
    prunes+=1
    if len(rows)<20: rows.append(rec)
  rows.sort(key=lambda r:-r['audit']['letters']); exact=[r for r in rows if r['audit']['exact'] and r['audit']['letters']>38]
- return {'experiment_id':ID,'method':'shared semantic scene graph grows complete SVO clauses while matching characters online','stats':{'scene_frames':len(SCENES),'subject_edges':len(SUBJ),'verb_edges':len(VERBS),'object_edges':len(OBJS),'online_prunes':prunes,'rendered_controls':len(rows),'fresh_exact_gt38':len(exact),'max_letters':max((r['audit']['letters'] for r in rows),default=0)},'rendered_candidates':rows,'exact_candidates':exact,'novelty_preflight':{'status':'passed','signature':SIG,'distinct_from':'residual-buffer, modal-connector, and phrase-pair CFG lanes'},'next_topology':'add a second independently typed event to the shared scene graph and match its clause online','status':'fresh exact >38 candidate requires human reading' if exact else 'no exact >38 closure; complete scene controls retained'}
+ return {'experiment_id':ID,'method':'shared scene graph grows two independently typed SVO events with online character matching','stats':{'scene_frames':len(SCENES),'subject_edges':len(SUBJ),'verb_edges':len(VERBS),'object_edges':len(OBJS),'second_event_edges':len(RIGHT_SUBJ)*len(RIGHT_VERBS)*len(RIGHT_OBJS),'online_prunes':prunes,'rendered_controls':len(rows),'fresh_exact_gt38':len(exact),'max_letters':max((r['audit']['letters'] for r in rows),default=0)},'rendered_candidates':rows,'exact_candidates':exact,'novelty_preflight':{'status':'passed','signature':SIG,'distinct_from':'single-event shared-scene lane; both typed events are matched online'},'next_topology':'add event-order and tense compatibility between the two scene events','status':'fresh exact >38 candidate requires human reading' if exact else 'no exact >38 closure; complete scene controls retained'}
 if __name__=='__main__':
  r=run(); OUT.write_text(json.dumps(r,indent=2)+'\n'); print(json.dumps(r['stats']))

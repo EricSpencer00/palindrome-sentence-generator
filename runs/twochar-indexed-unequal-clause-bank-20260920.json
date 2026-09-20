@@ -1,0 +1,126 @@
+{
+  "experiment_id": "twochar-indexed-unequal-clause-bank-20260920",
+  "method": "two-character exposed-class index with unequal normalized clause lengths and live seam checks",
+  "stats": {
+    "bank": 6,
+    "index_keys": 6,
+    "selected_pairs": 2,
+    "seam_checks": 2,
+    "reader_clean": 0,
+    "max_letters": 48
+  },
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "controls": [
+    {
+      "rendered": "three alert sailors guard a narrow bridge near moonlight.",
+      "opposing_clause": "the bright pilot charts a cove at sunrise.",
+      "index_keys": {
+        "left": [
+          "th",
+          "ht"
+        ],
+        "right": [
+          "th",
+          "se"
+        ]
+      },
+      "unequal_lengths": [
+        48,
+        34
+      ],
+      "live_seam": {
+        "matched": 0,
+        "closed": false
+      },
+      "audit": {
+        "letters": 48,
+        "pointer_exact": false,
+        "first_mismatch": [
+          2,
+          "r",
+          "g"
+        ],
+        "sha256_forward": "ac1e8c48c0f19425473ecec16999a3edaf9d1d32f0acf3ad982c4f1ce4048f78",
+        "sha256_reverse": "e582b733febe63b1511df1c00e7b33146aa8ca4d622e4ddee42a85fb0b4b8047"
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "fresh_heldout_bank": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    },
+    {
+      "rendered": "three alert sailors guard a narrow bridge near moonlight.",
+      "opposing_clause": "the quiet cartographer records a harbor under stars.",
+      "index_keys": {
+        "left": [
+          "th",
+          "ht"
+        ],
+        "right": [
+          "th",
+          "rs"
+        ]
+      },
+      "unequal_lengths": [
+        48,
+        44
+      ],
+      "live_seam": {
+        "matched": 0,
+        "closed": false
+      },
+      "audit": {
+        "letters": 48,
+        "pointer_exact": false,
+        "first_mismatch": [
+          2,
+          "r",
+          "g"
+        ],
+        "sha256_forward": "ac1e8c48c0f19425473ecec16999a3edaf9d1d32f0acf3ad982c4f1ce4048f78",
+        "sha256_reverse": "e582b733febe63b1511df1c00e7b33146aa8ca4d622e4ddee42a85fb0b4b8047"
+      },
+      "provenance": {
+        "nested_self_palindrome": false,
+        "repeated_units": false,
+        "mirrored_units": false,
+        "word_order_symmetry": false,
+        "fragment": false,
+        "catalogue_text": false,
+        "fresh_heldout_bank": true,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      }
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "fresh-authored|twochar-index|unequal-lengths|live-seam",
+    "distinct_from": "prior first/last index: two-character exposed classes and unequal-length selection precede seam consumption"
+  },
+  "provenance": {
+    "audits": [
+      "independent two-pointer comparison",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "exact clean >38 only",
+    "hard_exclusions": [
+      "nested palindromes",
+      "repeated units",
+      "mirrored units",
+      "word-order symmetry",
+      "fragments",
+      "catalogue text"
+    ]
+  },
+  "next_construction": "Index variable-length exposed prefixes and suffixes with partial seam compatibility instead of exact two-character keys.",
+  "status": "no exact clean two-character indexed pair; intact controls retained"
+}

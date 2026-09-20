@@ -1536,6 +1536,20 @@ admitted. The next constructive expansion is a two-word object chunk carrying
 animacy and number while retaining subject agreement. Artifact:
 `runs/agreement-subject-chunk-equations-20260920.json`.
 
+The typed object-chunk lane added number- and animacy-bearing object chunks to
+both clauses while retaining subject agreement before verb emission. A small
+verb/object compatibility table rejects ill-typed readings (for example,
+greeting an animate object versus opening an inanimate one) at closure rather
+than relying on the controls to hide them. The lane visited 64 states, all
+pruned at the first live equation, and produced zero equation completions and
+zero exact candidates above 38 letters. Its 20 controls are intact
+contemporary English (maximum 43 letters), including “Some sailors greet the
+poets and the queens mark a book.” Independent pointer/SHA audits passed; no
+repair, reversal, mirrored unit, catalogue text, or fragment was admitted. The
+next construction is typed recipient/dative structure with object number still
+carried live. Artifact:
+`runs/typed-object-chunk-equations-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

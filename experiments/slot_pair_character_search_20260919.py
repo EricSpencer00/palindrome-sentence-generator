@@ -37,6 +37,7 @@ def audit(text: str) -> dict[str, object]:
 class Slot:
     role: str
     words: tuple[str, ...]
+    features: tuple[str, ...] = ()
 
 
 def _compatible(prefix: str, suffix: str) -> bool:
@@ -147,8 +148,16 @@ def main() -> None:
     try:
         from nltk.corpus import brown
         tagged = brown.tagged_words(tagset="universal")
+        penn_frames = {"singular_vbz": 0, "plural_vbp": 0, "past_vbd": 0}
+        for sent in brown.tagged_sents()[:50000]:
+            tags = [tag for _, tag in sent]
+            for i in range(len(tags)-2):
+                if tags[i].startswith("NN") and tags[i+1] == "VBZ": penn_frames["singular_vbz"] += 1
+                if tags[i].startswith("NNS") and tags[i+1] == "VBP": penn_frames["plural_vbp"] += 1
+                if tags[i].startswith("NN") and tags[i+1] == "VBD": penn_frames["past_vbd"] += 1
     except Exception:
         tagged = None
+        penn_frames = {}
     bank_path = Path("data/brown_pcfg_bank_20260920.json")
     if bank_path.exists():
         bank = json.loads(bank_path.read_text())["lexicon"]
@@ -230,6 +239,7 @@ def main() -> None:
             "fallback": False,
             "distinct_words": True,
             "brown_frame_counts": frame_counts,
+            "penn_agreement_frames": penn_frames,
         },
     })
     Path("runs/slot-pair-character-search-20260919.json").write_text(json.dumps(result, indent=2) + "\n")

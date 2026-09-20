@@ -5855,3 +5855,12 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   parses, and 0 exact candidates above 38. The next operator is two-factor
   lookahead support propagation before either factor is assigned. Artifact:
   `runs/min-domain-factor-csp-20260920.json`.
+
+- **Two-factor lookahead, 2026-09-20:** intersected adjacent lexical support
+  domains before assigning either factor in the global forward grammar. The
+  differential suite passed again; target lengths 44/52/60 visited 2,137
+  states and made 7,192 lookahead-aware prunes, with 0 complete parses and 0
+  exact candidates above 38. This closes the compact inventory as a scheduler
+  bottleneck. The next move must replace lexical support domains or change
+  grammar topology. Artifact:
+  `runs/two-factor-lookahead-csp-20260920.json`.

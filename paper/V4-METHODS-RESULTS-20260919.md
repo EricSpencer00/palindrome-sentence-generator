@@ -3140,3 +3140,13 @@ Thus ordering alone did not change the reachable language on this inventory;
 the next operator is two-factor lookahead support propagation before either
 factor is assigned. Artifact:
 `runs/min-domain-factor-csp-20260920.json`.
+
+The final scheduler variant added two-factor lookahead support before either
+adjacent grammar factor was assigned. Its exhaustive differential suite again
+passed for odd/even centers and unequal boundaries. At lengths 44, 52, and 60
+it visited 2,137 states and made 7,192 lookahead-aware prunes, but still
+produced zero complete parses and zero exact candidates above 38. This closes
+the compact lexical inventory as a scheduler bottleneck; the next experiment
+must replace its lexical support domains or change grammar topology rather
+than add another ordering heuristic. Artifact:
+`runs/two-factor-lookahead-csp-20260920.json`.

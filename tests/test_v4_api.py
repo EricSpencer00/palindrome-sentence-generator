@@ -66,8 +66,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "cfg-center-out-intersection-20260919"
-    assert method.json()["optimization"]["search_history"][-1] == "cfg-center-out-intersection-20260919"
+    assert method.json()["optimization"]["current_search"] == "slot-pair-character-search-20260919"
+    assert method.json()["optimization"]["search_history"][-1] == "slot-pair-character-search-20260919"
     assert method.json()["optimization"]["generation_policy"]["mode"] == "constructive_only"
     assert method.json()["optimization"]["generation_policy"]["posthoc_repair"] is False
     assert "retire the grammar family" in method.json()["optimization"]["generation_policy"]["failure_action"]
@@ -122,7 +122,10 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][53]["run_id"] == "cfg-center-out-intersection-20260919"
     assert method.json()["method_runs"][53]["early_pruned_derivations"] == 10800
     assert method.json()["method_runs"][53]["exact_candidates"] == 0
-    assert len(method.json()["method_runs"]) == 54
+    assert method.json()["method_runs"][54]["run_id"] == "slot-pair-character-search-20260919"
+    assert method.json()["method_runs"][54]["pruned_states"] == 7
+    assert method.json()["method_runs"][54]["exact_candidates"] == 0
+    assert len(method.json()["method_runs"]) == 55
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10

@@ -10910,6 +10910,17 @@
       "distinction": "Compiles one sentence grammar rather than two paired clauses and rejects a derivation at its first mirrored-character mismatch while carrying distinct lexical slots. No finished-tape reversal, aligned token pairs, fallback characters, catalogue text, or repair.",
       "reader_evidence": false,
       "status": "10,800 distinct-slot derivations from a held-out compact lexicon pruned online at the first character mismatch; 0 complete states and 0 exact closures; next construction replaces this slot product with a lexical trie while preserving the same online gate"
+    },
+    {
+      "id": "slot-pair-character-search-20260919",
+      "signature": "single-sentence-slot-product|cross-word-character-obligation|prefix-suffix-buffers",
+      "artifact": "experiments/slot_pair_character_search_20260919.py",
+      "run_artifacts": [
+        "runs/slot-pair-character-search-20260919.json"
+      ],
+      "distinction": "Selects independent words for the outer grammar slots and carries unequal prefix/suffix buffers so mirrored obligations can cross word boundaries before the sentence is complete. It does not pair clauses, reverse finished text, or compare aligned whole tokens.",
+      "reader_evidence": false,
+      "status": "7 live outer-slot states, all pruned before a complete sentence; 0 exact closures; next construction expands role-labelled lexical banks and adds a second clause/adjunct template"
     }
   ]
 }

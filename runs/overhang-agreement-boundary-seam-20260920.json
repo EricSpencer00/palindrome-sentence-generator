@@ -1,0 +1,136 @@
+{
+  "method": "overhang-agreement-boundary-seam-20260920",
+  "status": "completed_no_exact_closure",
+  "center_pairs": [
+    {
+      "center": "river/rest",
+      "overlap": 2,
+      "left_overhang": "vir",
+      "right_overhang": "st",
+      "whole_word_reverse": false
+    },
+    {
+      "center": "chart/trade",
+      "overlap": 3,
+      "left_overhang": "hc",
+      "right_overhang": "de",
+      "whole_word_reverse": false
+    },
+    {
+      "center": "poet/tell",
+      "overlap": 2,
+      "left_overhang": "op",
+      "right_overhang": "ll",
+      "whole_word_reverse": false
+    },
+    {
+      "center": "garden/near",
+      "overlap": 2,
+      "left_overhang": "drag",
+      "right_overhang": "ar",
+      "whole_word_reverse": false
+    }
+  ],
+  "states": 5,
+  "character_prunes": 10,
+  "boundary_prunes": 7,
+  "semantic_prunes": 0,
+  "seam_prunes": 0,
+  "state_limit": 30000,
+  "exact_candidates": [],
+  "exact_candidate_count": 0,
+  "rendered_diagnostics": [],
+  "controls": [
+    {
+      "rendered": "The sailor guards the river; rest by the quiet harbor.",
+      "audit": {
+        "letters": 43,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "r"
+        },
+        "sha256_forward": "12f4c9f908144f25cbbcc8f3154d66ab5a67f449f4b7cd0fb95b6bcabfed4ded",
+        "sha256_reverse": "95139b07e255f6c188ee694b398363fc28ce11fe7fb34dde09c13f9ad9e66a75"
+      },
+      "independent_pointer_exact": false,
+      "agreement_boundary_checked": true,
+      "reader_eligible": false,
+      "provenance": "authored agreement-compatible center control; not generated palindrome"
+    },
+    {
+      "rendered": "The sailors guard the river; rest by the quiet harbor.",
+      "audit": {
+        "letters": 43,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "r"
+        },
+        "sha256_forward": "29c351710757546ba93cfd134beb1aba86f95b6f958573e0a8016a29b7efa242",
+        "sha256_reverse": "025e16845c1456c2276bef127f654dbbb696a468c869a7e9ea6efde596c52742"
+      },
+      "independent_pointer_exact": false,
+      "agreement_boundary_checked": true,
+      "reader_eligible": false,
+      "provenance": "authored agreement-compatible center control; not generated palindrome"
+    },
+    {
+      "rendered": "A careful keeper studies the chart; trade near the old bridge.",
+      "audit": {
+        "letters": 50,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "a",
+          "reverse": "e"
+        },
+        "sha256_forward": "1f8fbf528175e0487cbf506f205b3ae776bf7dd7b44e44edab063958cfb85c47",
+        "sha256_reverse": "e2512266caea9c73c4d4a7de3c33be5f7c8ec90301ebb4b7a40cbc3cb70d3cef"
+      },
+      "independent_pointer_exact": false,
+      "agreement_boundary_checked": true,
+      "reader_eligible": false,
+      "provenance": "authored agreement-compatible center control; not generated palindrome"
+    },
+    {
+      "rendered": "The young poet remembers the garden; near the old bridge at dusk.",
+      "audit": {
+        "letters": 52,
+        "exact": false,
+        "first_mismatch": {
+          "index": 0,
+          "forward": "t",
+          "reverse": "k"
+        },
+        "sha256_forward": "948b5ba3d7fd402e8239280067d25c1a958b6196249d9230e443647eb9cf7f95",
+        "sha256_reverse": "aed435eb685e597dcda33046211dfb1641fcf2c578a7f225ba98f4b358e96f28"
+      },
+      "independent_pointer_exact": false,
+      "agreement_boundary_checked": true,
+      "reader_eligible": false,
+      "provenance": "authored agreement-compatible center control; not generated palindrome"
+    }
+  ],
+  "reader_facing_candidates": [],
+  "reader_eligible": false,
+  "independent_validation": [
+    "literal outside-in two-pointer",
+    "forward/reverse SHA-256"
+  ],
+  "provenance": "proper center-word overlaps are filtered by agreement-compatible clause boundary before outward growth; finite subject-number/verb agreement and imperative/locative continuation are complete semantic states; no seed embedding, whole-word semordnilap, self-palindromic center, reversal, or repair",
+  "novelty_preflight": {
+    "passed": true,
+    "overlaps_checked": [
+      "independent-center-seam-grammar-20260920",
+      "character-boundary-product-20260920",
+      "overhang-conditioned-two-ended-clause-20260918"
+    ],
+    "unused_dimension": "agreement-selected boundary type before center overhang expansion",
+    "reason": "prior center seam lane grew directly from overhang; this lane selects a typed agreement/continuation boundary first and prunes incompatible states before character emission"
+  },
+  "first_live_diagnostic": "center overhang mismatch after agreement boundary selection",
+  "next_construction": "hold out a plural copular boundary with a locative continuation; retain pre-growth agreement gate"
+}

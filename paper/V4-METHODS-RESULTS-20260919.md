@@ -1677,6 +1677,19 @@ cross-clause number-mismatch alternatives with explicit non-coreferential
 subjects. Artifact:
 `runs/mixed-agreement-anaphora-equations-20260920.json`.
 
+The non-coreferential number-mismatch lane removed the pronoun link between
+clause subjects and independently branched singular/plural agreement, while
+retaining relation-conditioned prepositions/connectives, typed recipient/theme
+roles, and semantic verb gates. It visited 48 live states, pruned all 48 at
+the equation boundary, and produced zero equation completions and zero exact
+candidates above 38 letters. Twenty intact contemporary-English controls were
+independently audited (maximum 73 letters), including “The poet shows a book to
+the child while the queens give letters to the children.” No repair, reversal,
+mirrored unit, catalogue text, or fragment was admitted. This closes the
+current discourse-feature family; the next run pivots to a materially
+different character/lexical search. Artifact:
+`runs/noncoreferential-number-mismatch-equations-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -813,6 +813,38 @@ retained. The run produced 23,436 complete question-dialogue paths and tested
 typed wh-question complement, not a repair pass. Artifact:
 `runs/question-quote-chart-orbit-20260920.json`.
 
+The wh-extraction follow-up added typed object extraction sites (`which letter`,
+`what sign`) to complete question clauses while preserving subject/auxiliary
+agreement and speech valency. It retained the 23,436-path chart and 300,000
+state bound; every state was pruned and zero exact closures appeared. Controls
+such as “the bard asks which letter does the king read” are complete questions,
+not palindrome candidates. The next construction is pied-piping; no question
+string is repaired. Artifact:
+`runs/wh-question-chart-orbit-20260920.json`.
+
+### Negation/clitic polarity chart
+
+The aspectual recipient grammar then added polarity as a first-class state:
+positive auxiliaries and finite `auxiliary + not` clauses shared agreement,
+tense, aspect, and recipient valency constraints. The inventory contained 672
+polarity-conditioned VPs, 4,032 recipient VPs, and 16,128 clauses. A bounded
+run tested 3,328 live pairs and pruned every one; no exact row above 38 letters
+closed. A complete 40-letter negative recipient control was independently
+audited, but it is not an exact candidate. The next construction is interrogative
+inversion, not repair. Artifact:
+`runs/negation-clitic-agreement-recipient-chart-20260920.json`.
+
+### Typed relative recursive series
+
+The recursive series was independently extended with a typed relative
+nonterminal (`REL` plus a complete transitive predicate). Three recursive paths
+produced 54 compatible boundary seeds; 39,992 states and 202,214 residual
+rejections yielded zero exact candidates above 38 letters. Complete punctuated
+controls include 53- and 56-letter relative-clause series, but remain ordinary
+prose diagnostics. The next construction adds relative-object valency variants;
+no near miss is repaired. Artifact:
+`runs/recursive-series-typed-relative-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

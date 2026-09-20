@@ -61,3 +61,8 @@ def test_bilateral_requires_two_parsed_clauses():
     lex = tuple(w for w in ATOMIC if w.text in {"an", "aide", "rips", "nine", "memos", "some", "men", "inspire", "diana"})
     result = bilateral_lexical_csp(lex, max_words=10, max_nodes=100000)
     assert result["stats"]["status"] in {"UNSAT", "timeout"}
+
+def test_reverse_trie_is_indexed_and_bounded():
+    result = reverse_trie_bilateral((Word("ab", "N"),), max_nodes=20)
+    assert result["provenance"]["reverse_trie"]
+    assert result["provenance"]["index_keys"] > 0

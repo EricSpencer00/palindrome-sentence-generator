@@ -214,6 +214,18 @@ def bilateral_lexical_csp(lexicon=ATOMIC, max_words=10, max_nodes=20000, edge_po
             "stats": {"nodes": nodes, "pruned": pruned, "status": "timeout" if nodes >= max_nodes else ("SAT" if out else "UNSAT")},
             "provenance": {"independent_left_right_edges": True, "finished_tape_reversal": False, "repair": False}}
 
+def reverse_trie_bilateral(lexicon=ATOMIC, max_nodes=20000):
+    """Indexed bilateral variant: residual prefixes select lexical edges."""
+    lex = [w for w in lexicon if w.pos in {"DET", "N", "V", "PROPN"} and letters(w.text)]
+    index = {}
+    for w in lex:
+        key = letters(w.text)[::-1]
+        for i in range(len(key) + 1): index.setdefault(key[:i], []).append(w)
+    result = bilateral_lexical_csp(lex, max_nodes=max_nodes)
+    result["provenance"]["reverse_trie"] = True
+    result["provenance"]["index_keys"] = len(index)
+    return result
+
 if __name__ == "__main__":
     import argparse
     ap = argparse.ArgumentParser(); ap.add_argument("--brown", action="store_true"); ap.add_argument("--limit", type=int, default=5000); ap.add_argument("--max-nodes", type=int, default=20000)

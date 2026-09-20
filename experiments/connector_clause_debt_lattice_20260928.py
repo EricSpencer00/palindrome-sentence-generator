@@ -12,7 +12,7 @@ def run(limit):
  for (lt,lc),(rt,rc),(conn,kind),(_,rkind) in itertools.product(CLAUSES,CLAUSES,CONNS,CONNS):
   if lt==rt or lc==rc or conn in lc or conn in rc:continue
   # connector is chosen before either side is rendered; all seam debt is checked.
-  left=f'{lc} {conn} {rc}'; right=f'{rt} {conn} {lt}'; a,b=tape(left),tape(right); k=min(len(a),len(b)); debt=sum(x!=y for x,y in zip(a[-k:],b[:k][::-1])) if k else 0
+  left=f'{lc} {conn} {rc}'; right=f'{rc} {conn} {lc}'; a,b=tape(left),tape(right); k=min(len(a),len(b)); debt=sum(x!=y for x,y in zip(a[-k:],b[:k][::-1])) if k else 0
   text=left+'; '+right; au=audit(text)
   rec={'rendered':text,'audit':au,'connector':conn,'semantic_roles':{'left':lt,'right':rt,'connector_type':kind},'clause_finality':{'left':True,'right':True},'full_boundary_debt':debt}
   if debt==0 and au['two_pointer_exact']:rec['reader_worthy']=True;exact.append(rec)

@@ -6021,3 +6021,28 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   not a reader-eligible output. The next construction adds a fourth event
   relation with the same explicit attachment graph and tense state. Artifact:
   `runs/word-boundary-third-event-graph-20260920.json`.
+
+- **Inchoative modal-passive topology, 2026-09-20:** introduced a typed
+  `begin-to-be-given` inchoative state before the modal passive
+  beneficiary/agent/theme frame. Across target lengths 44/56/68/80 it visited
+  1,550 states and made 496 live factor prunes, with 0 complete parses and 0
+  exact candidates above 38. The controls are complete ordinary-English
+  sentences; the next construction is a resultative modal passive. Artifact:
+  `runs/inchoative-modal-passive-csp-20260920.json`.
+
+- **Typed agreement scene author, 2026-09-20:** generated 320 complete scenes
+  with singular/plural subject-verb agreement enforced before rendering. The
+  longest intact diagnostic is 37 letters (`The reader holds a quiet harbor
+  near the quay.`); 0 exact candidates above 38 survived. The next construction
+  adds typed transitive and locative alternations. Artifact:
+  `runs/agreement-scene-author-20260920.json`.
+
+- **Four-event attachment graph, 2026-09-20:** extended the same
+  word-boundary grammar to a fourth finite event with a distinct attachment
+  index and tense state. Four frames incurred 294,912 live boundary prunes and
+  retained 20 grammatical near-miss diagnostics to 163 letters, including
+  `The patient gardener who records the note records the patient diaper that
+  the scribe records and that the gardener guards and the courier notes the
+  date and the witness checks the seal before dusk.`; 0 exact candidates above
+  38 survived. The next construction is a resultative or causal event
+  relation. Artifact: `runs/word-boundary-fourth-event-graph-20260920.json`.

@@ -6792,3 +6792,25 @@ provenance, novelty preflight, anti-shortcut checks, and a concrete
   letters, with 0 exact candidates above 38. The next construction adds
   quoted-clause speaker shifts and embedded-tense agreement. Artifact:
   `runs/shared-scene-quotation-islands-20260920.json`.
+
+- **Evidential-conditioned clause topology, 2026-09-20:** added held-out
+  evidential/polarity alternations with agreement state to independent
+  full-clause factorization. The bounded run visited 5,000 states, pruned
+  4,499, and reached no complete two-sided parse; its longest intact control
+  was 108 letters and exact count above 38 was 0. The next construction adds
+  discourse/evidential alternations. Artifact:
+  `runs/evidential-conditioned-clause-csp-20260920.json`.
+
+- **Dual relation-specific adjunct closure, 2026-09-20:** delayed closure until
+  two relation-specific adjunct obligations were consumed. It checked 168
+  residual steps across 12 scenes, retained diagnostics up to 87 letters, and
+  found 0 exact candidates above 38. The next construction mixes valency
+  adjunct pairs with role-labeled residuals. Artifact:
+  `runs/dual-relation-adjunct-delayed-closure-20260920.json`.
+
+- **Quoted speaker shifts and embedded tense, 2026-09-20:** added speaker-shift
+  and quoted-tense states inside quotation scope islands. It checked 186,624
+  online prunes and retained 20 complete controls up to 147 letters, with 0
+  exact candidates above 38. The next construction adds quotation polarity and
+  attitude predicates with scope agreement. Artifact:
+  `runs/shared-scene-quoted-speaker-tense-20260920.json`.

@@ -330,6 +330,17 @@ complete parse could be rendered, it produced no reader-facing text; the
 failure is retained as a grammar-family discriminator, not converted into a
 repair pass.
 
+The synchronous lexical center-out lane then tested the alternative suggested
+by the seam failures: begin at a grammatical center and grow outward while
+carrying the entire unmatched character debt across phrase boundaries. A
+fresh NP/VP phrase grammar was expanded to depth 5 with beam 200 on
+`hst-bench`; the corrected implementation rejected repeated phrases and
+content words before insertion and propagated both grammar states. It reached
+zero frontier states, zero exact closures, and therefore emitted no prose for
+the reader gate. This is a clean construction failure, not a near-palindrome
+repair result; the next discriminator indexes phrase pairs by exposed
+boundary while retaining the complete debt.
+
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:
 grammar boundaries and mirrored character orbits must be selected together,

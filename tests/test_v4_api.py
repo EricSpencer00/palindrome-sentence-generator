@@ -66,8 +66,8 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.status_code == 200
     assert method.json()["status"] == "constructive_search_in_progress"
     assert method.json()["current_best"]["rendered"] == "An aide rips nine memos; some men inspire Diana."
-    assert method.json()["optimization"]["current_search"] == "luna-relative-cfg-orbit-20260920"
-    assert method.json()["optimization"]["search_history"][-1] == "luna-relative-cfg-orbit-20260920"
+    assert method.json()["optimization"]["current_search"] == "synchronous-lexical-centerout-20260919"
+    assert method.json()["optimization"]["search_history"][-1] == "synchronous-lexical-centerout-20260919"
     assert method.json()["optimization"]["generation_policy"]["mode"] == "constructive_only"
     assert method.json()["optimization"]["generation_policy"]["posthoc_repair"] is False
     assert "retire the grammar family" in method.json()["optimization"]["generation_policy"]["failure_action"]
@@ -82,7 +82,10 @@ def test_v4_method_and_best_evaluation_are_explicitly_diagnostic():
     assert method.json()["method_runs"][7]["longest_rendered_letters"] == 77
     assert method.json()["method_runs"][8]["frontier_controls"] == 390
     assert method.json()["method_runs"][9]["longest_rendered_letters"] == 81
-    assert len(method.json()["method_runs"]) == 38
+    assert method.json()["method_runs"][38]["run_id"] == "synchronous-lexical-centerout-20260919"
+    assert method.json()["method_runs"][38]["frontier_states"] == 0
+    assert method.json()["method_runs"][38]["constructive_closures"] == 0
+    assert len(method.json()["method_runs"]) == 39
     assert method.json()["method_runs"][10]["expanded_orbit_states"] == 8
     assert method.json()["method_runs"][11]["search_nodes"] == 306725
     assert method.json()["method_runs"][12]["prior_exact_collisions"] == 10

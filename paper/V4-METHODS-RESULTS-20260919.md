@@ -1637,6 +1637,20 @@ admitted. The next construction allows anaphoric recipient pronouns with an
 explicit antecedent type. Artifact:
 `runs/anaphoric-subject-relation-equations-20260920.json`.
 
+The anaphoric-recipient lane added typed recipient antecedents and realized
+them as `him`, `her`, or singular/plural `them`, while retaining the
+anaphoric subject, relation-conditioned connective/preposition, and semantic
+verb gate. Recipient identity and number must match the antecedent exactly
+before closure. Two relation states yielded 24 live states; all 24 were
+pruned at the equation boundary, with zero equation completions and zero exact
+candidates above 38 letters. Twenty intact contemporary-English controls were
+independently audited (maximum 60 letters), including “Mara gives the letter
+for the child although she sends a book for him.” No repair, reversal,
+mirrored unit, catalogue text, or fragment was admitted. The next construction
+jointly realizes anaphoric subject and recipient with plural agreement and
+explicit coreference constraints. Artifact:
+`runs/anaphoric-recipient-relation-equations-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

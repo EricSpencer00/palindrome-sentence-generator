@@ -1896,10 +1896,11 @@ PP expansion on both sides. The product checks exposed character obligations
 during construction; no completed tape is reversed or resegmented. A proper
 embedded palindrome-span check rejects structural shortcuts.
 
-The bounded inventory visited 2,927,330 paired character obligations and
-pruned 132,634 incompatible products, yielding zero fresh exact closures above
-38 letters. The exact 38-letter aide/memos/Diana sentence is retained only as
-an independent calibration (`generated: false`), not as a result of this lane.
+The bounded inventory tested 132,634 paired frame products, making 141,966 live
+opposite-end character comparisons before pruning 132,634 incompatible
+products. It yielded zero fresh exact closures above 38 letters. The exact
+38-letter aide/memos/Diana sentence is retained only as an independent
+calibration (`generated: false`), not as a result of this lane.
 The artifact records frame provenance, pointer and forward/reverse SHA-256
 audits, and the next constructive step: enlarge the vivid role lexicon while
 indexing endpoint character classes before optional PP expansion. This is

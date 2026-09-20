@@ -74,13 +74,14 @@ def proper_span(t: str) -> bool:
 
 def run(min_letters: int, limit: int):
     allc = [c for f in FRAMES.values() for c in clauses(f)]
-    rows=[]; states=0; pruned=0
+    rows=[]; products=0; states=0; pruned=0
     for left, right in itertools.product(allc, allc):
         if left["number"] != right["number"]: continue
         if left["words"] == right["words"]: continue
         text = " ".join(left["words"] + right["words"])
         lt=tape(text)
         if len(lt) < min_letters: continue
+        products += 1
         # The product is checked incrementally: each exposed character is
         # compared with the opposite live obligation before the next one.
         matched, comparisons = live_match(left["words"], right["words"])
@@ -100,7 +101,7 @@ def run(min_letters: int, limit: int):
     seed = "An aide rips nine memos; some men inspire Diana."
     return {"experiment":"semantic-frame-product-20260926", "host":socket.gethostname(),
             "parameters":{"min_letters":min_letters,"limit":limit}, "states":states,
-            "pruned":pruned, "candidates":rows, "closures":len(rows), "reader_worthy":0,
+            "products":products, "pruned":pruned, "candidates":rows, "closures":len(rows), "reader_worthy":0,
             "calibration":{"rendered":seed,"audit":audit(seed),"generated":False},
             "next_construction":"Expand the frame lexicon with vivid subject/object role pairs and carry endpoint character classes into the frame product before adding optional PPs."}
 

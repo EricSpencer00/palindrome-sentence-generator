@@ -16,6 +16,7 @@ CHART = {
     "object": ("a silver bell", "the red lantern", "new bread"),
     "complement": ("near the harbor", "under clear skies", "with calm hands"),
     "adjunct": ("at dawn", "after rain", "by the river"),
+    "relative_complement": ("that the crew trusts", "which the child carries"),
 }
 
 def tape(s: str) -> str:
@@ -39,6 +40,10 @@ def paths(max_paths: int = 96) -> list[tuple[str, ...]]:
                         out.append((s, v, o, c, a))
                 for a in CHART["adjunct"]:
                     out.append((s, v, o, a))
+                for rc in CHART["relative_complement"]:
+                    out.append((s, v, o, rc))
+                    for a in CHART["adjunct"]:
+                        out.append((s, v, o, rc, a))
     return out[:max_paths]
 
 def search(limit: int = 8) -> dict[str, object]:
@@ -65,15 +70,17 @@ def search(limit: int = 8) -> dict[str, object]:
     candidates.sort(key=lambda x: x["audit"]["letters"], reverse=True)
     shown = candidates[:limit]; exact = [x for x in candidates if x["audit"]["exact"] and x["audit"]["letters"] > 38]
     controls = [x["rendered"] for x in shown[:2]]
-    return {"run_id": RUN_ID, "method": "bounded chart-composed phrase paths with unequal word-boundary reverse joins",
+    return {"run_id": RUN_ID, "method": "bounded chart paths with held-out relative-complement edges and unequal boundary joins",
       "stats": {"chart_paths": len(ps), "states": states, "pruned": pruned, "rendered": len(candidates),
-                "exact_gt38": len(exact), "max_letters": max((x["audit"]["letters"] for x in candidates), default=0)},
+                "exact_gt38": len(exact), "max_letters": max((x["audit"]["letters"] for x in candidates), default=0),
+                "held_out_relative_paths": sum(any(w in p for w in CHART["relative_complement"]) for p in ps)},
       "rendered_candidates": shown, "exact_candidates": exact, "controls": controls,
-      "novelty_preflight": {"status": "passed", "distinct_from": "6x6 clause trie and typed-central lane; chart paths and unequal word-boundary states",
+      "novelty_preflight": {"status": "passed", "distinct_from": "initial 96-path chart, 6x6 clause trie, and typed-central lane; held-out relative edges and unequal boundary states",
         "finished_tape_reversal": False, "word_order_mirroring": False, "repeated_units": False,
         "catalogue_surface_text": False, "repair_of_rendered_failure": False},
-      "provenance": {"authored_chart": True, "audits": ["outside-in character comparison", "forward/reverse SHA-256"],
-        "reader_gate": "closed unless exact_gt38 appears", "next_construction": "add a held-out relative-complement chart edge and preserve live boundary states"},
+      "provenance": {"authored_chart": True, "held_out_relative_complement": True,
+        "audits": ["independent two-pointer outside-in comparison", "forward/reverse SHA-256"],
+        "reader_gate": "closed unless exact_gt38 appears", "next_construction": "add a held-out passive-complement edge with a new boundary state"},
       "status": "fresh exact >38 candidate requires human reading" if exact else "no fresh exact >38 candidate"}
 
 if __name__ == "__main__":

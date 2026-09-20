@@ -1824,3 +1824,19 @@ contemporary controls (maximum 38 letters), but found no exact candidate above
 38 letters. Pointer, SHA, and proper-span checks are retained in
 `runs/recursive-cfg-orbit-20260920.json`; this result does not certify
 readability and is not promoted to the reader package.
+
+## Outside-in typed two-clause character CSP
+
+The outside-in typed two-clause CSP selects words from independent
+contemporary-English clause derivations while maintaining a live character
+obligation between exposed prefix and suffix. Its grammar includes simple
+transitive clauses plus optional prepositional and relative-clause structure;
+agreement and lightweight valency checks run on the derivation. No completed
+tape is reversed, no seed is parsed backward, and no repair pass is applied.
+The run visited 923 live states for each simple/quantity/PP plan and 208 for
+each relative plan, pruning 918 or 207 incompatible states respectively. It
+found zero exact candidates above 38 letters. Two authored controls and partial
+prose witnesses are retained in
+`runs/two-clause-character-csp-20260920.json`, with independent two-pointer
+and SHA-256 audits. This is a construction result, not readability evidence;
+the blinded reader gate remains closed.

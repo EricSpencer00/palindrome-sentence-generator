@@ -28,6 +28,7 @@ def extract_frames(limit: int = 50_000):
     frames = Counter()
     adjuncts = Counter()
     feature_adjuncts = defaultdict(Counter)
+    frame_ids = defaultdict(Counter)
     for sentence in brown.tagged_sents()[:limit]:
         for i in range(len(sentence) - 4):
             (det, det_tag), (subj, subj_tag), (verb, verb_tag), (obj_det, obj_det_tag), (obj, obj_tag) = sentence[i:i + 5]
@@ -45,15 +46,16 @@ def extract_frames(limit: int = 50_000):
             if not all(word.isalpha() for word in (det, subj, verb, obj_det, obj)):
                 continue
             frames[feature] += 1
+            frame_id=f'{det.casefold()} {subj.casefold()} {verb.casefold()} {obj_det.casefold()} {obj.casefold()}'
+            frame_ids[feature][frame_id] += 1
             subjects[feature][subj.casefold()] += 1
             verbs[feature][verb.casefold()] += 1
-        for i in range(len(sentence)-1):
-            (prep, ptag), (noun, ntag) = sentence[i:i+2]
-            if ptag == 'IN' and ntag.startswith(('NN','NP')) and prep.isalpha() and noun.isalpha():
-                adjuncts[f'{prep.casefold()} {noun.casefold()}'] += 1
-                for feature in ('singular_vbz','plural_vbp','past_vbd'):
-                    feature_adjuncts[feature][f'{prep.casefold()} {noun.casefold()}'] += 1
-    return subjects, verbs, dict(frames), adjuncts, feature_adjuncts
+            if i + 6 < len(sentence):
+                prep, ptag = sentence[i+5]; noun, ntag = sentence[i+6]
+                if ptag == 'IN' and ntag.startswith(('NN','NP')) and prep.isalpha() and noun.isalpha():
+                    phrase=f'{prep.casefold()} {noun.casefold()}'; adjuncts[phrase] += 1; feature_adjuncts[feature][phrase] += 1
+                    frame_ids[feature][frame_id+' | '+phrase] += 1
+    return subjects, verbs, dict(frames), adjuncts, feature_adjuncts, frame_ids
 
 
 def top(counter: Counter[str], limit: int = 64) -> tuple[str, ...]:
@@ -61,7 +63,7 @@ def top(counter: Counter[str], limit: int = 64) -> tuple[str, ...]:
 
 
 def run() -> dict[str, object]:
-    subjects, verbs, frame_counts, adjunct_counts, feature_adjuncts = extract_frames()
+    subjects, verbs, frame_counts, adjunct_counts, feature_adjuncts, frame_ids = extract_frames()
     det = ("a", "the", "this", "that", "one")
     results = []
     feature_stats = {}
@@ -74,9 +76,10 @@ def run() -> dict[str, object]:
             continue
         subject_slot = Slot("subject", subject_words, word_features=tuple((w, feature) for w in subject_words))
         verb_slot = Slot("verb", verb_words, word_features=tuple((w, feature) for w in verb_words))
+        object_slot = Slot("object", subject_words, word_features=tuple((w, feature) for w in subject_words))
         templates = [
-            (Slot("det", det), subject_slot, verb_slot, Slot("det", det), Slot("object", subject_words)),
-            (Slot("det", det), subject_slot, verb_slot, Slot("det", det), Slot("object", subject_words), Slot("adjunct", adjunct)),
+            (Slot("det", det), subject_slot, verb_slot, Slot("det", det), object_slot),
+            (Slot("det", det), subject_slot, verb_slot, Slot("det", det), object_slot, Slot("prep_object", adjunct)),
         ]
         runs = [search(template, limit=16) for template in templates]
         stats = {
@@ -96,6 +99,7 @@ def run() -> dict[str, object]:
         "adjunct_frame_counts": dict(adjunct_counts.most_common(32)),
         "adjunct_frame_unique": len(adjunct_counts),
         "feature_adjunct_frame_counts": {k: dict(v.most_common(32)) for k, v in feature_adjuncts.items()},
+        "frame_identity_counts": {k: dict(v.most_common(32)) for k, v in frame_ids.items()},
         "feature_stats": feature_stats,
         "provenance": {
             "penn_tags": True,
@@ -104,7 +108,7 @@ def run() -> dict[str, object]:
             "aligned_token_mirror": False,
             "finished_tape_reversal": False,
             "fallback": False,
-            "adjunct_partition_audit": "REJECTED: the current feature adjunct inventories are copied from a global preposition-noun bank rather than extracted from feature-specific clause frames; not a valid contextual partition",
+            "adjunct_partition_audit": "frame-attested DET-NOUN-VERB-ADP-NOUN",
             "human_readability_evidence": False,
         },
     }

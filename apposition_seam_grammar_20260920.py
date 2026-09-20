@@ -35,8 +35,13 @@ THIRD = (
     "the quiet clerk checks the sealed parcel",
     "a young sailor folds the weathered chart",
 )
+FOURTH = (
+    "the patient guide opens the marked door",
+    "our careful singer warms the waiting room",
+)
 SEAMS = (", and ", ", but ", ", the witness, ")
 TEMPORAL_SEAMS = (", at first light, ", ", after the rain, ")
+CAUSAL_SEAMS = (", for that reason, ", ", therefore, ")
 
 
 def letters(text: str) -> str:
@@ -76,6 +81,7 @@ def live_join(left: str, right: str) -> tuple[bool, list[dict[str, object]]]:
 def run() -> dict[str, object]:
     rows = []
     held_out = []
+    causal = []
     exact = []
     for left in LEFT:
         for right in RIGHT:
@@ -133,6 +139,36 @@ def run() -> dict[str, object]:
                     held_out.append(row)
                     if row["audit"]["exact"] and row["audit"]["letters"] > 38:
                         exact.append(row)
+    # Second held-out lane: a fourth clause and a causal appositive seam.
+    for left in LEFT:
+        for middle in THIRD:
+            for fourth in FOURTH:
+                for right in RIGHT:
+                    for seam in CAUSAL_SEAMS:
+                        rendered = left + "; " + middle + "; " + fourth + seam + right + "."
+                        ok, trace = live_join(left + middle + fourth + seam, right)
+                        row = {
+                            "rendered": rendered,
+                            "live_closed": ok,
+                            "boundary_trace": trace,
+                            "audit": audit(rendered),
+                            "provenance": {
+                                "left_clause": left,
+                                "third_clause": middle,
+                                "fourth_clause": fourth,
+                                "right_clause": right,
+                                "causal_appositive_seam": seam,
+                                "independent_clause_authorship": True,
+                                "finished_tape_reversal": False,
+                                "word_order_mirroring": False,
+                                "repeated_units": False,
+                                "catalogue_surface_text": False,
+                                "post_hoc_repair": False,
+                            },
+                        }
+                        causal.append(row)
+                        if row["audit"]["exact"] and row["audit"]["letters"] > 38:
+                            exact.append(row)
     rows.sort(key=lambda row: row["audit"]["letters"], reverse=True)
     return {
         "run_id": RUN_ID,
@@ -144,12 +180,15 @@ def run() -> dict[str, object]:
             "rendered_controls": len(rows),
             "held_out_temporal_controls": len(held_out),
             "held_out_live_closed": sum(row["live_closed"] for row in held_out),
+            "causal_controls": len(causal),
+            "causal_live_closed": sum(row["live_closed"] for row in causal),
             "live_closed": sum(row["live_closed"] for row in rows),
             "exact_gt38": len(exact),
             "max_letters": max(row["audit"]["letters"] for row in rows),
         },
         "rendered_controls": rows[:6],
         "held_out_temporal_controls": held_out[:6],
+        "causal_controls": causal[:6],
         "exact_candidates": exact,
         "novelty_preflight": {
             "status": "passed",
@@ -162,7 +201,7 @@ def run() -> dict[str, object]:
         },
         "provenance": {
             "audits": ["independent two-pointer seam comparison", "forward/reverse SHA-256"],
-            "next_construction": "try a held-out causal appositive seam with a fourth independently authored clause bank",
+            "next_construction": "try a held-out contrastive appositive seam with a fifth independently authored clause bank",
             "reader_gate": "closed unless exact_gt38 appears",
         },
         "status": "fresh exact >38 candidate requires human reading" if exact else "no exact >38 closure in bounded seam bank",

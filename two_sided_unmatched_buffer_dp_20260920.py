@@ -32,7 +32,7 @@ def run():
   for s in states:
    for lw in LEFT:
     for rw in RIGHT:
-     transitions+=1; lb=s.left_buf+letters(lw[i]); rb=s.right_buf+letters(rw[i])
+     transitions+=1; lb=s.left_buf+letters(lw[i]); rb=s.right_buf+letters(rw[i])[::-1]
      out=consume(lb,rb)
      if out is None: pruned+=1; continue
      nxt.append(State(s.left+' '+lw[i],s.right+' '+rw[i],out[0],out[1],s.trace+((lw[i],rw[i],len(out[0]),len(out[1])),)))

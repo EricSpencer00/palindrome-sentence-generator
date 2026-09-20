@@ -18,10 +18,16 @@ def test_forward_reverse_hashes_agree_only_for_exact():
 
 def test_bounded_csp_matches_bruteforce_at_each_length():
     csp = constrained_paths(lengths=range(1, 21))
-    expected = {t for t in brute_force(GRAMMAR, ATOMIC) if independent_audit(t)["letters"] <= 20}
+    expected = {t for t in brute_force(GRAMMAR, ATOMIC, max_words=8) if independent_audit(t)["letters"] <= 20}
     got = {r["rendered"].rstrip(".") for r in csp["paths"]}
     assert got == {t for t in expected if independent_audit(t)["exact"]}
     assert csp["stats"]["pruned"] >= 0
+
+def test_atomic_38_letter_witness_is_recovered():
+    result = constrained_paths(lengths=[38], max_words=6)
+    anchor = "madam redivider level level redivider madam"
+    assert any(r["rendered"].rstrip(".") == anchor for r in result["paths"])
+    assert independent_audit(anchor)["exact"]
 
 def test_center_inside_word_and_asymmetric_boundaries_are_supported():
     # "level" has an interior center for N=5; no word-boundary symmetry is assumed.

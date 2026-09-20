@@ -24,11 +24,13 @@ ATOMIC = (
     Word("sees", "V", number="sg", valency="transitive"),
     Word("sees", "V", number="sg", valency="transitive"),
     Word("noon", "N", number="sg"), Word("level", "N", number="sg"),
+    # Atomic entries; the 38-letter witness is discovered by the CSP, not stored.
+    Word("madam", "N", number="sg"), Word("redivider", "V", number="sg", valency="transitive"),
     Word("a", "DET"), Word("the", "DET"), Word("dog", "N", number="sg"),
 )
 
-GRAMMAR = {"S": (("NP", "VP"),), "NP": (("PROPN",), ("DET", "N")),
-           "VP": (("V", "NP"),)}
+GRAMMAR = {"S": (("CLAUSE", "CLAUSE"),), "CLAUSE": (("NP", "V", "NP"),),
+           "NP": (("PROPN",), ("N",)), "VP": (("V", "NP"),)}
 
 def letters(text):
     return re.sub(r"[^a-z]", "", text.casefold())

@@ -1,0 +1,68 @@
+{
+  "experiment_id": "brown-authored-event-chain-reverse-decoder-20260920",
+  "method": "authored temporal event-chain frames over Brown-derived domains with complete reverse parsing",
+  "stats": {
+    "complete_forward_frames": 10000,
+    "reverse_states": 10000,
+    "complete_reverse_parses": 0,
+    "rendered_candidates": 0,
+    "exact": 0
+  },
+  "rendered_candidates": [],
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "First the young man sees the house; then the old woman hears the word.",
+      "audit": {
+        "letters": 55,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "f",
+          "d"
+        ],
+        "sha256_forward": "e570c1801b25b6b1ab7320468565c8fba97a62ae4725abd2459cdaf31881e51d",
+        "sha256_reverse": "9f4b6d368242e471c2f5537a259987cfbb5d5bb8eac0bd1c054f17df71812163",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    },
+    {
+      "rendered": "Before a good boy found the door; after a new girl held the key.",
+      "audit": {
+        "letters": 49,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "b",
+          "y"
+        ],
+        "sha256_forward": "067e086db9d25f8871215229d3eee619e38b48ebfebf22c1e6acd5bd280ee39d",
+        "sha256_reverse": "426c6b528f622e2788da6a91494a0522568a8b71a1caae39a5ba6d35915bbac8",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "brown-derived-lexicon|authored-event-chain-grammar|temporal-event-role-sequence|variable-boundary-reverse-parse",
+    "distinct_from": "prior clause, coordination, subordination, and discourse-marker lanes; temporal event-role sequences are newly authored",
+    "catalogue_text": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false
+  },
+  "provenance": {
+    "bank": "data/brown_pcfg_bank_20260920.json",
+    "bank_sha256": "53037c8356cf0bd387985fb085c5d41823ce5ea1d7c27c86c4ad50b25b72d322",
+    "generator_sha256": "6fbf349d6c6f2ae3aa648cf82e2b52268a885e9706a1c06d9a73b15f716aa6a2",
+    "audits": [
+      "independent two-pointer mismatch",
+      "forward/reverse SHA-256"
+    ],
+    "marker_policy": "first/then/after/before admitted from Brown-derived ADV/PREP forms",
+    "next_reader_test": "randomized blinded ratings of intact event chains versus shuffled controls"
+  },
+  "status": "no fresh exact parse in this lane",
+  "next_construction": "prepare blinded reader package if exact rows survive; otherwise author a new causal-frame grammar"
+}

@@ -1523,6 +1523,19 @@ two-word subject chunks with agreement carried in the live equation rather than
 post-hoc repair. Artifact:
 `runs/cross-word-equation-scene-20260920.json`.
 
+The agreement-carrying subject-chunk lane widened each clause's subject to a
+two-word-capable number-bearing inventory. Singular/plural features were bound
+to the corresponding verb before character emission, while independent phrase
+boundaries continued to consume the live reverse-compatible equation. It
+visited 40 states, all pruned at the first equation, with zero equation
+completions and zero exact candidates above 38 letters. Twenty intact
+contemporary-English controls were rendered and independently audited (maximum
+42 letters); the set includes “A sailor opens the book while some guards mark
+the seal.” No repair, reversal, mirrored unit, catalogue text, or fragment was
+admitted. The next constructive expansion is a two-word object chunk carrying
+animacy and number while retaining subject agreement. Artifact:
+`runs/agreement-subject-chunk-equations-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

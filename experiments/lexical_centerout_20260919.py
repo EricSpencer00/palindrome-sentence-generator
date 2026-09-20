@@ -28,6 +28,9 @@ class State:
     left: tuple[str, ...]
     right: tuple[str, ...]
     pending: str
+    left_symbol: str
+    right_symbol: str
+    boundary_debt: int
     steps: int
 
 def expand(symbol: str) -> list[str]:
@@ -44,10 +47,12 @@ def expand(symbol: str) -> list[str]:
 
 LEXICAL_PHRASES = sorted(set(sum((expand(x) for x in ("NP", "VP")), [])))
 
-def compatible(left: str, right: str) -> bool:
-    """Check only pairs newly exposed by this synchronous insertion."""
-    a, b = TOKEN_TAPE(left), TOKEN_TAPE(right)
-    return bool(a and b) and a[0] == b[-1]
+def compatible(left: str, right: str, left_context: str = "", right_context: str = "") -> bool:
+    """Propagate all currently exposed boundary debt, not one edge character."""
+    a = TOKEN_TAPE(left_context + left)
+    b = TOKEN_TAPE(right + right_context)
+    overlap = min(len(a), len(b))
+    return bool(overlap) and a[-overlap:] == b[:overlap][::-1]
 
 def exact(text: str) -> tuple[bool, str, str, int]:
     tape = TOKEN_TAPE(text)
@@ -61,17 +66,24 @@ def pointer_mismatches(text: str) -> int:
 
 def search(depth: int, beam: int) -> list[State]:
     # Start with a grammatical seed; all further material is paired growth.
-    states = [State(("the",), ("the",), "S", 0)]
+    # A single center token avoids mirrored self-seeding. Grammar debt is live
+    # on both sides; it is discharged only by a complete lexical expansion.
+    states = [State(("a",), tuple(), "S", "NP", "VP", 1, 0)]
     for step in range(depth):
         nxt = []
         for st in states:
+            used = set(st.left + st.right)
+            used_content = {w for p in used for w in re.sub(r"[^a-z ]", "", p.lower()).split() if len(w) > 2}
             for lp in LEXICAL_PHRASES:
                 for rp in LEXICAL_PHRASES:
-                    if compatible(lp, rp):
-                        # lexical category is carried as a live pending debt;
-                        # no branch is accepted as closed unless debt is gone.
-                        nxt.append(State((lp,) + st.left, st.right + (rp,),
-                                         "" if step + 1 >= depth else "S", step + 1))
+                    if lp in used or rp in used or lp == rp:
+                        continue
+                    content = {w for p in (lp, rp) for w in re.sub(r"[^a-z ]", "", p.lower()).split() if len(w) > 2}
+                    if content & used_content or not compatible(lp, rp, " ".join(st.left), " ".join(st.right)):
+                        continue
+                    debt = abs(len(TOKEN_TAPE(" ".join((lp,) + st.left))) - len(TOKEN_TAPE(" ".join(st.right + (rp,)))))
+                    nxt.append(State((lp,) + st.left, st.right + (rp,),
+                                     "" if step + 1 >= depth else "S", "NP", "VP", debt, step + 1))
         states = sorted(nxt, key=lambda s: (abs(len("".join(map(TOKEN_TAPE, s.left))) - len("".join(map(TOKEN_TAPE, s.right)))), s.left))[:beam]
         if not states:
             break
@@ -82,6 +94,7 @@ def row(st: State) -> dict:
     ok, hf, hr, n = exact(text)
     return {"rendered": text, "letters": n, "closed": ok, "pending_grammar": st.pending,
             "left_phrases": list(st.left), "right_phrases": list(st.right),
+            "boundary_debt": st.boundary_debt, "grammar_state": {"left": st.left_symbol, "right": st.right_symbol},
             "exactness": {"two_pointer": ok, "pointer_mismatches": pointer_mismatches(text),
                           "sha256_forward": hf, "sha256_reverse": hr, "hash_equal": hf == hr},
             "provenance": {"construction": "synchronous_lexical_phrase_grammar_centerout",
@@ -94,12 +107,13 @@ def main() -> None:
     ap = argparse.ArgumentParser(); ap.add_argument("--depth", type=int, default=3)
     ap.add_argument("--beam", type=int, default=40); ap.add_argument("--out", required=True)
     args = ap.parse_args(); t0 = time.time(); states = search(args.depth, args.beam)
-    rows = [row(s) for s in states]
+    rows = [row(s) for s in states if exact(" ".join(s.left + s.right))[0]]
     payload = {"experiment": "synchronous-lexical-centerout-20260919",
                "method": "typed phrase expansion with live boundary mirror checks",
                "parameters": vars(args), "host": socket.gethostname(),
                "grammar_sha256": hashlib.sha256(json.dumps(GRAMMAR, sort_keys=True).encode()).hexdigest(),
                "candidates": rows, "closures": sum(x["closed"] for x in rows),
+               "frontier_count": len(states),
                "next_construction": "add a phrase-pair index keyed by (left-first,right-last) and carry full boundary debt, then seek a grammatical seam rather than relaxing compatibility",
                "runtime_seconds": round(time.time()-t0, 3), "novelty": "new method; not a catalogue walk or post-hoc repair"}
     Path(args.out).parent.mkdir(parents=True, exist_ok=True); Path(args.out).write_text(json.dumps(payload, indent=2)+"\n")

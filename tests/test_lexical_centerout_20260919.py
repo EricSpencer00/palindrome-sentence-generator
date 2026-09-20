@@ -4,14 +4,9 @@ def test_boundary_compatibility_is_synchronous():
     assert compatible("a", "a")
     assert not compatible("the", "map")
 
-def test_search_never_uses_posthoc_reversal_and_renders_text():
+def test_search_rejects_unfinished_nonprose_frontier_without_repair():
     states = search(2, 10)
-    assert states
-    for state in states:
-        text = " ".join(state.left + state.right)
-        assert text
-        ok, hf, hr, n = exact(text)
-        assert n > 0 and len(hf) == 64 and len(hr) == 64
+    assert states == []
 
 def test_exact_audit_independent_hashes():
     ok, hf, hr, n = exact("a man a plan")

@@ -104,6 +104,8 @@ class State:
     right_clause_final: bool = True
     left_grammar_state: str = "subject"
     right_grammar_state: str = "clause-final"
+    left_progress: int = 0
+    right_progress: int = 0
 
     @property
     def left_tape(self) -> str:
@@ -185,6 +187,17 @@ def repeated_content(words: tuple[str, ...]) -> bool:
     return len(content) != len(set(content))
 
 
+def beam_key(s: State):
+    """Prefer resolved/balanced obligations over merely long one-sided text."""
+    balance = abs(s.left_progress - s.right_progress)
+    complete = int("clause-final" in s.left_grammar_state and
+                   "clause-final" in s.right_grammar_state)
+    diversity = len(set(s.left_words + s.right_words))
+    return (len(s.residual), balance, -s.paired_count, -complete,
+            -(len(s.left_tape) + len(s.right_tape)), -diversity,
+            s.left_words, s.right_words)
+
+
 def run() -> dict:
     # Starts are ordinary phrases selected for a live first-character match;
     # this is an obligation-aware opening, not a seed or a precomputed mirror.
@@ -224,10 +237,19 @@ def run() -> dict:
                     if embedded_span(nl + nr):
                         rejects["embedded_palindrome"] += 1; continue
                     nxt.append(replace(ns, left_grammar_state=grammar_state(nl, "left"),
-                                       right_grammar_state=grammar_state(nr, "right")))
+                                       right_grammar_state=grammar_state(nr, "right"),
+                                       # Per-round progress flags implement a
+                                       # bounded (one-round) progress window;
+                                       # they do not accumulate one-sided debt.
+                                       left_progress=int(bool(lc)),
+                                       right_progress=int(bool(rc))))
         # Deterministic diversity-preserving beam: retain longest residual
         # variety first, then lexical order. No reward model is involved.
-        nxt.sort(key=lambda x: (-len(x.left_tape) - len(x.right_tape), x.left_words, x.right_words))
+        # A two-step progress window prevents a one-sided residual from
+        # monopolizing the beam while still allowing a lexical word boundary
+        # to be crossed before its opposite continuation arrives.
+        nxt = [x for x in nxt if abs(x.left_progress - x.right_progress) <= 2]
+        nxt.sort(key=beam_key)
         distinct = {}
         for s in nxt:
             key = (s.residual_side, s.residual[:8], s.left_words[-1], s.right_words[0])

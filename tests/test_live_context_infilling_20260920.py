@@ -5,7 +5,15 @@ from pathlib import Path
 
 ROOT = Path(__file__).parents[1]
 sys.path.insert(0, str(ROOT / "experiments"))
-from live_context_infilling_20260920 import State, consume  # noqa: E402
+from live_context_infilling_20260920 import State, beam_key, consume  # noqa: E402
+
+
+def test_beam_prefers_balanced_residual_over_long_one_sided_state():
+    balanced = State(("A", "reader"), ("idea",), "ab", "left", 12, (),
+                     left_progress=1, right_progress=1)
+    one_sided = State(("A", "reader", "writes", "many", "words"), ("idea",),
+                      "abcdefghijkl", "left", 12, (), left_progress=1, right_progress=0)
+    assert beam_key(balanced) < beam_key(one_sided)
 
 
 def test_live_residual_accepts_unpaired_left_prefix_and_rejects_conflict():

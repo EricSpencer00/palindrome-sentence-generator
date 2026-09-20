@@ -1834,8 +1834,11 @@ starts from grammatical noun-final suffixes (for example, *idea* and *night*)
 and carries an explicit final lexical category while prepending ordinary words
 toward a clause.  Both edges now carry finite grammar states (subject,
 finite-verb/object, and clause-final), and repeated content-word cycles are
-rejected before beam ranking.  It reached 8 live states after 12 rounds and
-recorded 1,583 character conflicts plus 2,328 repeated-cycle rejections;
+rejected before beam ranking.  Beam ranking now prioritizes short residuals,
+balanced edge progress, paired characters, grammar completion, then length and
+lexical diversity; a bounded per-round progress window prevents one-sided
+growth from monopolizing the beam.  It reached 10 live states after 12 rounds
+and recorded 1,647 character conflicts plus 2,280 repeated-cycle rejections;
 it produced no exact candidate above 38 letters.  The result is useful as a
 constructive discriminator: residuals can remain live across word boundaries,
 but the current continuation inventory needs relative/appositive constructions

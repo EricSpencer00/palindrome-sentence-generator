@@ -178,15 +178,18 @@ def main() -> None:
         from nltk.corpus import brown
         tagged = brown.tagged_words(tagset="universal")
         penn_frames = {"singular_vbz": 0, "plural_vbp": 0, "past_vbd": 0}
+        penn_maps = {"subject": {}, "verb": {}}
         for sent in brown.tagged_sents()[:50000]:
             tags = [tag for _, tag in sent]
             for i in range(len(tags)-2):
                 if tags[i].startswith("NN") and tags[i+1] == "VBZ": penn_frames["singular_vbz"] += 1
+                if tags[i].startswith("NN") and tags[i+1] == "VBZ": penn_maps["subject"][sent[i][0].casefold()] = "sing"; penn_maps["verb"][sent[i+1][0].casefold()] = "sing"
                 if tags[i].startswith("NNS") and tags[i+1] == "VBP": penn_frames["plural_vbp"] += 1
                 if tags[i].startswith("NN") and tags[i+1] == "VBD": penn_frames["past_vbd"] += 1
     except Exception:
         tagged = None
         penn_frames = {}
+        penn_maps = {"subject": {}, "verb": {}}
     bank_path = Path("data/brown_pcfg_bank_20260920.json")
     if bank_path.exists():
         bank = json.loads(bank_path.read_text())["lexicon"]
@@ -241,8 +244,8 @@ def main() -> None:
     if frame_words.get("DET"): det = tuple(sorted(frame_words["DET"]))[:24]
     if frame_words.get("VERB"): verb = tuple(sorted(frame_words["VERB"]))[:24]
     template = (
-        Slot("det", det), Slot("adj", adj), Slot("subject", noun, ("sg",)),
-        Slot("verb", verb, ("sg",)), Slot("det", det), Slot("object", obj),
+        Slot("det", det), Slot("adj", adj), Slot("subject", noun, word_features=tuple(penn_maps["subject"].items())),
+        Slot("verb", verb, word_features=tuple(penn_maps["verb"].items())), Slot("det", det), Slot("object", obj),
     )
     templates = [template, (
         Slot("det", det), Slot("subject", noun), Slot("verb", verb),

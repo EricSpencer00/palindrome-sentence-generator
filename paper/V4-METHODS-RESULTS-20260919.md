@@ -1271,6 +1271,26 @@ hidden vow.” This is a representation bottleneck, not a near-miss repair
 case, and no reversal, mirrored token, catalogue text, or fragment output was
 used. Artifact: `runs/blank-verse-parallel-scene-20260920.json`.
 
+The complement/coordination hypergraph changed clause topology before lexical
+selection, jointly considering single events, `that` complements, coordinated
+events, and alternatives. It tested 4 hypergraphs across 16 topology pairs,
+64 compatible seeds, and 29,712 states with 109,390 seam rejections. No exact
+candidate above 38 letters closed. Complete controls reached 43, 44, 59, and
+60 letters, including a `that`-complement sentence, and were independently
+audited. No repair, finished-tape reversal, mirrored unit, catalogue text, or
+fragment was admitted. Artifact:
+`runs/complement-coordination-hypergraph-20260920.json`.
+
+The event-indexed compositional hypergraph then represented two-event
+discourses with cause, contrast, and temporal relation edges before solving the
+paired character tape. Six authored event nodes per side yielded 2,700 graph
+pair states, but zero span-compatible graph pairs and zero fresh exact
+candidates above 38 letters. Complete 57- and 63-letter discourse controls
+were independently audited. This is a relation-topology frontier result, not
+a repair opportunity; no reversal, mirrored token, catalogue text, or
+fragment output was used. Artifact:
+`runs/event-indexed-compositional-hypergraph-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

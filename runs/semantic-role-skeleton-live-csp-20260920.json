@@ -1,0 +1,751 @@
+{
+  "experiment_id": "semantic-role-skeleton-live-csp-20260920",
+  "method": "semantic-role skeleton + live character CSP: typed role values are chosen lazily from the first outer equation and memoized with two opposing grammar cursors",
+  "status": "completed_no_exact_closure",
+  "stats": {
+    "skeletons": 3,
+    "skeleton_ids": [
+      "transitive_setting",
+      "intransitive_setting",
+      "copular_setting"
+    ],
+    "first_character_joint_branches": 9,
+    "live_character_dp": {
+      "transitive_setting": {
+        "states_seen": 7,
+        "memo_hits": 0,
+        "semantic_prunes": 0,
+        "character_prunes": 27,
+        "boundary_advances": 3,
+        "character_equations": 30,
+        "first_character_equations": 9,
+        "first_character_survivors": 3,
+        "max_matched_pairs": 1,
+        "center_states": 0,
+        "center_limit_prunes": 0,
+        "complete_closures": 0,
+        "exact_closures": 0,
+        "duplicate_closures": 0,
+        "state_limit_prunes": 0,
+        "memoized_frontier_states": 7,
+        "longest_matched_prefix": 1
+      },
+      "intransitive_setting": {
+        "states_seen": 7,
+        "memo_hits": 0,
+        "semantic_prunes": 0,
+        "character_prunes": 27,
+        "boundary_advances": 3,
+        "character_equations": 30,
+        "first_character_equations": 9,
+        "first_character_survivors": 3,
+        "max_matched_pairs": 1,
+        "center_states": 0,
+        "center_limit_prunes": 0,
+        "complete_closures": 0,
+        "exact_closures": 0,
+        "duplicate_closures": 0,
+        "state_limit_prunes": 0,
+        "memoized_frontier_states": 7,
+        "longest_matched_prefix": 1
+      },
+      "copular_setting": {
+        "states_seen": 7,
+        "memo_hits": 0,
+        "semantic_prunes": 0,
+        "character_prunes": 27,
+        "boundary_advances": 3,
+        "character_equations": 30,
+        "first_character_equations": 9,
+        "first_character_survivors": 3,
+        "max_matched_pairs": 1,
+        "center_states": 0,
+        "center_limit_prunes": 0,
+        "complete_closures": 0,
+        "exact_closures": 0,
+        "duplicate_closures": 0,
+        "state_limit_prunes": 0,
+        "memoized_frontier_states": 7,
+        "longest_matched_prefix": 1
+      }
+    },
+    "rendered_complete_prose_controls": 10,
+    "exact_closures": 0,
+    "exact_clean_above_38": 0,
+    "reader_facing_candidates": 0,
+    "longest_control_letters": 39,
+    "shortest_control_letters": 24
+  },
+  "rendered_complete_prose_controls": [
+    {
+      "rendered": "A pilot maps the inlet near the harbor.",
+      "length": 31,
+      "skeleton": "transitive_setting",
+      "semantic_roles": {
+        "agent": "pilot",
+        "action": "maps",
+        "theme": "inlet",
+        "relation": "near",
+        "place": "harbor"
+      },
+      "audit": {
+        "letters": 31,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "c566e7b4bc152f4700aeb6e2a0d1b985dad411acd730bbe0fbaac95d3bbd8fbd",
+        "sha256_reverse": "609003de4e5d521a31f98d959e91f27b9ff90df3dfcc88e8ed2ae245c16ef3e4",
+        "sha_equal": false,
+        "exact": false
+      },
+      "shortcut_audit": {
+        "repeated_units": false,
+        "repeated_content_units": [],
+        "self_palindromic_units": [],
+        "word_order_only_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "fragment": false,
+        "shortcut_clean": true
+      },
+      "provenance": {
+        "source": "fresh authored complete-prose diagnostic control",
+        "generated_by": "typed role skeleton lexicalization",
+        "candidate_status": "control_only",
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      },
+      "reader_eligible": false,
+      "reader_evidence": {
+        "status": "not_run"
+      },
+      "audit_rechecked": {
+        "letters": 31,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "c566e7b4bc152f4700aeb6e2a0d1b985dad411acd730bbe0fbaac95d3bbd8fbd",
+        "sha256_reverse": "609003de4e5d521a31f98d959e91f27b9ff90df3dfcc88e8ed2ae245c16ef3e4",
+        "sha_equal": false,
+        "exact": false
+      },
+      "audit_recheck_equal": true
+    },
+    {
+      "rendered": "A mason guards the bridge beside the tower.",
+      "length": 35,
+      "skeleton": "transitive_setting",
+      "semantic_roles": {
+        "agent": "mason",
+        "action": "guards",
+        "theme": "bridge",
+        "relation": "beside",
+        "place": "tower"
+      },
+      "audit": {
+        "letters": 35,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "2c6157c4b3a397658b1944c43e79a8b034dc26ba6145023f93ce9d6eb5a82ea8",
+        "sha256_reverse": "19db3dafec4a5aaef236fe4adc5f4075082228118580c5caba3a352a5a491325",
+        "sha_equal": false,
+        "exact": false
+      },
+      "shortcut_audit": {
+        "repeated_units": false,
+        "repeated_content_units": [],
+        "self_palindromic_units": [],
+        "word_order_only_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "fragment": false,
+        "shortcut_clean": true
+      },
+      "provenance": {
+        "source": "fresh authored complete-prose diagnostic control",
+        "generated_by": "typed role skeleton lexicalization",
+        "candidate_status": "control_only",
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      },
+      "reader_eligible": false,
+      "reader_evidence": {
+        "status": "not_run"
+      },
+      "audit_rechecked": {
+        "letters": 35,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "2c6157c4b3a397658b1944c43e79a8b034dc26ba6145023f93ce9d6eb5a82ea8",
+        "sha256_reverse": "19db3dafec4a5aaef236fe4adc5f4075082228118580c5caba3a352a5a491325",
+        "sha_equal": false,
+        "exact": false
+      },
+      "audit_recheck_equal": true
+    },
+    {
+      "rendered": "A sailor charts the bay near the marina.",
+      "length": 32,
+      "skeleton": "transitive_setting",
+      "semantic_roles": {
+        "agent": "sailor",
+        "action": "charts",
+        "theme": "bay",
+        "relation": "near",
+        "place": "marina"
+      },
+      "audit": {
+        "letters": 32,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "s",
+          "n"
+        ],
+        "sha256_forward": "d239ea70c206bc25a6caec81c40c10d62eadbb2847c9ba2d6bf3d42e735b72ce",
+        "sha256_reverse": "07924c46195f415aa5d9d1054b2e16d534d9603321701e0c61b33b22a3c76105",
+        "sha_equal": false,
+        "exact": false
+      },
+      "shortcut_audit": {
+        "repeated_units": false,
+        "repeated_content_units": [],
+        "self_palindromic_units": [],
+        "word_order_only_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "fragment": false,
+        "shortcut_clean": true
+      },
+      "provenance": {
+        "source": "fresh authored complete-prose diagnostic control",
+        "generated_by": "typed role skeleton lexicalization",
+        "candidate_status": "control_only",
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      },
+      "reader_eligible": false,
+      "reader_evidence": {
+        "status": "not_run"
+      },
+      "audit_rechecked": {
+        "letters": 32,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "s",
+          "n"
+        ],
+        "sha256_forward": "d239ea70c206bc25a6caec81c40c10d62eadbb2847c9ba2d6bf3d42e735b72ce",
+        "sha256_reverse": "07924c46195f415aa5d9d1054b2e16d534d9603321701e0c61b33b22a3c76105",
+        "sha_equal": false,
+        "exact": false
+      },
+      "audit_recheck_equal": true
+    },
+    {
+      "rendered": "A teacher reads the verse at the market.",
+      "length": 32,
+      "skeleton": "transitive_setting",
+      "semantic_roles": {
+        "agent": "teacher",
+        "action": "reads",
+        "theme": "verse",
+        "relation": "at",
+        "place": "market"
+      },
+      "audit": {
+        "letters": 32,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "t"
+        ],
+        "sha256_forward": "42581da3bb4c64c115ccfab2738f6c4f1c5340e6ca404ae961b8399c5d61b7d2",
+        "sha256_reverse": "d07ee4c93ec89015a9a19eb23ff20b4b645faa3d1c45bcb47cb044ea9ab31bea",
+        "sha_equal": false,
+        "exact": false
+      },
+      "shortcut_audit": {
+        "repeated_units": false,
+        "repeated_content_units": [],
+        "self_palindromic_units": [],
+        "word_order_only_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "fragment": false,
+        "shortcut_clean": true
+      },
+      "provenance": {
+        "source": "fresh authored complete-prose diagnostic control",
+        "generated_by": "typed role skeleton lexicalization",
+        "candidate_status": "control_only",
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      },
+      "reader_eligible": false,
+      "reader_evidence": {
+        "status": "not_run"
+      },
+      "audit_rechecked": {
+        "letters": 32,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "t"
+        ],
+        "sha256_forward": "42581da3bb4c64c115ccfab2738f6c4f1c5340e6ca404ae961b8399c5d61b7d2",
+        "sha256_reverse": "d07ee4c93ec89015a9a19eb23ff20b4b645faa3d1c45bcb47cb044ea9ab31bea",
+        "sha_equal": false,
+        "exact": false
+      },
+      "audit_recheck_equal": true
+    },
+    {
+      "rendered": "A poet writes the letter near the plaza.",
+      "length": 32,
+      "skeleton": "transitive_setting",
+      "semantic_roles": {
+        "agent": "poet",
+        "action": "writes",
+        "theme": "letter",
+        "relation": "near",
+        "place": "plaza"
+      },
+      "audit": {
+        "letters": 32,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "p",
+          "z"
+        ],
+        "sha256_forward": "1a29dfdecdf853ef004d903da48bddd6fdf24e837557232a62c4b54c032d7a8e",
+        "sha256_reverse": "0ad6d834ae494408f46632b3a40d6ea54757318bebf2c2ee428c0d5c1085768c",
+        "sha_equal": false,
+        "exact": false
+      },
+      "shortcut_audit": {
+        "repeated_units": false,
+        "repeated_content_units": [],
+        "self_palindromic_units": [],
+        "word_order_only_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "fragment": false,
+        "shortcut_clean": true
+      },
+      "provenance": {
+        "source": "fresh authored complete-prose diagnostic control",
+        "generated_by": "typed role skeleton lexicalization",
+        "candidate_status": "control_only",
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      },
+      "reader_eligible": false,
+      "reader_evidence": {
+        "status": "not_run"
+      },
+      "audit_rechecked": {
+        "letters": 32,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "p",
+          "z"
+        ],
+        "sha256_forward": "1a29dfdecdf853ef004d903da48bddd6fdf24e837557232a62c4b54c032d7a8e",
+        "sha256_reverse": "0ad6d834ae494408f46632b3a40d6ea54757318bebf2c2ee428c0d5c1085768c",
+        "sha_equal": false,
+        "exact": false
+      },
+      "audit_recheck_equal": true
+    },
+    {
+      "rendered": "A gardener tends the orchard beside the meadow.",
+      "length": 39,
+      "skeleton": "transitive_setting",
+      "semantic_roles": {
+        "agent": "gardener",
+        "action": "tends",
+        "theme": "orchard",
+        "relation": "beside",
+        "place": "meadow"
+      },
+      "audit": {
+        "letters": 39,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "w"
+        ],
+        "sha256_forward": "85405c69f8a7ffdfd03fbba08c5d60ebe15f1685e58b80f580c1ba6116bbac12",
+        "sha256_reverse": "52bf4de79fdc0095ffa6e04d23c7c3003179bc02e51f353ef10e57f0265f45d0",
+        "sha_equal": false,
+        "exact": false
+      },
+      "shortcut_audit": {
+        "repeated_units": false,
+        "repeated_content_units": [],
+        "self_palindromic_units": [],
+        "word_order_only_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "fragment": false,
+        "shortcut_clean": true
+      },
+      "provenance": {
+        "source": "fresh authored complete-prose diagnostic control",
+        "generated_by": "typed role skeleton lexicalization",
+        "candidate_status": "control_only",
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      },
+      "reader_eligible": false,
+      "reader_evidence": {
+        "status": "not_run"
+      },
+      "audit_rechecked": {
+        "letters": 39,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "w"
+        ],
+        "sha256_forward": "85405c69f8a7ffdfd03fbba08c5d60ebe15f1685e58b80f580c1ba6116bbac12",
+        "sha256_reverse": "52bf4de79fdc0095ffa6e04d23c7c3003179bc02e51f353ef10e57f0265f45d0",
+        "sha_equal": false,
+        "exact": false
+      },
+      "audit_recheck_equal": true
+    },
+    {
+      "rendered": "A keeper guards the bridge near the arena.",
+      "length": 34,
+      "skeleton": "transitive_setting",
+      "semantic_roles": {
+        "agent": "keeper",
+        "action": "guards",
+        "theme": "bridge",
+        "relation": "near",
+        "place": "arena"
+      },
+      "audit": {
+        "letters": 34,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "k",
+          "n"
+        ],
+        "sha256_forward": "bd76cb4c10733f35e40559b85f9cf77b4737cdfb89c3b6826fc2569523db2aa0",
+        "sha256_reverse": "adce87ff7146ee7f10d7ddc4cb0a9f7e4ddac57d9f46707f626a6e9513d28609",
+        "sha_equal": false,
+        "exact": false
+      },
+      "shortcut_audit": {
+        "repeated_units": false,
+        "repeated_content_units": [],
+        "self_palindromic_units": [],
+        "word_order_only_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "fragment": false,
+        "shortcut_clean": true
+      },
+      "provenance": {
+        "source": "fresh authored complete-prose diagnostic control",
+        "generated_by": "typed role skeleton lexicalization",
+        "candidate_status": "control_only",
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      },
+      "reader_eligible": false,
+      "reader_evidence": {
+        "status": "not_run"
+      },
+      "audit_rechecked": {
+        "letters": 34,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "k",
+          "n"
+        ],
+        "sha256_forward": "bd76cb4c10733f35e40559b85f9cf77b4737cdfb89c3b6826fc2569523db2aa0",
+        "sha256_reverse": "adce87ff7146ee7f10d7ddc4cb0a9f7e4ddac57d9f46707f626a6e9513d28609",
+        "sha_equal": false,
+        "exact": false
+      },
+      "audit_recheck_equal": true
+    },
+    {
+      "rendered": "A pilot waits near the harbor.",
+      "length": 24,
+      "skeleton": "intransitive_setting",
+      "semantic_roles": {
+        "agent": "pilot",
+        "action": "waits",
+        "relation": "near",
+        "place": "harbor"
+      },
+      "audit": {
+        "letters": 24,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "865cf1f69f0f918831c0ba3034b1ebe7e8075f9e2b12f946afa1399bf7e49871",
+        "sha256_reverse": "b3f43e9dcdf6e73d922167352c9629f4dd9e348210ba527d2e0bf3265c9dfdac",
+        "sha_equal": false,
+        "exact": false
+      },
+      "shortcut_audit": {
+        "repeated_units": false,
+        "repeated_content_units": [],
+        "self_palindromic_units": [],
+        "word_order_only_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "fragment": false,
+        "shortcut_clean": true
+      },
+      "provenance": {
+        "source": "fresh authored complete-prose diagnostic control",
+        "generated_by": "typed role skeleton lexicalization",
+        "candidate_status": "control_only",
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      },
+      "reader_eligible": false,
+      "reader_evidence": {
+        "status": "not_run"
+      },
+      "audit_rechecked": {
+        "letters": 24,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "865cf1f69f0f918831c0ba3034b1ebe7e8075f9e2b12f946afa1399bf7e49871",
+        "sha256_reverse": "b3f43e9dcdf6e73d922167352c9629f4dd9e348210ba527d2e0bf3265c9dfdac",
+        "sha_equal": false,
+        "exact": false
+      },
+      "audit_recheck_equal": true
+    },
+    {
+      "rendered": "A sailor waits beside the marina.",
+      "length": 27,
+      "skeleton": "intransitive_setting",
+      "semantic_roles": {
+        "agent": "sailor",
+        "action": "waits",
+        "relation": "beside",
+        "place": "marina"
+      },
+      "audit": {
+        "letters": 27,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "s",
+          "n"
+        ],
+        "sha256_forward": "0dc8c29de71ca9a18498651493552fb67d5dbbc438cc602df062055cd8412915",
+        "sha256_reverse": "3695782e44ec108dcdb1c7db23859d74a577de0fdf1277f9f42d24d6ceb9d214",
+        "sha_equal": false,
+        "exact": false
+      },
+      "shortcut_audit": {
+        "repeated_units": false,
+        "repeated_content_units": [],
+        "self_palindromic_units": [],
+        "word_order_only_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "fragment": false,
+        "shortcut_clean": true
+      },
+      "provenance": {
+        "source": "fresh authored complete-prose diagnostic control",
+        "generated_by": "typed role skeleton lexicalization",
+        "candidate_status": "control_only",
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      },
+      "reader_eligible": false,
+      "reader_evidence": {
+        "status": "not_run"
+      },
+      "audit_rechecked": {
+        "letters": 27,
+        "pointer_exact": false,
+        "first_mismatch": [
+          1,
+          "s",
+          "n"
+        ],
+        "sha256_forward": "0dc8c29de71ca9a18498651493552fb67d5dbbc438cc602df062055cd8412915",
+        "sha256_reverse": "3695782e44ec108dcdb1c7db23859d74a577de0fdf1277f9f42d24d6ceb9d214",
+        "sha_equal": false,
+        "exact": false
+      },
+      "audit_recheck_equal": true
+    },
+    {
+      "rendered": "A mason is patient near the tower.",
+      "length": 27,
+      "skeleton": "copular_setting",
+      "semantic_roles": {
+        "agent": "mason",
+        "relation": "near",
+        "place": "tower"
+      },
+      "audit": {
+        "letters": 27,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "85260324c0266471c13a08c76ea118eab674d9dfbbc8cf2e8ebfb00f96ba6733",
+        "sha256_reverse": "c9a371e963d40347408de71d85a4368fad807bf81a38d92f8266ce25cb8bc16d",
+        "sha_equal": false,
+        "exact": false
+      },
+      "shortcut_audit": {
+        "repeated_units": false,
+        "repeated_content_units": [],
+        "self_palindromic_units": [],
+        "word_order_only_symmetry": false,
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false,
+        "fragment": false,
+        "shortcut_clean": true
+      },
+      "provenance": {
+        "source": "fresh authored complete-prose diagnostic control",
+        "generated_by": "typed role skeleton lexicalization",
+        "candidate_status": "control_only",
+        "catalogue_text": false,
+        "finished_tape_reversal": false,
+        "post_hoc_repair": false
+      },
+      "reader_eligible": false,
+      "reader_evidence": {
+        "status": "not_run"
+      },
+      "audit_rechecked": {
+        "letters": 27,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "85260324c0266471c13a08c76ea118eab674d9dfbbc8cf2e8ebfb00f96ba6733",
+        "sha256_reverse": "c9a371e963d40347408de71d85a4368fad807bf81a38d92f8266ce25cb8bc16d",
+        "sha_equal": false,
+        "exact": false
+      },
+      "audit_recheck_equal": true
+    }
+  ],
+  "exact_rows": [],
+  "exact_clean_above_38": [],
+  "reader_facing_candidates": [],
+  "reader_gate": {
+    "status": "closed",
+    "reason": "No exact-clean >38 row has blinded human evidence; controls are diagnostics only.",
+    "required_package": "intact prose plus shuffled controls, randomized blinded order, reproducible rater package"
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "registry_path": "docs/experiment-novelty-registry.json",
+    "registry_entries_inspected": 70,
+    "signature": "semantic-role-skeleton|first-character-conditioned|live-slot-csp|center-completion-dp",
+    "signature_already_present": false,
+    "overlaps_checked": [
+      "semantic-frame-wfst-best-first-20260920",
+      "scene-lattice-constructive-author-20260920",
+      "character-orbit-scene-residual-20260920",
+      "packed-sentence-plan-boundary-dp-20260920"
+    ],
+    "distinct_from": "Unlike pre-materialized semantic frames, flat scene lattices, and packed boundary charts, this lane selects the role skeleton and typed lexical role values lazily inside one first-character DP frontier; no complete clause pair is built before the equation.",
+    "forbidden_shortcuts_checked": [
+      "finished-tape reversal",
+      "post-hoc repair",
+      "word-order-only symmetry",
+      "mirrored or self-palindromic units",
+      "catalogue text",
+      "fragment output",
+      "per-search RLAIF"
+    ]
+  },
+  "provenance": {
+    "generator_sha256": "bdf24c082b252828b244d60835d7968a251007d8c99842db44b0307a87ab0ce4",
+    "inventory": "fresh authored role words and typed semantic compatibility tables",
+    "independent_audits": [
+      "outside-in two-pointer scan",
+      "forward/reverse SHA-256",
+      "audit re-run after closure enumeration"
+    ],
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "word_order_only_symmetry": false,
+    "mirrored_or_self_palindromic_units": false,
+    "catalogue_text": false,
+    "fragment_output": false,
+    "per_search_rlaif": false,
+    "reader_evidence": false
+  },
+  "next_construction": {
+    "method": "held-out semantic relation skeletons with a two-character boundary state",
+    "change": "Add a held-out instrumental or temporal role edge as a new typed slot, preserving lazy role assignment and the same opposing-cursor CSP.",
+    "why": "The current first-character CSP prunes before relation and action interiors can meet; a typed second-character boundary state should expose more viable role paths without repair.",
+    "reader_facing_test": "If a clean exact row exceeds 38 letters, package it with intact and shuffled controls for randomized blinded ratings before API promotion."
+  }
+}

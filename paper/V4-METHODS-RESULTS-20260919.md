@@ -920,6 +920,17 @@ admitted. The next construction adds complete relative phrase units with
 name-compatible endpoints, preserving the live cross-boundary equations.
 Artifact: `runs/semantic-phrase-trie-orbit-20260920.json`.
 
+The relative-endpoint extension added complete relative phrase units such as
+“that name Diana” and “who sees Nora”, selected through a proper-name endpoint
+trie. It tested 252 compatible seeds and 6,120 live residual transitions;
+again, no exact path above 38 letters closed. Complete controls reached 36,
+37, and 42 letters and passed the same independent pointer/SHA audit. This is
+still direct construction: the relative units remain ordinary-order prose and
+are never used to patch a rendered near miss. The next lane therefore changes
+the search geometry to a full grammar/character product over complete paths,
+rather than adding another local feature axis. Artifact:
+`runs/relative-name-endpoint-phrase-trie-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

@@ -1,14 +1,15 @@
 {
   "run_id": "chart-phrase-path-20260920",
-  "method": "bounded chart paths with held-out relative-complement edges and unequal boundary joins",
+  "method": "bounded chart paths with held-out passive-complement edges and unequal boundary joins",
   "stats": {
-    "chart_paths": 128,
-    "states": 16256,
-    "pruned": 16256,
-    "rendered": 16256,
+    "chart_paths": 160,
+    "states": 25440,
+    "pruned": 25440,
+    "rendered": 25440,
     "exact_gt38": 0,
     "max_letters": 120,
-    "held_out_relative_paths": 40
+    "held_out_relative_paths": 40,
+    "held_out_passive_paths": 40
   },
   "rendered_candidates": [
     {
@@ -347,7 +348,7 @@
   ],
   "novelty_preflight": {
     "status": "passed",
-    "distinct_from": "initial 96-path chart, 6x6 clause trie, and typed-central lane; held-out relative edges and unequal boundary states",
+    "distinct_from": "prior 128-path relative chart, 6x6 clause trie, and typed-central lane; held-out passive edges and unequal boundary states",
     "finished_tape_reversal": false,
     "word_order_mirroring": false,
     "repeated_units": false,
@@ -357,12 +358,13 @@
   "provenance": {
     "authored_chart": true,
     "held_out_relative_complement": true,
+    "held_out_passive_complement": true,
     "audits": [
       "independent two-pointer outside-in comparison",
       "forward/reverse SHA-256"
     ],
     "reader_gate": "closed unless exact_gt38 appears",
-    "next_construction": "add a held-out passive-complement edge with a new boundary state"
+    "next_construction": "add a held-out temporal adjunct edge with an independent transition"
   },
   "status": "no fresh exact >38 candidate"
 }

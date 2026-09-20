@@ -637,6 +637,14 @@ reachable states were all pruned at the first character seam; there were zero
 feature conflicts, orbit steps, or exact closures. The next construction puts a
 relative clause inside the subordinate subject to change the boundary geometry.
 
+The embedded-relative follow-up inserted a relative event inside the
+subordinate subject while retaining the central conjunction, held-out
+subordinate vocabulary, and agreement state. Residual characters were still
+consumed after each frame pair. It reached nine states, pruned all nine at the
+outer seam, and produced zero exact closures. The construction is therefore
+stopped with a concrete next step—another held-out relative attachment site
+conditioned on valency—rather than a post-hoc repair.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

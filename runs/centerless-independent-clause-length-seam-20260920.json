@@ -1,0 +1,128 @@
+{
+  "experiment_id": "centerless-independent-clause-length-seam-20260920",
+  "method": "centerless cross-clause seam with independent clause lengths",
+  "stats": {
+    "clauses": 4,
+    "connectors": 3,
+    "length_choices": 4,
+    "states": 3072,
+    "live_prunes": 2688,
+    "live_survivors": 0,
+    "exact_gt38": 0,
+    "reader_eligible": 0,
+    "longest_letters": 64
+  },
+  "controls": [
+    {
+      "rendered": "the patient sailor charts the inlet. Then a careful keeper guards the bridge.",
+      "left_length": 1,
+      "right_length": 1,
+      "connector": "Then",
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ]
+      },
+      "audit": {
+        "letters": 63,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "39d81b7a09b2b2e0f24e06dcee9d36a9e737bb5aa03c81911346b245d8f0ba46",
+        "sha256_reverse": "abde0d092ca4cf273e7e50a13824393476ce4e086bed3449ada1c91887becf0e",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the patient sailor charts the inlet. While a careful keeper guards the bridge.",
+      "left_length": 1,
+      "right_length": 1,
+      "connector": "While",
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ]
+      },
+      "audit": {
+        "letters": 64,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "600b56980541eaf762cbee795dc4a92259395ccee2ffd98ad4e3785a83c1021b",
+        "sha256_reverse": "be125d5a14dda8b3e80117dd503ccecc221f88242d6456731e67b80ea598e109",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    },
+    {
+      "rendered": "the patient sailor charts the inlet. And a careful keeper guards the bridge.",
+      "left_length": 1,
+      "right_length": 1,
+      "connector": "And",
+      "online_character_equations": {
+        "equations": 1,
+        "satisfied": 0,
+        "all_satisfied": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ]
+      },
+      "audit": {
+        "letters": 62,
+        "pointer_exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "e"
+        ],
+        "sha256_forward": "c76ad43c843d61e5f0714f3750a72ae204049135050a4a264b1d86cf7859c05f",
+        "sha256_reverse": "1a21ba0e2679342860379a39da5e3d4a2e9590e7cc9fa136a0fdedb75b45986d",
+        "sha_equal": false
+      },
+      "reader_eligible": false,
+      "diagnostic_only": true
+    }
+  ],
+  "exact_candidates": [],
+  "reader_facing_candidates": [],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "centerless|independent-clause-lengths|live-cross-clause-seam",
+    "registry_inspected": true,
+    "distinct_from": "center-shared dependency, relation-overhang, mirrored centers, and repair lanes",
+    "catalogue_text_imported": false,
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "mirrored_units": false
+  },
+  "provenance": {
+    "generator_sha256": "339bc40b32f90ddd084b2be51ae031618a2519aa6d26aa71e03c9cb8bccdedca",
+    "independent_audits": [
+      "pointer scan",
+      "forward/reverse SHA-256"
+    ]
+  },
+  "status": "no reader-worthy exact closure",
+  "next_construction": "Allow independently selected two-clause scene trees with distinct internal connector boundaries, preserving centerless live seams."
+}

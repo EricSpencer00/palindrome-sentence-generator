@@ -1,0 +1,105 @@
+{
+  "experiment_id": "relative-name-endpoint-phrase-trie-20260920",
+  "method": "relative phrase trie with name-compatible endpoints and live residuals",
+  "templates": [
+    [
+      "NP",
+      "VP"
+    ],
+    [
+      "NP",
+      "VP",
+      "PP"
+    ],
+    [
+      "NP",
+      "VP",
+      "REL"
+    ],
+    [
+      "NP",
+      "VP",
+      "PP",
+      "REL"
+    ]
+  ],
+  "bank_sizes": {
+    "NP": 5,
+    "VP": 5,
+    "PP": 4,
+    "REL": 4,
+    "NAME": 4
+  },
+  "stats": {
+    "states": 252,
+    "seeds": 252,
+    "pruned": 6120,
+    "closed": 0,
+    "exact": 0
+  },
+  "exact_candidates": [],
+  "complete_prose_controls": [
+    {
+      "rendered": "a scholar reads old letters that name Diana",
+      "audit": {
+        "letters": 36,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          34
+        ],
+        "sha256_forward": "ad5052eb5bbe56de671c2be2ce70ae198864b2200bd7ce5bf7d821826446a0ea",
+        "sha256_reverse": "95d700120290b7bc1990251bd33ac8b8fc0b24d6a18a664a7397bc7320377720",
+        "sha_equal": false
+      },
+      "reader_status": "complete relative control; not exact candidate"
+    },
+    {
+      "rendered": "the old sailor keeps the lantern by the river",
+      "audit": {
+        "letters": 37,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          36
+        ],
+        "sha256_forward": "51bdebb716b2a6f9cff79d34a60baba9b9a6dd2ff37d890d333d1c716c4b881c",
+        "sha256_reverse": "d1bdb1a76e29233eb604dc4f8c30949b7158124f91b8d787cd5f3f96fa9abb7f",
+        "sha_equal": false
+      },
+      "reader_status": "complete relative control; not exact candidate"
+    },
+    {
+      "rendered": "a patient keeper writes a bright book who sees Nora",
+      "audit": {
+        "letters": 42,
+        "exact": false,
+        "first_mismatch": [
+          1,
+          40
+        ],
+        "sha256_forward": "a283466566849245e53da4fbd0a4821091cb4c2e82e753793e55e0919edab3da",
+        "sha256_reverse": "bfcd8b1eeef813db439fc7a011bea8f7d6fe8985067669c29e61911ca50d03d3",
+        "sha_equal": false
+      },
+      "reader_status": "complete relative control; not exact candidate"
+    }
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "whole-relative-phrase|proper-name-endpoint-trie|live-residual",
+    "distinct_from": "semantic phrase orbit; adds complete relative units selected through name endpoints",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "vocabulary": "authored relative clauses with proper-name terminals",
+    "independent_audit": "two-pointer mismatch plus forward/reverse SHA-256",
+    "reader_evidence": false
+  },
+  "status": "no exact >38 closure",
+  "next_construction": "add relative pronoun agreement and attachment features",
+  "reader_gate": "closed until blinded human ratings"
+}

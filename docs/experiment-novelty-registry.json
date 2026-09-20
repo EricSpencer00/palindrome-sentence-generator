@@ -6431,6 +6431,17 @@
       "distinction": "Before assigning a lexical factor, intersects its mirrored position support with an adjacent grammar factor's lexical domain; unlike minimum-domain ordering it can reject a branch using two-factor evidence while retaining one forward variable-boundary grammar. No pair enumeration, reversal, repair, mirrored units, or catalogue replay.",
       "reader_evidence": false,
       "status": "Differential test passed; target lengths 44/52/60: 2,137 states, 7,192 lookahead-aware prunes, 0 complete parses and 0 exact candidates above 38; readable controls independently pointer/SHA audited; seam bottleneck unchanged, next must alter grammar topology or lexical support domains"
+    },
+    {
+      "id": "heldout-common-support-csp-20260920",
+      "signature": "heldout-common-support-domains|two-factor-lookahead|typed-pos-valency",
+      "artifact": "experiments/heldout_common_support_csp_20260920.py",
+      "run_artifacts": [
+        "runs/heldout-common-support-csp-20260920.json"
+      ],
+      "distinction": "Replaces the compact lexical bank with held-out common-word POS/number/valency alternatives and retains the two-factor exact global solver. It does not emit copied corpus sentences: one forward grammar assigns variable boundaries and live palindrome factors while lookahead checks adjacent lexical support. No pair enumeration, reversal, repair, mirrored units, or catalogue replay.",
+      "reader_evidence": false,
+      "status": "Differential test passed; target lengths 44/56/68/80: represented-language counts recorded, 19,757 states, 9,340 complete prose diagnostics, 0 exact candidates above 38; pointer/SHA audits retained; next changes grammar topology rather than further lexical widening"
     }
   ],
   "excluded": [

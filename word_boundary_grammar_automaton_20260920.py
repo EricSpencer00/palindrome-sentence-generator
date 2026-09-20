@@ -11,9 +11,9 @@ from dataclasses import dataclass
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-OUT = ROOT / "runs/word-boundary-object-relative-automaton-20260920.json"
-ID = "word-boundary-object-relative-automaton-20260920"
-SIG = "word-boundary-aware|object-relative-attachment|finite-agreement|live-equations"
+OUT = ROOT / "runs/word-boundary-coordinated-object-relatives-20260920.json"
+ID = "word-boundary-coordinated-object-relatives-20260920"
+SIG = "word-boundary-aware|coordinated-object-relatives|attachment-indices|live-equations"
 
 def letters(s: str) -> str: return re.sub(r"[^a-z]", "", s.casefold())
 def audit(s: str):
@@ -47,6 +47,8 @@ RELATIVES = (("", "none", "none"), ("who records the note", "record", "3sg"),
              ("who guards the gate", "protect", "3sg"))
 OBJECT_RELATIVES = (("", "none", "none"), (" that the scribe records", "record", "3sg"),
                     (" that the gardener guards", "protect", "3sg"))
+COORD_OBJECT_RELATIVES = (("", "none", "none", "none"),
+                          (" that the scribe records and that the gardener guards", "record+protect", "3sg", "distinct-1-2"))
 
 def live_equation(left: str, right: str):
     """Consume opposing edge characters immediately, returning first failure."""
@@ -64,7 +66,7 @@ def run():
     tails = [e for e in EDGES if e.pos == "PP"]
     rows=[]; near=[]; prunes=0
     for frame in FRAMES:
-        for d, a, n, v, od, oa, on, tail, (rel, rel_event, agreement), (orel, orevent, oagreement) in itertools.product(dets, adjs, nouns, verbs, dets, adjs, nouns, tails, RELATIVES, OBJECT_RELATIVES):
+        for d, a, n, v, od, oa, on, tail, (rel, rel_event, agreement), (orel, orevent, oagreement), (corel, corevent, coagreement, attach) in itertools.product(dets, adjs, nouns, verbs, dets, adjs, nouns, tails, RELATIVES, OBJECT_RELATIVES, COORD_OBJECT_RELATIVES):
             if n.role != "subject-agent" or v.role != "event-" + frame[1] or on.role != "object-theme": continue
             if d.role != "subject-det" or od.role != "object-det": continue
             # Relative clauses are complete, agreement-checked modifiers, not
@@ -72,7 +74,8 @@ def run():
             if rel and agreement != "3sg": continue
             subject = Edge(f"{d.text} {a.text} {n.text}" + (f" {rel}" if rel else ""), "NP+REL" if rel else "NP", "agent")
             if orel and oagreement != "3sg": continue
-            obj = Edge(f"{od.text} {oa.text} {on.text}" + (orel if orel else ""), "NP+REL" if orel else "NP", "theme")
+            if corel and coagreement != "3sg": continue
+            obj = Edge(f"{od.text} {oa.text} {on.text}" + (corel if corel else (orel if orel else "")), "NP+REL2" if corel else ("NP+REL" if orel else "NP"), "theme")
             rendered = render(subject, v, obj, tail)
             # The boundary equation is checked while selecting the final edge.
             ok, mismatch = live_equation(subject.text + " " + v.text, obj.text + " " + tail.text)
@@ -84,7 +87,7 @@ def run():
                 continue
             if len({letters(x.text) for x in (subject, v, obj, tail)}) < 4: continue
             aout = audit(rendered)
-            rows.append({"rendered": rendered, "frame": {"agent": n.text, "event": frame[1], "theme": on.text, "time": tail.text, "relative_event": rel_event, "agreement": agreement, "object_relative_event": orevent, "object_agreement": oagreement},
+            rows.append({"rendered": rendered, "frame": {"agent": n.text, "event": frame[1], "theme": on.text, "time": tail.text, "relative_event": rel_event, "agreement": agreement, "object_relative_event": orevent, "object_agreement": oagreement, "coordinated_event": corevent, "attachment_indices": attach},
               "edges": [{"text":x.text,"pos":x.pos,"role":x.role,"semordnilap_pair":x.pair} for x in (subject,v,obj,tail)],
               "audit": aout, "live_equation":{"accepted":True,"mismatch":mismatch},
               "provenance":{"lexical_edges":"hand-authored ordinary words","finished_tape_reversal":False,"post_hoc_repair":False,"catalogue_text":False,"mirrored_units":False,"repeated_units":False,"fragment":False,"tautological_word_order":False}})

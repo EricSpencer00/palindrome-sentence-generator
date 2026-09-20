@@ -4885,6 +4885,36 @@ LUNA_PARALLEL_RUNS = [
       "independent_validation": ["two-pointer audit", "forward/reverse SHA-256"],
       "next_construction": "use typed event roles to select a center event before recursive continuation without enlarging the Cartesian pairing",
     },
+    {
+        "run_id": "broad-pos-clause-intersection-corrected-20260920",
+        "method": "corrected outside-in live character intersection of asymmetric complete-clause POS grammars",
+        "status": "completed_exact_nonreader",
+        "visited_nodes": 57308571,
+        "exact_candidates_over_38": 11,
+        "longest_exact_letters": 47,
+        "reader_eligible": False,
+        "examples": [
+            {
+                "rendered": "Some mad loss went save no level; one vast news sold a memos.",
+                "letters": 47,
+                "exact": True,
+                "sha256": "b376cb02449036bc3712d10d342000660b510f2503fc262250ea5f5cc3098a86",
+                "reader_status": "rejected: malformed clause boundaries and determiner/noun agreement",
+            },
+            {
+                "rendered": "An aide lose no evil career; a c live one sole Diana.",
+                "letters": 40,
+                "exact": True,
+                "sha256": "e46950bb19f5b26b692551e3ba10f6ec2eeede6135b1181802e5d8af99b321d7",
+                "reader_status": "rejected: malformed verb selection and fragmentary right clause",
+            },
+        ],
+        "all_exact_rows_reader_status": "none reached reader study; programmatic exactness is not readability",
+        "provenance": "fresh Brown POS lexical support plus authored asymmetric templates; no finished-tape reversal, post-hoc repair, mirrored units, or catalogue text",
+        "independent_validation": ["literal two-pointer audit", "forward/reverse SHA-256"],
+        "implementation_correction": "the prior recursion returned when the left grammar completed and never expanded the right grammar; a regression test now recovers the 38-letter anchor",
+        "next_construction": "replace free POS slots with agreement- and valency-typed clause frames, retaining live center-inside-word closure and the same independent reader gate",
+    },
 ]
 
 LATEST_LUNA_RUN = LUNA_PARALLEL_RUNS[-1]

@@ -1,0 +1,15 @@
+#!/bin/bash -l
+#PBS -N pal-broad-corrected
+#PBS -q debug
+#PBS -A EVITA
+#PBS -l select=1:system=polaris
+#PBS -l place=scatter
+#PBS -l walltime=00:25:00
+#PBS -l filesystems=home
+#PBS -j oe
+
+set -euo pipefail
+cd "$PBS_O_WORKDIR"
+export PYTHONUNBUFFERED=1
+export PAL_OUT="$PBS_O_WORKDIR/broad-pos-clause-intersection-20260920.json"
+/usr/bin/python3.11 tools/bench/broad_pos_clause_intersection.py

@@ -11,5 +11,6 @@ def test_live_residual():
 
 def test_variable_svo_paths_and_audits():
     assert len({len(p) for p in paths()})>1
+    assert all(not ("REL" in p and p[p.index("REL") + 1:] == ("V",)) for p in paths())
     d=run(12000)
     for row in d["exact_candidates"]: assert row["audit"]==audit(row["rendered"])

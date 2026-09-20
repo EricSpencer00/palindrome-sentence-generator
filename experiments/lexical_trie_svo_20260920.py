@@ -63,11 +63,13 @@ def bank():
     return {k:tuple(dict.fromkeys(v)) for k,v in out.items()}
 
 def paths():
-    # Word-level grammar: SVO plus independently optional adjunct/relative tails.
+    # Word-level grammar: SVO plus independently optional adjunct/relative
+    # tails.  REL is a subject relative pronoun, so its transitive V must be
+    # followed by an object (DET N); no incomplete ``REL V`` fragment is legal.
     return (("DET","N","V","DET","N"),
             ("DET","N","V","DET","N","PREP","DET","N"),
-            ("DET","N","V","DET","N","REL","V"),
-            ("DET","N","V","DET","N","PREP","DET","N","REL","V"))
+            ("DET","N","V","DET","N","REL","V","DET","N"),
+            ("DET","N","V","DET","N","PREP","DET","N","REL","V","DET","N"))
 
 def run(limit=180000):
     b=bank(); tries={k:Trie() for k in b}; reverse_tries={k:Trie() for k in b}

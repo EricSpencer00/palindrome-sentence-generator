@@ -2606,6 +2606,16 @@ respectively, with 0 exact closures in either arm. Complete controls such as
 child.” are retained separately; partial grammar fragments are quarantined and
 never treated as readable evidence.
 
+A separate relative-clause beam kept the construction fully forward-authored:
+two finite who/that clauses were crossed with two independently complete
+matrix-clause tails. The four rendered controls are grammatical and retain
+their punctuation as presentation only (61, 61, 62, and 62 normalized
+letters); the run produced no quarantined fragment and no exact candidate
+above 38 letters. For example, it rendered “The gardener who works in the
+garden opens the gate; the school stays quiet.” and “A teacher that lives near
+the school writes a letter; a garden holds flowers.” These are controls, not
+palindromes, and therefore are not presented as reader-study candidates.
+
 The exact frontier is therefore unchanged: the best independently verified
 reader-plausible output remains the 38-letter anchor above. No human reader
 study is claimed for any non-exact control; a future exact intact-prose row

@@ -115,6 +115,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_asynchronous_typed_clause_buffer_dp": "9 typed template pairs; 348,335 endpoint-indexed joins and 2,107,452 memoized residual states, zero exact candidates; next step widens grammar after valid controls",
         "latest_async_plural_relative_dp": "2 plural/relative grammar frames and 2 independently authored responses; both live transitions pruned by mismatch, zero rendered or exact candidates",
         "latest_weighted_grammar_automaton": "Corrected Brown-backed variable grammar: 6,185 states, 48,734 prunes, 133,614 memoized residuals, zero exact closures; partial near-misses quarantined",
+        "latest_weighted_brown_relative_beams": "Two complete finite-relative beams crossed with two complete clause tails: four grammatical controls, zero quarantined fragments, and zero exact candidates above 38 letters",
         "reader_study": "not run",
     },
 }

@@ -2582,6 +2582,16 @@ by the residual equation before rendering. These failures rule out the current
 lexicon/frame banks, not the broad-English objective, and each records a next
 expansion rather than a relaxed gate.
 
+The asynchronous typed-clause buffer DP changed the scheduling geometry: it
+expands whichever forward-authored clause has an empty residual buffer, so
+word boundaries can cross while characters are consumed online. Its nine typed
+template pairs were structurally valid. After adding a small authored bank of
+natural endpoint-compatible nouns and places, the run evaluated 348,335
+indexed joins and 2,107,452 memoized residual states. It produced no exact
+candidate above 38 letters. The retained controls are grammatical but not
+palindromic, and the next construction widens grammar roles only after this
+non-empty buffer frontier rather than repeating the same endpoint sweep.
+
 The exact frontier is therefore unchanged: the best independently verified
 reader-plausible output remains the 38-letter anchor above. No human reader
 study is claimed for any non-exact control; a future exact intact-prose row

@@ -37,7 +37,7 @@ def audit(text: str) -> dict:
     }
 
 
-DET = ("a", "the", "some", "this", "every", "your")
+DET = ("a", "an", "the", "some", "this", "every", "your")
 ADJ = ("calm", "bright", "careful", "quiet", "young", "patient",
        "kind", "swift", "gentle", "old")
 SUBJ_S = ("artist", "baker", "captain", "gardener", "keeper", "pilot",
@@ -49,10 +49,12 @@ VERB_S = ("charts", "carries", "guards", "guides", "marks", "praises",
 OBJ_S = ("archive", "basket", "candle", "compass", "garden", "harbor",
          "letter", "map", "melody", "parcel", "river", "story", "window",
          "orchard", "lantern", "message", "route", "signal", "bridge",
-         "shore", "arena", "plaza", "boat", "coast", "maps", "letters", "era")
+         "shore", "arena", "plaza", "area", "idea", "boat", "coast",
+         "forest", "market", "port", "street")
 PREP = ("at", "by", "near", "under", "beside", "toward")
 PLACE = ("harbor", "garden", "river", "tower", "bridge", "orchard",
-         "station", "shore", "era", "eats", "yoga")
+         "station", "shore", "arena", "plaza", "coast", "forest", "market",
+         "port", "street")
 CONJ = ("and", "while", "yet")
 
 
@@ -79,8 +81,8 @@ def slot_words(slot: str) -> tuple[str, ...]:
 # Each slot emits a complete grammatical constituent.  Agreement is encoded
 # in the subject/verb banks by using only singular forms in this first lane.
 TEMPLATES = (
-    ("det", "adj", "subj", "verb", "obj"),
-    ("det", "subj", "verb", "obj", "prep", "place"),
+    ("det", "adj", "subj", "verb", "det", "obj"),
+    ("det", "subj", "verb", "det", "obj", "prep", "place"),
     ("det", "adj", "subj", "verb", "det", "obj", "conj", "det", "adj", "place"),
 )
 
@@ -89,17 +91,30 @@ def expand_slots(template: tuple[str, ...]) -> list[tuple[str, ...]]:
     rows = [()]
     max_rows = 2_000
     for slot in template:
-        rows = [prefix + (word,) for prefix in rows for word in slot_words(slot)]
+        # Group by the newly emitted word before deterministic thinning so
+        # endpoint-compatible terminal classes are not accidentally lost.
+        rows = [prefix + (word,) for word in slot_words(slot) for prefix in rows]
         # Keep the constructor bounded while still materially larger than the
         # prior 2x2 endpoint bank.
         if len(rows) > max_rows:
             step = max(1, len(rows) // max_rows)
             rows = rows[::step][:max_rows]
-    return rows
+    return [row for row in rows if surface_valid(row)]
+
+
+def surface_valid(words: tuple[str, ...]) -> bool:
+    """Reject article/noun combinations that would make a control malformed."""
+    for index, word in enumerate(words[:-1]):
+        next_word = words[index + 1]
+        if word == "a" and next_word[:1] in "aeiou":
+            return False
+        if word == "an" and next_word[:1] not in "aeiou":
+            return False
+    return True
 
 
 def forbidden_units(words: tuple[str, ...]) -> bool:
-    content = [w for w in words if w not in {"a", "the", "some", "this", "and", "while", "yet"}]
+    content = [w for w in words if w not in {"a", "an", "the", "some", "this", "every", "your", "and", "while", "yet"}]
     if len(content) != len(set(content)):
         return True
     if any(w == w[::-1] for w in content):

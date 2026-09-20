@@ -48,24 +48,44 @@ def mirrored_prefix(a, b):
         n += 1
     return n
 
+
+def live_outer_equation(left, right):
+    """Compare independently generated arms before any candidate is rendered."""
+    left_tape, reverse_right = norm(left), norm(right)[::-1]
+    matched = 0
+    for position, (left_char, right_char) in enumerate(
+        zip(left_tape, reverse_right)
+    ):
+        if left_char != right_char:
+            return {
+                "matched_prefix": matched,
+                "first_conflict": (position, left_char, right_char),
+                "left_exhausted": False,
+                "right_exhausted": False,
+            }
+        matched += 1
+    return {
+        "matched_prefix": matched,
+        "first_conflict": None,
+        "left_exhausted": len(left_tape) <= len(reverse_right),
+        "right_exhausted": len(reverse_right) <= len(left_tape),
+    }
+
 def run():
     rows = []
     for o, ro, lm, c, rc, rm in itertools.product(OPEN, RIGHT_OPEN, LEFT_MIDDLE, CLOSE, RIGHT_CLOSE, RIGHT_MIDDLE):
         # Two complete, separately authored clauses; punctuation is not solved.
         left = f"{o} {lm}, and {c}."
         right = f"{ro} {rm}, and {rc}."
+        equation = live_outer_equation(left, right)
         # The period is an ordinary sentence boundary; normalization ignores it
         # for the character equation, while the surface remains grammatical.
         rendered = left + " " + right[0].upper() + right[1:]
         a = audit(rendered)
-        t = norm(rendered)
-        shared = 0
-        for i in range(len(t)//2):
-            if t[i] != t[-1-i]: break
-            shared += 1
         rows.append({"rendered": rendered, "left_clause": left,
                      "independent_right_clause": right, "audit": a,
-                     "outer_equation_prefix": shared,
+                     "outer_equation_prefix": equation["matched_prefix"],
+                     "live_equation": equation,
                      "provenance": {"left": "fresh hand-authored clause",
                          "right": "fresh hand-authored clause",
                          "finished_tape_reversal": False, "post_hoc_repair": False,

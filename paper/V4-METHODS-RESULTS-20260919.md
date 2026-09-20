@@ -1018,6 +1018,15 @@ next construction changes argument structure to wh-recipient questions with
 typed ditransitive answers. Artifact:
 `runs/typed-wh-question-answer-scheduler-20260920.json`.
 
+The final local dialogue variant separated wh-recipient and wh-theme roles,
+with typed ditransitive answer valency. It tested 160 complete frames and
+12,800 live states; no fresh exact candidate above 38 letters closed. Complete
+controls reached 37, 40, and 43 letters and passed independent audits. This
+exhausts the local feature-axis family for this run: the next construction is a
+lexical reverse-segmentation intersection over complete sentence paths, rather
+than another recipient/case toggle or repair pass. Artifact:
+`runs/typed-wh-recipient-ditransitive-scheduler-20260920.json`.
+
 ## Reader evidence and API gate
 
 `experiments/reader_package_v4_20260919.py` creates six deterministic blinded

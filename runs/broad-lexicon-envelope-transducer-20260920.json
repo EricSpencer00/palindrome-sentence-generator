@@ -1,0 +1,100 @@
+{
+  "experiment_id": "broad-lexicon-envelope-transducer-20260920",
+  "method": "broad lexical character-envelope WFSA with complete semantic paths",
+  "results": {
+    "0:0": {
+      "nodes": 33,
+      "exact": 0
+    },
+    "0:1": {
+      "nodes": 33,
+      "exact": 0
+    },
+    "0:2": {
+      "nodes": 19,
+      "exact": 0
+    },
+    "1:0": {
+      "nodes": 33,
+      "exact": 0
+    },
+    "1:1": {
+      "nodes": 33,
+      "exact": 0
+    },
+    "1:2": {
+      "nodes": 19,
+      "exact": 0
+    },
+    "2:0": {
+      "nodes": 33,
+      "exact": 0
+    },
+    "2:1": {
+      "nodes": 33,
+      "exact": 0
+    },
+    "2:2": {
+      "nodes": 19,
+      "exact": 0
+    }
+  },
+  "exact_candidates": [],
+  "controls": [
+    {
+      "rendered": "Alice guards the crown; Diana praises the red letter.",
+      "audit": {
+        "letters": 43,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "a",
+          "r"
+        ],
+        "sha256_forward": "5cc6acda6b73f15368937ea285c15d02463580bdb4bbb9bf4acb62da3142c091",
+        "sha256_reverse": "48c8c9086272ce9b5527d96ce39d13c88a9e67a070b18adcb78549b1c1d04215",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    },
+    {
+      "rendered": "The young bard writes a quiet song; Marie seeks the moon.",
+      "audit": {
+        "letters": 45,
+        "exact": false,
+        "first_mismatch": [
+          0,
+          "t",
+          "n"
+        ],
+        "sha256_forward": "eca8ccf8b26e2d4528d87b720dd5602203fa235becf7ed8870754ebf9c82fd9e",
+        "sha256_reverse": "6a206091c02d41c250eb5a8e663116ba5c3ae347f28dc4c99fd8099adc820d0c",
+        "sha_equal": false
+      },
+      "complete_prose": true
+    }
+  ],
+  "stats": {
+    "nodes": 255,
+    "fresh_exact_gt38": 0
+  },
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "broad-authored-name-bank|character-envelope-wfsa|independent-word-offsets|complete-role-paths",
+    "distinct_from": "prior whole-frame broad bank; independent word boundaries advance inside character envelope before roles complete",
+    "finished_tape_reversal": false,
+    "post_hoc_repair": false,
+    "catalogue_text": false,
+    "mirrored_token_units": false
+  },
+  "provenance": {
+    "bank": "expanded authored common/proper-name bank",
+    "audits": [
+      "independent two-pointer mismatch",
+      "forward/reverse SHA-256"
+    ],
+    "reader_gate": "closed unless exact >38 rows appear",
+    "next_reader_test": "blinded intact sentence versus shuffled controls"
+  },
+  "status": "no fresh exact >38 candidate"
+}

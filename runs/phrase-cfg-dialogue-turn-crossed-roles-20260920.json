@@ -1,0 +1,41 @@
+{
+  "experiment_id": "phrase-cfg-dialogue-turn-crossed-roles-20260920",
+  "method": "crossed speaker/utterance roles in dialogue turns",
+  "grammar": [
+    "D -> SPEAKER SAID UTTERANCE",
+    "SPEAKER -> DET NP",
+    "UTTERANCE -> QUOTE DET NP V DET NP",
+    "D D -> ;"
+  ],
+  "stats": {
+    "left_turns": 240,
+    "right_turns": 240,
+    "crossed_role_states": 2880,
+    "exact": 0,
+    "reader_eligible": 0,
+    "best_matched_prefix": 1
+  },
+  "complete_prose_controls": [
+    "The sailor said, \"A poet guards the letter.\" The writer said, \"A captain reads the harbor.\"",
+    "A poet said, \"The sailor marks the shore.\" A writer said, \"The guide keeps the notes.\""
+  ],
+  "best_diagnostic": {
+    "matched": 1,
+    "left": "some sailor said, \"some sailor guards the letter\"",
+    "right": "some poet said, \"some sailor guards the notes\""
+  },
+  "candidates": [],
+  "independent_audit": [
+    "two-pointer normalized tape",
+    "forward/reverse SHA-256"
+  ],
+  "novelty_preflight": {
+    "status": "passed",
+    "signature": "phrase-cfg-dialogue-turn-crossed-roles-20260920",
+    "catalogue_imported": false,
+    "lexical_sweep": false,
+    "distinct_from": "phrase-cfg-appositive-crossed-roles-20260920"
+  },
+  "next_construction": "Try a turn-taking topology with alternating speaker roles and a shared discourse referent, retaining hard exact admission.",
+  "reader_gate": "closed; programmatic exactness never certifies readability"
+}

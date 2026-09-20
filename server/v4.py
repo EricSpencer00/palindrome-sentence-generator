@@ -106,6 +106,7 @@ BEST_KNOWN_PROVENANCE = {
         "latest_bidirectional_scene_lattice": "3 independently authored semantic scenes; 3 broad-English controls, zero live closures and zero exact candidates above 38 letters",
         "latest_semantic_obligation_automaton": "3 coherent scene clauses; 1 simultaneous obligation transition pruned by live mismatch, zero rendered candidates",
         "latest_typed_clause_mitm_seam": "800 left and 800 right typed clause halves; 60,000 seam joins with agreement/type gates, 50 prose controls and zero exact candidates",
+        "latest_mitm_consequence_phrase_grammar": "3 fresh consequence-grammar halves per side; 3 prefix probes and zero compatible joins or exact candidates",
         "reader_study": "not run",
     },
 }

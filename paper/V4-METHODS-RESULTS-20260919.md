@@ -2537,6 +2537,14 @@ are not palindromes. The concrete next construction is to carry a two-character
 seam buffer and inflection agreement across the half boundary rather than
 performing another duplicate sweep.
 
+A follow-up consequence grammar increased the semantic scope rather than the
+lexical sweep: each side was an independently generated agent/action/object/
+setting clause followed by a consequence beat. Prefix indexing made only three
+live probes, and no compatible join survived. Because the frontier was empty
+before rendering, this lane contributes no reader candidate and no claim of
+progress in length; its concrete next step is to widen the consequence-frame
+bank while preserving the same live prefix equation.
+
 The exact frontier is therefore unchanged: the best independently verified
 reader-plausible output remains the 38-letter anchor above. No human reader
 study is claimed for any non-exact control; a future exact intact-prose row

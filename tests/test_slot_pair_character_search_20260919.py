@@ -15,4 +15,5 @@ def test_slot_pair_search_is_cross_word_and_exact_by_construction():
         "fallback": False,
         "distinct_words": True,
         "brown_frame_counts": {"det_noun_verb_det_noun": 864, "det_noun_verb_prep": 1991},
+        "penn_agreement_frames": {"singular_vbz": 2231, "plural_vbp": 0, "past_vbd": 4377},
     }

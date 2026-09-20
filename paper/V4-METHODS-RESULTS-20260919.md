@@ -450,8 +450,10 @@ over the same corpus found 864 `DET NOUN VERB DET NOUN` sentences and 1,991
 `DET NOUN VERB ADP` sentences; the next pass used their observed lexical
 combinations rather than only counting frames. Keeping subject and object
 banks separate produced 230 live states, 220 early prunes, and zero exact
-closures. The next state carries explicit subject number and verb agreement
-through the inner slots.
+closures. A Penn-tag preflight found 2,231 NN→VBZ and 4,377 NN→VBD
+transitions but no NNS→VBP transitions in the bounded corpus. Those counts
+are availability evidence only; the next state carries the features through
+Slot state rather than merely measuring them.
 
 These historical repair and frontier rows now motivate a strategy reset rather than more
 residual patching. The active construction policy is exact-by-construction:

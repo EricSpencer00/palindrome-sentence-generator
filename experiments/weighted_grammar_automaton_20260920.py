@@ -18,19 +18,26 @@ def audit(s):
             "sha256_forward":hashlib.sha256(t.encode()).hexdigest(),"sha256_reverse":hashlib.sha256(rev.encode()).hexdigest(),
             "sha_equal":hashlib.sha256(t.encode()).hexdigest()==hashlib.sha256(rev.encode()).hexdigest()}
 
-FALLBACK={"DET":["the","a","our"],"N":["quiet poet","old sailor","young keeper","bright child"],
+FALLBACK={"DET":["the","a","our"],"N":["poet","sailor","keeper","child"],
 "V":["sees","keeps","follows","greets"],"ADV":["at dawn","in silence"],"CONJ":["and","while","because"],"P":["near","under","by"]}
 def bank():
     out={k:list(v) for k,v in FALLBACK.items()}; src="fallback"
     try:
         d=json.loads((ROOT/"data/brown_pcfg_bank_20260920.json").read_text())
         for k, vals in d.get("lexicon",{}).items():
-            role={"DET":"DET","NN":"N","VB":"V","RB":"ADV","IN":"P"}.get(k)
+            role={"DET":"DET","NN":"N","NOUN":"N","VB":"V","VERB":"V","RB":"ADV","IN":"P","PREP":"P","ADJ":"ADJ"}.get(k)
             if role:
                 out.setdefault(role,[]).extend(x["word"] for x in vals[:80] if re.fullmatch(r"[a-z]+",x["word"]))
         src=d.get("source","brown")
     except (OSError,ValueError): pass
     return {k:tuple(dict.fromkeys(v)) for k,v in out.items()},src
+
+def grammar_word(sym, word, render):
+    """Reject malformed lexical surfaces before residual matching."""
+    if not re.fullmatch(r"[a-z]+", word): return False
+    if sym == "N" and " " in word: return False
+    if render.split() and render.split()[-1] == "a" and word[0] in "aeiou": return False
+    return True
 
 # Each production is a function-word-aware finite-state transition.  Recursion
 # is bounded by the automaton's clause length, not by a fixed phrase template.
@@ -64,7 +71,8 @@ def run(max_states=90000, beam=180, max_letters=120):
                 if sym in PRODS:
                     for prod in PRODS[sym]: choices.append((side,rest+prod,render,"",score+0.1*len(prod)))
                 else:
-                    for word in b.get(sym,()): choices.append((side,rest,render,word,score+0.001))
+                    for word in b.get(sym,()):
+                        if grammar_word(sym,word,render): choices.append((side,rest,render,word,score+0.001))
             for side,ng,render,word,sc in choices:
                 if side=="L":
                     nl=(render+" "+word).strip(); nr=right; rr=res+letters(word)
